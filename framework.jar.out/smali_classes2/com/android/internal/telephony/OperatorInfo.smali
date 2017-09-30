@@ -241,18 +241,41 @@
 
     move-result v0
 
+    if-eqz v0, :cond_1
+
+    const-string/jumbo v0, "VIA"
+
+    sget-object v1, Lcom/android/internal/telephony/TelephonyFeatures;->SALES_CODE:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
     if-eqz v0, :cond_0
 
+    const-string/jumbo v0, "LTE"
+
+    invoke-virtual {v0, p5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iput-object p5, p0, Lcom/android/internal/telephony/OperatorInfo;->operatorRat:Ljava/lang/String;
+
+    :goto_0
+    return-void
+
+    :cond_0
     invoke-direct {p0, p5}, Lcom/android/internal/telephony/OperatorInfo;->ratInfoToStr(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/internal/telephony/OperatorInfo;->operatorRat:Ljava/lang/String;
 
-    :goto_0
-    return-void
+    goto :goto_0
 
-    :cond_0
+    :cond_1
     iput-object p5, p0, Lcom/android/internal/telephony/OperatorInfo;->operatorRat:Ljava/lang/String;
 
     goto :goto_0

@@ -132,13 +132,13 @@
 .end method
 
 .method private loadSemClipData(Lcom/samsung/android/content/clipboard/data/SemClipData;)Z
-    .locals 5
+    .locals 6
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
     if-nez p1, :cond_0
 
-    return v4
+    return v5
 
     :cond_0
     iput-object p1, p0, Landroid/sec/clipboard/data/file/WrapFileClipData;->mClip:Lcom/samsung/android/content/clipboard/data/SemClipData;
@@ -156,7 +156,6 @@
     packed-switch v3, :pswitch_data_0
 
     :cond_1
-    :goto_0
     const/4 v3, 0x1
 
     return v3
@@ -168,7 +167,23 @@
 
     invoke-virtual {v2}, Lcom/samsung/android/content/clipboard/data/SemTextClipData;->toLoad()V
 
-    goto :goto_0
+    invoke-virtual {v2}, Lcom/samsung/android/content/clipboard/data/SemTextClipData;->getText()Ljava/lang/CharSequence;
+
+    move-result-object v3
+
+    invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    const-string/jumbo v3, "WrapFileClipData"
+
+    const-string/jumbo v4, "SemTextClipData is empty. Hence return false"
+
+    invoke-static {v3, v4}, Landroid/sec/clipboard/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v5
 
     :pswitch_1
     iget-object v0, p0, Landroid/sec/clipboard/data/file/WrapFileClipData;->mClip:Lcom/samsung/android/content/clipboard/data/SemClipData;
@@ -189,7 +204,13 @@
 
     if-nez v3, :cond_1
 
-    return v4
+    const-string/jumbo v3, "WrapFileClipData"
+
+    const-string/jumbo v4, "SemImageClipData is not exist. Hence return false"
+
+    invoke-static {v3, v4}, Landroid/sec/clipboard/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v5
 
     :pswitch_data_0
     .packed-switch 0x1

@@ -290,6 +290,8 @@
 
 .field static final TRANSACTION_setRoamingReductionRules:I = 0x74
 
+.field static final TRANSACTION_setTCRule:I = 0xa4
+
 .field static final TRANSACTION_setTcpBufferSize:I = 0x99
 
 .field static final TRANSACTION_setTxPower:I = 0x29
@@ -5530,7 +5532,46 @@
 
     goto :goto_37
 
-    nop
+    :sswitch_a4
+    const-string/jumbo v4, "android.os.INetworkManagementService"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v4
+
+    if-eqz v4, :cond_38
+
+    const/4 v11, 0x1
+
+    :goto_38
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v20
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v20
+
+    invoke-virtual {v0, v11, v6, v1}, Landroid/os/INetworkManagementService$Stub;->setTCRule(ZLjava/lang/String;I)V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :cond_38
+    const/4 v11, 0x0
+
+    goto :goto_38
 
     :sswitch_data_0
     .sparse-switch
@@ -5697,6 +5738,7 @@
         0xa1 -> :sswitch_a1
         0xa2 -> :sswitch_a2
         0xa3 -> :sswitch_a3
+        0xa4 -> :sswitch_a4
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

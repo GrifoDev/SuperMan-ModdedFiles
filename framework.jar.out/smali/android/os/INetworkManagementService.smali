@@ -1093,6 +1093,14 @@
     .end annotation
 .end method
 
+.method public abstract setTCRule(ZLjava/lang/String;I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract setTcpBufferSize(Ljava/lang/String;Ljava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {

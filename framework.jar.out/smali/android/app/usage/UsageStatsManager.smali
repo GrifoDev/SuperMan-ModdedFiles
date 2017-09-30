@@ -52,6 +52,25 @@
 
 
 # virtual methods
+.method public deleteUsageStats()V
+    .locals 2
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/usage/UsageStatsManager;->mService:Landroid/app/usage/IUsageStatsManager;
+
+    invoke-interface {v1}, Landroid/app/usage/IUsageStatsManager;->deleteUsageStats()V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    goto :goto_0
+.end method
+
 .method public isAppInactive(Ljava/lang/String;)Z
     .locals 3
 

@@ -370,7 +370,7 @@
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 11
 
-    const v10, 0x105030b
+    const v10, 0x105030c
 
     const/4 v9, 0x7
 
@@ -510,7 +510,7 @@
 
     iput v3, p0, Lcom/samsung/android/widget/SemSimpleMonthView;->mEndDayColor:I
 
-    const v3, 0x1050304
+    const v3, 0x1050305
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -530,7 +530,7 @@
 
     iput v3, p0, Lcom/samsung/android/widget/SemSimpleMonthView;->mDayHeight:I
 
-    const v3, 0x105030c
+    const v3, 0x105030d
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -538,7 +538,7 @@
 
     iput v3, p0, Lcom/samsung/android/widget/SemSimpleMonthView;->mDaySelectedCircleSize:I
 
-    const v3, 0x105030d
+    const v3, 0x105030e
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -546,7 +546,7 @@
 
     iput v3, p0, Lcom/samsung/android/widget/SemSimpleMonthView;->mDaySelectedCircleStroke:I
 
-    const v3, 0x105030e
+    const v3, 0x105030f
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -554,7 +554,7 @@
 
     iput v3, p0, Lcom/samsung/android/widget/SemSimpleMonthView;->mMiniDayNumberTextSize:I
 
-    const v3, 0x10502fd
+    const v3, 0x10502fe
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -562,7 +562,7 @@
 
     iput v3, p0, Lcom/samsung/android/widget/SemSimpleMonthView;->mCalendarWidth:I
 
-    const v3, 0x10502fc
+    const v3, 0x10502fd
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -598,7 +598,7 @@
 
     if-nez v1, :cond_0
 
-    const v3, 0x1050302
+    const v3, 0x1050303
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -607,7 +607,7 @@
     iput v3, p0, Lcom/samsung/android/widget/SemSimpleMonthView;->mDayNumberDisabledAlpha:I
 
     :goto_0
-    const v3, 0x1050311
+    const v3, 0x1050312
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -615,7 +615,7 @@
 
     iput v3, p0, Lcom/samsung/android/widget/SemSimpleMonthView;->mDateBackgroundBetweenStartEndAlpha:I
 
-    const v3, 0x1050312
+    const v3, 0x1050313
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -628,7 +628,7 @@
     return-void
 
     :cond_0
-    const v3, 0x1050303
+    const v3, 0x1050304
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2850,7 +2850,7 @@
 .method protected onConfigurationChanged(Landroid/content/res/Configuration;)V
     .locals 5
 
-    const v4, 0x105030b
+    const v4, 0x105030c
 
     invoke-super {p0, p1}, Landroid/view/View;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
@@ -2892,7 +2892,7 @@
 
     iput v1, p0, Lcom/samsung/android/widget/SemSimpleMonthView;->mDayHeight:I
 
-    const v1, 0x105030c
+    const v1, 0x105030d
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2900,7 +2900,7 @@
 
     iput v1, p0, Lcom/samsung/android/widget/SemSimpleMonthView;->mDaySelectedCircleSize:I
 
-    const v1, 0x105030e
+    const v1, 0x105030f
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2908,7 +2908,7 @@
 
     iput v1, p0, Lcom/samsung/android/widget/SemSimpleMonthView;->mMiniDayNumberTextSize:I
 
-    const v1, 0x10502fd
+    const v1, 0x10502fe
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 

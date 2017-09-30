@@ -472,7 +472,7 @@
 .method public constructor <init>(Landroid/content/Context;Landroid/view/View;)V
     .locals 10
 
-    const v9, 0x1050292
+    const v9, 0x1050293
 
     const/4 v8, 0x2
 
@@ -848,7 +848,7 @@
 
     move-result-object v3
 
-    const v4, 0x1050299
+    const v4, 0x105029a
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -880,7 +880,7 @@
 
     move-result-object v3
 
-    const v4, 0x1050291
+    const v4, 0x1050292
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -910,7 +910,7 @@
 
     move-result-object v2
 
-    const v3, 0x105029a
+    const v3, 0x105029b
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1064,7 +1064,7 @@
 
     iget-object v3, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->mContext:Landroid/content/Context;
 
-    const v4, 0x10408c1
+    const v4, 0x10408ca
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1080,7 +1080,7 @@
 
     move-result-object v2
 
-    const v3, 0x1050290
+    const v3, 0x1050291
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1811,7 +1811,7 @@
 
     iget-object v2, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->mContext:Landroid/content/Context;
 
-    const v3, 0x10408c0
+    const v3, 0x10408c9
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

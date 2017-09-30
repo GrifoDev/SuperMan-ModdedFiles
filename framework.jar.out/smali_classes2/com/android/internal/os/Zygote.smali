@@ -241,6 +241,8 @@
 
     invoke-virtual {v1}, Ldalvik/system/ZygoteHooks;->preFork()V
 
+    invoke-static {}, Lcom/android/internal/os/Zygote;->resetNicePriority()V
+
     invoke-static/range {p0 .. p13}, Lcom/android/internal/os/Zygote;->nativeForkAndSpecialize(II[II[[IILjava/lang/String;IILjava/lang/String;[ILjava/lang/String;Ljava/lang/String;I)I
 
     move-result v0
@@ -272,6 +274,8 @@
 
     invoke-virtual {v1}, Ldalvik/system/ZygoteHooks;->preFork()V
 
+    invoke-static {}, Lcom/android/internal/os/Zygote;->resetNicePriority()V
+
     invoke-static/range {p0 .. p8}, Lcom/android/internal/os/Zygote;->nativeForkSystemServer(II[II[[IJJ)I
 
     move-result v0
@@ -297,4 +301,18 @@
 .end method
 
 .method protected static native nativeUnmountStorageOnInit()V
+.end method
+
+.method static resetNicePriority()V
+    .locals 2
+
+    invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
+
+    move-result-object v0
+
+    const/4 v1, 0x5
+
+    invoke-virtual {v0, v1}, Ljava/lang/Thread;->setPriority(I)V
+
+    return-void
 .end method

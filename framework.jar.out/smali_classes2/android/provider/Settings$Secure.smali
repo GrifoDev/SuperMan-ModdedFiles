@@ -393,6 +393,8 @@
 
 .field public static final LOCK_MOTION_TILT_TO_UNLOCK:Ljava/lang/String; = "lock_motion_tilt_to_unlock"
 
+.field public static final LOCK_NOTI_AND_SECURITY:Ljava/lang/String; = "lock_function_val"
+
 .field public static final LOCK_PATTERN_ENABLED:Ljava/lang/String; = "lock_pattern_autolock"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation

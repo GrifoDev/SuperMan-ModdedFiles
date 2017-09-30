@@ -1458,7 +1458,7 @@
 
     move-result-object v4
 
-    const v5, 0x1050291
+    const v5, 0x1050292
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2215,7 +2215,7 @@
 
     check-cast v1, Landroid/widget/Button;
 
-    const v2, 0x10407df
+    const v2, 0x10407e6
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 
@@ -2229,7 +2229,7 @@
 
     check-cast v1, Landroid/widget/Button;
 
-    const v2, 0x10407e1
+    const v2, 0x10407e8
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 

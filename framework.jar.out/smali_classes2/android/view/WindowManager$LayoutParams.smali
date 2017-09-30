@@ -216,6 +216,8 @@
 
 .field public static final PRIVATE_FLAG_FORCE_STATUS_BAR_VISIBLE_TRANSPARENT:I = 0x1000
 
+.field public static final PRIVATE_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS:I = 0x80000
+
 .field public static final PRIVATE_FLAG_INHERIT_TRANSLUCENT_DECOR:I = 0x200
 
 .field public static final PRIVATE_FLAG_KEYGUARD:I = 0x400
@@ -1846,6 +1848,37 @@
     move v1, v2
 
     goto :goto_2
+.end method
+
+.method public static isSystemAlertWindowType(I)Z
+    .locals 1
+
+    packed-switch p0, :pswitch_data_0
+
+    :pswitch_0
+    const/4 v0, 0x0
+
+    return v0
+
+    :pswitch_1
+    const/4 v0, 0x1
+
+    return v0
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x7d2
+        :pswitch_1
+        :pswitch_1
+        :pswitch_0
+        :pswitch_0
+        :pswitch_1
+        :pswitch_1
+        :pswitch_0
+        :pswitch_0
+        :pswitch_1
+    .end packed-switch
 .end method
 
 .method public static mayUseInputMethod(I)Z

@@ -222,6 +222,8 @@
 
 .field private mTextSize:I
 
+.field private mToast:Landroid/widget/Toast;
+
 .field private mToastText:Ljava/lang/String;
 
 .field private mTopSelectionDividerTop:I
@@ -358,7 +360,15 @@
     return v0
 .end method
 
-.method static synthetic -get22(Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;)Ljava/lang/String;
+.method static synthetic -get22(Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;)Landroid/widget/Toast;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->mToast:Landroid/widget/Toast;
+
+    return-object v0
+.end method
+
+.method static synthetic -get23(Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;)Ljava/lang/String;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->mToastText:Ljava/lang/String;
@@ -366,7 +376,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get23(Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;)I
+.method static synthetic -get24(Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;)I
     .locals 1
 
     iget v0, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->mTopSelectionDividerTop:I
@@ -374,7 +384,7 @@
     return v0
 .end method
 
-.method static synthetic -get24(Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;)I
+.method static synthetic -get25(Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;)I
     .locals 1
 
     iget v0, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->mValue:I
@@ -382,7 +392,7 @@
     return v0
 .end method
 
-.method static synthetic -get25(Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;)Z
+.method static synthetic -get26(Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->mWrapSelectorWheel:Z
@@ -492,6 +502,14 @@
     iput-boolean p1, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->mReservedStartAnimation:Z
 
     return p1
+.end method
+
+.method static synthetic -set6(Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;Landroid/widget/Toast;)Landroid/widget/Toast;
+    .locals 0
+
+    iput-object p1, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->mToast:Landroid/widget/Toast;
+
+    return-object p1
 .end method
 
 .method static synthetic -wrap0(Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;)Z
@@ -793,7 +811,7 @@
 
     move-result-object v18
 
-    const v20, 0x105031e
+    const v20, 0x105031f
 
     move-object/from16 v0, v18
 
@@ -803,7 +821,7 @@
 
     move-result v12
 
-    const v20, 0x105031f
+    const v20, 0x1050320
 
     move-object/from16 v0, v18
 
@@ -823,7 +841,7 @@
 
     move-result-object v20
 
-    const v21, 0x1050320
+    const v21, 0x1050321
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1755,7 +1773,7 @@
 
     iput-object v0, v1, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->mSelectorWheelPaint:Landroid/graphics/Paint;
 
-    const v20, 0x1050326
+    const v20, 0x1050327
 
     move-object/from16 v0, v18
 
@@ -1982,7 +2000,7 @@
 
     iput-object v0, v1, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->mPickerContentDescription:Ljava/lang/String;
 
-    const v20, 0x10408dc
+    const v20, 0x10408e5
 
     move-object/from16 v0, v18
 
@@ -8288,7 +8306,7 @@
 
     move-result-object v1
 
-    const v3, 0x1050322
+    const v3, 0x1050323
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -8384,7 +8402,7 @@
 
     invoke-virtual {v3, v4}, Landroid/graphics/Paint;->setTypeface(Landroid/graphics/Typeface;)Landroid/graphics/Typeface;
 
-    const v3, 0x1050321
+    const v3, 0x1050322
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

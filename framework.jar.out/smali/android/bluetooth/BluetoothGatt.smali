@@ -786,7 +786,7 @@
 
     iget-object v2, p0, Landroid/bluetooth/BluetoothGatt;->mDevice:Landroid/bluetooth/BluetoothDevice;
 
-    invoke-virtual {v2}, Landroid/bluetooth/BluetoothDevice;->getAddress()Ljava/lang/String;
+    invoke-virtual {v2}, Landroid/bluetooth/BluetoothDevice;->getAddressForLog()Ljava/lang/String;
 
     move-result-object v2
 
@@ -986,7 +986,7 @@
 
     iget-object v2, p0, Landroid/bluetooth/BluetoothGatt;->mDevice:Landroid/bluetooth/BluetoothDevice;
 
-    invoke-virtual {v2}, Landroid/bluetooth/BluetoothDevice;->getAddress()Ljava/lang/String;
+    invoke-virtual {v2}, Landroid/bluetooth/BluetoothDevice;->getAddressForLog()Ljava/lang/String;
 
     move-result-object v2
 
@@ -1162,7 +1162,7 @@
 
     iget-object v3, p0, Landroid/bluetooth/BluetoothGatt;->mDevice:Landroid/bluetooth/BluetoothDevice;
 
-    invoke-virtual {v3}, Landroid/bluetooth/BluetoothDevice;->getAddress()Ljava/lang/String;
+    invoke-virtual {v3}, Landroid/bluetooth/BluetoothDevice;->getAddressForLog()Ljava/lang/String;
 
     move-result-object v3
 
@@ -1269,7 +1269,7 @@
 
     iget-object v3, p0, Landroid/bluetooth/BluetoothGatt;->mDevice:Landroid/bluetooth/BluetoothDevice;
 
-    invoke-virtual {v3}, Landroid/bluetooth/BluetoothDevice;->getAddress()Ljava/lang/String;
+    invoke-virtual {v3}, Landroid/bluetooth/BluetoothDevice;->getAddressForLog()Ljava/lang/String;
 
     move-result-object v3
 
@@ -2064,7 +2064,7 @@
 
     iget-object v3, p0, Landroid/bluetooth/BluetoothGatt;->mDevice:Landroid/bluetooth/BluetoothDevice;
 
-    invoke-virtual {v3}, Landroid/bluetooth/BluetoothDevice;->getAddress()Ljava/lang/String;
+    invoke-virtual {v3}, Landroid/bluetooth/BluetoothDevice;->getAddressForLog()Ljava/lang/String;
 
     move-result-object v3
 
@@ -2140,7 +2140,7 @@
 
     iget-object v3, p0, Landroid/bluetooth/BluetoothGatt;->mDevice:Landroid/bluetooth/BluetoothDevice;
 
-    invoke-virtual {v3}, Landroid/bluetooth/BluetoothDevice;->getAddress()Ljava/lang/String;
+    invoke-virtual {v3}, Landroid/bluetooth/BluetoothDevice;->getAddressForLog()Ljava/lang/String;
 
     move-result-object v3
 
@@ -2318,7 +2318,7 @@
 
     iget-object v3, p0, Landroid/bluetooth/BluetoothGatt;->mDevice:Landroid/bluetooth/BluetoothDevice;
 
-    invoke-virtual {v3}, Landroid/bluetooth/BluetoothDevice;->getAddress()Ljava/lang/String;
+    invoke-virtual {v3}, Landroid/bluetooth/BluetoothDevice;->getAddressForLog()Ljava/lang/String;
 
     move-result-object v3
 
@@ -2394,7 +2394,7 @@
 
     iget-object v3, p0, Landroid/bluetooth/BluetoothGatt;->mDevice:Landroid/bluetooth/BluetoothDevice;
 
-    invoke-virtual {v3}, Landroid/bluetooth/BluetoothDevice;->getAddress()Ljava/lang/String;
+    invoke-virtual {v3}, Landroid/bluetooth/BluetoothDevice;->getAddressForLog()Ljava/lang/String;
 
     move-result-object v3
 
@@ -2480,7 +2480,7 @@
 
     iget-object v2, p0, Landroid/bluetooth/BluetoothGatt;->mDevice:Landroid/bluetooth/BluetoothDevice;
 
-    invoke-virtual {v2}, Landroid/bluetooth/BluetoothDevice;->getAddress()Ljava/lang/String;
+    invoke-virtual {v2}, Landroid/bluetooth/BluetoothDevice;->getAddressForLog()Ljava/lang/String;
 
     move-result-object v2
 
@@ -2680,7 +2680,7 @@
 
     iget-object v2, p0, Landroid/bluetooth/BluetoothGatt;->mDevice:Landroid/bluetooth/BluetoothDevice;
 
-    invoke-virtual {v2}, Landroid/bluetooth/BluetoothDevice;->getAddress()Ljava/lang/String;
+    invoke-virtual {v2}, Landroid/bluetooth/BluetoothDevice;->getAddressForLog()Ljava/lang/String;
 
     move-result-object v2
 

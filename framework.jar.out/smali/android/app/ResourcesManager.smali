@@ -986,7 +986,7 @@
 .end method
 
 .method private updateResourcesForOpenThemeChange(Landroid/content/res/Configuration;I)V
-    .locals 26
+    .locals 27
 
     invoke-static/range {p2 .. p2}, Landroid/content/res/Configuration;->needToUpdateOverlays(I)Z
 
@@ -994,9 +994,9 @@
 
     if-eqz v2, :cond_a
 
-    new-instance v25, Landroid/util/ArrayMap;
+    new-instance v26, Landroid/util/ArrayMap;
 
-    invoke-direct/range {v25 .. v25}, Landroid/util/ArrayMap;-><init>()V
+    invoke-direct/range {v26 .. v26}, Landroid/util/ArrayMap;-><init>()V
 
     move-object/from16 v0, p0
 
@@ -1004,14 +1004,14 @@
 
     invoke-virtual {v2}, Landroid/util/ArrayMap;->size()I
 
-    move-result v18
+    move-result v19
 
-    const/16 v16, 0x0
+    const/16 v17, 0x0
 
     :goto_0
-    move/from16 v0, v16
+    move/from16 v0, v17
 
-    move/from16 v1, v18
+    move/from16 v1, v19
 
     if-ge v0, v1, :cond_4
 
@@ -1019,7 +1019,7 @@
 
     iget-object v2, v0, Landroid/app/ResourcesManager;->mResourceImpls:Landroid/util/ArrayMap;
 
-    move/from16 v0, v16
+    move/from16 v0, v17
 
     invoke-virtual {v2, v0}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
 
@@ -1029,23 +1029,23 @@
 
     invoke-virtual {v2}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
-    move-result-object v17
+    move-result-object v18
 
-    check-cast v17, Landroid/content/res/ResourcesImpl;
+    check-cast v18, Landroid/content/res/ResourcesImpl;
 
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/app/ResourcesManager;->mResourceImpls:Landroid/util/ArrayMap;
 
-    move/from16 v0, v16
+    move/from16 v0, v17
 
     invoke-virtual {v2, v0}, Landroid/util/ArrayMap;->keyAt(I)Ljava/lang/Object;
 
-    move-result-object v19
+    move-result-object v20
 
-    check-cast v19, Landroid/content/res/ResourcesKey;
+    check-cast v20, Landroid/content/res/ResourcesKey;
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
     iget v2, v0, Landroid/content/res/ResourcesKey;->mUserId:I
 
@@ -1055,7 +1055,7 @@
 
     if-nez v2, :cond_0
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
     iget v2, v0, Landroid/content/res/ResourcesKey;->mUserId:I
 
@@ -1063,7 +1063,7 @@
 
     if-eq v2, v3, :cond_0
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
     iget-boolean v2, v0, Landroid/content/res/ResourcesKey;->mIsDesktopMode:Z
 
@@ -1071,19 +1071,19 @@
 
     :cond_0
     :goto_1
-    add-int/lit8 v16, v16, 0x1
+    add-int/lit8 v17, v17, 0x1
 
     goto :goto_0
 
     :cond_1
     invoke-static {}, Landroid/app/ActivityThread;->getPackageManager()Landroid/content/pm/IPackageManager;
 
-    move-result-object v20
+    move-result-object v21
 
-    const/16 v21, 0x0
+    const/16 v22, 0x0
 
     :try_start_0
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
     iget-object v2, v0, Landroid/content/res/ResourcesKey;->mPackageName:Ljava/lang/String;
 
@@ -1093,20 +1093,20 @@
 
     const/4 v4, 0x0
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     invoke-interface {v0, v2, v4, v3}, Landroid/content/pm/IPackageManager;->getPackageInfo(Ljava/lang/String;II)Landroid/content/pm/PackageInfo;
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v21
+    move-result-object v22
 
     :goto_2
-    if-eqz v17, :cond_0
+    if-eqz v18, :cond_0
 
-    if-eqz v21, :cond_0
+    if-eqz v22, :cond_0
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     iget-object v2, v0, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
@@ -1119,7 +1119,7 @@
     if-nez v2, :cond_3
 
     :cond_2
-    invoke-virtual/range {v17 .. v17}, Landroid/content/res/ResourcesImpl;->getAssets()Landroid/content/res/AssetManager;
+    invoke-virtual/range {v18 .. v18}, Landroid/content/res/ResourcesImpl;->getAssets()Landroid/content/res/AssetManager;
 
     move-result-object v2
 
@@ -1146,7 +1146,7 @@
 
     move-result-object v3
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
     iget-object v4, v0, Landroid/content/res/ResourcesKey;->mPackageName:Ljava/lang/String;
 
@@ -1176,61 +1176,61 @@
 
     new-instance v2, Landroid/content/res/ResourcesKey;
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
     iget-object v3, v0, Landroid/content/res/ResourcesKey;->mResDir:Ljava/lang/String;
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
     iget-object v4, v0, Landroid/content/res/ResourcesKey;->mSplitResDirs:[Ljava/lang/String;
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
     iget-object v6, v0, Landroid/content/res/ResourcesKey;->mLibDirs:[Ljava/lang/String;
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
     iget v7, v0, Landroid/content/res/ResourcesKey;->mDisplayId:I
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
     iget-object v8, v0, Landroid/content/res/ResourcesKey;->mOverrideConfiguration:Landroid/content/res/Configuration;
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
     iget-object v9, v0, Landroid/content/res/ResourcesKey;->mCompatInfo:Landroid/content/res/CompatibilityInfo;
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
     iget-object v10, v0, Landroid/content/res/ResourcesKey;->mPackageName:Ljava/lang/String;
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
     iget v11, v0, Landroid/content/res/ResourcesKey;->mUserId:I
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
     iget-boolean v12, v0, Landroid/content/res/ResourcesKey;->mIsDesktopMode:Z
 
     invoke-direct/range {v2 .. v12}, Landroid/content/res/ResourcesKey;-><init>(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;ILandroid/content/res/Configuration;Landroid/content/res/CompatibilityInfo;Ljava/lang/String;IZ)V
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v26
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v18
 
     invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto/16 :goto_1
 
     :catch_0
-    move-exception v15
+    move-exception v16
 
-    invoke-virtual {v15}, Landroid/os/RemoteException;->printStackTrace()V
+    invoke-virtual/range {v16 .. v16}, Landroid/os/RemoteException;->printStackTrace()V
 
     goto :goto_2
 
     :cond_4
-    invoke-virtual/range {v25 .. v25}, Landroid/util/ArrayMap;->isEmpty()Z
+    invoke-virtual/range {v26 .. v26}, Landroid/util/ArrayMap;->isEmpty()Z
 
     move-result v2
 
@@ -1245,14 +1245,14 @@
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
-    move-result v24
+    move-result v25
 
-    const/16 v16, 0x0
+    const/16 v17, 0x0
 
     :goto_3
-    move/from16 v0, v16
+    move/from16 v0, v17
 
-    move/from16 v1, v24
+    move/from16 v1, v25
 
     if-ge v0, v1, :cond_7
 
@@ -1260,7 +1260,7 @@
 
     iget-object v2, v0, Landroid/app/ResourcesManager;->mResourceReferences:Ljava/util/ArrayList;
 
-    move/from16 v0, v16
+    move/from16 v0, v17
 
     invoke-virtual {v2, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
@@ -1270,25 +1270,25 @@
 
     invoke-virtual {v2}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
-    move-result-object v22
+    move-result-object v23
 
-    check-cast v22, Landroid/content/res/Resources;
+    check-cast v23, Landroid/content/res/Resources;
 
-    if-eqz v22, :cond_6
+    if-eqz v23, :cond_6
 
-    invoke-virtual/range {v22 .. v22}, Landroid/content/res/Resources;->getImpl()Landroid/content/res/ResourcesImpl;
+    invoke-virtual/range {v23 .. v23}, Landroid/content/res/Resources;->getImpl()Landroid/content/res/ResourcesImpl;
 
     move-result-object v2
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v26
 
     invoke-virtual {v0, v2}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v19
+    move-result-object v20
 
-    check-cast v19, Landroid/content/res/ResourcesKey;
+    check-cast v20, Landroid/content/res/ResourcesKey;
 
-    if-eqz v19, :cond_6
+    if-eqz v20, :cond_6
 
     const-string/jumbo v2, "ResourcesManager"
 
@@ -1302,7 +1302,7 @@
 
     move-result-object v3
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
     iget-object v4, v0, Landroid/content/res/ResourcesKey;->mPackageName:Ljava/lang/String;
 
@@ -1322,22 +1322,57 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    :try_start_1
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v20
 
     invoke-direct {v0, v1}, Landroid/app/ResourcesManager;->findOrCreateResourcesImplForKeyLocked(Landroid/content/res/ResourcesKey;)Landroid/content/res/ResourcesImpl;
 
     move-result-object v2
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->setImpl(Landroid/content/res/ResourcesImpl;)V
+    :try_end_1
+    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_1 .. :try_end_1} :catch_1
 
     :cond_6
-    add-int/lit8 v16, v16, 0x1
+    :goto_4
+    add-int/lit8 v17, v17, 0x1
 
     goto :goto_3
+
+    :catch_1
+    move-exception v15
+
+    const-string/jumbo v2, "ResourcesManager"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    move-object/from16 v0, v20
+
+    iget-object v4, v0, Landroid/content/res/ResourcesKey;->mPackageName:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, " may be deleted or updated in mResourceReferences (need to update overlay case)"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_4
 
     :cond_7
     move-object/from16 v0, p0
@@ -1369,20 +1404,20 @@
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
-    move-result v23
+    move-result v24
 
-    const/16 v16, 0x0
+    const/16 v17, 0x0
 
-    :goto_4
-    move/from16 v0, v16
+    :goto_5
+    move/from16 v0, v17
 
-    move/from16 v1, v23
+    move/from16 v1, v24
 
     if-ge v0, v1, :cond_8
 
     iget-object v2, v13, Landroid/app/ResourcesManager$ActivityResources;->activityResources:Ljava/util/ArrayList;
 
-    move/from16 v0, v16
+    move/from16 v0, v17
 
     invoke-virtual {v2, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
@@ -1392,25 +1427,25 @@
 
     invoke-virtual {v2}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
-    move-result-object v22
+    move-result-object v23
 
-    check-cast v22, Landroid/content/res/Resources;
+    check-cast v23, Landroid/content/res/Resources;
 
-    if-eqz v22, :cond_9
+    if-eqz v23, :cond_9
 
-    invoke-virtual/range {v22 .. v22}, Landroid/content/res/Resources;->getImpl()Landroid/content/res/ResourcesImpl;
+    invoke-virtual/range {v23 .. v23}, Landroid/content/res/Resources;->getImpl()Landroid/content/res/ResourcesImpl;
 
     move-result-object v2
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v26
 
     invoke-virtual {v0, v2}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v19
+    move-result-object v20
 
-    check-cast v19, Landroid/content/res/ResourcesKey;
+    check-cast v20, Landroid/content/res/ResourcesKey;
 
-    if-eqz v19, :cond_9
+    if-eqz v20, :cond_9
 
     const-string/jumbo v2, "ResourcesManager"
 
@@ -1424,7 +1459,7 @@
 
     move-result-object v3
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
     iget-object v4, v0, Landroid/content/res/ResourcesKey;->mPackageName:Ljava/lang/String;
 
@@ -1444,22 +1479,57 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    :try_start_2
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v20
 
     invoke-direct {v0, v1}, Landroid/app/ResourcesManager;->findOrCreateResourcesImplForKeyLocked(Landroid/content/res/ResourcesKey;)Landroid/content/res/ResourcesImpl;
 
     move-result-object v2
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->setImpl(Landroid/content/res/ResourcesImpl;)V
+    :try_end_2
+    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_2 .. :try_end_2} :catch_2
 
     :cond_9
-    add-int/lit8 v16, v16, 0x1
+    :goto_6
+    add-int/lit8 v17, v17, 0x1
 
-    goto :goto_4
+    goto :goto_5
+
+    :catch_2
+    move-exception v15
+
+    const-string/jumbo v2, "ResourcesManager"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    move-object/from16 v0, v20
+
+    iget-object v4, v0, Landroid/content/res/ResourcesKey;->mPackageName:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, " may be deleted or updated in mActivityResourceReferences (need to update overlay case)"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_6
 
     :cond_a
     return-void

@@ -162,7 +162,7 @@
 
     const v4, 0x1020066
 
-    const v5, 0x10408c1
+    const v5, 0x10408ca
 
     invoke-interface {p1, v7, v4, v7, v5}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -527,7 +527,7 @@
 
     const/4 v2, 0x7
 
-    const v3, 0x10407df
+    const v3, 0x10407e6
 
     invoke-interface {p1, v7, v1, v2, v3}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1151,7 +1151,7 @@
 
     move-result-object v11
 
-    const v12, 0x105028e
+    const v12, 0x105028f
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1169,7 +1169,7 @@
 
     move-result-object v11
 
-    const v12, 0x105028f
+    const v12, 0x1050290
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

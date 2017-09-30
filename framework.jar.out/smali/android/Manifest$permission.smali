@@ -191,6 +191,8 @@
 
 .field public static final BLUETOOTH_DEBUG:Ljava/lang/String; = "com.sec.permission.BLUETOOTH_DEBUG"
 
+.field public static final BLUETOOTH_DEVICE:Ljava/lang/String; = "com.samsung.bluetooth.permission.BLUETOOTH_DEVICE"
+
 .field public static final BLUETOOTH_MAP:Ljava/lang/String; = "android.permission.BLUETOOTH_MAP"
 
 .field public static final BLUETOOTH_PRIVILEGED:Ljava/lang/String; = "android.permission.BLUETOOTH_PRIVILEGED"
@@ -387,6 +389,8 @@
 .field public static final HARDWARE_TEST:Ljava/lang/String; = "android.permission.HARDWARE_TEST"
 
 .field public static final HDMI_CEC:Ljava/lang/String; = "android.permission.HDMI_CEC"
+
+.field public static final HIDE_NON_SYSTEM_OVERLAY_WINDOWS:Ljava/lang/String; = "android.permission.HIDE_NON_SYSTEM_OVERLAY_WINDOWS"
 
 .field public static final HOME_DOUBLE_CLICK:Ljava/lang/String; = "com.samsung.android.permisson.HOME_DOUBLE_CLICK"
 

@@ -33,6 +33,17 @@
 
 .field private mHandleID:I
 
+.field private mRemoveIdList:Ljava/util/ArrayList;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/ArrayList",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 
 # direct methods
 .method static synthetic -get0(Landroid/sec/clipboard/data/file/FileManager;)Landroid/content/Context;
@@ -41,6 +52,22 @@
     iget-object v0, p0, Landroid/sec/clipboard/data/file/FileManager;->mContext:Landroid/content/Context;
 
     return-object v0
+.end method
+
+.method static synthetic -get1(Landroid/sec/clipboard/data/file/FileManager;)Ljava/util/ArrayList;
+    .locals 1
+
+    iget-object v0, p0, Landroid/sec/clipboard/data/file/FileManager;->mRemoveIdList:Ljava/util/ArrayList;
+
+    return-object v0
+.end method
+
+.method static synthetic -set0(Landroid/sec/clipboard/data/file/FileManager;Ljava/util/ArrayList;)Ljava/util/ArrayList;
+    .locals 0
+
+    iput-object p1, p0, Landroid/sec/clipboard/data/file/FileManager;->mRemoveIdList:Ljava/util/ArrayList;
+
+    return-object p1
 .end method
 
 .method static synthetic -wrap0(Landroid/sec/clipboard/data/file/FileManager;)V
@@ -52,13 +79,15 @@
 .end method
 
 .method public constructor <init>(Ljava/io/File;ILandroid/content/Context;)V
-    .locals 1
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    .locals 2
 
     const/4 v0, 0x0
 
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
     iput-object v0, p0, Landroid/sec/clipboard/data/file/FileManager;->mConnectFileSystem:Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;
+
+    iput-object v0, p0, Landroid/sec/clipboard/data/file/FileManager;->mRemoveIdList:Ljava/util/ArrayList;
 
     iput-object p3, p0, Landroid/sec/clipboard/data/file/FileManager;->mContext:Landroid/content/Context;
 
@@ -78,6 +107,29 @@
 
     iput p2, p0, Landroid/sec/clipboard/data/file/FileManager;->mHandleID:I
 
+    iget-object v0, p0, Landroid/sec/clipboard/data/file/FileManager;->mRemoveIdList:Ljava/util/ArrayList;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/sec/clipboard/data/file/FileManager;->mRemoveIdList:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+
+    move-result v0
+
+    if-lez v0, :cond_0
+
+    new-instance v0, Ljava/lang/Thread;
+
+    new-instance v1, Landroid/sec/clipboard/data/file/FileManager$1;
+
+    invoke-direct {v1, p0}, Landroid/sec/clipboard/data/file/FileManager$1;-><init>(Landroid/sec/clipboard/data/file/FileManager;)V
+
+    invoke-direct {v0, v1}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
+
+    invoke-virtual {v0}, Ljava/lang/Thread;->start()V
+
+    :cond_0
     return-void
 .end method
 

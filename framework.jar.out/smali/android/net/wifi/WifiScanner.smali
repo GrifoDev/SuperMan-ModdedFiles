@@ -704,7 +704,9 @@
 .end method
 
 .method public semGetScanCounterForBigData(Z)Ljava/lang/String;
-    .locals 4
+    .locals 5
+
+    const/4 v4, 0x0
 
     invoke-direct {p0}, Landroid/net/wifi/WifiScanner;->validateChannel()V
 
@@ -723,6 +725,16 @@
 
     iget-object v1, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
+    if-eqz v1, :cond_1
+
+    iget-object v1, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    instance-of v1, v1, Ljava/lang/String;
+
+    if-eqz v1, :cond_1
+
+    iget-object v1, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
+
     check-cast v1, Ljava/lang/String;
 
     return-object v1
@@ -731,6 +743,9 @@
     const/4 v1, 0x0
 
     goto :goto_0
+
+    :cond_1
+    return-object v4
 .end method
 
 .method public startBackgroundScan(Landroid/net/wifi/WifiScanner$ScanSettings;Landroid/net/wifi/WifiScanner$ScanListener;)V

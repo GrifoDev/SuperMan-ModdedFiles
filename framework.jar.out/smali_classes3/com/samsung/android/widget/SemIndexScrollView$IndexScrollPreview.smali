@@ -104,7 +104,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->mTextPaint:Landroid/graphics/Paint;
 
-    const v2, 0x1050361
+    const v2, 0x1050362
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -132,7 +132,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->mTextBounds:Landroid/graphics/Rect;
 
-    const v1, 0x1050362
+    const v1, 0x1050363
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -140,7 +140,7 @@
 
     iput v1, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->mPreviewRadius:F
 
-    const v1, 0x1050363
+    const v1, 0x1050364
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 

@@ -1325,7 +1325,7 @@
 
     invoke-virtual {v13, v14}, Lcom/android/internal/widget/ViewPager;->setOnPageChangeListener(Lcom/android/internal/widget/ViewPager$OnPageChangeListener;)V
 
-    const v13, 0x10502fc
+    const v13, 0x10502fd
 
     invoke-virtual {v11, v13}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -1469,7 +1469,7 @@
 
     invoke-virtual {v13, v14}, Landroid/view/View;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
 
-    const v13, 0x1050305
+    const v13, 0x1050306
 
     invoke-virtual {v11, v13}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -1481,7 +1481,7 @@
 
     invoke-direct/range {p0 .. p0}, Lcom/samsung/android/widget/SemDatePicker;->checkMaxFontSize()V
 
-    const v13, 0x10502fd
+    const v13, 0x10502fe
 
     invoke-virtual {v11, v13}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -1491,7 +1491,7 @@
 
     iput v13, v0, Lcom/samsung/android/widget/SemDatePicker;->mCalendarViewPagerWidth:I
 
-    const v13, 0x1050317
+    const v13, 0x1050318
 
     invoke-virtual {v11, v13}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -1501,7 +1501,7 @@
 
     iput v13, v0, Lcom/samsung/android/widget/SemDatePicker;->mCalendarViewMargin:I
 
-    const v13, 0x10502fd
+    const v13, 0x10502fe
 
     invoke-virtual {v11, v13}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -1619,7 +1619,7 @@
 
     iget-object v14, v0, Landroid/view/View;->mContext:Landroid/content/Context;
 
-    const v15, 0x10408d3
+    const v15, 0x10408dc
 
     invoke-virtual {v14, v15}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1635,7 +1635,7 @@
 
     iget-object v14, v0, Landroid/view/View;->mContext:Landroid/content/Context;
 
-    const v15, 0x10408d4
+    const v15, 0x10408dd
 
     invoke-virtual {v14, v15}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1756,7 +1756,7 @@
 
     iput v13, v0, Lcom/samsung/android/widget/SemDatePicker;->mBackgroundBorderlessResId:I
 
-    const v13, 0x1050309
+    const v13, 0x105030a
 
     invoke-virtual {v11, v13}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -1766,7 +1766,7 @@
 
     iput v13, v0, Lcom/samsung/android/widget/SemDatePicker;->mCalendarHeaderLayoutHeight:I
 
-    const v13, 0x105030a
+    const v13, 0x105030b
 
     invoke-virtual {v11, v13}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -1886,7 +1886,7 @@
 
     iput-object v13, v0, Lcom/samsung/android/widget/SemDatePicker;->mSecondBlankSpace:Landroid/view/View;
 
-    const v13, 0x105031c
+    const v13, 0x105031d
 
     invoke-virtual {v11, v13}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -1896,7 +1896,7 @@
 
     iput v13, v0, Lcom/samsung/android/widget/SemDatePicker;->mFirstBlankSpaceHeight:I
 
-    const v13, 0x105031d
+    const v13, 0x105031e
 
     invoke-virtual {v11, v13}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -1906,7 +1906,7 @@
 
     iput v13, v0, Lcom/samsung/android/widget/SemDatePicker;->mSecondBlankSpaceHeight:I
 
-    const v13, 0x1050318
+    const v13, 0x1050319
 
     invoke-virtual {v11, v13}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -1916,7 +1916,7 @@
 
     iput v13, v0, Lcom/samsung/android/widget/SemDatePicker;->mSpinnerLayoutHeight:I
 
-    const v13, 0x1050319
+    const v13, 0x105031a
 
     invoke-virtual {v11, v13}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -1926,7 +1926,7 @@
 
     iput v13, v0, Lcom/samsung/android/widget/SemDatePicker;->mSpinnerLayoutTopMargin:I
 
-    const v13, 0x105031a
+    const v13, 0x105031b
 
     invoke-virtual {v11, v13}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -2110,7 +2110,7 @@
 
     move-result-object v1
 
-    const v2, 0x1050308
+    const v2, 0x1050309
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -4763,7 +4763,7 @@
 
     iput-boolean v6, p0, Lcom/samsung/android/widget/SemDatePicker;->mIsFirstMeasure:Z
 
-    const v2, 0x1050309
+    const v2, 0x105030a
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -4771,7 +4771,7 @@
 
     iput v2, p0, Lcom/samsung/android/widget/SemDatePicker;->mCalendarHeaderLayoutHeight:I
 
-    const v2, 0x105030a
+    const v2, 0x105030b
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -4779,7 +4779,7 @@
 
     iput v2, p0, Lcom/samsung/android/widget/SemDatePicker;->mCalendarViewPagerHeight:I
 
-    const v2, 0x1050305
+    const v2, 0x1050306
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -4787,7 +4787,7 @@
 
     iput v2, p0, Lcom/samsung/android/widget/SemDatePicker;->mDayOfTheWeekLayoutHeight:I
 
-    const v2, 0x105031c
+    const v2, 0x105031d
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -4795,7 +4795,7 @@
 
     iput v2, p0, Lcom/samsung/android/widget/SemDatePicker;->mFirstBlankSpaceHeight:I
 
-    const v2, 0x105031d
+    const v2, 0x105031e
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -4803,7 +4803,7 @@
 
     iput v2, p0, Lcom/samsung/android/widget/SemDatePicker;->mSecondBlankSpaceHeight:I
 
-    const v2, 0x1050318
+    const v2, 0x1050319
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -4811,7 +4811,7 @@
 
     iput v2, p0, Lcom/samsung/android/widget/SemDatePicker;->mSpinnerLayoutHeight:I
 
-    const v2, 0x1050319
+    const v2, 0x105031a
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -4819,7 +4819,7 @@
 
     iput v2, p0, Lcom/samsung/android/widget/SemDatePicker;->mSpinnerLayoutTopMargin:I
 
-    const v2, 0x105031a
+    const v2, 0x105031b
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -6927,7 +6927,7 @@
 
     move-result-object v15
 
-    const v16, 0x105031b
+    const v16, 0x105031c
 
     invoke-virtual/range {v15 .. v16}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 

@@ -3316,6 +3316,10 @@
 
     or-int/2addr v0, v1
 
+    iget-boolean v1, p0, Landroid/widget/SearchView;->mIsDeviceDefaultLight:Z
+
+    if-nez v1, :cond_0
+
     const/high16 v1, 0x80000
 
     or-int/2addr v0, v1
@@ -4553,13 +4557,12 @@
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Landroid/widget/SearchView;->mSearchSrcTextView:Landroid/widget/SearchView$SearchAutoComplete;
+    iget-boolean v0, p0, Landroid/widget/SearchView;->mIsDeviceDefaultLight:Z
 
-    const-string/jumbo v1, "nm"
-
-    invoke-virtual {v0, v1}, Landroid/widget/SearchView$SearchAutoComplete;->setPrivateImeOptions(Ljava/lang/String;)V
+    if-eqz v0, :cond_2
 
     :cond_1
+    :goto_0
     invoke-virtual {p0}, Landroid/widget/SearchView;->isIconified()Z
 
     move-result v0
@@ -4567,6 +4570,15 @@
     invoke-direct {p0, v0}, Landroid/widget/SearchView;->updateViewsVisibility(Z)V
 
     return-void
+
+    :cond_2
+    iget-object v0, p0, Landroid/widget/SearchView;->mSearchSrcTextView:Landroid/widget/SearchView$SearchAutoComplete;
+
+    const-string/jumbo v1, "nm"
+
+    invoke-virtual {v0, v1}, Landroid/widget/SearchView$SearchAutoComplete;->setPrivateImeOptions(Ljava/lang/String;)V
+
+    goto :goto_0
 .end method
 
 .method public setSubmitButtonEnabled(Z)V

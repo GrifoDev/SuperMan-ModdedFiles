@@ -28,39 +28,41 @@
 
 .field static final TRANSACTION_addClip:I = 0x10
 
-.field static final TRANSACTION_addClipboardEventListener:I = 0x1a
+.field static final TRANSACTION_addClipboardEventListener:I = 0x1b
 
 .field static final TRANSACTION_dismissDialog:I = 0x6
 
-.field static final TRANSACTION_getClip:I = 0x17
+.field static final TRANSACTION_getClip:I = 0x18
 
 .field static final TRANSACTION_getClipData:I = 0x9
 
 .field static final TRANSACTION_getClipedStrings:I = 0x11
 
-.field static final TRANSACTION_getClips:I = 0x16
+.field static final TRANSACTION_getClips:I = 0x17
 
 .field static final TRANSACTION_getCount:I = 0x1
 
 .field static final TRANSACTION_isClipboardAllowed:I = 0x12
 
+.field static final TRANSACTION_isClipboardShareAllowed:I = 0x13
+
 .field static final TRANSACTION_isEnabled:I = 0xf
 
-.field static final TRANSACTION_isPackageAllowed:I = 0x13
+.field static final TRANSACTION_isPackageAllowed:I = 0x14
 
 .field static final TRANSACTION_isShowing:I = 0x5
 
 .field static final TRANSACTION_loadSEClipboard:I = 0xe
 
-.field static final TRANSACTION_pasteClip:I = 0x15
+.field static final TRANSACTION_pasteClip:I = 0x16
 
 .field static final TRANSACTION_registClipboardWorkingFormUiInterfaces:I = 0x7
 
-.field static final TRANSACTION_removeAll:I = 0x14
+.field static final TRANSACTION_removeAll:I = 0x15
 
-.field static final TRANSACTION_removeClip:I = 0x18
+.field static final TRANSACTION_removeClip:I = 0x19
 
-.field static final TRANSACTION_removeClipboardEventListener:I = 0x1b
+.field static final TRANSACTION_removeClipboardEventListener:I = 0x1c
 
 .field static final TRANSACTION_setClipData:I = 0xa
 
@@ -76,7 +78,7 @@
 
 .field static final TRANSACTION_unRegistClipboardWorkingFormUiInterfaces:I = 0x8
 
-.field static final TRANSACTION_updateClip:I = 0x19
+.field static final TRANSACTION_updateClip:I = 0x1a
 
 .field static final TRANSACTION_updateFilter:I = 0x4
 
@@ -864,7 +866,7 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v2}, Landroid/sec/clipboard/IClipboardService$Stub;->isPackageAllowed(I)Z
+    invoke-virtual {v0, v2}, Landroid/sec/clipboard/IClipboardService$Stub;->isClipboardShareAllowed(I)Z
 
     move-result v18
 
@@ -899,7 +901,13 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual/range {p0 .. p0}, Landroid/sec/clipboard/IClipboardService$Stub;->removeAll()Z
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v2
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v2}, Landroid/sec/clipboard/IClipboardService$Stub;->isPackageAllowed(I)Z
 
     move-result v18
 
@@ -934,6 +942,41 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    invoke-virtual/range {p0 .. p0}, Landroid/sec/clipboard/IClipboardService$Stub;->removeAll()Z
+
+    move-result v18
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v18, :cond_c
+
+    const/16 v19, 0x1
+
+    :goto_c
+    move-object/from16 v0, p3
+
+    move/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/16 v19, 0x1
+
+    return v19
+
+    :cond_c
+    const/16 v19, 0x0
+
+    goto :goto_c
+
+    :sswitch_16
+    const-string/jumbo v19, "android.sec.clipboard.IClipboardService"
+
+    move-object/from16 v0, p2
+
+    move-object/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v6
@@ -948,7 +991,7 @@
 
     return v19
 
-    :sswitch_16
+    :sswitch_17
     const-string/jumbo v19, "android.sec.clipboard.IClipboardService"
 
     move-object/from16 v0, p2
@@ -973,7 +1016,7 @@
 
     return v19
 
-    :sswitch_17
+    :sswitch_18
     const-string/jumbo v19, "android.sec.clipboard.IClipboardService"
 
     move-object/from16 v0, p2
@@ -994,7 +1037,7 @@
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v15, :cond_c
+    if-eqz v15, :cond_d
 
     const/16 v19, 0x1
 
@@ -1012,12 +1055,12 @@
 
     invoke-virtual {v15, v0, v1}, Lcom/samsung/android/content/clipboard/data/SemClipData;->writeToParcel(Landroid/os/Parcel;I)V
 
-    :goto_c
+    :goto_d
     const/16 v19, 0x1
 
     return v19
 
-    :cond_c
+    :cond_d
     const/16 v19, 0x0
 
     move-object/from16 v0, p3
@@ -1026,9 +1069,9 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_c
+    goto :goto_d
 
-    :sswitch_18
+    :sswitch_19
     const-string/jumbo v19, "android.sec.clipboard.IClipboardService"
 
     move-object/from16 v0, p2
@@ -1049,11 +1092,11 @@
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v18, :cond_d
+    if-eqz v18, :cond_e
 
     const/16 v19, 0x1
 
-    :goto_d
+    :goto_e
     move-object/from16 v0, p3
 
     move/from16 v1, v19
@@ -1064,12 +1107,12 @@
 
     return v19
 
-    :cond_d
+    :cond_e
     const/16 v19, 0x0
 
-    goto :goto_d
+    goto :goto_e
 
-    :sswitch_19
+    :sswitch_1a
     const-string/jumbo v19, "android.sec.clipboard.IClipboardService"
 
     move-object/from16 v0, p2
@@ -1086,7 +1129,7 @@
 
     move-result v19
 
-    if-eqz v19, :cond_e
+    if-eqz v19, :cond_f
 
     sget-object v19, Lcom/samsung/android/content/clipboard/data/SemClipData;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -1100,7 +1143,7 @@
 
     check-cast v9, Lcom/samsung/android/content/clipboard/data/SemClipData;
 
-    :goto_e
+    :goto_f
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v6, v9}, Landroid/sec/clipboard/IClipboardService$Stub;->updateClip(Ljava/lang/String;Lcom/samsung/android/content/clipboard/data/SemClipData;)Z
@@ -1109,11 +1152,11 @@
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v18, :cond_f
+    if-eqz v18, :cond_10
 
     const/16 v19, 0x1
 
-    :goto_f
+    :goto_10
     move-object/from16 v0, p3
 
     move/from16 v1, v19
@@ -1124,17 +1167,17 @@
 
     return v19
 
-    :cond_e
-    const/4 v9, 0x0
-
-    goto :goto_e
-
     :cond_f
-    const/16 v19, 0x0
+    const/4 v9, 0x0
 
     goto :goto_f
 
-    :sswitch_1a
+    :cond_10
+    const/16 v19, 0x0
+
+    goto :goto_10
+
+    :sswitch_1b
     const-string/jumbo v19, "android.sec.clipboard.IClipboardService"
 
     move-object/from16 v0, p2
@@ -1165,7 +1208,7 @@
 
     return v19
 
-    :sswitch_1b
+    :sswitch_1c
     const-string/jumbo v19, "android.sec.clipboard.IClipboardService"
 
     move-object/from16 v0, p2
@@ -1221,6 +1264,7 @@
         0x19 -> :sswitch_19
         0x1a -> :sswitch_1a
         0x1b -> :sswitch_1b
+        0x1c -> :sswitch_1c
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

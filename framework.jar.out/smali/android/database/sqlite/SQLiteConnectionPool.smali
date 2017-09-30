@@ -67,6 +67,8 @@
 
 .field private mIsOpen:Z
 
+.field private mIsSecure:Z
+
 .field private final mLock:Ljava/lang/Object;
 
 .field private mMaxConnectionPoolSize:I
@@ -149,6 +151,10 @@
     invoke-direct {v0}, Ljava/util/WeakHashMap;-><init>()V
 
     iput-object v0, p0, Landroid/database/sqlite/SQLiteConnectionPool;->mAcquiredConnections:Ljava/util/WeakHashMap;
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Landroid/database/sqlite/SQLiteConnectionPool;->mIsSecure:Z
 
     new-instance v0, Landroid/database/sqlite/SQLiteDatabaseConfiguration;
 
@@ -904,6 +910,16 @@
 .end method
 
 .method private markAcquiredConnectionsLocked(Landroid/database/sqlite/SQLiteConnectionPool$AcquiredConnectionStatus;)V
+    .locals 1
+
+    const/4 v0, 0x1
+
+    invoke-direct {p0, p1, v0}, Landroid/database/sqlite/SQLiteConnectionPool;->markAcquiredConnectionsLocked(Landroid/database/sqlite/SQLiteConnectionPool$AcquiredConnectionStatus;Z)V
+
+    return-void
+.end method
+
+.method private markAcquiredConnectionsLocked(Landroid/database/sqlite/SQLiteConnectionPool$AcquiredConnectionStatus;Z)V
     .locals 8
 
     iget-object v6, p0, Landroid/database/sqlite/SQLiteConnectionPool;->mAcquiredConnections:Ljava/util/WeakHashMap;
@@ -912,7 +928,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_2
+    if-nez v6, :cond_3
 
     new-instance v3, Ljava/util/ArrayList;
 
@@ -940,7 +956,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_2
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -966,11 +982,26 @@
 
     check-cast v6, Landroid/database/sqlite/SQLiteConnection;
 
+    invoke-virtual {v6}, Landroid/database/sqlite/SQLiteConnection;->isPrimaryConnection()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_1
+
+    if-eqz p2, :cond_0
+
+    :cond_1
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/database/sqlite/SQLiteConnection;
+
     invoke-virtual {v3, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
 
     move-result v5
@@ -978,7 +1009,7 @@
     const/4 v2, 0x0
 
     :goto_1
-    if-ge v2, v5, :cond_2
+    if-ge v2, v5, :cond_3
 
     iget-object v7, p0, Landroid/database/sqlite/SQLiteConnectionPool;->mAcquiredConnections:Ljava/util/WeakHashMap;
 
@@ -994,7 +1025,7 @@
 
     goto :goto_1
 
-    :cond_2
+    :cond_3
     return-void
 .end method
 
@@ -1134,6 +1165,8 @@
     move-result-object v0
 
     iput-object v0, p0, Landroid/database/sqlite/SQLiteConnectionPool;->mAvailablePrimaryConnection:Landroid/database/sqlite/SQLiteConnection;
+
+    iput-boolean v1, p0, Landroid/database/sqlite/SQLiteConnectionPool;->mIsSecure:Z
 
     iput-boolean v1, p0, Landroid/database/sqlite/SQLiteConnectionPool;->mIsOpen:Z
 
@@ -1596,6 +1629,25 @@
     return-object v4
 
     :cond_2
+    iget-boolean v3, p0, Landroid/database/sqlite/SQLiteConnectionPool;->mIsSecure:Z
+
+    if-eqz v3, :cond_3
+
+    const-string/jumbo v3, "SQLiteConnectionPool"
+
+    const-string/jumbo v4, "No primary connection! But we can\'t open a new one due to the lack of key!"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v3, Ljava/lang/IllegalStateException;
+
+    const-string/jumbo v4, "Can not open a new primary connection due to the lack of key"
+
+    invoke-direct {v3, v4}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v3
+
+    :cond_3
     iget-object v3, p0, Landroid/database/sqlite/SQLiteConnectionPool;->mConfiguration:Landroid/database/sqlite/SQLiteDatabaseConfiguration;
 
     const/4 v4, 0x1
@@ -2125,7 +2177,7 @@
 .end method
 
 .method public closeAndDiscardNonPrimaryConnections(Z)V
-    .locals 2
+    .locals 3
 
     iget-object v1, p0, Landroid/database/sqlite/SQLiteConnectionPool;->mLock:Ljava/lang/Object;
 
@@ -2136,7 +2188,11 @@
 
     if-eqz p1, :cond_0
 
-    invoke-direct {p0}, Landroid/database/sqlite/SQLiteConnectionPool;->discardAcquiredConnectionsLocked()V
+    sget-object v0, Landroid/database/sqlite/SQLiteConnectionPool$AcquiredConnectionStatus;->DISCARD:Landroid/database/sqlite/SQLiteConnectionPool$AcquiredConnectionStatus;
+
+    const/4 v2, 0x0
+
+    invoke-direct {p0, v0, v2}, Landroid/database/sqlite/SQLiteConnectionPool;->markAcquiredConnectionsLocked(Landroid/database/sqlite/SQLiteConnectionPool$AcquiredConnectionStatus;Z)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -2352,6 +2408,60 @@
 
     invoke-interface {v0, v11}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
+    new-instance v11, Ljava/lang/StringBuilder;
+
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v13, "  Secure db: "
+
+    invoke-virtual {v11, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    move-object/from16 v0, p0
+
+    iget-boolean v13, v0, Landroid/database/sqlite/SQLiteConnectionPool;->mIsSecure:Z
+
+    invoke-virtual {v11, v13}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v11
+
+    move-object/from16 v0, p1
+
+    invoke-interface {v0, v11}, Landroid/util/Printer;->println(Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v11, v0, Landroid/database/sqlite/SQLiteConnectionPool;->mConfiguration:Landroid/database/sqlite/SQLiteDatabaseConfiguration;
+
+    iget v11, v11, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->openFlags:I
+
+    const/high16 v13, 0x20000000
+
+    and-int/2addr v11, v13
+
+    if-eqz v11, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-object v11, v0, Landroid/database/sqlite/SQLiteConnectionPool;->mConfiguration:Landroid/database/sqlite/SQLiteDatabaseConfiguration;
+
+    iget-boolean v11, v11, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->enableWALExplicitly:Z
+
+    if-eqz v11, :cond_1
+
+    const-string/jumbo v11, "  Use WAL mode. "
+
+    move-object/from16 v0, p1
+
+    invoke-interface {v0, v11}, Landroid/util/Printer;->println(Ljava/lang/String;)V
+
+    :cond_0
+    :goto_0
     const-string/jumbo v11, "  Available primary connection:"
 
     move-object/from16 v0, p1
@@ -2362,7 +2472,7 @@
 
     iget-object v11, v0, Landroid/database/sqlite/SQLiteConnectionPool;->mAvailablePrimaryConnection:Landroid/database/sqlite/SQLiteConnection;
 
-    if-eqz v11, :cond_0
+    if-eqz v11, :cond_2
 
     move-object/from16 v0, p0
 
@@ -2372,7 +2482,7 @@
 
     invoke-virtual {v11, v7, v0}, Landroid/database/sqlite/SQLiteConnection;->dump(Landroid/util/Printer;Z)V
 
-    :goto_0
+    :goto_1
     const-string/jumbo v11, "  Available non-primary connections:"
 
     move-object/from16 v0, p1
@@ -2387,7 +2497,7 @@
 
     move-result v11
 
-    if-nez v11, :cond_1
+    if-nez v11, :cond_3
 
     move-object/from16 v0, p0
 
@@ -2399,8 +2509,8 @@
 
     const/4 v6, 0x0
 
-    :goto_1
-    if-ge v6, v3, :cond_2
+    :goto_2
+    if-ge v6, v3, :cond_4
 
     move-object/from16 v0, p0
 
@@ -2418,12 +2528,14 @@
 
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_1
+    goto :goto_2
 
-    :cond_0
-    const-string/jumbo v11, "<none>"
+    :cond_1
+    const-string/jumbo v11, "  Use WAL mode by default. "
 
-    invoke-interface {v7, v11}, Landroid/util/Printer;->println(Ljava/lang/String;)V
+    move-object/from16 v0, p1
+
+    invoke-interface {v0, v11}, Landroid/util/Printer;->println(Ljava/lang/String;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -2436,13 +2548,20 @@
 
     throw v11
 
-    :cond_1
+    :cond_2
     :try_start_1
     const-string/jumbo v11, "<none>"
 
     invoke-interface {v7, v11}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
-    :cond_2
+    goto :goto_1
+
+    :cond_3
+    const-string/jumbo v11, "<none>"
+
+    invoke-interface {v7, v11}, Landroid/util/Printer;->println(Ljava/lang/String;)V
+
+    :cond_4
     const-string/jumbo v11, "  Acquired connections:"
 
     move-object/from16 v0, p1
@@ -2457,7 +2576,7 @@
 
     move-result v11
 
-    if-nez v11, :cond_3
+    if-nez v11, :cond_5
 
     move-object/from16 v0, p0
 
@@ -2471,12 +2590,12 @@
 
     move-result-object v5
 
-    :goto_2
+    :goto_3
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v11
 
-    if-eqz v11, :cond_4
+    if-eqz v11, :cond_6
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2518,14 +2637,14 @@
 
     invoke-interface {v7, v11}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
-    goto :goto_2
+    goto :goto_3
 
-    :cond_3
+    :cond_5
     const-string/jumbo v11, "<none>"
 
     invoke-interface {v7, v11}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
-    :cond_4
+    :cond_6
     const-string/jumbo v11, "  Connection waiters:"
 
     move-object/from16 v0, p1
@@ -2536,7 +2655,7 @@
 
     iget-object v11, v0, Landroid/database/sqlite/SQLiteConnectionPool;->mConnectionWaiterQueue:Landroid/database/sqlite/SQLiteConnectionPool$ConnectionWaiter;
 
-    if-eqz v11, :cond_5
+    if-eqz v11, :cond_7
 
     const/4 v6, 0x0
 
@@ -2548,8 +2667,8 @@
 
     iget-object v10, v0, Landroid/database/sqlite/SQLiteConnectionPool;->mConnectionWaiterQueue:Landroid/database/sqlite/SQLiteConnectionPool$ConnectionWaiter;
 
-    :goto_3
-    if-eqz v10, :cond_6
+    :goto_4
+    if-eqz v10, :cond_8
 
     new-instance v11, Ljava/lang/StringBuilder;
 
@@ -2631,16 +2750,16 @@
 
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_3
+    goto :goto_4
 
-    :cond_5
+    :cond_7
     const-string/jumbo v11, "<none>"
 
     invoke-interface {v7, v11}, Landroid/util/Printer;->println(Ljava/lang/String;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    :cond_6
+    :cond_8
     monitor-exit v12
 
     return-void

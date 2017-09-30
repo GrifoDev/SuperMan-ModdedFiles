@@ -3123,46 +3123,92 @@
 .end method
 
 .method public getBiometricLockscreen(II)I
-    .locals 4
+    .locals 7
 
-    const-string/jumbo v1, "lockscreen.samsung_biometric"
+    const/4 v6, 0x0
 
-    const-wide/16 v2, 0x0
+    const-string/jumbo v2, "lockscreen.samsung_biometric"
 
-    invoke-direct {p0, v1, v2, v3, p2}, Lcom/android/internal/widget/LockPatternUtils;->getLong(Ljava/lang/String;JI)J
+    const-wide/16 v4, 0x0
+
+    invoke-direct {p0, v2, v4, v5, p2}, Lcom/android/internal/widget/LockPatternUtils;->getLong(Ljava/lang/String;JI)J
 
     move-result-wide v2
 
     long-to-int v0, v2
 
-    and-int v1, v0, p1
+    iget-object v2, p0, Lcom/android/internal/widget/LockPatternUtils;->mContentResolver:Landroid/content/ContentResolver;
 
-    if-ne v1, p1, :cond_0
+    const-string/jumbo v3, "ultra_powersaving_mode"
+
+    invoke-static {v2, v3, v6}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v2
+
+    if-eqz v2, :cond_1
 
     const/4 v1, 0x1
 
-    return v1
+    :goto_0
+    and-int v2, v0, p1
+
+    if-ne v2, p1, :cond_0
+
+    if-eqz v1, :cond_2
 
     :cond_0
+    return v6
+
+    :cond_1
     const/4 v1, 0x0
 
-    return v1
+    goto :goto_0
+
+    :cond_2
+    const/4 v2, 0x1
+
+    return v2
 .end method
 
 .method public getBiometricType(I)I
     .locals 4
 
-    const-string/jumbo v0, "lockscreen.samsung_biometric"
+    const/4 v1, 0x0
+
+    iget-object v2, p0, Lcom/android/internal/widget/LockPatternUtils;->mContentResolver:Landroid/content/ContentResolver;
+
+    const-string/jumbo v3, "ultra_powersaving_mode"
+
+    invoke-static {v2, v3, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    if-eqz v0, :cond_1
+
+    return v1
+
+    :cond_0
+    move v0, v1
+
+    goto :goto_0
+
+    :cond_1
+    const-string/jumbo v1, "lockscreen.samsung_biometric"
 
     const-wide/16 v2, 0x0
 
-    invoke-direct {p0, v0, v2, v3, p1}, Lcom/android/internal/widget/LockPatternUtils;->getLong(Ljava/lang/String;JI)J
+    invoke-direct {p0, v1, v2, v3, p1}, Lcom/android/internal/widget/LockPatternUtils;->getLong(Ljava/lang/String;JI)J
 
-    move-result-wide v0
+    move-result-wide v2
 
-    long-to-int v0, v0
+    long-to-int v1, v2
 
-    return v0
+    return v1
 .end method
 
 .method public getCarrierLockoutAttemptDeadline(I)J

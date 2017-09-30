@@ -332,7 +332,9 @@
 
     iput-object v0, p0, Landroid/content/pm/ApplicationInfo;->bbcallowCategory:Ljava/lang/String;
 
-    iput-object v2, p0, Landroid/content/pm/ApplicationInfo;->allowContainerCategory:Ljava/lang/String;
+    const-string/jumbo v0, "1023"
+
+    iput-object v0, p0, Landroid/content/pm/ApplicationInfo;->allowContainerCategory:Ljava/lang/String;
 
     iput v1, p0, Landroid/content/pm/ApplicationInfo;->accessInfo:I
 
@@ -408,7 +410,9 @@
 
     iput-object v0, p0, Landroid/content/pm/ApplicationInfo;->bbcallowCategory:Ljava/lang/String;
 
-    iput-object v2, p0, Landroid/content/pm/ApplicationInfo;->allowContainerCategory:Ljava/lang/String;
+    const-string/jumbo v0, "1023"
+
+    iput-object v0, p0, Landroid/content/pm/ApplicationInfo;->allowContainerCategory:Ljava/lang/String;
 
     iput v1, p0, Landroid/content/pm/ApplicationInfo;->accessInfo:I
 
@@ -678,9 +682,9 @@
 
     const/16 v0, 0x3ff
 
-    const/4 v1, 0x1
-
     const/4 v3, 0x0
+
+    const/4 v1, 0x1
 
     const/4 v2, 0x0
 
@@ -716,7 +720,9 @@
 
     iput-object v0, p0, Landroid/content/pm/ApplicationInfo;->bbcallowCategory:Ljava/lang/String;
 
-    iput-object v3, p0, Landroid/content/pm/ApplicationInfo;->allowContainerCategory:Ljava/lang/String;
+    const-string/jumbo v0, "1023"
+
+    iput-object v0, p0, Landroid/content/pm/ApplicationInfo;->allowContainerCategory:Ljava/lang/String;
 
     iput v2, p0, Landroid/content/pm/ApplicationInfo;->accessInfo:I
 

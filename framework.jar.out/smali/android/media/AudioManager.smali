@@ -2788,13 +2788,39 @@
 
     :cond_b
     :try_start_3
+    sget-object v12, Landroid/media/AudioManager;->sPreviousAudioPortsCached:Ljava/util/ArrayList;
+
+    invoke-virtual {v12}, Ljava/util/ArrayList;->clear()V
+
+    sget-object v12, Landroid/media/AudioManager;->sPreviousAudioPortsCached:Ljava/util/ArrayList;
+
+    sget-object v14, Landroid/media/AudioManager;->sAudioPortsCached:Ljava/util/ArrayList;
+
+    invoke-virtual {v12, v14}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
+
     sget-object v12, Landroid/media/AudioManager;->sAudioPortsCached:Ljava/util/ArrayList;
 
-    sput-object v12, Landroid/media/AudioManager;->sPreviousAudioPortsCached:Ljava/util/ArrayList;
+    invoke-virtual {v12}, Ljava/util/ArrayList;->clear()V
 
-    sput-object v7, Landroid/media/AudioManager;->sAudioPortsCached:Ljava/util/ArrayList;
+    sget-object v12, Landroid/media/AudioManager;->sAudioPortsCached:Ljava/util/ArrayList;
 
-    sput-object v6, Landroid/media/AudioManager;->sAudioPatchesCached:Ljava/util/ArrayList;
+    invoke-virtual {v12, v7}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
+
+    invoke-virtual {v7}, Ljava/util/ArrayList;->clear()V
+
+    const/4 v7, 0x0
+
+    sget-object v12, Landroid/media/AudioManager;->sAudioPatchesCached:Ljava/util/ArrayList;
+
+    invoke-virtual {v12}, Ljava/util/ArrayList;->clear()V
+
+    sget-object v12, Landroid/media/AudioManager;->sAudioPatchesCached:Ljava/util/ArrayList;
+
+    invoke-virtual {v12, v6}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
+
+    invoke-virtual {v6}, Ljava/util/ArrayList;->clear()V
+
+    const/4 v6, 0x0
 
     const/4 v12, 0x0
 
@@ -2805,6 +2831,8 @@
     move-result-object v12
 
     sput-object v12, Landroid/media/AudioManager;->sAudioPortGeneration:Ljava/lang/Integer;
+
+    const/4 v10, 0x0
 
     :cond_c
     if-eqz p0, :cond_d

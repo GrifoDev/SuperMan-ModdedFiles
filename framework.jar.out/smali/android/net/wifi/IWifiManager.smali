@@ -896,6 +896,14 @@
     .end annotation
 .end method
 
+.method public abstract setImsCallEstablished(Z)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract setIsFmcNetwork(Z)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {

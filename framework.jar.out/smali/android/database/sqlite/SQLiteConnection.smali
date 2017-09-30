@@ -1279,11 +1279,12 @@
 
     iget-boolean v4, v4, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->preloadWalDb:Z
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_3
 
     const-wide/16 v0, 0x3e8
 
     :cond_2
+    :goto_1
     const-string/jumbo v4, "PRAGMA wal_autocheckpoint"
 
     invoke-virtual {p0, v4, v6, v6}, Landroid/database/sqlite/SQLiteConnection;->executeForLong(Ljava/lang/String;[Ljava/lang/Object;Landroid/os/CancellationSignal;)J
@@ -1315,6 +1316,17 @@
     invoke-virtual {p0, v4, v6, v6}, Landroid/database/sqlite/SQLiteConnection;->executeForLong(Ljava/lang/String;[Ljava/lang/Object;Landroid/os/CancellationSignal;)J
 
     goto :goto_0
+
+    :cond_3
+    iget-object v4, p0, Landroid/database/sqlite/SQLiteConnection;->mConfiguration:Landroid/database/sqlite/SQLiteDatabaseConfiguration;
+
+    iget-boolean v4, v4, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->defaultWAL:Z
+
+    if-eqz v4, :cond_2
+
+    const-wide/16 v0, 0x100
+
+    goto :goto_1
 .end method
 
 .method private setAutoCheckpointInterval(J)V
@@ -1597,11 +1609,12 @@
 
     iget-boolean v4, v4, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->preloadWalDb:Z
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_3
 
     const-wide/32 v0, 0x800000
 
     :cond_2
+    :goto_1
     const-string/jumbo v4, "PRAGMA journal_size_limit"
 
     invoke-virtual {p0, v4, v6, v6}, Landroid/database/sqlite/SQLiteConnection;->executeForLong(Ljava/lang/String;[Ljava/lang/Object;Landroid/os/CancellationSignal;)J
@@ -1633,6 +1646,17 @@
     invoke-virtual {p0, v4, v6, v6}, Landroid/database/sqlite/SQLiteConnection;->executeForLong(Ljava/lang/String;[Ljava/lang/Object;Landroid/os/CancellationSignal;)J
 
     goto :goto_0
+
+    :cond_3
+    iget-object v4, p0, Landroid/database/sqlite/SQLiteConnection;->mConfiguration:Landroid/database/sqlite/SQLiteDatabaseConfiguration;
+
+    iget-boolean v4, v4, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->defaultWAL:Z
+
+    if-eqz v4, :cond_2
+
+    const-wide/32 v0, 0x100000
+
+    goto :goto_1
 .end method
 
 .method private setJournalSizeLimit(J)V
@@ -2090,7 +2114,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_4
 
     invoke-static {}, Landroid/database/sqlite/SQLiteGlobal;->getWALSyncMode()Ljava/lang/String;
 
@@ -2100,11 +2124,18 @@
 
     iget-boolean v1, v1, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->preloadWalDb:Z
 
-    if-eqz v1, :cond_2
+    if-nez v1, :cond_2
 
-    const-string/jumbo v0, "NORMAL"
+    iget-object v1, p0, Landroid/database/sqlite/SQLiteConnection;->mConfiguration:Landroid/database/sqlite/SQLiteDatabaseConfiguration;
+
+    iget-boolean v1, v1, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->defaultWAL:Z
+
+    if-eqz v1, :cond_3
 
     :cond_2
+    const-string/jumbo v0, "NORMAL"
+
+    :cond_3
     const-string/jumbo v1, "WAL"
 
     invoke-direct {p0, v1}, Landroid/database/sqlite/SQLiteConnection;->setJournalMode(Ljava/lang/String;)V
@@ -2113,7 +2144,7 @@
 
     goto :goto_0
 
-    :cond_3
+    :cond_4
     const-string/jumbo v1, "PERSIST"
 
     invoke-direct {p0, v1}, Landroid/database/sqlite/SQLiteConnection;->setJournalMode(Ljava/lang/String;)V

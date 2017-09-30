@@ -1096,6 +1096,9 @@
 .method public abstract sendBroadcastMultiplePermissions(Landroid/content/Intent;[Ljava/lang/String;)V
 .end method
 
+.method public abstract sendBroadcastMultiplePermissionsAsUser(Landroid/content/Intent;[Ljava/lang/String;Landroid/os/UserHandle;)V
+.end method
+
 .method public abstract sendOrderedBroadcast(Landroid/content/Intent;Ljava/lang/String;)V
 .end method
 

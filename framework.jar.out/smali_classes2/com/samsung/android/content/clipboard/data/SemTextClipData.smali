@@ -338,15 +338,32 @@
 
     iget-object v4, p0, Lcom/samsung/android/content/clipboard/data/SemTextClipData;->mValue:Ljava/lang/String;
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_5
 
+    iget-object v4, p0, Lcom/samsung/android/content/clipboard/data/SemTextClipData;->mValue:Ljava/lang/String;
+
+    invoke-virtual {v4}, Ljava/lang/String;->length()I
+
+    move-result v4
+
+    const/high16 v5, 0x20000
+
+    if-le v4, v5, :cond_0
+
+    const-string/jumbo v4, ""
+
+    iput-object v4, p0, Lcom/samsung/android/content/clipboard/data/SemTextClipData;->mText:Ljava/lang/CharSequence;
+
+    return-void
+
+    :cond_0
     iget-object v4, p0, Lcom/samsung/android/content/clipboard/data/SemTextClipData;->mValue:Ljava/lang/String;
 
     invoke-static {v4}, Landroid/sec/clipboard/util/HtmlUtils;->isHtml(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     iget-object v4, p0, Lcom/samsung/android/content/clipboard/data/SemTextClipData;->mValue:Ljava/lang/String;
 
@@ -370,7 +387,7 @@
 
     add-int/lit8 v4, v4, -0x1
 
-    if-gt v2, v4, :cond_2
+    if-gt v2, v4, :cond_3
 
     iget-object v4, p0, Lcom/samsung/android/content/clipboard/data/SemTextClipData;->mText:Ljava/lang/CharSequence;
 
@@ -388,7 +405,7 @@
 
     const/16 v5, 0xa
 
-    if-ne v4, v5, :cond_2
+    if-ne v4, v5, :cond_3
 
     add-int/lit8 v3, v3, 0x1
 
@@ -396,7 +413,7 @@
 
     goto :goto_1
 
-    :cond_0
+    :cond_1
     iget-object v4, p0, Lcom/samsung/android/content/clipboard/data/SemTextClipData;->mValue:Ljava/lang/String;
 
     const-string/jumbo v5, "&#10;"
@@ -405,7 +422,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2
 
     iget-object v4, p0, Lcom/samsung/android/content/clipboard/data/SemTextClipData;->mValue:Ljava/lang/String;
 
@@ -419,17 +436,17 @@
 
     iput-object v4, p0, Lcom/samsung/android/content/clipboard/data/SemTextClipData;->mValue:Ljava/lang/String;
 
-    :cond_1
+    :cond_2
     iget-object v4, p0, Lcom/samsung/android/content/clipboard/data/SemTextClipData;->mValue:Ljava/lang/String;
 
     iput-object v4, p0, Lcom/samsung/android/content/clipboard/data/SemTextClipData;->mText:Ljava/lang/CharSequence;
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     iget v4, p0, Lcom/samsung/android/content/clipboard/data/SemTextClipData;->mNumberOfTrailingWhiteLines:I
 
-    if-le v3, v4, :cond_3
+    if-le v3, v4, :cond_4
 
     iget v4, p0, Lcom/samsung/android/content/clipboard/data/SemTextClipData;->mNumberOfTrailingWhiteLines:I
 
@@ -453,7 +470,7 @@
 
     iput-object v4, p0, Lcom/samsung/android/content/clipboard/data/SemTextClipData;->mText:Ljava/lang/CharSequence;
 
-    :cond_3
+    :cond_4
     const-string/jumbo v4, "SemTextClipData"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -510,7 +527,7 @@
 
     invoke-static {v4, v5}, Landroid/sec/clipboard/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_4
+    :cond_5
     return-void
 .end method
 

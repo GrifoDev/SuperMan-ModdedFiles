@@ -250,6 +250,14 @@
     .end annotation
 .end method
 
+.method public abstract registerDbObserver(Ljava/lang/String;I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract registerExchangeData(Ljava/lang/String;Landroid/os/IRunnableCallback;I)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -259,14 +267,6 @@
 .end method
 
 .method public abstract registerMonitorCb(Ljava/lang/String;Landroid/os/IRunnableCallback;)Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract registerObserver(Ljava/lang/String;I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -314,7 +314,7 @@
     .end annotation
 .end method
 
-.method public abstract unRegisterObserver(Ljava/lang/String;I)V
+.method public abstract unRegisterDbObserver(Ljava/lang/String;I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

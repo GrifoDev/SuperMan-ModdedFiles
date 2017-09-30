@@ -8,6 +8,10 @@
 
 .field public static final MEMORY_DB_PATH:Ljava/lang/String; = ":memory:"
 
+.field private static final default_wal_db_blacklist:[Ljava/lang/String;
+
+.field private static final default_wal_db_packages:[Ljava/lang/String;
+
 .field private static final preload_wal_dbs:[Ljava/lang/String;
 
 
@@ -22,6 +26,8 @@
         }
     .end annotation
 .end field
+
+.field public defaultWAL:Z
 
 .field public enableWALExplicitly:Z
 
@@ -42,7 +48,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .locals 6
+
+    const/4 v5, 0x2
+
+    const/4 v4, 0x1
+
+    const/4 v3, 0x0
 
     const-string/jumbo v0, "[\\w\\.\\-]+@[\\w\\.\\-]+"
 
@@ -58,21 +70,15 @@
 
     const-string/jumbo v1, "internal.db"
 
-    const/4 v2, 0x0
-
-    aput-object v1, v0, v2
+    aput-object v1, v0, v3
 
     const-string/jumbo v1, "external.db"
 
-    const/4 v2, 0x1
-
-    aput-object v1, v0, v2
+    aput-object v1, v0, v4
 
     const-string/jumbo v1, "settings.db"
 
-    const/4 v2, 0x2
-
-    aput-object v1, v0, v2
+    aput-object v1, v0, v5
 
     const-string/jumbo v1, "mmssms.db"
 
@@ -93,6 +99,30 @@
     aput-object v1, v0, v2
 
     sput-object v0, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->preload_wal_dbs:[Ljava/lang/String;
+
+    new-array v0, v5, [Ljava/lang/String;
+
+    const-string/jumbo v1, "com.samsung."
+
+    aput-object v1, v0, v3
+
+    const-string/jumbo v1, "com.sec."
+
+    aput-object v1, v0, v4
+
+    sput-object v0, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->default_wal_db_packages:[Ljava/lang/String;
+
+    new-array v0, v5, [Ljava/lang/String;
+
+    const-string/jumbo v1, "EmailProvider.db"
+
+    aput-object v1, v0, v3
+
+    const-string/jumbo v1, "EmailProviderBody.db"
+
+    aput-object v1, v0, v4
+
+    sput-object v0, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->default_wal_db_blacklist:[Ljava/lang/String;
 
     return-void
 .end method
@@ -190,32 +220,53 @@
 
     iput-boolean v0, p0, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->preloadWalDb:Z
 
-    and-int v0, p2, v2
+    iget-boolean v0, p0, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->preloadWalDb:Z
 
     if-eqz v0, :cond_2
+
+    move v0, v1
+
+    :goto_0
+    iput-boolean v0, p0, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->defaultWAL:Z
+
+    and-int v0, p2, v2
+
+    if-eqz v0, :cond_3
 
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->enableWALExplicitly:Z
 
     :cond_1
-    :goto_0
+    :goto_1
     return-void
 
     :cond_2
+    invoke-static {p1}, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->useWALModebyDefault(Ljava/lang/String;)Z
+
+    move-result v0
+
+    goto :goto_0
+
+    :cond_3
     iput-boolean v1, p0, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->enableWALExplicitly:Z
 
     iget-boolean v0, p0, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->preloadWalDb:Z
 
+    if-nez v0, :cond_4
+
+    iget-boolean v0, p0, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->defaultWAL:Z
+
     if-eqz v0, :cond_1
 
+    :cond_4
     iget v0, p0, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->openFlags:I
 
     or-int/2addr v0, v2
 
     iput v0, p0, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->openFlags:I
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method private static isPreloadWalDb(Ljava/lang/String;)Z
@@ -284,6 +335,118 @@
     return-object v0
 .end method
 
+.method private static useWALModebyDefault(Ljava/lang/String;)Z
+    .locals 7
+
+    const/4 v3, 0x0
+
+    invoke-static {}, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->useWALModebyDefaultonDevice()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    sget-object v4, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->default_wal_db_blacklist:[Ljava/lang/String;
+
+    array-length v5, v4
+
+    move v2, v3
+
+    :goto_0
+    if-ge v2, v5, :cond_1
+
+    aget-object v1, v4, v2
+
+    invoke-virtual {p0, v1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_0
+
+    return v3
+
+    :cond_0
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    sget-object v4, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->default_wal_db_packages:[Ljava/lang/String;
+
+    array-length v5, v4
+
+    move v2, v3
+
+    :goto_1
+    if-ge v2, v5, :cond_3
+
+    aget-object v1, v4, v2
+
+    invoke-virtual {p0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_2
+
+    const/4 v2, 0x1
+
+    return v2
+
+    :cond_2
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_1
+
+    :cond_3
+    return v3
+.end method
+
+.method public static useWALModebyDefaultonDevice()Z
+    .locals 2
+
+    const-string/jumbo v1, "ro.product.name"
+
+    invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    const-string/jumbo v1, "a7y17ltektt"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string/jumbo v1, "a7y17ltelgt"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string/jumbo v1, "a7y17lteskt"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    :cond_0
+    const/4 v1, 0x1
+
+    return v1
+
+    :cond_1
+    const/4 v1, 0x0
+
+    return v1
+.end method
+
 
 # virtual methods
 .method public isInMemoryDb()Z
@@ -344,6 +507,10 @@
     iget-boolean v0, p1, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->preloadWalDb:Z
 
     iput-boolean v0, p0, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->preloadWalDb:Z
+
+    iget-boolean v0, p1, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->defaultWAL:Z
+
+    iput-boolean v0, p0, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->defaultWAL:Z
 
     iget v0, p1, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->maxSqlCacheSize:I
 

@@ -32,8 +32,6 @@
 
 .field static final TRANSACTION_registerProvider:I = 0x3
 
-.field static final TRANSACTION_setIgnoreProviderChanges:I = 0x4
-
 
 # direct methods
 .method public constructor <init>()V
@@ -91,7 +89,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 12
+    .locals 11
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -100,7 +98,7 @@
 
     sparse-switch p1, :sswitch_data_0
 
-    invoke-super/range {p0 .. p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v0
 
@@ -152,11 +150,11 @@
 
     invoke-virtual/range {v0 .. v7}, Landroid/content/IBridgeService$Stub;->queryProvider(Ljava/lang/String;Ljava/lang/String;I[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/content/CustomCursor;
 
-    move-result-object v10
+    move-result-object v9
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v10, :cond_0
+    if-eqz v9, :cond_0
 
     const/4 v0, 0x1
 
@@ -164,7 +162,7 @@
 
     const/4 v0, 0x1
 
-    invoke-virtual {v10, p3, v0}, Landroid/content/CustomCursor;->writeToParcel(Landroid/os/Parcel;I)V
+    invoke-virtual {v9, p3, v0}, Landroid/content/CustomCursor;->writeToParcel(Landroid/os/Parcel;I)V
 
     :goto_0
     const/4 v0, 0x1
@@ -215,11 +213,11 @@
 
     invoke-virtual/range {v0 .. v7}, Landroid/content/IBridgeService$Stub;->queryAllProviders(Ljava/lang/String;Ljava/lang/String;I[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
 
-    move-result-object v11
+    move-result-object v10
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    invoke-virtual {p3, v11}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
+    invoke-virtual {p3, v10}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
 
     const/4 v0, 0x1
 
@@ -250,45 +248,11 @@
 
     return v0
 
-    :sswitch_4
-    const-string/jumbo v0, "android.content.IBridgeService"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    const/4 v9, 0x1
-
-    :goto_1
-    invoke-virtual {p0, v1, v9}, Landroid/content/IBridgeService$Stub;->setIgnoreProviderChanges(Ljava/lang/String;Z)V
-
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    const/4 v0, 0x1
-
-    return v0
-
-    :cond_1
-    const/4 v9, 0x0
-
-    goto :goto_1
-
-    nop
-
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_1
         0x2 -> :sswitch_2
         0x3 -> :sswitch_3
-        0x4 -> :sswitch_4
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

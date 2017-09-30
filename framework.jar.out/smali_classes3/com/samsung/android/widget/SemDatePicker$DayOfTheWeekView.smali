@@ -94,7 +94,7 @@
 
     iput v3, p0, Lcom/samsung/android/widget/SemDatePicker$DayOfTheWeekView;->mSaturdayTextColor:I
 
-    const v3, 0x1050300
+    const v3, 0x1050301
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

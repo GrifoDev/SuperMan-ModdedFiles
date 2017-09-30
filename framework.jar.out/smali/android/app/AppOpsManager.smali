@@ -1668,11 +1668,9 @@
 
     aput-object v6, v3, v4
 
-    const-string/jumbo v4, "no_create_windows"
+    const/16 v4, 0x40
 
-    const/16 v5, 0x40
-
-    aput-object v4, v3, v5
+    aput-object v6, v3, v4
 
     sput-object v3, Landroid/app/AppOpsManager;->sOpRestrictions:[Ljava/lang/String;
 
@@ -2129,8 +2127,6 @@
 
     :cond_b
     return-void
-
-    nop
 
     :array_0
     .array-data 4

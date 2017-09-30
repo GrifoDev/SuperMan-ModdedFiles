@@ -595,7 +595,7 @@
 
     move-result-object v3
 
-    const v4, 0x10406dc
+    const v4, 0x10406e3
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -607,7 +607,7 @@
 
     move-result-object v3
 
-    const v4, 0x10406dd
+    const v4, 0x10406e4
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -691,7 +691,7 @@
 
     move-result-object v7
 
-    const v8, 0x1050240
+    const v8, 0x1050241
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -709,7 +709,7 @@
 
     move-result-object v7
 
-    const v8, 0x1050241
+    const v8, 0x1050242
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -766,7 +766,7 @@
 
     move-result-object v7
 
-    const v8, 0x10406dd
+    const v8, 0x10406e4
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -818,7 +818,7 @@
 
     move-result-object v7
 
-    const v8, 0x10502c6
+    const v8, 0x10502c7
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1025,7 +1025,7 @@
 
     iget-object v7, v0, Lcom/samsung/android/share/SShareSimpleSharing;->mContext:Landroid/content/Context;
 
-    const v8, 0x10406de
+    const v8, 0x10406e5
 
     invoke-virtual {v7, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1718,7 +1718,7 @@
 
     move-result-object v7
 
-    const v8, 0x10406dd
+    const v8, 0x10406e4
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1783,7 +1783,7 @@
 
     move-result-object v8
 
-    const v9, 0x105023c
+    const v9, 0x105023d
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1795,7 +1795,7 @@
 
     move-result-object v8
 
-    const v9, 0x105023d
+    const v9, 0x105023e
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

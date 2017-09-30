@@ -247,54 +247,52 @@
 
     invoke-virtual {p0}, Landroid/database/sqlite/SQLiteStatement;->acquireReference()V
 
+    const/4 v1, 0x6
+
     :try_start_0
     invoke-virtual {p0}, Landroid/database/sqlite/SQLiteStatement;->getSession()Landroid/database/sqlite/SQLiteSession;
 
-    move-result-object v1
+    move-result-object v2
 
     invoke-virtual {p0}, Landroid/database/sqlite/SQLiteStatement;->getSql()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
     invoke-virtual {p0}, Landroid/database/sqlite/SQLiteStatement;->getBindArgs()[Ljava/lang/Object;
 
-    move-result-object v3
-
-    invoke-virtual {p0}, Landroid/database/sqlite/SQLiteStatement;->getConnectionFlags()I
-
-    move-result v4
+    move-result-object v4
 
     const/4 v5, 0x0
 
-    invoke-virtual {v1, v2, v3, v4, v5}, Landroid/database/sqlite/SQLiteSession;->executeForString(Ljava/lang/String;[Ljava/lang/Object;ILandroid/os/CancellationSignal;)Ljava/lang/String;
+    invoke-virtual {v2, v3, v4, v1, v5}, Landroid/database/sqlite/SQLiteSession;->executeForString(Ljava/lang/String;[Ljava/lang/Object;ILandroid/os/CancellationSignal;)Ljava/lang/String;
     :try_end_0
     .catch Landroid/database/sqlite/SQLiteDatabaseCorruptException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result-object v1
+    move-result-object v2
 
     invoke-virtual {p0}, Landroid/database/sqlite/SQLiteStatement;->releaseReference()V
 
-    return-object v1
+    return-object v2
 
     :catch_0
     move-exception v0
 
     :try_start_1
-    const-string/jumbo v1, "false"
+    const-string/jumbo v2, "false"
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     invoke-virtual {p0}, Landroid/database/sqlite/SQLiteStatement;->releaseReference()V
 
-    return-object v1
+    return-object v2
 
     :catchall_0
-    move-exception v1
+    move-exception v2
 
     invoke-virtual {p0}, Landroid/database/sqlite/SQLiteStatement;->releaseReference()V
 
-    throw v1
+    throw v2
 .end method
 
 .method public simpleQueryForLong()J

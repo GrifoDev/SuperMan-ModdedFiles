@@ -37,7 +37,7 @@
     .end annotation
 .end field
 
-.field private mGrayscaleIconMaxSize:I
+.field private final mGrayscaleIconMaxSize:I
 
 .field private final mImageUtils:Lcom/android/internal/util/ImageUtils;
 
@@ -973,22 +973,4 @@
 
     :cond_7
     return v4
-.end method
-
-.method public updateGrayScaleIconMaxSize(Landroid/content/Context;)V
-    .locals 2
-
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x1050005
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/android/internal/util/NotificationColorUtil;->mGrayscaleIconMaxSize:I
-
-    return-void
 .end method

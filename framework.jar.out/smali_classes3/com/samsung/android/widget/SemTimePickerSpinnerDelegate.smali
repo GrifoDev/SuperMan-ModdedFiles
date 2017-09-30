@@ -253,7 +253,7 @@
 
     move-result-object v7
 
-    const v8, 0x10408da
+    const v8, 0x10408e3
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -360,7 +360,7 @@
 
     iput v6, p0, Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;->mDefaultWidth:I
 
-    const v6, 0x1050323
+    const v6, 0x1050324
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -422,7 +422,7 @@
 
     move-result-object v7
 
-    const v8, 0x10408db
+    const v8, 0x10408e4
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

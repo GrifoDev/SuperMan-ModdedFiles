@@ -26,6 +26,8 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.app.usage.IUsageStatsManager"
 
+.field static final TRANSACTION_deleteUsageStats:I = 0xa
+
 .field static final TRANSACTION_isAppInactive:I = 0x5
 
 .field static final TRANSACTION_onCarrierPrivilegedAppsChanged:I = 0x7
@@ -500,6 +502,21 @@
 
     return v4
 
+    :sswitch_a
+    const-string/jumbo v4, "android.app.usage.IUsageStatsManager"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p0 .. p0}, Landroid/app/usage/IUsageStatsManager$Stub;->deleteUsageStats()V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v4, 0x1
+
+    return v4
+
     nop
 
     :sswitch_data_0
@@ -513,6 +530,7 @@
         0x7 -> :sswitch_7
         0x8 -> :sswitch_8
         0x9 -> :sswitch_9
+        0xa -> :sswitch_a
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

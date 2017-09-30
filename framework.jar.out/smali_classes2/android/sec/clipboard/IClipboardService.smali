@@ -107,6 +107,14 @@
     .end annotation
 .end method
 
+.method public abstract isClipboardShareAllowed(I)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract isEnabled()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {

@@ -15,6 +15,14 @@
 
 
 # virtual methods
+.method public abstract deleteUsageStats()V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract isAppInactive(Ljava/lang/String;I)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {

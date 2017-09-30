@@ -287,7 +287,7 @@
 
     move-result-object v27
 
-    const v28, 0x1050386
+    const v28, 0x1050387
 
     invoke-virtual/range {v27 .. v28}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -307,7 +307,7 @@
 
     move-result-object v27
 
-    const v28, 0x1050387
+    const v28, 0x1050388
 
     invoke-virtual/range {v27 .. v28}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -706,7 +706,7 @@
 
     move-result-object v27
 
-    const v28, 0x1050384
+    const v28, 0x1050385
 
     invoke-virtual/range {v27 .. v28}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -728,7 +728,7 @@
 
     move-result-object v27
 
-    const v28, 0x1050385
+    const v28, 0x1050386
 
     invoke-virtual/range {v27 .. v28}, Landroid/content/res/Resources;->getDimension(I)F
 

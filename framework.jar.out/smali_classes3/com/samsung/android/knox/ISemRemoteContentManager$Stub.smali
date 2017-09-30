@@ -70,11 +70,11 @@
 
 .field static final TRANSACTION_registerCommandExe:I = 0x5
 
+.field static final TRANSACTION_registerDbObserver:I = 0x1d
+
 .field static final TRANSACTION_registerExchangeData:I = 0x18
 
 .field static final TRANSACTION_registerMonitorCb:I = 0x1a
-
-.field static final TRANSACTION_registerObserver:I = 0x1d
 
 .field static final TRANSACTION_registerProvider:I = 0x3
 
@@ -86,7 +86,7 @@
 
 .field static final TRANSACTION_switchPersona:I = 0x6
 
-.field static final TRANSACTION_unRegisterObserver:I = 0x1e
+.field static final TRANSACTION_unRegisterDbObserver:I = 0x1e
 
 
 # direct methods
@@ -1414,7 +1414,7 @@
 
     move/from16 v1, v37
 
-    invoke-virtual {v0, v5, v1}, Lcom/samsung/android/knox/ISemRemoteContentManager$Stub;->registerObserver(Ljava/lang/String;I)V
+    invoke-virtual {v0, v5, v1}, Lcom/samsung/android/knox/ISemRemoteContentManager$Stub;->registerDbObserver(Ljava/lang/String;I)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -1441,7 +1441,7 @@
 
     move/from16 v1, v37
 
-    invoke-virtual {v0, v5, v1}, Lcom/samsung/android/knox/ISemRemoteContentManager$Stub;->unRegisterObserver(Ljava/lang/String;I)V
+    invoke-virtual {v0, v5, v1}, Lcom/samsung/android/knox/ISemRemoteContentManager$Stub;->unRegisterDbObserver(Ljava/lang/String;I)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 

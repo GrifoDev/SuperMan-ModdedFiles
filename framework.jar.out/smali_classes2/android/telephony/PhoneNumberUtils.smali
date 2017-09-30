@@ -10461,16 +10461,6 @@
 
     if-lez v18, :cond_9
 
-    const-string/jumbo v18, "DTM"
-
-    sget-object v19, Lcom/android/internal/telephony/TelephonyFeatures;->SALES_CODE:Ljava/lang/String;
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v18
-
-    if-eqz v18, :cond_18
-
     new-instance v18, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
@@ -10498,7 +10488,6 @@
     move-result-object v13
 
     :cond_9
-    :goto_2
     const-string/jumbo v18, "persist.radio.test_emer_num"
 
     invoke-static/range {v18 .. v18}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
@@ -10630,7 +10619,7 @@
 
     move-result v18
 
-    if-nez v18, :cond_1f
+    if-nez v18, :cond_1e
 
     const-string/jumbo v18, ","
 
@@ -10648,12 +10637,12 @@
 
     move/from16 v20, v0
 
-    :goto_3
+    :goto_2
     move/from16 v0, v18
 
     move/from16 v1, v20
 
-    if-ge v0, v1, :cond_1e
+    if-ge v0, v1, :cond_1d
 
     aget-object v9, v19, v18
 
@@ -10681,13 +10670,13 @@
 
     move/from16 v1, v22
 
-    if-le v0, v1, :cond_19
+    if-le v0, v1, :cond_18
 
     const/16 v21, 0x1
 
     aget-object v2, v17, v21
 
-    :goto_4
+    :goto_3
     if-nez p2, :cond_d
 
     move-object/from16 v0, p1
@@ -10707,7 +10696,7 @@
 
     move-result v21
 
-    if-eqz v21, :cond_1d
+    if-eqz v21, :cond_1c
 
     const-string/jumbo v18, "46605"
 
@@ -10727,7 +10716,7 @@
 
     move-result v18
 
-    if-eqz v18, :cond_1c
+    if-eqz v18, :cond_1b
 
     :cond_e
     const-string/jumbo v18, "119"
@@ -10740,7 +10729,7 @@
 
     move-result v18
 
-    if-eqz v18, :cond_1a
+    if-eqz v18, :cond_19
 
     const/16 v18, 0x2
 
@@ -10811,7 +10800,7 @@
 
     move-result-object v13
 
-    :goto_5
+    :goto_4
     add-int/lit8 v10, v10, 0x1
 
     goto/16 :goto_0
@@ -10837,7 +10826,7 @@
 
     move-result-object v13
 
-    goto :goto_5
+    goto :goto_4
 
     :cond_11
     const-string/jumbo v18, "CTC"
@@ -11097,7 +11086,7 @@
     :cond_16
     const/4 v10, 0x0
 
-    :goto_6
+    :goto_5
     new-instance v18, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
@@ -11198,10 +11187,10 @@
 
     move-result-object v13
 
-    :goto_7
+    :goto_6
     add-int/lit8 v10, v10, 0x1
 
-    goto :goto_6
+    goto :goto_5
 
     :cond_17
     new-instance v18, Ljava/lang/StringBuilder;
@@ -11224,43 +11213,14 @@
 
     move-result-object v13
 
-    goto :goto_7
+    goto :goto_6
 
     :cond_18
-    new-instance v18, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    const-string/jumbo v19, ","
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v13
-
-    goto/16 :goto_2
-
-    :cond_19
     const-string/jumbo v2, ""
 
-    goto/16 :goto_4
+    goto/16 :goto_3
 
-    :cond_1a
+    :cond_19
     const-string/jumbo v18, "110"
 
     move-object/from16 v0, v18
@@ -11271,7 +11231,7 @@
 
     move-result v18
 
-    if-nez v18, :cond_1b
+    if-nez v18, :cond_1a
 
     const-string/jumbo v18, "112"
 
@@ -11283,9 +11243,9 @@
 
     move-result v18
 
-    if-eqz v18, :cond_1c
+    if-eqz v18, :cond_1b
 
-    :cond_1b
+    :cond_1a
     const/16 v18, 0x1
 
     invoke-static/range {v18 .. v18}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
@@ -11294,20 +11254,20 @@
 
     return-object v18
 
-    :cond_1c
+    :cond_1b
     return-object v2
 
-    :cond_1d
+    :cond_1c
     add-int/lit8 v18, v18, 0x1
 
-    goto/16 :goto_3
+    goto/16 :goto_2
 
-    :cond_1e
+    :cond_1d
     const/16 v18, 0x0
 
     return-object v18
 
-    :cond_1f
+    :cond_1e
     const-string/jumbo v18, "112"
 
     move-object/from16 v0, p1
@@ -11318,7 +11278,7 @@
 
     move-result v18
 
-    if-nez v18, :cond_20
+    if-nez v18, :cond_1f
 
     const-string/jumbo v18, "911"
 
@@ -11330,14 +11290,14 @@
 
     move-result v18
 
-    if-eqz v18, :cond_21
+    if-eqz v18, :cond_20
 
-    :cond_20
+    :cond_1f
     const-string/jumbo v18, ""
 
     return-object v18
 
-    :cond_21
+    :cond_20
     const/16 v18, 0x0
 
     return-object v18

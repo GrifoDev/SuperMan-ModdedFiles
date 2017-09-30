@@ -1713,7 +1713,7 @@
 
     :cond_5
     :goto_0
-    if-eqz v26, :cond_8
+    if-eqz v26, :cond_7
 
     sget-object v45, Ljava/net/Proxy;->NO_PROXY:Ljava/net/Proxy;
 
@@ -1817,7 +1817,7 @@
 
     move-object/from16 v45, v0
 
-    if-eqz v45, :cond_a
+    if-eqz v45, :cond_9
 
     move-object/from16 v0, p0
 
@@ -1838,7 +1838,7 @@
 
     move-result v45
 
-    if-eqz v45, :cond_a
+    if-eqz v45, :cond_9
 
     invoke-interface/range {v20 .. v20}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1887,39 +1887,8 @@
 
     iput-wide v0, v2, Landroid/media/MediaHTTPConnection;->mTotalSize:J
 
-    const/16 v45, 0x0
+    invoke-direct/range {p0 .. p0}, Landroid/media/MediaHTTPConnection;->teardownConnection()V
 
-    move-object/from16 v0, v45
-
-    move-object/from16 v1, p0
-
-    iput-object v0, v1, Landroid/media/MediaHTTPConnection;->mInputStream:Ljava/io/InputStream;
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/media/MediaHTTPConnection;->mConnection:Ljava/net/HttpURLConnection;
-
-    move-object/from16 v45, v0
-
-    if-eqz v45, :cond_7
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/media/MediaHTTPConnection;->mConnection:Ljava/net/HttpURLConnection;
-
-    move-object/from16 v45, v0
-
-    invoke-virtual/range {v45 .. v45}, Ljava/net/HttpURLConnection;->disconnect()V
-
-    const/16 v45, 0x0
-
-    move-object/from16 v0, v45
-
-    move-object/from16 v1, p0
-
-    iput-object v0, v1, Landroid/media/MediaHTTPConnection;->mConnection:Ljava/net/HttpURLConnection;
-
-    :cond_7
     const-wide/16 v46, -0x1
 
     move-wide/from16 v0, v46
@@ -1930,7 +1899,7 @@
 
     throw v15
 
-    :cond_8
+    :cond_7
     :try_start_1
     move-object/from16 v0, p0
 
@@ -1938,7 +1907,7 @@
 
     move/from16 v45, v0
 
-    if-eqz v45, :cond_9
+    if-eqz v45, :cond_8
 
     new-instance v28, Ljava/net/Proxy;
 
@@ -1986,7 +1955,7 @@
 
     goto/16 :goto_1
 
-    :cond_9
+    :cond_8
     invoke-virtual/range {v44 .. v44}, Ljava/net/URL;->openConnection()Ljava/net/URLConnection;
 
     move-result-object v45
@@ -2001,6 +1970,29 @@
 
     goto/16 :goto_1
 
+    :cond_9
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Landroid/media/MediaHTTPConnection;->mTimeSeekRequested:Z
+
+    move/from16 v45, v0
+
+    if-nez v45, :cond_a
+
+    const-wide/16 v46, 0x0
+
+    cmp-long v45, p1, v46
+
+    if-lez v45, :cond_a
+
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Landroid/media/MediaHTTPConnection;->mIsDLNA:Z
+
+    move/from16 v45, v0
+
+    if-eqz v45, :cond_b
+
     :cond_a
     move-object/from16 v0, p0
 
@@ -2008,13 +2000,13 @@
 
     move/from16 v45, v0
 
-    if-nez v45, :cond_b
+    if-nez v45, :cond_c
 
     const-wide/16 v46, 0x0
 
     cmp-long v45, p1, v46
 
-    if-lez v45, :cond_b
+    if-lez v45, :cond_c
 
     move-object/from16 v0, p0
 
@@ -2023,29 +2015,6 @@
     move/from16 v45, v0
 
     if-eqz v45, :cond_c
-
-    :cond_b
-    move-object/from16 v0, p0
-
-    iget-boolean v0, v0, Landroid/media/MediaHTTPConnection;->mTimeSeekRequested:Z
-
-    move/from16 v45, v0
-
-    if-nez v45, :cond_d
-
-    const-wide/16 v46, 0x0
-
-    cmp-long v45, p1, v46
-
-    if-lez v45, :cond_d
-
-    move-object/from16 v0, p0
-
-    iget-boolean v0, v0, Landroid/media/MediaHTTPConnection;->mIsDLNA:Z
-
-    move/from16 v45, v0
-
-    if-eqz v45, :cond_d
 
     move-object/from16 v0, p0
 
@@ -2059,7 +2028,7 @@
 
     move/from16 v1, v46
 
-    if-eq v0, v1, :cond_c
+    if-eq v0, v1, :cond_b
 
     move-object/from16 v0, p0
 
@@ -2073,9 +2042,9 @@
 
     move/from16 v1, v46
 
-    if-ne v0, v1, :cond_d
+    if-ne v0, v1, :cond_c
 
-    :cond_c
+    :cond_b
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/media/MediaHTTPConnection;->mConnection:Ljava/net/HttpURLConnection;
@@ -2114,14 +2083,14 @@
 
     invoke-virtual/range {v45 .. v47}, Ljava/net/HttpURLConnection;->setRequestProperty(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_d
+    :cond_c
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/media/MediaHTTPConnection;->mIsDLNA:Z
 
     move/from16 v45, v0
 
-    if-eqz v45, :cond_e
+    if-eqz v45, :cond_d
 
     move-object/from16 v0, p0
 
@@ -2129,9 +2098,9 @@
 
     move/from16 v45, v0
 
-    if-eqz v45, :cond_11
+    if-eqz v45, :cond_10
 
-    :cond_e
+    :cond_d
     :goto_3
     move-object/from16 v0, p0
 
@@ -2175,7 +2144,7 @@
 
     move/from16 v1, v45
 
-    if-eq v0, v1, :cond_12
+    if-eq v0, v1, :cond_11
 
     const/16 v45, 0x12d
 
@@ -2183,7 +2152,7 @@
 
     move/from16 v1, v45
 
-    if-eq v0, v1, :cond_12
+    if-eq v0, v1, :cond_11
 
     const/16 v45, 0x12e
 
@@ -2191,7 +2160,7 @@
 
     move/from16 v1, v45
 
-    if-eq v0, v1, :cond_12
+    if-eq v0, v1, :cond_11
 
     const/16 v45, 0x12f
 
@@ -2199,7 +2168,7 @@
 
     move/from16 v1, v45
 
-    if-eq v0, v1, :cond_12
+    if-eq v0, v1, :cond_11
 
     const/16 v45, 0x133
 
@@ -2207,7 +2176,7 @@
 
     move/from16 v1, v45
 
-    if-eq v0, v1, :cond_12
+    if-eq v0, v1, :cond_11
 
     move-object/from16 v0, p0
 
@@ -2215,7 +2184,7 @@
 
     move/from16 v45, v0
 
-    if-eqz v45, :cond_f
+    if-eqz v45, :cond_e
 
     move-object/from16 v0, p0
 
@@ -2233,14 +2202,14 @@
 
     iput-object v0, v1, Landroid/media/MediaHTTPConnection;->mURL:Ljava/net/URL;
 
-    :cond_f
+    :cond_e
     const/16 v45, 0xce
 
     move/from16 v0, v30
 
     move/from16 v1, v45
 
-    if-ne v0, v1, :cond_1d
+    if-ne v0, v1, :cond_1c
 
     move-object/from16 v0, p0
 
@@ -2262,7 +2231,7 @@
 
     iput-wide v0, v2, Landroid/media/MediaHTTPConnection;->mTotalSize:J
 
-    if-eqz v8, :cond_10
+    if-eqz v8, :cond_f
 
     const/16 v45, 0x2f
 
@@ -2272,7 +2241,7 @@
 
     move-result v23
 
-    if-ltz v23, :cond_10
+    if-ltz v23, :cond_f
 
     add-int/lit8 v45, v23, 0x1
 
@@ -2298,7 +2267,7 @@
     .catch Ljava/lang/NumberFormatException; {:try_start_2 .. :try_end_2} :catch_3
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
 
-    :cond_10
+    :cond_f
     :goto_4
     :try_start_3
     move-object/from16 v0, p0
@@ -2307,13 +2276,13 @@
 
     move/from16 v45, v0
 
-    if-nez v45, :cond_20
+    if-nez v45, :cond_1f
 
     const-wide/16 v46, 0x0
 
     cmp-long v45, p1, v46
 
-    if-lez v45, :cond_20
+    if-lez v45, :cond_1f
 
     const/16 v45, 0xce
 
@@ -2321,7 +2290,7 @@
 
     move/from16 v1, v45
 
-    if-eq v0, v1, :cond_20
+    if-eq v0, v1, :cond_1f
 
     const-string/jumbo v45, "MediaHTTPConnection"
 
@@ -2343,7 +2312,7 @@
 
     throw v45
 
-    :cond_11
+    :cond_10
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/media/MediaHTTPConnection;->mSeekOptions:I
@@ -2356,7 +2325,7 @@
 
     move/from16 v1, v46
 
-    if-ne v0, v1, :cond_e
+    if-ne v0, v1, :cond_d
 
     move-object/from16 v0, p0
 
@@ -2364,13 +2333,13 @@
 
     move/from16 v45, v0
 
-    if-nez v45, :cond_e
+    if-nez v45, :cond_d
 
     const-wide/16 v46, 0x0
 
     cmp-long v45, p1, v46
 
-    if-lez v45, :cond_e
+    if-lez v45, :cond_d
 
     move-object/from16 v0, p0
 
@@ -2412,7 +2381,7 @@
 
     goto/16 :goto_3
 
-    :cond_12
+    :cond_11
     add-int/lit8 v29, v29, 0x1
 
     const/16 v45, 0x14
@@ -2421,7 +2390,7 @@
 
     move/from16 v1, v45
 
-    if-le v0, v1, :cond_13
+    if-le v0, v1, :cond_12
 
     new-instance v45, Ljava/net/NoRouteToHostException;
 
@@ -2451,7 +2420,7 @@
 
     throw v45
 
-    :cond_13
+    :cond_12
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/media/MediaHTTPConnection;->mConnection:Ljava/net/HttpURLConnection;
@@ -2468,7 +2437,7 @@
 
     move/from16 v1, v45
 
-    if-ne v0, v1, :cond_14
+    if-ne v0, v1, :cond_13
 
     const-string/jumbo v45, "GET"
 
@@ -2480,9 +2449,9 @@
 
     move-result v45
 
-    if-eqz v45, :cond_15
+    if-eqz v45, :cond_14
 
-    :cond_14
+    :cond_13
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/media/MediaHTTPConnection;->mConnection:Ljava/net/HttpURLConnection;
@@ -2495,7 +2464,7 @@
 
     move-result-object v24
 
-    if-nez v24, :cond_16
+    if-nez v24, :cond_15
 
     new-instance v45, Ljava/net/NoRouteToHostException;
 
@@ -2505,7 +2474,7 @@
 
     throw v45
 
-    :cond_15
+    :cond_14
     const-string/jumbo v45, "HEAD"
 
     move-object/from16 v0, v25
@@ -2516,7 +2485,7 @@
 
     move-result v45
 
-    if-nez v45, :cond_14
+    if-nez v45, :cond_13
 
     new-instance v45, Ljava/net/NoRouteToHostException;
 
@@ -2526,7 +2495,7 @@
 
     throw v45
 
-    :cond_16
+    :cond_15
     new-instance v44, Ljava/net/URL;
 
     move-object/from16 v0, p0
@@ -2553,7 +2522,7 @@
 
     move-result v45
 
-    if-nez v45, :cond_17
+    if-nez v45, :cond_16
 
     invoke-virtual/range {v44 .. v44}, Ljava/net/URL;->getProtocol()Ljava/lang/String;
 
@@ -2565,9 +2534,9 @@
 
     move-result v45
 
-    if-eqz v45, :cond_1a
+    if-eqz v45, :cond_19
 
-    :cond_17
+    :cond_16
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/media/MediaHTTPConnection;->mURL:Ljava/net/URL;
@@ -2592,11 +2561,11 @@
 
     move/from16 v45, v0
 
-    if-nez v45, :cond_18
+    if-nez v45, :cond_17
 
-    if-eqz v32, :cond_1b
+    if-eqz v32, :cond_1a
 
-    :cond_18
+    :cond_17
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/media/MediaHTTPConnection;->mURL:Ljava/net/URL;
@@ -2621,11 +2590,11 @@
 
     move/from16 v45, v0
 
-    if-nez v45, :cond_19
+    if-nez v45, :cond_18
 
-    if-eqz v31, :cond_1c
+    if-eqz v31, :cond_1b
 
-    :cond_19
+    :cond_18
     const/16 v45, 0x133
 
     move/from16 v0, v30
@@ -2642,7 +2611,7 @@
 
     goto/16 :goto_0
 
-    :cond_1a
+    :cond_19
     new-instance v45, Ljava/net/NoRouteToHostException;
 
     const-string/jumbo v46, "Unsupported protocol redirect"
@@ -2651,7 +2620,7 @@
 
     throw v45
 
-    :cond_1b
+    :cond_1a
     new-instance v45, Ljava/net/NoRouteToHostException;
 
     const-string/jumbo v46, "Cross-protocol redirects are disallowed"
@@ -2660,7 +2629,7 @@
 
     throw v45
 
-    :cond_1c
+    :cond_1b
     new-instance v45, Ljava/net/NoRouteToHostException;
 
     const-string/jumbo v46, "Cross-domain redirects are disallowed"
@@ -2669,14 +2638,14 @@
 
     throw v45
 
-    :cond_1d
+    :cond_1c
     const/16 v45, 0xc8
 
     move/from16 v0, v30
 
     move/from16 v1, v45
 
-    if-eq v0, v1, :cond_1e
+    if-eq v0, v1, :cond_1d
 
     move/from16 v0, v30
 
@@ -2690,7 +2659,7 @@
 
     throw v45
 
-    :cond_1e
+    :cond_1d
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/media/MediaHTTPConnection;->mConnection:Ljava/net/HttpURLConnection;
@@ -2723,7 +2692,7 @@
 
     cmp-long v45, v46, v48
 
-    if-nez v45, :cond_1f
+    if-nez v45, :cond_1e
 
     move-object/from16 v0, p0
 
@@ -2737,7 +2706,7 @@
 
     move-result-object v9
 
-    if-eqz v9, :cond_1f
+    if-eqz v9, :cond_1e
 
     invoke-static {v9}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
@@ -2749,7 +2718,7 @@
 
     iput-wide v0, v2, Landroid/media/MediaHTTPConnection;->mTotalSize:J
 
-    :cond_1f
+    :cond_1e
     const-string/jumbo v45, "MediaHTTPConnection"
 
     new-instance v46, Ljava/lang/StringBuilder;
@@ -2786,7 +2755,7 @@
 
     goto/16 :goto_4
 
-    :cond_20
+    :cond_1f
     :try_start_4
     move-object/from16 v0, p0
 
@@ -2794,7 +2763,7 @@
 
     move/from16 v45, v0
 
-    if-eqz v45, :cond_27
+    if-eqz v45, :cond_26
 
     move-object/from16 v0, p0
 
@@ -2808,7 +2777,7 @@
 
     move/from16 v1, v46
 
-    if-ne v0, v1, :cond_27
+    if-ne v0, v1, :cond_26
 
     move-object/from16 v0, p0
 
@@ -2848,7 +2817,7 @@
 
     invoke-static/range {v45 .. v46}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz v41, :cond_2f
+    if-eqz v41, :cond_2e
 
     const/16 v45, 0x0
 
@@ -2930,7 +2899,7 @@
 
     invoke-static/range {v45 .. v46}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz v5, :cond_22
+    if-eqz v5, :cond_21
 
     new-instance v6, Ljava/util/StringTokenizer;
 
@@ -2955,7 +2924,7 @@
 
     move-result v45
 
-    if-eqz v45, :cond_21
+    if-eqz v45, :cond_20
 
     add-int/lit8 v12, v13, 0x1
 
@@ -3015,7 +2984,7 @@
 
     goto :goto_5
 
-    :cond_21
+    :cond_20
     const/16 v45, 0x0
 
     aget-wide p1, v7, v45
@@ -3088,7 +3057,7 @@
 
     invoke-static/range {v45 .. v46}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_22
+    :cond_21
     move-object/from16 v27, v40
 
     const-string/jumbo v45, "MediaHTTPConnection"
@@ -3117,7 +3086,7 @@
 
     invoke-static/range {v45 .. v46}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz v40, :cond_26
+    if-eqz v40, :cond_25
 
     const/16 v45, 0x3a
 
@@ -3129,7 +3098,7 @@
 
     move-result v45
 
-    if-lez v45, :cond_2a
+    if-lez v45, :cond_29
 
     new-instance v35, Ljava/util/StringTokenizer;
 
@@ -3160,13 +3129,13 @@
 
     move/from16 v1, v45
 
-    if-ge v0, v1, :cond_23
+    if-ge v0, v1, :cond_22
 
     invoke-virtual/range {v35 .. v35}, Ljava/util/StringTokenizer;->hasMoreElements()Z
 
     move-result v45
 
-    if-eqz v45, :cond_23
+    if-eqz v45, :cond_22
 
     invoke-virtual/range {v35 .. v35}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
@@ -3178,14 +3147,14 @@
 
     goto :goto_6
 
-    :cond_23
+    :cond_22
     const/16 v45, 0x3
 
     move/from16 v0, v22
 
     move/from16 v1, v45
 
-    if-ne v0, v1, :cond_29
+    if-ne v0, v1, :cond_28
 
     new-instance v36, Ljava/util/StringTokenizer;
 
@@ -3266,25 +3235,25 @@
 
     move/from16 v1, v45
 
-    if-ge v0, v1, :cond_24
+    if-ge v0, v1, :cond_23
 
     invoke-virtual/range {v36 .. v36}, Ljava/util/StringTokenizer;->hasMoreElements()Z
 
     move-result v45
 
-    if-eqz v45, :cond_24
+    if-eqz v45, :cond_23
 
     invoke-virtual/range {v37 .. v37}, Ljava/util/StringTokenizer;->hasMoreElements()Z
 
     move-result v45
 
-    if-eqz v45, :cond_24
+    if-eqz v45, :cond_23
 
     invoke-virtual/range {v38 .. v38}, Ljava/util/StringTokenizer;->hasMoreElements()Z
 
     move-result v45
 
-    if-eqz v45, :cond_24
+    if-eqz v45, :cond_23
 
     invoke-virtual/range {v36 .. v36}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
@@ -3308,14 +3277,14 @@
 
     goto :goto_7
 
-    :cond_24
+    :cond_23
     const/16 v45, 0x3
 
     move/from16 v0, v22
 
     move/from16 v1, v45
 
-    if-ne v0, v1, :cond_28
+    if-ne v0, v1, :cond_27
 
     const/16 v45, 0x0
 
@@ -3539,7 +3508,7 @@
 
     iput-wide v0, v2, Landroid/media/MediaHTTPConnection;->mDuration:J
 
-    :cond_25
+    :cond_24
     :goto_8
     const-string/jumbo v45, "MediaHTTPConnection"
 
@@ -3613,7 +3582,7 @@
 
     invoke-static/range {v45 .. v46}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_26
+    :cond_25
     :goto_9
     const-string/jumbo v45, "MediaHTTPConnection"
 
@@ -3624,7 +3593,7 @@
     .catch Ljava/lang/ClassCastException; {:try_start_4 .. :try_end_4} :catch_1
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_0
 
-    :cond_27
+    :cond_26
     :goto_a
     :try_start_5
     new-instance v45, Ljava/io/BufferedInputStream;
@@ -3657,7 +3626,7 @@
 
     return-void
 
-    :cond_28
+    :cond_27
     :try_start_6
     const-string/jumbo v45, "MediaHTTPConnection"
 
@@ -3672,7 +3641,7 @@
 
     goto :goto_a
 
-    :cond_29
+    :cond_28
     const-string/jumbo v45, "MediaHTTPConnection"
 
     const-string/jumbo v46, "npt info token parsing failed "
@@ -3681,7 +3650,7 @@
 
     goto/16 :goto_8
 
-    :cond_2a
+    :cond_29
     const/16 v21, 0x0
 
     const-string/jumbo v45, "*"
@@ -3694,7 +3663,7 @@
 
     move-result v45
 
-    if-eqz v45, :cond_2b
+    if-eqz v45, :cond_2a
 
     const/16 v21, 0x1
 
@@ -3708,7 +3677,7 @@
 
     move-result v23
 
-    if-ltz v23, :cond_25
+    if-ltz v23, :cond_24
 
     const/16 v45, 0x0
 
@@ -3783,7 +3752,7 @@
 
     goto/16 :goto_8
 
-    :cond_2b
+    :cond_2a
     :try_start_8
     new-instance v35, Ljava/util/StringTokenizer;
 
@@ -3814,7 +3783,7 @@
 
     move-result v45
 
-    if-eqz v45, :cond_2c
+    if-eqz v45, :cond_2b
 
     add-int/lit8 v10, v11, 0x1
 
@@ -3846,12 +3815,12 @@
 
     goto :goto_b
 
-    :cond_2c
+    :cond_2b
     const/16 v45, 0x3
 
     move/from16 v0, v45
 
-    if-ne v11, v0, :cond_2d
+    if-ne v11, v0, :cond_2c
 
     const/16 v45, 0x0
 
@@ -3885,12 +3854,12 @@
 
     goto/16 :goto_8
 
-    :cond_2d
+    :cond_2c
     const/16 v45, 0x2
 
     move/from16 v0, v45
 
-    if-ne v11, v0, :cond_2e
+    if-ne v11, v0, :cond_2d
 
     const/16 v45, 0x0
 
@@ -3914,7 +3883,7 @@
 
     goto/16 :goto_8
 
-    :cond_2e
+    :cond_2d
     const-string/jumbo v45, "MediaHTTPConnection"
 
     const-string/jumbo v46, "nptinfo token parsing failed-2"
@@ -3923,7 +3892,7 @@
 
     goto/16 :goto_8
 
-    :cond_2f
+    :cond_2e
     const-string/jumbo v45, "MediaHTTPConnection"
 
     const-string/jumbo v46, "TimeSeekRange.dlna.org not found"
@@ -3942,28 +3911,46 @@
 .end method
 
 .method private teardownConnection()V
-    .locals 2
+    .locals 4
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    iget-object v0, p0, Landroid/media/MediaHTTPConnection;->mConnection:Ljava/net/HttpURLConnection;
+    iget-object v1, p0, Landroid/media/MediaHTTPConnection;->mConnection:Ljava/net/HttpURLConnection;
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_1
 
-    iput-object v1, p0, Landroid/media/MediaHTTPConnection;->mInputStream:Ljava/io/InputStream;
+    iget-object v1, p0, Landroid/media/MediaHTTPConnection;->mInputStream:Ljava/io/InputStream;
 
-    iget-object v0, p0, Landroid/media/MediaHTTPConnection;->mConnection:Ljava/net/HttpURLConnection;
+    if-eqz v1, :cond_0
 
-    invoke-virtual {v0}, Ljava/net/HttpURLConnection;->disconnect()V
+    :try_start_0
+    iget-object v1, p0, Landroid/media/MediaHTTPConnection;->mInputStream:Ljava/io/InputStream;
 
-    iput-object v1, p0, Landroid/media/MediaHTTPConnection;->mConnection:Ljava/net/HttpURLConnection;
+    invoke-virtual {v1}, Ljava/io/InputStream;->close()V
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    const-wide/16 v0, -0x1
-
-    iput-wide v0, p0, Landroid/media/MediaHTTPConnection;->mCurrentOffset:J
+    :goto_0
+    iput-object v2, p0, Landroid/media/MediaHTTPConnection;->mInputStream:Ljava/io/InputStream;
 
     :cond_0
+    iget-object v1, p0, Landroid/media/MediaHTTPConnection;->mConnection:Ljava/net/HttpURLConnection;
+
+    invoke-virtual {v1}, Ljava/net/HttpURLConnection;->disconnect()V
+
+    iput-object v2, p0, Landroid/media/MediaHTTPConnection;->mConnection:Ljava/net/HttpURLConnection;
+
+    const-wide/16 v2, -0x1
+
+    iput-wide v2, p0, Landroid/media/MediaHTTPConnection;->mCurrentOffset:J
+
+    :cond_1
     return-void
+
+    :catch_0
+    move-exception v0
+
+    goto :goto_0
 .end method
 
 .method private updateSeekOptions()V

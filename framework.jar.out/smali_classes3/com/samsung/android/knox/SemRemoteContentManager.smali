@@ -1039,6 +1039,70 @@
     goto :goto_0
 .end method
 
+.method public registerDbObserver(Ljava/lang/String;I)V
+    .locals 4
+
+    iget-object v1, p0, Lcom/samsung/android/knox/SemRemoteContentManager;->mService:Lcom/samsung/android/knox/ISemRemoteContentManager;
+
+    if-eqz v1, :cond_0
+
+    :try_start_0
+    const-string/jumbo v1, "SemRemoteContentManager"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "registerDbObserver, SyncerName "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, " ,userId :"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v1, p0, Lcom/samsung/android/knox/SemRemoteContentManager;->mService:Lcom/samsung/android/knox/ISemRemoteContentManager;
+
+    invoke-interface {v1, p1, p2}, Lcom/samsung/android/knox/ISemRemoteContentManager;->registerDbObserver(Ljava/lang/String;I)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "SemRemoteContentManager"
+
+    const-string/jumbo v2, "RemoteException trying to register registerDbObserver"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+
+    goto :goto_0
+.end method
+
 .method public registerExchangeData(Landroid/content/Context;Landroid/os/IRunnableCallback;I)Z
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
@@ -1097,70 +1161,6 @@
     const/4 v1, 0x1
 
     return v1
-.end method
-
-.method public registerObserver(Ljava/lang/String;I)V
-    .locals 4
-
-    iget-object v1, p0, Lcom/samsung/android/knox/SemRemoteContentManager;->mService:Lcom/samsung/android/knox/ISemRemoteContentManager;
-
-    if-eqz v1, :cond_0
-
-    :try_start_0
-    const-string/jumbo v1, "SemRemoteContentManager"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "registerObserver, SyncerName "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, " ,userId :"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v1, p0, Lcom/samsung/android/knox/SemRemoteContentManager;->mService:Lcom/samsung/android/knox/ISemRemoteContentManager;
-
-    invoke-interface {v1, p1, p2}, Lcom/samsung/android/knox/ISemRemoteContentManager;->registerObserver(Ljava/lang/String;I)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :cond_0
-    :goto_0
-    return-void
-
-    :catch_0
-    move-exception v0
-
-    const-string/jumbo v1, "SemRemoteContentManager"
-
-    const-string/jumbo v2, "RemoteException trying to register globalContactsDir"
-
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
-
-    goto :goto_0
 .end method
 
 .method public registerProvider(Ljava/lang/String;Landroid/content/IProviderCallBack;I)V
@@ -1411,7 +1411,7 @@
     goto :goto_0
 .end method
 
-.method public unRegisterObserver(Ljava/lang/String;I)V
+.method public unRegisterDbObserver(Ljava/lang/String;I)V
     .locals 4
 
     iget-object v1, p0, Lcom/samsung/android/knox/SemRemoteContentManager;->mService:Lcom/samsung/android/knox/ISemRemoteContentManager;
@@ -1425,7 +1425,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v3, "registerObserver, SyncerName "
+    const-string/jumbo v3, "unRegisterDbObserver, SyncerName "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1453,7 +1453,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/knox/SemRemoteContentManager;->mService:Lcom/samsung/android/knox/ISemRemoteContentManager;
 
-    invoke-interface {v1, p1, p2}, Lcom/samsung/android/knox/ISemRemoteContentManager;->unRegisterObserver(Ljava/lang/String;I)V
+    invoke-interface {v1, p1, p2}, Lcom/samsung/android/knox/ISemRemoteContentManager;->unRegisterDbObserver(Ljava/lang/String;I)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1466,7 +1466,7 @@
 
     const-string/jumbo v1, "SemRemoteContentManager"
 
-    const-string/jumbo v2, "RemoteException trying to register globalContactsDir"
+    const-string/jumbo v2, "RemoteException trying to unRegisterDbObserver"
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
