@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">Yuklab olingan ilovalar yo‘q</string>
     <string name="no_room_any_page">Sahifada joy yo‘q.</string>
     <string name="no_space_page">Sahifada joy yo‘q. Boshqa sahifaga yorliq qo‘shishga urining.</string>
+    <string name="no_space_page_for_widget">Bu sahifada joy yo‘q.</string>
     <string name="not_selected">Tanlanmagan</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">%s vidjeti avvalroq asosiy ekranga qo‘shilgan.</string>
@@ -176,7 +177,7 @@ qo‘shish"</string>
     <string name="read_home_screen_settings">As. ekran param-ni o‘qish</string>
     <string name="read_home_screen_settings_info">Bu ilova asosiy ekran parametrlari va yorliqlarini o‘qishi mumkin.</string>
     <string name="rearrange_menu_icons_not_allowed">Ikonachalarni alifbo tartibida joylashtirib bo‘lmaydi.</string>
-    <string name="removable_preloadapp_uninstall_message">%s yo‘q qilinadi. Uni qayta yuklab olish uchun ilovalar ro‘yxatiga o‘ting, ko‘proq opsiyalar tugmasiga teging, so‘ngra GALAXY Asosiy dasturlarini tanlang.</string>
+    <string name="removable_preloadapp_uninstall_message">%s o‘chirib tashlanadi. Uni qayta yuklab olish uchun ilovalar ro‘yxatiga o‘ting, ko‘proq opsiyalar tugmasiga teging, so‘ngra Galaxy Essentials dasturlarini tanlang.</string>
     <string name="remove_app_folder_cancel">Bekor qilish</string>
     <string name="remove_app_folder_confirm">O‘chirish</string>
     <string name="remove_app_folder_confirm_VZW">Olib tashlash</string>

@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">Немає завантажених програм</string>
     <string name="no_room_any_page">Немає вільного місця на всіх сторінках</string>
     <string name="no_space_page">На сторінці немає місця. Додайте ярлик на іншу сторінку.</string>
+    <string name="no_space_page_for_widget">На цій сторінці немає місця.</string>
     <string name="not_selected">Не вибрано</string>
     <string name="ok">ОК</string>
     <string name="only_one_widget_instance_allowed">Віджет %s вже додано на головний екран.</string>
@@ -176,7 +177,7 @@
     <string name="read_home_screen_settings">Зчитування голов. екрана</string>
     <string name="read_home_screen_settings_info">Ця програма може отримувати інформацію про налаштування головного екрана та ярлики.</string>
     <string name="rearrange_menu_icons_not_allowed">Неможливо перевпорядкувати значки у алфавітному порядку.</string>
-    <string name="removable_preloadapp_uninstall_message">%s буде видалено. Для повторного завантаження перейдіть до списку програм і натисніть кнопку «Інші опції», а потім виберіть «Основні програми GALAXY».</string>
+    <string name="removable_preloadapp_uninstall_message">%s буде видалено. Для повторного завантаження перейдіть до списку програм і натисніть кнопку «Інші опції», а потім виберіть «Основні програми Galaxy».</string>
     <string name="remove_app_folder_cancel">Скасувати</string>
     <string name="remove_app_folder_confirm">Видалити</string>
     <string name="remove_app_folder_confirm_VZW">Видалити</string>

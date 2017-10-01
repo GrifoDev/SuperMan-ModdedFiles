@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">Ni prenesenih programov</string>
     <string name="no_room_any_page">Na nobeni strani ni več prostora.</string>
     <string name="no_space_page">Na strani ni prostora. Bližnjico poskusite dodati na drugo stran.</string>
+    <string name="no_space_page_for_widget">Na tej strani ni prostora.</string>
     <string name="not_selected">Ni izbrano</string>
     <string name="ok">V redu</string>
     <string name="only_one_widget_instance_allowed">Pripomoček %s je že dodan na domači zaslon.</string>
@@ -176,7 +177,7 @@ Varno mapo"</string>
     <string name="read_home_screen_settings">Branje nast. dom. zaslona</string>
     <string name="read_home_screen_settings_info">Ta aplikacija lahko bere nastavitve domačega zaslona in bližnjic.</string>
     <string name="rearrange_menu_icons_not_allowed">Ikon ni mogoče preurediti po abecednem vrstnem redu.</string>
-    <string name="removable_preloadapp_uninstall_message">Aplikacija %s bo izbrisana. Če jo želite znova prenesti, odprite seznam aplikacij, pritisnite gumb za več možnosti in izberite GALAXY Essentials.</string>
+    <string name="removable_preloadapp_uninstall_message">Aplikacija %s bo izbrisana. Če jo želite znova prenesti, odprite seznam aplikacij, pritisnite gumb za več možnosti in izberite možnost Galaxy Essentials.</string>
     <string name="remove_app_folder_cancel">Prekliči</string>
     <string name="remove_app_folder_confirm">Izbriši</string>
     <string name="remove_app_folder_confirm_VZW">Odstranite</string>

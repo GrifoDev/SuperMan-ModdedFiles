@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">Žádné stažené aplikace</string>
     <string name="no_room_any_page">Na žádné stránce již není místo.</string>
     <string name="no_space_page">Na stránce není místo. Přidejte zástupce na jinou stránku.</string>
+    <string name="no_space_page_for_widget">Na této stránce není žádné místo.</string>
     <string name="not_selected">Nevybráno</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Pomůcka %s již byla přidána na domovskou obrazovku.</string>
@@ -176,7 +177,7 @@ Zabez. složky"</string>
     <string name="read_home_screen_settings">Číst nast. dom. obrazovky</string>
     <string name="read_home_screen_settings_info">Aplikace může číst nastavení domovské obrazovky a zástupce.</string>
     <string name="rearrange_menu_icons_not_allowed">V abecedním pořadí není možné změnit uspořádání ikon.</string>
-    <string name="removable_preloadapp_uninstall_message">Aplikace %s bude odstraněna. Pokud ji budete chtít stáhnout znovu, přejděte na seznam aplikací, klepněte na tlačítko další možnosti a potom vyberte možnost Základní aplikace pro GALAXY.</string>
+    <string name="removable_preloadapp_uninstall_message">Aplikace %s bude odstraněna. Pokud ji budete chtít stáhnout znovu, přejděte na seznam aplikací, klepněte na tlačítko další možnosti a potom vyberte možnost Galaxy Essentials.</string>
     <string name="remove_app_folder_cancel">Storno</string>
     <string name="remove_app_folder_confirm">Odstranit</string>
     <string name="remove_app_folder_confirm_VZW">Odebrat</string>

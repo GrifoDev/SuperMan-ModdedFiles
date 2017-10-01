@@ -723,129 +723,65 @@
 .end method
 
 .method alignToAdjustedBounds(Landroid/graphics/Rect;Landroid/graphics/Rect;Z)V
-    .locals 6
+    .locals 5
 
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
     invoke-virtual {p0}, Lcom/android/server/wm/Task;->isResizeable()Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_0
 
-    iget-object v2, p0, Lcom/android/server/wm/Task;->mOverrideConfig:Landroid/content/res/Configuration;
+    iget-object v1, p0, Lcom/android/server/wm/Task;->mOverrideConfig:Landroid/content/res/Configuration;
 
-    sget-object v3, Landroid/content/res/Configuration;->EMPTY:Landroid/content/res/Configuration;
+    sget-object v2, Landroid/content/res/Configuration;->EMPTY:Landroid/content/res/Configuration;
 
-    if-ne v2, v3, :cond_1
+    if-ne v1, v2, :cond_1
 
     :cond_0
     return-void
 
     :cond_1
-    iget-object v2, p0, Lcom/android/server/wm/Task;->mTmpRect2:Landroid/graphics/Rect;
+    iget-object v1, p0, Lcom/android/server/wm/Task;->mTmpRect2:Landroid/graphics/Rect;
 
-    invoke-virtual {p0, v2}, Lcom/android/server/wm/Task;->getBounds(Landroid/graphics/Rect;)V
+    invoke-virtual {p0, v1}, Lcom/android/server/wm/Task;->getBounds(Landroid/graphics/Rect;)V
 
     if-eqz p3, :cond_2
 
-    iget v2, p1, Landroid/graphics/Rect;->bottom:I
-
-    iget-object v3, p0, Lcom/android/server/wm/Task;->mTmpRect2:Landroid/graphics/Rect;
-
-    iget v3, v3, Landroid/graphics/Rect;->bottom:I
-
-    sub-int v1, v2, v3
+    iget v1, p1, Landroid/graphics/Rect;->bottom:I
 
     iget-object v2, p0, Lcom/android/server/wm/Task;->mTmpRect2:Landroid/graphics/Rect;
 
-    invoke-virtual {v2, v5, v1}, Landroid/graphics/Rect;->offset(II)V
+    iget v2, v2, Landroid/graphics/Rect;->bottom:I
+
+    sub-int v0, v1, v2
+
+    iget-object v1, p0, Lcom/android/server/wm/Task;->mTmpRect2:Landroid/graphics/Rect;
+
+    invoke-virtual {v1, v4, v0}, Landroid/graphics/Rect;->offset(II)V
 
     :goto_0
-    if-eqz p2, :cond_4
+    invoke-virtual {p0, p2}, Lcom/android/server/wm/Task;->setTempInsetBounds(Landroid/graphics/Rect;)V
 
-    iget-object v2, p0, Lcom/android/server/wm/Task;->mTmpRect2:Landroid/graphics/Rect;
+    iget-object v1, p0, Lcom/android/server/wm/Task;->mTmpRect2:Landroid/graphics/Rect;
 
-    invoke-virtual {v2}, Landroid/graphics/Rect;->height()I
+    iget-object v2, p0, Lcom/android/server/wm/Task;->mOverrideConfig:Landroid/content/res/Configuration;
 
-    move-result v2
+    invoke-virtual {p0, v1, v2, v4}, Lcom/android/server/wm/Task;->resizeLocked(Landroid/graphics/Rect;Landroid/content/res/Configuration;Z)Z
 
-    invoke-virtual {p2}, Landroid/graphics/Rect;->height()I
+    return-void
 
-    move-result v3
-
-    if-le v2, v3, :cond_4
-
-    new-instance v0, Landroid/graphics/Rect;
-
-    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
-
-    iget-object v2, p0, Lcom/android/server/wm/Task;->mTmpRect2:Landroid/graphics/Rect;
-
-    invoke-virtual {v0, v2}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
-
-    iget-object v2, p0, Lcom/android/server/wm/Task;->mStack:Lcom/android/server/wm/TaskStack;
-
-    invoke-virtual {v2}, Lcom/android/server/wm/TaskStack;->getDockSide()I
-
-    move-result v2
-
-    const/4 v3, 0x2
-
-    if-ne v2, v3, :cond_3
+    :cond_2
+    iget-object v1, p0, Lcom/android/server/wm/Task;->mTmpRect2:Landroid/graphics/Rect;
 
     iget v2, p1, Landroid/graphics/Rect;->left:I
 
     iget v3, p1, Landroid/graphics/Rect;->top:I
 
-    invoke-virtual {v0, v2, v3}, Landroid/graphics/Rect;->offsetTo(II)V
-
-    :goto_1
-    invoke-virtual {p0, v0}, Lcom/android/server/wm/Task;->setTempInsetBounds(Landroid/graphics/Rect;)V
-
-    :goto_2
-    iget-object v2, p0, Lcom/android/server/wm/Task;->mTmpRect2:Landroid/graphics/Rect;
-
-    iget-object v3, p0, Lcom/android/server/wm/Task;->mOverrideConfig:Landroid/content/res/Configuration;
-
-    invoke-virtual {p0, v2, v3, v5}, Lcom/android/server/wm/Task;->resizeLocked(Landroid/graphics/Rect;Landroid/content/res/Configuration;Z)Z
-
-    return-void
-
-    :cond_2
-    iget-object v2, p0, Lcom/android/server/wm/Task;->mTmpRect2:Landroid/graphics/Rect;
-
-    iget v3, p1, Landroid/graphics/Rect;->left:I
-
-    iget v4, p1, Landroid/graphics/Rect;->top:I
-
-    invoke-virtual {v2, v3, v4}, Landroid/graphics/Rect;->offsetTo(II)V
+    invoke-virtual {v1, v2, v3}, Landroid/graphics/Rect;->offsetTo(II)V
 
     goto :goto_0
-
-    :cond_3
-    iget v2, p1, Landroid/graphics/Rect;->left:I
-
-    invoke-virtual {p0}, Lcom/android/server/wm/Task;->getDisplayInfo()Landroid/view/DisplayInfo;
-
-    move-result-object v3
-
-    iget v3, v3, Landroid/view/DisplayInfo;->logicalHeight:I
-
-    invoke-virtual {v0}, Landroid/graphics/Rect;->height()I
-
-    move-result v4
-
-    sub-int/2addr v3, v4
-
-    invoke-virtual {v0, v2, v3}, Landroid/graphics/Rect;->offsetTo(II)V
-
-    goto :goto_1
-
-    :cond_4
-    invoke-virtual {p0, p2}, Lcom/android/server/wm/Task;->setTempInsetBounds(Landroid/graphics/Rect;)V
-
-    goto :goto_2
 .end method
 
 .method applyScrollToAllWindows(II)V

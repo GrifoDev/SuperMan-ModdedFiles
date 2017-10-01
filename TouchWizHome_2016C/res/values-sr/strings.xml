@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">Nema preuzetih aplikacija</string>
     <string name="no_room_any_page">Više nema mesta ni na jednoj stranici.</string>
     <string name="no_space_page">Nema prostora na stranici. Pokušajte da dodate prečicu na drugu stranicu.</string>
+    <string name="no_space_page_for_widget">Na ovoj stranici nema prostora.</string>
     <string name="not_selected">Nije izabrano</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Vidžet %s je već dodat na početni ekran.</string>
@@ -176,7 +177,7 @@ bedan folder"</string>
     <string name="read_home_screen_settings">Čitaj podeš. poč. ekrana</string>
     <string name="read_home_screen_settings_info">Ova aplikacija može da pročita podešavanja i prečice vašeg početnog ekrana.</string>
     <string name="rearrange_menu_icons_not_allowed">Nije moguće preurediti ikone prema abecednom redosledu.</string>
-    <string name="removable_preloadapp_uninstall_message">%s aplikacija će se izbrisati. Da bi je ponovo preuzeo/la, idi na listu aplikacija, kucni na dugme za još opcija, a zatim izaberi Osnovne aplikacije za GALAXY.</string>
+    <string name="removable_preloadapp_uninstall_message">Aplikacija %s će se izbrisati. Da biste je ponovo preuzeli, idite na listu aplikacija, kucnite na dugme za još opcija, a zatim izaberite Galaxy Essentials.</string>
     <string name="remove_app_folder_cancel">Otkaži</string>
     <string name="remove_app_folder_confirm">Izbriši</string>
     <string name="remove_app_folder_confirm_VZW">Ukloni</string>

@@ -9,9 +9,9 @@
     <dimen name="home_editmode_panel_width_port">215.0dip</dimen>
     <dimen name="home_icon_drawablepadding">2.0dip</dimen>
     <dimen name="home_icon_paddingTop">5.0dip</dimen>
-    <dimen name="home_pageIndicatorTop">284.0dip</dimen>
-    <dimen name="home_pageIndicatorTopDrag">310.0dip</dimen>
-    <dimen name="home_pageIndicatorTopEdit">279.0dip</dimen>
+    <dimen name="home_pageIndicatorTop">279.0dip</dimen>
+    <dimen name="home_pageIndicatorTopDrag">302.0dip</dimen>
+    <dimen name="home_pageIndicatorTopEdit">278.0dip</dimen>
     <dimen name="home_pageMarginTop">2.5dip</dimen>
     <dimen name="home_screen_option_menu_height">75.0dip</dimen>
     <dimen name="home_screen_option_menu_text_padding">-3.0dip</dimen>
@@ -62,7 +62,7 @@
     <dimen name="home_icon_col5_paddingTop">0.0dip</dimen>
     <dimen name="home_icon_textsize">12.0dip</dimen>
     <dimen name="home_icon_textsize_5">12.0dip</dimen>
-    <dimen name="home_pageIndicatorTopScreenGrid">242.0dip</dimen>
+    <dimen name="home_pageIndicatorTopScreenGrid">238.0dip</dimen>
     <dimen name="homefolder_icon_col5_drawablepadding">0.0dip</dimen>
     <dimen name="homefolder_icon_col5_paddingTop">0.0dip</dimen>
     <dimen name="homefolder_icon_drawablepadding">2.0dip</dimen>

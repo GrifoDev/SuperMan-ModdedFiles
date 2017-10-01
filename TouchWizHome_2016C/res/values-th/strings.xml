@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">ไม่​มี​แอ​พพลิ​เค​ชั่น​ที่​ดาวน์​โหลด</string>
     <string name="no_room_any_page">ไม่มีที่ว่างในหน้า</string>
     <string name="no_space_page">ไม่มีพื้นที่บนหน้า ลองเพิ่มทางลัดไปยังหน้าอื่น</string>
+    <string name="no_space_page_for_widget">ไม่มีพื้นที่ในหน้านี้</string>
     <string name="not_selected">ไม่ได้เลือก</string>
     <string name="ok">ตกลง</string>
     <string name="only_one_widget_instance_allowed">วิดเจ็ด %s ถูกเพิ่มลงบนหน้าจอหลักแล้ว</string>
@@ -176,7 +177,7 @@
     <string name="read_home_screen_settings">อ่านการตั้งค่าหน้าจอหลัก</string>
     <string name="read_home_screen_settings_info">แอพนี้สามารถอ่านการตั้งค่าหน้าจอหลักและทางลัดของคุณได้</string>
     <string name="rearrange_menu_icons_not_allowed">ไม่สามารถจัดไอคอนใหม่ ตามลำดับตัวอักษรได้</string>
-    <string name="removable_preloadapp_uninstall_message">%s จะถูกลบ ไปที่รายการแอพ แตะปุ่มตัวเลือกเพิ่มเติม แล้วเลือก GALAXY Essentials เพื่อดาวน์โหลดอีกครั้ง</string>
+    <string name="removable_preloadapp_uninstall_message">%s จะถูกลบ ไปที่รายการแอพ สัมผัสปุ่มตัวเลือกเพิ่มเติม แล้วเลือก Galaxy Essentials เพื่อดาวน์โหลดอีกครั้ง</string>
     <string name="remove_app_folder_cancel">ยกเลิก</string>
     <string name="remove_app_folder_confirm">ลบ</string>
     <string name="remove_app_folder_confirm_VZW">ลบ</string>

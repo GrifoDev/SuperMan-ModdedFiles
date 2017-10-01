@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">Non hai aplicacións descargadas</string>
     <string name="no_room_any_page">Non hai espazo en ningunha páxina.</string>
     <string name="no_space_page">Non hai espazo na páxina. Tenta engadir o atallo nunha páxina diferente.</string>
+    <string name="no_space_page_for_widget">Non hai ningún espazo nesta páxina.</string>
     <string name="not_selected">Non seleccionado</string>
     <string name="ok">Aceptar</string>
     <string name="only_one_widget_instance_allowed">O widget %s xa está engadido á pantalla de inicio.</string>
@@ -176,7 +177,7 @@ Carpeta segura"</string>
     <string name="read_home_screen_settings">Axust.lectura pant. inic.</string>
     <string name="read_home_screen_settings_info">Esta aplicación pode ler os axustes e atallos da túa pantalla de inicio.</string>
     <string name="rearrange_menu_icons_not_allowed">Non se poden reorganizar as iconas en orde alfabética.</string>
-    <string name="removable_preloadapp_uninstall_message">%s eliminarase. Para descargalo de novo, vai á lista de aplicacións, toca o botón Máis opcións e, a continuación, selecciona GALAXY Essentials.</string>
+    <string name="removable_preloadapp_uninstall_message">%s eliminarase. Para descargalo de novo, vai á lista de aplicacións, toca o botón Máis opcións e, a continuación, selecciona Galaxy Essentials.</string>
     <string name="remove_app_folder_cancel">Cancelar</string>
     <string name="remove_app_folder_confirm">Eliminar</string>
     <string name="remove_app_folder_confirm_VZW">Eliminar</string>

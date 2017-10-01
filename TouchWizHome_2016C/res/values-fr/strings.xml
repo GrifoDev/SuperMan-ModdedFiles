@@ -5,7 +5,7 @@
     <string name="application_name">Accueil TouchWiz</string>
     <string name="cancel_action">Annuler</string>
     <string name="gadget_error_text">Problème de chargement du widget</string>
-    <string name="long_press_widget_to_add">Maintenez votre doigt appuyé sur un widget pour le déplacer.</string>
+    <string name="long_press_widget_to_add">Maintenez votre doigt/S Pen appuyé sur un widget pour le déplacer.</string>
     <string name="menu_item_add_item">"Ajouter à l'écran d'accueil"</string>
     <string name="menu_search">Rechercher</string>
     <string name="out_of_space">Espace saturé sur cette page</string>
@@ -140,6 +140,7 @@ applications"</string>
     <string name="no_downloaded_apps">Aucune application téléchargée</string>
     <string name="no_room_any_page">Pas de place disponible sur les pages.</string>
     <string name="no_space_page">"Aucun espace sur la page. Essayez d'ajouter un raccourci vers une autre page."</string>
+    <string name="no_space_page_for_widget">Aucun espace sur cette page.</string>
     <string name="not_selected">Non sélectionné</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">"Le widget %s a déjà été ajouté à l'écran d'accueil."</string>
@@ -177,7 +178,7 @@ Dossier sécurisé"</string>
     <string name="read_home_screen_settings">Lecture param. écran acc.</string>
     <string name="read_home_screen_settings_info">"Cette application peut lire les paramètres et les raccourcis de votre écran d'accueil."</string>
     <string name="rearrange_menu_icons_not_allowed">Impossible de réorganiser les icônes par ordre alphabétique.</string>
-    <string name="removable_preloadapp_uninstall_message">"%s va être supprimée. Pour la retélécharger, accédez à la liste des applications, appuyez sur la touche Plus d'options, puis sélectionnez Les indispensables GALAXY."</string>
+    <string name="removable_preloadapp_uninstall_message">"L'application %s va être supprimée. Pour la télécharger à nouveau, accédez à la liste des applications, appuyez sur la touche Options supplémentaires, puis sélectionnez Les indispensables Galaxy."</string>
     <string name="remove_app_folder_cancel">Annuler</string>
     <string name="remove_app_folder_confirm">Supprimer</string>
     <string name="remove_app_folder_confirm_VZW">Supprimer</string>

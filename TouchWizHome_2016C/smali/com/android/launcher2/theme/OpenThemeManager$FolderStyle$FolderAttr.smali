@@ -323,8 +323,17 @@
 
     iput-object v3, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mCloseFolderImage:Landroid/graphics/Bitmap;
 
+    iget-object v3, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mCloseFolderImage:Landroid/graphics/Bitmap;
+
+    invoke-virtual {v1, v3}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_2
+
     invoke-virtual {v1}, Landroid/graphics/Bitmap;->recycle()V
 
+    :cond_2
     return-void
 .end method
 
@@ -367,8 +376,17 @@
 
     iput-object v2, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mCloseFolderImage:Landroid/graphics/Bitmap;
 
+    iget-object v2, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mCloseFolderImage:Landroid/graphics/Bitmap;
+
+    invoke-virtual {v1, v2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
     invoke-virtual {v1}, Landroid/graphics/Bitmap;->recycle()V
 
+    :cond_0
     return-void
 .end method
 
@@ -424,8 +442,17 @@
 
     iput-object v1, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mCloseFolderImage:Landroid/graphics/Bitmap;
 
+    iget-object v1, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mCloseFolderImage:Landroid/graphics/Bitmap;
+
+    invoke-virtual {v0, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->recycle()V
 
+    :cond_1
     return-void
 .end method
 
@@ -450,7 +477,16 @@
 
     iput-object v1, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mCloseFolderImage:Landroid/graphics/Bitmap;
 
+    iget-object v1, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mCloseFolderImage:Landroid/graphics/Bitmap;
+
+    invoke-virtual {v0, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->recycle()V
 
+    :cond_0
     return-void
 .end method

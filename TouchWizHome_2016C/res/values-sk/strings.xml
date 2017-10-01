@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">Žiadne stiahnuté aplikácie</string>
     <string name="no_room_any_page">Na žiadnej stránke nie je voľné miesto.</string>
     <string name="no_space_page">Na stránke nie je žiadne voľné miesto. Skúste pridať odkaz na inú stránku.</string>
+    <string name="no_space_page_for_widget">Na tejto stránke nie je žiadne voľné miesto.</string>
     <string name="not_selected">Nevybraté</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Miniaplikácia %s je už pridaná na domovskú obrazovku.</string>
@@ -176,7 +177,7 @@ Zabezp. prieč."</string>
     <string name="read_home_screen_settings">Čítanie nast. domov. obr.</string>
     <string name="read_home_screen_settings_info">Táto aplikácia môže čítať nastavenia domovskej obrazovky a odkazy na nej.</string>
     <string name="rearrange_menu_icons_not_allowed">V abecednom poradí sa nedá zmeniť usporiadanie ikon.</string>
-    <string name="removable_preloadapp_uninstall_message">Aplikácia %s sa odstráni. Ak ju chcete stiahnuť znova, prejdite na zoznam aplikácií, ťuknite na tlačidlo ďalších možností a potom vyberte položku Základné aplikácie pre telefóny GALAXY.</string>
+    <string name="removable_preloadapp_uninstall_message">Aplikácia %s sa odstráni. Ak ju chcete stiahnuť znova, prejdite na zoznam aplikácií, ťuknite na tlačidlo ďalších možností a potom vyberte položku Galaxy Essentials.</string>
     <string name="remove_app_folder_cancel">Zrušiť</string>
     <string name="remove_app_folder_confirm">Odstrániť</string>
     <string name="remove_app_folder_confirm_VZW">Odstrániť</string>

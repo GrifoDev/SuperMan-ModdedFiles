@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">لا توجد تطبيقات تم تنزيلها</string>
     <string name="no_room_any_page">لا توجد مساحة بأية صفحة.</string>
     <string name="no_space_page">ما من مساحة على الصفحة. حاول إضافة اختصار إلى صفحة أخرى.</string>
+    <string name="no_space_page_for_widget">ما من مساحة على هذه الصفحة.</string>
     <string name="not_selected">لم يتم التحديد</string>
     <string name="ok">موافق</string>
     <string name="only_one_widget_instance_allowed">تمت إضافة التطبيق المصغر %s إلى الشاشة الرئيسية بالفعل.</string>
@@ -176,7 +177,7 @@
     <string name="read_home_screen_settings">قراءة ضبط الشاشة الرئيسية</string>
     <string name="read_home_screen_settings_info">يمكن لهذا التطبيق قراءة ضبط شاشتك الرئيسية والاختصارات الموجودة عليها.</string>
     <string name="rearrange_menu_icons_not_allowed">تتعذر إعادة ترتيب الرموز بالترتيب الأبجدي.</string>
-    <string name="removable_preloadapp_uninstall_message">سيتم حذف %s. للتنزيل مرّة أخرى، انتقل إلى قائمة التطبيقات ثم انقر فوق زر مزيد من الخيارات ثم حدّد أساسيات GALAXY.</string>
+    <string name="removable_preloadapp_uninstall_message">سيتم حذف %s. للتنزيل مرّة أخرى، انتقل إلى قائمة التطبيقات ثم انقر فوق زر مزيد من الخيارات ثم حدّد Galaxy Essentials.</string>
     <string name="remove_app_folder_cancel">إلغاء</string>
     <string name="remove_app_folder_confirm">حذف</string>
     <string name="remove_app_folder_confirm_VZW">إزالة</string>

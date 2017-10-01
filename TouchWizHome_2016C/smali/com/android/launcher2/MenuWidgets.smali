@@ -1815,7 +1815,7 @@
 .method private clickNotAllowed(Landroid/view/View;)V
     .locals 8
 
-    const v5, 0x7f0900d0
+    const v5, 0x7f0900d1
 
     const v4, 0x7f090006
 

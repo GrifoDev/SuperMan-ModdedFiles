@@ -2038,6 +2038,42 @@
     throw v0
 .end method
 
+.method public databaseExist()Z
+    .locals 3
+
+    :try_start_0
+    invoke-virtual {p0}, Lcom/android/launcher2/LauncherProvider;->getDatabaseHelper()Lcom/android/launcher2/LauncherProvider$DatabaseHelper;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->getReadableDatabase()Landroid/database/sqlite/SQLiteDatabase;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    const/4 v1, 0x1
+
+    :goto_0
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    const-string v1, "LauncherProvider"
+
+    const-string v2, "could not read databases"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    const/4 v1, 0x0
+
+    goto :goto_0
+.end method
+
 .method public delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
     .locals 6
 
@@ -2261,6 +2297,143 @@
     move-result-wide v0
 
     return-wide v0
+.end method
+
+.method public getCellXYFromDatabase()[I
+    .locals 13
+
+    const/4 v8, 0x0
+
+    const/4 v12, 0x2
+
+    const/4 v11, -0x1
+
+    const/4 v10, 0x1
+
+    const/4 v9, 0x0
+
+    const/4 v0, -0x1
+
+    const/4 v6, -0x1
+
+    const/4 v1, -0x1
+
+    const/4 v7, -0x1
+
+    new-array v5, v12, [I
+
+    aput v11, v5, v9
+
+    aput v11, v5, v10
+
+    invoke-virtual {p0}, Lcom/android/launcher2/LauncherProvider;->getDatabaseHelper()Lcom/android/launcher2/LauncherProvider$DatabaseHelper;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->getReadableDatabase()Landroid/database/sqlite/SQLiteDatabase;
+
+    move-result-object v3
+
+    const/4 v2, 0x0
+
+    :try_start_0
+    const-string v9, "SELECT cellX, cellY, spanX, spanY FROM favorites"
+
+    const/4 v10, 0x0
+
+    invoke-virtual {v3, v9, v10}, Landroid/database/sqlite/SQLiteDatabase;->rawQuery(Ljava/lang/String;[Ljava/lang/String;)Landroid/database/Cursor;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_2
+
+    :cond_0
+    :goto_0
+    invoke-interface {v2}, Landroid/database/Cursor;->moveToNext()Z
+
+    move-result v9
+
+    if-eqz v9, :cond_3
+
+    const/4 v9, 0x0
+
+    invoke-interface {v2, v9}, Landroid/database/Cursor;->getInt(I)I
+
+    move-result v0
+
+    const/4 v9, 0x2
+
+    invoke-interface {v2, v9}, Landroid/database/Cursor;->getInt(I)I
+
+    move-result v6
+
+    add-int v9, v0, v6
+
+    const/4 v10, 0x0
+
+    aget v10, v5, v10
+
+    if-le v9, v10, :cond_1
+
+    const/4 v9, 0x0
+
+    add-int v10, v0, v6
+
+    aput v10, v5, v9
+
+    :cond_1
+    const/4 v9, 0x1
+
+    invoke-interface {v2, v9}, Landroid/database/Cursor;->getInt(I)I
+
+    move-result v1
+
+    const/4 v9, 0x3
+
+    invoke-interface {v2, v9}, Landroid/database/Cursor;->getInt(I)I
+
+    move-result v7
+
+    add-int v9, v1, v7
+
+    const/4 v10, 0x1
+
+    aget v10, v5, v10
+
+    if-le v9, v10, :cond_0
+
+    const/4 v9, 0x1
+
+    add-int v10, v1, v7
+
+    aput v10, v5, v9
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v4
+
+    const-string v9, "LauncherProvider"
+
+    const-string v10, "could not read cellX spanX from the database"
+
+    invoke-static {v9, v10}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_2
+    move-object v5, v8
+
+    :goto_1
+    return-object v5
+
+    :cond_3
+    :try_start_1
+    invoke-interface {v2}, Landroid/database/Cursor;->close()V
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+
+    goto :goto_1
 .end method
 
 .method public getCurrentDBHomeOnlyMode()Z

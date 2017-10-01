@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">Nav lejupielādētu programmu</string>
     <string name="no_room_any_page">Nevienā lapā nav nevienas telpas.</string>
     <string name="no_space_page">Lapā nav vietas. Mēģiniet īsceļu pievienot citā lapā.</string>
+    <string name="no_space_page_for_widget">Šajā lapā nav vietas.</string>
     <string name="not_selected">Nav izvēlēts</string>
     <string name="ok">Labi</string>
     <string name="only_one_widget_instance_allowed">Logrīks %s jau ir pievienots sākuma ekrānam.</string>
@@ -176,7 +177,7 @@ pie Secure Folder"</string>
     <string name="read_home_screen_settings">Lasīt sāk. ekrāna iestat.</string>
     <string name="read_home_screen_settings_info">Šī programma var lasīt jūsu sākuma ekrāna iestatījumus un īsceļus.</string>
     <string name="rearrange_menu_icons_not_allowed">Nevar pārkārtot ikonas alfabētiskā secībā.</string>
-    <string name="removable_preloadapp_uninstall_message">Programma %s tiks izdzēsta. Lai to lejupielādētu vēlreiz, atveriet programmu sarakstu, pieskarieties pogai Citas iespējas un pēc tam izvēlieties GALAXY svarīgākās.</string>
+    <string name="removable_preloadapp_uninstall_message">Programma %s tiks izdzēsta. Lai to lejupielādētu vēlreiz, atveriet programmu sarakstu, pieskarieties pogai Citas iespējas un pēc tam izvēlieties Galaxy Essentials.</string>
     <string name="remove_app_folder_cancel">Atcelt</string>
     <string name="remove_app_folder_confirm">Dzēst</string>
     <string name="remove_app_folder_confirm_VZW">Noņemt</string>

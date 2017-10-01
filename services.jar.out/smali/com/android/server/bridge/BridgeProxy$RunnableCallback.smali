@@ -212,7 +212,7 @@
 
     move-object/from16 v17, v0
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/bridge/BridgeProxy;->-get16(Lcom/android/server/bridge/BridgeProxy;)Lcom/android/server/bridge/operations/SimplePersonaInfos;
+    invoke-static/range {v17 .. v17}, Lcom/android/server/bridge/BridgeProxy;->-get15(Lcom/android/server/bridge/BridgeProxy;)Lcom/android/server/bridge/operations/SimplePersonaInfos;
 
     move-result-object v17
 
@@ -224,7 +224,7 @@
 
     move-object/from16 v17, v0
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/bridge/BridgeProxy;->-get16(Lcom/android/server/bridge/BridgeProxy;)Lcom/android/server/bridge/operations/SimplePersonaInfos;
+    invoke-static/range {v17 .. v17}, Lcom/android/server/bridge/BridgeProxy;->-get15(Lcom/android/server/bridge/BridgeProxy;)Lcom/android/server/bridge/operations/SimplePersonaInfos;
 
     move-result-object v17
 
@@ -251,7 +251,7 @@
 
     move-object/from16 v17, v0
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/bridge/BridgeProxy;->-get16(Lcom/android/server/bridge/BridgeProxy;)Lcom/android/server/bridge/operations/SimplePersonaInfos;
+    invoke-static/range {v17 .. v17}, Lcom/android/server/bridge/BridgeProxy;->-get15(Lcom/android/server/bridge/BridgeProxy;)Lcom/android/server/bridge/operations/SimplePersonaInfos;
 
     move-result-object v17
 
@@ -281,7 +281,7 @@
 
     move-object/from16 v17, v0
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/bridge/BridgeProxy;->-get14(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
+    invoke-static/range {v17 .. v17}, Lcom/android/server/bridge/BridgeProxy;->-get13(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
 
     move-result-object v17
 
@@ -295,7 +295,7 @@
 
     move-object/from16 v19, v0
 
-    invoke-static/range {v19 .. v19}, Lcom/android/server/bridge/BridgeProxy;->-get6(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/Context;
+    invoke-static/range {v19 .. v19}, Lcom/android/server/bridge/BridgeProxy;->-get5(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/Context;
 
     move-result-object v19
 
@@ -565,7 +565,7 @@
 
     move-object/from16 v17, v0
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/bridge/BridgeProxy;->-get18(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemRemoteContentManager;
+    invoke-static/range {v17 .. v17}, Lcom/android/server/bridge/BridgeProxy;->-get17(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemRemoteContentManager;
 
     move-result-object v17
 
@@ -604,7 +604,7 @@
 
     move-object/from16 v17, v0
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/bridge/BridgeProxy;->-get20(Lcom/android/server/bridge/BridgeProxy;)Lcom/android/server/bridge/operations/ProcessBadgeData;
+    invoke-static/range {v17 .. v17}, Lcom/android/server/bridge/BridgeProxy;->-get19(Lcom/android/server/bridge/BridgeProxy;)Lcom/android/server/bridge/operations/ProcessBadgeData;
 
     move-result-object v17
 
@@ -616,7 +616,7 @@
 
     move-object/from16 v17, v0
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/bridge/BridgeProxy;->-get20(Lcom/android/server/bridge/BridgeProxy;)Lcom/android/server/bridge/operations/ProcessBadgeData;
+    invoke-static/range {v17 .. v17}, Lcom/android/server/bridge/BridgeProxy;->-get19(Lcom/android/server/bridge/BridgeProxy;)Lcom/android/server/bridge/operations/ProcessBadgeData;
 
     move-result-object v17
 
@@ -705,7 +705,7 @@
 
     move-object/from16 v19, v0
 
-    invoke-static/range {v19 .. v19}, Lcom/android/server/bridge/BridgeProxy;->-get9(Lcom/android/server/bridge/BridgeProxy;)I
+    invoke-static/range {v19 .. v19}, Lcom/android/server/bridge/BridgeProxy;->-get8(Lcom/android/server/bridge/BridgeProxy;)I
 
     move-result v19
 

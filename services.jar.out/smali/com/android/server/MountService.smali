@@ -6366,121 +6366,6 @@
     return-void
 .end method
 
-.method private policycheckForSKMM()I
-    .locals 6
-
-    const-string/jumbo v4, "security.ode.trustedboot"
-
-    invoke-virtual {p0, v4}, Lcom/android/server/MountService;->getPropertyFromFooter(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {p0}, Lcom/android/server/MountService;->getCCmodeForCryptKeeper()I
-
-    move-result v2
-
-    const/4 v3, 0x0
-
-    const-string/jumbo v4, ""
-
-    invoke-virtual {v4, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_2
-
-    const-string/jumbo v4, "security.mdm.trustedboot"
-
-    invoke-virtual {p0, v4}, Lcom/android/server/MountService;->getPropertyFromFooter(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string/jumbo v4, "false"
-
-    invoke-virtual {v4, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_3
-
-    if-eqz v2, :cond_0
-
-    const-string/jumbo v4, "true"
-
-    invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_3
-
-    :cond_0
-    const-string/jumbo v4, "security.ode.update"
-
-    const/high16 v5, 0x40000
-
-    invoke-static {v5}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
-
-    const-string/jumbo v4, "security.ode.trustedboot"
-
-    const-string/jumbo v5, "On"
-
-    invoke-virtual {p0, v4, v5}, Lcom/android/server/MountService;->setPropertyIntoFooter(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v3, 0x1
-
-    :cond_1
-    :goto_0
-    const-string/jumbo v4, "security.ode.policycheck"
-
-    invoke-static {v4, v1}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
-
-    :cond_2
-    return v3
-
-    :cond_3
-    const-string/jumbo v4, "false"
-
-    invoke-virtual {v4, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_1
-
-    if-eqz v2, :cond_1
-
-    const-string/jumbo v4, "false"
-
-    invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_1
-
-    const-string/jumbo v4, "security.ode.update"
-
-    const/high16 v5, 0x80000
-
-    invoke-static {v5}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
-
-    const-string/jumbo v4, "security.ode.trustedboot"
-
-    const-string/jumbo v5, "false"
-
-    invoke-virtual {p0, v4, v5}, Lcom/android/server/MountService;->setPropertyIntoFooter(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v3, 0x1
-
-    goto :goto_0
-.end method
-
 .method private readSettingsLocked()V
     .locals 14
 
@@ -8304,8 +8189,6 @@
 
     invoke-direct {p0}, Lcom/android/server/MountService;->waitForReady()V
 
-    invoke-direct {p0}, Lcom/android/server/MountService;->policycheckForSKMM()I
-
     const-string/jumbo v2, "MountService"
 
     const-string/jumbo v3, "changing encryption password..."
@@ -8748,103 +8631,99 @@
 .end method
 
 .method public decryptStorage(Ljava/lang/String;)I
-    .locals 9
+    .locals 8
 
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v4
+    move-result v3
 
-    if-eqz v4, :cond_0
+    if-eqz v3, :cond_0
 
-    new-instance v4, Ljava/lang/IllegalArgumentException;
+    new-instance v3, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v5, "password cannot be empty"
+    const-string/jumbo v4, "password cannot be empty"
 
-    invoke-direct {v4, v5}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v4
+    throw v3
 
     :cond_0
-    iget-object v4, p0, Lcom/android/server/MountService;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Lcom/android/server/MountService;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v5, "android.permission.CRYPT_KEEPER"
+    const-string/jumbo v4, "android.permission.CRYPT_KEEPER"
 
-    const-string/jumbo v6, "no permission to access the crypt keeper"
+    const-string/jumbo v5, "no permission to access the crypt keeper"
 
-    invoke-virtual {v4, v5, v6}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v3, v4, v5}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-direct {p0}, Lcom/android/server/MountService;->waitForReady()V
 
-    invoke-direct {p0}, Lcom/android/server/MountService;->policycheckForSKMM()I
+    const-string/jumbo v3, "MountService"
 
-    move-result v0
+    const-string/jumbo v4, "decrypting storage..."
 
-    const-string/jumbo v4, "MountService"
-
-    const-string/jumbo v5, "decrypting storage..."
-
-    invoke-static {v4, v5}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     :try_start_0
-    iget-object v4, p0, Lcom/android/server/MountService;->mCryptConnector:Lcom/android/server/NativeDaemonConnector;
+    iget-object v3, p0, Lcom/android/server/MountService;->mCryptConnector:Lcom/android/server/NativeDaemonConnector;
 
-    const-string/jumbo v5, "cryptfs"
+    const-string/jumbo v4, "cryptfs"
 
-    const/4 v6, 0x2
+    const/4 v5, 0x2
 
-    new-array v6, v6, [Ljava/lang/Object;
+    new-array v5, v5, [Ljava/lang/Object;
 
-    const-string/jumbo v7, "checkpw"
+    const-string/jumbo v6, "checkpw"
 
-    const/4 v8, 0x0
+    const/4 v7, 0x0
 
-    aput-object v7, v6, v8
+    aput-object v6, v5, v7
 
-    new-instance v7, Lcom/android/server/NativeDaemonConnector$SensitiveArg;
+    new-instance v6, Lcom/android/server/NativeDaemonConnector$SensitiveArg;
 
-    invoke-direct {v7, p1}, Lcom/android/server/NativeDaemonConnector$SensitiveArg;-><init>(Ljava/lang/Object;)V
+    invoke-direct {v6, p1}, Lcom/android/server/NativeDaemonConnector$SensitiveArg;-><init>(Ljava/lang/Object;)V
 
-    const/4 v8, 0x1
+    const/4 v7, 0x1
 
-    aput-object v7, v6, v8
+    aput-object v6, v5, v7
 
-    invoke-virtual {v4, v5, v6}, Lcom/android/server/NativeDaemonConnector;->execute(Ljava/lang/String;[Ljava/lang/Object;)Lcom/android/server/NativeDaemonEvent;
+    invoke-virtual {v3, v4, v5}, Lcom/android/server/NativeDaemonConnector;->execute(Ljava/lang/String;[Ljava/lang/Object;)Lcom/android/server/NativeDaemonEvent;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/server/NativeDaemonEvent;->getMessage()Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-virtual {v3}, Lcom/android/server/NativeDaemonEvent;->getMessage()Ljava/lang/String;
+    invoke-static {v3}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result-object v4
+    move-result v0
 
-    invoke-static {v4}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    if-nez v0, :cond_1
 
-    move-result v1
+    iget-object v3, p0, Lcom/android/server/MountService;->mHandler:Landroid/os/Handler;
 
-    if-nez v1, :cond_1
+    new-instance v4, Lcom/android/server/MountService$3;
 
-    iget-object v4, p0, Lcom/android/server/MountService;->mHandler:Landroid/os/Handler;
-
-    new-instance v5, Lcom/android/server/MountService$3;
-
-    invoke-direct {v5, p0}, Lcom/android/server/MountService$3;-><init>(Lcom/android/server/MountService;)V
+    invoke-direct {v4, p0}, Lcom/android/server/MountService$3;-><init>(Lcom/android/server/MountService;)V
 
     const-wide/16 v6, 0x3e8
 
-    invoke-virtual {v4, v5, v6, v7}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {v3, v4, v6, v7}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
     :try_end_0
     .catch Lcom/android/server/NativeDaemonConnectorException; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_1
-    return v1
+    return v0
 
     :catch_0
-    move-exception v2
+    move-exception v1
 
-    invoke-virtual {v2}, Lcom/android/server/NativeDaemonConnectorException;->getCode()I
+    invoke-virtual {v1}, Lcom/android/server/NativeDaemonConnectorException;->getCode()I
 
-    move-result v4
+    move-result v3
 
-    return v4
+    return v3
 .end method
 
 .method public destroySecureContainer(Ljava/lang/String;Z)I

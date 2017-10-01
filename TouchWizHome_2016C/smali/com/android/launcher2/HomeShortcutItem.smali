@@ -298,7 +298,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0900d3
+    const v3, 0x7f0900d4
 
     invoke-virtual {p2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -416,7 +416,7 @@
 
     if-eqz v2, :cond_3
 
-    const v2, 0x7f0900a4
+    const v2, 0x7f0900a5
 
     invoke-virtual {p2, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -807,29 +807,29 @@
 
     invoke-static {p1}, Lcom/android/launcher2/compat/UserManagerCompat;->getInstance(Landroid/content/Context;)Lcom/android/launcher2/compat/UserManagerCompat;
 
-    move-result-object v1
+    move-result-object v4
 
-    iget-object v6, p0, Lcom/android/launcher2/HomeShortcutItem;->user:Lcom/android/launcher2/compat/UserHandleCompat;
+    iget-object v5, p0, Lcom/android/launcher2/HomeShortcutItem;->user:Lcom/android/launcher2/compat/UserHandleCompat;
 
-    invoke-virtual {v1, v6}, Lcom/android/launcher2/compat/UserManagerCompat;->getSerialNumberForUser(Lcom/android/launcher2/compat/UserHandleCompat;)J
+    invoke-virtual {v4, v5}, Lcom/android/launcher2/compat/UserManagerCompat;->getSerialNumberForUser(Lcom/android/launcher2/compat/UserHandleCompat;)J
 
-    move-result-wide v4
+    move-result-wide v6
 
     invoke-static {}, Lcom/android/launcher2/compat/UserHandleCompat;->myUserHandle()Lcom/android/launcher2/compat/UserHandleCompat;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-virtual {v1, v6}, Lcom/android/launcher2/compat/UserManagerCompat;->getSerialNumberForUser(Lcom/android/launcher2/compat/UserHandleCompat;)J
+    invoke-virtual {v4, v5}, Lcom/android/launcher2/compat/UserManagerCompat;->getSerialNumberForUser(Lcom/android/launcher2/compat/UserHandleCompat;)J
 
     move-result-wide v2
 
-    cmp-long v6, v4, v2
+    cmp-long v5, v6, v2
 
-    if-eqz v6, :cond_1
+    if-eqz v5, :cond_1
 
-    cmp-long v6, v4, v10
+    cmp-long v5, v6, v10
 
-    if-gez v6, :cond_1
+    if-gez v5, :cond_1
 
     :cond_0
     :goto_0
@@ -838,79 +838,89 @@
     :cond_1
     invoke-virtual {p0}, Lcom/android/launcher2/HomeShortcutItem;->isLiveIconPackage()Z
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_0
+    if-eqz v5, :cond_0
 
-    sget-boolean v6, Lcom/android/launcher2/HomeShortcutItem;->DEBUGGABLE:Z
+    sget-boolean v5, Lcom/android/launcher2/HomeShortcutItem;->DEBUGGABLE:Z
 
-    if-eqz v6, :cond_2
+    if-eqz v5, :cond_2
 
-    const-string v6, "HomeShortcutItem"
+    const-string v5, "HomeShortcutItem"
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    new-instance v8, Ljava/lang/StringBuilder;
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v8, " setLiveIconBitmap : "
+    const-string v9, " setLiveIconBitmap : "
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {p0}, Lcom/android/launcher2/HomeShortcutItem;->getPackageName()Ljava/lang/String;
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v8
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0}, Lcom/android/launcher2/HomeShortcutItem;->getPackageName()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v9
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v5, v8}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_2
-    cmp-long v6, v4, v10
+    cmp-long v5, v6, v10
 
-    if-ltz v6, :cond_3
+    if-ltz v5, :cond_3
 
+    :try_start_0
     invoke-static {p1}, Lcom/android/launcher2/compat/LauncherAppsCompat;->getInstance(Landroid/content/Context;)Lcom/android/launcher2/compat/LauncherAppsCompat;
 
-    move-result-object v6
+    move-result-object v5
 
-    iget-object v7, p0, Lcom/android/launcher2/HomeShortcutItem;->intent:Landroid/content/Intent;
+    iget-object v8, p0, Lcom/android/launcher2/HomeShortcutItem;->intent:Landroid/content/Intent;
 
-    iget-object v8, p0, Lcom/android/launcher2/HomeShortcutItem;->user:Lcom/android/launcher2/compat/UserHandleCompat;
+    iget-object v9, p0, Lcom/android/launcher2/HomeShortcutItem;->user:Lcom/android/launcher2/compat/UserHandleCompat;
 
-    invoke-virtual {v6, v7, v8}, Lcom/android/launcher2/compat/LauncherAppsCompat;->resolveActivity(Landroid/content/Intent;Lcom/android/launcher2/compat/UserHandleCompat;)Lcom/android/launcher2/compat/LauncherActivityInfoCompat;
+    invoke-virtual {v5, v8, v9}, Lcom/android/launcher2/compat/LauncherAppsCompat;->resolveActivity(Landroid/content/Intent;Lcom/android/launcher2/compat/UserHandleCompat;)Lcom/android/launcher2/compat/LauncherActivityInfoCompat;
 
-    move-result-object v0
+    move-result-object v1
 
     invoke-virtual {p0}, Lcom/android/launcher2/HomeShortcutItem;->getPackageName()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-static {p1, v6, v0}, Lcom/android/launcher2/utils/LiveIconUtils;->getLiveIcon(Landroid/content/Context;Ljava/lang/String;Lcom/android/launcher2/compat/LauncherActivityInfoCompat;)Landroid/graphics/Bitmap;
+    invoke-static {p1, v5, v1}, Lcom/android/launcher2/utils/LiveIconUtils;->getLiveIcon(Landroid/content/Context;Ljava/lang/String;Lcom/android/launcher2/compat/LauncherActivityInfoCompat;)Landroid/graphics/Bitmap;
 
-    move-result-object v6
+    move-result-object v5
 
-    iput-object v6, p0, Lcom/android/launcher2/HomeShortcutItem;->mIconBitmap:Landroid/graphics/Bitmap;
+    iput-object v5, p0, Lcom/android/launcher2/HomeShortcutItem;->mIconBitmap:Landroid/graphics/Bitmap;
+    :try_end_0
+    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Ljava/lang/SecurityException;->printStackTrace()V
 
     goto :goto_0
 
     :cond_3
     invoke-virtual {p0}, Lcom/android/launcher2/HomeShortcutItem;->getPackageName()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-static {p1, v6}, Lcom/android/launcher2/utils/LiveIconUtils;->getLiveIcon(Landroid/content/Context;Ljava/lang/String;)Landroid/graphics/Bitmap;
+    invoke-static {p1, v5}, Lcom/android/launcher2/utils/LiveIconUtils;->getLiveIcon(Landroid/content/Context;Ljava/lang/String;)Landroid/graphics/Bitmap;
 
-    move-result-object v6
+    move-result-object v5
 
-    iput-object v6, p0, Lcom/android/launcher2/HomeShortcutItem;->mIconBitmap:Landroid/graphics/Bitmap;
+    iput-object v5, p0, Lcom/android/launcher2/HomeShortcutItem;->mIconBitmap:Landroid/graphics/Bitmap;
 
     goto :goto_0
 .end method

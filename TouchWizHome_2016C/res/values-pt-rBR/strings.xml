@@ -99,7 +99,7 @@
     <string name="home_icon_auto_align">Alinhar itens</string>
     <string name="home_screen_content">Conteúdo tela de início</string>
     <string name="home_screen_mode_apps">Most. Tela aplic. separ.</string>
-    <string name="home_screen_mode_change_to_apps_alert">Uma tela de Aplicativos separada será criada para que você possa encontrar seus aplicativos mais importantes com facilidade através do ícone Aplicativos na tela de início. Quaisquer personalizações feitas anteriormente na tela de início serão descartadas.</string>
+    <string name="home_screen_mode_change_to_apps_alert">Uma Tela de Aplicativos separada será criada para que você possa encontrar seus aplicativos mais importantes com facilidade através do ícone Aplicativos na Tela inicial. Quaisquer personalizações feitas anteriormente na Tela inicial serão descartadas.</string>
     <string name="home_screen_mode_change_to_only_home_alert">Todos os seus aplicativos serão exibidos na tela de início. Quaisquer personalizações feitas anteriormente à tela de início serão descartadas.</string>
     <string name="home_screen_mode_only_home">Exibir apps na Tela inicial</string>
     <string name="homes_screen_settings">Config. da Tela inicial</string>
@@ -118,7 +118,7 @@
     <string name="menu_edit_done">OK</string>
     <string name="menu_edit_mode">Modo de edição</string>
     <string name="menu_edit_save">Salvar</string>
-    <string name="menu_item_add_item_title">Tela de início</string>
+    <string name="menu_item_add_item_title">Tela inicial</string>
     <string name="menu_item_folder">Pasta</string>
     <string name="menu_navigate_up">Navegar</string>
     <string name="menu_new_page_created_toast">Página adicionada.</string>
@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">Nenhuma aplicação baixada</string>
     <string name="no_room_any_page">Nenhum local em nenhuma página.</string>
     <string name="no_space_page">Sem espaço na página. Tente adicionar o atalho a uma página diferente.</string>
+    <string name="no_space_page_for_widget">Nenhum espaço nesta página.</string>
     <string name="not_selected">Não selecionado</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">O widget %s já foi adicionado à tela inicial.</string>
@@ -176,7 +177,7 @@ Pasta Segura"</string>
     <string name="read_home_screen_settings">Ler configs. tela início</string>
     <string name="read_home_screen_settings_info">Este aplicativo pode ler os atalhos e as configurações da tela de início.</string>
     <string name="rearrange_menu_icons_not_allowed">Não é possível reorganizar os ícones em ordem alfabética.</string>
-    <string name="removable_preloadapp_uninstall_message">%s será excluído. Para baixá-lo novamente, vá para a lista de aplicativos, toque no botão de mais opções e selecione Básicos para o GALAXY.</string>
+    <string name="removable_preloadapp_uninstall_message">%s será excluído. Para baixá-lo novamente, vá para a lista de aplicativos, toque no botão de mais opções e selecione Galaxy Essentials.</string>
     <string name="remove_app_folder_cancel">Cancelar</string>
     <string name="remove_app_folder_confirm">Apagar</string>
     <string name="remove_app_folder_confirm_VZW">Remover</string>

@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">Allalaaditud rakendusi ei ole</string>
     <string name="no_room_any_page">Ühelgi lehel pole rohkem ruumi.</string>
     <string name="no_space_page">Leheküljel pole ruumi. Proovige lisada otsetee mõnele muule leheküljele.</string>
+    <string name="no_space_page_for_widget">Sellel leheküljel pole ruumi.</string>
     <string name="not_selected">Pole valitud</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">%s vidin on juba lisatud avaekraanile.</string>
@@ -176,7 +177,7 @@ turvalisse kausta"</string>
     <string name="read_home_screen_settings">Avaekr. seadete lugemine</string>
     <string name="read_home_screen_settings_info">See rakendus suudab lugeda avaekraani seadeid ja otseteid.</string>
     <string name="rearrange_menu_icons_not_allowed">Ikoone ei saa tähestikulises järjestuses ümber korraldada.</string>
-    <string name="removable_preloadapp_uninstall_message">%s kustutatakse. Selle uuesti allalaadimiseks avage rakenduste loend, toksake nuppu Veel valikuid ja seejärel valige GALAXY põhitarvikud.</string>
+    <string name="removable_preloadapp_uninstall_message">%s kustutatakse. Selle uuesti allalaadimiseks avage rakenduste loend, toksake nuppu Veel valikuid ja seejärel valige Galaxy Essentials.</string>
     <string name="remove_app_folder_cancel">Tühista</string>
     <string name="remove_app_folder_confirm">Kustuta</string>
     <string name="remove_app_folder_confirm_VZW">Eemalda</string>

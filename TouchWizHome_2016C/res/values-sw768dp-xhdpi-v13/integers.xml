@@ -25,8 +25,8 @@
     <integer name="open_folder_appicon_max_visible_rows">4</integer>
     <integer name="page_snap_animation_duration">550</integer>
     <integer name="config_appSearchRecentLineCount">2</integer>
-    <integer name="config_workspaceEditModeShrinkPercentage">85</integer>
-    <integer name="moveApps_base_grid_size">7</integer>
+    <integer name="config_workspaceEditModeShrinkPercentage">100</integer>
+    <integer name="moveApps_base_grid_size">8</integer>
     <integer name="appsearch_title_bar_text_size_int">18</integer>
     <integer name="appsearch_default_cellCountX">5</integer>
     <integer name="folder_multi_container_folder_count">5</integer>

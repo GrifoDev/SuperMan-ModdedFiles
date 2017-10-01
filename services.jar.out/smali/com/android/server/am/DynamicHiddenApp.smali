@@ -783,7 +783,7 @@
 
     sput-object v0, Lcom/android/server/am/DynamicHiddenApp;->DHA_DYNAMICEXCEPT_PROC_ARRAY:[Ljava/lang/String;
 
-    const/4 v0, 0x5
+    const/4 v0, 0x6
 
     new-array v0, v0, [[Ljava/lang/String;
 
@@ -846,6 +846,20 @@
     aput-object v2, v1, v4
 
     aput-object v1, v0, v7
+
+    new-array v1, v5, [Ljava/lang/String;
+
+    const-string/jumbo v2, "com.tencent.mm"
+
+    aput-object v2, v1, v3
+
+    const-string/jumbo v2, "1"
+
+    aput-object v2, v1, v4
+
+    const/4 v2, 0x5
+
+    aput-object v1, v0, v2
 
     sput-object v0, Lcom/android/server/am/DynamicHiddenApp;->DHA_STATICEXCEPT_PROC_ARRAY:[[Ljava/lang/String;
 

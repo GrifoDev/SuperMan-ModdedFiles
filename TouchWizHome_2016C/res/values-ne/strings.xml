@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">डाउनलोड गरिएका अनुप्रयोगहरु छैनन्</string>
     <string name="no_room_any_page">कुनैपनि पृष्ठमा कुनैपनि खालि स्थान छैन।</string>
     <string name="no_space_page">पृष्ठमा कुनै खाली ठाउँ छैन। कुनै फरक अर्को पृष्ठमा शर्टकट थपी हेर्नुहोस्।</string>
+    <string name="no_space_page_for_widget">यस पृष्ठमा खाली ठाउँ छैन।</string>
     <string name="not_selected">चयन गरिएको छैन</string>
     <string name="ok">ठीक छ</string>
     <string name="only_one_widget_instance_allowed">%s विजेटलाई पहिले नै होम स्क्रीनमा थपिएको छ।</string>
@@ -176,7 +177,7 @@
     <string name="read_home_screen_settings">होम स्क्रीन सेटिङहरू पढ्नु</string>
     <string name="read_home_screen_settings_info">यो एपले तपाईको होम स्क्रीन सेटिङहरू र शर्टकटहरू पढ्न सक्छ।</string>
     <string name="rearrange_menu_icons_not_allowed">वर्णानुक्रमानुसार प्रतिमाहरू पुन: मिलाउन असक्षम।</string>
-    <string name="removable_preloadapp_uninstall_message">%s मेटाइनेछ। यसलाई पुन: डाउलोड गर्न, एप सूचीमा जानुहोस्, थप विकल्पहरू बटन ट्याप गर्नुहोस्, त्यसपछि ग्यालेक्सी आवश्यकताहरू चयन गर्नुहोस्।</string>
+    <string name="removable_preloadapp_uninstall_message">%s लाई मेटाइनेछ। यसलाई डाउलोड गर्न, एपको सूचीमा जानुहोस्, थप विकल्पहरूको बटनमा ट्याप गर्नुहोस्, त्यसपछि Galaxy Essentials चयन गर्नुहोस्।</string>
     <string name="remove_app_folder_cancel">रद्द</string>
     <string name="remove_app_folder_confirm">मेटाउनु</string>
     <string name="remove_app_folder_confirm_VZW">हटाउनुहोस्</string>

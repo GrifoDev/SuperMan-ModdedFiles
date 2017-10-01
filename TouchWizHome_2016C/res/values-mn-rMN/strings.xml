@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">Татаж авсан програм алга</string>
     <string name="no_room_any_page">Аль ч хуудсанд зай байхгүй.</string>
     <string name="no_space_page">Хуудсанд зай байхгүй. Өөр хуудсанд холбоос нэмээд үз.</string>
+    <string name="no_space_page_for_widget">Энэ хуудсанд зай байхгүй.</string>
     <string name="not_selected">Сонгогдоогүй</string>
     <string name="ok">Батлах</string>
     <string name="only_one_widget_instance_allowed">%s тоноглолыг хэдийн эх дэлгэцэд нэмсэн.</string>
@@ -177,7 +178,7 @@
     <string name="read_home_screen_settings">Зарим эх дэл.н тох.г унш</string>
     <string name="read_home_screen_settings_info">Энэ хэрэглүүр таны эх дэлгэцийн тохиргоо ба холбоосыг уншиж чадна.</string>
     <string name="rearrange_menu_icons_not_allowed">Дүрсүүдийг үсгийн дарааллаар эмхлэх боломжгүй.</string>
-    <string name="removable_preloadapp_uninstall_message">%s-г устгана. Түүнийг дахин татаж авахын тулд програмын жагсаалт руу очиж, илүү их сонголтууд товчийг товшоод, GALAXY-ийн үндсэн програмуудыг сонго.</string>
+    <string name="removable_preloadapp_uninstall_message">%s-г устгана. Үүнийг дахин татаж авахын тулд хэрэглүүрийн жагсаалт руу очиж, илүү их сонголтууд товчийг товшоод, Galaxy Essentials-г сонго.</string>
     <string name="remove_app_folder_cancel">Цуцлах</string>
     <string name="remove_app_folder_confirm">Устгах</string>
     <string name="remove_app_folder_confirm_VZW">Арилгах</string>

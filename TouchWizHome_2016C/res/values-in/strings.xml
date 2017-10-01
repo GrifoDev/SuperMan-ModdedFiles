@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">Tidak ada aplikasi yang didownload</string>
     <string name="no_room_any_page">Tidak ada ruang pada halaman mana pun.</string>
     <string name="no_space_page">Tidak ada ruang pada halaman. Coba tambahkan pintasan ke halaman lain.</string>
+    <string name="no_space_page_for_widget">Tidak ada ruang di halaman ini.</string>
     <string name="not_selected">Tidak dipilih</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Widget %s sudah ditambahkan ke layar depan.</string>
@@ -176,7 +177,7 @@ Folder Aman"</string>
     <string name="read_home_screen_settings">Baca pngturan layar depan</string>
     <string name="read_home_screen_settings_info">Aplikasi ini dapat membaca pengaturan dan pintasan layar depan.</string>
     <string name="rearrange_menu_icons_not_allowed">Tidak dapat menata ulang ikon dalam urutan abjad.</string>
-    <string name="removable_preloadapp_uninstall_message">%s akan dihapus. Untuk mengunduhnya kembali, buka daftar aplikasi, ketuk tombol opsi lainnya, lalu pilih GALAXY Essentials.</string>
+    <string name="removable_preloadapp_uninstall_message">%s akan dihapus. Untuk mengunduhnya kembali, buka daftar aplikasi, ketuk tombol opsi lainnya, lalu pilih Galaxy Essentials.</string>
     <string name="remove_app_folder_cancel">Batal</string>
     <string name="remove_app_folder_confirm">Hapus</string>
     <string name="remove_app_folder_confirm_VZW">Hapus</string>

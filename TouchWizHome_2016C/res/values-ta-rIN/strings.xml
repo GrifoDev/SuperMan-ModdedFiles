@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">பதிவிறக்கப்பட்ட பயன்பாடுகள் இல்லை</string>
     <string name="no_room_any_page">எந்தப் பக்கத்திலும் இடமில்லை.</string>
     <string name="no_space_page">பக்கத்தில் இடமில்லை. வேறொரு பக்கத்திற்கு குறுக்குவழியைச் சேர்க்க முயற்சிக்கவும்.</string>
+    <string name="no_space_page_for_widget">இந்தப் பக்கத்தில் இடமில்லை.</string>
     <string name="not_selected">தேர்வு செய்யப்படவில்லை</string>
     <string name="ok">சரி</string>
     <string name="only_one_widget_instance_allowed">%s விட்ஜெட் ஏற்கனவே முகப்புத் திரையில் சேர்க்கப்பட்டுள்ளது.</string>
@@ -176,7 +177,7 @@
     <string name="read_home_screen_settings">முகப்பு திரை அமைவுகள் வாசி.</string>
     <string name="read_home_screen_settings_info">இந்தப் பயன்பாடு உங்கள் முகப்பு திரை அமைவுகள் மற்றும் குறுக்குவழிகளை வாசிக்கும்.</string>
     <string name="rearrange_menu_icons_not_allowed">சின்னங்களை அகரவரிசைப்படி மீண்டும் ஒழுங்குபடுத்த இயலவில்லை.</string>
-    <string name="removable_preloadapp_uninstall_message">%s அழிக்கப்படும். இதை மீண்டும் பதிவிறக்குவதற்கு, பயன்பாட்டுப் பட்டியலுக்கு சென்று தெரிவுகள் பொத்தானை டேப் செய்து GALAXY Essentials என்பதைத் தேர்ந்தெடுக்கவும்.</string>
+    <string name="removable_preloadapp_uninstall_message">%s நீக்கப்படும். இதை மீண்டும் பதிவிறக்குவதற்கு, பயன்பாட்டுப் பட்டியலுக்கு சென்று மேலும் தெரிவுகள் பொத்தானை டேப் செய்து, Galaxy Essentials என்பதைத் தேர்வு செய்யவும்.</string>
     <string name="remove_app_folder_cancel">ரத்து</string>
     <string name="remove_app_folder_confirm">நீக்குக</string>
     <string name="remove_app_folder_confirm_VZW">அகற்றுக</string>

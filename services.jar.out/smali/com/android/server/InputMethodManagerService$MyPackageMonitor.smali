@@ -158,7 +158,7 @@
 
     const-string/jumbo v6, ""
 
-    invoke-static {v5, v6}, Lcom/android/server/InputMethodManagerService;->-wrap6(Lcom/android/server/InputMethodManagerService;Ljava/lang/String;)V
+    invoke-static {v5, v6}, Lcom/android/server/InputMethodManagerService;->-wrap7(Lcom/android/server/InputMethodManagerService;Ljava/lang/String;)V
 
     iget-object v5, p0, Lcom/android/server/InputMethodManagerService$MyPackageMonitor;->this$0:Lcom/android/server/InputMethodManagerService;
 
@@ -546,7 +546,7 @@
 
     move/from16 v0, v16
 
-    invoke-static {v12, v14, v0, v15}, Lcom/android/server/InputMethodManagerService;->-wrap10(Lcom/android/server/InputMethodManagerService;Landroid/os/IBinder;II)V
+    invoke-static {v12, v14, v0, v15}, Lcom/android/server/InputMethodManagerService;->-wrap13(Lcom/android/server/InputMethodManagerService;Landroid/os/IBinder;II)V
 
     move-object/from16 v0, p0
 
@@ -574,7 +574,7 @@
 
     const-string/jumbo v14, ""
 
-    invoke-static {v12, v14}, Lcom/android/server/InputMethodManagerService;->-wrap6(Lcom/android/server/InputMethodManagerService;Ljava/lang/String;)V
+    invoke-static {v12, v14}, Lcom/android/server/InputMethodManagerService;->-wrap7(Lcom/android/server/InputMethodManagerService;Ljava/lang/String;)V
 
     :cond_8
     if-nez v4, :cond_b

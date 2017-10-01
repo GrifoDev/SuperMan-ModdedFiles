@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">Níl feidhmchláir íoslódáilte ann</string>
     <string name="no_room_any_page">Níl spás ar aon leathanach.</string>
     <string name="no_space_page">Níl aon spás ar fáil ar an leathanach. Triail an t-aicearra a chur le leathanach eile.</string>
+    <string name="no_space_page_for_widget">Níl aon spás ar an leathanach seo.</string>
     <string name="not_selected">Gan roghnú</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Giuirléid %s curtha leis an scáileán baile cheana.</string>
@@ -176,7 +177,7 @@ Fillteán Slán"</string>
     <string name="read_home_screen_settings">Socru. scáil. baile a léamh</string>
     <string name="read_home_screen_settings_info">Is féidir leis an bhfeidhmchlár seo socruithe agus aicearraí do scáileáin baile a léamh.</string>
     <string name="rearrange_menu_icons_not_allowed">Ní féidir íocóin a atheagrú in ord aibítreach.</string>
-    <string name="removable_preloadapp_uninstall_message">Scriosfar %s. Chun é a íoslódáil arís, gabh chuig liosta na bhfeidhmchlár, tapáil an cnaipe Tuilleadh roghanna, ansin roghnaigh GALAXY Essentials.</string>
+    <string name="removable_preloadapp_uninstall_message">Scriosfar %s. Lena íoslódáil arís, gabh chuig liosta na bhfeidhmchlár, tapáil an cnaipe Tuilleadh roghanna, ansin roghnaigh Galaxy Essentials.</string>
     <string name="remove_app_folder_cancel">Cealaigh</string>
     <string name="remove_app_folder_confirm">Scrios</string>
     <string name="remove_app_folder_confirm_VZW">Bain</string>

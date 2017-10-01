@@ -138,8 +138,8 @@
     <dimen name="folder_icon_paddingTop">9.0dip</dimen>
     <dimen name="home_4x5_cellGapX">1.0dip</dimen>
     <dimen name="home_4x5_cellWidth_port">97.0dip</dimen>
-    <dimen name="home_5x5_cellGapX">1.0dip</dimen>
-    <dimen name="home_5x5_cellWidth_port">75.0dip</dimen>
+    <dimen name="home_5x5_cellGapX">2.0dip</dimen>
+    <dimen name="home_5x5_cellWidth_port">76.0dip</dimen>
     <dimen name="home_edit_bar_focus_bg_width">63.0dip</dimen>
     <dimen name="home_editmode_panel_leftGap">155.0dip</dimen>
     <dimen name="icon_shadow_offset_y_4x5">47.0dip</dimen>

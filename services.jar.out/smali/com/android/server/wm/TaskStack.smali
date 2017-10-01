@@ -58,13 +58,13 @@
 
 .field private mImeWin:Lcom/android/server/wm/WindowState;
 
-.field private mInitAdjustedImeBoundsBottom:I
-
 .field private mMinimizeAmount:F
 
 .field mRotation:I
 
 .field private final mService:Lcom/android/server/wm/WindowManagerService;
+
+.field private mStackBottomBeforeAdjustment:I
 
 .field private mStackColorLayer:Lcom/android/server/wm/IMultiWindowStackColorLayer;
 
@@ -170,7 +170,7 @@
 
     iput-object v0, p0, Lcom/android/server/wm/TaskStack;->mFinalAdjustedImeBounds:Landroid/graphics/Rect;
 
-    iput v1, p0, Lcom/android/server/wm/TaskStack;->mInitAdjustedImeBoundsBottom:I
+    iput v1, p0, Lcom/android/server/wm/TaskStack;->mStackBottomBeforeAdjustment:I
 
     iput v1, p0, Lcom/android/server/wm/TaskStack;->mFullMinimizedHeight:I
 
@@ -619,7 +619,7 @@
 
     move-object/from16 v1, p0
 
-    iput v0, v1, Lcom/android/server/wm/TaskStack;->mInitAdjustedImeBoundsBottom:I
+    iput v0, v1, Lcom/android/server/wm/TaskStack;->mStackBottomBeforeAdjustment:I
 
     :cond_4
     :goto_3
@@ -931,30 +931,6 @@
     move-result v3
 
     :cond_d
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/wm/TaskStack;->mInitAdjustedImeBoundsBottom:I
-
-    move/from16 v21, v0
-
-    iget v0, v6, Landroid/graphics/Rect;->bottom:I
-
-    move/from16 v22, v0
-
-    invoke-virtual {v4}, Landroid/graphics/Rect;->height()I
-
-    move-result v23
-
-    sub-int v22, v22, v23
-
-    sub-int v22, v22, v9
-
-    move/from16 v0, v21
-
-    move/from16 v1, v22
-
-    if-eq v0, v1, :cond_4
-
     iget v0, v6, Landroid/graphics/Rect;->bottom:I
 
     move/from16 v21, v0
@@ -971,7 +947,7 @@
 
     move-object/from16 v1, p0
 
-    iput v0, v1, Lcom/android/server/wm/TaskStack;->mInitAdjustedImeBoundsBottom:I
+    iput v0, v1, Lcom/android/server/wm/TaskStack;->mStackBottomBeforeAdjustment:I
 
     goto/16 :goto_3
 
@@ -1599,171 +1575,171 @@
 .end method
 
 .method private alignTasksToAdjustedBounds(Landroid/graphics/Rect;Landroid/graphics/Rect;)V
-    .locals 12
-
-    const/4 v11, 0x2
-
-    const/4 v6, 0x1
+    .locals 11
 
     const/4 v10, 0x0
 
-    const/4 v7, 0x0
+    const/4 v9, 0x0
 
-    iget-boolean v8, p0, Lcom/android/server/wm/TaskStack;->mFullscreen:Z
+    iget-boolean v6, p0, Lcom/android/server/wm/TaskStack;->mFullscreen:Z
 
-    if-eqz v8, :cond_0
+    if-eqz v6, :cond_0
 
     return-void
 
     :cond_0
-    iget-object v8, p0, Lcom/android/server/wm/TaskStack;->mTasks:Ljava/util/ArrayList;
+    iget-object v6, p0, Lcom/android/server/wm/TaskStack;->mTasks:Ljava/util/ArrayList;
 
-    invoke-virtual {v8}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v6}, Ljava/util/ArrayList;->size()I
 
-    move-result v8
+    move-result v6
 
-    add-int/lit8 v3, v8, -0x1
+    add-int/lit8 v4, v6, -0x1
 
     :goto_0
-    if-ltz v3, :cond_5
+    if-ltz v4, :cond_6
 
-    iget-object v8, p0, Lcom/android/server/wm/TaskStack;->mTasks:Ljava/util/ArrayList;
+    iget-object v6, p0, Lcom/android/server/wm/TaskStack;->mTasks:Ljava/util/ArrayList;
 
-    invoke-virtual {v8, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v6, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v3
 
-    check-cast v2, Lcom/android/server/wm/Task;
+    check-cast v3, Lcom/android/server/wm/Task;
 
-    iget-object v8, p0, Lcom/android/server/wm/TaskStack;->mTmpRect2:Landroid/graphics/Rect;
+    iget-object v6, p0, Lcom/android/server/wm/TaskStack;->mTmpRect2:Landroid/graphics/Rect;
 
-    invoke-virtual {v2, v8}, Lcom/android/server/wm/Task;->getBounds(Landroid/graphics/Rect;)V
+    invoke-virtual {v3, v6}, Lcom/android/server/wm/Task;->getBounds(Landroid/graphics/Rect;)V
 
-    sget-boolean v8, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SNAP_VIEW_SUPPORT:Z
+    sget-boolean v6, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SNAP_VIEW_SUPPORT:Z
 
-    if-eqz v8, :cond_1
+    if-eqz v6, :cond_1
 
-    sget-boolean v8, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SNAP_VIEW_DYNAMIC_ENABLED:Z
+    sget-boolean v6, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SNAP_VIEW_DYNAMIC_ENABLED:Z
 
-    if-eqz v8, :cond_1
+    if-eqz v6, :cond_1
 
-    invoke-virtual {v2}, Lcom/android/server/wm/Task;->isSnapViewing()Z
+    invoke-virtual {v3}, Lcom/android/server/wm/Task;->isSnapViewing()Z
 
-    move-result v8
+    move-result v6
 
-    if-eqz v8, :cond_1
+    if-eqz v6, :cond_1
 
-    invoke-virtual {v2, v10, v10, v7}, Lcom/android/server/wm/Task;->resizeLocked(Landroid/graphics/Rect;Landroid/content/res/Configuration;Z)Z
+    invoke-virtual {v3, v9, v9, v10}, Lcom/android/server/wm/Task;->resizeLocked(Landroid/graphics/Rect;Landroid/content/res/Configuration;Z)Z
 
-    iget-object v8, p0, Lcom/android/server/wm/TaskStack;->mTmpRect2:Landroid/graphics/Rect;
+    iget-object v6, p0, Lcom/android/server/wm/TaskStack;->mTmpRect2:Landroid/graphics/Rect;
 
-    invoke-virtual {v2, v8}, Lcom/android/server/wm/Task;->scrollLocked(Landroid/graphics/Rect;)Z
+    invoke-virtual {v3, v6}, Lcom/android/server/wm/Task;->scrollLocked(Landroid/graphics/Rect;)Z
 
     :goto_1
-    add-int/lit8 v3, v3, -0x1
+    add-int/lit8 v4, v4, -0x1
 
     goto :goto_0
 
     :cond_1
-    invoke-virtual {v2}, Lcom/android/server/wm/Task;->isTwoFingerScrollMode()Z
+    invoke-virtual {v3}, Lcom/android/server/wm/Task;->isTwoFingerScrollMode()Z
 
-    move-result v8
+    move-result v6
 
-    if-eqz v8, :cond_2
+    if-eqz v6, :cond_2
 
-    invoke-virtual {v2, v10, v10, v7}, Lcom/android/server/wm/Task;->resizeLocked(Landroid/graphics/Rect;Landroid/content/res/Configuration;Z)Z
+    invoke-virtual {v3, v9, v9, v10}, Lcom/android/server/wm/Task;->resizeLocked(Landroid/graphics/Rect;Landroid/content/res/Configuration;Z)Z
 
-    iget-object v8, p0, Lcom/android/server/wm/TaskStack;->mTmpRect2:Landroid/graphics/Rect;
+    iget-object v6, p0, Lcom/android/server/wm/TaskStack;->mTmpRect2:Landroid/graphics/Rect;
 
-    invoke-virtual {v2, v8}, Lcom/android/server/wm/Task;->scrollLocked(Landroid/graphics/Rect;)Z
+    invoke-virtual {v3, v6}, Lcom/android/server/wm/Task;->scrollLocked(Landroid/graphics/Rect;)Z
 
     goto :goto_1
 
     :cond_2
-    iget-boolean v8, p0, Lcom/android/server/wm/TaskStack;->mAdjustedForIme:Z
+    iget-boolean v6, p0, Lcom/android/server/wm/TaskStack;->mAdjustedForIme:Z
 
-    if-eqz v8, :cond_3
+    if-eqz v6, :cond_3
 
     invoke-virtual {p0}, Lcom/android/server/wm/TaskStack;->getDockSide()I
 
-    move-result v8
+    move-result v6
 
-    if-ne v8, v11, :cond_3
+    const/4 v7, 0x2
 
-    iget-object v8, p0, Lcom/android/server/wm/TaskStack;->mTmpRect2:Landroid/graphics/Rect;
+    if-ne v6, v7, :cond_3
 
-    invoke-virtual {v8}, Landroid/graphics/Rect;->height()I
+    const/4 v0, 0x1
 
-    move-result v8
+    :goto_2
+    iget-object v6, p0, Lcom/android/server/wm/TaskStack;->mTmpRect2:Landroid/graphics/Rect;
 
-    iget-object v9, p0, Lcom/android/server/wm/TaskStack;->mBounds:Landroid/graphics/Rect;
+    invoke-virtual {v6}, Landroid/graphics/Rect;->height()I
 
-    invoke-virtual {v9}, Landroid/graphics/Rect;->height()I
+    move-result v6
 
-    move-result v9
+    iget-object v7, p0, Lcom/android/server/wm/TaskStack;->mBounds:Landroid/graphics/Rect;
 
-    if-le v8, v9, :cond_3
+    invoke-virtual {v7}, Landroid/graphics/Rect;->height()I
 
-    iget-object v8, p0, Lcom/android/server/wm/TaskStack;->mFinalAdjustedImeBounds:Landroid/graphics/Rect;
+    move-result v7
 
-    iget v8, v8, Landroid/graphics/Rect;->bottom:I
+    if-le v6, v7, :cond_4
 
-    iget v9, p0, Lcom/android/server/wm/TaskStack;->mInitAdjustedImeBoundsBottom:I
+    const/4 v1, 0x1
 
-    sub-int v5, v8, v9
+    :goto_3
+    if-eqz v0, :cond_5
 
-    int-to-float v8, v5
+    if-eqz v1, :cond_5
 
-    iget v9, p0, Lcom/android/server/wm/TaskStack;->mAdjustImeAmount:F
+    iget-object v6, p0, Lcom/android/server/wm/TaskStack;->mFinalAdjustedImeBounds:Landroid/graphics/Rect;
 
-    mul-float/2addr v8, v9
+    iget v6, v6, Landroid/graphics/Rect;->bottom:I
 
-    float-to-int v1, v8
+    iget v7, p0, Lcom/android/server/wm/TaskStack;->mStackBottomBeforeAdjustment:I
 
-    new-instance v4, Landroid/graphics/Rect;
+    sub-int v5, v6, v7
 
-    invoke-direct {v4}, Landroid/graphics/Rect;-><init>()V
+    new-instance v2, Landroid/graphics/Rect;
 
-    invoke-virtual {v4, p1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
+    invoke-direct {v2, p1}, Landroid/graphics/Rect;-><init>(Landroid/graphics/Rect;)V
 
-    iget-object v8, p0, Lcom/android/server/wm/TaskStack;->mTmpRect2:Landroid/graphics/Rect;
+    iget-object v6, p0, Lcom/android/server/wm/TaskStack;->mTmpRect2:Landroid/graphics/Rect;
 
-    invoke-virtual {v8}, Landroid/graphics/Rect;->height()I
+    invoke-virtual {v6}, Landroid/graphics/Rect;->height()I
 
-    move-result v8
+    move-result v6
 
-    add-int/2addr v8, v1
+    int-to-float v7, v5
 
-    iput v8, v4, Landroid/graphics/Rect;->bottom:I
+    iget v8, p0, Lcom/android/server/wm/TaskStack;->mAdjustImeAmount:F
 
-    invoke-virtual {v2, v4, p2, v6}, Lcom/android/server/wm/Task;->alignToAdjustedBounds(Landroid/graphics/Rect;Landroid/graphics/Rect;Z)V
+    mul-float/2addr v7, v8
+
+    float-to-int v7, v7
+
+    add-int/2addr v6, v7
+
+    iput v6, v2, Landroid/graphics/Rect;->bottom:I
+
+    const/4 v6, 0x1
+
+    invoke-virtual {v3, v2, p2, v6}, Lcom/android/server/wm/Task;->alignToAdjustedBounds(Landroid/graphics/Rect;Landroid/graphics/Rect;Z)V
 
     goto :goto_1
 
     :cond_3
-    iget-boolean v8, p0, Lcom/android/server/wm/TaskStack;->mAdjustedForIme:Z
-
-    if-eqz v8, :cond_4
-
-    invoke-virtual {p0}, Lcom/android/server/wm/TaskStack;->getDockSide()I
-
-    move-result v8
-
-    if-ne v8, v11, :cond_4
-
-    move v0, v6
-
-    :goto_2
-    invoke-virtual {v2, p1, p2, v0}, Lcom/android/server/wm/Task;->alignToAdjustedBounds(Landroid/graphics/Rect;Landroid/graphics/Rect;Z)V
-
-    goto :goto_1
-
-    :cond_4
-    move v0, v7
+    const/4 v0, 0x0
 
     goto :goto_2
 
+    :cond_4
+    const/4 v1, 0x0
+
+    goto :goto_3
+
     :cond_5
+    invoke-virtual {v3, p1, p2, v0}, Lcom/android/server/wm/Task;->alignToAdjustedBounds(Landroid/graphics/Rect;Landroid/graphics/Rect;Z)V
+
+    goto :goto_1
+
+    :cond_6
     return-void
 .end method
 
@@ -2876,77 +2852,59 @@
 .end method
 
 .method applyAdjustForImeIfNeeded(Lcom/android/server/wm/Task;)V
-    .locals 7
+    .locals 5
 
-    const/4 v6, 0x2
+    const/4 v2, 0x1
 
-    const/4 v3, 0x1
+    iget v1, p0, Lcom/android/server/wm/TaskStack;->mMinimizeAmount:F
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    iget v4, p0, Lcom/android/server/wm/TaskStack;->mMinimizeAmount:F
+    cmpl-float v1, v1, v3
 
-    const/4 v5, 0x0
+    if-nez v1, :cond_0
 
-    cmpl-float v4, v4, v5
+    iget-boolean v1, p0, Lcom/android/server/wm/TaskStack;->mAdjustedForIme:Z
 
-    if-nez v4, :cond_0
+    if-eqz v1, :cond_0
 
-    iget-boolean v4, p0, Lcom/android/server/wm/TaskStack;->mAdjustedForIme:Z
+    iget-object v1, p0, Lcom/android/server/wm/TaskStack;->mAdjustedBounds:Landroid/graphics/Rect;
 
-    if-eqz v4, :cond_0
+    invoke-virtual {v1}, Landroid/graphics/Rect;->isEmpty()Z
 
-    iget-object v4, p0, Lcom/android/server/wm/TaskStack;->mAdjustedBounds:Landroid/graphics/Rect;
+    move-result v1
 
-    invoke-virtual {v4}, Landroid/graphics/Rect;->isEmpty()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_1
+    if-eqz v1, :cond_1
 
     :cond_0
     return-void
 
     :cond_1
-    iget-boolean v4, p0, Lcom/android/server/wm/TaskStack;->mImeGoingAway:Z
+    iget-boolean v1, p0, Lcom/android/server/wm/TaskStack;->mImeGoingAway:Z
 
-    if-eqz v4, :cond_2
+    if-eqz v1, :cond_2
 
     iget-object v0, p0, Lcom/android/server/wm/TaskStack;->mBounds:Landroid/graphics/Rect;
 
     :goto_0
-    new-instance v1, Landroid/graphics/Rect;
-
-    invoke-direct {v1}, Landroid/graphics/Rect;-><init>()V
-
-    invoke-virtual {p1, v1}, Lcom/android/server/wm/Task;->getBounds(Landroid/graphics/Rect;)V
+    iget-object v3, p0, Lcom/android/server/wm/TaskStack;->mAdjustedBounds:Landroid/graphics/Rect;
 
     invoke-virtual {p0}, Lcom/android/server/wm/TaskStack;->getDockSide()I
 
-    move-result v4
+    move-result v1
 
-    if-ne v4, v6, :cond_3
+    const/4 v4, 0x2
 
-    invoke-virtual {v1}, Landroid/graphics/Rect;->height()I
+    if-ne v1, v4, :cond_3
 
-    move-result v4
-
-    iget-object v5, p0, Lcom/android/server/wm/TaskStack;->mBounds:Landroid/graphics/Rect;
-
-    invoke-virtual {v5}, Landroid/graphics/Rect;->height()I
-
-    move-result v5
-
-    if-le v4, v5, :cond_3
-
-    iget-object v4, p0, Lcom/android/server/wm/TaskStack;->mAdjustedBounds:Landroid/graphics/Rect;
-
-    invoke-virtual {p1, v4, v0, v2}, Lcom/android/server/wm/Task;->alignToAdjustedBounds(Landroid/graphics/Rect;Landroid/graphics/Rect;Z)V
+    move v1, v2
 
     :goto_1
-    iget-object v2, p0, Lcom/android/server/wm/TaskStack;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
+    invoke-virtual {p1, v3, v0, v1}, Lcom/android/server/wm/Task;->alignToAdjustedBounds(Landroid/graphics/Rect;Landroid/graphics/Rect;Z)V
 
-    iput-boolean v3, v2, Lcom/android/server/wm/DisplayContent;->layoutNeeded:Z
+    iget-object v1, p0, Lcom/android/server/wm/TaskStack;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
+
+    iput-boolean v2, v1, Lcom/android/server/wm/DisplayContent;->layoutNeeded:Z
 
     return-void
 
@@ -2956,18 +2914,7 @@
     goto :goto_0
 
     :cond_3
-    iget-object v4, p0, Lcom/android/server/wm/TaskStack;->mAdjustedBounds:Landroid/graphics/Rect;
-
-    invoke-virtual {p0}, Lcom/android/server/wm/TaskStack;->getDockSide()I
-
-    move-result v5
-
-    if-ne v5, v6, :cond_4
-
-    move v2, v3
-
-    :cond_4
-    invoke-virtual {p1, v4, v0, v2}, Lcom/android/server/wm/Task;->alignToAdjustedBounds(Landroid/graphics/Rect;Landroid/graphics/Rect;Z)V
+    const/4 v1, 0x0
 
     goto :goto_1
 .end method

@@ -141,6 +141,7 @@ aplikacyje"</string>
     <string name="no_downloaded_apps">Niy ma zebrŏnych aplikacyji</string>
     <string name="no_room_any_page">Niy ma miyjsca na żŏdnyj zajcie.</string>
     <string name="no_space_page">Brak miejsca na stronie. Spróbuj dodać skrót na innej stronie.</string>
+    <string name="no_space_page_for_widget">Niyma placu na tyj zajcie.</string>
     <string name="not_selected">Niyŏbrane</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Widget %s je już przidany do ekranu sztartowego.</string>

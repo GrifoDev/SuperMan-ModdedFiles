@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">다운로드한 애플리케이션이 없습니다</string>
     <string name="no_room_any_page">모든 페이지에 가능한 공간이 없습니다.</string>
     <string name="no_space_page">이 페이지에는 공간이 없습니다. 다른 페이지에 바로가기를 추가하세요.</string>
+    <string name="no_space_page_for_widget">이 페이지에는 공간이 없습니다.</string>
     <string name="not_selected">선택 안 됨</string>
     <string name="ok">확인</string>
     <string name="only_one_widget_instance_allowed">%s 위젯이 이미 홈 화면에 있습니다.</string>

@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">Ягон барномаи боргиришуда нест.</string>
     <string name="no_room_any_page">Дар ягон саҳифа ягон қисмат нест.</string>
     <string name="no_space_page">Дар саҳифа ҷой нест. Миёнбурро ба саҳифаи дигаре илова кунед.</string>
+    <string name="no_space_page_for_widget">Дар ин саҳифа ҷой нест.</string>
     <string name="not_selected">Интихоб нашудааст</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Видҷети %s аллакай ба экрани асосӣ илова карда шудааст.</string>
@@ -176,7 +177,7 @@
     <string name="read_home_screen_settings">Хондани танз. экр. асосӣ</string>
     <string name="read_home_screen_settings_info">Ин барнома метавонад танзимоти экрани асосӣ ва миёнбурҳои шуморо бихонад.</string>
     <string name="rearrange_menu_icons_not_allowed">Тағйир додани тартиби нишон аз рӯи алифбо ғайриимкон аст.</string>
-    <string name="removable_preloadapp_uninstall_message">%s нест карда мешавад. Барои аз нав боргирӣ кардани он, ба рӯйхати барномаҳо гузаред, ба имконоти бештар зарба занед, баъд асосҳои GALAXY-ро интихоб кунед.</string>
+    <string name="removable_preloadapp_uninstall_message">%s нест карда мешавад. Барои онро аз нав боргирӣ кардан, ба рӯйхати барномаҳо гузаред, имконоти бештарро зарба зада, Galaxy Essentials-ро интихоб кунед.</string>
     <string name="remove_app_folder_cancel">Бекор кардан</string>
     <string name="remove_app_folder_confirm">Нест кардан</string>
     <string name="remove_app_folder_confirm_VZW">Нест кардан</string>

@@ -105,6 +105,31 @@
 
 
 # virtual methods
+.method public deleteUsageStats()V
+    .locals 4
+
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v1
+
+    invoke-static {v1}, Landroid/os/UserHandle;->getAppId(I)I
+
+    move-result v0
+
+    const/16 v2, 0x3e8
+
+    if-ne v0, v2, :cond_0
+
+    iget-object v2, p0, Lcom/android/server/usage/UsageStatsService$BinderService;->this$0:Lcom/android/server/usage/UsageStatsService;
+
+    const/4 v3, 0x0
+
+    invoke-static {v2, v3}, Lcom/android/server/usage/UsageStatsService;->-wrap4(Lcom/android/server/usage/UsageStatsService;I)V
+
+    :cond_0
+    return-void
+.end method
+
 .method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 2
 

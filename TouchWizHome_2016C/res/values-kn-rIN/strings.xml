@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">ಡೌನ್‌ಲೋಡ್ ಮಾಡಿದ ಅನ್ವಯಿಸುವಿಕೆಗಳು ಇಲ್ಲ</string>
     <string name="no_room_any_page">ಯಾವುದೇ ಪುಟದಲ್ಲಿ ಯಾವುದೇ ಸ್ಥಳಾವಕಾಶವಿಲ್ಲ.</string>
     <string name="no_space_page">ಪುಟದಲ್ಲಿ ಸ್ಪೇಸ್ ಇಲ್ಲ. ಬೇರೊಂದು ಪುಟಕ್ಕೆ ಶಾರ್ಟ್‍ಕಟ್ ಸೇರಿಸಲು ಪ್ರಯತ್ನಿಸಿ.</string>
+    <string name="no_space_page_for_widget">ಈ ಪುಟದಲ್ಲಿ ಸ್ಥಳಾವಕಾಶವಿಲ್ಲ.</string>
     <string name="not_selected">ಆಯ್ಕೆ ಮಾಡಿಲ್ಲ</string>
     <string name="ok">ಸರಿ</string>
     <string name="only_one_widget_instance_allowed">%s ವಿಜೆಟ್ ಅನ್ನು ಈಗಾಗಲೇ ಹೋಮ್ ಸ್ಕ್ರೀನ್‌ಗೆ ಸೇರಿಸಲಾಗಿದೆ.</string>
@@ -176,7 +177,7 @@
     <string name="read_home_screen_settings">ಹೋಮ್ ಸ್ಕ್ರೀನ್ ಸಂಯೋಜನೆ. ಓದಿ</string>
     <string name="read_home_screen_settings_info">ಈ ಅನ್ವಯಿಸುವಿಕೆಯು ನಿಮ್ಮ ಹೋಮ್ ಸ್ಕ್ರೀನ್ ಸಂಯೋಜನೆಗಳು ಮತ್ತು ಶಾರ್ಟ್‌ಕಟ್‌ಗಳನ್ನು ಓದಬಹುದು.</string>
     <string name="rearrange_menu_icons_not_allowed">ವರ್ಣಾನುಕ್ರಮದಲ್ಲಿ ಐಕಾನ್‌ಗಳನ್ನು ಮರುಆಯೋಜಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.</string>
-    <string name="removable_preloadapp_uninstall_message">%s ಅನ್ನು ಅಳಿಸಲಾಗುವುದು. ಇದನ್ನು ಮತ್ತೊಮ್ಮೆ ಡೌನ್‌ಲೋಡ್ ಮಾಡಲು, ಅನ್ವಯಿಸುವಿಕೆ ಪಟ್ಟಿಗೆ ಹೋಗಿ, ಹೆಚ್ಚು ಆಯ್ಕೆಗಳು ಬಟನ್ ತಟ್ಟಿ, ನಂತರ GALAXY Essentials ಆಯ್ಕೆ ಮಾಡಿ.</string>
+    <string name="removable_preloadapp_uninstall_message">%s ಅಳಿಸಲಾಗುವುದು. ಅದನ್ನು ಮತ್ತೊಮ್ಮೆ ಡೌನ್‌ಲೋಡ್ ಮಾಡಲು, ಅನ್ವಯಿಸುವಿಕೆ ಪಟ್ಟಿಗೆ ಹೋಗಿ, ಹೆಚ್ಚು ಆಯ್ಕೆಗಳು ಬಟನ್ ತಟ್ಟಿ, ನಂತರ Galaxy Essentials ಆಯ್ಕೆ ಮಾಡಿ.</string>
     <string name="remove_app_folder_cancel">ರದ್ದು</string>
     <string name="remove_app_folder_confirm">ಅಳಿಸಿ</string>
     <string name="remove_app_folder_confirm_VZW">ತೆಗೆಯಿರಿ</string>

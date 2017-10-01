@@ -762,7 +762,7 @@
 
     move-result-object v21
 
-    const v22, 0x7f0900f6
+    const v22, 0x7f0900f7
 
     invoke-virtual/range {v21 .. v22}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -982,7 +982,7 @@
 
     move-result-object v21
 
-    const v22, 0x7f0900f1
+    const v22, 0x7f0900f2
 
     invoke-virtual/range {v21 .. v22}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

@@ -4179,7 +4179,7 @@
 .method private setMarketLabel()V
     .locals 7
 
-    const v6, 0x7f09009a
+    const v6, 0x7f09009b
 
     :try_start_0
     iget-object v3, p0, Lcom/android/launcher2/Launcher;->mActivityName:Landroid/content/ComponentName;
@@ -5535,7 +5535,7 @@
 
     invoke-virtual {v6, v7}, Lcom/android/launcher2/Workspace;->snapToPage(I)V
 
-    const v7, 0x7f0900ee
+    const v7, 0x7f0900ef
 
     const/4 v8, 0x1
 
@@ -5994,6 +5994,10 @@
 
 .method public bindHomeInsertFestivalPage()V
     .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher2/Launcher;->mFestivalPageManager:Lcom/android/launcher2/FestivalPageManager;
+
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/launcher2/Launcher;->mHomeView:Lcom/android/launcher2/HomeView;
 

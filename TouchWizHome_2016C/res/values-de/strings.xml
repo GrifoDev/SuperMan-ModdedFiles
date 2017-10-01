@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">Keine heruntergeladenen Anwendungen</string>
     <string name="no_room_any_page">Kein Platz mehr auf den Seiten.</string>
     <string name="no_space_page">Kein Platz auf der Seite. Versuchen Sie, den Shortcut auf einer anderen Seite hinzuzufügen.</string>
+    <string name="no_space_page_for_widget">Kein Platz auf dieser Seite.</string>
     <string name="not_selected">Nicht ausgewählt</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">%s-Widget bereits zum Startbildschirm hinzugefügt.</string>
@@ -176,7 +177,7 @@ Ordner hzfg."</string>
     <string name="read_home_screen_settings">Startbilschirmeinst. lesen</string>
     <string name="read_home_screen_settings_info">Diese App kann Ihre Startbildschirmeinstellungen und Shortcuts lesen.</string>
     <string name="rearrange_menu_icons_not_allowed">Symbole können nicht in alphabetischer Reihenfolge neu angeordnet werden.</string>
-    <string name="removable_preloadapp_uninstall_message">%s wird gelöscht. Um es erneut herunterzuladen, wechseln Sie zur App-Liste, tippen Sie auf „Weitere Optionen“ und wählen Sie dann „GALAXY Essentials“.</string>
+    <string name="removable_preloadapp_uninstall_message">%s wird gelöscht. Um es erneut herunterzuladen, wechseln Sie zur App-Liste, tippen Sie auf „Weitere Optionen“ und wählen Sie dann „Galaxy Essentials“ aus.</string>
     <string name="remove_app_folder_cancel">Abbruch</string>
     <string name="remove_app_folder_confirm">Löschen</string>
     <string name="remove_app_folder_confirm_VZW">Entfernen</string>

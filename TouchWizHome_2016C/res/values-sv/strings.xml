@@ -140,6 +140,7 @@ appar"</string>
     <string name="no_downloaded_apps">Inga hämtade appar</string>
     <string name="no_room_any_page">Ingen mer plats på någon sida.</string>
     <string name="no_space_page">Det finns inget utrymme på sidan. Försök lägga till genvägen på en annan sida.</string>
+    <string name="no_space_page_for_widget">Inget utrymme på den här sidan.</string>
     <string name="not_selected">Inte vald</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">%s har lagts till på hemskärmen.</string>
@@ -177,7 +178,7 @@ Hemlig mapp"</string>
     <string name="read_home_screen_settings">Läsa hemskärmens inställ.</string>
     <string name="read_home_screen_settings_info">Den här appen kan läsa hemskärmens inställningar och genvägar.</string>
     <string name="rearrange_menu_icons_not_allowed">Det går inte att sortera om ikonerna i alfabetisk ordning.</string>
-    <string name="removable_preloadapp_uninstall_message">%s kommer att tas bort. Om du vill hämta det igen ska du gå till applistan, trycka på knappen för fler alternativ och sedan välja GALAXY Essentials.</string>
+    <string name="removable_preloadapp_uninstall_message">%s raderas. Om du vill hämta det igen öppnar du applistan, trycker på knappen för fler alternativ och väljer sedan Galaxy Essentials.</string>
     <string name="remove_app_folder_cancel">Avbryt</string>
     <string name="remove_app_folder_confirm">Ta bort</string>
     <string name="remove_app_folder_confirm_VZW">Ta bort</string>

@@ -1239,7 +1239,7 @@
 .method protected drop(II)V
     .locals 5
 
-    const v4, 0x7f0900a1
+    const v4, 0x7f0900a2
 
     iget-object v1, p0, Lcom/android/launcher2/QuickView;->mDraggingView:Landroid/view/View;
 

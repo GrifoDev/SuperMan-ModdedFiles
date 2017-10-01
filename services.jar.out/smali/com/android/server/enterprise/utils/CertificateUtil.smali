@@ -1156,27 +1156,27 @@
 .end method
 
 .method public installAsUser(Ljava/lang/String;[BLjava/lang/String;Ljava/lang/String;II)Z
-    .locals 20
+    .locals 18
 
-    const-string/jumbo v15, ".crt"
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v0, v15}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v15
-
-    if-nez v15, :cond_0
-
-    const-string/jumbo v15, "CERT"
+    const-string/jumbo v13, ".crt"
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v15}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {v0, v13}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v15
+    move-result v13
 
-    if-eqz v15, :cond_1
+    if-nez v13, :cond_0
+
+    const-string/jumbo v13, "CERT"
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v13}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v13
+
+    if-eqz v13, :cond_3
 
     :cond_0
     move-object/from16 v0, p0
@@ -1187,129 +1187,275 @@
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/enterprise/utils/CertificateUtil;->parseCert([BI)Z
 
-    move-result v13
+    move-result v11
 
     :goto_0
-    if-eqz v13, :cond_14
+    if-eqz v11, :cond_12
 
     :try_start_0
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Lcom/android/server/enterprise/utils/CertificateUtil;->mCaCerts:Ljava/util/List;
+    iget-object v13, v0, Lcom/android/server/enterprise/utils/CertificateUtil;->mCaCerts:Ljava/util/List;
 
-    invoke-interface {v15}, Ljava/util/List;->isEmpty()Z
+    invoke-interface {v13}, Ljava/util/List;->isEmpty()Z
 
-    move-result v15
+    move-result v13
 
-    if-nez v15, :cond_b
+    if-nez v13, :cond_9
 
-    and-int/lit8 v15, p5, 0x2
+    and-int/lit8 v13, p5, 0x2
 
-    if-eqz v15, :cond_5
+    if-eqz v13, :cond_1
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/server/enterprise/utils/CertificateUtil;->mKeyStore:Landroid/security/KeyStore;
+
+    new-instance v14, Ljava/lang/StringBuilder;
+
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v15, "CACERT_"
+
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    move-object/from16 v0, p3
+
+    invoke-virtual {v14, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v14
 
     move-object/from16 v0, p0
 
     iget-object v15, v0, Lcom/android/server/enterprise/utils/CertificateUtil;->mCaCerts:Ljava/util/List;
 
-    invoke-interface {v15}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-static {v15}, Lcom/android/server/enterprise/utils/CertificateUtil;->convertX509ListToPem(Ljava/util/List;)[B
 
-    move-result-object v8
+    move-result-object v15
 
-    :goto_1
-    invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
+    const/16 v16, 0x2
 
-    move-result v15
+    invoke-static/range {v16 .. v16}, Lcom/android/server/enterprise/utils/CertificateUtil;->convertStoreTypeToUid(I)I
 
-    if-eqz v15, :cond_4
+    move-result v16
 
-    invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    const/16 v17, 0x0
 
-    move-result-object v6
+    invoke-virtual/range {v13 .. v17}, Landroid/security/KeyStore;->put(Ljava/lang/String;[BII)Z
 
-    check-cast v6, Ljava/security/cert/X509Certificate;
+    move-result v13
+
+    and-int/2addr v11, v13
+
+    const-string/jumbo v13, "CertificateUtil"
+
+    new-instance v14, Ljava/lang/StringBuilder;
+
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v15, "CaCerts put state for wifi keystore : "
+
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v14, v11}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v14
+
+    invoke-static {v13, v14}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_1
+    and-int/lit8 v13, p5, 0x4
+
+    if-eqz v13, :cond_2
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Lcom/android/server/enterprise/utils/CertificateUtil;->mKeyStore:Landroid/security/KeyStore;
+    iget-object v13, v0, Lcom/android/server/enterprise/utils/CertificateUtil;->mKeyStore:Landroid/security/KeyStore;
 
-    new-instance v16, Ljava/lang/StringBuilder;
+    new-instance v14, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v17, "CACERT_"
+    const-string/jumbo v15, "CACERT_"
 
-    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v16
+    move-result-object v14
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, p3
 
-    move-object/from16 v1, p3
+    invoke-virtual {v14, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v14
 
-    move-result-object v16
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v14
 
-    move-result-object v16
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/android/server/enterprise/utils/CertificateUtil;->mCaCerts:Ljava/util/List;
+
+    invoke-static {v15}, Lcom/android/server/enterprise/utils/CertificateUtil;->convertX509ListToPem(Ljava/util/List;)[B
+
+    move-result-object v15
+
+    const/16 v16, 0x4
+
+    move/from16 v0, v16
+
+    move/from16 v1, p6
+
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/utils/CertificateUtil;->convertStoreTypeToSystemUidAsUser(II)I
+
+    move-result v16
 
     const/16 v17, 0x1
 
-    move/from16 v0, v17
+    invoke-virtual/range {v13 .. v17}, Landroid/security/KeyStore;->put(Ljava/lang/String;[BII)Z
 
-    new-array v0, v0, [Ljava/security/cert/Certificate;
+    move-result v13
 
-    move-object/from16 v17, v0
+    and-int/2addr v11, v13
 
-    const/16 v18, 0x0
+    const-string/jumbo v13, "CertificateUtil"
 
-    aput-object v6, v17, v18
+    new-instance v14, Ljava/lang/StringBuilder;
 
-    invoke-static/range {v17 .. v17}, Landroid/security/Credentials;->convertToPem([Ljava/security/cert/Certificate;)[B
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v17
+    const-string/jumbo v15, "CaCerts put state for vpn and apps keystore : "
 
-    const/16 v18, 0x2
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static/range {v18 .. v18}, Lcom/android/server/enterprise/utils/CertificateUtil;->convertStoreTypeToUid(I)I
+    move-result-object v14
 
-    move-result v18
+    invoke-virtual {v14, v11}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    const/16 v19, 0x0
+    move-result-object v14
 
-    invoke-virtual/range {v15 .. v19}, Landroid/security/KeyStore;->put(Ljava/lang/String;[BII)Z
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v14
+
+    invoke-static {v13, v14}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
 
-    move-result v15
+    :cond_2
+    and-int/lit8 v13, p5, 0x1
 
-    and-int/2addr v13, v15
+    if-eqz v13, :cond_8
+
+    :try_start_1
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/server/enterprise/utils/CertificateUtil;->mContext:Landroid/content/Context;
+
+    new-instance v14, Landroid/os/UserHandle;
+
+    move/from16 v0, p6
+
+    invoke-direct {v14, v0}, Landroid/os/UserHandle;-><init>(I)V
+
+    invoke-static {v13, v14}, Landroid/security/KeyChain;->bindAsUser(Landroid/content/Context;Landroid/os/UserHandle;)Landroid/security/KeyChain$KeyChainConnection;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Landroid/security/KeyChain$KeyChainConnection;->getService()Landroid/security/IKeyChainService;
+    :try_end_1
+    .catch Ljava/lang/AssertionError; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+
+    move-result-object v12
+
+    const/4 v6, 0x0
+
+    :try_start_2
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/server/enterprise/utils/CertificateUtil;->mCaCerts:Ljava/util/List;
+
+    invoke-interface {v13}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v5
+
+    :goto_1
+    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v13
+
+    if-eqz v13, :cond_7
+
+    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Ljava/security/cert/X509Certificate;
+
+    const/4 v13, 0x1
+
+    new-array v13, v13, [Ljava/security/cert/Certificate;
+
+    const/4 v14, 0x0
+
+    aput-object v4, v13, v14
+
+    invoke-static {v13}, Landroid/security/Credentials;->convertToPem([Ljava/security/cert/Certificate;)[B
+
+    move-result-object v6
+
+    invoke-interface {v12, v6}, Landroid/security/IKeyChainService;->installCaCertificate([B)V
+
+    invoke-interface {v12, v6}, Landroid/security/IKeyChainService;->getCertificateAlias([B)Ljava/lang/String;
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    move-result-object v13
+
+    if-eqz v13, :cond_6
+
+    const/4 v13, 0x1
+
+    :goto_2
+    and-int/2addr v11, v13
 
     goto :goto_1
 
-    :cond_1
-    const-string/jumbo v15, ".p12"
+    :cond_3
+    const-string/jumbo v13, ".p12"
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v15}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {v0, v13}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v15
+    move-result v13
 
-    if-nez v15, :cond_2
+    if-nez v13, :cond_4
 
-    const-string/jumbo v15, "PKCS12"
+    const-string/jumbo v13, "PKCS12"
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v15}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {v0, v13}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v15
+    move-result v13
 
-    if-eqz v15, :cond_3
+    if-eqz v13, :cond_5
 
-    :cond_2
+    :cond_4
     move-object/from16 v0, p0
 
     move-object/from16 v1, p2
@@ -1320,803 +1466,542 @@
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/enterprise/utils/CertificateUtil;->extractPkcs12([BLjava/lang/String;I)Z
 
-    move-result v13
-
-    goto :goto_0
-
-    :cond_3
-    const/4 v13, 0x0
+    move-result v11
 
     goto/16 :goto_0
 
-    :cond_4
-    :try_start_1
-    const-string/jumbo v15, "CertificateUtil"
-
-    new-instance v16, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v17, "CaCerts put state for wifi keystore : "
-
-    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v16
-
-    move-object/from16 v0, v16
-
-    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v16
-
-    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v16
-
-    invoke-static/range {v15 .. v16}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
     :cond_5
-    and-int/lit8 v15, p5, 0x4
+    const/4 v11, 0x0
 
-    if-eqz v15, :cond_7
+    goto/16 :goto_0
 
-    move-object/from16 v0, p0
-
-    iget-object v15, v0, Lcom/android/server/enterprise/utils/CertificateUtil;->mCaCerts:Ljava/util/List;
-
-    invoke-interface {v15}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v8
-
-    :goto_2
-    invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v15
-
-    if-eqz v15, :cond_6
-
-    invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v6
-
-    check-cast v6, Ljava/security/cert/X509Certificate;
-
-    move-object/from16 v0, p0
-
-    iget-object v15, v0, Lcom/android/server/enterprise/utils/CertificateUtil;->mKeyStore:Landroid/security/KeyStore;
-
-    new-instance v16, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v17, "CACERT_"
-
-    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v16
-
-    move-object/from16 v0, v16
-
-    move-object/from16 v1, p3
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v16
-
-    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v16
-
-    const/16 v17, 0x1
-
-    move/from16 v0, v17
-
-    new-array v0, v0, [Ljava/security/cert/Certificate;
-
-    move-object/from16 v17, v0
-
-    const/16 v18, 0x0
-
-    aput-object v6, v17, v18
-
-    invoke-static/range {v17 .. v17}, Landroid/security/Credentials;->convertToPem([Ljava/security/cert/Certificate;)[B
-
-    move-result-object v17
-
-    const/16 v18, 0x4
-
-    move/from16 v0, v18
-
-    move/from16 v1, p6
-
-    invoke-static {v0, v1}, Lcom/android/server/enterprise/utils/CertificateUtil;->convertStoreTypeToSystemUidAsUser(II)I
-
-    move-result v18
-
-    const/16 v19, 0x1
-
-    invoke-virtual/range {v15 .. v19}, Landroid/security/KeyStore;->put(Ljava/lang/String;[BII)Z
-
-    move-result v15
-
-    and-int/2addr v13, v15
+    :cond_6
+    const/4 v13, 0x0
 
     goto :goto_2
 
-    :cond_6
-    const-string/jumbo v15, "CertificateUtil"
-
-    new-instance v16, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v17, "CaCerts put state for vpn and apps keystore : "
-
-    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v16
-
-    move-object/from16 v0, v16
-
-    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v16
-
-    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v16
-
-    invoke-static/range {v15 .. v16}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
-
     :cond_7
-    and-int/lit8 v15, p5, 0x1
+    :try_start_3
+    invoke-virtual {v10}, Landroid/security/KeyChain$KeyChainConnection;->close()V
+    :try_end_3
+    .catch Ljava/lang/AssertionError; {:try_start_3 .. :try_end_3} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_1
 
-    if-eqz v15, :cond_a
+    :cond_8
+    :goto_3
+    :try_start_4
+    const-string/jumbo v13, "CertificateUtil"
 
-    :try_start_2
-    move-object/from16 v0, p0
+    new-instance v14, Ljava/lang/StringBuilder;
 
-    iget-object v15, v0, Lcom/android/server/enterprise/utils/CertificateUtil;->mContext:Landroid/content/Context;
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
 
-    new-instance v16, Landroid/os/UserHandle;
+    const-string/jumbo v15, "CaCerts put state : "
 
-    move-object/from16 v0, v16
-
-    move/from16 v1, p6
-
-    invoke-direct {v0, v1}, Landroid/os/UserHandle;-><init>(I)V
-
-    invoke-static/range {v15 .. v16}, Landroid/security/KeyChain;->bindAsUser(Landroid/content/Context;Landroid/os/UserHandle;)Landroid/security/KeyChain$KeyChainConnection;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Landroid/security/KeyChain$KeyChainConnection;->getService()Landroid/security/IKeyChainService;
-    :try_end_2
-    .catch Ljava/lang/AssertionError; {:try_start_2 .. :try_end_2} :catch_0
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v14
 
-    const/4 v7, 0x0
+    invoke-virtual {v14, v11}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    :try_start_3
+    move-result-object v14
+
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v14
+
+    invoke-static {v13, v14}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_9
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Lcom/android/server/enterprise/utils/CertificateUtil;->mCaCerts:Ljava/util/List;
+    iget-object v13, v0, Lcom/android/server/enterprise/utils/CertificateUtil;->mUserCert:Ljava/security/cert/X509Certificate;
 
-    invoke-interface {v15}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    if-eqz v13, :cond_d
 
-    move-result-object v5
+    and-int/lit8 v13, p5, 0x2
 
-    :goto_3
-    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
+    if-eqz v13, :cond_a
 
-    move-result v15
+    move-object/from16 v0, p0
 
-    if-eqz v15, :cond_9
+    iget-object v13, v0, Lcom/android/server/enterprise/utils/CertificateUtil;->mKeyStore:Landroid/security/KeyStore;
 
-    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    new-instance v14, Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
 
-    check-cast v4, Ljava/security/cert/X509Certificate;
+    const-string/jumbo v15, "USRCERT_"
+
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    move-object/from16 v0, p3
+
+    invoke-virtual {v14, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v14
 
     const/4 v15, 0x1
 
     new-array v15, v15, [Ljava/security/cert/Certificate;
 
-    const/16 v16, 0x0
+    move-object/from16 v0, p0
 
-    aput-object v4, v15, v16
+    iget-object v0, v0, Lcom/android/server/enterprise/utils/CertificateUtil;->mUserCert:Ljava/security/cert/X509Certificate;
+
+    move-object/from16 v16, v0
+
+    const/16 v17, 0x0
+
+    aput-object v16, v15, v17
 
     invoke-static {v15}, Landroid/security/Credentials;->convertToPem([Ljava/security/cert/Certificate;)[B
 
-    move-result-object v7
-
-    invoke-interface {v14, v7}, Landroid/security/IKeyChainService;->installCaCertificate([B)V
-
-    invoke-interface {v14, v7}, Landroid/security/IKeyChainService;->getCertificateAlias([B)Ljava/lang/String;
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
-
     move-result-object v15
 
-    if-eqz v15, :cond_8
+    const/16 v16, 0x2
+
+    invoke-static/range {v16 .. v16}, Lcom/android/server/enterprise/utils/CertificateUtil;->convertStoreTypeToUid(I)I
+
+    move-result v16
+
+    const/16 v17, 0x0
+
+    invoke-virtual/range {v13 .. v17}, Landroid/security/KeyStore;->put(Ljava/lang/String;[BII)Z
+
+    move-result v13
+
+    and-int/2addr v11, v13
+
+    const-string/jumbo v13, "CertificateUtil"
+
+    new-instance v14, Ljava/lang/StringBuilder;
+
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v15, "UserCert put state for wifi keystore : "
+
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v14, v11}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v14
+
+    invoke-static {v13, v14}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_a
+    and-int/lit8 v13, p5, 0x4
+
+    if-eqz v13, :cond_b
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/server/enterprise/utils/CertificateUtil;->mKeyStore:Landroid/security/KeyStore;
+
+    new-instance v14, Ljava/lang/StringBuilder;
+
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v15, "USRCERT_"
+
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    move-object/from16 v0, p3
+
+    invoke-virtual {v14, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v14
 
     const/4 v15, 0x1
 
-    :goto_4
-    and-int/2addr v13, v15
-
-    goto :goto_3
-
-    :cond_8
-    const/4 v15, 0x0
-
-    goto :goto_4
-
-    :cond_9
-    :try_start_4
-    invoke-virtual {v12}, Landroid/security/KeyChain$KeyChainConnection;->close()V
-    :try_end_4
-    .catch Ljava/lang/AssertionError; {:try_start_4 .. :try_end_4} :catch_0
-    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_1
-
-    :cond_a
-    :goto_5
-    :try_start_5
-    const-string/jumbo v15, "CertificateUtil"
-
-    new-instance v16, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v17, "CaCerts put state : "
-
-    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v16
-
-    move-object/from16 v0, v16
-
-    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v16
-
-    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v16
-
-    invoke-static/range {v15 .. v16}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    :cond_b
-    move-object/from16 v0, p0
-
-    iget-object v15, v0, Lcom/android/server/enterprise/utils/CertificateUtil;->mUserCert:Ljava/security/cert/X509Certificate;
-
-    if-eqz v15, :cond_f
-
-    and-int/lit8 v15, p5, 0x2
-
-    if-eqz v15, :cond_c
-
-    move-object/from16 v0, p0
-
-    iget-object v15, v0, Lcom/android/server/enterprise/utils/CertificateUtil;->mKeyStore:Landroid/security/KeyStore;
-
-    new-instance v16, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v17, "USRCERT_"
-
-    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v16
-
-    move-object/from16 v0, v16
-
-    move-object/from16 v1, p3
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v16
-
-    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v16
-
-    const/16 v17, 0x1
-
-    move/from16 v0, v17
-
-    new-array v0, v0, [Ljava/security/cert/Certificate;
-
-    move-object/from16 v17, v0
+    new-array v15, v15, [Ljava/security/cert/Certificate;
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/utils/CertificateUtil;->mUserCert:Ljava/security/cert/X509Certificate;
 
-    move-object/from16 v18, v0
+    move-object/from16 v16, v0
 
-    const/16 v19, 0x0
+    const/16 v17, 0x0
 
-    aput-object v18, v17, v19
+    aput-object v16, v15, v17
 
-    invoke-static/range {v17 .. v17}, Landroid/security/Credentials;->convertToPem([Ljava/security/cert/Certificate;)[B
+    invoke-static {v15}, Landroid/security/Credentials;->convertToPem([Ljava/security/cert/Certificate;)[B
 
-    move-result-object v17
+    move-result-object v15
 
-    const/16 v18, 0x2
+    const/16 v16, 0x4
 
-    invoke-static/range {v18 .. v18}, Lcom/android/server/enterprise/utils/CertificateUtil;->convertStoreTypeToUid(I)I
-
-    move-result v18
-
-    const/16 v19, 0x0
-
-    invoke-virtual/range {v15 .. v19}, Landroid/security/KeyStore;->put(Ljava/lang/String;[BII)Z
-
-    move-result v15
-
-    and-int/2addr v13, v15
-
-    const-string/jumbo v15, "CertificateUtil"
-
-    new-instance v16, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v17, "UserCert put state for wifi keystore : "
-
-    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v16
-
-    move-object/from16 v0, v16
-
-    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v16
-
-    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v16
-
-    invoke-static/range {v15 .. v16}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    :cond_c
-    and-int/lit8 v15, p5, 0x4
-
-    if-eqz v15, :cond_d
-
-    move-object/from16 v0, p0
-
-    iget-object v15, v0, Lcom/android/server/enterprise/utils/CertificateUtil;->mKeyStore:Landroid/security/KeyStore;
-
-    new-instance v16, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v17, "USRCERT_"
-
-    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v16
-
-    move-object/from16 v0, v16
-
-    move-object/from16 v1, p3
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v16
-
-    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v16
-
-    const/16 v17, 0x1
-
-    move/from16 v0, v17
-
-    new-array v0, v0, [Ljava/security/cert/Certificate;
-
-    move-object/from16 v17, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/enterprise/utils/CertificateUtil;->mUserCert:Ljava/security/cert/X509Certificate;
-
-    move-object/from16 v18, v0
-
-    const/16 v19, 0x0
-
-    aput-object v18, v17, v19
-
-    invoke-static/range {v17 .. v17}, Landroid/security/Credentials;->convertToPem([Ljava/security/cert/Certificate;)[B
-
-    move-result-object v17
-
-    const/16 v18, 0x4
-
-    move/from16 v0, v18
+    move/from16 v0, v16
 
     move/from16 v1, p6
 
     invoke-static {v0, v1}, Lcom/android/server/enterprise/utils/CertificateUtil;->convertStoreTypeToSystemUidAsUser(II)I
 
-    move-result v18
+    move-result v16
 
-    const/16 v19, 0x1
+    const/16 v17, 0x1
 
-    invoke-virtual/range {v15 .. v19}, Landroid/security/KeyStore;->put(Ljava/lang/String;[BII)Z
+    invoke-virtual/range {v13 .. v17}, Landroid/security/KeyStore;->put(Ljava/lang/String;[BII)Z
 
-    move-result v15
+    move-result v13
 
-    and-int/2addr v13, v15
+    and-int/2addr v11, v13
 
-    const-string/jumbo v15, "CertificateUtil"
+    const-string/jumbo v13, "CertificateUtil"
 
-    new-instance v16, Ljava/lang/StringBuilder;
+    new-instance v14, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v17, "UserCert put state for vpn and apps keystore : "
+    const-string/jumbo v15, "UserCert put state for vpn and apps keystore : "
 
-    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v16
+    move-result-object v14
 
-    move-object/from16 v0, v16
+    invoke-virtual {v14, v11}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    move-result-object v14
 
-    move-result-object v16
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v14
 
-    move-result-object v16
+    invoke-static {v13, v14}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-static/range {v15 .. v16}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    :cond_b
+    and-int/lit8 v13, p5, 0x1
+
+    if-eqz v13, :cond_d
+
+    const-string/jumbo v13, ".crt"
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v13}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v13
+
+    if-nez v13, :cond_c
+
+    const-string/jumbo v13, "CERT"
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v13}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v13
+
+    if-eqz v13, :cond_d
+
+    :cond_c
+    const/4 v13, 0x0
+
+    and-int/2addr v11, v13
 
     :cond_d
-    and-int/lit8 v15, p5, 0x1
+    move-object/from16 v0, p0
 
-    if-eqz v15, :cond_f
+    iget-object v13, v0, Lcom/android/server/enterprise/utils/CertificateUtil;->mUserKey:Ljava/security/PrivateKey;
 
-    const-string/jumbo v15, ".crt"
+    if-eqz v13, :cond_12
 
-    move-object/from16 v0, p1
+    and-int/lit8 v13, p5, 0x2
 
-    invoke-virtual {v0, v15}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    if-eqz v13, :cond_f
 
-    move-result v15
+    const/4 v9, 0x1
 
-    if-nez v15, :cond_e
+    move-object/from16 v0, p0
 
-    const-string/jumbo v15, "CERT"
+    iget-object v13, v0, Lcom/android/server/enterprise/utils/CertificateUtil;->mKeyStore:Landroid/security/KeyStore;
 
-    move-object/from16 v0, p1
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0, v15}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    iget-object v14, v0, Lcom/android/server/enterprise/utils/CertificateUtil;->mUserKey:Ljava/security/PrivateKey;
 
-    move-result v15
+    invoke-interface {v14}, Ljava/security/PrivateKey;->getAlgorithm()Ljava/lang/String;
 
-    if-eqz v15, :cond_f
+    move-result-object v14
+
+    invoke-virtual {v13, v14}, Landroid/security/KeyStore;->isHardwareBacked(Ljava/lang/String;)Z
+
+    move-result v13
+
+    if-eqz v13, :cond_e
+
+    const-string/jumbo v13, "CertificateUtil"
+
+    const-string/jumbo v14, "Saving private key with FLAG_NONE for WIFI"
+
+    invoke-static {v13, v14}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    const/4 v9, 0x0
 
     :cond_e
-    const/4 v15, 0x0
+    move-object/from16 v0, p0
 
-    and-int/2addr v13, v15
+    iget-object v13, v0, Lcom/android/server/enterprise/utils/CertificateUtil;->mKeyStore:Landroid/security/KeyStore;
 
-    :cond_f
+    new-instance v14, Ljava/lang/StringBuilder;
+
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v15, "USRPKEY_"
+
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    move-object/from16 v0, p3
+
+    invoke-virtual {v14, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v14
+
     move-object/from16 v0, p0
 
     iget-object v15, v0, Lcom/android/server/enterprise/utils/CertificateUtil;->mUserKey:Ljava/security/PrivateKey;
 
-    if-eqz v15, :cond_14
+    invoke-interface {v15}, Ljava/security/PrivateKey;->getEncoded()[B
 
-    and-int/lit8 v15, p5, 0x2
+    move-result-object v15
 
-    if-eqz v15, :cond_11
+    const/16 v16, 0x2
 
-    const/4 v11, 0x1
+    invoke-static/range {v16 .. v16}, Lcom/android/server/enterprise/utils/CertificateUtil;->convertStoreTypeToUid(I)I
 
-    move-object/from16 v0, p0
+    move-result v16
 
-    iget-object v15, v0, Lcom/android/server/enterprise/utils/CertificateUtil;->mKeyStore:Landroid/security/KeyStore;
+    move/from16 v0, v16
 
-    move-object/from16 v0, p0
+    invoke-virtual {v13, v14, v15, v0, v9}, Landroid/security/KeyStore;->importKey(Ljava/lang/String;[BII)Z
 
-    iget-object v0, v0, Lcom/android/server/enterprise/utils/CertificateUtil;->mUserKey:Ljava/security/PrivateKey;
+    move-result v13
 
-    move-object/from16 v16, v0
+    and-int/2addr v11, v13
 
-    invoke-interface/range {v16 .. v16}, Ljava/security/PrivateKey;->getAlgorithm()Ljava/lang/String;
+    const-string/jumbo v13, "CertificateUtil"
 
-    move-result-object v16
+    new-instance v14, Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v15 .. v16}, Landroid/security/KeyStore;->isHardwareBacked(Ljava/lang/String;)Z
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result v15
+    const-string/jumbo v15, "UserPKey put state for wifi keystore : "
 
-    if-eqz v15, :cond_10
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v15, "CertificateUtil"
+    move-result-object v14
 
-    const-string/jumbo v16, "Saving private key with FLAG_NONE for WIFI"
+    invoke-virtual {v14, v11}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-static/range {v15 .. v16}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    move-result-object v14
 
-    const/4 v11, 0x0
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    :cond_10
-    move-object/from16 v0, p0
+    move-result-object v14
 
-    iget-object v15, v0, Lcom/android/server/enterprise/utils/CertificateUtil;->mKeyStore:Landroid/security/KeyStore;
+    invoke-static {v13, v14}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    new-instance v16, Ljava/lang/StringBuilder;
+    :cond_f
+    and-int/lit8 v13, p5, 0x4
 
-    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v17, "USRPKEY_"
-
-    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v16
-
-    move-object/from16 v0, v16
-
-    move-object/from16 v1, p3
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v16
-
-    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v16
+    if-eqz v13, :cond_10
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/enterprise/utils/CertificateUtil;->mUserKey:Ljava/security/PrivateKey;
+    iget-object v13, v0, Lcom/android/server/enterprise/utils/CertificateUtil;->mKeyStore:Landroid/security/KeyStore;
 
-    move-object/from16 v17, v0
+    new-instance v14, Ljava/lang/StringBuilder;
 
-    invoke-interface/range {v17 .. v17}, Ljava/security/PrivateKey;->getEncoded()[B
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v17
+    const-string/jumbo v15, "USRPKEY_"
 
-    const/16 v18, 0x2
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static/range {v18 .. v18}, Lcom/android/server/enterprise/utils/CertificateUtil;->convertStoreTypeToUid(I)I
+    move-result-object v14
 
-    move-result v18
+    move-object/from16 v0, p3
 
-    move-object/from16 v0, v16
+    invoke-virtual {v14, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v1, v17
+    move-result-object v14
 
-    move/from16 v2, v18
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v15, v0, v1, v2, v11}, Landroid/security/KeyStore;->importKey(Ljava/lang/String;[BII)Z
-
-    move-result v15
-
-    and-int/2addr v13, v15
-
-    const-string/jumbo v15, "CertificateUtil"
-
-    new-instance v16, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v17, "UserPKey put state for wifi keystore : "
-
-    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v16
-
-    move-object/from16 v0, v16
-
-    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v16
-
-    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v16
-
-    invoke-static/range {v15 .. v16}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    :cond_11
-    and-int/lit8 v15, p5, 0x4
-
-    if-eqz v15, :cond_12
+    move-result-object v14
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Lcom/android/server/enterprise/utils/CertificateUtil;->mKeyStore:Landroid/security/KeyStore;
+    iget-object v15, v0, Lcom/android/server/enterprise/utils/CertificateUtil;->mUserKey:Ljava/security/PrivateKey;
 
-    new-instance v16, Ljava/lang/StringBuilder;
+    invoke-interface {v15}, Ljava/security/PrivateKey;->getEncoded()[B
 
-    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v15
 
-    const-string/jumbo v17, "USRPKEY_"
+    const/16 v16, 0x4
 
-    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v16
-
-    move-object/from16 v0, v16
-
-    move-object/from16 v1, p3
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v16
-
-    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v16
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/enterprise/utils/CertificateUtil;->mUserKey:Ljava/security/PrivateKey;
-
-    move-object/from16 v17, v0
-
-    invoke-interface/range {v17 .. v17}, Ljava/security/PrivateKey;->getEncoded()[B
-
-    move-result-object v17
-
-    const/16 v18, 0x4
-
-    move/from16 v0, v18
+    move/from16 v0, v16
 
     move/from16 v1, p6
 
     invoke-static {v0, v1}, Lcom/android/server/enterprise/utils/CertificateUtil;->convertStoreTypeToSystemUidAsUser(II)I
 
-    move-result v18
+    move-result v16
 
-    const/16 v19, 0x1
+    const/16 v17, 0x1
 
-    invoke-virtual/range {v15 .. v19}, Landroid/security/KeyStore;->importKey(Ljava/lang/String;[BII)Z
+    invoke-virtual/range {v13 .. v17}, Landroid/security/KeyStore;->importKey(Ljava/lang/String;[BII)Z
 
-    move-result v15
+    move-result v13
 
-    and-int/2addr v13, v15
+    and-int/2addr v11, v13
 
-    const-string/jumbo v15, "CertificateUtil"
+    const-string/jumbo v13, "CertificateUtil"
 
-    new-instance v16, Ljava/lang/StringBuilder;
+    new-instance v14, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v17, "UserPKey put state for vpn and apps keystore : "
+    const-string/jumbo v15, "UserPKey put state for vpn and apps keystore : "
 
-    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v16
+    move-result-object v14
 
-    move-object/from16 v0, v16
+    invoke-virtual {v14, v11}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    move-result-object v14
 
-    move-result-object v16
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v14
 
-    move-result-object v16
+    invoke-static {v13, v14}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-static/range {v15 .. v16}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    :cond_10
+    and-int/lit8 v13, p5, 0x1
+
+    if-eqz v13, :cond_12
+
+    const-string/jumbo v13, ".crt"
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v13}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v13
+
+    if-nez v13, :cond_11
+
+    const-string/jumbo v13, "CERT"
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v13}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    :try_end_4
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_1
+
+    move-result v13
+
+    if-eqz v13, :cond_12
+
+    :cond_11
+    const/4 v13, 0x0
+
+    and-int/2addr v11, v13
 
     :cond_12
-    and-int/lit8 v15, p5, 0x1
-
-    if-eqz v15, :cond_14
-
-    const-string/jumbo v15, ".crt"
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v0, v15}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v15
-
-    if-nez v15, :cond_13
-
-    const-string/jumbo v15, "CERT"
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v0, v15}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-    :try_end_5
-    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_1
-
-    move-result v15
-
-    if-eqz v15, :cond_14
-
-    :cond_13
-    const/4 v15, 0x0
-
-    and-int/2addr v13, v15
-
-    :cond_14
-    :goto_6
-    return v13
+    :goto_4
+    return v11
 
     :catchall_0
-    move-exception v15
+    move-exception v13
 
-    :try_start_6
-    invoke-virtual {v12}, Landroid/security/KeyChain$KeyChainConnection;->close()V
+    :try_start_5
+    invoke-virtual {v10}, Landroid/security/KeyChain$KeyChainConnection;->close()V
 
-    throw v15
-    :try_end_6
-    .catch Ljava/lang/AssertionError; {:try_start_6 .. :try_end_6} :catch_0
-    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_1
+    throw v13
+    :try_end_5
+    .catch Ljava/lang/AssertionError; {:try_start_5 .. :try_end_5} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_1
 
     :catch_0
-    move-exception v9
+    move-exception v7
 
-    :try_start_7
-    const-string/jumbo v15, "CertificateUtil"
+    :try_start_6
+    const-string/jumbo v13, "CertificateUtil"
 
-    new-instance v16, Ljava/lang/StringBuilder;
+    new-instance v14, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v17, "installAsUser - is KeyChainService running for user "
+    const-string/jumbo v15, "installAsUser - is KeyChainService running for user "
 
-    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v16
+    move-result-object v14
 
-    move-object/from16 v0, v16
+    move/from16 v0, p6
 
-    move/from16 v1, p6
+    invoke-virtual {v14, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v14
 
-    move-result-object v16
+    const-string/jumbo v15, "?"
 
-    const-string/jumbo v17, "?"
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v14
 
-    move-result-object v16
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v14
 
-    move-result-object v16
+    invoke-static {v13, v14}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_6
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_1
 
-    invoke-static/range {v15 .. v16}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_7
-    .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_7} :catch_1
+    const/4 v13, 0x0
 
-    const/4 v15, 0x0
+    and-int/2addr v11, v13
 
-    and-int/2addr v13, v15
-
-    goto/16 :goto_5
+    goto/16 :goto_3
 
     :catch_1
-    move-exception v10
+    move-exception v8
 
-    const-string/jumbo v15, "CertificateUtil"
+    const-string/jumbo v13, "CertificateUtil"
 
-    const-string/jumbo v16, "install(): "
+    const-string/jumbo v14, "install(): "
 
-    invoke-static/range {v15 .. v16}, Lcom/android/server/enterprise/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v13, v14}, Lcom/android/server/enterprise/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_6
+    goto :goto_4
 .end method
 
 .method public isGuestUser(I)Z

@@ -168,16 +168,16 @@
 
     :cond_3
     :goto_1
-    if-eqz v5, :cond_a
+    if-eqz v5, :cond_b
 
     array-length v11, v5
 
-    if-lez v11, :cond_a
+    if-lez v11, :cond_b
 
     array-length v11, v5
 
     :goto_2
-    if-ge v9, v11, :cond_a
+    if-ge v9, v11, :cond_b
 
     aget-object v4, v5, v9
 
@@ -187,61 +187,24 @@
 
     invoke-interface {v12, v0, v4}, Lcom/android/server/IAlarmManagerServiceBridge;->notifyRemoveAlarmAction(Ljava/lang/String;Ljava/lang/String;)V
 
-    iget-object v12, p0, Lcom/android/server/AlarmManagerService$UninstallReceiver;->this$0:Lcom/android/server/AlarmManagerService;
+    const-string/jumbo v12, "android"
 
-    invoke-virtual {v12, v4}, Lcom/android/server/AlarmManagerService;->removeLocked(Ljava/lang/String;)V
-
-    iget-object v12, p0, Lcom/android/server/AlarmManagerService$UninstallReceiver;->this$0:Lcom/android/server/AlarmManagerService;
-
-    iget-object v12, v12, Lcom/android/server/AlarmManagerService;->mPriorities:Ljava/util/HashMap;
-
-    invoke-virtual {v12, v4}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v12, p0, Lcom/android/server/AlarmManagerService$UninstallReceiver;->this$0:Lcom/android/server/AlarmManagerService;
-
-    iget-object v12, v12, Lcom/android/server/AlarmManagerService;->mBroadcastStats:Landroid/util/SparseArray;
-
-    invoke-virtual {v12}, Landroid/util/SparseArray;->size()I
+    invoke-virtual {v12, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v12
 
-    add-int/lit8 v2, v12, -0x1
-
-    :goto_3
-    if-ltz v2, :cond_9
+    if-eqz v12, :cond_9
 
     iget-object v12, p0, Lcom/android/server/AlarmManagerService$UninstallReceiver;->this$0:Lcom/android/server/AlarmManagerService;
 
-    iget-object v12, v12, Lcom/android/server/AlarmManagerService;->mBroadcastStats:Landroid/util/SparseArray;
+    iget-object v12, v12, Lcom/android/server/AlarmManagerService;->mBridge:Lcom/android/server/IAlarmManagerServiceBridge;
 
-    invoke-virtual {v12, v2}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
-
-    move-result-object v7
-
-    check-cast v7, Landroid/util/ArrayMap;
-
-    invoke-virtual {v7, v4}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v12
-
-    if-eqz v12, :cond_4
-
-    invoke-virtual {v7}, Landroid/util/ArrayMap;->size()I
-
-    move-result v12
-
-    if-gtz v12, :cond_4
-
-    iget-object v12, p0, Lcom/android/server/AlarmManagerService$UninstallReceiver;->this$0:Lcom/android/server/AlarmManagerService;
-
-    iget-object v12, v12, Lcom/android/server/AlarmManagerService;->mBroadcastStats:Landroid/util/SparseArray;
-
-    invoke-virtual {v12, v2}, Landroid/util/SparseArray;->removeAt(I)V
+    invoke-interface {v12, v0, v4}, Lcom/android/server/IAlarmManagerServiceBridge;->notifyRemoveCancelAlarmAction(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_4
-    add-int/lit8 v2, v2, -0x1
+    add-int/lit8 v9, v9, 0x1
 
-    goto :goto_3
+    goto :goto_2
 
     :cond_5
     const-string/jumbo v11, "android.intent.action.USER_STOPPED"
@@ -351,17 +314,69 @@
     const/4 v11, 0x0
 
     aput-object v4, v5, v11
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     goto/16 :goto_1
 
     :cond_9
-    add-int/lit8 v9, v9, 0x1
+    iget-object v12, p0, Lcom/android/server/AlarmManagerService$UninstallReceiver;->this$0:Lcom/android/server/AlarmManagerService;
 
-    goto/16 :goto_2
+    invoke-virtual {v12, v4}, Lcom/android/server/AlarmManagerService;->removeLocked(Ljava/lang/String;)V
+
+    iget-object v12, p0, Lcom/android/server/AlarmManagerService$UninstallReceiver;->this$0:Lcom/android/server/AlarmManagerService;
+
+    iget-object v12, v12, Lcom/android/server/AlarmManagerService;->mPriorities:Ljava/util/HashMap;
+
+    invoke-virtual {v12, v4}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v12, p0, Lcom/android/server/AlarmManagerService$UninstallReceiver;->this$0:Lcom/android/server/AlarmManagerService;
+
+    iget-object v12, v12, Lcom/android/server/AlarmManagerService;->mBroadcastStats:Landroid/util/SparseArray;
+
+    invoke-virtual {v12}, Landroid/util/SparseArray;->size()I
+
+    move-result v12
+
+    add-int/lit8 v2, v12, -0x1
+
+    :goto_3
+    if-ltz v2, :cond_4
+
+    iget-object v12, p0, Lcom/android/server/AlarmManagerService$UninstallReceiver;->this$0:Lcom/android/server/AlarmManagerService;
+
+    iget-object v12, v12, Lcom/android/server/AlarmManagerService;->mBroadcastStats:Landroid/util/SparseArray;
+
+    invoke-virtual {v12, v2}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v7
+
+    check-cast v7, Landroid/util/ArrayMap;
+
+    invoke-virtual {v7, v4}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v12
+
+    if-eqz v12, :cond_a
+
+    invoke-virtual {v7}, Landroid/util/ArrayMap;->size()I
+
+    move-result v12
+
+    if-gtz v12, :cond_a
+
+    iget-object v12, p0, Lcom/android/server/AlarmManagerService$UninstallReceiver;->this$0:Lcom/android/server/AlarmManagerService;
+
+    iget-object v12, v12, Lcom/android/server/AlarmManagerService;->mBroadcastStats:Landroid/util/SparseArray;
+
+    invoke-virtual {v12, v2}, Landroid/util/SparseArray;->removeAt(I)V
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     :cond_a
+    add-int/lit8 v2, v2, -0x1
+
+    goto :goto_3
+
+    :cond_b
     monitor-exit v10
 
     return-void

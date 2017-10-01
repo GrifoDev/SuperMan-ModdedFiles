@@ -3061,7 +3061,7 @@
 
     iget-object v6, p0, Lcom/android/server/BluetoothManagerService;->mContext:Landroid/content/Context;
 
-    const v7, 0x104081b
+    const v7, 0x1040822
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3085,7 +3085,7 @@
 
     iget-object v8, p0, Lcom/android/server/BluetoothManagerService;->mContext:Landroid/content/Context;
 
-    const v9, 0x104081e
+    const v9, 0x1040825
 
     invoke-virtual {v8, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3093,7 +3093,7 @@
 
     aput-object v8, v7, v10
 
-    const v8, 0x104081d
+    const v8, 0x1040824
 
     invoke-virtual {v6, v8, v7}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

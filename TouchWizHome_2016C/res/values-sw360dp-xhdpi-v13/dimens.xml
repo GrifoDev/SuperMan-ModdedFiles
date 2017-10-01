@@ -75,7 +75,7 @@
     <dimen name="folder_multi_header_text_height">28.0dip</dimen>
     <dimen name="folder_multi_icon_text_size">14.0dip</dimen>
     <dimen name="folder_multi_search_bar_layout_height">45.0dip</dimen>
-    <dimen name="folder_multi_title_layout_height">41.0dip</dimen>
+    <dimen name="folder_multi_title_layout_height">43.0dip</dimen>
     <dimen name="menuWidgets_edit_button_margin_end">8.0dip</dimen>
     <dimen name="open_folder_title_option_button_img_padding">0.0dip</dimen>
 </resources>

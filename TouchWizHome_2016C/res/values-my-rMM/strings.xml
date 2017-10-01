@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">ဒေါင်းလုဒ်လုပ်သည့် အသုံးပြုမှုစနစ် မရှိပါ</string>
     <string name="no_room_any_page">မည်သည့်စာမျက်နှာပေါ်မျှ အခန်း မရှိပါ။</string>
     <string name="no_space_page">စာမျက်နှာတွင် နေရာလွတ် မရှိပါ။ အခြားစာမျက်နှာတွင် ရှော့ကတ်တစ်ခု ထည့်ကြည့်ပါ။</string>
+    <string name="no_space_page_for_widget">ဤစာမျက်နှာတွင် နေရာလွတ် မရှိပါ။</string>
     <string name="not_selected">ရွေးမထားပါ</string>
     <string name="ok">အိုကေ</string>
     <string name="only_one_widget_instance_allowed">%s ဝဒ်ဂျက်ကို ပင်မဖန်သားပြင်သို့ ထည့်ထားပြီးဖြစ်သည်။</string>
@@ -176,7 +177,7 @@
     <string name="read_home_screen_settings">မူလဖန်သားပြင် သတ်မှတ်ချက်များ ဖတ်ရှုပါ</string>
     <string name="read_home_screen_settings_info">ဤအက်ပ်သည် သင်၏မူလဖန်သားပြင် သတ်မှတ်ချက်များနှင့် အမြန်သုံးသင်္ကေတများကို ဖတ်ရှုနိုင်သည်။</string>
     <string name="rearrange_menu_icons_not_allowed">သင်္ကေတများကို အက္ခရာစဉ်အတိုင်း ပြန်စီစဉ်လို့ မရနိုင်ပါ။</string>
-    <string name="removable_preloadapp_uninstall_message">%s ဖျက်လိမ့်မည်။ ၎င်းကို ပြန်ဒေါင်းလုတ်လုပ်ရန် အက်ပ် စာရင်းသို့သွားပါ၊ နောက်ထပ် ရွေးစရာများ ခလုတ်ကို နှိပ်ပြီးနောက် GALAXY Essentials ကို ရွေးပါ။</string>
+    <string name="removable_preloadapp_uninstall_message">%s ကို ဖျက်ပစ်ပါမည်။ ၎င်းကို ပြန်ဒေါင်းလုတ်လုပ်ရန်၊ အက်ပ်စာရင်းသို့ သွားပါ၊ နောက်ထပ် ရွေးစရာများခလုတ်ကို နှိပ်ပြီးမှ၊ GALAXY Essentials ကို ရွေးပါ။</string>
     <string name="remove_app_folder_cancel">ပယ်ဖျက်ပါ</string>
     <string name="remove_app_folder_confirm">ဖျက်ပစ်ပါ</string>
     <string name="remove_app_folder_confirm_VZW">ဖယ်ပါ</string>

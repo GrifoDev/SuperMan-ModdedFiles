@@ -3616,7 +3616,7 @@
 .end method
 
 .method private sendStrongSwanInterfaceToKnoxVpn(I)V
-    .locals 6
+    .locals 5
 
     const/4 v4, 0x1
 
@@ -3624,7 +3624,7 @@
 
     move-result v1
 
-    if-lt v1, v4, :cond_6
+    if-lt v1, v4, :cond_5
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
@@ -3674,7 +3674,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_6
 
     const-string/jumbo v1, "com.samsung.android.knox.intent.extra.TUN_ID_INTERNAL"
 
@@ -3718,57 +3718,6 @@
 
     invoke-virtual {v0, v1, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    invoke-static {}, Lcom/android/server/connectivity/Vpn;->-get0()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2
-
-    const-string/jumbo v1, "LegacyVpnRunner"
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v5, "sendStrongSwanInterfaceToKnoxVpn :  Sending broadcast. profileName = "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    iget-object v5, p0, Lcom/android/server/connectivity/Vpn$LegacyVpnRunner;->this$0:Lcom/android/server/connectivity/Vpn;
-
-    invoke-static {v5}, Lcom/android/server/connectivity/Vpn;->-get3(Lcom/android/server/connectivity/Vpn;)Lcom/android/internal/net/VpnConfig;
-
-    move-result-object v5
-
-    iget-object v5, v5, Lcom/android/internal/net/VpnConfig;->session:Ljava/lang/String;
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    iget-object v5, p0, Lcom/android/server/connectivity/Vpn$LegacyVpnRunner;->this$0:Lcom/android/server/connectivity/Vpn;
-
-    invoke-static {v5}, Lcom/android/server/connectivity/Vpn;->-get9(Lcom/android/server/connectivity/Vpn;)Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v1, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_2
     iget-object v1, p0, Lcom/android/server/connectivity/Vpn$LegacyVpnRunner;->this$0:Lcom/android/server/connectivity/Vpn;
 
     invoke-static {v1}, Lcom/android/server/connectivity/Vpn;->-get5(Lcom/android/server/connectivity/Vpn;)Landroid/content/Context;
@@ -3801,7 +3750,7 @@
 
     iget-object v1, v1, Lcom/android/internal/net/VpnConfig;->session:Ljava/lang/String;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_2
 
     const-string/jumbo v1, "extra_profile_name"
 
@@ -3815,14 +3764,14 @@
 
     invoke-virtual {v0, v1, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    :cond_3
+    :cond_2
     iget-object v1, p0, Lcom/android/server/connectivity/Vpn$LegacyVpnRunner;->this$0:Lcom/android/server/connectivity/Vpn;
 
     invoke-static {v1}, Lcom/android/server/connectivity/Vpn;->-get9(Lcom/android/server/connectivity/Vpn;)Ljava/lang/String;
 
     move-result-object v1
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_7
 
     const-string/jumbo v1, "extra_tun_id"
 
@@ -3834,7 +3783,7 @@
 
     invoke-virtual {v0, v1, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    :cond_4
+    :cond_3
     :goto_1
     const-string/jumbo v1, "extra_state"
 
@@ -3870,7 +3819,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_4
 
     const-string/jumbo v1, "LegacyVpnRunner"
 
@@ -3878,7 +3827,7 @@
 
     invoke-static {v1, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_5
+    :cond_4
     iget-object v1, p0, Lcom/android/server/connectivity/Vpn$LegacyVpnRunner;->this$0:Lcom/android/server/connectivity/Vpn;
 
     invoke-static {v1}, Lcom/android/server/connectivity/Vpn;->-get5(Lcom/android/server/connectivity/Vpn;)Landroid/content/Context;
@@ -3893,10 +3842,10 @@
 
     invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    :cond_6
+    :cond_5
     return-void
 
-    :cond_7
+    :cond_6
     :try_start_1
     iget-object v1, p0, Lcom/android/server/connectivity/Vpn$LegacyVpnRunner;->this$0:Lcom/android/server/connectivity/Vpn;
 
@@ -3941,7 +3890,7 @@
 
     throw v1
 
-    :cond_8
+    :cond_7
     :try_start_2
     iget-object v1, p0, Lcom/android/server/connectivity/Vpn$LegacyVpnRunner;->this$0:Lcom/android/server/connectivity/Vpn;
 
@@ -3949,7 +3898,7 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_3
 
     iget-object v1, p0, Lcom/android/server/connectivity/Vpn$LegacyVpnRunner;->this$0:Lcom/android/server/connectivity/Vpn;
 
@@ -3957,7 +3906,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_3
 
     const-string/jumbo v1, "extra_tun_id"
 
@@ -4199,77 +4148,86 @@
 .end method
 
 .method public exit()V
-    .locals 6
+    .locals 5
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
+    invoke-direct {p0}, Lcom/android/server/connectivity/Vpn$LegacyVpnRunner;->getKnoxVpnFeature()I
+
+    move-result v3
+
+    const/4 v4, 0x1
+
+    if-lt v3, v4, :cond_1
+
+    iget-object v3, p0, Lcom/android/server/connectivity/Vpn$LegacyVpnRunner;->this$0:Lcom/android/server/connectivity/Vpn;
+
+    invoke-static {v3}, Lcom/android/server/connectivity/Vpn;->-get3(Lcom/android/server/connectivity/Vpn;)Lcom/android/internal/net/VpnConfig;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_0
+
+    invoke-direct {p0}, Lcom/android/server/connectivity/Vpn$LegacyVpnRunner;->getknoxVpnTypeForStrongswanProfile()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    :cond_0
+    :goto_0
+    iget-object v3, p0, Lcom/android/server/connectivity/Vpn$LegacyVpnRunner;->this$0:Lcom/android/server/connectivity/Vpn;
+
+    invoke-static {v3}, Lcom/android/server/connectivity/Vpn;->-get20(Lcom/android/server/connectivity/Vpn;)Ljava/util/Set;
+
+    move-result-object v3
+
+    if-nez v3, :cond_1
+
+    invoke-static {}, Lcom/android/server/net/LockdownVpnTracker;->isEnabled()Z
+
+    move-result v3
+
+    if-nez v3, :cond_1
+
+    iget-object v3, p0, Lcom/android/server/connectivity/Vpn$LegacyVpnRunner;->this$0:Lcom/android/server/connectivity/Vpn;
+
+    invoke-static {v3, v2}, Lcom/android/server/connectivity/Vpn;->-wrap7(Lcom/android/server/connectivity/Vpn;I)V
+
+    :cond_1
     invoke-virtual {p0}, Lcom/android/server/connectivity/Vpn$LegacyVpnRunner;->interrupt()V
 
-    iget-object v4, p0, Lcom/android/server/connectivity/Vpn$LegacyVpnRunner;->mSockets:[Landroid/net/LocalSocket;
+    iget-object v3, p0, Lcom/android/server/connectivity/Vpn$LegacyVpnRunner;->mSockets:[Landroid/net/LocalSocket;
 
-    array-length v5, v4
+    array-length v4, v3
 
-    move v2, v3
+    :goto_1
+    if-ge v2, v4, :cond_3
 
-    :goto_0
-    if-ge v2, v5, :cond_0
-
-    aget-object v1, v4, v2
+    aget-object v1, v3, v2
 
     invoke-static {v1}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
     add-int/lit8 v2, v2, 0x1
 
+    goto :goto_1
+
+    :cond_2
+    const/4 v3, 0x2
+
+    invoke-direct {p0, v3}, Lcom/android/server/connectivity/Vpn$LegacyVpnRunner;->sendStrongSwanInterfaceToKnoxVpn(I)V
+
+    iget-object v3, p0, Lcom/android/server/connectivity/Vpn$LegacyVpnRunner;->this$0:Lcom/android/server/connectivity/Vpn;
+
+    invoke-static {v3, v2}, Lcom/android/server/connectivity/Vpn;->-wrap7(Lcom/android/server/connectivity/Vpn;I)V
+
     goto :goto_0
 
-    :cond_0
+    :cond_3
     iget-object v2, p0, Lcom/android/server/connectivity/Vpn$LegacyVpnRunner;->this$0:Lcom/android/server/connectivity/Vpn;
 
     invoke-static {v2}, Lcom/android/server/connectivity/Vpn;->-wrap6(Lcom/android/server/connectivity/Vpn;)V
 
-    invoke-direct {p0}, Lcom/android/server/connectivity/Vpn$LegacyVpnRunner;->getKnoxVpnFeature()I
-
-    move-result v2
-
-    const/4 v4, 0x1
-
-    if-lt v2, v4, :cond_2
-
-    iget-object v2, p0, Lcom/android/server/connectivity/Vpn$LegacyVpnRunner;->this$0:Lcom/android/server/connectivity/Vpn;
-
-    invoke-static {v2}, Lcom/android/server/connectivity/Vpn;->-get3(Lcom/android/server/connectivity/Vpn;)Lcom/android/internal/net/VpnConfig;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_1
-
-    invoke-direct {p0}, Lcom/android/server/connectivity/Vpn$LegacyVpnRunner;->getknoxVpnTypeForStrongswanProfile()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_3
-
-    :cond_1
-    :goto_1
-    iget-object v2, p0, Lcom/android/server/connectivity/Vpn$LegacyVpnRunner;->this$0:Lcom/android/server/connectivity/Vpn;
-
-    invoke-static {v2}, Lcom/android/server/connectivity/Vpn;->-get20(Lcom/android/server/connectivity/Vpn;)Ljava/util/Set;
-
-    move-result-object v2
-
-    if-nez v2, :cond_2
-
-    invoke-static {}, Lcom/android/server/net/LockdownVpnTracker;->isEnabled()Z
-
-    move-result v2
-
-    if-nez v2, :cond_2
-
-    iget-object v2, p0, Lcom/android/server/connectivity/Vpn$LegacyVpnRunner;->this$0:Lcom/android/server/connectivity/Vpn;
-
-    invoke-static {v2, v3}, Lcom/android/server/connectivity/Vpn;->-wrap7(Lcom/android/server/connectivity/Vpn;I)V
-
-    :cond_2
     :try_start_0
     iget-object v2, p0, Lcom/android/server/connectivity/Vpn$LegacyVpnRunner;->this$0:Lcom/android/server/connectivity/Vpn;
 
@@ -4295,17 +4253,6 @@
 
     :goto_2
     return-void
-
-    :cond_3
-    const/4 v2, 0x2
-
-    invoke-direct {p0, v2}, Lcom/android/server/connectivity/Vpn$LegacyVpnRunner;->sendStrongSwanInterfaceToKnoxVpn(I)V
-
-    iget-object v2, p0, Lcom/android/server/connectivity/Vpn$LegacyVpnRunner;->this$0:Lcom/android/server/connectivity/Vpn;
-
-    invoke-static {v2, v3}, Lcom/android/server/connectivity/Vpn;->-wrap7(Lcom/android/server/connectivity/Vpn;I)V
-
-    goto :goto_1
 
     :catch_0
     move-exception v0

@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">Жүктелген бағдарламалар жоқ</string>
     <string name="no_room_any_page">Бетте бөлмелер жоқ.</string>
     <string name="no_space_page">Бетте бос орын жоқ. Жедел пернені басқа бетке қосып көріңіз.</string>
+    <string name="no_space_page_for_widget">Бұл бетте бос орын жоқ.</string>
     <string name="not_selected">Таңдалмады</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">%s виджеті бастапқы экранға бұрын қосылып қойған.</string>
@@ -176,7 +177,7 @@
     <string name="read_home_screen_settings">Бастапқы экран парам. оқу</string>
     <string name="read_home_screen_settings_info">Бұл қолданба бастапқы экран параметрлері мен жедел пернелерін оқи алады.</string>
     <string name="rearrange_menu_icons_not_allowed">Белгішелерді әліпбелік тәртіпте қайта ретке келтіру мүмкін емес.</string>
-    <string name="removable_preloadapp_uninstall_message">%s жойылады. Бұны қайта жүктеу үшін, бағдарламалар тізіміне өтіп, қосымша опциялар түймесін түртіңіз, содан кейін GALAXY маңызды бағдарламаларын таңдаңыз.</string>
+    <string name="removable_preloadapp_uninstall_message">%s қолданбасы жойылады. Оны қайтадан жүктеу үшін қолданбалар тізіміне өтіп, қосымша опциялар түймесін түртіңіз, содан кейін Galaxy Essentials виджетін таңдаңыз.</string>
     <string name="remove_app_folder_cancel">Тоқтату</string>
     <string name="remove_app_folder_confirm">Жою</string>
     <string name="remove_app_folder_confirm_VZW">Жою</string>

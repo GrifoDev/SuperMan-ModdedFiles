@@ -3780,11 +3780,11 @@
 .method private crashInternal(Ljava/lang/String;)V
     .locals 3
 
-    new-instance v1, Lcom/android/server/power/PowerManagerService$13;
+    new-instance v1, Lcom/android/server/power/PowerManagerService$14;
 
     const-string/jumbo v2, "PowerManagerService.crash()"
 
-    invoke-direct {v1, p0, v2, p1}, Lcom/android/server/power/PowerManagerService$13;-><init>(Lcom/android/server/power/PowerManagerService;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {v1, p0, v2, p1}, Lcom/android/server/power/PowerManagerService$14;-><init>(Lcom/android/server/power/PowerManagerService;Ljava/lang/String;Ljava/lang/String;)V
 
     :try_start_0
     invoke-virtual {v1}, Ljava/lang/Thread;->start()V
@@ -9668,7 +9668,7 @@
 
     invoke-virtual {v0}, Landroid/os/HandlerThread;->start()V
 
-    new-instance v0, Lcom/android/server/power/PowerManagerService$14;
+    new-instance v0, Lcom/android/server/power/PowerManagerService$15;
 
     iget-object v1, p0, Lcom/android/server/power/PowerManagerService;->mHandlerThreadSmartStay:Landroid/os/HandlerThread;
 
@@ -9676,7 +9676,7 @@
 
     move-result-object v1
 
-    invoke-direct {v0, p0, v1}, Lcom/android/server/power/PowerManagerService$14;-><init>(Lcom/android/server/power/PowerManagerService;Landroid/os/Looper;)V
+    invoke-direct {v0, p0, v1}, Lcom/android/server/power/PowerManagerService$15;-><init>(Lcom/android/server/power/PowerManagerService;Landroid/os/Looper;)V
 
     iput-object v0, p0, Lcom/android/server/power/PowerManagerService;->mHandlerSmartStay:Landroid/os/Handler;
 
@@ -14803,9 +14803,9 @@
 
     if-eqz v3, :cond_0
 
-    new-instance v2, Lcom/android/server/power/PowerManagerService$12;
+    new-instance v2, Lcom/android/server/power/PowerManagerService$13;
 
-    invoke-direct {v2, p0, p1, p2, p3}, Lcom/android/server/power/PowerManagerService$12;-><init>(Lcom/android/server/power/PowerManagerService;IZLjava/lang/String;)V
+    invoke-direct {v2, p0, p1, p2, p3}, Lcom/android/server/power/PowerManagerService$13;-><init>(Lcom/android/server/power/PowerManagerService;IZLjava/lang/String;)V
 
     iget-object v3, p0, Lcom/android/server/power/PowerManagerService;->mHandler:Lcom/android/server/power/PowerManagerService$PowerManagerHandler;
 
@@ -15289,31 +15289,19 @@
 
     if-lez v10, :cond_c
 
-    const-string/jumbo v10, "PowerManagerService"
-
-    const-string/jumbo v11, "updateDisplayPowerStateLocked: OutdoorMode timed out"
-
-    invoke-static {v10, v11}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     iget-object v10, p0, Lcom/android/server/power/PowerManagerService;->mDisplayPowerRequest:Landroid/hardware/display/DisplayManagerInternal$DisplayPowerRequest;
 
     const/4 v11, 0x0
 
     iput-boolean v11, v10, Landroid/hardware/display/DisplayManagerInternal$DisplayPowerRequest;->isOutdoorMode:Z
 
-    iget-object v10, p0, Lcom/android/server/power/PowerManagerService;->mContext:Landroid/content/Context;
+    iget-object v10, p0, Lcom/android/server/power/PowerManagerService;->mHandler:Lcom/android/server/power/PowerManagerService$PowerManagerHandler;
 
-    invoke-virtual {v10}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    new-instance v11, Lcom/android/server/power/PowerManagerService$12;
 
-    move-result-object v10
+    invoke-direct {v11, p0}, Lcom/android/server/power/PowerManagerService$12;-><init>(Lcom/android/server/power/PowerManagerService;)V
 
-    const-string/jumbo v11, "display_outdoor_mode"
-
-    const/4 v12, 0x0
-
-    const/4 v13, -0x2
-
-    invoke-static {v10, v11, v12, v13}, Landroid/provider/Settings$System;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
+    invoke-virtual {v10, v11}, Lcom/android/server/power/PowerManagerService$PowerManagerHandler;->post(Ljava/lang/Runnable;)Z
 
     :cond_c
     iget-object v10, p0, Lcom/android/server/power/PowerManagerService;->mDisplayPowerRequest:Landroid/hardware/display/DisplayManagerInternal$DisplayPowerRequest;
@@ -20841,9 +20829,9 @@
 
     new-instance v0, Ljava/lang/Thread;
 
-    new-instance v1, Lcom/android/server/power/PowerManagerService$15;
+    new-instance v1, Lcom/android/server/power/PowerManagerService$16;
 
-    invoke-direct {v1, p0}, Lcom/android/server/power/PowerManagerService$15;-><init>(Lcom/android/server/power/PowerManagerService;)V
+    invoke-direct {v1, p0}, Lcom/android/server/power/PowerManagerService$16;-><init>(Lcom/android/server/power/PowerManagerService;)V
 
     invoke-direct {v0, v1}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
 

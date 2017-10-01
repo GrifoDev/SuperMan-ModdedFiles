@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">אין יישומים שהורדו</string>
     <string name="no_room_any_page">אין מקום באף דף.</string>
     <string name="no_space_page">אין מקום בדף. נסה להוסיף את קיצור הדרך בדף אחר.</string>
+    <string name="no_space_page_for_widget">אין שטח בדף זה.</string>
     <string name="not_selected">לא נבחר</string>
     <string name="ok">אישור</string>
     <string name="only_one_widget_instance_allowed">היישומון %s כבר נוסף במסך הבית.</string>
@@ -176,7 +177,7 @@
     <string name="read_home_screen_settings">קרא את הגדרות מסך הבית</string>
     <string name="read_home_screen_settings_info">יישום זה מורשה לקרוא הגדרות וקיצורי דרך במסך הבית שלך.</string>
     <string name="rearrange_menu_icons_not_allowed">לא ניתן לסדר סמלים בסדר האלף-בית.</string>
-    <string name="removable_preloadapp_uninstall_message">"%s ימחק. כדי להוריד פריט זה שוב, עבור אל רשימת היישומים, הקש על לחצן 'אפשרויות נוספות' ובחר באפשרות GALAXY Essentials."</string>
+    <string name="removable_preloadapp_uninstall_message">"%s יימחק. כדי להוריד פריט זה שוב, עבור אל רשימת היישומים, הקש על לחצן 'אפשרויות נוספות' ובחר באפשרות Galaxy Essentials."</string>
     <string name="remove_app_folder_cancel">ביטול</string>
     <string name="remove_app_folder_confirm">מחק</string>
     <string name="remove_app_folder_confirm_VZW">הסר</string>

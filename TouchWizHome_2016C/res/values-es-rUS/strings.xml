@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">Ninguna aplicación descargada</string>
     <string name="no_room_any_page">No hay espacio en ninguna página.</string>
     <string name="no_space_page">No hay espacio en la página. Intente añadir el atajo en otra página.</string>
+    <string name="no_space_page_for_widget">No hay espacio en esta página.</string>
     <string name="not_selected">No seleccionado</string>
     <string name="ok">Aceptar</string>
     <string name="only_one_widget_instance_allowed">El widget %s ya está en la pantalla de inicio.</string>
@@ -176,7 +177,7 @@ Carpeta segura"</string>
     <string name="read_home_screen_settings">Leer ajustes pant. inicio</string>
     <string name="read_home_screen_settings_info">Esta aplicación puede leer los ajustes y los atajos de la pantalla de inicio.</string>
     <string name="rearrange_menu_icons_not_allowed">No se pueden reorganizar los iconos por orden alfabético.</string>
-    <string name="removable_preloadapp_uninstall_message">Se eliminará %s. Para descargarlo de nuevo, vaya a la lista de aplicaciones, pulse el botón más opciones y, después, seleccione Esenciales de GALAXY.</string>
+    <string name="removable_preloadapp_uninstall_message">Se eliminará %s. Para descargarla de nuevo, vaya a la lista de aplicaciones, pulse el botón Más opciones, y después, seleccione Galaxy Essentials.</string>
     <string name="remove_app_folder_cancel">Cancelar</string>
     <string name="remove_app_folder_confirm">Eliminar</string>
     <string name="remove_app_folder_confirm_VZW">Eliminar</string>

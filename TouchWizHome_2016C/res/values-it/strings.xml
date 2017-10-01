@@ -82,7 +82,7 @@
     <string name="folder_color_orange">Arancione</string>
     <string name="folder_color_yellow">Giallo</string>
     <string name="folder_facebook">Social</string>
-    <string name="folder_microsoft_apps">Applicazioni Microsoft</string>
+    <string name="folder_microsoft_apps">App. Microsoft</string>
     <string name="folder_opened">Cartella aperta.</string>
     <string name="guide_remove_items_delete">"Trascinate l'elemento nel cestino per rimuoverlo dalla schermata Home."</string>
     <string name="guide_resize_widget_step2">"Trascinate il bordo verso l'alto e il basso o verso l'interno e l'esterno per ridimensionare il widget."</string>
@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">Nessuna applicazione scaricata</string>
     <string name="no_room_any_page">Spazio esaurito su tutte le pagine.</string>
     <string name="no_space_page">"Spazio sulla pagina insufficiente. Provate ad aggiungere il collegamento in un'altra pagina."</string>
+    <string name="no_space_page_for_widget">Spazio esaurito su questa pagina.</string>
     <string name="not_selected">Non selezionato</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Widget %s già aggiunto alla schermata Home.</string>
@@ -176,7 +177,7 @@ Area Personale"</string>
     <string name="read_home_screen_settings">Lettura impost. scher. Home</string>
     <string name="read_home_screen_settings_info">Questa applicazione può leggere le impostazioni e i collegamenti della schermata Home.</string>
     <string name="rearrange_menu_icons_not_allowed">Impossibile riorganizzare le icone quando sono in ordine alfabetico.</string>
-    <string name="removable_preloadapp_uninstall_message">"%s verrà eliminata. Per scaricarla nuovamente, andate all'elenco applicazioni, toccate il pulsante Altre opzioni, quindi selezionate GALAXY Essentials."</string>
+    <string name="removable_preloadapp_uninstall_message">"%s verrà eliminata. Per scaricarla nuovamente, andate all'elenco applicazioni, toccate il pulsante Altre opzioni, quindi selezionate Galaxy Essentials."</string>
     <string name="remove_app_folder_cancel">Annulla</string>
     <string name="remove_app_folder_confirm">Elimina</string>
     <string name="remove_app_folder_confirm_VZW">Rimuovi</string>

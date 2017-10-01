@@ -9134,8 +9134,6 @@
 
     move-result v1
 
-    goto :goto_0
-
     if-ne v1, v5, :cond_4
 
     iget-object v1, p0, Lcom/android/server/audio/AudioService;->mStreamVolumeAlias:[I
@@ -9200,7 +9198,6 @@
     return v4
 
     :cond_4
-    :goto_0
     monitor-exit v2
 
     return v3
@@ -9445,6 +9442,12 @@
     iget v0, p0, Lcom/android/server/audio/AudioService;->mMode:I
 
     const/4 v1, 0x4
+
+    if-eq v0, v1, :cond_2
+
+    iget v0, p0, Lcom/android/server/audio/AudioService;->mMode:I
+
+    const/4 v1, 0x1
 
     if-ne v0, v1, :cond_5
 
@@ -32878,7 +32881,7 @@
 
     const/4 v0, 0x2
 
-    if-ne p3, v0, :cond_b
+    if-ne p3, v0, :cond_a
 
     const/4 v0, 0x4
 
@@ -32996,7 +32999,7 @@
 
     const/4 v0, 0x2
 
-    if-ne p3, v0, :cond_c
+    if-ne p3, v0, :cond_b
 
     const/16 v2, 0x66
 
@@ -33022,6 +33025,12 @@
     iget v0, p0, Lcom/android/server/audio/AudioService;->mMode:I
 
     const/4 v1, 0x4
+
+    if-eq v0, v1, :cond_1
+
+    iget v0, p0, Lcom/android/server/audio/AudioService;->mMode:I
+
+    const/4 v1, 0x1
 
     if-ne v0, v1, :cond_2
 
@@ -33071,32 +33080,43 @@
     return v0
 
     :cond_7
-    if-nez p2, :cond_8
+    const/4 v0, 0x1
+
+    if-eq p2, v0, :cond_8
+
+    const/4 v0, 0x2
+
+    if-ne p2, v0, :cond_9
+
+    :cond_8
+    const/4 v0, 0x1
+
+    :goto_3
+    const/16 v1, 0x80
 
     :try_start_3
-    iget v0, p0, Lcom/android/server/audio/AudioService;->mMode:I
-
-    const/4 v1, 0x1
-
-    if-ne v0, v1, :cond_8
-
-    invoke-virtual {p0}, Lcom/android/server/audio/AudioService;->getRingerModeInternal()I
-
-    move-result v0
-
-    const/4 v1, 0x2
-
-    if-ne v0, v1, :cond_8
-
-    const-string/jumbo v0, "AudioService"
-
-    const-string/jumbo v1, "Don\'t send becoming noisy intent when disconnecting a2dp"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {p0, v1, v0}, Lcom/android/server/audio/AudioService;->checkSendBecomingNoisyIntent(II)I
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
+    move-result v6
+
     goto/16 :goto_1
+
+    :cond_9
+    const/4 v0, 0x0
+
+    goto :goto_3
+
+    :cond_a
+    const/4 v6, 0x0
+
+    goto/16 :goto_1
+
+    :cond_b
+    const/16 v2, 0x65
+
+    goto :goto_2
 
     :catchall_0
     move-exception v0
@@ -33104,45 +33124,6 @@
     monitor-exit v7
 
     throw v0
-
-    :cond_8
-    const/4 v0, 0x1
-
-    if-eq p2, v0, :cond_9
-
-    const/4 v0, 0x2
-
-    if-ne p2, v0, :cond_a
-
-    :cond_9
-    const/4 v0, 0x1
-
-    :goto_3
-    const/16 v1, 0x80
-
-    :try_start_4
-    invoke-direct {p0, v1, v0}, Lcom/android/server/audio/AudioService;->checkSendBecomingNoisyIntent(II)I
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
-
-    move-result v6
-
-    goto/16 :goto_1
-
-    :cond_a
-    const/4 v0, 0x0
-
-    goto :goto_3
-
-    :cond_b
-    const/4 v6, 0x0
-
-    goto/16 :goto_1
-
-    :cond_c
-    const/16 v2, 0x65
-
-    goto :goto_2
 .end method
 
 .method public setBluetoothA2dpOn(Z)V
@@ -35772,7 +35753,7 @@
 .method public showMultisoundToast()V
     .locals 4
 
-    const v3, 0x10408ef
+    const v3, 0x10408f8
 
     iget-object v1, p0, Lcom/android/server/audio/AudioService;->multiSoundToast:Landroid/widget/Toast;
 
@@ -35870,7 +35851,7 @@
 
     iget-object v6, p0, Lcom/android/server/audio/AudioService;->mContext:Landroid/content/Context;
 
-    const v7, 0x10408f0
+    const v7, 0x10408f9
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -35897,7 +35878,7 @@
 
     iget-object v9, p0, Lcom/android/server/audio/AudioService;->mContext:Landroid/content/Context;
 
-    const v10, 0x10408ec
+    const v10, 0x10408f5
 
     invoke-virtual {v9, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -35937,7 +35918,7 @@
 
     aput-object v4, v10, v11
 
-    const v11, 0x10408ee
+    const v11, 0x10408f7
 
     invoke-virtual {v9, v11, v10}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -35965,7 +35946,7 @@
 
     move-result-object v7
 
-    const v8, 0x10408ea
+    const v8, 0x10408f3
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -35984,7 +35965,7 @@
 
     iget-object v7, p0, Lcom/android/server/audio/AudioService;->mContext:Landroid/content/Context;
 
-    const v8, 0x10408ec
+    const v8, 0x10408f5
 
     invoke-virtual {v7, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -36022,7 +36003,7 @@
 
     move-result-object v7
 
-    const v8, 0x10408eb
+    const v8, 0x10408f4
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -36051,7 +36032,7 @@
 
     iget-object v6, p0, Lcom/android/server/audio/AudioService;->mContext:Landroid/content/Context;
 
-    const v7, 0x10408f2
+    const v7, 0x10408fb
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -36062,7 +36043,7 @@
     :cond_1
     iget-object v6, p0, Lcom/android/server/audio/AudioService;->mContext:Landroid/content/Context;
 
-    const v7, 0x10408f1
+    const v7, 0x10408fa
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -36073,7 +36054,7 @@
     :cond_2
     iget-object v6, p0, Lcom/android/server/audio/AudioService;->mContext:Landroid/content/Context;
 
-    const v7, 0x10408ed
+    const v7, 0x10408f6
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

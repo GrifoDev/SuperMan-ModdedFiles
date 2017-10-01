@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="activity_not_found">Program ikke installeret.</string>
+    <string name="activity_not_found">Applikation ikke installeret.</string>
     <string name="all_apps_button_label">Apps</string>
     <string name="application_name">TouchWiz-start</string>
     <string name="cancel_action">Annuller</string>
@@ -140,6 +140,7 @@ apps"</string>
     <string name="no_downloaded_apps">Ingen downloadede applikationer</string>
     <string name="no_room_any_page">Ikke plads på nogen side.</string>
     <string name="no_space_page">Der er ikke plads på siden. Prøv at tilføje en genvej på en anden side.</string>
+    <string name="no_space_page_for_widget">Ingen plads på denne side.</string>
     <string name="not_selected">Ikke valgt</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">"Widget'en %s er allerede blevet føjet til startskærmen."</string>
@@ -177,7 +178,7 @@ Sikker mappe"</string>
     <string name="read_home_screen_settings">Læse startskærmsindst.</string>
     <string name="read_home_screen_settings_info">Denne app kan læse din startskærms indstillinger og genveje.</string>
     <string name="rearrange_menu_icons_not_allowed">Kan ikke omarrangere ikoner i alfabetisk rækkefølge.</string>
-    <string name="removable_preloadapp_uninstall_message">%s vil blive slettet. For at downloade den igen skal du gå til listen over applikationer, trykke på knappen flere indstillinger, og derefter vælge GALAXY Essentials.</string>
+    <string name="removable_preloadapp_uninstall_message">%s vil blive slettet. For at downloade den igen skal du gå til listen over apps, trykke på knappen flere indstillinger og derefter vælge Galaxy Essentials.</string>
     <string name="remove_app_folder_cancel">Annuller</string>
     <string name="remove_app_folder_confirm">Slet</string>
     <string name="remove_app_folder_confirm_VZW">Fjern</string>

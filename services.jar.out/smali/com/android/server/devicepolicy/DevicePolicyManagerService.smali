@@ -27422,7 +27422,7 @@
 
     move-result-wide v4
 
-    const v3, 0x1040a0a
+    const v3, 0x1040a13
 
     :try_start_1
     invoke-static {v3}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V

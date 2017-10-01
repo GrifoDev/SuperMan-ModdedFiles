@@ -241,7 +241,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090090
+    const v3, 0x7f090091
 
     new-instance v4, Lcom/android/launcher2/HomeScreenModeSettingsFragment$5;
 

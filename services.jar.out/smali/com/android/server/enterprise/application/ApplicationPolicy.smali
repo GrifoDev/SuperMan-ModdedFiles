@@ -11867,7 +11867,7 @@
 
     if-eqz v22, :cond_1
 
-    const v22, 0x10409c1
+    const v22, 0x10409ca
 
     invoke-static/range {v22 .. v22}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -11882,6 +11882,16 @@
 
     :cond_5
     :goto_2
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    move-object/from16 v2, p3
+
+    invoke-direct {v0, v1, v2}, Lcom/android/server/enterprise/application/ApplicationPolicy;->getApplicationPackageInfo(Ljava/lang/String;Landroid/content/pm/PackageParser$Package;)Lcom/android/server/enterprise/application/ApplicationPolicy$ApplicationPackageInfo;
+
+    move-result-object v6
+
     sget-object v22, Lcom/android/server/enterprise/application/ApplicationPolicy;->mAppControlStateLock:Ljava/lang/Object;
 
     monitor-enter v22
@@ -11912,7 +11922,7 @@
 
     if-eqz v21, :cond_5
 
-    const v21, 0x10409c1
+    const v21, 0x10409ca
 
     invoke-static/range {v21 .. v21}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -11940,7 +11950,7 @@
 
     if-eqz v21, :cond_5
 
-    const v21, 0x10409c1
+    const v21, 0x10409ca
 
     invoke-static/range {v21 .. v21}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -11968,7 +11978,7 @@
 
     if-eqz v22, :cond_7
 
-    const v22, 0x10409c1
+    const v22, 0x10409ca
 
     invoke-static/range {v22 .. v22}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -11976,19 +11986,6 @@
 
     :cond_9
     :try_start_3
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, p2
-
-    move-object/from16 v2, p3
-
-    invoke-direct {v0, v1, v2}, Lcom/android/server/enterprise/application/ApplicationPolicy;->getApplicationPackageInfo(Ljava/lang/String;Landroid/content/pm/PackageParser$Package;)Lcom/android/server/enterprise/application/ApplicationPolicy$ApplicationPackageInfo;
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
-
-    move-result-object v6
-
-    :try_start_4
     sget-object v21, Lcom/android/server/enterprise/application/ApplicationPolicy;->mAppControlState:Ljava/util/Map;
 
     invoke-interface/range {v21 .. v21}, Ljava/util/Map;->keySet()Ljava/util/Set;
@@ -12072,16 +12069,16 @@
     move-object/from16 v1, v23
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_4
-    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_1
-    .catchall {:try_start_4 .. :try_end_4} :catchall_2
+    :try_end_3
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_1
+    .catchall {:try_start_3 .. :try_end_3} :catchall_2
 
     goto :goto_4
 
     :catch_1
     move-exception v10
 
-    :try_start_5
+    :try_start_4
     invoke-virtual {v10}, Ljava/lang/Exception;->printStackTrace()V
 
     const-string/jumbo v21, "ApplicationPolicy"
@@ -12093,8 +12090,8 @@
     move-object/from16 v1, v23
 
     invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_2
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_2
 
     if-eqz p4, :cond_b
 
@@ -12176,7 +12173,7 @@
     return v14
 
     :cond_d
-    :try_start_6
+    :try_start_5
     const-string/jumbo v21, "PackageNameInstallationWhitelist"
 
     move-object/from16 v0, p0
@@ -12297,9 +12294,9 @@
     move-object/from16 v1, v23
 
     invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_6
-    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_1
-    .catchall {:try_start_6 .. :try_end_6} :catchall_2
+    :try_end_5
+    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_1
+    .catchall {:try_start_5 .. :try_end_5} :catchall_2
 
     if-eqz p4, :cond_e
 
@@ -12317,7 +12314,7 @@
     goto :goto_6
 
     :cond_10
-    :try_start_7
+    :try_start_6
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mBootCompleted:Z
@@ -12326,11 +12323,11 @@
 
     if-eqz v21, :cond_e
 
-    const v21, 0x10409c1
+    const v21, 0x10409ca
 
     invoke-static/range {v21 .. v21}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_1
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_1
 
     goto :goto_7
 
@@ -12342,7 +12339,7 @@
     throw v21
 
     :cond_11
-    :try_start_8
+    :try_start_7
     new-instance v5, Ljava/util/ArrayList;
 
     iget-object v0, v6, Lcom/android/server/enterprise/application/ApplicationPolicy$ApplicationPackageInfo;->permissions:Ljava/util/List;
@@ -12442,9 +12439,9 @@
     move-object/from16 v1, v23
 
     invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_8
-    .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_8} :catch_1
-    .catchall {:try_start_8 .. :try_end_8} :catchall_2
+    :try_end_7
+    .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_7} :catch_1
+    .catchall {:try_start_7 .. :try_end_7} :catchall_2
 
     if-eqz p4, :cond_12
 
@@ -12457,7 +12454,7 @@
     return v14
 
     :cond_13
-    :try_start_9
+    :try_start_8
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mBootCompleted:Z
@@ -12466,16 +12463,16 @@
 
     if-eqz v21, :cond_12
 
-    const v21, 0x10409c1
+    const v21, 0x10409ca
 
     invoke-static/range {v21 .. v21}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
-    :try_end_9
-    .catchall {:try_start_9 .. :try_end_9} :catchall_1
+    :try_end_8
+    .catchall {:try_start_8 .. :try_end_8} :catchall_1
 
     goto :goto_8
 
     :cond_14
-    :try_start_a
+    :try_start_9
     new-instance v7, Ljava/util/ArrayList;
 
     iget-object v0, v6, Lcom/android/server/enterprise/application/ApplicationPolicy$ApplicationPackageInfo;->signatures:Ljava/util/List;
@@ -12694,9 +12691,9 @@
     move-object/from16 v1, v23
 
     invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_a
-    .catch Ljava/lang/Exception; {:try_start_a .. :try_end_a} :catch_1
-    .catchall {:try_start_a .. :try_end_a} :catchall_2
+    :try_end_9
+    .catch Ljava/lang/Exception; {:try_start_9 .. :try_end_9} :catch_1
+    .catchall {:try_start_9 .. :try_end_9} :catchall_2
 
     if-eqz p4, :cond_15
 
@@ -12714,7 +12711,7 @@
     goto :goto_9
 
     :cond_17
-    :try_start_b
+    :try_start_a
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mBootCompleted:Z
@@ -12723,7 +12720,7 @@
 
     if-eqz v21, :cond_15
 
-    const v21, 0x10409c1
+    const v21, 0x10409ca
 
     invoke-static/range {v21 .. v21}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -12742,7 +12739,7 @@
 
     if-eqz v21, :cond_b
 
-    const v21, 0x10409c1
+    const v21, 0x10409ca
 
     invoke-static/range {v21 .. v21}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -12757,7 +12754,7 @@
 
     if-eqz v21, :cond_b
 
-    const v21, 0x10409c1
+    const v21, 0x10409ca
 
     invoke-static/range {v21 .. v21}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -12783,11 +12780,11 @@
 
     if-eqz v23, :cond_1a
 
-    const v23, 0x10409c1
+    const v23, 0x10409ca
 
     invoke-static/range {v23 .. v23}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
-    :try_end_b
-    .catchall {:try_start_b .. :try_end_b} :catchall_1
+    :try_end_a
+    .catchall {:try_start_a .. :try_end_a} :catchall_1
 
     goto :goto_b
 .end method
@@ -37674,7 +37671,7 @@
 
     if-eqz p3, :cond_0
 
-    const v0, 0x10409b1
+    const v0, 0x10409ba
 
     invoke-static {v0}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -37710,7 +37707,7 @@
 
     if-eqz p3, :cond_0
 
-    const v0, 0x10409b0
+    const v0, 0x10409b9
 
     invoke-static {v0}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -37770,7 +37767,7 @@
 
     if-eqz p6, :cond_0
 
-    const v13, 0x10409af
+    const v13, 0x10409b8
 
     invoke-static {v13}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -38939,7 +38936,7 @@
 
     if-nez v6, :cond_1
 
-    const v6, 0x1040a0d
+    const v6, 0x1040a16
 
     invoke-static {v6}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -39379,7 +39376,7 @@
 
     if-eqz p2, :cond_0
 
-    const v0, 0x10409c2
+    const v0, 0x10409cb
 
     invoke-static {v0}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 

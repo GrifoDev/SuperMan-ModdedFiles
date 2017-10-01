@@ -140,6 +140,7 @@ applications"</string>
     <string name="no_downloaded_apps">Aucune application téléchargée</string>
     <string name="no_room_any_page">Pas de place disponible sur les pages.</string>
     <string name="no_space_page">"Aucun espace sur la page. Essayez d'ajouter un raccourci vers une autre page."</string>
+    <string name="no_space_page_for_widget">Aucun espace sur cette page.</string>
     <string name="not_selected">Non sélectionné</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">"Le widget %s a déjà été ajouté à l'écran d'accueil."</string>
@@ -177,7 +178,7 @@ Dossier sécurisé"</string>
     <string name="read_home_screen_settings">Lecture param. écran acc.</string>
     <string name="read_home_screen_settings_info">"Cette application peut lire les paramètres et les raccourcis de votre écran d'accueil."</string>
     <string name="rearrange_menu_icons_not_allowed">Impossible de réorganiser les icônes par ordre alphabétique.</string>
-    <string name="removable_preloadapp_uninstall_message">%s va être supprimée. Pour la retélécharger, accédez à la liste des applications, touchez le bouton Options supplémentaires, puis sélectionnez GALAXY Essentials.</string>
+    <string name="removable_preloadapp_uninstall_message">"L'application %s va être supprimée. Pour la télécharger à nouveau, accédez à la liste des applications, touchez Options supplémentaires, puis sélectionnez Les indispensables Galaxy."</string>
     <string name="remove_app_folder_cancel">Annuler</string>
     <string name="remove_app_folder_confirm">Supprimer</string>
     <string name="remove_app_folder_confirm_VZW">Supprimer</string>

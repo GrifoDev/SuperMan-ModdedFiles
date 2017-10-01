@@ -140,6 +140,7 @@ sovellukset"</string>
     <string name="no_downloaded_apps">Ei ladattuja sovelluksia</string>
     <string name="no_room_any_page">Millään sivulla ei ole tilaa.</string>
     <string name="no_space_page">Sivulla ei ole tilaa. Yritä lisätä pikavalinta toiselle sivulle.</string>
+    <string name="no_space_page_for_widget">Tällä sivulla ei ole tilaa.</string>
     <string name="not_selected">Ei ole valittu</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">%s-pienoisohjelma on jo lisätty alkunäyttöön.</string>
@@ -177,7 +178,7 @@ kansioon"</string>
     <string name="read_home_screen_settings">Lue alkunäytön asetukset</string>
     <string name="read_home_screen_settings_info">Tämä sovellus pystyy lukemaan alkunäytön asetuksia ja pikavalintoja.</string>
     <string name="rearrange_menu_icons_not_allowed">Kuvakkeita ei voi järjestää aakkosjärjestyksessä uudelleen.</string>
-    <string name="removable_preloadapp_uninstall_message">%s poistetaan. Jos haluat ladata sen uudelleen, siirry sovellusluetteloon, napauta Lisää vaihtoehtoja -painiketta ja valitse GALAXY Essentials.</string>
+    <string name="removable_preloadapp_uninstall_message">%s poistetaan. Jos haluat ladata sen uudelleen, siirry sovellusluetteloon, napauta Lisää vaihtoehtoja -painiketta ja valitse Galaxy Essentials.</string>
     <string name="remove_app_folder_cancel">Peruuta</string>
     <string name="remove_app_folder_confirm">Poista</string>
     <string name="remove_app_folder_confirm_VZW">Poista</string>

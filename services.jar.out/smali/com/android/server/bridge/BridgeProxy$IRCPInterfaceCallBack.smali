@@ -805,7 +805,7 @@
     :cond_0
     iget-object v1, p0, Lcom/android/server/bridge/BridgeProxy$IRCPInterfaceCallBack;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v1}, Lcom/android/server/bridge/BridgeProxy;->-get14(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
+    invoke-static {v1}, Lcom/android/server/bridge/BridgeProxy;->-get13(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
 
     move-result-object v1
 
@@ -844,7 +844,7 @@
     :cond_1
     iget-object v1, p0, Lcom/android/server/bridge/BridgeProxy$IRCPInterfaceCallBack;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v1}, Lcom/android/server/bridge/BridgeProxy;->-get14(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
+    invoke-static {v1}, Lcom/android/server/bridge/BridgeProxy;->-get13(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
 
     move-result-object v1
 
@@ -903,7 +903,7 @@
     :cond_4
     iget-object v1, p0, Lcom/android/server/bridge/BridgeProxy$IRCPInterfaceCallBack;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v1}, Lcom/android/server/bridge/BridgeProxy;->-get14(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
+    invoke-static {v1}, Lcom/android/server/bridge/BridgeProxy;->-get13(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
 
     move-result-object v1
 
@@ -921,7 +921,7 @@
 
     iget-object v1, p0, Lcom/android/server/bridge/BridgeProxy$IRCPInterfaceCallBack;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v1}, Lcom/android/server/bridge/BridgeProxy;->-get14(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
+    invoke-static {v1}, Lcom/android/server/bridge/BridgeProxy;->-get13(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
 
     move-result-object v1
 
@@ -1008,7 +1008,7 @@
 
     iget-object v2, p0, Lcom/android/server/bridge/BridgeProxy$IRCPInterfaceCallBack;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v2}, Lcom/android/server/bridge/BridgeProxy;->-get3(Lcom/android/server/bridge/BridgeProxy;)Ljava/lang/String;
+    invoke-static {v2}, Lcom/android/server/bridge/BridgeProxy;->-get2(Lcom/android/server/bridge/BridgeProxy;)Ljava/lang/String;
 
     move-result-object v2
 
@@ -1040,13 +1040,13 @@
 
     iget-object v2, p0, Lcom/android/server/bridge/BridgeProxy$IRCPInterfaceCallBack;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v2}, Lcom/android/server/bridge/BridgeProxy;->-get6(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/Context;
+    invoke-static {v2}, Lcom/android/server/bridge/BridgeProxy;->-get5(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/Context;
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/android/server/bridge/BridgeProxy$IRCPInterfaceCallBack;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v3}, Lcom/android/server/bridge/BridgeProxy;->-get8(Lcom/android/server/bridge/BridgeProxy;)Landroid/os/UserHandle;
+    invoke-static {v3}, Lcom/android/server/bridge/BridgeProxy;->-get7(Lcom/android/server/bridge/BridgeProxy;)Landroid/os/UserHandle;
 
     move-result-object v3
 
@@ -1095,7 +1095,7 @@
 
     iget-object v0, p0, Lcom/android/server/bridge/BridgeProxy$IRCPInterfaceCallBack;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v0}, Lcom/android/server/bridge/BridgeProxy;->-get18(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemRemoteContentManager;
+    invoke-static {v0}, Lcom/android/server/bridge/BridgeProxy;->-get17(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemRemoteContentManager;
 
     move-result-object v0
 
@@ -1293,7 +1293,7 @@
 
     iget-object v2, p0, Lcom/android/server/bridge/BridgeProxy$IRCPInterfaceCallBack;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v2}, Lcom/android/server/bridge/BridgeProxy;->-get18(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemRemoteContentManager;
+    invoke-static {v2}, Lcom/android/server/bridge/BridgeProxy;->-get17(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemRemoteContentManager;
 
     move-result-object v2
 
@@ -1404,7 +1404,7 @@
 
     iget-object v4, p0, Lcom/android/server/bridge/BridgeProxy$IRCPInterfaceCallBack;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v4}, Lcom/android/server/bridge/BridgeProxy;->-get3(Lcom/android/server/bridge/BridgeProxy;)Ljava/lang/String;
+    invoke-static {v4}, Lcom/android/server/bridge/BridgeProxy;->-get2(Lcom/android/server/bridge/BridgeProxy;)Ljava/lang/String;
 
     move-result-object v4
 
@@ -1510,13 +1510,13 @@
 
     iget-object v4, p0, Lcom/android/server/bridge/BridgeProxy$IRCPInterfaceCallBack;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v4}, Lcom/android/server/bridge/BridgeProxy;->-get6(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/Context;
+    invoke-static {v4}, Lcom/android/server/bridge/BridgeProxy;->-get5(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/Context;
 
     move-result-object v4
 
     iget-object v5, p0, Lcom/android/server/bridge/BridgeProxy$IRCPInterfaceCallBack;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v5}, Lcom/android/server/bridge/BridgeProxy;->-get8(Lcom/android/server/bridge/BridgeProxy;)Landroid/os/UserHandle;
+    invoke-static {v5}, Lcom/android/server/bridge/BridgeProxy;->-get7(Lcom/android/server/bridge/BridgeProxy;)Landroid/os/UserHandle;
 
     move-result-object v5
 
@@ -1571,7 +1571,7 @@
 
     iget-object v3, p0, Lcom/android/server/bridge/BridgeProxy$IRCPInterfaceCallBack;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v3}, Lcom/android/server/bridge/BridgeProxy;->-get7(Lcom/android/server/bridge/BridgeProxy;)Ljava/lang/String;
+    invoke-static {v3}, Lcom/android/server/bridge/BridgeProxy;->-get6(Lcom/android/server/bridge/BridgeProxy;)Ljava/lang/String;
 
     move-result-object v3
 
@@ -1764,7 +1764,7 @@
 
     iget-object v0, p0, Lcom/android/server/bridge/BridgeProxy$IRCPInterfaceCallBack;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v0}, Lcom/android/server/bridge/BridgeProxy;->-get18(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemRemoteContentManager;
+    invoke-static {v0}, Lcom/android/server/bridge/BridgeProxy;->-get17(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemRemoteContentManager;
 
     move-result-object v0
 
@@ -1803,7 +1803,7 @@
 
     iget-object v0, p0, Lcom/android/server/bridge/BridgeProxy$IRCPInterfaceCallBack;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v0}, Lcom/android/server/bridge/BridgeProxy;->-get18(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemRemoteContentManager;
+    invoke-static {v0}, Lcom/android/server/bridge/BridgeProxy;->-get17(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemRemoteContentManager;
 
     move-result-object v0
 
@@ -1850,7 +1850,7 @@
 
     iget-object v1, p0, Lcom/android/server/bridge/BridgeProxy$IRCPInterfaceCallBack;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v1}, Lcom/android/server/bridge/BridgeProxy;->-get9(Lcom/android/server/bridge/BridgeProxy;)I
+    invoke-static {v1}, Lcom/android/server/bridge/BridgeProxy;->-get8(Lcom/android/server/bridge/BridgeProxy;)I
 
     move-result v0
 
@@ -1858,7 +1858,7 @@
 
     iget-object v1, p0, Lcom/android/server/bridge/BridgeProxy$IRCPInterfaceCallBack;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v1}, Lcom/android/server/bridge/BridgeProxy;->-get14(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
+    invoke-static {v1}, Lcom/android/server/bridge/BridgeProxy;->-get13(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
 
     move-result-object v1
 
@@ -1876,7 +1876,7 @@
     :cond_4
     iget-object v1, p0, Lcom/android/server/bridge/BridgeProxy$IRCPInterfaceCallBack;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v1}, Lcom/android/server/bridge/BridgeProxy;->-get14(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
+    invoke-static {v1}, Lcom/android/server/bridge/BridgeProxy;->-get13(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
 
     move-result-object v1
 
@@ -1890,7 +1890,7 @@
 
     iget-object v1, p0, Lcom/android/server/bridge/BridgeProxy$IRCPInterfaceCallBack;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v1}, Lcom/android/server/bridge/BridgeProxy;->-get14(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
+    invoke-static {v1}, Lcom/android/server/bridge/BridgeProxy;->-get13(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
 
     move-result-object v1
 
@@ -1941,7 +1941,7 @@
 
     iget-object v0, p0, Lcom/android/server/bridge/BridgeProxy$IRCPInterfaceCallBack;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v0}, Lcom/android/server/bridge/BridgeProxy;->-get18(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemRemoteContentManager;
+    invoke-static {v0}, Lcom/android/server/bridge/BridgeProxy;->-get17(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemRemoteContentManager;
 
     move-result-object v0
 
@@ -1961,7 +1961,7 @@
 
     iget-object v9, p0, Lcom/android/server/bridge/BridgeProxy$IRCPInterfaceCallBack;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v9}, Lcom/android/server/bridge/BridgeProxy;->-get14(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
+    invoke-static {v9}, Lcom/android/server/bridge/BridgeProxy;->-get13(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
 
     move-result-object v9
 
@@ -1969,7 +1969,7 @@
 
     iget-object v9, p0, Lcom/android/server/bridge/BridgeProxy$IRCPInterfaceCallBack;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v9}, Lcom/android/server/bridge/BridgeProxy;->-get14(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
+    invoke-static {v9}, Lcom/android/server/bridge/BridgeProxy;->-get13(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
 
     move-result-object v9
 
@@ -1981,7 +1981,7 @@
 
     iget-object v9, p0, Lcom/android/server/bridge/BridgeProxy$IRCPInterfaceCallBack;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v9}, Lcom/android/server/bridge/BridgeProxy;->-get14(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
+    invoke-static {v9}, Lcom/android/server/bridge/BridgeProxy;->-get13(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
 
     move-result-object v9
 
@@ -2012,7 +2012,7 @@
     :cond_1
     iget-object v9, p0, Lcom/android/server/bridge/BridgeProxy$IRCPInterfaceCallBack;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v9}, Lcom/android/server/bridge/BridgeProxy;->-get14(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
+    invoke-static {v9}, Lcom/android/server/bridge/BridgeProxy;->-get13(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
 
     move-result-object v9
 
@@ -2029,7 +2029,7 @@
 
     iget-object v9, p0, Lcom/android/server/bridge/BridgeProxy$IRCPInterfaceCallBack;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v9}, Lcom/android/server/bridge/BridgeProxy;->-get9(Lcom/android/server/bridge/BridgeProxy;)I
+    invoke-static {v9}, Lcom/android/server/bridge/BridgeProxy;->-get8(Lcom/android/server/bridge/BridgeProxy;)I
 
     move-result v8
 
@@ -2042,7 +2042,7 @@
     :try_start_0
     iget-object v9, p0, Lcom/android/server/bridge/BridgeProxy$IRCPInterfaceCallBack;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v9}, Lcom/android/server/bridge/BridgeProxy;->-get6(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/Context;
+    invoke-static {v9}, Lcom/android/server/bridge/BridgeProxy;->-get5(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/Context;
 
     move-result-object v9
 
@@ -2130,7 +2130,7 @@
     :cond_4
     iget-object v9, p0, Lcom/android/server/bridge/BridgeProxy$IRCPInterfaceCallBack;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v9}, Lcom/android/server/bridge/BridgeProxy;->-get14(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
+    invoke-static {v9}, Lcom/android/server/bridge/BridgeProxy;->-get13(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
 
     move-result-object v9
 
@@ -2138,7 +2138,7 @@
 
     iget-object v9, p0, Lcom/android/server/bridge/BridgeProxy$IRCPInterfaceCallBack;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v9}, Lcom/android/server/bridge/BridgeProxy;->-get14(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
+    invoke-static {v9}, Lcom/android/server/bridge/BridgeProxy;->-get13(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
 
     move-result-object v9
 
@@ -2151,7 +2151,7 @@
     :try_start_1
     iget-object v9, p0, Lcom/android/server/bridge/BridgeProxy$IRCPInterfaceCallBack;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v9}, Lcom/android/server/bridge/BridgeProxy;->-get6(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/Context;
+    invoke-static {v9}, Lcom/android/server/bridge/BridgeProxy;->-get5(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/Context;
 
     move-result-object v9
 
@@ -2346,7 +2346,7 @@
 
     iget-object v2, p0, Lcom/android/server/bridge/BridgeProxy$IRCPInterfaceCallBack;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v2}, Lcom/android/server/bridge/BridgeProxy;->-get6(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/Context;
+    invoke-static {v2}, Lcom/android/server/bridge/BridgeProxy;->-get5(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/Context;
 
     move-result-object v2
 
@@ -2360,7 +2360,7 @@
 
     iget-object v2, p0, Lcom/android/server/bridge/BridgeProxy$IRCPInterfaceCallBack;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v2}, Lcom/android/server/bridge/BridgeProxy;->-get14(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
+    invoke-static {v2}, Lcom/android/server/bridge/BridgeProxy;->-get13(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
 
     move-result-object v2
 
@@ -2429,7 +2429,7 @@
 
     iget-object v2, p0, Lcom/android/server/bridge/BridgeProxy$IRCPInterfaceCallBack;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v2}, Lcom/android/server/bridge/BridgeProxy;->-get18(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemRemoteContentManager;
+    invoke-static {v2}, Lcom/android/server/bridge/BridgeProxy;->-get17(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemRemoteContentManager;
 
     move-result-object v2
 
@@ -2536,7 +2536,7 @@
 
     iget-object v6, p0, Lcom/android/server/bridge/BridgeProxy$IRCPInterfaceCallBack;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v6}, Lcom/android/server/bridge/BridgeProxy;->-get6(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/Context;
+    invoke-static {v6}, Lcom/android/server/bridge/BridgeProxy;->-get5(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/Context;
 
     move-result-object v6
 
@@ -2550,7 +2550,7 @@
 
     iget-object v6, p0, Lcom/android/server/bridge/BridgeProxy$IRCPInterfaceCallBack;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v6}, Lcom/android/server/bridge/BridgeProxy;->-get14(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
+    invoke-static {v6}, Lcom/android/server/bridge/BridgeProxy;->-get13(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
 
     move-result-object v6
 
@@ -2579,7 +2579,7 @@
 
     iget-object v6, p0, Lcom/android/server/bridge/BridgeProxy$IRCPInterfaceCallBack;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v6}, Lcom/android/server/bridge/BridgeProxy;->-get3(Lcom/android/server/bridge/BridgeProxy;)Ljava/lang/String;
+    invoke-static {v6}, Lcom/android/server/bridge/BridgeProxy;->-get2(Lcom/android/server/bridge/BridgeProxy;)Ljava/lang/String;
 
     move-result-object v6
 
@@ -2685,13 +2685,13 @@
 
     iget-object v6, p0, Lcom/android/server/bridge/BridgeProxy$IRCPInterfaceCallBack;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v6}, Lcom/android/server/bridge/BridgeProxy;->-get6(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/Context;
+    invoke-static {v6}, Lcom/android/server/bridge/BridgeProxy;->-get5(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/Context;
 
     move-result-object v6
 
     iget-object v7, p0, Lcom/android/server/bridge/BridgeProxy$IRCPInterfaceCallBack;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v7}, Lcom/android/server/bridge/BridgeProxy;->-get8(Lcom/android/server/bridge/BridgeProxy;)Landroid/os/UserHandle;
+    invoke-static {v7}, Lcom/android/server/bridge/BridgeProxy;->-get7(Lcom/android/server/bridge/BridgeProxy;)Landroid/os/UserHandle;
 
     move-result-object v7
 
@@ -2813,7 +2813,7 @@
 
     move-object/from16 v26, v0
 
-    invoke-static/range {v26 .. v26}, Lcom/android/server/bridge/BridgeProxy;->-get3(Lcom/android/server/bridge/BridgeProxy;)Ljava/lang/String;
+    invoke-static/range {v26 .. v26}, Lcom/android/server/bridge/BridgeProxy;->-get2(Lcom/android/server/bridge/BridgeProxy;)Ljava/lang/String;
 
     move-result-object v26
 
@@ -2947,7 +2947,7 @@
 
     move-object/from16 v26, v0
 
-    invoke-static/range {v26 .. v26}, Lcom/android/server/bridge/BridgeProxy;->-get6(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/Context;
+    invoke-static/range {v26 .. v26}, Lcom/android/server/bridge/BridgeProxy;->-get5(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/Context;
 
     move-result-object v26
 
@@ -2971,7 +2971,7 @@
 
     move-object/from16 v26, v0
 
-    invoke-static/range {v26 .. v26}, Lcom/android/server/bridge/BridgeProxy;->-get9(Lcom/android/server/bridge/BridgeProxy;)I
+    invoke-static/range {v26 .. v26}, Lcom/android/server/bridge/BridgeProxy;->-get8(Lcom/android/server/bridge/BridgeProxy;)I
 
     move-result v16
 
@@ -2993,7 +2993,7 @@
 
     move-object/from16 v26, v0
 
-    invoke-static/range {v26 .. v26}, Lcom/android/server/bridge/BridgeProxy;->-get6(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/Context;
+    invoke-static/range {v26 .. v26}, Lcom/android/server/bridge/BridgeProxy;->-get5(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/Context;
 
     move-result-object v26
 
@@ -3003,7 +3003,7 @@
 
     move-object/from16 v27, v0
 
-    invoke-static/range {v27 .. v27}, Lcom/android/server/bridge/BridgeProxy;->-get8(Lcom/android/server/bridge/BridgeProxy;)Landroid/os/UserHandle;
+    invoke-static/range {v27 .. v27}, Lcom/android/server/bridge/BridgeProxy;->-get7(Lcom/android/server/bridge/BridgeProxy;)Landroid/os/UserHandle;
 
     move-result-object v27
 
@@ -3149,7 +3149,7 @@
 
     move-object/from16 v26, v0
 
-    invoke-static/range {v26 .. v26}, Lcom/android/server/bridge/BridgeProxy;->-get6(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/Context;
+    invoke-static/range {v26 .. v26}, Lcom/android/server/bridge/BridgeProxy;->-get5(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/Context;
 
     move-result-object v26
 
@@ -3159,7 +3159,7 @@
 
     move-object/from16 v27, v0
 
-    invoke-static/range {v27 .. v27}, Lcom/android/server/bridge/BridgeProxy;->-get8(Lcom/android/server/bridge/BridgeProxy;)Landroid/os/UserHandle;
+    invoke-static/range {v27 .. v27}, Lcom/android/server/bridge/BridgeProxy;->-get7(Lcom/android/server/bridge/BridgeProxy;)Landroid/os/UserHandle;
 
     move-result-object v27
 
@@ -3271,7 +3271,7 @@
 
     move-object/from16 v26, v0
 
-    invoke-static/range {v26 .. v26}, Lcom/android/server/bridge/BridgeProxy;->-get6(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/Context;
+    invoke-static/range {v26 .. v26}, Lcom/android/server/bridge/BridgeProxy;->-get5(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/Context;
 
     move-result-object v26
 
@@ -3285,7 +3285,7 @@
 
     move-object/from16 v27, v0
 
-    invoke-static/range {v27 .. v27}, Lcom/android/server/bridge/BridgeProxy;->-get9(Lcom/android/server/bridge/BridgeProxy;)I
+    invoke-static/range {v27 .. v27}, Lcom/android/server/bridge/BridgeProxy;->-get8(Lcom/android/server/bridge/BridgeProxy;)I
 
     move-result v27
 
@@ -3509,7 +3509,7 @@
 
     move-object/from16 v26, v0
 
-    invoke-static/range {v26 .. v26}, Lcom/android/server/bridge/BridgeProxy;->-get6(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/Context;
+    invoke-static/range {v26 .. v26}, Lcom/android/server/bridge/BridgeProxy;->-get5(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/Context;
 
     move-result-object v26
 
@@ -3519,7 +3519,7 @@
 
     move-object/from16 v27, v0
 
-    invoke-static/range {v27 .. v27}, Lcom/android/server/bridge/BridgeProxy;->-get8(Lcom/android/server/bridge/BridgeProxy;)Landroid/os/UserHandle;
+    invoke-static/range {v27 .. v27}, Lcom/android/server/bridge/BridgeProxy;->-get7(Lcom/android/server/bridge/BridgeProxy;)Landroid/os/UserHandle;
 
     move-result-object v27
 
@@ -3657,7 +3657,7 @@
 
     move-object/from16 v31, v0
 
-    invoke-static/range {v31 .. v31}, Lcom/android/server/bridge/BridgeProxy;->-get3(Lcom/android/server/bridge/BridgeProxy;)Ljava/lang/String;
+    invoke-static/range {v31 .. v31}, Lcom/android/server/bridge/BridgeProxy;->-get2(Lcom/android/server/bridge/BridgeProxy;)Ljava/lang/String;
 
     move-result-object v31
 
@@ -3795,7 +3795,7 @@
 
     move-object/from16 v31, v0
 
-    invoke-static/range {v31 .. v31}, Lcom/android/server/bridge/BridgeProxy;->-get6(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/Context;
+    invoke-static/range {v31 .. v31}, Lcom/android/server/bridge/BridgeProxy;->-get5(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/Context;
 
     move-result-object v31
 
@@ -3854,7 +3854,7 @@
 
     move-object/from16 v31, v0
 
-    invoke-static/range {v31 .. v31}, Lcom/android/server/bridge/BridgeProxy;->-get6(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/Context;
+    invoke-static/range {v31 .. v31}, Lcom/android/server/bridge/BridgeProxy;->-get5(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/Context;
 
     move-result-object v31
 
@@ -3888,7 +3888,7 @@
 
     move-object/from16 v31, v0
 
-    invoke-static/range {v31 .. v31}, Lcom/android/server/bridge/BridgeProxy;->-get9(Lcom/android/server/bridge/BridgeProxy;)I
+    invoke-static/range {v31 .. v31}, Lcom/android/server/bridge/BridgeProxy;->-get8(Lcom/android/server/bridge/BridgeProxy;)I
 
     move-result v18
 
@@ -3910,7 +3910,7 @@
 
     move-object/from16 v31, v0
 
-    invoke-static/range {v31 .. v31}, Lcom/android/server/bridge/BridgeProxy;->-get6(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/Context;
+    invoke-static/range {v31 .. v31}, Lcom/android/server/bridge/BridgeProxy;->-get5(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/Context;
 
     move-result-object v31
 
@@ -3920,7 +3920,7 @@
 
     move-object/from16 v32, v0
 
-    invoke-static/range {v32 .. v32}, Lcom/android/server/bridge/BridgeProxy;->-get8(Lcom/android/server/bridge/BridgeProxy;)Landroid/os/UserHandle;
+    invoke-static/range {v32 .. v32}, Lcom/android/server/bridge/BridgeProxy;->-get7(Lcom/android/server/bridge/BridgeProxy;)Landroid/os/UserHandle;
 
     move-result-object v32
 
@@ -4014,7 +4014,7 @@
 
     move-object/from16 v31, v0
 
-    invoke-static/range {v31 .. v31}, Lcom/android/server/bridge/BridgeProxy;->-get14(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
+    invoke-static/range {v31 .. v31}, Lcom/android/server/bridge/BridgeProxy;->-get13(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
 
     invoke-virtual {v9}, Ljava/lang/Integer;->intValue()I
 
@@ -4032,7 +4032,7 @@
 
     move-object/from16 v31, v0
 
-    invoke-static/range {v31 .. v31}, Lcom/android/server/bridge/BridgeProxy;->-get14(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
+    invoke-static/range {v31 .. v31}, Lcom/android/server/bridge/BridgeProxy;->-get13(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
 
     move-result-object v31
 
@@ -4065,7 +4065,7 @@
 
     move-object/from16 v31, v0
 
-    invoke-static/range {v31 .. v31}, Lcom/android/server/bridge/BridgeProxy;->-get14(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
+    invoke-static/range {v31 .. v31}, Lcom/android/server/bridge/BridgeProxy;->-get13(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
 
     invoke-static/range {p4 .. p4}, Lcom/samsung/android/knox/SemPersonaManager;->isSecureFolderId(I)Z
 
@@ -4100,7 +4100,7 @@
 
     move-object/from16 v31, v0
 
-    invoke-static/range {v31 .. v31}, Lcom/android/server/bridge/BridgeProxy;->-get14(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
+    invoke-static/range {v31 .. v31}, Lcom/android/server/bridge/BridgeProxy;->-get13(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
 
     move-result-object v31
 
@@ -4120,7 +4120,7 @@
 
     move-object/from16 v31, v0
 
-    invoke-static/range {v31 .. v31}, Lcom/android/server/bridge/BridgeProxy;->-get14(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
+    invoke-static/range {v31 .. v31}, Lcom/android/server/bridge/BridgeProxy;->-get13(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
 
     move-result-object v31
 
@@ -4142,7 +4142,7 @@
 
     move-object/from16 v32, v0
 
-    invoke-static/range {v32 .. v32}, Lcom/android/server/bridge/BridgeProxy;->-get14(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
+    invoke-static/range {v32 .. v32}, Lcom/android/server/bridge/BridgeProxy;->-get13(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
 
     move-result-object v32
 
@@ -4247,7 +4247,7 @@
 
     move-object/from16 v31, v0
 
-    invoke-static/range {v31 .. v31}, Lcom/android/server/bridge/BridgeProxy;->-get6(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/Context;
+    invoke-static/range {v31 .. v31}, Lcom/android/server/bridge/BridgeProxy;->-get5(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/Context;
 
     move-result-object v31
 
@@ -4257,7 +4257,7 @@
 
     move-object/from16 v32, v0
 
-    invoke-static/range {v32 .. v32}, Lcom/android/server/bridge/BridgeProxy;->-get8(Lcom/android/server/bridge/BridgeProxy;)Landroid/os/UserHandle;
+    invoke-static/range {v32 .. v32}, Lcom/android/server/bridge/BridgeProxy;->-get7(Lcom/android/server/bridge/BridgeProxy;)Landroid/os/UserHandle;
 
     move-result-object v32
 
@@ -4369,7 +4369,7 @@
 
     move-object/from16 v31, v0
 
-    invoke-static/range {v31 .. v31}, Lcom/android/server/bridge/BridgeProxy;->-get6(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/Context;
+    invoke-static/range {v31 .. v31}, Lcom/android/server/bridge/BridgeProxy;->-get5(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/Context;
 
     move-result-object v31
 
@@ -4383,7 +4383,7 @@
 
     move-object/from16 v32, v0
 
-    invoke-static/range {v32 .. v32}, Lcom/android/server/bridge/BridgeProxy;->-get9(Lcom/android/server/bridge/BridgeProxy;)I
+    invoke-static/range {v32 .. v32}, Lcom/android/server/bridge/BridgeProxy;->-get8(Lcom/android/server/bridge/BridgeProxy;)I
 
     move-result v32
 
@@ -4599,7 +4599,7 @@
 
     move-object/from16 v31, v0
 
-    invoke-static/range {v31 .. v31}, Lcom/android/server/bridge/BridgeProxy;->-get6(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/Context;
+    invoke-static/range {v31 .. v31}, Lcom/android/server/bridge/BridgeProxy;->-get5(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/Context;
 
     move-result-object v31
 
@@ -4609,7 +4609,7 @@
 
     move-object/from16 v32, v0
 
-    invoke-static/range {v32 .. v32}, Lcom/android/server/bridge/BridgeProxy;->-get8(Lcom/android/server/bridge/BridgeProxy;)Landroid/os/UserHandle;
+    invoke-static/range {v32 .. v32}, Lcom/android/server/bridge/BridgeProxy;->-get7(Lcom/android/server/bridge/BridgeProxy;)Landroid/os/UserHandle;
 
     move-result-object v32
 

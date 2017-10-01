@@ -106,6 +106,9 @@
 .method public abstract overridePendingAppTransitionCustomScaleUp(Landroid/graphics/Rect;)V
 .end method
 
+.method public abstract prepareAddWindowLw(Lcom/android/server/wm/WindowState;)I
+.end method
+
 .method public abstract prepareSurfaceBeforeFreezing([I)V
 .end method
 

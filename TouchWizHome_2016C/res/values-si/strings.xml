@@ -20,7 +20,7 @@
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">සෙවුම් ඉතිහාසය</string>
     <string name="SS_SORT_ALPHABETICALLY_HEADER_ABB">අකාරාදියේ පිළිවෙළට සුබෙදීම</string>
     <string name="SS_THE_APP_LIST_WILL_BE_REARRANGED_IN_ALPHABETICAL_ORDER_ANY_CUSTOMISATIONS_YOU_HAVE_MADE_WILL_BE_DISCARDED">යෙදුම් ලැයිස්තුව ආකාරාදී පිළිවෙලට යළි පෙළගැස්වෙනු ඇත. ඔබ සිදු කළ ඕනෑම අභිමත කිරීමක් ඉවතලනු ඇත.</string>
-    <string name="Tap_on_widgets_tab">වජට්ටු ටැබය තෝරන්න.</string>
+    <string name="Tap_on_widgets_tab">විජට්ටු ටැබය තෝරන්න.</string>
     <string name="Wallpaper_chooser_wallpapers">බිතුපත්</string>
     <string name="Zeropage_permission_content">%s නිසි පරිදි භාවිතා කළ නොහැක. “සැකසුම්” තට්ටු කරන්න, යෙදුම් තතු > අවසර වෙත යන්න, එවිට පහත අවසරයන්ට ඉඩ දී නැවත උත්සාහ කරන්න. ඔබ මෙම අවසරයන්ට ඉඩ නොදෙන්නේ නම්, ස්පර්ශ අන්තර් ක්‍රියාකාරීත්වය තිරය මත නිසි පරිදි නිරූපණය නොවිය හැක.</string>
     <string name="Zeropage_permission_setting">සැකසුම්</string>
@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">බාගත් යෙදුම් නොමැත</string>
     <string name="no_room_any_page">කිසිදු පිටුවක ඉඩ නැත.</string>
     <string name="no_space_page">පිටුවේ ඉඩක් නැත. වෙනස් පිටුවකට කෙටිමඟ එක් කිරීමට උත්සාහ කරන්න.</string>
+    <string name="no_space_page_for_widget">මෙම පිටුවේ ඉඩ නොමැත.</string>
     <string name="not_selected">තෝරා නොගැනිණි</string>
     <string name="ok">හරි</string>
     <string name="only_one_widget_instance_allowed">%s විජෙට්ටුව දැනටමත් මුල් තිරයට එක් කර ඇත.</string>
@@ -176,7 +177,7 @@
     <string name="read_home_screen_settings">මුල් තිර සැකසුම් කියවන්න</string>
     <string name="read_home_screen_settings_info">මෙම යෙදුමට ඔබේ මුල් තිර සැකසුම් සහ කෙටිමං කියවිය හැක.</string>
     <string name="rearrange_menu_icons_not_allowed">අකාරාදිමය අනුපිළිවෙළට අයිකනය යළි පිළිවෙළට සැකසිය නොහැක.</string>
-    <string name="removable_preloadapp_uninstall_message">%s මැකෙනු ඇත. එය නැවත බා ගැනීමට, යෙදුම් ලැයිස්තුව වෙත ගොස්, වැඩිදුර විකල්ප බොත්තම ඔබා අනතුරුව ගැලක්සි අත්‍යවශ්‍ය සේවා තෝරන්න.</string>
+    <string name="removable_preloadapp_uninstall_message">%s මකා දමනු ඇත. එය නැවත බාගැනීමට, යෙදුම් ලැයිස්තුවට ගොස්, වැඩිදුර විකල්ප බොත්තම තට්ටු කර, Galaxy Essentials තෝරන්න.</string>
     <string name="remove_app_folder_cancel">අවල. කර.</string>
     <string name="remove_app_folder_confirm">මකන්න</string>
     <string name="remove_app_folder_confirm_VZW">ඉවත් කරන්න</string>

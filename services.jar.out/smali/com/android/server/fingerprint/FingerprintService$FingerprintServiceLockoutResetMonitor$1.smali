@@ -43,7 +43,7 @@
 
     iget-object v1, p0, Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceLockoutResetMonitor$1;->this$1:Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceLockoutResetMonitor;
 
-    invoke-static {v0, v1}, Lcom/android/server/fingerprint/FingerprintService;->-wrap11(Lcom/android/server/fingerprint/FingerprintService;Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceLockoutResetMonitor;)V
+    invoke-static {v0, v1}, Lcom/android/server/fingerprint/FingerprintService;->-wrap12(Lcom/android/server/fingerprint/FingerprintService;Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceLockoutResetMonitor;)V
 
     return-void
 .end method

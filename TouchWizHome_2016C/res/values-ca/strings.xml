@@ -138,7 +138,8 @@
     <string name="new_items">%d elements nous</string>
     <string name="no_downloaded_apps">Sense aplicacions descarregades</string>
     <string name="no_room_any_page">No hi ha lloc a cap pàgina.</string>
-    <string name="no_space_page">"No hi ha espai a la pàgina. Prova d'afegir un accés directe a una altra pàgina."</string>
+    <string name="no_space_page">"No hi ha espai a la pàgina. Prova d'afegir un accés directe en una altra pàgina."</string>
+    <string name="no_space_page_for_widget">No hi ha espai a aquesta pàgina.</string>
     <string name="not_selected">No seleccionat</string>
     <string name="ok">Acceptar</string>
     <string name="only_one_widget_instance_allowed">"El widget %s ja s'ha afegit a la Pantalla d'inici."</string>
@@ -176,7 +177,7 @@ segura"</string>
     <string name="read_home_screen_settings">Llegir ajustam pant inici</string>
     <string name="read_home_screen_settings_info">"Aquesta aplicació pot llegir els accessos directes i els ajustaments de la pantalla d'inici."</string>
     <string name="rearrange_menu_icons_not_allowed">No es poden reorganitzar les icones en ordre alfabètic.</string>
-    <string name="removable_preloadapp_uninstall_message">"S'esborrarà %s. Per tornar-ho a descarregar, vagi a la llista d'aplicacions, toqui el botó més opcions i seleccioni GALAXY Essentials."</string>
+    <string name="removable_preloadapp_uninstall_message">"S'esborrarà %s. Per tornar-la a descarregar, ves a la llista d'aplicacions, toca el botó de més opcions i selecciona Galaxy Essentials."</string>
     <string name="remove_app_folder_cancel">Cancel·lar</string>
     <string name="remove_app_folder_confirm">Esborrar</string>
     <string name="remove_app_folder_confirm_VZW">Eliminar</string>

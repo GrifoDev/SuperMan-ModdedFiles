@@ -9419,6 +9419,25 @@
     goto/16 :goto_10
 
     :cond_42
+    if-eqz v52, :cond_43
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/CellLayout;->getContext()Landroid/content/Context;
+
+    move-result-object v4
+
+    const v8, 0x7f09008f
+
+    const/4 v10, 0x0
+
+    invoke-static {v4, v8, v10}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/widget/Toast;->show()V
+
+    goto/16 :goto_10
+
+    :cond_43
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/CellLayout;->getContext()Landroid/content/Context;
 
     move-result-object v4
@@ -9470,13 +9489,13 @@
 
     sget-object v4, Lcom/android/launcher2/Launcher;->dragstate:Lcom/android/launcher2/DragState;
 
-    if-eqz v4, :cond_43
+    if-eqz v4, :cond_44
 
     sget-object v4, Lcom/android/launcher2/Launcher;->dragstate:Lcom/android/launcher2/DragState;
 
     invoke-virtual {v4}, Lcom/android/launcher2/DragState;->onEnd()V
 
-    :cond_43
+    :cond_44
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/CellLayout;->clearDragOutlines()V
 
     const/4 v4, 0x0
@@ -9516,8 +9535,6 @@
     sput-boolean v4, Lcom/android/launcher2/CellLayout;->mHasSetStartXY:Z
 
     goto/16 :goto_6
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -11872,7 +11889,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0900f0
+    const v2, 0x7f0900f1
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -12522,7 +12539,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f0900d6
+    const v19, 0x7f0900d7
 
     const/16 v20, 0x2
 
@@ -12572,7 +12589,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f0900de
+    const v19, 0x7f0900df
 
     invoke-virtual/range {v18 .. v19}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -13260,7 +13277,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f0900da
+    const v13, 0x7f0900db
 
     const/4 v14, 0x2
 
@@ -13606,7 +13623,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f0900d5
+    const v13, 0x7f0900d6
 
     const/4 v14, 0x1
 

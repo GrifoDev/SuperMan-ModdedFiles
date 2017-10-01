@@ -2034,36 +2034,12 @@
 
     move-result-object v12
 
-    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
+    move-object/from16 v0, p0
 
-    move-result-object v2
+    iget-boolean v2, v0, Lcom/android/server/net/NetworkStatsService;->mIsDuringVideoCall:Z
 
-    const-string/jumbo v4, "CscFeature_RIL_SupportVolte"
+    if-eqz v2, :cond_2
 
-    invoke-virtual {v2, v4}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_4
-
-    if-eqz v12, :cond_0
-
-    const-string/jumbo v2, "VZW-"
-
-    invoke-virtual {v12, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_1
-
-    :cond_0
-    invoke-direct/range {p0 .. p0}, Lcom/android/server/net/NetworkStatsService;->isNaGsm()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_4
-
-    :cond_1
     const/4 v2, 0x0
 
     const/16 v4, -0x64
@@ -2078,7 +2054,7 @@
 
     iget-boolean v2, v0, Lcom/android/server/net/NetworkStatsService;->mIsDuringVideoCall:Z
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_0
 
     const-string/jumbo v2, "NetworkStats"
 
@@ -2102,7 +2078,7 @@
 
     invoke-static {v2, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_2
+    :cond_0
     const/4 v2, -0x1
 
     iput v2, v13, Landroid/net/NetworkStats$Entry;->uid:I
@@ -2115,7 +2091,7 @@
 
     move-result-object v17
 
-    if-eqz v17, :cond_b
+    if-eqz v17, :cond_9
 
     const-string/jumbo v2, "NetworkStats"
 
@@ -2127,11 +2103,11 @@
 
     move-result-object v14
 
-    if-eqz v14, :cond_9
+    if-eqz v14, :cond_7
 
     iput-object v14, v13, Landroid/net/NetworkStats$Entry;->iface:Ljava/lang/String;
 
-    :cond_3
+    :cond_1
     :goto_0
     move-object/from16 v0, v20
 
@@ -2139,7 +2115,7 @@
 
     invoke-virtual {v3, v13}, Landroid/net/NetworkStats;->combineValues(Landroid/net/NetworkStats$Entry;)Landroid/net/NetworkStats;
 
-    :cond_4
+    :cond_2
     :goto_1
     move-object/from16 v0, p0
 
@@ -2153,7 +2129,7 @@
 
     iget-object v2, v0, Lcom/android/server/net/NetworkStatsService;->mDevRecorder:Lcom/android/server/net/NetworkStatsRecorder;
 
-    if-nez v2, :cond_5
+    if-nez v2, :cond_3
 
     const-string/jumbo v2, "dev"
 
@@ -2177,7 +2153,7 @@
 
     iput-object v2, v0, Lcom/android/server/net/NetworkStatsService;->mDevRecorder:Lcom/android/server/net/NetworkStatsRecorder;
 
-    :cond_5
+    :cond_3
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/net/NetworkStatsService;->mDevRecorder:Lcom/android/server/net/NetworkStatsRecorder;
@@ -2200,7 +2176,7 @@
 
     iget-object v2, v0, Lcom/android/server/net/NetworkStatsService;->mXtRecorder:Lcom/android/server/net/NetworkStatsRecorder;
 
-    if-nez v2, :cond_6
+    if-nez v2, :cond_4
 
     const-string/jumbo v2, "xt"
 
@@ -2224,7 +2200,7 @@
 
     iput-object v2, v0, Lcom/android/server/net/NetworkStatsService;->mXtRecorder:Lcom/android/server/net/NetworkStatsRecorder;
 
-    :cond_6
+    :cond_4
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/net/NetworkStatsService;->mXtRecorder:Lcom/android/server/net/NetworkStatsRecorder;
@@ -2249,7 +2225,7 @@
 
     iget-object v2, v0, Lcom/android/server/net/NetworkStatsService;->mUidRecorder:Lcom/android/server/net/NetworkStatsRecorder;
 
-    if-nez v2, :cond_7
+    if-nez v2, :cond_5
 
     const-string/jumbo v2, "uid"
 
@@ -2273,7 +2249,7 @@
 
     iput-object v2, v0, Lcom/android/server/net/NetworkStatsService;->mUidRecorder:Lcom/android/server/net/NetworkStatsRecorder;
 
-    :cond_7
+    :cond_5
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/net/NetworkStatsService;->mUidRecorder:Lcom/android/server/net/NetworkStatsRecorder;
@@ -2294,7 +2270,7 @@
 
     iget-object v2, v0, Lcom/android/server/net/NetworkStatsService;->mUidTagRecorder:Lcom/android/server/net/NetworkStatsRecorder;
 
-    if-nez v2, :cond_8
+    if-nez v2, :cond_6
 
     const-string/jumbo v2, "uid_tag"
 
@@ -2318,7 +2294,7 @@
 
     iput-object v2, v0, Lcom/android/server/net/NetworkStatsService;->mUidTagRecorder:Lcom/android/server/net/NetworkStatsRecorder;
 
-    :cond_8
+    :cond_6
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/net/NetworkStatsService;->mUidTagRecorder:Lcom/android/server/net/NetworkStatsRecorder;
@@ -2367,7 +2343,7 @@
 
     return-void
 
-    :cond_9
+    :cond_7
     const/4 v2, 0x4
 
     move-object/from16 v0, p0
@@ -2376,7 +2352,7 @@
 
     move-result-object v17
 
-    if-eqz v17, :cond_3
+    if-eqz v17, :cond_1
 
     const-string/jumbo v2, "NetworkStats"
 
@@ -2388,9 +2364,9 @@
 
     move-result-object v14
 
-    if-eqz v14, :cond_3
+    if-eqz v14, :cond_1
 
-    if-eqz v12, :cond_a
+    if-eqz v12, :cond_8
 
     const-string/jumbo v2, "VZW-"
 
@@ -2398,7 +2374,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_a
+    if-eqz v2, :cond_8
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -2435,7 +2411,7 @@
 
     goto/16 :goto_0
 
-    :cond_a
+    :cond_8
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -2468,7 +2444,7 @@
 
     goto :goto_2
 
-    :cond_b
+    :cond_9
     const/4 v2, 0x4
 
     move-object/from16 v0, p0
@@ -2477,7 +2453,7 @@
 
     move-result-object v16
 
-    if-eqz v16, :cond_c
+    if-eqz v16, :cond_a
 
     const-string/jumbo v2, "NetworkStats"
 
@@ -2489,9 +2465,9 @@
 
     move-result-object v15
 
-    if-eqz v15, :cond_c
+    if-eqz v15, :cond_a
 
-    if-eqz v12, :cond_d
+    if-eqz v12, :cond_b
 
     const-string/jumbo v2, "VZW-"
 
@@ -2499,7 +2475,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_d
+    if-eqz v2, :cond_b
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -2534,7 +2510,7 @@
     :goto_3
     iput-object v15, v13, Landroid/net/NetworkStats$Entry;->iface:Ljava/lang/String;
 
-    :cond_c
+    :cond_a
     move-object/from16 v0, v20
 
     invoke-virtual {v0, v13}, Landroid/net/NetworkStats;->combineValues(Landroid/net/NetworkStats$Entry;)Landroid/net/NetworkStats;
@@ -2543,7 +2519,7 @@
 
     goto/16 :goto_1
 
-    :cond_d
+    :cond_b
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V

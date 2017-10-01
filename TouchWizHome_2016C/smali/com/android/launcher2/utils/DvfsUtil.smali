@@ -77,7 +77,7 @@
 
     array-length v2, v2
 
-    if-le v0, v2, :cond_0
+    if-lt v0, v2, :cond_0
 
     iget-object v2, p0, Lcom/android/launcher2/utils/DvfsUtil;->mSupportGpuFreqTable:[I
 

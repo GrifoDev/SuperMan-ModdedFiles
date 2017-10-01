@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">គ្មាន​កម្មវិធី​ដែល​បាន​ទាញ​យក</string>
     <string name="no_room_any_page">គ្មាន​កន្លែង​លើ​ទំព័រ​ណា​មួយ។</string>
     <string name="no_space_page">គ្មាន​លំហ​លើ​ទំព័រ។ សាកល្បង​ថែម​ផ្លូវកាត់​ទៅ​ទំព័រ​ផ្សេង។</string>
+    <string name="no_space_page_for_widget">គ្មាន​លំហ​លើ​ទំព័រ​នេះ។</string>
     <string name="not_selected">មិន​បាន​ជ្រើស</string>
     <string name="ok">ព្រម</string>
     <string name="only_one_widget_instance_allowed">វីដជីត %s ត្រូវ​បាន​ថែម​ទៅ​គេហអេក្រង់​ហើយ។</string>
@@ -176,7 +177,7 @@
     <string name="read_home_screen_settings">អាន​ការកំណត់​គេហអេក្រង់</string>
     <string name="read_home_screen_settings_info">កម្មវិធី​នេះ​អាច​អាន​ការកំណត់​គេហអេក្រង់​របស់​អ្នក និង ផ្លូវកាត់។</string>
     <string name="rearrange_menu_icons_not_allowed">មិន​អាច​រៀបចំ​អាយខុន​ឡើងវិញ​ក្នុង​លំដាប់​អក្សរក្រម។</string>
-    <string name="removable_preloadapp_uninstall_message">នឹង​លុប %s។ ដើម្បី​ទាញយក​វា​ម្ដងទៀត សូម​ចូលទៅ​បញ្ជី​កម្មវិធី, ប៉ះ​ប៊ូតុង​ជម្រើស​ច្រើនទៀត រួច​ជ្រើស សារវន្ត​របស់ GALAXY។</string>
+    <string name="removable_preloadapp_uninstall_message">នឹង​លុប %s។ ដើម្បី​ទាញយក​វា​ម្ដងទៀត សូម​ចូលទៅ​បញ្ជី​កម្មវិធី, ប៉ះ​ប៊ូតុង​ជម្រើស​ច្រើនទៀត រួច​ជ្រើស Galaxy Essentials។</string>
     <string name="remove_app_folder_cancel">បោះបង់</string>
     <string name="remove_app_folder_confirm">លុប</string>
     <string name="remove_app_folder_confirm_VZW">លុប</string>

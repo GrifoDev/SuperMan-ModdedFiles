@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">Nicio aplicație descărcată</string>
     <string name="no_room_any_page">Nu există spațiu pe nicio pagină.</string>
     <string name="no_space_page">Nu există spațiu pe pagină. Încercați să adăugați comanda rapidă pe o pagină diferită.</string>
+    <string name="no_space_page_for_widget">Nu există spațiu pe această pagină.</string>
     <string name="not_selected">Neselectat</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Widget-ul %s a fost deja adăugat la ecranul Acasă.</string>
@@ -176,7 +177,7 @@ securizat"</string>
     <string name="read_home_screen_settings">Citirea set. ecr. Acasă</string>
     <string name="read_home_screen_settings_info">Această aplicație poate citi setările și comenzile rapide pentru ecranul Acasă.</string>
     <string name="rearrange_menu_icons_not_allowed">Pictogramele nu pot fi reorganizate în ordine alfabetică.</string>
-    <string name="removable_preloadapp_uninstall_message">Aplicația %s va fi ștearsă. Pentru a o descărca din nou, accesați lista de aplicații, atingeți butonul mai multe opțiuni, apoi selectați Elemente esențiale GALAXY.</string>
+    <string name="removable_preloadapp_uninstall_message">Aplicația %s va fi ștearsă. Pentru a o descărca din nou, accesați lista de aplicații, atingeți butonul mai multe opțiuni, apoi selectați Galaxy Essentials.</string>
     <string name="remove_app_folder_cancel">Anulare</string>
     <string name="remove_app_folder_confirm">Ștergere</string>
     <string name="remove_app_folder_confirm_VZW">Eliminare</string>

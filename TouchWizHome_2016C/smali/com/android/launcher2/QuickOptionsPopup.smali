@@ -312,13 +312,13 @@
 
     const/4 v12, 0x4
 
-    const/4 v5, 0x3
+    const/4 v11, 0x3
 
-    const/4 v3, 0x2
+    const/4 v5, 0x2
 
     const/4 v1, 0x0
 
-    const/4 v11, 0x1
+    const/4 v10, 0x1
 
     const/4 v0, 0x5
 
@@ -330,23 +330,35 @@
 
     const-string v0, "extras"
 
-    aput-object v0, v2, v11
+    aput-object v0, v2, v10
 
     const-string v0, "resetTime"
 
-    aput-object v0, v2, v3
+    aput-object v0, v2, v5
 
     const-string v0, "notifiedCount"
 
-    aput-object v0, v2, v5
+    aput-object v0, v2, v11
 
     const-string v0, "isAppOptTarget"
 
     aput-object v0, v2, v12
 
-    const-string v10, "package_name = ? AND isAppOptTarget = ? AND (extras = ? OR extras = ?)"
+    const/4 v6, 0x0
 
-    new-array v4, v12, [Ljava/lang/String;
+    const/4 v8, 0x0
+
+    invoke-static {}, Lcom/android/launcher2/LauncherFeature;->isChinaModel()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    const-string v3, "package_name = ? AND isAppOptTarget = ? AND (extras = ? OR extras = ?) AND autorun = ?"
+
+    const/4 v0, 0x5
+
+    new-array v4, v0, [Ljava/lang/String;
 
     iget-object v0, p0, Lcom/android/launcher2/QuickOptionsPopup;->mAnchorItem:Lcom/android/launcher2/BaseItem;
 
@@ -358,20 +370,21 @@
 
     const-string v0, "1"
 
-    aput-object v0, v4, v11
+    aput-object v0, v4, v10
 
     const-string v0, "0"
 
-    aput-object v0, v4, v3
+    aput-object v0, v4, v5
 
     const-string v0, "2"
 
-    aput-object v0, v4, v5
+    aput-object v0, v4, v11
 
-    const/4 v6, 0x0
+    const-string v0, "1"
 
-    const/4 v8, 0x0
+    aput-object v0, v4, v12
 
+    :goto_0
     :try_start_0
     invoke-static {}, Lcom/android/launcher2/LauncherApplication;->getInst()Lcom/android/launcher2/LauncherApplication;
 
@@ -382,8 +395,6 @@
     move-result-object v0
 
     sget-object v1, Lcom/android/launcher2/QuickOptionsPopup;->PUT_TO_SLEEP_URI:Landroid/net/Uri;
-
-    const-string v3, "package_name = ? AND isAppOptTarget = ? AND (extras = ? OR extras = ?)"
 
     const/4 v5, 0x0
 
@@ -400,7 +411,7 @@
 
     move-result v0
 
-    if-ne v0, v11, :cond_0
+    if-ne v0, v10, :cond_0
 
     const/4 v8, 0x1
 
@@ -412,8 +423,35 @@
     :cond_1
     move v9, v8
 
-    :goto_0
+    :goto_1
     return v9
+
+    :cond_2
+    const-string v3, "package_name = ? AND isAppOptTarget = ? AND (extras = ? OR extras = ?)"
+
+    new-array v4, v12, [Ljava/lang/String;
+
+    iget-object v0, p0, Lcom/android/launcher2/QuickOptionsPopup;->mAnchorItem:Lcom/android/launcher2/BaseItem;
+
+    invoke-virtual {v0}, Lcom/android/launcher2/BaseItem;->getPackageName()Ljava/lang/String;
+
+    move-result-object v0
+
+    aput-object v0, v4, v1
+
+    const-string v0, "1"
+
+    aput-object v0, v4, v10
+
+    const-string v0, "0"
+
+    aput-object v0, v4, v5
+
+    const-string v0, "2"
+
+    aput-object v0, v4, v11
+
+    goto :goto_0
 
     :catch_0
     move-exception v7
@@ -423,18 +461,6 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    if-eqz v6, :cond_2
-
-    invoke-interface {v6}, Landroid/database/Cursor;->close()V
-
-    :cond_2
-    move v9, v8
-
-    goto :goto_0
-
-    :catchall_0
-    move-exception v0
-
     if-eqz v6, :cond_3
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
@@ -442,7 +468,19 @@
     :cond_3
     move v9, v8
 
-    goto :goto_0
+    goto :goto_1
+
+    :catchall_0
+    move-exception v0
+
+    if-eqz v6, :cond_4
+
+    invoke-interface {v6}, Landroid/database/Cursor;->close()V
+
+    :cond_4
+    move v9, v8
+
+    goto :goto_1
 .end method
 
 .method private canRemoveBadge()Z
@@ -1718,7 +1756,7 @@
 
     iget-object v2, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
 
-    const v3, 0x7f0900aa
+    const v3, 0x7f0900ab
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1763,7 +1801,7 @@
 
     iget-object v2, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
 
-    const v3, 0x7f0900a8
+    const v3, 0x7f0900a9
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1808,7 +1846,7 @@
 
     iget-object v2, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
 
-    const v3, 0x7f0900a6
+    const v3, 0x7f0900a7
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1859,7 +1897,7 @@
 
     if-eqz v2, :cond_a
 
-    const v2, 0x7f0900ad
+    const v2, 0x7f0900ae
 
     :goto_1
     invoke-virtual {v3, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
@@ -1912,7 +1950,7 @@
 
     iget-object v2, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
 
-    const v3, 0x7f0900a9
+    const v3, 0x7f0900aa
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1957,7 +1995,7 @@
 
     iget-object v2, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
 
-    const v3, 0x7f0900a7
+    const v3, 0x7f0900a8
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2349,7 +2387,7 @@
     goto/16 :goto_0
 
     :cond_a
-    const v2, 0x7f0900ab
+    const v2, 0x7f0900ac
 
     goto/16 :goto_1
 

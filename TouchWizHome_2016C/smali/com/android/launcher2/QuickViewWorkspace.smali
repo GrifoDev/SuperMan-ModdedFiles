@@ -1246,7 +1246,7 @@
 
     move-result-object v11
 
-    const v12, 0x7f0900c9
+    const v12, 0x7f0900ca
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1528,7 +1528,7 @@
 
     move-result-object v11
 
-    const v12, 0x7f09008f
+    const v12, 0x7f090090
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2290,7 +2290,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0900f3
+    const v4, 0x7f0900f4
 
     const/4 v5, 0x2
 
@@ -2312,7 +2312,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0900f2
+    const v4, 0x7f0900f3
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2386,7 +2386,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0900f6
+    const v4, 0x7f0900f7
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -6857,7 +6857,7 @@
 .method protected drop(II)V
     .locals 8
 
-    const v4, 0x7f0900a1
+    const v4, 0x7f0900a2
 
     const/4 v6, 0x1
 
@@ -12888,7 +12888,7 @@
 
     move-result-object v20
 
-    const v21, 0x7f0900c9
+    const v21, 0x7f0900ca
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

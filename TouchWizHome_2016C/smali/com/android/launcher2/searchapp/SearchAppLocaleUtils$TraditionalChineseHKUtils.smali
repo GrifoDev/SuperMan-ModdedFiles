@@ -68,8 +68,25 @@
 
     move-result v22
 
-    if-eqz v22, :cond_a
+    if-nez v22, :cond_1
 
+    invoke-static {}, Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;->access$000()Lcom/android/launcher2/searchapp/LocaleSet;
+
+    move-result-object v22
+
+    invoke-virtual/range {v22 .. v22}, Lcom/android/launcher2/searchapp/LocaleSet;->toString()Ljava/lang/String;
+
+    move-result-object v22
+
+    const-string v23, "zh_HK"
+
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v22
+
+    if-eqz v22, :cond_b
+
+    :cond_1
     invoke-static {}, Lcom/android/launcher2/searchapp/HanziToStroke;->getIntance()Lcom/android/launcher2/searchapp/HanziToStroke;
 
     move-result-object v22
@@ -88,14 +105,14 @@
 
     move-result-object v19
 
-    if-nez v19, :cond_1
+    if-nez v19, :cond_2
 
     const/16 v22, 0x0
 
     :goto_0
     return-object v22
 
-    :cond_1
+    :cond_2
     invoke-virtual/range {v19 .. v19}, Ljava/util/ArrayList;->size()I
 
     move-result v17
@@ -123,7 +140,7 @@
     add-int/lit8 v2, v17, -0x1
 
     :goto_1
-    if-ltz v2, :cond_14
+    if-ltz v2, :cond_15
 
     move-object/from16 v0, v19
 
@@ -205,9 +222,9 @@
 
     move/from16 v1, v23
 
-    if-ne v0, v1, :cond_4
+    if-ne v0, v1, :cond_5
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_4
 
     const/16 v22, 0x0
 
@@ -325,7 +342,7 @@
 
     invoke-virtual {v13, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_3
 
     invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -343,12 +360,12 @@
 
     invoke-virtual {v13, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    :cond_2
+    :cond_3
     add-int/lit8 v2, v2, -0x1
 
     goto/16 :goto_1
 
-    :cond_3
+    :cond_4
     const/16 v22, 0x0
 
     move-object/from16 v0, v16
@@ -395,7 +412,7 @@
 
     goto/16 :goto_2
 
-    :cond_4
+    :cond_5
     const/16 v22, 0x1
 
     move-object/from16 v0, v16
@@ -408,13 +425,13 @@
 
     move/from16 v1, v23
 
-    if-ne v0, v1, :cond_8
+    if-ne v0, v1, :cond_9
 
     invoke-virtual {v11}, Ljava/lang/StringBuilder;->length()I
 
     move-result v22
 
-    if-lez v22, :cond_5
+    if-lez v22, :cond_6
 
     const/16 v22, 0x0
 
@@ -436,12 +453,12 @@
 
     invoke-virtual {v12, v0, v1}, Ljava/lang/StringBuilder;->insert(IC)Ljava/lang/StringBuilder;
 
-    :cond_5
+    :cond_6
     invoke-virtual {v8}, Ljava/lang/StringBuilder;->length()I
 
     move-result v22
 
-    if-lez v22, :cond_6
+    if-lez v22, :cond_7
 
     const/16 v22, 0x0
 
@@ -453,8 +470,8 @@
 
     invoke-virtual {v8, v0, v1}, Ljava/lang/StringBuilder;->insert(IC)Ljava/lang/StringBuilder;
 
-    :cond_6
-    if-nez v2, :cond_7
+    :cond_7
+    if-nez v2, :cond_8
 
     const/16 v22, 0x0
 
@@ -535,7 +552,7 @@
 
     goto/16 :goto_3
 
-    :cond_7
+    :cond_8
     const/16 v22, 0x0
 
     move-object/from16 v0, v16
@@ -582,8 +599,8 @@
 
     goto :goto_4
 
-    :cond_8
-    if-nez v2, :cond_9
+    :cond_9
+    if-nez v2, :cond_a
 
     const/16 v22, 0x0
 
@@ -664,7 +681,7 @@
 
     goto/16 :goto_3
 
-    :cond_9
+    :cond_a
     const/16 v22, 0x0
 
     move-object/from16 v0, v16
@@ -711,7 +728,7 @@
 
     goto :goto_5
 
-    :cond_a
+    :cond_b
     invoke-static {}, Lcom/android/launcher2/searchapp/hanzi/HanziToPinyin;->getInstance()Lcom/android/launcher2/searchapp/hanzi/HanziToPinyin;
 
     move-result-object v22
@@ -745,7 +762,7 @@
 
     move/from16 v0, v22
 
-    if-gt v2, v0, :cond_e
+    if-gt v2, v0, :cond_f
 
     invoke-virtual {v4, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
@@ -765,17 +782,17 @@
 
     move/from16 v1, v23
 
-    if-ne v0, v1, :cond_c
+    if-ne v0, v1, :cond_d
 
     invoke-virtual/range {v20 .. v21}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_b
+    :cond_c
     :goto_7
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_6
 
-    :cond_c
+    :cond_d
     const/16 v22, 0x1
 
     move-object/from16 v0, v21
@@ -788,7 +805,7 @@
 
     move/from16 v1, v23
 
-    if-ne v0, v1, :cond_d
+    if-ne v0, v1, :cond_e
 
     move-object/from16 v0, v21
 
@@ -807,7 +824,7 @@
 
     move/from16 v0, v22
 
-    if-gt v5, v0, :cond_b
+    if-gt v5, v0, :cond_c
 
     new-instance v18, Lcom/android/launcher2/searchapp/hanzi/HanziToPinyin$Token;
 
@@ -879,12 +896,12 @@
 
     goto :goto_8
 
-    :cond_d
+    :cond_e
     invoke-virtual/range {v20 .. v21}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_7
 
-    :cond_e
+    :cond_f
     invoke-virtual/range {v20 .. v20}, Ljava/util/ArrayList;->size()I
 
     move-result v17
@@ -912,7 +929,7 @@
     add-int/lit8 v2, v17, -0x1
 
     :goto_9
-    if-ltz v2, :cond_14
+    if-ltz v2, :cond_15
 
     move-object/from16 v0, v20
 
@@ -934,7 +951,7 @@
 
     move/from16 v1, v23
 
-    if-ne v0, v1, :cond_10
+    if-ne v0, v1, :cond_11
 
     const/16 v22, 0x0
 
@@ -1071,7 +1088,7 @@
 
     move-result v22
 
-    if-nez v22, :cond_f
+    if-nez v22, :cond_10
 
     invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1089,12 +1106,12 @@
 
     invoke-virtual {v13, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    :cond_f
+    :cond_10
     add-int/lit8 v2, v2, -0x1
 
     goto/16 :goto_9
 
-    :cond_10
+    :cond_11
     const/16 v22, 0x1
 
     move-object/from16 v0, v16
@@ -1107,26 +1124,9 @@
 
     move/from16 v1, v23
 
-    if-ne v0, v1, :cond_13
+    if-ne v0, v1, :cond_14
 
     invoke-virtual {v9}, Ljava/lang/StringBuilder;->length()I
-
-    move-result v22
-
-    if-lez v22, :cond_11
-
-    const/16 v22, 0x0
-
-    const/16 v23, 0x20
-
-    move/from16 v0, v22
-
-    move/from16 v1, v23
-
-    invoke-virtual {v9, v0, v1}, Ljava/lang/StringBuilder;->insert(IC)Ljava/lang/StringBuilder;
-
-    :cond_11
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->length()I
 
     move-result v22
 
@@ -1140,86 +1140,24 @@
 
     move/from16 v1, v23
 
-    invoke-virtual {v8, v0, v1}, Ljava/lang/StringBuilder;->insert(IC)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v0, v1}, Ljava/lang/StringBuilder;->insert(IC)Ljava/lang/StringBuilder;
 
     :cond_12
-    const/16 v22, 0x0
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->length()I
 
-    move-object/from16 v0, v16
+    move-result v22
 
-    iget-object v0, v0, Lcom/android/launcher2/searchapp/hanzi/HanziToPinyin$Token;->source:Ljava/lang/String;
-
-    move-object/from16 v23, v0
-
-    invoke-static/range {v23 .. v23}, Lcom/android/launcher2/searchapp/SearchAppKeypadNumberUtils;->makeActionCodeHKTW(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v23
-
-    move/from16 v0, v22
-
-    move-object/from16 v1, v23
-
-    invoke-virtual {v9, v0, v1}, Ljava/lang/StringBuilder;->insert(ILjava/lang/String;)Ljava/lang/StringBuilder;
+    if-lez v22, :cond_13
 
     const/16 v22, 0x0
 
-    move-object/from16 v0, v16
-
-    iget-object v0, v0, Lcom/android/launcher2/searchapp/hanzi/HanziToPinyin$Token;->source:Ljava/lang/String;
-
-    move-object/from16 v23, v0
-
-    const/16 v24, 0x0
-
-    invoke-virtual/range {v23 .. v24}, Ljava/lang/String;->charAt(I)C
-
-    move-result v23
-
-    invoke-static/range {v23 .. v23}, Lcom/android/launcher2/searchapp/SearchAppKeypadNumberUtils;->convertTraditionalChineseKeypadLettersToDigits(C)C
-
-    move-result v23
+    const/16 v23, 0x20
 
     move/from16 v0, v22
 
     move/from16 v1, v23
 
-    invoke-virtual {v6, v0, v1}, Ljava/lang/StringBuilder;->insert(IC)Ljava/lang/StringBuilder;
-
-    const/16 v22, 0x0
-
-    move-object/from16 v0, v16
-
-    iget-object v0, v0, Lcom/android/launcher2/searchapp/hanzi/HanziToPinyin$Token;->source:Ljava/lang/String;
-
-    move-object/from16 v23, v0
-
-    move/from16 v0, v22
-
-    move-object/from16 v1, v23
-
-    invoke-virtual {v10, v0, v1}, Ljava/lang/StringBuilder;->insert(ILjava/lang/String;)Ljava/lang/StringBuilder;
-
-    const/16 v22, 0x0
-
-    move-object/from16 v0, v16
-
-    iget-object v0, v0, Lcom/android/launcher2/searchapp/hanzi/HanziToPinyin$Token;->source:Ljava/lang/String;
-
-    move-object/from16 v23, v0
-
-    const/16 v24, 0x0
-
-    invoke-virtual/range {v23 .. v24}, Ljava/lang/String;->charAt(I)C
-
-    move-result v23
-
-    move/from16 v0, v22
-
-    move/from16 v1, v23
-
-    invoke-virtual {v7, v0, v1}, Ljava/lang/StringBuilder;->insert(IC)Ljava/lang/StringBuilder;
-
-    goto/16 :goto_a
+    invoke-virtual {v8, v0, v1}, Ljava/lang/StringBuilder;->insert(IC)Ljava/lang/StringBuilder;
 
     :cond_13
     const/16 v22, 0x0
@@ -1301,6 +1239,85 @@
     goto/16 :goto_a
 
     :cond_14
+    const/16 v22, 0x0
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/launcher2/searchapp/hanzi/HanziToPinyin$Token;->source:Ljava/lang/String;
+
+    move-object/from16 v23, v0
+
+    invoke-static/range {v23 .. v23}, Lcom/android/launcher2/searchapp/SearchAppKeypadNumberUtils;->makeActionCodeHKTW(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v23
+
+    move/from16 v0, v22
+
+    move-object/from16 v1, v23
+
+    invoke-virtual {v9, v0, v1}, Ljava/lang/StringBuilder;->insert(ILjava/lang/String;)Ljava/lang/StringBuilder;
+
+    const/16 v22, 0x0
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/launcher2/searchapp/hanzi/HanziToPinyin$Token;->source:Ljava/lang/String;
+
+    move-object/from16 v23, v0
+
+    const/16 v24, 0x0
+
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/String;->charAt(I)C
+
+    move-result v23
+
+    invoke-static/range {v23 .. v23}, Lcom/android/launcher2/searchapp/SearchAppKeypadNumberUtils;->convertTraditionalChineseKeypadLettersToDigits(C)C
+
+    move-result v23
+
+    move/from16 v0, v22
+
+    move/from16 v1, v23
+
+    invoke-virtual {v6, v0, v1}, Ljava/lang/StringBuilder;->insert(IC)Ljava/lang/StringBuilder;
+
+    const/16 v22, 0x0
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/launcher2/searchapp/hanzi/HanziToPinyin$Token;->source:Ljava/lang/String;
+
+    move-object/from16 v23, v0
+
+    move/from16 v0, v22
+
+    move-object/from16 v1, v23
+
+    invoke-virtual {v10, v0, v1}, Ljava/lang/StringBuilder;->insert(ILjava/lang/String;)Ljava/lang/StringBuilder;
+
+    const/16 v22, 0x0
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/launcher2/searchapp/hanzi/HanziToPinyin$Token;->source:Ljava/lang/String;
+
+    move-object/from16 v23, v0
+
+    const/16 v24, 0x0
+
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/String;->charAt(I)C
+
+    move-result v23
+
+    move/from16 v0, v22
+
+    move/from16 v1, v23
+
+    invoke-virtual {v7, v0, v1}, Ljava/lang/StringBuilder;->insert(IC)Ljava/lang/StringBuilder;
+
+    goto/16 :goto_a
+
+    :cond_15
     invoke-virtual {v13}, Ljava/util/HashSet;->iterator()Ljava/util/Iterator;
 
     move-result-object v22
@@ -1461,6 +1478,70 @@
 
     move-result v5
 
+    if-nez v5, :cond_0
+
+    invoke-static {}, Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;->access$000()Lcom/android/launcher2/searchapp/LocaleSet;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Lcom/android/launcher2/searchapp/LocaleSet;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "zh_HK_#Hans"
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_0
+
+    invoke-static {}, Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;->access$000()Lcom/android/launcher2/searchapp/LocaleSet;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Lcom/android/launcher2/searchapp/LocaleSet;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "zh_MO_#Hans"
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_0
+
+    invoke-static {}, Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;->access$000()Lcom/android/launcher2/searchapp/LocaleSet;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Lcom/android/launcher2/searchapp/LocaleSet;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "zh_SG_#Hans"
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_0
+
+    invoke-static {}, Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;->access$000()Lcom/android/launcher2/searchapp/LocaleSet;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Lcom/android/launcher2/searchapp/LocaleSet;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "zh_MO_#Hant"
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
     if-eqz v5, :cond_6
 
     :cond_0
@@ -1572,11 +1653,28 @@
 
     move-result v5
 
-    if-eqz v5, :cond_b
+    if-nez v5, :cond_7
 
+    invoke-static {}, Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;->access$000()Lcom/android/launcher2/searchapp/LocaleSet;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Lcom/android/launcher2/searchapp/LocaleSet;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "zh_HK"
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_c
+
+    :cond_7
     move-object v1, p1
 
-    if-eqz p1, :cond_7
+    if-eqz p1, :cond_8
 
     const/4 v5, 0x0
 
@@ -1586,7 +1684,7 @@
 
     move-result-object v1
 
-    :cond_7
+    :cond_8
     invoke-static {}, Lcom/android/launcher2/searchapp/HanziToStroke;->getIntance()Lcom/android/launcher2/searchapp/HanziToStroke;
 
     move-result-object v5
@@ -1595,13 +1693,13 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_a
+    if-eqz v3, :cond_b
 
     invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
 
     move-result v5
 
-    if-lez v5, :cond_a
+    if-lez v5, :cond_b
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -1616,7 +1714,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_9
+    if-eqz v6, :cond_a
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1626,7 +1724,7 @@
 
     iget v6, v2, Lcom/android/launcher2/searchapp/HanziToStroke$Token;->type:I
 
-    if-ne v8, v6, :cond_8
+    if-ne v8, v6, :cond_9
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1646,22 +1744,15 @@
 
     goto :goto_2
 
-    :cond_8
-    invoke-super {p0, p1}, Lcom/android/launcher2/searchapp/SearchAppLocaleUtils$SearchAppLocaleUtilsBase;->getSortKey(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v5
-
-    goto :goto_1
-
     :cond_9
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-super {p0, p1}, Lcom/android/launcher2/searchapp/SearchAppLocaleUtils$SearchAppLocaleUtilsBase;->getSortKey(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v5
 
     goto :goto_1
 
     :cond_a
-    invoke-super {p0, p1}, Lcom/android/launcher2/searchapp/SearchAppLocaleUtils$SearchAppLocaleUtilsBase;->getSortKey(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v5
 
@@ -1673,4 +1764,11 @@
     move-result-object v5
 
     goto :goto_1
+
+    :cond_c
+    invoke-super {p0, p1}, Lcom/android/launcher2/searchapp/SearchAppLocaleUtils$SearchAppLocaleUtilsBase;->getSortKey(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v5
+
+    goto/16 :goto_1
 .end method

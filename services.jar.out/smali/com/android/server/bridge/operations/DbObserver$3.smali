@@ -54,19 +54,27 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "Conatcts onChange IgnoreContactChanges : "
+    const-string/jumbo v2, "Conatcts onChange selfChange : "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/android/server/bridge/operations/DbObserver$3;->this$0:Lcom/android/server/bridge/operations/DbObserver;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-static {v2}, Lcom/android/server/bridge/operations/DbObserver;->-get3(Lcom/android/server/bridge/operations/DbObserver;)Z
+    move-result-object v1
 
-    move-result v2
+    const-string/jumbo v2, " , Uri : "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {p2}, Landroid/net/Uri;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
@@ -78,14 +86,6 @@
 
     iget-object v0, p0, Lcom/android/server/bridge/operations/DbObserver$3;->this$0:Lcom/android/server/bridge/operations/DbObserver;
 
-    invoke-static {v0}, Lcom/android/server/bridge/operations/DbObserver;->-get3(Lcom/android/server/bridge/operations/DbObserver;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/server/bridge/operations/DbObserver$3;->this$0:Lcom/android/server/bridge/operations/DbObserver;
-
     iget-object v1, v0, Lcom/android/server/bridge/operations/DbObserver;->mContactRunnable:Ljava/lang/Runnable;
 
     monitor-enter v1
@@ -93,7 +93,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/bridge/operations/DbObserver$3;->this$0:Lcom/android/server/bridge/operations/DbObserver;
 
-    invoke-static {v0}, Lcom/android/server/bridge/operations/DbObserver;->-get2(Lcom/android/server/bridge/operations/DbObserver;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/server/bridge/operations/DbObserver;->-get3(Lcom/android/server/bridge/operations/DbObserver;)Landroid/os/Handler;
 
     move-result-object v0
 
@@ -105,7 +105,7 @@
 
     iget-object v0, p0, Lcom/android/server/bridge/operations/DbObserver$3;->this$0:Lcom/android/server/bridge/operations/DbObserver;
 
-    invoke-static {v0}, Lcom/android/server/bridge/operations/DbObserver;->-get2(Lcom/android/server/bridge/operations/DbObserver;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/server/bridge/operations/DbObserver;->-get3(Lcom/android/server/bridge/operations/DbObserver;)Landroid/os/Handler;
 
     move-result-object v0
 
@@ -121,7 +121,6 @@
 
     monitor-exit v1
 
-    :cond_0
     return-void
 
     :catchall_0

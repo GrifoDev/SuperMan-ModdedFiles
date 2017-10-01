@@ -89,7 +89,7 @@
 
     iget-object v8, p0, Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceWrapper$1;->val$attr:Landroid/os/Bundle;
 
-    invoke-static/range {v0 .. v8}, Lcom/android/server/fingerprint/FingerprintService;->-wrap17(Lcom/android/server/fingerprint/FingerprintService;Landroid/os/IBinder;[BILandroid/hardware/fingerprint/IFingerprintServiceReceiver;IZLjava/lang/String;Landroid/os/Bundle;)V
+    invoke-static/range {v0 .. v8}, Lcom/android/server/fingerprint/FingerprintService;->-wrap18(Lcom/android/server/fingerprint/FingerprintService;Landroid/os/IBinder;[BILandroid/hardware/fingerprint/IFingerprintServiceReceiver;IZLjava/lang/String;Landroid/os/Bundle;)V
 
     return-void
 .end method

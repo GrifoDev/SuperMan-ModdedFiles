@@ -372,78 +372,113 @@
 .end method
 
 .method public addItem(Lcom/android/launcher2/BaseItem;)Z
-    .locals 2
+    .locals 4
 
     invoke-super {p0, p1}, Lcom/android/launcher2/CellLayout;->addItem(Lcom/android/launcher2/BaseItem;)Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_3
+    if-eqz v2, :cond_4
 
-    iget-object v0, p0, Lcom/android/launcher2/CellLayoutNoGap;->mFolder:Lcom/android/launcher2/Folder;
+    iget-object v2, p0, Lcom/android/launcher2/CellLayoutNoGap;->mFolder:Lcom/android/launcher2/Folder;
 
-    if-eqz v0, :cond_2
+    if-eqz v2, :cond_3
 
-    iget-object v0, p0, Lcom/android/launcher2/CellLayoutNoGap;->mFolder:Lcom/android/launcher2/Folder;
+    iget-object v2, p0, Lcom/android/launcher2/CellLayoutNoGap;->mFolder:Lcom/android/launcher2/Folder;
 
-    invoke-virtual {v0}, Lcom/android/launcher2/Folder;->getInfo()Lcom/android/launcher2/FolderItem;
+    invoke-virtual {v2}, Lcom/android/launcher2/Folder;->getInfo()Lcom/android/launcher2/FolderItem;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-interface {v0, p1}, Lcom/android/launcher2/FolderItem;->contains(Lcom/android/launcher2/BaseItem;)Z
+    invoke-interface {v2, p1}, Lcom/android/launcher2/FolderItem;->contains(Lcom/android/launcher2/BaseItem;)Z
 
-    move-result v0
+    move-result v2
 
-    if-nez v0, :cond_0
+    if-nez v2, :cond_0
 
     invoke-virtual {p0}, Lcom/android/launcher2/CellLayoutNoGap;->isReorderingForDragOnFolder()Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_1
+    if-eqz v2, :cond_1
 
     :cond_0
-    iget-object v0, p0, Lcom/android/launcher2/CellLayoutNoGap;->mFolder:Lcom/android/launcher2/Folder;
+    iget-object v2, p0, Lcom/android/launcher2/CellLayoutNoGap;->mFolder:Lcom/android/launcher2/Folder;
 
-    invoke-virtual {v0}, Lcom/android/launcher2/Folder;->getInfo()Lcom/android/launcher2/FolderItem;
+    invoke-virtual {v2}, Lcom/android/launcher2/Folder;->getInfo()Lcom/android/launcher2/FolderItem;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-interface {v0}, Lcom/android/launcher2/FolderItem;->isOpened()Z
+    invoke-interface {v2}, Lcom/android/launcher2/FolderItem;->isOpened()Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_2
+    if-eqz v2, :cond_3
 
     invoke-virtual {p0}, Lcom/android/launcher2/CellLayoutNoGap;->isReOrderingEnabled()Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_2
+    if-eqz v2, :cond_3
 
     :cond_1
-    iget-object v0, p0, Lcom/android/launcher2/CellLayoutNoGap;->mFolder:Lcom/android/launcher2/Folder;
+    const/4 v0, 0x0
 
-    invoke-virtual {v0}, Lcom/android/launcher2/Folder;->getInfo()Lcom/android/launcher2/FolderItem;
+    iget-object v2, p0, Lcom/android/launcher2/CellLayoutNoGap;->mFolder:Lcom/android/launcher2/Folder;
 
-    move-result-object v0
+    if-eqz v2, :cond_2
 
-    iget v1, p1, Lcom/android/launcher2/BaseItem;->mScreen:I
+    iget-object v2, p0, Lcom/android/launcher2/CellLayoutNoGap;->mFolder:Lcom/android/launcher2/Folder;
 
-    invoke-interface {v0, p1, v1}, Lcom/android/launcher2/FolderItem;->addItemAt(Lcom/android/launcher2/BaseItem;I)V
+    invoke-virtual {v2}, Lcom/android/launcher2/Folder;->getInfo()Lcom/android/launcher2/FolderItem;
 
-    iget-object v0, p0, Lcom/android/launcher2/CellLayoutNoGap;->mFolder:Lcom/android/launcher2/Folder;
+    move-result-object v2
 
-    invoke-virtual {v0}, Lcom/android/launcher2/Folder;->updateVisibleRange()V
+    invoke-interface {v2, p1}, Lcom/android/launcher2/FolderItem;->contains(Lcom/android/launcher2/BaseItem;)Z
 
-    :cond_2
+    move-result v2
+
+    if-nez v2, :cond_2
+
     const/4 v0, 0x1
 
-    :goto_0
-    return v0
+    :cond_2
+    iget-object v2, p0, Lcom/android/launcher2/CellLayoutNoGap;->mFolder:Lcom/android/launcher2/Folder;
+
+    invoke-virtual {v2}, Lcom/android/launcher2/Folder;->getInfo()Lcom/android/launcher2/FolderItem;
+
+    move-result-object v2
+
+    iget v3, p1, Lcom/android/launcher2/BaseItem;->mScreen:I
+
+    invoke-interface {v2, p1, v3}, Lcom/android/launcher2/FolderItem;->addItemAt(Lcom/android/launcher2/BaseItem;I)V
+
+    iget-object v2, p0, Lcom/android/launcher2/CellLayoutNoGap;->mFolder:Lcom/android/launcher2/Folder;
+
+    invoke-virtual {v2}, Lcom/android/launcher2/Folder;->updateVisibleRange()V
+
+    if-eqz v0, :cond_3
+
+    invoke-virtual {p0, p1}, Lcom/android/launcher2/CellLayoutNoGap;->getViewForItem(Lcom/android/launcher2/BaseItem;)Landroid/view/View;
+
+    move-result-object v1
+
+    instance-of v2, v1, Lcom/android/launcher2/MenuAppIconView;
+
+    if-eqz v2, :cond_3
+
+    check-cast v1, Lcom/android/launcher2/MenuAppIconView;
+
+    invoke-virtual {v1, p1}, Lcom/android/launcher2/MenuAppIconView;->applyBaseItem(Lcom/android/launcher2/BaseItem;)V
 
     :cond_3
-    const/4 v0, 0x0
+    const/4 v2, 0x1
+
+    :goto_0
+    return v2
+
+    :cond_4
+    const/4 v2, 0x0
 
     goto :goto_0
 .end method

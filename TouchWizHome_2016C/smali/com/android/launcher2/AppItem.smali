@@ -498,16 +498,6 @@
 
     const/4 v0, -0x1
 
-    invoke-static {}, Lcom/android/launcher2/LauncherFeature;->supportFlexibleGrid()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2
-
-    iget-object v1, p0, Lcom/android/launcher2/AppItem;->mFolder:Lcom/android/launcher2/AppFolderItem;
-
-    if-nez v1, :cond_1
-
     invoke-static {}, Lcom/android/launcher2/LauncherApplication;->getLauncherGridSize()Lcom/android/launcher2/LauncherApplication$HomeGridSize;
 
     move-result-object v1
@@ -522,105 +512,59 @@
 
     sget-object v2, Lcom/android/launcher2/LauncherApplication$HomeGridSize;->GRID_4x5:Lcom/android/launcher2/LauncherApplication$HomeGridSize;
 
-    if-ne v1, v2, :cond_5
+    if-ne v1, v2, :cond_3
 
     :cond_0
     iget-object v1, p0, Lcom/android/launcher2/AppItem;->mType:Lcom/android/launcher2/BaseItem$Type;
 
     sget-object v2, Lcom/android/launcher2/BaseItem$Type;->MENU_FOLDER:Lcom/android/launcher2/BaseItem$Type;
 
-    if-ne v1, v2, :cond_3
+    if-ne v1, v2, :cond_1
 
     const v0, 0x7f0f0018
 
-    :cond_1
     :goto_0
-    invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/launcher2/Launcher;->getMenuView()Lcom/android/launcher2/MenuView;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_2
-
-    invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/launcher2/Launcher;->getMenuView()Lcom/android/launcher2/MenuView;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/launcher2/MenuView;->getMenuAppsGrid()Lcom/android/launcher2/MenuAppsGrid;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_2
-
-    invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/launcher2/Launcher;->getMenuView()Lcom/android/launcher2/MenuView;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/launcher2/MenuView;->getMenuAppsGrid()Lcom/android/launcher2/MenuAppsGrid;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/launcher2/MenuAppsGrid;->isFolderOpened()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2
-
-    const/4 v0, -0x1
-
-    :cond_2
     return v0
 
-    :cond_3
+    :cond_1
     invoke-static {p0}, Lcom/android/launcher2/BaseItem;->isItemInFolder(Lcom/android/launcher2/BaseItem;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_2
 
     const v0, 0x7f0f001a
 
     goto :goto_0
 
-    :cond_4
+    :cond_2
     const v0, 0x7f0f0017
 
     goto :goto_0
 
-    :cond_5
+    :cond_3
     iget-object v1, p0, Lcom/android/launcher2/AppItem;->mType:Lcom/android/launcher2/BaseItem$Type;
 
     sget-object v2, Lcom/android/launcher2/BaseItem$Type;->MENU_FOLDER:Lcom/android/launcher2/BaseItem$Type;
 
-    if-ne v1, v2, :cond_6
+    if-ne v1, v2, :cond_4
 
     const v0, 0x7f0f000c
 
     goto :goto_0
 
-    :cond_6
+    :cond_4
     invoke-static {p0}, Lcom/android/launcher2/BaseItem;->isItemInFolder(Lcom/android/launcher2/BaseItem;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_5
 
     const v0, 0x7f0f000d
 
     goto :goto_0
 
-    :cond_7
+    :cond_5
     const v0, 0x7f0f000b
 
     goto :goto_0

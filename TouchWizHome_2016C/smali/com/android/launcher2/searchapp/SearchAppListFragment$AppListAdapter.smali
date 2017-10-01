@@ -1099,7 +1099,7 @@
 
     move-result-object v23
 
-    const v24, 0x7f0900cf
+    const v24, 0x7f0900d0
 
     invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1287,7 +1287,7 @@
 
     move-result-object v22
 
-    const v23, 0x7f0900d4
+    const v23, 0x7f0900d5
 
     invoke-virtual/range {v22 .. v23}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1394,7 +1394,7 @@
 
     move-result-object v23
 
-    const v24, 0x7f0900dc
+    const v24, 0x7f0900dd
 
     invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

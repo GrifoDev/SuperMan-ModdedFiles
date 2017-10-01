@@ -43,7 +43,7 @@
     <string name="apply">ପ୍ରୟୋଗ</string>
     <string name="available_galaxyapps">Galaxy Appsରେ ଉପଲବ୍ଧ</string>
     <string name="badge_manage_explain">ପ୍ରତି ଆପ୍ଲିକେସନ୍‌ ପାଇଁ ବ୍ୟାଜ ଦେଖାଇବା କିମ୍ୱା ଲୁଚାନ୍ତୁ ଚୟନ କରନ୍ତୁ।</string>
-    <string name="badge_manage_summary">ପ୍ରତି ଆପ୍ଲିକେସନ୍‌ ପାଇଁ ବ୍ୟାଜ ଦେଖାଇବା କିମ୍ୱା ଲୁଚାନ୍ତୁ ଚୟନ କରନ୍ତୁ।</string>
+    <string name="badge_manage_summary">ପ୍ରତି ଆପ୍ଲିକେସନ୍‌ ପାଇଁ ବ୍ୟାଜ୍ ଦେଖାଇବା କିମ୍ୱା ଲୁଚାନ୍ତୁ ଚୟନ କରନ୍ତୁ।</string>
     <string name="badge_manage_title">ଆପ୍ଲିକେସନ୍‌ ବ୍ୟାଜଗୁଡିକ ପରିଚାଳନା</string>
     <string name="cancel">ବାତିଲ୍</string>
     <string name="change_home_screen_settings">ହୋମ୍ ସ୍କ୍ରିନ୍ ସେଟିଂସ୍ ପରିବର୍ତ୍ତନ</string>
@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">କୌଣସି ଡାଉନଲୋଡ୍ ହୋଇଥିବା ଆପ୍ଲିକେସନ୍ ନାହିଁ</string>
     <string name="no_room_any_page">କୌଣସି ପୃଷ୍ଠାରେ ପ୍ରକୋଷ୍ଠ ନାହିଁ।</string>
     <string name="no_space_page">ପୃଷ୍ଠାରେ କୌଣସି ସ୍ଥାନ ନାହିଁ। ଏକ ଭିନ୍ନ ପୃଷ୍ଠାକୁ ସର୍ଟକଟ୍ ଯୋଡିବାକୁ ଚେଷ୍ଟା କରନ୍ତୁ।</string>
+    <string name="no_space_page_for_widget">ଏହି ପୃଷ୍ଠାରେ କୌଣସି ସ୍ପେସ୍ ନାହିଁ।</string>
     <string name="not_selected">ଚୟନ ହୋଇନାହିଁ</string>
     <string name="ok">ଓକେ</string>
     <string name="only_one_widget_instance_allowed">%s ୱିଜେଟ୍ ପୂର୍ବରୁ ହୋମ୍ ସ୍କ୍ରିନକୁ ଯୋଡାଯାଇଛି।</string>
@@ -176,7 +177,7 @@
     <string name="read_home_screen_settings">ହୋମ୍ ସ୍କ୍ରିନ୍ ସେଟିଂସ୍ ପଠନ</string>
     <string name="read_home_screen_settings_info">ଏହି ଆପ୍ଲିକେସନ୍‌ ଆପଣଙ୍କ ହୋମ୍ ସ୍କ୍ରିନ୍ ସେଟିଂସ୍ ଏବଂ ସର୍ଟକଟଗୁଡିକ ପଠନ କରିପାରିବ।</string>
     <string name="rearrange_menu_icons_not_allowed">ଅକ୍ଷର ଅନୁଯାୟୀ କ୍ରମରେ ଆଇକନଗୁଡିକ ପୁନଃସଜାଇବାକୁ ଅସମର୍ଥ।</string>
-    <string name="removable_preloadapp_uninstall_message">%s ବିଲୋପ ହେବ। ଏହାକୁ ପୁନଃ ଡାଉନଲୋଡ୍ କରିବାକୁ, ଆପ୍ଲିକେସନ୍ ତାଲିକାକୁ ଯାଆନ୍ତୁ, ଅଧିକ ବିକଳ୍ପ ବଟନ୍ ଟ୍ୟାପ୍ କରନ୍ତୁ, ତାପରେ GALAXY Essentials ଚୟନ କରନ୍ତୁ।</string>
+    <string name="removable_preloadapp_uninstall_message">%s ବିଲୋପ ହେବ। ଏହା ପୁନଃ ଡାଉନଲୋଡ୍ କରିବାକୁ, ଆପ୍ଲିକେସନ୍ ତାଲିକାକୁ ଯାଇ, ଅଧିକ ବିକଳ୍ପ ବଟନ୍ ଟ୍ୟାପ୍ କରି, Galaxy Essentials ଚୟନ କରନ୍ତୁ।</string>
     <string name="remove_app_folder_cancel">ବାତିଲ୍</string>
     <string name="remove_app_folder_confirm">ବିଲୋପ</string>
     <string name="remove_app_folder_confirm_VZW">ଅପସାରଣ</string>

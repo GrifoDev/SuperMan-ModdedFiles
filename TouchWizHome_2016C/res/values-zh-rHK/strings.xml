@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">沒有下載的應用程式</string>
     <string name="no_room_any_page">任何頁面上均無空間。</string>
     <string name="no_space_page">此頁面無空間。請嘗試新增捷徑至另一個頁面。</string>
+    <string name="no_space_page_for_widget">此頁面上無空間。</string>
     <string name="not_selected">未選擇</string>
     <string name="ok">確定</string>
     <string name="only_one_widget_instance_allowed">%s Widget 已加入至主螢幕。</string>
@@ -176,7 +177,7 @@
     <string name="read_home_screen_settings">讀取主螢幕設定</string>
     <string name="read_home_screen_settings_info">此應用程式可以讀取您的主螢幕設定與捷徑。</string>
     <string name="rearrange_menu_icons_not_allowed">無法按字母順序重新排列圖示。</string>
-    <string name="removable_preloadapp_uninstall_message">%s將被刪除。若要再次下載，請前往應用程式清單，輕觸更多選項鍵，然後選擇 GALAXY Essentials。</string>
+    <string name="removable_preloadapp_uninstall_message">%s將被刪除。若要再次下載，請前往應用程式清單，輕觸更多選項鍵，然後選擇 Galaxy Essentials。</string>
     <string name="remove_app_folder_cancel">取消</string>
     <string name="remove_app_folder_confirm">刪除</string>
     <string name="remove_app_folder_confirm_VZW">移除</string>

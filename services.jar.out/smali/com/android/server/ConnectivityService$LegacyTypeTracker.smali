@@ -224,7 +224,16 @@
     return-void
 
     :cond_1
+    iget-object v2, p0, Lcom/android/server/ConnectivityService$LegacyTypeTracker;->mTypeLists:[Ljava/util/ArrayList;
+
+    monitor-enter v2
+
+    :try_start_0
     invoke-virtual {v1, p2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v2
 
     iget-object v2, p0, Lcom/android/server/ConnectivityService$LegacyTypeTracker;->this$0:Lcom/android/server/ConnectivityService;
 
@@ -259,6 +268,13 @@
 
     :cond_3
     return-void
+
+    :catchall_0
+    move-exception v3
+
+    monitor-exit v2
+
+    throw v3
 .end method
 
 .method public addSupportedType(I)V
@@ -313,7 +329,7 @@
 .end method
 
 .method public dump(Lcom/android/internal/util/IndentingPrintWriter;)V
-    .locals 5
+    .locals 6
 
     const-string/jumbo v3, "mLegacyTypeTracker:"
 
@@ -374,9 +390,14 @@
 
     invoke-virtual {p1}, Lcom/android/internal/util/IndentingPrintWriter;->increaseIndent()V
 
+    iget-object v4, p0, Lcom/android/server/ConnectivityService$LegacyTypeTracker;->mTypeLists:[Ljava/util/ArrayList;
+
+    monitor-enter v4
+
     const/4 v2, 0x0
 
     :goto_1
+    :try_start_0
     iget-object v3, p0, Lcom/android/server/ConnectivityService$LegacyTypeTracker;->mTypeLists:[Ljava/util/ArrayList;
 
     array-length v3, v3
@@ -393,11 +414,11 @@
 
     aget-object v3, v3, v2
 
-    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v3}, Ljava/util/ArrayList;->isEmpty()Z
 
     move-result v3
 
-    if-nez v3, :cond_3
+    if-eqz v3, :cond_3
 
     :cond_2
     add-int/lit8 v2, v2, 0x1
@@ -434,17 +455,17 @@
 
     move-result-object v3
 
-    const-string/jumbo v4, " "
+    const-string/jumbo v5, " "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
     invoke-direct {p0, v0}, Lcom/android/server/ConnectivityService$LegacyTypeTracker;->naiToString(Lcom/android/server/connectivity/NetworkAgentInfo;)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
@@ -453,10 +474,21 @@
     move-result-object v3
 
     invoke-virtual {p1, v3}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     goto :goto_2
 
+    :catchall_0
+    move-exception v3
+
+    monitor-exit v4
+
+    throw v3
+
     :cond_4
+    monitor-exit v4
+
     invoke-virtual {p1}, Lcom/android/internal/util/IndentingPrintWriter;->decreaseIndent()V
 
     invoke-virtual {p1}, Lcom/android/internal/util/IndentingPrintWriter;->decreaseIndent()V
@@ -493,9 +525,9 @@
     if-eqz v0, :cond_1
 
     :cond_0
-    const/4 v0, 0x0
-
     monitor-exit v1
+
+    const/4 v0, 0x0
 
     return-object v0
 
@@ -581,15 +613,26 @@
 
     move-result v3
 
+    iget-object v4, p0, Lcom/android/server/ConnectivityService$LegacyTypeTracker;->mTypeLists:[Ljava/util/ArrayList;
+
+    monitor-enter v4
+
+    :try_start_0
     invoke-virtual {v0, p2}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result v4
+    move-result v5
 
-    if-nez v4, :cond_2
+    if-nez v5, :cond_2
+
+    monitor-exit v4
 
     return-void
 
     :cond_2
+    monitor-exit v4
+
     sget-object v2, Landroid/net/NetworkInfo$DetailedState;->DISCONNECTED:Landroid/net/NetworkInfo$DetailedState;
 
     if-nez v3, :cond_3
@@ -658,6 +701,13 @@
 
     :cond_5
     return-void
+
+    :catchall_0
+    move-exception v5
+
+    monitor-exit v4
+
+    throw v5
 .end method
 
 .method public remove(Lcom/android/server/connectivity/NetworkAgentInfo;Z)V

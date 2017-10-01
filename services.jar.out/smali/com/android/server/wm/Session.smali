@@ -9,6 +9,10 @@
 # instance fields
 .field final mCallback:Landroid/view/IWindowSessionCallback;
 
+.field final mCanAddInternalSystemWindow:Z
+
+.field final mCanHideNonSystemOverlayWindows:Z
+
 .field final mClient:Lcom/android/internal/view/IInputMethodClient;
 
 .field mClientDead:Z
@@ -32,15 +36,17 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/server/wm/WindowManagerService;Landroid/view/IWindowSessionCallback;Lcom/android/internal/view/IInputMethodClient;Lcom/android/internal/view/IInputContext;)V
-    .locals 9
+    .locals 10
 
-    const/4 v6, 0x0
+    const/4 v7, 0x1
+
+    const/4 v8, 0x0
 
     invoke-direct {p0}, Landroid/view/IWindowSession$Stub;-><init>()V
 
-    iput v6, p0, Lcom/android/server/wm/Session;->mNumWindow:I
+    iput v8, p0, Lcom/android/server/wm/Session;->mNumWindow:I
 
-    iput-boolean v6, p0, Lcom/android/server/wm/Session;->mClientDead:Z
+    iput-boolean v8, p0, Lcom/android/server/wm/Session;->mClientDead:Z
 
     iput-object p1, p0, Lcom/android/server/wm/Session;->mService:Lcom/android/server/wm/WindowManagerService;
 
@@ -61,6 +67,34 @@
     move-result v6
 
     iput v6, p0, Lcom/android/server/wm/Session;->mPid:I
+
+    iget-object v6, p1, Lcom/android/server/wm/WindowManagerService;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v9, "android.permission.INTERNAL_SYSTEM_WINDOW"
+
+    invoke-virtual {v6, v9}, Landroid/content/Context;->checkCallingOrSelfPermission(Ljava/lang/String;)I
+
+    move-result v6
+
+    if-nez v6, :cond_1
+
+    move v6, v7
+
+    :goto_0
+    iput-boolean v6, p0, Lcom/android/server/wm/Session;->mCanAddInternalSystemWindow:Z
+
+    iget-object v6, p1, Lcom/android/server/wm/WindowManagerService;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v9, "android.permission.HIDE_NON_SYSTEM_OVERLAY_WINDOWS"
+
+    invoke-virtual {v6, v9}, Landroid/content/Context;->checkCallingOrSelfPermission(Ljava/lang/String;)I
+
+    move-result v6
+
+    if-nez v6, :cond_2
+
+    :goto_1
+    iput-boolean v7, p0, Lcom/android/server/wm/Session;->mCanHideNonSystemOverlayWindows:Z
 
     invoke-virtual {p1}, Lcom/android/server/wm/WindowManagerService;->getCurrentAnimatorScale()F
 
@@ -98,7 +132,7 @@
 
     const/16 v7, 0x2710
 
-    if-ge v6, v7, :cond_1
+    if-ge v6, v7, :cond_3
 
     const-string/jumbo v6, ":"
 
@@ -108,7 +142,7 @@
 
     invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    :goto_0
+    :goto_2
     const-string/jumbo v6, "}"
 
     invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -166,7 +200,7 @@
 
     iget-object v6, v6, Lcom/android/server/wm/WindowManagerService;->mInputMethodManager:Lcom/android/internal/view/IInputMethodManager;
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_4
 
     iget-object v6, p0, Lcom/android/server/wm/Session;->mService:Lcom/android/server/wm/WindowManagerService;
 
@@ -178,7 +212,7 @@
 
     invoke-interface {v6, p3, p4, v7, v8}, Lcom/android/internal/view/IInputMethodManager;->addClient(Lcom/android/internal/view/IInputMethodClient;Lcom/android/internal/view/IInputContext;II)V
 
-    :goto_1
+    :goto_3
     invoke-interface {p3}, Lcom/android/internal/view/IInputMethodClient;->asBinder()Landroid/os/IBinder;
 
     move-result-object v6
@@ -192,10 +226,20 @@
 
     invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    :goto_2
+    :goto_4
     return-void
 
     :cond_1
+    move v6, v8
+
+    goto/16 :goto_0
+
+    :cond_2
+    move v7, v8
+
+    goto/16 :goto_1
+
+    :cond_3
     const-string/jumbo v6, ":u"
 
     invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -220,7 +264,7 @@
 
     invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto :goto_2
 
     :catchall_0
     move-exception v6
@@ -229,7 +273,7 @@
 
     throw v6
 
-    :cond_2
+    :cond_4
     const/4 v6, 0x0
 
     :try_start_2
@@ -238,7 +282,7 @@
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    goto :goto_1
+    goto :goto_3
 
     :catch_0
     move-exception v1
@@ -248,7 +292,7 @@
 
     iget-object v6, v6, Lcom/android/server/wm/WindowManagerService;->mInputMethodManager:Lcom/android/internal/view/IInputMethodManager;
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_5
 
     iget-object v6, p0, Lcom/android/server/wm/Session;->mService:Lcom/android/server/wm/WindowManagerService;
 
@@ -259,11 +303,11 @@
     .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_1
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    :cond_3
-    :goto_3
+    :cond_5
+    :goto_5
     invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    goto :goto_2
+    goto :goto_4
 
     :catchall_1
     move-exception v6
@@ -275,7 +319,7 @@
     :catch_1
     move-exception v2
 
-    goto :goto_3
+    goto :goto_5
 .end method
 
 

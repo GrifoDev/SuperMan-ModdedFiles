@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">डाउनलोड किए गए एप्लीकेशन नहीं</string>
     <string name="no_room_any_page">किसी भी पृष्ठ पर कोई रूम नहीं है।</string>
     <string name="no_space_page">पेज पर कोई स्थान नहीं है। किसी भिन्न पेज पर कोई शॉर्टकट जोड़ने का प्रयास करें।</string>
+    <string name="no_space_page_for_widget">इस पेज पर कोई स्थान नहीं है।</string>
     <string name="not_selected">चयनित नहीं</string>
     <string name="ok">ओके</string>
     <string name="only_one_widget_instance_allowed">%s विजेट पहले से होम स्क्रीन पर जोड़ा गया है।</string>
@@ -176,7 +177,7 @@
     <string name="read_home_screen_settings">होम स्क्रीन सेटिंग्स पढ़ें</string>
     <string name="read_home_screen_settings_info">यह एप आपकी होम स्क्रीन सेटिंग्स और शॉर्टकट्स पढ़ सकती है।</string>
     <string name="rearrange_menu_icons_not_allowed">प्रतीकों को वर्णमाला क्रम में पुन: व्यवस्थित करने में असमर्थ।</string>
-    <string name="removable_preloadapp_uninstall_message">%s हटाया जाएगा। इसे फिर से डाउनलोड करने के लिए, एप सूची पर जाएँ, अधिक विकल्प बटन पर टैप करें, फिर गैलेक्सी आवश्‍यक वस्तुएँ चुनें।</string>
+    <string name="removable_preloadapp_uninstall_message">%s हटा दिया जाएगा। इसे फिर से डाउनलोड करने के लिए, एप सूची पर जाएँ, अधिक विकल्प बटन पर टैप करें, फिर Galaxy Essentials चुनें।</string>
     <string name="remove_app_folder_cancel">रद्द</string>
     <string name="remove_app_folder_confirm">हटाएँ</string>
     <string name="remove_app_folder_confirm_VZW">निकालें</string>
@@ -195,8 +196,8 @@
     <string name="search">खोजें</string>
     <string name="search_for_apps">एप्स खोजें</string>
     <string name="search_for_widgets">विजेट्स खोजें</string>
-    <string name="search_result_found">%d मिला</string>
-    <string name="search_result_founds">%d मिला</string>
+    <string name="search_result_found">%d मिले</string>
+    <string name="search_result_founds">%d मिले</string>
     <string name="select_all_app">सभी</string>
     <string name="select_app_add">जोड़ें</string>
     <string name="selected">चयनित</string>

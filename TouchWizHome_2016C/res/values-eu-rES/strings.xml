@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">Deskargatutako aplikaziorik ez</string>
     <string name="no_room_any_page">Ez dago espaziorik inolako orritan.</string>
     <string name="no_space_page">Ezin dago tokirik orrian. Saiatu lasterbidea beste orri batean gehitzen.</string>
+    <string name="no_space_page_for_widget">Ez dago tokirik orri honetan.</string>
     <string name="not_selected">Ez da hautatu</string>
     <string name="ok">Ados</string>
     <string name="only_one_widget_instance_allowed">%s widget gehitu dira jada pantaila Nagusian.</string>
@@ -176,7 +177,7 @@ ta seguruan"</string>
     <string name="read_home_screen_settings">Irakurri pant. nag. ezar.</string>
     <string name="read_home_screen_settings_info">Pantaila Nagusiaren ezarpenak eta lasterbideak irakur ditzake aplikazio honek.</string>
     <string name="rearrange_menu_icons_not_allowed">Ezin dira ikonoak ordena alfabetikoan berrantolatu.</string>
-    <string name="removable_preloadapp_uninstall_message">%s ezabatuko da. Berriz deskargatzeko, joan aplikazio zerrendara, ukitu aukera gehiago botoia, eta ondoren hautatu GALAXY Essentials.</string>
+    <string name="removable_preloadapp_uninstall_message">%s ezabatuko da. Berriz deskargatzeko, joan aplikazio zerrendara, ukitu aukera gehiago botoia eta, ondoren, hautatu Galaxy Essentials.</string>
     <string name="remove_app_folder_cancel">Ezeztatu</string>
     <string name="remove_app_folder_confirm">Ezabatu</string>
     <string name="remove_app_folder_confirm_VZW">Ezabatu</string>

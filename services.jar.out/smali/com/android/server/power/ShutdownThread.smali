@@ -1101,7 +1101,7 @@
 
     if-eqz v9, :cond_2
 
-    const v8, 0x10406ee
+    const v8, 0x10406f5
 
     :goto_0
     sget-boolean v9, Lcom/android/server/power/ShutdownThread;->coverOpen:Z
@@ -1348,7 +1348,7 @@
 
     if-eqz v6, :cond_2
 
-    const v5, 0x10406ee
+    const v5, 0x10406f5
 
     goto :goto_0
 
@@ -1366,12 +1366,12 @@
 
     if-eqz v6, :cond_4
 
-    const v0, 0x10407dc
+    const v0, 0x10407e3
 
     goto :goto_1
 
     :cond_4
-    const v0, 0x10407db
+    const v0, 0x10407e2
 
     goto :goto_1
 
@@ -1393,7 +1393,7 @@
 
     if-ne v4, v9, :cond_8
 
-    const v0, 0x10406ef
+    const v0, 0x10406f6
 
     goto :goto_1
 
@@ -1410,12 +1410,12 @@
 
     if-eqz v6, :cond_6
 
-    const v0, 0x1040886
+    const v0, 0x104088f
 
     goto :goto_1
 
     :cond_8
-    const v0, 0x10406d7
+    const v0, 0x10406de
 
     goto :goto_1
 

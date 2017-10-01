@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">ਕੋਈ ਡਾਉਨਲੋਡ ਕੀਤੇ ਅਨੁਪ੍ਰਯੋਗ ਨਹੀਂ ਹਨ</string>
     <string name="no_room_any_page">ਕਿਸੇ ਪੰਨੇ ਉੱਤੇ ਥਾਂ ਨਹੀਂ ਹੈ।</string>
     <string name="no_space_page">ਪੰਨੇ ਉੱਤੇ ਥਾਂ ਖਾਲੀ ਨਹੀਂ ਹੈ। ਕਿਸੇ ਹੋਰ ਪੰਨੇ ਉੱਤੇ ਸ਼ੌਰਟਕੱਟ ਜੋੜਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
+    <string name="no_space_page_for_widget">ਇਸ ਪੰਨੇ ਤੇ ਕੋਈ ਥਾਂ ਨਹੀਂ ਹੈ।</string>
     <string name="not_selected">ਚੁਣਿਆ ਨਹੀਂ ਗਿਆ</string>
     <string name="ok">ਓਕੇ</string>
     <string name="only_one_widget_instance_allowed">%s ਵਿੱਜੇਟ ਪਹਿਲਾਂ ਹੀ ਹੋਮ ਸਕ੍ਰੀਨ ਤੇ ਜੋੜਿਆ ਗਿਆ।</string>
@@ -176,7 +177,7 @@
     <string name="read_home_screen_settings">ਹੋਮ ਸਕ੍ਰੀਨ ਸੈੱਟਿੰਗਸ ਪੜ੍ਹੋ</string>
     <string name="read_home_screen_settings_info">ਇਹ ਐਪ ਤੁਹਾਡੀਆਂ ਹੋਮ ਸਕ੍ਰੀਨ ਸੈੱਟਿੰਗਸ ਅਤੇ ਸ਼ੌਰਟਕੱਟਸ ਨੂੰ ਪੜ੍ਹ ਸਕਦੀ ਹੈ।</string>
     <string name="rearrange_menu_icons_not_allowed">ਪ੍ਰਤੀਰੂਪ ਨੂੰ ਅੱਖਰ ਦੇ ਕ੍ਰਮ ਵਿੱਚ ਪੁਨਰ ਵਿਵਸਥਿਤ ਕਰਨ ਲਈ ਅਸਮਰੱਥ।</string>
-    <string name="removable_preloadapp_uninstall_message">%s ਮਿਟ ਜਾਵੇਗਾ। ਉਸਨੂੰ ਦੁਬਾਰਾ ਡਾਉਨਲੋਡ ਕਰਨ ਲਈ, ਐਪ ਸੂਚੀ ਤੇ ਜਾਉ, ਹੋਰ ਵਿਕਲਪ ਬਟਨ ਟੈਪ ਕਰੋ, ਫਿਰ Galaxy Essentials ਦੀ ਚੋਣ ਕਰੋ।</string>
+    <string name="removable_preloadapp_uninstall_message">%s ਨੂੰ ਮਿਟਾ ਦਿੱਤਾ ਜਾਵੇਗਾ। ਉਸ ਨੂੰ ਦੁਬਾਰਾ ਡਾਉਨਲੋਡ ਕਰਨ ਲਈ, ਐਪ ਸੂਚੀ ਤੇ ਜਾਉ, ਹੋਰ ਵਿਕਲਪ ਬਟਨ ਟੈਪ ਕਰੋ, ਫਿਰ Galaxy Essentials ਨੂੰ ਚੁਣੋ।</string>
     <string name="remove_app_folder_cancel">ਰੱਦ</string>
     <string name="remove_app_folder_confirm">ਮਿਟਾਓ</string>
     <string name="remove_app_folder_confirm_VZW">ਹਟਾਉ</string>

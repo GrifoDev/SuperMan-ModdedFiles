@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">Tiada aplikasi dimuat turun</string>
     <string name="no_room_any_page">Tiada ruangan pada mana-mana halaman.</string>
     <string name="no_space_page">Tiada ruang pada halaman. Cuba tambahkan pintasan pada halaman berlainan.</string>
+    <string name="no_space_page_for_widget">Tiada ruang pada halaman ini.</string>
     <string name="not_selected">Tidak dipilih</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">%s widget telah ditambahkan pada skrin utama.</string>
@@ -176,7 +177,7 @@ Pelipat Selamat"</string>
     <string name="read_home_screen_settings">Baca aturan skrin utama</string>
     <string name="read_home_screen_settings_info">Aplikasi ini boleh membaca aturan skrin utama dan pintasan anda.</string>
     <string name="rearrange_menu_icons_not_allowed">Tidak dapat menyusun semula ikon mengikut susunan abjad.</string>
-    <string name="removable_preloadapp_uninstall_message">%s ini akan dipadam. Untuk memuat turun sekali lagi, pergi ke senarai aplikasi, ketik butang lebih banyak pilihan, kemudian pilih GALAXY Essentials.</string>
+    <string name="removable_preloadapp_uninstall_message">%s akan dipadam. Untuk memuat turun sekali lagi, pergi ke senarai aplikasi, ketik butang lebih banyak pilihan, kemudian pilih Galaxy Essentials.</string>
     <string name="remove_app_folder_cancel">Batal</string>
     <string name="remove_app_folder_confirm">Padam</string>
     <string name="remove_app_folder_confirm_VZW">Alih keluar</string>

@@ -15,17 +15,29 @@
 
 
 # static fields
+.field private static final AOMEN_LOCALE:Ljava/lang/String; = "zh_MO_#Hant"
+
 .field private static final CHINA_FORMER_LOCALE:Ljava/lang/String; = "zh_CN"
+
+.field private static final CHINA_HK_LOCALE:Ljava/lang/String; = "zh_HK_#Hans"
 
 .field private static final CHINA_LOCALE:Ljava/lang/String; = "zh_CN_#Hans"
 
+.field private static final CHINA_MO_LOCALE:Ljava/lang/String; = "zh_MO_#Hans"
+
+.field private static final CHINA_SG_LOCALE:Ljava/lang/String; = "zh_SG_#Hans"
+
 .field private static final ENGLISH_LOCALE:Ljava/lang/String; = "en_US"
+
+.field private static final HONGKONG_FORMER_LOCALE:Ljava/lang/String; = "zh_HK"
 
 .field private static final HONGKONG_LOCALE:Ljava/lang/String; = "zh_HK_#Hant"
 
 .field private static final MAX_LOOKUP_NAME_LENGTH:I = 0x1e
 
 .field private static final TAG:Ljava/lang/String; = "SearchAppLocaleUtils"
+
+.field private static final TAIWAN_FORMER_LOCALE:Ljava/lang/String; = "zh_TW"
 
 .field private static final TAIWAN_LOCALE:Ljava/lang/String; = "zh_TW_#Hant"
 
@@ -183,8 +195,23 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_0
 
+    sget-object v0, Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;->mLocales:Lcom/android/launcher2/searchapp/LocaleSet;
+
+    invoke-virtual {v0}, Lcom/android/launcher2/searchapp/LocaleSet;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "zh_TW"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    :cond_0
     sput-boolean v2, Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;->isChineseLanguage:Z
 
     sget-object v0, Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;->mTWUtils:Lcom/android/launcher2/searchapp/SearchAppLocaleUtils$TraditionalChineseTWUtils;
@@ -194,7 +221,7 @@
     :goto_0
     return-void
 
-    :cond_0
+    :cond_1
     sget-object v0, Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;->mLocales:Lcom/android/launcher2/searchapp/LocaleSet;
 
     invoke-virtual {v0}, Lcom/android/launcher2/searchapp/LocaleSet;->toString()Ljava/lang/String;
@@ -207,8 +234,23 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-nez v0, :cond_2
 
+    sget-object v0, Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;->mLocales:Lcom/android/launcher2/searchapp/LocaleSet;
+
+    invoke-virtual {v0}, Lcom/android/launcher2/searchapp/LocaleSet;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "zh_HK"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    :cond_2
     sput-boolean v2, Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;->isChineseLanguage:Z
 
     sget-object v0, Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;->mHKUtils:Lcom/android/launcher2/searchapp/SearchAppLocaleUtils$TraditionalChineseHKUtils;
@@ -217,7 +259,7 @@
 
     goto :goto_0
 
-    :cond_1
+    :cond_3
     sget-object v0, Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;->mLocales:Lcom/android/launcher2/searchapp/LocaleSet;
 
     invoke-virtual {v0}, Lcom/android/launcher2/searchapp/LocaleSet;->toString()Ljava/lang/String;
@@ -230,7 +272,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_4
 
     sget-object v0, Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;->mLocales:Lcom/android/launcher2/searchapp/LocaleSet;
 
@@ -244,7 +286,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_4
 
     sget-object v0, Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;->mLocales:Lcom/android/launcher2/searchapp/LocaleSet;
 
@@ -258,18 +300,74 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-nez v0, :cond_4
 
-    :cond_2
+    sget-object v0, Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;->mLocales:Lcom/android/launcher2/searchapp/LocaleSet;
+
+    invoke-virtual {v0}, Lcom/android/launcher2/searchapp/LocaleSet;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "zh_HK_#Hans"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_4
+
+    sget-object v0, Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;->mLocales:Lcom/android/launcher2/searchapp/LocaleSet;
+
+    invoke-virtual {v0}, Lcom/android/launcher2/searchapp/LocaleSet;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "zh_MO_#Hans"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_4
+
+    sget-object v0, Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;->mLocales:Lcom/android/launcher2/searchapp/LocaleSet;
+
+    invoke-virtual {v0}, Lcom/android/launcher2/searchapp/LocaleSet;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "zh_SG_#Hans"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_4
+
+    sget-object v0, Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;->mLocales:Lcom/android/launcher2/searchapp/LocaleSet;
+
+    invoke-virtual {v0}, Lcom/android/launcher2/searchapp/LocaleSet;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "zh_MO_#Hant"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_5
+
+    :cond_4
     sput-boolean v2, Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;->isChineseLanguage:Z
 
     sget-object v0, Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;->mCHNUtils:Lcom/android/launcher2/searchapp/SearchAppLocaleUtils$SimplifiedChineseUtils;
 
     sput-object v0, Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;->mUtils:Lcom/android/launcher2/searchapp/SearchAppLocaleUtils$SearchAppLocaleUtilsBase;
 
-    goto :goto_0
+    goto/16 :goto_0
 
-    :cond_3
+    :cond_5
     const/4 v0, 0x0
 
     sput-boolean v0, Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;->isChineseLanguage:Z
@@ -278,7 +376,7 @@
 
     sput-object v0, Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;->mUtils:Lcom/android/launcher2/searchapp/SearchAppLocaleUtils$SearchAppLocaleUtilsBase;
 
-    goto :goto_0
+    goto/16 :goto_0
 .end method
 
 .method public static isChineseUtils()Z
@@ -382,14 +480,31 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_0
 
+    invoke-static {}, Lcom/android/launcher2/searchapp/LocaleSet;->getDefault()Lcom/android/launcher2/searchapp/LocaleSet;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/launcher2/searchapp/LocaleSet;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "zh_HK"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    :cond_0
     const/4 v0, 0x1
 
     :goto_0
     return v0
 
-    :cond_0
+    :cond_1
     const/4 v0, 0x0
 
     goto :goto_0

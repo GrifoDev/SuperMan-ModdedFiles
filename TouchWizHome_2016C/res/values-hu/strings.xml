@@ -140,6 +140,7 @@ alkalmazások"</string>
     <string name="no_downloaded_apps">Nincs letöltött alkalmazás</string>
     <string name="no_room_any_page">Egyik oldalon sincs hely.</string>
     <string name="no_space_page">Nincs hely az oldalon. Próbálja meg egy másik oldalra felvenni a parancsikont.</string>
+    <string name="no_space_page_for_widget">Nincs hely az oldalon.</string>
     <string name="not_selected">Nincs kijelölve</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Az %s widgetet már hozzáadta a kezdőképernyőhöz.</string>
@@ -177,7 +178,7 @@ Bizt. mappához"</string>
     <string name="read_home_screen_settings">Kezdőkép. beállítás. olv.</string>
     <string name="read_home_screen_settings_info">Az alkalmazás olvashatja a kezdőképernyő beállításait és a parancsikonok tulajdonságait.</string>
     <string name="rearrange_menu_icons_not_allowed">Nem lehet betűrendes sorrendben átrendezni az ikonokat.</string>
-    <string name="removable_preloadapp_uninstall_message">Törölni fogja a(z) %s fájlt. Újbóli letöltéséhez nyissa meg az alkalmazáslistát, érintse meg az Egyéb opciók gombot, és válassza a GALAXY Essentials lehetőséget.</string>
+    <string name="removable_preloadapp_uninstall_message">Törölni fogja a(z) %s alkalmazást. Újbóli letöltéséhez nyissa meg az alkalmazáslistát, érintse meg az Egyéb opciók gombot, és válassza a Galaxy Essentials lehetőséget.</string>
     <string name="remove_app_folder_cancel">Mégse</string>
     <string name="remove_app_folder_confirm">Törlés</string>
     <string name="remove_app_folder_confirm_VZW">Eltávolítás</string>

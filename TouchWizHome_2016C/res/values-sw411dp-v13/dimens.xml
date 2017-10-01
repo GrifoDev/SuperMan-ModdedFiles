@@ -534,10 +534,10 @@
     <item type="dimen" name="home_4x5_cellHeight">@dimen/home_4x5_cellHeight_port</item>
     <item type="dimen" name="home_4x5_cellWidth">@dimen/home_4x5_cellWidth_port</item>
     <dimen name="home_4x5_cellWidth_port">97.0dip</dimen>
-    <dimen name="home_5x5_cellGapX">1.0dip</dimen>
+    <dimen name="home_5x5_cellGapX">2.0dip</dimen>
     <item type="dimen" name="home_5x5_cellHeight">@dimen/home_5x5_cellHeight_port</item>
     <item type="dimen" name="home_5x5_cellWidth">@dimen/home_5x5_cellWidth_port</item>
-    <dimen name="home_5x5_cellWidth_port">75.0dip</dimen>
+    <dimen name="home_5x5_cellWidth_port">76.0dip</dimen>
     <dimen name="home_editTitleBarIcon_textSize">13.0dip</dimen>
     <dimen name="home_edit_bar_focus_bg_width">63.0dip</dimen>
     <dimen name="home_editmode_panel_buttonParent_zero_paddingTop">10.0dip</dimen>

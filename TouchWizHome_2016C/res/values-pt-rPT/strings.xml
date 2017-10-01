@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">Nenhumas aplicações transferidas</string>
     <string name="no_room_any_page">Não existe espaço em nenhuma página.</string>
     <string name="no_space_page">Sem espaço na página. Experimente adicionar o atalho a uma página diferente.</string>
+    <string name="no_space_page_for_widget">Sem espaço nesta página.</string>
     <string name="not_selected">Não seleccionado</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Widget %s já adicionado ao ecrã principal.</string>
@@ -176,7 +177,7 @@ Pasta Segura"</string>
     <string name="read_home_screen_settings">Ler defin. ecrã principal</string>
     <string name="read_home_screen_settings_info">Esta aplicação pode ler as definições e os atalhos do seu ecrã principal.</string>
     <string name="rearrange_menu_icons_not_allowed">Impossível reorganizar ícones por ordem alfabética.</string>
-    <string name="removable_preloadapp_uninstall_message">%s será eliminado. Para o transferir novamente, vá para a lista de aplicações, toque no botão de mais opções e depois seleccione Essenciais GALAXY.</string>
+    <string name="removable_preloadapp_uninstall_message">%s será eliminado. Para o transferir novamente, aceda à lista de aplicações, toque no botão de mais opções e depois seleccione Galaxy Essentials.</string>
     <string name="remove_app_folder_cancel">Cancelar</string>
     <string name="remove_app_folder_confirm">Eliminar</string>
     <string name="remove_app_folder_confirm_VZW">Remover</string>

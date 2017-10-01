@@ -184,7 +184,7 @@
 
     iget-object v2, p0, Lcom/android/server/fingerprint/FingerprintService$2;->this$0:Lcom/android/server/fingerprint/FingerprintService;
 
-    invoke-static {v2}, Lcom/android/server/fingerprint/FingerprintService;->-wrap12(Lcom/android/server/fingerprint/FingerprintService;)V
+    invoke-static {v2}, Lcom/android/server/fingerprint/FingerprintService;->-wrap13(Lcom/android/server/fingerprint/FingerprintService;)V
 
     goto :goto_0
 .end method

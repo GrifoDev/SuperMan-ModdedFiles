@@ -140,6 +140,7 @@ apper"</string>
     <string name="no_downloaded_apps">Ingen nedlastede apper</string>
     <string name="no_room_any_page">Ikke plass på noen sider.</string>
     <string name="no_space_page">Ikke plass på siden. Prøv å legge til snarveien på en annen side.</string>
+    <string name="no_space_page_for_widget">Ikke plass på denne siden.</string>
     <string name="not_selected">Ikke valgt</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">%s-widgeten er allerede lagt til på startskjermbildet.</string>
@@ -177,7 +178,7 @@ Sikker mappe"</string>
     <string name="read_home_screen_settings">Lese startskjerminnst.</string>
     <string name="read_home_screen_settings_info">Denne appen kan lese innstillingene og snarveiene på startskjermbildet.</string>
     <string name="rearrange_menu_icons_not_allowed">Kan ikke omordne ikoner i alfabetisk rekkefølge.</string>
-    <string name="removable_preloadapp_uninstall_message">%s blir slettet. Hvis du vil laste den ned på nytt, går du til applisten, trykker på flere alternativer-knappen og velger GALAXY-tilbehør.</string>
+    <string name="removable_preloadapp_uninstall_message">%s blir slettet. For å laste den ned på nytt går du til applisten, trykker på flere alternativer-knappen og velger Galaxy Essentials.</string>
     <string name="remove_app_folder_cancel">Avbryt</string>
     <string name="remove_app_folder_confirm">Slett</string>
     <string name="remove_app_folder_confirm_VZW">Fjern</string>

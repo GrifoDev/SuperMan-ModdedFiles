@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">Δεν έχει γίνει λήψη εφαρμογών</string>
     <string name="no_room_any_page">Δεν υπάρχει χώρος σε καμία σελίδα.</string>
     <string name="no_space_page">Δεν υπάρχει χώρος στη σελίδα. Δοκιμάστε να προσθέσετε τη συντόμευση σε άλλη σελίδα.</string>
+    <string name="no_space_page_for_widget">Δεν υπάρχει χώρος σε αυτήν τη σελίδα.</string>
     <string name="not_selected">Δεν έχει επιλεγεί</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Το widget %s προστέθηκε ήδη στην αρχική οθόνη.</string>
@@ -176,7 +177,7 @@
     <string name="read_home_screen_settings">Ανάγν. ρυθμ. αρχ. οθόνης</string>
     <string name="read_home_screen_settings_info">Αυτή η εφαρμογή μπορεί να αναγνώσει τις ρυθμίσεις και τις συντομεύσεις της αρχικής οθόνης.</string>
     <string name="rearrange_menu_icons_not_allowed">Δεν είναι δυνατή η αναδιάταξη εικονιδίων κατά την προβολή σε αλφαβητική σειρά.</string>
-    <string name="removable_preloadapp_uninstall_message">Η εφαρμογή %s θα διαγραφεί. Για να επαναλάβετε τη λήψη της, μεταβείτε στη λίστα εφαρμογών, πατήστε το κουμπί περισσότερων επιλογών και, στη συνέχεια, επιλέξτε «Βασικές εφαρμογές για GALAXY».</string>
+    <string name="removable_preloadapp_uninstall_message">Η εφαρμογή %s θα διαγραφεί. Για να την κατεβάσετε ξανά, μεταβείτε στη λίστα εφαρμογών, πατήστε το κουμπί περισσότερων επιλογών και, στη συνέχεια, επιλέξτε Galaxy Essentials.</string>
     <string name="remove_app_folder_cancel">Ακύρωση</string>
     <string name="remove_app_folder_confirm">Διαγραφή</string>
     <string name="remove_app_folder_confirm_VZW">Κατάργηση</string>

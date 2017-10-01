@@ -140,6 +140,7 @@ aplikacije"</string>
     <string name="no_downloaded_apps">Nema skinutih aplikacija</string>
     <string name="no_room_any_page">Nema mjesta na stranicama.</string>
     <string name="no_space_page">Nema prostora na stranici. Pokušajte dodati prečac na drugu stranicu.</string>
+    <string name="no_space_page_for_widget">Nema prostora na ovoj stranici.</string>
     <string name="not_selected">Nije odabrano</string>
     <string name="ok">U redu</string>
     <string name="only_one_widget_instance_allowed">Widget %s već je dodan na početni zaslon.</string>
@@ -177,7 +178,7 @@ Sigurnu mapu"</string>
     <string name="read_home_screen_settings">Čit. postav. poč. zaslona</string>
     <string name="read_home_screen_settings_info">Ova aplikacija može čitati postavke i prečace početnog zaslona.</string>
     <string name="rearrange_menu_icons_not_allowed">Nije moguće presložiti ikone abecednim redom.</string>
-    <string name="removable_preloadapp_uninstall_message">%s će biti izbrisana. Da biste je ponovno skinuli, idite na popis aplikacija, dodirnite gumb za više opcija, a zatim odaberite Osnovne GALAXY aplikacije.</string>
+    <string name="removable_preloadapp_uninstall_message">Izbrisat će se aplikacija %s. Da biste je ponovno preuzeli, idite na popis aplikacija, dodirnite gumb za više opcija, a zatim odaberite Osnovne Galaxy aplikacije.</string>
     <string name="remove_app_folder_cancel">Prekid</string>
     <string name="remove_app_folder_confirm">Izbriši</string>
     <string name="remove_app_folder_confirm_VZW">Ukloni</string>

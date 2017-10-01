@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">Walang mga na-download na application.</string>
     <string name="no_room_any_page">Walang lugar sa anumang pahina.</string>
     <string name="no_space_page">Walang espasyo sa page. Subukang magdagdag ng shortcut sa ibang page.</string>
+    <string name="no_space_page_for_widget">Walang espasyo sa pahinang ito.</string>
     <string name="not_selected">Hindi pinili</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Naidagdag na sa home screen ang %s widget.</string>
@@ -176,7 +177,7 @@ Secure Folder"</string>
     <string name="read_home_screen_settings">Basahin ang mga setting ng home screen</string>
     <string name="read_home_screen_settings_info">Mababasa ng app na ito ang mga setting at shortcut ng home screen mo.</string>
     <string name="rearrange_menu_icons_not_allowed">Hindi maisaayos muli ang mga icon ayon sa alpabetikong kaayusan.</string>
-    <string name="removable_preloadapp_uninstall_message">Ide-delete ang %s. Para i-download itong muli, pumunta sa listahan ng app, i-tap ang button na higit pang mga opsyon, pagkatapos ay piliin ang GALAXY Essentials.</string>
+    <string name="removable_preloadapp_uninstall_message">Tatanggalin ang %s. Para i-download itong muli, pumunta sa listahan ng app, i-tap ang button na higit pang mga opsiyon, pagkatapos ay piliin ang Galaxy Essentials.</string>
     <string name="remove_app_folder_cancel">Ikansela</string>
     <string name="remove_app_folder_confirm">I-delete</string>
     <string name="remove_app_folder_confirm_VZW">Alisin</string>

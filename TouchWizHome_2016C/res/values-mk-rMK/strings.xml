@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">Нема преземени апликации</string>
     <string name="no_room_any_page">Нема соба на ниедна страница.</string>
     <string name="no_space_page">Нема простор на страницата. Обидете се да додадете кратенка на друга страница.</string>
+    <string name="no_space_page_for_widget">Нема простор на оваа страница.</string>
     <string name="not_selected">Не е одбрано</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Виџетот %s веќе е додаден во почетниот екран.</string>
@@ -176,7 +177,7 @@
     <string name="read_home_screen_settings">Проч. пост. за поч. екран</string>
     <string name="read_home_screen_settings_info">Оваа апликација може да ги чита поставувањата за почетниот екран и кратенките.</string>
     <string name="rearrange_menu_icons_not_allowed">Не можат да се прередат иконите по азбучен редослед.</string>
-    <string name="removable_preloadapp_uninstall_message">%s ќе се избрише. За да ја преземете пак, одете во листата апликации, допрете го копчето повеќе опции, па изберете GALAXY Essentials.</string>
+    <string name="removable_preloadapp_uninstall_message">%s ќе се избрише. За да ја преземете пак, одете во листата со апликации, допрете го копчето повеќе опции, па изберете Galaxy Essentials.</string>
     <string name="remove_app_folder_cancel">Откажи</string>
     <string name="remove_app_folder_confirm">Избриши</string>
     <string name="remove_app_folder_confirm_VZW">Отстрани</string>

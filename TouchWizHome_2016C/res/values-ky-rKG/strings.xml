@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">Жүктөлгөн колдонмолор жок</string>
     <string name="no_room_any_page">Эч бир бетте бөлмө жок.</string>
     <string name="no_space_page">Баракчада бош орун жок. Башка бетке тез чакырманы кошуп көрүңүз.</string>
+    <string name="no_space_page_for_widget">Бул баракчада башка орун жок.</string>
     <string name="not_selected">Тандалган жок</string>
     <string name="ok">ОК</string>
     <string name="only_one_widget_instance_allowed">%s виджет башкы экранга эчак кошулган.</string>
@@ -176,7 +177,7 @@
     <string name="read_home_screen_settings">Баш. экран орнотуу. окуу</string>
     <string name="read_home_screen_settings_info">Бул колдонмо башкы экран орнотууларыңызды жана тез чакырмаларыңызды окуй алат.</string>
     <string name="rearrange_menu_icons_not_allowed">Сүрөтчөлөрдү алфавиттик иретте кайра иреттөө мүмкүн эмес.</string>
-    <string name="removable_preloadapp_uninstall_message">%s өчүрүлөт. Аны кайрадан жүктөөгө, сунуучулар тизмегине барып, дагы тандоолор баскычын таптап, андан кийин GALAXY Негиздер тандаңыз.</string>
+    <string name="removable_preloadapp_uninstall_message">"%s өчүрүлөт. Аны кайрадан жүктөөгө, колдонмолор тизмегине барып, дагы тандоолор баскычын басып, андан кийин Galaxy Essentials'ты тандаңыз."</string>
     <string name="remove_app_folder_cancel">Артка</string>
     <string name="remove_app_folder_confirm">Өчүрүү</string>
     <string name="remove_app_folder_confirm_VZW">Алып салуу</string>

@@ -13,7 +13,7 @@
 
 
 # static fields
-.field static final TAG:Ljava/lang/String;
+.field static final TAG:Ljava/lang/String; = "WindowManager_SurfaceController"
 
 
 # instance fields
@@ -47,16 +47,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    const-string/jumbo v0, "WindowManager"
-
-    sput-object v0, Lcom/android/server/wm/WindowSurfaceController;->TAG:Ljava/lang/String;
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroid/view/SurfaceSession;Ljava/lang/String;IIIILcom/android/server/wm/WindowStateAnimator;)V
     .locals 10
 
@@ -239,7 +229,7 @@
     :catch_0
     move-exception v0
 
-    sget-object v1, Lcom/android/server/wm/WindowSurfaceController;->TAG:Ljava/lang/String;
+    const-string/jumbo v1, "WindowManager_SurfaceController"
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -285,7 +275,7 @@
     :catch_0
     move-exception v0
 
-    sget-object v1, Lcom/android/server/wm/WindowSurfaceController;->TAG:Ljava/lang/String;
+    const-string/jumbo v1, "WindowManager_SurfaceController"
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -412,7 +402,7 @@
     :catch_0
     move-exception v1
 
-    sget-object v2, Lcom/android/server/wm/WindowSurfaceController;->TAG:Ljava/lang/String;
+    const-string/jumbo v2, "WindowManager_SurfaceController"
 
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -485,7 +475,7 @@
 
     const/4 v4, 0x0
 
-    sget-object v1, Lcom/android/server/wm/WindowSurfaceController;->TAG:Ljava/lang/String;
+    const-string/jumbo v1, "WindowManager_SurfaceController"
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -547,7 +537,7 @@
     move-exception v0
 
     :try_start_1
-    sget-object v1, Lcom/android/server/wm/WindowSurfaceController;->TAG:Ljava/lang/String;
+    const-string/jumbo v1, "WindowManager_SurfaceController"
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -597,7 +587,7 @@
     if-eqz v1, :cond_1
 
     :cond_0
-    sget-object v1, Lcom/android/server/wm/WindowSurfaceController;->TAG:Ljava/lang/String;
+    const-string/jumbo v1, "WindowManager_SurfaceController"
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -638,7 +628,7 @@
     :catch_0
     move-exception v0
 
-    sget-object v1, Lcom/android/server/wm/WindowSurfaceController;->TAG:Ljava/lang/String;
+    const-string/jumbo v1, "WindowManager_SurfaceController"
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -978,7 +968,7 @@
 
     if-eqz p2, :cond_0
 
-    sget-object v1, Lcom/android/server/wm/WindowSurfaceController;->TAG:Ljava/lang/String;
+    const-string/jumbo v1, "WindowManager_SurfaceController"
 
     invoke-static {v1, v0, p2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
@@ -986,7 +976,7 @@
     return-void
 
     :cond_0
-    sget-object v1, Lcom/android/server/wm/WindowSurfaceController;->TAG:Ljava/lang/String;
+    const-string/jumbo v1, "WindowManager_SurfaceController"
 
     invoke-static {v1, v0}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -1027,7 +1017,7 @@
     :catch_0
     move-exception v0
 
-    sget-object v1, Lcom/android/server/wm/WindowSurfaceController;->TAG:Ljava/lang/String;
+    const-string/jumbo v1, "WindowManager_SurfaceController"
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -1175,7 +1165,7 @@
     :catch_0
     move-exception v0
 
-    sget-object v1, Lcom/android/server/wm/WindowSurfaceController;->TAG:Ljava/lang/String;
+    const-string/jumbo v1, "WindowManager_SurfaceController"
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -1269,7 +1259,7 @@
     :catch_0
     move-exception v0
 
-    sget-object v1, Lcom/android/server/wm/WindowSurfaceController;->TAG:Ljava/lang/String;
+    const-string/jumbo v1, "WindowManager_SurfaceController"
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -1436,7 +1426,7 @@
     :catch_0
     move-exception v0
 
-    sget-object v1, Lcom/android/server/wm/WindowSurfaceController;->TAG:Ljava/lang/String;
+    const-string/jumbo v1, "WindowManager_SurfaceController"
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -1560,7 +1550,7 @@
 
     if-eqz v0, :cond_2
 
-    sget-object v0, Lcom/android/server/wm/WindowSurfaceController;->TAG:Ljava/lang/String;
+    const-string/jumbo v0, "WindowManager_SurfaceController"
 
     const-string/jumbo v1, ">>> OPEN TRANSACTION setOpaqueLocked"
 
@@ -1582,7 +1572,7 @@
 
     if-eqz v0, :cond_3
 
-    sget-object v0, Lcom/android/server/wm/WindowSurfaceController;->TAG:Ljava/lang/String;
+    const-string/jumbo v0, "WindowManager_SurfaceController"
 
     const-string/jumbo v1, "<<< CLOSE TRANSACTION setOpaqueLocked"
 
@@ -1600,7 +1590,7 @@
 
     if-eqz v1, :cond_4
 
-    sget-object v1, Lcom/android/server/wm/WindowSurfaceController;->TAG:Ljava/lang/String;
+    const-string/jumbo v1, "WindowManager_SurfaceController"
 
     const-string/jumbo v2, "<<< CLOSE TRANSACTION setOpaqueLocked"
 
@@ -1702,7 +1692,7 @@
 
     if-eqz v1, :cond_1
 
-    sget-object v1, Lcom/android/server/wm/WindowSurfaceController;->TAG:Ljava/lang/String;
+    const-string/jumbo v1, "WindowManager_SurfaceController"
 
     const-string/jumbo v2, "<<< CLOSE TRANSACTION setPositionAndLayer"
 
@@ -1715,7 +1705,7 @@
     move-exception v0
 
     :try_start_2
-    sget-object v1, Lcom/android/server/wm/WindowSurfaceController;->TAG:Ljava/lang/String;
+    const-string/jumbo v1, "WindowManager_SurfaceController"
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -1758,7 +1748,7 @@
 
     if-eqz v2, :cond_2
 
-    sget-object v2, Lcom/android/server/wm/WindowSurfaceController;->TAG:Ljava/lang/String;
+    const-string/jumbo v2, "WindowManager_SurfaceController"
 
     const-string/jumbo v3, "<<< CLOSE TRANSACTION setPositionAndLayer"
 
@@ -1867,7 +1857,7 @@
     :catch_0
     move-exception v0
 
-    sget-object v3, Lcom/android/server/wm/WindowSurfaceController;->TAG:Ljava/lang/String;
+    const-string/jumbo v3, "WindowManager_SurfaceController"
 
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -1967,7 +1957,7 @@
 
     if-eqz v0, :cond_2
 
-    sget-object v0, Lcom/android/server/wm/WindowSurfaceController;->TAG:Ljava/lang/String;
+    const-string/jumbo v0, "WindowManager_SurfaceController"
 
     const-string/jumbo v1, ">>> OPEN TRANSACTION setSecureLocked"
 
@@ -1989,7 +1979,7 @@
 
     if-eqz v0, :cond_3
 
-    sget-object v0, Lcom/android/server/wm/WindowSurfaceController;->TAG:Ljava/lang/String;
+    const-string/jumbo v0, "WindowManager_SurfaceController"
 
     const-string/jumbo v1, "<<< CLOSE TRANSACTION setSecureLocked"
 
@@ -2007,7 +1997,7 @@
 
     if-eqz v1, :cond_4
 
-    sget-object v1, Lcom/android/server/wm/WindowSurfaceController;->TAG:Ljava/lang/String;
+    const-string/jumbo v1, "WindowManager_SurfaceController"
 
     const-string/jumbo v2, "<<< CLOSE TRANSACTION setSecureLocked"
 
@@ -2116,7 +2106,7 @@
     :catch_0
     move-exception v0
 
-    sget-object v4, Lcom/android/server/wm/WindowSurfaceController;->TAG:Ljava/lang/String;
+    const-string/jumbo v4, "WindowManager_SurfaceController"
 
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -2188,7 +2178,7 @@
 
     if-nez v0, :cond_0
 
-    sget-object v0, Lcom/android/server/wm/WindowSurfaceController;->TAG:Ljava/lang/String;
+    const-string/jumbo v0, "WindowManager_SurfaceController"
 
     const-string/jumbo v1, "setTransparentRegionHint: null mSurface after mHasSurface true"
 
@@ -2201,7 +2191,7 @@
 
     if-eqz v0, :cond_1
 
-    sget-object v0, Lcom/android/server/wm/WindowSurfaceController;->TAG:Ljava/lang/String;
+    const-string/jumbo v0, "WindowManager_SurfaceController"
 
     const-string/jumbo v1, ">>> OPEN TRANSACTION setTransparentRegion"
 
@@ -2223,7 +2213,7 @@
 
     if-eqz v0, :cond_2
 
-    sget-object v0, Lcom/android/server/wm/WindowSurfaceController;->TAG:Ljava/lang/String;
+    const-string/jumbo v0, "WindowManager_SurfaceController"
 
     const-string/jumbo v1, "<<< CLOSE TRANSACTION setTransparentRegion"
 
@@ -2241,7 +2231,7 @@
 
     if-eqz v1, :cond_3
 
-    sget-object v1, Lcom/android/server/wm/WindowSurfaceController;->TAG:Ljava/lang/String;
+    const-string/jumbo v1, "WindowManager_SurfaceController"
 
     const-string/jumbo v2, "<<< CLOSE TRANSACTION setTransparentRegion"
 
@@ -2284,7 +2274,7 @@
 
     if-eqz v0, :cond_1
 
-    sget-object v0, Lcom/android/server/wm/WindowSurfaceController;->TAG:Ljava/lang/String;
+    const-string/jumbo v0, "WindowManager_SurfaceController"
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2338,7 +2328,7 @@
 
     if-eqz v0, :cond_1
 
-    sget-object v0, Lcom/android/server/wm/WindowSurfaceController;->TAG:Ljava/lang/String;
+    const-string/jumbo v0, "WindowManager_SurfaceController"
 
     const-string/jumbo v1, ">>> OPEN TRANSACTION startSurfaceAnimation"
 
@@ -2360,7 +2350,7 @@
 
     if-eqz v0, :cond_2
 
-    sget-object v0, Lcom/android/server/wm/WindowSurfaceController;->TAG:Ljava/lang/String;
+    const-string/jumbo v0, "WindowManager_SurfaceController"
 
     const-string/jumbo v1, "<<< CLOSE TRANSACTION startSurfaceAnimation"
 
@@ -2378,7 +2368,7 @@
 
     if-eqz v1, :cond_3
 
-    sget-object v1, Lcom/android/server/wm/WindowSurfaceController;->TAG:Ljava/lang/String;
+    const-string/jumbo v1, "WindowManager_SurfaceController"
 
     const-string/jumbo v2, "<<< CLOSE TRANSACTION startSurfaceAnimation"
 

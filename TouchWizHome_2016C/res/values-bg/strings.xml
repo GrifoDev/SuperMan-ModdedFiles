@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">Няма изтеглени приложения</string>
     <string name="no_room_any_page">Няма място на никоя страница.</string>
     <string name="no_space_page">Няма място на страницата. Опитайте да добавите пряк път на друга страница.</string>
+    <string name="no_space_page_for_widget">Няма място на тази страница.</string>
     <string name="not_selected">Не е избрано</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Уиджетът %s вече е добавен към началния екран.</string>
@@ -176,7 +177,7 @@
     <string name="read_home_screen_settings">Четене настр. нач. екран</string>
     <string name="read_home_screen_settings_info">Това приложение може да прочита настройките и преките пътища на началния екран.</string>
     <string name="rearrange_menu_icons_not_allowed">Иконите не могат да се пренаредят по азбучен ред.</string>
-    <string name="removable_preloadapp_uninstall_message">%s ще бъде изтрито. За да го изтеглите отново, отидете на списъка с приложения, чукнете бутона за повече опции, след това изберете Основни за GALAXY.</string>
+    <string name="removable_preloadapp_uninstall_message">%s ще бъде изтрито. За да го изтеглите отново, отидете на списъка с приложения, докоснете бутона за още опции, след което изберете Galaxy Essentials.</string>
     <string name="remove_app_folder_cancel">Отказ</string>
     <string name="remove_app_folder_confirm">Изтриване</string>
     <string name="remove_app_folder_confirm_VZW">Премаxване</string>

@@ -17711,7 +17711,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090106
+    const v3, 0x7f090107
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -17721,7 +17721,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0900f4
+    const v3, 0x7f0900f5
 
     const/4 v4, 0x1
 
@@ -17739,7 +17739,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090090
+    const v3, 0x7f090091
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -17755,7 +17755,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0900f5
+    const v3, 0x7f0900f6
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -19127,6 +19127,14 @@
     move-object/from16 v17, v0
 
     invoke-virtual/range {v17 .. v17}, Lcom/android/launcher2/Folder;->notifyDataSetChanged()V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/launcher2/Workspace;->mFolder:Lcom/android/launcher2/Folder;
+
+    move-object/from16 v17, v0
+
+    if-eqz v17, :cond_1
 
     move-object/from16 v0, p0
 
@@ -21350,6 +21358,20 @@
     move-object/from16 v1, v19
 
     if-ne v0, v1, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/launcher2/Workspace;->mOldState:Lcom/android/launcher2/Workspace$State;
+
+    move-object/from16 v18, v0
+
+    sget-object v19, Lcom/android/launcher2/Workspace$State;->EDIT:Lcom/android/launcher2/Workspace$State;
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v19
+
+    if-eq v0, v1, :cond_0
 
     move-object/from16 v0, p0
 

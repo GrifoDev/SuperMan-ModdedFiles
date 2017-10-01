@@ -2239,7 +2239,7 @@
 .method protected onFinishInflate()V
     .locals 6
 
-    const v5, 0x7f0900c1
+    const v5, 0x7f0900c2
 
     const/4 v4, 0x0
 
@@ -2263,7 +2263,7 @@
 
     iput-object v1, p0, Lcom/android/launcher2/HomeScreenGridSelectMenu;->mExplainText5x5:Ljava/lang/String;
 
-    const v1, 0x7f0900e2
+    const v1, 0x7f0900e3
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2271,7 +2271,7 @@
 
     sput-object v1, Lcom/android/launcher2/HomeScreenGridSelectMenu;->mSpanDescriptionFormat:Ljava/lang/String;
 
-    const v1, 0x7f090105
+    const v1, 0x7f090106
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2620,7 +2620,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0900c9
+    const v2, 0x7f0900ca
 
     invoke-virtual {v1, v2}, Lcom/android/launcher2/LauncherApplication;->getString(I)Ljava/lang/String;
 
@@ -2634,7 +2634,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0900e2
+    const v3, 0x7f0900e3
 
     invoke-virtual {v2, v3}, Lcom/android/launcher2/LauncherApplication;->getString(I)Ljava/lang/String;
 
@@ -2700,7 +2700,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0900c9
+    const v4, 0x7f0900ca
 
     invoke-virtual {v3, v4}, Lcom/android/launcher2/LauncherApplication;->getString(I)Ljava/lang/String;
 
@@ -2710,7 +2710,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f09008f
+    const v4, 0x7f090090
 
     invoke-virtual {v3, v4}, Lcom/android/launcher2/LauncherApplication;->getString(I)Ljava/lang/String;
 
@@ -2739,7 +2739,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0900e2
+    const v5, 0x7f0900e3
 
     invoke-virtual {v4, v5}, Lcom/android/launcher2/LauncherApplication;->getString(I)Ljava/lang/String;
 

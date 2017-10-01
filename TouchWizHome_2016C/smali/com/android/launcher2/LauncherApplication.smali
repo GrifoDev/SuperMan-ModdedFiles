@@ -3239,7 +3239,7 @@
 
     move-result v19
 
-    if-eqz v19, :cond_13
+    if-eqz v19, :cond_14
 
     :cond_0
     const/16 v19, 0x1
@@ -3255,7 +3255,7 @@
 
     move-result v19
 
-    if-nez v19, :cond_14
+    if-nez v19, :cond_15
 
     const/16 v19, 0x4
 
@@ -3263,7 +3263,7 @@
 
     move-result v19
 
-    if-nez v19, :cond_14
+    if-nez v19, :cond_15
 
     const/16 v19, 0x1
 
@@ -3288,7 +3288,7 @@
 
     move/from16 v1, v19
 
-    if-ne v0, v1, :cond_15
+    if-ne v0, v1, :cond_16
 
     const/16 v19, 0x1
 
@@ -3309,7 +3309,7 @@
 
     move/from16 v1, v19
 
-    if-ne v0, v1, :cond_16
+    if-ne v0, v1, :cond_17
 
     :cond_1
     const/16 v19, 0x1
@@ -3353,6 +3353,45 @@
 
     invoke-static {v0, v3}, Lcom/android/launcher2/Utilities;->loadCurentGridSize(Landroid/content/Context;[I)V
 
+    const/16 v19, 0x0
+
+    aget v19, v3, v19
+
+    const/16 v20, 0x4
+
+    move/from16 v0, v19
+
+    move/from16 v1, v20
+
+    if-ne v0, v1, :cond_2
+
+    const/16 v19, 0x1
+
+    aget v19, v3, v19
+
+    const/16 v20, 0x4
+
+    move/from16 v0, v19
+
+    move/from16 v1, v20
+
+    if-ne v0, v1, :cond_2
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/LauncherApplication;->getLauncherProvider()Lcom/android/launcher2/LauncherProvider;
+
+    move-result-object v19
+
+    if-eqz v19, :cond_2
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/LauncherApplication;->getLauncherProvider()Lcom/android/launcher2/LauncherProvider;
+
+    move-result-object v19
+
+    move-object/from16 v0, v19
+
+    invoke-static {v3, v0}, Lcom/android/launcher2/Utilities;->loadCurrentGridSizeFromDB([ILcom/android/launcher2/LauncherProvider;)V
+
+    :cond_2
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/LauncherApplication;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v19
@@ -3387,7 +3426,7 @@
 
     move-result v19
 
-    if-eqz v19, :cond_2
+    if-eqz v19, :cond_3
 
     invoke-static/range {p0 .. p0}, Lcom/android/launcher2/FolderLock;->getInstance(Landroid/content/Context;)Lcom/android/launcher2/FolderLock;
 
@@ -3401,11 +3440,11 @@
 
     sget-boolean v19, Lcom/android/launcher2/LauncherApplication;->mEnableFolderLock:Z
 
-    if-nez v19, :cond_2
+    if-nez v19, :cond_3
 
     invoke-static/range {p0 .. p0}, Lcom/android/launcher2/LauncherApplication;->setEnableFolderLock(Landroid/content/Context;)V
 
-    :cond_2
+    :cond_3
     sget-object v19, Lcom/android/launcher2/MenuAppModel;->INSTANCE:Lcom/android/launcher2/MenuAppModel;
 
     move-object/from16 v0, v19
@@ -3528,7 +3567,7 @@
 
     move-result v19
 
-    if-eqz v19, :cond_3
+    if-eqz v19, :cond_4
 
     const-string v19, "com.samsung.applock.intent.action.SSECURE_UPDATE"
 
@@ -3536,10 +3575,10 @@
 
     invoke-virtual {v7, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    :cond_3
+    :cond_4
     sget-boolean v19, Lcom/android/launcher2/LauncherApplication;->sFestivalPageLauncher:Z
 
-    if-eqz v19, :cond_4
+    if-eqz v19, :cond_5
 
     const-string v19, "com.sec.android.widget.myeventwidget.FESTIVAL_CANCEL_ACTION"
 
@@ -3547,12 +3586,12 @@
 
     invoke-virtual {v7, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    :cond_4
+    :cond_5
     invoke-static {}, Lcom/android/launcher2/LauncherFeature;->supportSprintExtension()Z
 
     move-result v19
 
-    if-eqz v19, :cond_5
+    if-eqz v19, :cond_6
 
     const-string v19, "com.sec.sprextension.FORCE_LAUNCHER_REFRESH"
 
@@ -3560,7 +3599,7 @@
 
     invoke-virtual {v7, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    :cond_5
+    :cond_6
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/launcher2/LauncherApplication;->mModel:Lcom/android/launcher2/LauncherModel;
@@ -3669,7 +3708,7 @@
 
     move-result v19
 
-    if-eqz v19, :cond_17
+    if-eqz v19, :cond_18
 
     const-string v19, "screencount.homeonly"
 
@@ -3688,7 +3727,7 @@
     :goto_4
     sget v19, Lcom/android/launcher2/LauncherApplication;->sScreenCountNormal:I
 
-    if-gtz v19, :cond_7
+    if-gtz v19, :cond_8
 
     const-string v19, "CscFeature_Launcher_TotalPageCount"
 
@@ -3702,7 +3741,7 @@
 
     sget v19, Lcom/android/launcher2/LauncherApplication;->sScreenCountNormal:I
 
-    if-gtz v19, :cond_6
+    if-gtz v19, :cond_7
 
     const v19, 0x7f0c0002
 
@@ -3714,7 +3753,7 @@
 
     sput v19, Lcom/android/launcher2/LauncherApplication;->sScreenCountNormal:I
 
-    :cond_6
+    :cond_7
     invoke-interface {v11}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v6
@@ -3723,7 +3762,7 @@
 
     move-result v19
 
-    if-eqz v19, :cond_18
+    if-eqz v19, :cond_19
 
     const-string v19, "screencount.homeonly"
 
@@ -3738,7 +3777,7 @@
     :goto_5
     invoke-interface {v6}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    :cond_7
+    :cond_8
     const-string v19, "screencount"
 
     const/16 v20, 0x0
@@ -3801,7 +3840,7 @@
 
     move-result v19
 
-    if-eqz v19, :cond_8
+    if-eqz v19, :cond_9
 
     sget v19, Lcom/android/launcher2/LauncherApplication;->sScreenIndexNormal_homeOnly:I
 
@@ -3815,9 +3854,9 @@
 
     move-result v19
 
-    if-nez v19, :cond_d
+    if-nez v19, :cond_e
 
-    :cond_8
+    :cond_9
     const-string v19, "CscFeature_Launcher_DefaultPageNumber"
 
     move-object/from16 v0, v19
@@ -3838,15 +3877,15 @@
 
     move-result v19
 
-    if-eqz v19, :cond_9
+    if-eqz v19, :cond_a
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/LauncherApplication;->isKnoxMode()Z
 
     move-result v19
 
-    if-eqz v19, :cond_a
+    if-eqz v19, :cond_b
 
-    :cond_9
+    :cond_a
     const v19, 0x7f0c0046
 
     move/from16 v0, v19
@@ -3863,11 +3902,11 @@
 
     move-result v19
 
-    if-nez v19, :cond_a
+    if-nez v19, :cond_b
 
     const/16 v18, 0x0
 
-    :cond_a
+    :cond_b
     invoke-interface {v11}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v6
@@ -3886,7 +3925,7 @@
 
     move-result v19
 
-    if-nez v19, :cond_b
+    if-nez v19, :cond_c
 
     sput v18, Lcom/android/launcher2/LauncherApplication;->sScreenIndexNormal:I
 
@@ -3898,7 +3937,7 @@
 
     invoke-interface {v6, v0, v1}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
 
-    :cond_b
+    :cond_c
     sget v19, Lcom/android/launcher2/LauncherApplication;->sScreenIndexNormal_homeOnly:I
 
     move-object/from16 v0, p0
@@ -3911,7 +3950,7 @@
 
     move-result v19
 
-    if-nez v19, :cond_c
+    if-nez v19, :cond_d
 
     sput v18, Lcom/android/launcher2/LauncherApplication;->sScreenIndexNormal_homeOnly:I
 
@@ -3923,13 +3962,13 @@
 
     invoke-interface {v6, v0, v1}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
 
-    :cond_c
+    :cond_d
     invoke-interface {v6}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    :cond_d
+    :cond_e
     sget-boolean v19, Lcom/android/launcher2/LauncherApplication;->sFestivalPageLauncher:Z
 
-    if-eqz v19, :cond_f
+    if-eqz v19, :cond_10
 
     const v19, 0x7f0c0049
 
@@ -3971,7 +4010,7 @@
 
     sget v19, Lcom/android/launcher2/LauncherApplication;->sScreenCountFestival:I
 
-    if-ltz v19, :cond_e
+    if-ltz v19, :cond_f
 
     sget v19, Lcom/android/launcher2/LauncherApplication;->sScreenCountFestival:I
 
@@ -3981,9 +4020,9 @@
 
     move/from16 v1, v20
 
-    if-le v0, v1, :cond_f
+    if-le v0, v1, :cond_10
 
-    :cond_e
+    :cond_f
     const/16 v19, 0x0
 
     sput v19, Lcom/android/launcher2/LauncherApplication;->sScreenCountFestival:I
@@ -4004,24 +4043,24 @@
 
     invoke-interface {v6}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    :cond_f
+    :cond_10
     invoke-static {}, Lcom/android/launcher2/LauncherFeature;->supportSprintExtension()Z
 
     move-result v19
 
-    if-eqz v19, :cond_10
+    if-eqz v19, :cond_11
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/LauncherApplication;->getLauncherProvider()Lcom/android/launcher2/LauncherProvider;
 
     move-result-object v12
 
-    if-eqz v12, :cond_10
+    if-eqz v12, :cond_11
 
     invoke-virtual {v12}, Lcom/android/launcher2/LauncherProvider;->updateScreenCount()V
 
     invoke-virtual {v12}, Lcom/android/launcher2/LauncherProvider;->updateScreenIndex()V
 
-    :cond_10
+    :cond_11
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/LauncherApplication;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v19
@@ -4030,7 +4069,7 @@
 
     move-result-object v10
 
-    if-eqz v10, :cond_11
+    if-eqz v10, :cond_12
 
     invoke-virtual {v10}, Landroid/content/pm/PackageManager;->isSafeMode()Z
 
@@ -4038,7 +4077,7 @@
 
     sput-boolean v19, Lcom/android/launcher2/LauncherApplication;->mIsSafeMode:Z
 
-    :cond_11
+    :cond_12
     sget-object v19, Lcom/android/launcher2/BadgeCache;->BADGE_URI:Landroid/net/Uri;
 
     const/16 v20, 0x1
@@ -4069,7 +4108,7 @@
 
     move-result v19
 
-    if-eqz v19, :cond_12
+    if-eqz v19, :cond_13
 
     invoke-direct/range {p0 .. p0}, Lcom/android/launcher2/LauncherApplication;->checkGalaxyLabsSetting()V
 
@@ -4091,7 +4130,7 @@
 
     invoke-virtual {v14, v0, v1, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    :cond_12
+    :cond_13
     const/16 v19, 0x1
 
     sput-boolean v19, Lcom/android/launcher2/LauncherApplication;->sIsTheFisrt:Z
@@ -4128,27 +4167,27 @@
     :goto_6
     return-void
 
-    :cond_13
+    :cond_14
     const/16 v19, 0x0
 
     goto/16 :goto_0
 
-    :cond_14
+    :cond_15
     const/16 v19, 0x0
 
     goto/16 :goto_1
 
-    :cond_15
+    :cond_16
     const/16 v19, 0x0
 
     goto/16 :goto_2
 
-    :cond_16
+    :cond_17
     const/16 v19, 0x0
 
     goto/16 :goto_3
 
-    :cond_17
+    :cond_18
     const-string v19, "screencount"
 
     const/16 v20, 0x0
@@ -4165,7 +4204,7 @@
 
     goto/16 :goto_4
 
-    :cond_18
+    :cond_19
     const-string v19, "screencount"
 
     sget v20, Lcom/android/launcher2/LauncherApplication;->sScreenCountNormal:I

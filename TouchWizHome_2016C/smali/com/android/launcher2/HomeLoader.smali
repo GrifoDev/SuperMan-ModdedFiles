@@ -279,7 +279,7 @@
 
     iget-object v2, v6, Lcom/android/launcher2/HomeShortcutItem;->intent:Landroid/content/Intent;
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_4
 
     iget-object v10, v6, Lcom/android/launcher2/HomeShortcutItem;->mType:Lcom/android/launcher2/BaseItem$Type;
 
@@ -291,9 +291,22 @@
 
     move-result v10
 
-    if-eqz v10, :cond_5
+    if-eqz v10, :cond_6
 
     :cond_0
+    invoke-static {}, Lcom/android/launcher2/LauncherApplication;->isHomeOnlyModeEnabled()Z
+
+    move-result v10
+
+    if-eqz v10, :cond_1
+
+    iget-object v10, p0, Lcom/android/launcher2/HomeLoader;->mPkgResCache:Lcom/android/launcher2/PkgResCache;
+
+    iget-object v11, p1, Lcom/android/launcher2/HomeItem;->user:Lcom/android/launcher2/compat/UserHandleCompat;
+
+    invoke-virtual {v10, p2, v11}, Lcom/android/launcher2/PkgResCache;->remove(Landroid/content/ComponentName;Lcom/android/launcher2/compat/UserHandleCompat;)V
+
+    :cond_1
     new-instance v7, Lcom/android/launcher2/PkgResCache$TitleIconInfo;
 
     invoke-direct {v7}, Lcom/android/launcher2/PkgResCache$TitleIconInfo;-><init>()V
@@ -306,13 +319,13 @@
 
     iget-object v10, v7, Lcom/android/launcher2/PkgResCache$TitleIconInfo;->mIcon:Landroid/graphics/Bitmap;
 
-    if-eqz v10, :cond_1
+    if-eqz v10, :cond_2
 
     iget-object v10, v7, Lcom/android/launcher2/PkgResCache$TitleIconInfo;->mIcon:Landroid/graphics/Bitmap;
 
     iget-object v11, v6, Lcom/android/launcher2/HomeShortcutItem;->mIconBitmap:Landroid/graphics/Bitmap;
 
-    if-eq v10, v11, :cond_1
+    if-eq v10, v11, :cond_2
 
     iget-object v10, v7, Lcom/android/launcher2/PkgResCache$TitleIconInfo;->mIcon:Landroid/graphics/Bitmap;
 
@@ -320,10 +333,10 @@
 
     const/4 v0, 0x1
 
-    :cond_1
+    :cond_2
     iget-object v10, v7, Lcom/android/launcher2/PkgResCache$TitleIconInfo;->mTitle:Ljava/lang/String;
 
-    if-eqz v10, :cond_2
+    if-eqz v10, :cond_3
 
     iget-object v10, v7, Lcom/android/launcher2/PkgResCache$TitleIconInfo;->mTitle:Ljava/lang/String;
 
@@ -333,7 +346,7 @@
 
     move-result v10
 
-    if-nez v10, :cond_2
+    if-nez v10, :cond_3
 
     iget-object v10, v7, Lcom/android/launcher2/PkgResCache$TitleIconInfo;->mTitle:Ljava/lang/String;
 
@@ -341,12 +354,12 @@
 
     const/4 v0, 0x1
 
-    :cond_2
+    :cond_3
     iget v10, v6, Lcom/android/launcher2/HomeShortcutItem;->isDisabled:I
 
     and-int/lit8 v10, v10, 0x1
 
-    if-eqz v10, :cond_3
+    if-eqz v10, :cond_4
 
     iget-object v10, p0, Lcom/android/launcher2/HomeLoader;->mPkgResCache:Lcom/android/launcher2/PkgResCache;
 
@@ -356,26 +369,26 @@
 
     iput-object v10, v6, Lcom/android/launcher2/HomeShortcutItem;->mIconBitmap:Landroid/graphics/Bitmap;
 
-    :cond_3
+    :cond_4
     :goto_0
     invoke-static {}, Lcom/android/launcher2/LauncherFeature;->supportGoogleBackupRestore()Z
 
     move-result v10
 
-    if-nez v10, :cond_4
+    if-nez v10, :cond_5
 
     invoke-static {}, Lcom/android/launcher2/LauncherFeature;->supportPAI()Z
 
     move-result v10
 
-    if-eqz v10, :cond_b
+    if-eqz v10, :cond_c
 
-    :cond_4
+    :cond_5
     invoke-virtual {v6}, Lcom/android/launcher2/HomeShortcutItem;->isPromise()Z
 
     move-result v10
 
-    if-eqz v10, :cond_b
+    if-eqz v10, :cond_c
 
     const/16 v10, 0x26
 
@@ -383,7 +396,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_a
+    if-eqz v10, :cond_b
 
     iget-object v10, p0, Lcom/android/launcher2/HomeLoader;->mPkgMgr:Landroid/content/pm/PackageManager;
 
@@ -409,7 +422,7 @@
 
     move-result-object v5
 
-    if-nez v5, :cond_a
+    if-nez v5, :cond_b
 
     iget-object v10, p0, Lcom/android/launcher2/HomeLoader;->mPkgMgr:Landroid/content/pm/PackageManager;
 
@@ -421,17 +434,17 @@
 
     move-result-object v3
 
-    if-nez v3, :cond_9
+    if-nez v3, :cond_a
 
     :goto_1
     return v8
 
-    :cond_5
+    :cond_6
     iget-object v10, v6, Lcom/android/launcher2/HomeShortcutItem;->mType:Lcom/android/launcher2/BaseItem$Type;
 
     sget-object v11, Lcom/android/launcher2/BaseItem$Type;->HOME_SHORTCUT:Lcom/android/launcher2/BaseItem$Type;
 
-    if-ne v10, v11, :cond_3
+    if-ne v10, v11, :cond_4
 
     iget-object v10, p0, Lcom/android/launcher2/HomeLoader;->mLauncherApp:Lcom/android/launcher2/LauncherApplication;
 
@@ -439,7 +452,7 @@
 
     move-result-object v10
 
-    if-eqz v10, :cond_3
+    if-eqz v10, :cond_4
 
     iget-object v10, p0, Lcom/android/launcher2/HomeLoader;->mLauncherApp:Lcom/android/launcher2/LauncherApplication;
 
@@ -459,22 +472,22 @@
 
     iget-object v11, v6, Lcom/android/launcher2/HomeShortcutItem;->mIconBitmap:Landroid/graphics/Bitmap;
 
-    if-ne v10, v11, :cond_6
+    if-ne v10, v11, :cond_7
 
     move v4, v9
 
     :goto_2
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_4
 
     iget-object v10, v7, Lcom/android/launcher2/HomeShortcutItem;->mIconBitmap:Landroid/graphics/Bitmap;
 
-    if-eqz v10, :cond_3
+    if-eqz v10, :cond_4
 
     iget-object v10, v7, Lcom/android/launcher2/HomeShortcutItem;->mIconBitmap:Landroid/graphics/Bitmap;
 
     iget-object v11, v6, Lcom/android/launcher2/HomeShortcutItem;->mIconBitmap:Landroid/graphics/Bitmap;
 
-    if-eq v10, v11, :cond_3
+    if-eq v10, v11, :cond_4
 
     invoke-static {}, Lcom/android/launcher2/theme/OpenThemeManager;->getInstance()Lcom/android/launcher2/theme/OpenThemeManager;
 
@@ -494,7 +507,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_7
+    if-eqz v10, :cond_8
 
     invoke-static {}, Lcom/android/launcher2/theme/OpenThemeManager;->getInstance()Lcom/android/launcher2/theme/OpenThemeManager;
 
@@ -513,12 +526,12 @@
 
     goto/16 :goto_0
 
-    :cond_6
+    :cond_7
     move v4, v8
 
     goto :goto_2
 
-    :cond_7
+    :cond_8
     new-instance v1, Landroid/graphics/drawable/BitmapDrawable;
 
     iget-object v10, p0, Lcom/android/launcher2/HomeLoader;->mLauncherApp:Lcom/android/launcher2/LauncherApplication;
@@ -541,7 +554,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_9
 
     iget-object v10, p0, Lcom/android/launcher2/HomeLoader;->mLauncherApp:Lcom/android/launcher2/LauncherApplication;
 
@@ -569,17 +582,17 @@
 
     goto :goto_3
 
-    :cond_8
+    :cond_9
     iget-object v10, v7, Lcom/android/launcher2/HomeShortcutItem;->mIconBitmap:Landroid/graphics/Bitmap;
 
     invoke-virtual {v6, v10}, Lcom/android/launcher2/HomeShortcutItem;->setIcon(Landroid/graphics/Bitmap;)V
 
     goto :goto_3
 
-    :cond_9
+    :cond_a
     iput-object v3, v6, Lcom/android/launcher2/HomeShortcutItem;->promisedIntent:Landroid/content/Intent;
 
-    :cond_a
+    :cond_b
     iget-object v10, v6, Lcom/android/launcher2/HomeShortcutItem;->promisedIntent:Landroid/content/Intent;
 
     iput-object v10, v6, Lcom/android/launcher2/HomeShortcutItem;->intent:Landroid/content/Intent;
@@ -598,7 +611,7 @@
 
     invoke-virtual {v6, v8}, Lcom/android/launcher2/HomeShortcutItem;->updateIcon(Lcom/android/launcher2/PkgResCache;)V
 
-    :cond_b
+    :cond_c
     move v8, v0
 
     goto/16 :goto_1

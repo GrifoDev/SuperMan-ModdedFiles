@@ -1341,7 +1341,7 @@
     :cond_1
     sget-object v3, Lcom/sec/dtl/launcher/Talk;->INSTANCE:Lcom/sec/dtl/launcher/Talk;
 
-    const v4, 0x7f0900d7
+    const v4, 0x7f0900d8
 
     invoke-virtual {v3, v4, v0}, Lcom/sec/dtl/launcher/Talk;->say(ILjava/lang/String;)V
 
@@ -1451,7 +1451,7 @@
     :cond_2
     sget-object v3, Lcom/sec/dtl/launcher/Talk;->INSTANCE:Lcom/sec/dtl/launcher/Talk;
 
-    const v4, 0x7f0900d7
+    const v4, 0x7f0900d8
 
     invoke-virtual {v3, v4, v0}, Lcom/sec/dtl/launcher/Talk;->say(ILjava/lang/String;)V
 

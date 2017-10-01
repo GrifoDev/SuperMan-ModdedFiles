@@ -341,7 +341,7 @@
 
     iput v6, p0, Lcom/android/launcher2/AppWidgetResizeFrame;->mBottomMaxDeltaOffset:I
 
-    const v6, 0x7f0900df
+    const v6, 0x7f0900e0
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

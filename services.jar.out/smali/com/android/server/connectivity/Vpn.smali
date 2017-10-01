@@ -5108,6 +5108,8 @@
 
     move-result-object v2
 
+    if-eqz v2, :cond_2
+
     invoke-virtual {v2}, Landroid/content/pm/UserInfo;->isRestricted()Z
 
     move-result v3
@@ -5222,6 +5224,8 @@
     invoke-virtual {v2, p1}, Landroid/os/UserManager;->getUserInfo(I)Landroid/content/pm/UserInfo;
 
     move-result-object v1
+
+    if-eqz v1, :cond_2
 
     invoke-virtual {v1}, Landroid/content/pm/UserInfo;->isRestricted()Z
 

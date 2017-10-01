@@ -39,13 +39,13 @@
 
     iget-object v2, p0, Lcom/android/server/bridge/operations/DbObserver$1;->this$0:Lcom/android/server/bridge/operations/DbObserver;
 
-    invoke-static {v2}, Lcom/android/server/bridge/operations/DbObserver;->-wrap1(Lcom/android/server/bridge/operations/DbObserver;)Ljava/util/ArrayList;
+    invoke-static {v2}, Lcom/android/server/bridge/operations/DbObserver;->-wrap4(Lcom/android/server/bridge/operations/DbObserver;)Ljava/util/ArrayList;
 
     move-result-object v0
 
     iget-object v2, p0, Lcom/android/server/bridge/operations/DbObserver$1;->this$0:Lcom/android/server/bridge/operations/DbObserver;
 
-    invoke-static {v2}, Lcom/android/server/bridge/operations/DbObserver;->-wrap0(Lcom/android/server/bridge/operations/DbObserver;)I
+    invoke-static {v2}, Lcom/android/server/bridge/operations/DbObserver;->-wrap1(Lcom/android/server/bridge/operations/DbObserver;)I
 
     move-result v1
 
@@ -59,7 +59,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "mContactRunnable , no_of_contact_last_synced :"
+    const-string/jumbo v4, "mContactRunnable , mNo_of_contact_last_synced :"
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -67,7 +67,7 @@
 
     iget-object v4, p0, Lcom/android/server/bridge/operations/DbObserver$1;->this$0:Lcom/android/server/bridge/operations/DbObserver;
 
-    invoke-static {v4}, Lcom/android/server/bridge/operations/DbObserver;->-get6(Lcom/android/server/bridge/operations/DbObserver;)I
+    invoke-static {v4}, Lcom/android/server/bridge/operations/DbObserver;->-get4(Lcom/android/server/bridge/operations/DbObserver;)I
 
     move-result v4
 
@@ -112,7 +112,7 @@
 
     iget-object v2, p0, Lcom/android/server/bridge/operations/DbObserver$1;->this$0:Lcom/android/server/bridge/operations/DbObserver;
 
-    invoke-static {v2}, Lcom/android/server/bridge/operations/DbObserver;->-get4(Lcom/android/server/bridge/operations/DbObserver;)Lcom/samsung/android/knox/SemRemoteContentManager;
+    invoke-static {v2}, Lcom/android/server/bridge/operations/DbObserver;->-get7(Lcom/android/server/bridge/operations/DbObserver;)Lcom/samsung/android/knox/SemRemoteContentManager;
 
     move-result-object v2
 
@@ -120,7 +120,7 @@
 
     iget-object v4, p0, Lcom/android/server/bridge/operations/DbObserver$1;->this$0:Lcom/android/server/bridge/operations/DbObserver;
 
-    invoke-static {v4}, Lcom/android/server/bridge/operations/DbObserver;->-get5(Lcom/android/server/bridge/operations/DbObserver;)I
+    invoke-static {v4}, Lcom/android/server/bridge/operations/DbObserver;->-get8(Lcom/android/server/bridge/operations/DbObserver;)I
 
     move-result v4
 
@@ -132,7 +132,7 @@
 
     move-result-wide v4
 
-    invoke-static {v2, v4, v5}, Lcom/android/server/bridge/operations/DbObserver;->-set0(Lcom/android/server/bridge/operations/DbObserver;J)J
+    invoke-static {v2, v4, v5}, Lcom/android/server/bridge/operations/DbObserver;->-set1(Lcom/android/server/bridge/operations/DbObserver;J)J
 
     iget-object v2, p0, Lcom/android/server/bridge/operations/DbObserver$1;->this$0:Lcom/android/server/bridge/operations/DbObserver;
 
@@ -144,7 +144,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "mContactRunnable , contact_last_synced_timeStamp :"
+    const-string/jumbo v4, "mContactRunnable , mContact_last_synced_timeStamp :"
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -152,7 +152,7 @@
 
     iget-object v4, p0, Lcom/android/server/bridge/operations/DbObserver$1;->this$0:Lcom/android/server/bridge/operations/DbObserver;
 
-    invoke-static {v4}, Lcom/android/server/bridge/operations/DbObserver;->-get1(Lcom/android/server/bridge/operations/DbObserver;)J
+    invoke-static {v4}, Lcom/android/server/bridge/operations/DbObserver;->-get2(Lcom/android/server/bridge/operations/DbObserver;)J
 
     move-result-wide v4
 
@@ -168,7 +168,7 @@
 
     iget-object v2, p0, Lcom/android/server/bridge/operations/DbObserver$1;->this$0:Lcom/android/server/bridge/operations/DbObserver;
 
-    invoke-static {v2, v1}, Lcom/android/server/bridge/operations/DbObserver;->-set1(Lcom/android/server/bridge/operations/DbObserver;I)I
+    invoke-static {v2, v1}, Lcom/android/server/bridge/operations/DbObserver;->-set2(Lcom/android/server/bridge/operations/DbObserver;I)I
 
     :cond_0
     return-void
@@ -176,7 +176,7 @@
     :cond_1
     iget-object v2, p0, Lcom/android/server/bridge/operations/DbObserver$1;->this$0:Lcom/android/server/bridge/operations/DbObserver;
 
-    invoke-static {v2}, Lcom/android/server/bridge/operations/DbObserver;->-get6(Lcom/android/server/bridge/operations/DbObserver;)I
+    invoke-static {v2}, Lcom/android/server/bridge/operations/DbObserver;->-get4(Lcom/android/server/bridge/operations/DbObserver;)I
 
     move-result v2
 

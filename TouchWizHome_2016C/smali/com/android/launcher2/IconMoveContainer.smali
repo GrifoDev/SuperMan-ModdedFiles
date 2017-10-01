@@ -745,7 +745,7 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_3
+    if-ne v0, v1, :cond_2
 
     const/4 v0, 0x0
 
@@ -777,7 +777,7 @@
 
     cmp-long v0, v0, v2
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_3
 
     iget-object v0, p0, Lcom/android/launcher2/IconMoveContainer;->mHomeView:Lcom/android/launcher2/HomeView;
 
@@ -819,27 +819,6 @@
 
     :cond_0
     :goto_0
-    iget-wide v0, p1, Lcom/android/launcher2/HomeFolderItem;->container:J
-
-    const-wide/16 v2, -0x65
-
-    cmp-long v0, v0, v2
-
-    if-nez v0, :cond_1
-
-    const-wide/16 v0, -0x64
-
-    iput-wide v0, p1, Lcom/android/launcher2/HomeFolderItem;->container:J
-
-    iget-object v0, p0, Lcom/android/launcher2/IconMoveContainer;->mWorkspace:Lcom/android/launcher2/Workspace;
-
-    invoke-virtual {v0}, Lcom/android/launcher2/Workspace;->getCurrentPage()I
-
-    move-result v0
-
-    iput v0, p1, Lcom/android/launcher2/HomeFolderItem;->mScreen:I
-
-    :cond_1
     const-string v0, "IconMoveContainer"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -958,7 +937,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     iget-wide v0, v10, Lcom/android/launcher2/HomeItem;->container:J
 
@@ -966,7 +945,7 @@
 
     cmp-long v0, v0, v2
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1
 
     iget-object v0, p0, Lcom/android/launcher2/IconMoveContainer;->mHomeView:Lcom/android/launcher2/HomeView;
 
@@ -986,22 +965,22 @@
 
     invoke-virtual {v7, v0}, Lcom/android/launcher2/CellLayoutHotseat;->reapplyIconViewStyles(Z)V
 
-    :cond_2
+    :cond_1
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/android/launcher2/IconMoveContainer;->mLastDisolveFolderTime:J
 
-    :cond_3
+    :cond_2
     return-void
 
-    :cond_4
+    :cond_3
     invoke-static {}, Lcom/android/launcher2/ZeroPageUtils;->isZeropageEnable()Z
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_4
 
     const/4 v9, 0x1
 
@@ -1026,7 +1005,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_5
 
     const/4 v0, 0x1
 
@@ -1044,12 +1023,12 @@
 
     goto/16 :goto_0
 
-    :cond_5
+    :cond_4
     const/4 v9, 0x0
 
     goto :goto_1
 
-    :cond_6
+    :cond_5
     add-int/lit8 v9, v9, 0x1
 
     goto :goto_1
@@ -4284,6 +4263,12 @@
 
     move-object/from16 v23, v0
 
+    const/16 v37, 0x0
+
+    const/4 v6, 0x0
+
+    const/4 v7, 0x0
+
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/launcher2/IconMoveContainer;->mContext:Landroid/content/Context;
@@ -4291,6 +4276,8 @@
     move-object/from16 v0, v23
 
     invoke-static {v4, v0}, Lcom/android/launcher2/Utilities;->loadCurentGridSize(Landroid/content/Context;[I)V
+
+    if-eqz v30, :cond_c
 
     move-object/from16 v0, v30
 
@@ -4940,6 +4927,8 @@
 
     :cond_20
     invoke-virtual/range {v16 .. v16}, Lcom/android/launcher2/CellLayoutHotseat;->removeEmptySpace()V
+
+    invoke-virtual/range {v16 .. v16}, Lcom/android/launcher2/CellLayoutHotseat;->cancelAllFolderAnimations()V
 
     :cond_21
     move-object/from16 v0, p0

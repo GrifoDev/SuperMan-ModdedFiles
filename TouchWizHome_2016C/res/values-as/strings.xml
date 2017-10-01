@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">ডাউনলোড হোৱা এপ্লিকেচন নাই</string>
     <string name="no_room_any_page">কোনো পৃষ্ঠাত কোনো স্থান নাই৷</string>
     <string name="no_space_page">পৃষ্ঠাত কোনো স্থান নাই। এটা বেলেগ পৃষ্ঠাত চৰ্টকাট যোগ কৰিবলৈ চেষ্টা কৰক।</string>
+    <string name="no_space_page_for_widget">এই পৃষ্ঠাত কোনো স্থান নাই।</string>
     <string name="not_selected">চয়নিত নাই</string>
     <string name="ok">ঠিক</string>
     <string name="only_one_widget_instance_allowed">%s টা ৱিজেট ইতিমধ্যে গৃহ স্ক্ৰীণত যোগ হৈছে।</string>
@@ -176,7 +177,7 @@
     <string name="read_home_screen_settings">গৃহ স্ক্ৰীণ ছেটিংছ পঢ়ক</string>
     <string name="read_home_screen_settings_info">এই এপে আপোনাৰ গৃহ স্ক্ৰীণ ছেটিংছ আৰু চৰ্টকাট পঢ়িব কৰিব পাৰে।</string>
     <string name="rearrange_menu_icons_not_allowed">আইকনবোৰ বৰ্ণানুক্ৰমত পুনৰ-সজ্জিত কৰিবলৈ অক্ষম৷</string>
-    <string name="removable_preloadapp_uninstall_message">"%s বিলোপ কৰা হ'ব৷ ইয়াক পুনৰ ডাউনলোড কৰিবলৈ, এপ সূচীলৈ যাওক, অধিক বিকল্পসমূহ বুটাম টিপক, তাৰপিছত GALAXY Essentials চয়ন কৰক৷"</string>
+    <string name="removable_preloadapp_uninstall_message">"%s বিলোপ হ'ব। ইয়াক পুনঃ ডাউনলোড কৰিবলৈ, এপ সূচীলৈ যাওক, অধিক বিকল্প বুটামটো টিপক, তাৰপিছত Galaxy Essentials চয়ন কৰক।"</string>
     <string name="remove_app_folder_cancel">বাতিল</string>
     <string name="remove_app_folder_confirm">বিলোপ কৰক</string>
     <string name="remove_app_folder_confirm_VZW">আঁতৰাওক</string>

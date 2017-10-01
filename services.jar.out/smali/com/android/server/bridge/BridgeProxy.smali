@@ -203,15 +203,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get10(Lcom/android/server/bridge/BridgeProxy;)Landroid/os/Handler;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/bridge/BridgeProxy;->mHandlerDoSync:Landroid/os/Handler;
-
-    return-object v0
-.end method
-
-.method static synthetic -get11(Lcom/android/server/bridge/BridgeProxy;)Lcom/android/server/bridge/BridgeProxy$IBridgeBinder;
+.method static synthetic -get10(Lcom/android/server/bridge/BridgeProxy;)Lcom/android/server/bridge/BridgeProxy$IBridgeBinder;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/bridge/BridgeProxy;->mIBridgeBinder:Lcom/android/server/bridge/BridgeProxy$IBridgeBinder;
@@ -219,7 +211,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get12(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/IProviderCallBack;
+.method static synthetic -get11(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/IProviderCallBack;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/bridge/BridgeProxy;->mIBridgeProvider:Landroid/content/IProviderCallBack;
@@ -227,7 +219,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get13(Lcom/android/server/bridge/BridgeProxy;)Landroid/os/Messenger;
+.method static synthetic -get12(Lcom/android/server/bridge/BridgeProxy;)Landroid/os/Messenger;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/bridge/BridgeProxy;->mMessenger:Landroid/os/Messenger;
@@ -235,7 +227,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get14(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
+.method static synthetic -get13(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/bridge/BridgeProxy;->mPm:Lcom/samsung/android/knox/SemPersonaManager;
@@ -243,7 +235,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get15(Lcom/android/server/bridge/BridgeProxy;)Ljava/util/HashMap;
+.method static synthetic -get14(Lcom/android/server/bridge/BridgeProxy;)Ljava/util/HashMap;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/bridge/BridgeProxy;->mProviderServiceName:Ljava/util/HashMap;
@@ -251,7 +243,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get16(Lcom/android/server/bridge/BridgeProxy;)Lcom/android/server/bridge/operations/SimplePersonaInfos;
+.method static synthetic -get15(Lcom/android/server/bridge/BridgeProxy;)Lcom/android/server/bridge/operations/SimplePersonaInfos;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/bridge/BridgeProxy;->mSimplePersonaInfos:Lcom/android/server/bridge/operations/SimplePersonaInfos;
@@ -259,7 +251,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get17(Lcom/android/server/bridge/BridgeProxy;)Ljava/util/HashMap;
+.method static synthetic -get16(Lcom/android/server/bridge/BridgeProxy;)Ljava/util/HashMap;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/bridge/BridgeProxy;->mSyncerServiceName:Ljava/util/HashMap;
@@ -267,7 +259,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get18(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemRemoteContentManager;
+.method static synthetic -get17(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemRemoteContentManager;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/bridge/BridgeProxy;->mbridge:Lcom/samsung/android/knox/SemRemoteContentManager;
@@ -275,7 +267,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get19(Lcom/android/server/bridge/BridgeProxy;)Ljava/util/Set;
+.method static synthetic -get18(Lcom/android/server/bridge/BridgeProxy;)Ljava/util/Set;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/bridge/BridgeProxy;->preInstalledAppsMinusEmail:Ljava/util/Set;
@@ -283,15 +275,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get2(Lcom/android/server/bridge/BridgeProxy;)Lcom/android/server/bridge/operations/DbObserver;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/bridge/BridgeProxy;->dbObserver:Lcom/android/server/bridge/operations/DbObserver;
-
-    return-object v0
-.end method
-
-.method static synthetic -get20(Lcom/android/server/bridge/BridgeProxy;)Lcom/android/server/bridge/operations/ProcessBadgeData;
+.method static synthetic -get19(Lcom/android/server/bridge/BridgeProxy;)Lcom/android/server/bridge/operations/ProcessBadgeData;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/bridge/BridgeProxy;->processBadgeData:Lcom/android/server/bridge/operations/ProcessBadgeData;
@@ -299,23 +283,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get21(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/CustomCursor;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/bridge/BridgeProxy;->result:Landroid/content/CustomCursor;
-
-    return-object v0
-.end method
-
-.method static synthetic -get22(Lcom/android/server/bridge/BridgeProxy;)Ljava/lang/Object;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/bridge/BridgeProxy;->resultLock:Ljava/lang/Object;
-
-    return-object v0
-.end method
-
-.method static synthetic -get3(Lcom/android/server/bridge/BridgeProxy;)Ljava/lang/String;
+.method static synthetic -get2(Lcom/android/server/bridge/BridgeProxy;)Ljava/lang/String;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/bridge/BridgeProxy;->mBridgePackage:Ljava/lang/String;
@@ -323,7 +291,23 @@
     return-object v0
 .end method
 
-.method static synthetic -get4(Lcom/android/server/bridge/BridgeProxy;)Ljava/util/HashMap;
+.method static synthetic -get20(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/CustomCursor;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/bridge/BridgeProxy;->result:Landroid/content/CustomCursor;
+
+    return-object v0
+.end method
+
+.method static synthetic -get21(Lcom/android/server/bridge/BridgeProxy;)Ljava/lang/Object;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/bridge/BridgeProxy;->resultLock:Ljava/lang/Object;
+
+    return-object v0
+.end method
+
+.method static synthetic -get3(Lcom/android/server/bridge/BridgeProxy;)Ljava/util/HashMap;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/bridge/BridgeProxy;->mBridgeProviderList:Ljava/util/HashMap;
@@ -331,7 +315,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get5(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/CustomCursor;
+.method static synthetic -get4(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/CustomCursor;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/bridge/BridgeProxy;->mCallerInfoResult:Landroid/content/CustomCursor;
@@ -339,7 +323,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get6(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/Context;
+.method static synthetic -get5(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/Context;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/bridge/BridgeProxy;->mContext:Landroid/content/Context;
@@ -347,7 +331,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get7(Lcom/android/server/bridge/BridgeProxy;)Ljava/lang/String;
+.method static synthetic -get6(Lcom/android/server/bridge/BridgeProxy;)Ljava/lang/String;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/bridge/BridgeProxy;->mCurrentInvalidKnoxName:Ljava/lang/String;
@@ -355,7 +339,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get8(Lcom/android/server/bridge/BridgeProxy;)Landroid/os/UserHandle;
+.method static synthetic -get7(Lcom/android/server/bridge/BridgeProxy;)Landroid/os/UserHandle;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/bridge/BridgeProxy;->mDelegateUserHandle:Landroid/os/UserHandle;
@@ -363,12 +347,20 @@
     return-object v0
 .end method
 
-.method static synthetic -get9(Lcom/android/server/bridge/BridgeProxy;)I
+.method static synthetic -get8(Lcom/android/server/bridge/BridgeProxy;)I
     .locals 1
 
     iget v0, p0, Lcom/android/server/bridge/BridgeProxy;->mDelegateUserId:I
 
     return v0
+.end method
+
+.method static synthetic -get9(Lcom/android/server/bridge/BridgeProxy;)Landroid/os/Handler;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/bridge/BridgeProxy;->mHandlerDoSync:Landroid/os/Handler;
+
+    return-object v0
 .end method
 
 .method static synthetic -set0(Lcom/android/server/bridge/BridgeProxy;Z)Z
@@ -1790,7 +1782,7 @@
 
     const/4 v14, 0x0
 
-    invoke-virtual {v13, v12, v14}, Lcom/samsung/android/knox/SemRemoteContentManager;->unRegisterObserver(Ljava/lang/String;I)V
+    invoke-virtual {v13, v12, v14}, Lcom/samsung/android/knox/SemRemoteContentManager;->unRegisterDbObserver(Ljava/lang/String;I)V
 
     :cond_a
     :goto_3
@@ -1809,7 +1801,7 @@
 
     const/4 v14, 0x0
 
-    invoke-virtual {v13, v12, v14}, Lcom/samsung/android/knox/SemRemoteContentManager;->registerObserver(Ljava/lang/String;I)V
+    invoke-virtual {v13, v12, v14}, Lcom/samsung/android/knox/SemRemoteContentManager;->registerDbObserver(Ljava/lang/String;I)V
 
     goto :goto_3
 
@@ -1826,9 +1818,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/server/bridge/BridgeProxy;->dbObserver:Lcom/android/server/bridge/operations/DbObserver;
-
-    invoke-virtual {v13, v12}, Lcom/android/server/bridge/operations/DbObserver;->unRegisterObserver(Ljava/lang/String;)V
+    invoke-virtual {v0, v12}, Lcom/android/server/bridge/BridgeProxy;->unRegisterDbObserver(Ljava/lang/String;)V
 
     :goto_4
     move-object/from16 v0, p0
@@ -1846,9 +1836,7 @@
     :cond_d
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/server/bridge/BridgeProxy;->dbObserver:Lcom/android/server/bridge/operations/DbObserver;
-
-    invoke-virtual {v13, v12}, Lcom/android/server/bridge/operations/DbObserver;->registerObserver(Ljava/lang/String;)V
+    invoke-virtual {v0, v12}, Lcom/android/server/bridge/BridgeProxy;->registerDbObserver(Ljava/lang/String;)V
 
     goto :goto_4
 .end method
@@ -3344,16 +3332,6 @@
     move-result-object v2
 
     iput-object v2, p0, Lcom/android/server/bridge/BridgeProxy;->processBadgeData:Lcom/android/server/bridge/operations/ProcessBadgeData;
-
-    new-instance v2, Lcom/android/server/bridge/operations/DbObserver;
-
-    iget-object v3, p0, Lcom/android/server/bridge/BridgeProxy;->mBridgeContext:Landroid/content/Context;
-
-    iget v4, p0, Lcom/android/server/bridge/BridgeProxy;->mDelegateUserId:I
-
-    invoke-direct {v2, v3, v4}, Lcom/android/server/bridge/operations/DbObserver;-><init>(Landroid/content/Context;I)V
-
-    iput-object v2, p0, Lcom/android/server/bridge/BridgeProxy;->dbObserver:Lcom/android/server/bridge/operations/DbObserver;
 
     :try_start_0
     iget-object v2, p0, Lcom/android/server/bridge/BridgeProxy;->processBadgeData:Lcom/android/server/bridge/operations/ProcessBadgeData;
@@ -5145,7 +5123,7 @@
 
     move/from16 v2, v21
 
-    invoke-virtual {v0, v1, v2}, Lcom/samsung/android/knox/SemRemoteContentManager;->unRegisterObserver(Ljava/lang/String;I)V
+    invoke-virtual {v0, v1, v2}, Lcom/samsung/android/knox/SemRemoteContentManager;->unRegisterDbObserver(Ljava/lang/String;I)V
 
     :cond_4
     :goto_1
@@ -5294,7 +5272,7 @@
 
     move/from16 v2, v21
 
-    invoke-virtual {v0, v1, v2}, Lcom/samsung/android/knox/SemRemoteContentManager;->registerObserver(Ljava/lang/String;I)V
+    invoke-virtual {v0, v1, v2}, Lcom/samsung/android/knox/SemRemoteContentManager;->registerDbObserver(Ljava/lang/String;I)V
 
     goto/16 :goto_1
 
@@ -5404,17 +5382,7 @@
 
     if-eqz v20, :cond_a
 
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/bridge/BridgeProxy;->dbObserver:Lcom/android/server/bridge/operations/DbObserver;
-
-    move-object/from16 v20, v0
-
-    move-object/from16 v0, v20
-
-    move-object/from16 v1, p1
-
-    invoke-virtual {v0, v1}, Lcom/android/server/bridge/operations/DbObserver;->unRegisterObserver(Ljava/lang/String;)V
+    invoke-virtual/range {p0 .. p1}, Lcom/android/server/bridge/BridgeProxy;->unRegisterDbObserver(Ljava/lang/String;)V
 
     :goto_3
     move-object/from16 v0, p0
@@ -5434,35 +5402,35 @@
     goto :goto_2
 
     :cond_a
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/bridge/BridgeProxy;->dbObserver:Lcom/android/server/bridge/operations/DbObserver;
-
-    move-object/from16 v20, v0
-
-    move-object/from16 v0, v20
-
-    move-object/from16 v1, p1
-
-    invoke-virtual {v0, v1}, Lcom/android/server/bridge/operations/DbObserver;->registerObserver(Ljava/lang/String;)V
+    invoke-virtual/range {p0 .. p1}, Lcom/android/server/bridge/BridgeProxy;->registerDbObserver(Ljava/lang/String;)V
 
     goto :goto_3
 .end method
 
 
 # virtual methods
-.method public registerObserver(Ljava/lang/String;)V
-    .locals 1
+.method public registerDbObserver(Ljava/lang/String;)V
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/bridge/BridgeProxy;->dbObserver:Lcom/android/server/bridge/operations/DbObserver;
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_0
 
+    new-instance v0, Lcom/android/server/bridge/operations/DbObserver;
+
+    iget-object v1, p0, Lcom/android/server/bridge/BridgeProxy;->mBridgeContext:Landroid/content/Context;
+
+    iget v2, p0, Lcom/android/server/bridge/BridgeProxy;->mDelegateUserId:I
+
+    invoke-direct {v0, v1, v2}, Lcom/android/server/bridge/operations/DbObserver;-><init>(Landroid/content/Context;I)V
+
+    iput-object v0, p0, Lcom/android/server/bridge/BridgeProxy;->dbObserver:Lcom/android/server/bridge/operations/DbObserver;
+
+    :cond_0
     iget-object v0, p0, Lcom/android/server/bridge/BridgeProxy;->dbObserver:Lcom/android/server/bridge/operations/DbObserver;
 
     invoke-virtual {v0, p1}, Lcom/android/server/bridge/operations/DbObserver;->registerObserver(Ljava/lang/String;)V
 
-    :cond_0
     return-void
 .end method
 
@@ -6300,15 +6268,8 @@
 
     :cond_2
     :goto_0
-    iget-object v1, p0, Lcom/android/server/bridge/BridgeProxy;->dbObserver:Lcom/android/server/bridge/operations/DbObserver;
+    invoke-virtual {p0, v3}, Lcom/android/server/bridge/BridgeProxy;->unRegisterDbObserver(Ljava/lang/String;)V
 
-    if-eqz v1, :cond_3
-
-    iget-object v1, p0, Lcom/android/server/bridge/BridgeProxy;->dbObserver:Lcom/android/server/bridge/operations/DbObserver;
-
-    invoke-virtual {v1, v3}, Lcom/android/server/bridge/operations/DbObserver;->unRegisterObserver(Ljava/lang/String;)V
-
-    :cond_3
     iget-object v1, p0, Lcom/android/server/bridge/BridgeProxy;->processBadgeData:Lcom/android/server/bridge/operations/ProcessBadgeData;
 
     invoke-virtual {v1}, Lcom/android/server/bridge/operations/ProcessBadgeData;->unRegisterBadgeObserver()V
@@ -6323,7 +6284,7 @@
     goto :goto_0
 .end method
 
-.method public unRegisterObserver(Ljava/lang/String;)V
+.method public unRegisterDbObserver(Ljava/lang/String;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/bridge/BridgeProxy;->dbObserver:Lcom/android/server/bridge/operations/DbObserver;

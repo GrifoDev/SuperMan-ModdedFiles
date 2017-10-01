@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">কোনও ডাউনলোড করা অ্যাপ্লিকেশন নেই</string>
     <string name="no_room_any_page">কোনও পৃষ্ঠায় কোনও কক্ষ নেই।</string>
     <string name="no_space_page">পৃষ্ঠাতে কোনও স্থান নেই। কোনও ভিন্ন পৃষ্ঠাতে শর্টকাট যোগ করার চেষ্টা করুন।</string>
+    <string name="no_space_page_for_widget">এই পৃষ্ঠায় কোনও স্থান নেই।</string>
     <string name="not_selected">নির্বাচিত নয়</string>
     <string name="ok">ওকে</string>
     <string name="only_one_widget_instance_allowed">হোম স্ক্রিনে ইতিমধ্যে %s উইজেট যুক্ত হয়েছে।</string>
@@ -176,7 +177,7 @@
     <string name="read_home_screen_settings">হোম স্ক্রিন সেটিংস পড়ুন</string>
     <string name="read_home_screen_settings_info">এই অ্যাপটি আপনার হোম স্ক্রিনের সেটিংস এবং শর্টকাটগুলি পড়তে পারে।</string>
     <string name="rearrange_menu_icons_not_allowed">আইনকনগুলিকে বর্ণানুক্রমিক ক্রমে সজ্জিত করতে অক্ষম।</string>
-    <string name="removable_preloadapp_uninstall_message">%s মোছা হবে। এটিকে আবার ডাউনলোড করতে অ্যাপ তালিকাতে যান, আরও বিকল্প বোতামটি ট্যাপ করুন তারপরে গ্যালাক্সি আবশ্যক নির্বাচন করুন।</string>
+    <string name="removable_preloadapp_uninstall_message">%s মোছা হবে। এটিকে আবার ডাউনলোড করতে অ্যাপ তালিকাতে যান, আরও বিকল্প বোতামটি ট্যাপ করুন তারপর Galaxy Essentials নির্বাচন করুন।</string>
     <string name="remove_app_folder_cancel">বাতিল</string>
     <string name="remove_app_folder_confirm">মুছুন</string>
     <string name="remove_app_folder_confirm_VZW">অপসারণ করুন</string>

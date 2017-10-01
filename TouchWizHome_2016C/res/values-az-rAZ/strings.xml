@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">Yüklənmiş proqram yoxdur</string>
     <string name="no_room_any_page">Hər hansı səhifədə heç bir otaq yoxdur.</string>
     <string name="no_space_page">Səhifədə yer yoxdur. Fərqli səhifəyə qısayol əlavə etməyə çalışın.</string>
+    <string name="no_space_page_for_widget">Bu səhifədə yer yoxdur.</string>
     <string name="not_selected">Seçilməyib</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">%s piktoqram artıq əsas ekrana əlavə edildi.</string>
@@ -176,7 +177,7 @@
     <string name="read_home_screen_settings">Əsas ekran parametr oxu</string>
     <string name="read_home_screen_settings_info">Bu proqram əsas ekran parametrləri və qısayollarını oxuya bilər.</string>
     <string name="rearrange_menu_icons_not_allowed">Nişanları əlifba sırası ilə sıralamaq mümkün olmadı.</string>
-    <string name="removable_preloadapp_uninstall_message">%s silinəcək. Onu yenidən yükləmək üçün proqram siyahısına keçin, daha çox xassə düyməsini vurun, sonra GALAXY-nin Mühüm Funksiyalarını seçin.</string>
+    <string name="removable_preloadapp_uninstall_message">%s silinəcək. Onu yenidən yükləmək üçün proqram siyahısına keçin, daha çox xassə düyməsini vurun, sonra Gaıaxy Essentials seçin.</string>
     <string name="remove_app_folder_cancel">Ləğv et</string>
     <string name="remove_app_folder_confirm">Sil</string>
     <string name="remove_app_folder_confirm_VZW">Sil</string>

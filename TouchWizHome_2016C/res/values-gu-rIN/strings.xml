@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">કોઈ ડાઉનલોડ કરેલી એપ્લિકેશનો નથી</string>
     <string name="no_room_any_page">કોઈપણ પૃષ્ઠ પર કોઈ રૂમ નથી.</string>
     <string name="no_space_page">પૃષ્ઠ પર કોઈ જગ્યા નથી. કોઈ અલગ પૃષ્ઠ પર શોર્ટકટ ઉમેરવાનો પ્રયાસ કરો.</string>
+    <string name="no_space_page_for_widget">આ પૃષ્ઠ પર કોઈ જગ્યા નથી.</string>
     <string name="not_selected">પસંદ કરેલ નથી</string>
     <string name="ok">ઓકે</string>
     <string name="only_one_widget_instance_allowed">%s વિજેટ અગાઉથી હોમ સ્ક્રીન પર છે.</string>
@@ -176,7 +177,7 @@
     <string name="read_home_screen_settings">હોમ સ્ક્રીન સેટિંગ્સ વાંચો</string>
     <string name="read_home_screen_settings_info">આ એપ તમારી હોમ સ્ક્રીન સેટિંગ્સ અને શોર્ટકટ્સ વાંચી શકે છે.</string>
     <string name="rearrange_menu_icons_not_allowed">ચિહ્નોને વર્ણાનુક્રમમાં ગોઠવવામાં અસમર્થ.</string>
-    <string name="removable_preloadapp_uninstall_message">%s ફાઈલોને હટાવવામાં આવશે. તેને ફરી ડાઉનલોડ કરવા માટે, એપની યાદી પર જાઓ, વધુ વિકલ્પ બટનને ટેપ કરો, ત્યારબાદ ગેલેક્સી એસેન્શિયલ્સ પસંદ કરો.</string>
+    <string name="removable_preloadapp_uninstall_message">%s ને હટાવવામાં આવશે. તેને ફરી ડાઉનલોડ કરવા માટે, એપની યાદી પર જાઓ, વધુ વિકલ્પો બટનને ટેપ કરો, ત્યારબાદ ગેલેક્સી એસેન્શીયલ્સ પસંદ કરો.</string>
     <string name="remove_app_folder_cancel">રદ કરો</string>
     <string name="remove_app_folder_confirm">હટાવો</string>
     <string name="remove_app_folder_confirm_VZW">દૂર કરો</string>

@@ -144,7 +144,7 @@
 
     invoke-static {v2, v3}, Lcom/samsung/android/util/SemLog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v5}, Lcom/android/server/InputMethodManagerService;->-set6(I)I
+    invoke-static {v5}, Lcom/android/server/InputMethodManagerService;->-set7(I)I
 
     :cond_0
     invoke-static {}, Lcom/android/server/InputMethodManagerService;->-get19()I
@@ -153,7 +153,7 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    invoke-static {v2}, Lcom/android/server/InputMethodManagerService;->-set6(I)I
+    invoke-static {v2}, Lcom/android/server/InputMethodManagerService;->-set7(I)I
 
     const-string/jumbo v2, "InputMethodManagerService"
 
@@ -349,7 +349,7 @@
 
     invoke-static {v2, v3}, Lcom/samsung/android/util/SemLog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v6}, Lcom/android/server/InputMethodManagerService;->-set6(I)I
+    invoke-static {v6}, Lcom/android/server/InputMethodManagerService;->-set7(I)I
 
     :cond_5
     const-string/jumbo v2, "InputMethodManagerService"
@@ -384,7 +384,7 @@
 
     add-int/lit8 v2, v2, -0x1
 
-    invoke-static {v2}, Lcom/android/server/InputMethodManagerService;->-set6(I)I
+    invoke-static {v2}, Lcom/android/server/InputMethodManagerService;->-set7(I)I
 
     move-result v2
 
@@ -421,7 +421,7 @@
 
     invoke-virtual {v2}, Lcom/android/server/InputMethodManagerService;->hideKeyboardDialog()V
 
-    invoke-static {v5}, Lcom/android/server/InputMethodManagerService;->-set7(I)I
+    invoke-static {v5}, Lcom/android/server/InputMethodManagerService;->-set8(I)I
 
     goto/16 :goto_1
 .end method

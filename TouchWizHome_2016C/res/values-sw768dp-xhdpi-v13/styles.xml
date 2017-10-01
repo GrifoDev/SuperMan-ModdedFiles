@@ -74,7 +74,7 @@
         <item name="android:paddingTop">@dimen/hotseat_icon_paddingTop</item>
         <item name="android:paddingRight">0.0dip</item>
         <item name="android:paddingBottom">0.0dip</item>
-        <item name="android:lines">1</item>
+        <item name="android:lines">2</item>
         <item name="android:shadowDy">2.0</item>
         <item name="android:shadowRadius">1.0</item>
         <item name="android:drawablePadding">@dimen/hotseat_icon_drawablepadding</item>

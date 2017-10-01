@@ -21,7 +21,7 @@
     <string name="SS_SORT_ALPHABETICALLY_HEADER_ABB">Sortiraj po abecedi</string>
     <string name="SS_THE_APP_LIST_WILL_BE_REARRANGED_IN_ALPHABETICAL_ORDER_ANY_CUSTOMISATIONS_YOU_HAVE_MADE_WILL_BE_DISCARDED">Spisak aplikacija će biti preuređena prema abecednom redoslijedu. Sva unesena prilagođavanja će biti odbačena.</string>
     <string name="Tap_on_widgets_tab">Izaberite karticu sa vidžetima.</string>
-    <string name="Wallpaper_chooser_wallpapers">Tapete</string>
+    <string name="Wallpaper_chooser_wallpapers">Pozadine</string>
     <string name="Zeropage_permission_content">Nije moguće ispravno koristiti %s. Dodirnite POSTAVKE, idite na Informacije o aplikaciji > Dozvole, a zatim omogućite sljedeće dozvole i pokušajte ponovno. Ako ne omogućite ove dozvole, interakcija dodirom možda se neće moći ispravno predstaviti na ekranu.</string>
     <string name="Zeropage_permission_setting">Postavke</string>
     <string name="Zeropage_permission_skip">Presk.</string>
@@ -133,6 +133,7 @@
     <string name="no_downloaded_apps">Nema preuzetih aplikacija</string>
     <string name="no_room_any_page">Više nema mjesta ni na jednoj stranici.</string>
     <string name="no_space_page">Nema mjesta na stranici. Dodajte prečicu na drugu stranicu.</string>
+    <string name="no_space_page_for_widget">Na ovoj stranici nema mjesta.</string>
     <string name="not_selected">Nije izabrano</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Vidžet %s je već dodan na početni ekran.</string>
@@ -140,7 +141,7 @@
     <string name="option_menu_contact_up">Kontaktirajte nas</string>
     <string name="option_tray_screengrid">Mreža ekrana</string>
     <string name="options_home_set_theme">Teme</string>
-    <string name="options_home_set_wallpapers_and_themes">Tapete i teme</string>
+    <string name="options_home_set_wallpapers_and_themes">Pozadine i teme</string>
     <string name="options_menu">Dodatne opcije</string>
     <string name="options_menu_downloaded_apps">Preuzete aplikacije</string>
     <string name="options_menu_market">Prodavnica Play</string>
@@ -169,7 +170,7 @@ Sig. Folder"</string>
     <string name="read_home_screen_settings">Čitaj post. poč. ekrana</string>
     <string name="read_home_screen_settings_info">Ova aplikacija može pročitati postavke i prečice vašeg početnog ekrana.</string>
     <string name="rearrange_menu_icons_not_allowed">Nije moguće preurediti ikone prema abecednom redoslijedu.</string>
-    <string name="removable_preloadapp_uninstall_message">Aplikacija %s će biti izbrisana. Da biste je ponovno preuzeli, idite na spisak aplikacija, dodirnite dugme za još opcija, zatim izaberite GALAXY Essentials.</string>
+    <string name="removable_preloadapp_uninstall_message">Aplikacija %s će biti izbrisana. Za ponovno preuzimanje, idite na spisak aplikacija, dodirnite dugme za još opcija, zatim izaberite Galaxy Essentials.</string>
     <string name="remove_app_folder_cancel">Otkaži</string>
     <string name="remove_app_folder_confirm">Izbriši</string>
     <string name="remove_app_folder_confirm_VZW">Ukloni</string>
@@ -200,7 +201,7 @@ Sig. Folder"</string>
     <string name="talkback_all_apps_button">Aplikacije</string>
     <string name="talkback_checked">Izabrano</string>
     <string name="talkback_double_tap_to_move">Dvaput dodirnite i zadržite za pomjeranje.</string>
-    <string name="talkback_double_tap_to_open_app_tray">Double tap to open app tray.</string>
+    <string name="talkback_double_tap_to_open_app_tray">Dvaput dodirnite za otvaranje trake s aplikacijama.</string>
     <string name="talkback_folder_created">Folder je kreiran.</string>
     <string name="talkback_folder_item_hover_handle">Stavka foldera</string>
     <string name="talkback_header">Zaglavlje</string>

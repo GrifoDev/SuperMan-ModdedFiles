@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">अनुप्रयोग डाउनलोड केलेले नाहीत.</string>
     <string name="no_room_any_page">कोणत्याही पृष्ठावर रूम नाहीत.</string>
     <string name="no_space_page">पृष्ठा वर जागा नाही. भिन्न पृष्ठा वर शॉर्टकट जोडण्याचा प्रयत्न करा.</string>
+    <string name="no_space_page_for_widget">ह्या पृष्‍ठावर कोणताही जागा नाही.</string>
     <string name="not_selected">निवडलेले नाही</string>
     <string name="ok">ठीक</string>
     <string name="only_one_widget_instance_allowed">%s विजेट आधीपासूनच मुख्‍य स्‍क्रीनवर आहे.</string>
@@ -176,7 +177,7 @@
     <string name="read_home_screen_settings">मुख्‍य स्‍क्रीन सेटिंग्स वाचा</string>
     <string name="read_home_screen_settings_info">हा अनुप्रयोग आपल्या मुख्‍य स्‍क्रीन सेटिंग्स आणि शॉर्टकट्स वाचू शकतो.</string>
     <string name="rearrange_menu_icons_not_allowed">वर्णक्रमामध्‍ये आयकॉन्‍सची पुनर्रचना करण्‍यामध्‍ये अक्षम.</string>
-    <string name="removable_preloadapp_uninstall_message">%s हटविले जातील. हे पुन्हा डाउनलोड करण्यासाठी, अनुप्रयोग यादीवर जा, अधिक पर्याय बटण टॅप करा, नंतर GALAXY Essentials निवडा.</string>
+    <string name="removable_preloadapp_uninstall_message">%s हटवला जाईल. तो पुन्हा डाउनलोड करण्या साठी, अनुप्रयोग यादी वर जा, अधिक पर्याय बटण टॅप करा, नंतर गॅलेक्सी आवश्यकता निवडा.</string>
     <string name="remove_app_folder_cancel">रद्द</string>
     <string name="remove_app_folder_confirm">हटवा</string>
     <string name="remove_app_folder_confirm_VZW">काढून टाका</string>

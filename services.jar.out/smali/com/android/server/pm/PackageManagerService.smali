@@ -31554,7 +31554,7 @@
 .method private generatePackageInfo(Lcom/android/server/pm/PackageSetting;II)Landroid/content/pm/PackageInfo;
     .locals 11
 
-    const/4 v4, 0x0
+    const/4 v6, 0x0
 
     sget-object v3, Lcom/android/server/pm/PackageManagerService;->sUserManager:Lcom/android/server/pm/UserManagerService;
 
@@ -31564,21 +31564,114 @@
 
     if-nez v3, :cond_0
 
-    return-object v4
+    return-object v6
 
     :cond_0
     if-nez p1, :cond_1
 
-    return-object v4
+    return-object v6
 
     :cond_1
     iget-object v1, p1, Lcom/android/server/pm/PackageSetting;->pkg:Landroid/content/pm/PackageParser$Package;
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_3
 
-    return-object v4
+    and-int/lit16 v3, p2, 0x2000
+
+    if-nez v3, :cond_2
+
+    const-string/jumbo v3, "PackageManager"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "Failed to generatePackageInfoFromSettingsLPw for "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget-object v5, p1, Lcom/android/server/pm/PackageSetting;->name:Ljava/lang/String;
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, ", didn\'t request for getting uninstalled packages"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-object v6
 
     :cond_2
+    new-instance v1, Landroid/content/pm/PackageParser$Package;
+
+    iget-object v3, p1, Lcom/android/server/pm/PackageSetting;->name:Ljava/lang/String;
+
+    invoke-direct {v1, v3}, Landroid/content/pm/PackageParser$Package;-><init>(Ljava/lang/String;)V
+
+    iget-object v3, v1, Landroid/content/pm/PackageParser$Package;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    iget-object v4, p1, Lcom/android/server/pm/PackageSetting;->name:Ljava/lang/String;
+
+    iput-object v4, v3, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+
+    iget-object v3, v1, Landroid/content/pm/PackageParser$Package;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    iget v4, p1, Lcom/android/server/pm/PackageSetting;->pkgFlags:I
+
+    const/high16 v5, 0x1000000
+
+    or-int/2addr v4, v5
+
+    iput v4, v3, Landroid/content/pm/ApplicationInfo;->flags:I
+
+    iget-object v3, v1, Landroid/content/pm/PackageParser$Package;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    iget v4, p1, Lcom/android/server/pm/PackageSetting;->pkgPrivateFlags:I
+
+    iput v4, v3, Landroid/content/pm/ApplicationInfo;->privateFlags:I
+
+    iget-object v3, v1, Landroid/content/pm/PackageParser$Package;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    iget-object v4, p1, Lcom/android/server/pm/PackageSetting;->volumeUuid:Ljava/lang/String;
+
+    iget-object v5, p1, Lcom/android/server/pm/PackageSetting;->name:Ljava/lang/String;
+
+    invoke-static {v4, p3, v5}, Landroid/os/Environment;->getDataUserDePackageDirectory(Ljava/lang/String;ILjava/lang/String;)Ljava/io/File;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v4
+
+    iput-object v4, v3, Landroid/content/pm/ApplicationInfo;->dataDir:Ljava/lang/String;
+
+    iget-object v3, v1, Landroid/content/pm/PackageParser$Package;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    iget-object v4, p1, Lcom/android/server/pm/PackageSetting;->primaryCpuAbiString:Ljava/lang/String;
+
+    iput-object v4, v3, Landroid/content/pm/ApplicationInfo;->primaryCpuAbi:Ljava/lang/String;
+
+    iget-object v3, v1, Landroid/content/pm/PackageParser$Package;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    iget-object v4, p1, Lcom/android/server/pm/PackageSetting;->secondaryCpuAbiString:Ljava/lang/String;
+
+    iput-object v4, v3, Landroid/content/pm/ApplicationInfo;->secondaryCpuAbi:Ljava/lang/String;
+
+    iput-object p1, v1, Landroid/content/pm/PackageParser$Package;->mExtras:Ljava/lang/Object;
+
+    :cond_3
     invoke-virtual {p1}, Lcom/android/server/pm/PackageSetting;->getPermissionsState()Lcom/android/server/pm/PermissionsState;
 
     move-result-object v0

@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">ഡൗണ്‍ലോഡ് ചെയ്ത ആപ്ലിക്കേഷനുകള്‍ ഇല്ല</string>
     <string name="no_room_any_page">ഒരു പേജിലും സ്ഥലമില്ല.</string>
     <string name="no_space_page">പേജിൽ സ്ഥലമില്ല. വേറൊരു പേജിൽ എളുപ്പവഴി ചേർക്കാൻ ശ്രമിക്കുക.</string>
+    <string name="no_space_page_for_widget">ഈ പേജിൽ സ്ഥലമില്ല.</string>
     <string name="not_selected">തിരഞ്ഞെടുത്തില്ല</string>
     <string name="ok">ശരി</string>
     <string name="only_one_widget_instance_allowed">%s വിജറ്റ് നേരത്തേതന്നെ ഹോം സ്ക്രീനിൽ ചേർത്തിട്ടുണ്ട്.</string>
@@ -176,7 +177,7 @@
     <string name="read_home_screen_settings">ഹോം സ്ക്രീൻ ക്രമീകരണങ്ങൾ വായിക്കുക</string>
     <string name="read_home_screen_settings_info">നിങ്ങളുടെ ഹോംസ്ക്രീൻ ക്രമീകരണങ്ങളെയും എളുപ്പവഴികളെയും വായിക്കാൻ ഈ ആപ്ലിക്കേഷന് സാധിക്കും.</string>
     <string name="rearrange_menu_icons_not_allowed">അക്ഷരമാലാ ക്രമത്തിൽ ഐക്കണുകളെ പുനഃക്രമീകരിക്കാനാവില്ല.</string>
-    <string name="removable_preloadapp_uninstall_message">%s ഇല്ലാതാക്കപ്പെടും. അത് വീണ്ടും ഡൗൺലോഡ് ചെയ്യുന്നതിന്, ആപ്ലിക്കേഷൻ പട്ടികയിലേക്ക് പോയി കൂടുതൽ ഐച്ഛികങ്ങൾ എന്ന ബട്ടണിൽ സ്പർശിക്കുക, തുടർന്ന് ഗാലക്സി എസൻഷ്യലുകൾ തിരഞ്ഞെടുക്കുക.</string>
+    <string name="removable_preloadapp_uninstall_message">%s ഇല്ലാതാക്കപ്പെടും. അത് വീണ്ടും ഡൗൺലോഡ് ചെയ്യുന്നതിന്, ആപ്ലിക്കേഷൻ പട്ടികയിലേക്ക് പോയി കൂടുതൽ ഐച്ഛികങ്ങൾ എന്ന ബട്ടണിൽ സ്പർശിക്കുക, തുടർന്ന് ഗാലക്സി എസൻഷ്യൽസ് തിരഞ്ഞെടുക്കുക.</string>
     <string name="remove_app_folder_cancel">റദ്ദാക്കുക</string>
     <string name="remove_app_folder_confirm">ഇല്ലാതാക്കുക</string>
     <string name="remove_app_folder_confirm_VZW">നീക്കംചെയ്യുക</string>

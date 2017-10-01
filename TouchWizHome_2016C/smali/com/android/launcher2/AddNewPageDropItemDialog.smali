@@ -249,7 +249,7 @@
 
     invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0900a0
+    const v2, 0x7f0900a1
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/AddNewPageDropItemDialog;->getString(I)Ljava/lang/String;
 

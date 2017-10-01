@@ -1060,6 +1060,18 @@
     return-void
 .end method
 
+.method deleteUsageData(J)V
+    .locals 1
+
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/usage/UserUsageStatsService;->init(J)V
+
+    iget-object v0, p0, Lcom/android/server/usage/UserUsageStatsService;->mDatabase:Lcom/android/server/usage/UsageStatsDatabase;
+
+    invoke-virtual {v0, p1, p2}, Lcom/android/server/usage/UsageStatsDatabase;->pruneAll(J)V
+
+    return-void
+.end method
+
 .method dump(Lcom/android/internal/util/IndentingPrintWriter;)V
     .locals 3
 

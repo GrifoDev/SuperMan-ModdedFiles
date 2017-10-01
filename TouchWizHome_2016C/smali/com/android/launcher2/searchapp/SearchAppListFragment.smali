@@ -2634,7 +2634,7 @@
 
     iget-object v3, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment;->mRes:Landroid/content/res/Resources;
 
-    const v4, 0x7f0900cf
+    const v4, 0x7f0900d0
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2816,7 +2816,7 @@
 
     iget-object v9, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment;->mRes:Landroid/content/res/Resources;
 
-    const v10, 0x7f0900cf
+    const v10, 0x7f0900d0
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4804,7 +4804,7 @@
 
     sget-object v17, Lcom/sec/dtl/launcher/Talk;->INSTANCE:Lcom/sec/dtl/launcher/Talk;
 
-    const v18, 0x7f0900d8
+    const v18, 0x7f0900d9
 
     invoke-virtual/range {v17 .. v18}, Lcom/sec/dtl/launcher/Talk;->say(I)V
 
@@ -5081,7 +5081,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0900c5
+    const v3, 0x7f0900c6
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

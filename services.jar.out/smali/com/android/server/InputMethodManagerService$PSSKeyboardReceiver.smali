@@ -261,7 +261,7 @@
 
     invoke-virtual {v2}, Lcom/android/server/InputMethodManagerService;->hideKeyboardDialog()V
 
-    invoke-static {v5}, Lcom/android/server/InputMethodManagerService;->-set7(I)I
+    invoke-static {v5}, Lcom/android/server/InputMethodManagerService;->-set8(I)I
 
     goto :goto_1
 .end method

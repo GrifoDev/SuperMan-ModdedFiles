@@ -2659,6 +2659,335 @@
     return-void
 .end method
 
+.method private applyManualDefaultPreferredActivityLPw(Lcom/android/server/pm/PackageManagerService;Landroid/content/Intent;ILandroid/content/ComponentName;Landroid/content/IntentFilter;I)V
+    .locals 16
+
+    move-object/from16 v0, p1
+
+    move/from16 v1, p3
+
+    move/from16 v2, p6
+
+    move-object/from16 v3, p2
+
+    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/pm/PackageManagerService;->updateFlagsForResolve(IILjava/lang/Object;)I
+
+    move-result p3
+
+    move-object/from16 v0, p1
+
+    iget-object v5, v0, Lcom/android/server/pm/PackageManagerService;->mActivities:Lcom/android/server/pm/PackageManagerService$ActivityIntentResolver;
+
+    invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getType()Ljava/lang/String;
+
+    move-result-object v8
+
+    const/4 v9, 0x0
+
+    move-object/from16 v0, p2
+
+    move/from16 v1, p3
+
+    invoke-virtual {v5, v0, v8, v1, v9}, Lcom/android/server/pm/PackageManagerService$ActivityIntentResolver;->queryIntent(Landroid/content/Intent;Ljava/lang/String;II)Ljava/util/List;
+
+    move-result-object v14
+
+    const/4 v6, 0x0
+
+    if-eqz v14, :cond_8
+
+    invoke-interface {v14}, Ljava/util/List;->size()I
+
+    move-result v5
+
+    const/4 v8, 0x1
+
+    if-le v5, v8, :cond_8
+
+    const/4 v11, 0x0
+
+    const/4 v12, 0x0
+
+    invoke-interface {v14}, Ljava/util/List;->size()I
+
+    move-result v5
+
+    new-array v7, v5, [Landroid/content/ComponentName;
+
+    const/4 v13, 0x0
+
+    :goto_0
+    invoke-interface {v14}, Ljava/util/List;->size()I
+
+    move-result v5
+
+    if-ge v13, v5, :cond_2
+
+    invoke-interface {v14, v13}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/content/pm/ResolveInfo;
+
+    iget-object v10, v5, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    new-instance v5, Landroid/content/ComponentName;
+
+    iget-object v8, v10, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+
+    iget-object v9, v10, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+
+    invoke-direct {v5, v8, v9}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    aput-object v5, v7, v13
+
+    invoke-virtual/range {p4 .. p4}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v5
+
+    iget-object v8, v10, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+
+    invoke-virtual {v5, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_1
+
+    invoke-virtual/range {p4 .. p4}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
+
+    move-result-object v5
+
+    iget-object v8, v10, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+
+    invoke-virtual {v5, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_1
+
+    const/4 v11, 0x1
+
+    invoke-interface {v14, v13}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/content/pm/ResolveInfo;
+
+    iget v6, v5, Landroid/content/pm/ResolveInfo;->match:I
+
+    :cond_0
+    :goto_1
+    add-int/lit8 v13, v13, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    iget-object v5, v10, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    iget v5, v5, Landroid/content/pm/ApplicationInfo;->flags:I
+
+    and-int/lit8 v5, v5, 0x1
+
+    if-nez v5, :cond_0
+
+    invoke-interface {v14, v13}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/content/pm/ResolveInfo;
+
+    iget v5, v5, Landroid/content/pm/ResolveInfo;->match:I
+
+    if-ltz v5, :cond_0
+
+    aget-object v12, v7, v13
+
+    goto :goto_1
+
+    :cond_2
+    if-eqz v12, :cond_3
+
+    if-lez v6, :cond_3
+
+    const/4 v12, 0x0
+
+    :cond_3
+    if-eqz v11, :cond_4
+
+    if-nez v12, :cond_4
+
+    new-instance v4, Lcom/android/server/pm/PreferredActivity;
+
+    const/4 v9, 0x1
+
+    move-object/from16 v5, p5
+
+    move-object/from16 v8, p4
+
+    invoke-direct/range {v4 .. v9}, Lcom/android/server/pm/PreferredActivity;-><init>(Landroid/content/IntentFilter;I[Landroid/content/ComponentName;Landroid/content/ComponentName;Z)V
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, p6
+
+    invoke-virtual {v0, v1}, Lcom/android/server/pm/Settings;->editPreferredActivitiesLPw(I)Lcom/android/server/pm/PreferredIntentResolver;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v4}, Lcom/android/server/pm/PreferredIntentResolver;->addFilter(Landroid/content/IntentFilter;)V
+
+    :goto_2
+    return-void
+
+    :cond_4
+    if-nez v12, :cond_7
+
+    new-instance v15, Ljava/lang/StringBuilder;
+
+    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "No component "
+
+    invoke-virtual {v15, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual/range {p4 .. p4}, Landroid/content/ComponentName;->flattenToShortString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v15, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string/jumbo v5, " found setting preferred "
+
+    invoke-virtual {v15, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v15, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string/jumbo v5, "; possible matches are "
+
+    invoke-virtual {v15, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const/4 v13, 0x0
+
+    :goto_3
+    array-length v5, v7
+
+    if-ge v13, v5, :cond_6
+
+    if-lez v13, :cond_5
+
+    const-string/jumbo v5, ", "
+
+    invoke-virtual {v15, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    :cond_5
+    aget-object v5, v7, v13
+
+    invoke-virtual {v5}, Landroid/content/ComponentName;->flattenToShortString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v15, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    add-int/lit8 v13, v13, 0x1
+
+    goto :goto_3
+
+    :cond_6
+    const-string/jumbo v5, "PackageSettings"
+
+    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v5, v8}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_2
+
+    :cond_7
+    const-string/jumbo v5, "PackageSettings"
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "Not setting preferred "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v8, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    const-string/jumbo v9, "; found third party match "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v12}, Landroid/content/ComponentName;->flattenToShortString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v5, v8}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_2
+
+    :cond_8
+    const-string/jumbo v5, "PackageSettings"
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "No potential matches found for "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v8, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    const-string/jumbo v9, " while setting preferred "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual/range {p4 .. p4}, Landroid/content/ComponentName;->flattenToShortString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v5, v8}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_2
+.end method
+
 .method private compToString(Landroid/util/ArraySet;)Ljava/lang/String;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
@@ -4242,7 +4571,7 @@
 
     const/4 v4, 0x1
 
-    if-eq v3, v4, :cond_4
+    if-eq v3, v4, :cond_5
 
     if-ne v3, v6, :cond_1
 
@@ -4250,7 +4579,7 @@
 
     move-result v4
 
-    if-le v4, v0, :cond_4
+    if-le v4, v0, :cond_5
 
     :cond_1
     if-eq v3, v6, :cond_0
@@ -4335,6 +4664,19 @@
     goto :goto_0
 
     :cond_3
+    const-string/jumbo v4, "manual-item"
+
+    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_4
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/pm/Settings;->readManualDefaultPreferredActivitiesInternal(Lcom/android/server/pm/PackageManagerService;Lorg/xmlpull/v1/XmlPullParser;I)V
+
+    goto :goto_0
+
+    :cond_4
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -4363,7 +4705,7 @@
 
     goto/16 :goto_0
 
-    :cond_4
+    :cond_5
     return-void
 .end method
 
@@ -5193,6 +5535,339 @@
     return-void
 .end method
 
+.method private readFilterFromParser(Lorg/xmlpull/v1/XmlPullParser;)Landroid/content/IntentFilter;
+    .locals 14
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/xmlpull/v1/XmlPullParserException;,
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    new-instance v2, Landroid/content/IntentFilter;
+
+    invoke-direct {v2}, Landroid/content/IntentFilter;-><init>()V
+
+    invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
+
+    move-result v5
+
+    :cond_0
+    :goto_0
+    invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->next()I
+
+    move-result v10
+
+    const/4 v11, 0x1
+
+    if-eq v10, v11, :cond_e
+
+    const/4 v11, 0x3
+
+    if-ne v10, v11, :cond_1
+
+    invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
+
+    move-result v11
+
+    if-le v11, v5, :cond_e
+
+    :cond_1
+    const/4 v11, 0x3
+
+    if-eq v10, v11, :cond_0
+
+    const/4 v11, 0x4
+
+    if-eq v10, v11, :cond_0
+
+    invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
+
+    move-result-object v9
+
+    const-string/jumbo v0, "name"
+
+    const-string/jumbo v11, "action"
+
+    invoke-virtual {v9, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v11
+
+    if-eqz v11, :cond_3
+
+    const-string/jumbo v11, "name"
+
+    const/4 v12, 0x0
+
+    invoke-interface {p1, v12, v11}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_2
+
+    invoke-virtual {v2, v4}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    :cond_2
+    :goto_1
+    invoke-static {p1}, Lcom/android/internal/util/XmlUtils;->skipCurrentTag(Lorg/xmlpull/v1/XmlPullParser;)V
+
+    goto :goto_0
+
+    :cond_3
+    const-string/jumbo v11, "cat"
+
+    invoke-virtual {v9, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v11
+
+    if-eqz v11, :cond_4
+
+    const-string/jumbo v11, "name"
+
+    const/4 v12, 0x0
+
+    invoke-interface {p1, v12, v11}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_2
+
+    invoke-virtual {v2, v4}, Landroid/content/IntentFilter;->addCategory(Ljava/lang/String;)V
+
+    goto :goto_1
+
+    :cond_4
+    const-string/jumbo v11, "type"
+
+    invoke-virtual {v9, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v11
+
+    if-eqz v11, :cond_5
+
+    const-string/jumbo v11, "name"
+
+    const/4 v12, 0x0
+
+    invoke-interface {p1, v12, v11}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_2
+
+    :try_start_0
+    invoke-virtual {v2, v4}, Landroid/content/IntentFilter;->addDataType(Ljava/lang/String;)V
+    :try_end_0
+    .catch Landroid/content/IntentFilter$MalformedMimeTypeException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_1
+
+    :catch_0
+    move-exception v1
+
+    goto :goto_1
+
+    :cond_5
+    const-string/jumbo v11, "scheme"
+
+    invoke-virtual {v9, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v11
+
+    if-eqz v11, :cond_6
+
+    const-string/jumbo v11, "name"
+
+    const/4 v12, 0x0
+
+    invoke-interface {p1, v12, v11}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_2
+
+    invoke-virtual {v2, v4}, Landroid/content/IntentFilter;->addDataScheme(Ljava/lang/String;)V
+
+    goto :goto_1
+
+    :cond_6
+    const-string/jumbo v11, "ssp"
+
+    invoke-virtual {v9, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v11
+
+    if-eqz v11, :cond_9
+
+    const-string/jumbo v11, "literal"
+
+    const/4 v12, 0x0
+
+    invoke-interface {p1, v12, v11}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    if-eqz v8, :cond_7
+
+    const/4 v11, 0x0
+
+    invoke-virtual {v2, v8, v11}, Landroid/content/IntentFilter;->addDataSchemeSpecificPart(Ljava/lang/String;I)V
+
+    goto :goto_1
+
+    :cond_7
+    const-string/jumbo v11, "prefix"
+
+    const/4 v12, 0x0
+
+    invoke-interface {p1, v12, v11}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    if-eqz v8, :cond_8
+
+    const/4 v11, 0x1
+
+    invoke-virtual {v2, v8, v11}, Landroid/content/IntentFilter;->addDataSchemeSpecificPart(Ljava/lang/String;I)V
+
+    goto :goto_1
+
+    :cond_8
+    const-string/jumbo v11, "sglob"
+
+    const/4 v12, 0x0
+
+    invoke-interface {p1, v12, v11}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    if-eqz v8, :cond_2
+
+    const/4 v11, 0x2
+
+    invoke-virtual {v2, v8, v11}, Landroid/content/IntentFilter;->addDataSchemeSpecificPart(Ljava/lang/String;I)V
+
+    goto :goto_1
+
+    :cond_9
+    const-string/jumbo v11, "auth"
+
+    invoke-virtual {v9, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v11
+
+    if-eqz v11, :cond_a
+
+    const-string/jumbo v11, "host"
+
+    const/4 v12, 0x0
+
+    invoke-interface {p1, v12, v11}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    const-string/jumbo v11, "port"
+
+    const/4 v12, 0x0
+
+    invoke-interface {p1, v12, v11}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v7
+
+    if-eqz v3, :cond_2
+
+    invoke-virtual {v2, v3, v7}, Landroid/content/IntentFilter;->addDataAuthority(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto/16 :goto_1
+
+    :cond_a
+    const-string/jumbo v11, "path"
+
+    invoke-virtual {v9, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v11
+
+    if-eqz v11, :cond_d
+
+    const-string/jumbo v11, "literal"
+
+    const/4 v12, 0x0
+
+    invoke-interface {p1, v12, v11}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    if-eqz v6, :cond_b
+
+    const/4 v11, 0x0
+
+    invoke-virtual {v2, v6, v11}, Landroid/content/IntentFilter;->addDataPath(Ljava/lang/String;I)V
+
+    goto/16 :goto_1
+
+    :cond_b
+    const-string/jumbo v11, "prefix"
+
+    const/4 v12, 0x0
+
+    invoke-interface {p1, v12, v11}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    if-eqz v6, :cond_c
+
+    const/4 v11, 0x1
+
+    invoke-virtual {v2, v6, v11}, Landroid/content/IntentFilter;->addDataPath(Ljava/lang/String;I)V
+
+    goto/16 :goto_1
+
+    :cond_c
+    const-string/jumbo v11, "sglob"
+
+    const/4 v12, 0x0
+
+    invoke-interface {p1, v12, v11}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    if-eqz v6, :cond_2
+
+    const/4 v11, 0x2
+
+    invoke-virtual {v2, v6, v11}, Landroid/content/IntentFilter;->addDataPath(Ljava/lang/String;I)V
+
+    goto/16 :goto_1
+
+    :cond_d
+    const-string/jumbo v11, "PackageSettings"
+
+    new-instance v12, Ljava/lang/StringBuilder;
+
+    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v13, "Unknown tag parsing IntentFilter: "
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    invoke-virtual {v12, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-static {v11, v12}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_1
+
+    :cond_e
+    return-object v2
+.end method
+
 .method private readInt(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;Ljava/lang/String;I)I
     .locals 4
 
@@ -5264,6 +5939,405 @@
     invoke-static {v3, v2}, Lcom/android/server/pm/PackageManagerService;->reportSettingsProblem(ILjava/lang/String;)V
 
     return p4
+.end method
+
+.method private readIntentFromParser(Lorg/xmlpull/v1/XmlPullParser;)Landroid/content/Intent;
+    .locals 13
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/xmlpull/v1/XmlPullParserException;,
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    const/4 v12, 0x3
+
+    const/4 v11, 0x0
+
+    new-instance v3, Landroid/content/Intent;
+
+    invoke-direct {v3}, Landroid/content/Intent;-><init>()V
+
+    invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
+
+    move-result v5
+
+    const/4 v1, 0x0
+
+    const/4 v2, 0x0
+
+    :cond_0
+    :goto_0
+    invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->next()I
+
+    move-result v7
+
+    const/4 v8, 0x1
+
+    if-eq v7, v8, :cond_7
+
+    if-ne v7, v12, :cond_1
+
+    invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
+
+    move-result v8
+
+    if-le v8, v5, :cond_7
+
+    :cond_1
+    if-eq v7, v12, :cond_0
+
+    const/4 v8, 0x4
+
+    if-eq v7, v8, :cond_0
+
+    invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
+
+    move-result-object v6
+
+    const-string/jumbo v0, "name"
+
+    const-string/jumbo v8, "action"
+
+    invoke-virtual {v6, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_3
+
+    const-string/jumbo v8, "name"
+
+    invoke-interface {p1, v11, v8}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_2
+
+    invoke-virtual {v3, v4}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
+
+    :cond_2
+    :goto_1
+    invoke-static {p1}, Lcom/android/internal/util/XmlUtils;->skipCurrentTag(Lorg/xmlpull/v1/XmlPullParser;)V
+
+    goto :goto_0
+
+    :cond_3
+    const-string/jumbo v8, "cat"
+
+    invoke-virtual {v6, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_4
+
+    const-string/jumbo v8, "name"
+
+    invoke-interface {p1, v11, v8}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_2
+
+    invoke-virtual {v3, v4}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
+
+    goto :goto_1
+
+    :cond_4
+    const-string/jumbo v8, "type"
+
+    invoke-virtual {v6, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_5
+
+    const-string/jumbo v8, "name"
+
+    invoke-interface {p1, v11, v8}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_2
+
+    move-object v1, v4
+
+    goto :goto_1
+
+    :cond_5
+    const-string/jumbo v8, "uri"
+
+    invoke-virtual {v6, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_6
+
+    const-string/jumbo v8, "name"
+
+    invoke-interface {p1, v11, v8}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_2
+
+    move-object v2, v4
+
+    goto :goto_1
+
+    :cond_6
+    const-string/jumbo v8, "PackageSettings"
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v10, "Unknown tag parsing Intent: "
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v8, v9}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
+
+    :cond_7
+    if-eqz v1, :cond_9
+
+    if-eqz v2, :cond_9
+
+    invoke-static {v2}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v8
+
+    invoke-virtual {v3, v8, v1}, Landroid/content/Intent;->setDataAndType(Landroid/net/Uri;Ljava/lang/String;)Landroid/content/Intent;
+
+    :cond_8
+    :goto_2
+    return-object v3
+
+    :cond_9
+    if-eqz v1, :cond_a
+
+    invoke-virtual {v3, v1}, Landroid/content/Intent;->setType(Ljava/lang/String;)Landroid/content/Intent;
+
+    goto :goto_2
+
+    :cond_a
+    if-eqz v2, :cond_8
+
+    invoke-static {v2}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v8
+
+    invoke-virtual {v3, v8}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
+
+    goto :goto_2
+.end method
+
+.method private readManualDefaultPreferredActivitiesInternal(Lcom/android/server/pm/PackageManagerService;Lorg/xmlpull/v1/XmlPullParser;I)V
+    .locals 12
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/xmlpull/v1/XmlPullParserException;,
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    const-string/jumbo v0, "name"
+
+    const/4 v1, 0x0
+
+    invoke-interface {p2, v1, v0}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v9}, Landroid/content/ComponentName;->unflattenFromString(Ljava/lang/String;)Landroid/content/ComponentName;
+
+    move-result-object v4
+
+    const-string/jumbo v8, ""
+
+    if-nez v4, :cond_0
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "Bad activity name "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    const-string/jumbo v0, "PackageSettings"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "parseError: "
+
+    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    invoke-interface {p2}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
+
+    move-result v7
+
+    const/4 v2, 0x0
+
+    const/4 v5, 0x0
+
+    :cond_1
+    :goto_0
+    invoke-interface {p2}, Lorg/xmlpull/v1/XmlPullParser;->next()I
+
+    move-result v11
+
+    const/4 v0, 0x1
+
+    if-eq v11, v0, :cond_5
+
+    const/4 v0, 0x3
+
+    if-ne v11, v0, :cond_2
+
+    invoke-interface {p2}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
+
+    move-result v0
+
+    if-le v0, v7, :cond_5
+
+    :cond_2
+    const/4 v0, 0x3
+
+    if-eq v11, v0, :cond_1
+
+    const/4 v0, 0x4
+
+    if-eq v11, v0, :cond_1
+
+    invoke-interface {p2}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
+
+    move-result-object v10
+
+    const-string/jumbo v0, "intent"
+
+    invoke-virtual {v10, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    invoke-direct {p0, p2}, Lcom/android/server/pm/Settings;->readIntentFromParser(Lorg/xmlpull/v1/XmlPullParser;)Landroid/content/Intent;
+
+    move-result-object v2
+
+    goto :goto_0
+
+    :cond_3
+    const-string/jumbo v0, "filter"
+
+    invoke-virtual {v10, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    invoke-direct {p0, p2}, Lcom/android/server/pm/Settings;->readFilterFromParser(Lorg/xmlpull/v1/XmlPullParser;)Landroid/content/IntentFilter;
+
+    move-result-object v5
+
+    goto :goto_0
+
+    :cond_4
+    const-string/jumbo v0, "PackageSettings"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "Unknown element: "
+
+    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-interface {p2}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-static {p2}, Lcom/android/internal/util/XmlUtils;->skipCurrentTag(Lorg/xmlpull/v1/XmlPullParser;)V
+
+    goto :goto_0
+
+    :cond_5
+    if-eqz v2, :cond_7
+
+    if-eqz v5, :cond_7
+
+    const/high16 v3, 0xc0000
+
+    const-string/jumbo v0, "android.intent.category.DEFAULT"
+
+    invoke-virtual {v2, v0}, Landroid/content/Intent;->hasCategory(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_6
+
+    const/high16 v3, 0xd0000
+
+    :cond_6
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move v6, p3
+
+    invoke-direct/range {v0 .. v6}, Lcom/android/server/pm/Settings;->applyManualDefaultPreferredActivityLPw(Lcom/android/server/pm/PackageManagerService;Landroid/content/Intent;ILandroid/content/ComponentName;Landroid/content/IntentFilter;I)V
+
+    :cond_7
+    return-void
 .end method
 
 .method private readPackageLPw(Lorg/xmlpull/v1/XmlPullParser;)V

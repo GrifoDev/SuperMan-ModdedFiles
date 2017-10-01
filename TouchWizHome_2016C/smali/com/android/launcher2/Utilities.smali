@@ -3630,9 +3630,9 @@
     goto :goto_0
 
     :cond_6
-    const/4 v0, 0x0
+    const/4 v0, 0x1
 
-    const/4 v1, 0x0
+    const/4 v1, 0x1
 
     if-eqz p2, :cond_7
 
@@ -3681,7 +3681,7 @@
     move-result v0
 
     :cond_7
-    if-nez v0, :cond_8
+    if-eqz v0, :cond_8
 
     if-eqz p2, :cond_8
 
@@ -3689,13 +3689,13 @@
 
     move-result-object v5
 
-    if-nez v5, :cond_b
+    if-nez v5, :cond_a
 
     invoke-virtual {p2}, Landroid/content/Intent;->getPackage()Ljava/lang/String;
 
     move-result-object v5
 
-    if-nez v5, :cond_a
+    if-nez v5, :cond_9
 
     move-object v3, v6
 
@@ -3723,11 +3723,10 @@
     move-result v1
 
     :cond_8
-    if-nez v0, :cond_9
+    if-eqz v0, :cond_0
 
     if-eqz v1, :cond_0
 
-    :cond_9
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v5
@@ -3750,7 +3749,7 @@
 
     instance-of v5, v4, Landroid/graphics/drawable/Drawable;
 
-    if-eqz v5, :cond_c
+    if-eqz v5, :cond_b
 
     check-cast v4, Landroid/graphics/drawable/Drawable;
 
@@ -3758,14 +3757,14 @@
 
     goto/16 :goto_0
 
-    :cond_a
+    :cond_9
     invoke-virtual {p2}, Landroid/content/Intent;->getPackage()Ljava/lang/String;
 
     move-result-object v3
 
     goto :goto_1
 
-    :cond_b
+    :cond_a
     invoke-virtual {p2}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
 
     move-result-object v5
@@ -3776,7 +3775,7 @@
 
     goto :goto_1
 
-    :cond_c
+    :cond_b
     move-object p1, v6
 
     goto/16 :goto_0
@@ -6330,6 +6329,74 @@
     goto/16 :goto_4
 .end method
 
+.method public static loadCurrentGridSizeFromDB([ILcom/android/launcher2/LauncherProvider;)V
+    .locals 6
+
+    const/4 v5, 0x5
+
+    const/4 v4, 0x4
+
+    const/4 v3, 0x1
+
+    const/4 v2, 0x0
+
+    invoke-virtual {p1}, Lcom/android/launcher2/LauncherProvider;->databaseExist()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {p1}, Lcom/android/launcher2/LauncherProvider;->getCellXYFromDatabase()[I
+
+    move-result-object v0
+
+    aget v1, v0, v2
+
+    if-ne v1, v5, :cond_1
+
+    aget v1, v0, v3
+
+    if-ne v1, v5, :cond_1
+
+    aput v5, p0, v2
+
+    aput v5, p0, v3
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    aget v1, v0, v2
+
+    if-ne v1, v4, :cond_2
+
+    aget v1, v0, v3
+
+    if-ne v1, v5, :cond_2
+
+    aput v4, p0, v2
+
+    aput v5, p0, v3
+
+    goto :goto_0
+
+    :cond_2
+    aget v1, v0, v2
+
+    if-ne v1, v4, :cond_0
+
+    aget v1, v0, v3
+
+    if-ne v1, v4, :cond_0
+
+    aput v4, p0, v2
+
+    aput v4, p0, v3
+
+    goto :goto_0
+.end method
+
 .method public static loadWidgetPreview(Landroid/content/Context;Landroid/appwidget/AppWidgetProviderInfo;IIII[I)Landroid/graphics/Bitmap;
     .locals 36
 
@@ -7553,7 +7620,7 @@
     if-eqz v8, :cond_2
 
     :cond_0
-    const v8, 0x7f0900c3
+    const v8, 0x7f0900c4
 
     invoke-virtual {p0, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -7609,7 +7676,7 @@
 
     if-eqz v8, :cond_1
 
-    const v8, 0x7f0900c4
+    const v8, 0x7f0900c5
 
     invoke-virtual {p0, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -7739,7 +7806,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0900cd
+    const v3, 0x7f0900ce
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

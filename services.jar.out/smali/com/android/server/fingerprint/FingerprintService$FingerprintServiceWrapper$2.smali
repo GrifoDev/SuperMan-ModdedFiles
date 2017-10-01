@@ -78,7 +78,7 @@
 
     const/4 v3, 0x1
 
-    invoke-static {v1, v3}, Lcom/android/server/fingerprint/FingerprintService;->-wrap18(Lcom/android/server/fingerprint/FingerprintService;Z)V
+    invoke-static {v1, v3}, Lcom/android/server/fingerprint/FingerprintService;->-wrap19(Lcom/android/server/fingerprint/FingerprintService;Z)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

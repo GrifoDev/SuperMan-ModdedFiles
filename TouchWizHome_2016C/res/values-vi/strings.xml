@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">Không có ứng dụng nào đã tải về</string>
     <string name="no_room_any_page">Không có chỗ trên bất kỳ trang nào.</string>
     <string name="no_space_page">Trang không có chỗ trống. Hãy thử thêm phím tắt vào một trang khác.</string>
+    <string name="no_space_page_for_widget">Không có chỗ trống trên trang này.</string>
     <string name="not_selected">Chưa được chọn</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Widget %s đã được thêm vào màn hình chờ.</string>
@@ -176,7 +177,7 @@ Thư mục bảo mật"</string>
     <string name="read_home_screen_settings">Đọc cài đặt màn hình chờ</string>
     <string name="read_home_screen_settings_info">Ứng dụng này có thể đọc phím tắt và cài đặt màn hình chờ của bạn.</string>
     <string name="rearrange_menu_icons_not_allowed">Không thể sắp xếp lại các biểu tượng theo thứ tự chữ cái.</string>
-    <string name="removable_preloadapp_uninstall_message">%s sẽ bị xóa. Để tải về lại, hãy đến danh sách ứng dụng, chạm vào phím nhiều tùy chọn hơn rồi chọn GALAXY Essentials.</string>
+    <string name="removable_preloadapp_uninstall_message">%s sẽ bị xóa. Để tải về lại, hãy đi đến danh sách ứng dụng, chạm phím tùy chọn khác, rồi chọn Galaxy Essentials.</string>
     <string name="remove_app_folder_cancel">Thoát</string>
     <string name="remove_app_folder_confirm">Xóa</string>
     <string name="remove_app_folder_confirm_VZW">Xóa</string>

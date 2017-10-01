@@ -111,7 +111,7 @@
     <string name="last_page">Current page is last page.</string>
     <string name="lock">Lock</string>
     <string name="lock_or_unlock_dislog_msg">After moving this app out of the folder, keep the app locked or unlock it?</string>
-    <string name="max_characters_available">Up to %d characters available</string>
+    <string name="max_characters_available">Up to %d characters available.</string>
     <string name="menu_edit">Edit</string>
     <string name="menu_edit_cancel">Cancel</string>
     <string name="menu_edit_cancel_msg">All changes will be discarded.</string>
@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">No downloaded applications</string>
     <string name="no_room_any_page">No room on any page.</string>
     <string name="no_space_page">No space on page. Try adding shortcut to a different page.</string>
+    <string name="no_space_page_for_widget">No space on this page.</string>
     <string name="not_selected">Not selected</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">%s widget already added to home screen.</string>
@@ -176,7 +177,7 @@ Secure Folder"</string>
     <string name="read_home_screen_settings">Read home screen settings</string>
     <string name="read_home_screen_settings_info">This app can read your home screen settings and shortcuts.</string>
     <string name="rearrange_menu_icons_not_allowed">Unable to rearrange icons in alphabetical order.</string>
-    <string name="removable_preloadapp_uninstall_message">%s will be deleted. To download it again, go to the app list, tap the more options button, then select GALAXY Essentials.</string>
+    <string name="removable_preloadapp_uninstall_message">%s will be deleted. To download it again, go to the app list, tap the more options button, then select Galaxy Essentials.</string>
     <string name="remove_app_folder_cancel">Cancel</string>
     <string name="remove_app_folder_confirm">Delete</string>
     <string name="remove_app_folder_confirm_VZW">Remove</string>

@@ -141,6 +141,7 @@ aplikacje"</string>
     <string name="no_downloaded_apps">Brak pobranych aplikacji</string>
     <string name="no_room_any_page">Nie ma miejsca na żadnej stronie.</string>
     <string name="no_space_page">Brak miejsca na stronie. Spróbuj dodać skrót na innej stronie.</string>
+    <string name="no_space_page_for_widget">Brak miejsca na tej stronie.</string>
     <string name="not_selected">Niewybrany</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Widget %s został już dodany do ekranu startowego.</string>
@@ -178,7 +179,7 @@ Bezp. katalog"</string>
     <string name="read_home_screen_settings">Odczyt ustaw. ekr. start.</string>
     <string name="read_home_screen_settings_info">Ta aplikacja może odczytywać skróty i ustawienia ekranu startowego.</string>
     <string name="rearrange_menu_icons_not_allowed">Nie można zmienić rozmieszczenia ikon ustawionych według kolejności alfabetycznej.</string>
-    <string name="removable_preloadapp_uninstall_message">Aplikacja %s zostanie usunięta. Aby pobrać ją ponownie, przejdź do listy aplikacji, dotknij przycisku Więcej opcji, a następnie wybierz kategorię Niezbędne dla GALAXY.</string>
+    <string name="removable_preloadapp_uninstall_message">Aplikacja %s zostanie usunięta. Aby pobrać ją ponownie, przejdź do listy aplikacji, dotknij przycisku więcej opcji, a następnie wybierz kategorię Niezbędne dla Galaxy.</string>
     <string name="remove_app_folder_cancel">Anuluj</string>
     <string name="remove_app_folder_confirm">Usuń</string>
     <string name="remove_app_folder_confirm_VZW">Usuń</string>

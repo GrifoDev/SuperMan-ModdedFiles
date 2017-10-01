@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">ჩამოტვირთული პროგრამები არ არის</string>
     <string name="no_room_any_page">არცერთ გვერდზე არ არის ადგილი.</string>
     <string name="no_space_page">გვერდზე არ არის ადგილი. ღილაკის დამატება სცადეთ სხვა გვერდზე.</string>
+    <string name="no_space_page_for_widget">ამ გვერდზე არ არის ადგილი.</string>
     <string name="not_selected">არ არის არჩეული</string>
     <string name="ok">კი</string>
     <string name="only_one_widget_instance_allowed">%s ვიჯეტი უკვე დამატებულია საწყის გვერდზე.</string>
@@ -176,7 +177,7 @@
     <string name="read_home_screen_settings">ეკრანის პარამეტრ. წაკითხ.</string>
     <string name="read_home_screen_settings_info">ამ აპლიკაციას შეუძლია, წაიკითხოს საწყისი ეკრანის პარამეტრები და ღილაკები.</string>
     <string name="rearrange_menu_icons_not_allowed">ღილაკების განლაგების შეცვლა ანბანური მიმდევრობით შეუძლებელია.</string>
-    <string name="removable_preloadapp_uninstall_message">%s წაიშლება. თუ გსურთ თავიდან ჩამოტვირთოთ ის, გადადით პროგრამების სიაზე, შეეხეთ სხვა ოფციების ღილაკს და აირჩიეთ GALAXY-ის ძირითადი პროგრამები.</string>
+    <string name="removable_preloadapp_uninstall_message">%s წაიშლება. თუ გსურთ თავიდან ჩამოტვირთოთ ის, გადადით აპლიკაციების სიაზე, შეეხეთ სხვა პარამეტრების ღილაკს და აირჩიეთ Galaxy Essentials.</string>
     <string name="remove_app_folder_cancel">გაუქმება</string>
     <string name="remove_app_folder_confirm">წაშლა</string>
     <string name="remove_app_folder_confirm_VZW">წაშლა</string>

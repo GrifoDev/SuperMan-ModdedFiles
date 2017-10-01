@@ -195,7 +195,7 @@
 
     const/4 v6, 0x0
 
-    invoke-static {v6}, Lcom/android/server/InputMethodManagerService;->-set7(I)I
+    invoke-static {v6}, Lcom/android/server/InputMethodManagerService;->-set8(I)I
 
     :cond_1
     const/4 v6, 0x0
@@ -676,7 +676,7 @@
 
     const/4 v6, 0x0
 
-    invoke-static {v6}, Lcom/android/server/InputMethodManagerService;->-set7(I)I
+    invoke-static {v6}, Lcom/android/server/InputMethodManagerService;->-set8(I)I
 
     :cond_e
     const-string/jumbo v6, "InputMethodManagerService"

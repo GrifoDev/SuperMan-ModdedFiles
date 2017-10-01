@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">Nėra atsisiųstų programų</string>
     <string name="no_room_any_page">Nė viename puslapyje nėra kambario.</string>
     <string name="no_space_page">Puslapyje nėra vietos. Pabandykite pridėti trumpinį kitame puslapyje.</string>
+    <string name="no_space_page_for_widget">Šiame puslapyje nėra vietos.</string>
     <string name="not_selected">Nepasirinkta</string>
     <string name="ok">Gerai</string>
     <string name="only_one_widget_instance_allowed">%s valdiklis jau pridėtas prie pradžios ekrano.</string>
@@ -176,7 +177,7 @@ Saug. aplanko"</string>
     <string name="read_home_screen_settings">Skait. pradž. ekr. nust.</string>
     <string name="read_home_screen_settings_info">Ši programa gali skaityti pradžios ekrano nustatymus ir trumpinius.</string>
     <string name="rearrange_menu_icons_not_allowed">Neįmanoma pertvarkyti piktogramų abėcėlės tvarka.</string>
-    <string name="removable_preloadapp_uninstall_message">%s bus ištrintas. Norėdami atsisiųsti dar kartą, eikite į programų sąrašą, bakstelėkite mygtuką „Daugiau parinkčių“ ir pasirinkite „GALAXY priemonės“.</string>
+    <string name="removable_preloadapp_uninstall_message">%s bus ištrintas. Norėdami atsisiųsti dar kartą, eikite į programų sąrašą, bakstelėkite mygtuką „Daugiau parinkčių“ ir pasirinkite „Galaxy Essentials“.</string>
     <string name="remove_app_folder_cancel">Atšaukti</string>
     <string name="remove_app_folder_confirm">Trinti</string>
     <string name="remove_app_folder_confirm_VZW">Šalinti</string>

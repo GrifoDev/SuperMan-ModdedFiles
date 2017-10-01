@@ -613,6 +613,22 @@
     throw v0
 .end method
 
+.method public static getSPenUSPLevel(Landroid/content/Context;)I
+    .locals 3
+
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "com.sec.feature.spen_usp"
+
+    invoke-virtual {v1, v2}, Landroid/content/pm/PackageManager;->semGetSystemFeatureLevel(Ljava/lang/String;)I
+
+    move-result v0
+
+    return v0
+.end method
+
 .method private hide()V
     .locals 4
 
@@ -1410,161 +1426,217 @@
 .end method
 
 .method public dismiss()V
-    .locals 6
+    .locals 7
 
-    iget-object v2, p0, Lcom/android/server/display/MagnifierSurfaceControl;->mLock:Ljava/lang/Object;
+    iget-object v3, p0, Lcom/android/server/display/MagnifierSurfaceControl;->mLock:Ljava/lang/Object;
 
-    monitor-enter v2
+    monitor-enter v3
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/display/MagnifierSurfaceControl;->mDisplayManager:Landroid/hardware/display/DisplayManager;
+    iget-object v2, p0, Lcom/android/server/display/MagnifierSurfaceControl;->mDisplayManager:Landroid/hardware/display/DisplayManager;
 
-    invoke-virtual {v1, p0}, Landroid/hardware/display/DisplayManager;->unregisterDisplayListener(Landroid/hardware/display/DisplayManager$DisplayListener;)V
+    invoke-virtual {v2, p0}, Landroid/hardware/display/DisplayManager;->unregisterDisplayListener(Landroid/hardware/display/DisplayManager$DisplayListener;)V
 
-    iget v1, p0, Lcom/android/server/display/MagnifierSurfaceControl;->fingerMagnifierState:I
+    iget v2, p0, Lcom/android/server/display/MagnifierSurfaceControl;->fingerMagnifierState:I
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
-    sget-boolean v1, Lcom/android/server/display/MagnifierSurfaceControl;->isOldMagnifier:Z
+    sget-boolean v2, Lcom/android/server/display/MagnifierSurfaceControl;->isOldMagnifier:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/display/MagnifierSurfaceControl;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/android/server/display/MagnifierSurfaceControl;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string/jumbo v3, "hover_zoom_value"
+    const-string/jumbo v4, "hover_zoom_value"
 
-    invoke-static {v3}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-static {v4}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
-    move-result-object v3
+    move-result-object v4
 
-    iget-object v4, p0, Lcom/android/server/display/MagnifierSurfaceControl;->mMagnifierZoomObserver:Landroid/database/ContentObserver;
+    iget-object v5, p0, Lcom/android/server/display/MagnifierSurfaceControl;->mMagnifierZoomObserver:Landroid/database/ContentObserver;
 
-    const/4 v5, 0x1
+    const/4 v6, 0x1
 
-    invoke-virtual {v1, v3, v5, v4}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+    invoke-virtual {v2, v4, v6, v5}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    iget-object v1, p0, Lcom/android/server/display/MagnifierSurfaceControl;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/android/server/display/MagnifierSurfaceControl;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string/jumbo v3, "hover_zoom_magnifier_size"
+    const-string/jumbo v4, "hover_zoom_magnifier_size"
 
-    invoke-static {v3}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-static {v4}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
-    move-result-object v3
+    move-result-object v4
 
-    iget-object v4, p0, Lcom/android/server/display/MagnifierSurfaceControl;->mMagnifierSizeObserver:Landroid/database/ContentObserver;
+    iget-object v5, p0, Lcom/android/server/display/MagnifierSurfaceControl;->mMagnifierSizeObserver:Landroid/database/ContentObserver;
 
-    const/4 v5, 0x1
+    const/4 v6, 0x1
 
-    invoke-virtual {v1, v3, v5, v4}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+    invoke-virtual {v2, v4, v6, v5}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    iget-object v1, p0, Lcom/android/server/display/MagnifierSurfaceControl;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/android/server/display/MagnifierSurfaceControl;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string/jumbo v3, "finger_magnifier"
+    const-string/jumbo v4, "finger_magnifier"
 
-    invoke-static {v3}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-static {v4}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
-    move-result-object v3
+    move-result-object v4
 
-    iget-object v4, p0, Lcom/android/server/display/MagnifierSurfaceControl;->mAccessibilityMagnifierObserver:Landroid/database/ContentObserver;
+    iget-object v5, p0, Lcom/android/server/display/MagnifierSurfaceControl;->mAccessibilityMagnifierObserver:Landroid/database/ContentObserver;
 
-    const/4 v5, 0x1
+    const/4 v6, 0x1
 
-    invoke-virtual {v1, v3, v5, v4}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
-
-    :cond_0
-    invoke-direct {p0}, Lcom/android/server/display/MagnifierSurfaceControl;->destroyMainSurface()V
-
-    const/4 v1, 0x0
-
-    iput v1, p0, Lcom/android/server/display/MagnifierSurfaceControl;->mState:I
-
-    sget-object v1, Lcom/android/server/display/MagnifierSurfaceControl;->mBorder:Lcom/android/server/display/MagnifierSurfaceControl$Border;
-
-    invoke-virtual {v1}, Lcom/android/server/display/MagnifierSurfaceControl$Border;->dismiss()V
-
-    sget-object v1, Lcom/android/server/display/MagnifierSurfaceControl;->mBorder:Lcom/android/server/display/MagnifierSurfaceControl$Border;
-
-    invoke-virtual {v1}, Lcom/android/server/display/MagnifierSurfaceControl$Border;->removeMagnifierView()V
-
-    const/4 v1, 0x0
-
-    sput-object v1, Lcom/android/server/display/MagnifierSurfaceControl;->mBorder:Lcom/android/server/display/MagnifierSurfaceControl$Border;
-
-    iget-object v1, p0, Lcom/android/server/display/MagnifierSurfaceControl;->mPoint:Lcom/android/server/display/MagnifierSurfaceControl$HoverPoint;
-
-    if-eqz v1, :cond_1
-
-    iget-object v1, p0, Lcom/android/server/display/MagnifierSurfaceControl;->mPoint:Lcom/android/server/display/MagnifierSurfaceControl$HoverPoint;
-
-    invoke-virtual {v1}, Lcom/android/server/display/MagnifierSurfaceControl$HoverPoint;->dismiss()V
-
-    const/4 v1, 0x0
-
-    iput-object v1, p0, Lcom/android/server/display/MagnifierSurfaceControl;->mPoint:Lcom/android/server/display/MagnifierSurfaceControl$HoverPoint;
+    invoke-virtual {v2, v4, v6, v5}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    const/16 v1, 0x4e21
-
-    const/4 v3, -0x1
-
     :try_start_1
-    invoke-static {v1, v3}, Landroid/view/PointerIcon;->setHoveringSpenIcon(II)V
+    iget-object v2, p0, Lcom/android/server/display/MagnifierSurfaceControl;->mContext:Landroid/content/Context;
+
+    invoke-static {v2}, Lcom/android/server/display/MagnifierSurfaceControl;->getSPenUSPLevel(Landroid/content/Context;)I
+
+    move-result v2
+
+    const/16 v4, 0xa
+
+    if-lt v2, v4, :cond_0
+
+    iget-object v2, p0, Lcom/android/server/display/MagnifierSurfaceControl;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const-string/jumbo v4, "accessibility_display_magnification_enabled"
+
+    const/4 v5, 0x0
+
+    invoke-static {v2, v4, v5}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    iget-object v2, p0, Lcom/android/server/display/MagnifierSurfaceControl;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const-string/jumbo v4, "air_button_onoff"
+
+    const/4 v5, 0x1
+
+    invoke-static {v2, v4, v5}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
     :try_end_1
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    :cond_1
+    :cond_0
     :goto_0
     :try_start_2
-    iget-object v1, p0, Lcom/android/server/display/MagnifierSurfaceControl;->mPolicy:Lcom/android/server/display/MagnifierDisplayPolicy;
+    invoke-direct {p0}, Lcom/android/server/display/MagnifierSurfaceControl;->destroyMainSurface()V
 
-    iget-object v3, p0, Lcom/android/server/display/MagnifierSurfaceControl;->mSizeChangeListener:Lcom/android/server/display/MagnifierDisplayPolicy$OnSizeChangeListener;
+    const/4 v2, 0x0
 
-    invoke-virtual {v1, v3}, Lcom/android/server/display/MagnifierDisplayPolicy;->removeOnSizeChanageListener(Lcom/android/server/display/MagnifierDisplayPolicy$OnSizeChangeListener;)V
+    iput v2, p0, Lcom/android/server/display/MagnifierSurfaceControl;->mState:I
 
-    const/4 v1, 0x0
+    sget-object v2, Lcom/android/server/display/MagnifierSurfaceControl;->mBorder:Lcom/android/server/display/MagnifierSurfaceControl$Border;
 
-    iput-object v1, p0, Lcom/android/server/display/MagnifierSurfaceControl;->mSizeChangeListener:Lcom/android/server/display/MagnifierDisplayPolicy$OnSizeChangeListener;
+    invoke-virtual {v2}, Lcom/android/server/display/MagnifierSurfaceControl$Border;->dismiss()V
+
+    sget-object v2, Lcom/android/server/display/MagnifierSurfaceControl;->mBorder:Lcom/android/server/display/MagnifierSurfaceControl$Border;
+
+    invoke-virtual {v2}, Lcom/android/server/display/MagnifierSurfaceControl$Border;->removeMagnifierView()V
+
+    const/4 v2, 0x0
+
+    sput-object v2, Lcom/android/server/display/MagnifierSurfaceControl;->mBorder:Lcom/android/server/display/MagnifierSurfaceControl$Border;
+
+    iget-object v2, p0, Lcom/android/server/display/MagnifierSurfaceControl;->mPoint:Lcom/android/server/display/MagnifierSurfaceControl$HoverPoint;
+
+    if-eqz v2, :cond_1
+
+    iget-object v2, p0, Lcom/android/server/display/MagnifierSurfaceControl;->mPoint:Lcom/android/server/display/MagnifierSurfaceControl$HoverPoint;
+
+    invoke-virtual {v2}, Lcom/android/server/display/MagnifierSurfaceControl$HoverPoint;->dismiss()V
+
+    const/4 v2, 0x0
+
+    iput-object v2, p0, Lcom/android/server/display/MagnifierSurfaceControl;->mPoint:Lcom/android/server/display/MagnifierSurfaceControl$HoverPoint;
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    monitor-exit v2
+    const/16 v2, 0x4e21
+
+    const/4 v4, -0x1
+
+    :try_start_3
+    invoke-static {v2, v4}, Landroid/view/PointerIcon;->setHoveringSpenIcon(II)V
+    :try_end_3
+    .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_1
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    :cond_1
+    :goto_1
+    :try_start_4
+    iget-object v2, p0, Lcom/android/server/display/MagnifierSurfaceControl;->mPolicy:Lcom/android/server/display/MagnifierDisplayPolicy;
+
+    iget-object v4, p0, Lcom/android/server/display/MagnifierSurfaceControl;->mSizeChangeListener:Lcom/android/server/display/MagnifierDisplayPolicy$OnSizeChangeListener;
+
+    invoke-virtual {v2, v4}, Lcom/android/server/display/MagnifierDisplayPolicy;->removeOnSizeChanageListener(Lcom/android/server/display/MagnifierDisplayPolicy$OnSizeChangeListener;)V
+
+    const/4 v2, 0x0
+
+    iput-object v2, p0, Lcom/android/server/display/MagnifierSurfaceControl;->mSizeChangeListener:Lcom/android/server/display/MagnifierDisplayPolicy$OnSizeChangeListener;
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+
+    monitor-exit v3
 
     return-void
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
-    :try_start_3
-    const-string/jumbo v1, "MagnifierSurfaceControl"
-
-    const-string/jumbo v3, "failed to set hovering spen icon"
-
-    invoke-static {v1, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_start_5
+    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
     goto :goto_0
 
     :catchall_0
-    move-exception v1
+    move-exception v2
 
-    monitor-exit v2
+    monitor-exit v3
 
-    throw v1
+    throw v2
+
+    :catch_1
+    move-exception v0
+
+    :try_start_6
+    const-string/jumbo v2, "MagnifierSurfaceControl"
+
+    const-string/jumbo v4, "failed to set hovering spen icon"
+
+    invoke-static {v2, v4}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_0
+
+    goto :goto_1
 .end method
 
 .method public dump(Ljava/io/PrintWriter;Ljava/lang/String;)V

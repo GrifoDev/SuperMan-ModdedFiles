@@ -47,7 +47,7 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/server/InputMethodManagerService;->-wrap9(Lcom/android/server/InputMethodManagerService;Z)V
+    invoke-static {v0, v1}, Lcom/android/server/InputMethodManagerService;->-wrap10(Lcom/android/server/InputMethodManagerService;Z)V
 
     return-void
 .end method

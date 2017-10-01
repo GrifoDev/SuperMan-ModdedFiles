@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">هیچ برنامه بارگیری شده ای وجود ندارد</string>
     <string name="no_room_any_page">فضایی در صفحه‌ها وجود ندارد.</string>
     <string name="no_space_page">در صفحه جا نیست. سعی کنید میانبر را به صفحه دیگری اضافه کنید.</string>
+    <string name="no_space_page_for_widget">در این صفحه جای خالی موجود نیست.</string>
     <string name="not_selected">انتخاب نشده است</string>
     <string name="ok">تاييد</string>
     <string name="only_one_widget_instance_allowed">%s ویجت قبلاً به صفحه اصلی اضافه شده‌است.</string>
@@ -176,7 +177,7 @@
     <string name="read_home_screen_settings">خواندن تنظیمات صفحه اصلی</string>
     <string name="read_home_screen_settings_info">این برنامه می‌تواند میانبرها و تنظیمات صفحه اصلی شما را بخواند.</string>
     <string name="rearrange_menu_icons_not_allowed">ترتیب‌بندی مجدد نمادها به ترتیب حروف الفبا ممکن نیست.</string>
-    <string name="removable_preloadapp_uninstall_message">‎%s حذف خواهد شد. برای دانلود مجدد آن، به فهرست برنامه‌ها بروید، روی دکمه گزینه‌های بیشتر ضربه بزنید و سپس برنامه‌های مهم GALAXY را انتخاب کنید.</string>
+    <string name="removable_preloadapp_uninstall_message">%s حذف خواهد شد. برای دانلود مجدد آن، به فهرست برنامه‌ها بروید، روی دکمه گزینه‌های بیشتر ضربه بزنید و سپس Galaxy Essentials را انتخاب کنید.</string>
     <string name="remove_app_folder_cancel">لغو</string>
     <string name="remove_app_folder_confirm">حذف</string>
     <string name="remove_app_folder_confirm_VZW">حذف</string>

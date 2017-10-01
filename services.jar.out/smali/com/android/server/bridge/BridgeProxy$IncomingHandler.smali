@@ -60,7 +60,7 @@
     :pswitch_0
     iget-object v1, p0, Lcom/android/server/bridge/BridgeProxy$IncomingHandler;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v1}, Lcom/android/server/bridge/BridgeProxy;->-get22(Lcom/android/server/bridge/BridgeProxy;)Ljava/lang/Object;
+    invoke-static {v1}, Lcom/android/server/bridge/BridgeProxy;->-get21(Lcom/android/server/bridge/BridgeProxy;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -113,7 +113,7 @@
 
     iget-object v4, p0, Lcom/android/server/bridge/BridgeProxy$IncomingHandler;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v4}, Lcom/android/server/bridge/BridgeProxy;->-get21(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/CustomCursor;
+    invoke-static {v4}, Lcom/android/server/bridge/BridgeProxy;->-get20(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/CustomCursor;
 
     move-result-object v4
 
@@ -129,7 +129,7 @@
 
     iget-object v1, p0, Lcom/android/server/bridge/BridgeProxy$IncomingHandler;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v1}, Lcom/android/server/bridge/BridgeProxy;->-get22(Lcom/android/server/bridge/BridgeProxy;)Ljava/lang/Object;
+    invoke-static {v1}, Lcom/android/server/bridge/BridgeProxy;->-get21(Lcom/android/server/bridge/BridgeProxy;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -186,7 +186,7 @@
     :pswitch_1
     iget-object v1, p0, Lcom/android/server/bridge/BridgeProxy$IncomingHandler;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v1}, Lcom/android/server/bridge/BridgeProxy;->-get22(Lcom/android/server/bridge/BridgeProxy;)Ljava/lang/Object;
+    invoke-static {v1}, Lcom/android/server/bridge/BridgeProxy;->-get21(Lcom/android/server/bridge/BridgeProxy;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -239,7 +239,7 @@
 
     iget-object v4, p0, Lcom/android/server/bridge/BridgeProxy$IncomingHandler;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v4}, Lcom/android/server/bridge/BridgeProxy;->-get5(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/CustomCursor;
+    invoke-static {v4}, Lcom/android/server/bridge/BridgeProxy;->-get4(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/CustomCursor;
 
     move-result-object v4
 
@@ -255,7 +255,7 @@
 
     iget-object v1, p0, Lcom/android/server/bridge/BridgeProxy$IncomingHandler;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v1}, Lcom/android/server/bridge/BridgeProxy;->-get22(Lcom/android/server/bridge/BridgeProxy;)Ljava/lang/Object;
+    invoke-static {v1}, Lcom/android/server/bridge/BridgeProxy;->-get21(Lcom/android/server/bridge/BridgeProxy;)Ljava/lang/Object;
 
     move-result-object v1
 

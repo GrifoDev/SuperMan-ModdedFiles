@@ -46,7 +46,7 @@
 
     iget-object v0, p0, Lcom/android/server/bridge/operations/DbObserver$5;->this$0:Lcom/android/server/bridge/operations/DbObserver;
 
-    invoke-static {v0}, Lcom/android/server/bridge/operations/DbObserver;->-wrap2(Lcom/android/server/bridge/operations/DbObserver;)V
+    invoke-static {v0}, Lcom/android/server/bridge/operations/DbObserver;->-wrap6(Lcom/android/server/bridge/operations/DbObserver;)V
 
     return-void
 .end method

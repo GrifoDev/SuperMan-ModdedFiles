@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">Tsy misy rindranasa voaidina</string>
     <string name="no_room_any_page">"Tsy misy toerana malalaka intsony eran'ny pejy."</string>
     <string name="no_space_page">No space on page. Try adding shortcut to a different page.</string>
+    <string name="no_space_page_for_widget">No space on this page.</string>
     <string name="not_selected">Tsy voafantina</string>
     <string name="ok">ok</string>
     <string name="only_one_widget_instance_allowed">%s widget already added to home screen.</string>

@@ -201,7 +201,7 @@
 
     const/4 v2, 0x0
 
-    const v3, 0x7f0900ed
+    const v3, 0x7f0900ee
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -213,7 +213,7 @@
 
     const/4 v2, 0x1
 
-    const v3, 0x7f0900ec
+    const v3, 0x7f0900ed
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -247,7 +247,7 @@
 
     invoke-direct {v3, v0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v4, 0x7f09009e
+    const v4, 0x7f09009f
 
     invoke-virtual {v3, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 

@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">Geen applicaties gedownload</string>
     <string name="no_room_any_page">Geen ruimte op een pagina.</string>
     <string name="no_space_page">Geen ruimte op deze pagina. Probeer sneltoets toe te voegen op een andere pagina.</string>
+    <string name="no_space_page_for_widget">Geen ruimte op deze pagina.</string>
     <string name="not_selected">Niet geselecteerd</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">%s-widget al toegevoegd aan startscherm.</string>
@@ -177,7 +178,7 @@ Veilige map"</string>
     <string name="read_home_screen_settings">Inst. startscherm lezen</string>
     <string name="read_home_screen_settings_info">Deze app kan de instellingen en sneltoetsen voor uw startscherm lezen.</string>
     <string name="rearrange_menu_icons_not_allowed">Kan pictogrammen niet opnieuw indelen in alfabetische volgorde.</string>
-    <string name="removable_preloadapp_uninstall_message">%s wordt verwijderd. Als u opnieuw wilt downloaden, gaat u naar de applijst, tikt u op Meer opties en selecteert u GALAXY Essentials.</string>
+    <string name="removable_preloadapp_uninstall_message">%s wordt verwijderd. Als u opnieuw wilt downloaden, gaat u naar de applijst, tikt u op de knop Meer opties en selecteert u Galaxy Essentials.</string>
     <string name="remove_app_folder_cancel">Annuleer</string>
     <string name="remove_app_folder_confirm">Wissen</string>
     <string name="remove_app_folder_confirm_VZW">Verwijderen</string>

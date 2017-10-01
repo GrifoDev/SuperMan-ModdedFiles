@@ -809,7 +809,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090096
+    const v2, 0x7f090097
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -843,7 +843,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0900ca
+    const v2, 0x7f0900cb
 
     new-instance v3, Lcom/android/launcher2/HomeScreenOptionMenu$11;
 
@@ -3327,7 +3327,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f090096
+    const v6, 0x7f090097
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3584,7 +3584,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f090097
+    const v5, 0x7f090098
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3602,7 +3602,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f090097
+    const v6, 0x7f090098
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3768,7 +3768,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f090096
+    const v6, 0x7f090097
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3856,7 +3856,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f090095
+    const v5, 0x7f090096
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

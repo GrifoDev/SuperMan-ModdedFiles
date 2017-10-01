@@ -4720,7 +4720,7 @@
 
     if-eqz v0, :cond_10
 
-    const v6, 0x1040a56
+    const v6, 0x1040a5f
 
     :cond_5
     :goto_0
@@ -4907,7 +4907,7 @@
 
     if-eqz v0, :cond_9
 
-    const v0, 0x1040a56
+    const v0, 0x1040a5f
 
     if-ne v6, v0, :cond_9
 
@@ -4956,7 +4956,7 @@
 
     if-eqz v0, :cond_a
 
-    const v0, 0x1040a56
+    const v0, 0x1040a5f
 
     if-eq v6, v0, :cond_a
 
@@ -5129,7 +5129,7 @@
 
     if-eqz v0, :cond_c
 
-    const v0, 0x1040a58
+    const v0, 0x1040a61
 
     invoke-virtual {v10, v0}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -5414,7 +5414,7 @@
 
     if-eqz v0, :cond_15
 
-    const v6, 0x1040a50
+    const v6, 0x1040a59
 
     goto/16 :goto_0
 
@@ -5425,12 +5425,12 @@
 
     if-eqz v0, :cond_14
 
-    const v6, 0x1040a50
+    const v6, 0x1040a59
 
     goto/16 :goto_0
 
     :cond_14
-    const v6, 0x1040a52
+    const v6, 0x1040a5b
 
     goto/16 :goto_0
 
@@ -5481,7 +5481,7 @@
 
     if-eqz v0, :cond_1a
 
-    const v6, 0x1040a51
+    const v6, 0x1040a5a
 
     goto/16 :goto_0
 
@@ -5492,12 +5492,12 @@
 
     if-eqz v0, :cond_19
 
-    const v6, 0x1040a51
+    const v6, 0x1040a5a
 
     goto/16 :goto_0
 
     :cond_19
-    const v6, 0x1040a53
+    const v6, 0x1040a5c
 
     goto/16 :goto_0
 
@@ -5537,7 +5537,7 @@
     goto/16 :goto_0
 
     :cond_1d
-    const v6, 0x1040a54
+    const v6, 0x1040a5d
 
     goto/16 :goto_0
 
@@ -5552,7 +5552,7 @@
 
     if-eqz v0, :cond_1f
 
-    const v6, 0x1040a4f
+    const v6, 0x1040a58
 
     goto/16 :goto_0
 
@@ -5703,7 +5703,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v6, 0x1040885
+    const v6, 0x104088e
 
     goto/16 :goto_0
 
@@ -5761,7 +5761,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v6, 0x1040885
+    const v6, 0x104088e
 
     goto/16 :goto_0
 
@@ -5794,7 +5794,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v6, 0x1040a55
+    const v6, 0x1040a5e
 
     goto/16 :goto_0
 
@@ -5808,7 +5808,7 @@
     goto/16 :goto_0
 
     :cond_28
-    const v0, 0x1040a57
+    const v0, 0x1040a60
 
     invoke-virtual {v10, v0}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -5947,8 +5947,6 @@
 .method private updateUsbStateBroadcastIfNeeded()V
     .locals 7
 
-    const/4 v6, 0x1
-
     new-instance v3, Landroid/content/Intent;
 
     const-string/jumbo v4, "android.hardware.usb.action.USB_STATE"
@@ -5979,7 +5977,11 @@
 
     const-string/jumbo v4, "unlocked"
 
-    invoke-virtual {v3, v4, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+    invoke-direct {p0}, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->isUsbTransferAllowed()Z
+
+    move-result v5
+
+    invoke-virtual {v3, v4, v5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
     iget-object v4, p0, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->mCurrentFunctions:Ljava/lang/String;
 
@@ -6016,7 +6018,9 @@
     goto :goto_0
 
     :cond_0
-    invoke-virtual {v3, v0, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+    const/4 v4, 0x1
+
+    invoke-virtual {v3, v0, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
     goto :goto_1
 
@@ -6856,7 +6860,7 @@
 .method public handleMessage(Landroid/os/Message;)V
     .locals 13
 
-    const v12, 0x1040a5a
+    const v12, 0x1040a63
 
     const/16 v10, 0x9
 
@@ -8353,7 +8357,7 @@
 
     move-result-object v6
 
-    const v7, 0x1040a5f
+    const v7, 0x1040a68
 
     invoke-static {v6, v7, v8}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -8398,7 +8402,7 @@
 
     move-result-object v6
 
-    const v7, 0x1040a5c
+    const v7, 0x1040a65
 
     invoke-static {v6, v7, v8}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -8459,7 +8463,7 @@
 
     move-result-object v6
 
-    const v7, 0x1040a5f
+    const v7, 0x1040a68
 
     invoke-static {v6, v7, v8}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -8504,7 +8508,7 @@
 
     move-result-object v6
 
-    const v7, 0x1040a5c
+    const v7, 0x1040a65
 
     invoke-static {v6, v7, v8}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -8586,7 +8590,7 @@
 
     move-result-object v6
 
-    const v7, 0x1040a5b
+    const v7, 0x1040a64
 
     invoke-static {v6, v7, v8}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -8624,7 +8628,7 @@
 
     move-result-object v6
 
-    const v7, 0x1040a5b
+    const v7, 0x1040a64
 
     invoke-static {v6, v7, v8}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">کوئی ڈاؤن لوڈ کردہ ایپلیکیشنز نہیں ہیں</string>
     <string name="no_room_any_page">کسی صفحہ پر کوئی روم نہیں ہے۔</string>
     <string name="no_space_page">صفحہ پر کوئي جگہ نہیں۔ مختلف صفحہ میں شارٹ کٹ شامل کرنے کی کوشش کریں۔</string>
+    <string name="no_space_page_for_widget">اس صفحہ پر کوئی اسپیس نہیں ہے۔</string>
     <string name="not_selected">غیر منتخب شدہ</string>
     <string name="ok">ٹھیک ہے</string>
     <string name="only_one_widget_instance_allowed">%s ویجیٹ پہلے سے ہی ہوم اسکرین پر شامل کیا ہوا ہے۔</string>
@@ -176,7 +177,7 @@
     <string name="read_home_screen_settings">ہوم اسکرین کی سیٹنگز پڑھیں</string>
     <string name="read_home_screen_settings_info">یہ ایپلیکیشن آپ کی ہوم اسکرین کی سیٹنگز اور شارٹ کٹس پڑھ سکتا ہے۔</string>
     <string name="rearrange_menu_icons_not_allowed">حروف تہجی کی ترتیب میں آئیکونز کو دوبارہ ترتیب دینے سے قاصر۔</string>
-    <string name="removable_preloadapp_uninstall_message">%s حذف کردیا جائے گا۔ اسے دوبارہ ڈاؤن لوڈ کرنے کے لیے، اپلیکیشن کی فہرست پر جائیں، مزید اختیارات والے بٹن پر تھپکی دیں، پھر گلیکسی کے لوازمات کو منتخب کریں۔</string>
+    <string name="removable_preloadapp_uninstall_message">%s حذف کردیا جائے گا۔ اسے دوبارہ ڈاؤن لوڈ کرنے کے لیے، ایپلیکیشن کی فہرست پر جائیں، مزید اختیارات والے بٹن پر تھپکی دیں، پھر Galaxy Essentials منتخب کریں۔</string>
     <string name="remove_app_folder_cancel">منسوخ</string>
     <string name="remove_app_folder_confirm">حذف کریں</string>
     <string name="remove_app_folder_confirm_VZW">ہٹائیں</string>

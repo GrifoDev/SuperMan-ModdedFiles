@@ -2479,6 +2479,16 @@
 .end method
 
 .method public prune(J)V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, p1, p2, v0}, Lcom/android/server/usage/UsageStatsDatabase;->prune(JZ)V
+
+    return-void
+.end method
+
+.method public prune(JZ)V
     .locals 5
 
     iget-object v1, p0, Lcom/android/server/usage/UsageStatsDatabase;->mLock:Ljava/lang/Object;
@@ -2490,12 +2500,15 @@
 
     invoke-virtual {v0, p1, p2}, Lcom/android/server/usage/UnixCalendar;->setTimeInMillis(J)V
 
+    if-nez p3, :cond_0
+
     iget-object v0, p0, Lcom/android/server/usage/UsageStatsDatabase;->mCal:Lcom/android/server/usage/UnixCalendar;
 
     const/4 v2, -0x3
 
     invoke-virtual {v0, v2}, Lcom/android/server/usage/UnixCalendar;->addYears(I)V
 
+    :cond_0
     iget-object v0, p0, Lcom/android/server/usage/UsageStatsDatabase;->mIntervalDirs:[Ljava/io/File;
 
     const/4 v2, 0x3
@@ -2514,12 +2527,15 @@
 
     invoke-virtual {v0, p1, p2}, Lcom/android/server/usage/UnixCalendar;->setTimeInMillis(J)V
 
+    if-nez p3, :cond_1
+
     iget-object v0, p0, Lcom/android/server/usage/UsageStatsDatabase;->mCal:Lcom/android/server/usage/UnixCalendar;
 
     const/4 v2, -0x6
 
     invoke-virtual {v0, v2}, Lcom/android/server/usage/UnixCalendar;->addMonths(I)V
 
+    :cond_1
     iget-object v0, p0, Lcom/android/server/usage/UsageStatsDatabase;->mIntervalDirs:[Ljava/io/File;
 
     const/4 v2, 0x2
@@ -2538,12 +2554,15 @@
 
     invoke-virtual {v0, p1, p2}, Lcom/android/server/usage/UnixCalendar;->setTimeInMillis(J)V
 
+    if-nez p3, :cond_2
+
     iget-object v0, p0, Lcom/android/server/usage/UsageStatsDatabase;->mCal:Lcom/android/server/usage/UnixCalendar;
 
     const/4 v2, -0x4
 
     invoke-virtual {v0, v2}, Lcom/android/server/usage/UnixCalendar;->addWeeks(I)V
 
+    :cond_2
     iget-object v0, p0, Lcom/android/server/usage/UsageStatsDatabase;->mIntervalDirs:[Ljava/io/File;
 
     const/4 v2, 0x1
@@ -2562,12 +2581,15 @@
 
     invoke-virtual {v0, p1, p2}, Lcom/android/server/usage/UnixCalendar;->setTimeInMillis(J)V
 
+    if-nez p3, :cond_3
+
     iget-object v0, p0, Lcom/android/server/usage/UsageStatsDatabase;->mCal:Lcom/android/server/usage/UnixCalendar;
 
     const/4 v2, -0x7
 
     invoke-virtual {v0, v2}, Lcom/android/server/usage/UnixCalendar;->addDays(I)V
 
+    :cond_3
     iget-object v0, p0, Lcom/android/server/usage/UsageStatsDatabase;->mIntervalDirs:[Ljava/io/File;
 
     const/4 v2, 0x0
@@ -2596,6 +2618,43 @@
     monitor-exit v1
 
     throw v0
+.end method
+
+.method public pruneAll(J)V
+    .locals 3
+
+    const/4 v1, 0x1
+
+    invoke-virtual {p0, p1, p2, v1}, Lcom/android/server/usage/UsageStatsDatabase;->prune(JZ)V
+
+    const/4 v0, 0x0
+
+    :goto_0
+    iget-object v1, p0, Lcom/android/server/usage/UsageStatsDatabase;->mSortedStatFiles:[Landroid/app/usage/TimeSparseArray;
+
+    array-length v1, v1
+
+    if-ge v0, v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/server/usage/UsageStatsDatabase;->mSortedStatFiles:[Landroid/app/usage/TimeSparseArray;
+
+    aget-object v1, v1, v0
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/server/usage/UsageStatsDatabase;->mSortedStatFiles:[Landroid/app/usage/TimeSparseArray;
+
+    aget-object v1, v1, v0
+
+    invoke-virtual {v1}, Landroid/app/usage/TimeSparseArray;->clear()V
+
+    :cond_0
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    return-void
 .end method
 
 .method public putUsageStats(ILcom/android/server/usage/IntervalStats;)V

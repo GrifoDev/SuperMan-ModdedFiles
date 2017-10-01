@@ -11,8 +11,8 @@
     <integer name="menuWidgets_cellCountY">2</integer>
     <integer name="menuWidgets_widgetFolderOpen_max_rows">2</integer>
     <integer name="open_folder_appicon_max_visible_rows">4</integer>
-    <integer name="config_workspaceEditModeShrinkPercentage">84</integer>
-    <integer name="moveApps_base_grid_size">10</integer>
+    <integer name="config_workspaceEditModeShrinkPercentage">100</integer>
+    <integer name="moveApps_base_grid_size">11</integer>
     <integer name="appsearch_default_cellCountX">6</integer>
     <integer name="folder_multi_container_folder_count">6</integer>
 </resources>

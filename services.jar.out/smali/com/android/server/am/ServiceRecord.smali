@@ -12,6 +12,8 @@
 
 
 # static fields
+.field private static final MAX_DELIVERED_STARTS:I = 0x1388
+
 .field static final MAX_DELIVERY_COUNT:I = 0x3
 
 .field static final MAX_DONE_EXECUTING_COUNT:I = 0x6
@@ -1456,49 +1458,79 @@
 .end method
 
 .method public findDeliveredStart(IZ)Lcom/android/server/am/ServiceRecord$StartItem;
-    .locals 4
+    .locals 6
 
-    iget-object v3, p0, Lcom/android/server/am/ServiceRecord;->deliveredStarts:Ljava/util/ArrayList;
+    iget-object v4, p0, Lcom/android/server/am/ServiceRecord;->deliveredStarts:Ljava/util/ArrayList;
 
-    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
-    const/4 v1, 0x0
+    const/16 v4, 0x1388
+
+    if-le v0, v4, :cond_1
+
+    const/4 v1, 0x1
 
     :goto_0
-    if-ge v1, v0, :cond_2
+    const/4 v2, 0x0
 
-    iget-object v3, p0, Lcom/android/server/am/ServiceRecord;->deliveredStarts:Ljava/util/ArrayList;
+    :goto_1
+    if-ge v2, v0, :cond_4
 
-    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    iget-object v4, p0, Lcom/android/server/am/ServiceRecord;->deliveredStarts:Ljava/util/ArrayList;
 
-    move-result-object v2
+    invoke-virtual {v4, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    check-cast v2, Lcom/android/server/am/ServiceRecord$StartItem;
+    move-result-object v3
 
-    iget v3, v2, Lcom/android/server/am/ServiceRecord$StartItem;->id:I
+    check-cast v3, Lcom/android/server/am/ServiceRecord$StartItem;
 
-    if-ne v3, p1, :cond_1
+    iget v4, v3, Lcom/android/server/am/ServiceRecord$StartItem;->id:I
 
-    if-eqz p2, :cond_0
+    if-ne v4, p1, :cond_3
 
-    iget-object v3, p0, Lcom/android/server/am/ServiceRecord;->deliveredStarts:Ljava/util/ArrayList;
+    if-eqz p2, :cond_2
 
-    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
+    iget-object v4, p0, Lcom/android/server/am/ServiceRecord;->deliveredStarts:Ljava/util/ArrayList;
+
+    invoke-virtual {v4, v2}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
     :cond_0
-    return-object v2
+    :goto_2
+    return-object v3
 
     :cond_1
-    add-int/lit8 v1, v1, 0x1
+    const/4 v1, 0x0
 
     goto :goto_0
 
     :cond_2
-    const/4 v3, 0x0
+    if-eqz v1, :cond_0
 
-    return-object v3
+    sget-object v4, Lcom/android/server/am/ServiceRecord;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v5, "force remove deliveredStart on index 0"
+
+    invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v4, p0, Lcom/android/server/am/ServiceRecord;->deliveredStarts:Ljava/util/ArrayList;
+
+    const/4 v5, 0x0
+
+    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
+
+    goto :goto_2
+
+    :cond_3
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_1
+
+    :cond_4
+    const/4 v4, 0x0
+
+    return-object v4
 .end method
 
 .method public forceClearTracker()V

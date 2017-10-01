@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">ບໍ່ມີແອັບທີ່ດາວໂຫຼດໄວ້</string>
     <string name="no_room_any_page">ບໍ່ມີຫ້ອງຢູ່ໃນໜ້າໃດອີກ.</string>
     <string name="no_space_page">ບໍ່ມີພື້ນທີ່ໃນໜ້າ. ລອງເພີ່ມທາງລັດໃສ່ໜ້າອື່ນ.</string>
+    <string name="no_space_page_for_widget">ບໍ່ມີພື້ນທີ່ຢູ່ໃນໜ້ານີ້.</string>
     <string name="not_selected">ບໍ່ໄດ້ເລືອກ</string>
     <string name="ok">ຕົກລົງ</string>
     <string name="only_one_widget_instance_allowed">ເພີ່ມວິດເຈັດ %s ໃສ່ໜ້າຈໍຫຼັກແລ້ວ.</string>
@@ -176,7 +177,7 @@
     <string name="read_home_screen_settings">ອ່ານການຕັ້ງຄ່າໜ້າຈໍຫຼັກ</string>
     <string name="read_home_screen_settings_info">ແອັບນີ້ສາມາດອ່ານການຕັ້ງຄ່າໜ້າຈໍຫຼັກແລະທາງລັດໄດ້.</string>
     <string name="rearrange_menu_icons_not_allowed">ບໍ່ສາມາດຈັດໄອຄອນໃໜ່ໂດຍລຽງລໍາດັບຕາມຕົວອັກສອນໄດ້.</string>
-    <string name="removable_preloadapp_uninstall_message">%s ຈະຖືກລຶບ. ເພື່ອດາວໂຫຼດມັນອີກ, ໄປທີ່ລາຍການແອັບ, ແຕະປຸ່ມຕົວເລືອກເພີ່ມອີກ, ຈາກນັ້ນເລືອກ GALAXY Essentials.</string>
+    <string name="removable_preloadapp_uninstall_message">%s ຈະຖືກລຶບ. ເພື່ອດາວໂຫຼດມັນອີກ, ໄປທີ່ລາຍການແອັບ, ແຕະປຸ່ມຕົວເລືອກເພີ່ມເຕີມ, ຈາກນັ້ນເລືອກ Galaxy Essentials.</string>
     <string name="remove_app_folder_cancel">ຍົກເລີກ</string>
     <string name="remove_app_folder_confirm">ລຶບ</string>
     <string name="remove_app_folder_confirm_VZW">ເອົາອອກໄປ</string>

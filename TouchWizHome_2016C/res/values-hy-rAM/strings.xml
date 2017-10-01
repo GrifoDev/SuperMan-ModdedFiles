@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">Ներբեռնված ծրագրեր չկան</string>
     <string name="no_room_any_page">Որևէ էջում տեղ չկա:</string>
     <string name="no_space_page">Տեղ չկա էջում: Փորձեք դյուրանցում ավելացնել ուրիշ էջում:</string>
+    <string name="no_space_page_for_widget">Տեղ չկա այս էջում:</string>
     <string name="not_selected">Չի ընտրվել</string>
     <string name="ok">Ընդունել</string>
     <string name="only_one_widget_instance_allowed">%s պատկերագիրն արդեն ավելացվել է հիմնական էկրանին:</string>
@@ -176,7 +177,7 @@
     <string name="read_home_screen_settings">Կարդալ հիմն. էկ. դրվծքներ</string>
     <string name="read_home_screen_settings_info">Այս ծրագիրը կարող է կարդալ հիմնական էկրանի դրվածքները և դյուրանցումները:</string>
     <string name="rearrange_menu_icons_not_allowed">Անհնար է պատկերակները վերադասավորել այբբենական կարգով:</string>
-    <string name="removable_preloadapp_uninstall_message">%s-ը կվերացվի: Այն նորից ներբեռնելու համար գնացեք ծրագրերի ցանկ, թակեք «այլ ընտրանքներ» կոճակը, հետո ընտրեք GALAXY Essentials:</string>
+    <string name="removable_preloadapp_uninstall_message">%s-ը կվերացվի: Այն նորից ներբեռնելու համար գնացեք ծրագրերի ցանկ, թակեք «այլ ընտրանքներ» կոճակը, հետո ընտրեք Galaxy Essentials:</string>
     <string name="remove_app_folder_cancel">Չեղարկել</string>
     <string name="remove_app_folder_confirm">Վերացնել</string>
     <string name="remove_app_folder_confirm_VZW">Հեռացնել</string>

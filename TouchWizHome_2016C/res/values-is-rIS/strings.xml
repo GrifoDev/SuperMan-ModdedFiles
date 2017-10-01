@@ -140,6 +140,7 @@ forrit"</string>
     <string name="no_downloaded_apps">Engin sótt forrit</string>
     <string name="no_room_any_page">Ekkert pláss á síðum.</string>
     <string name="no_space_page">Ekkert pláss á síðunni. Prófaðu að bæta flýtileið við aðra síðu.</string>
+    <string name="no_space_page_for_widget">Ekkert pláss á þessari síðu.</string>
     <string name="not_selected">Ekki valið</string>
     <string name="ok">Í lagi</string>
     <string name="only_one_widget_instance_allowed">%s-græjunni hefur þegar verið bætt við heimaskjá.</string>
@@ -177,7 +178,7 @@ forrit"</string>
     <string name="read_home_screen_settings">Lesa stilling. heimaskjás</string>
     <string name="read_home_screen_settings_info">Þetta forrit getur lesið stillingar og flýtileiðir heimaskjás.</string>
     <string name="rearrange_menu_icons_not_allowed">Ekki er hægt að endurraða táknum í stafrófsröð.</string>
-    <string name="removable_preloadapp_uninstall_message">%s verður eytt. Til að sækja það aftur skaltu opna forritalistann, pikka á hnappinn fyrir fleiri valkosti og velja svo GALAXY-grunnforrit.</string>
+    <string name="removable_preloadapp_uninstall_message">„%s“ verður eytt. Til að sækja það aftur skaltu opna forritalistann, pikka á hnappinn fyrir fleiri valkosti og velja svo „Galaxy-grunnforrit“.</string>
     <string name="remove_app_folder_cancel">Hætta v.</string>
     <string name="remove_app_folder_confirm">Eyða</string>
     <string name="remove_app_folder_confirm_VZW">Fjarlægja</string>

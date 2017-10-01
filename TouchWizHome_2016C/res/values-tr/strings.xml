@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">İndirilen uygulama yok</string>
     <string name="no_room_any_page">Hiçbir sayfada yer yok.</string>
     <string name="no_space_page">Sayfada alan yok. Başka bir sayfaya kısayol eklemeyi deneyin.</string>
+    <string name="no_space_page_for_widget">Bu sayfada alan yok.</string>
     <string name="not_selected">Seçili değil</string>
     <string name="ok">Tamam</string>
     <string name="only_one_widget_instance_allowed">"%s widget'ı ana ekrana zaten eklendi."</string>
@@ -176,7 +177,7 @@ Ekle"</string>
     <string name="read_home_screen_settings">Ana ekran ayarlarını oku</string>
     <string name="read_home_screen_settings_info">Bu uygulama, ana ekran ayarlarınızı ve kısayollarınızı okuyabilir.</string>
     <string name="rearrange_menu_icons_not_allowed">Simgeler alfabetik sıraya göre yeniden düzenlenemiyor.</string>
-    <string name="removable_preloadapp_uninstall_message">%s silinecek. Yeniden indirmek için uygulamalar listesine gidin, daha fazla seçenek tuşuna dokunup GALAXY Essentials öğesini seçin.</string>
+    <string name="removable_preloadapp_uninstall_message">%s silinecek. Yeniden indirmek için uygulamalar listesine gidin, daha fazla seçenek tuşuna dokunup Galaxy Essentials ögesini seçin.</string>
     <string name="remove_app_folder_cancel">İptal</string>
     <string name="remove_app_folder_confirm">Sil</string>
     <string name="remove_app_folder_confirm_VZW">Kaldır</string>

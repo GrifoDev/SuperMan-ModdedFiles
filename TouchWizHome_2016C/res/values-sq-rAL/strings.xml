@@ -139,6 +139,7 @@
     <string name="no_downloaded_apps">Asnjë aplikacion i shkarkuar</string>
     <string name="no_room_any_page">Nuk ka vend në asnjë faqe.</string>
     <string name="no_space_page">Nuk ka vend në faqe. Provo ta shtosh shkurtoren te një faqe tjetër.</string>
+    <string name="no_space_page_for_widget">Nuk ka hapësirë në këtë faqe.</string>
     <string name="not_selected">Nuk është përzgjedhur</string>
     <string name="ok">Ok</string>
     <string name="only_one_widget_instance_allowed">Widget-i %s është shtuar në ekranin bazë.</string>
@@ -176,7 +177,7 @@ e sigurt"</string>
     <string name="read_home_screen_settings">Lexon cilës. ekrani bazë</string>
     <string name="read_home_screen_settings_info">Ky app mund të lexojë cilësimet dhe shkurtoret e ekranit bazë.</string>
     <string name="rearrange_menu_icons_not_allowed">Nuk mund të ri-rendit ikonat sipas rendit alfabetik.</string>
-    <string name="removable_preloadapp_uninstall_message">%s do të hiqet. Për ta shkarkuar sërish, shko te lista e aplikacioneve, trokit mbi butonin opsione të tjera dhe përzgjidh Esencialet GALAXY.</string>
+    <string name="removable_preloadapp_uninstall_message">%s do të hiqet. Për ta shkarkuar sërish, shko te lista e app-eve, trokit mbi butonin opsione të tjera dhe përzgjidh Galaxy Essentials.</string>
     <string name="remove_app_folder_cancel">Anullo</string>
     <string name="remove_app_folder_confirm">Hiq</string>
     <string name="remove_app_folder_confirm_VZW">Largo</string>

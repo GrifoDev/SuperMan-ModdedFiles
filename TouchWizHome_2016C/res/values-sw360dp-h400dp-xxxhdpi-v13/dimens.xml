@@ -9,8 +9,8 @@
     <dimen name="home_editmode_panel_zeropage_margin_Top">25.0dip</dimen>
     <dimen name="home_icon_drawablepadding">2.0dip</dimen>
     <dimen name="home_icon_paddingTop">4.0dip</dimen>
-    <dimen name="home_pageIndicatorTop">325.0dip</dimen>
-    <dimen name="home_pageIndicatorTopDrag">354.0dip</dimen>
+    <dimen name="home_pageIndicatorTop">318.0dip</dimen>
+    <dimen name="home_pageIndicatorTopDrag">344.0dip</dimen>
     <dimen name="home_pageIndicatorTopEdit">319.0dip</dimen>
     <dimen name="home_pageMarginTop">6.0dip</dimen>
     <dimen name="home_screen_option_menu_height">85.0dip</dimen>

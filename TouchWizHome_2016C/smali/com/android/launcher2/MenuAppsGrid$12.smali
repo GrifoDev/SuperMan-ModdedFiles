@@ -47,7 +47,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v3, 0x7f0900d2
+    const v3, 0x7f0900d3
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -63,7 +63,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0900db
+    const v3, 0x7f0900dc
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

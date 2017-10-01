@@ -546,8 +546,25 @@
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    if-nez v3, :cond_0
 
+    invoke-static {}, Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;->access$000()Lcom/android/launcher2/searchapp/LocaleSet;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/android/launcher2/searchapp/LocaleSet;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    const-string v4, "zh_TW"
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_6
+
+    :cond_0
     invoke-static {}, Lcom/android/launcher2/searchapp/HanziToBPMF;->getIntance()Lcom/android/launcher2/searchapp/HanziToBPMF;
 
     move-result-object v3
@@ -556,13 +573,13 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_5
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
     move-result v3
 
-    if-lez v3, :cond_4
+    if-lez v3, :cond_5
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -577,7 +594,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_4
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -589,17 +606,17 @@
 
     iget v5, v1, Lcom/android/launcher2/searchapp/HanziToBPMF$Token;->type:I
 
-    if-ne v4, v5, :cond_1
+    if-ne v4, v5, :cond_2
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
 
     move-result v4
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_1
 
     invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    :cond_0
+    :cond_1
     iget-object v4, v1, Lcom/android/launcher2/searchapp/HanziToBPMF$Token;->target:Ljava/lang/String;
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -612,23 +629,23 @@
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
 
     move-result v4
 
-    if-lez v4, :cond_2
+    if-lez v4, :cond_3
 
     invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    :cond_2
+    :cond_3
     iget-object v4, v1, Lcom/android/launcher2/searchapp/HanziToBPMF$Token;->source:Ljava/lang/String;
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     goto :goto_0
 
-    :cond_3
+    :cond_4
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
@@ -636,14 +653,14 @@
     :goto_1
     return-object v3
 
-    :cond_4
+    :cond_5
     invoke-super {p0, p1}, Lcom/android/launcher2/searchapp/SearchAppLocaleUtils$SearchAppLocaleUtilsBase;->getSortKey(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
     goto :goto_1
 
-    :cond_5
+    :cond_6
     invoke-super {p0, p1}, Lcom/android/launcher2/searchapp/SearchAppLocaleUtils$SearchAppLocaleUtilsBase;->getSortKey(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3

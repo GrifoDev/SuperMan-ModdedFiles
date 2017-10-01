@@ -2642,9 +2642,9 @@
 .method private showSurfaceRobustlyLocked()Z
     .locals 7
 
-    const/4 v6, 0x1
+    const/4 v6, 0x0
 
-    const/4 v5, 0x0
+    const/4 v5, 0x1
 
     iget-object v2, p0, Lcom/android/server/wm/WindowStateAnimator;->mWin:Lcom/android/server/wm/WindowState;
 
@@ -2666,7 +2666,7 @@
 
     iget-object v2, p0, Lcom/android/server/wm/WindowStateAnimator;->mSurfaceController:Lcom/android/server/wm/WindowSurfaceController;
 
-    invoke-virtual {v2, v6}, Lcom/android/server/wm/WindowSurfaceController;->forceScaleableInTransaction(Z)V
+    invoke-virtual {v2, v5}, Lcom/android/server/wm/WindowSurfaceController;->forceScaleableInTransaction(Z)V
 
     :cond_0
     iget-object v2, p0, Lcom/android/server/wm/WindowStateAnimator;->mSurfaceController:Lcom/android/server/wm/WindowSurfaceController;
@@ -2677,9 +2677,15 @@
 
     if-nez v0, :cond_1
 
-    return v5
+    return v6
 
     :cond_1
+    iget-object v2, p0, Lcom/android/server/wm/WindowStateAnimator;->mService:Lcom/android/server/wm/WindowManagerService;
+
+    iget-object v3, p0, Lcom/android/server/wm/WindowStateAnimator;->mWin:Lcom/android/server/wm/WindowState;
+
+    invoke-virtual {v2, v3, v5}, Lcom/android/server/wm/WindowManagerService;->updateNonSystemOverlayWindowsVisibilityIfNeeded(Lcom/android/server/wm/WindowState;Z)V
+
     iget-object v2, p0, Lcom/android/server/wm/WindowStateAnimator;->mWin:Lcom/android/server/wm/WindowState;
 
     iget-boolean v2, v2, Lcom/android/server/wm/WindowState;->mTurnOnScreen:Z
@@ -2717,7 +2723,7 @@
 
     iget-object v2, p0, Lcom/android/server/wm/WindowStateAnimator;->mWin:Lcom/android/server/wm/WindowState;
 
-    iput-boolean v5, v2, Lcom/android/server/wm/WindowState;->mTurnOnScreen:Z
+    iput-boolean v6, v2, Lcom/android/server/wm/WindowState;->mTurnOnScreen:Z
 
     iget-object v2, p0, Lcom/android/server/wm/WindowStateAnimator;->mService:Lcom/android/server/wm/WindowManagerService;
 
@@ -2738,7 +2744,7 @@
     iput v3, v2, Lcom/android/server/wm/WindowAnimator;->mBulkUpdateParams:I
 
     :cond_3
-    return v6
+    return v5
 .end method
 
 .method private stepAnimation(J)Z
@@ -10841,7 +10847,7 @@
 .end method
 
 .method hide(Ljava/lang/String;)V
-    .locals 1
+    .locals 3
 
     iget-boolean v0, p0, Lcom/android/server/wm/WindowStateAnimator;->mLastHidden:Z
 
@@ -10854,6 +10860,14 @@
     iget-object v0, p0, Lcom/android/server/wm/WindowStateAnimator;->mSurfaceController:Lcom/android/server/wm/WindowSurfaceController;
 
     if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/wm/WindowStateAnimator;->mService:Lcom/android/server/wm/WindowManagerService;
+
+    iget-object v1, p0, Lcom/android/server/wm/WindowStateAnimator;->mWin:Lcom/android/server/wm/WindowState;
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/wm/WindowManagerService;->updateNonSystemOverlayWindowsVisibilityIfNeeded(Lcom/android/server/wm/WindowState;Z)V
 
     iget-object v0, p0, Lcom/android/server/wm/WindowStateAnimator;->mSurfaceController:Lcom/android/server/wm/WindowSurfaceController;
 
