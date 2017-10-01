@@ -218,7 +218,7 @@
 
 .field public static final keyguard_single_shamsi_date_view:I = 0x7f1301c1
 
-.field public static final keyguard_single_time_hour_view:I = 0x7f130448
+.field public static final keyguard_single_time_hour_view:I = 0x7f130449
 
 .field public static final keyguard_single_time_image_hour_10th:I = 0x7f1301c4
 
@@ -232,9 +232,9 @@
 
 .field public static final keyguard_single_time_image_view_set:I = 0x7f1301c3
 
-.field public static final keyguard_single_time_minute_view:I = 0x7f130449
+.field public static final keyguard_single_time_minute_view:I = 0x7f13044a
 
-.field public static final keyguard_single_time_seconds_view:I = 0x7f13044a
+.field public static final keyguard_single_time_seconds_view:I = 0x7f13044b
 
 .field public static final keyguard_single_time_view:I = 0x7f1301bf
 

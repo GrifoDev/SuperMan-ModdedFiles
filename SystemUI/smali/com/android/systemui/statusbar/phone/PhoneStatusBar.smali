@@ -12372,7 +12372,7 @@
 .end method
 
 .method protected loadDimens()V
-    .locals 6
+    .locals 7
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mContext:Landroid/content/Context;
 
@@ -12434,13 +12434,6 @@
     iput v2, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mMaxAllowedKeyguardNotifications:I
 
     :cond_1
-    const v2, 0x7f0d0391
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getFloat(I)F
-
-    move-result v2
-
-    iput v2, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mNotificationStackScrollerScaleForCover:F
 
     return-void
 .end method
