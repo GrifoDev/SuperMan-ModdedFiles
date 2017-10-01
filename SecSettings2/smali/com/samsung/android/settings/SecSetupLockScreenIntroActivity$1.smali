@@ -181,7 +181,7 @@
     goto :goto_0
 
     :pswitch_3
-    const v5, 0x7f0b089f
+    const v5, 0x7f0b08a9
 
     invoke-static {v5}, Lcom/samsung/android/settings/SecSetupLockScreenIntroActivity$SkipDialog;->newInstance(I)Lcom/samsung/android/settings/SecSetupLockScreenIntroActivity$SkipDialog;
 
@@ -202,7 +202,7 @@
     goto :goto_0
 
     :pswitch_data_0
-    .packed-switch 0x7f11063e
+    .packed-switch 0x7f11063c
         :pswitch_1
         :pswitch_0
         :pswitch_2

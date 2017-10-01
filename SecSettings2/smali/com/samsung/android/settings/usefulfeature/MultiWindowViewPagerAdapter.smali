@@ -118,7 +118,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/usefulfeature/MultiWindowViewPagerAdapter;->context:Landroid/content/Context;
 
-    const v4, 0x7f0b090d
+    const v4, 0x7f0b0917
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -136,7 +136,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/usefulfeature/MultiWindowViewPagerAdapter;->context:Landroid/content/Context;
 
-    const v4, 0x7f0b090e
+    const v4, 0x7f0b0918
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -174,7 +174,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/usefulfeature/MultiWindowViewPagerAdapter;->context:Landroid/content/Context;
 
-    const v3, 0x7f0b0907
+    const v3, 0x7f0b0911
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -195,7 +195,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/usefulfeature/MultiWindowViewPagerAdapter;->context:Landroid/content/Context;
 
-    const v4, 0x7f0b090b
+    const v4, 0x7f0b0915
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -213,7 +213,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/usefulfeature/MultiWindowViewPagerAdapter;->context:Landroid/content/Context;
 
-    const v4, 0x7f0b090c
+    const v4, 0x7f0b0916
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -354,7 +354,7 @@
 
     invoke-virtual {v2, v3}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
-    const v3, 0x7f1104f0
+    const v3, 0x7f1104ee
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -362,7 +362,7 @@
 
     check-cast v1, Landroid/widget/TextView;
 
-    const v3, 0x7f1104f1
+    const v3, 0x7f1104ef
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -370,7 +370,7 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    const v3, 0x7f1104ef
+    const v3, 0x7f1104ed
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

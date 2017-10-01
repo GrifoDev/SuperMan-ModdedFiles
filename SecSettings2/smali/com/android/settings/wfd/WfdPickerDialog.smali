@@ -238,7 +238,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f110710
+    const v3, 0x7f11070e
 
     invoke-virtual {v2, v3}, Landroid/app/FragmentManager;->findFragmentById(I)Landroid/app/Fragment;
 
@@ -262,7 +262,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a0653
+    const v3, 0x7f0a0651
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -290,7 +290,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a0652
+    const v3, 0x7f0a0650
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -347,7 +347,7 @@
 
     invoke-virtual {v1, v4}, Landroid/app/AlertDialog$Builder;->setCustomTitle(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    const v5, 0x7f110711
+    const v5, 0x7f11070f
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -375,7 +375,7 @@
 
     iget-object v5, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mWfdTitle:Landroid/widget/TextView;
 
-    const v6, 0x7f0b0e32
+    const v6, 0x7f0b0e3c
 
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(I)V
 
@@ -388,7 +388,7 @@
 
     invoke-direct {v5, p0}, Lcom/android/settings/wfd/WfdPickerDialog$1;-><init>(Lcom/android/settings/wfd/WfdPickerDialog;)V
 
-    const v6, 0x7f0b1102
+    const v6, 0x7f0b1105
 
     invoke-virtual {v1, v6, v5}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -410,7 +410,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f110710
+    const v6, 0x7f11070e
 
     invoke-virtual {v5, v6}, Landroid/app/FragmentManager;->findFragmentById(I)Landroid/app/Fragment;
 
@@ -453,7 +453,7 @@
     :cond_0
     iget-object v5, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mWfdTitle:Landroid/widget/TextView;
 
-    const v6, 0x7f0b0e31
+    const v6, 0x7f0b0e3b
 
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(I)V
 

@@ -49,7 +49,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/SettingsActivity;->onCreate(Landroid/os/Bundle;)V
 
-    const v3, 0x7f1104a1
+    const v3, 0x7f11049f
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/accessibility/SecAccessibilitySettingsForSetupWizardActivity;->findViewById(I)Landroid/view/View;
 
@@ -81,7 +81,7 @@
 
     invoke-static {v3}, Lcom/android/setupwizardlib/util/SystemBarHelper;->hideSystemBars(Landroid/view/Window;)V
 
-    const v3, 0x7f110620
+    const v3, 0x7f11061e
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/accessibility/SecAccessibilitySettingsForSetupWizardActivity;->findViewById(I)Landroid/view/View;
 

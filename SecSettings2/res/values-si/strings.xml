@@ -243,7 +243,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">සහාය</string>
     <string name="reset_network_settings_list_summary">Wi-Fi, බ්ලූටූත්, සහ අනෙකුත් ජාල සැකසුම් ඒවායේ පෙරනිමි වෙත යළි සකසන්න.</string>
     <string name="master_clear_list_summary">ඔබේ උපාංගය එහි කම්හල් පෙරනිමි සැකසුම් වෙත යළි සකසන්න. මෙමඟින් ගොනු සහ බාගත් යෙදුම් ඇතුළුව, දත්ත සියල්ල මකනු ඇත.</string>
-    <string name="auto_restart_summary">පිහිටවූ වේලාවන්හිදී ස්වයංක්‍රීයව යළි ඇරඹීම මඟින් ඔබේ උපාංගය ප්‍රශස්ත කරන්න. උපාංගය යළි ඇරඹුණු විට ඕනෑම නොසුරැකි දත්තයක් අහිමි විය හැක.</string>
+    <string name="auto_restart_summary">ඔබේ දුරකථනය සතියකට වරක් ස්වයංක්‍රීයව යළි ඇරඹීමෙන් ප්‍රශස්ත කරන්න. ඔබේ දුරකථනය යළි ඇරඹෙන විට නොසුරැකි ඕනෑම දත්තයක් නැති වනු ඇත.</string>
     <string name="search_settings">සොයන්න</string>
     <string name="related_results">අදාළ අයිතම %d</string>
     <string name="no_results_found">ප්‍රතිඵල හමු නොවිණි</string>
@@ -1349,6 +1349,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_verify_failed_summary">ඔබේ උපාංගය යළි ඇරඹිය නොහැක. සම්පූර්ණත්වය තහවුරු කිරීම අසමත් වී ඇත. ඔබට ඔබේ උපාංගය කම්හල් පෙරනිමි සැකසුම් වෙත යළි සැකසීමට අවශ්‍ය වේ. මෙමඟින් ඔබේ දත්ත සියල්ල මකනු ඇත.</string>
     <string name="cryptkeeper_emergency_call">හදිසි ඇමතුම්</string>
     <string name="cryptkeeper_return_to_call">ඇමතුම වෙත නැවත යන්න</string>
+    <string name="cryptkeeper_default_enter_msg">ඔබේ දුරකථනය ආරක්ෂාව සඳහා ගුප්ත කේතනය කර ඇත.</string>
     <string name="enter_password">ඔබේ උපාංගය ඇරඹීමට, ඔබේ මුරපදය ඇතුළු කරන්න.</string>
     <string name="enter_pin">ඔබේ උපාංගය ඇරඹීමට, ඔබේ PIN ඇතුළු කරන්න.</string>
     <string name="enter_pattern">ඔබේ උපාංගය ඇරඹීමට, ඔබේ රටාව අඳින්න.</string>
@@ -1362,6 +1363,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_last_warn_wipe">ඔබේ උපාංගය එහි කම්හල් පෙරනිමි සැකසුම් වෙත යළි සැකසීමට පෙර ඔබට එය ඇරඹීම සඳහා ප්‍රයත්න 1 ක් පමණක් ඉතිරිව ඇත. මෙමඟින් ගොනු සහ බාගත් යෙදුම් ඇතුළුව, දත්ත සියල්ල මකනු ඇත.</string>
     <string name="crypt_keeper_failed_title_dec">විකේතනය අසාර්ථකයි.</string>
     <string name="crypt_keeper_failed_summary_dec">බාධා වීම හේතුවෙන් විකේතනය සම්පුර්ණ කළ නොහැක. භාවිතයට පෙර කර්මාන්ත දත්ත ප්‍රතිසැකසුම (සියලු දත්ත මකමින්) ඉටු කරන්න.</string>
+    <string name="crypt_keeper_set_screen_lock_type">තිර අගුලු වර්ගය තෝරන්න</string>
     <string name="encryption_interstitial_message_kor">ඔබේ උපාංගය ගුප්ත කේතිතයි. උපාංගය බලගැන්වුණු විට දත්ත ගුප්ත විකේතනයට තිර අගුල අවශ්‍ය වීම තෝරාගෙන ඔබේ ගුප්ත කේතිත දත්ත ආරක්ෂා කරගන්න. මෙය නැති වූ හෝ සොරකම් කළ උපාංගවල දත්ත ආරක්ෂා කිරීමට උපකාරී වේ. ඔබට ඔබේ උපාංගය බලගන්වන සෑම අවස්ථාවකම එහි දත්ත ගුප්ත විකේතනය කිරීමට ඔබේ උපාංගය අගුලු හැරීමට අවශ්‍ය වනු ඇත. ඔබ ඔබේ උපාංගය ගුප්ත විකේතනය කරන තෙක් ඔබට ඇමතුම්, පණිවිඩ, හෝ දැනුම්දීම් කිසිවක් නොලැබෙනු ඇත.</string>
     <string name="encryption_interstitial_message_direction">"උපාංගය බලගැන්වුණු විට “දිශා අගුල අවශ්‍ය වීම” තෝරා ගැනීම මඟින් ඔබේ උපාංගය ආරක්ෂා කර ගන්න. මෙය අහිමි වූ හෝ සොරකම් කළ උපාංග මත දත්ත ආරක්ෂා කිරීමට උපකාරී වේ.
 
@@ -1601,6 +1603,8 @@ You will also need it when:"</string>
     <string name="empty_content_toast">සුරැකීමට අන්තර්ගත නැත.</string>
     <string name="find_my_mobile_message_zero">"මගේ ජංගම දුරකථනය සොයන්න වෙබ් සේවාව භාවිතයෙන් ඔබේ උපාංගය දුරස්ථව පසුහඹන්න හා පාලනය කරන්න. වැඩිදුර තොරතුරු සඳහා හා ලබා ගත හැකි වෙනත් ක්‍රියාදාම සොයා ගැනීමට, පහත වෙබ් අඩවියට පිවිසෙන්න:
 %s"</string>
+    <string name="send_last_location_title">අවසාන පිහිටීම යවන්න</string>
+    <string name="send_last_location_summary">බැටරිය යම් මට්ටමකට පහත වැටෙන විට ඔබේ දුරකථනයට මගේ ජංගමය සොයන්න සර්වරයට එහි අවසාන පිහිටීම යැවීමට ඉඩ දෙන්න.</string>
     <string name="high_power_description">තනි යෙදුම් සඳහා බැටරි භාවිතය ප්‍රශස්ත කිරීම සක්‍රිය කරන්න. දත්ත සමමුහුව සඳහා ජංගම ජාල භාවිතා කරන වැනි, ඇතැම් ක්‍රියාදාම, බැටරි බලය සුරැකීම සඳහා සීමා කෙරෙනු ඇත.</string>
     <string name="wifi_display_summary_off">අක්‍රියයි</string>
     <string name="battery_usage_description">මෙම තිරය විසින් උපාංගය අවසන් වරට පූර්ණව චාර්ජ් වීමේ පටන් බැටරි භාවිතයේ දත්ත පෙන්වයි.</string>
@@ -1832,6 +1836,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">ඔබට අගුලු තිරය මත භාවිතා කිරීමට අවශ්‍ය වන යෙදුම් කෙටිමං තෝරන්න.</string>
     <string name="lockscreen_notifications">අගුලු තිරය මත දැනුම්දීම්</string>
     <string name="work_profile_lockscreen_notifications">වැඩ පැතිකඩ දැනුම්දීම්</string>
+    <string name="lock_network_and_security">ජාලය සහ ආරක්ෂාව අගුළු දමන්න</string>
+    <string name="lock_network_and_security_summary">ඔබේ දුරකථනය අගුළු දමා ඇති අතරේ, එය නැති වී හෝ සොරා ගත් විට ස්ථානගත කර ආරක්ෂා කිරීම පහසු කරමින්, ජාල සහ ආරක්ෂාවට-අදාළ ක්‍රියාදාමයන් අගුළු දමා තබා ගන්න.</string>
     <string name="dualclock_settings_title">ද්විත්ව ඔරලෝසුව</string>
     <string name="dualclock_settings_summary">රෝමිං විට දේශීය සහ ගෘහස්ථ වේලා කලාප දෙකම පෙන්වන්න.</string>
     <string name="set_home_city">නිවෙස් වේලා කලාපය පිහිටු.</string>
@@ -2017,7 +2023,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="air_browse_music_on_lock_screen_title">අගුලු තිරයෙහි සංගීතය</string>
     <string name="air_browse_music_on_lock_screen_summary">අගුලු තිරයේ සංගීත ඛණ්ඩ වෙනස් කරන්න.</string>
     <string name="air_browse_note_summary">දසුන් ප්‍රකාරය තුළ සිටින අතරතුර පිටු අතර මාරුවන්න.</string>
-    <string name="data_usage_enable_mobile_summery">ජංගම දත්ත ක්‍රියා විරහිතයි නම්, ජාල සබැඳුමක් අවශ්‍ය සේවා භාවිතා කිරීමට ඔබේ උපාංගය Wi-Fi ජාලයක් වෙත සබැඳිය යුතු වේ.</string>
+    <string name="data_usage_enable_mobile_summery">ඔබේ ජංගම ජාලය හරහා අන්තර්ජාලයට ප්‍රවේශ වන්න.</string>
     <string name="data_usage_enable_mobile_warning_skt">ජංගම ජාල වෙත සම්බන්ධවීම සඳහා ඔබේ දත්ත සැලසුම මත පදනම්ව අමතර ගාස්තු අය විය හැක. ඉදිරියට යන්නද?</string>
     <string name="data_usage_enable_mobile_warning_ktt">ජංගම ජාල වෙත සම්බන්ධවීම සඳහා ඔබේ දත්ත සැලසුම මත පදනම්ව අමතර ගාස්තු අය විය හැක. ඉදිරියට යන්නද?</string>
     <string name="data_usage_enable_mobile_warning_lgt">ජංගම ජාල වෙත සම්බන්ධවීම සඳහා ඔබේ දත්ත සැලසුම මත පදනම්ව අමතර ගාස්තු අය විය හැක. ඉදිරියට යන්නද?</string>
@@ -2386,8 +2392,8 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="secure_folder_summary">ආරක්ෂාව ඉහළ නැංවීමට ඔබේ පෞද්ගලික අන්තර්ගතය සහ යෙදුම් අගුලු දමන්න.</string>
     <string name="text_biometrics_finger_title_enterprise">%2$s අගුළු හැරීමට %1$s ඇඟිලි සලකුණුවලට සහාය නොදක්වයි.</string>
     <string name="edge_feeds_title">Edge සංග්‍රහ</string>
-    <string name="screensaver_settings_summary">උපාංගය තබා ඇති සහ/හෝ තිරය ක්‍රියා විරහිත අතරතුර චාර්ජ් වන අතරේ සිදු වන දේ පාලනය කරන්න. මෙම ක්‍රියාදාමය තිරසුරැකුම ලෙස ද හැඳින්වේ.</string>
-    <string name="screensaver_settings_summary_wo_dock">උපාංගය චාර්ජ් වෙමින් පවතින අතරතුර තිරය ස්වයංක්‍රීයව ක්‍රියා විරහිත වූ පසුව තිර සුරැකුමක් පෙන්වන්න.</string>
+    <string name="screensaver_settings_summary">ඔබේ දුරකථනය චාර්ජ් වන අතරේ තිරය ස්වයංක්‍රීයව ක්‍රියා විරහිත වූ පසුව තිර සුරැකුමක් පෙන්වන්න.</string>
+    <string name="screensaver_settings_summary_wo_dock">ඔබේ දුරකථනය සවි කර කර ඇති හෝ චාර්ජ් වන අතරේ තිරය ස්වයංක්‍රීයව ක්‍රියා විරහිත වූ පසුව තිර සුරැකුමක් පෙන්වන්න.</string>
     <string name="apn_already_exists">දැනටමත් පවතී.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">පොර්ට් අංකය %1$d සහ %2$d අතර විය යුතුය.</string>
@@ -3152,6 +3158,7 @@ Wi-Fi is now on."</string>
     <string name="wfd_connection_end_toast">Screen Mirroring සබැඳුම අවසන් විය.</string>
     <string name="wfd_descrpition_playvia">අන්තර්ගතය වාදනය කරන්න.</string>
     <string name="wfd_descrpition_mirroring">තිරය ආදර්ශනය කරන්න.</string>
+    <string name="wfd_descrpition_playsound">හඬ වාදනය කරන්න.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">බහු කවුළුව අක්‍රිය වී උත්පතන කවුළු තුළ විවෘත යෙදුම් සියල්ල වැසෙනු ඇත.</string>
     <string name="keyguard_password_attempt_count_pin_code">උත්සාහයන් %d ක් ඉතිරිවී ඇත.</string>
@@ -3990,7 +3997,7 @@ Receiving SMS"</string>
     <string name="location_network_based">රැහැන් රහිත ජාල භාවිතා කර.</string>
     <string name="location_neighborhood_level">ඔබ සිටින ස්ථානය ඉක්මනින් අනුමාන කර ගැනීම සඳහා ගූගල් ස්ථාන සේවාව භාවිතා කිරී. යෙදෙම්.ට ඉඩ දෙන්න. නිර්නාමික ස්ථාන දත්ත එකතු කොට ගූගල් වෙත යැවෙ‍නු ඇත.</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">උපාංගය පිළිබඳව</string>
+    <string name="about_settings">දුරකථනය පිළිබඳ</string>
     <string name="about_settings_vzw">උපාංගය පිළිබඳව</string>
     <string name="legal_information">නීතිමය තොරතුරු</string>
     <string name="regulatory_information">නියාමන තොරතුරු</string>
@@ -4163,7 +4170,7 @@ Receiving SMS"</string>
     <string name="phone_language">භාෂාව</string>
     <string name="show_password">රහස්වචනය පෙනෙන පරිදි තබන්න</string>
     <string name="show_password_summary">මුරපද ටයිප් කරන විට ඒවායේ අනුලකුණු කෙටියෙන් පෙන්වන්න.</string>
-    <string name="ime_security_warning">රහස් වචන හැර, පුද්ගලික දත්ත සහ ණයපත ඇතුළු ඔබ ඇතුල් කරන සියලු වචන එකතු කර ගැනීමට මෙම ක්‍රමයට හැකිය. %1$s යෙදුම් වෙතින් වැඩසටහනෙන් එය පැමිණේ. කෙසේ හෝ භාවිතා කරන්නද?</string>
+    <string name="ime_security_warning">%s හට මුරපද සහ ණය කාඩ්පත් අංක වැනි පුද්ගලික දත්ත ඇතුළුව, ඔබ යතුරු ලියන සියලු පෙළ රැස් කිරීමට හැකි වනු ඇත.</string>
     <string name="failed_to_open_app_settings_toast">%s සඳහා සැකසුම් විවෘත කිරීම අසමත් විය.</string>
     <string name="keyboard_and_input_methods_category">යතුරු පුවරු</string>
     <string name="virtual_keyboard_category">අතථ්‍ය යතුරු පුවරුව</string>

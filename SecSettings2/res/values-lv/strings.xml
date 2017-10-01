@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Atbalsts</string>
     <string name="reset_network_settings_list_summary">Atjaunojiet Wi-Fi, Bluetooth un citu tīkla iestatījumu noklusējuma vērtības.</string>
     <string name="master_clear_list_summary">Atjaunojiet ierīcē tās rūpnīcas noklusējuma iestatījumus. Tādējādi tiks izdzēsti visi dati, tostarp faili un lejupielādētās programmas.</string>
-    <string name="auto_restart_summary">Optimizējiet savu ierīci, automātiski restartējot to iestatītajos laikos. Restartējot ierīci, tiks zaudēti visi nesaglabātie dati.</string>
+    <string name="auto_restart_summary">Optimizējiet tālruni, to automātiski restartējot reizi nedēļā. Restartējot tālruni, tiks zaudēti visi nesaglabātie dati.</string>
     <string name="search_settings">Meklēt</string>
     <string name="related_results">%d saistīti objekti</string>
     <string name="no_results_found">Nav atrasts neviens rezultāts</string>
@@ -1485,6 +1485,7 @@ Atšifrēšanas laikā SD karti nevar izmantot."</string>
     <string name="crypt_keeper_verify_failed_summary">Nevar restartēt jūsu ierīci. Integritātes verifikācija neizdevās. Atjaunojiet ierīcē rūpnīcas noklusējuma iestatījumus. Tādējādi tiks izdzēsti visi jūsu dati.</string>
     <string name="cryptkeeper_emergency_call">Ārkārtas zvans</string>
     <string name="cryptkeeper_return_to_call">Atgriezties sarunā</string>
+    <string name="cryptkeeper_default_enter_msg">Jūsu tālrunis ir šifrēts drošības iemeslu dēļ.</string>
     <string name="enter_password">Lai startētu ierīci, ievadiet savu paroli.</string>
     <string name="enter_pin">Lai startētu ierīci, ievadiet savu PIN kodu.</string>
     <string name="enter_pattern">Lai startētu ierīci, uzzīmējiet savu figūru.</string>
@@ -1498,6 +1499,7 @@ Atšifrēšanas laikā SD karti nevar izmantot."</string>
     <string name="crypt_keeper_last_warn_wipe">Lai startētu ierīci, jums ir atlicis 1 mēģinājums, pēc tam tajā tiks atjaunoti rūpnīcas noklusējuma iestatījumi. Tādējādi tiks izdzēsti visi dati, tostarp faili un lejupielādētās programmas.</string>
     <string name="crypt_keeper_failed_title_dec">Atšifrēšana neizdevās.</string>
     <string name="crypt_keeper_failed_summary_dec">Nevar pabeigt atšifrēšanu, jo tā tika pārtraukta. Pirms lietošanas atiestatiet sākotnējos datus (izdzēsiet visus datus).</string>
+    <string name="crypt_keeper_set_screen_lock_type">Iestatīt ekrāna bloķ. veidu</string>
     <string name="encryption_interstitial_message_kor">Jūsu ierīce ir šifrēta. Aizsargājiet savus šifrētos datus, izvēloties funkciju Aktivizēt ekrāna bloķēšanu, lai atšifrētu datus, kad tiek ieslēgta ierīce. Tas palīdzēs aizsargāt datus, ja ierīce tiks nozagta vai pazaudēta. Lai, ieslēdzot ierīci, atšifrētu tās datus, jums būs tā jāatbloķē. Jūs nesaņemsit zvanus, ziņas vai paziņojumus, kamēr ierīce nebūs atšifrēta.</string>
     <string name="encryption_interstitial_message_direction">"Lai aizsargātu savu ierīci, izvēlieties opciju Ieslēdzot ierīci, pieprasīt bloķēšanu ar virzienu. Tas palīdzēs aizsargāt datus, ja ierīce tiks nozagta vai pazaudēta.
 
@@ -1737,6 +1739,8 @@ Pirms pieprasāt garantijas remonta veikšanu, deaktivizējiet atkārtotās akti
     <string name="empty_content_toast">Nav saglabājama satura.</string>
     <string name="find_my_mobile_message_zero">"Attāli izsekojiet un vadiet savu ierīci, izmantojot tīmekļa pakalpojumu Atrast manu tālruni. Lai saņemtu papildinformāciju un uzzinātu par citām pieejamajām funkcijām, apmeklējiet šo tīmekļa vietni:
 %s"</string>
+    <string name="send_last_location_title">Sūtīt pēdējo atrašanās vietu</string>
+    <string name="send_last_location_summary">Atļaujiet tālrunim nosūtīt tā pēdējo atrašanās vietu uz Atrast manu tālruni serveri, kad akumulatora uzlādes līmenis samazinās zem noteiktā līmeņa.</string>
     <string name="high_power_description">Aktivizējiet funkciju Optimizēt akumulatora lietojumu atsevišķām programmām. Dažas funkcijas, piemēram, tās, kuras izmanto mobilos tīklus vai sinhronizē datus, tiks ierobežotas, lai taupītu akumulatora enerģiju.</string>
     <string name="wifi_display_summary_off">Izslēgts</string>
     <string name="battery_usage_description">Šis ekrāns parāda akumulatora lietojuma datus kopš ierīces pēdējās pilnās uzlādes.</string>
@@ -1968,6 +1972,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">Izvēlieties, kuru programmu īsceļus izmantot bloķēšanas ekrānā.</string>
     <string name="lockscreen_notifications">Paziņojumi bloķēšanas ekrānā</string>
     <string name="work_profile_lockscreen_notifications">Darba profila paziņojumi</string>
+    <string name="lock_network_and_security">Tīkla bloķēšana un drošība</string>
+    <string name="lock_network_and_security_summary">Paturiet ar tīklu un drošību saistītās funkcijas bloķētas, kad tālrunis ir bloķēts, tā ļaujot to vieglāk atrast un aizsargāt, ja tas tiek pazaudēts vai nozagts.</string>
     <string name="dualclock_settings_title">Duālais pulkstenis</string>
     <string name="dualclock_settings_summary">Viesabonēšanas laikā rādīt gan vietējās, gan mājas laika joslas.</string>
     <string name="set_home_city">Iestatīt māju laika joslu</string>
@@ -2153,7 +2159,7 @@ Pat tad, ja tālruņa dati tiek notīrīti, lai varētu izmantot šo tālruni, i
     <string name="air_browse_music_on_lock_screen_title">Mūzika bloķētajā ekrānā</string>
     <string name="air_browse_music_on_lock_screen_summary">Mainiet mūzikas ierakstus bloķēšanas ekrānā.</string>
     <string name="air_browse_note_summary">Pārvietojieties starp lapām skata režīmā.</string>
-    <string name="data_usage_enable_mobile_summery">Ja mobilie dati ir izslēgti, ierīcei ir jābūt savienotai ar Wi-Fi tīklu, lai izmantotu pakalpojumus, kuriem nepieciešams tīkla savienojums.</string>
+    <string name="data_usage_enable_mobile_summery">Piekļūstiet internetam, izmantojot mobilo tīklu.</string>
     <string name="data_usage_enable_mobile_warning_skt">Savienojuma izveide ar mobilajiem tīkliem var radīt papildu izmaksas atkarībā no jūsu datu plāna. Vai turpināt?</string>
     <string name="data_usage_enable_mobile_warning_ktt">Savienojuma izveide ar mobilajiem tīkliem var radīt papildu izmaksas atkarībā no jūsu datu plāna. Vai turpināt?</string>
     <string name="data_usage_enable_mobile_warning_lgt">Savienojuma izveide ar mobilajiem tīkliem var radīt papildu izmaksas atkarībā no jūsu datu plāna. Vai turpināt?</string>
@@ -2524,8 +2530,8 @@ Lūdzu, mēģiniet vēlreiz."</string>
     <string name="secure_folder_summary">Bloķējiet savu privāto saturu un programmas, lai palielinātu drošību.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s neatbalsta pirkstu nospiedumu izmantošanu %2$s atbloķēšanai.</string>
     <string name="edge_feeds_title">Edge plūsmas</string>
-    <string name="screensaver_settings_summary">Nosakiet, kas notiek, kad ierīce ir ievietota dokstacijā un/vai tiek uzlādēta, un tās ekrāns ir izslēgts. Šo funkciju sauc arī par ekrānsaudzētāju.</string>
-    <string name="screensaver_settings_summary_wo_dock">Parādiet ekrānsaudzētāju, kad ierīces uzlādes laikā ekrāns automātiski izslēdzas.</string>
+    <string name="screensaver_settings_summary">Parādiet ekrānsaudzētāju, kad tālruņa uzlādes laikā ekrāns automātiski izslēdzas.</string>
+    <string name="screensaver_settings_summary_wo_dock">Parādiet ekrānsaudzētāju, kad tālruņa uzlādes laikā vai tam atrodoties dokstacijā, ekrāns automātiski izslēdzas.</string>
     <string name="apn_already_exists">Jau pastāv.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Porta numuram jābūt no %1$d līdz %2$d.</string>
@@ -3291,6 +3297,7 @@ Mobilā tīklāja izmantošana palielina akumulatora enerģijas patēriņu un da
     <string name="wfd_connection_end_toast">Ekrāna spoguļošanas savienojums ir pārtraukts.</string>
     <string name="wfd_descrpition_playvia">Atskaņojiet saturu.</string>
     <string name="wfd_descrpition_mirroring">Spoguļojiet ekrānu.</string>
+    <string name="wfd_descrpition_playsound">Atskaņojiet skaņu.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">Vairāklogu režīms tiks deaktivizēts un visas uznirstošajos logos atvērtās programmas tiks aizvērtas.</string>
     <string name="keyguard_password_attempt_count_pin_code">Atlicis %d mēģinājums.</string>
@@ -4130,7 +4137,7 @@ Apsveriet ātrākas SD kartes vai USB krātuves ierīces izmantošanu, lai uzlab
     <string name="location_network_based">Lietot bezvadu tīklus</string>
     <string name="location_neighborhood_level">Ļaut progr. izmantot Google atr. vietas pak., lai ātrāk noteiktu jūsu atr. vietu. Anonīmi atr.vietas dati tiks apkopoti un nosūtīti Google.</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">Par ierīci</string>
+    <string name="about_settings">Par tālruni</string>
     <string name="about_settings_vzw">Par ierīci</string>
     <string name="legal_information">Juridiskā informācija</string>
     <string name="regulatory_information">Reglamentējoša inform.</string>
@@ -4315,7 +4322,7 @@ Jūsu esošie programmu dati netiks zaudēti."</string>
     <string name="phone_language">Valoda</string>
     <string name="show_password">Padarīt paroles redzamas</string>
     <string name="show_password_summary">Īslaicīgi rādīt paroles rakstzīmes rakstīšanas laikā.</string>
-    <string name="ime_security_warning">Šī metode var apkopot visu jūsu ievadīto tekstu, izņemot paroles, ieskaitot personīgos datus un kredītkaršu numurus. Tā pieder programmai %1$s. Vai tomēr izmantot?</string>
+    <string name="ime_security_warning">%s var apkopot visu jūsu ievadīto tekstu, tostarp personas datus, piemēram, paroles un kredītkaršu numurus.</string>
     <string name="failed_to_open_app_settings_toast">Neizdevās atvērt %s iestatījumus.</string>
     <string name="keyboard_and_input_methods_category">Tastatūras</string>
     <string name="virtual_keyboard_category">Virtuālā tastatūra</string>

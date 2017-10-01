@@ -1378,7 +1378,7 @@
     nop
 
     :pswitch_data_0
-    .packed-switch 0x7f1104a9
+    .packed-switch 0x7f1104a7
         :pswitch_1
         :pswitch_0
         :pswitch_2
@@ -1418,7 +1418,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/datausage/networkconnect/NetworkConnectActivity;->mPolicyManager:Landroid/net/NetworkPolicyManager;
 
-    const v0, 0x7f1104aa
+    const v0, 0x7f1104a8
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/datausage/networkconnect/NetworkConnectActivity;->findViewById(I)Landroid/view/View;
 
@@ -1428,7 +1428,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/datausage/networkconnect/NetworkConnectActivity;->mWlanText:Landroid/widget/TextView;
 
-    const v0, 0x7f110285
+    const v0, 0x7f110283
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/datausage/networkconnect/NetworkConnectActivity;->findViewById(I)Landroid/view/View;
 
@@ -1460,7 +1460,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ListView;->setDescendantFocusability(I)V
 
-    const v0, 0x7f1104a9
+    const v0, 0x7f1104a7
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/datausage/networkconnect/NetworkConnectActivity;->findViewById(I)Landroid/view/View;
 
@@ -1470,7 +1470,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/datausage/networkconnect/NetworkConnectActivity;->mMobileCheckBox:Landroid/widget/CheckBox;
 
-    const v0, 0x7f1104ab
+    const v0, 0x7f1104a9
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/datausage/networkconnect/NetworkConnectActivity;->findViewById(I)Landroid/view/View;
 
@@ -1651,7 +1651,7 @@
 
     iget-object v7, p0, Lcom/samsung/android/settings/datausage/networkconnect/NetworkConnectActivity;->mWlanText:Landroid/widget/TextView;
 
-    const v8, 0x7f0b0c50
+    const v8, 0x7f0b0c5a
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/datausage/networkconnect/NetworkConnectActivity;->getString(I)Ljava/lang/String;
 
@@ -1661,7 +1661,7 @@
 
     iget-object v7, p0, Lcom/samsung/android/settings/datausage/networkconnect/NetworkConnectActivity;->mMobileText:Landroid/widget/TextView;
 
-    const v8, 0x7f0b0c4f
+    const v8, 0x7f0b0c59
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/datausage/networkconnect/NetworkConnectActivity;->getString(I)Ljava/lang/String;
 

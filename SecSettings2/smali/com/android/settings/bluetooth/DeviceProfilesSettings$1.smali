@@ -40,7 +40,7 @@
 
     const-string/jumbo v2, "android.bluetooth.adapter.action.STATE_CHANGED"
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 

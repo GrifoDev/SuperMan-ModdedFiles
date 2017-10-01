@@ -134,11 +134,7 @@
 .end method
 
 .method public onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
-    .locals 14
-
-    const/4 v12, 0x0
-
-    const/4 v13, 0x1
+    .locals 13
 
     invoke-virtual {p0}, Lcom/android/settings/datausage/BillingCycleSettings$CycleEditorFragment;->getActivity()Landroid/app/Activity;
 
@@ -170,11 +166,13 @@
 
     const/4 v11, 0x0
 
-    invoke-virtual {v3, v10, v12, v11}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    const/4 v12, 0x0
+
+    invoke-virtual {v3, v10, v11, v12}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object v9
 
-    const v10, 0x7f110256
+    const v10, 0x7f110254
 
     invoke-virtual {v9, v10}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -184,7 +182,7 @@
 
     iput-object v10, p0, Lcom/android/settings/datausage/BillingCycleSettings$CycleEditorFragment;->mCycleDayPicker:Lcom/samsung/android/widget/SemNumberPicker;
 
-    const v10, 0x7f110255
+    const v10, 0x7f110253
 
     invoke-virtual {v9, v10}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -253,7 +251,9 @@
 
     iget-object v10, p0, Lcom/android/settings/datausage/BillingCycleSettings$CycleEditorFragment;->mCycleDayPicker:Lcom/samsung/android/widget/SemNumberPicker;
 
-    invoke-virtual {v10, v13}, Lcom/samsung/android/widget/SemNumberPicker;->setMinValue(I)V
+    const/4 v11, 0x1
+
+    invoke-virtual {v10, v11}, Lcom/samsung/android/widget/SemNumberPicker;->setMinValue(I)V
 
     iget-object v10, p0, Lcom/android/settings/datausage/BillingCycleSettings$CycleEditorFragment;->mCycleDayPicker:Lcom/samsung/android/widget/SemNumberPicker;
 
@@ -267,7 +267,9 @@
 
     iget-object v10, p0, Lcom/android/settings/datausage/BillingCycleSettings$CycleEditorFragment;->mCycleDayPicker:Lcom/samsung/android/widget/SemNumberPicker;
 
-    invoke-virtual {v10, v13}, Lcom/samsung/android/widget/SemNumberPicker;->setWrapSelectorWheel(Z)V
+    const/4 v11, 0x1
+
+    invoke-virtual {v10, v11}, Lcom/samsung/android/widget/SemNumberPicker;->setWrapSelectorWheel(Z)V
 
     iget-object v10, p0, Lcom/android/settings/datausage/BillingCycleSettings$CycleEditorFragment;->mCycleDayPicker:Lcom/samsung/android/widget/SemNumberPicker;
 
@@ -289,7 +291,7 @@
 
     invoke-virtual {v4, v10}, Landroid/widget/EditText;->setOnEditorActionListener(Landroid/widget/TextView$OnEditorActionListener;)V
 
-    const v10, 0x7f0b17db
+    const v10, 0x7f0b17de
 
     invoke-virtual {v0, v10}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -299,9 +301,17 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b17dd
+    const v11, 0x7f0b17e0
 
     invoke-virtual {v10, v11, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v10
+
+    const/high16 v11, 0x1040000
+
+    const/4 v12, 0x0
+
+    invoke-virtual {v10, v11, v12}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v10
 

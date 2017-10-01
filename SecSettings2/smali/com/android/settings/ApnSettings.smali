@@ -1877,7 +1877,7 @@
 
     invoke-virtual {v3, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    const v4, 0x7f1101ed
+    const v4, 0x7f1101eb
 
     invoke-virtual {v0, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1893,7 +1893,7 @@
 
     invoke-virtual {v4, v6}, Landroid/widget/RadioButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v4, 0x7f1101ee
+    const v4, 0x7f1101ec
 
     invoke-virtual {v0, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2632,7 +2632,7 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0b0acf
+    const v1, 0x7f0b0ad9
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -3103,7 +3103,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b143d
+    const v2, 0x7f0b1440
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3193,7 +3193,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b143e
+    const v2, 0x7f0b1441
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3490,6 +3490,8 @@
     :cond_2
     sput-boolean v3, Lcom/android/settings/ApnSettings;->mRestoreDefaultApnMode:Z
 
+    invoke-static {}, Lcom/android/settings/Utils;->removeImsManager()V
+
     return-void
 .end method
 
@@ -3759,6 +3761,10 @@
     const/16 v5, 0x20
 
     invoke-virtual {v3, v4, v5}, Landroid/telephony/TelephonyManager;->listen(Landroid/telephony/PhoneStateListener;I)V
+
+    iget-object v3, p0, Lcom/android/settings/ApnSettings;->mContext:Landroid/content/Context;
+
+    invoke-static {v3}, Lcom/android/settings/Utils;->getImsManager(Landroid/content/Context;)V
 
     iget-boolean v3, p0, Lcom/android/settings/ApnSettings;->mUnavailable:Z
 

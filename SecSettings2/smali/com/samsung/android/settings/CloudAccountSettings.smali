@@ -170,7 +170,7 @@
 
     iput-object v0, v1, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->intent:Landroid/content/Intent;
 
-    const v2, 0x7f0b1142
+    const v2, 0x7f0b1145
 
     iput v2, v1, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->titleRes:I
 
@@ -430,7 +430,7 @@
 
     const/4 v5, 0x0
 
-    const v6, 0x7f0b0b13
+    const v6, 0x7f0b0b1d
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/CloudAccountSettings;->getString(I)Ljava/lang/String;
 

@@ -283,7 +283,7 @@
 
     aput-object v12, v18, v19
 
-    const v19, 0x7f0b13da
+    const v19, 0x7f0b13dd
 
     move-object/from16 v0, p1
 
@@ -466,7 +466,7 @@
 
     const/4 v4, 0x0
 
-    const v2, 0x7f110576
+    const v2, 0x7f110574
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -583,7 +583,7 @@
 
     iget-object v2, p0, Lcom/android/settings/deviceinfo/StorageVolumePreference;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b13c7
+    const v3, 0x7f0b13ca
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

@@ -1344,7 +1344,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a0279
+    const v3, 0x7f0a0277
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1354,7 +1354,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a0277
+    const v4, 0x7f0a0275
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1366,7 +1366,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a0278
+    const v4, 0x7f0a0276
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1681,9 +1681,9 @@
 .method private loadDimensAndBitmap()V
     .locals 5
 
-    const v3, 0x7f0a0272
+    const v3, 0x7f0a0270
 
-    const v2, 0x7f0a0271
+    const v2, 0x7f0a026f
 
     const-string/jumbo v0, "ChooseLockDirection"
 
@@ -1705,7 +1705,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0279
+    const v1, 0x7f0a0277
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1719,7 +1719,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0277
+    const v1, 0x7f0a0275
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1733,7 +1733,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0278
+    const v1, 0x7f0a0276
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2156,7 +2156,7 @@
 .method private setInitialState()V
     .locals 12
 
-    const v7, 0x7f0a0469
+    const v7, 0x7f0a0467
 
     const/4 v6, 0x6
 
@@ -2303,7 +2303,7 @@
 
     aput-object v7, v6, v9
 
-    const v7, 0x7f0b08bf
+    const v7, 0x7f0b08c9
 
     invoke-virtual {v5, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

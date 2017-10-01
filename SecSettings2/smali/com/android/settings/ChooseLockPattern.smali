@@ -757,7 +757,7 @@
     if-eqz v3, :cond_4
 
     :cond_2
-    const v3, 0x7f0b09f7
+    const v3, 0x7f0b0a01
 
     invoke-virtual {p0, v3}, Lcom/android/settings/ChooseLockPattern;->getText(I)Ljava/lang/CharSequence;
 
@@ -785,7 +785,7 @@
     if-eqz v3, :cond_6
 
     :cond_5
-    const v3, 0x7f0b14b6
+    const v3, 0x7f0b14b9
 
     invoke-virtual {p0, v3}, Lcom/android/settings/ChooseLockPattern;->getText(I)Ljava/lang/CharSequence;
 
@@ -802,7 +802,7 @@
 
     aput-object v4, v3, v5
 
-    const v4, 0x7f0b07b2
+    const v4, 0x7f0b07ba
 
     invoke-virtual {p0, v4, v3}, Lcom/android/settings/ChooseLockPattern;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

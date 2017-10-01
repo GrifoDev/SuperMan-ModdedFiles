@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Suporte</string>
     <string name="reset_network_settings_list_summary">Repor definições de Wi-Fi, Bluetooth e outras definições de rede com os valores padrão.</string>
     <string name="master_clear_list_summary">Repor o seu dispositivo com as predefinições de fábrica. Isto irá eliminar todos os dados, incluindo ficheiros e aplicações transferidas.</string>
-    <string name="auto_restart_summary">Optimize o seu dispositivo reiniciando-o automaticamente em datas definidas. Os dados não guardados serão perdidos quando o dispositivo for reiniciado.</string>
+    <string name="auto_restart_summary">Optimizar o seu telefone reiniciando-o automaticamente uma vez por semana. Os dados não guardados serão perdidos quando o telefone for reiniciado.</string>
     <string name="search_settings">Procurar</string>
     <string name="related_results">%d itens relacionados</string>
     <string name="no_results_found">Nenhuns resultados encontrados</string>
@@ -1485,6 +1485,7 @@ A encriptação demora uma hora ou mais. Antes de começar, certifique-se de que
     <string name="crypt_keeper_verify_failed_summary">Impossível reiniciar o dispositivo. A verificação de integridade falhou. Tem de repor o seu dispositivo com as predefinições de fábrica. Todos os seus dados serão eliminados.</string>
     <string name="cryptkeeper_emergency_call">Chamada de emergência</string>
     <string name="cryptkeeper_return_to_call">Regressar à chamada</string>
+    <string name="cryptkeeper_default_enter_msg">O seu telefone está encriptado por motivos de segurança.</string>
     <string name="enter_password">Para fazer o arranque do seu dispositivo, introduza a sua palavra-passe.</string>
     <string name="enter_pin">Para fazer o arranque do seu dispositivo, introduza o PIN.</string>
     <string name="enter_pattern">Para fazer o arranque do seu dispositivo, desenhe o seu padrão.</string>
@@ -1498,6 +1499,7 @@ A encriptação demora uma hora ou mais. Antes de começar, certifique-se de que
     <string name="crypt_keeper_last_warn_wipe">Dispõe de mais 1 tentativa para fazer o arranque do seu dispositivo, antes de o dispositivo ser reposto com as predefinições de fábrica. Isto irá eliminar todos os dados, incluindo ficheiros e aplicações transferidas.</string>
     <string name="crypt_keeper_failed_title_dec">Descodificação falhou.</string>
     <string name="crypt_keeper_failed_summary_dec">Impossível concluir a desencriptação devido a uma interrupção. Execute uma reposição de dados de fábrica (apagando todos os dados) antes da utilização.</string>
+    <string name="crypt_keeper_set_screen_lock_type">Definir tipo bloqueio ecrã</string>
     <string name="encryption_interstitial_message_kor">O seu dispositivo está encriptado. Proteja os seus dados encriptados, seleccionando Pedir bloqueio de ecrã para desencriptar dados quando o dispositivo é ligado. Isto ajuda a proteger os dados em dispositivos roubados ou perdidos. Será necessário desbloquear o seu dispositivo para desencriptar os respectivos dados, sempre que o ligar. Não receberá chamadas, mensagens ou notificações até desencriptar o dispositivo.</string>
     <string name="encryption_interstitial_message_direction">"Proteja o seu dispositivo seleccionando Pedir Bloqueio de direcção quando dispositivo se liga. Isto ajuda a proteger os dados em dispositivos roubados ou perdidos.
 
@@ -1737,6 +1739,8 @@ Antes de solicitar uma reparação ao abrigo da garantia, é necessário desacti
     <string name="empty_content_toast">Sem conteúdo para guardar.</string>
     <string name="find_my_mobile_message_zero">"Monitorize e controle o seu dispositivo remotamente utilizando o serviço Web Localizar o Meu Telemóvel. Para obter mais informações e conhecer as outras funções que estão disponíveis, visite o seguinte site Web:
 %s"</string>
+    <string name="send_last_location_title">Enviar última localização</string>
+    <string name="send_last_location_summary">Autorizar o seu telefone a enviar a última localização para o servidor de Localizar o Meu Telemóvel, quando a bateria cai abaixo de um determinado nível.</string>
     <string name="high_power_description">Active Optimizar a utilização da bateria para cada uma das aplicações. Algumas funções, tais como as que utilizam redes móveis ou sincronizam dados, serão restringidas para poupar energia da bateria.</string>
     <string name="wifi_display_summary_off">Desligado</string>
     <string name="battery_usage_description">Este ecrã mostra os dados de utilização da bateria desde o último carregamento total do dispositivo.</string>
@@ -1968,6 +1972,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">Seleccione os atalhos de aplicações que pretende utilizar no ecrã bloqueado.</string>
     <string name="lockscreen_notifications">Notificações com ecrã bloqueado</string>
     <string name="work_profile_lockscreen_notifications">Notificações perfil de trabalho</string>
+    <string name="lock_network_and_security">Bloquear rede e segurança</string>
+    <string name="lock_network_and_security_summary">Manter as funções relacionadas com segurança e rede bloqueadas quando o telefone estiver bloqueado, tornando mais fácil a sua localização e protecção no caso de o perder ou ser roubado.</string>
     <string name="dualclock_settings_title">Relógio duplo</string>
     <string name="dualclock_settings_summary">Mostrar simultaneamente fuso horário local e de origem em roaming.</string>
     <string name="set_home_city">Def. fuso horario origem</string>
@@ -2153,7 +2159,7 @@ Mesmo que o seu telefone seja limpo, a sua palavra-passe da Conta Google será n
     <string name="air_browse_music_on_lock_screen_title">Música no ecrã bloqueado</string>
     <string name="air_browse_music_on_lock_screen_summary">Mudar faixas de música no ecrã bloqueado.</string>
     <string name="air_browse_note_summary">Deslocar-se entre páginas em Modo de visualização.</string>
-    <string name="data_usage_enable_mobile_summery">Se os Dados móveis estiverem desligados, o seu dispositivo terá e ser ligado a uma rede Wi-Fi para utilizar os serviços que requerem uma ligação de rede.</string>
+    <string name="data_usage_enable_mobile_summery">Aceder à Internet através da rede móvel.</string>
     <string name="data_usage_enable_mobile_warning_skt">A ligação a redes móveis pode implicar a cobrança de taxas extra dependendo do seu tarifário de dados. Continuar?</string>
     <string name="data_usage_enable_mobile_warning_ktt">A ligação a redes móveis pode implicar a cobrança de taxas extra dependendo do seu tarifário de dados. Continuar?</string>
     <string name="data_usage_enable_mobile_warning_lgt">A ligação a redes móveis pode implicar a cobrança de taxas extra dependendo do seu tarifário de dados. Continuar?</string>
@@ -2523,8 +2529,8 @@ Tente novamente."</string>
     <string name="secure_folder_summary">Bloquear os seus conteúdos e aplicações privados, para aumentar a segurança.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s não suporta impressões digitais para desbloquear o %2$s.</string>
     <string name="edge_feeds_title">Feeds</string>
-    <string name="screensaver_settings_summary">Controlar o que acontece quando o dispositivo está ancorado e/ou a carregar quando o ecrã está desligado. Esta função é também denominada Protecção de ecrã.</string>
-    <string name="screensaver_settings_summary_wo_dock">Mostrar uma protecção de ecrã depois de o ecrã se desligar automaticamente enquanto o dispositivo está a carregar.</string>
+    <string name="screensaver_settings_summary">Mostrar uma protecção de ecrã depois de o ecrã se desligar automaticamente enquanto o telefone está a carregar.</string>
+    <string name="screensaver_settings_summary_wo_dock">Mostrar uma protecção de ecrã depois de o ecrã se desligar automaticamente enquanto o telefone está ancorado ou a carregar.</string>
     <string name="apn_already_exists">Já existe.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">O número da porta tem de ser entre %1$d e %2$d.</string>
@@ -3289,6 +3295,7 @@ A utilização do PA móvel aumenta o consumo da bateria e a utilização dos da
     <string name="wfd_connection_end_toast">A ligação Screen mirroring terminou.</string>
     <string name="wfd_descrpition_playvia">Reproduzir conteúdo.</string>
     <string name="wfd_descrpition_mirroring">Espelhar o ecrã.</string>
+    <string name="wfd_descrpition_playsound">Reproduzir som.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">A Multi-janela será desactivada e todas as aplicações abertas nas janelas de pop-up serão fechadas.</string>
     <string name="keyguard_password_attempt_count_pin_code">%d tentativa restante.</string>
@@ -4128,7 +4135,7 @@ Considere utilizar um cartão SD mais rápido ou um dispositivo de armazenamento
     <string name="location_network_based">Utilizar redes sem fios</string>
     <string name="location_neighborhood_level">Permitir que as aplicações usem os serviços de localização Google. Serão recolhidos e enviados para a Google dados de localização anónimos.</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">Acerca do dispositivo</string>
+    <string name="about_settings">Acerca do telefone</string>
     <string name="about_settings_vzw">Acerca do dispositivo</string>
     <string name="legal_information">Informação legal</string>
     <string name="regulatory_information">Informaç. regulamentares</string>
@@ -4313,7 +4320,7 @@ Não perderá os dados de aplicações existentes."</string>
     <string name="phone_language">Idioma</string>
     <string name="show_password">Mostrar palavras-passe</string>
     <string name="show_password_summary">Mostrar os caracteres da palavra-passe por breves instantes quando os está a escrever.</string>
-    <string name="ime_security_warning">Este método pode recolher todos os textos que introduzir, excepto palavras-passe, incluindo dados pessoais e números de cartões de crédito. Isto é devido à aplicação %1$s. Utilizar na mesma?</string>
+    <string name="ime_security_warning">%s pode conseguir recolher todos os textos que introduzir, incluindo dados pessoais como palavras-passe e números de cartões de crédito.</string>
     <string name="failed_to_open_app_settings_toast">Falha ao abrir as definições de %s.</string>
     <string name="keyboard_and_input_methods_category">Teclados</string>
     <string name="virtual_keyboard_category">Teclado virtual</string>

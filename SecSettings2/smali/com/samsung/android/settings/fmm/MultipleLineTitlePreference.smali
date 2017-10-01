@@ -87,7 +87,7 @@
 
     invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
 
-    const v6, 0x7f11053c
+    const v6, 0x7f11053a
 
     invoke-virtual {p1, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -122,7 +122,7 @@
 
     aput-object v8, v7, v9
 
-    const v8, 0x7f0b073d
+    const v8, 0x7f0b0745
 
     invoke-virtual {v6, v8, v7}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

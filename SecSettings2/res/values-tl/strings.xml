@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Suporta</string>
     <string name="reset_network_settings_list_summary">I-reset ang Wi-Fi, Bluetooth at iba pang setting ng network sa mga default nito.</string>
     <string name="master_clear_list_summary">I-reset ang device mo sa mga factory default setting nito. Buburahin nito ang lahat ng data, kasama ang mga file at mga nai-download na app.</string>
-    <string name="auto_restart_summary">I-optimize ang device mo sa pamamagitan ng awtomatikong pag-restart dito sa mga takdang oras. Ang anumang data na hindi nai-save ay mawawala kapag nag-restart ang device.</string>
+    <string name="auto_restart_summary">I-optimize ang telepono mo sa pamamagitan ng awtomatikong pag-restart dito nang minsan sa isang linggo. Mawawala ang anumang hindi naka-save na data kapag nag-restart ang telepono mo.</string>
     <string name="search_settings">Maghanap</string>
     <string name="related_results">%d kaugnay na item</string>
     <string name="no_results_found">Walang nakitang mga resulta</string>
@@ -1485,6 +1485,7 @@ Inaabot ang pag-encrypt ng isang oras o higit pa. Bago ka magsimula, tiyaking na
     <string name="crypt_keeper_verify_failed_summary">Hindi mai-restart ang device mo. Nabigo ang pag-verify sa integridad. Kailangan mong i-reset ang device mo sa mga factory default na setting. Buburahin nito ang lahat ng data mo.</string>
     <string name="cryptkeeper_emergency_call">Emergency call</string>
     <string name="cryptkeeper_return_to_call">Bumalik sa tawag.</string>
+    <string name="cryptkeeper_default_enter_msg">Naka-encrypt ang telepono mo para sa seguridad.</string>
     <string name="enter_password">Para i-startup ang device mo, ipasok ang password mo.</string>
     <string name="enter_pin">Para i-startup ang device mo, ipasok ang PIN mo.</string>
     <string name="enter_pattern">Para i-startup ang device mo, iguhit ang pattern mo.</string>
@@ -1498,6 +1499,7 @@ Inaabot ang pag-encrypt ng isang oras o higit pa. Bago ka magsimula, tiyaking na
     <string name="crypt_keeper_last_warn_wipe">Mayroon ka na lang 1 tangkang nalalabi para i-start up ang device mo bago ito i-reset sa factory default na setting nito. Buburahin nito ang lahat ng data, kasama ang mga file at mga nai-download na app.</string>
     <string name="crypt_keeper_failed_title_dec">Decryption failed.</string>
     <string name="crypt_keeper_failed_summary_dec">Hindi makumpleto ang pag-decrypt dahil sa pagkaantala. Magsagawa ng factory data reset (buburahin nito ang lahat ng data) bago gamitin.</string>
+    <string name="crypt_keeper_set_screen_lock_type">Itakda ang uri ng lock screen</string>
     <string name="encryption_interstitial_message_kor">Naka-encrypt ang device mo. Protektahan ang naka-encrypt na data mo sa pamamagitan ng pagpili sa Require screen lock kapag nag-on ang device. Nakatutulong ito na protektahan ang data sa mga nawala o nanakaw na device. Kakailanganin mong i-unlock ang device mo para i-decrypt ang data nito sa tuwing i-on mo ito. Hindi ka makatatanggap ng anumang tawag, mensahe o notification hanggang sa i-decrypt mo ang device mo.</string>
     <string name="encryption_interstitial_message_direction">"Protektahan ang device mo sa pamamagitan ng pagpili sa Require Direction lock kapag nag-on ang device. Nakatutulong ito na protektahan ang data sa mga nawala o nanakaw na device.
 
@@ -1737,6 +1739,8 @@ Bago ka humiling ng pagkukumpuni sa bisa ng warranty, dapat hindi paganahin ang 
     <string name="empty_content_toast">Walang ise-save na content.</string>
     <string name="find_my_mobile_message_zero">"Sundan at kontrolin ang device mo nang remote gamit ang Find My Mobile na serbisyo sa web. Para sa karagdagang impormasyon at para alamin pa kung anu-anong function pa ang magagamit, bumisita sa sumusunod na website:
 %s"</string>
+    <string name="send_last_location_title">Ipadala ang huling lokasyon</string>
+    <string name="send_last_location_summary">Payagan ang telepono mo na ipadala ang pinakabago nitong lokasyon sa Find My Mobile server kapag bumaba sa partikular na level ang baterya.</string>
     <string name="high_power_description">Paganahin ang Optimize battery usage para sa mga indibidwal na app. Ang ilang function, gaya ng mga gumagamit ng mobile network o sync data, ay babawalan para makatipid ng karga ng baterya.</string>
     <string name="wifi_display_summary_off">I-off</string>
     <string name="battery_usage_description">Ipinapakita ng screen na ito ang data sa paggamit ng baterya mula nang huling nai-full charge ang device.</string>
@@ -1968,6 +1972,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">Piliin kung aling mga shortcut ng app ang nais mong gamitin sa lock screen.</string>
     <string name="lockscreen_notifications">Mga notification sa lock screen</string>
     <string name="work_profile_lockscreen_notifications">Mga notification ng profile sa trabaho</string>
+    <string name="lock_network_and_security">I-lock ang network at seguridad</string>
+    <string name="lock_network_and_security_summary">Panatilihing naka-lock ang network at mga function na kaugnay ng seguridad habang naka-lock ang telepono mo, para mas madali itong matunton at protektahan kung mawala o manakaw ito.</string>
     <string name="dualclock_settings_title">Dual clock</string>
     <string name="dualclock_settings_summary">Ipakita pareho ang lokal at home time zone kapag naka-roaming.</string>
     <string name="set_home_city">Itakda ang time zone ng home</string>
@@ -2153,7 +2159,7 @@ Kahit na mai-wipe ang telepono mo, kakailanganin ang password ng Google Account 
     <string name="air_browse_music_on_lock_screen_title">Musika sa lock screen</string>
     <string name="air_browse_music_on_lock_screen_summary">Baguhin ang mga track ng musika sa lock screen.</string>
     <string name="air_browse_note_summary">Magpalipat-lipat sa mga pahina habang nasa View mode.</string>
-    <string name="data_usage_enable_mobile_summery">Kung naka-off ang Mobile data, dapat nakakonekta ang device mo sa isang Wi-Fi network para gamitin ang mga serbisyong nangangailangan ng koneksiyon sa network.</string>
+    <string name="data_usage_enable_mobile_summery">I-access ang internet sa pamamagitan ng mobile network mo.</string>
     <string name="data_usage_enable_mobile_warning_skt">Ang pagkonekta sa mga mobile network ay maaaring magdulot ng mga karagdagang singil depende sa iyong data plan. Magpatuloy?</string>
     <string name="data_usage_enable_mobile_warning_ktt">Ang pagkonekta sa mga mobile network ay maaaring magdulot ng mga karagdagang singil depende sa iyong data plan. Magpatuloy?</string>
     <string name="data_usage_enable_mobile_warning_lgt">Ang pagkonekta sa mga mobile network ay maaaring magdulot ng mga karagdagang singil depende sa iyong data plan. Magpatuloy?</string>
@@ -2522,8 +2528,8 @@ mode"</string>
     <string name="secure_folder_summary">I-lock ang pribadong content at mga app mo para pahusayin ang seguridad.</string>
     <string name="text_biometrics_finger_title_enterprise">Hindi suportado ng %1$s ang mga fingerprint para i-unlock ang %2$s.</string>
     <string name="edge_feeds_title">Mga edge feed</string>
-    <string name="screensaver_settings_summary">Kontrolin ang nangyayari habang naka-dock ang device at/o nagcha-charge habang naka-off ang screen. Tinatawag din na Daydream ang function na ito.</string>
-    <string name="screensaver_settings_summary_wo_dock">Magpakita ng screensaver pagkatapos na awtomatikong mag-off ang screen habang nagcha-charge ang device.</string>
+    <string name="screensaver_settings_summary">Magpakita ng screensaver pagkatapos na awtomatikong mag-off ang screen habang nagcha-charge ang telepono mo.</string>
+    <string name="screensaver_settings_summary_wo_dock">Magpakita ng screensaver pagkatapos na awtomatikong mag-off ang screen habang naka-dock o nagcha-charge ang telepono mo.</string>
     <string name="apn_already_exists">Umiiral na.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Dapat na nasa pagitan ng %1$d at %2$d ang port number.</string>
@@ -3288,6 +3294,7 @@ Ang paggamit sa Mobile hotspot ay pinatataas ang konsumo sa baterya at paggamit 
     <string name="wfd_connection_end_toast">Nagwakas na ang koneksyon sa screen mirroring.</string>
     <string name="wfd_descrpition_playvia">I-play ang content.</string>
     <string name="wfd_descrpition_mirroring">I-mirror ang screen.</string>
+    <string name="wfd_descrpition_playsound">I-play ang tunog.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">Hindi pagaganahin ang Maraming window at isasara ang lahat ng apps na nakabukas sa mga pop-up na window.</string>
     <string name="keyguard_password_attempt_count_pin_code">%d (na) pagsubok ang natitira.</string>
@@ -4127,7 +4134,7 @@ Isaalang-alang ang paggamit ng mas mabilis na SD card o USB storage device para 
     <string name="location_network_based">Use wireless networks</string>
     <string name="location_neighborhood_level">Payagan ang apps sa location service ng Google para mabilis na makapagtantya. Kokolekta at magpapadala ng anonymous location data.</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">Tungkol sa device</string>
+    <string name="about_settings">Tungkol sa telepono</string>
     <string name="about_settings_vzw">Tungkol sa device</string>
     <string name="legal_information">Legal na impormasyon</string>
     <string name="regulatory_information">Impormasyon sa pagkontrol</string>
@@ -4312,7 +4319,7 @@ Hindi mawawala ang dati mo nang app data."</string>
     <string name="phone_language">Wika</string>
     <string name="show_password">Gawing nakikita ang mga password</string>
     <string name="show_password_summary">Ipakita nang panandalian ang mga character ng password habang tina-type mo ang mga iyon.</string>
-    <string name="ime_security_warning">Makukuha ng paraang ito ang lahat ng text na ipapasok mo, maliban sa mga password, kasama na ang personal data at mga credit card number. Mula ito sa app na %1$s. Gamitin pa rin?</string>
+    <string name="ime_security_warning">Maaaring makuha ng %s ang lahat ng text na ita-type mo, kasama na ang personal na data gaya ng mga password at credit card number.</string>
     <string name="failed_to_open_app_settings_toast">Nabigong buksan ang mga setting para sa %s.</string>
     <string name="keyboard_and_input_methods_category">Mga keyboard</string>
     <string name="virtual_keyboard_category">Virtual na keyboard</string>

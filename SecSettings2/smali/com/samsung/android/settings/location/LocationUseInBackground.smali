@@ -1284,13 +1284,13 @@
 
     move-result-object v11
 
-    const v1, 0x7f0a0468
+    const v1, 0x7f0a0466
 
     invoke-virtual {v11, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    const v3, 0x7f0a045e
+    const v3, 0x7f0a045c
 
     invoke-virtual {v11, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1406,7 +1406,7 @@
 
     const/4 v0, 0x1
 
-    const v1, 0x7f0b07e3
+    const v1, 0x7f0b07eb
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1455,7 +1455,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/location/LocationUseInBackground;->mView:Landroid/view/View;
 
-    const v4, 0x7f110456
+    const v4, 0x7f110454
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1465,7 +1465,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/location/LocationUseInBackground;->mView:Landroid/view/View;
 
-    const v4, 0x7f110457
+    const v4, 0x7f110455
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1527,7 +1527,7 @@
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    const v3, 0x7f0b07e4
+    const v3, 0x7f0b07ec
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 

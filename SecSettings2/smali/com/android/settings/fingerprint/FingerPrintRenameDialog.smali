@@ -100,7 +100,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b06da
+    const v3, 0x7f0b06e2
 
     invoke-virtual {p0, v3}, Lcom/android/settings/fingerprint/FingerPrintRenameDialog;->getString(I)Ljava/lang/String;
 
@@ -122,7 +122,7 @@
 
     iget-object v3, p0, Lcom/android/settings/fingerprint/FingerPrintRenameDialog;->mView:Landroid/view/View;
 
-    const v4, 0x7f110392
+    const v4, 0x7f110390
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -138,7 +138,7 @@
 
     iget-object v3, p0, Lcom/android/settings/fingerprint/FingerPrintRenameDialog;->mView:Landroid/view/View;
 
-    const v4, 0x7f110393
+    const v4, 0x7f110391
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -158,7 +158,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b068c
+    const v4, 0x7f0b0694
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -458,13 +458,13 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b1076
+    const v1, 0x7f0b1079
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f0b06db
+    const v1, 0x7f0b06e3
 
     invoke-virtual {v0, v1, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

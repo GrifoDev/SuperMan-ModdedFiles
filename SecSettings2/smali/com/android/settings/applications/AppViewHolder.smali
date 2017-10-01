@@ -79,7 +79,7 @@
 
     iput-object v1, v0, Lcom/android/settings/applications/AppViewHolder;->appIcon:Landroid/widget/ImageView;
 
-    const v1, 0x7f110726
+    const v1, 0x7f110724
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -89,7 +89,7 @@
 
     iput-object v1, v0, Lcom/android/settings/applications/AppViewHolder;->summary:Landroid/widget/TextView;
 
-    const v1, 0x7f110727
+    const v1, 0x7f110725
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

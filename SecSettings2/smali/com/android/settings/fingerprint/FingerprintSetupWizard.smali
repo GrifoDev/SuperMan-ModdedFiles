@@ -409,7 +409,7 @@
 .method private showSensorErrorDialog()V
     .locals 5
 
-    const v1, 0x7f0b0674
+    const v1, 0x7f0b067c
 
     const-string/jumbo v2, "VZW"
 
@@ -423,14 +423,14 @@
 
     if-eqz v2, :cond_0
 
-    const v1, 0x7f0b0675
+    const v1, 0x7f0b067d
 
     :cond_0
     new-instance v2, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v2, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f0b0672
+    const v3, 0x7f0b067a
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -729,7 +729,7 @@
 
     new-array v1, v2, [Ljava/lang/Object;
 
-    const v2, 0x7f0b066d
+    const v2, 0x7f0b0675
 
     invoke-virtual {p0, v2}, Lcom/android/settings/fingerprint/FingerprintSetupWizard;->getString(I)Ljava/lang/String;
 
@@ -737,7 +737,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f0b0701
+    const v2, 0x7f0b0709
 
     invoke-virtual {p0, v2, v1}, Lcom/android/settings/fingerprint/FingerprintSetupWizard;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -834,7 +834,7 @@
     nop
 
     :pswitch_data_0
-    .packed-switch 0x7f1103a4
+    .packed-switch 0x7f1103a2
         :pswitch_1
         :pswitch_0
         :pswitch_2
@@ -846,7 +846,7 @@
 
     const v7, 0x7f0b0228
 
-    const v6, 0x7f020509
+    const v6, 0x7f020507
 
     const/4 v5, 0x0
 
@@ -887,7 +887,7 @@
 
     iput-object v2, p0, Lcom/android/settings/fingerprint/FingerprintSetupWizard;->mFingerprintManager:Landroid/hardware/fingerprint/FingerprintManager;
 
-    const v2, 0x7f1103a1
+    const v2, 0x7f11039f
 
     invoke-virtual {p0, v2}, Lcom/android/settings/fingerprint/FingerprintSetupWizard;->findViewById(I)Landroid/view/View;
 
@@ -903,7 +903,7 @@
 
     if-nez v2, :cond_1
 
-    const v2, 0x7f11039f
+    const v2, 0x7f11039d
 
     invoke-virtual {p0, v2}, Lcom/android/settings/fingerprint/FingerprintSetupWizard;->findViewById(I)Landroid/view/View;
 
@@ -913,7 +913,7 @@
 
     iput-object v2, p0, Lcom/android/settings/fingerprint/FingerprintSetupWizard;->headerImage:Landroid/view/View;
 
-    const v2, 0x7f1103a0
+    const v2, 0x7f11039e
 
     invoke-virtual {p0, v2}, Lcom/android/settings/fingerprint/FingerprintSetupWizard;->findViewById(I)Landroid/view/View;
 
@@ -934,7 +934,7 @@
     iput-object v2, p0, Lcom/android/settings/fingerprint/FingerprintSetupWizard;->fingerprintEffect:Landroid/graphics/drawable/AnimationDrawable;
 
     :cond_1
-    const v2, 0x7f1103a2
+    const v2, 0x7f1103a0
 
     invoke-virtual {p0, v2}, Lcom/android/settings/fingerprint/FingerprintSetupWizard;->findViewById(I)Landroid/view/View;
 
@@ -944,7 +944,7 @@
 
     iput-object v2, p0, Lcom/android/settings/fingerprint/FingerprintSetupWizard;->titleText:Landroid/view/View;
 
-    const v2, 0x7f1103a4
+    const v2, 0x7f1103a2
 
     invoke-virtual {p0, v2}, Lcom/android/settings/fingerprint/FingerprintSetupWizard;->findViewById(I)Landroid/view/View;
 
@@ -960,7 +960,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v4, 0x7f0b06bd
+    const v4, 0x7f0b06c5
 
     invoke-virtual {p0, v4}, Lcom/android/settings/fingerprint/FingerprintSetupWizard;->getString(I)Ljava/lang/String;
 
@@ -990,7 +990,7 @@
 
     invoke-virtual {v2, v3}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    const v2, 0x7f1103a6
+    const v2, 0x7f1103a4
 
     invoke-virtual {p0, v2}, Lcom/android/settings/fingerprint/FingerprintSetupWizard;->findViewById(I)Landroid/view/View;
 
@@ -1093,7 +1093,7 @@
 
     invoke-virtual {v2, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v2, 0x7f1103a8
+    const v2, 0x7f1103a6
 
     invoke-virtual {p0, v2}, Lcom/android/settings/fingerprint/FingerprintSetupWizard;->findViewById(I)Landroid/view/View;
 

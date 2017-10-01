@@ -1796,7 +1796,7 @@
 .method private refreshWifiInfo()V
     .locals 8
 
-    const v7, 0x7f0b13a2
+    const v7, 0x7f0b13a5
 
     const/4 v2, 0x0
 
@@ -1913,11 +1913,11 @@
 
     invoke-direct {v0, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0b0ca5
+    const v2, 0x7f0b0caf
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    const v2, 0x7f0b0c71
+    const v2, 0x7f0b0c7b
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -1933,7 +1933,7 @@
 
     invoke-direct {v2, p0}, Lcom/android/settings/wifi/AdvancedWifiSettings$7;-><init>(Lcom/android/settings/wifi/AdvancedWifiSettings;)V
 
-    const v3, 0x7f0b1102
+    const v3, 0x7f0b1105
 
     invoke-virtual {v0, v3, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -2213,7 +2213,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0caa
+    const v2, 0x7f0b0cb4
 
     invoke-virtual {v1, v2}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -2239,7 +2239,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0b0cac
+    const v2, 0x7f0b0cb6
 
     invoke-virtual {v0, v2}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -2255,7 +2255,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0b0cab
+    const v2, 0x7f0b0cb5
 
     invoke-virtual {v0, v2}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -2575,7 +2575,7 @@
 .method public onManageNetworkMenuPressed()V
     .locals 10
 
-    const v3, 0x7f0b0ca1
+    const v3, 0x7f0b0cab
 
     new-instance v2, Landroid/os/Bundle;
 
@@ -3055,7 +3055,7 @@
     :catch_0
     move-exception v5
 
-    const v18, 0x7f0b0c72
+    const v18, 0x7f0b0c7c
 
     const/16 v19, 0x0
 
@@ -3302,7 +3302,7 @@
     :catch_1
     move-exception v5
 
-    const v18, 0x7f0b124b
+    const v18, 0x7f0b124e
 
     const/16 v19, 0x0
 
@@ -3454,7 +3454,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f0b0c70
+    const v19, 0x7f0b0c7a
 
     const/16 v20, 0x1
 
@@ -3477,7 +3477,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f0b123b
+    const v19, 0x7f0b123e
 
     const/16 v20, 0x0
 
@@ -4279,7 +4279,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b0cbd
+    const v3, 0x7f0b0cc7
 
     const/4 v4, 0x0
 
@@ -4305,7 +4305,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b0ca1
+    const v6, 0x7f0b0cab
 
     const/4 v7, -0x1
 

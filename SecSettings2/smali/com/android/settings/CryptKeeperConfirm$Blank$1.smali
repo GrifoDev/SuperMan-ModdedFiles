@@ -123,7 +123,7 @@
     invoke-static {v6, v7}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_2
-    invoke-static {}, Lcom/android/settings/CryptKeeperConfirm;->-get1()Lcom/android/internal/widget/LockPatternUtils;
+    invoke-static {}, Lcom/android/settings/CryptKeeperConfirm;->-get0()Lcom/android/internal/widget/LockPatternUtils;
 
     move-result-object v6
 
@@ -139,7 +139,7 @@
 
     if-ne v6, v8, :cond_4
 
-    invoke-static {}, Lcom/android/settings/CryptKeeperConfirm;->-get1()Lcom/android/internal/widget/LockPatternUtils;
+    invoke-static {}, Lcom/android/settings/CryptKeeperConfirm;->-get0()Lcom/android/internal/widget/LockPatternUtils;
 
     move-result-object v6
 
@@ -149,14 +149,6 @@
 
     :cond_3
     :goto_0
-    const-string/jumbo v6, "security.ode.trustedboot"
-
-    invoke-static {}, Lcom/android/settings/CryptKeeperConfirm;->-get0()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-interface {v2, v6, v7}, Landroid/os/storage/IMountService;->setPropertyIntoFooter(Ljava/lang/String;Ljava/lang/String;)I
-
     const-string/jumbo v6, "security.ode.encrypting"
 
     const-string/jumbo v7, "true"
@@ -183,7 +175,7 @@
     return-void
 
     :cond_4
-    invoke-static {}, Lcom/android/settings/CryptKeeperConfirm;->-get1()Lcom/android/internal/widget/LockPatternUtils;
+    invoke-static {}, Lcom/android/settings/CryptKeeperConfirm;->-get0()Lcom/android/internal/widget/LockPatternUtils;
 
     move-result-object v6
 

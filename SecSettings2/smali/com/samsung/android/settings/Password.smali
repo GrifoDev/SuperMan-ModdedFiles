@@ -81,7 +81,7 @@
 .method private match(Ljava/lang/String;)Z
     .locals 4
 
-    const v3, 0x7f0b0ef3
+    const v3, 0x7f0b0efe
 
     const/4 v2, 0x0
 
@@ -113,7 +113,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0ef2
+    const v1, 0x7f0b0efd
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -218,7 +218,7 @@
 .method private reasonable(Ljava/lang/String;)Z
     .locals 4
 
-    const v3, 0x7f0b0ef3
+    const v3, 0x7f0b0efe
 
     const/4 v2, 0x0
 
@@ -242,7 +242,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0ef4
+    const v1, 0x7f0b0eff
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -298,7 +298,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0ef5
+    const v1, 0x7f0b0f00
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -331,9 +331,9 @@
 .method private setupKeypad()V
     .locals 3
 
-    const v2, 0x7f1102c2
+    const v2, 0x7f1102c0
 
-    const v1, 0x7f1102c4
+    const v1, 0x7f1102c2
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/Password;->findViewById(I)Landroid/view/View;
 
@@ -342,6 +342,22 @@
     invoke-virtual {v0, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     invoke-virtual {v0, p0}, Landroid/view/View;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
+
+    const v1, 0x7f1102c3
+
+    invoke-virtual {p0, v1}, Lcom/samsung/android/settings/Password;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    const v1, 0x7f1102c4
+
+    invoke-virtual {p0, v1}, Lcom/samsung/android/settings/Password;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     const v1, 0x7f1102c5
 
@@ -391,23 +407,7 @@
 
     invoke-virtual {v1, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v1, 0x7f1102cb
-
-    invoke-virtual {p0, v1}, Lcom/samsung/android/settings/Password;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
     const v1, 0x7f1102cc
-
-    invoke-virtual {p0, v1}, Lcom/samsung/android/settings/Password;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    const v1, 0x7f1102ce
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/Password;->findViewById(I)Landroid/view/View;
 
@@ -435,7 +435,7 @@
 
     invoke-virtual {v1, p0}, Landroid/view/View;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
 
-    const v1, 0x7f1102cd
+    const v1, 0x7f1102cb
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/Password;->findViewById(I)Landroid/view/View;
 
@@ -632,18 +632,18 @@
     :sswitch_data_0
     .sparse-switch
         0x7f11019b -> :sswitch_c
-        0x7f1102c2 -> :sswitch_a
-        0x7f1102c4 -> :sswitch_0
-        0x7f1102c5 -> :sswitch_1
-        0x7f1102c6 -> :sswitch_2
-        0x7f1102c7 -> :sswitch_3
-        0x7f1102c8 -> :sswitch_4
-        0x7f1102c9 -> :sswitch_5
-        0x7f1102ca -> :sswitch_6
-        0x7f1102cb -> :sswitch_7
-        0x7f1102cc -> :sswitch_8
-        0x7f1102cd -> :sswitch_9
-        0x7f1102ce -> :sswitch_b
+        0x7f1102c0 -> :sswitch_a
+        0x7f1102c2 -> :sswitch_0
+        0x7f1102c3 -> :sswitch_1
+        0x7f1102c4 -> :sswitch_2
+        0x7f1102c5 -> :sswitch_3
+        0x7f1102c6 -> :sswitch_4
+        0x7f1102c7 -> :sswitch_5
+        0x7f1102c8 -> :sswitch_6
+        0x7f1102c9 -> :sswitch_7
+        0x7f1102ca -> :sswitch_8
+        0x7f1102cb -> :sswitch_9
+        0x7f1102cc -> :sswitch_b
     .end sparse-switch
 .end method
 
@@ -741,7 +741,7 @@
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v2, 0x7f1102c1
+    const v2, 0x7f1102bf
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/Password;->findViewById(I)Landroid/view/View;
 
@@ -779,7 +779,7 @@
 
     invoke-virtual {v2, v4}, Landroid/widget/TextView;->setLongClickable(Z)V
 
-    const v2, 0x7f1102c4
+    const v2, 0x7f1102c2
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/Password;->findViewById(I)Landroid/view/View;
 
@@ -816,7 +816,7 @@
     return v2
 
     :pswitch_data_0
-    .packed-switch 0x7f1102c2
+    .packed-switch 0x7f1102c0
         :pswitch_0
     .end packed-switch
 .end method

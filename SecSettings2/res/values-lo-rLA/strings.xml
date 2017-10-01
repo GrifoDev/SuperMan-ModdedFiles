@@ -378,7 +378,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">ຮອງຮັບ</string>
     <string name="reset_network_settings_list_summary">ຕັ້ງ Wi-Fi, ບລູທູດ, ແລະການຕັ້ງຄ່າເຄືອຂ່າຍອື່ນຄືນໃໝ່ເປັນມາດຕະຖານຂອງພວກມັນ.</string>
     <string name="master_clear_list_summary">ຕັ້ງອຸປະກອນຂອງທ່ານຄືນໃໝ່ເປັນການຕັ້ງຄ່າມາດຕະຖານໂຮງງານຂອງມັນ. ອັນນີ້ຈະລຶບຂໍ້ມູນທັງໝົດ, ລວມທັງໄຟລ໌ ແລະແອັບທີ່ດາວໂຫຼດໄວ້.</string>
-    <string name="auto_restart_summary">ເພີ່ມປະສິດທິພາບອຸປະກອນຂອງທ່ານໂດຍການເລີ່ມຕົ້ນມັນຄືນໃໝ່ໃນເວລາທີ່ຕັ້ງໄວ້ໂດຍອັດຕະໂນມັດ. ຈະສູນເສຍທຸກໆຂໍ້ມູນທີ່ບໍ່ຖືກບັນທຶກ ເມື່ອອຸປະກອນເລີ່ມຕົ້ນຄືນໃໝ່.</string>
+    <string name="auto_restart_summary">ເພີ່ມປະສິດທິພາບໂທລະສັບຂອງທ່ານໂດຍການປິດເປີດມັນຄືນໃໝ່ໂດຍອັດຕະໂນມັດໜຶ່ງຄັ້ງຕໍ່ອາທິດ. ຂໍ້ມູນທີ່ບໍ່ຖືກບັນທຶກໃດໜຶ່ງຈະຖືກສູນເສຍ ເມື່ອໂທລະສັບຂອງທ່ານປິດເປີດຄືນໃໝ່.</string>
     <string name="search_settings">ຄົ້ນຫາ</string>
     <string name="related_results">%d ລາຍການທີ່ກ່ຽວຂ້ອງ</string>
     <string name="no_results_found">ບໍ່ພົບຜົນໄດ້ຮັບ</string>
@@ -1484,6 +1484,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_verify_failed_summary">ບໍ່ສາມາດປິດເປີດອຸປະກອນຂອງທ່ານໄດ້. ການກວດສອບຄວາມສົມບູນບໍ່ສຳເລັດ. ທ່ານຈຳເປັນຕ້ອງຕັ້ງອຸປະກອນຂອງທ່ານຄືນໃໝ່ເປັນການຕັ້ງຄ່າມາດຕະຖານໂຮງງານ. ອັນນີ້ຈະລຶບຂໍ້ມູນຂອງທ່ານທັງໝົດ.</string>
     <string name="cryptkeeper_emergency_call">​ໂທສຸກ​ເສີນ</string>
     <string name="cryptkeeper_return_to_call">ກັບຄືນຫາການໂທ</string>
+    <string name="cryptkeeper_default_enter_msg">ໂທລະສັບຂອງທ່ານຖືກໃສ່ລະຫັດສຳລັບຄວາມປອດໄພ.</string>
     <string name="enter_password">ເພື່ອເລີ່ມຕົ້ນອຸປະກອນຂອງທ່ານ, ປ້ອນລະຫັດຜ່ານຂອງທ່ານເຂົ້າ.</string>
     <string name="enter_pin">ເພື່ອເລີ່ມຕົ້ນອຸປະກອນຂອງທ່ານ, ປ້ອນ PIN ຂອງທ່ານເຂົ້າ.</string>
     <string name="enter_pattern">ເພື່ອເລີ່ມຕົ້ນອຸປະກອນຂອງທ່ານ, ແຕ້ມຮູບແບບຂອງທ່ານ.</string>
@@ -1497,6 +1498,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_last_warn_wipe">ທ່ານມີຄວາມພະຍາຍາມເຫຼືອຢູ່ 1 ຄັ້ງເພື່ອເລີ່ມຕົ້ນອຸປະກອນຂອງທ່ານ ກ່ອນມັນຈະຖືກຕັ້ງຄືນໃໝ່ເປັນການຕັ້ງຄ່າມາດຕະຖານໂຮງງານຂອງມັນ. ອັນນີ້ຈະລຶບຂໍ້ມູນທັງໝົດ, ລວມທັງໄຟລ໌ ແລະແອັບທີ່ດາວໂຫຼດໄວ້.</string>
     <string name="crypt_keeper_failed_title_dec">ການຖອດລະຫັດບໍ່ສໍາເລັດ.</string>
     <string name="crypt_keeper_failed_summary_dec">ບໍ່ສາມາດຖອດລະຫັດໄດ້ສໍາເລັດ ເພາະວ່າມີການຂັດຂ້ອງ. ດໍາເນີນການຕັ້ງຄ່າຂໍ້ມູນໂຮງງານຄືນໃໝ່ (ລຶບທຸກຂໍ້ມູນ) ກ່ອນນໍາໃຊ້.</string>
+    <string name="crypt_keeper_set_screen_lock_type">ຕັ້ງປະເພດລັອກໜ້າຈໍ</string>
     <string name="encryption_interstitial_message_kor">ອຸປະກອນຂອງທ່ານຖືກໃສ່ລະຫັດແລ້ວ. ປ້ອງກັນຂໍ້ມູນທີ່ໃສ່ລະຫັດຂອງທ່ານໂດຍການເລືອກ ຕ້ອງການການລັອກໜ້າຈໍເພື່ອຖອດລະຫັດຂໍ້ມູນເມື່ອເປີດອຸປະກອນ. ການແນະນຳນີ້ຈະປ້ອງກັນຂໍ້ມູນໃນອຸປະກອນທີ່ສູນເສຍຫຼືຖືກລັກ. ທ່ານຈະຕ້ອງປົດລັອກອຸປະກອນຂອງທ່ານເພື່ອຖອດລະຫັດຂໍ້ມູນຂອງມັນ ເມື່ອໃດທີ່ທ່ານເປີດມັນ. ທ່ານ​ຈະ​ບໍ່​ໄດ້​ຮັບ​ການ​ໂທ​, ຂໍ້​ຄວາມ, ຫຼື​ການ​ແຈ້ງ​ເຕືອນ​ໃດໆ ຈົນ​ກວ່າ​ທ່ານ​ຖອດ​ລະ​ຫັດ​ອຸ​ປະ​ກອນ​ຂອງ​ທ່ານ​ແລ້ວ.</string>
     <string name="encryption_interstitial_message_direction">"ປ້ອງກັນອຸປະກອນຂອງທ່ານໂດຍການເລືອກ ຕ້ອງການລັອກທິດທາງເມື່ອອຸປະກອນເປີດ. ອັນນີ້ຊ່ວຍປ້ອງກັນຂໍ້ມູນໃນອຸປະກອນທີ່ສູນເສຍຫຼືຖືກລັກ.
 
@@ -1735,6 +1737,8 @@ You will also need it when:"</string>
     <string name="empty_content_toast">ບໍ່ມີເນື້ອໃນທີ່ຈະບັນທຶກ.</string>
     <string name="find_my_mobile_message_zero">"ຕິດຕາມແລະຄວບຄຸມອຸປະກອນຂອງທ່ານຈາກໄລຍະໄກໂດຍໃຊ້ ຊອກຫາການບໍລິການເວັບມືຖືຂອງຂ້ອຍ. ສຳລັບຂໍ້ມູນເພີ່ມເຕີມແລະເພື່ອຊອກຫາວ່າຟັງຄ໌ຊັນໃດມີຢູ່, ເຂົ້າເບິ່ງທີ່ເວັບໄຊທ໌ຕໍ່ໄປນີ້:
 %s"</string>
+    <string name="send_last_location_title">ສົ່ງຈຸດທີ່ຕັ້ງຫຼ້າສຸດ</string>
+    <string name="send_last_location_summary">ອະນຸຍາດໃຫ້ໂທລະສັບຂອງທ່ານສົ່ງຈຸດທີ່ຕັ້ງສຸດທ້າຍຂອງມັນຫາເຊີບເວີຊອກຫາມືຖືຂອງຂ້ອຍ ເມື່ອແບັດເຕີຣີລົງຕ່ຳກວ່າລະດັບທີ່ກຳນົດໄວ້.</string>
     <string name="high_power_description">ເປີດໃຊ້ງານ ເພີ່ມປະສິດທິພາບການນຳໃຊ້ແບັດເຕີຣີສຳລັບແອັບຂອງແຕ່ລະຄົນ. ບາງຟັງຄ໌ຊັນ, ເຊັ່ນ ຟັງຄ໌ຊັນທີ່ໃຊ້ເຄືອຂ່າຍມືຖື ຫຼືຊິງຄ໌ຂໍ້ມູນ, ຈະຖືກຈຳກັດເພື່ອປະຢັດໄຟແບັດເຕີຣີ.</string>
     <string name="wifi_display_summary_off">ມອດ</string>
     <string name="battery_usage_description">ໜ້າຈໍນີ້ສະແດງຂໍ້ມູນການນຳໃຊ້ແບັດເຕີຣີຕັ້ງແຕ່ອຸປະກອນສາກເຕັມຄັ້ງຫຼ້າສຸດ.</string>
@@ -1966,6 +1970,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">ເລືອກທາງລັດແອັບທີ່ທ່ານຕ້ອງການໃຊ້ໃນໜ້າຈໍລັອກ.</string>
     <string name="lockscreen_notifications">ການແຈ້ງເຕືອນຢູ່​ເທິງໜ້າຈໍລັອກ</string>
     <string name="work_profile_lockscreen_notifications">ການແຈ້ງເຕືອນໂປຣໄຟລ໌ການເຮັດວຽກ</string>
+    <string name="lock_network_and_security">ລັອກເຄືອຂ່າຍແລະຄວາມປອດໄພ</string>
+    <string name="lock_network_and_security_summary">ຮັກສາໃຫ້ຟັງຄ໌ຊັນທີ່ກ່ຽວຂ້ອງກັບເຄືອຂ່າຍແລະຄວາມປອດໄພລັອກຢູ່ ໃນຂະນະທີ່ໂທລະສັບຂອງທ່ານຖືກລັອກຢູ່, ເຮັດໃຫ້ມັນງ່າຍຂຶ້ນໃນການຊອກຫາແລະປ້ອງກັນຖ້າມັນເສຍຫຼືຖືກລັກ.</string>
     <string name="dualclock_settings_title">ໂມງຄູ່</string>
     <string name="dualclock_settings_summary">ສະແດງທັງເຂດເວລາທ້ອງຖິ່ນ ແລະໃນບ້ານ ເມື່ອໂຣມມິງ.</string>
     <string name="set_home_city">ຕັ້ງເຂດເວລາຫລັກ</string>
@@ -2151,7 +2157,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="air_browse_music_on_lock_screen_title">ເພງຢູ່ໃນໜ້າຈໍລັອກ</string>
     <string name="air_browse_music_on_lock_screen_summary">ປ່ຽນເພງຢູ່ໃນໜ້າຈໍລັອກ.</string>
     <string name="air_browse_note_summary">ເລື່ອນລະຫວ່າງໜ້າຕ່າງໆໃນຂະນະທີ່ຢູ່ໃນໂໝດມຸມມອງ.</string>
-    <string name="data_usage_enable_mobile_summery">ຖ້າຂໍ້ມູນມືຖືຖືກປິດ, ອຸປະກອນຂອງທ່ານຈະຕ້ອງຖືກເຊື່ອມຕໍ່ກັບເຄືອຂ່າຍ Wi-Fi ເພື່ອໃຊ້ບໍລິການທີ່ຕ້ອງມີການເຊື່ອມຕໍ່ເຄືອຂ່າຍ.</string>
+    <string name="data_usage_enable_mobile_summery">ເຂົ້າໃຊ້ອິນເຕີເນັດຜ່ານເຄືອຂ່າຍມືຖືຂອງທ່ານ.</string>
     <string name="data_usage_enable_mobile_warning_skt">ການເຊື່ອມຕໍ່ໃສ່ເຄືອຂ່າຍໂທລະສັບມືຖືອາດຈະເຮັດໃຫ້ເສຍຄ່າເພີ່ມ ຂຶ້ນຢູ່ກັບແຜນຂໍ້ມູນຂອງທ່ານ. ດໍາເນີນການຕໍ່ບໍ?</string>
     <string name="data_usage_enable_mobile_warning_ktt">ການເຊື່ອມຕໍ່ໃສ່ເຄືອຂ່າຍໂທລະສັບມືຖືອາດຈະເຮັດໃຫ້ເສຍຄ່າເພີ່ມ ຂຶ້ນຢູ່ກັບແຜນຂໍ້ມູນຂອງທ່ານ. ດໍາເນີນການຕໍ່ບໍ?</string>
     <string name="data_usage_enable_mobile_warning_lgt">ການເຊື່ອມຕໍ່ໃສ່ເຄືອຂ່າຍໂທລະສັບມືຖືອາດຈະເຮັດໃຫ້ເສຍຄ່າເພີ່ມ ຂຶ້ນຢູ່ກັບແຜນຂໍ້ມູນຂອງທ່ານ. ດໍາເນີນການຕໍ່ບໍ?</string>
@@ -2520,8 +2526,8 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="secure_folder_summary">ລັອກເນື້ອໃນແລະແອັບສ່ວນຕົວຂອງທ່ານເພື່ອເພີ່ມຄວາມປອດໄພຂຶ້ນ.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s ບໍ່ຮອງຮັບລາຍນິ້ວມືເພື່ອປົດລັອກ %2$s.</string>
     <string name="edge_feeds_title">ຟີດຂອບ</string>
-    <string name="screensaver_settings_summary">ຄວບຄຸມສິ່ງທີ່ເກີດຂຶ້ນໃນຂະນະອຸປະກອນຖືກເຊື່ອມຕໍ່ຢູ່ ແລະ/ຫຼື ກຳລັງສາກໃນຂະນະໜ້າຈໍປິດຢູ່. ຟັງຄ໌ຊັນນີ້ຍັງຖືກເອີ້ນວ່າເດດຣີມ.</string>
-    <string name="screensaver_settings_summary_wo_dock">ສະແດງພາບພັກໜ້າຈໍຫຼັງຈາກໜ້າຈໍປິດໂດຍອັດຕະໂນມັດ ໃນຂະນະທີ່ອຸປະກອນກຳລັງສາກ.</string>
+    <string name="screensaver_settings_summary">ສະແດງພາບພັກໜ້າຈໍຫຼັງຈາກໜ້າຈໍປິດໂດຍອັດຕະໂນມັດ ໃນຂະນະທີ່ໂທລະສັບຂອງທ່ານສຳລັງສາກຢູ່.</string>
+    <string name="screensaver_settings_summary_wo_dock">ສະແດງພາບພັກໜ້າຈໍຫຼັງຈາກໜ້າຈໍປິດໂດຍອັດຕະໂນມັດ ໃນຂະນະທີ່ໂທລະສັບຂອງທ່ານຖືກດັອກ ຫຼື ກຳລັງສາກຢູ່.</string>
     <string name="apn_already_exists">ມີຢູ່ແລ້ວ.</string>
     <string name="error_unavailable_apn">APN ນີ້ບໍ່ໄດ້ຮັບອະນຸຍາດຢູ່ໃນເຄື່ອງນີ້. ກະລຸນາລອງເບິ່ງອັນອື່ນ.</string>
     <string name="error_message_port_out_of_range">ຕົວເລກຜອດຈະຕ້ອງຢູ່ລະຫວ່າງ %1$d ແລະ %2$d.</string>
@@ -3286,6 +3292,7 @@ Wi-Fi is now on."</string>
     <string name="wfd_connection_end_toast">ການເຊື່ອມຕໍ່ Screen mirroring ປິດແລ້ວ.</string>
     <string name="wfd_descrpition_playvia">ຫຼິ້ນເນື້ອໃນ.</string>
     <string name="wfd_descrpition_mirroring">ກະຈົກໜ້າຈໍ.</string>
+    <string name="wfd_descrpition_playsound">ຫຼິ້ນສຽງ.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">ມັລຕິວິນໂດຈະປິດໃຊ້ງານ ແລະທຸກແອັບທີ່ເປີດຢູ່ໃນວິນໂດປັອບອັບຈະປິດ.</string>
     <string name="keyguard_password_attempt_count_pin_code">ຍັງເຫຼືອ %d ຄັ້ງ.</string>
@@ -4125,7 +4132,7 @@ Receiving SMS"</string>
     <string name="location_network_based">ໃຊ້ເຄືອຂ່າຍໄວເລສ</string>
     <string name="location_neighborhood_level">ອະນຸຍາດໃຫ້ແອັບທີ່ໃຊ້ການບໍລິການທີ່ຕັ້ງຂອງກຸກເກິລປະເມີນທີ່ຕັ້ງຂອງທ່ານໄວກວ່າ. ຂໍ້ມູນທີ່ຕັ້ງທີ່ບໍ່ລະບຸໄດ້ຈະຖືກເກັບໄວ້ ແລະສົ່ງໄປຫາກຸກເກິລ.</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">ກ່ຽວກັບເຄື່ອງ</string>
+    <string name="about_settings">ກ່ຽວກັບໂທລະສັບ</string>
     <string name="about_settings_vzw">ກ່ຽວກັບເຄື່ອງ</string>
     <string name="legal_information">ຂໍ້ມູນທາງດ້ານກົດໝາຍ</string>
     <string name="regulatory_information">ຂໍ້ມູນຄວບຄຸມ</string>
@@ -4310,7 +4317,7 @@ Receiving SMS"</string>
     <string name="phone_language">ພາສາ</string>
     <string name="show_password">ເຮັດໃຫ້ເຫັນລະຫັດໄດ້</string>
     <string name="show_password_summary">ສະແດງຕົວອັກສອນລະຫັດໄວໆເວລາທ່ານພິມມັນ.</string>
-    <string name="ime_security_warning">ວິທີນີ້ສາມາດເກັບກໍາທຸກຂໍ້ຄວາມທີ່ທ່ານໃສ່ເຂົ້າໄປ, ຍົກເວັ້ນລະຫັດ, ລວມທັງຂໍ້ມູນສ່ວນຕົວ ແລະໝາຍເລກບັດເຄຣດິດ. ມັນມາຈາກ %1$s ແອບ. ແນວໃດກໍ່ໃຊ້ບໍ?</string>
+    <string name="ime_security_warning">%s ອາດຈະສາມາດສະສົມຂໍ້ຄວາມທັງໝົດທີ່ທ່ານພິມ ລວມທັງຂໍ້ມູນສ່ວນຕົວ ເຊັ່ນ ລະຫັດຜ່ານແລະໝາຍເລກບັດເຄຣດິດ.</string>
     <string name="failed_to_open_app_settings_toast">ເປີດການຕັ້ງຄ່າສໍາລັບ %s ບໍ່ສໍາເລັດ.</string>
     <string name="keyboard_and_input_methods_category">ຄີບອດ</string>
     <string name="virtual_keyboard_category">ຄີບອດສະເໝືອນຈິງ</string>

@@ -785,7 +785,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b18a3
+    const v0, 0x7f0b18a6
 
     return v0
 .end method
@@ -916,13 +916,13 @@
 
     move-result-object v12
 
-    const v1, 0x7f0a0469
+    const v1, 0x7f0a0467
 
     invoke-virtual {v12, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    const v3, 0x7f0a045e
+    const v3, 0x7f0a045c
 
     invoke-virtual {v12, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1094,7 +1094,7 @@
     return v7
 
     :pswitch_data_0
-    .packed-switch 0x7f110896
+    .packed-switch 0x7f110894
         :pswitch_0
     .end packed-switch
 .end method
@@ -1410,7 +1410,7 @@
 
     move-result v3
 
-    const v4, 0x7f110896
+    const v4, 0x7f110894
 
     if-ne v3, v4, :cond_1
 
@@ -1517,7 +1517,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b1819
+    const v3, 0x7f0b181c
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
 

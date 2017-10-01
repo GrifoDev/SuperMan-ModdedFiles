@@ -379,7 +379,7 @@ Hãy nhập mã mà bạn nhận được từ Verizon:"</string>
     <string name="support">Hỗ trợ</string>
     <string name="reset_network_settings_list_summary">Đặt lại Wi-Fi, Bluetooth và các cài đặt mạng khác về mặc định.</string>
     <string name="master_clear_list_summary">Khôi phục thiết bị về cài đặt gốc. Quá trình này sẽ xóa tất cả dữ liệu, bao gồm file và ứng dụng đã tải về.</string>
-    <string name="auto_restart_summary">Tối ưu hóa thiết bị của bạn bằng cách tự khởi động lại vào thời gian đã đặt. Mọi dữ liệu chưa lưu sẽ mất khi thiết bị khởi động lại.</string>
+    <string name="auto_restart_summary">Tối ưu điện thoại bằng cách tự động khởi động lại điện thoại mỗi tuần một lần. Mọi dữ liệu chưa lưu sẽ bị mất khi điện thoại của bạn khởi động lại.</string>
     <string name="search_settings">Tìm kiếm</string>
     <string name="related_results">%d mục liên quan</string>
     <string name="no_results_found">Không tìm thấy kết quả</string>
@@ -1485,6 +1485,7 @@ Việc mã hóa mất một giờ hoặc hơn. Trước khi bắt đầu, hãy �
     <string name="crypt_keeper_verify_failed_summary">Không thể khởi động lại thiết bị. Có lỗi khi xác thực tính toàn vẹn. Bạn cần khôi phục thiết bị về cài đặt gốc. Điều này sẽ xóa tất cả dữ liệu của bạn.</string>
     <string name="cryptkeeper_emergency_call">Cuộc gọi khẩn cấp</string>
     <string name="cryptkeeper_return_to_call">Trở lại cuộc gọi</string>
+    <string name="cryptkeeper_default_enter_msg">Điện thoại của bạn được mã hóa để bảo mật.</string>
     <string name="enter_password">Để khởi động thiết bị, hãy nhập mật mã của bạn.</string>
     <string name="enter_pin">Để khởi động thiết bị, hãy nhập mã PIN của bạn.</string>
     <string name="enter_pattern">Để khởi động thiết bị, hãy vẽ mẫu hình của bạn.</string>
@@ -1498,6 +1499,7 @@ Việc mã hóa mất một giờ hoặc hơn. Trước khi bắt đầu, hãy �
     <string name="crypt_keeper_last_warn_wipe">Bạn chỉ còn 1 lần thử để khởi động thiết bị trước khi thiết bị khôi phục cài đặt gốc. Quá trình này sẽ xóa tất cả dữ liệu, bao gồm file và ứng dụng đã tải về.</string>
     <string name="crypt_keeper_failed_title_dec">Lỗi giải mã.</string>
     <string name="crypt_keeper_failed_summary_dec">Không thể hoàn tất giải mã do bị gián đoạn. Khôi phục lại cài đặt gốc (xóa tất cả dữ liệu) trước khi sử dụng.</string>
+    <string name="crypt_keeper_set_screen_lock_type">Đặt kiểu khóa màn hình</string>
     <string name="encryption_interstitial_message_kor">Thiết bị của bạn đã được mã hóa. Bảo vệ dữ liệu được mã hóa của bạn bằng cách chọn Yêu cầu khóa để giải mã dữ liệu khi bật nguồn thiết bị. Điều này giúp bảo vệ dữ liệu trên thiết bị bị mất hoặc đánh cắp. Bạn sẽ cần mở khóa thiết bị để giải mã dữ liệu bất cứ khi nào bạn bật nguồn. Bạn sẽ không nhận được bất kỳ cuộc gọi, tin nhắn hoặc thông báo nào cho đến khi bạn giải mã thiết bị.</string>
     <string name="encryption_interstitial_message_direction">"Bảo vệ thiết bị bằng cách chọn Yêu cầu Khóa bằng hướng khi thiết bị bật nguồn. Việc này giúp bảo vệ dữ liệu trên thiết bị bị mất hoặc bị đánh cắp.
 
@@ -1737,6 +1739,8 @@ Trước khi yêu cầu bảo hành, bạn phải tắt Khóa kích hoạt lại
     <string name="empty_content_toast">Không có nội dung để lưu.</string>
     <string name="find_my_mobile_message_zero">"Theo dõi và điều khiển thiết bị từ xa bằng dịch vụ web Tìm di động của bạn. Để biết thêm thông tin và khám phá các chức năng hiện có khác, hãy truy cập trang web sau:
 %s"</string>
+    <string name="send_last_location_title">Gửi vị trí cuối cùng</string>
+    <string name="send_last_location_summary">Cho phép điện thoại của bạn gửi vị trí cuối cùng của máy tới server Tìm di động của bạn khi pin giảm xuống dưới một mức cụ thể.</string>
     <string name="high_power_description">Bật Tối ưu mức sử dụng pin cho từng ứng dụng. Một số chức năng chẳng hạn như các chức năng có sử dụng mạng di động hoặc đồng bộ dữ liệu sẽ bị hạn chế để tiết kiệm pin.</string>
     <string name="wifi_display_summary_off">Tắt</string>
     <string name="battery_usage_description">Màn hình này hiển thị dữ liệu sử dụng pin kể từ khi thiết bị được sạc đầy lần cuối.</string>
@@ -1968,6 +1972,8 @@ Việc xác định vị trí của bạn sẽ sử dụng mạng di động. D�
     <string name="lock_screen_app_shortcut_summary">Chọn phím tắt ứng dụng bạn muốn sử dụng trên màn hình khóa.</string>
     <string name="lockscreen_notifications">Thông báo trên màn hình khóa</string>
     <string name="work_profile_lockscreen_notifications">Thông báo cấu hình công việc</string>
+    <string name="lock_network_and_security">Khóa mạng và bảo mật</string>
+    <string name="lock_network_and_security_summary">Khóa mạng và các chức năng liên quan đến bảo mật trong khi khóa điện thoại, giúp định vị và bảo vệ dễ dàng hơn nếu điện thoại bị mất hoặc bị đánh cắp.</string>
     <string name="dualclock_settings_title">Đồng hồ kép</string>
     <string name="dualclock_settings_summary">Hiển thị cả múi giờ địa phương và quê nhà khi chuyển vùng.</string>
     <string name="set_home_city">Đặt múi giờ địa phương</string>
@@ -2153,7 +2159,7 @@ Ngay cả khi điện thoại của bạn bị cài đặt lại, điện thoạ
     <string name="air_browse_music_on_lock_screen_title">Nhạc trên màn hình khóa</string>
     <string name="air_browse_music_on_lock_screen_summary">Đổi bài hát trên màn hình khóa.</string>
     <string name="air_browse_note_summary">Di chuyển giữa các trang khi đang ở chế độ Xem.</string>
-    <string name="data_usage_enable_mobile_summery">Nếu tắt Dữ liệu di động, thiết bị của bạn phải kết nối với mạng Wi-Fi để sử dụng các dịch vụ cần kết nối mạng.</string>
+    <string name="data_usage_enable_mobile_summery">Hãy truy cập internet thông qua mạng di động của bạn.</string>
     <string name="data_usage_enable_mobile_warning_skt">Kết nối vào mạng di động có thể gây phát sinh phụ phí tùy thuộc vào gói dữ liệu của bạn. Tiếp tục?</string>
     <string name="data_usage_enable_mobile_warning_ktt">Kết nối vào mạng di động có thể gây phát sinh phụ phí tùy thuộc vào gói dữ liệu của bạn. Tiếp tục?</string>
     <string name="data_usage_enable_mobile_warning_lgt">Kết nối vào mạng di động có thể gây phát sinh phụ phí tùy thuộc vào gói dữ liệu của bạn. Tiếp tục?</string>
@@ -2523,8 +2529,8 @@ Thử lại."</string>
     <string name="secure_folder_summary">Khóa nội dung và ứng dụng riêng tư để tăng cường bảo mật.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s không hỗ trợ vân tay để mở khóa %2$s.</string>
     <string name="edge_feeds_title">Nguồn cấp ở cạnh</string>
-    <string name="screensaver_settings_summary">Tùy chỉnh hoạt động sẽ diễn ra khi thiết bị được đặt vào đế sạc và/hoặc đang sạc trong khi màn hình tắt. Chức năng này còn được gọi là Chế độ bảo vệ màn hình.</string>
-    <string name="screensaver_settings_summary_wo_dock">Hiển thị màn hình bảo vệ sau khi màn hình tự động tắt trong lúc thiết bị đang sạc.</string>
+    <string name="screensaver_settings_summary">Hiển thị màn hình bảo vệ sau khi màn hình tự động tắt trong lúc điện thoại đang sạc.</string>
+    <string name="screensaver_settings_summary_wo_dock">Hiển thị màn hình bảo vệ sau khi màn hình tự động tắt trong lúc điện thoại đang sạc hoặc được gắn vào đế.</string>
     <string name="apn_already_exists">Đã tồn tại.</string>
     <string name="error_unavailable_apn">Không cho phép APN này trên thiết bị. Vui lòng thử một APN khác.</string>
     <string name="error_message_port_out_of_range">Số port phải trong khoảng %1$d và %2$d.</string>
@@ -3289,6 +3295,7 @@ Sử dụng Điểm truy cập di động sẽ làm tăng mức tiêu thụ pin 
     <string name="wfd_connection_end_toast">Kết nối screen mirroring đã kết thúc.</string>
     <string name="wfd_descrpition_playvia">Phát nội dung.</string>
     <string name="wfd_descrpition_mirroring">Đồng bộ màn hình.</string>
+    <string name="wfd_descrpition_playsound">Phát âm thanh.</string>
     <string name="usbtethering_notify_wifi_is_on">Không thể bật Wi-Fi và Kết nối USB internet cùng lúc. Hãy tắt Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">Đa cửa sổ sẽ tắt và tất cả ứng dụng mở trong cửa sổ pop-up sẽ đóng.</string>
     <string name="keyguard_password_attempt_count_pin_code">Còn lại %d lần thử.</string>
@@ -4128,7 +4135,7 @@ Hãy xem xét sử dụng thẻ SD hoặc thiết bị lưu trữ USB nhanh hơn
     <string name="location_network_based">Sử dụng mạng không dây</string>
     <string name="location_neighborhood_level">Cho phép các ứng dụng sử dụng dịch vụ vị trí của Google để ước tính vị trí của bạn nhanh hơn. Dữ liệu vị trí ẩn danh sẽ được thu thập và gửi cho Google.</string>
     <string name="system_update">Cập nhật hệ thống</string>
-    <string name="about_settings">Thông tin thiết bị</string>
+    <string name="about_settings">Thông tin điện thoại</string>
     <string name="about_settings_vzw">Thông tin thiết bị</string>
     <string name="legal_information">Thông tin pháp lý</string>
     <string name="regulatory_information">Thông tin về các quy định</string>
@@ -4313,7 +4320,7 @@ Dữ liệu ứng dụng hiện có của bạn sẽ không bị mất."</string
     <string name="phone_language">Ngôn ngữ</string>
     <string name="show_password">Hiện mật mã</string>
     <string name="show_password_summary">Hiển thị nhanh các ký tự mật mã khi bạn nhập.</string>
-    <string name="ime_security_warning">Cách nhập này có thể thu thập mọi văn bản bạn nhập vào, bao gồm các dữ liệu cá nhân như mật mã và số thẻ tín dụng. Việc này đến từ ứng dụng %1$s. Sử dụng?</string>
+    <string name="ime_security_warning">%s có thể thu thập tất cả văn bản bạn nhập, bao gồm dữ liệu cá nhân như mật mã và số thẻ tín dụng.</string>
     <string name="failed_to_open_app_settings_toast">Không mở được cài đặt cho %s.</string>
     <string name="keyboard_and_input_methods_category">Bàn phím</string>
     <string name="virtual_keyboard_category">Bàn phím ảo</string>

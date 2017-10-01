@@ -233,7 +233,7 @@
     invoke-virtual {p0, v3}, Lcom/android/settings/fingerprint/FingerprintPassword;->setFinishOnTouchOutside(Z)V
 
     :cond_0
-    const v3, 0x7f0b14b5
+    const v3, 0x7f0b14b8
 
     invoke-virtual {p0, v3}, Lcom/android/settings/fingerprint/FingerprintPassword;->getText(I)Ljava/lang/CharSequence;
 

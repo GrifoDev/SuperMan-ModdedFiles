@@ -107,7 +107,7 @@
 .method private initView(Landroid/view/View;)V
     .locals 2
 
-    const v1, 0x7f1104cb
+    const v1, 0x7f1104c9
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -117,7 +117,7 @@
 
     if-eqz v0, :cond_0
 
-    const v1, 0x7f0b1ba5
+    const v1, 0x7f0b1ba8
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -330,7 +330,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b1b89
+    const v2, 0x7f0b1b8c
 
     invoke-virtual {v1, v2}, Landroid/app/ActionBar;->setTitle(I)V
 

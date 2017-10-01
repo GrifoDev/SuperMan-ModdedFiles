@@ -243,7 +243,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">সমৰ্থন</string>
     <string name="reset_network_settings_list_summary">"Wi-Fi, ব্লুটুথ আৰু অন্য নেটৱৰ্ক ছেটিংছ সিঁহতৰ ডিফ'ল্টলৈ পুনঃছেট কৰক।"</string>
     <string name="master_clear_list_summary">আপোনাৰ ডিভাইচ ইয়াৰ ফেক্টৰী ছেটিংছলৈ পুনঃছেট কৰক। ই ফাইল আৰু ডাউনলোড হোৱা এপ্প্‌চ অন্তৰ্ভুক্ত কৰি সকলো ডাটা মোহাৰিব।</string>
-    <string name="auto_restart_summary">ছেট সময়ত আপোনাৰ ডিভাইচ স্বয়ংক্ৰিয়ভাৱে পুনৰাৰম্ভ কৰি তাক অনুকূলন কৰক৷ আপোনাৰ ডিভাইচ পুনৰাৰম্ভ কৰাত যিকোনো অসংৰক্ষিত ডাটা হেৰুৱাব৷</string>
+    <string name="auto_restart_summary">এক সপ্তাহত আপোনাৰ ফোনটো এবাৰ স্বয়ংক্ৰিয়ভাৱে পুনৰাৰম্ভ কৰি তাক অনুকূলন কৰক। আপোনাৰ ফোন পুনৰাৰম্ভ কৰাৰ পিছত যিকোনো অসংৰক্ষিত ডাটা হেৰুৱাব।</string>
     <string name="search_settings">অনুসন্ধান</string>
     <string name="related_results">%d টা সম্বন্ধিত আইটেম</string>
     <string name="no_results_found">কোনো ফলাফল পোৱা নগল</string>
@@ -1349,6 +1349,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_verify_failed_summary">"আপোনাৰ ডিভাইচ পুনৰাৰম্ভ কৰাত অক্ষম। ইণ্টেগ্ৰিটি সত্যাপন বিফল হৈছে। আপুনি আপোনাৰ ডিভাইচ ফেক্টৰী ডিফ'ল্ট ছেটিংছলৈ পুনঃছেট কৰাৰ প্ৰয়োজন। ই আপোনাৰ সকলো ডাটা মোহাৰিব।"</string>
     <string name="cryptkeeper_emergency_call">জৰুৰী কল</string>
     <string name="cryptkeeper_return_to_call">কললৈ ঘুৰি যাওক</string>
+    <string name="cryptkeeper_default_enter_msg">আপোনাৰ ফোনটো নিৰাপত্তাৰ বাবে এনক্ৰিপ্ট হৈছে।</string>
     <string name="enter_password">আপোনাৰ ডিভাইচ আৰম্ভ কৰিবলৈ, আপোনাৰ পাছৱৰ্ড প্ৰৱিষ্ট কৰক।</string>
     <string name="enter_pin">আপোনাৰ ডিভাইচ আৰম্ভ কৰিবলৈ, আপোনাৰ PIN প্ৰৱিষ্ট কৰক।</string>
     <string name="enter_pattern">আপোনাৰ ডিভাইচ আৰম্ভ কৰিবলৈ, আপোনাৰ আৰ্হি আঁকক।</string>
@@ -1362,6 +1363,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_last_warn_wipe">"আপোনাৰ ডিভাইচ ইয়াৰ ফেক্টৰী ডিফ'ল্ট ছেটিংছলৈ পুনঃছেট কৰাৰ পূৰ্বে তাক আৰম্ভ কৰিবলৈ আপোনাৰ কেৱল 1 টা প্ৰয়াস বাকী আছে। ই ফাইল আৰু ডাউনলোড হোৱা এপ্প্‌চ অন্তৰ্ভুক্ত কৰি সকলো ডাটা মোহাৰিব।"</string>
     <string name="crypt_keeper_failed_title_dec">বিৱৰণ বিফল হৈছে৷</string>
     <string name="crypt_keeper_failed_summary_dec">ব্যাঘাতৰ বাবে ডেক্ৰিপশ্বন সম্পূৰ্ণ কৰিবলৈ অসমৰ্থ৷ ব্যৱহাৰৰ আগতে ফেক্টৰী ডাটা পুনঃছেট (সকলো ডাটা বিলোপ) কৰক</string>
+    <string name="crypt_keeper_set_screen_lock_type">স্ক্ৰীণ লকৰ প্ৰকাৰ ছেট কৰক</string>
     <string name="encryption_interstitial_message_kor">"আপোনাৰ ডিভাইচ এনক্ৰিপ্ট হৈছে। ডিভাইচৰ পাৱাৰ অন থাকোতে ডাটা ডিক্ৰিপ্ট কৰিবলৈ আৱশ্যক স্ক্ৰীণ লক চয়ন কৰি আপেনাৰ এনক্ৰিপ্ট কৰা ডাটা সুৰক্ষিত কৰক। ই হেৰুৱা বা চুৰি হোৱা ডিভাইচত ডাটা সুৰক্ষিত কৰাত সহায় কৰে। যেতিয়াই আপুনি ইয়াৰ পাৱাৰ অন কৰে তেতিয়া ইয়াৰ ডাটা ডিক্ৰিপ্ট কৰিবলৈ আপুনি আপোনাৰ ডিভাইচ আনলক কৰাৰ প্ৰয়োজন হ'ব। আপুনি আপোনাৰ ডিভাইচ ডিক্ৰিপ্ট নকৰালৈকে যিকোনো কল, মেচেজ বা অধিসূচনা প্ৰাপ্ত নকৰিব।"</string>
     <string name="encryption_interstitial_message_direction">"ডিভাইচৰ পাৱাৰ অন হৈ থাকোতে “দিশৰ লক আৱশ্যক” চয়ন কৰি আপোনাৰ ডিভাইচ সুৰক্ষিত কৰক। ই হেৰুৱা বা চুৰি হোৱা ডিভাইচত ডাটা সুৰক্ষিত কৰাত সহায় কৰে।
 
@@ -1601,6 +1603,8 @@ You will also need it when:"</string>
     <string name="empty_content_toast">সংৰক্ষণ কৰিবলৈ কোনো সমল নাই৷</string>
     <string name="find_my_mobile_message_zero">"মোৰ ম'বাইল ৱেব সেৱা বিচাৰক ব্যৱহাৰ কৰি আপোনাৰ ডিভাইচ দূৰৱৰ্তীভাৱে ট্ৰেক আৰু নিয়ন্ত্ৰণ কৰক৷ অধিক তথ্যৰ বাব আৰু অন্য ফাংচন কি উপলব্ধ তাক বিচাৰিবলৈ, নিম্নলিখিত ৱেবচাইট দৰ্শন কৰক:
 %s"</string>
+    <string name="send_last_location_title">অন্তিম অৱস্থান প্ৰেৰণ কৰক</string>
+    <string name="send_last_location_summary">"বেটাৰীটো এক নিৰ্দিষ্ট স্তৰতকৈ তলত গুচি যোৱাৰ পিছত আপোনাৰ ফোনক ইয়াৰ অন্তিম অৱস্থান মোৰ ম'বাইল বিচাৰক চাৰ্ভাৰলৈ প্ৰেৰণ কৰিবলৈ অনুমতি দিয়ক।"</string>
     <string name="high_power_description">"ব্যক্তিগত এপ্প্‌চৰ বাবে বেটাৰীৰ ব্যৱহাৰ অনুকূলীকৰণ সক্ষম কৰক। ম'বাইল নেটৱৰ্ক বা চিংক ডাটাৰ ব্যৱহাৰৰ দৰে কিছু ফাংচন, বেটাৰীৰ পাৱাৰ সংৰক্ষণ কৰিবলৈ প্ৰতিবন্ধ কৰা হ'ব।"</string>
     <string name="wifi_display_summary_off">অফ</string>
     <string name="battery_usage_description">এই স্ক্ৰীণে ডিভাইচ সম্পূৰ্ণৰূপে চাৰ্জ হোৱাৰ পিছত বেটাৰী ব্যৱহাৰ ডাটা দেখুৱায়৷</string>
@@ -1832,6 +1836,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">আপুনি লক স্ক্ৰীণত ব্যৱহাৰ কৰিব বিচৰা এপ চৰ্তকাটটো চয়ন কৰক।</string>
     <string name="lockscreen_notifications">লক স্ক্ৰীণত অধিসুচনাসমূহ</string>
     <string name="work_profile_lockscreen_notifications">"কাৰ্য্য প্ৰ'ফাইলৰ অধিসূচনা"</string>
+    <string name="lock_network_and_security">নেটৱৰ্ক আৰু নিৰাপত্তা লক কৰক</string>
+    <string name="lock_network_and_security_summary">আপোনাৰ ফোন লক হোৱাৰ পিছত নেটৱৰ্ক আৰু নিৰাপত্তা-সম্বন্ধিত ফাংচন লক কৰি ৰাখক, যদি এইটো হেৰুৱায় বা চুৰি হয় তেন্তে বিচাৰিবলৈ আৰু সুৰক্ষিত কৰিবলৈ ইয়াক সহজ কৰি আছে।</string>
     <string name="dualclock_settings_title">দ্বৈত ঘড়ী</string>
     <string name="dualclock_settings_summary">"ৰোমিংত থকাৰ সময়ত স্থানীয় আৰু গৃহ জ'ন দুইটা দেখুৱাওক৷"</string>
     <string name="set_home_city">"গৃহৰ সময় জ'ন ছেট কৰক"</string>
@@ -2017,7 +2023,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="air_browse_music_on_lock_screen_title">লক স্ক্ৰীণত সংগীত</string>
     <string name="air_browse_music_on_lock_screen_summary">লক স্ক্ৰীণত সংগীত ট্ৰেকসমূহ পৰিৱৰ্তন কৰক৷</string>
     <string name="air_browse_note_summary">"দৰ্শন ম'ডত থকা সময়ত পৃষ্ঠাসমূহৰ মাজত সঞ্চালন কৰক৷"</string>
-    <string name="data_usage_enable_mobile_summery">"যদি ম'বাইল ডাটা অফ হয়, এটা নেটৱৰ্ক সংযোগৰ আৱশ্যক হোৱা সেৱা ব্যৱহাৰ কৰিবলৈ আপোনাৰ ডিভাইচ এটা Wi-Fi নেটৱৰ্কলৈ সংযোগ কৰিব লাগিব৷"</string>
+    <string name="data_usage_enable_mobile_summery">"আপোনাৰ ম'বাইল নেটৱৰ্কৰ যোগেদি ইণ্টাৰনেট প্ৰৱেশ কৰক।"</string>
     <string name="data_usage_enable_mobile_warning_skt">"ম'বাইল নেটৱৰ্কলৈ সংযোগ কৰিলে আপোনাৰ ডাটা প্লেনৰ ওপৰত নিৰ্ভৰ কৰি অতিৰিক্ত ব্যয় বহন কৰিব লগা হ'ব পাৰে৷ জাৰী ৰাখিবনে?"</string>
     <string name="data_usage_enable_mobile_warning_ktt">"ম'বাইল নেটৱৰ্কলৈ সংযোগ কৰিলে আপোনাৰ ডাটা প্লেনৰ ওপৰত নিৰ্ভৰ কৰি অতিৰিক্ত ব্যয় বহন কৰিব লগা হ'ব পাৰে৷ জাৰী ৰাখিবনে?"</string>
     <string name="data_usage_enable_mobile_warning_lgt">"ম'বাইল নেটৱৰ্কলৈ সংযোগ কৰিলে আপোনাৰ ডাটা প্লেনৰ ওপৰত নিৰ্ভৰ কৰি অতিৰিক্ত ব্যয় বহন কৰিব লগা হ'ব পাৰে৷ জাৰী ৰাখিবনে?"</string>
@@ -2386,8 +2392,8 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="secure_folder_summary">নিৰাপত্তা উন্নত কৰিবলৈ আপোনাৰ গোপনীয় সমল আৰু এপ্প্‌চ লক কৰক।</string>
     <string name="text_biometrics_finger_title_enterprise">%2$s আনলক কৰিবলৈ %1$s-এ আঙুলিৰ ছাপ সমৰ্থন নকৰে।</string>
     <string name="edge_feeds_title">Edge ফীড</string>
-    <string name="screensaver_settings_summary">"স্ক্ৰীণ অফ হৈ থকাৰ সময়ত ডিভাইচ ড'ক হৈ আৰু/বা চাৰ্জিং হৈ থাকোতে কি ঘটিছে নিয়ন্ত্ৰণ কৰক৷ এই ফাংচনক ডেড্ৰীম বুলি কোৱা হয়৷"</string>
-    <string name="screensaver_settings_summary_wo_dock">ডিভাইচ চাৰ্জ হৈ থাকোতে স্ক্ৰীণ স্বয়ংক্ৰিয়ভাৱে অফ হোৱাৰ পিছত এখন স্ক্ৰীণছেভাৰ দেখুৱাওক।</string>
+    <string name="screensaver_settings_summary">আপোনাৰ ফোন চাৰ্জ হৈ থাকোতে স্ক্ৰীণ স্বয়ংক্ৰিয়ভাৱে অফ হোৱাৰ পিছত এখন স্ক্ৰীণছেভাৰ দেখুৱাওক।</string>
+    <string name="screensaver_settings_summary_wo_dock">"আপোনাৰ ফোনটো ড'ক বা চাৰ্জ হৈ থাকোতে স্ক্ৰীণ স্বয়ংক্ৰিয়ভাৱে অফ হোৱাৰ পিছত এখন স্ক্ৰীণছেভাৰ দেখুৱাওক।"</string>
     <string name="apn_already_exists">ইতিমধ্যে মজুত আছে৷</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">"পৰ্ট নম্বৰ %1$d আৰু %2$d মাজত হ'ব লাগিব৷"</string>
@@ -3152,6 +3158,7 @@ Wi-Fi is now on."</string>
     <string name="wfd_connection_end_toast">Screen Mirroring সংযোগ সমাপ্ত হৈছে৷</string>
     <string name="wfd_descrpition_playvia">সমল চলাওক।</string>
     <string name="wfd_descrpition_mirroring">"স্ক্ৰীণ মিৰ'ৰ কৰক।"</string>
+    <string name="wfd_descrpition_playsound">ধ্বনি বজাওক।</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">"মাল্টি উইণ্ড' অক্ষম কৰা হ'ব আৰু প'প-আপ উইণ্ড'সমূহত খোল খাই থকা সকলো এপ্প্‌চ বন্ধ কৰা হ'ব৷"</string>
     <string name="keyguard_password_attempt_count_pin_code">%d টা প্ৰয়াস বাকী আছে৷</string>
@@ -3988,7 +3995,7 @@ Receiving SMS"</string>
     <string name="location_network_based">বেতাঁৰ নেটৱৰ্ক ব্যৱহাৰ কৰক</string>
     <string name="location_neighborhood_level">"আপোনাৰ অৱস্থান দ্ৰুত সংকলিত কৰিবলৈ গুগ'লৰ অৱস্থান সেৱা ব্যৱহাৰ কৰিবলৈ এপ্প্‌চক অনুমতি দিয়ক। পৰিচয়হীন অৱস্থান ডাটা সংগ্ৰহ কৰা হ'ব আৰু গুগ'ললৈ প্ৰেৰণ কৰা হ'ব৷"</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">ডিভাইচৰ বিষয়ে</string>
+    <string name="about_settings">ফোনৰ বিষয়ে</string>
     <string name="about_settings_vzw">ডিভাইচৰ বিষয়ে</string>
     <string name="legal_information">আইনসন্মত তথ্য</string>
     <string name="regulatory_information">নিয়ামক তথ্য</string>
@@ -4161,7 +4168,7 @@ Receiving SMS"</string>
     <string name="phone_language">ভাষা</string>
     <string name="show_password">পাছৱৰ্ড দৃশ্যমান কৰক</string>
     <string name="show_password_summary">আপুনি টাইপ কৰাৰ দৰে পাছৱৰ্ড বৰ্ণসমূহ বিস্তৃতভাৱে দেখুৱাওক৷</string>
-    <string name="ime_security_warning">পাছৱৰ্ডৰ বাহিৰে, ব্যক্তিগত ডাটা আৰু ক্ৰেডিট কাৰ্ড নম্বৰকে অন্তৰ্ভুক্ত কৰি আপুনি প্ৰৱিষ্ট কৰা সকলো পাঠ এইটো উপায়েৰে সংগ্ৰহ কৰিব পাৰে৷ এইটো %1$s এপৰ পৰা আহিছে৷ যিকোনো উপায়েৰে ব্যৱহাৰ কৰিব?</string>
+    <string name="ime_security_warning">"%s-এ পাছৱৰ্ড আৰু ক্ৰেডিট কাৰ্ডৰ নম্বৰৰ দৰে ব্যক্তিগত ডাটা অন্তৰ্ভুক্ত কৰি আপুনি টাইপ কৰা পাঠৰ সকলোবিলাক সংগ্ৰহ কৰিবলৈ সক্ষম হ'বও পাৰে।"</string>
     <string name="failed_to_open_app_settings_toast">%s-ৰ কাৰণে ছেটিংছ খোলিবলৈ অক্ষম৷</string>
     <string name="keyboard_and_input_methods_category">"কীব'ৰ্ড"</string>
     <string name="virtual_keyboard_category">"ভাৰ্ছুৱেল কীব'ৰ্ড"</string>

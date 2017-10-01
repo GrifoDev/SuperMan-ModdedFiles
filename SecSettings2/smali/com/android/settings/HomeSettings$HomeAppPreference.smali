@@ -228,7 +228,7 @@
 
     invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
 
-    const v4, 0x7f110551
+    const v4, 0x7f11054f
 
     invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -246,7 +246,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f110202
+    const v4, 0x7f110200
 
     invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -261,7 +261,7 @@
     invoke-virtual {v0, v4}, Landroid/view/View;->setVisibility(I)V
 
     :goto_0
-    const v4, 0x7f110550
+    const v4, 0x7f11054e
 
     invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

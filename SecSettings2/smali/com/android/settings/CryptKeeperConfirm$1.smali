@@ -76,11 +76,11 @@
 
     invoke-static {v7, v8, v9}, Lcom/android/settings/Utils;->insertEventLog(Landroid/content/Context;II)V
 
-    invoke-static {}, Lcom/android/settings/CryptKeeperConfirm;->-get1()Lcom/android/internal/widget/LockPatternUtils;
+    invoke-static {}, Lcom/android/settings/CryptKeeperConfirm;->-get0()Lcom/android/internal/widget/LockPatternUtils;
 
     move-result-object v7
 
-    invoke-static {}, Lcom/android/settings/CryptKeeperConfirm;->-get1()Lcom/android/internal/widget/LockPatternUtils;
+    invoke-static {}, Lcom/android/settings/CryptKeeperConfirm;->-get0()Lcom/android/internal/widget/LockPatternUtils;
 
     move-result-object v8
 
@@ -90,7 +90,7 @@
 
     invoke-virtual {v7, v8, v6}, Lcom/android/internal/widget/LockPatternUtils;->setVisiblePatternEnabled(ZI)V
 
-    invoke-static {}, Lcom/android/settings/CryptKeeperConfirm;->-get1()Lcom/android/internal/widget/LockPatternUtils;
+    invoke-static {}, Lcom/android/settings/CryptKeeperConfirm;->-get0()Lcom/android/internal/widget/LockPatternUtils;
 
     move-result-object v7
 
@@ -100,11 +100,11 @@
 
     if-eqz v7, :cond_1
 
-    invoke-static {}, Lcom/android/settings/CryptKeeperConfirm;->-get1()Lcom/android/internal/widget/LockPatternUtils;
+    invoke-static {}, Lcom/android/settings/CryptKeeperConfirm;->-get0()Lcom/android/internal/widget/LockPatternUtils;
 
     move-result-object v7
 
-    invoke-static {}, Lcom/android/settings/CryptKeeperConfirm;->-get1()Lcom/android/internal/widget/LockPatternUtils;
+    invoke-static {}, Lcom/android/settings/CryptKeeperConfirm;->-get0()Lcom/android/internal/widget/LockPatternUtils;
 
     move-result-object v8
 
@@ -131,7 +131,7 @@
 
     move-result v4
 
-    invoke-static {}, Lcom/android/settings/CryptKeeperConfirm;->-get1()Lcom/android/internal/widget/LockPatternUtils;
+    invoke-static {}, Lcom/android/settings/CryptKeeperConfirm;->-get0()Lcom/android/internal/widget/LockPatternUtils;
 
     move-result-object v7
 

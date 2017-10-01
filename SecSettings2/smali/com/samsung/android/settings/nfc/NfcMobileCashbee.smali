@@ -62,7 +62,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/nfc/NfcMobileCashbee;->mView:Landroid/view/View;
 
-    const v3, 0x7f1104af
+    const v3, 0x7f1104ad
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -82,7 +82,7 @@
 
     if-ne p1, v2, :cond_1
 
-    const v0, 0x7f0b1bad
+    const v0, 0x7f0b1bb0
 
     :goto_0
     if-eqz v0, :cond_0
@@ -93,7 +93,7 @@
     return-void
 
     :cond_1
-    const v0, 0x7f0b1bae
+    const v0, 0x7f0b1bb1
 
     goto :goto_0
 .end method

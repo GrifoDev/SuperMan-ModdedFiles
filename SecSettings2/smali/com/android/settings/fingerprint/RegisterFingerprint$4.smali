@@ -186,7 +186,7 @@
 
     aput-object v6, v5, v7
 
-    const v6, 0x7f0b06a6
+    const v6, 0x7f0b06ae
 
     invoke-virtual {v4, v6, v5}, Lcom/android/settings/fingerprint/RegisterFingerprint;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -370,7 +370,7 @@
 
     aput-object v6, v5, v7
 
-    const v6, 0x7f0b06a5
+    const v6, 0x7f0b06ad
 
     invoke-virtual {v4, v6, v5}, Lcom/android/settings/fingerprint/RegisterFingerprint;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

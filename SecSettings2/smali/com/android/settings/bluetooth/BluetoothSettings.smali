@@ -534,7 +534,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b1084
+    const v2, 0x7f0b1087
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -747,7 +747,7 @@
 
     aput-object v3, v2, v4
 
-    const v3, 0x7f0b107b
+    const v3, 0x7f0b107e
 
     invoke-virtual {v1, v3, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -817,7 +817,7 @@
 
     aput-object v3, v2, v4
 
-    const v3, 0x7f0b107a
+    const v3, 0x7f0b107d
 
     invoke-virtual {v1, v3, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -933,7 +933,7 @@
     return-void
 
     :cond_0
-    const v4, 0x7f0b1205
+    const v4, 0x7f0b1208
 
     invoke-virtual {p0, v4}, Lcom/android/settings/bluetooth/BluetoothSettings;->getText(I)Ljava/lang/CharSequence;
 
@@ -1002,7 +1002,7 @@
 
     invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const v4, 0x7f0b1206
+    const v4, 0x7f0b1209
 
     invoke-virtual {p0, v4}, Lcom/android/settings/bluetooth/BluetoothSettings;->getText(I)Ljava/lang/CharSequence;
 
@@ -1169,7 +1169,7 @@
 
     if-eqz v0, :cond_4
 
-    const v10, 0x7f0b1079
+    const v10, 0x7f0b107c
 
     goto :goto_0
 
@@ -1242,7 +1242,7 @@
 
     sget-object v4, Lcom/android/settingslib/bluetooth/BluetoothDeviceFilter;->BONDED_DEVICE_FILTER:Lcom/android/settingslib/bluetooth/BluetoothDeviceFilter$Filter;
 
-    const v5, 0x7f0b11fa
+    const v5, 0x7f0b11fd
 
     invoke-direct {p0, v0, v5, v4, v2}, Lcom/android/settings/bluetooth/BluetoothSettings;->addDeviceCategory(Lcom/samsung/android/settings/bluetooth/BluetoothDevicePreferenceGroup;ILcom/android/settingslib/bluetooth/BluetoothDeviceFilter$Filter;Z)V
 
@@ -1255,7 +1255,7 @@
     move v0, v3
 
     :goto_5
-    const v7, 0x7f0b11fb
+    const v7, 0x7f0b11fe
 
     invoke-direct {p0, v4, v7, v5, v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->addDeviceCategory(Lcom/samsung/android/settings/bluetooth/BluetoothDevicePreferenceGroup;ILcom/android/settingslib/bluetooth/BluetoothDeviceFilter$Filter;Z)V
 
@@ -1417,7 +1417,7 @@
     goto :goto_7
 
     :pswitch_1
-    const v10, 0x7f0b1094
+    const v10, 0x7f0b1097
 
     goto/16 :goto_0
 
@@ -1436,7 +1436,7 @@
 
     if-eqz v0, :cond_10
 
-    const v10, 0x7f0b1079
+    const v10, 0x7f0b107c
 
     :cond_10
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings;->mAlertDialog:Landroid/app/AlertDialog;
@@ -1450,7 +1450,7 @@
     goto/16 :goto_0
 
     :pswitch_3
-    const v10, 0x7f0b1093
+    const v10, 0x7f0b1096
 
     iput-boolean v2, p0, Lcom/android/settings/bluetooth/BluetoothSettings;->mInitiateScan:Z
 
@@ -1630,7 +1630,7 @@
 
     invoke-direct {v6, p0}, Lcom/android/settings/bluetooth/BluetoothSettings$9;-><init>(Lcom/android/settings/bluetooth/BluetoothSettings;)V
 
-    const v7, 0x7f0b1102
+    const v7, 0x7f0b1105
 
     invoke-virtual {v0, v7, v6}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -1692,7 +1692,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b189e
+    const v0, 0x7f0b18a1
 
     return v0
 .end method
@@ -1935,7 +1935,7 @@
 
     move-result-object v7
 
-    const v10, 0x7f0a024f
+    const v10, 0x7f0a024d
 
     invoke-virtual {v7, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2598,7 +2598,7 @@
 
     if-eqz v0, :cond_3
 
-    const v3, 0x7f0b158b
+    const v3, 0x7f0b158e
 
     :goto_1
     const/4 v4, 0x1
@@ -2639,7 +2639,7 @@
     goto :goto_0
 
     :cond_3
-    const v3, 0x7f0b1074
+    const v3, 0x7f0b1077
 
     goto :goto_1
 
@@ -2660,7 +2660,7 @@
 
     const/4 v3, 0x3
 
-    const v4, 0x7f0b1088
+    const v4, 0x7f0b108b
 
     invoke-interface {p1, v5, v3, v5, v4}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -3781,7 +3781,7 @@
     :cond_5
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings;->mScan:Landroid/view/MenuItem;
 
-    const v2, 0x7f0b1074
+    const v2, 0x7f0b1077
 
     invoke-interface {v0, v2}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
 
@@ -4257,7 +4257,7 @@
 
     invoke-virtual {p0}, Lcom/android/settings/bluetooth/BluetoothSettings;->removeAllGroupDevices()V
 
-    const v0, 0x7f0b1079
+    const v0, 0x7f0b107c
 
     invoke-direct {p0, v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->setEmptyView(I)V
 
@@ -4632,7 +4632,7 @@
 
     if-eqz p1, :cond_8
 
-    const v2, 0x7f0b158b
+    const v2, 0x7f0b158e
 
     :goto_7
     invoke-interface {v5, v2}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
@@ -4640,7 +4640,7 @@
     goto/16 :goto_1
 
     :cond_8
-    const v2, 0x7f0b1074
+    const v2, 0x7f0b1077
 
     goto :goto_7
 
@@ -4779,9 +4779,15 @@
 
     const/4 v2, 0x0
 
+    invoke-virtual {p0}, Lcom/android/settings/bluetooth/BluetoothSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_0
+
     iget-object v3, p0, Lcom/android/settings/bluetooth/BluetoothSettings;->mAvailableDevicesCategory:Lcom/samsung/android/settings/bluetooth/BluetoothDevicePreferenceGroup;
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_2
 
     const/4 v1, 0x0
 
@@ -4802,6 +4808,7 @@
 
     invoke-static {v3, v4, v5, v6}, Lcom/samsung/android/settingslib/bluetooth/GSIMBluetoothLogger;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;I)V
 
+    :cond_0
     iget-object v3, p0, Lcom/android/settings/bluetooth/BluetoothSettings;->mLocalAdapter:Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;
 
     invoke-virtual {v3}, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->getBluetoothState()I
@@ -4810,11 +4817,11 @@
 
     const/16 v4, 0xc
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_3
 
     iget-object v3, p0, Lcom/android/settings/bluetooth/BluetoothSettings;->mAvailableDevicesCategory:Lcom/samsung/android/settings/bluetooth/BluetoothDevicePreferenceGroup;
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_3
 
     iget-object v3, p0, Lcom/android/settings/bluetooth/BluetoothSettings;->mAvailableDevicesCategory:Lcom/samsung/android/settings/bluetooth/BluetoothDevicePreferenceGroup;
 
@@ -4822,11 +4829,11 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_1
 
     const/4 v2, 0x1
 
-    :cond_0
+    :cond_1
     move v0, v2
 
     :goto_1
@@ -4834,7 +4841,7 @@
 
     return-void
 
-    :cond_1
+    :cond_2
     iget-object v3, p0, Lcom/android/settings/bluetooth/BluetoothSettings;->mAvailableDevicesCategory:Lcom/samsung/android/settings/bluetooth/BluetoothDevicePreferenceGroup;
 
     invoke-virtual {v3}, Lcom/samsung/android/settings/bluetooth/BluetoothDevicePreferenceGroup;->getPreferenceCount()I
@@ -4843,7 +4850,7 @@
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     move v0, v2
 
     goto :goto_1

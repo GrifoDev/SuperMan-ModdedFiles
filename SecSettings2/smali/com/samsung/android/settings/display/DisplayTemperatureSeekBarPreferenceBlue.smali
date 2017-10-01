@@ -92,7 +92,7 @@
 
     invoke-super {p0, p1}, Lcom/samsung/android/settings/display/DisplayCustomPreference;->onBindView(Landroid/view/View;)V
 
-    const v3, 0x7f11052d
+    const v3, 0x7f11052b
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

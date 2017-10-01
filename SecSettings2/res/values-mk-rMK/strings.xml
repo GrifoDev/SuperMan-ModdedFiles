@@ -377,7 +377,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Поддршка</string>
     <string name="reset_network_settings_list_summary">Ресетирајте ги поставувањата за Wi-Fi, Bluetooth и други мрежни поставувања на основните.</string>
     <string name="master_clear_list_summary">Ресетирајте го Вашиот уред на фабричките поставувања. Ова ќе ги избрише сите податоци, вклучително и датотеките, и преземените апликации.</string>
-    <string name="auto_restart_summary">Оптимизирајте го уредот со рестартирање во поставените времиња. Сите несочувани податоци ќе се изгубат кога уредот ќе се рестартира.</string>
+    <string name="auto_restart_summary">Оптимизирајте го Вашиот телефон рестартирајќи го автоматски еднаш седмично. Сите незачувани податоци ќе се изгубат кога телефонот ќе се рестартира.</string>
     <string name="search_settings">Пребарај</string>
     <string name="related_results">%d поврзани записи</string>
     <string name="no_results_found">Нема резултати</string>
@@ -1483,6 +1483,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_verify_failed_summary">Не може да се рестартира Вашиот уред. Потврдата на интегритетот не успеа. Треба да го ресетирате Вашиот уред на основните фабрички вредности. Ова ќе ги избрише сите Ваши податоци.</string>
     <string name="cryptkeeper_emergency_call">SOS повик</string>
     <string name="cryptkeeper_return_to_call">Врати се на повик</string>
+    <string name="cryptkeeper_default_enter_msg">Вашиот телефон е шифриран за безбедност.</string>
     <string name="enter_password">За да го активирате уредот, внесете ја лозинката.</string>
     <string name="enter_pin">За да го активирате уредот, внесете го PIN-от.</string>
     <string name="enter_pattern">За да го активирате уредот, нацртајте ја шарата.</string>
@@ -1496,6 +1497,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_last_warn_wipe">Ви преостанува само уште 1 обид за да го активирате уредот пред тој да се ресетира на основните фабрички поставувања. Ова ќе ги избрише сите податоци, вклучувајќи ги и датотеките и преземените апликации.</string>
     <string name="crypt_keeper_failed_title_dec">Неуспешно декодирање.</string>
     <string name="crypt_keeper_failed_summary_dec">Не може да се заврши дешифрирањето поради прекин. Извршете фабричко ресетирање на податоците (со што ќе се избришат сите ваши податоци) пред употребата.</string>
+    <string name="crypt_keeper_set_screen_lock_type">Одреди тип закл. екран</string>
     <string name="encryption_interstitial_message_kor">Вашиот уред е шифриран. Заштитете ги шифрираните податоци избирајќи Барај заклучување на екранот за дешифрирање на податоците кога уредот се вклучува. Ова помага да се заштитат податоците на изгубените или украдените уреди. Ќе треба да го отклучите уредот за да ги дешифрирате неговите податоци секогаш кога ќе го вклучувате. Нема да добивате никакви повици, пораки или известувања сѐ додека не го дешифрирате уредот.</string>
     <string name="encryption_interstitial_message_direction">"Заштитете го Вашиот уред избирајќи Барајте Заклучување со насока кога уредот ќе се вклучи. Ова помага да се заштитат податоците на изгубените или украдените уреди.
 
@@ -1735,6 +1737,8 @@ You will also need it when:"</string>
     <string name="empty_content_toast">Нема содржина да се сочува.</string>
     <string name="find_my_mobile_message_zero">"Следете го и контролирајте го Вашиот уред далечински со користење на интернет услугата Најди го мојот мобилен. За повеќе информации, а и за да откриете какви други функции се достапни, посетете ја следнава интернет-страница:
 %s"</string>
+    <string name="send_last_location_title">Прати ја последната локација</string>
+    <string name="send_last_location_summary">Дозволете телефонот да ја праќа својата последна локација до серверот на Најди го мојот мобилен кога батеријата ќе падне под определено ниво.</string>
     <string name="high_power_description">Овозможете Оптимизирај го користењето на батеријата за поединечни апликации. Некои функции, на пример тие што користат мобилни мрежи или синхронизирање податоци, ќе бидат ограничени за да се заштеди енергијата на батеријата.</string>
     <string name="wifi_display_summary_off">Исклучено</string>
     <string name="battery_usage_description">Овој екран ги прикажува податоците за искористеноста на батеријата од последното целосно полнење на уредот.</string>
@@ -1966,6 +1970,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">Изберете кои кратенки за апликации сакате да ги користите на екранот за заклучување.</string>
     <string name="lockscreen_notifications">Известувања на екранот за заклучување</string>
     <string name="work_profile_lockscreen_notifications">Известувања за работен профил</string>
+    <string name="lock_network_and_security">Заклучете мрежа и безбедност</string>
+    <string name="lock_network_and_security_summary">Држете ги функциите поврзани со мрежата или со безбедноста заклучени додека телефонот е заклучен, што ги олеснува лоцирањето и заштитата доколку е изгубен или украден.</string>
     <string name="dualclock_settings_title">Двоен часовник</string>
     <string name="dualclock_settings_summary">Покажувај и локална и домашна временска зона во роаминг.</string>
     <string name="set_home_city">Пост.домашна врем. зона</string>
@@ -2151,7 +2157,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="air_browse_music_on_lock_screen_title">Музика на екран за заклучување</string>
     <string name="air_browse_music_on_lock_screen_summary">Менување песни на екранот за заклучување.</string>
     <string name="air_browse_note_summary">Движење меѓу страници во Режимот за преглед.</string>
-    <string name="data_usage_enable_mobile_summery">Доколку Мобилни податоци е исклучено, Вашиот уред мора да е поврзан со Wi-Fi мрежа за да користи услуги што побаруваат мрежно поврзување.</string>
+    <string name="data_usage_enable_mobile_summery">Пристапете до интернет преку мобилната мрежа.</string>
     <string name="data_usage_enable_mobile_warning_skt">Поврзувањето со мобилни мрежи може да се наплаќа дополнително, зависно од вашиот пакет. Да се продолжи?</string>
     <string name="data_usage_enable_mobile_warning_ktt">Поврзувањето со мобилни мрежи може да се наплаќа дополнително, зависно од вашиот пакет. Да се продолжи?</string>
     <string name="data_usage_enable_mobile_warning_lgt">Поврзувањето со мобилни мрежи може да се наплаќа дополнително, зависно од вашиот пакет. Да се продолжи?</string>
@@ -2521,8 +2527,8 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="secure_folder_summary">Заклучете ги Вашата приватна содржина и апликациите за да ја подобрите безбедноста.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s не поддржува отпечатоци од прст за отклучување на %2$s.</string>
     <string name="edge_feeds_title">Полиња на раб</string>
-    <string name="screensaver_settings_summary">Контролирајте што се случува кога уредот е во лежиште и/или се полни, додека екранот е исклучен. Оваа функција се нарекува и Денски сон.</string>
-    <string name="screensaver_settings_summary_wo_dock">Прикажете заштитник на екранот откако екранот ќе се исклучи автоматски додека уредот се полни.</string>
+    <string name="screensaver_settings_summary">Прикажете заштитник на екранот откако екранот ќе се исклучи автоматски додека телефонот се полни.</string>
+    <string name="screensaver_settings_summary_wo_dock">Прикажете заштитник на екранот откако екранот ќе се исклучи автоматски додека телефонот е во лежиште или се полни.</string>
     <string name="apn_already_exists">Веќе постои.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Бројот на портот мора да е меѓу %1$d и %2$d.</string>
@@ -3287,6 +3293,7 @@ Wi-Fi is now on."</string>
     <string name="wfd_connection_end_toast">Заврши поврзувањето Screen Мirroring.</string>
     <string name="wfd_descrpition_playvia">Емитувај содржина.</string>
     <string name="wfd_descrpition_mirroring">Одраз на екранот.</string>
+    <string name="wfd_descrpition_playsound">Емитувај звук.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">Повеќе прозорци ќе се исклучи и сите апликации отворени во појавни прозорци ќе се затворат.</string>
     <string name="keyguard_password_attempt_count_pin_code">%d attempt left.</string>
@@ -4126,7 +4133,7 @@ Receiving SMS"</string>
     <string name="location_network_based">Користи безжични мрежи</string>
     <string name="location_neighborhood_level">Дозволи аплик. да ја користат услугата за лоцирање на Google за проценка на локацијата. Ќе се праќаат анонимни податоци до Google.</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">За уредот</string>
+    <string name="about_settings">За телефонот</string>
     <string name="about_settings_vzw">За уредот</string>
     <string name="legal_information">Правни информации</string>
     <string name="regulatory_information">Регулаторни информации</string>
@@ -4311,7 +4318,7 @@ Receiving SMS"</string>
     <string name="phone_language">Јазик</string>
     <string name="show_password">Лозинките да се видливи</string>
     <string name="show_password_summary">Покажувај ги знаците на лозинката накратко додека се пишуваат.</string>
-    <string name="ime_security_warning">Овој начин може да го меморира текстот што го внесувате, освен лозинки, вклучувајќи и лични податоци и броеви на кредитни картички. Потекнува од апликацијата %1$s. Сепак, да се користи?</string>
+    <string name="ime_security_warning">%s можеби може да го собере сиот текст што го пишувате, вклучително и личните податоци како што се лозинките и броевите на кредитни картички.</string>
     <string name="failed_to_open_app_settings_toast">Неуспешно отворање поставувања за %s.</string>
     <string name="keyboard_and_input_methods_category">Тастатури</string>
     <string name="virtual_keyboard_category">Виртуелна тастатура</string>

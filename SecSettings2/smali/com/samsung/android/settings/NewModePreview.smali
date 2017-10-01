@@ -332,7 +332,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b153d
+    const v5, 0x7f0b1540
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/NewModePreview;->getString(I)Ljava/lang/String;
 
@@ -346,7 +346,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b153c
+    const v5, 0x7f0b153f
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/NewModePreview;->getString(I)Ljava/lang/String;
 
@@ -484,7 +484,7 @@
 
     aput-object v2, v1, v3
 
-    const v1, 0x7f11049c
+    const v1, 0x7f11049a
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/NewModePreview;->findViewById(I)Landroid/view/View;
 
@@ -494,7 +494,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/NewModePreview;->mAutoAdaptiveTextView:Landroid/widget/TextView;
 
-    const v1, 0x7f11024a
+    const v1, 0x7f110248
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/NewModePreview;->findViewById(I)Landroid/view/View;
 
@@ -508,13 +508,13 @@
 
     move-result-object v10
 
-    const v1, 0x7f0a0468
+    const v1, 0x7f0a0466
 
     invoke-virtual {v10, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    const v2, 0x7f0a045e
+    const v2, 0x7f0a045c
 
     invoke-virtual {v10, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -522,7 +522,7 @@
 
     add-int/2addr v1, v2
 
-    const v2, 0x7f0a046d
+    const v2, 0x7f0a046b
 
     invoke-virtual {v10, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

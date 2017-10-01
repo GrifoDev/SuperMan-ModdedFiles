@@ -1223,13 +1223,13 @@
 
     invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0b0672
+    const v2, 0x7f0b067a
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v1
 
-    const v2, 0x7f0b0674
+    const v2, 0x7f0b067c
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -1622,7 +1622,7 @@
 .method public onCreate(Landroid/os/Bundle;)V
     .locals 11
 
-    const v10, 0x7f0b079a
+    const v10, 0x7f0b07a2
 
     const/4 v9, -0x1
 
@@ -1891,7 +1891,7 @@
 
     aput-object v0, v6, v4
 
-    const v7, 0x7f0b0793
+    const v7, 0x7f0b079b
 
     invoke-virtual {v5, v7, v6}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2014,7 +2014,7 @@
 
     new-array v6, v3, [Ljava/lang/Object;
 
-    const v7, 0x7f0b066d
+    const v7, 0x7f0b0675
 
     invoke-virtual {p0, v7}, Lcom/samsung/android/settings/KnoxChooseLockTwoFactor$KnoxChooseLockTwoFactorFragment;->getString(I)Ljava/lang/String;
 
@@ -2148,7 +2148,7 @@
 
     aput-object v0, v6, v4
 
-    const v7, 0x7f0b0794
+    const v7, 0x7f0b079c
 
     invoke-virtual {v5, v7, v6}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2306,7 +2306,7 @@
 
     new-array v6, v3, [Ljava/lang/Object;
 
-    const v7, 0x7f0b074c
+    const v7, 0x7f0b0754
 
     invoke-virtual {p0, v7}, Lcom/samsung/android/settings/KnoxChooseLockTwoFactor$KnoxChooseLockTwoFactorFragment;->getString(I)Ljava/lang/String;
 
@@ -2335,7 +2335,7 @@
 
     new-array v6, v3, [Ljava/lang/Object;
 
-    const v7, 0x7f0b066d
+    const v7, 0x7f0b0675
 
     invoke-virtual {p0, v7}, Lcom/samsung/android/settings/KnoxChooseLockTwoFactor$KnoxChooseLockTwoFactorFragment;->getString(I)Ljava/lang/String;
 
@@ -2524,7 +2524,7 @@
     :cond_0
     iget-object v1, p0, Lcom/samsung/android/settings/KnoxChooseLockTwoFactor$KnoxChooseLockTwoFactorFragment;->content:Landroid/widget/LinearLayout;
 
-    const v2, 0x7f11042d
+    const v2, 0x7f11042b
 
     invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -2604,7 +2604,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/KnoxChooseLockTwoFactor$KnoxChooseLockTwoFactorFragment;->content:Landroid/widget/LinearLayout;
 
-    const v2, 0x7f11042e
+    const v2, 0x7f11042c
 
     invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -2620,7 +2620,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/KnoxChooseLockTwoFactor$KnoxChooseLockTwoFactorFragment;->content:Landroid/widget/LinearLayout;
 
-    const v2, 0x7f11042a
+    const v2, 0x7f110428
 
     invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 

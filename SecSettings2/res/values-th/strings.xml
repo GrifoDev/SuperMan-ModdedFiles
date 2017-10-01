@@ -381,7 +381,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">การรองร้บ</string>
     <string name="reset_network_settings_list_summary">รีเซ็ท Wi-Fi, Bluetooth และการตั้งค่าเครือข่ายอื่นๆ เป็นค่าเริ่มต้น</string>
     <string name="master_clear_list_summary">รีเซ็ทอุปกรณ์ของคุณกลับสู่การตั้งค่าเริ่มต้นจากโรงงาน นี่จะลบข้อมูลทั้งหมด รวมถึงไฟล์และแอพที่ดาวน์โหลด</string>
-    <string name="auto_restart_summary">เพิ่มคุณภาพอุปกรณ์ของคุณโดยการปิดและเปิดเครื่องใหม่อัตโนมัติตามเวลาที่ตั้งไว้ ข้อมูลที่ไม่ได้บันทึกไว้จะสูญหายเมื่อปิดและเปิดอุปกรณ์ใหม่</string>
+    <string name="auto_restart_summary">ปรับโทรศัพท์ของคุณให้เหมาะสมโดยเริ่มโทรศัพท์ใหม่โดยอัตโนมัติสัปดาห์ละครั้ง ข้อมูลที่ไม่ได้บันทึกจะสูญหายเมื่อโทรศัพท์ของคุณเริ่มใหม่</string>
     <string name="search_settings">ค้น​หา</string>
     <string name="related_results">%d รายการที่เกี่ยวข้อง</string>
     <string name="no_results_found">ไม่พบผลลัพธ์</string>
@@ -1489,6 +1489,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_verify_failed_summary">ไม่สามารถเริ่มอุปกรณ์ของคุณใหม่ การตรวจสอบความถูกต้องล้มเหลว คุณต้องรีเซ็ทอุปกรณ์ของคุณเป็นค่าเริ่มต้นจากโรงงาน ซึ่งจะลบข้อมูลของคุณทั้งหมด</string>
     <string name="cryptkeeper_emergency_call">โทร​ฉุก​เฉิน</string>
     <string name="cryptkeeper_return_to_call">กลับไปยังสายสนทนา</string>
+    <string name="cryptkeeper_default_enter_msg">โทรศัพท์ของคุณถูกเข้ารหัสเพื่อความปลอดภัย</string>
     <string name="enter_password">ในการเริ่มอุปกรณ์ของคุณ ให้ใส่รหัสผ่าน</string>
     <string name="enter_pin">ในการเริ่มอุปกรณ์ของคุณ ให้ใส่ PIN</string>
     <string name="enter_pattern">ในการเริ่มอุปกรณ์ของคุณ ให้วาดรูปแบบ</string>
@@ -1503,6 +1504,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_failed_title_dec">"การ​ถอด​รหัส
 ​ผิด​พลาด"</string>
     <string name="crypt_keeper_failed_summary_dec">ไม่สามารถถอดรหัสได้เนื่องจากมีการขัดจังหวะ ทำการรีเซ็ทข้อมูลจากโรงงาน (ลบข้อมูลทั้งหมด) ก่อนใช้งาน</string>
+    <string name="crypt_keeper_set_screen_lock_type">ตั้งค่าชนิดการล็อกหน้าจอ</string>
     <string name="encryption_interstitial_message_kor">อุปกรณ์ของคุณถูกเข้ารหัส ปกป้องข้อมูลที่เข้ารหัสของคุณโดยการเลือกต้องมีล็อคหน้าจอเมื่อเปิดเครื่องอุปกรณ์ เพื่อถอดรหัสข้อมูลขณะที่อุปกรณ์ของคุณเปิดอยู่ ซึ่งจะช่วยป้องกันข้อมูลบนอุปกรณ์ที่สูญหายหรือถูกขโมยได้ คุณจะต้องปลดล็อคอุปกรณ์ของคุณเพื่อถอดรหัสข้อมูลของอุปกรณ์เมื่อคุณเปิดเครื่อง คุณจะไม่ได้รับสาย ข้อความ หรือการแจ้งเตือนใดๆ จนกว่าคุณจะถอดรหัสอุปกรณ์ของคุณ</string>
     <string name="encryption_interstitial_message_direction">"ป้องกันอุปกรณ์ของคุณโดยเลือก “ต้องใส่การล็อคทิศทาง” เมื่อเปิดเครื่อง นี่จะเป็นการช่วยปกป้องข้อมูลให้อุปกรณ์เมื่อสูญหายหรือถูกโจรกรรม
 
@@ -1743,6 +1745,8 @@ You will also need it when:"</string>
     <string name="empty_content_toast">ไม่มีคอนเทนท์ให้บันทึก</string>
     <string name="find_my_mobile_message_zero">"ติดตามและควบคุมอุปกรณ์ของคุณจากระยะไกลโดยใช้บริการเว็บ ค้นหาโทรศัพท์ส่วนตัว สำหรับข้อมูลเพิ่มเติมและเพื่อดูว่ามีฟังก์ชั่นอื่นใดบ้าง ไปที่เว็บไซต์ต่อไปนี้:
 %s"</string>
+    <string name="send_last_location_title">ส่งตำแหน่งล่าสุด</string>
+    <string name="send_last_location_summary">อนุญาตให้โทรศัพท์ของคุณส่งตำแหน่งล่าสุดไปยังเซิร์ฟเวอร์ ค้นหาโทรศัพท์ส่วนตัว เมื่อแบตเตอรี่ลดลงไปต่ำกว่าระดับหนึ่ง</string>
     <string name="high_power_description">เปิดใช้การเพิ่มประสิทธิภาพการใช้แบตเตอรี่สำหรับแต่ละแอพ ฟังก์ชั่นบางอย่าง เช่น ฟังก์ชั่นที่ใช้เครือข่ายมือถือ หรือการซิงค์ข้อมูลจะถูกจำกัดเพื่อประหยัดพลังงานแบตเตอรี่</string>
     <string name="wifi_display_summary_off">ปิด</string>
     <string name="battery_usage_description">หน้าจอนี้จะแสดงข้อมูลการใช้แบตเตอรี่ตั้งแต่การชาร์จพลังงานอุปกรณ์จนเต็มครั้งล่าสุด</string>
@@ -1974,6 +1978,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">เลือกทางลัดแอพที่คุณต้องการใช้บนหน้าจอล็อค</string>
     <string name="lockscreen_notifications">การแจ้งเตือนบนหน้าจอล็อค</string>
     <string name="work_profile_lockscreen_notifications">การแจ้งเตือนโปรไฟล์งาน</string>
+    <string name="lock_network_and_security">ล็อกเครือข่ายและระบบความปลอดภัย</string>
+    <string name="lock_network_and_security_summary">ล็อกเครือข่ายและฟังก์ชั่นที่เกี่ยวกับความปลอดภัยเอาไว้ขณะโทรศัพท์ของคุณล็อกอยู่ ทำให้สามารถค้นหาและปกป้องโทรศัพท์ได้ง่ายขึ้นหากสูญหายหรือถูกขโมย</string>
     <string name="dualclock_settings_title">นาฬิกา​คู่</string>
     <string name="dualclock_settings_summary">แสดงทั้งเขตเวลาของท้องถิ่นและเมืองหลักเมื่อโรมมิ่ง</string>
     <string name="set_home_city">ตั้งค่าเวลาท้องถิ่น</string>
@@ -2159,7 +2165,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="air_browse_music_on_lock_screen_title">เพลงบนหน้าจอล็อค</string>
     <string name="air_browse_music_on_lock_screen_summary">เปลี่ยนแทร็กเพลงบนหน้าจอล็อค</string>
     <string name="air_browse_note_summary">เลื่อนระหว่างหน้าขณะอยู่ในโหมดการแสดง</string>
-    <string name="data_usage_enable_mobile_summery">ถ้าข้อมูลมือถือถูกปิด อุปกรณ์ของคุณต้องเชื่อมต่อกับเครือข่าย Wi-Fi เพื่อใช้บริการที่ต้องการการเชื่อมต่อเครือข่าย</string>
+    <string name="data_usage_enable_mobile_summery">เข้าถึงอินเทอร์เน็ตผ่านเครือข่ายมือถือของคุณ</string>
     <string name="data_usage_enable_mobile_warning_skt">การเชื่อมต่อกับเครือข่ายมือถือ อาจมีค่าใช้จ่ายพิเศษ ขึ้นอยู่กับแผนข้อมูลของคุณ ดำเนินการต่อ?</string>
     <string name="data_usage_enable_mobile_warning_ktt">การเชื่อมต่อกับเครือข่ายมือถือ อาจมีค่าใช้จ่ายพิเศษ ขึ้นอยู่กับแผนข้อมูลของคุณ ดำเนินการต่อ?</string>
     <string name="data_usage_enable_mobile_warning_lgt">การเชื่อมต่อกับเครือข่ายมือถือ อาจมีค่าใช้จ่ายพิเศษ ขึ้นอยู่กับแผนข้อมูลของคุณ ดำเนินการต่อ?</string>
@@ -2530,8 +2536,8 @@ Turn off Mobile data?"</string>
     <string name="secure_folder_summary">ล็อคคอนเทนท์และแอพส่วนตัวของคุณ เพื่อเพิ่มระดับการป้องกัน</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s ไม่รองรับลายนิ้วมือในการปลดล็อค %2$s</string>
     <string name="edge_feeds_title">ฟีด Edge</string>
-    <string name="screensaver_settings_summary">ควบคุมสิ่งที่เกิดขึ้นในขณะด็อคอุปกรณ์และ/หรือกำลังชาร์จในขณะที่หน้าจอปิดอยู่ ฟังก์ชั่นนี้ยังเรียกว่าเดย์ดรีมด้วย</string>
-    <string name="screensaver_settings_summary_wo_dock">แสดงภาพพักหน้าจอหลังจากหน้าจอปิดลงโดยอัตโนมัติขณะอุปกรณ์กำลังชาร์จอยู่</string>
+    <string name="screensaver_settings_summary">แสดงภาพพักหน้าจอหลังจากหน้าจอปิดลงโดยอัตโนมัติขณะโทรศัพท์กำลังชาร์จอยู่</string>
+    <string name="screensaver_settings_summary_wo_dock">แสดงภาพพักหน้าจอหลังหน้าจอปิดโดยอัตโนมัติขณะโทรศัพท์ของคุณด็อคหรือชาร์จอยู่</string>
     <string name="apn_already_exists">มีอยู่แล้ว</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">หมายเลขพอร์ตต้อง อยู่ระหว่าง %1$d ถึง %2$d</string>
@@ -2734,7 +2740,7 @@ Turn off Mobile data?"</string>
     <string name="avea_giga_popup_msg">เปิด Wi-Fi และข้อมูลมือถือเพื่อใช้ GIGA 4.5G</string>
     <string name="avea_giga_wifi_msg">เปิด Wi-Fi เพื่อใช้ GIGA 4.5G</string>
     <string name="avea_giga_mobile_msg">เปิดข้อมูลมือถือเพื่อใช้ GIGA 4.5G</string>
-    <string name="ais_mptcp_body">NEXT G คือ บริการที่เพิ่มขีดความสามารถของความเร็วเน็ต ด้วยการใช้งานผ่านเครือข่าย LTE และ WiFi พร้อมกัน เมื่อเปิดใช้งาน NEXT G ข้อมูลบนเครือข่าย LTE จะถูกคิดค่าบริการตามแพ็กเกจเน็ตที่ใช้งาน NEXT G อาจไม่สามารถใช้งานได้บางเครือข่าย เช่น เว็บไซท์ที่มีการตั้งค่าความปลอดภัย</string>
+    <string name="ais_mptcp_body">NEXT G คือ บริการที่เพิ่มขีดความสามารถของความเร็วเน็ต ด้วยการใช้งานผ่านเครือข่าย LTE และ WiFi พร้อมกัน เมื่อเปิดใช้งาน NEXT G ข้อมูลบนเครือข่าย LTE จะถูกคิดค่าบริการตามแพ็กเกจเน็ตที่ใช้งาน NEXT G อาจไม่สามารถใช้งานได้บางเครือข่าย เช่น เว็บไซต์ที่มีการตั้งค่าความปลอดภัย</string>
     <string name="ais_mptcp_popup_title">การเปิดใช้งาน NEXT G</string>
     <string name="ais_mptcp_wifi_mobile_off_msg">ทั้ง Wi-Fi และข้อมูลมือถือปิดใช้งานอยู่ กรุณาเปิดใช้งานทั้ง Wi-Fi และข้อมูลมือถือเพื่อใช้งาน NEXT G เมื่อเปิดใช้งาน NEXT G ข้อมูลที่ใช้บนเครือข่าย LTE จะถูกคิดค่าบริการตามแพ็กเกจเน็ตที่ใช้งาน ถ้าหากเปิดใช้งาน Wi-Fi และข้อมูลมือถือฟังก์ชั่น %s จะถูกเปิดใช้งานไปด้วย</string>
     <string name="ais_mptcp_wifi_off_msg">ขณะนี้ Wi-Fi ปิดอยู่ กรุณาเปิดใช้งาน Wi-Fi เพื่อใช้งาน NEXT G ถ้าหากเปิดใช้งาน Wi-Fi, ฟังก์ชั่น %s จะเปิดใช้งานไปด้วย</string>
@@ -3308,6 +3314,7 @@ Wi-Fi is now on."</string>
     <string name="wfd_connection_end_toast">การเชื่อมต่อการสะท้อนหน้าจอสิ้นสุดแล้ว</string>
     <string name="wfd_descrpition_playvia">เล่นคอนเทนท์</string>
     <string name="wfd_descrpition_mirroring">สะท้อนหน้าจอโทรศัพท์</string>
+    <string name="wfd_descrpition_playsound">เล่นเสียง</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">มัลติวินโดว์จะถูกปิดใช้งาน และแอพทั้งหมดที่เปิดในหน้าต่างป็อปอัพจะปิด</string>
     <string name="keyguard_password_attempt_count_pin_code">เหลือ %d ​ครั้ง</string>
@@ -4148,7 +4155,7 @@ Wi-Fi is now on."</string>
     <string name="location_network_based">ใช้เครือข่ายไร้สาย</string>
     <string name="location_neighborhood_level">อนุญาตให้แอพใช้บริการระบุตำแหน่งของ Google เพื่อประเมินตำแหน่งของคุณได้เร็วขึ้น ข้อมูลตำแหน่งแบบไม่แสดงชื่อจะถูกรวบรวม และส่งให้ Google</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">เกี่ยว​กับ​อุปกรณ์</string>
+    <string name="about_settings">เกี่ยวกับโทรศัพท์</string>
     <string name="about_settings_vzw">เกี่ยวกับอุปกรณ์</string>
     <string name="legal_information">ข้อมูล​ทาง​กฎหมาย</string>
     <string name="regulatory_information">ข้อมูลระเบียบข้อบังคับ</string>
@@ -4334,7 +4341,7 @@ Wi-Fi is now on."</string>
     <string name="phone_language">ภาษา</string>
     <string name="show_password">ทำ​รหัส​ผ่าน​ให้​มอง​เห็น​ได้</string>
     <string name="show_password_summary">แสดงตัวอักษรรหัสผ่านเป็นเวลาสั้นๆ ขณะพิมพ์</string>
-    <string name="ime_security_warning">วิธี​นี้​สามารถ​รวบ​รวม​ข้อ​ความ​ที่​คุณ​ใส่​ทั้ง​หมด ยก​เว้น​รหัส​ผ่าน รวม​ถึง​ข้อมูล​ส่วน​ตัว​และ​หมาย​เลข​บัตร​เครดิต มา​จาก​แอพ %1$s ​ใช้​หรือ​ไม่?</string>
+    <string name="ime_security_warning">%s อาจสามารถรวบรวมข้อความทั้งหมดที่คุณพิมพ์ รวมถึงข้อมูลส่วนตัว เช่น รหัสผ่านและหมายเลขบัตรเครดิต</string>
     <string name="failed_to_open_app_settings_toast">เปิดการตั้งค่าสำหรับ %s ล้มเหลว</string>
     <string name="keyboard_and_input_methods_category">แป้นพิมพ์</string>
     <string name="virtual_keyboard_category">แป้นพิมพ์เสมือน</string>

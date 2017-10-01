@@ -217,7 +217,7 @@
 
     invoke-direct {v0, p0, v6, v7}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$CustomGrid;-><init>(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;Landroid/content/Context;[I)V
 
-    const v6, 0x7f1104a2
+    const v6, 0x7f1104a0
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

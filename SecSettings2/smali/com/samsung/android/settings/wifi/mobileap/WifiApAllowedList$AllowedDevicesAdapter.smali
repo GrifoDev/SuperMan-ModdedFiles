@@ -191,7 +191,7 @@
     move-result-object p2
 
     :cond_0
-    const v3, 0x7f110735
+    const v3, 0x7f110733
 
     invoke-virtual {p2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -201,7 +201,7 @@
 
     iput-object v3, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApAllowedList$AllowedDevicesAdapter;->rowLayout:Landroid/widget/LinearLayout;
 
-    const v3, 0x7f110737
+    const v3, 0x7f110735
 
     invoke-virtual {p2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -209,7 +209,7 @@
 
     check-cast v1, Landroid/widget/TextView;
 
-    const v3, 0x7f110736
+    const v3, 0x7f110734
 
     invoke-virtual {p2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

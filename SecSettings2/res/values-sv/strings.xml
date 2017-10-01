@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Support</string>
     <string name="reset_network_settings_list_summary">Återställ Wi-Fi, Bluetooth och andra nätverksinställningar till standardvärdena.</string>
     <string name="master_clear_list_summary">Återställ enheten till fabriksinställningarna. Alla data, inklusive filer och hämtade program, raderas.</string>
-    <string name="auto_restart_summary">Optimera enheten genom att starta om den automatiskt på förutbestämda tider. Data som inte har sparats går förlorade när enheten startas om.</string>
+    <string name="auto_restart_summary">Optimera telefonen genom att starta om den automatiskt en gång i veckan. Data som inte har sparats går förlorade när telefonen startas om.</string>
     <string name="search_settings">Sök</string>
     <string name="related_results">%d relaterade objekt</string>
     <string name="no_results_found">Inga resultat hittades</string>
@@ -1486,6 +1486,7 @@ Krypteringen tar en timme eller mer. Se till att batteriet är laddat innan du b
     <string name="crypt_keeper_verify_failed_summary">Det går inte att starta om enheten. Integritetsverifikationen misslyckades. Du måste återställa enheten till fabriksinställningarna. Alla dina uppgifter kommer att raderas.</string>
     <string name="cryptkeeper_emergency_call">Nödsamtal</string>
     <string name="cryptkeeper_return_to_call">Återgå till samtal</string>
+    <string name="cryptkeeper_default_enter_msg">Telefonen är krypterad av säkerhetsskäl.</string>
     <string name="enter_password">Om du vill starta enheten anger du ditt lösenord.</string>
     <string name="enter_pin">Om du vill starta enheten anger du din pinkod.</string>
     <string name="enter_pattern">Om du vill starta enheten ritar du ditt mönster.</string>
@@ -1499,6 +1500,7 @@ Krypteringen tar en timme eller mer. Se till att batteriet är laddat innan du b
     <string name="crypt_keeper_last_warn_wipe">Du har bara ett startförsök kvar innan enheten återställs till fabriksinställningarna. Då raderas alla data, däribland filer och hämtade program.</string>
     <string name="crypt_keeper_failed_title_dec">Dekrypteringen misslyckades.</string>
     <string name="crypt_keeper_failed_summary_dec">Det gick inte att slutföra avkrypteringen på grund av ett avbrott. Du måste genomföra en fabriksåterställning (radera alla data) innan användning.</string>
+    <string name="crypt_keeper_set_screen_lock_type">Ange skärmlåstyp</string>
     <string name="encryption_interstitial_message_kor">Enheten är krypterad. Skydda dina krypterade data genom att välja Kräv skärmlås för datadekryptering när enheten slås på. Det gör att dina uppgifter skyddas om enheten stjäls eller tappas bort. Du måste låsa upp enheten för att avkryptera dess data när enheten slås på. Du kan inte ta emot samtal, meddelanden och aviseringar förrän enheten har avkrypterats.</string>
     <string name="encryption_interstitial_message_direction">"Skydda enheten genom att välja Kräv Riktningslås när enheten slås på. På så sätt kan uppgifter skyddas om enheten försvinner eller stjäls.
 
@@ -1738,6 +1740,8 @@ Innan du begär en reparation enligt garantin måste återaktiveringslåset inak
     <string name="empty_content_toast">Inget innehåll att spara.</string>
     <string name="find_my_mobile_message_zero">"Spåra och styr enheten på distans genom att använda webbtjänsten Hitta min mobila enhet. Besök följande webbplats om du vill ha mer information och få reda på vilka andra funktioner som är tillgängliga:
 %s"</string>
+    <string name="send_last_location_title">Skicka senaste platsen</string>
+    <string name="send_last_location_summary">Tillåt att telefonen skickar den sista positionen till Hitta min mobila enhet-servern när batterinivån hamnar under en viss nivå.</string>
     <string name="high_power_description">Aktivera Optimera batterianvändning för enskilda program. Vissa funktioner begränsas för att spara på batteriet, t.ex. sådana som använder mobilnät eller synkroniserar data.</string>
     <string name="wifi_display_summary_off">Av</string>
     <string name="battery_usage_description">Skärmen visar batterianvändningen sedan enheten senast laddades fullt.</string>
@@ -1969,6 +1973,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">Välj vilka programgenvägar som ska användas på låsskärmen.</string>
     <string name="lockscreen_notifications">Aviseringar på låsskärmen</string>
     <string name="work_profile_lockscreen_notifications">Arbetsprofilsaviseringar</string>
+    <string name="lock_network_and_security">Lås nätverk och säkerhet</string>
+    <string name="lock_network_and_security_summary">Ha funktioner för nätverk och säkerhet låsta när telefonen är låst. Det gör det enklare att hitta och skydda den om den förloras eller stjäls.</string>
     <string name="dualclock_settings_title">Dubbel klocka</string>
     <string name="dualclock_settings_summary">Visa tidszoner för både lokal ort och hemort vid roaming.</string>
     <string name="set_home_city">Ange hemtidszon</string>
@@ -2154,7 +2160,7 @@ Lösenordet till Google-kontot måste också anges innan någon kan använda tel
     <string name="air_browse_music_on_lock_screen_title">Musik på låsskärmen</string>
     <string name="air_browse_music_on_lock_screen_summary">Byt musikspår på låsskärmen.</string>
     <string name="air_browse_note_summary">Flytta mellan sidor i Visningsläget.</string>
-    <string name="data_usage_enable_mobile_summery">Om Mobildata är avstängt måste enheten anslutas till ett Wi-Fi-nätverk för att kunna använda tjänster som kräver en nätverksanslutning.</string>
+    <string name="data_usage_enable_mobile_summery">Använd internet via mobilnätet.</string>
     <string name="data_usage_enable_mobile_warning_skt">Att ansluta till mobila nätverk kan medföra extra avgifter beroende på ditt avtal. Fortsätta?</string>
     <string name="data_usage_enable_mobile_warning_ktt">Att ansluta till mobila nätverk kan medföra extra avgifter beroende på ditt avtal. Fortsätta?</string>
     <string name="data_usage_enable_mobile_warning_lgt">Att ansluta till mobila nätverk kan medföra extra avgifter beroende på ditt avtal. Fortsätta?</string>
@@ -2524,8 +2530,8 @@ Försök igen."</string>
     <string name="secure_folder_summary">Öka säkerheten genom att låsa ditt privata innehåll och dina privata program.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s stöder inte fingeravtryck för upplåsning av %2$s.</string>
     <string name="edge_feeds_title">Kantflöden</string>
-    <string name="screensaver_settings_summary">Styr det som händer när enheten är dockad och/eller laddas när skärmen är avstängd. Funktionen kallas också Dagdröm.</string>
-    <string name="screensaver_settings_summary_wo_dock">Visa en skärmsläckare då enheten laddas och när skärmen har stängts av automatiskt.</string>
+    <string name="screensaver_settings_summary">Visa en skärmsläckare då telefonen laddas och när skärmen har stängts av automatiskt.</string>
+    <string name="screensaver_settings_summary_wo_dock">Visa en skärmsläckare då telefonen är dockad eller laddas och när skärmen har stängts av automatiskt.</string>
     <string name="apn_already_exists">Finns redan.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Portnummer måste vara mellan %1$d och %2$d.</string>
@@ -3290,6 +3296,7 @@ Mer batteriström förbrukas och din dataanvändning ökar när du använder Mob
     <string name="wfd_connection_end_toast">Anslutning för Screen mirroring har avslutats.</string>
     <string name="wfd_descrpition_playvia">Spela upp innehåll.</string>
     <string name="wfd_descrpition_mirroring">Spegla skärmen.</string>
+    <string name="wfd_descrpition_playsound">Spela upp ljud.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">Flera fönster inaktiveras och alla program som är öppna i popup-fönster stängs.</string>
     <string name="keyguard_password_attempt_count_pin_code">%d försök kvar.</string>
@@ -4129,7 +4136,7 @@ Om du vill ha bättre prestanda kan du använda ett snabbare SD-kort eller USB-m
     <string name="location_network_based">Använd trådlösa nätverk</string>
     <string name="location_neighborhood_level">Tillåt att program som anv. Googles platstjänst får uppskatta plats snabbare. Anonyma platsdata samlas in och skickas till Google.</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">Om enheten</string>
+    <string name="about_settings">Om telefonen</string>
     <string name="about_settings_vzw">Om enheten</string>
     <string name="legal_information">Juridisk information</string>
     <string name="regulatory_information">Gällande föreskrifter</string>
@@ -4314,7 +4321,7 @@ Dina befintliga programdata tas inte bort."</string>
     <string name="phone_language">Språk</string>
     <string name="show_password">Gör lösenord synliga</string>
     <string name="show_password_summary">Visa tecknen i lösenord en kort tid när du skriver in dem.</string>
-    <string name="ime_security_warning">Med den här metoden kan du samla in alla texter du skriver, kreditkortsnummer och andra personliga data, men inte lösenord. Den kommer från programmet %1$s. Använda i alla fall?</string>
+    <string name="ime_security_warning">%s kan spara all text du skriver, även personliga uppgifter som lösenord och kreditkortsnummer.</string>
     <string name="failed_to_open_app_settings_toast">Det gick inte att öppna inställningarna för %s.</string>
     <string name="keyboard_and_input_methods_category">Tangentbord</string>
     <string name="virtual_keyboard_category">Virtuellt tangentbord</string>

@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Tugi</string>
     <string name="reset_network_settings_list_summary">Saate taastada Wi-Fi, Bluetoothi ja muude võrkude vaikeseaded.</string>
     <string name="master_clear_list_summary">Saate lähtestada oma seadme tehase vaikeseadetele. See kustutab kõik andmed, sh failid ja allalaaditud rakendused.</string>
-    <string name="auto_restart_summary">Saate optimeerida oma seadet, taaskäivitades seda määratud aegadel automaatselt. Kõik salvestamata andmed kaovad seadme taaskäivitumisel.</string>
+    <string name="auto_restart_summary">Saate optimeerida oma telefoni, taaskäivitades seda automaatselt kord nädalas. Kõik salvestamata andmed kaovad telefoni taaskäivitumisel.</string>
     <string name="search_settings">Otsi</string>
     <string name="related_results">%d seotud üksust</string>
     <string name="no_results_found">Tulemusi ei leitud</string>
@@ -1485,6 +1485,7 @@ Krüptimine kestab tunni või kauem. Peate alustama täislaetud akuga ja hoidma 
     <string name="crypt_keeper_verify_failed_summary">Teie seadet ei saa taaskäivitada. Terviklikkuse kinnitamine nurjus. Peate lähtestama oma seadme tehase vaikeseadetele. Sellega kustutatakse kõik teie andmed.</string>
     <string name="cryptkeeper_emergency_call">Hädaabikõne</string>
     <string name="cryptkeeper_return_to_call">Naase kõnele</string>
+    <string name="cryptkeeper_default_enter_msg">Teie telefon on turvalisuse tagamiseks krüpteeritud.</string>
     <string name="enter_password">Seadme käivitamiseks sisestage parool.</string>
     <string name="enter_pin">Seadme käivitamiseks sisestage PIN-kood.</string>
     <string name="enter_pattern">Seadme käivitamiseks joonistage oma muster.</string>
@@ -1498,6 +1499,7 @@ Krüptimine kestab tunni või kauem. Peate alustama täislaetud akuga ja hoidma 
     <string name="crypt_keeper_last_warn_wipe">Seadme avamiseks on ainult 1 katse enne, kui see lähtestatakse tehase vaikeseadetele. See kustutab kõik andmed, sh failid ja allalaaditud rakendused.</string>
     <string name="crypt_keeper_failed_title_dec">Dekrüptimine nurjus.</string>
     <string name="crypt_keeper_failed_summary_dec">Dekrüptimine ei õnnestunud katkestuse tõttu. Enne kasutamist lähtestage tehaseandmed (kõigi andmete kustutamine).</string>
+    <string name="crypt_keeper_set_screen_lock_type">Määra ekraaniluku tüüp</string>
     <string name="encryption_interstitial_message_kor">Teie seade on krüptitud. Kaitske oma krüptitud andmeid, valides suvandi Nõua andmete dekrüptimiseks ekraanilukku, kui seade lülitub sisse. See aitab andmeid kaitsta, kui seade läheb kaduma või varastatakse. Peate oma seadme andmete dekrüptimiseks lukust lahti tegema, kui selle sisse lülitate. Enne seadme dekrüptimist ei saa te kõnesid, sõnumeid ega teavitusi vastu võtta.</string>
     <string name="encryption_interstitial_message_direction">"Saate kaitsta oma seadet, valides suvandi Nõua seadme sisselülitamisel suunalukku. See aitab andmeid kaitsta, kui seade läheb kaduma või varastatakse.
 
@@ -1737,6 +1739,8 @@ Enne kui taotlete garantiiparandust, tuleb uuesti aktiveerimise lukk inaktiveeri
     <string name="empty_content_toast">Salvestamiseks puudub sisu.</string>
     <string name="find_my_mobile_message_zero">"Veebiteenuse Leia minu telefon abil saate oma seadet kaugelt jälgida ja hallata. Lisateabe saamiseks ja muude saadaolevate funktsioonidega tutvumiseks külastage veebilehte
 %s"</string>
+    <string name="send_last_location_title">Viimase asukoha saatmine</string>
+    <string name="send_last_location_summary">Saate lubada saata oma telefonil selle viimane asukoht teenuse Leia minu telefon serverisse, kui aku langeb alla teatud taseme.</string>
     <string name="high_power_description">Saate aktiveerida akukasutuse optimeerimise konkreetsete rakenduste jaoks. Akutoite säästmiseks keelatakse mõned funktsioonid, näiteks need, mis kasutavad mobiilsidevõrke või sünkroonivad andmeid.</string>
     <string name="wifi_display_summary_off">Väljas</string>
     <string name="battery_usage_description">See ekraan näitab akukasutuse andmeid ajast, kui seade oli viimati täis laetud.</string>
@@ -1968,6 +1972,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">Valige, milliseid rakenduste otseteid soovite lukustuskuval kasutada.</string>
     <string name="lockscreen_notifications">Teavitused lukustusekraanil</string>
     <string name="work_profile_lockscreen_notifications">Tööprofiili teavitused</string>
+    <string name="lock_network_and_security">Võrgu ja turvalisuse lukustam.</string>
+    <string name="lock_network_and_security_summary">Saate hoida võrgufunktsioonid ja turvalisusega seotud funktsioonid lukus, kui telefon on lukustatud, muutes nii kaduma läinud või varastatud telefoni leidmise ja kaitsmise lihtsamaks.</string>
     <string name="dualclock_settings_title">Kaksikkell</string>
     <string name="dualclock_settings_summary">Rändluse ajal kuvatakse nii kohalik kui ka kodune ajavöönd.</string>
     <string name="set_home_city">Määra kodune ajavöönd</string>
@@ -2153,7 +2159,7 @@ Isegi kui teie telefon pühitakse puhtaks, läheb vaja teie Google’i konto par
     <string name="air_browse_music_on_lock_screen_title">Muusika lukustusekraanil</string>
     <string name="air_browse_music_on_lock_screen_summary">Saate vahetada muusikapalasid lukustusekraanil.</string>
     <string name="air_browse_note_summary">Saate liikuda kuvarežiimis lehtede vahel.</string>
-    <string name="data_usage_enable_mobile_summery">Kui mobiilne andmeside on välja lülitatud, peab teie seade olema ühendatud Wi-Fi võrguga, et kasutada võrguühendust nõudvaid teenuseid.</string>
+    <string name="data_usage_enable_mobile_summery">Saate kasutada internetti oma mobiilsidevõrgu kaudu.</string>
     <string name="data_usage_enable_mobile_warning_skt">Sõltuvalt teie paketist võivad mobiilsidevõrkudega ühenduse loomisel rakenduda lisatasud. Kas jätkata?</string>
     <string name="data_usage_enable_mobile_warning_ktt">Sõltuvalt teie paketist võivad mobiilsidevõrkudega ühenduse loomisel rakenduda lisatasud. Kas jätkata?</string>
     <string name="data_usage_enable_mobile_warning_lgt">Sõltuvalt teie paketist võivad mobiilsidevõrkudega ühenduse loomisel rakenduda lisatasud. Kas jätkata?</string>
@@ -2523,8 +2529,8 @@ Palun proovige uuesti."</string>
     <string name="secure_folder_summary">Saate privaatse sisu ja rakendused turvalisuse suurendamiseks lukustada.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s ei toeta sõrmejälgi mahuti %2$s avamiseks.</string>
     <string name="edge_feeds_title">Servakanalid</string>
-    <string name="screensaver_settings_summary">Saate juhtida, mis juhtub seadme dokkimisel ja/või laadimisel, kui ekraan on lülitatud välja. Seda funktsiooni kutsutakse ka Ekraanisäästjaks.</string>
-    <string name="screensaver_settings_summary_wo_dock">Saate lasta kuvada seadme laadimise ajal ekraanisäästjat, kui ekraan lülitub automaatselt välja.</string>
+    <string name="screensaver_settings_summary">Saate lasta kuvada telefoni laadimise ajal ekraanisäästjat, kui ekraan lülitub automaatselt välja.</string>
+    <string name="screensaver_settings_summary_wo_dock">Saate lasta kuvada telefoni dokkimise või laadimise ajal ekraanisäästjat, kui ekraan lülitub automaatselt välja.</string>
     <string name="apn_already_exists">Juba olemas.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Pordinumber peab jaama vahemikku %1$d kuni %2$d.</string>
@@ -3289,6 +3295,7 @@ Mobiilse kuumkoha kasutamisel suureneb aku tarbimine ja andmekasutus."</string>
     <string name="wfd_connection_end_toast">Ühendus rakendusega Screen Mirroring on lõppenud.</string>
     <string name="wfd_descrpition_playvia">Saate esitada sisu.</string>
     <string name="wfd_descrpition_mirroring">Saate ekraani peegeldada.</string>
+    <string name="wfd_descrpition_playsound">Saate esitada heli.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">Mitmikaken desaktiveeritakse ja kõik hüpikakendes avatud rakendused suletakse.</string>
     <string name="keyguard_password_attempt_count_pin_code">%d katse jäänud.</string>
@@ -4128,7 +4135,7 @@ Kaaluge parema jõudluse tagamiseks kiirema SD-kaardi või USB-mäluseadme kasut
     <string name="location_network_based">Kasuta juht.vabasid võrke</string>
     <string name="location_neighborhood_level">"Lubage rak. kasut. Google'i asukohateenust, et leida teie asukoht kiiremini. Anonüümseid asukohaandmeid kogutakse ja saadetakse Google'ile."</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">Teave seadme kohta</string>
+    <string name="about_settings">Teave telefoni kohta</string>
     <string name="about_settings_vzw">Teave seadme kohta</string>
     <string name="legal_information">Õiguslik teave</string>
     <string name="regulatory_information">Normatiivne teave</string>
@@ -4313,7 +4320,7 @@ Teie olemasolevad rakenduste andmed ei lähe kaduma."</string>
     <string name="phone_language">Keel</string>
     <string name="show_password">Muuda paroolid nähtavaks</string>
     <string name="show_password_summary">Kuva korraks parooli märke tippimise ajal.</string>
-    <string name="ime_security_warning">See meetod saab koguda kogu sisestatavat teksti, sealhulgas isiklikke andmeid ja krediitkaardinumbreid, kuid mitte paroole. See tuleb rakendusest %1$s. Kas kasutada ikkagi?</string>
+    <string name="ime_security_warning">%s võib koguda teie sisestatud teksti, sh isiklikke andmeid, nagu paroolid ja krediitkaardi numbrid.</string>
     <string name="failed_to_open_app_settings_toast">Üksuse %s seadete avamine nurjus.</string>
     <string name="keyboard_and_input_methods_category">Klaviatuurid</string>
     <string name="virtual_keyboard_category">Virtuaalne klaviatuur</string>

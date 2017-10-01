@@ -1122,7 +1122,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a0279
+    const v3, 0x7f0a0277
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1132,7 +1132,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a0277
+    const v4, 0x7f0a0275
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1144,7 +1144,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a0278
+    const v4, 0x7f0a0276
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1511,7 +1511,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0279
+    const v1, 0x7f0a0277
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1525,7 +1525,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0277
+    const v1, 0x7f0a0275
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1539,7 +1539,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0278
+    const v1, 0x7f0a0276
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2429,7 +2429,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/accessibility/directionlock/ConfirmLockDirection;->mRightButton:Landroid/widget/Button;
 
-    const v0, 0x7f1101de
+    const v0, 0x7f1101dd
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/accessibility/directionlock/ConfirmLockDirection;->findViewById(I)Landroid/view/View;
 

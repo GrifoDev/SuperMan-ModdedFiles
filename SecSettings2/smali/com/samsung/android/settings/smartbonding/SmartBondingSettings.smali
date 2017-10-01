@@ -239,7 +239,7 @@
 
     invoke-virtual {v2, v0}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    const v3, 0x7f11053c
+    const v3, 0x7f11053a
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -267,7 +267,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0bcf
+    const v4, 0x7f0b0bd9
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -316,7 +316,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0bd0
+    const v4, 0x7f0b0bda
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

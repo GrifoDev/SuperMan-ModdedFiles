@@ -49,7 +49,7 @@
 
     iget-object v1, p0, Lcom/android/settings/CryptKeeper$12;->this$0:Lcom/android/settings/CryptKeeper;
 
-    invoke-static {v1}, Lcom/android/settings/CryptKeeper;->-get4(Lcom/android/settings/CryptKeeper;)Landroid/widget/ImageView;
+    invoke-static {v1}, Lcom/android/settings/CryptKeeper;->-get5(Lcom/android/settings/CryptKeeper;)Landroid/widget/ImageView;
 
     move-result-object v1
 
@@ -57,7 +57,7 @@
 
     iget-object v1, p0, Lcom/android/settings/CryptKeeper$12;->this$0:Lcom/android/settings/CryptKeeper;
 
-    invoke-static {v1}, Lcom/android/settings/CryptKeeper;->-get4(Lcom/android/settings/CryptKeeper;)Landroid/widget/ImageView;
+    invoke-static {v1}, Lcom/android/settings/CryptKeeper;->-get5(Lcom/android/settings/CryptKeeper;)Landroid/widget/ImageView;
 
     move-result-object v1
 
@@ -65,7 +65,7 @@
 
     iget-object v1, p0, Lcom/android/settings/CryptKeeper$12;->this$0:Lcom/android/settings/CryptKeeper;
 
-    invoke-static {v1}, Lcom/android/settings/CryptKeeper;->-get4(Lcom/android/settings/CryptKeeper;)Landroid/widget/ImageView;
+    invoke-static {v1}, Lcom/android/settings/CryptKeeper;->-get5(Lcom/android/settings/CryptKeeper;)Landroid/widget/ImageView;
 
     move-result-object v1
 

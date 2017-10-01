@@ -179,7 +179,7 @@
 
     move-result-object v9
 
-    const v15, 0x7f0b1144
+    const v15, 0x7f0b1147
 
     invoke-virtual {v9, v15}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -213,7 +213,7 @@
 
     if-eqz v15, :cond_4
 
-    const v10, 0x7f0b1140
+    const v10, 0x7f0b1143
 
     :goto_0
     new-instance v3, Lcom/android/settings/search/SearchIndexableRaw;
@@ -257,7 +257,7 @@
 
     invoke-direct {v3, v0}, Lcom/android/settings/search/SearchIndexableRaw;-><init>(Landroid/content/Context;)V
 
-    const v15, 0x7f0b1149
+    const v15, 0x7f0b114c
 
     invoke-virtual {v9, v15}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -275,7 +275,7 @@
 
     invoke-direct {v3, v0}, Lcom/android/settings/search/SearchIndexableRaw;-><init>(Landroid/content/Context;)V
 
-    const v15, 0x7f0b114a
+    const v15, 0x7f0b114d
 
     invoke-virtual {v9, v15}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -334,7 +334,7 @@
 
     invoke-direct {v3, v0}, Lcom/android/settings/search/SearchIndexableRaw;-><init>(Landroid/content/Context;)V
 
-    const v15, 0x7f0b14ee
+    const v15, 0x7f0b14f1
 
     invoke-virtual {v9, v15}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -365,7 +365,7 @@
 
     if-eqz v15, :cond_5
 
-    const v13, 0x7f0b1714
+    const v13, 0x7f0b1717
 
     :goto_1
     new-instance v3, Lcom/android/settings/search/SearchIndexableRaw;
@@ -445,12 +445,12 @@
     goto :goto_2
 
     :cond_4
-    const v10, 0x7f0b113e
+    const v10, 0x7f0b1141
 
     goto/16 :goto_0
 
     :cond_5
-    const v13, 0x7f0b1715
+    const v13, 0x7f0b1718
 
     goto :goto_1
 

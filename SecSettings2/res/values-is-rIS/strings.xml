@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Þjónusta</string>
     <string name="reset_network_settings_list_summary">Endurstilltu Wi-Fi, Bluetooth og aðrar netstillingar á sjálfgefnar stillingar.</string>
     <string name="master_clear_list_summary">Endurstilltu tækið á sjálfgefnar grunnstillingar framleiðanda. Þetta mun eyða öllum gögnum þ.m.t. skrám og sóttum forritum.</string>
-    <string name="auto_restart_summary">Fínstilltu tæki með því að endurræsa það sjálfkrafa á tilteknum tímum. Óvistuð gögn glatast þegar tækið er endurræst.</string>
+    <string name="auto_restart_summary">Fínstilla símann með því að endurræsa hann sjálfkrafa einu sinni í viku. Óvistuð gögn glatast þegar síminn er endurræstur.</string>
     <string name="search_settings">Leit</string>
     <string name="related_results">%d tengd atriði</string>
     <string name="no_results_found">Engar niðurstöður</string>
@@ -1486,6 +1486,7 @@ Dulkóðun tekur minnst klukkustund. Áður en hafist er handa skaltu tryggja a�
     <string name="crypt_keeper_verify_failed_summary">Ekki er hægt að endurræsa tækið. Ekki tókst að staðfesta heilleika tækisins. Þú þarft að endurstilla tækið á sjálfgefnar grunnstillingar framleiðanda. Þessi aðgerð mun eyða öllum gögnunum þínum.</string>
     <string name="cryptkeeper_emergency_call">Neyðarhringing</string>
     <string name="cryptkeeper_return_to_call">Fara aftur í símtal</string>
+    <string name="cryptkeeper_default_enter_msg">Síminn er dulkóðaður í öryggisskyni.</string>
     <string name="enter_password">Sláðu inn lykilorðið þitt til að ræsa tækið.</string>
     <string name="enter_pin">Sláðu inn PIN-númerið þitt til að ræsa tækið.</string>
     <string name="enter_pattern">Teiknaðu mynstrið þitt til að opna tækið.</string>
@@ -1499,6 +1500,7 @@ Dulkóðun tekur minnst klukkustund. Áður en hafist er handa skaltu tryggja a�
     <string name="crypt_keeper_last_warn_wipe">Þú átt aðeins 1 tilraun eftir til að ræsa tækið þitt áður en það verður endurstillt á sjálfgefnar grunnstillingar framleiðanda. Öllum gögnum verður eytt, þ.m.t. skrám og sóttum forritum.</string>
     <string name="crypt_keeper_failed_title_dec">Dulráðning mistókst.</string>
     <string name="crypt_keeper_failed_summary_dec">Ekki tókst að ljúka við afkóðun vegna truflunar. Núllstilltu (eyða öllum gögnum) fyrir notkun.</string>
+    <string name="crypt_keeper_set_screen_lock_type">Velja gerð skjáláss</string>
     <string name="encryption_interstitial_message_kor">Tækið þitt er dulkóðað. Verðu dulkóðuðu gögnin með því að velja „Krefjast skjáláss til að afkóða gögn þegar kveikt er á tæki“. Þetta eykur vörn fyrir gögn í týndum eða stolnum tækjum. Þegar kveikt er á tækinu þarf alltaf að opna tækið til að afkóða gögn þess. Þú getur ekki tekið á móti símtölum, skilaboðum eða tilkynningum fyrr en tækið hefur verið afkóðað.</string>
     <string name="encryption_interstitial_message_direction">"Verndaðu tækið með því að velja „Biðja um stefnulás“ þegar kveikt er á tækinu. Þetta ver gögn í tækjum sem hafa týnst eða hefur verið stolið.
 
@@ -1738,6 +1740,8 @@ You will also need it when:"</string>
     <string name="empty_content_toast">Ekkert efni til að vista.</string>
     <string name="find_my_mobile_message_zero">"Með því að nota vefþjónustuna „Finna símann minn“ geturðu fundið tækið þitt og fjarstýrt því. Frekari upplýsingar og aðrir eiginleikar í boði eru á eftirfarandi vefsvæði:
 %s"</string>
+    <string name="send_last_location_title">Senda síðustu staðsetningu</string>
+    <string name="send_last_location_summary">Leyfa símanum að senda síðustu staðsetningu hans til þjónsins fyrir „Finna símann minn“ þegar hleðsla rafhlöðunnar fer undir ákveðna prósentu.</string>
     <string name="high_power_description">Kveikja á „Fínstilla rafhlöðunotkun“ fyrir einstök forrit. Sumar aðgerðir, eins og þær sem notast við farsímakerfi eða samstilla gögn, verða takmarkaðar til að spara rafhlöðuorku.</string>
     <string name="wifi_display_summary_off">Slökkt</string>
     <string name="battery_usage_description">Þessi skjár sýnir gögn um rafhlöðunotkun síðan tækið var síðast fullhlaðið.</string>
@@ -1969,6 +1973,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">Veldu hvaða flýtileiðir forrita þú vilt nota á lásskjánum.</string>
     <string name="lockscreen_notifications">Tilkynningar á lásskjá</string>
     <string name="work_profile_lockscreen_notifications">Tilkynningar frá vinnuprófíl</string>
+    <string name="lock_network_and_security">Læsa kerfi og öryggi</string>
+    <string name="lock_network_and_security_summary">Halda eiginleikum sem tengjast símkerfi eða öryggi læstum þegar síminn er læstur til að auðveldara sé að finna og vernda símann ef hann týnist eða er stolið.</string>
     <string name="dualclock_settings_title">Tvöföld klukka</string>
     <string name="dualclock_settings_summary">Sýna bæði heimatímabelti og núverandi tímabelti í reiki.</string>
     <string name="set_home_city">Velja heimatímabelti</string>
@@ -2154,7 +2160,7 @@ Jafnvel þótt gögnin séu þurrkuð út af símanum þarf að slá inn lykilor
     <string name="air_browse_music_on_lock_screen_title">Tónlist á lásskjá</string>
     <string name="air_browse_music_on_lock_screen_summary">Skipta um lag á lásskjánum.</string>
     <string name="air_browse_note_summary">Fletta á milli síðna í skoðunarstillingu.</string>
-    <string name="data_usage_enable_mobile_summery">Ef slökkt er á farsímagögnum verður að tengja tækið við Wi-Fi net til að nota þjónustu sem krefst nettengingar.</string>
+    <string name="data_usage_enable_mobile_summery">Fá aðgang að netinu í gegnum farsímakerfi.</string>
     <string name="data_usage_enable_mobile_warning_skt">Tenging við farsímakerfi getur haft í för með sér viðbótarkostnað, allt eftir áskriftarleið. Halda áfram?</string>
     <string name="data_usage_enable_mobile_warning_ktt">Tenging við farsímakerfi getur haft í för með sér viðbótarkostnað, allt eftir áskriftarleið. Halda áfram?</string>
     <string name="data_usage_enable_mobile_warning_lgt">Tenging við farsímakerfi getur haft í för með sér viðbótarkostnað, allt eftir áskriftarleið. Halda áfram?</string>
@@ -2524,8 +2530,8 @@ Reynið aftur."</string>
     <string name="secure_folder_summary">Læstu persónulegu efni og forritum til að auka öryggi.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s styður ekki fingraför til að opna %2$s.</string>
     <string name="edge_feeds_title">Jaðarstraumar</string>
-    <string name="screensaver_settings_summary">Stjórnaðu því hvað gerist þegar tækið er í dokku og/eða í hleðslu þegar slökkt er á skjánum. Þessi eiginleiki kallast einnig „skjávari“.</string>
-    <string name="screensaver_settings_summary_wo_dock">Sýna skjávara eftir að sjálfkrafa hefur slokknað á skjánum þegar tækið er í hleðslu.</string>
+    <string name="screensaver_settings_summary">Sýna skjávara eftir að slokknar sjálfkrafa á skjánum þegar síminn er í hleðslu.</string>
+    <string name="screensaver_settings_summary_wo_dock">Sýna skjávara eftir að slokknar sjálfkrafa á skjánum þegar síminn er í dokku eða í hleðslu.</string>
     <string name="apn_already_exists">Er þegar til.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Númer gáttar þarf að vera á milli %1$d og %2$d.</string>
@@ -3290,6 +3296,7 @@ Notkun farsímaaðgangsstaðar gengur hraðar á rafhlöðuna og eykur gagnanotk
     <string name="wfd_connection_end_toast">Screen Mirroring tengingu var slitið.</string>
     <string name="wfd_descrpition_playvia">Spila efni.</string>
     <string name="wfd_descrpition_mirroring">Spegla skjáinn.</string>
+    <string name="wfd_descrpition_playsound">Spila hljóð.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">Slökkt verður á mörgum gluggum og öllum opnum forritum í sprettigluggum verður lokað.</string>
     <string name="keyguard_password_attempt_count_pin_code">%d tilraun eftir.</string>
@@ -4127,7 +4134,7 @@ Forrit sem eru flutt út á þessa staðsetningu kunna að keyra hægar og gagna
     <string name="location_network_based">Nota þráðlaus net</string>
     <string name="location_neighborhood_level">Leyfa forritum að nota staðsetningarþjónustu Google til að ákvarða staðsetninguna hraðar. Nafnlaus gögn verða send til Google.</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">Um tækið</string>
+    <string name="about_settings">Um símann</string>
     <string name="about_settings_vzw">Um tæki</string>
     <string name="legal_information">Lagaleg atriði</string>
     <string name="regulatory_information">Lögbundnar upplýsingar</string>
@@ -4312,7 +4319,7 @@ Hægt er að velja nýjan lás fyrir tækið og vinnuprófílinn en allar stefnu
     <string name="phone_language">Tungumál</string>
     <string name="show_password">Gera lykilorð sýnilegt</string>
     <string name="show_password_summary">Sýna stafi lykilorðsins í stutta stund þegar þeir eru slegnir inn.</string>
-    <string name="ime_security_warning">Þessi aðferð getur safnað öllum texta sem þú slærð inn, þ.m.t. persónuupplýsingum og kreditkortanúmerum. Hún kemur frá forritinu %1$s. Nota engu að síður?</string>
+    <string name="ime_security_warning">%s getur hugsanlega safnað öllum texta sem þú slærð inn, þar á meðal persónugögnum á borð við lykilorð og kreditkortanúmer.</string>
     <string name="failed_to_open_app_settings_toast">Mistókst að opna stillingar fyrir %s.</string>
     <string name="keyboard_and_input_methods_category">Lyklaborð</string>
     <string name="virtual_keyboard_category">Sýndarlyklaborð</string>

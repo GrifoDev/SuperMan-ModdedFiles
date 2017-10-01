@@ -56,11 +56,11 @@
 .method private updateView(Z)V
     .locals 12
 
-    const v11, 0x7f110664
+    const v11, 0x7f110662
 
     const/16 v10, 0x8
 
-    const v8, 0x7f110671
+    const v8, 0x7f11066f
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/SecSetupLockScreenIntroActivity;->findViewById(I)Landroid/view/View;
 
@@ -79,7 +79,7 @@
 
     iput-object v8, p0, Lcom/samsung/android/settings/SecSetupLockScreenIntroActivity;->mNavigationBar:Lcom/android/setupwizardlib/view/NavigationBar;
 
-    const v8, 0x7f11063c
+    const v8, 0x7f11063a
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/SecSetupLockScreenIntroActivity;->findViewById(I)Landroid/view/View;
 
@@ -89,7 +89,7 @@
 
     invoke-virtual {v3, v10}, Landroid/widget/CheckBox;->setVisibility(I)V
 
-    const v8, 0x7f11063b
+    const v8, 0x7f110639
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/SecSetupLockScreenIntroActivity;->findViewById(I)Landroid/view/View;
 
@@ -103,7 +103,7 @@
 
     invoke-virtual {v2, v8}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v8, 0x7f11063d
+    const v8, 0x7f11063b
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/SecSetupLockScreenIntroActivity;->findViewById(I)Landroid/view/View;
 
@@ -135,7 +135,7 @@
 
     check-cast v1, Landroid/widget/TextView;
 
-    const v8, 0x7f0b089d
+    const v8, 0x7f0b08a7
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/SecSetupLockScreenIntroActivity;->getString(I)Ljava/lang/String;
 
@@ -149,7 +149,7 @@
 
     :cond_1
     :goto_0
-    const v8, 0x7f110641
+    const v8, 0x7f11063f
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/SecSetupLockScreenIntroActivity;->findViewById(I)Landroid/view/View;
 
@@ -191,7 +191,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b0c8b
+    const v9, 0x7f0b0c95
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -246,7 +246,7 @@
 
     if-nez v8, :cond_6
 
-    const v8, 0x7f11063f
+    const v8, 0x7f11063d
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/SecSetupLockScreenIntroActivity;->findViewById(I)Landroid/view/View;
 
@@ -267,7 +267,7 @@
 
     if-nez v8, :cond_1
 
-    const v8, 0x7f11063e
+    const v8, 0x7f11063c
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/SecSetupLockScreenIntroActivity;->findViewById(I)Landroid/view/View;
 

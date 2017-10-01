@@ -322,7 +322,7 @@
 
     iget-object v2, p0, Lcom/android/settings/CryptKeeper$9;->this$0:Lcom/android/settings/CryptKeeper;
 
-    invoke-static {v2}, Lcom/android/settings/CryptKeeper;->-get12(Lcom/android/settings/CryptKeeper;)I
+    invoke-static {v2}, Lcom/android/settings/CryptKeeper;->-get13(Lcom/android/settings/CryptKeeper;)I
 
     move-result v2
 
@@ -338,14 +338,14 @@
 
     iget-object v2, p0, Lcom/android/settings/CryptKeeper$9;->this$0:Lcom/android/settings/CryptKeeper;
 
-    const v5, 0x7f0b064c
+    const v5, 0x7f0b0651
 
     invoke-static {v2, v5}, Lcom/android/settings/CryptKeeper;->-set3(Lcom/android/settings/CryptKeeper;I)I
 
     :goto_1
     iget-object v2, p0, Lcom/android/settings/CryptKeeper$9;->this$0:Lcom/android/settings/CryptKeeper;
 
-    const v5, 0x7f1101f7
+    const v5, 0x7f1101f5
 
     invoke-virtual {v2, v5}, Lcom/android/settings/CryptKeeper;->findViewById(I)Landroid/view/View;
 
@@ -355,15 +355,47 @@
 
     iget-object v2, p0, Lcom/android/settings/CryptKeeper$9;->this$0:Lcom/android/settings/CryptKeeper;
 
-    invoke-static {v2}, Lcom/android/settings/CryptKeeper;->-get11(Lcom/android/settings/CryptKeeper;)I
+    invoke-static {v2}, Lcom/android/settings/CryptKeeper;->-get3(Lcom/android/settings/CryptKeeper;)I
 
     move-result v2
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "\n"
+
+    invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget-object v5, p0, Lcom/android/settings/CryptKeeper$9;->this$0:Lcom/android/settings/CryptKeeper;
+
+    iget-object v6, p0, Lcom/android/settings/CryptKeeper$9;->this$0:Lcom/android/settings/CryptKeeper;
+
+    invoke-static {v6}, Lcom/android/settings/CryptKeeper;->-get12(Lcom/android/settings/CryptKeeper;)I
+
+    move-result v6
+
+    invoke-virtual {v5, v6}, Lcom/android/settings/CryptKeeper;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->append(Ljava/lang/CharSequence;)V
+
     iget-object v2, p0, Lcom/android/settings/CryptKeeper$9;->this$0:Lcom/android/settings/CryptKeeper;
 
-    const v5, 0x7f1101f8
+    const v5, 0x7f1101f6
 
     invoke-virtual {v2, v5}, Lcom/android/settings/CryptKeeper;->findViewById(I)Landroid/view/View;
 
@@ -383,7 +415,7 @@
 
     iget v2, p0, Lcom/android/settings/CryptKeeper$9;->previousfailedcount:I
 
-    invoke-static {}, Lcom/android/settings/CryptKeeper;->-get14()I
+    invoke-static {}, Lcom/android/settings/CryptKeeper;->-get15()I
 
     move-result v5
 
@@ -414,7 +446,7 @@
 
     iget-object v2, p0, Lcom/android/settings/CryptKeeper$9;->this$0:Lcom/android/settings/CryptKeeper;
 
-    invoke-static {v2}, Lcom/android/settings/CryptKeeper;->-get8(Lcom/android/settings/CryptKeeper;)Lcom/android/internal/widget/LockPatternView;
+    invoke-static {v2}, Lcom/android/settings/CryptKeeper;->-get9(Lcom/android/settings/CryptKeeper;)Lcom/android/internal/widget/LockPatternView;
 
     move-result-object v2
 
@@ -422,7 +454,7 @@
 
     iget-object v2, p0, Lcom/android/settings/CryptKeeper$9;->this$0:Lcom/android/settings/CryptKeeper;
 
-    invoke-static {v2}, Lcom/android/settings/CryptKeeper;->-get8(Lcom/android/settings/CryptKeeper;)Lcom/android/internal/widget/LockPatternView;
+    invoke-static {v2}, Lcom/android/settings/CryptKeeper;->-get9(Lcom/android/settings/CryptKeeper;)Lcom/android/internal/widget/LockPatternView;
 
     move-result-object v5
 
@@ -438,7 +470,7 @@
     :cond_1
     iget-object v2, p0, Lcom/android/settings/CryptKeeper$9;->this$0:Lcom/android/settings/CryptKeeper;
 
-    invoke-static {v2}, Lcom/android/settings/CryptKeeper;->-get3(Lcom/android/settings/CryptKeeper;)Lcom/android/internal/widget/DirectionLockView;
+    invoke-static {v2}, Lcom/android/settings/CryptKeeper;->-get4(Lcom/android/settings/CryptKeeper;)Lcom/android/internal/widget/DirectionLockView;
 
     move-result-object v2
 
@@ -446,7 +478,7 @@
 
     iget-object v2, p0, Lcom/android/settings/CryptKeeper$9;->this$0:Lcom/android/settings/CryptKeeper;
 
-    invoke-static {v2}, Lcom/android/settings/CryptKeeper;->-get3(Lcom/android/settings/CryptKeeper;)Lcom/android/internal/widget/DirectionLockView;
+    invoke-static {v2}, Lcom/android/settings/CryptKeeper;->-get4(Lcom/android/settings/CryptKeeper;)Lcom/android/internal/widget/DirectionLockView;
 
     move-result-object v2
 
@@ -456,7 +488,7 @@
 
     iget-object v2, p0, Lcom/android/settings/CryptKeeper$9;->this$0:Lcom/android/settings/CryptKeeper;
 
-    invoke-static {v2}, Lcom/android/settings/CryptKeeper;->-get3(Lcom/android/settings/CryptKeeper;)Lcom/android/internal/widget/DirectionLockView;
+    invoke-static {v2}, Lcom/android/settings/CryptKeeper;->-get4(Lcom/android/settings/CryptKeeper;)Lcom/android/internal/widget/DirectionLockView;
 
     move-result-object v2
 
@@ -466,7 +498,7 @@
 
     iget-object v2, p0, Lcom/android/settings/CryptKeeper$9;->this$0:Lcom/android/settings/CryptKeeper;
 
-    invoke-static {v2}, Lcom/android/settings/CryptKeeper;->-get3(Lcom/android/settings/CryptKeeper;)Lcom/android/internal/widget/DirectionLockView;
+    invoke-static {v2}, Lcom/android/settings/CryptKeeper;->-get4(Lcom/android/settings/CryptKeeper;)Lcom/android/internal/widget/DirectionLockView;
 
     move-result-object v2
 
@@ -476,7 +508,7 @@
 
     iget-object v2, p0, Lcom/android/settings/CryptKeeper$9;->this$0:Lcom/android/settings/CryptKeeper;
 
-    invoke-static {v2}, Lcom/android/settings/CryptKeeper;->-get3(Lcom/android/settings/CryptKeeper;)Lcom/android/internal/widget/DirectionLockView;
+    invoke-static {v2}, Lcom/android/settings/CryptKeeper;->-get4(Lcom/android/settings/CryptKeeper;)Lcom/android/internal/widget/DirectionLockView;
 
     move-result-object v2
 
@@ -486,7 +518,7 @@
 
     iget-object v2, p0, Lcom/android/settings/CryptKeeper$9;->this$0:Lcom/android/settings/CryptKeeper;
 
-    invoke-static {v2}, Lcom/android/settings/CryptKeeper;->-get3(Lcom/android/settings/CryptKeeper;)Lcom/android/internal/widget/DirectionLockView;
+    invoke-static {v2}, Lcom/android/settings/CryptKeeper;->-get4(Lcom/android/settings/CryptKeeper;)Lcom/android/internal/widget/DirectionLockView;
 
     move-result-object v2
 
@@ -494,7 +526,7 @@
 
     iget-object v2, p0, Lcom/android/settings/CryptKeeper$9;->this$0:Lcom/android/settings/CryptKeeper;
 
-    invoke-static {v2}, Lcom/android/settings/CryptKeeper;->-get3(Lcom/android/settings/CryptKeeper;)Lcom/android/internal/widget/DirectionLockView;
+    invoke-static {v2}, Lcom/android/settings/CryptKeeper;->-get4(Lcom/android/settings/CryptKeeper;)Lcom/android/internal/widget/DirectionLockView;
 
     move-result-object v2
 
@@ -528,7 +560,7 @@
     :cond_5
     iget-object v2, p0, Lcom/android/settings/CryptKeeper$9;->this$0:Lcom/android/settings/CryptKeeper;
 
-    invoke-static {v2}, Lcom/android/settings/CryptKeeper;->-get12(Lcom/android/settings/CryptKeeper;)I
+    invoke-static {v2}, Lcom/android/settings/CryptKeeper;->-get13(Lcom/android/settings/CryptKeeper;)I
 
     move-result v2
 
@@ -548,7 +580,7 @@
 
     iget-object v2, p0, Lcom/android/settings/CryptKeeper$9;->this$0:Lcom/android/settings/CryptKeeper;
 
-    const v5, 0x7f0b064d
+    const v5, 0x7f0b0652
 
     invoke-static {v2, v5}, Lcom/android/settings/CryptKeeper;->-set3(Lcom/android/settings/CryptKeeper;I)I
 
@@ -557,7 +589,7 @@
     :cond_6
     iget-object v2, p0, Lcom/android/settings/CryptKeeper$9;->this$0:Lcom/android/settings/CryptKeeper;
 
-    invoke-static {v2}, Lcom/android/settings/CryptKeeper;->-get12(Lcom/android/settings/CryptKeeper;)I
+    invoke-static {v2}, Lcom/android/settings/CryptKeeper;->-get13(Lcom/android/settings/CryptKeeper;)I
 
     move-result v2
 
@@ -577,7 +609,7 @@
 
     iget-object v2, p0, Lcom/android/settings/CryptKeeper$9;->this$0:Lcom/android/settings/CryptKeeper;
 
-    const v5, 0x7f0b064e
+    const v5, 0x7f0b0653
 
     invoke-static {v2, v5}, Lcom/android/settings/CryptKeeper;->-set3(Lcom/android/settings/CryptKeeper;I)I
 
@@ -592,7 +624,7 @@
 
     iget-object v2, p0, Lcom/android/settings/CryptKeeper$9;->this$0:Lcom/android/settings/CryptKeeper;
 
-    const v5, 0x7f0b064b
+    const v5, 0x7f0b0650
 
     invoke-static {v2, v5}, Lcom/android/settings/CryptKeeper;->-set3(Lcom/android/settings/CryptKeeper;I)I
 

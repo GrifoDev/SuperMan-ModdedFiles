@@ -459,7 +459,7 @@
 
     if-nez v5, :cond_0
 
-    const v7, 0x7f1103c6
+    const v7, 0x7f1103c4
 
     invoke-virtual {v1, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -588,35 +588,35 @@
     return-void
 
     :pswitch_1
-    const v1, 0x7f0b0c59
+    const v1, 0x7f0b0c63
 
     const v0, 0x7f040125
 
     goto :goto_0
 
     :pswitch_2
-    const v1, 0x7f0b0c5a
+    const v1, 0x7f0b0c64
 
     const v0, 0x7f040125
 
     goto :goto_0
 
     :pswitch_3
-    const v1, 0x7f0b0c5b
+    const v1, 0x7f0b0c65
 
     const v0, 0x7f040125
 
     goto :goto_0
 
     :pswitch_4
-    const v1, 0x7f0b0c58
+    const v1, 0x7f0b0c62
 
     const v0, 0x7f040122
 
     goto :goto_0
 
     :pswitch_5
-    const v1, 0x7f0b0c5c
+    const v1, 0x7f0b0c66
 
     const v0, 0x7f040125
 
@@ -886,7 +886,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f1103c8
+    const v3, 0x7f1103c6
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2243,7 +2243,7 @@
     :pswitch_6
     sget-object v3, Lcom/samsung/android/settings/helpdialog/TwHelpDialog$TouchMode;->OPAQUE:Lcom/samsung/android/settings/helpdialog/TwHelpDialog$TouchMode;
 
-    const v1, 0x7f0b0c59
+    const v1, 0x7f0b0c63
 
     move-object v0, p0
 
@@ -2256,7 +2256,7 @@
     :pswitch_7
     sget-object v3, Lcom/samsung/android/settings/helpdialog/TwHelpDialog$TouchMode;->OPAQUE:Lcom/samsung/android/settings/helpdialog/TwHelpDialog$TouchMode;
 
-    const v1, 0x7f0b0c5a
+    const v1, 0x7f0b0c64
 
     move-object v0, p0
 
@@ -2269,7 +2269,7 @@
     :pswitch_8
     sget-object v3, Lcom/samsung/android/settings/helpdialog/TwHelpDialog$TouchMode;->OPAQUE:Lcom/samsung/android/settings/helpdialog/TwHelpDialog$TouchMode;
 
-    const v1, 0x7f0b0c5b
+    const v1, 0x7f0b0c65
 
     move-object v0, p0
 
@@ -2282,7 +2282,7 @@
     :pswitch_9
     sget-object v3, Lcom/samsung/android/settings/helpdialog/TwHelpDialog$TouchMode;->OPAQUE:Lcom/samsung/android/settings/helpdialog/TwHelpDialog$TouchMode;
 
-    const v1, 0x7f0b0c58
+    const v1, 0x7f0b0c62
 
     const v2, 0x7f040122
 
@@ -2297,7 +2297,7 @@
     :pswitch_a
     sget-object v3, Lcom/samsung/android/settings/helpdialog/TwHelpDialog$TouchMode;->OPAQUE:Lcom/samsung/android/settings/helpdialog/TwHelpDialog$TouchMode;
 
-    const v1, 0x7f0b0c5c
+    const v1, 0x7f0b0c66
 
     move-object v0, p0
 

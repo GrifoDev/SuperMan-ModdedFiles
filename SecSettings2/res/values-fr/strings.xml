@@ -379,7 +379,7 @@ Saisissez le code obtenu par Verizon :"</string>
     <string name="support">Assistance</string>
     <string name="reset_network_settings_list_summary">Rétablissez le Wi-Fi, le Bluetooth et les autres paramètres réseau avec leur valeur par défaut.</string>
     <string name="master_clear_list_summary">Rétablissez les paramètres par défaut de votre appareil. Cette opération effacera toutes les données, y compris les fichiers et les applications téléchargées.</string>
-    <string name="auto_restart_summary">"Optimisez votre appareil en le redémarrant automatiquement à des heures définies. Les données non enregistrées seront perdues lors du redémarrage de l'appareil."</string>
+    <string name="auto_restart_summary">Optimisez votre téléphone en le redémarrant automatiquement une fois par semaine. Les données non enregistrées seront perdues lors du redémarrage de votre téléphone.</string>
     <string name="search_settings">Rechercher</string>
     <string name="related_results">%d éléments associés</string>
     <string name="no_results_found">Aucun résultat trouvé</string>
@@ -1485,6 +1485,7 @@ Le cryptage prend une heure ou plus. Avant de démarrer, assurez-vous que la bat
     <string name="crypt_keeper_verify_failed_summary">"Impossible de redémarrer votre appareil. La vérification de l'intégrité a échoué. Vous devez réinitialiser les paramètres par défaut de votre appareil. Cette opération effacera toutes vos données."</string>
     <string name="cryptkeeper_emergency_call">"Appel d'urgence"</string>
     <string name="cryptkeeper_return_to_call">"Revenir à l'appel"</string>
+    <string name="cryptkeeper_default_enter_msg">Votre téléphone est crypté par mesure de sécurité.</string>
     <string name="enter_password">Pour démarrer votre appareil, entrez votre mot de passe.</string>
     <string name="enter_pin">Pour démarrer votre appareil, entrez votre code PIN.</string>
     <string name="enter_pattern">Pour démarrer votre appareil, dessinez votre modèle.</string>
@@ -1498,6 +1499,7 @@ Le cryptage prend une heure ou plus. Avant de démarrer, assurez-vous que la bat
     <string name="crypt_keeper_last_warn_wipe">"Il ne vous reste plus qu'un essai pour démarrer votre appareil avant que ses paramètres par défaut ne soient rétablis. Toutes les données seront effacées, y compris les fichiers et les applications téléchargées."</string>
     <string name="crypt_keeper_failed_title_dec">Échec de décryptage.</string>
     <string name="crypt_keeper_failed_summary_dec">"Impossible de terminer le décryptage en raison d'une interruption. Réinitialisez les données par défaut (efface toutes les données) avant utilisation."</string>
+    <string name="crypt_keeper_set_screen_lock_type">"Déf. type verrouillage d'écran"</string>
     <string name="encryption_interstitial_message_kor">"Votre appareil est crypté. Protégez vos données cryptées en sélectionnant Demander le verrouillage de l'écran pour décrypter les données quand l'appareil s'allume. Cette fonction vous permet de protéger les données sur les appareils perdus ou volés. Vous devez déverrouiller votre appareil pour décrypter ses données à chaque fois que vous l'allumez. Vous ne recevez aucun appel, aucun message ou aucune notification tant que vous n'avez pas décrypté votre appareil."</string>
     <string name="encryption_interstitial_message_direction">"Protégez votre appareil en sélectionnant Demander verrouillage avec modèle au démarrage de l'appareil. Cela permet de protéger les données sur les appareils perdus ou volés.
 
@@ -1737,6 +1739,8 @@ Avant de demander une réparation sous garantie, le verrouillage de réactivatio
     <string name="empty_content_toast">Aucun contenu à enregistrer.</string>
     <string name="find_my_mobile_message_zero">"Suivez et contrôlez votre appareil à distance à l'aide du service Web Traçage du mobile. Pour obtenir plus d'informations et découvrir les autres fonctions disponibles, rendez-vous sur le site Web suivant :
 %s"</string>
+    <string name="send_last_location_title">Envoi de la dernière position</string>
+    <string name="send_last_location_summary">"Autorisez votre téléphone à envoyer sa dernière position au serveur Traçage du mobile lorsque la batterie tombe en dessous d'un certain niveau."</string>
     <string name="high_power_description">"Activez la fonction Optimiser utilisation batterie pour des applications individuelles. Certaines fonctions, telles que celles qui utilisent les réseaux mobiles ou synchronisent les données, seront limitées afin d'économiser la batterie."</string>
     <string name="wifi_display_summary_off">Désactivé</string>
     <string name="battery_usage_description">"Cet écran affiche les données d'utilisation de la batterie depuis le dernier chargement complet de l'appareil."</string>
@@ -1968,6 +1972,8 @@ La détermination de votre position requiert une connexion à un réseau mobile.
     <string name="lock_screen_app_shortcut_summary">"Sélectionnez les raccourcis d'application que vous souhaitez utiliser sur l'écran de verrouillage."</string>
     <string name="lockscreen_notifications">"Notifications sur l'écran de verrouillage"</string>
     <string name="work_profile_lockscreen_notifications">Notifications du profil pro.</string>
+    <string name="lock_network_and_security">Verrouiller réseau et sécurité</string>
+    <string name="lock_network_and_security_summary">Lorsque votre téléphone est verrouillé, veillez à ce que les fonctions de sécurité et réseau le soient aussi. En cas de perte ou de vol, il sera plus facile à localiser et à protéger.</string>
     <string name="dualclock_settings_title">Double horloge</string>
     <string name="dualclock_settings_summary">"Afficher à la fois le fuseau horaire local et d'origine en itinérance."</string>
     <string name="set_home_city">Définir fuseau hor. local</string>
@@ -2153,7 +2159,7 @@ Même si les données de votre téléphone sont effacées, le mot de passe de vo
     <string name="air_browse_music_on_lock_screen_title">"Musique sur l'écran de verrouillage"</string>
     <string name="air_browse_music_on_lock_screen_summary">"Changer les morceaux sur l'écran de verrouillage."</string>
     <string name="air_browse_note_summary">"Parcourez les pages en mode d'affichage."</string>
-    <string name="data_usage_enable_mobile_summery">Si les données mobiles sont désactivées, votre appareil doit être connecté à un réseau Wi-Fi pour utiliser les services qui nécessitent une connexion réseau.</string>
+    <string name="data_usage_enable_mobile_summery">Accédez à Internet via votre réseau mobile.</string>
     <string name="data_usage_enable_mobile_warning_skt">La connexion via les réseaux mobiles peut entraîner des frais supplémentaires en fonction de votre forfait. Continuer ?</string>
     <string name="data_usage_enable_mobile_warning_ktt">La connexion via les réseaux mobiles peut entraîner des frais supplémentaires en fonction de votre forfait. Continuer ?</string>
     <string name="data_usage_enable_mobile_warning_lgt">La connexion via les réseaux mobiles peut entraîner des frais supplémentaires en fonction de votre forfait. Continuer ?</string>
@@ -2523,8 +2529,8 @@ Réessayez."</string>
     <string name="secure_folder_summary">Verrouillez votre contenu privé et vos applications pour améliorer la sécurité.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s ne prend pas en charge les empreintes pour déverrouiller %2$s.</string>
     <string name="edge_feeds_title">Flux latéral</string>
-    <string name="screensaver_settings_summary">"Déterminez ce qui se passe lorsque l'appareil est branché et/ou en chargement alors que l'écran est éteint. Cette fonction est également appelée Écran de veille."</string>
-    <string name="screensaver_settings_summary_wo_dock">"Affichez un écran de veille dès que l'écran s'éteint automatiquement pendant le chargement de l'appareil."</string>
+    <string name="screensaver_settings_summary">"Affichez un écran de veille dès que l'écran s'éteint automatiquement pendant le chargement de votre téléphone."</string>
+    <string name="screensaver_settings_summary_wo_dock">"Affichez un écran de veille dès que l'écran s'éteint automatiquement pendant que votre téléphone est branché ou en charge."</string>
     <string name="apn_already_exists">Existe déjà</string>
     <string name="error_unavailable_apn">"Cette APN n'est pas autorisée sur cet appareil. Essayez-en un autre."</string>
     <string name="error_message_port_out_of_range">Le numéro de port doit être compris entre %1$d et %2$d.</string>
@@ -3289,6 +3295,7 @@ L'utilisation de la fonction Point d'accès mobile augmente la consommation de l
     <string name="wfd_connection_end_toast">Connexion à Screen Mirroring terminée.</string>
     <string name="wfd_descrpition_playvia">Lisez le contenu.</string>
     <string name="wfd_descrpition_mirroring">"Répliquez l'écran."</string>
+    <string name="wfd_descrpition_playsound">Diffusez le son.</string>
     <string name="usbtethering_notify_wifi_is_on">Le Wi-Fi et le modem USB ne peuvent pas être activés en même temps. Désactivez le Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">"L'affichage Multi-fenêtres va être désactivé et les applications ouvertes dans des fenêtres contextuelles fermées."</string>
     <string name="keyguard_password_attempt_count_pin_code">%d essai restant</string>
@@ -4128,7 +4135,7 @@ Envisagez d'utiliser une carte SD ou un périphérique de stockage USB plus rapi
     <string name="location_network_based">Utiliser réseaux sans fil</string>
     <string name="location_neighborhood_level">Utiliser les services de localisation Google pour déterminer votre position plus rapidement. Les données envoyées à Google sont anonymes.</string>
     <string name="system_update">Mise à jour système</string>
-    <string name="about_settings">"À propos de l'appareil"</string>
+    <string name="about_settings">À propos du téléphone</string>
     <string name="about_settings_vzw">"À propos de l'appareil"</string>
     <string name="legal_information">Mentions légales</string>
     <string name="regulatory_information">Infos réglementaires</string>
@@ -4313,7 +4320,7 @@ Vous ne perdrez aucune donnée d'application."</string>
     <string name="phone_language">Langue</string>
     <string name="show_password">Rendre les mots de passe visibles</string>
     <string name="show_password_summary">Affichez brièvement les caractères composant le mot de passe à mesure que vous les saisissez.</string>
-    <string name="ime_security_warning">"Cette méthode permet de collecter tous les textes saisis, notamment les données personnelles et les numéros de carte bancaire, à l'exception des mots de passe. Cela vient de l'application %1$s. Utiliser quand même ?"</string>
+    <string name="ime_security_warning">%s peut collecter tout le texte saisi, notamment les données personnelles telles que les mots de passe et les numéros de carte de crédit.</string>
     <string name="failed_to_open_app_settings_toast">"Impossible d'ouvrir les paramètres de %s."</string>
     <string name="keyboard_and_input_methods_category">Claviers</string>
     <string name="virtual_keyboard_category">Clavier virtuel</string>

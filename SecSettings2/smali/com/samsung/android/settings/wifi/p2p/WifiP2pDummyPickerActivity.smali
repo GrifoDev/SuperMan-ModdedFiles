@@ -116,7 +116,7 @@
 
     const/4 v8, -0x1
 
-    const v6, 0x7f1107eb
+    const v6, 0x7f1107e9
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/wifi/p2p/WifiP2pDummyPickerActivity;->findViewById(I)Landroid/view/View;
 
@@ -126,7 +126,7 @@
 
     iput-object v6, p0, Lcom/samsung/android/settings/wifi/p2p/WifiP2pDummyPickerActivity;->blankLayout:Landroid/widget/LinearLayout;
 
-    const v6, 0x7f1107ec
+    const v6, 0x7f1107ea
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/wifi/p2p/WifiP2pDummyPickerActivity;->findViewById(I)Landroid/view/View;
 
@@ -136,7 +136,7 @@
 
     iput-object v6, p0, Lcom/samsung/android/settings/wifi/p2p/WifiP2pDummyPickerActivity;->left:Landroid/widget/RelativeLayout;
 
-    const v6, 0x7f1107ef
+    const v6, 0x7f1107ed
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/wifi/p2p/WifiP2pDummyPickerActivity;->findViewById(I)Landroid/view/View;
 
@@ -146,7 +146,7 @@
 
     iput-object v6, p0, Lcom/samsung/android/settings/wifi/p2p/WifiP2pDummyPickerActivity;->right:Landroid/widget/RelativeLayout;
 
-    const v6, 0x7f1107ed
+    const v6, 0x7f1107eb
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/wifi/p2p/WifiP2pDummyPickerActivity;->findViewById(I)Landroid/view/View;
 

@@ -259,7 +259,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f1103d2
+    const v5, 0x7f1103d0
 
     invoke-virtual {v3, v5, v4}, Landroid/widget/RemoteViews;->setOnClickPendingIntent(ILandroid/app/PendingIntent;)V
 
@@ -461,7 +461,7 @@
 
     sget-object v6, Lcom/android/settings/widget/HomeSettingsWidgetProvider;->mRes:Landroid/content/res/Resources;
 
-    const v7, 0x7f0a0442
+    const v7, 0x7f0a0440
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -469,7 +469,7 @@
 
     sget-object v6, Lcom/android/settings/widget/HomeSettingsWidgetProvider;->mRes:Landroid/content/res/Resources;
 
-    const v7, 0x7f0a0441
+    const v7, 0x7f0a043f
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -477,7 +477,7 @@
 
     sget-object v6, Lcom/android/settings/widget/HomeSettingsWidgetProvider;->mRes:Landroid/content/res/Resources;
 
-    const v7, 0x7f0a0440
+    const v7, 0x7f0a043e
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -485,7 +485,7 @@
 
     sget-object v6, Lcom/android/settings/widget/HomeSettingsWidgetProvider;->mRes:Landroid/content/res/Resources;
 
-    const v7, 0x7f0a043f
+    const v7, 0x7f0a043d
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Колдоо</string>
     <string name="reset_network_settings_list_summary">Wi-Fi, Bluetooth, жана башка тармак орнотууларын алардын баштапкыларына кайра коюу.</string>
     <string name="master_clear_list_summary">Түзмөгүңүздү заводдук баштапкы орнотууларына кайра коюуңуз. Бул, файлдар жана жүктөлгөн колдонмолор камтылган бардык маалыматтарды өчүрөт.</string>
-    <string name="auto_restart_summary">Түзмөгүңүздү орнотуу убакытында автоматтык түрдө кайра баштоо менен оптималдаштырыңыз. Түзмөктү кайра баштоодо сакталбаган бардык маалыматтар жоголот.</string>
+    <string name="auto_restart_summary">Жумасында бир жолу телефонуңузду автоматтык түрдө кайра баштоо менен оптималдаштырыңыз. Каалаган сакталбаган маалыматтар телефонуңуз кайра иштетилгенде жоголот.</string>
     <string name="search_settings">Издөө</string>
     <string name="related_results">%d байланышкан нерселер</string>
     <string name="no_results_found">Эч натыйжа табылган жок</string>
@@ -1485,6 +1485,7 @@ Samsung Жекелик сактоо Саясатынын негизги тулк
     <string name="crypt_keeper_verify_failed_summary">Түзмөгүңүздү кайра иштетүү мүмкүн эмес. Маалыматтардын бирдик ырастоосу кыйрады. Сиз түзмөгүңүздү заводдук баштапкы орнотууларына кайра коюшуңуз керек. Бул бардык маалыматтарыңызды өчүрөт.</string>
     <string name="cryptkeeper_emergency_call">Шашылыш кырдаал чалуу</string>
     <string name="cryptkeeper_return_to_call">Чалууга кайтуу</string>
+    <string name="cryptkeeper_default_enter_msg">Телефонуңуз коопсуздук үчүн шифрленди.</string>
     <string name="enter_password">Түзмөгүңүздү колдонуп баштоо үчүн, сырсөзүңүздү киргизиңиз.</string>
     <string name="enter_pin">Түзмөгүңүздү колдонуп баштоо үчүн, ПИН кодуңузду киргизиңиз.</string>
     <string name="enter_pattern">Түзмөгүңүздү колдонуп баштоо үчүн, сүрөттү тартыңыз.</string>
@@ -1498,6 +1499,7 @@ Samsung Жекелик сактоо Саясатынын негизги тулк
     <string name="crypt_keeper_last_warn_wipe">Түзмөгүңүз заводдук баштапкы орнотууларына кайра коюлушуна чейин аны баштоого 1 эле аракетиңиз калды. Бул, файлдар жана жүктөлгөн колдонмолор менен кошо, бардык маалыматтарды өчүрөт.</string>
     <string name="crypt_keeper_failed_title_dec">Дешифрлөө ишке ашкан жок</string>
     <string name="crypt_keeper_failed_summary_dec">Үзгүлтүккө учурагандыктан улам, дешифрлөөнү аягына чыгаруу мүмкүн эмес. Колдонуудан мурун, заводдук айтымдар кайра коюуну (бардык айтымдарды өчүрүү) аткаруу.</string>
+    <string name="crypt_keeper_set_screen_lock_type">Экрандын кулпу түрүн коюу</string>
     <string name="encryption_interstitial_message_kor">Түзмөгүңүз шифрленди. Түзмөк күйгүзүлгөндө, маалыматтарды дешифрлөөгө, Экран кулпусун талап кылууну тандоо менен шифрленген маалыматтарыңызды коргоңуз. Бул, жоголгон же уурдалган түзмөктөрдөгү маалыматтарды коргоого жардам берет. Түзмөгүңүздү күйгүзгөн сайын түзмөгүңүздүн маалыматтарын дешифрлөө үчүн, аны кулпудан чечүүңүз керек болот. Түзмөгүңүздү дешифрлегенге чейин чалууларды, билдирүүлөрдү же эскертүүлөрдү кабыл албайсыз.</string>
     <string name="encryption_interstitial_message_direction">"Түзмөк күйгүзүлгөндө Багытты кулпулоосун Талап кылууну тандоо менен түзмөгүңүздү коргоңуз. Бул, жоголгон же уурдалган түзмөктөрдөгү маалыматтарды коргоого жардам берет.
 
@@ -1737,6 +1739,8 @@ You will also need it when:"</string>
     <string name="empty_content_toast">Сактай турган эч мазмун жок.</string>
     <string name="find_my_mobile_message_zero">"Find My Mobile веб кызматын колдонуу аркылуу түзмөгүңуздүн изин аралыктан байкаңыз жана аны башкарыңыз. Кошумча маалымат үчүн жана башка кайсы функциялардын байкалганын аныктоо үчүн, төмөнкү вебсайтка баш багыңыз:
 %s"</string>
+    <string name="send_last_location_title">Акыркы жайгашууну жөнөтүү</string>
+    <string name="send_last_location_summary">Батарея белгилүү деңгээлге түшкөндө телефонуңузга жайгашуусун Find My Mobile серверине жөнөтүүсүнө уруксат бериңиз.</string>
     <string name="high_power_description">Батарея керектөөсүн ар бир колдонмого ыңгайлаштырууну иштетүү. Мобилдик тармактарды же мааламыттарды синхронизациялоо сыяктууларды колдонгон кээ бир функциялар, батареянын кубатын үнөмдөө үчүн чектелиши мүмкүн.</string>
     <string name="wifi_display_summary_off">Өчүк</string>
     <string name="battery_usage_description">Бул экран, түзмөк акыркы жолу толук заряддалгандыгына байланыштуу батарея керектөө маалыматын көрсөтөт.</string>
@@ -1968,6 +1972,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">Кулпу экранынан колдонууну каалаган колдонмолордун тез чакырмаларын тандаңыз.</string>
     <string name="lockscreen_notifications">Кулпулоо экранындагы эскертүүлөр</string>
     <string name="work_profile_lockscreen_notifications">Иш профили эскертүүлөрү</string>
+    <string name="lock_network_and_security">Тармак ж-а коопсуздукту кулп.</string>
+    <string name="lock_network_and_security_summary">Телефонуңуз жоголсо же уурдалса аны оңой табуу үчүн, ал кулпуланган учурда тармак жана коопсуздукка байланыштуу функцияларды кулпуланган бойдон калтырыңыз.</string>
     <string name="dualclock_settings_title">Кош саат</string>
     <string name="dualclock_settings_summary">Роумиңде жергиликтүү да, үйдөгү да убакыт алкактарын көрсөт.</string>
     <string name="set_home_city">Үй убакыт алкагын коюу</string>
@@ -2153,7 +2159,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="air_browse_music_on_lock_screen_title">Кулпу экранындагы музыка</string>
     <string name="air_browse_music_on_lock_screen_summary">Кулпуланган экранда музыка нуктарын өзгөртүңүз.</string>
     <string name="air_browse_note_summary">Көрүү режиминде, беттер ортосунда жылыңыз.</string>
-    <string name="data_usage_enable_mobile_summery">Эгер мобилдик маалыматтар өчүрүлгөн болсо, түзмөгүңүз тармак туташтыруусун талап кылган кызматтарын колдонуу үчүн Wi-Fi тармагына туташтырылышы керек.</string>
+    <string name="data_usage_enable_mobile_summery">Мобилдик тармагыңыз аркылуу интернетке кошулуңуз.</string>
     <string name="data_usage_enable_mobile_warning_skt">Мобилдик тармактарга туташуусу айтымдар планыңызга жараша кошумча төлөмдөргө алып келиши мүмкүн. Улантуубу?</string>
     <string name="data_usage_enable_mobile_warning_ktt">Мобилдик тармактарга туташуусу айтымдар планыңызга жараша кошумча төлөмдөргө алып келиши мүмкүн. Улантуубу?</string>
     <string name="data_usage_enable_mobile_warning_lgt">Мобилдик тармактарга туташуусу айтымдар планыңызга жараша кошумча төлөмдөргө алып келиши мүмкүн. Улантуубу?</string>
@@ -2522,8 +2528,8 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="secure_folder_summary">Коопсуздукту жогорулатуу үчүн, жеке мазмунуңузду жана колдонмолоруңузду кулпулаңыз.</string>
     <string name="text_biometrics_finger_title_enterprise">%2$s кулпусун ачуу үчүн, %1$s бармак изин колдоого албайт.</string>
     <string name="edge_feeds_title">Кыр каналдары</string>
-    <string name="screensaver_settings_summary">Түзмөктүн ашталган учурунда эмне болоорун жана/же экран өчүк кезде заряддалганын көзөмолдөңүз. Бул функция Кыял деп да аталат.</string>
-    <string name="screensaver_settings_summary_wo_dock">Түзмөк заряддалып жатканда, экран автоматтуу түрдө өчүрүлгөндөн кийин экран сактагычын көрсөтүңүз.</string>
+    <string name="screensaver_settings_summary">Телефонуңуз заряддалып жатканда, экран автоматтуу түрдө өчүрүлгөндөн кийин экран сактагычын көрсөтүңүз.</string>
+    <string name="screensaver_settings_summary_wo_dock">Телефонуңуз доктолуп же заряддалып жатканда, экран автоматтуу түрдө өчүрүлгөндөн кийин экран сактагычын көрсөтүңүз.</string>
     <string name="apn_already_exists">Эчак бар.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Порт саны %1$d жана %2$d ортосунда болушу керек.</string>
@@ -3288,6 +3294,7 @@ Wi-Fi is now on."</string>
     <string name="wfd_connection_end_toast">Screen Mirroring туташуусу бүттү.</string>
     <string name="wfd_descrpition_playvia">Мазмунду ойнотуу.</string>
     <string name="wfd_descrpition_mirroring">Экранды чагылдырыңыз.</string>
+    <string name="wfd_descrpition_playsound">Обонду ойнотуңуз.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">Көп терезелер иштен чыгарылат жана калкып чыкма терезелердеги бардык колдонмолор жабылат.</string>
     <string name="keyguard_password_attempt_count_pin_code">%d аракет калды</string>
@@ -4127,7 +4134,7 @@ Receiving SMS"</string>
     <string name="location_network_based">Зымсыз тармактарды колдон</string>
     <string name="location_neighborhood_level">"Сунууч-га, жердик тезирээк табууга Google жердик кызмат колдонууга уруксат. Атыжок жердик айтымдар топтолуп, Google'га жөнөтүлөт."</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">Түзмөк жөнүндө</string>
+    <string name="about_settings">Телефон жөнүндө</string>
     <string name="about_settings_vzw">Түзмөк жөнүндө</string>
     <string name="legal_information">Юридикалык маалымат</string>
     <string name="regulatory_information">Жөндөөчү маалымат</string>
@@ -4312,7 +4319,7 @@ Receiving SMS"</string>
     <string name="phone_language">Тил</string>
     <string name="show_password">Сырсөздөрдү көрүнөө кылуу</string>
     <string name="show_password_summary">Сырсөз белгилерин, аларды жазып жатканда, кыска убакытка көрсөтүү.</string>
-    <string name="ime_security_warning">Бул ыкма сиз киргизген ар кандай текстти, сырсөздөрдөн бөлөк, жекелик айтымдар жана насыя карта номерлери да бар, чогулта алат. Ал %1$s сунуучусунан келет. Баары бир колдонуубу?</string>
+    <string name="ime_security_warning">%s сырсөз жана насыя карталарынын номерлери сыяктуу жеке маалыматтарды камтыган, сиз терген бардык тексттерди топтой алышы мүмкүн.</string>
     <string name="failed_to_open_app_settings_toast">%s үчүн орнотууларды ачуу ишке ашкан жок</string>
     <string name="keyboard_and_input_methods_category">Клавиатуралар</string>
     <string name="virtual_keyboard_category">Виртуалдык клавиатура</string>

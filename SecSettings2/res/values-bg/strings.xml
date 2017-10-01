@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Поддръжка</string>
     <string name="reset_network_settings_list_summary">Нулирайте Wi-Fi, Bluetooth и други мрежови настройки до техните стойности по подразбиране.</string>
     <string name="master_clear_list_summary">Нулирайте устройството до неговите фабрични настройки по подразбиране. Това ще изтрие всички данни, включително файловете и изтеглените приложения.</string>
-    <string name="auto_restart_summary">Оптимизирайте устройството си, като го рестартирате автоматично на зададени интервали. Всички незаписани данни ще се загубят, когато устройството се рестартира.</string>
+    <string name="auto_restart_summary">Оптимизирайте телефона, като го рестартирате автоматично веднъж седмично. Всички незаписани данни ще се загубят, когато телефонът се рестартира.</string>
     <string name="search_settings">Търсене</string>
     <string name="related_results">%d свързани елемента</string>
     <string name="no_results_found">Няма намерени резултати</string>
@@ -1485,6 +1485,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_verify_failed_summary">Не може да се рестартира устройството. Потвърждаването на цялостността беше неуспешно. Трябва да нулирате устройството до фабричните настройки по подразбиране. Това ще изтрие всичките ви данни.</string>
     <string name="cryptkeeper_emergency_call">Спешно повикване</string>
     <string name="cryptkeeper_return_to_call">Връщане към повикване</string>
+    <string name="cryptkeeper_default_enter_msg">Телефонът е шифрован от съображения за защита.</string>
     <string name="enter_password">За да стартирате устройството, въведете своята парола.</string>
     <string name="enter_pin">За да стартирате устройството, въведете своя PIN.</string>
     <string name="enter_pattern">За да стартирате устройството, начертайте шаблона си.</string>
@@ -1498,6 +1499,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_last_warn_wipe">Остава ви само 1 опит за стартиране на устройството, преди то да се нулира до фабричните настройки по подразбиране. Това ще изтрие всички данни, включително файловете и изтеглените приложения.</string>
     <string name="crypt_keeper_failed_title_dec">Дешифрирането неуспешно</string>
     <string name="crypt_keeper_failed_summary_dec">Дешифрирането не бе възможно поради прекъсване. Извършете нулиране с фабричните данни (изтриване на всички ваши данни) преди използване.</string>
+    <string name="crypt_keeper_set_screen_lock_type">Задав. тип закл. на екрана</string>
     <string name="encryption_interstitial_message_kor">Устройството е шифровано. Защитете шифрованите данни, като изберете „Искане за заключване на екрана за дешифриране на данни, когато устройството се включи“. Това ще помогне да се защитят данните на изгубени или откраднати устройства. Ще трябва да отключите устройството, за да дешифрирате данните, когато го включите. Няма да получавате никакви повиквания, съобщения или уведомления, докато дешифрирате устройството.</string>
     <string name="encryption_interstitial_message_direction">"Защитете устройствата си, като изберете „Искане на заключване с посока при включване на устройството“. Това помага за защита на данните при загубени или откраднати устройства.
 
@@ -1737,6 +1739,8 @@ You will also need it when:"</string>
     <string name="empty_content_toast">Няма съдържание за записване.</string>
     <string name="find_my_mobile_message_zero">"Следете и управлявайте устройството си отдалечено, като използвате уеб услугата „Намери моя телефон“. За повече информация и да откриете какви са другите налични функции посетете следния уеб сайт:
 %s"</string>
+    <string name="send_last_location_title">Изпращане последно местоп.</string>
+    <string name="send_last_location_summary">Позволете на телефона да изпрати последното си местоположение в сървъра на „Намери моя телефон“, когато батерията спадне под определено ниво.</string>
     <string name="high_power_description">Активирайте „Оптимизиране на ползването на батерията“ за отделни приложения. Някои функции, като тези, които използват мобилни мрежи или синхронизирани данни, ще бъдат ограничени при запазването на заряда на батерията.</string>
     <string name="wifi_display_summary_off">Изключи</string>
     <string name="battery_usage_description">Този екран показва данните за използване на батерията от последното пълно зареждане на устройството.</string>
@@ -1968,6 +1972,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">Изберете кои преки пътища за приложения искате да използвате на заключения екран.</string>
     <string name="lockscreen_notifications">Уведомления на заключения екран</string>
     <string name="work_profile_lockscreen_notifications">Уведомления за служебен профил</string>
+    <string name="lock_network_and_security">Заключване на мрежа и защита</string>
+    <string name="lock_network_and_security_summary">Оставете функциите, свързани с мрежата и защитата, заключени, докато телефонът е заключен, за да можете по-лесно да го намерите и защитите, ако бъде загубен или откраднат.</string>
     <string name="dualclock_settings_title">Двоен часовник</string>
     <string name="dualclock_settings_summary">За показване на местната и домашната часова зона в роуминг.</string>
     <string name="set_home_city">Задав. часова зона у дома</string>
@@ -2153,7 +2159,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="air_browse_music_on_lock_screen_title">Музика на заключения екран</string>
     <string name="air_browse_music_on_lock_screen_summary">Промяна на песните на заключения екран.</string>
     <string name="air_browse_note_summary">Придвижване между страници, докато сте в режим Преглед.</string>
-    <string name="data_usage_enable_mobile_summery">Ако Мобилни данни са изключени, устройството ви трябва да се свърже към Wi-Fi мрежа, за да използвате услугите, изискващи мрежова връзка.</string>
+    <string name="data_usage_enable_mobile_summery">Получете достъп до интернет чрез мобилната мрежа.</string>
     <string name="data_usage_enable_mobile_warning_skt">Свързването към мобилни мрежи може да начисли допълнителни такси, в зависимост от плана ви за данни. Продължаване?</string>
     <string name="data_usage_enable_mobile_warning_ktt">Свързването към мобилни мрежи може да начисли допълнителни такси, в зависимост от плана ви за данни. Продължаване?</string>
     <string name="data_usage_enable_mobile_warning_lgt">Свързването към мобилни мрежи може да начисли допълнителни такси, в зависимост от плана ви за данни. Продължаване?</string>
@@ -2523,8 +2529,8 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="secure_folder_summary">Заключете личните съдържание и приложения, за да увеличите защитата.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s не поддържа пръстови отпечатъци за отключване на %2$s.</string>
     <string name="edge_feeds_title">Емисии в края</string>
-    <string name="screensaver_settings_summary">Управлявайте какво ще се случи, докато устройството е скачено и/или се зарежда, докато екранът е изключен. Тази функция също така се нарича „Мечта“.</string>
-    <string name="screensaver_settings_summary_wo_dock">Покажете скрийнсейвър, след като екранът се изключи автоматично, докато устройството се зарежда.</string>
+    <string name="screensaver_settings_summary">Покажете скрийнсейвър, след като екранът се изключи автоматично, докато телефонът се зарежда.</string>
+    <string name="screensaver_settings_summary_wo_dock">Покажете скрийнсейвър, след като екранът се изключи автоматично, докато телефонът е скачен или се зарежда.</string>
     <string name="apn_already_exists">Вече съществува.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Номерът на порта трябва да е между %1$d и %2$d.</string>
@@ -3289,6 +3295,7 @@ Wi-Fi is now on."</string>
     <string name="wfd_connection_end_toast">Връзката към Screen Mirroring е прекратена.</string>
     <string name="wfd_descrpition_playvia">Възпроизвеждане на съдържание.</string>
     <string name="wfd_descrpition_mirroring">Дублирайте екрана.</string>
+    <string name="wfd_descrpition_playsound">Възпроизведете звук.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">„Много прозорци“ ще бъде деактивирано и всички приложения, отворени в изскачащи прозорци, ще се затворят.</string>
     <string name="keyguard_password_attempt_count_pin_code">Остава %d опит.</string>
@@ -4128,7 +4135,7 @@ Receiving SMS"</string>
     <string name="location_network_based">Използ. на безжични мрежи</string>
     <string name="location_neighborhood_level">Разр. прил. да изп. на Google усл. за мест. за по-бързо изчисл. на вашето мест. Ще бъдат съб. и изпр. до Google анон. данни мест.</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">За устройството</string>
+    <string name="about_settings">За телефона</string>
     <string name="about_settings_vzw">За устройството</string>
     <string name="legal_information">Правна информация</string>
     <string name="regulatory_information">Правна информация</string>
@@ -4313,7 +4320,7 @@ Receiving SMS"</string>
     <string name="phone_language">Език</string>
     <string name="show_password">Направи паролата видима</string>
     <string name="show_password_summary">За показване на знаците на паролата за кратко, докато ги пишете.</string>
-    <string name="ime_security_warning">Този метод може да събира целия въведен от вас текст, с изключение на пароли, включително лични данни и номера на кредитни карти. Той идва от приложението %1$s. Използване въпреки това?</string>
+    <string name="ime_security_warning">%s може да събира целия текст, който въвеждате, включително лични данни, като например пароли и номера на кредитни карти.</string>
     <string name="failed_to_open_app_settings_toast">Неуспешно отваряне на настройките за %s.</string>
     <string name="keyboard_and_input_methods_category">Клавиатури</string>
     <string name="virtual_keyboard_category">Виртуална клавиатура</string>

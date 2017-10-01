@@ -256,7 +256,7 @@
 
     move-result-object v16
 
-    const v17, 0x7f11033a
+    const v17, 0x7f110338
 
     invoke-virtual/range {v16 .. v17}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -284,7 +284,7 @@
 
     invoke-virtual/range {v17 .. v18}, Landroid/widget/CheckBox;->setChecked(Z)V
 
-    const v17, 0x7f110339
+    const v17, 0x7f110337
 
     invoke-virtual/range {v16 .. v17}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -340,7 +340,7 @@
 
     invoke-virtual/range {v17 .. v18}, Landroid/widget/CheckBox;->setChecked(Z)V
 
-    const v17, 0x7f11033b
+    const v17, 0x7f110339
 
     invoke-virtual/range {v16 .. v17}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -412,7 +412,7 @@
 
     invoke-virtual {v5, v0}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    const v17, 0x7f110338
+    const v17, 0x7f110336
 
     invoke-virtual/range {v16 .. v17}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -438,7 +438,7 @@
 
     move-result-object v19
 
-    const v20, 0x7f0b0f09
+    const v20, 0x7f0b0f14
 
     invoke-virtual/range {v19 .. v20}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -460,7 +460,7 @@
 
     move-result-object v17
 
-    const v18, 0x7f0b14a8
+    const v18, 0x7f0b14ab    # 1.8487E38f
 
     invoke-virtual/range {v17 .. v18}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 

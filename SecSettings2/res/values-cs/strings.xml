@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Podpora</string>
     <string name="reset_network_settings_list_summary">Obnoví výchozí nastavení Wi-Fi, Bluetooth a další nastavení sítě.</string>
     <string name="master_clear_list_summary">Obnoví výchozí nastavení zařízení. Budou vymazána všechna data včetně souborů a stažených aplikací.</string>
-    <string name="auto_restart_summary">Optimalizuje zařízení automatickým restartováním v nastavené časy. Při restartování zařízení dojde ke ztrátě veškerých neuložených dat.</string>
+    <string name="auto_restart_summary">Optimalizujte svůj telefon jeho automatickým restartováním jednou týdně. Při restartování telefonu dojde ke ztrátě veškerých neuložených dat.</string>
     <string name="search_settings">Hledat</string>
     <string name="related_results">%d souvisejících položek</string>
     <string name="no_results_found">Nebyly nalezeny žádné výsledky</string>
@@ -1485,6 +1485,7 @@ Během procesu dešifrování není možné SD kartu používat."</string>
     <string name="crypt_keeper_verify_failed_summary">Zařízení nelze restartovat. Ověření integrity se nezdařilo. Je nutné obnovit výchozí nastavení zařízení. Tím budou vymazána všechna vaše data.</string>
     <string name="cryptkeeper_emergency_call">Tísňové volání</string>
     <string name="cryptkeeper_return_to_call">Zpět na hovor</string>
+    <string name="cryptkeeper_default_enter_msg">Telefon je zašifrován z důvodu zabezpečení.</string>
     <string name="enter_password">Abyste mohli spustit zařízení, zadejte heslo.</string>
     <string name="enter_pin">Abyste mohli spustit zařízení, zadejte PIN kód.</string>
     <string name="enter_pattern">Abyste mohli spustit zařízení, nakreslete znak pro odemknutí.</string>
@@ -1498,6 +1499,7 @@ Během procesu dešifrování není možné SD kartu používat."</string>
     <string name="crypt_keeper_last_warn_wipe">Zbývá vám 1 pokus ke spuštění zařízení, než se obnoví výchozí nastavení. Tím budou vymazána všechna data včetně souborů a stažených aplikací.</string>
     <string name="crypt_keeper_failed_title_dec">Dešifrování se nezdařilo.</string>
     <string name="crypt_keeper_failed_summary_dec">Dešifrování bylo přerušeno a nelze ho dokončit. Před použitím proveďte tovární reset (vymazání všech dat).</string>
+    <string name="crypt_keeper_set_screen_lock_type">Nastavit typ zámku displeje</string>
     <string name="encryption_interstitial_message_kor">Zařízení je zašifrováno. Chraňte zašifrovaná data zvolením možnosti Vyžadovat zamknutí obr. pro dešif. dat při zapnutí zař. Tím ochráníte data v případě ztráty nebo odcizení zařízení. Kdykoli zapnete zařízení, budete ho muset odemknout, abyste dešifrovali data v zařízení. Nebudete moci přijímat hovory, zprávy ani oznámení, dokud nedešifrujete zařízení.</string>
     <string name="encryption_interstitial_message_direction">"Chraňte zařízení zvolením možnosti Při zapnutí zařízení bude vyžadovat Směrový zámek. Tato funkce chrání data ve ztracených nebo odcizených zařízeních.
 
@@ -1737,6 +1739,8 @@ Než požádáte o záruční opravu, je třeba vypnout Zámek reaktivace. Zapam
     <string name="empty_content_toast">Žádný obsah pro uložení.</string>
     <string name="find_my_mobile_message_zero">"Pomocí webové služby Najít moje mobilní zařízení můžete své zařízení sledovat a ovládat na dálku. Další informace a to, jaké další funkce jsou k dispozici, najdete na následujícím webu:
 %s"</string>
+    <string name="send_last_location_title">Odeslat poslední polohu</string>
+    <string name="send_last_location_summary">Povolte telefonu odeslat informace o jeho poslední poloze na server Najít moje mobilní zařízení, když energie baterie klesne pod určitou úroveň.</string>
     <string name="high_power_description">Zapněte funkci Optimalizace využití baterie pro jednotlivé aplikace. Některé funkce, například ty, které používají mobilní sítě nebo synchronizují data, budou omezeny, aby se šetřila energie baterie.</string>
     <string name="wifi_display_summary_off">Vypnout</string>
     <string name="battery_usage_description">Na obrazovce se zobrazují data o využití baterie od posledního nabití zařízení.</string>
@@ -1968,6 +1972,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">Vyberte zástupce aplikací, které chcete použít na zamykací obrazovce.</string>
     <string name="lockscreen_notifications">Upozorňování na zamykací obrazovce</string>
     <string name="work_profile_lockscreen_notifications">Oznámení pracovního profilu</string>
+    <string name="lock_network_and_security">Místní síť a zabezpečení</string>
+    <string name="lock_network_and_security_summary">Když budou funkce související se sítí a zabezpečením zamknuté ve chvíli, kdy je zamknutý telefon, usnadní to vyhledání a ochranu ztraceného nebo odcizeného telefonu.</string>
     <string name="dualclock_settings_title">Duální hodiny</string>
     <string name="dualclock_settings_summary">Zobrazí při roamingu místní i domovské časové pásmo.</string>
     <string name="set_home_city">Nast. dom. časové pásmo</string>
@@ -2153,7 +2159,7 @@ I v případě vymazání telefonu bude předtím, než telefon kdokoli použije
     <string name="air_browse_music_on_lock_screen_title">Hudba na zamknutém displeji</string>
     <string name="air_browse_music_on_lock_screen_summary">Můžete měnit hudební skladby na zamknutém displeji.</string>
     <string name="air_browse_note_summary">Můžete přecházet mezi stránkami v Režimu zobrazení.</string>
-    <string name="data_usage_enable_mobile_summery">Když jsou Mobilní data vypnutá, zařízení musí být připojené k síti Wi-Fi, aby bylo možné používat služby vyžadující připojení k síti.</string>
+    <string name="data_usage_enable_mobile_summery">Přístup k Internetu prostřednictvím mobilní sítě.</string>
     <string name="data_usage_enable_mobile_warning_skt">Připojení k mobilním sítím může zahrnovat v závislosti na vašem datovém tarifu další poplatky. Chcete pokračovat?</string>
     <string name="data_usage_enable_mobile_warning_ktt">Připojení k mobilním sítím může zahrnovat v závislosti na vašem datovém tarifu další poplatky. Chcete pokračovat?</string>
     <string name="data_usage_enable_mobile_warning_lgt">Připojení k mobilním sítím může zahrnovat v závislosti na vašem datovém tarifu další poplatky. Chcete pokračovat?</string>
@@ -2523,8 +2529,8 @@ Opakujte zadání."</string>
     <string name="secure_folder_summary">Zamkněte soukromý obsah a aplikace, abyste zvýšili zabezpečení.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s nepodporuje odemykání %2$s pomocí otisků prstů.</string>
     <string name="edge_feeds_title">Inf. k. na ok.</string>
-    <string name="screensaver_settings_summary">Umožňuje kontrolovat, co se děje se zařízením v dokovací stanici nebo při nabíjení, když je vypnutý displej. Tato funkce se také nazývá Spořič displeje.</string>
-    <string name="screensaver_settings_summary_wo_dock">Zobrazí spořič obrazovky poté, kdy se během nabíjení zařízení automaticky vypne displej.</string>
+    <string name="screensaver_settings_summary">Zobrazí spořič obrazovky poté, kdy se během nabíjení telefonu automaticky vypne obrazovka.</string>
+    <string name="screensaver_settings_summary_wo_dock">Zobrazí spořič obrazovky poté, kdy se při připojení telefonu do dokovací stanice nebo během nabíjení automaticky vypne obrazovka.</string>
     <string name="apn_already_exists">Již existuje.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Číslo portu musí být od %1$d do %2$d.</string>
@@ -3289,6 +3295,7 @@ Použití Mobilního hotspotu zvyšuje spotřebu elektrické energie z baterie a
     <string name="wfd_connection_end_toast">Připojení Screen Mirroring bylo ukončeno.</string>
     <string name="wfd_descrpition_playvia">Přehrává obsah.</string>
     <string name="wfd_descrpition_mirroring">Zrcadlit obrazovku.</string>
+    <string name="wfd_descrpition_playsound">Přehrát zvuk.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">Režim Více oken se vypne a všechny aplikace otevřené v automaticky otevíraných oknech se zavřou.</string>
     <string name="keyguard_password_attempt_count_pin_code">Počet zbývajících pokusů: %d.</string>
@@ -4128,7 +4135,7 @@ Zvažte použití rychlejší SD karty nebo paměťového zařízení USB, aby s
     <string name="location_network_based">Použít bezdrátové sítě</string>
     <string name="location_neighborhood_level">Povolí aplikacím použít službu určování polohy Google pro rychlejší odhad polohy. Anonymní údaje se shromáždí a odešlou do Google.</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">O zařízení</string>
+    <string name="about_settings">O telefonu</string>
     <string name="about_settings_vzw">O zařízení</string>
     <string name="legal_information">Právní informace</string>
     <string name="regulatory_information">Regulační informace</string>
@@ -4313,7 +4320,7 @@ Nepřijdete o žádná data aplikací."</string>
     <string name="phone_language">Jazyk</string>
     <string name="show_password">Viditelná hesla</string>
     <string name="show_password_summary">Krátce zobrazí znaky hesla při jejich zadávání.</string>
-    <string name="ime_security_warning">Tato metoda může ukládat veškerý zadávaný text včetně hesel, osobních údajů a čísel kreditních karet. Pochází od aplikace %1$s. Opravdu ji chcete použít?</string>
+    <string name="ime_security_warning">%s bude pravděpodobně schopna ukládat veškerý zadávaný text včetně osobních dat, jako jsou hesla a čísla kreditních karet.</string>
     <string name="failed_to_open_app_settings_toast">Otevření nastavení pro aplikaci %s se nezdařilo.</string>
     <string name="keyboard_and_input_methods_category">Klávesnice</string>
     <string name="virtual_keyboard_category">Virtuální klávesnice</string>

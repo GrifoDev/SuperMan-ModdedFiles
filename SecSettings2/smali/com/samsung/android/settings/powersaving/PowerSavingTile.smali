@@ -112,7 +112,7 @@
 .method private getRemoteViews()Landroid/widget/RemoteViews;
     .locals 6
 
-    const v5, 0x7f1105a2
+    const v5, 0x7f1105a0
 
     new-instance v0, Landroid/widget/RemoteViews;
 
@@ -132,7 +132,7 @@
 
     invoke-virtual {v0, v5, v1}, Landroid/widget/RemoteViews;->setTextViewText(ILjava/lang/CharSequence;)V
 
-    const v1, 0x7f0b0a2c
+    const v1, 0x7f0b0a36
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/powersaving/PowerSavingTile;->getText(I)Ljava/lang/CharSequence;
 
@@ -146,11 +146,11 @@
 
     move-result-object v1
 
-    const v2, 0x7f1105a4
+    const v2, 0x7f1105a2
 
     invoke-virtual {v0, v2, v1}, Landroid/widget/RemoteViews;->setTextViewText(ILjava/lang/CharSequence;)V
 
-    const v1, 0x7f0b0a2e
+    const v1, 0x7f0b0a38
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/powersaving/PowerSavingTile;->getText(I)Ljava/lang/CharSequence;
 
@@ -164,11 +164,11 @@
 
     move-result-object v1
 
-    const v2, 0x7f1105a7
+    const v2, 0x7f1105a5
 
     invoke-virtual {v0, v2, v1}, Landroid/widget/RemoteViews;->setTextViewText(ILjava/lang/CharSequence;)V
 
-    const v1, 0x7f0b0a2d
+    const v1, 0x7f0b0a37
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/powersaving/PowerSavingTile;->getText(I)Ljava/lang/CharSequence;
 
@@ -182,7 +182,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f1105aa
+    const v2, 0x7f1105a8
 
     invoke-virtual {v0, v2, v1}, Landroid/widget/RemoteViews;->setTextViewText(ILjava/lang/CharSequence;)V
 
@@ -278,7 +278,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f1105a3
+    const v2, 0x7f1105a1
 
     invoke-virtual {p1, v2, v1}, Landroid/widget/RemoteViews;->setOnClickPendingIntent(ILandroid/app/PendingIntent;)V
 
@@ -302,7 +302,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f1105a6
+    const v2, 0x7f1105a4
 
     invoke-virtual {p1, v2, v1}, Landroid/widget/RemoteViews;->setOnClickPendingIntent(ILandroid/app/PendingIntent;)V
 
@@ -326,7 +326,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f1105a9
+    const v2, 0x7f1105a7
 
     invoke-virtual {p1, v2, v1}, Landroid/widget/RemoteViews;->setOnClickPendingIntent(ILandroid/app/PendingIntent;)V
 
@@ -373,7 +373,7 @@
     const v0, 0x7f0203a4
 
     :goto_1
-    const v4, 0x7f1105a3
+    const v4, 0x7f1105a1
 
     invoke-virtual {p1, v4, v3, v0}, Landroid/widget/RemoteViews;->setInt(ILjava/lang/String;I)V
 
@@ -383,7 +383,7 @@
 
     move-result v0
 
-    const v3, 0x7f1105a4
+    const v3, 0x7f1105a2
 
     invoke-virtual {p1, v3, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
@@ -391,13 +391,13 @@
 
     move-result v0
 
-    const v3, 0x7f1105a5
+    const v3, 0x7f1105a3
 
     invoke-virtual {p1, v3, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
     const-string/jumbo v0, "setBackgroundResource"
 
-    const v3, 0x7f1105a6
+    const v3, 0x7f1105a4
 
     const v4, 0x7f0203a1
 
@@ -407,7 +407,7 @@
 
     move-result v0
 
-    const v3, 0x7f1105a7
+    const v3, 0x7f1105a5
 
     invoke-virtual {p1, v3, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
@@ -415,7 +415,7 @@
 
     move-result v0
 
-    const v3, 0x7f1105a8
+    const v3, 0x7f1105a6
 
     invoke-virtual {p1, v3, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
@@ -432,7 +432,7 @@
     move v0, v1
 
     :goto_2
-    const v1, 0x7f1105a9
+    const v1, 0x7f1105a7
 
     invoke-virtual {p1, v1, v3, v0}, Landroid/widget/RemoteViews;->setInt(ILjava/lang/String;I)V
 
@@ -440,7 +440,7 @@
 
     move-result v0
 
-    const v1, 0x7f1105aa
+    const v1, 0x7f1105a8
 
     invoke-virtual {p1, v1, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
@@ -448,7 +448,7 @@
 
     move-result v0
 
-    const v1, 0x7f1105ab
+    const v1, 0x7f1105a9
 
     invoke-virtual {p1, v1, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
@@ -478,7 +478,7 @@
     move v0, v2
 
     :goto_3
-    const v4, 0x7f1105a3
+    const v4, 0x7f1105a1
 
     invoke-virtual {p1, v4, v3, v0}, Landroid/widget/RemoteViews;->setInt(ILjava/lang/String;I)V
 
@@ -488,7 +488,7 @@
 
     move-result v0
 
-    const v3, 0x7f1105a4
+    const v3, 0x7f1105a2
 
     invoke-virtual {p1, v3, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
@@ -498,13 +498,13 @@
 
     move-result v0
 
-    const v3, 0x7f1105a5
+    const v3, 0x7f1105a3
 
     invoke-virtual {p1, v3, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
     const-string/jumbo v0, "setBackgroundResource"
 
-    const v3, 0x7f1105a6
+    const v3, 0x7f1105a4
 
     const v4, 0x7f0203a2
 
@@ -516,7 +516,7 @@
 
     move-result v0
 
-    const v3, 0x7f1105a7
+    const v3, 0x7f1105a5
 
     invoke-virtual {p1, v3, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
@@ -524,7 +524,7 @@
 
     move-result v0
 
-    const v3, 0x7f1105a8
+    const v3, 0x7f1105a6
 
     invoke-virtual {p1, v3, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
@@ -539,7 +539,7 @@
     if-nez v3, :cond_3
 
     :goto_4
-    const v2, 0x7f1105a9
+    const v2, 0x7f1105a7
 
     invoke-virtual {p1, v2, v0, v1}, Landroid/widget/RemoteViews;->setInt(ILjava/lang/String;I)V
 
@@ -547,7 +547,7 @@
 
     move-result v0
 
-    const v1, 0x7f1105aa
+    const v1, 0x7f1105a8
 
     invoke-virtual {p1, v1, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
@@ -555,7 +555,7 @@
 
     move-result v0
 
-    const v1, 0x7f1105ab
+    const v1, 0x7f1105a9
 
     invoke-virtual {p1, v1, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
@@ -583,7 +583,7 @@
     if-nez v3, :cond_4
 
     :goto_5
-    const v1, 0x7f1105a3
+    const v1, 0x7f1105a1
 
     invoke-virtual {p1, v1, v0, v2}, Landroid/widget/RemoteViews;->setInt(ILjava/lang/String;I)V
 
@@ -593,7 +593,7 @@
 
     move-result v0
 
-    const v1, 0x7f1105a4
+    const v1, 0x7f1105a2
 
     invoke-virtual {p1, v1, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
@@ -603,13 +603,13 @@
 
     move-result v0
 
-    const v1, 0x7f1105a5
+    const v1, 0x7f1105a3
 
     invoke-virtual {p1, v1, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
     const-string/jumbo v0, "setBackgroundResource"
 
-    const v1, 0x7f1105a6
+    const v1, 0x7f1105a4
 
     const v2, 0x7f0203a1
 
@@ -619,7 +619,7 @@
 
     move-result v0
 
-    const v1, 0x7f1105a7
+    const v1, 0x7f1105a5
 
     invoke-virtual {p1, v1, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
@@ -627,7 +627,7 @@
 
     move-result v0
 
-    const v1, 0x7f1105a8
+    const v1, 0x7f1105a6
 
     invoke-virtual {p1, v1, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
@@ -644,7 +644,7 @@
     const v0, 0x7f0203a8
 
     :goto_6
-    const v2, 0x7f1105a9
+    const v2, 0x7f1105a7
 
     invoke-virtual {p1, v2, v1, v0}, Landroid/widget/RemoteViews;->setInt(ILjava/lang/String;I)V
 
@@ -654,7 +654,7 @@
 
     move-result v0
 
-    const v1, 0x7f1105aa
+    const v1, 0x7f1105a8
 
     invoke-virtual {p1, v1, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
@@ -662,7 +662,7 @@
 
     move-result v0
 
-    const v1, 0x7f1105ab
+    const v1, 0x7f1105a9
 
     invoke-virtual {p1, v1, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
@@ -823,7 +823,7 @@
 
     move-result-object v5
 
-    const v12, 0x7f1105a5
+    const v12, 0x7f1105a3
 
     move-object/from16 v0, p1
 
@@ -852,7 +852,7 @@
 
     move-result-object v5
 
-    const v12, 0x7f1105a8
+    const v12, 0x7f1105a6
 
     move-object/from16 v0, p1
 
@@ -881,7 +881,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f1105ab
+    const v5, 0x7f1105a9
 
     move-object/from16 v0, p1
 
@@ -905,7 +905,7 @@
 
     move-result-object v5
 
-    const v12, 0x7f1105a2
+    const v12, 0x7f1105a0
 
     move-object/from16 v0, p1
 
@@ -946,7 +946,7 @@
     return-void
 
     :cond_1
-    const v5, 0x7f1105a5
+    const v5, 0x7f1105a3
 
     const/16 v12, 0x8
 
@@ -957,7 +957,7 @@
     goto :goto_0
 
     :cond_2
-    const v5, 0x7f1105a8
+    const v5, 0x7f1105a6
 
     const/16 v12, 0x8
 
@@ -968,7 +968,7 @@
     goto :goto_1
 
     :cond_3
-    const v5, 0x7f1105ab
+    const v5, 0x7f1105a9
 
     const/16 v12, 0x8
 
@@ -986,7 +986,7 @@
 
     move-result-object v5
 
-    const v12, 0x7f1105a2
+    const v12, 0x7f1105a0
 
     move-object/from16 v0, p1
 
@@ -1349,7 +1349,7 @@
 .method public semGetDetailViewTitle()Ljava/lang/CharSequence;
     .locals 1
 
-    const v0, 0x7f0b0a1b
+    const v0, 0x7f0b0a25
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/powersaving/PowerSavingTile;->getString(I)Ljava/lang/String;
 

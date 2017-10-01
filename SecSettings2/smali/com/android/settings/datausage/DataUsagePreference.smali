@@ -138,7 +138,7 @@
 .method public setTemplate(Landroid/net/NetworkTemplate;ILcom/android/settings/datausage/TemplatePreference$NetworkServices;)V
     .locals 11
 
-    const v10, 0x7f0b1b0d
+    const v10, 0x7f0b1b10
 
     const/4 v3, 0x2
 

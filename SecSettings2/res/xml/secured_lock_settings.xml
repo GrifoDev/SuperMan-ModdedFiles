@@ -6,4 +6,5 @@
     <com.samsung.android.settings.SettingsListPreference android:persistent="false" android:entries="@array/lock_after_timeout_entries" android:title="@string/lock_after_timeout" android:key="lock_after_timeout" android:summary="@string/lock_after_timeout_summary" android:entryValues="@array/lock_after_timeout_values" settings:dbMatchingName="lock_screen_lock_after_timeout" settings:dbMatchingTable="secure" />
     <SwitchPreference android:title="@string/lockpattern_settings_enable_power_button_instantly_locks" android:key="power_button_instantly_locks" settings:dbMatchingName="" settings:dbMatchingTable="" />
     <SwitchPreference android:title="@string/auto_swipe_title" android:key="auto_factory_reset" settings:dbMatchingName="" settings:dbMatchingTable="" />
+    <SwitchPreference android:title="@string/lock_network_and_security" android:key="lock_network_and_security" android:summary="@string/lock_network_and_security_summary" />
 </PreferenceScreen>

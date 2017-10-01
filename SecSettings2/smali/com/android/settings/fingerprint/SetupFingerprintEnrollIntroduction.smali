@@ -46,7 +46,7 @@
 .method protected initViews()V
     .locals 7
 
-    const v5, 0x7f110370
+    const v5, 0x7f11036e
 
     invoke-virtual {p0, v5}, Lcom/android/settings/fingerprint/SetupFingerprintEnrollIntroduction;->findViewById(I)Landroid/view/View;
 
@@ -68,7 +68,7 @@
 
     check-cast v4, Lcom/android/setupwizardlib/items/Item;
 
-    const v5, 0x7f0b1154
+    const v5, 0x7f0b1157
 
     invoke-virtual {p0, v5}, Lcom/android/settings/fingerprint/SetupFingerprintEnrollIntroduction;->getText(I)Ljava/lang/CharSequence;
 
@@ -84,7 +84,7 @@
 
     check-cast v1, Lcom/android/setupwizardlib/items/Item;
 
-    const v5, 0x7f0b1153
+    const v5, 0x7f0b1156
 
     invoke-virtual {p0, v5}, Lcom/android/settings/fingerprint/SetupFingerprintEnrollIntroduction;->getText(I)Ljava/lang/CharSequence;
 

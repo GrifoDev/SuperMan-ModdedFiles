@@ -557,8 +557,6 @@
     <dimen name="bluetooth_settings_empty_view_text_size">16.0sp</dimen>
     <dimen name="bluetooth_divider_start_margin">56.0dip</dimen>
     <dimen name="bluetooth_divider_end_margin">10.0dip</dimen>
-    <dimen name="bluetooth_list_text_end_margin">16.0dip</dimen>
-    <dimen name="bluetooth_dialog_list_text_end_margin">20.0dip</dimen>
     <dimen name="bluetooth_dual_play_settings_content_padding_top">16.0dip</dimen>
     <dimen name="body_margin_first">56.0dip</dimen>
     <dimen name="body_text_bottom_padding">16.0dip</dimen>

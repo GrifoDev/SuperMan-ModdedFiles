@@ -2163,7 +2163,7 @@
 
     iput-object v0, p0, Lcom/android/settings/SettingsActivity;->mDynamicIndexableContentMonitor:Lcom/android/settings/search/DynamicIndexableContentMonitor;
 
-    const v0, 0x7f1104a1
+    const v0, 0x7f11049f
 
     iput v0, p0, Lcom/android/settings/SettingsActivity;->mMainContentId:I
 
@@ -3814,7 +3814,7 @@
 
     if-eqz v1, :cond_0
 
-    const v2, 0x7f0b08ae
+    const v2, 0x7f0b08b8
 
     :goto_0
     return v2
@@ -3822,12 +3822,12 @@
     :cond_0
     if-eqz v0, :cond_1
 
-    const v2, 0x7f0b08ac
+    const v2, 0x7f0b08b6
 
     goto :goto_0
 
     :cond_1
-    const v2, 0x7f0b08ad
+    const v2, 0x7f0b08b7
 
     goto :goto_0
 .end method
@@ -3853,13 +3853,13 @@
 
     if-eqz v0, :cond_0
 
-    const v1, 0x7f0b11a5
+    const v1, 0x7f0b11a8
 
     :goto_0
     return v1
 
     :cond_0
-    const v1, 0x7f0b11a4
+    const v1, 0x7f0b11a7
 
     goto :goto_0
 .end method
@@ -4718,7 +4718,7 @@
 
     if-eqz v2, :cond_6
 
-    const v2, 0x7f110625
+    const v2, 0x7f110623
 
     invoke-virtual {v1, v2, v0}, Landroid/app/FragmentTransaction;->replace(ILandroid/app/Fragment;)Landroid/app/FragmentTransaction;
 
@@ -4744,7 +4744,7 @@
     goto :goto_0
 
     :cond_7
-    const v2, 0x7f110629
+    const v2, 0x7f110627
 
     invoke-virtual {v1, v2, v0}, Landroid/app/FragmentTransaction;->replace(ILandroid/app/Fragment;)Landroid/app/FragmentTransaction;
 
@@ -4819,7 +4819,7 @@
     move v7, v4
 
     :goto_1
-    const v5, 0x7f0b1903
+    const v5, 0x7f0b1906
 
     move-object v0, p0
 
@@ -4864,7 +4864,7 @@
 
     iget v0, p0, Lcom/android/settings/SettingsActivity;->mInitialTitleResId:I
 
-    const v1, 0x7f0b066d
+    const v1, 0x7f0b0675
 
     if-ne v1, v0, :cond_0
 
@@ -5155,7 +5155,7 @@
 
     iget v0, p0, Lcom/android/settings/SettingsActivity;->mInitialTitleResId:I
 
-    const v1, 0x7f0b074c
+    const v1, 0x7f0b0754
 
     if-ne v1, v0, :cond_0
 
@@ -5734,7 +5734,7 @@
 
     if-eqz v20, :cond_1
 
-    const v20, 0x7f11062c
+    const v20, 0x7f11062a
 
     move-object/from16 v0, p0
 
@@ -5771,7 +5771,7 @@
     iput v0, v6, Landroid/widget/LinearLayout$LayoutParams;->height:I
 
     :cond_0
-    const v20, 0x7f11062b
+    const v20, 0x7f110629
 
     move-object/from16 v0, p0
 
@@ -5787,7 +5787,7 @@
 
     check-cast v10, Landroid/widget/LinearLayout$LayoutParams;
 
-    const v20, 0x7f11062d
+    const v20, 0x7f11062b
 
     move-object/from16 v0, p0
 
@@ -5835,7 +5835,7 @@
 
     iput v0, v13, Landroid/widget/LinearLayout$LayoutParams;->weight:F
 
-    const v20, 0x7f11062b
+    const v20, 0x7f110629
 
     move-object/from16 v0, p0
 
@@ -5849,7 +5849,7 @@
 
     invoke-virtual/range {v20 .. v21}, Landroid/view/View;->setVisibility(I)V
 
-    const v20, 0x7f11062d
+    const v20, 0x7f11062b
 
     move-object/from16 v0, p0
 
@@ -5970,7 +5970,7 @@
 
     move-result-object v20
 
-    const v21, 0x7f0a0535
+    const v21, 0x7f0a0533
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -5980,7 +5980,7 @@
 
     move-result-object v20
 
-    const v21, 0x7f0a05b5
+    const v21, 0x7f0a05b3
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -6125,7 +6125,7 @@
 
     iput v0, v13, Landroid/widget/LinearLayout$LayoutParams;->weight:F
 
-    const v20, 0x7f11062b
+    const v20, 0x7f110629
 
     move-object/from16 v0, p0
 
@@ -6139,7 +6139,7 @@
 
     invoke-virtual/range {v20 .. v21}, Landroid/view/View;->setVisibility(I)V
 
-    const v20, 0x7f11062d
+    const v20, 0x7f11062b
 
     move-object/from16 v0, p0
 
@@ -6732,7 +6732,7 @@
 
     if-nez v2, :cond_1a
 
-    const v2, 0x7f110621
+    const v2, 0x7f11061f
 
     move-object/from16 v0, p0
 
@@ -6746,7 +6746,7 @@
 
     iput-object v2, v0, Lcom/android/settings/SettingsActivity;->mLeftPane:Landroid/widget/LinearLayout;
 
-    const v2, 0x7f110626
+    const v2, 0x7f110624
 
     move-object/from16 v0, p0
 
@@ -6760,7 +6760,7 @@
 
     iput-object v2, v0, Lcom/android/settings/SettingsActivity;->mRightPane:Landroid/widget/LinearLayout;
 
-    const v2, 0x7f110624
+    const v2, 0x7f110622
 
     move-object/from16 v0, p0
 
@@ -6774,7 +6774,7 @@
 
     iput-object v2, v0, Lcom/android/settings/SettingsActivity;->mLeftPaneToolbar:Landroid/widget/Toolbar;
 
-    const v2, 0x7f110628
+    const v2, 0x7f110626
 
     move-object/from16 v0, p0
 
@@ -6788,7 +6788,7 @@
 
     iput-object v2, v0, Lcom/android/settings/SettingsActivity;->mRightPaneToolbar:Landroid/widget/Toolbar;
 
-    const v2, 0x7f11062a
+    const v2, 0x7f110628
 
     move-object/from16 v0, p0
 
@@ -6804,7 +6804,7 @@
 
     iget-object v2, v0, Lcom/android/settings/SettingsActivity;->mLeftPaneToolbar:Landroid/widget/Toolbar;
 
-    const v5, 0x7f0b1106
+    const v5, 0x7f0b1109
 
     invoke-virtual {v2, v5}, Landroid/widget/Toolbar;->setTitle(I)V
 
@@ -6824,7 +6824,7 @@
 
     move-result-object v2
 
-    const v5, 0x7f110888
+    const v5, 0x7f110886
 
     invoke-interface {v2, v5}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -6880,7 +6880,7 @@
 
     if-eqz v2, :cond_a
 
-    const v2, 0x7f11062c
+    const v2, 0x7f11062a
 
     move-object/from16 v0, p0
 
@@ -6921,7 +6921,7 @@
     iput v2, v0, Landroid/widget/LinearLayout$LayoutParams;->height:I
 
     :cond_9
-    const v2, 0x7f11062b
+    const v2, 0x7f110629
 
     move-object/from16 v0, p0
 
@@ -6935,7 +6935,7 @@
 
     check-cast v38, Landroid/widget/LinearLayout$LayoutParams;
 
-    const v2, 0x7f11062d
+    const v2, 0x7f11062b
 
     move-object/from16 v0, p0
 
@@ -6967,7 +6967,7 @@
 
     iput v2, v0, Landroid/widget/LinearLayout$LayoutParams;->weight:F
 
-    const v2, 0x7f11062b
+    const v2, 0x7f110629
 
     move-object/from16 v0, p0
 
@@ -6979,7 +6979,7 @@
 
     invoke-virtual {v2, v5}, Landroid/view/View;->setVisibility(I)V
 
-    const v2, 0x7f11062d
+    const v2, 0x7f11062b
 
     move-object/from16 v0, p0
 
@@ -7171,7 +7171,7 @@
     invoke-virtual {v2, v5}, Landroid/app/ActionBar;->setHomeButtonEnabled(Z)V
 
     :cond_d
-    const v2, 0x7f110608
+    const v2, 0x7f110606
 
     move-object/from16 v0, p0
 
@@ -7230,7 +7230,7 @@
 
     invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
 
-    const v2, 0x7f110557
+    const v2, 0x7f110555
 
     move-object/from16 v0, p0
 
@@ -7250,7 +7250,7 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v2, 0x7f110558
+    const v2, 0x7f110556
 
     move-object/from16 v0, p0
 
@@ -7469,7 +7469,7 @@
     goto :goto_c
 
     :cond_1a
-    const v2, 0x7f11062a
+    const v2, 0x7f110628
 
     move-object/from16 v0, p0
 
@@ -7637,7 +7637,7 @@
 
     if-eqz v2, :cond_22
 
-    const v2, 0x7f0b1106
+    const v2, 0x7f0b1109
 
     move-object/from16 v0, p0
 
@@ -7843,7 +7843,7 @@
 
     const/4 v9, 0x0
 
-    const v10, 0x7f0b1902
+    const v10, 0x7f0b1905
 
     const/4 v11, 0x0
 
@@ -8190,7 +8190,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0f14
+    const v4, 0x7f0b0f1f
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -8200,7 +8200,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0f15
+    const v4, 0x7f0b0f20
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -8343,7 +8343,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0b134a
+    const v0, 0x7f0b134d
 
     invoke-virtual {p0, v0}, Lcom/android/settings/SettingsActivity;->getString(I)Ljava/lang/String;
 
@@ -8827,7 +8827,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f110629
+    const v1, 0x7f110627
 
     invoke-virtual {v0, v1}, Landroid/app/FragmentManager;->findFragmentById(I)Landroid/app/Fragment;
 
@@ -9234,7 +9234,7 @@
     return-void
 
     :cond_0
-    const v1, 0x7f110629
+    const v1, 0x7f110627
 
     invoke-virtual {v0, v1, p1}, Landroid/app/FragmentTransaction;->replace(ILandroid/app/Fragment;)Landroid/app/FragmentTransaction;
 
@@ -9462,7 +9462,7 @@
 
     iget-object v4, p0, Lcom/android/settings/SettingsActivity;->mSearchQuery:Ljava/lang/String;
 
-    const v8, 0x7f110888
+    const v8, 0x7f110886
 
     invoke-interface {p1, v8}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -9717,7 +9717,7 @@
 
     const/4 v10, 0x0
 
-    const v11, 0x7f0b0f14
+    const v11, 0x7f0b0f1f
 
     invoke-interface {p1, v8, v9, v10, v11}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -9746,7 +9746,7 @@
 
     const/4 v10, 0x0
 
-    const v11, 0x7f0b0f15
+    const v11, 0x7f0b0f20
 
     invoke-interface {p1, v8, v9, v10, v11}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 

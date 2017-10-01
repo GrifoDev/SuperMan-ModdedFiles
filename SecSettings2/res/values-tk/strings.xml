@@ -243,7 +243,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Goldaw</string>
     <string name="reset_network_settings_list_summary">Wi-Fi, Bluetooth we beýleki tor sazlamalaryňyzy asyllaryna dikeldiň.</string>
     <string name="master_clear_list_summary">Enjamyňyzy asyl sazlamalaryna nol ediň. Ol ähli maglumaty, şol sanda faýllary we göçürilip alnan goýmalary öçürer.</string>
-    <string name="auto_restart_summary">Enjamyňyzy bellen wagtlarda awtomatik açyp ýapmak arkaly optimizirläň. Enjam açylyp ýapylanda, islendik ýazdyrylmadyk maglumat ýiter.</string>
+    <string name="auto_restart_summary">Telefonyňyzy hepdede bir gezek açyp ýapyp optimizläň. Telefon açylyp ýapylanda, islendik ýazdyrylmadyk maglumat ýiter.</string>
     <string name="search_settings">Gözleg</string>
     <string name="related_results">%d dahylly element</string>
     <string name="no_results_found">Netije tapylmady</string>
@@ -1349,6 +1349,7 @@ Maglumatyň möçberine baglylykda, şifrlemek uzaga çekip biler. Başlamankaň
     <string name="crypt_keeper_verify_failed_summary">Enjamyňyzy açyp ýapyp bolmaýar. Bitewiligi tassyklap bolmady. Siz enjamyňyzy asyl sazlamalaryna nol etmeli. Ol ähli maglumatyňyzy öçürer.</string>
     <string name="cryptkeeper_emergency_call">Gaýragoýulmaz jaň</string>
     <string name="cryptkeeper_return_to_call">Jaňa gaýdyp barmak</string>
+    <string name="cryptkeeper_default_enter_msg">Telefonyňyz howpsuzlyk üçin şifrlenen.</string>
     <string name="enter_password">Enjamyňyzy başlatmak üçin, parolyňyzy giriziň.</string>
     <string name="enter_pin">Enjamyňyzy başlatmak üçin, PIN-iňizi giriziň.</string>
     <string name="enter_pattern">Enjamyňyzy başlatmak üçin, şablonyňyzy çyzyň.</string>
@@ -1362,6 +1363,7 @@ Maglumatyň möçberine baglylykda, şifrlemek uzaga çekip biler. Başlamankaň
     <string name="crypt_keeper_last_warn_wipe">Enjamy başlatmak üçin diňe 1 synanyşyk galdy, soňra ol standart sazlamalaryna nol ediler. Ol ähli maglumaty, şol sanda faýllary we göçürilip alnan goýmalary öçürer.</string>
     <string name="crypt_keeper_failed_title_dec">Aýanlaşyk amala aşyrylmady</string>
     <string name="crypt_keeper_failed_summary_dec">Päsgel berlendigi sebäpli şifri açmagy tamamlamak mümkin däl. Ulanmazdan öň zawodyň maglumatlary täzeden düzmegini (ähli maglumatlary öçüriň) ýerine ýetiriň.</string>
+    <string name="crypt_keeper_set_screen_lock_type">Ekrany gulplama görnüş amaly gurnamak</string>
     <string name="encryption_interstitial_message_kor">Enjamyňyz şifrlenen. Enjam açylanda, maglumaty deşifrlemek üçin, Ekran gulpuny sora-ny saýlap, şifrlenen maglumatyňyzy goraň. Ol ýiten ýa-da ogurlanan enjamlardaky maglumaty goramaga kömek edýär. Her gezek açanyňyzda, maglumatyny deşifrlemek üçin, enjamyňyzyň gulpuny açmaly bolarsyňyz. Enjamyňyzy deşifrlemeseňiz, size jaň, hat we habarnama gelmez.</string>
     <string name="encryption_interstitial_message_direction">"Enjam açylanda, Ugur gulpuny sora-ny saýlap, enjamyňyzy goraň. Ol ýiten ýa-da ogurlanan enjamlardaky maglumaty goramaga kömek edýär.
 
@@ -1601,6 +1603,8 @@ Kepillik boýunça abatlamagy soramankaňyz, Täzeden işjeňleşdiriş gulpuny 
     <string name="empty_content_toast">Ýatda saklatmaga mazmun ýok.</string>
     <string name="find_my_mobile_message_zero">"Mobil enjamymy tap web-hyzmaty arkaly enjamyňyzy uzakdan yzarlaň we dolandyryň. Goşmaça maglumat almak we başga elýeterli funksiýalary bilmek üçin, şu websaýta baryň:
 %s"</string>
+    <string name="send_last_location_title">Soňky ýerleşişi iber</string>
+    <string name="send_last_location_summary">Zarýad belli bir derejeden pese düşende, telefonyňyza Mobil telefonymy tap serwerine öz soňky ýerleşişini ibermäge rugsat beriň.</string>
     <string name="high_power_description">Goýmalar üçin Batareýa ulanyş optimizlemegi işlediň. Zarýad tygşytlamak üçin, käbir funksiýalar (mes. mobil torlary ýa-da sinhron maglumat ulanýanlar) çäklendiriler.</string>
     <string name="wifi_display_summary_off">Ýapyk</string>
     <string name="battery_usage_description">Bu ekran enjama doly zarýad berleni bäriki zarýad ulanyş maglumatyny görkezýär.</string>
@@ -1832,6 +1836,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">Gulply ekranda ulanmak isleýän goýma çykgytlaryňyzy saýlaň.</string>
     <string name="lockscreen_notifications">Gulply ekrandaky habarnamalar</string>
     <string name="work_profile_lockscreen_notifications">Iş profili habarnamalary</string>
+    <string name="lock_network_and_security">Gulply tor we howpsuzlyk</string>
+    <string name="lock_network_and_security_summary">Telefonyňyz gulply wagty, tor we howpsuzlyk bilen baglanyşykly funksiýalary gulply saklap, onuň ýerini tapmagy we ýiten ýa-da ogurlanan ýagdaýynda ony goramagy ýeňilleşdiriň.</string>
     <string name="dualclock_settings_title">Ikileýin sagat</string>
     <string name="dualclock_settings_summary">Roumingde ýerli wagty hem, öz ýurduňyzdaky sagat guşaklyklaryny hem görkeziň.</string>
     <string name="set_home_city">Öý sagat guşaklygyny belle</string>
@@ -2017,7 +2023,7 @@ Eger telefonyňyz süpürilse-de, bu telefony islendik kişiniň ulanylmagy üç
     <string name="air_browse_music_on_lock_screen_title">Beklenen ekrandaky aýdym</string>
     <string name="air_browse_music_on_lock_screen_summary">Gulp ekranyndaky aýdym-saz ýodajyklaryny üýtgediň.</string>
     <string name="air_browse_note_summary">Görüş rejesinde mahalyňyz sahypalaryň birinden beýlekisine geçiň.</string>
-    <string name="data_usage_enable_mobile_summery">Eger Mobil maglumat ýapyk bolsa, tor birikmesi gerek hyzmatlary ulanmak üçin, enjamyňyz Wi-Fi toruna birikmeli.</string>
+    <string name="data_usage_enable_mobile_summery">Mobil toruňyz arkaly internete giriň.</string>
     <string name="data_usage_enable_mobile_warning_skt">Maglumat meýilnamaňyza laýyklykda telefondan internede birikmek goşmaçalary talap edip biler. Dowam etmelimi?</string>
     <string name="data_usage_enable_mobile_warning_ktt">Maglumat meýilnamaňyza laýyklykda telefondan internede birikmek goşmaçalary talap edip biler. Dowam etmelimi?</string>
     <string name="data_usage_enable_mobile_warning_lgt">Maglumat meýilnamaňyza laýyklykda telefondan internede birikmek goşmaçalary talap edip biler. Dowam etmelimi?</string>
@@ -2386,8 +2392,8 @@ tertip"</string>
     <string name="secure_folder_summary">Howpsuzlygy güýçlendirmek üçin, hususy materialy we goýmalary gulplaň.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s %2$s gulpuny açarmakda barmak yzlaryny goldamaýar.</string>
     <string name="edge_feeds_title">Edge web-kanal</string>
-    <string name="screensaver_settings_summary">Enjam dakylanda we/ýa-da zarýad alýarka, ekran ýapyk wagty näme bolýanyny dolandyryň. Bu funksiýa Irkiliş hem diýilýär.</string>
-    <string name="screensaver_settings_summary_wo_dock">Enjam zarýad alýarka, ekran awtomatik ýapylansoň, ekran goraýjy görkez.</string>
+    <string name="screensaver_settings_summary">Telefonyňyz zarýad alýarka, ekran awtomatik ýapylansoň, ekran goraýjy görkez.</string>
+    <string name="screensaver_settings_summary_wo_dock">Telefonyňyz dakylgy ýa-da zarýad alýan wagty, ekran awtomatik ýapylansoň, ekran goraýjy görkez.</string>
     <string name="apn_already_exists">Eýýäm bar</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Port belgisi %1$d bilen %2$d aralygynda bolmaly.</string>
@@ -3152,6 +3158,7 @@ Mobil giriş nokadyny ulanmak köp zarýad we maglumat ulanýar."</string>
     <string name="wfd_connection_end_toast">Ekranyň serpikdirmesiniň baglanyşygy tamamlandy.</string>
     <string name="wfd_descrpition_playvia">Material goýberiň.</string>
     <string name="wfd_descrpition_mirroring">Ekrany aýnalaň.</string>
+    <string name="wfd_descrpition_playsound">Ses goýberiň.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">Köp-penjire ýapylar we açylýan penjirelerde açyk duran ähli goýmalar ýapylar.</string>
     <string name="keyguard_password_attempt_count_pin_code">%d synanyşyk galdy</string>
@@ -3988,7 +3995,7 @@ Bu ýere eksportirlenen goýmalar pes öndürijilikde işläp biler we bu ýere 
     <string name="location_network_based">Simsiz torlary ulan</string>
     <string name="location_neighborhood_level">Gollanmalara Google ýerleşen ýer hyzmatlaryny ulanyp siziň ýerleşen ýer maglumatlaryňyzy hasaplamak üçin rugsat berýär. Anonim ýerleşen ýer maglumatlary toplanýar we Google-a iberilýär.</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">Enjam barada</string>
+    <string name="about_settings">Telefon hakynda</string>
     <string name="about_settings_vzw">Enjam barada</string>
     <string name="legal_information">Ýuridik maglumat</string>
     <string name="regulatory_information">Kadalaşýan maglumaty</string>
@@ -4161,7 +4168,7 @@ Bar bolan goýma maglumatyňyz ýitmez."</string>
     <string name="phone_language">Dil</string>
     <string name="show_password">Açarsözlerini görünýän et</string>
     <string name="show_password_summary">Ýazdygyňyzça açarsözüň alamatlaryny gysga wagtlyk görkezmek.</string>
-    <string name="ime_security_warning">Bu usul açarsözlerinden başga siziň ýazan ähli ýazgylaryňyzy, şol sanda, şahsy maglumatlaryňyzy we kredit karta belgileriňizi toplap biler. Bu %1$s gollanmasyndan gelýär. Şonda-da ulanmalymy?</string>
+    <string name="ime_security_warning">%s ähli ýazýan tekstiňizi, şol sanda parollar we kredit kart belgileri ýaly şahsy maglumatlary ýygnap biler.</string>
     <string name="failed_to_open_app_settings_toast">%s üçin sazlamalaryny açyp bolmady.</string>
     <string name="keyboard_and_input_methods_category">Klawiaturalar</string>
     <string name="virtual_keyboard_category">Wirtual klawiatura</string>

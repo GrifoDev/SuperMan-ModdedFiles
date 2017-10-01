@@ -59,11 +59,11 @@
 .method protected onBindView(Landroid/view/View;)V
     .locals 5
 
-    const v4, 0x7f110635
+    const v4, 0x7f110633
 
     invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
 
-    const v1, 0x7f110597
+    const v1, 0x7f110595
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -167,7 +167,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b13db
+    const v1, 0x7f0b13de
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -256,7 +256,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b13db
+    const v1, 0x7f0b13de
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

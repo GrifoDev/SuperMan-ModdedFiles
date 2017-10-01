@@ -1162,7 +1162,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/datausage/networkconnect/DataWarningLimitActivity;->mPolicyManager:Landroid/net/NetworkPolicyManager;
 
-    const v0, 0x7f110281
+    const v0, 0x7f11027f
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/datausage/networkconnect/DataWarningLimitActivity;->findViewById(I)Landroid/view/View;
 
@@ -1172,7 +1172,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/datausage/networkconnect/DataWarningLimitActivity;->mSwitchBar:Landroid/widget/LinearLayout;
 
-    const v0, 0x7f110283
+    const v0, 0x7f110281
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/datausage/networkconnect/DataWarningLimitActivity;->findViewById(I)Landroid/view/View;
 
@@ -1194,7 +1194,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v0, 0x7f110282
+    const v0, 0x7f110280
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/datausage/networkconnect/DataWarningLimitActivity;->findViewById(I)Landroid/view/View;
 
@@ -1204,7 +1204,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/datausage/networkconnect/DataWarningLimitActivity;->mSwitchtext:Landroid/widget/TextView;
 
-    const v0, 0x7f110285
+    const v0, 0x7f110283
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/datausage/networkconnect/DataWarningLimitActivity;->findViewById(I)Landroid/view/View;
 
@@ -1278,7 +1278,7 @@
 .method public onResume()V
     .locals 12
 
-    const v11, 0x7f0b0c4f
+    const v11, 0x7f0b0c59
 
     const/4 v6, 0x1
 
@@ -1485,7 +1485,7 @@
 
     if-eqz v0, :cond_4
 
-    const v6, 0x7f0b19d8
+    const v6, 0x7f0b19db
 
     :goto_3
     invoke-virtual {v7, v6}, Landroid/widget/TextView;->setText(I)V
@@ -1557,7 +1557,7 @@
     throw v6
 
     :cond_4
-    const v6, 0x7f0b19d9
+    const v6, 0x7f0b19dc
 
     goto :goto_3
 .end method

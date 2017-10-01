@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">మద్దతు</string>
     <string name="reset_network_settings_list_summary">Wi-Fi, బ్లూటూత్ మరియు ఇతర నెట్‌వర్క్ సెట్టింగ్‌లను వాటి డిఫాల్ట్‌లకు రీసెట్ చేయండి.</string>
     <string name="master_clear_list_summary">మీ పరికరాన్ని దాని ఫ్యాక్టరీ డిఫాల్ట్ సెట్టింగ్‌లకు రీసెట్ చేయండి. ఇది ఫైల్‌లు మరియు డౌన్‌లోడ్ చేసిన అప్లికేషన్‌లతో సహా మొత్తం డేటాని తుడిచి వేస్తుంది.</string>
-    <string name="auto_restart_summary">సెట్ చేసిన సమయాలలో మీ పరికరాన్ని స్వయంచాలకంగా పునఃప్రారంభించడం ద్వారా దానిని అనుకూలీకరించండి. పరికరం పునఃప్రారంభించబడినప్పుడు ఏదైనా సేవ్ చేయని డేటా ఉంటే, దానిని కోల్పోతారు.</string>
+    <string name="auto_restart_summary">ప్రతి వారానికి ఒకసారి మీ ఫోన్‌ని స్వయంచాలకంగా పునఃప్రారంభించి అనుకూలీకరించండి. మీ ఫోన్ పునఃప్రారంభించబడినప్పుడు సేవ్ చేయని ఏదైనా డేటాని కోల్పోతారు.</string>
     <string name="search_settings">శోధన</string>
     <string name="related_results">%d సంబంధిత అంశాలు</string>
     <string name="no_results_found">ఫలితాలు కనుగొనబడలేదు</string>
@@ -1485,6 +1485,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_verify_failed_summary">మీ పరికరాన్ని పునఃప్రారంభించడం సాధ్యం కాదు. సమగ్రతా ధృవీకరణ విఫలమైంది. మీరు మీ పరికరాన్ని ఫ్యాక్టరీ డిఫాల్ట్‌లకు రీసెట్ చేయాలి. ఇది మీ డేటా మొత్తాన్ని తుడిచివేస్తుంది.</string>
     <string name="cryptkeeper_emergency_call">అత్యవసర కాల్</string>
     <string name="cryptkeeper_return_to_call">కాల్ కు తిరిగి వెళ్లు</string>
+    <string name="cryptkeeper_default_enter_msg">మీ ఫోన్ భద్రత కోసం ఎన్‌క్రిప్ట్ చేయబడింది.</string>
     <string name="enter_password">మీ పరికరాన్ని ప్రారంభించడానికి, మీ పాస్‌వర్డ్‌ని నమోదు చేయండి.</string>
     <string name="enter_pin">మీ పరికరాన్ని ప్రారంభించడానికి, మీ PINని నమోదు చేయండి.</string>
     <string name="enter_pattern">మీ పరికరాన్ని ప్రారంభించడానికి, మీ నమూనాని గీయండి.</string>
@@ -1498,6 +1499,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_last_warn_wipe">మీ పరికరం దాని ఫ్యాక్టరీ డిఫాల్ట్ సెట్టింగ్‌లకు దాన్ని రీసెట్ చేయడానికి ముందే దాన్ని ప్రారంభించేందు మీకు 1 ప్రయత్నం మాత్రమే మిగిలి ఉంది. ఇది ఫైల్‌లు మరియు డౌన్‌లోడ్ చేసిన అప్లికేషన్‌లతో సహా, మొత్తం డేటాని తుడిచి వేస్తుంది.</string>
     <string name="crypt_keeper_failed_title_dec">డిక్రిప్షన్ విఫలమైంది.</string>
     <string name="crypt_keeper_failed_summary_dec">అంతరాయం వలన డిస్క్రిప్షన్ పూర్తి కాలేదు. ఉపయోగించడానికి ముందు ఫ్యాక్టరీ డేటా రిసెట్ (మొత్తం డేటాను తొలగించడం) చేయండి.</string>
+    <string name="crypt_keeper_set_screen_lock_type">స్క్రీన్ లాక్ రకాన్ని సెట్ చే.</string>
     <string name="encryption_interstitial_message_kor">మీ పరికరం ఎన్‌క్రిప్ట్ చేయబడింది. పరికరం ఆన్ చేయబడినప్పుడు డేటాను డీక్రిప్ట్ చేయడానికి అవసరమైన స్క్రీన్ లాక్‌ని ఎంచుకోవడం ద్వారా ఎన్‌క్రిప్ట్ చేయబడిన మీ డేటాను రక్షించండి. పోయిన లేదా దొంగిలించబడిన పరికరాల్లోని డేటాను రక్షించేందుకు ఇది సహాయపడుతుంది. మీరు మీ పరికరాన్ని ఆన్ చేసినప్పుడు అందులోని డేటాను డీక్రిప్ట్ చేయడానికి దాన్ని అన్‌లాక్ చేయాలి. మీరు మీ పరికరాన్ని డీక్రిప్ట్ చేసేంత వరకు ఏ కాల్‌లు, సందేశాలు లేదా నోటిఫికేషన్‌లను స్వీకరించలేరు.</string>
     <string name="encryption_interstitial_message_direction">"పరికరం ఆన్ అయినప్పుడు “కావలసిన దిశ లాక్”ని ఎంచుకోవడం ద్వారా మీ పరికరాన్ని రక్షించండి. ఇది పోయిన లేదా దొంగిలించబడిన పరికరాలలోని డేటాని రక్షించడంలో సహాయం చేస్తుంది.
 
@@ -1737,6 +1739,8 @@ You will also need it when:"</string>
     <string name="empty_content_toast">సేవ్ చేసేందుకు కంటెంట్ లేదు.</string>
     <string name="find_my_mobile_message_zero">"నా మొబైల్‌ను కనుగొను వెబ్ సేవను ఉపయోగించి మీ పరికరాన్ని ట్రాక్ చేయండి మరియు నియంత్రించండి. మరింత సమాచారం కోసం మరియు అందుబాటులోఉన్న ఇతర విధులను కనుగొనడం కోసం, కింది వెబ్‌సైట్‌ను సందర్శించండి:
 %s"</string>
+    <string name="send_last_location_title">చివరి స్థానాన్ని పంపు</string>
+    <string name="send_last_location_summary">బ్యాటరీ నిర్ధిష్ట స్థాయి కంటే తగ్గినప్పుడు నా మొబైల్‌ను కనుగొను సర్వర్‌కు మీ ఫోన్ చివరి స్థానాన్ని పంపడానికి దాన్ని అనుమతించండి.</string>
     <string name="high_power_description">ఒక్కో అప్లికేషన్‌కు విడిగా బ్యాటరీ ఉపయోగాన్ని అనుకూలీకరించుని ప్రారంభించండి. బ్యాటరీ శక్తిని ఆదా చేయడం కోసం మొబైల్ నెట్‌వర్క్‌లను ఉపయోగించే లేదా డేటాని సమకాలీకరించే కొన్ని విధులు పరిమితం చేయబడతాయి.</string>
     <string name="wifi_display_summary_off">ఆఫ్</string>
     <string name="battery_usage_description">ఈ స్క్రీన్ బ్యాటరీ చివరిసారి ఛార్జ్ చేయబడినప్పటి నుండి బ్యాటరీ ఉపయోగ డేటాని చూపుతుంది.</string>
@@ -1968,6 +1972,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">మీరు లాక్ స్క్రీన్‌లో ఉపయోగించాలనుకుంటున్న అప్లికేషన్ సత్వరమార్గాలను ఎంచుకోండి.</string>
     <string name="lockscreen_notifications">లాక్ స్క్రీన్‌లో నోటిఫికేషన్‌లు</string>
     <string name="work_profile_lockscreen_notifications">కార్యాలయ ప్రొఫైల్ నోటిఫికేషన్‌లు</string>
+    <string name="lock_network_and_security">లాక్ నెట్‌వర్క్ మరియు భద్రత</string>
+    <string name="lock_network_and_security_summary">మీ ఫోన్ లాక్ చేయబడినప్పుడు నెట్‌వర్క్ మరియు భద్రతా సంబంధిత విధులను లాక్ చేసి ఉంచండి, దీని వలన మీ ఫోన్‌ని పోగొట్టుకున్నప్పుడు లేదా దొంగిలించబడినప్పుడు సులభంగా కనుగొనవచ్చు.</string>
     <string name="dualclock_settings_title">డ్యూయల్ గడియారం</string>
     <string name="dualclock_settings_summary">రోమింగ్‌లో ఉన్నప్పుడు స్థానిక మరియు స్వదేశ కాల మండలాలను చూపించు.</string>
     <string name="set_home_city">స్వదేశ సమయ మండలిని సెట్ చేయండి</string>
@@ -2153,7 +2159,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="air_browse_music_on_lock_screen_title">లాక్ స్క్రీన్‌లో మ్యూజిక్</string>
     <string name="air_browse_music_on_lock_screen_summary">లాక్ స్క్రీన్‌లో సంగీత ట్రాక్‌లను మార్చండి.</string>
     <string name="air_browse_note_summary">వీక్షణ మోడ్‌లో ఉన్నప్పుడు పేజీల మధ్య మారండి.</string>
-    <string name="data_usage_enable_mobile_summery">మొబైల్ డేటాను ఆఫ్ చేసిన తర్వాత నెట్‌వర్క్ కనెక్షన్ అవసరమైన సేవలను ఉపయోగించాలంటే తప్పనిసరిగా మీ పరికరాన్ని Wi-Fi నెట్‌వర్క్‌కు కనెక్ట్ చేయాలి.</string>
+    <string name="data_usage_enable_mobile_summery">మీ మొబైల్ నెట్‌వర్క్ ద్వారా ఇంటర్నెట్‌ని ప్రాప్యత చేయండి.</string>
     <string name="data_usage_enable_mobile_warning_skt">మీ డేటా ప్రణాళిక ఆధారంగా మొబైల్ నెట్వర్క్ కు అనుసంధానింపబడాలంటే అదనపు చార్జీలు ఉండవచ్చు. కొనసాగాలా?</string>
     <string name="data_usage_enable_mobile_warning_ktt">మీ డేటా ప్రణాళిక ఆధారంగా మొబైల్ నెట్వర్క్ కు అనుసంధానింపబడాలంటే అదనపు చార్జీలు ఉండవచ్చు. కొనసాగాలా?</string>
     <string name="data_usage_enable_mobile_warning_lgt">మీ డేటా ప్రణాళిక ఆధారంగా మొబైల్ నెట్వర్క్ కు అనుసంధానింపబడాలంటే అదనపు చార్జీలు ఉండవచ్చు. కొనసాగాలా?</string>
@@ -2523,8 +2529,8 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="secure_folder_summary">భద్రతను మెరుగుపరచడానికి మీ గోప్యతా కంటెంట్ మరియు అప్లికేషన్‌లను లాక్ చేయండి.</string>
     <string name="text_biometrics_finger_title_enterprise">%2$sను అన్‌లాక్ చేయడానికి వేలిముద్రలకు %1$s మద్దతు ఇవ్వదు.</string>
     <string name="edge_feeds_title">Edge ఫీడ్‌లు</string>
-    <string name="screensaver_settings_summary">స్క్రీన్ ఆఫ్ చేయబడినప్పుడు పరికరాన్ని డాక్ చేయడం మరియు/మరియు ఛార్జ్ చేస్తున్నప్పుడు ఏమి చేయాలన్న దానిని నియంత్రించండి. ఈ విధిని డేడ్రీమ్ అని కూడా అంటారు.</string>
-    <string name="screensaver_settings_summary_wo_dock">పరికరం ఛార్జ్ అవుతున్నప్పుడు స్క్రీన్ స్వయంచాలకంగా ఆఫ్ చేయబడుతున్న తర్వాత స్క్రీన్ సేవర్‌ని చూపిస్తుంది.</string>
+    <string name="screensaver_settings_summary">మీ ఫోన్ ఛార్జ్ అవుతున్నప్పుడు స్క్రీన్ స్వయంచాలకంగా ఆఫ్ అయిన తర్వాత స్క్రీన్ సేవర్‌ని చూపుతుంది.</string>
+    <string name="screensaver_settings_summary_wo_dock">మీ ఫోన్ డాక్ చేయబడినప్పుడు లేదా ఛార్జ్ అవుతున్నప్పుడు స్క్రీన్ స్వయంచాలకంగా ఆఫ్ అయిన తర్వాత స్క్రీన్‌సేవర్‌ని చూపుతుంది.</string>
     <string name="apn_already_exists">ఇప్పటికే ఉంది.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">పోర్ట్ నంబర్ తప్పనిసరిగా %1$d మరియు %2$d మధ్య ఉండాలి.</string>
@@ -3289,6 +3295,7 @@ Wi-Fi is now on."</string>
     <string name="wfd_connection_end_toast">Screen Mirroring కనెక్షన్ ముగిసింది.</string>
     <string name="wfd_descrpition_playvia">కంటెంట్‌ని ప్లే చేయండి.</string>
     <string name="wfd_descrpition_mirroring">మిర్రర్ స్క్రీన్.</string>
+    <string name="wfd_descrpition_playsound">ధ్వనిని ప్లే చేయి.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">బహుళ విండో మూసివేయబడుతుంది మరియు పాప్-అప్ విండోల్లో తెరవబడిన అన్ని అప్లికేషన్‌లు మూసివేయబడతాయి.</string>
     <string name="keyguard_password_attempt_count_pin_code">%d ప్రయత్నం మిగిలింది.</string>
@@ -4128,7 +4135,7 @@ Receiving SMS"</string>
     <string name="location_network_based">వైర్‌లెస్ నెట్‌వర్క్‌లను ఉపయోగించండి</string>
     <string name="location_neighborhood_level">మీ స్థానాన్ని త్వరితంగా అంచనా వేయడానికి గూగుల్ యొక్క స్థాన సేవను ఉపయోగించడానికి అనువర్తనాలను ఆమోదించు. తెలియని స్థాన డేటా సేకరించబడుతుంది మరియు గూగుల్ పంపబడుతుంది.</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">పరికరం గురించి</string>
+    <string name="about_settings">ఫోన్ గురించి</string>
     <string name="about_settings_vzw">పరికరం గురించి</string>
     <string name="legal_information">చట్టపరమైన సమాచారం</string>
     <string name="regulatory_information">నియంత్రణ సమాచారం</string>
@@ -4313,7 +4320,7 @@ Receiving SMS"</string>
     <string name="phone_language">భాష</string>
     <string name="show_password">పాస్‌వర్డ్‌లను సదృశ్యం చేయి</string>
     <string name="show_password_summary">మీరు టైప్ చేస్తున్నప్పుడు పాస్‌వర్డ్ అక్షరాలను సంక్షిప్తంగా చూపు.</string>
-    <string name="ime_security_warning">వ్యక్తిగత డేటా మరియు క్రెడిట్ కార్డ్ నంబర్ల సహా, పాస్‌వర్డ్‌ల మినహా, మీరు నమోదు చేసిన మొత్తం టెక్స్ట్ ను ఈ పద్ధతి సేకరించవచ్చు. ఇది %1$s అప్లికేషష్‌ల నుండి వస్తుంది. ఏమైనప్పటికీ ఉపయోగించాలా?</string>
+    <string name="ime_security_warning">%s మీరు టైప్ చేసే పాస్‌వర్డ్‌లు మరియు క్రెడిట్ కార్డ్ నంబర్‌ల వంటి వ్యక్తిగత టెక్స్ట్‌ సమాచారం మొత్తాన్ని సేకరించవచ్చు.</string>
     <string name="failed_to_open_app_settings_toast">%s కోసం సెట్టింగ్‌లను తెరవడం విఫలమైంది.</string>
     <string name="keyboard_and_input_methods_category">కీబోర్డ్‌లు</string>
     <string name="virtual_keyboard_category">వర్చువల్ కీబోర్డ్</string>

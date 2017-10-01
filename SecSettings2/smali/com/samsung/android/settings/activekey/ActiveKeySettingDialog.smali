@@ -31,7 +31,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f1101d4
+    const v2, 0x7f1101d3
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -67,7 +67,7 @@
 
     invoke-direct {v2, p0}, Lcom/samsung/android/settings/activekey/ActiveKeySettingDialog$1;-><init>(Lcom/samsung/android/settings/activekey/ActiveKeySettingDialog;)V
 
-    const v3, 0x7f0b1106
+    const v3, 0x7f0b1109
 
     invoke-virtual {v0, v3, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

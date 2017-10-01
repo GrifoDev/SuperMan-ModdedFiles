@@ -379,7 +379,7 @@
 
     iget-object v9, p0, Lcom/android/settings/wfd/Wfd_Certification;->mCertCategory:Landroid/preference/PreferenceGroup;
 
-    const v10, 0x7f0b1225
+    const v10, 0x7f0b1228
 
     invoke-virtual {v9, v10}, Landroid/preference/PreferenceGroup;->setTitle(I)V
 
@@ -410,7 +410,7 @@
 
     invoke-direct {v6, v9}, Landroid/preference/Preference;-><init>(Landroid/content/Context;)V
 
-    const v9, 0x7f0b1226
+    const v9, 0x7f0b1229
 
     invoke-virtual {v6, v9}, Landroid/preference/Preference;->setTitle(I)V
 
@@ -459,7 +459,7 @@
 
     invoke-direct {v0, p0, v9}, Lcom/android/settings/wfd/Wfd_Certification$2;-><init>(Lcom/android/settings/wfd/Wfd_Certification;Landroid/content/Context;)V
 
-    const v9, 0x7f0b1227
+    const v9, 0x7f0b122a
 
     invoke-virtual {v0, v9}, Landroid/preference/CheckBoxPreference;->setTitle(I)V
 
@@ -477,7 +477,7 @@
 
     invoke-direct {v0, p0, v9}, Lcom/android/settings/wfd/Wfd_Certification$3;-><init>(Lcom/android/settings/wfd/Wfd_Certification;Landroid/content/Context;)V
 
-    const v9, 0x7f0b1228
+    const v9, 0x7f0b122b
 
     invoke-virtual {v0, v9}, Landroid/preference/CheckBoxPreference;->setTitle(I)V
 
@@ -567,7 +567,7 @@
 
     aput-object v9, v8, v10
 
-    const v9, 0x7f0b122b
+    const v9, 0x7f0b122e
 
     invoke-virtual {v3, v9}, Landroid/preference/ListPreference;->setTitle(I)V
 
@@ -667,7 +667,7 @@
 
     aput-object v9, v2, v10
 
-    const v9, 0x7f0b122c
+    const v9, 0x7f0b122f
 
     invoke-virtual {v3, v9}, Landroid/preference/ListPreference;->setTitle(I)V
 
@@ -779,7 +779,7 @@
 
     aput-object v9, v5, v10
 
-    const v9, 0x7f0b122d
+    const v9, 0x7f0b1230
 
     invoke-virtual {v3, v9}, Landroid/preference/ListPreference;->setTitle(I)V
 

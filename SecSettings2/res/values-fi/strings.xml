@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Tuki</string>
     <string name="reset_network_settings_list_summary">Palauta Wi-Fi-, Bluetooth- ja muut verkkoasetukset niiden oletusasetuksiin.</string>
     <string name="master_clear_list_summary">Palauta laitteen tehdasasetukset. Tällöin kaikki tiedot, myös tiedostot ja ladatut sovellukset, poistetaan.</string>
-    <string name="auto_restart_summary">Optimoi laite käynnistämällä se määrättyinä aikoina automaattisesti uudelleen. Tallentamattomat tiedot menetetään, kun laite käynnistetään uudelleen.</string>
+    <string name="auto_restart_summary">Optimoi puhelin käynnistämällä se kerran viikossa automaattisesti uudelleen. Tallentamattomat tiedot menetetään, kun puhelin käynnistetään uudelleen.</string>
     <string name="search_settings">Etsi</string>
     <string name="related_results">%d liittyvää kohdetta</string>
     <string name="no_results_found">Tuloksia ei löytynyt</string>
@@ -1485,6 +1485,7 @@ Salaus kestää vähintään tunnin. Varmista ennen aloittamista, että akku on 
     <string name="crypt_keeper_verify_failed_summary">Laitetta ei voi käynnistää uudelleen. Eheystarkistus epäonnistui. Sinun on palautettava laitteen tehdasasetukset. Tämä poistaa kaikki tiedot.</string>
     <string name="cryptkeeper_emergency_call">Hätäpuhelu</string>
     <string name="cryptkeeper_return_to_call">Palaa puheluun</string>
+    <string name="cryptkeeper_default_enter_msg">Puhelin on salattu sen suojaamiseksi.</string>
     <string name="enter_password">Käynnistä laite antamalla salasana.</string>
     <string name="enter_pin">Käynnistä laite antamalla PIN-koodi.</string>
     <string name="enter_pattern">Käynnistä laite piirtämällä kuvio.</string>
@@ -1498,6 +1499,7 @@ Salaus kestää vähintään tunnin. Varmista ennen aloittamista, että akku on 
     <string name="crypt_keeper_last_warn_wipe">Voit yrittää laitteen käynnistämistä enää kerran ennen tehdasasetusten palauttamista. Tällöin kaikki tiedot, myös tiedostot ja ladatut sovellukset, poistetaan.</string>
     <string name="crypt_keeper_failed_title_dec">Purku epäonnistui.</string>
     <string name="crypt_keeper_failed_summary_dec">Salauksen purkamista ei voi suorittaa loppuun keskeytyksen vuoksi. Palauta tehdasasetukset (poista kaikki tiedot) ennen käyttöä.</string>
+    <string name="crypt_keeper_set_screen_lock_type">Määritä näytön lukit. tyyppi</string>
     <string name="encryption_interstitial_message_kor">Laite on salattu. Suojaa salattuja tietoja valitsemalla Vaadi salauksen purkuun näytön lukitusta laitetta käynnistettäessä, kun laitteen virta kytketään. Tämä auttaa suojaamaan kadonneissa tai varastetuissa laitteissa olevia tietoja. Sinun on poistettava laitteen lukitus laitteessa olevien tietojen salauksen purkamiseksi aina, kun kytket laitteeseen virran. Et saa puheluita, viestejä tai ilmoituksia, ennen kuin laitteen salaus on purettu.</string>
     <string name="encryption_interstitial_message_direction">"Suojaa laitettasi valitsemalla Vaadi Suuntalukitusta laitteen käynnistyessä. Tämä auttaa suojaamaan kadonneissa tai varastetuissa laitteissa olevia tietoja.
 
@@ -1737,6 +1739,8 @@ Ennen takuun alaisen korjauksen pyytämistä uudelleenaktivoinnin lukitus on poi
     <string name="empty_content_toast">Tallennettavaa sisältöä ei ole.</string>
     <string name="find_my_mobile_message_zero">"Seuraa ja hallitse laitettasi etäältä Etsi matkapuhelimeni -verkkopalvelun avulla. Lisätietoja ja muut käytettävissä olevat toiminnot löydät seuraavasta sivustosta:
 %s"</string>
+    <string name="send_last_location_title">Lähetä edellinen sijainti</string>
+    <string name="send_last_location_summary">Anna puhelimen lähettää viimeinen sijaintinsa Etsi matkapuhelimeni -palvelimelle, kun akun varaus laskee tietyn tason alle.</string>
     <string name="high_power_description">Ota Optimoi akun käyttö -toiminto käyttöön yksittäisiä sovelluksia varten. Jotkin toiminnot, kuten matkapuhelinverkkoja käyttävät tai tietoja synkronoivat toiminnot, on rajoitettu säästämään akkuvirtaa.</string>
     <string name="wifi_display_summary_off">Pois päältä</string>
     <string name="battery_usage_description">Tässä näytössä näkyvät akun käyttötiedot sen jälkeen, kun laite on viimeksi ladattu täyteen.</string>
@@ -1968,6 +1972,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">Valitse lukitusnäytössä käytettävät sovellusten pikavalinnat.</string>
     <string name="lockscreen_notifications">Lukitusnäytössä olevat ilmoitukset</string>
     <string name="work_profile_lockscreen_notifications">Työprofiili-ilmoitukset</string>
+    <string name="lock_network_and_security">Lukitse verkko ja suojaus</string>
+    <string name="lock_network_and_security_summary">Pidä verkkoon ja suojaukseen liittyvät toiminnot lukittuina, kun puhelin on lukittuna. Tämä helpottaa puhelimen paikallistamista ja suojaamista, jos se katoaa tai se varastetaan.</string>
     <string name="dualclock_settings_title">Kaksoiskello</string>
     <string name="dualclock_settings_summary">Näytä verkkovierailun aikana sekä paikallinen aikavyöhyke että kotiaikavyöhyke.</string>
     <string name="set_home_city">Aseta kotiaikavyöhyke</string>
@@ -2153,7 +2159,7 @@ Vaikka puhelimesi pyyhitään, sitä ei voi käyttää ennen Google-tilisi salas
     <string name="air_browse_music_on_lock_screen_title">Lukitusnäytön musiikki</string>
     <string name="air_browse_music_on_lock_screen_summary">Muuta lukitusnäytön musiikkikappaleita.</string>
     <string name="air_browse_note_summary">Liiku näyttötilassa sivujen välillä.</string>
-    <string name="data_usage_enable_mobile_summery">Jos mobiilidata on poistettu käytöstä, laite on yhdistettävä Wi-Fi-verkkoon verkkoyhteyttä vaativien palveluiden käyttöä varten.</string>
+    <string name="data_usage_enable_mobile_summery">Käytä Internetiä matkapuhelinverkon kautta.</string>
     <string name="data_usage_enable_mobile_warning_skt">Yhteyden muodostamisesta matkapuhelinverkkoihin voidaan periä lisämaksuja tiedonsiirtosopimuksesi mukaan. Jatketaanko?</string>
     <string name="data_usage_enable_mobile_warning_ktt">Yhteyden muodostamisesta matkapuhelinverkkoihin voidaan periä lisämaksuja tiedonsiirtosopimuksesi mukaan. Jatketaanko?</string>
     <string name="data_usage_enable_mobile_warning_lgt">Yhteyden muodostamisesta matkapuhelinverkkoihin voidaan periä lisämaksuja tiedonsiirtosopimuksesi mukaan. Jatketaanko?</string>
@@ -2523,8 +2529,8 @@ Yritä uudelleen."</string>
     <string name="secure_folder_summary">Lukitse yksityinen sisältö ja yksityiset sovellukset suojauksen parantamiseksi.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s ei tue säilön %2$s lukituksen poistamista sormenjäljillä.</string>
     <string name="edge_feeds_title">Reunasyötteet</string>
-    <string name="screensaver_settings_summary">Hallitse, mitä tapahtuu, kun laite telakoidaan ja/tai sitä ladataan, kun näyttö on sammutettu. Tätä toimintoa kutsutaan myös lepotilaksi.</string>
-    <string name="screensaver_settings_summary_wo_dock">Näytä näytön automaattisen sammumisen jälkeen näytönsäästäjä, kun laite latautuu.</string>
+    <string name="screensaver_settings_summary">Näytä näytön automaattisen sammumisen jälkeen näytönsäästäjä, kun puhelin latautuu.</string>
+    <string name="screensaver_settings_summary_wo_dock">Näytä näytön automaattisen sammumisen jälkeen näytönsäästäjä, kun puhelin on telakoitu tai se latautuu.</string>
     <string name="apn_already_exists">On jo olemassa.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Porttinumeron on oltava välillä %1$d ja %2$d.</string>
@@ -3289,6 +3295,7 @@ Mobiilitukiaseman käyttö lisää akkuvirran kulutusta ja datankäyttöä."</st
     <string name="wfd_connection_end_toast">Screen Mirroring -yhteys on katkaistu.</string>
     <string name="wfd_descrpition_playvia">Toista sisältö.</string>
     <string name="wfd_descrpition_mirroring">Peilaa näyttö.</string>
+    <string name="wfd_descrpition_playsound">Toista ääni.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">Moni-ikkunanäkymä poistetaan käytöstä ja kaikki ponnahdusikkunoissa avatut sovellukset suljetaan.</string>
     <string name="keyguard_password_attempt_count_pin_code">%d yritystä jäljellä</string>
@@ -4128,7 +4135,7 @@ Harkitse suorituskyvyn parantamiseksi nopeamman SD-kortin tai USB-tallennuslaitt
     <string name="location_network_based">Käytä langatt. verkkoja</string>
     <string name="location_neighborhood_level">Salli Googlen sijaintipalvelun käyttö sijaintisi määrityksen nopeuttamiseksi. Nimettömät tiedot kerätään ja lähetetään Googlelle.</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">Tietoja laitteesta</string>
+    <string name="about_settings">Tietoja puhelimesta</string>
     <string name="about_settings_vzw">Tietoja laitteesta</string>
     <string name="legal_information">Lakisääteiset tiedot</string>
     <string name="regulatory_information">Säädökselliset tiedot</string>
@@ -4313,7 +4320,7 @@ Olemassa olevia sovellusten tietoja ei menetetä."</string>
     <string name="phone_language">Kieli</string>
     <string name="show_password">Muuta salasanat näkyviksi</string>
     <string name="show_password_summary">Näytä salasanan merkit lyhyesti, kun kirjoitat ne.</string>
-    <string name="ime_security_warning">Tämä menetelmä pystyy keräämään kaiken kirjoittamasi tekstin, henkilökohtaiset tiedot ja luottokorttinumerot mukaan lukien. Se kuuluu sovellukseen %1$s. Käytetäänkö silti?</string>
+    <string name="ime_security_warning">%s pystyy ehkä keräämään kaiken kirjoittamasi tekstin, henkilökohtaiset tiedot, kuten salasanat ja luottokorttinumerot, mukaan lukien.</string>
     <string name="failed_to_open_app_settings_toast">Sovelluksen %s asetusten avaaminen epäonnistui.</string>
     <string name="keyboard_and_input_methods_category">Näppäimistöt</string>
     <string name="virtual_keyboard_category">Virtuaalinen näppäimistö</string>

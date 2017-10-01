@@ -109,11 +109,11 @@
 
     aput-object v3, v0, v1
 
-    const v3, 0x7f0b13f7
+    const v3, 0x7f0b13fa
 
     invoke-virtual {p0, v3, v0}, Lcom/android/settings/deviceinfo/StorageWizardInit;->setHeaderText(I[Ljava/lang/String;)V
 
-    const v0, 0x7f11065e
+    const v0, 0x7f11065c
 
     invoke-virtual {p0, v0}, Lcom/android/settings/deviceinfo/StorageWizardInit;->findViewById(I)Landroid/view/View;
 
@@ -123,7 +123,7 @@
 
     iput-object v0, p0, Lcom/android/settings/deviceinfo/StorageWizardInit;->mRadioExternal:Landroid/widget/RadioButton;
 
-    const v0, 0x7f110660
+    const v0, 0x7f11065e
 
     invoke-virtual {p0, v0}, Lcom/android/settings/deviceinfo/StorageWizardInit;->findViewById(I)Landroid/view/View;
 
@@ -145,7 +145,7 @@
 
     invoke-virtual {v0, v3}, Landroid/widget/RadioButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    const v0, 0x7f11065f
+    const v0, 0x7f11065d
 
     invoke-virtual {p0, v0}, Lcom/android/settings/deviceinfo/StorageWizardInit;->findViewById(I)Landroid/view/View;
 
@@ -165,7 +165,7 @@
 
     invoke-virtual {v0, v3, v1, v4, v1}, Landroid/view/View;->setPadding(IIII)V
 
-    const v0, 0x7f110661
+    const v0, 0x7f11065f
 
     invoke-virtual {p0, v0}, Lcom/android/settings/deviceinfo/StorageWizardInit;->findViewById(I)Landroid/view/View;
 

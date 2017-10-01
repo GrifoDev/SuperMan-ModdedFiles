@@ -68,7 +68,7 @@
 
     iput v1, v0, Lcom/samsung/android/settings/spen/PenAirViewPagerAdapter$Description;->animation:I
 
-    const v1, 0x7f0b07cc
+    const v1, 0x7f0b07d4
 
     iput v1, v0, Lcom/samsung/android/settings/spen/PenAirViewPagerAdapter$Description;->summary:I
 
@@ -84,7 +84,7 @@
 
     iput v1, v0, Lcom/samsung/android/settings/spen/PenAirViewPagerAdapter$Description;->animation:I
 
-    const v1, 0x7f0b07cd
+    const v1, 0x7f0b07d5
 
     iput v1, v0, Lcom/samsung/android/settings/spen/PenAirViewPagerAdapter$Description;->summary:I
 
@@ -100,7 +100,7 @@
 
     iput v1, v0, Lcom/samsung/android/settings/spen/PenAirViewPagerAdapter$Description;->animation:I
 
-    const v1, 0x7f0b07ce
+    const v1, 0x7f0b07d6
 
     iput v1, v0, Lcom/samsung/android/settings/spen/PenAirViewPagerAdapter$Description;->summary:I
 
@@ -116,7 +116,7 @@
 
     iput v1, v0, Lcom/samsung/android/settings/spen/PenAirViewPagerAdapter$Description;->animation:I
 
-    const v1, 0x7f0b07cf
+    const v1, 0x7f0b07d7
 
     iput v1, v0, Lcom/samsung/android/settings/spen/PenAirViewPagerAdapter$Description;->summary:I
 
@@ -178,7 +178,7 @@
 
     invoke-virtual {v3, v4}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
-    const v4, 0x7f1104f0
+    const v4, 0x7f1104ee
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -186,7 +186,7 @@
 
     check-cast v2, Landroid/widget/TextView;
 
-    const v4, 0x7f1104f1
+    const v4, 0x7f1104ef
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -194,7 +194,7 @@
 
     check-cast v1, Landroid/widget/TextView;
 
-    const v4, 0x7f1104ef
+    const v4, 0x7f1104ed
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

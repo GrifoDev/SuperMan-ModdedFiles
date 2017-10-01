@@ -80,7 +80,7 @@
 
     move-result-object v13
 
-    const v0, 0x7f1103eb
+    const v0, 0x7f1103e9
 
     invoke-virtual {v13, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -88,7 +88,7 @@
 
     check-cast v3, Landroid/widget/ImageView;
 
-    const v0, 0x7f1103ec
+    const v0, 0x7f1103ea
 
     invoke-virtual {v13, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -96,7 +96,7 @@
 
     check-cast v4, Landroid/widget/ImageView;
 
-    const v0, 0x7f1103e8
+    const v0, 0x7f1103e6
 
     invoke-virtual {v13, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -104,7 +104,7 @@
 
     check-cast v6, Landroid/widget/ImageView;
 
-    const v0, 0x7f1103e9
+    const v0, 0x7f1103e7
 
     invoke-virtual {v13, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -112,7 +112,7 @@
 
     check-cast v8, Landroid/widget/ImageView;
 
-    const v0, 0x7f1103ea
+    const v0, 0x7f1103e8
 
     invoke-virtual {v13, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -188,7 +188,7 @@
 .method private viewInit()V
     .locals 12
 
-    const v11, 0x7f1103ed
+    const v11, 0x7f1103eb
 
     const/16 v10, 0x8
 
@@ -224,7 +224,7 @@
 
     iget-object v6, p0, Lcom/samsung/android/settings/iris/IrisPreveiwStyleFragment;->mView:Landroid/view/View;
 
-    const v7, 0x7f110402
+    const v7, 0x7f110400
 
     invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -284,7 +284,7 @@
 
     move-result-object v1
 
-    const v6, 0x7f110401
+    const v6, 0x7f1103ff
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -383,7 +383,7 @@
 
     check-cast v1, Landroid/view/View;
 
-    const v3, 0x7f1103ed
+    const v3, 0x7f1103eb
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -483,7 +483,7 @@
 
     check-cast v1, Landroid/view/View;
 
-    const v3, 0x7f1103ed
+    const v3, 0x7f1103eb
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

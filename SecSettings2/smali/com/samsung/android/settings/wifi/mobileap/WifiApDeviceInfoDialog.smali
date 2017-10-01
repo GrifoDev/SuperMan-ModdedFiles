@@ -150,7 +150,7 @@
 
     const-wide/16 v10, 0x3e8
 
-    const v8, 0x7f110747
+    const v8, 0x7f110745
 
     const/4 v0, 0x0
 
@@ -180,7 +180,7 @@
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/wifi/mobileap/WifiApDeviceInfoDialog;->setTitle(Ljava/lang/CharSequence;)V
 
-    const v4, 0x7f110745
+    const v4, 0x7f110743
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -196,7 +196,7 @@
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v4, 0x7f110746
+    const v4, 0x7f110744
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -325,7 +325,7 @@
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setGravity(I)V
 
     :cond_0
-    const v4, 0x7f110748
+    const v4, 0x7f110746
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -361,7 +361,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b153c
+    const v5, 0x7f0b153f
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

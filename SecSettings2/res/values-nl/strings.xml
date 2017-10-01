@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Ondersteuning</string>
     <string name="reset_network_settings_list_summary">Reset Wi-Fi, Bluetooth en andere netwerkinstellingen naar hun standaardwaarden.</string>
     <string name="master_clear_list_summary">Reset uw apparaat naar de fabrieksinstellingen. Hierdoor worden alle gegevens gewist, met inbegrip van bestanden en gedownloade apps.</string>
-    <string name="auto_restart_summary">Optimaliseer uw apparaat door dit automatisch opnieuw op te starten op ingestelde tijden. Niet-opgeslagen gegevens gaan verloren wanneer u het apparaat opnieuw opstart.</string>
+    <string name="auto_restart_summary">Optimaliseer uw telefoon door deze één keer per week automatisch opnieuw te starten. Niet-opgeslagen gegevens gaan verloren wanneer u de telefoon opnieuw start.</string>
     <string name="search_settings">Zoeken</string>
     <string name="related_results">%d samenhangende items</string>
     <string name="no_results_found">Geen resultaten gevonden</string>
@@ -1486,6 +1486,7 @@ Het coderen duurt een uur of langer. Zorg dat de batterij is opgeladen voordat u
     <string name="crypt_keeper_verify_failed_summary">Kan uw apparaat niet opnieuw starten. De integriteitsverificatie is mislukt. U moet uw apparaat resetten naar de fabrieksinstellingen. Hiermee worden alle gegevens gewist.</string>
     <string name="cryptkeeper_emergency_call">Noodoproep</string>
     <string name="cryptkeeper_return_to_call">Terug naar oproep</string>
+    <string name="cryptkeeper_default_enter_msg">Uw telefoon is ter beveiliging gecodeerd.</string>
     <string name="enter_password">Voer uw wachtwoord in om uw apparaat te starten.</string>
     <string name="enter_pin">Voer uw pincode in om uw apparaat te starten.</string>
     <string name="enter_pattern">Teken uw patroon om uw apparaat te starten.</string>
@@ -1499,6 +1500,7 @@ Het coderen duurt een uur of langer. Zorg dat de batterij is opgeladen voordat u
     <string name="crypt_keeper_last_warn_wipe">U hebt slechts 1 poging over om uw apparaat op te starten voordat het wordt gereset naar de fabrieksinstellingen. Hiermee worden alle gegevens gewist, inclusief bestanden en gedownloade apps.</string>
     <string name="crypt_keeper_failed_title_dec">Coderen mislukt.</string>
     <string name="crypt_keeper_failed_summary_dec">Kan decoderen niet voltooien vanwege een onderbreking. Zet voor gebruik de fabriekswaarden terug (alle gegevens worden gewist).</string>
+    <string name="crypt_keeper_set_screen_lock_type">Type schermvergrend. instellen</string>
     <string name="encryption_interstitial_message_kor">Uw apparaat is gecodeerd. Bescherm uw gecodeerde gegevens door Schermvergrendeling vereist voor decoderen bij inschakelen apparaat te selecteren. Dit helpt om gegevens te beschermen op verloren of gestolen apparaten. U moet uw apparaat ontgrendelen om de gegevens te decoderen wanneer u het apparaat opstart. U ontvangt geen oproepen, berichten of meldingen tot u het apparaat decodeert.</string>
     <string name="encryption_interstitial_message_direction">"Bescherm uw apparaat door Richtingvergrendeling vereist in te schakelen wanneer het apparaat wordt opgestart. Dit helpt om gegevens te beveiligen op verloren of gestolen apparaten.
 
@@ -1738,6 +1740,8 @@ Voordat u een reparatie onder garantie aanvraagt, moet Heractiveringsvergrendeli
     <string name="empty_content_toast">Geen inhoud om op te slaan.</string>
     <string name="find_my_mobile_message_zero">"Volg en bedien uw apparaat op afstand met de webservice Zoek mijn mobiel. Ga naar de volgende website voor meer informatie en als u wilt weten welke andere functies beschikbaar zijn:
 %s"</string>
+    <string name="send_last_location_title">Laatste locatie verzenden</string>
+    <string name="send_last_location_summary">Sta toe dat uw telefoon de laatste locatie verzendt naar de Zoek mijn mobiel-server wanneer de batterijvoeding onder een bepaald niveau komt.</string>
     <string name="high_power_description">Schakel Batterijverbruik optimaliseren in voor afzonderlijke apps. Bepaalde functies die gebruikmaken van mobiele netwerken of gegevens synchroniseren, worden beperkt om te besparen op batterijvoeding.</string>
     <string name="wifi_display_summary_off">Uit</string>
     <string name="battery_usage_description">Dit scherm geeft gegevens weer over het batterijverbruik sinds de laatste keer dat het apparaat volledig is opgeladen.</string>
@@ -1969,6 +1973,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">Selecteer welke app-sneltoetsen u wilt gebruiken op het vergrendelscherm.</string>
     <string name="lockscreen_notifications">Meldingen op vergrendelscherm</string>
     <string name="work_profile_lockscreen_notifications">Meldingen werkprofiel</string>
+    <string name="lock_network_and_security">Netwerkvergrend. en beveiliging</string>
+    <string name="lock_network_and_security_summary">Houd netwerk- en veiligheidsgerelateerde functies vergrendeld als uw telefoon vergrendeld is, zodat u deze na verlies of diefstal gemakkelijker kunt vinden en beveiligen.</string>
     <string name="dualclock_settings_title">Dubbele klok</string>
     <string name="dualclock_settings_summary">Geef zowel lokale als eigen tijdzone weer bij roaming.</string>
     <string name="set_home_city">Tijdzone thuis instellen</string>
@@ -2154,7 +2160,7 @@ Zelfs als de gegevens op uw telefoon worden gewist, is uw Google Account-wachtwo
     <string name="air_browse_music_on_lock_screen_title">Muziek op vergrendelscherm</string>
     <string name="air_browse_music_on_lock_screen_summary">Wijzig muzieknummers op vergrendelscherm.</string>
     <string name="air_browse_note_summary">Verplaats tussen pagina´s in Weergavestand.</string>
-    <string name="data_usage_enable_mobile_summery">Als Mobiele gegevens is uitgeschakeld, moet uw apparaat zijn verbonden met een Wi-Fi-netwerk om gebruik te maken van services die een netwerkverbinding vereisen.</string>
+    <string name="data_usage_enable_mobile_summery">Open internet via uw mobiele netwerk.</string>
     <string name="data_usage_enable_mobile_warning_skt">Voor verbindingen met mobiele netwerken kunnen afhankelijk van uw abonnement extra kosten gelden. Doorgaan?</string>
     <string name="data_usage_enable_mobile_warning_ktt">Voor verbindingen met mobiele netwerken kunnen afhankelijk van uw abonnement extra kosten gelden. Doorgaan?</string>
     <string name="data_usage_enable_mobile_warning_lgt">Voor verbindingen met mobiele netwerken kunnen afhankelijk van uw abonnement extra kosten gelden. Doorgaan?</string>
@@ -2524,8 +2530,8 @@ Probeer het opnieuw."</string>
     <string name="secure_folder_summary">Vergrendel uw privé-inhoud en apps voor extra veiligheid.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s ondersteunt geen vingerafdrukken om %2$s te ontgrendelen.</string>
     <string name="edge_feeds_title">Edge-feeds</string>
-    <string name="screensaver_settings_summary">Bepaal wat er gebeurt als het apparaat is gedokt en/of wordt opgeladen terwijl het scherm is uitgeschakeld. Deze functie wordt Dagdromen genoemd.</string>
-    <string name="screensaver_settings_summary_wo_dock">Geef een screensaver weer nadat het scherm automatisch is uitgeschakeld en het apparaat wordt opgeladen.</string>
+    <string name="screensaver_settings_summary">Geef een screensaver weer nadat het scherm automatisch is uitgeschakeld terwijl uw telefoon wordt opgeladen.</string>
+    <string name="screensaver_settings_summary_wo_dock">Geef een screensaver weer nadat het scherm automatisch is uitgeschakeld terwijl uw telefoon is gedokt of wordt opgeladen.</string>
     <string name="apn_already_exists">Bestaat al.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Poortnummer moet tussen %1$d en %2$d liggen.</string>
@@ -3290,6 +3296,7 @@ Door Mobiele hotspot verbruikt u meer batterijvoeding en neemt uw gegevensverbru
     <string name="wfd_connection_end_toast">Screen Mirroring-verbinding beëindigd.</string>
     <string name="wfd_descrpition_playvia">Speel inhoud af.</string>
     <string name="wfd_descrpition_mirroring">Spiegel het scherm.</string>
+    <string name="wfd_descrpition_playsound">Speel geluid af.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">Multi window wordt uitgeschakeld en alle apps die in pop-upvensters zijn geopend, worden gesloten.</string>
     <string name="keyguard_password_attempt_count_pin_code">%d poging over.</string>
@@ -4129,7 +4136,7 @@ Overweeg het gebruik van een snellere SD-kaart of een sneller USB-opslagapparaat
     <string name="location_network_based">Gebruik draadl. netwerken</string>
     <string name="location_neighborhood_level">Apps mogen Google-locatieservice gebruiken om locatie sneller te schatten. Anonieme locatiegegevens worden naar Google verzonden.</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">Toestel-info</string>
+    <string name="about_settings">Info telefoon</string>
     <string name="about_settings_vzw">Info apparaat</string>
     <string name="legal_information">Juridische informatie</string>
     <string name="regulatory_information">Voorschriften</string>
@@ -4314,7 +4321,7 @@ Uw bestaande app-gegevens gaan niet verloren."</string>
     <string name="phone_language">Taal</string>
     <string name="show_password">Wachtwoorden zichtbaar</string>
     <string name="show_password_summary">Geef de tekens van het wachtwoord kort weer terwijl u ze typt.</string>
-    <string name="ime_security_warning">Deze methode kan alle ingegeven tekst verzamelen, met uitzondering van wachtwoorden, maar met inbegrip van persoonlijke gegevens en creditcardnummers. Dit is afkomstig van de app %1$s. Toch gebruiken?</string>
+    <string name="ime_security_warning">%s kan mogelijk alle ingetypte tekst verzamelen, met inbegrip van persoonlijke gegevens zoals wachtwoorden en creditcardnummers.</string>
     <string name="failed_to_open_app_settings_toast">Kan instellingen niet openen voor %s.</string>
     <string name="keyboard_and_input_methods_category">Toetsenborden</string>
     <string name="virtual_keyboard_category">Virtueel toetsenbord</string>

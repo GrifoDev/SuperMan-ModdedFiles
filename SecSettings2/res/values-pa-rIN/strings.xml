@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">ਸਮਰਥਨ</string>
     <string name="reset_network_settings_list_summary">Wi-Fi, ਬਲੂਟੁੱਥ, ਅਤੇ ਹੋਰ ਨੈੱਟਵਰਕ ਸੈੱਟਿੰਗਸ ਨੂੰ ਉਨ੍ਹਾਂ ਦੇ ਡਿਫਾੱਲਟਸ ਤੇ ਰੀਸੈੱਟ ਕਰੋ।</string>
     <string name="master_clear_list_summary">ਆਪਣੇ ਡਿਵਾਈਸ ਨੂੰ ਉਸ ਦੀਆਂ ਫੈਕਟਰੀ ਡਿਫਾੱਲਟ ਸੈੱਟਿੰਗਸ ਤੇ ਰੀਸੈੱਟ ਕਰੋ। ਇਸ ਨਾਲ ਫਾਈਲਾਂ ਅਤੇ ਡਾਉਨਲੋਡ ਕੀਤੀਆਂ ਐਪਸ ਸਮੇਤ ਸਭ ਡੈਟਾ ਮਿਟ ਜਾਵੇਗਾ।</string>
-    <string name="auto_restart_summary">ਆਪਣੇ ਡਿਵਾਈਸ ਨੂੰ ਸੈੱਟ ਕੀਤੇ ਸਮਿਆਂ ਤੇ ਸਵੈਚਲਿਤ ਦੁਬਾਰਾ ਅਰੰਭ ਕਰ ਕੇ ਅਨੁਕੂਲਿਤ ਕਰੋ। ਡਿਵਾਈਸ ਦੇ ਦੁਬਾਰਾ ਅਰੰਭ ਹੋਣ ਤੇ ਕੋਈ ਵੀ ਅਸੁਰੱਖਿਅਤ ਡੈਟਾ ਲੁਪਤ ਹੋ ਜਾਵੇਗਾ।</string>
+    <string name="auto_restart_summary">ਹਫਤੇ ਵਿੱਚ ਇੱਕ ਵਾਰ ਸਵੈਚਲਿਤ ਹੀ ਆਪਣੇ ਫ਼ੋਨ ਨੂੰ ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਕਰਕੇ ਅਨੁਕੂਲਿਤ ਕਰੋ। ਤੁਹਾਡੇ ਫ਼ੋਨ ਨੂੰ ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਕਰਨ ਤੇ ਉਹ ਡੈਟਾ ਲੁਪਤ ਹੋ ਜਾਵੇਗਾ ਜੋ ਸੁਰੱਖਿਅਤ ਨਹੀਂ ਕੀਤਾ ਗਿਆ ਹੈ।</string>
     <string name="search_settings">ਖੋਜੋ</string>
     <string name="related_results">%d ਸੰਬੰਧਿਤ ਆਈਟਮਸ</string>
     <string name="no_results_found">ਕੋਈ ਪਰਿਣਾਮ ਨਹੀਂ ਮਿਲਿਆ</string>
@@ -1485,6 +1485,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_verify_failed_summary">ਤੁਹਾਡੇ ਡਿਵਾਈਸ ਨੂੰ ਪੁਨਰ ਅਰੰਭ ਕਰਨ ਵਿੱਚ ਅਸਮਰੱਥ। ਅਖੰਡਤਾ ਤਸਦੀਕ ਅਸਫਲ ਹੋ ਗਈ ਹੈ। ਤੁਹਾਨੂੰ ਆਪਣੇ ਡਿਵਾਈਸ ਨੂੰ ਫੈਕਟਰੀ ਡਿਫਾੱਲਟ ਸੈੱਟਿੰਗਸਤੇ ਰੀਸੈੱਟ ਕਰਨਾ ਹੋਵੇਗਾ। ਇਸ ਨਾਲ ਤੁਹਾਡਾ ਸਾਰਾ ਡੈਟਾ ਮਿਟ ਜਾਵੇਗਾ।</string>
     <string name="cryptkeeper_emergency_call">ਅਪਾਤਕਾਲ ਕਾੱਲ</string>
     <string name="cryptkeeper_return_to_call">ਕਾੱਲ ਤੇ ਵਾਪਸ ਜਾਉ</string>
+    <string name="cryptkeeper_default_enter_msg">ਸੁਰੱਖਿਆ ਲਈ ਤੁਹਾਡੇ ਫ਼ੋਨ ਨੂੰ ਏਨਕ੍ਰਿਪਟ ਕੀਤਾ ਗਿਆ ਹੈ।</string>
     <string name="enter_password">ਆਪਣੇ ਡਿਵਾਈਸ ਨੂੰ ਅਰੰਭ ਕਰਨ ਲਈ, ਆਪਣਾ ਪਾਸਵਰਡ ਦਾਖ਼ਲ ਕਰੋ।</string>
     <string name="enter_pin">ਆਪਣੇ ਡਿਵਾਈਸ ਨੂੰ ਅਰੰਭ ਕਰਨ ਲਈ, ਆਪਣਾ PIN ਦਾਖ਼ਲ ਕਰੋ।</string>
     <string name="enter_pattern">ਆਪਣੇ ਡਿਵਾਈਸ ਨੂੰ ਅਰੰਭ ਕਰਨ ਲਈ, ਆਪਣੀ ਸ਼ੈਲੀ ਡ੍ਰਾਅ ਕਰੋ।</string>
@@ -1498,6 +1499,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_last_warn_wipe">ਇਸ ਤੋਂ ਪਹਿਲਾਂ ਕਿ ਤੁਹਾਡੇ ਡਿਵਾਈਸ ਨੂੰ ਉਸ ਦੀਆਂ ਫੈਕਟਰੀ ਡਿਫਾੱਲਟ ਸੈੱਟਿੰਗਸ ਤੇ ਰੀਸੈੱਟ ਕੀਤਾ ਜਾਵੇ ਤੁਹਾਡੇ ਕੋਲ ਉਸ ਨੂੰ ਅਨਲੌਕ ਕਰਨ ਲਈ ਸਿਰਫ 1 ਯਤਨ ਬਾਕੀ ਹੈ। ਇਸ ਨਾਲ ਫਾਈਲਾਂ ਅਤੇ ਡਾਉਨਲੋਡ ਕੀਤੀਆਂ ਐਪਸ ਸਮੇਤ ਸਾਰਾ ਡੈਟਾ ਮਿਟ ਜਾਵੇਗਾ।</string>
     <string name="crypt_keeper_failed_title_dec">ਡੀਕ੍ਰਿਪਸ਼ਨ ਅਸਫਲ।</string>
     <string name="crypt_keeper_failed_summary_dec">ਰੁਕਾਵਟ ਹੋਣ ਤੇ ਡਿਸਕ੍ਰਪਸਨ ਪੂਰੀ ਕਰਨ ਵਿੱਚ ਅਸਮਰੱਥ। ਇਸਤੇਮਾਲ ਤੋਂ ਪਹਿਲਾ ਫੈਕਟਰੀ (ਡੈਟਾ ਮਿਟਾ ਕੇ) ਦੁਬਾਰਾ ਲਗਾਓ।</string>
+    <string name="crypt_keeper_set_screen_lock_type">ਸਕ੍ਰੀਨ ਲੌਕ ਪ੍ਰਕਾਰ ਸੈੱਟ ਕਰੋ</string>
     <string name="encryption_interstitial_message_kor">ਤੁਹਾਡਾ ਡਿਵਾਈਸ ਏਨਕ੍ਰਿਪਟ ਕੀਤਾ ਗਿਆ ਹੈ। ਡਿਵਾਈਸ ਦੇ ਚਾਲੂ ਹੋਣ ਤੋਂ ਬਾਅਦ ਡੈਟਾ ਡੀਕ੍ਰਿਪਟ ਕਰਨ ਲਈ ਸਕ੍ਰੀਨ ਲੌਕ ਦੀ ਲੋੜ ਹੈ ਦੀ ਚੋਣ ਕਰਕੇ, ਆਪਣਾ ਏਨਕ੍ਰਿਪਟ ਕੀਤਾ ਡੈਟਾ ਸੁਰੱਖਿਅਤ ਕਰੋ। ਇਸ ਨਾਲ ਗੁਆਚੇ ਜਾਂ ਚੋਰੀ ਹੋਏ ਡਿਵਾਈਸਿਸ ਉੱਤੇ ਡੈਟਾ ਸੁਰੱਖਿਅਤ ਕਰਨ ਵਿੱਚ ਮਦਦ ਮਿਲਦੀ ਹੈ। ਤੁਸੀਂ ਜਦੋਂ ਵੀ ਆਪਣਾ ਡਿਵਾਈਸ ਚਾਲੂ ਕਰੋਗੇ ਤਾਂ ਉਸਦਾ ਡੈਟਾ ਡੀਕ੍ਰਿਪਟ ਕਰਨ ਲਈ ਤੁਹਾਨੂੰ ਉਸਨੂੰ ਅਨਲੌਕ ਕਰਨਾ ਹੋਵੇਗਾ। ਜਦੋਂ ਤੱਕ ਤੁਸੀਂ ਆਪਣੇ ਡਿਵਾਈਸ ਨੂੰ ਡੀਕ੍ਰਿਪਟ ਨਹੀਂ ਕਰਦੇ ਹੋ ਤੁਹਾਨੂੰ ਕੋਈ ਕਾੱਲਸ, ਸੰਦੇਸ਼, ਜਾਂ ਸੂਚਨਾਵਾਂ ਪ੍ਰਾਪਤ ਨਹੀਂ ਹੋਣਗੀਆਂ।</string>
     <string name="encryption_interstitial_message_direction">"ਡਿਵਾਈਸ ਦੇ ਚਾਲੂ ਹੋਣ ਤੇ “ਦਿਸ਼ਾ ਲੌਕ ਦੀ ਲੋੜ ਹੈ” ਨੂੰ ਚੁਣ ਕੇ ਆਪਣੇ ਡਿਵਾਈਸ ਨੂੰ ਸੁਰੱਖਿਅਤ ਕਰੋ। ਇਸ ਨਾਲ ਗੁਆਚੇ ਜਾਂ ਚੋਰੀ ਹੋਏ ਡਿਵਾਈਸਿਸ ਤੇ ਡੈਟਾ ਸੁਰੱਖਿਅਤ ਕਰਨ ਵਿੱਚ ਮਦਦ ਮਿਲਦੀ ਹੈ।
 
@@ -1737,6 +1739,8 @@ You will also need it when:"</string>
     <string name="empty_content_toast">ਸੁਰੱਖਿਅਤ ਕਰਨ ਲਈ ਸਮੱਗਰੀ ਨਹੀਂ।</string>
     <string name="find_my_mobile_message_zero">"ਮੇਰਾ ਮੋਬਾਈਲ ਲੱਭੋ ਵੈੱਬ ਸੇਵਾ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਆਪਣੇ ਡਿਵਾਈਸ ਨੂੰ ਦੂਰਵਰਤੀ ਤਰੀਕੇ ਨਾਲ ਟ੍ਰੈਕ ਅਤੇ ਨਿਯੰਤ੍ਰਿਤ ਕਰੋ। ਹੋਰ ਜਾਣਕਾਰੀ ਲਈ ਅਤੇ ਇਹ ਜਾਣਨ ਲਈ ਕਿ ਹੋਰ ਕਿਹੜੇ ਫੰਕਸ਼ਨਸ ਉਪਲਬਧ ਹਨ, ਨਿਮਨਲਿਖਤ ਵੈੱਬਸਾਈਟ ਤੇ ਜਾਉ:
 %s"</string>
+    <string name="send_last_location_title">ਆਖਰੀ ਸਥਾਨ ਬਾਰੇ ਜਾਣਕਾਰੀ ਭੇਜੋ</string>
+    <string name="send_last_location_summary">ਜਦੋਂ ਬੈਟਰੀ ਇੱਕ ਨਿਸ਼ਚਿਤ ਸਤਰ ਤੋਂ ਘੱਟ ਜਾਂਦੀ ਹੈ ਤਾਂ ਆਪਣੇ ਫ਼ੋਨ ਨੂੰ ਉਸ ਦੇ ਆਖਰੀ ਸਥਾਨ ਦੀ ਜਾਣਕਾਰੀ ਮੇਰਾ ਮੋਬਾਈਲ ਲੱਭੋ ਸਰਵਰ ਨੂੰ ਭੇਜਣ ਦੀ ਆਗਿਆ ਦਿਉ।</string>
     <string name="high_power_description">ਵਿਅਕਤੀਗਤ ਐਪਸ ਲਈ ਔਪਟੀਮਾਈਜ਼ ਬੈਟਰੀ ਉਪਯੋਗ ਨੂੰ ਸਮਰੱਥ ਕਰੋ। ਕੁਝ ਫੰਕਸ਼ਨਸ, ਜਿਵੇਂ ਕਿ ਉਹ ਜੋ ਮੋਬਾਈਲ ਨੈੱਟਵਰਕਸ ਦੀ ਵਰਤੋਂ ਕਰਦੇ ਹਨ ਜਾਂ ਡੈਟਾ ਸਿੰਕ ਕਰਦੇ ਹਨ, ਉਨ੍ਹਾਂ ਨੂੰ ਬੈਟਰੀ ਪਾਵਰ ਬਚਾਉਣ ਲਈ ਪ੍ਰਤੀਬੰਧਿਤ ਕੀਤਾ ਜਾਵੇਗਾ।</string>
     <string name="wifi_display_summary_off">ਬੰਦ</string>
     <string name="battery_usage_description">ਇਹ ਸਕ੍ਰੀਨ ਬੈਟਰੀ ਉਪਯੋਗਤਾ ਡੈਟਾ ਨੂੰ ਦਿਖਾਉਂਦੀ ਹੈ ਜਦੋਂ ਡਿਵਾਈਸ ਅੰਤਿਮ ਵਾਰ ਪੂਰੀ ਚਾਰਜ ਹੋਈ ਸੀ।</string>
@@ -1968,6 +1972,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">ਚੁਣੋ ਕਿ ਤੁਸੀਂ ਲੌਕ ਸਕ੍ਰੀਨ ਤੇ ਕਿਹੜੇ ਐਪ ਸ਼ੌਰਟਕੱਟਸ ਦੀ ਵਰਤੋਂ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ।</string>
     <string name="lockscreen_notifications">ਲੌਕ ਸਕ੍ਰੀਨ ਉੱਤੇ ਸੂਚਨਾਵਾਂ</string>
     <string name="work_profile_lockscreen_notifications">ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਸੂਚਨਾਵਾਂ</string>
+    <string name="lock_network_and_security">ਨੈੱਟਵਰਕ ਅਤੇ ਸੁਰੱਖਿਆ ਨੂੰ ਲੌਕ ਕਰੋ</string>
+    <string name="lock_network_and_security_summary">ਆਪਣੇ ਫ਼ੋਨ ਦੇ ਲੌਕ ਹੋਣ ਦੌਰਾਨ ਨੈੱਟਵਰਕ ਅਤੇ ਸੁਰੱਖਿਆ-ਸੰਬੰਧੀ ਫੰਕਸ਼ਨਸ ਨੂੰ ਲੌਕ ਕਰਕੇ ਰੱਖੋ, ਇਸ ਨਾਲ ਉਸ ਦੇ ਚੋਰੀ ਹੋਣ ਜਾਂ ਗੁਆਚ ਜਾਣ ਦੀ ਸਥਿਤੀ ਵਿੱਚ ਉਸ ਨੂੰ ਲੱਭਣਾ ਅਤੇ ਉਸ ਦੀ ਸੁਰੱਖਿਆ ਕਰਨਾ ਆਸਾਨ ਹੋ ਜਾਂਦਾ ਹੈ।</string>
     <string name="dualclock_settings_title">ਡੂਅਲ ਘੜੀ</string>
     <string name="dualclock_settings_summary">ਰੋਮਿੰਗ ਦੇ ਸਮੇਂ ਸਥਾਨਕ ਅਤੇ ਹੋਮ, ਦੋਵੇਂ ਸਮਾਂ ਜ਼ੋਨ ਦਿਖਾਉ।</string>
     <string name="set_home_city">ਹੋਮ ਸਮਾਂ ਜ਼ੋਨ ਸੈੱਟ ਕਰੋ</string>
@@ -2153,7 +2159,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="air_browse_music_on_lock_screen_title">ਲੌਕ ਸਕ੍ਰੀਨ ਉੱਤੇ ਸੰਗੀਤ</string>
     <string name="air_browse_music_on_lock_screen_summary">ਲੌਕ ਸਕ੍ਰੀਨ ਉੱਤੇ ਸੰਗੀਤ ਟ੍ਰੈਕ ਬਦਲੋ।</string>
     <string name="air_browse_note_summary">ਦ੍ਰਿਸ਼ ਮੋਡ ਵਿੱਚ ਹੋਣ ਤੇ ਪੰਨਿਆਂ ਵਿਚਕਾਰ ਮੂਵ ਕਰੋ।</string>
-    <string name="data_usage_enable_mobile_summery">ਜੇਕਰ ਮੋਬਾਈਲ ਡੈਟਾ ਬੰਦ ਹੈ, ਤਾਂ ਜਿਨ੍ਹਾਂ ਸੇਵਾਵਾਂ ਨੂੰ ਨੈੱਟਵਰਕ ਕਨੈਕਸ਼ਨ ਦੀ ਲੋੜ ਹੁੰਦੀ ਹੈ ਉਨ੍ਹਾਂ ਦੀ ਵਰਤੋਂ ਕਰਨ ਲਈ ਤੁਹਾਡਾ ਡਿਵਾਈਸ Wi-Fi ਨੈੱਟਵਰਕ ਨਾਲ ਕਨੈਕਟ ਹੋਣਾ ਜ਼ਰੂਰੀ ਹੈ।</string>
+    <string name="data_usage_enable_mobile_summery">ਮੋਬਾਈਲ ਨੈੱਟਵਰਕ ਰਾਹੀਂ ਇੰਟਰਨੈੱਟ ਐਕਸੈੱਸ ਕਰੋ।</string>
     <string name="data_usage_enable_mobile_warning_skt">ਮੋਬਾਈਲ ਨੈੱਟਵਰਕ ਦੇ ਨਾਲ ਕਨੈਕਟ ਕਰਨ ਨਾਲ ਤੁਹਾਡੀ ਡੈਟਾ ਯੋਜਨਾ ਦੇ ਆਧਾਰ ਤੇ ਅਤਿਰਿਕਤ ਖਰਚੇ ਲੱਗ ਸਕਦੇ ਹਨ। ਜਾਰੀ ਰੱਖਣਾ ਹੈ?</string>
     <string name="data_usage_enable_mobile_warning_ktt">ਮੋਬਾਈਲ ਨੈੱਟਵਰਕ ਦੇ ਨਾਲ ਕਨੈਕਟ ਕਰਨ ਨਾਲ ਤੁਹਾਡੀ ਡੈਟਾ ਯੋਜਨਾ ਦੇ ਆਧਾਰ ਤੇ ਅਤਿਰਿਕਤ ਖਰਚੇ ਲੱਗ ਸਕਦੇ ਹਨ। ਜਾਰੀ ਰੱਖਣਾ ਹੈ?</string>
     <string name="data_usage_enable_mobile_warning_lgt">ਮੋਬਾਈਲ ਨੈੱਟਵਰਕ ਦੇ ਨਾਲ ਕਨੈਕਟ ਕਰਨ ਨਾਲ ਤੁਹਾਡੀ ਡੈਟਾ ਯੋਜਨਾ ਦੇ ਆਧਾਰ ਤੇ ਅਤਿਰਿਕਤ ਖਰਚੇ ਲੱਗ ਸਕਦੇ ਹਨ। ਜਾਰੀ ਰੱਖਣਾ ਹੈ?</string>
@@ -2522,8 +2528,8 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="secure_folder_summary">ਸੁਰੱਖਿਆ ਵਧਾਉਣ ਲਈ ਆਪਣੀ ਨਿੱਜੀ ਸਮੱਗਰੀ ਅਤੇ ਐਪਸ ਨੂੰ ਲੌਕ ਕਰੋ।</string>
     <string name="text_biometrics_finger_title_enterprise">%2$s ਨੂੰ ਅਨਲੌਕ ਕਰਨ ਲਈ %1$s ਫਿੰਗਰਪ੍ਰਿੰਟਸ ਦਾ ਸਮਰਥਨ ਨਹੀਂ ਕਰਦਾ।</string>
     <string name="edge_feeds_title">Edge ਫੀਡਸ</string>
-    <string name="screensaver_settings_summary">ਸਕ੍ਰੀਨ ਦੇ ਬੰਦ ਹੋਣ ਸਮੇਂ ਡਿਵਾਈਸ ਨੂੰ ਡੌਕ ਕੀਤੇ ਜਾਣ ਅਤੇ/ਜਾਂ ਚਾਰਜਿੰਗ ਦੌਰਾਨ ਕੀ ਹੁੰਦਾ ਹੈ, ਉਸਨੂੰ ਨਿਯੰਤ੍ਰਿਤ ਕਰੋ। ਇਸ ਫੰਕਸ਼ਨ ਨੂੰ ਡੇਅਡ੍ਰੀਮ ਵੀ ਕਿਹਾ ਜਾਂਦਾ ਹੈ।</string>
-    <string name="screensaver_settings_summary_wo_dock">ਡਿਵਾਈਸ ਦੇ ਚਾਰਜ ਹੋਣ ਦੌਰਾਨ ਸਕ੍ਰੀਨ ਦੇ ਸਵੈਚਲਿਤ ਬੰਦ ਹੋਣ ਤੋਂ ਬਾਅਦ ਸਕ੍ਰੀਨਸੇਵਰ ਦਿਖਾਉ।</string>
+    <string name="screensaver_settings_summary">ਫ਼ੋਨ ਦੇ ਚਾਰਜ ਹੋਣ ਦੌਰਾਨ ਸਕ੍ਰੀਨ ਦੇ ਸਵੈਚਲਿਤ ਬੰਦ ਹੋਣ ਤੋਂ ਬਾਅਦ ਸਕ੍ਰੀਨਸੇਵਰ ਦਿਖਾਉ।</string>
+    <string name="screensaver_settings_summary_wo_dock">ਫ਼ੋਨ ਨੂੰ ਡੌਕ ਕਰਨ ਤੇ ਜਾਂ ਚਾਰਜ ਕਰਦੇ ਸਮੇਂ ਸਕ੍ਰੀਨ ਦੇ ਸਵੈਚਲਿਤ ਬੰਦ ਹੋਣ ਤੋਂ ਬਾਅਦ ਸਕ੍ਰੀਨਸੇਵਰ ਦਿਖਾਉ।</string>
     <string name="apn_already_exists">ਪਹਿਲਾਂ ਤੋਂ ਹੀ ਮੌਜ਼ੂਦ ਹੈ।</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">ਪੋਰਟ ਨੰਬਰ %1$d ਅਤੇ %2$d ਦੇ ਵਿਚਕਾਰ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ।</string>
@@ -3288,6 +3294,7 @@ Wi-Fi is now on."</string>
     <string name="wfd_connection_end_toast">Screen Mirroring ਕਨੈਕਸ਼ਨ ਸਮਾਪਤ।</string>
     <string name="wfd_descrpition_playvia">ਸਮੱਗਰੀ ਪਲੇ ਕਰੋ।</string>
     <string name="wfd_descrpition_mirroring">ਸਕ੍ਰੀਨ ਮਿਰੱਰ ਕਰੋ।</string>
+    <string name="wfd_descrpition_playsound">ਧੁਨੀ ਪਲੇ ਕਰੋ।</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">ਮਲਟੀ ਵਿੰਡੋ ਅਸਮਰੱਥ ਕਰ ਦਿੱਤਾ ਜਾਵੇਗਾ ਅਤੇ ਪੌਪ-ਅਪ ਵਿੰਡੋਜ਼ ਵਿੱਚ ਖੁੱਲ੍ਹੇ ਸਾਰੇ ਅਨੁਪ੍ਰਯੋਗ ਬੰਦ ਕਰ ਦਿੱਤੇ ਜਾਣਗੇ।</string>
     <string name="keyguard_password_attempt_count_pin_code">%d ਯਤਨ ਬਾਕੀ।</string>
@@ -4127,7 +4134,7 @@ Receiving SMS"</string>
     <string name="location_network_based">ਵਾਇਰਲੈੱਸ ਨੈੱਟਵਰਕ ਵਰਤੋ</string>
     <string name="location_neighborhood_level">ਆਪਣੇ ਸਥਾਨ ਦਾ ਤੇਜ਼ੀ ਨਾਲ ਅਨੁਮਾਨ ਲਗਾਉਣ ਲਈ ਗੂਗਲ ਸਥਾਨ ਸੇਵਾ ਦੇ ਉਪਯੋਗ ਲਈ ਐਪਸ ਨੂੰ ਆਗਿਆ ਦਿਉ। ਅਗਿਆਤ ਸਥਾਨ ਡੈਟਾ ਇਕੱਠਾ ਕਰਕੇ ਗੂਗਲ ਨੂੰ ਭੇਜਿਆ ਜਾਵੇਗਾ।</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">ਡਿਵਾਈਸ ਦੇ ਬਾਰੇ</string>
+    <string name="about_settings">ਫ਼ੋਨ ਦੇ ਬਾਰੇ</string>
     <string name="about_settings_vzw">ਡਿਵਾਈਸ ਦੇ ਬਾਰੇ</string>
     <string name="legal_information">ਕਨੂੰਨੀ ਜਾਣਕਾਰੀ</string>
     <string name="regulatory_information">ਨਿਯਮਕ ਜਾਣਕਾਰੀ</string>
@@ -4312,7 +4319,7 @@ Receiving SMS"</string>
     <string name="phone_language">ਭਾਸ਼ਾ</string>
     <string name="show_password">ਪਾਸਵਰਡ ਦ੍ਰਿਸ਼ਮਾਨ ਬਣਾਉ</string>
     <string name="show_password_summary">ਤੁਹਾਡੇ ਪਾਸਵਰਡ ਲਿਖਣ ਦੇ ਨਾਲ-ਨਾਲ ਵਰਣਾਂ ਨੂੰ ਸੰਖੇਪ ਰੂਪ ਵਿੱਚ ਦਿਖਾਉ।</string>
-    <string name="ime_security_warning">ਪਾਸਵਰਡ ਛੱਡ ਕੇ, ਵਿਅਕਤੀਗਤ ਡੈਟਾ ਅਤੇ ਕ੍ਰੈਡਿਟ ਕਾਰਡ ਨੰਬਰਾਂ ਸਮੇਤ, ਇਹ ਤਰੀਕਾ ਸਾਰਾ ਟੈਕਸਟ ਇਕੱਤਰ ਕਰ ਸਕਦੀ ਹੈ ਜੋ ਤੁਸੀਂ ਦਾਖ਼ਲ ਕੀਤਾ ਹੈ। ਇਹ %1$s ਅਨੁਪ੍ਰਯੋਗ ਤੋਂ ਆਉਂਦਾ ਹੈ। ਫਿਰ ਵੀ ਵਰਤੀਏ?</string>
+    <string name="ime_security_warning">%s ਤੁਹਾਡੇ ਵਿਅਕਤੀਗਤ ਡੈਟਾ ਜਿਵੇਂ ਕਿ ਪਾਸਵਰਡਸ ਅਤੇ ਕ੍ਰੈਡਿਟ ਕਾਰਡ ਨੰਬਰਸ ਸਮੇਤ, ਤੁਹਾਡੇ ਦੁਆਰਾ ਟਾਈਪ ਕੀਤੇ ਜਾਣ ਵਾਲੇ ਟੈਕਸਟ ਨੂੰ ਇਕੱਠਾ ਕਰਨ ਵਿੱਚ ਸਮਰੱਥ ਹੋ ਸਕਦਾ ਹੈ।</string>
     <string name="failed_to_open_app_settings_toast">%s ਲਈ ਸੈੱਟਿੰਗਸ ਖੋਲ੍ਹਣ ਵਿੱਚ ਅਸਫਲ।</string>
     <string name="keyboard_and_input_methods_category">ਕੀਬੋਰਡਸ</string>
     <string name="virtual_keyboard_category">ਵਰਚੁਅਲ ਕੀਬੋਰਡ</string>

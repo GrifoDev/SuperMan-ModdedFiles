@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">תמיכה</string>
     <string name="reset_network_settings_list_summary">אפס את הגדרות Wi-Fi, Bluetooth וכל יתר הגדרת הרשת לערכי ברירת המחדל.</string>
     <string name="master_clear_list_summary">אפס את המכשיר להגדרות ברירת המחדל של היצרן. דבר זה יגרום למחיקת כל הנתונים, כולל קבצים ויישומים שהורדת.</string>
-    <string name="auto_restart_summary">בצע התאמה מיטבית במכשיר שלך באמצעות הפעלה מחדש אוטומטית במועדים קבועים. נתונים שלא נשמרו יאבדו בעת ההפעלה מחדש של המכשיר.</string>
+    <string name="auto_restart_summary">מטב את הטלפון על ידי הפעלה מחדש אוטומטית פעם בשבוע. נתונים לא שמורים יאבדו בעת ההפעלה מחדש של הטלפון.</string>
     <string name="search_settings">חיפוש</string>
     <string name="related_results">%d פריטים קשורים</string>
     <string name="no_results_found">לא נמצאו תוצאות</string>
@@ -1485,6 +1485,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_verify_failed_summary">לא ניתן להפעיל מחדש את המכשיר. בדיקת השלמות נכשלה. עליך לבצע במכשיר איפוס להגדרות ברירות המחדל של היצרן. פעולה זו תביא למחיקת כל הנתונים שלך.</string>
     <string name="cryptkeeper_emergency_call">שיחת חירום</string>
     <string name="cryptkeeper_return_to_call">חזור לשיחה</string>
+    <string name="cryptkeeper_default_enter_msg">למען האבטחה, הטלפון שלך מוצפן.</string>
     <string name="enter_password">כדי לאתחל את המכשיר, הזן סיסמה.</string>
     <string name="enter_pin">כדי לאתחל את המכשיר, הזן קוד PIN.</string>
     <string name="enter_pattern">כדי לאתחל את המכשיר, צייר דפוס.</string>
@@ -1498,6 +1499,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_last_warn_wipe">לרשותך עוד ניסיון אחד בלבד להפעיל את המכשיר; לאחר מכן יתבצע בו איפוס להגדרות ברירת המחדל של היצרן. דבר זה יגרום למחיקת כל הנתונים, כולל קבצים ויישומים שהורדת.</string>
     <string name="crypt_keeper_failed_title_dec">ההצפנה נכשלה.</string>
     <string name="crypt_keeper_failed_summary_dec">לא ניתן להשלים את הפענוח בשל הפרעה. בצע איפוס לנתוני היצרן (מחיקת כל הנתונים שלך) לפני השימוש.</string>
+    <string name="crypt_keeper_set_screen_lock_type">הגדר סוג נעילת מסך</string>
     <string name="encryption_interstitial_message_kor">"המכשיר שלך מוצפן. הגן על נתונים מוצפנים על ידי בחירה באפשרות 'דרוש נעילת מסך לפענוח נתונים בעת הפעלת המכשיר'. דבר זה מסייע להגן על נתונים במכשירים שאבדו או נגנבו. בכל פעם שתפעיל את המכשיר, תידרש לבטל את נעילתו כדי לפענח את הנתונים השמורים בו. עד לפענוח המכשיר לא תקבל שיחות, הודעות או התראות."</string>
     <string name="encryption_interstitial_message_direction">"הגן על המכשיר שלך על ידי בחירה באפשרות 'דרוש נעילה בכיוונים בעת הפעלת המכשיר'. דבר זה מסייע להגן על נתונים במכשירים שאבדו או נגנבו.
 
@@ -1737,6 +1739,8 @@ You will also need it when:"</string>
     <string name="empty_content_toast">אין תוכן לשמירה.</string>
     <string name="find_my_mobile_message_zero">"עקוב אחר המכשיר שלך ושלוט בו מרחוק בעזרת שירות האינטרנט 'אתר את הנייד שלי'. לקבלת מידע נוסף וכדי לברר אילו פונקציות נוספות זמינות, בקר באתר הבא:
 %s"</string>
+    <string name="send_last_location_title">שלח מיקום אחרון</string>
+    <string name="send_last_location_summary">"אפשר לטלפון שלך לשלוח את המיקום האחרון שלו אל שרת 'אתר את הנייד שלי' כאשר רמת הטעינה בסוללה יורדת מתחת לסף מסוים."</string>
     <string name="high_power_description">"הפעל את הפונקציה 'מטב את השימוש בסוללה' עבור יישומים ספציפיים. כדי לחסוך רמת מתח בסוללה, יוגבלו פונקציות כמו אלה המשתמשות ברשתות סלולריות או מבצעות סינכרון נתונים."</string>
     <string name="wifi_display_summary_off">כבוי</string>
     <string name="battery_usage_description">מסך זה מציג את נתוני השימוש בסוללה מאז הטעינה המלאה האחרונה.</string>
@@ -1968,6 +1972,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">בחר את קיצורי הדרך של היישומים שתרצה להפעיל דרך מסך הנעילה.</string>
     <string name="lockscreen_notifications">התראות במסך הנעילה</string>
     <string name="work_profile_lockscreen_notifications">התראות פרופיל עבודה</string>
+    <string name="lock_network_and_security">נעילת מסך ואבטחה</string>
+    <string name="lock_network_and_security_summary">השאר יישומים הקשורים ברשת ובאבטחה נעולים כאשר הטלפון נעול, כדי להקל את איתור הטלפון וההגנה עליו במקרה של אובדן או גניבה.</string>
     <string name="dualclock_settings_title">שעון כפול</string>
     <string name="dualclock_settings_summary">בעת נדידה, הצג את אזור הזמן המקומי ואת אזור הזמן הביתי.</string>
     <string name="set_home_city">הגדר אזור זמן מקומי</string>
@@ -2153,7 +2159,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="air_browse_music_on_lock_screen_title">מוסיקה במסך הנעילה</string>
     <string name="air_browse_music_on_lock_screen_summary">שנה רצועות מוסיקה במסך הנעילה</string>
     <string name="air_browse_note_summary">"עבור בין דפים במצב 'תצוגה'"</string>
-    <string name="data_usage_enable_mobile_summery">"אם הפונקציה 'נתונים ניידים' מושבתת וברצונך להשתמש בשירותים המחייבים חיבור לרשת, עליך לחבר את המכשיר לרשת Wi-Fi."</string>
+    <string name="data_usage_enable_mobile_summery">התחבר לאינטרנט דרך הרשת הסלולרית שלך.</string>
     <string name="data_usage_enable_mobile_warning_skt">חיבור לרשתות סלולריות עשוי להיות כרוך בחיובים נוספים, בהתאם לתוכנית הנתונים שלך. להמשיך?</string>
     <string name="data_usage_enable_mobile_warning_ktt">חיבור לרשתות סלולריות עשוי להיות כרוך בחיובים נוספים, בהתאם לתוכנית הנתונים שלך. להמשיך?</string>
     <string name="data_usage_enable_mobile_warning_lgt">חיבור לרשתות סלולריות עשוי להיות כרוך בחיובים נוספים, בהתאם לתוכנית הנתונים שלך. להמשיך?</string>
@@ -2524,8 +2530,8 @@ Turn off Mobile data?"</string>
     <string name="secure_folder_summary">נעל תוכן ויישומים פרטיים כדי לשפר את האבטחה.</string>
     <string name="text_biometrics_finger_title_enterprise">%2$s אינו תומך בביטול נעילת %1$s בעזרת טביעות אצבע.</string>
     <string name="edge_feeds_title">הזנות Edge</string>
-    <string name="screensaver_settings_summary">"שלוט במה שקורה כאשר המכשיר בעגינה ו/או טעינה במסך כבוי. פונקציה זו קרויה גם 'שומר מסך'."</string>
-    <string name="screensaver_settings_summary_wo_dock">הצג שומר מסך לאחר הכיבוי האוטומטי של המסך בעת טעינת המכשיר.</string>
+    <string name="screensaver_settings_summary">הצג שומר מסך לאחר הכיבוי האוטומטי של המסך בעת טעינת הטלפון.</string>
+    <string name="screensaver_settings_summary_wo_dock">הצג שומר מסך לאחר הכיבוי האוטומטי של המסך כאשר הטלפון בעגינה או בטעינה.</string>
     <string name="apn_already_exists">כבר קיים.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">מספר היציאה חייב להיות בין %1$d ל-%2$d.</string>
@@ -3290,6 +3296,7 @@ Wi-Fi is now on."</string>
     <string name="wfd_connection_end_toast">הסתיים חיבור Screen Mirroring.</string>
     <string name="wfd_descrpition_playvia">הפעל תוכן.</string>
     <string name="wfd_descrpition_mirroring">שקף את המסך.</string>
+    <string name="wfd_descrpition_playsound">השמע צליל.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">"הפונקציה 'חלונות מרובים' תושבת וכל היישומים הפתוחים בחלונות קופצים ייסגרו."</string>
     <string name="keyguard_password_attempt_count_pin_code">נותר ניסיון %d.</string>
@@ -4129,7 +4136,7 @@ Wi-Fi is now on."</string>
     <string name="location_network_based">השתמש ברשתות אלחוטיות</string>
     <string name="location_neighborhood_level">אפשר ליישומים להשתמש בשירות המיקום של Google כדי להעריך את מיקומך מהר יותר. נתוני מיקום אנונימיים ייאספו ויישלחו אל Google.</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">אודות המכשיר</string>
+    <string name="about_settings">אודות הטלפון</string>
     <string name="about_settings_vzw">אודות המכשיר</string>
     <string name="legal_information">מידע משפטי</string>
     <string name="regulatory_information">מידע רגולציה</string>
@@ -4314,7 +4321,7 @@ Wi-Fi is now on."</string>
     <string name="phone_language">שפה</string>
     <string name="show_password">הפוך סיסמאות לגלויות</string>
     <string name="show_password_summary">הצג את תווי הסיסמה לזמן קצר תוך כדי הקלדתם.</string>
-    <string name="ime_security_warning">בשיטה זו ניתן לאסוף את כל הטקסט שאתה מזין, מלבד סיסמאות, כולל נתונים אישיים ומספרי כרטיסי אשראי. מקור השיטה ביישום %1$s. להשתמש בכל מקרה?</string>
+    <string name="ime_security_warning">ייתכן ש-%s יוכל לאסוף את כל הטקסט שתקליד, כולל נתונים אישיים כמו סיסמאות ומספרי כרטיסי אשראי.</string>
     <string name="failed_to_open_app_settings_toast">פתיחת ההגדרות עבור %s נכשלה.</string>
     <string name="keyboard_and_input_methods_category">מקלדות</string>
     <string name="virtual_keyboard_category">מקלדת וירטואלית</string>

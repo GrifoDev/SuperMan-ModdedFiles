@@ -1513,7 +1513,7 @@
 
     invoke-virtual {v6, v7}, Landroid/widget/TextView;->setText(I)V
 
-    const v7, 0x7f1102b5
+    const v7, 0x7f1102b3
 
     invoke-virtual {v0, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1531,7 +1531,7 @@
 
     invoke-direct {v1, v7}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v7, 0x7f0b0c4b
+    const v7, 0x7f0b0c55
 
     invoke-virtual {v1, v7}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 

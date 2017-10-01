@@ -60,7 +60,7 @@
     :cond_0
     iget-object v1, p0, Lcom/android/settings/fingerprint/RegisterFingerprint$20;->this$0:Lcom/android/settings/fingerprint/RegisterFingerprint;
 
-    const v2, 0x7f110386
+    const v2, 0x7f110384
 
     invoke-virtual {v1, v2}, Lcom/android/settings/fingerprint/RegisterFingerprint;->findViewById(I)Landroid/view/View;
 

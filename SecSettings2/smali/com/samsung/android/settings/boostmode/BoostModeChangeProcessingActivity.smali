@@ -274,7 +274,7 @@
 
     aput-object v2, v1, v4
 
-    const v2, 0x7f0b0a6a
+    const v2, 0x7f0b0a74
 
     invoke-virtual {p0, v2, v1}, Lcom/samsung/android/settings/boostmode/BoostModeChangeProcessingActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -299,7 +299,7 @@
 
     aput-object v2, v1, v4
 
-    const v2, 0x7f0b0a6c
+    const v2, 0x7f0b0a76
 
     invoke-virtual {p0, v2, v1}, Lcom/samsung/android/settings/boostmode/BoostModeChangeProcessingActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -441,7 +441,7 @@
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/boostmode/BoostModeChangeProcessingActivity;->setContentView(I)V
 
-    const v0, 0x7f110519
+    const v0, 0x7f110517
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/boostmode/BoostModeChangeProcessingActivity;->findViewById(I)Landroid/view/View;
 
@@ -455,7 +455,7 @@
 
     invoke-virtual {v0, v4}, Landroid/widget/FrameLayout;->setVisibility(I)V
 
-    const v0, 0x7f11051a
+    const v0, 0x7f110518
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/boostmode/BoostModeChangeProcessingActivity;->findViewById(I)Landroid/view/View;
 
@@ -465,7 +465,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/boostmode/BoostModeChangeProcessingActivity;->mImgModeBackground:Landroid/widget/ImageView;
 
-    const v0, 0x7f11051b
+    const v0, 0x7f110519
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/boostmode/BoostModeChangeProcessingActivity;->findViewById(I)Landroid/view/View;
 
@@ -511,7 +511,7 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/visualeffect/circle/CircleContainer;->setCircleColor(I)V
 
-    const v0, 0x7f110469
+    const v0, 0x7f110467
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/boostmode/BoostModeChangeProcessingActivity;->findViewById(I)Landroid/view/View;
 
@@ -533,7 +533,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a04bf
+    const v2, 0x7f0a04bd
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -543,7 +543,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a04bd
+    const v3, 0x7f0a04bb
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -555,7 +555,7 @@
 
     invoke-virtual {v0, p0}, Lcom/samsung/android/visualeffect/circle/CircleContainer;->setCircleListener(Lcom/samsung/android/visualeffect/circle/CircleContainer$CircleListener;)V
 
-    const v0, 0x7f110518
+    const v0, 0x7f110516
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/boostmode/BoostModeChangeProcessingActivity;->findViewById(I)Landroid/view/View;
 
@@ -565,7 +565,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/boostmode/BoostModeChangeProcessingActivity;->mAnimatedDoneV:Lcom/samsung/android/visualeffect/check/DoneView;
 
-    const v0, 0x7f11051c
+    const v0, 0x7f11051a
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/boostmode/BoostModeChangeProcessingActivity;->findViewById(I)Landroid/view/View;
 
@@ -573,7 +573,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/boostmode/BoostModeChangeProcessingActivity;->mDescContainer:Landroid/view/View;
 
-    const v0, 0x7f11051d
+    const v0, 0x7f11051b
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/boostmode/BoostModeChangeProcessingActivity;->findViewById(I)Landroid/view/View;
 
@@ -583,7 +583,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/boostmode/BoostModeChangeProcessingActivity;->mProcessingDescTv:Landroid/widget/TextView;
 
-    const v0, 0x7f11051e
+    const v0, 0x7f11051c
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/boostmode/BoostModeChangeProcessingActivity;->findViewById(I)Landroid/view/View;
 
@@ -593,7 +593,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/boostmode/BoostModeChangeProcessingActivity;->mExtendedTimeTv:Landroid/widget/TextView;
 
-    const v0, 0x7f11051f
+    const v0, 0x7f11051d
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/boostmode/BoostModeChangeProcessingActivity;->findViewById(I)Landroid/view/View;
 

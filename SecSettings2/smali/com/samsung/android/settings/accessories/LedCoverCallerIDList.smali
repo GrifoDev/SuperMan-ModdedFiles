@@ -243,7 +243,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f110435
+    const v4, 0x7f110433
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -278,7 +278,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f110436
+    const v4, 0x7f110434
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -628,7 +628,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/accessories/LedCoverCallerIDList;->mSelectActionView:Landroid/view/View;
 
-    const v1, 0x7f11043a
+    const v1, 0x7f110438
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -648,7 +648,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/accessories/LedCoverCallerIDList;->mSelectActionView:Landroid/view/View;
 
-    const v1, 0x7f110439
+    const v1, 0x7f110437
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -668,7 +668,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/accessories/LedCoverCallerIDList;->mSelectActionView:Landroid/view/View;
 
-    const v1, 0x7f11043b
+    const v1, 0x7f110439
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -734,7 +734,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f110435
+    const v4, 0x7f110433
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2592,7 +2592,7 @@
 
     const/4 v0, 0x3
 
-    const v1, 0x7f0b1a09
+    const v1, 0x7f0b1a0c
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2626,7 +2626,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f1102ab
+    const v1, 0x7f1102a9
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2646,7 +2646,7 @@
 
     if-eqz v1, :cond_0
 
-    const v1, 0x7f110435
+    const v1, 0x7f110433
 
     invoke-virtual {p2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2736,7 +2736,7 @@
     return v3
 
     :cond_0
-    const v1, 0x7f110435
+    const v1, 0x7f110433
 
     invoke-virtual {p2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

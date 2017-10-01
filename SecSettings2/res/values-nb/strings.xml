@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Brukerstøtte</string>
     <string name="reset_network_settings_list_summary">Tilbakestill Wi-Fi, Bluetooth og andre nettverksinnstillinger til standard.</string>
     <string name="master_clear_list_summary">Tilbakestill enheten til fabrikkinnstillinger. Dette sletter alle data, inkludert filer og nedlastede apper.</string>
-    <string name="auto_restart_summary">Optimaliser enheten din ved å starte den på nytt til angitte tider. Eventuelle ulagrede data vil gå tapt når enheten starter på nytt.</string>
+    <string name="auto_restart_summary">Optimaliser telefonen ved å starte den på nytt én gang i uken. Eventuelle ulagrede data vil gå tapt når telefonen starter på nytt.</string>
     <string name="search_settings">Søk</string>
     <string name="related_results">%d beslektede elementer</string>
     <string name="no_results_found">Fant ingen resultater</string>
@@ -1485,6 +1485,7 @@ Kryptering tar én time eller mer. Før du starter, må du passe på at batterie
     <string name="crypt_keeper_verify_failed_summary">Kan ikke starte enheten på nytt. Integritetsbekreftelsen mislyktes. Du må tilbakestille enheten din til fabrikkinnstillinger. Dette sletter alle data.</string>
     <string name="cryptkeeper_emergency_call">Nødanrop</string>
     <string name="cryptkeeper_return_to_call">Returner til samtale</string>
+    <string name="cryptkeeper_default_enter_msg">Telefonen er kryptert for sikkerhet.</string>
     <string name="enter_password">Angi passordet for å starte opp enheten.</string>
     <string name="enter_pin">Angi PIN-koden for å starte opp enheten.</string>
     <string name="enter_pattern">Tegn mønsteret for å starte opp enheten.</string>
@@ -1498,6 +1499,7 @@ Kryptering tar én time eller mer. Før du starter, må du passe på at batterie
     <string name="crypt_keeper_last_warn_wipe">Du har bare 1 forsøk igjen til å starte opp enheten før den tilbakestilles til fabrikkinnstillinger. Dette sletter alle data, inkludert filer og nedlastede apper.</string>
     <string name="crypt_keeper_failed_title_dec">Dekryptering mislyktes.</string>
     <string name="crypt_keeper_failed_summary_dec">Kan ikke fullføre dekrypteringen på grunn av avbrytelse. Tilbakestill til fabrikkstandarder (fjerning av alle data) før bruk.</string>
+    <string name="crypt_keeper_set_screen_lock_type">Angi skjermlåstype</string>
     <string name="encryption_interstitial_message_kor">Enheten din er kryptert. Beskytt de krypterte dataene ved å velge Krev skjermlås for å dekryptere data når enhet slås på. Dette bidrar til å beskytte data på enheter som er mistet eller stjålet. Du må låse opp enheten for å dekryptere dataene når du slår den på. Du vil ikke motta noen anrop, meldinger eller varsler før du dekrypterer enheten.</string>
     <string name="encryption_interstitial_message_direction">"Beskytt enheten din ved å velge Krev Retningslås når enheten slås på. Dette bidrar til å beskytte data på enheter som er mistet eller stjålet.
 
@@ -1737,6 +1739,8 @@ Før du ber om en garantireparasjon, må Reaktiveringslås deaktiveres. Pass på
     <string name="empty_content_toast">Ikke noe innhold å lagre.</string>
     <string name="find_my_mobile_message_zero">"Følg med på og kontroller enheten din på avstand ved å bruke Finn min mobil-nettjenesten. For mer informasjon og for å finne ut hvilke andre funksjoner som er tilgjengelige, kan du gå til følgende nettsted:
 %s"</string>
+    <string name="send_last_location_title">Send siste posisjon</string>
+    <string name="send_last_location_summary">Gi telefonen tillatelse til å sende den siste posisjonen til Finn min mobil-serveren når batteriet går under et bestemt nivå.</string>
     <string name="high_power_description">Aktiver Optimaliser batteribruk for individuelle apper. Enkelte funksjoner, som de som bruker mobilnett eller synkroniserer data, blir begrenset for å spare batteristrøm.</string>
     <string name="wifi_display_summary_off">Av</string>
     <string name="battery_usage_description">Dette skjermbildet viser batteribruksdata siden enheten sist var fulladet.</string>
@@ -1968,6 +1972,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">Velg hvilke appsnarveier du vil bruke på låseskjermen.</string>
     <string name="lockscreen_notifications">Varsler på låseskjermen</string>
     <string name="work_profile_lockscreen_notifications">Arbeidsprofilvarsler</string>
+    <string name="lock_network_and_security">Lås nettverk og sikkerhet</string>
+    <string name="lock_network_and_security_summary">Hold nettverksfunksjoner og sikkerhetsrelaterte funksjoner låst når telefonen er låst, slik at den er enklere å finne og beskytte hvis den er mistet eller stjålet.</string>
     <string name="dualclock_settings_title">Dobbel klokke</string>
     <string name="dualclock_settings_summary">Vis både lokal tidssone og hjemtidssone ved roaming.</string>
     <string name="set_home_city">Angi hjemtidssone</string>
@@ -2153,7 +2159,7 @@ Selv om telefonen blir slettet, må Google-kontopassordet ditt oppgis før noen 
     <string name="air_browse_music_on_lock_screen_title">Musikk på låseskjermen</string>
     <string name="air_browse_music_on_lock_screen_summary">Bytt musikkspor på låseskjermen.</string>
     <string name="air_browse_note_summary">Gå mellom sider i Visningsmodus.</string>
-    <string name="data_usage_enable_mobile_summery">Hvis mobildata er slått av, må enheten være koblet til et Wi-Fi-nettverk for å bruke tjenester som krever en nettverkstilkobling.</string>
+    <string name="data_usage_enable_mobile_summery">Få tilgang til Internett gjennom mobilnettet.</string>
     <string name="data_usage_enable_mobile_warning_skt">Tilkobling til mobilnett kan medføre ekstra kostnader, avhengig av abonnementet ditt. Fortsette?</string>
     <string name="data_usage_enable_mobile_warning_ktt">Tilkobling til mobilnett kan medføre ekstra kostnader, avhengig av abonnementet ditt. Fortsette?</string>
     <string name="data_usage_enable_mobile_warning_lgt">Tilkobling til mobilnett kan medføre ekstra kostnader, avhengig av abonnementet ditt. Fortsette?</string>
@@ -2523,8 +2529,8 @@ Prøv på nytt."</string>
     <string name="secure_folder_summary">Lås personlig innhold og apper for å øke sikkerheten.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s støtter ikke fingeravtrykk for å låse opp %2$s.</string>
     <string name="edge_feeds_title">Kantnyhetsk.</string>
-    <string name="screensaver_settings_summary">Kontroller hva som skjer når enheten står i dokken og/eller lader mens skjermen er slått av. Denne funksjonen kalles også Dagdrøm.</string>
-    <string name="screensaver_settings_summary_wo_dock">Vis en skjermsparer etter at skjermen slås av automatisk mens enheten lader.</string>
+    <string name="screensaver_settings_summary">Vis en skjermsparer etter at skjermen slås av automatisk mens telefonen lader.</string>
+    <string name="screensaver_settings_summary_wo_dock">Vis en skjermsparer etter at skjermen slås av automatisk mens telefonen er dokket eller lader.</string>
     <string name="apn_already_exists">Finnes allerede.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Portnummer må være mellom %1$d og %2$d.</string>
@@ -3289,6 +3295,7 @@ Bruk av mobil trådløssone øker batteriforbruket og databruken din."</string>
     <string name="wfd_connection_end_toast">Screen Mirroring-forbindelse brutt.</string>
     <string name="wfd_descrpition_playvia">Spill av innhold.</string>
     <string name="wfd_descrpition_mirroring">Speil skjermen.</string>
+    <string name="wfd_descrpition_playsound">Spill av lyd.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">Flervindu blir deaktivert, og alle apper som er åpne i sprettoppvinduer, blir lukket.</string>
     <string name="keyguard_password_attempt_count_pin_code">%d forsøk igjen.</string>
@@ -4128,7 +4135,7 @@ Vurder å bruke et raskere SD-kort eller en USB-lagringsenhet for å forbedre yt
     <string name="location_network_based">Bruk trådløse nettverk</string>
     <string name="location_neighborhood_level">La apper bruke Googles posisjonstjeneste for raskere å beregne din posisjon. Anonyme plass.data samles og sendes til Google.</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">Om enheten</string>
+    <string name="about_settings">Om telefonen</string>
     <string name="about_settings_vzw">Om enheten</string>
     <string name="legal_information">Juridisk informasjon</string>
     <string name="regulatory_information">Reguleringsinformasjon</string>
@@ -4313,7 +4320,7 @@ Du vil ikke miste eksisterende appdata."</string>
     <string name="phone_language">Språk</string>
     <string name="show_password">Gjør passord synlige</string>
     <string name="show_password_summary">Vis passordtegn kort mens du skriver dem.</string>
-    <string name="ime_security_warning">Denne metoden kan innhente all teksten du skriver inn, unntatt passord, inkludert personlige data og kredittkortnumre. Den kommer fra appen %1$s. Bruke likevel?</string>
+    <string name="ime_security_warning">%s kan innhente all teksten du skriver, inkludert personlige data som passord og kredittkortnumre.</string>
     <string name="failed_to_open_app_settings_toast">Kunne ikke åpne innstillinger for %s.</string>
     <string name="keyboard_and_input_methods_category">Tastaturer</string>
     <string name="virtual_keyboard_category">Virtuelt tastatur</string>

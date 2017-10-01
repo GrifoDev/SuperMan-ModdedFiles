@@ -441,7 +441,7 @@
 
     if-nez v1, :cond_0
 
-    const v2, 0x7f1103c6
+    const v2, 0x7f1103c4
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -493,7 +493,7 @@
 
     if-nez v3, :cond_0
 
-    const v5, 0x7f1103c6
+    const v5, 0x7f1103c4
 
     invoke-virtual {v1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1053,7 +1053,7 @@
 
     if-eqz v3, :cond_0
 
-    const v3, 0x7f1104a1
+    const v3, 0x7f11049f
 
     invoke-virtual {v1, v3}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -1314,7 +1314,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f1103c8
+    const v3, 0x7f1103c6
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

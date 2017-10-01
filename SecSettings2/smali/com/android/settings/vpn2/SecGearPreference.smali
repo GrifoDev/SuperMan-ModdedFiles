@@ -38,7 +38,7 @@
 
     invoke-super {p0, p1}, Lcom/samsung/android/settingslib/RestrictedPreference;->onBindView(Landroid/view/View;)V
 
-    const v1, 0x7f110585
+    const v1, 0x7f110583
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -60,7 +60,7 @@
 
     move-result v0
 
-    const v1, 0x7f110585
+    const v1, 0x7f110583
 
     if-ne v0, v1, :cond_0
 

@@ -378,7 +378,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Dəstək</string>
     <string name="reset_network_settings_list_summary">Wi-Fi, Bluetooth və başqa şəbəkələri defolt vəziyyətinə bərpa et.</string>
     <string name="master_clear_list_summary">Cihazı defolt parametrlərinə sıfırla. Bu, fayllar və yüklənmiş proqramlar daxil olmaqla bütün məlumatları siləcək.</string>
-    <string name="auto_restart_summary">Cihazınızı qurulan vaxtlarda söndürüb yandırmaq üçün cihazınızı optimallaşdırın. Hər hansı saxlanmamış məlumat cihaz söndürülüb yandırılan zaman itəcək.</string>
+    <string name="auto_restart_summary">Telefonu həftədə bir dəfə söndürüb yandırmaqla optimallaşdırın. Hər hansı yadda saxlanmamış məlumat telefon söndürülüb yandırılan zaman itəcək.</string>
     <string name="search_settings">Axtar</string>
     <string name="related_results">%d əlaqədar element</string>
     <string name="no_results_found">Nəticə tapılmadı</string>
@@ -1484,6 +1484,7 @@ Parlaqlığın təhlükəsizlik ssəviyyələrindən artmasına icazə vermək �
     <string name="crypt_keeper_verify_failed_summary">Cihazınızı söndürüb yandırmaq olmadı. Tamlıq təsdiq edilmədi. Cihazınızı zavod parametrlərinə bərpa etməlisiniz. Bu, bütün məlumatlarınızı siləcək.</string>
     <string name="cryptkeeper_emergency_call">Təcili zəng</string>
     <string name="cryptkeeper_return_to_call">Zəngə qayıt</string>
+    <string name="cryptkeeper_default_enter_msg">Təhlükəsizlik səbəbindən telefon şifrləndi.</string>
     <string name="enter_password">Cihazı işə salmaq üçün parol daxil et.</string>
     <string name="enter_pin">Cihazı işə salmaq üçün PIN daxil et.</string>
     <string name="enter_pattern">Cihazı işə salmaq üçün model çək.</string>
@@ -1497,6 +1498,7 @@ Parlaqlığın təhlükəsizlik ssəviyyələrindən artmasına icazə vermək �
     <string name="crypt_keeper_last_warn_wipe">Zavod defolt parametrlərinə sıfırlanmazdan öncə cihazı işə salmaq üçün 1 cəhdiniz qalır. Bu, fayllar və yüklənmiş proqramlar daxil olmaqla bütün məlumatları siləcək.</string>
     <string name="crypt_keeper_failed_title_dec">Şifrələrin açılması alınmadı.</string>
     <string name="crypt_keeper_failed_summary_dec">Dayandırılmaya görə şifrlaçmanı tamamlamaq mümkün olmadı. İstifadədən əvvəl zavod parametrlərinə bərpa edin (bütün məlumatlarınız silinir).</string>
+    <string name="crypt_keeper_set_screen_lock_type">Ekranın kilid növünü qur</string>
     <string name="encryption_interstitial_message_kor">Cihazınız şifrləndi. Cihaz yanan zaman Ekran kilidini tələb et seçməklə şifrlənmiş məlumatı qoru. Bu, itmiş və ya oğurlanmış cihazdakı məlumatı qorumağa kömək edir. Cihaz yanan zaman məlumatını şifrdən açmaq üçün onu kiliddən açmalı olacaqsınız. Siz cihazınızı şifrdən açmayanadək heç bir zəng, mesaj və ya bildiriş almayacaqsınız.</string>
     <string name="encryption_interstitial_message_direction">"Cihaz yanan zaman İstiqamət Tələb et kilidini seçməklə cihazınızı qoruyun. Bu, itmiş və ya oğurlanmış telefonlardakı məlumatı qorumağa kömək edir.
 
@@ -1736,6 +1738,8 @@ Siz zəmanət əsasında təmiri sorğulamamışdan əvvəl Təkrar aktivləşdi
     <string name="empty_content_toast">Saxlamaq üçün məzmun yoxdur.</string>
     <string name="find_my_mobile_message_zero">"Mobilimi Tap veb xidmətindən istifadə edərək cihazı uzaqdan izləyin və idarə edin. Ətraflı məlumat almaq və başqa funksiyaların mövcud olmasını öyrənmək üçün aşağıdakı vebsayta daxil olun:
 %s"</string>
+    <string name="send_last_location_title">Son yeri göndər</string>
+    <string name="send_last_location_summary">Telefonunuza batareya müəyyən səviyyədən az olduqda son yerini Mobilimi Tap serverinə göndərmək imkanı verin.</string>
     <string name="high_power_description">Fərdi proqramlar üçün Batareya istifadəsini optimallaşdırmaq olmadı. Mobil şəbəkələrdən istifadə edən və ya məlumatı sinxronlaşdıran funksiyalar kimi bəzi funksiyalar batareyaya qənaət etmək üçün məhdudlaşdırılacaq.</string>
     <string name="wifi_display_summary_off">Söndür</string>
     <string name="battery_usage_description">Bu ekran cihaz tam yükləndikdən sonra batareya istifadəsi barədə məlumatı göstərir.</string>
@@ -1967,6 +1971,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">Kilid ekranda hansı proqram qısayolundan istifadə etmək istədiyini seç.</string>
     <string name="lockscreen_notifications">Kilid ekranındakı bildirişlər</string>
     <string name="work_profile_lockscreen_notifications">İş profili bildirişləri</string>
+    <string name="lock_network_and_security">Kilid şəbəkəsi və təhlükəsizlik</string>
+    <string name="lock_network_and_security_summary">Telefon kilidlənən zaman şəbəkə və təhlükəsizliklə bağlı funksiyaları kilidlənmiş saxlayın, bu, itən və ya oğurlanan cihazı tapmağı asanlaşdırır.</string>
     <string name="dualclock_settings_title">İkili saat</string>
     <string name="dualclock_settings_summary">Rouminqdə olan zaman yerli və öz ölkənizin saat qurğaşını göstər.</string>
     <string name="set_home_city">Ev saat qurşağını qurun</string>
@@ -2152,7 +2158,7 @@ Telefonunuz silindikdə belə ondan istifadə etmək üçün Google Hesab parolu
     <string name="air_browse_music_on_lock_screen_title">Qıfıllanmış ekranda musiqi</string>
     <string name="air_browse_music_on_lock_screen_summary">Mahnıları kilid ekranında dəyiş.</string>
     <string name="air_browse_note_summary">Görünüş rejimində olduqda səhifələr arasında keçid et.</string>
-    <string name="data_usage_enable_mobile_summery">Mobil data sönülü olarsa, cihazınız şəbəkə bağlantısı tələb edən xidmətlərdən istifadə etmək üçün Wi-Fi şəbəkəsinə qoşulmalıdır.</string>
+    <string name="data_usage_enable_mobile_summery">Mobil şəbəkədən internetə çıxın.</string>
     <string name="data_usage_enable_mobile_warning_skt">Mobil planınızdan asılı olaraq mobil şəbəkələrə qoşulmaq əlavə xərclərə səbəb ola bilər. Davam edilsin?</string>
     <string name="data_usage_enable_mobile_warning_ktt">Mobil planınızdan asılı olaraq mobil şəbəkələrə qoşulmaq əlavə xərclərə səbəb ola bilər. Davam edilsin?</string>
     <string name="data_usage_enable_mobile_warning_lgt">Mobil planınızdan asılı olaraq mobil şəbəkələrə qoşulmaq əlavə xərclərə səbəb ola bilər. Davam edilsin?</string>
@@ -2522,8 +2528,8 @@ Xahiş olunur yenidən cəhd edin."</string>
     <string name="secure_folder_summary">Təhlükəsizliyi artırmaq üçün məxfi məzmunu və proqramları kilidləyin.</string>
     <string name="text_biometrics_finger_title_enterprise">%2$s kiliddən açmaq üçün %1$s barmaq izlərini dəstəkləmir.</string>
     <string name="edge_feeds_title">Kənar mənbələr</string>
-    <string name="screensaver_settings_summary">Ekran sönülü olan zaman cihaz bəndləndikdə və/və ya yükləndikdə nə baş verdiyinə nəzarət edin. Bu funksiya da Ekran qoruyucusu adlanır.</string>
-    <string name="screensaver_settings_summary_wo_dock">Cihaz yüklənən zaman ekran avtomatik söndükdən sonra ekran qoruyucusunu göstər.</string>
+    <string name="screensaver_settings_summary">Telefon yüklənən zaman ekran avtomatik söndükdən sonra ekran qoruyucusunu göstər.</string>
+    <string name="screensaver_settings_summary_wo_dock">Telefon yığılan və ya yüklənən zaman ekran avtomatik söndükdən sonra ekran qoruyucusunu göstər.</string>
     <string name="apn_already_exists">Artıq mövcuddur.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Port nömrəsi %1$d və %2$d arasında olmalıdır.</string>
@@ -3288,6 +3294,7 @@ Mobil giriş nöqtəsindən istifadə batareya sərfiyyatını və tarifdən ist
     <string name="wfd_connection_end_toast">Ekran əksetmə bağlantısı əlavə edildi.</string>
     <string name="wfd_descrpition_playvia">Məzmunu səsləndir.</string>
     <string name="wfd_descrpition_mirroring">Ekranı əkd etdir.</string>
+    <string name="wfd_descrpition_playsound">Səsi səsləndir.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">Çoxsaylı pəncərə qeyri-aktiv ediləcək və ani pəncərələrdə açılan bütün proqramlar bağlanacaq.</string>
     <string name="keyguard_password_attempt_count_pin_code">%d cəhd qalıb.</string>
@@ -4127,7 +4134,7 @@ Buraya ixrac edilən proqramların işi zəifləyə və buraya məlumat köçür
     <string name="location_network_based">Simsiz şəbək istif et</string>
     <string name="location_neighborhood_level">Yeri sürətlə hesablaması üçün proqramlara Google məkan xidmətlərindən ist-yə icazə verin. Məlumatlar anonim toplanıb Google-a göndəriləcək.</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">Cihaz haqqında</string>
+    <string name="about_settings">Telefon haqqında</string>
     <string name="about_settings_vzw">Cihaz haqqında</string>
     <string name="legal_information">Hüquqi məlumat</string>
     <string name="regulatory_information">Tənzimləyici məlumat</string>
@@ -4312,7 +4319,7 @@ Sizin mövcud proqram məlumatınız itməyəcək."</string>
     <string name="phone_language">Dil</string>
     <string name="show_password">Parolları görünən et</string>
     <string name="show_password_summary">Parol simvollarını daxil etdikcə, onların xülasəsini göstər.</string>
-    <string name="ime_security_warning">Bu üsul parollar istisna olmaqla, daxil etdiyiniz bütün məlumatları, həmçinin, şəxsi məlumatları və kredit karı nömrələrini toplaya bilər. %1$s proqramdan gəlir. Yenə də istifadə edilsin?</string>
+    <string name="ime_security_warning">%s daxiletmə üsulu parollar və kredit kartı nömrələri kimi şəxsi məlumatlar da daxil olmaqla sizin yazdığının bütün mətni əldə edə bilər.</string>
     <string name="failed_to_open_app_settings_toast">%s üçün parametrlər açılmadı.</string>
     <string name="keyboard_and_input_methods_category">Klaviaturalar</string>
     <string name="virtual_keyboard_category">Virtual klaviatura</string>

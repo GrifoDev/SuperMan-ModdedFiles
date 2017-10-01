@@ -576,7 +576,7 @@
 
     aput-object v1, v3, v4
 
-    const v4, 0x7f0b19de
+    const v4, 0x7f0b19e1
 
     invoke-virtual {p0, v4, v3}, Lcom/android/settings/accounts/AccountSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -633,7 +633,7 @@
 
     invoke-direct {v0, v1}, Lcom/android/settings/DimmableIconPreference;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0b1772
+    const v1, 0x7f0b1775
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DimmableIconPreference;->setTitle(I)V
 
@@ -665,7 +665,7 @@
 
     invoke-direct {v1, v2}, Landroid/preference/Preference;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0b1b53
+    const v2, 0x7f0b1b56
 
     invoke-virtual {v1, v2}, Landroid/preference/Preference;->setTitle(I)V
 
@@ -719,11 +719,11 @@
 
     invoke-direct {v0, v1}, Landroid/preference/Preference;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0b1776
+    const v1, 0x7f0b1779
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setTitle(I)V
 
-    const v1, 0x7f0204ef
+    const v1, 0x7f0204ed
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setIcon(I)V
 
@@ -885,7 +885,7 @@
 
     iget-object v3, p0, Lcom/android/settings/accounts/AccountSettings;->mProfileNotAvailablePreference:Landroid/preference/Preference;
 
-    const v4, 0x7f0b1773
+    const v4, 0x7f0b1776
 
     invoke-virtual {v3, v4}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -963,7 +963,7 @@
 
     aput-object v2, v4, v5
 
-    const v5, 0x7f0b1336
+    const v5, 0x7f0b1339
 
     invoke-virtual {p0, v5, v4}, Lcom/android/settings/accounts/AccountSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1079,7 +1079,7 @@
 
     check-cast v3, Lcom/android/settings/AccessiblePreferenceCategory;
 
-    const v4, 0x7f0b1337
+    const v4, 0x7f0b133a
 
     invoke-virtual {p0, v4}, Lcom/android/settings/accounts/AccountSettings;->getString(I)Ljava/lang/String;
 
@@ -1181,13 +1181,13 @@
 
     move-result-object v12
 
-    const v1, 0x7f0a0468
+    const v1, 0x7f0a0466
 
     invoke-virtual {v12, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    const v3, 0x7f0a045e
+    const v3, 0x7f0a045c
 
     invoke-virtual {v12, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1457,7 +1457,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b1b53
+    const v3, 0x7f0b1b56
 
     move-object v5, v4
 
@@ -1477,9 +1477,9 @@
 .method public onPrepareOptionsMenu(Landroid/view/Menu;)V
     .locals 10
 
-    const v5, 0x7f110873
+    const v5, 0x7f110871
 
-    const v9, 0x7f110872
+    const v9, 0x7f110870
 
     const v8, 0x7f110023
 
@@ -1542,7 +1542,7 @@
 
     invoke-interface {v4, v7}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
 
-    const v4, 0x7f110874
+    const v4, 0x7f110872
 
     invoke-interface {p1, v4}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -1595,7 +1595,7 @@
 
     if-eqz v4, :cond_1
 
-    const v4, 0x7f0b17d9
+    const v4, 0x7f0b17dc
 
     :goto_3
     invoke-interface {v2, v4}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
@@ -1609,7 +1609,7 @@
     goto :goto_0
 
     :cond_1
-    const v4, 0x7f0b17d7
+    const v4, 0x7f0b17da
 
     goto :goto_3
 
@@ -1662,7 +1662,7 @@
 
     invoke-interface {v4, v5}, Landroid/view/MenuItem;->setChecked(Z)Landroid/view/MenuItem;
 
-    const v4, 0x7f110874
+    const v4, 0x7f110872
 
     invoke-interface {p1, v4}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 

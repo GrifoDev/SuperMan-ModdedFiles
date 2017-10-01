@@ -127,11 +127,11 @@
 .method private changeType(I)V
     .locals 8
 
-    const v7, 0x7f1106f8
+    const v7, 0x7f1106f6
 
-    const v6, 0x7f1106e6
+    const v6, 0x7f1106e4
 
-    const v5, 0x7f1106f1
+    const v5, 0x7f1106ef
 
     const/16 v4, 0x8
 
@@ -159,7 +159,17 @@
 
     iget-object v1, p0, Lcom/android/settings/vpn2/ConfigDialog;->mView:Landroid/view/View;
 
-    const v2, 0x7f1106e8
+    const v2, 0x7f1106e6
+
+    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v4}, Landroid/view/View;->setVisibility(I)V
+
+    iget-object v1, p0, Lcom/android/settings/vpn2/ConfigDialog;->mView:Landroid/view/View;
+
+    const v2, 0x7f1106e9
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -179,16 +189,6 @@
 
     iget-object v1, p0, Lcom/android/settings/vpn2/ConfigDialog;->mView:Landroid/view/View;
 
-    const v2, 0x7f1106ed
-
-    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v4}, Landroid/view/View;->setVisibility(I)V
-
-    iget-object v1, p0, Lcom/android/settings/vpn2/ConfigDialog;->mView:Landroid/view/View;
-
     invoke-virtual {v1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
@@ -197,7 +197,7 @@
 
     iget-object v1, p0, Lcom/android/settings/vpn2/ConfigDialog;->mView:Landroid/view/View;
 
-    const v2, 0x7f1106f0
+    const v2, 0x7f1106ee
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -243,7 +243,7 @@
     :goto_1
     iget-object v1, p0, Lcom/android/settings/vpn2/ConfigDialog;->mView:Landroid/view/View;
 
-    const v2, 0x7f1106e8
+    const v2, 0x7f1106e6
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -329,7 +329,7 @@
     :goto_2
     iget-object v1, p0, Lcom/android/settings/vpn2/ConfigDialog;->mView:Landroid/view/View;
 
-    const v2, 0x7f1106eb
+    const v2, 0x7f1106e9
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -340,7 +340,7 @@
     :pswitch_5
     iget-object v1, p0, Lcom/android/settings/vpn2/ConfigDialog;->mView:Landroid/view/View;
 
-    const v2, 0x7f1106ed
+    const v2, 0x7f1106eb
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -389,7 +389,7 @@
 
     iget-object v1, p0, Lcom/android/settings/vpn2/ConfigDialog;->mView:Landroid/view/View;
 
-    const v2, 0x7f1106f6
+    const v2, 0x7f1106f4
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -499,7 +499,7 @@
 
     move-result-object v3
 
-    const v7, 0x7f0b128c
+    const v7, 0x7f0b128f
 
     invoke-virtual {v3, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -637,7 +637,7 @@
 
     iget-object v0, p0, Lcom/android/settings/vpn2/ConfigDialog;->mView:Landroid/view/View;
 
-    const v1, 0x7f1106f2
+    const v1, 0x7f1106f0
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1624,11 +1624,11 @@
 .method public onClick(Landroid/view/View;)V
     .locals 6
 
-    const v2, 0x7f1106f2
+    const v2, 0x7f1106f0
 
     const/4 v5, 0x0
 
-    const v4, 0x7f1106f1
+    const v4, 0x7f1106ef
 
     const/16 v3, 0x8
 
@@ -1777,7 +1777,7 @@
 
     move-object/from16 v25, v0
 
-    const v26, 0x7f11027f
+    const v26, 0x7f11027d
 
     invoke-virtual/range {v25 .. v26}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1797,7 +1797,7 @@
 
     move-object/from16 v25, v0
 
-    const v26, 0x7f11049d
+    const v26, 0x7f11049b
 
     invoke-virtual/range {v25 .. v26}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1819,7 +1819,7 @@
 
     move-object/from16 v25, v0
 
-    const v26, 0x7f1106e3
+    const v26, 0x7f1106e1
 
     invoke-virtual/range {v25 .. v26}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1839,7 +1839,7 @@
 
     move-object/from16 v25, v0
 
-    const v26, 0x7f1106e2
+    const v26, 0x7f1106e0
 
     invoke-virtual/range {v25 .. v26}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1895,7 +1895,7 @@
 
     move-object/from16 v25, v0
 
-    const v26, 0x7f1106e4
+    const v26, 0x7f1106e2
 
     invoke-virtual/range {v25 .. v26}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1915,7 +1915,7 @@
 
     move-object/from16 v25, v0
 
-    const v26, 0x7f1106f9
+    const v26, 0x7f1106f7
 
     invoke-virtual/range {v25 .. v26}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1935,7 +1935,7 @@
 
     move-object/from16 v25, v0
 
-    const v26, 0x7f1106fa
+    const v26, 0x7f1106f8
 
     invoke-virtual/range {v25 .. v26}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1955,7 +1955,7 @@
 
     move-object/from16 v25, v0
 
-    const v26, 0x7f1106f3
+    const v26, 0x7f1106f1
 
     invoke-virtual/range {v25 .. v26}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1975,7 +1975,7 @@
 
     move-object/from16 v25, v0
 
-    const v26, 0x7f1106f4
+    const v26, 0x7f1106f2
 
     invoke-virtual/range {v25 .. v26}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1995,7 +1995,7 @@
 
     move-object/from16 v25, v0
 
-    const v26, 0x7f1106f5
+    const v26, 0x7f1106f3
 
     invoke-virtual/range {v25 .. v26}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2015,7 +2015,7 @@
 
     move-object/from16 v25, v0
 
-    const v26, 0x7f1106e5
+    const v26, 0x7f1106e3
 
     invoke-virtual/range {v25 .. v26}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2035,7 +2035,7 @@
 
     move-object/from16 v25, v0
 
-    const v26, 0x7f1106e7
+    const v26, 0x7f1106e5
 
     invoke-virtual/range {v25 .. v26}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2055,7 +2055,7 @@
 
     move-object/from16 v25, v0
 
-    const v26, 0x7f1106e9
+    const v26, 0x7f1106e7
 
     invoke-virtual/range {v25 .. v26}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2075,7 +2075,7 @@
 
     move-object/from16 v25, v0
 
-    const v26, 0x7f1106ea
+    const v26, 0x7f1106e8
 
     invoke-virtual/range {v25 .. v26}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2095,7 +2095,7 @@
 
     move-object/from16 v25, v0
 
-    const v26, 0x7f1106ec
+    const v26, 0x7f1106ea
 
     invoke-virtual/range {v25 .. v26}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2115,7 +2115,7 @@
 
     move-object/from16 v25, v0
 
-    const v26, 0x7f1106ee
+    const v26, 0x7f1106ec
 
     invoke-virtual/range {v25 .. v26}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2135,7 +2135,7 @@
 
     move-object/from16 v25, v0
 
-    const v26, 0x7f1106ef
+    const v26, 0x7f1106ed
 
     invoke-virtual/range {v25 .. v26}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2155,7 +2155,7 @@
 
     move-object/from16 v25, v0
 
-    const v26, 0x7f1106fb
+    const v26, 0x7f1106f9
 
     invoke-virtual/range {v25 .. v26}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2175,7 +2175,7 @@
 
     move-object/from16 v25, v0
 
-    const v26, 0x7f1106f0
+    const v26, 0x7f1106ee
 
     invoke-virtual/range {v25 .. v26}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2195,7 +2195,7 @@
 
     move-object/from16 v25, v0
 
-    const v26, 0x7f1106fd
+    const v26, 0x7f1106fb
 
     invoke-virtual/range {v25 .. v26}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2215,7 +2215,7 @@
 
     move-object/from16 v25, v0
 
-    const v26, 0x7f1106f7
+    const v26, 0x7f1106f5
 
     invoke-virtual/range {v25 .. v26}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2235,7 +2235,7 @@
 
     move-object/from16 v25, v0
 
-    const v26, 0x7f1106f1
+    const v26, 0x7f1106ef
 
     invoke-virtual/range {v25 .. v26}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2633,7 +2633,7 @@
 
     move-object/from16 v27, v0
 
-    const v28, 0x7f0b1802
+    const v28, 0x7f0b1805
 
     move-object/from16 v0, p0
 
@@ -2667,7 +2667,7 @@
 
     move-object/from16 v27, v0
 
-    const v28, 0x7f0b1803
+    const v28, 0x7f0b1806
 
     move-object/from16 v0, p0
 
@@ -2992,7 +2992,7 @@
 
     if-eqz v25, :cond_12
 
-    const v25, 0x7f0b1809
+    const v25, 0x7f0b180c
 
     :goto_6
     move-object/from16 v0, p0
@@ -3007,7 +3007,7 @@
 
     move-object/from16 v25, v0
 
-    const v26, 0x7f1106e1
+    const v26, 0x7f1106df
 
     invoke-virtual/range {v25 .. v26}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3109,7 +3109,7 @@
 
     if-eqz v25, :cond_4
 
-    const v25, 0x7f0b180a
+    const v25, 0x7f0b180d
 
     move/from16 v0, v25
 
@@ -3142,7 +3142,7 @@
 
     move-object/from16 v25, v0
 
-    const v26, 0x7f1106e4
+    const v26, 0x7f1106e2
 
     invoke-virtual/range {v25 .. v26}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3174,7 +3174,7 @@
 
     move-object/from16 v25, v0
 
-    const v26, 0x7f11027f
+    const v26, 0x7f11027d
 
     invoke-virtual/range {v25 .. v26}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3202,7 +3202,7 @@
 
     invoke-virtual/range {v17 .. v17}, Landroid/widget/EditText;->requestFocus()Z
 
-    const v25, 0x7f0b1806
+    const v25, 0x7f0b1809
 
     move/from16 v0, v25
 
@@ -3229,7 +3229,7 @@
     invoke-virtual {v0, v1, v2, v3}, Lcom/android/settings/vpn2/ConfigDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
 
     :goto_8
-    const v25, 0x7f0b1804
+    const v25, 0x7f0b1807
 
     move/from16 v0, v25
 
@@ -3331,7 +3331,7 @@
 
     move-object/from16 v25, v0
 
-    const v26, 0x7f1106f8
+    const v26, 0x7f1106f6
 
     invoke-virtual/range {v25 .. v26}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3434,7 +3434,7 @@
 
     move-object/from16 v25, v0
 
-    const v26, 0x7f1106e2
+    const v26, 0x7f1106e0
 
     invoke-virtual/range {v25 .. v26}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3454,7 +3454,7 @@
 
     move-object/from16 v25, v0
 
-    const v26, 0x7f1106e3
+    const v26, 0x7f1106e1
 
     invoke-virtual/range {v25 .. v26}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3935,7 +3935,7 @@
     goto/16 :goto_5
 
     :cond_12
-    const v25, 0x7f0b0c2b
+    const v25, 0x7f0b0c35
 
     goto/16 :goto_6
 
@@ -4037,7 +4037,7 @@
 
     aput-object v26, v25, v27
 
-    const v26, 0x7f0b180b
+    const v26, 0x7f0b180e
 
     move/from16 v0, v26
 
@@ -4053,7 +4053,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/settings/vpn2/ConfigDialog;->setTitle(Ljava/lang/CharSequence;)V
 
-    const v25, 0x7f0b1807
+    const v25, 0x7f0b180a
 
     move/from16 v0, v25
 
@@ -4197,7 +4197,7 @@
 
     iget-object v3, v3, Lcom/android/internal/net/VpnProfile;->ipsecCaCert:Ljava/lang/String;
 
-    const v4, 0x7f0b1802
+    const v4, 0x7f0b1805
 
     invoke-direct {p0, v1, v2, v4, v3}, Lcom/android/settings/vpn2/ConfigDialog;->loadCertificates(Landroid/widget/Spinner;Ljava/lang/String;ILjava/lang/String;)V
 

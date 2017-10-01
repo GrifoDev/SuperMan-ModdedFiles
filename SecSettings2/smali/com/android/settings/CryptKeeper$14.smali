@@ -49,7 +49,7 @@
 
     iget-object v2, p0, Lcom/android/settings/CryptKeeper$14;->this$0:Lcom/android/settings/CryptKeeper;
 
-    invoke-static {v2}, Lcom/android/settings/CryptKeeper;->-get6(Lcom/android/settings/CryptKeeper;)Ljava/util/ArrayList;
+    invoke-static {v2}, Lcom/android/settings/CryptKeeper;->-get7(Lcom/android/settings/CryptKeeper;)Ljava/util/ArrayList;
 
     move-result-object v2
 

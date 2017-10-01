@@ -721,7 +721,7 @@
 
     if-eqz v2, :cond_0
 
-    const v2, 0x7f11021c
+    const v2, 0x7f11021a
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -734,7 +734,7 @@
     invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setBackgroundResource(I)V
 
     :cond_0
-    const v2, 0x7f11021d
+    const v2, 0x7f11021b
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -744,7 +744,7 @@
 
     iput-object v2, p0, Lcom/samsung/android/settings/easymode/EasyModeApp;->mCancelButton:Landroid/widget/Button;
 
-    const v2, 0x7f11021e
+    const v2, 0x7f11021c
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1595,7 +1595,7 @@
 
     move-result v0
 
-    const v1, 0x7f11033e
+    const v1, 0x7f11033c
 
     if-ne v0, v1, :cond_2
 
@@ -1906,7 +1906,7 @@
 .method public onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
     .locals 6
 
-    const v5, 0x7f02050a
+    const v5, 0x7f020508
 
     const/4 v4, 0x0
 
@@ -2162,13 +2162,13 @@
 .method public rebuildLayout(Landroid/view/View;)V
     .locals 4
 
-    const v1, 0x7f110343
+    const v1, 0x7f110341
 
     const/4 v3, 0x0
 
     iput-object p1, p0, Lcom/samsung/android/settings/easymode/EasyModeApp;->mHeaderView:Landroid/view/View;
 
-    const v0, 0x7f1102d2
+    const v0, 0x7f1102d0
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2178,7 +2178,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/easymode/EasyModeApp;->mModeRadioGroup:Landroid/widget/LinearLayout;
 
-    const v0, 0x7f11033d
+    const v0, 0x7f11033b
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2188,7 +2188,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/easymode/EasyModeApp;->mStandardModeLayout:Landroid/widget/LinearLayout;
 
-    const v0, 0x7f110340
+    const v0, 0x7f11033e
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2198,7 +2198,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/easymode/EasyModeApp;->mEasyModeLayout:Landroid/widget/LinearLayout;
 
-    const v0, 0x7f11033e
+    const v0, 0x7f11033c
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2208,7 +2208,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/easymode/EasyModeApp;->mStandardModeRadio:Landroid/widget/RadioButton;
 
-    const v0, 0x7f110341
+    const v0, 0x7f11033f
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2218,7 +2218,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/easymode/EasyModeApp;->mEasyModeRadio:Landroid/widget/RadioButton;
 
-    const v0, 0x7f110344
+    const v0, 0x7f110342
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2248,7 +2248,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/easymode/EasyModeApp;->mPreviewImage:Landroid/graphics/drawable/Drawable;
 
-    const v0, 0x7f11033f
+    const v0, 0x7f11033d
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2258,7 +2258,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/easymode/EasyModeApp;->mStdTextView:Landroid/widget/TextView;
 
-    const v0, 0x7f110342
+    const v0, 0x7f110340
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

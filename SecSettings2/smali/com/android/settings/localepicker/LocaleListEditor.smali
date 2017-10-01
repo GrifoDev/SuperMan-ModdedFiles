@@ -125,7 +125,7 @@
 
     const/4 v5, 0x1
 
-    const v3, 0x7f110452
+    const v3, 0x7f110450
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -167,7 +167,7 @@
 
     invoke-virtual {v1, v3}, Landroid/support/v7/widget/RecyclerView;->setAdapter(Landroid/support/v7/widget/RecyclerView$Adapter;)V
 
-    const v3, 0x7f110453
+    const v3, 0x7f110451
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -313,13 +313,13 @@
 
     invoke-direct {v2, v3}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f0b10f3
+    const v3, 0x7f0b10f6
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v2
 
-    const v3, 0x7f0b10f4
+    const v3, 0x7f0b10f7
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -374,7 +374,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b10f2
+    const v3, 0x7f0b10f5
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -443,7 +443,7 @@
 
     if-eqz v3, :cond_3
 
-    const v3, 0x7f0b179b
+    const v3, 0x7f0b179e
 
     invoke-interface {v0, v3}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
 
@@ -580,7 +580,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b1599
+    const v3, 0x7f0b159c
 
     invoke-virtual {v2, v3}, Landroid/app/Activity;->setTitle(I)V
 

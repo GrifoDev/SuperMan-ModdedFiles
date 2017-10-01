@@ -448,7 +448,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b187a
+    const v3, 0x7f0b187d
 
     const/4 v5, 0x0
 
@@ -599,7 +599,7 @@
 
     invoke-direct {v2, v3, v4}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;I)V
 
-    const v3, 0x7f0b1ba6
+    const v3, 0x7f0b1ba9
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/nfc/OtherSettings;->getString(I)Ljava/lang/String;
 
@@ -742,7 +742,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f1104b3
+    const v2, 0x7f1104b1
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -754,7 +754,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f1104b2
+    const v2, 0x7f1104b0
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -766,7 +766,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f1104b0
+    const v2, 0x7f1104ae
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -831,7 +831,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f1104b1
+    const v2, 0x7f1104af
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -843,7 +843,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f1104b0
+    const v2, 0x7f1104ae
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -855,7 +855,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f1104b2
+    const v2, 0x7f1104b0
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

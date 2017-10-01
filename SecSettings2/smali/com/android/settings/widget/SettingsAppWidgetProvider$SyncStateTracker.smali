@@ -58,7 +58,7 @@
 .method public getButtonDescription()I
     .locals 1
 
-    const v0, 0x7f0b1700
+    const v0, 0x7f0b1703
 
     return v0
 .end method
@@ -66,7 +66,7 @@
 .method public getButtonId()I
     .locals 1
 
-    const v0, 0x7f110721
+    const v0, 0x7f11071f
 
     return v0
 .end method
@@ -90,7 +90,7 @@
 .method public getContainerId()I
     .locals 1
 
-    const v0, 0x7f110720
+    const v0, 0x7f11071e
 
     return v0
 .end method
@@ -98,7 +98,7 @@
 .method public getIndicatorId()I
     .locals 1
 
-    const v0, 0x7f110722
+    const v0, 0x7f110720
 
     return v0
 .end method

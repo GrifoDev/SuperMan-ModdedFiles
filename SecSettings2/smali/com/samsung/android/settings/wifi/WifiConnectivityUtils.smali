@@ -25,13 +25,13 @@
 .method static constructor <clinit>()V
     .locals 4
 
-    const v0, 0x7f1104e9
+    const v0, 0x7f1104e7
 
-    const v1, 0x7f1104ea
+    const v1, 0x7f1104e8
 
-    const v2, 0x7f1104eb
+    const v2, 0x7f1104e9
 
-    const v3, 0x7f1104ec
+    const v3, 0x7f1104ea
 
     filled-new-array {v0, v1, v2, v3}, [I
 
@@ -1052,7 +1052,7 @@
     :goto_0
     if-nez v3, :cond_6
 
-    const v7, 0x7f1104e8
+    const v7, 0x7f1104e6
 
     invoke-virtual {p0, v7}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -1101,7 +1101,7 @@
     goto :goto_1
 
     :cond_7
-    const v7, 0x7f110704
+    const v7, 0x7f110702
 
     invoke-virtual {p0, v7}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 

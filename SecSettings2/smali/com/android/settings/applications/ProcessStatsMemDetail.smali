@@ -172,7 +172,7 @@
 
     iget-object v0, p0, Lcom/android/settings/applications/ProcessStatsMemDetail;->mRootView:Landroid/view/View;
 
-    const v1, 0x7f110598
+    const v1, 0x7f110596
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -184,7 +184,7 @@
 
     iget-object v0, p0, Lcom/android/settings/applications/ProcessStatsMemDetail;->mRootView:Landroid/view/View;
 
-    const v1, 0x7f110599
+    const v1, 0x7f110597
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -289,7 +289,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b16d6
+    const v4, 0x7f0b16d9
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -305,7 +305,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b16d9
+    const v4, 0x7f0b16dc
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -321,7 +321,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b16d7
+    const v4, 0x7f0b16da
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -359,7 +359,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b16d8
+    const v4, 0x7f0b16db
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -375,7 +375,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b16da
+    const v4, 0x7f0b16dd
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -391,7 +391,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b16db
+    const v4, 0x7f0b16de
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 

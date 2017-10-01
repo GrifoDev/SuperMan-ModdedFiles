@@ -147,7 +147,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f1104a1
+    const v6, 0x7f11049f
 
     invoke-virtual {v5, v6}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -180,7 +180,7 @@
 
     invoke-virtual {p1, v5}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    const v5, 0x7f1101dc
+    const v5, 0x7f1101db
 
     invoke-virtual {p1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -194,7 +194,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f02055e
+    const v6, 0x7f02055c
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -654,7 +654,7 @@
 
     invoke-super {p0, p1, p2}, Lcom/android/settings/OptionsMenuFragment;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
 
-    const v1, 0x7f1101e0
+    const v1, 0x7f1101df
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -664,7 +664,7 @@
 
     iput-object v1, p0, Lcom/android/settings/ConfirmDeviceCredentialBaseFragment;->mCancelButton:Landroid/widget/Button;
 
-    const v1, 0x7f1101e2
+    const v1, 0x7f1101e1
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -678,7 +678,7 @@
 
     iget-object v3, p0, Lcom/android/settings/ConfirmDeviceCredentialBaseFragment;->mFingerprintIcon:Landroid/widget/ImageView;
 
-    const v1, 0x7f1101e1
+    const v1, 0x7f1101e0
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -985,7 +985,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b11bb
+    const v5, 0x7f0b11be
 
     invoke-virtual {v4, v5}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -1033,7 +1033,7 @@
 
     aput-object v6, v5, v8
 
-    const v6, 0x7f0b11ba
+    const v6, 0x7f0b11bd
 
     invoke-virtual {v4, v6, v5}, Landroid/app/Activity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1053,13 +1053,13 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b11bf
+    const v5, 0x7f0b11c2
 
     invoke-virtual {v4, v5}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    const v4, 0x7f0b11c0
+    const v4, 0x7f0b11c3
 
     invoke-direct {p0, v6, v1, v4, v8}, Lcom/android/settings/ConfirmDeviceCredentialBaseFragment;->showDialog(Ljava/lang/String;Ljava/lang/String;IZ)V
 

@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">ಬೆಂಬಲ</string>
     <string name="reset_network_settings_list_summary">Wi-Fi, ಬ್ಲೂಟೂತ್ ಮತ್ತು ಇತರೆ ನೆಟ್‌ವರ್ಕ್ ಸಂಯೋಜನೆಗಳನ್ನು ಅವುಗಳ ಡೀಫಾಲ್ಟ್‌ಗಳಿಗೆ ಮರುಹೊಂದಿಸಿ.</string>
     <string name="master_clear_list_summary">ನಿಮ್ಮ ಸಾಧನವನ್ನು ಫ್ಯಾಕ್ಟರಿ ಡೀಫಾಲ್ಟ್ ಸಂಯೋಜನೆ‌ಗಳಿಗೆ ಮರುಹೊಂದಿಸಿ. ಫೈಲ್‌ಗಳು ಮತ್ತು ಡೌನ್‌ಲೋಡ್ ಮಾಡಿದ ಅನ್ವಯಿಸುವಿಕೆಗಳು ಸೇರಿದಂತೆ, ಇದು ಎಲ್ಲ ಡೇಟಾವನ್ನು ಅಳಿಸುತ್ತದೆ.</string>
-    <string name="auto_restart_summary">ನಿಮ್ಮ ಸಾಧನವನ್ನು ನಿಗದಿತ ಸಮಯಗಳಲ್ಲಿ ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಪುನಾರಂಭಿಸುವ ಮೂಲಕ ಆಪ್ಟಿಮೈಸ್ ಮಾಡಿ. ಸಾಧನವನ್ನು ಪುನಾರಂಭಿಸುವಾಗ ಯಾವುದೇ ಉಳಿಸದಿರುವ ಡೇಟಾವನ್ನು ಕಳೆದುಕೊಳ್ಳುವಿರಿ.</string>
+    <string name="auto_restart_summary">ವಾರಕ್ಕೊಮ್ಮೆ ಅದನ್ನು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಮರುಪ್ರಾರಂಭಿಸುವ ಮೂಲಕ ನಿಮ್ಮ ಫೋನ್ ಆಪ್ಟಿಮೈಜ್ ಮಾಡಿ. ನಿಮ್ಮ ಫೋನ್ ಮರುಪ್ರಾರಂಭಗೊಂಡಾಗ ಯಾವುದೇ ಉಳಿಸಿರದ ಡೇಟಾ ಕಳೆದುಹೋಗುತ್ತದೆ.</string>
     <string name="search_settings">ಹುಡುಕಿ</string>
     <string name="related_results">%d ಸಂಬಂಧಿತ ವಿಷಯಗಳು</string>
     <string name="no_results_found">ಯಾವುದೇ ಫಲಿತಾಂಶಗಳು ಕಂಡುಬಂದಿಲ್ಲ</string>
@@ -1485,6 +1485,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_verify_failed_summary">ನಿಮ್ಮ ಸಾಧನವನ್ನು ಮರುಪ್ರಾರಂಭಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ಸಮಗ್ರತೆ ಪರಿಶೀಲನೆಯು ವಿಫಲವಾಗಿದೆ. ನೀವು ಫ್ಯಾಕ್ಟರಿ ಡೀಫಾಲ್ಟ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳಿಗೆ ನಿಮ್ಮ ಸಾಧನವನ್ನು ಮರುಹೊಂದಿಸಬೇಕಾಗಿದೆ. ಇದು ನಿಮ್ಮ ಎಲ್ಲಾ ಡೇಟಾವನ್ನು ಅಳಿಸುತ್ತದೆ.</string>
     <string name="cryptkeeper_emergency_call">ತುರ್ತು ಕರೆ</string>
     <string name="cryptkeeper_return_to_call">ಕರೆಗೆ ವಾಪಸಾಗಿ</string>
+    <string name="cryptkeeper_default_enter_msg">ಭದ್ರತೆಗಾಗಿ ನಿಮ್ಮ ಫೋನ್ ಎನ್‍ಕ್ರಿಪ್ಟ್ ಮಾಡಲಾಗಿದೆ.</string>
     <string name="enter_password">ನಿಮ್ಮ ಸಾಧನವನ್ನು ಪ್ರಾರಂಭಿಸಲು, ನಿಮ್ಮ ಪಾಸ್‌ವರ್ಡ್ ನಮೂದಿಸಿ.</string>
     <string name="enter_pin">ನಿಮ್ಮ ಸಾಧನವನ್ನು ಪ್ರಾರಂಭಿಸಲು, ನಿಮ್ಮ PIN ನಮೂದಿಸಿ.</string>
     <string name="enter_pattern">ನಿಮ್ಮ ಸಾಧನವನ್ನು ಪ್ರಾರಂಭಿಸಲು, ನಿಮ್ಮ ನಮೂನೆಯನ್ನು ಚಿತ್ರಿಸಿ.</string>
@@ -1498,6 +1499,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_last_warn_wipe">ನಿಮ್ಮ ಸಾಧನವು ಡೀಫಾಲ್ಟ್ ಫ್ಯಾಕ್ಟರಿ ಸಂಯೋಜನೆಗಳಿಗೆ ಮರುಹೊಂದಿಸಲು 1 ಪ್ರಯತ್ನವನ್ನು ಮಾತ್ರ ಹೊಂದಿರುವಿರಿ. ಇದು ನಿಮ್ಮ ಫೈಲುಗಳು ಮತ್ತ ಡೌನ್ ಲೋಡ್ ಮಾಡಿದ ಅನ್ವಯಿಸುವಿಕೆಗಳನ್ನು ಒಳಗೊಂಡಿರುವಂತೆ ಎಲ್ಲಾ ಡೇಟಾವನ್ನು ಅಳಿಸುತ್ತದೆ.</string>
     <string name="crypt_keeper_failed_title_dec">ಡಿಕ್ರಿಪ್ಶನ್ ವಿಫಲವಾಗಿದೆ.</string>
     <string name="crypt_keeper_failed_summary_dec">ಅಡಚಣೆಯಿಂದಾಗಿ ಲಿಪ್ಯಂತರ ಪೂರ್ತಿಗೊಳಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ. ಬಳಕೆಗೂ ಮುನ್ನ ಫ್ಯಾಕ್ಟರಿ ಡೇಟಾ ರೀಸೆಟ್ (ಎಲ್ಲ ಡೇಟಾ ಅಳಿಸುವುದು) ನಡೆಸಿ.</string>
+    <string name="crypt_keeper_set_screen_lock_type">ಸ್ಕ್ರೀನ್ ಲಾಕ್ ವಿಧವನ್ನು ನಿಗದಿಪಡಿಸಿ</string>
     <string name="encryption_interstitial_message_kor">ನಿಮ್ಮ ಸಾಧನವನ್ನು ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಲಾಗಿದೆ. ಸಾಧನ ಪವರ್ ಆನ್ ಆಗಿರುವಾಗ ಡೇಟಾವನ್ನು ಡೀಕ್ರಿಪ್ಟ್ ಮಾಡಲು ಅಗತ್ಯ ಸ್ಕ್ರೀನ್ ಲಾಕ್ ಆಯ್ಕೆ ಮಾಡುವುದರ ಮೂಲಕ ನಿಮ್ಮ ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಿರುವ ಡೇಟಾವನ್ನು ಸಂರಕ್ಷಿಸಿ. ಇದು ಡೇಟಾ ಕಳೆದುಹೋದ ಇಲ್ಲವೇ ಕಳ್ಳತನವಾಗಿರುವ ಸಾಧನಗಳಲ್ಲಿ ಡೇಟಾವನ್ನು ಸಂರಕ್ಷಿಸಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ. ನೀವು ನಿಮ್ಮ ಸಾಧನವನ್ನು ಪವರ್ ಆನ್ ಮಾಡಿದಾಗಲೆಲ್ಲಾ ಅದರ ಡೇಟಾವನ್ನು ಡೀಕ್ರಿಪ್ಟ್ ಮಾಡಲು ಸಾಧನವನ್ನು ಅನ್‌ಲಾಕ್ ಮಾಡಬೇಕಾಗುತ್ತದೆ. ನಿಮ್ಮ ಸಾಧನವನ್ನು ಡೀಕ್ರಿಫ್ಟ್ ಮಾಡುವ ತನಕ ನೀವು ಯಾವುದೇ ಕರೆಗಳು, ಸಂದೇಶಗಳು ಅಥವಾ ಪ್ರಕಟಣೆಗಳನ್ನು ಸ್ವೀಕರಿಸುವುದಿಲ್ಲ.</string>
     <string name="encryption_interstitial_message_direction">"ಸಾಧನ ಪವರ್ ಆನ್ ಆಗಿರುವಾಗ “ಅಗತ್ಯ ನಿರ್ದೇಶನ ಲಾಕ್” ಆಯ್ಕೆ ಮಾಡುವ ಮೂಲಕ ನಿಮ್ಮ ಸಾಧನವನ್ನು ರಕ್ಷಿಸಿ. ಇದು ಕಳೆದುಹೋದ ಅಥವಾ ಕಳ್ಳತನವಾದ ಸಾಧನಗಳಲ್ಲಿರುವ ಡೇಟಾವನ್ನು ಸಂರಕ್ಷಿಸುತ್ತದೆ.
 
@@ -1737,6 +1739,8 @@ You will also need it when:"</string>
     <string name="empty_content_toast">ಉಳಿಸಲು ಒಳಾಂಶ ಇಲ್ಲ.</string>
     <string name="find_my_mobile_message_zero">"ನನ್ನ ಮೊಬೈಲ್ ಹುಡುಕಿ ವೆಬ್ ಸೇವೆಯನ್ನು ಬಳಸಿಕೊಂಡು ನಿಮ್ಮ ಸಾಧನವನ್ನು ದೂರಸ್ಥವಾಗಿ ಟ್ರ್ಯಾಕ್ ಮಾಡಿ ಮತ್ತು ನಿಯಂತ್ರಿಸಿ. ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ ಮತ್ತು ಬೇರೆ ಯಾವೆಲ್ಲಾ ಕಾರ್ಯಗಳು ಲಭ್ಯವಿವೆ ಎಂಬುದನ್ನು ನೋಡಲು, ಈ ಮುಂದಿನ ವೆಬ್‌ಸೈಟ್‌ಗೆ ಭೇಟಿ ನೀಡಿ:
 %s"</string>
+    <string name="send_last_location_title">ಹಿಂದಿನ ಸ್ಥಳವನ್ನು ಕಳುಹಿಸಿ</string>
+    <string name="send_last_location_summary">ಬ್ಯಾಟರಿಯು ನಿರ್ದಿಷ್ಟ ಮಟ್ಟಕ್ಕಿಂತ ಕೆಳಕ್ಕೆ ಕುಸಿದಾಗ ನನ್ನ ಮೊಬೈಲ್ ಸರ್ವರ್ ಹುಡುಕು ಅನ್ವಯಿಸುವಿಕೆ ತನ್ನ ಕೊನೆಯ ಸ್ಥಳವನ್ನು ಕಳುಹಿಸಲು ನಿಮ್ಮ ಫೋನ್‍ಗೆ ಅನುಮತಿಸಿ.</string>
     <string name="high_power_description">ಪ್ರತ್ಯೇಕ ಅನ್ವಯಿಸುವಿಕೆಗಳಿಗಾಗಿ ಬ್ಯಾಟರಿ ಬಳಕೆಯನ್ನು ಆಪ್ಟಿಮೈಸ್ ಮಾಡಿ ಶಕ್ತಗೊಳಿಸಿ. ಬ್ಯಾಟರಿ ಪವರ್ ಉಳಿಸುವ ನಿಟ್ಟಿನಲ್ಲಿ, ಮೊಬೈಲ್ ನೆಟ್‌ವರ್ಕ್‌ಗಳು ಅಥವಾ ಸಿಂಕ್ ಮಾಡಿರುವ ಡೇಟಾವನ್ನು ಬಳಸುವಂತಹ ಕೆಲವು ಕಾರ್ಯಗಳನ್ನು ನಿರ್ಬಂಧಿಸಲಾಗುತ್ತದೆ.</string>
     <string name="wifi_display_summary_off">ಆಫ್</string>
     <string name="battery_usage_description">ಸಾಧನವನ್ನು ಕೊನೆಯದಾಗಿ ಸಂಪೂರ್ಣ ಚಾರ್ಜ್ ಮಾಡಿದ ನಂತರದ ಬ್ಯಾಟರಿ ಬಳಕೆಯ ಡೇಟಾವನ್ನು ಈ ಸ್ಕ್ರೀನ್ ತೋರಿಸುತ್ತದೆ.</string>
@@ -1968,6 +1972,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">ಲಾಕ್ ಸ್ಕ್ರೀನ್‌ನಲ್ಲಿ ಯಾವ ಅನ್ವಯಿಸುವಿಕೆ ಶಾರ್ಟ್‌ಕಟ್‌ಗಳನ್ನು ಬಳಸಲು ಬಯಸುವಿರಿ ಎಂದು ಆಯ್ಕೆಮಾಡಿ.</string>
     <string name="lockscreen_notifications">ಲಾಕ್ ಸ್ಕ್ರೀನ್‌ನಲ್ಲಿ ಪ್ರಕಟಣೆಗಳು</string>
     <string name="work_profile_lockscreen_notifications">ಕಾರ್ಯ ಪ್ರೊಫೈಲ್ ಪ್ರಕಟಣೆಗಳು</string>
+    <string name="lock_network_and_security">ಲಾಕ್ ನೆಟ್‍ವರ್ಕ್ ಮತ್ತು ಸುರಕ್ಷತೆ</string>
+    <string name="lock_network_and_security_summary">ನಿಮ್ಮ ಫೋನ್ ಲಾಕ್ ಆಗಿರುವಾಗ ನೆಟ್‍‍ವರ್ಕ್ ಮತ್ತು ಭದ್ರತೆ ಸಂಬಂಧಿತ ಕಾರ್ಯಗಳನ್ನು ಲಾಕ್ ಆಗಿರುವಂತೆ ಇರಿಸಿ, ಹೀಗೆ ಮಾಡುವುದರಿಂದ ಅದು ಕಾಣೆಯಾದಾಗ ಅಥವಾ ಕಳೆದು ಹೋಗಿರುವಾಗ ಪತ್ತೆಹಚ್ಚಲು ಮತ್ತು ಸಂರಕ್ಷಿಸಲು ಸುಲಭವಾಗುತ್ತದೆ.</string>
     <string name="dualclock_settings_title">ಡ್ಯೂಯೆಲ್ ಗಡಿಯಾರ</string>
     <string name="dualclock_settings_summary">ರೋಮಿಂಗ್ ಮಾಡುತ್ತಿರುವಾಗ ಸ್ಥಳೀಯ ಮತ್ತು ಮನೆಯ ಸಮಯ ವಲಯಗಳನ್ನು ತೋರಿಸಿ.</string>
     <string name="set_home_city">ಸ್ಥಳೀಯ ಸಮಯ ವಲಯ ಹೊಂದಿಸಿ</string>
@@ -2153,7 +2159,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="air_browse_music_on_lock_screen_title">ಲಾಕ್ ಸ್ಕ್ರೀನ್ ಮೇಲೆ ಸಂಗೀತ</string>
     <string name="air_browse_music_on_lock_screen_summary">ಲಾಕ್‌ ಸ್ಕ್ರೀನ್‌ನಲ್ಲಿ ಸಂಗೀತದ ಟ್ರಾಕ್‌ಗಳನ್ನು ಬದಲಾಯಿಸಿ.</string>
     <string name="air_browse_note_summary">ವ್ಯೂ ಮೋಡ್‌ನಲ್ಲಿ ಇರುವಾಗ ಪುಟಗಳ ನಡುವೆ ಚಲಿಸಿ.</string>
-    <string name="data_usage_enable_mobile_summery">ಮೊಬೈಲ್ ಡೇಟಾ ಆಫ್ ಮಾಡಿದ್ದರೆ, ನೆಟ್‌ವರ್ಕ್ ಸಂಪರ್ಕದ ಅಗತ್ಯವಿರುವ ಸೇವೆಗಳನ್ನು ಬಳಸಲು, ನಿಮ್ಮ ಸಾಧನವನ್ನು Wi-Fi ನೆಟ್‌ವರ್ಕ್‌ಗೆ ಸಂಪರ್ಕಗೊಳಿಸಿರಬೇಕು.</string>
+    <string name="data_usage_enable_mobile_summery">ನಿಮ್ಮ ಮೊಬೈಲ್ ನೆಟ್‍ವರ್ಕ್ ಮೂಲಕ ಇಂಟರ್ನೆಟ್ ಪ್ರವೇಶಿಸಿ.</string>
     <string name="data_usage_enable_mobile_warning_skt">ನೆಟ್‌ವರ್ಕ್‌ಗಳನ್ನು ಸಂಪರ್ಕಿಸುವುದು, ನಿಮ್ಮ ಡೇಟಾ ಯೋಜನೆ ಆಧರಿಸಿ ಹೆಚ್ಚಿನ ಶುಲ್ಕಗಳಿಗೆ ಕಾರಣವಾಗಬಹುದು. ಮುಂದುವರಿಸುವುದೆ?</string>
     <string name="data_usage_enable_mobile_warning_ktt">ನೆಟ್‌ವರ್ಕ್‌ಗಳನ್ನು ಸಂಪರ್ಕಿಸುವುದು, ನಿಮ್ಮ ಡೇಟಾ ಯೋಜನೆ ಆಧರಿಸಿ ಹೆಚ್ಚಿನ ಶುಲ್ಕಗಳಿಗೆ ಕಾರಣವಾಗಬಹುದು. ಮುಂದುವರಿಸುವುದೆ?</string>
     <string name="data_usage_enable_mobile_warning_lgt">ನೆಟ್‌ವರ್ಕ್‌ಗಳನ್ನು ಸಂಪರ್ಕಿಸುವುದು, ನಿಮ್ಮ ಡೇಟಾ ಯೋಜನೆ ಆಧರಿಸಿ ಹೆಚ್ಚಿನ ಶುಲ್ಕಗಳಿಗೆ ಕಾರಣವಾಗಬಹುದು. ಮುಂದುವರಿಸುವುದೆ?</string>
@@ -2523,8 +2529,8 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="secure_folder_summary">ನಿಮ್ಮ ಭದ್ರತೆಯನ್ನು ವರ್ಧಿಸಲು ನಿಮ್ಮ ಗೌಪ್ಯತೆ ವಿಷಯ ಮತ್ತು ಅನ್ವಯಿಸುವಿಕೆಯನ್ನು ಲಾಕ್ ಮಾಡಿ.</string>
     <string name="text_biometrics_finger_title_enterprise">%2$s ಅನ್‍ಲಾಕ್ ಮಾಡಲು %1$s ಫಿಂಗರ್‌ಪ್ರಿಂಟ್‍ಗಳನ್ನು ಬೆಂಬಲಿಸುವುದಿಲ್ಲ.</string>
     <string name="edge_feeds_title">Edge ಫೀಡ್‌ಗಳು</string>
-    <string name="screensaver_settings_summary">ಸಾಧನ ಡಾಕ್ ಆಗಿರುವಾಗ ಮತ್ತು/ಆಥವಾ ಸ್ಕ್ರೀನ್ ಆಫ್ ಆಗಿರುವ ಸಂದರ್ಭದಲ್ಲಿ ಚಾರ್ಜಿಂಗ್ ಆಗುತ್ತಿರುವಾಗ ಏನಾಗುತ್ತದೆ ಎಂಬುದನ್ನು ನಿಯಂತ್ರಿಸಿ. ಈ ಕಾರ್ಯವನ್ನು ಡೇಡ್ರೀಮ್ ಎಂದೂ ಕರೆಯಲಾಗುತ್ತದೆ.</string>
-    <string name="screensaver_settings_summary_wo_dock">ಸಾಧನ ಚಾರ್ಜ್ ಆಗುವಾಗ ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಸ್ಕ್ರೀನ್ ಆಫ್ ಮಾಡಿದ ನಂತರ ಸ್ಕ್ರೀನ್‍ಸೇವರ್ ತೋರಿಸು.</string>
+    <string name="screensaver_settings_summary">ನಿಮ್ಮ ಫೋನ್ ಚಾರ್ಜ್ ಆಗುವಾಗ ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಸ್ಕ್ರೀನ್ ಆಫ್ ಮಾಡಿದ ನಂತರ ಸ್ಕ್ರೀನ್‍ಸೇವರ್ ತೋರಿಸು.</string>
+    <string name="screensaver_settings_summary_wo_dock">ನಿಮ್ಮ ಫೋನ್ ಡಾಕ್ ಅಥವಾ ಚಾರ್ಜ್ ಆಗುವಾಗ ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಸ್ಕ್ರೀನ್ ಆಫ್ ಮಾಡಿದ ನಂತರ ಸ್ಕ್ರೀನ್‍ಸೇವರ್ ತೋರಿಸು.</string>
     <string name="apn_already_exists">ಈಗಾಗಲೇ ಇದೆ.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">ಪೋರ್ಟ್ ಸಂಖ್ಯೆ %1$d ಮತ್ತು %2$d ನಡುವೆ ಇರಬೇಕು.</string>
@@ -3289,6 +3295,7 @@ Wi-Fi is now on."</string>
     <string name="wfd_connection_end_toast">Screen Mirroring ಸಂಪರ್ಕ ಮುಕ್ತಾಯಗೊಂಡಿದೆ.</string>
     <string name="wfd_descrpition_playvia">ವಿಷಯ ಪ್ಲೇ ಮಾಡಿ.</string>
     <string name="wfd_descrpition_mirroring">ಸ್ಕ್ರೀನ್ ಮಿರರ್ ಮಾಡಿ.</string>
+    <string name="wfd_descrpition_playsound">ದ್ವನಿ ಪ್ಲೇ ಮಾಡು.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">ಮಲ್ಟಿ ವಿಂಡೋ ನಿಶಕ್ತಗೊಳಿಸಲಾಗುವುದು ಮತ್ತು ಪಾಪ್-ಅಪ್ ವಿಂಡೋಗಳಲ್ಲಿ ತೆರೆದಿರುವ ಎಲ್ಲ ಅನ್ವಯಿಸುವಿಕೆಗಳನ್ನು ಮುಚ್ಚಲಾಗುವುದು.</string>
     <string name="keyguard_password_attempt_count_pin_code">%d ಪ್ರಯತ್ನ ಉಳಿದಿವೆ.</string>
@@ -4128,7 +4135,7 @@ Receiving SMS"</string>
     <string name="location_network_based">ವೈರ್‌ಲೆಸ್‌ ನೆಟ್‌ವರ್ಕ್‌ಗಳನ್ನು ಬಳಸಿ</string>
     <string name="location_neighborhood_level">ನಿಮ್ಮ ಸ್ಥಳವನ್ನು ತ್ವರಿತವಾಗಿ ಅಂದಾಜಿಸಲು ಗೂಗಲ್‌ನ ಸ್ಥಳದ ಸೇವೆಗಳನ್ನು ಬಳಕೆ ಮಾಡಲು ಆಪ್‌ಗಳಿಗೆ ಅನುಮತಿಸಿ. ಅನಾಮಧೇಯ ಸ್ಥಳ ಡೇಟಾವನ್ನು ಸಂಗ್ರಹಿಸಲಾಗುವುದು ಮತ್ತು ಗೂಗಲ್‌ಗೆ ಕಳುಹಿಸಲಾಗುವುದು.</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">ಸಾಧನದ ಬಗ್ಗೆ</string>
+    <string name="about_settings">ಫೋನ್ ಕುರಿತು</string>
     <string name="about_settings_vzw">ಸಾಧನ ಕುರಿತು</string>
     <string name="legal_information">ಕಾನೂನು ಮಾಹಿತಿ</string>
     <string name="regulatory_information">ನಿಯಮಾವಳಿ ಮಾಹಿತಿ</string>
@@ -4313,7 +4320,7 @@ Receiving SMS"</string>
     <string name="phone_language">ಭಾಷೆ</string>
     <string name="show_password">ಪಾಸ್‌ವರ್ಡ್‌ಗಳು ಗೋಚರವಾಗುವಂತೆ ಮಾಡಿ</string>
     <string name="show_password_summary">ನೀವು ಟೈಪ್ ಮಾಡುತ್ತಿರುವಂತೆಯೇ ಸಂಕ್ಷಿಪ್ತವಾಗಿ ಪಾಸ್‌ವರ್ಡ್‌ ಅಕ್ಷರಗಳನ್ನು ತೋರಿಸಿ.</string>
-    <string name="ime_security_warning">ಈ ಪದ್ಧತಿಯು ಪಾಸ್‌ವರ್ಡ್‌ಗಳನ್ನು ಹೊರತು ಪಡಿಸಿ, ವೈಯಕ್ತಿಕ ಡೇಟಾ ಮತ್ತು ಕ್ರೆಡಿಟ್ ಕಾರ್ಡ್ ಸಂಖ್ಯೆಗಳನ್ನು ಒಳಗೊಂಡಂತೆ ನೀವು ನಮೂದಿಸುವ ಎಲ್ಲ ಪಠ್ಯವನ್ನು ಸಂಗ್ರಹಿಸಬಹುದು. ಅನ್ವಯಿಸುವಿಕೆ %1$s ನಿಂದ ಇದು ಬರುತ್ತದೆ. ಹೇಗಿದ್ದರೂ ಬಳಸುವುದೆ?</string>
+    <string name="ime_security_warning">%s ಇದು ಪಾಸ್‌ವರ್ಡ್‌ಗಳು ಹಾಗೂ ಕ್ರೆಡಿಟ್ ಕಾರ್ಡ್ ಸಂಖ್ಯೆಗಳ ರೀತಿಯ ವೈಯಕ್ತಿಕ ಡೇಟಾ ಸೇರಿದಂತೆ, ನೀವು ಟೈಪ್ ಮಾಡುವ ಎಲ್ಲಾ ಪಠ್ಯವನ್ನು ಸಂಗ್ರಹಿಸಲು ಸಾಧ್ಯವಾಗಬಹುದು.</string>
     <string name="failed_to_open_app_settings_toast">%sಗೆ ಸಂಯೋಜನೆಗಳನ್ನು ತೆರೆಯಲು ವಿಫಲ.</string>
     <string name="keyboard_and_input_methods_category">ಕೀಬೋರ್ಡ್‌‌ಗಳು</string>
     <string name="virtual_keyboard_category">ವರ್ಚುವಲ್ ಕೀಬೋರ್ಡ್</string>

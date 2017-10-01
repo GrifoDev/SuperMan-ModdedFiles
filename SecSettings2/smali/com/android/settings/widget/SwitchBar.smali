@@ -179,7 +179,7 @@
 
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    const v6, 0x7f11067f
+    const v6, 0x7f11067d
 
     invoke-virtual {p0, v6}, Lcom/android/settings/widget/SwitchBar;->findViewById(I)Landroid/view/View;
 
@@ -199,7 +199,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b19d9
+    const v7, 0x7f0b19dc
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -229,7 +229,7 @@
 
     invoke-virtual {v2, v5}, Landroid/view/ViewGroup$MarginLayoutParams;->setMarginStart(I)V
 
-    const v6, 0x7f110680
+    const v6, 0x7f11067e
 
     invoke-virtual {p0, v6}, Lcom/android/settings/widget/SwitchBar;->findViewById(I)Landroid/view/View;
 
@@ -239,7 +239,7 @@
 
     iput-object v6, p0, Lcom/android/settings/widget/SwitchBar;->mSwitch:Lcom/android/settings/widget/ToggleSwitch;
 
-    const v6, 0x7f110681
+    const v6, 0x7f11067f
 
     invoke-virtual {p0, v6}, Lcom/android/settings/widget/SwitchBar;->findViewById(I)Landroid/view/View;
 
@@ -284,7 +284,7 @@
 
     invoke-virtual {p0, v6}, Lcom/android/settings/widget/SwitchBar;->addOnSwitchChangeListener(Lcom/android/settings/widget/SwitchBar$OnSwitchChangeListener;)V
 
-    const v6, 0x7f110458
+    const v6, 0x7f110456
 
     invoke-virtual {p0, v6}, Lcom/android/settings/widget/SwitchBar;->findViewById(I)Landroid/view/View;
 
@@ -931,7 +931,7 @@
 
     if-eqz p1, :cond_0
 
-    const v0, 0x7f0b19d8
+    const v0, 0x7f0b19db
 
     :goto_0
     invoke-virtual {v1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
@@ -945,7 +945,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f0b19d9
+    const v0, 0x7f0b19dc
 
     goto :goto_0
 .end method

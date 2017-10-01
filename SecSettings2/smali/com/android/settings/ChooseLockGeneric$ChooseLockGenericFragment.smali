@@ -610,7 +610,7 @@
     return-object v1
 
     :sswitch_0
-    const v2, 0x7f0b1191
+    const v2, 0x7f0b1194
 
     invoke-virtual {p0, v2}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getString(I)Ljava/lang/String;
 
@@ -619,7 +619,7 @@
     goto :goto_0
 
     :sswitch_1
-    const v2, 0x7f0b1193
+    const v2, 0x7f0b1196
 
     invoke-virtual {p0, v2}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getString(I)Ljava/lang/String;
 
@@ -628,7 +628,7 @@
     goto :goto_0
 
     :sswitch_2
-    const v2, 0x7f0b1195
+    const v2, 0x7f0b1198
 
     invoke-virtual {p0, v2}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getString(I)Ljava/lang/String;
 
@@ -1925,7 +1925,7 @@
 
     invoke-static {v2, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v2, 0x7f0b0674
+    const v2, 0x7f0b067c
 
     move-object/from16 v0, p0
 
@@ -1936,7 +1936,7 @@
     return-object v2
 
     :cond_2c
-    const v2, 0x7f0b0674
+    const v2, 0x7f0b067c
 
     move-object/from16 v0, p0
 
@@ -1981,7 +1981,7 @@
 
     if-eqz v1, :cond_0
 
-    const v2, 0x7f0b08ae
+    const v2, 0x7f0b08b8
 
     :goto_0
     return v2
@@ -1989,12 +1989,12 @@
     :cond_0
     if-eqz v0, :cond_1
 
-    const v2, 0x7f0b08ac
+    const v2, 0x7f0b08b6
 
     goto :goto_0
 
     :cond_1
-    const v2, 0x7f0b08ad
+    const v2, 0x7f0b08b7
 
     goto :goto_0
 .end method
@@ -2018,13 +2018,13 @@
 
     if-eqz v0, :cond_0
 
-    const v1, 0x7f0b11a5
+    const v1, 0x7f0b11a8
 
     :goto_0
     return v1
 
     :cond_0
-    const v1, 0x7f0b11a4
+    const v1, 0x7f0b11a7
 
     goto :goto_0
 .end method
@@ -2717,13 +2717,13 @@
 
     invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0b08af
+    const v2, 0x7f0b08b9
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v1
 
-    const v2, 0x7f0b08b0
+    const v2, 0x7f0b08ba
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -2975,11 +2975,11 @@
 .method private setLockTypeSummary(Landroid/preference/PreferenceScreen;)V
     .locals 12
 
-    const v11, 0x7f0b1191
+    const v11, 0x7f0b1194
 
-    const v10, 0x7f0b0825
+    const v10, 0x7f0b082d
 
-    const v9, 0x7f0b0edb
+    const v9, 0x7f0b0ee6
 
     const/4 v8, 0x0
 
@@ -3130,7 +3130,7 @@
 
     new-array v4, v7, [Ljava/lang/Object;
 
-    const v5, 0x7f0b1193
+    const v5, 0x7f0b1196
 
     invoke-virtual {p0, v5}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getString(I)Ljava/lang/String;
 
@@ -3147,7 +3147,7 @@
     goto :goto_1
 
     :cond_3
-    const v4, 0x7f0b1193
+    const v4, 0x7f0b1196
 
     invoke-virtual {p0, v4}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getString(I)Ljava/lang/String;
 
@@ -3191,7 +3191,7 @@
     :cond_4
     new-array v4, v7, [Ljava/lang/Object;
 
-    const v5, 0x7f0b1195
+    const v5, 0x7f0b1198
 
     invoke-virtual {p0, v5}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getString(I)Ljava/lang/String;
 
@@ -3229,7 +3229,7 @@
     goto/16 :goto_1
 
     :cond_6
-    const v4, 0x7f0b1195
+    const v4, 0x7f0b1198
 
     invoke-virtual {p0, v4}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getString(I)Ljava/lang/String;
 
@@ -3281,7 +3281,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0edc
+    const v1, 0x7f0b0ee7
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->setTitle(I)V
 
@@ -3766,7 +3766,7 @@
 
     new-array v1, v2, [Ljava/lang/Object;
 
-    const v2, 0x7f0b066d
+    const v2, 0x7f0b0675
 
     invoke-virtual {p0, v2}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getString(I)Ljava/lang/String;
 
@@ -3774,7 +3774,7 @@
 
     aput-object v2, v1, v11
 
-    const v2, 0x7f0b0681
+    const v2, 0x7f0b0689
 
     invoke-virtual {p0, v2, v1}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -3898,13 +3898,13 @@
 
     invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0b06ee
+    const v2, 0x7f0b06f6
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v1
 
-    const v2, 0x7f0b071a
+    const v2, 0x7f0b0722
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -3950,13 +3950,13 @@
 
     invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0b076d
+    const v2, 0x7f0b0775
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v1
 
-    const v2, 0x7f0b076e
+    const v2, 0x7f0b0776
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -3994,7 +3994,7 @@
 .method private showSensorErrorDialog(I)V
     .locals 4
 
-    const v1, 0x7f0b0674
+    const v1, 0x7f0b067c
 
     if-ne p1, v1, :cond_0
 
@@ -4010,7 +4010,7 @@
 
     if-eqz v1, :cond_0
 
-    const p1, 0x7f0b0675
+    const p1, 0x7f0b067d
 
     :cond_0
     new-instance v1, Landroid/app/AlertDialog$Builder;
@@ -4021,7 +4021,7 @@
 
     invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0b0672
+    const v2, 0x7f0b067a
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -4170,7 +4170,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v3, 0x7f0b0674
+    const v3, 0x7f0b067c
 
     invoke-direct {p0, v3}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->showSensorErrorDialog(I)V
 
@@ -4201,7 +4201,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b06e8
+    const v4, 0x7f0b06f0
 
     invoke-virtual {p0, v4}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getString(I)Ljava/lang/String;
 
@@ -4238,7 +4238,7 @@
 
     new-array v4, v5, [Ljava/lang/Object;
 
-    const v5, 0x7f0b066d
+    const v5, 0x7f0b0675
 
     invoke-virtual {p0, v5}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getString(I)Ljava/lang/String;
 
@@ -4246,7 +4246,7 @@
 
     aput-object v5, v4, v6
 
-    const v5, 0x7f0b0681
+    const v5, 0x7f0b0689
 
     invoke-virtual {p0, v5, v4}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -4512,7 +4512,7 @@
 
     move-result-object v22
 
-    const v23, 0x7f0b0edd
+    const v23, 0x7f0b0ee8
 
     invoke-virtual/range {v22 .. v23}, Landroid/app/Activity;->setTitle(I)V
 
@@ -4788,7 +4788,7 @@
     :cond_8
     if-eqz v14, :cond_9
 
-    const v22, 0x7f0b0ede
+    const v22, 0x7f0b0ee9
 
     move-object/from16 v0, p0
 
@@ -4906,7 +4906,7 @@
 
     invoke-virtual {v0, v1}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
 
-    const v22, 0x7f0b119c
+    const v22, 0x7f0b119f
 
     move-object/from16 v0, v19
 
@@ -5013,7 +5013,7 @@
 
     move-result-object v11
 
-    const v22, 0x7f0b0ac5
+    const v22, 0x7f0b0acf
 
     move-object/from16 v0, p0
 
@@ -5031,7 +5031,7 @@
 
     move-object/from16 v23, v0
 
-    const v24, 0x7f0b0825
+    const v24, 0x7f0b082d
 
     move-object/from16 v0, p0
 
@@ -5209,7 +5209,7 @@
 
     invoke-virtual {v0, v1}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
 
-    const v22, 0x7f0b119c
+    const v22, 0x7f0b119f
 
     move-object/from16 v0, v19
 
@@ -5288,7 +5288,7 @@
 
     if-eqz v22, :cond_1c
 
-    const v22, 0x7f0b0ac6
+    const v22, 0x7f0b0ad0
 
     move-object/from16 v0, p0
 
@@ -5306,7 +5306,7 @@
 
     move-object/from16 v23, v0
 
-    const v24, 0x7f0b0825
+    const v24, 0x7f0b082d
 
     move-object/from16 v0, p0
 
@@ -5379,7 +5379,7 @@
 
     if-eqz v22, :cond_19
 
-    const v22, 0x7f0b0ac7
+    const v22, 0x7f0b0ad1
 
     move-object/from16 v0, p0
 
@@ -5397,7 +5397,7 @@
 
     move-object/from16 v23, v0
 
-    const v24, 0x7f0b0825
+    const v24, 0x7f0b082d
 
     move-object/from16 v0, p0
 
@@ -6076,7 +6076,7 @@
 
     if-eqz v43, :cond_1f
 
-    const v43, 0x7f0b077b
+    const v43, 0x7f0b0783
 
     move-object/from16 v0, v41
 
@@ -6177,7 +6177,7 @@
 
     if-eqz v43, :cond_21
 
-    const v43, 0x7f0b077b
+    const v43, 0x7f0b0783
 
     move-object/from16 v0, v41
 
@@ -8740,7 +8740,7 @@
     invoke-virtual/range {v19 .. v20}, Lcom/samsung/android/settingslib/RestrictedPreference;->setDisabledByAdmin(Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)V
 
     :cond_3c
-    const v19, 0x7f0b119c
+    const v19, 0x7f0b119f
 
     move-object/from16 v0, v16
 
@@ -8796,7 +8796,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b18a7
+    const v0, 0x7f0b18aa
 
     return v0
 .end method
@@ -11157,191 +11157,193 @@
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 14
-
-    const/16 v13, 0x64
-
-    const/4 v12, 0x0
-
-    const/4 v8, 0x1
-
-    const/4 v7, 0x0
+    .locals 12
 
     invoke-super {p0, p1}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
     invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v6
+    move-result-object v8
 
     const-string/jumbo v9, "fingerprint"
 
-    invoke-virtual {v6, v9}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v8, v9}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v8
 
-    check-cast v6, Landroid/hardware/fingerprint/FingerprintManager;
+    check-cast v8, Landroid/hardware/fingerprint/FingerprintManager;
 
-    iput-object v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mFingerprintManager:Landroid/hardware/fingerprint/FingerprintManager;
+    iput-object v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mFingerprintManager:Landroid/hardware/fingerprint/FingerprintManager;
 
     invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v6
+    move-result-object v8
 
-    invoke-static {v6}, Lcom/samsung/android/camera/iris/SemIrisManager;->getSemIrisManager(Landroid/content/Context;)Lcom/samsung/android/camera/iris/SemIrisManager;
+    invoke-static {v8}, Lcom/samsung/android/camera/iris/SemIrisManager;->getSemIrisManager(Landroid/content/Context;)Lcom/samsung/android/camera/iris/SemIrisManager;
 
-    move-result-object v6
+    move-result-object v8
 
-    iput-object v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mIrisManager:Lcom/samsung/android/camera/iris/SemIrisManager;
+    iput-object v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mIrisManager:Lcom/samsung/android/camera/iris/SemIrisManager;
 
-    const-string/jumbo v6, "device_policy"
+    const-string/jumbo v8, "device_policy"
 
-    invoke-virtual {p0, v6}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v8}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v8
 
-    check-cast v6, Landroid/app/admin/DevicePolicyManager;
+    check-cast v8, Landroid/app/admin/DevicePolicyManager;
 
-    iput-object v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
+    iput-object v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
 
     invoke-static {}, Landroid/security/KeyStore;->getInstance()Landroid/security/KeyStore;
 
-    move-result-object v6
+    move-result-object v8
 
-    iput-object v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mKeyStore:Landroid/security/KeyStore;
+    iput-object v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mKeyStore:Landroid/security/KeyStore;
 
-    new-instance v6, Lcom/android/settings/ChooseLockSettingsHelper;
-
-    invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
-
-    move-result-object v9
-
-    invoke-direct {v6, v9}, Lcom/android/settings/ChooseLockSettingsHelper;-><init>(Landroid/app/Activity;)V
-
-    iput-object v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mChooseLockSettingsHelper:Lcom/android/settings/ChooseLockSettingsHelper;
-
-    new-instance v6, Lcom/android/internal/widget/LockPatternUtils;
+    new-instance v8, Lcom/android/settings/ChooseLockSettingsHelper;
 
     invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v9
 
-    invoke-direct {v6, v9}, Lcom/android/internal/widget/LockPatternUtils;-><init>(Landroid/content/Context;)V
+    invoke-direct {v8, v9}, Lcom/android/settings/ChooseLockSettingsHelper;-><init>(Landroid/app/Activity;)V
 
-    iput-object v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+    iput-object v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mChooseLockSettingsHelper:Lcom/android/settings/ChooseLockSettingsHelper;
+
+    new-instance v8, Lcom/android/internal/widget/LockPatternUtils;
 
     invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v6
+    move-result-object v9
 
-    invoke-virtual {v6}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+    invoke-direct {v8, v9}, Lcom/android/internal/widget/LockPatternUtils;-><init>(Landroid/content/Context;)V
 
-    move-result-object v6
+    iput-object v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+
+    move-result-object v8
 
     const-string/jumbo v9, "confirm_credentials"
 
-    invoke-virtual {v6, v9, v8}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    const/4 v10, 0x1
 
-    move-result v1
+    invoke-virtual {v8, v9, v10}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+
+    move-result v2
 
     invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v6
+    move-result-object v8
 
-    instance-of v6, v6, Lcom/android/settings/ChooseLockGeneric$InternalActivity;
+    instance-of v8, v8, Lcom/android/settings/ChooseLockGeneric$InternalActivity;
 
-    if-eqz v6, :cond_0
+    if-eqz v8, :cond_0
 
-    if-eqz v1, :cond_9
+    if-eqz v2, :cond_b
 
-    move v6, v7
+    const/4 v8, 0x0
 
     :goto_0
-    iput-boolean v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mPasswordConfirmed:Z
+    iput-boolean v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mPasswordConfirmed:Z
 
     :cond_0
     invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v6
+    move-result-object v8
 
-    invoke-virtual {v6}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+    invoke-virtual {v8}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
-    move-result-object v6
+    move-result-object v8
 
     const-string/jumbo v9, ":settings:hide_drawer"
 
-    invoke-virtual {v6, v9, v7}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    const/4 v10, 0x0
 
-    move-result v6
+    invoke-virtual {v8, v9, v10}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
-    iput-boolean v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mHideDrawer:Z
+    move-result v8
+
+    iput-boolean v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mHideDrawer:Z
 
     invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v6
+    move-result-object v8
 
-    invoke-virtual {v6}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+    invoke-virtual {v8}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
-    move-result-object v6
+    move-result-object v8
 
     const-string/jumbo v9, "has_challenge"
 
-    invoke-virtual {v6, v9, v7}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    const/4 v10, 0x0
 
-    move-result v6
+    invoke-virtual {v8, v9, v10}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
-    iput-boolean v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mHasChallenge:Z
+    move-result v8
+
+    iput-boolean v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mHasChallenge:Z
 
     invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v6
+    move-result-object v8
 
-    invoke-virtual {v6}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+    invoke-virtual {v8}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
-    move-result-object v6
+    move-result-object v8
 
     const-string/jumbo v9, "challenge"
 
     const-wide/16 v10, 0x0
 
-    invoke-virtual {v6, v9, v10, v11}, Landroid/content/Intent;->getLongExtra(Ljava/lang/String;J)J
+    invoke-virtual {v8, v9, v10, v11}, Landroid/content/Intent;->getLongExtra(Ljava/lang/String;J)J
 
-    move-result-wide v10
+    move-result-wide v8
 
-    iput-wide v10, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mChallenge:J
+    iput-wide v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mChallenge:J
 
     invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v6
+    move-result-object v8
 
-    invoke-virtual {v6}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+    invoke-virtual {v8}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
-    move-result-object v6
+    move-result-object v8
 
     const-string/jumbo v9, "for_fingerprint"
 
-    invoke-virtual {v6, v9, v7}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    const/4 v10, 0x0
 
-    move-result v6
+    invoke-virtual {v8, v9, v10}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
-    iput-boolean v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mForFingerprint:Z
+    move-result v8
+
+    iput-boolean v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mForFingerprint:Z
 
     invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v6
+    move-result-object v8
 
-    invoke-virtual {v6}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+    invoke-virtual {v8}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
-    move-result-object v6
+    move-result-object v8
 
     const-string/jumbo v9, "isFromKnoxSetDigitalLock"
 
-    invoke-virtual {v6, v9, v7}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    const/4 v10, 0x0
 
-    move-result v6
+    invoke-virtual {v8, v9, v10}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
-    iput-boolean v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mFromKnoxSetDigitalLock:Z
+    move-result v8
 
-    const-string/jumbo v6, "ChooseLockGenericFragment"
+    iput-boolean v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mFromKnoxSetDigitalLock:Z
+
+    const-string/jumbo v8, "ChooseLockGenericFragment"
 
     new-instance v9, Ljava/lang/StringBuilder;
 
@@ -11363,376 +11365,456 @@
 
     move-result-object v9
 
-    invoke-static {v6, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v6
+    move-result-object v8
 
-    invoke-virtual {v6}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+    invoke-virtual {v8}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
-    move-result-object v6
+    move-result-object v8
 
     const-string/jumbo v9, "for_iris"
 
-    invoke-virtual {v6, v9, v7}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    const/4 v10, 0x0
 
-    move-result v6
+    invoke-virtual {v8, v9, v10}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
-    iput-boolean v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mForIris:Z
+    move-result v8
 
-    invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getArguments()Landroid/os/Bundle;
-
-    move-result-object v6
-
-    if-eqz v6, :cond_a
+    iput-boolean v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mForIris:Z
 
     invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getArguments()Landroid/os/Bundle;
 
-    move-result-object v6
+    move-result-object v8
+
+    if-eqz v8, :cond_c
+
+    invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getArguments()Landroid/os/Bundle;
+
+    move-result-object v8
 
     const-string/jumbo v9, "for_cred_req_boot"
 
-    invoke-virtual {v6, v9}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+    invoke-virtual {v8, v9}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
-    move-result v6
+    move-result v8
 
     :goto_1
-    iput-boolean v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mForChangeCredRequiredForBoot:Z
+    iput-boolean v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mForChangeCredRequiredForBoot:Z
 
     invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v6
+    move-result-object v8
 
-    invoke-virtual {v6}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+    invoke-virtual {v8}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
-    move-result-object v6
+    move-result-object v8
 
     const-string/jumbo v9, "forPrivateBackupKey"
 
-    invoke-virtual {v6, v9, v7}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    const/4 v10, 0x0
 
-    move-result v6
+    invoke-virtual {v8, v9, v10}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
-    iput-boolean v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mForPrivateModeBackupKey:Z
+    move-result v8
+
+    iput-boolean v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mForPrivateModeBackupKey:Z
 
     invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v6
+    move-result-object v8
 
-    invoke-virtual {v6}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+    invoke-virtual {v8}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
-    move-result-object v6
+    move-result-object v8
 
     const-string/jumbo v9, "forAppLockBackupKey"
 
-    invoke-virtual {v6, v9}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v8, v9}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v8
 
-    iput-object v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mAppLockBackupKey:Ljava/lang/String;
+    iput-object v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mAppLockBackupKey:Ljava/lang/String;
 
-    iget-object v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mAppLockBackupKey:Ljava/lang/String;
+    iget-object v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mAppLockBackupKey:Ljava/lang/String;
 
-    if-eqz v6, :cond_b
+    if-eqz v8, :cond_d
 
-    move v6, v8
+    const/4 v8, 0x1
 
     :goto_2
-    iput-boolean v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mForAppLockBackupKey:Z
+    iput-boolean v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mForAppLockBackupKey:Z
 
     invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v6
+    move-result-object v8
 
-    invoke-virtual {v6}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+    invoke-virtual {v8}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
-    move-result-object v6
+    move-result-object v8
 
     const-string/jumbo v9, "fromKnoxKeyguard"
 
-    invoke-virtual {v6, v9, v7}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    const/4 v10, 0x0
 
-    move-result v6
+    invoke-virtual {v8, v9, v10}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
-    iput-boolean v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mIsEnforcedMultifactorNReset:Z
+    move-result v8
+
+    iput-boolean v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mIsEnforcedMultifactorNReset:Z
 
     invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v6
+    move-result-object v8
 
-    invoke-virtual {v6}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+    invoke-virtual {v8}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
-    move-result-object v6
+    move-result-object v8
 
     const-string/jumbo v9, "fromChinaSUW"
 
-    invoke-virtual {v6, v9, v7}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    const/4 v10, 0x0
 
-    move-result v6
+    invoke-virtual {v8, v9, v10}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
-    iput-boolean v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->fromChinaSUW:Z
+    move-result v8
 
-    sget-object v6, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_2_7_0:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
+    iput-boolean v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->fromChinaSUW:Z
 
-    invoke-static {v6}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxVersionSupported(Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;)Z
+    sget-object v8, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_2_7_0:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
-    move-result v6
+    invoke-static {v8}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxVersionSupported(Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;)Z
 
-    iput-boolean v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mIsKnoxVersion270Supported:Z
+    move-result v8
+
+    iput-boolean v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mIsKnoxVersion270Supported:Z
 
     invoke-direct {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->skipBiometricsAuthentication()Z
 
-    move-result v6
+    move-result v8
 
-    iput-boolean v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mIdentifyBiometrics:Z
+    iput-boolean v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mIdentifyBiometrics:Z
 
-    iget-object v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+    iget-object v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
     invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
 
     move-result v9
 
-    invoke-virtual {v6, v9}, Lcom/android/internal/widget/LockPatternUtils;->isSecure(I)Z
+    invoke-virtual {v8, v9}, Lcom/android/internal/widget/LockPatternUtils;->isSecure(I)Z
 
-    move-result v6
+    move-result v8
 
-    iput-boolean v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mWasSecureBefore:Z
+    iput-boolean v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mWasSecureBefore:Z
 
-    iget-boolean v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mForFingerprint:Z
+    const/4 v1, 0x0
 
-    if-eqz v6, :cond_1
+    :try_start_0
+    invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
 
-    if-eqz v1, :cond_c
+    move-result-object v8
 
-    move v6, v7
+    invoke-virtual {v8}, Landroid/app/Activity;->getCallingActivity()Landroid/content/ComponentName;
 
-    :goto_3
-    iput-boolean v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mPasswordConfirmed:Z
+    move-result-object v8
 
-    if-eqz v1, :cond_d
+    invoke-virtual {v8}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
-    move v6, v7
+    move-result-object v1
 
-    :goto_4
-    iput-boolean v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mIdentifyBiometrics:Z
+    const-string/jumbo v8, "ChooseLockGenericFragment"
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v10, "name : "
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
 
     invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v6
+    move-result-object v10
 
-    invoke-virtual {v6}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+    invoke-virtual {v10}, Landroid/app/Activity;->getCallingActivity()Landroid/content/ComponentName;
 
-    move-result-object v6
+    move-result-object v10
+
+    invoke-virtual {v10}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_3
+    iget-boolean v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mForFingerprint:Z
+
+    if-nez v8, :cond_1
+
+    iget-boolean v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mForIris:Z
+
+    if-nez v8, :cond_1
+
+    iget-boolean v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mForPrivateModeBackupKey:Z
+
+    if-nez v8, :cond_1
+
+    iget-boolean v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mForAppLockBackupKey:Z
+
+    if-eqz v8, :cond_2
+
+    :cond_1
+    const-string/jumbo v8, "com.android.settings"
+
+    invoke-virtual {v8, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_2
+
+    if-eqz v2, :cond_e
+
+    const/4 v8, 0x0
+
+    :goto_4
+    iput-boolean v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mPasswordConfirmed:Z
+
+    if-eqz v2, :cond_f
+
+    const/4 v8, 0x0
+
+    :goto_5
+    iput-boolean v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mIdentifyBiometrics:Z
+
+    :cond_2
+    iget-boolean v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mForFingerprint:Z
+
+    if-eqz v8, :cond_3
+
+    invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+
+    move-result-object v8
 
     const-string/jumbo v9, "password"
 
-    invoke-virtual {v6, v9}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v8, v9}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v8
 
-    iput-object v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mUserPassword:Ljava/lang/String;
+    iput-object v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mUserPassword:Ljava/lang/String;
 
     invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v6
+    move-result-object v8
 
-    invoke-virtual {v6}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+    invoke-virtual {v8}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
-    move-result-object v6
+    move-result-object v8
 
     const-string/jumbo v9, "disable_systemkey"
 
-    invoke-virtual {v6, v9, v7}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    const/4 v10, 0x0
 
-    move-result v6
+    invoke-virtual {v8, v9, v10}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
-    iput-boolean v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mDisableSystemKey:Z
+    move-result v8
+
+    iput-boolean v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mDisableSystemKey:Z
 
     invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v6
+    move-result-object v8
 
-    const v9, 0x7f0b06ee
+    const v9, 0x7f0b06f6
 
-    invoke-virtual {v6, v9}, Landroid/app/Activity;->setTitle(I)V
+    invoke-virtual {v8, v9}, Landroid/app/Activity;->setTitle(I)V
 
     invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
-    move-result v6
+    move-result v8
 
-    if-lt v6, v13, :cond_1
+    const/16 v9, 0x64
 
-    iget-object v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mFingerprintManager:Landroid/hardware/fingerprint/FingerprintManager;
+    if-lt v8, v9, :cond_3
 
-    if-eqz v6, :cond_1
+    iget-object v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mFingerprintManager:Landroid/hardware/fingerprint/FingerprintManager;
 
-    iget-object v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mFingerprintManager:Landroid/hardware/fingerprint/FingerprintManager;
+    if-eqz v8, :cond_3
 
-    invoke-virtual {v6}, Landroid/hardware/fingerprint/FingerprintManager;->hasEnrolledFingerprints()Z
+    iget-object v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mFingerprintManager:Landroid/hardware/fingerprint/FingerprintManager;
 
-    move-result v6
+    invoke-virtual {v8}, Landroid/hardware/fingerprint/FingerprintManager;->hasEnrolledFingerprints()Z
 
-    if-eqz v6, :cond_e
+    move-result v8
 
-    :cond_1
-    :goto_5
-    iget-boolean v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mForIris:Z
+    if-eqz v8, :cond_10
 
-    if-eqz v6, :cond_2
-
-    if-eqz v1, :cond_f
-
-    move v6, v7
-
+    :cond_3
     :goto_6
-    iput-boolean v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mPasswordConfirmed:Z
+    iget-boolean v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mForIris:Z
 
-    if-eqz v1, :cond_10
-
-    move v6, v7
-
-    :goto_7
-    iput-boolean v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mIdentifyBiometrics:Z
+    if-eqz v8, :cond_4
 
     invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
-    move-result v6
+    move-result v8
 
-    if-lt v6, v13, :cond_2
+    const/16 v9, 0x64
 
-    iget-boolean v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mIsKnoxVersion270Supported:Z
+    if-lt v8, v9, :cond_4
 
-    if-eqz v6, :cond_2
+    iget-boolean v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mIsKnoxVersion270Supported:Z
+
+    if-eqz v8, :cond_4
 
     invoke-static {}, Lcom/android/settings/Utils;->isSupportIris()Z
 
-    move-result v6
+    move-result v8
 
-    if-eqz v6, :cond_2
+    if-eqz v8, :cond_4
 
     invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v6
+    move-result-object v8
 
-    const v9, 0x7f0b076d
+    const v9, 0x7f0b0775
 
-    invoke-virtual {v6, v9}, Landroid/app/Activity;->setTitle(I)V
-
-    :cond_2
-    if-eqz p1, :cond_3
-
-    const-string/jumbo v6, "password_confirmed"
-
-    invoke-virtual {p1, v6}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
-
-    move-result v6
-
-    iput-boolean v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mPasswordConfirmed:Z
-
-    const-string/jumbo v6, "waiting_for_confirmation"
-
-    invoke-virtual {p1, v6}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
-
-    move-result v6
-
-    iput-boolean v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mWaitingForConfirmation:Z
-
-    const-string/jumbo v6, "encrypt_requested_quality"
-
-    invoke-virtual {p1, v6}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
-
-    move-result v6
-
-    iput v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mEncryptionRequestQuality:I
-
-    const-string/jumbo v6, "encrypt_requested_disabled"
-
-    invoke-virtual {p1, v6}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
-
-    move-result v6
-
-    iput-boolean v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mEncryptionRequestDisabled:Z
-
-    :cond_3
-    iget-boolean v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mForPrivateModeBackupKey:Z
-
-    if-nez v6, :cond_4
-
-    iget-boolean v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mForAppLockBackupKey:Z
-
-    if-eqz v6, :cond_5
+    invoke-virtual {v8, v9}, Landroid/app/Activity;->setTitle(I)V
 
     :cond_4
+    if-eqz p1, :cond_5
+
+    const-string/jumbo v8, "password_confirmed"
+
+    invoke-virtual {p1, v8}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+
+    move-result v8
+
     iput-boolean v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mPasswordConfirmed:Z
 
-    iput-boolean v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mIdentifyBiometrics:Z
+    const-string/jumbo v8, "waiting_for_confirmation"
 
-    const v6, 0x7f0b0a0a
+    invoke-virtual {p1, v8}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
-    invoke-virtual {p0, v6}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getText(I)Ljava/lang/CharSequence;
+    move-result v8
 
-    move-result-object v4
+    iput-boolean v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mWaitingForConfirmation:Z
 
-    invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
+    const-string/jumbo v8, "encrypt_requested_quality"
+
+    invoke-virtual {p1, v8}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
+
+    move-result v8
+
+    iput v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mEncryptionRequestQuality:I
+
+    const-string/jumbo v8, "encrypt_requested_disabled"
+
+    invoke-virtual {p1, v8}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+
+    move-result v8
+
+    iput-boolean v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mEncryptionRequestDisabled:Z
+
+    :cond_5
+    iget-boolean v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mForPrivateModeBackupKey:Z
+
+    if-nez v8, :cond_6
+
+    iget-boolean v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mForAppLockBackupKey:Z
+
+    if-eqz v8, :cond_7
+
+    :cond_6
+    const v8, 0x7f0b0a14
+
+    invoke-virtual {p0, v8}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v6
 
-    invoke-virtual {v6, v4}, Landroid/app/Activity;->setTitle(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
 
-    :cond_5
-    if-eqz p1, :cond_6
+    move-result-object v8
+
+    invoke-virtual {v8, v6}, Landroid/app/Activity;->setTitle(Ljava/lang/CharSequence;)V
+
+    :cond_7
+    if-eqz p1, :cond_8
 
     invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
-    move-result v6
+    move-result v8
 
-    if-lt v6, v13, :cond_6
+    const/16 v9, 0x64
 
-    const-string/jumbo v6, "KEY_USING_TWO_FACTOR"
+    if-lt v8, v9, :cond_8
 
-    invoke-virtual {p1, v6, v7}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
+    const-string/jumbo v8, "KEY_USING_TWO_FACTOR"
 
-    move-result v6
+    const/4 v9, 0x0
 
-    sput-boolean v6, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->usingTwoFactor:Z
+    invoke-virtual {p1, v8, v9}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
 
-    const-string/jumbo v6, "KEY_SELECTED_TWO_FACTOR_TYPE"
+    move-result v8
+
+    sput-boolean v8, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->usingTwoFactor:Z
+
+    const-string/jumbo v8, "KEY_SELECTED_TWO_FACTOR_TYPE"
 
     const/4 v9, -0x1
 
-    invoke-virtual {p1, v6, v9}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+    invoke-virtual {p1, v8, v9}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 
-    move-result v6
+    move-result v8
 
-    sput v6, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->selectedTwoFactorType:I
+    sput v8, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->selectedTwoFactorType:I
 
-    const-string/jumbo v6, "KEY_SELECTED_KNOX_SCREEN"
+    const-string/jumbo v8, "KEY_SELECTED_KNOX_SCREEN"
 
-    invoke-virtual {p1, v6, v7}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
+    const/4 v9, 0x0
 
-    move-result v6
+    invoke-virtual {p1, v8, v9}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
 
-    iput-boolean v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mSelectedKnoxScreen:Z
+    move-result v8
 
-    :cond_6
-    const-string/jumbo v6, "persona"
+    iput-boolean v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mSelectedKnoxScreen:Z
 
-    invoke-virtual {p0, v6}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    :cond_8
+    const-string/jumbo v8, "persona"
 
-    move-result-object v6
+    invoke-virtual {p0, v8}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    check-cast v6, Lcom/samsung/android/knox/SemPersonaManager;
+    move-result-object v8
 
-    sput-object v6, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mPm:Lcom/samsung/android/knox/SemPersonaManager;
+    check-cast v8, Lcom/samsung/android/knox/SemPersonaManager;
+
+    sput-object v8, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mPm:Lcom/samsung/android/knox/SemPersonaManager;
 
     invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v6
+    move-result-object v8
 
-    invoke-virtual {v6}, Landroid/app/Activity;->getActivityToken()Landroid/os/IBinder;
+    invoke-virtual {v8}, Landroid/app/Activity;->getActivityToken()Landroid/os/IBinder;
 
-    move-result-object v6
+    move-result-object v8
 
     invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
 
@@ -11754,15 +11836,17 @@
 
     move-result-object v10
 
-    invoke-static {v6, v9, v12, v10}, Lcom/android/settings/Utils;->getSecureTargetUser(Landroid/os/IBinder;Landroid/os/UserManager;Landroid/os/Bundle;Landroid/os/Bundle;)Landroid/os/UserHandle;
+    const/4 v11, 0x0
 
-    move-result-object v6
+    invoke-static {v8, v9, v11, v10}, Lcom/android/settings/Utils;->getSecureTargetUser(Landroid/os/IBinder;Landroid/os/UserManager;Landroid/os/Bundle;Landroid/os/Bundle;)Landroid/os/UserHandle;
 
-    invoke-virtual {v6}, Landroid/os/UserHandle;->getIdentifier()I
+    move-result-object v8
 
-    move-result v5
+    invoke-virtual {v8}, Landroid/os/UserHandle;->getIdentifier()I
 
-    const-string/jumbo v6, "android.app.action.SET_NEW_PARENT_PROFILE_PASSWORD"
+    move-result v7
+
+    const-string/jumbo v8, "android.app.action.SET_NEW_PARENT_PROFILE_PASSWORD"
 
     invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
 
@@ -11776,157 +11860,156 @@
 
     move-result-object v9
 
-    invoke-virtual {v6, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v8
 
-    if-nez v6, :cond_11
+    if-nez v8, :cond_11
 
-    iget-object v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+    iget-object v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
-    invoke-virtual {v6, v5}, Lcom/android/internal/widget/LockPatternUtils;->isSeparateProfileChallengeAllowed(I)Z
+    invoke-virtual {v8, v7}, Lcom/android/internal/widget/LockPatternUtils;->isSeparateProfileChallengeAllowed(I)Z
 
-    move-result v6
+    move-result v8
 
-    if-eqz v6, :cond_11
+    if-eqz v8, :cond_11
 
-    sput v5, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mUserId:I
+    sput v7, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mUserId:I
 
+    :goto_7
+    const-string/jumbo v8, "android.app.action.SET_NEW_PASSWORD"
+
+    invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_9
+
+    invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v8
+
+    invoke-static {v8}, Landroid/os/UserManager;->get(Landroid/content/Context;)Landroid/os/UserManager;
+
+    move-result-object v8
+
+    sget v9, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mUserId:I
+
+    invoke-static {v8, v9}, Lcom/android/settings/Utils;->isManagedProfile(Landroid/os/UserManager;I)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_9
+
+    iget-object v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    sget v9, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mUserId:I
+
+    invoke-virtual {v8, v9}, Lcom/android/internal/widget/LockPatternUtils;->isSeparateProfileChallengeEnabled(I)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_9
+
+    invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v8
+
+    const v9, 0x7f0b1186
+
+    invoke-virtual {v8, v9}, Landroid/app/Activity;->setTitle(I)V
+
+    :cond_9
+    invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v8
+
+    sget v9, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mUserId:I
+
+    invoke-static {v8, v9}, Lcom/android/settings/ManagedLockPasswordProvider;->get(Landroid/content/Context;I)Lcom/android/settings/ManagedLockPasswordProvider;
+
+    move-result-object v8
+
+    iput-object v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mManagedPasswordProvider:Lcom/android/settings/ManagedLockPasswordProvider;
+
+    invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v8
+
+    invoke-static {v8}, Lcom/android/settings/Utils;->isSharedDeviceEnabled(Landroid/content/Context;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_13
+
+    iget-boolean v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mPasswordConfirmed:Z
+
+    if-eqz v8, :cond_13
+
+    const-string/jumbo v8, "unlock_set_password"
+
+    invoke-direct {p0, v8}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->setUnlockMethod(Ljava/lang/String;)Z
+
+    :cond_a
     :goto_8
-    const-string/jumbo v6, "android.app.action.SET_NEW_PASSWORD"
+    new-instance v8, Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
+    invoke-direct {v8}, Lcom/samsung/android/settings/bixby/EmSettingsManager;-><init>()V
 
-    move-result-object v9
-
-    invoke-virtual {v9}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v6, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_7
-
-    invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
-
-    move-result-object v6
-
-    invoke-static {v6}, Landroid/os/UserManager;->get(Landroid/content/Context;)Landroid/os/UserManager;
-
-    move-result-object v6
-
-    sget v9, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mUserId:I
-
-    invoke-static {v6, v9}, Lcom/android/settings/Utils;->isManagedProfile(Landroid/os/UserManager;I)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_7
-
-    iget-object v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
-    sget v9, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mUserId:I
-
-    invoke-virtual {v6, v9}, Lcom/android/internal/widget/LockPatternUtils;->isSeparateProfileChallengeEnabled(I)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_7
-
-    invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
-
-    move-result-object v6
-
-    const v9, 0x7f0b1183
-
-    invoke-virtual {v6, v9}, Landroid/app/Activity;->setTitle(I)V
-
-    :cond_7
-    invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
-
-    move-result-object v6
-
-    sget v9, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mUserId:I
-
-    invoke-static {v6, v9}, Lcom/android/settings/ManagedLockPasswordProvider;->get(Landroid/content/Context;I)Lcom/android/settings/ManagedLockPasswordProvider;
-
-    move-result-object v6
-
-    iput-object v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mManagedPasswordProvider:Lcom/android/settings/ManagedLockPasswordProvider;
-
-    invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
-
-    move-result-object v6
-
-    invoke-static {v6}, Lcom/android/settings/Utils;->isSharedDeviceEnabled(Landroid/content/Context;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_13
-
-    iget-boolean v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mPasswordConfirmed:Z
-
-    if-eqz v6, :cond_13
-
-    const-string/jumbo v6, "unlock_set_password"
-
-    invoke-direct {p0, v6}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->setUnlockMethod(Ljava/lang/String;)Z
-
-    :cond_8
-    :goto_9
-    new-instance v6, Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    invoke-direct {v6}, Lcom/samsung/android/settings/bixby/EmSettingsManager;-><init>()V
-
-    iput-object v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    iput-object v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     return-void
 
-    :cond_9
-    move v6, v8
+    :cond_b
+    const/4 v8, 0x1
 
     goto/16 :goto_0
 
-    :cond_a
-    move v6, v7
+    :cond_c
+    const/4 v8, 0x0
 
     goto/16 :goto_1
 
-    :cond_b
-    move v6, v7
+    :cond_d
+    const/4 v8, 0x0
 
     goto/16 :goto_2
 
-    :cond_c
-    move v6, v8
+    :catch_0
+    move-exception v3
+
+    invoke-virtual {v3}, Ljava/lang/Exception;->printStackTrace()V
 
     goto/16 :goto_3
 
-    :cond_d
-    move v6, v8
+    :cond_e
+    const/4 v8, 0x1
 
     goto/16 :goto_4
 
-    :cond_e
-    iput-object v12, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mUserPassword:Ljava/lang/String;
+    :cond_f
+    const/4 v8, 0x1
 
     goto/16 :goto_5
 
-    :cond_f
-    move v6, v8
+    :cond_10
+    const/4 v8, 0x0
+
+    iput-object v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mUserPassword:Ljava/lang/String;
 
     goto/16 :goto_6
-
-    :cond_10
-    move v6, v8
-
-    goto/16 :goto_7
 
     :cond_11
     invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getArguments()Landroid/os/Bundle;
@@ -11935,18 +12018,18 @@
 
     invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getContext()Landroid/content/Context;
 
-    move-result-object v6
+    move-result-object v8
 
     if-eqz v0, :cond_12
 
-    :goto_a
-    invoke-static {v6, v0}, Lcom/android/settings/Utils;->getUserIdFromBundle(Landroid/content/Context;Landroid/os/Bundle;)I
+    :goto_9
+    invoke-static {v8, v0}, Lcom/android/settings/Utils;->getUserIdFromBundle(Landroid/content/Context;Landroid/os/Bundle;)I
 
-    move-result v6
+    move-result v8
 
-    sput v6, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mUserId:I
+    sput v8, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mUserId:I
 
-    goto/16 :goto_8
+    goto/16 :goto_7
 
     :cond_12
     invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
@@ -11961,98 +12044,106 @@
 
     move-result-object v0
 
-    goto :goto_a
+    goto :goto_9
 
     :cond_13
-    iget-boolean v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mPasswordConfirmed:Z
+    iget-boolean v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mPasswordConfirmed:Z
 
-    if-eqz v6, :cond_16
+    if-eqz v8, :cond_16
 
     invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
-    move-result v6
+    move-result v8
 
-    if-lt v6, v13, :cond_14
+    const/16 v9, 0x64
+
+    if-lt v8, v9, :cond_14
 
     invoke-direct {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->isSupportBiometrics()Z
 
-    move-result v6
+    move-result v8
 
-    if-eqz v6, :cond_14
+    if-eqz v8, :cond_14
 
-    iget-boolean v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mSelectedKnoxScreen:Z
+    iget-boolean v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mSelectedKnoxScreen:Z
 
-    if-eqz v6, :cond_15
+    if-eqz v8, :cond_15
 
     :cond_14
     invoke-direct {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->updatePreferencesOrFinish()V
 
-    :goto_b
-    iget-boolean v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mForChangeCredRequiredForBoot:Z
+    :goto_a
+    iget-boolean v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mForChangeCredRequiredForBoot:Z
 
-    if-eqz v6, :cond_8
+    if-eqz v8, :cond_a
 
-    iget-object v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+    iget-object v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
-    sget v8, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mUserId:I
+    sget v9, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mUserId:I
 
-    invoke-virtual {v6, v8}, Lcom/android/internal/widget/LockPatternUtils;->getKeyguardStoredPasswordQuality(I)I
+    invoke-virtual {v8, v9}, Lcom/android/internal/widget/LockPatternUtils;->getKeyguardStoredPasswordQuality(I)I
 
-    move-result v6
+    move-result v8
 
-    invoke-direct {p0, v6, v7}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->maybeEnableEncryption(IZ)V
+    const/4 v9, 0x0
 
-    goto :goto_9
+    invoke-direct {p0, v8, v9}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->maybeEnableEncryption(IZ)V
+
+    goto :goto_8
 
     :cond_15
-    iget-boolean v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mForFingerprint:Z
+    iget-boolean v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mForFingerprint:Z
 
-    if-nez v6, :cond_14
+    if-nez v8, :cond_14
 
-    iget-boolean v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mForIris:Z
+    iget-boolean v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mForIris:Z
 
-    if-nez v6, :cond_14
+    if-nez v8, :cond_14
 
     invoke-direct {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->updateBiometricsPreferences()V
 
-    goto :goto_b
+    goto :goto_a
 
     :cond_16
-    iget-boolean v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mIsEnforcedMultifactorNReset:Z
+    iget-boolean v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mIsEnforcedMultifactorNReset:Z
 
-    if-eqz v6, :cond_17
+    if-eqz v8, :cond_17
+
+    const/4 v8, 0x1
 
     iput-boolean v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mPasswordConfirmed:Z
 
-    const-string/jumbo v6, "unlock_set_two_factor"
+    const-string/jumbo v8, "unlock_set_two_factor"
 
-    invoke-direct {p0, v6}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->setUnlockMethod(Ljava/lang/String;)Z
+    invoke-direct {p0, v8}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->setUnlockMethod(Ljava/lang/String;)Z
 
-    goto :goto_9
+    goto/16 :goto_8
 
     :cond_17
-    iget-boolean v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mWaitingForConfirmation:Z
+    iget-boolean v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mWaitingForConfirmation:Z
 
-    if-nez v6, :cond_8
+    if-nez v8, :cond_a
 
-    iget-boolean v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mFromKnoxSetDigitalLock:Z
+    iget-boolean v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mFromKnoxSetDigitalLock:Z
 
-    if-eqz v6, :cond_18
+    if-eqz v8, :cond_18
 
     invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v6
+    move-result-object v8
 
-    invoke-virtual {v6}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+    invoke-virtual {v8}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
-    move-result-object v6
+    move-result-object v8
 
     const-string/jumbo v9, "isFromKnoxSetDigitalLock"
 
-    invoke-virtual {v6, v9, v8}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+    const/4 v10, 0x1
+
+    invoke-virtual {v8, v9, v10}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
     :cond_18
-    const-string/jumbo v6, "ChooseLockGenericFragment"
+    const-string/jumbo v8, "ChooseLockGenericFragment"
 
     new-instance v9, Ljava/lang/StringBuilder;
 
@@ -12074,81 +12165,89 @@
 
     move-result-object v9
 
-    invoke-static {v6, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    new-instance v2, Lcom/android/settings/ChooseLockSettingsHelper;
-
-    invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
-
-    move-result-object v6
-
-    invoke-direct {v2, v6, p0}, Lcom/android/settings/ChooseLockSettingsHelper;-><init>(Landroid/app/Activity;Landroid/app/Fragment;)V
+    new-instance v4, Lcom/android/settings/ChooseLockSettingsHelper;
 
     invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v6
+    move-result-object v8
 
-    invoke-static {v6}, Landroid/os/UserManager;->get(Landroid/content/Context;)Landroid/os/UserManager;
+    invoke-direct {v4, v8, p0}, Lcom/android/settings/ChooseLockSettingsHelper;-><init>(Landroid/app/Activity;Landroid/app/Fragment;)V
 
-    move-result-object v6
+    invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
 
-    sget v9, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mUserId:I
+    move-result-object v8
 
-    invoke-static {v6, v9}, Lcom/android/settings/Utils;->isManagedProfile(Landroid/os/UserManager;I)Z
+    invoke-static {v8}, Landroid/os/UserManager;->get(Landroid/content/Context;)Landroid/os/UserManager;
 
-    move-result v6
-
-    if-eqz v6, :cond_1a
-
-    iget-object v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+    move-result-object v8
 
     sget v9, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mUserId:I
 
-    invoke-virtual {v6, v9}, Lcom/android/internal/widget/LockPatternUtils;->isSeparateProfileChallengeEnabled(I)Z
+    invoke-static {v8, v9}, Lcom/android/settings/Utils;->isManagedProfile(Landroid/os/UserManager;I)Z
 
-    move-result v6
+    move-result v8
 
-    if-eqz v6, :cond_19
+    if-eqz v8, :cond_1a
 
-    move v3, v7
+    iget-object v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
-    :goto_c
-    if-nez v3, :cond_1b
+    sget v9, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mUserId:I
 
-    const v6, 0x7f0b1188
+    invoke-virtual {v8, v9}, Lcom/android/internal/widget/LockPatternUtils;->isSeparateProfileChallengeEnabled(I)Z
 
-    invoke-virtual {p0, v6}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getString(I)Ljava/lang/String;
+    move-result v8
 
-    move-result-object v6
+    if-eqz v8, :cond_19
 
-    sget v7, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mUserId:I
+    const/4 v5, 0x0
 
-    invoke-virtual {v2, v13, v6, v8, v7}, Lcom/android/settings/ChooseLockSettingsHelper;->launchConfirmationActivity(ILjava/lang/CharSequence;ZI)Z
+    :goto_b
+    if-nez v5, :cond_1b
 
-    move-result v6
+    const v8, 0x7f0b118b
 
-    if-eqz v6, :cond_1b
+    invoke-virtual {p0, v8}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getString(I)Ljava/lang/String;
+
+    move-result-object v8
+
+    sget v9, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mUserId:I
+
+    const/16 v10, 0x64
+
+    const/4 v11, 0x1
+
+    invoke-virtual {v4, v10, v8, v11, v9}, Lcom/android/settings/ChooseLockSettingsHelper;->launchConfirmationActivity(ILjava/lang/CharSequence;ZI)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_1b
+
+    const/4 v8, 0x1
 
     iput-boolean v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mWaitingForConfirmation:Z
 
-    goto/16 :goto_9
+    goto/16 :goto_8
 
     :cond_19
-    move v3, v8
+    const/4 v5, 0x1
 
-    goto :goto_c
+    goto :goto_b
 
     :cond_1a
-    move v3, v7
+    const/4 v5, 0x0
 
-    goto :goto_c
+    goto :goto_b
 
     :cond_1b
+    const/4 v8, 0x1
+
     iput-boolean v8, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mPasswordConfirmed:Z
 
     invoke-direct {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->updatePreferencesOrFinish()V
 
-    goto/16 :goto_9
+    goto/16 :goto_8
 .end method
 
 .method public onDestroy()V
@@ -12573,7 +12672,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b06e3
+    const v6, 0x7f0b06eb
 
     invoke-static {v5, v6, v8}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -12828,173 +12927,108 @@
 .end method
 
 .method public onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
-    .locals 13
+    .locals 11
 
-    const/4 v12, 0x0
+    const/4 v10, 0x0
 
-    const/4 v11, 0x0
+    const/4 v9, 0x0
 
     invoke-super {p0, p1, p2}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
 
-    iget-boolean v9, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mForFingerprint:Z
+    iget-boolean v7, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mForFingerprint:Z
 
-    if-nez v9, :cond_0
+    if-nez v7, :cond_0
 
-    iget-boolean v9, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mForIris:Z
+    iget-boolean v7, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mForIris:Z
 
-    if-eqz v9, :cond_3
+    if-eqz v7, :cond_2
 
     :cond_0
     invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getContext()Landroid/content/Context;
 
-    move-result-object v9
-
-    invoke-static {v9}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
-
     move-result-object v7
+
+    invoke-static {v7}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+
+    move-result-object v5
 
     invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getListView()Landroid/widget/ListView;
 
-    move-result-object v8
+    move-result-object v6
 
-    const v9, 0x7f040066
+    const v7, 0x7f040066
 
-    invoke-virtual {v7, v9, v8, v12}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    invoke-virtual {v5, v7, v6, v9}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+
+    move-result-object v0
+
+    const v7, 0x7f1101b8
+
+    invoke-virtual {v0, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
-    const v9, 0x7f1101b8
+    check-cast v1, Landroid/widget/ImageView;
 
-    invoke-virtual {v1, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    const v7, 0x7f1101bc
+
+    invoke-virtual {v0, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
-    check-cast v2, Landroid/widget/ImageView;
+    check-cast v2, Landroid/widget/TextView;
 
-    const v9, 0x7f1101bc
+    const v7, 0x7f1101ba
 
-    invoke-virtual {v1, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v3
 
     check-cast v3, Landroid/widget/TextView;
 
-    const v9, 0x7f1101ba
+    const v7, 0x7f1101bb
 
-    invoke-virtual {v1, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v4
 
     check-cast v4, Landroid/widget/TextView;
 
-    const v9, 0x7f1101bb
+    iget-boolean v7, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mForIris:Z
 
-    invoke-virtual {v1, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    if-eqz v7, :cond_1
 
-    move-result-object v5
+    const v7, 0x7f020340
 
-    check-cast v5, Landroid/widget/TextView;
+    invoke-virtual {v1, v7}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    iget-boolean v9, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mForIris:Z
+    const v7, 0x7f0b0788
 
-    if-eqz v9, :cond_1
+    invoke-virtual {v3, v7}, Landroid/widget/TextView;->setText(I)V
 
-    const v9, 0x7f020340
+    const v7, 0x7f0b0789
 
-    invoke-virtual {v2, v9}, Landroid/widget/ImageView;->setImageResource(I)V
-
-    const v9, 0x7f0b0780
-
-    invoke-virtual {v4, v9}, Landroid/widget/TextView;->setText(I)V
-
-    const v9, 0x7f0b0781
-
-    invoke-virtual {v5, v9}, Landroid/widget/TextView;->setText(I)V
+    invoke-virtual {v4, v7}, Landroid/widget/TextView;->setText(I)V
 
     invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v9
+    move-result-object v7
 
-    if-eqz v9, :cond_1
+    if-eqz v7, :cond_1
 
     invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v9
+    move-result-object v7
 
-    const v10, 0x7f0b076d
+    const v8, 0x7f0b0775
 
-    invoke-virtual {v9, v10}, Landroid/app/Activity;->setTitle(I)V
+    invoke-virtual {v7, v8}, Landroid/app/Activity;->setTitle(I)V
 
     :cond_1
-    invoke-virtual {v8, v1, v11, v12}, Landroid/widget/ListView;->addHeaderView(Landroid/view/View;Ljava/lang/Object;Z)V
+    invoke-virtual {v6, v0, v10, v9}, Landroid/widget/ListView;->addHeaderView(Landroid/view/View;Ljava/lang/Object;Z)V
 
     :cond_2
-    :goto_0
     return-void
-
-    :cond_3
-    iget-boolean v9, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mForAppLockBackupKey:Z
-
-    if-eqz v9, :cond_2
-
-    const-string/jumbo v0, "applock_locktype_iris"
-
-    new-instance v6, Landroid/preference/Preference;
-
-    invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getContext()Landroid/content/Context;
-
-    move-result-object v9
-
-    invoke-direct {v6, v9}, Landroid/preference/Preference;-><init>(Landroid/content/Context;)V
-
-    const-string/jumbo v9, "applock_locktype_iris"
-
-    iget-object v10, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mAppLockBackupKey:Ljava/lang/String;
-
-    invoke-virtual {v9, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v9
-
-    if-eqz v9, :cond_5
-
-    const v9, 0x7f040064
-
-    invoke-virtual {v6, v9}, Landroid/preference/Preference;->setLayoutResource(I)V
-
-    :goto_1
-    iget-object v9, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mAppLockHeaderPreference:Landroid/preference/Preference;
-
-    if-eqz v9, :cond_4
-
-    invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
-
-    move-result-object v9
-
-    iget-object v10, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mAppLockHeaderPreference:Landroid/preference/Preference;
-
-    invoke-virtual {v9, v10}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
-
-    :cond_4
-    const/4 v9, -0x1
-
-    invoke-virtual {v6, v9}, Landroid/preference/Preference;->setOrder(I)V
-
-    invoke-virtual {p0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
-
-    move-result-object v9
-
-    invoke-virtual {v9, v6}, Landroid/preference/PreferenceScreen;->addPreference(Landroid/preference/Preference;)Z
-
-    iput-object v6, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->mAppLockHeaderPreference:Landroid/preference/Preference;
-
-    goto :goto_0
-
-    :cond_5
-    const v9, 0x7f040065
-
-    invoke-virtual {v6, v9}, Landroid/preference/Preference;->setLayoutResource(I)V
-
-    goto :goto_1
 .end method
 
 .method updateUnlockMethodAndFinish(IZ)V

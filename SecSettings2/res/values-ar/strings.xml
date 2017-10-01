@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">دعم</string>
     <string name="reset_network_settings_list_summary">أعد ضبط شبكة Wi-Fi والبلوتوث وغيرها من الشبكات إلى ضبط المصنع الافتراضي.</string>
     <string name="master_clear_list_summary">أعد ضبط جهازك إلى ضبط المصنع الافتراضي. سيمحو هذا الإجراء كل البيانات، بما فيها الملفات والتطبيقات التي تم تنزيلها.</string>
-    <string name="auto_restart_summary">حسّن جهازك بإعادة تشغيله تلقائياً في أوقات محددة. سيتم فقدان أي بيانات غير محفوظة عند إعادة تشغيل الجهاز.</string>
+    <string name="auto_restart_summary">حسّن هاتفك من خلال إعادة تشغيله تلقائياً مرة واحدة أسبوعياً. سيتم فقدان أي بيانات غير محفوظة عند إعادة تشغيل الهاتف.</string>
     <string name="search_settings">بحث</string>
     <string name="related_results">%d من العناصر ذات الصلة</string>
     <string name="no_results_found">لم يتم العثور علي اي نتيجة</string>
@@ -1485,6 +1485,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_verify_failed_summary">تتعذر إعادة تشغيل جهازك. فشلت عملية التحقق من التكامل. عليك إعادة ضبط جهازك إلى ضبط المصنع الافتراضي. سيؤدي هذا الإجراء إلى محو كل بياناتك.</string>
     <string name="cryptkeeper_emergency_call">مكالمة طوارئ</string>
     <string name="cryptkeeper_return_to_call">‏‫عودة إلى المكالمة</string>
+    <string name="cryptkeeper_default_enter_msg">تم تشفير هاتفك للحماية.</string>
     <string name="enter_password">لبدء تشغيل جهازك، أدخل كلمة المرور.</string>
     <string name="enter_pin">لبدء تشغيل جهازك، أدخل رقم PIN.</string>
     <string name="enter_pattern">لبدء تشغيل جهازك، ارسم النقش.</string>
@@ -1498,6 +1499,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_last_warn_wipe">تبقّت لك محاولة واحدة فقط لبدء تشغيل جهازك قبل إعادة ضبطه إلى ضبط المصنع الافتراضي. سيمحو هذا الإجراء كل البيانات، بما فيها الملفات والتطبيقات التي تم تنزيلها.</string>
     <string name="crypt_keeper_failed_title_dec">فشل إلغاء التشفير.</string>
     <string name="crypt_keeper_failed_summary_dec">يتعذر إكمال فك التشفير نتيجة لمقاطعته. قم بإجراء إعادة ضبط بيانات المصنع (مسح جميع البيانات) قبل بدء الاستخدام.</string>
+    <string name="crypt_keeper_set_screen_lock_type">تعيين نوع قفل الشاشة</string>
     <string name="encryption_interstitial_message_kor">تم تشفير جهازك. قم بحماية بياناتك المشفّرة بتحديد طلب قفل الشاشة لإلغاء تشفير البيانات عند تشغيل الجهاز. يساعد هذا الإجراء في حماية البيانات على الأجهزة المفقودة أو المسروقة. ستضطرّ إلى إلغاء قفل جهازك لإلغاء تشفير بياناته متى ما قمت بتشغيله. لن تتلقى مكالمات أو رسائل أو إشعارات إلى حين فك تشفير جهازك.</string>
     <string name="encryption_interstitial_message_direction">"احمِ جهازك عبر تحديد ”قفل الاتجاه المطلوب“ عند تشغيل الجهاز. يساعد هذا الإجراء في حماية البيانات على الأجهزة المفقودة أو المسروقة.
 
@@ -1737,6 +1739,8 @@ You will also need it when:"</string>
     <string name="empty_content_toast">ما من محتوى لحفظه.</string>
     <string name="find_my_mobile_message_zero">"تعقب جهازك وتحكم به عن بعد باستخدام خدمة البحث عن هاتفي على الويب. للحصول على مزيد من المعلومات ولمعرفة الوظائف الأخرى المتوفرة، يُرجى زيارة موقع الويب التالي:
 ‏%s"</string>
+    <string name="send_last_location_title">إرسال آخر موقع</string>
+    <string name="send_last_location_summary">يمكنك السماح لهاتفك بإرسال موقعه الأخير إلى خادم ميزة البحث عن هاتفي المحمول عندما يقل مستوى البطارية دون المستوى المحدد.</string>
     <string name="high_power_description">قم بتفعيل تحسين استخدام البطارية للتطبيقات المفردة. سيتم تقييد بعض الوظائف، مثل تلك التي تستخدم شبكات الهاتف المحمول أو تقوم بمزامنة البيانات، وذلك لتوفير طاقة البطارية.</string>
     <string name="wifi_display_summary_off">غير مفعل</string>
     <string name="battery_usage_description">تعرض هذه الشاشة بيانات استخدام البطارية منذ آخر مرة شحن الجهاز بالكامل.</string>
@@ -1968,6 +1972,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">حدد اختصارات التطبيقات التي تريد استخدامها على شاشة القفل.</string>
     <string name="lockscreen_notifications">الإشعارات على شاشة القفل</string>
     <string name="work_profile_lockscreen_notifications">إشعارات ملف تعريف العمل</string>
+    <string name="lock_network_and_security">إقفال الشبكة والحماية</string>
+    <string name="lock_network_and_security_summary">يترتب عليك إبقاء الوظائف المتعلقة بالشبكة والحماية مقفلة عندما يكون هاتفك مقفلاً، مما يُسهّل تحديد موقعه وحمايته في حال فقدانه أو سرقته.</string>
     <string name="dualclock_settings_title">ساعة مزدوجة</string>
     <string name="dualclock_settings_summary">إظهار المنطقتين الزمنيتين المحلية والأساسية أثناء التجوال.</string>
     <string name="set_home_city">اضبط المنطقة الزمنية المحلية</string>
@@ -2153,7 +2159,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="air_browse_music_on_lock_screen_title">الموسيقى على شاشة القفل</string>
     <string name="air_browse_music_on_lock_screen_summary">تغيير مقاطع الموسيقى على شاشة القفل.</string>
     <string name="air_browse_note_summary">تنقل بين الصفحات في وضع العرض.</string>
-    <string name="data_usage_enable_mobile_summery">إذا تم إيقاف تشغيل بيانات الهاتف المحمول، يجب توصيل جهازك بشبكة Wi-Fi لاستخدام الخدمات التي تتطلب اتصال شبكة.</string>
+    <string name="data_usage_enable_mobile_summery">يمكنك الوصول إلى الإنترنت من خلال شبكة الهاتف المحمول لديك.</string>
     <string name="data_usage_enable_mobile_warning_skt">قد يترتب على الاتصال بشبكات الهاتف المحمول فرض رسوم إضافية وفقا لخطة البيانات التي تتبعها. هل تريد المتابعة؟</string>
     <string name="data_usage_enable_mobile_warning_ktt">قد يترتب على الاتصال بشبكات الهاتف المحمول فرض رسوم إضافية وفقا لخطة البيانات التي تتبعها. هل تريد المتابعة؟</string>
     <string name="data_usage_enable_mobile_warning_lgt">قد يترتب على الاتصال بشبكات الهاتف المحمول فرض رسوم إضافية وفقا لخطة البيانات التي تتبعها. هل تريد المتابعة؟</string>
@@ -2523,8 +2529,8 @@ Turn off Mobile data?"</string>
     <string name="secure_folder_summary">أقفِل محتوياتك وتطبيقاتك الخاصة لتحسين الحماية.</string>
     <string name="text_biometrics_finger_title_enterprise">لا يدعم %1$s بصمة الأصابع لإلغاء قفل %2$s.</string>
     <string name="edge_feeds_title">موجزات جانبية</string>
-    <string name="screensaver_settings_summary">للتحكّم بما يحصل أثناء إرساء الجهاز و/أو شحنه عندما تكون الشاشة متوقفة عن التشغيل. وتُعرف هذه الوظيفة أيضاً بشاشة التوقّف.</string>
-    <string name="screensaver_settings_summary_wo_dock">يمكنك عرض شاشة التوقف بعد إيقاف تشغيل الشاشة تلقائياً أثناء شحن الجهاز.</string>
+    <string name="screensaver_settings_summary">يمكنك إظهار شاشة التوقف بعد إيقاف تشغيل الشاشة تلقائياً أثناء شحن هاتفك.</string>
+    <string name="screensaver_settings_summary_wo_dock">يمكنك إظهار شاشة توقف بعد إيقاف تشغيل الشاشة تلقائياً أثناء إرساء هاتفك أو شحنه.</string>
     <string name="apn_already_exists">موجود مسبقا.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">يجب أن يكون رقم المنفذ ما بين %1$d و%2$d.</string>
@@ -3289,6 +3295,7 @@ Wi-Fi is now on."</string>
     <string name="wfd_connection_end_toast">تم إنهاء اتصال Screen Mirroring.</string>
     <string name="wfd_descrpition_playvia">شغّل المحتوى.</string>
     <string name="wfd_descrpition_mirroring">عكس صورة الشاشة.</string>
+    <string name="wfd_descrpition_playsound">تشغيل الصوت.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">سيتم إلغاء تفعيل الإطارات المتعددة وإغلاق كل التطبيقات المفتوحة في إطارات منبثقة.</string>
     <string name="keyguard_password_attempt_count_pin_code">محاولة متبقية %d</string>
@@ -4128,7 +4135,7 @@ Wi-Fi is now on."</string>
     <string name="location_network_based">استخدام الشبكات اللاسلكية</string>
     <string name="location_neighborhood_level">السماح للتطبيقات باستخدام خدمة Google لتحديد المواقع بتحديد موقعك بسرعة أكبر. سيتم تجميع بيانات الموقع المجهول وإرسالها إلى Google.</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">حول الجهاز</string>
+    <string name="about_settings">حول الهاتف</string>
     <string name="about_settings_vzw">حول الجهاز</string>
     <string name="legal_information">معلومات قانونية</string>
     <string name="regulatory_information">معلومات تنظيمية</string>
@@ -4313,7 +4320,7 @@ Wi-Fi is now on."</string>
     <string name="phone_language">اللغة</string>
     <string name="show_password">جعل كلمات المرور مرئية</string>
     <string name="show_password_summary">عرض أحرف كلمة المرور أثناء كتابتها لفترة وجيزة.</string>
-    <string name="ime_security_warning">يمكن لهذه الطريقة جمع النص الذي أدخلته بالكامل، باستثناء كلمات المرور، بما في ذلك البيانات الشخصية وأرقام بطاقات الائتمان. وهي مشتقة من التطبيق %1$s. هل تريد الاستخدم بأي حال من الأحوال؟</string>
+    <string name="ime_security_warning">قد تتمكن %s من جمع كل النصوص التي تكتبها، بما في ذلك البيانات الشخصية مثل كلمات المرور وأرقام بطاقات الائتمان.</string>
     <string name="failed_to_open_app_settings_toast">فشل فتح الإعدادات من أجل %s.</string>
     <string name="keyboard_and_input_methods_category">لوحات المفاتيح</string>
     <string name="virtual_keyboard_category">لوحة المفاتيح الظاهرية</string>

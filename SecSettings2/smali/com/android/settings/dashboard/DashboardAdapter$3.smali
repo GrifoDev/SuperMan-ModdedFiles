@@ -51,7 +51,7 @@
 
     iget-object v0, v0, Lcom/android/settings/dashboard/DashboardAdapter$DashboardItemHolder;->itemView:Landroid/view/View;
 
-    const v1, 0x7f1103c3
+    const v1, 0x7f1103c1
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

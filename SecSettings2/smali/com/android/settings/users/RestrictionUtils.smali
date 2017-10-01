@@ -29,7 +29,7 @@
 
     new-array v0, v3, [I
 
-    const v1, 0x7f0b18d3
+    const v1, 0x7f0b18d6
 
     aput v1, v0, v2
 
@@ -37,7 +37,7 @@
 
     new-array v0, v3, [I
 
-    const v1, 0x7f0b18d4
+    const v1, 0x7f0b18d7
 
     aput v1, v0, v2
 

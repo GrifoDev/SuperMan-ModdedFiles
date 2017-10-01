@@ -114,11 +114,11 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    const v4, 0x7f0b1165
+    const v4, 0x7f0b1168
 
     invoke-virtual {v0, v4}, Landroid/widget/TextView;->setText(I)V
 
-    const v4, 0x7f110378
+    const v4, 0x7f110376
 
     invoke-virtual {p0, v4}, Lcom/android/settings/fingerprint/SetupFingerprintEnrollFinish;->findViewById(I)Landroid/view/View;
 

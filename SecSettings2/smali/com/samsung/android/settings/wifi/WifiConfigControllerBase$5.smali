@@ -240,7 +240,7 @@
 .method protected onPostExecute(Ljava/lang/Integer;)V
     .locals 7
 
-    const v6, 0x7f110410
+    const v6, 0x7f11040e
 
     const/4 v5, 0x0
 
@@ -281,7 +281,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f11027f
+    const v2, 0x7f11027d
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

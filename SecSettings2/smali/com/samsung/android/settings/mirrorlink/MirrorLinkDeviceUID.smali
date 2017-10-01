@@ -460,7 +460,7 @@
 
     if-eqz v0, :cond_0
 
-    const v1, 0x7f110499
+    const v1, 0x7f110497
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -470,7 +470,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/mirrorlink/MirrorLinkDeviceUID;->mTextViewTitle:Landroid/widget/TextView;
 
-    const v1, 0x7f11049a
+    const v1, 0x7f110498
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

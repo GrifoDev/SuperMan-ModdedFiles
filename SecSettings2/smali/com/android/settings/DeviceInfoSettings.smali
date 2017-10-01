@@ -535,6 +535,40 @@
     return-object v2
 .end method
 
+.method private getSimName(I)Ljava/lang/String;
+    .locals 3
+
+    const/4 v0, 0x0
+
+    if-nez p1, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/settings/DeviceInfoSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "select_name_1"
+
+    invoke-static {v1, v2}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    :goto_0
+    return-object v0
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/settings/DeviceInfoSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "select_name_2"
+
+    invoke-static {v1, v2}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+.end method
+
 .method private removePreferenceIfPropertyMissing(Landroid/preference/PreferenceGroup;Ljava/lang/String;Ljava/lang/String;)V
     .locals 4
 
@@ -778,7 +812,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b1030
+    const v3, 0x7f0b1033
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -801,7 +835,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b1030
+    const v3, 0x7f0b1033
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -882,7 +916,7 @@
 
     move-result-object v28
 
-    const v29, 0x7f0b079d
+    const v29, 0x7f0b07a5
 
     invoke-virtual/range {v28 .. v29}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -966,7 +1000,7 @@
 
     move-result-object v28
 
-    const v29, 0x7f0b07a0
+    const v29, 0x7f0b07a8
 
     invoke-virtual/range {v28 .. v29}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1053,7 +1087,7 @@
 
     move-result-object v28
 
-    const v29, 0x7f0b07a1
+    const v29, 0x7f0b07a9
 
     invoke-virtual/range {v28 .. v29}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1152,7 +1186,7 @@
 
     move-result-object v28
 
-    const v29, 0x7f0b07a5
+    const v29, 0x7f0b07ad
 
     invoke-virtual/range {v28 .. v29}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1227,7 +1261,7 @@
 
     move-result-object v28
 
-    const v29, 0x7f0b079f
+    const v29, 0x7f0b07a7
 
     invoke-virtual/range {v28 .. v29}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1314,7 +1348,7 @@
 
     move-result-object v28
 
-    const v29, 0x7f0b07a9
+    const v29, 0x7f0b07b1
 
     invoke-virtual/range {v28 .. v29}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1401,7 +1435,7 @@
 
     move-result-object v28
 
-    const v29, 0x7f0b07a8
+    const v29, 0x7f0b07b0
 
     invoke-virtual/range {v28 .. v29}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1490,7 +1524,7 @@
 
     move-result-object v28
 
-    const v29, 0x7f0b07a3
+    const v29, 0x7f0b07ab
 
     invoke-virtual/range {v28 .. v29}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1577,7 +1611,7 @@
 
     move-result-object v28
 
-    const v29, 0x7f0b07a4
+    const v29, 0x7f0b07ac
 
     invoke-virtual/range {v28 .. v29}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1660,7 +1694,7 @@
 
     move-result-object v28
 
-    const v29, 0x7f0b07a6
+    const v29, 0x7f0b07ae
 
     invoke-virtual/range {v28 .. v29}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1745,7 +1779,7 @@
 
     move-result-object v28
 
-    const v29, 0x7f0b07a7
+    const v29, 0x7f0b07af
 
     invoke-virtual/range {v28 .. v29}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1834,7 +1868,7 @@
 
     move-result-object v28
 
-    const v29, 0x7f0b07aa
+    const v29, 0x7f0b07b2
 
     invoke-virtual/range {v28 .. v29}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2050,7 +2084,7 @@
 
     move-result-object v28
 
-    const v29, 0x7f0b079e
+    const v29, 0x7f0b07a6
 
     invoke-virtual/range {v28 .. v29}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2150,7 +2184,7 @@
 
     move-result-object v28
 
-    const v29, 0x7f0b07a2
+    const v29, 0x7f0b07aa
 
     invoke-virtual/range {v28 .. v29}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2261,7 +2295,7 @@
 
     move-result-object v28
 
-    const v29, 0x7f0b079d
+    const v29, 0x7f0b07a5
 
     invoke-virtual/range {v28 .. v29}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2704,7 +2738,7 @@
 
     move-result-object v28
 
-    const v29, 0x7f0b079e
+    const v29, 0x7f0b07a6
 
     invoke-virtual/range {v28 .. v29}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2757,7 +2791,7 @@
 
     move-result-object v28
 
-    const v29, 0x7f0b079e
+    const v29, 0x7f0b07a6
 
     invoke-virtual/range {v28 .. v29}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3279,7 +3313,7 @@
 
     invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v21, "\nASKS v1.3_"
+    const-string/jumbo v21, "\nASKS v1.4 Release "
 
     invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -3545,17 +3579,17 @@
 
 # virtual methods
 .method InitSecAddtionalPreferences()V
-    .locals 32
+    .locals 38
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/DeviceInfoSettings;->getActivity()Landroid/app/Activity;
 
-    move-result-object v29
+    move-result-object v35
 
-    invoke-virtual/range {v29 .. v29}, Landroid/app/Activity;->getBaseContext()Landroid/content/Context;
+    invoke-virtual/range {v35 .. v35}, Landroid/app/Activity;->getBaseContext()Landroid/content/Context;
 
-    move-result-object v29
+    move-result-object v35
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v35
 
     move-object/from16 v1, p0
 
@@ -3565,80 +3599,80 @@
 
     iget-object v0, v0, Lcom/android/settings/DeviceInfoSettings;->mContext:Landroid/content/Context;
 
-    move-object/from16 v29, v0
+    move-object/from16 v35, v0
 
-    invoke-static/range {v29 .. v29}, Lcom/android/settings/Utils;->isSupportRootBadge(Landroid/content/Context;)Z
+    invoke-static/range {v35 .. v35}, Lcom/android/settings/Utils;->isSupportRootBadge(Landroid/content/Context;)Z
 
-    move-result v29
+    move-result v35
 
-    sput-boolean v29, Lcom/android/settings/DeviceInfoSettings;->statusForChnRoot:Z
+    sput-boolean v35, Lcom/android/settings/DeviceInfoSettings;->statusForChnRoot:Z
 
     invoke-static/range {p0 .. p0}, Lcom/android/settings/Utils;->removeKnoxCustomSettingsHiddenItems(Lcom/samsung/android/settings/SecSettingsPreferenceFragment;)V
 
     invoke-static {}, Lcom/android/settings/Utils;->getSalesCode()Ljava/lang/String;
 
-    move-result-object v29
+    move-result-object v35
 
-    sput-object v29, Lcom/android/settings/DeviceInfoSettings;->sSalesCode:Ljava/lang/String;
+    sput-object v35, Lcom/android/settings/DeviceInfoSettings;->sSalesCode:Ljava/lang/String;
 
-    const-string/jumbo v29, "Enabled"
+    const-string/jumbo v35, "Enabled"
 
-    const-string/jumbo v30, "ro.security.mdpp.ux"
+    const-string/jumbo v36, "ro.security.mdpp.ux"
 
-    invoke-static/range {v30 .. v30}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static/range {v36 .. v36}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v30
+    move-result-object v36
 
-    invoke-virtual/range {v29 .. v30}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual/range {v35 .. v36}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v29
+    move-result v35
 
-    if-eqz v29, :cond_15
+    if-eqz v35, :cond_15
 
     invoke-direct/range {p0 .. p0}, Lcom/android/settings/DeviceInfoSettings;->showSecuritySWVersion()V
 
-    const-string/jumbo v29, "security_sw_version"
+    const-string/jumbo v35, "security_sw_version"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    move-result-object v29
+    move-result-object v35
 
-    const/16 v30, 0x1
+    const/16 v36, 0x1
 
-    invoke-virtual/range {v29 .. v30}, Landroid/preference/Preference;->setEnabled(Z)V
+    invoke-virtual/range {v35 .. v36}, Landroid/preference/Preference;->setEnabled(Z)V
 
     :goto_0
     invoke-static {}, Lcom/samsung/android/knox/SemPersonaManager;->getKnoxContainerVersion()Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
     move-result-object v11
 
-    sget-object v29, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_2_2_0:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
+    sget-object v35, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_2_2_0:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v35
 
     invoke-virtual {v11, v0}, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->compareTo(Ljava/lang/Enum;)I
 
-    move-result v29
+    move-result v35
 
-    if-ltz v29, :cond_16
+    if-ltz v35, :cond_16
 
-    const-string/jumbo v29, "knox_version"
+    const-string/jumbo v35, "knox_version"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    move-result-object v29
+    move-result-object v35
 
-    const/16 v30, 0x1
+    const/16 v36, 0x1
 
-    invoke-virtual/range {v29 .. v30}, Landroid/preference/Preference;->setEnabled(Z)V
+    invoke-virtual/range {v35 .. v36}, Landroid/preference/Preference;->setEnabled(Z)V
 
     invoke-direct/range {p0 .. p0}, Lcom/android/settings/DeviceInfoSettings;->showKnoxVersion()V
 
@@ -3647,44 +3681,44 @@
 
     iget-object v0, v0, Lcom/android/settings/DeviceInfoSettings;->mContext:Landroid/content/Context;
 
-    move-object/from16 v29, v0
+    move-object/from16 v35, v0
 
-    const-string/jumbo v30, "com.sec.knox.kccagent"
+    const-string/jumbo v36, "com.sec.knox.kccagent"
 
-    invoke-static/range {v29 .. v30}, Lcom/android/settings/Utils;->hasPackage(Landroid/content/Context;Ljava/lang/String;)Z
+    invoke-static/range {v35 .. v36}, Lcom/android/settings/Utils;->hasPackage(Landroid/content/Context;Ljava/lang/String;)Z
 
-    move-result v29
+    move-result v35
 
-    if-eqz v29, :cond_17
+    if-eqz v35, :cond_17
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/DeviceInfoSettings;->mContext:Landroid/content/Context;
 
-    move-object/from16 v29, v0
+    move-object/from16 v35, v0
 
-    const-string/jumbo v30, "com.sec.knox.kccagent"
+    const-string/jumbo v36, "com.sec.knox.kccagent"
 
-    const-string/jumbo v31, "com.sec.knox.kccc.agent.activities.KCCCSettings"
+    const-string/jumbo v37, "com.sec.knox.kccc.agent.activities.KCCCSettings"
 
-    invoke-static/range {v29 .. v31}, Lcom/android/settings/Utils;->isActivityExists(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Z
+    invoke-static/range {v35 .. v37}, Lcom/android/settings/Utils;->isActivityExists(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Z
 
-    move-result v29
+    move-result v35
 
-    if-eqz v29, :cond_17
+    if-eqz v35, :cond_17
 
     :goto_2
-    const-string/jumbo v29, "device_name"
+    const-string/jumbo v35, "device_name"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    move-result-object v29
+    move-result-object v35
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v35
 
     move-object/from16 v1, p0
 
@@ -3694,27 +3728,27 @@
 
     iget-object v0, v0, Lcom/android/settings/DeviceInfoSettings;->mDeviceName:Landroid/preference/Preference;
 
-    move-object/from16 v29, v0
+    move-object/from16 v35, v0
 
-    const/16 v30, 0x1
+    const/16 v36, 0x1
 
-    invoke-virtual/range {v29 .. v30}, Landroid/preference/Preference;->setEnabled(Z)V
+    invoke-virtual/range {v35 .. v36}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    const-string/jumbo v29, "VZW"
+    const-string/jumbo v35, "VZW"
 
-    sget-object v30, Lcom/android/settings/DeviceInfoSettings;->sSalesCode:Ljava/lang/String;
+    sget-object v36, Lcom/android/settings/DeviceInfoSettings;->sSalesCode:Ljava/lang/String;
 
-    invoke-virtual/range {v29 .. v30}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual/range {v35 .. v36}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v29
+    move-result v35
 
-    if-eqz v29, :cond_0
+    if-eqz v35, :cond_0
 
     invoke-static {}, Lcom/android/settings/Utils;->isTablet()Z
 
-    move-result v29
+    move-result v35
 
-    if-eqz v29, :cond_18
+    if-eqz v35, :cond_18
 
     :cond_0
     :goto_3
@@ -3722,155 +3756,155 @@
 
     iget-object v0, v0, Lcom/android/settings/DeviceInfoSettings;->mDeviceName:Landroid/preference/Preference;
 
-    move-object/from16 v29, v0
+    move-object/from16 v35, v0
 
-    const/16 v30, 0x1
+    const/16 v36, 0x1
 
-    invoke-virtual/range {v29 .. v30}, Landroid/preference/Preference;->semSetSummaryColorToColorPrimaryDark(Z)V
+    invoke-virtual/range {v35 .. v36}, Landroid/preference/Preference;->semSetSummaryColorToColorPrimaryDark(Z)V
 
     invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
 
-    move-result-object v29
+    move-result-object v35
 
-    const-string/jumbo v30, "CscFeature_Setting_ChangeApprovedModemVersion"
+    const-string/jumbo v36, "CscFeature_Setting_ChangeApprovedModemVersion"
 
-    invoke-virtual/range {v29 .. v30}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;)Z
+    invoke-virtual/range {v35 .. v36}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;)Z
 
-    move-result v29
+    move-result v35
 
-    if-eqz v29, :cond_1
+    if-eqz v35, :cond_1
 
-    const-string/jumbo v29, "none"
+    const-string/jumbo v35, "none"
 
-    const-string/jumbo v30, "ril.approved_modemver"
+    const-string/jumbo v36, "ril.approved_modemver"
 
-    const-string/jumbo v31, "none"
+    const-string/jumbo v37, "none"
 
-    invoke-static/range {v30 .. v31}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static/range {v36 .. v37}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v30
+    move-result-object v36
 
-    invoke-virtual/range {v29 .. v30}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual/range {v35 .. v36}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v29
+    move-result v35
 
-    if-eqz v29, :cond_19
+    if-eqz v35, :cond_19
 
     :cond_1
     const-string/jumbo v6, "gsm.version.baseband"
 
     :goto_4
-    const-string/jumbo v29, "baseband_version"
+    const-string/jumbo v35, "baseband_version"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-direct {v0, v1, v6}, Lcom/android/settings/DeviceInfoSettings;->setValueSummary(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/DeviceInfoSettings;->getActivity()Landroid/app/Activity;
 
-    move-result-object v29
+    move-result-object v35
 
-    invoke-static/range {v29 .. v29}, Lcom/android/settings/Utils;->isWifiOnly(Landroid/content/Context;)Z
+    invoke-static/range {v35 .. v35}, Lcom/android/settings/Utils;->isWifiOnly(Landroid/content/Context;)Z
 
-    move-result v29
+    move-result v35
 
-    if-eqz v29, :cond_2
+    if-eqz v35, :cond_2
 
-    const-string/jumbo v29, "baseband_version"
+    const-string/jumbo v35, "baseband_version"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->removePreference(Ljava/lang/String;)V
 
     :cond_2
     invoke-static {}, Lcom/android/settings/Utils;->isSprModel()Z
 
-    move-result v29
+    move-result v35
 
-    if-eqz v29, :cond_1a
+    if-eqz v35, :cond_1a
 
-    const-string/jumbo v29, "software_version"
+    const-string/jumbo v35, "software_version"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-direct {v0, v1, v6}, Lcom/android/settings/DeviceInfoSettings;->setValueSummary(Ljava/lang/String;Ljava/lang/String;)V
 
     :goto_5
-    const-string/jumbo v29, "VZW"
+    const-string/jumbo v35, "VZW"
 
-    sget-object v30, Lcom/android/settings/DeviceInfoSettings;->sSalesCode:Ljava/lang/String;
+    sget-object v36, Lcom/android/settings/DeviceInfoSettings;->sSalesCode:Ljava/lang/String;
 
-    invoke-virtual/range {v29 .. v30}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual/range {v35 .. v36}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v29
+    move-result v35
 
-    if-eqz v29, :cond_1b
+    if-eqz v35, :cond_1b
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/DeviceInfoSettings;->mContext:Landroid/content/Context;
 
-    move-object/from16 v29, v0
+    move-object/from16 v35, v0
 
-    const-string/jumbo v30, "com.samsung.helphub"
+    const-string/jumbo v36, "com.samsung.helphub"
 
-    invoke-static/range {v29 .. v30}, Lcom/android/settings/Utils;->hasPackage(Landroid/content/Context;Ljava/lang/String;)Z
+    invoke-static/range {v35 .. v36}, Lcom/android/settings/Utils;->hasPackage(Landroid/content/Context;Ljava/lang/String;)Z
 
-    move-result v29
+    move-result v35
 
-    if-eqz v29, :cond_1b
+    if-eqz v35, :cond_1b
 
     :goto_6
-    const-string/jumbo v29, "VZW"
+    const-string/jumbo v35, "VZW"
 
-    sget-object v30, Lcom/android/settings/DeviceInfoSettings;->sSalesCode:Ljava/lang/String;
+    sget-object v36, Lcom/android/settings/DeviceInfoSettings;->sSalesCode:Ljava/lang/String;
 
-    invoke-virtual/range {v29 .. v30}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual/range {v35 .. v36}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v29
+    move-result v35
 
-    if-eqz v29, :cond_3
+    if-eqz v35, :cond_3
 
     :try_start_0
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/DeviceInfoSettings;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v29
+    move-result-object v35
 
-    const-string/jumbo v30, "com.samsung.helphub"
+    const-string/jumbo v36, "com.samsung.helphub"
 
-    const/16 v31, 0x0
+    const/16 v37, 0x0
 
-    invoke-virtual/range {v29 .. v31}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+    invoke-virtual/range {v35 .. v37}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
 
-    move-result-object v18
+    move-result-object v19
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     iget v0, v0, Landroid/content/pm/PackageInfo;->versionCode:I
 
-    move/from16 v29, v0
+    move/from16 v35, v0
 
-    rem-int/lit8 v29, v29, 0xa
+    rem-int/lit8 v35, v35, 0xa
 
-    const/16 v30, 0x2
+    const/16 v36, 0x2
 
-    move/from16 v0, v29
+    move/from16 v0, v35
 
-    move/from16 v1, v30
+    move/from16 v1, v36
 
     if-ge v0, v1, :cond_3
 
-    const-string/jumbo v29, "icon_glossary"
+    const-string/jumbo v35, "icon_glossary"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->removePreference(Ljava/lang/String;)V
     :try_end_0
@@ -3878,478 +3912,478 @@
 
     :cond_3
     :goto_7
-    const-string/jumbo v29, "device_model"
+    const-string/jumbo v35, "device_model"
 
-    new-instance v30, Ljava/lang/StringBuilder;
+    new-instance v36, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v30 .. v30}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v36 .. v36}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v31, Landroid/os/Build;->MODEL:Ljava/lang/String;
+    sget-object v37, Landroid/os/Build;->MODEL:Ljava/lang/String;
 
-    invoke-virtual/range {v30 .. v31}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v36 .. v37}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v30
+    move-result-object v36
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/DeviceInfoSettings;->mContext:Landroid/content/Context;
 
-    move-object/from16 v31, v0
+    move-object/from16 v37, v0
 
-    invoke-static/range {v31 .. v31}, Lcom/samsung/android/settings/deviceinfo/SecDeviceInfoUtils;->getModelNumberExtra(Landroid/content/Context;)Ljava/lang/String;
+    invoke-static/range {v37 .. v37}, Lcom/samsung/android/settings/deviceinfo/SecDeviceInfoUtils;->getModelNumberExtra(Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v31
+    move-result-object v37
 
-    invoke-virtual/range {v30 .. v31}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v36 .. v37}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v30
+    move-result-object v36
 
-    invoke-virtual/range {v30 .. v30}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v36 .. v36}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v30
+    move-result-object v36
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
-    move-object/from16 v2, v30
+    move-object/from16 v2, v36
 
     invoke-direct {v0, v1, v2}, Lcom/android/settings/DeviceInfoSettings;->setStringSummary(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-static {}, Lcom/android/settings/Utils;->isChinaCMCCModel()Z
 
-    move-result v29
+    move-result v35
 
-    if-eqz v29, :cond_1c
+    if-eqz v35, :cond_1c
 
-    const-string/jumbo v29, "build_number"
+    const-string/jumbo v35, "build_number"
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/DeviceInfoSettings;->mContext:Landroid/content/Context;
 
-    move-object/from16 v30, v0
+    move-object/from16 v36, v0
 
-    sget-object v31, Landroid/os/Build;->DISPLAY:Ljava/lang/String;
+    sget-object v37, Landroid/os/Build;->DISPLAY:Ljava/lang/String;
 
-    invoke-static/range {v30 .. v31}, Lcom/samsung/android/settings/deviceinfo/SecDeviceInfoUtils;->getCMCCBuildNumberSummary(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static/range {v36 .. v37}, Lcom/samsung/android/settings/deviceinfo/SecDeviceInfoUtils;->getCMCCBuildNumberSummary(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v30
+    move-result-object v36
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
-    move-object/from16 v2, v30
+    move-object/from16 v2, v36
 
     invoke-direct {v0, v1, v2}, Lcom/android/settings/DeviceInfoSettings;->setStringSummary(Ljava/lang/String;Ljava/lang/String;)V
 
     :goto_8
-    const-string/jumbo v29, "build_number"
+    const-string/jumbo v35, "build_number"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    move-result-object v29
+    move-result-object v35
 
-    const/16 v30, 0x1
+    const/16 v36, 0x1
 
-    invoke-virtual/range {v29 .. v30}, Landroid/preference/Preference;->setEnabled(Z)V
+    invoke-virtual/range {v35 .. v36}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    const-string/jumbo v29, "VZW"
+    const-string/jumbo v35, "VZW"
 
-    sget-object v30, Lcom/android/settings/DeviceInfoSettings;->sSalesCode:Ljava/lang/String;
+    sget-object v36, Lcom/android/settings/DeviceInfoSettings;->sSalesCode:Ljava/lang/String;
 
-    invoke-virtual/range {v29 .. v30}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual/range {v35 .. v36}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v29
+    move-result v35
 
-    if-eqz v29, :cond_1d
+    if-eqz v35, :cond_1d
 
-    const-string/jumbo v29, "kernel_version"
+    const-string/jumbo v35, "kernel_version"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    move-result-object v29
+    move-result-object v35
 
     invoke-static {}, Lcom/samsung/android/settings/deviceinfo/SecDeviceInfoUtils;->getFormattedKernelVersionVZW()Ljava/lang/String;
 
-    move-result-object v30
+    move-result-object v36
 
-    invoke-virtual/range {v29 .. v30}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual/range {v35 .. v36}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     :goto_9
-    const/16 v26, 0x0
+    const/16 v32, 0x0
 
     invoke-static {}, Landroid/os/SELinux;->isSELinuxEnabled()Z
 
-    move-result v29
+    move-result v35
 
-    if-eqz v29, :cond_1f
+    if-eqz v35, :cond_1f
 
     invoke-static {}, Landroid/os/SELinux;->isSELinuxEnforced()Z
 
-    move-result v29
+    move-result v35
 
-    if-eqz v29, :cond_1e
+    if-eqz v35, :cond_1e
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/DeviceInfoSettings;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v29
+    move-result-object v35
 
-    const v30, 0x7f0b1837
+    const v36, 0x7f0b183a
 
-    invoke-virtual/range {v29 .. v30}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual/range {v35 .. v36}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move-result-object v26
+    move-result-object v32
 
-    new-instance v29, Ljava/lang/StringBuilder;
+    new-instance v35, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v29 .. v29}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v35 .. v35}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v35
 
-    move-object/from16 v1, v26
+    move-object/from16 v1, v32
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v29
+    move-result-object v35
 
-    const-string/jumbo v30, "\n"
+    const-string/jumbo v36, "\n"
 
-    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v29
+    move-result-object v35
 
-    invoke-virtual/range {v29 .. v29}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v35 .. v35}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v26
+    move-result-object v32
 
     :try_start_1
-    const-string/jumbo v29, ""
+    const-string/jumbo v35, ""
 
     invoke-static {}, Landroid/os/SELinux;->getSEPolicyVersion()Ljava/lang/String;
 
-    move-result-object v30
+    move-result-object v36
 
-    invoke-virtual/range {v29 .. v30}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual/range {v35 .. v36}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v29
+    move-result v35
 
-    if-nez v29, :cond_4
+    if-nez v35, :cond_4
 
-    new-instance v29, Ljava/lang/StringBuilder;
+    new-instance v35, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v29 .. v29}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v35 .. v35}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v35
 
-    move-object/from16 v1, v26
+    move-object/from16 v1, v32
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v29
+    move-result-object v35
 
     invoke-static {}, Landroid/os/SELinux;->getSEPolicyVersion()Ljava/lang/String;
 
-    move-result-object v30
+    move-result-object v36
 
-    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v29
+    move-result-object v35
 
-    invoke-virtual/range {v29 .. v29}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v35 .. v35}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v26
+    move-result-object v32
 
-    new-instance v29, Ljava/lang/StringBuilder;
+    new-instance v35, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v29 .. v29}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v35 .. v35}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v35
 
-    move-object/from16 v1, v26
+    move-object/from16 v1, v32
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v29
+    move-result-object v35
 
-    const-string/jumbo v30, "\n"
+    const-string/jumbo v36, "\n"
 
-    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v29
+    move-result-object v35
 
-    invoke-virtual/range {v29 .. v29}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v35 .. v35}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
-    move-result-object v26
+    move-result-object v32
 
     :cond_4
     :goto_a
     :try_start_2
-    const-string/jumbo v29, ""
+    const-string/jumbo v35, ""
 
     invoke-static {}, Landroid/os/SELinux;->getSEPolicyBuildDate()Ljava/lang/String;
 
-    move-result-object v30
+    move-result-object v36
 
-    invoke-virtual/range {v29 .. v30}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual/range {v35 .. v36}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v29
+    move-result v35
 
-    if-nez v29, :cond_5
+    if-nez v35, :cond_5
 
-    new-instance v29, Ljava/lang/StringBuilder;
+    new-instance v35, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v29 .. v29}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v35 .. v35}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v35
 
-    move-object/from16 v1, v26
+    move-object/from16 v1, v32
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v29
+    move-result-object v35
 
     invoke-static {}, Landroid/os/SELinux;->getSEPolicyBuildDate()Ljava/lang/String;
 
-    move-result-object v30
+    move-result-object v36
 
-    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v29
+    move-result-object v35
 
-    invoke-virtual/range {v29 .. v29}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v35 .. v35}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_2
 
-    move-result-object v26
+    move-result-object v32
 
     :cond_5
     :goto_b
-    const-string/jumbo v29, "DeviceInfoSettings"
+    const-string/jumbo v35, "DeviceInfoSettings"
 
-    new-instance v30, Ljava/lang/StringBuilder;
+    new-instance v36, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v30 .. v30}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v36 .. v36}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v31, "DeviceInfoSettings seStatus : "
+    const-string/jumbo v37, "DeviceInfoSettings seStatus : "
 
-    invoke-virtual/range {v30 .. v31}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v36 .. v37}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v30
+    move-result-object v36
 
-    move-object/from16 v0, v30
+    move-object/from16 v0, v36
 
-    move-object/from16 v1, v26
+    move-object/from16 v1, v32
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v30
+    move-result-object v36
 
-    invoke-virtual/range {v30 .. v30}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v36 .. v36}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v30
+    move-result-object v36
 
-    invoke-static/range {v29 .. v30}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v35 .. v36}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_c
-    const-string/jumbo v29, "selinux_status"
+    const-string/jumbo v35, "selinux_status"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
-    move-object/from16 v2, v26
+    move-object/from16 v2, v32
 
     invoke-direct {v0, v1, v2}, Lcom/android/settings/DeviceInfoSettings;->setStringSummary(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/DeviceInfoSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
-    move-result-object v29
+    move-result-object v35
 
-    const-string/jumbo v30, "selinux_status"
+    const-string/jumbo v36, "selinux_status"
 
-    const-string/jumbo v31, "ro.build.selinux"
+    const-string/jumbo v37, "ro.build.selinux"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
-    move-object/from16 v2, v30
+    move-object/from16 v2, v36
 
-    move-object/from16 v3, v31
+    move-object/from16 v3, v37
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/settings/DeviceInfoSettings;->removePreferenceIfPropertyMissing(Landroid/preference/PreferenceGroup;Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v29, "selinux.policy_version"
+    const-string/jumbo v35, "selinux.policy_version"
 
-    const-string/jumbo v30, "No Policy Version"
+    const-string/jumbo v36, "No Policy Version"
 
-    invoke-static/range {v29 .. v30}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static/range {v35 .. v36}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v22
+    move-result-object v28
 
-    const-string/jumbo v29, "GOOGLE_POLICY"
+    const-string/jumbo v35, "GOOGLE_POLICY"
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v35
 
-    move-object/from16 v1, v22
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v29
-
-    if-nez v29, :cond_6
-
-    const-string/jumbo v29, "No Policy Version"
-
-    move-object/from16 v0, v29
-
-    move-object/from16 v1, v22
+    move-object/from16 v1, v28
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v29
+    move-result v35
 
-    if-eqz v29, :cond_7
+    if-nez v35, :cond_6
+
+    const-string/jumbo v35, "No Policy Version"
+
+    move-object/from16 v0, v35
+
+    move-object/from16 v1, v28
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v35
+
+    if-eqz v35, :cond_7
 
     :cond_6
-    const-string/jumbo v29, "selinux_status"
+    const-string/jumbo v35, "selinux_status"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->removePreference(Ljava/lang/String;)V
 
     :cond_7
-    const-string/jumbo v29, "XSG"
+    const-string/jumbo v35, "XSG"
 
-    sget-object v30, Lcom/android/settings/DeviceInfoSettings;->sSalesCode:Ljava/lang/String;
+    sget-object v36, Lcom/android/settings/DeviceInfoSettings;->sSalesCode:Ljava/lang/String;
 
-    invoke-virtual/range {v29 .. v30}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual/range {v35 .. v36}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v29
+    move-result v35
 
-    if-nez v29, :cond_8
+    if-nez v35, :cond_8
 
-    const-string/jumbo v29, "XSD"
+    const-string/jumbo v35, "XSD"
 
-    sget-object v30, Lcom/android/settings/DeviceInfoSettings;->sSalesCode:Ljava/lang/String;
+    sget-object v36, Lcom/android/settings/DeviceInfoSettings;->sSalesCode:Ljava/lang/String;
 
-    invoke-virtual/range {v29 .. v30}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual/range {v35 .. v36}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v29
+    move-result v35
 
-    if-nez v29, :cond_8
+    if-nez v35, :cond_8
 
-    const-string/jumbo v29, "XST"
+    const-string/jumbo v35, "XST"
 
-    sget-object v30, Lcom/android/settings/DeviceInfoSettings;->sSalesCode:Ljava/lang/String;
+    sget-object v36, Lcom/android/settings/DeviceInfoSettings;->sSalesCode:Ljava/lang/String;
 
-    invoke-virtual/range {v29 .. v30}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual/range {v35 .. v36}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v29
+    move-result v35
 
-    if-nez v29, :cond_8
+    if-nez v35, :cond_8
 
-    const-string/jumbo v29, "XSZ"
+    const-string/jumbo v35, "XSZ"
 
-    sget-object v30, Lcom/android/settings/DeviceInfoSettings;->sSalesCode:Ljava/lang/String;
+    sget-object v36, Lcom/android/settings/DeviceInfoSettings;->sSalesCode:Ljava/lang/String;
 
-    invoke-virtual/range {v29 .. v30}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual/range {v35 .. v36}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v29
+    move-result v35
 
-    if-nez v29, :cond_8
+    if-nez v35, :cond_8
 
-    const-string/jumbo v29, "XSM"
+    const-string/jumbo v35, "XSM"
 
-    sget-object v30, Lcom/android/settings/DeviceInfoSettings;->sSalesCode:Ljava/lang/String;
+    sget-object v36, Lcom/android/settings/DeviceInfoSettings;->sSalesCode:Ljava/lang/String;
 
-    invoke-virtual/range {v29 .. v30}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual/range {v35 .. v36}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v29
+    move-result v35
 
-    if-nez v29, :cond_8
+    if-nez v35, :cond_8
 
-    const-string/jumbo v29, "XSS"
+    const-string/jumbo v35, "XSS"
 
-    sget-object v30, Lcom/android/settings/DeviceInfoSettings;->sSalesCode:Ljava/lang/String;
+    sget-object v36, Lcom/android/settings/DeviceInfoSettings;->sSalesCode:Ljava/lang/String;
 
-    invoke-virtual/range {v29 .. v30}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual/range {v35 .. v36}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v29
+    move-result v35
 
-    if-nez v29, :cond_8
+    if-nez v35, :cond_8
 
-    const-string/jumbo v29, "XSI"
+    const-string/jumbo v35, "XSI"
 
-    sget-object v30, Lcom/android/settings/DeviceInfoSettings;->sSalesCode:Ljava/lang/String;
+    sget-object v36, Lcom/android/settings/DeviceInfoSettings;->sSalesCode:Ljava/lang/String;
 
-    invoke-virtual/range {v29 .. v30}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual/range {v35 .. v36}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v29
+    move-result v35
 
-    if-eqz v29, :cond_22
+    if-eqz v35, :cond_22
 
     :cond_8
     :try_start_3
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/DeviceInfoSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v29
+    move-result-object v35
 
-    const-string/jumbo v30, "country_cert_info_enable"
+    const-string/jumbo v36, "country_cert_info_enable"
 
-    invoke-static/range {v29 .. v30}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;)I
+    invoke-static/range {v35 .. v36}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;)I
 
-    move-result v29
+    move-result v35
 
-    const/16 v30, 0x1
+    const/16 v36, 0x1
 
-    move/from16 v0, v29
+    move/from16 v0, v35
 
-    move/from16 v1, v30
+    move/from16 v1, v36
 
     if-ne v0, v1, :cond_21
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/DeviceInfoSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v29
+    move-result-object v35
 
-    const-string/jumbo v30, "country_cert_info_traid"
+    const-string/jumbo v36, "country_cert_info_traid"
 
-    invoke-static/range {v29 .. v30}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static/range {v35 .. v36}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v10
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/DeviceInfoSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v29
+    move-result-object v35
 
-    const-string/jumbo v30, "country_cert_info_ta"
+    const-string/jumbo v36, "country_cert_info_ta"
 
-    invoke-static/range {v29 .. v30}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static/range {v35 .. v36}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v9
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/DeviceInfoSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v29
+    move-result-object v35
 
-    const-string/jumbo v30, "country_cert_info_name"
+    const-string/jumbo v36, "country_cert_info_name"
 
-    invoke-static/range {v29 .. v30}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static/range {v35 .. v36}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v7
 
@@ -4359,178 +4393,178 @@
 
     if-eqz v7, :cond_20
 
-    new-instance v29, Ljava/lang/StringBuilder;
+    new-instance v35, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v29 .. v29}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v35 .. v35}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v30, "TRA ID : "
+    const-string/jumbo v36, "TRA ID : "
 
-    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v29
+    move-result-object v35
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v35
 
     invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v29
+    move-result-object v35
 
-    const-string/jumbo v30, "\nTA : "
+    const-string/jumbo v36, "\nTA : "
 
-    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v29
+    move-result-object v35
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v35
 
     invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v29
+    move-result-object v35
 
-    invoke-virtual/range {v29 .. v29}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v35 .. v35}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v8
 
-    const-string/jumbo v29, "country_certification_info"
+    const-string/jumbo v35, "country_certification_info"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    move-result-object v29
+    move-result-object v35
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v35
 
     invoke-virtual {v0, v8}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    const-string/jumbo v29, "country_certification_info"
+    const-string/jumbo v35, "country_certification_info"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    move-result-object v29
+    move-result-object v35
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v35
 
     invoke-virtual {v0, v7}, Landroid/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
     :try_end_3
     .catch Landroid/provider/Settings$SettingNotFoundException; {:try_start_3 .. :try_end_3} :catch_3
 
     :goto_d
-    const-string/jumbo v29, "SMA"
+    const-string/jumbo v35, "SMA"
 
-    sget-object v30, Lcom/android/settings/DeviceInfoSettings;->sSalesCode:Ljava/lang/String;
+    sget-object v36, Lcom/android/settings/DeviceInfoSettings;->sSalesCode:Ljava/lang/String;
 
-    invoke-virtual/range {v29 .. v30}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual/range {v35 .. v36}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v29
+    move-result v35
 
-    if-nez v29, :cond_9
+    if-nez v35, :cond_9
 
-    const-string/jumbo v29, "XTC"
+    const-string/jumbo v35, "XTC"
 
-    sget-object v30, Lcom/android/settings/DeviceInfoSettings;->sSalesCode:Ljava/lang/String;
+    sget-object v36, Lcom/android/settings/DeviceInfoSettings;->sSalesCode:Ljava/lang/String;
 
-    invoke-virtual/range {v29 .. v30}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual/range {v35 .. v36}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v29
+    move-result v35
 
-    if-nez v29, :cond_9
+    if-nez v35, :cond_9
 
-    const-string/jumbo v29, "XTE"
+    const-string/jumbo v35, "XTE"
 
-    sget-object v30, Lcom/android/settings/DeviceInfoSettings;->sSalesCode:Ljava/lang/String;
+    sget-object v36, Lcom/android/settings/DeviceInfoSettings;->sSalesCode:Ljava/lang/String;
 
-    invoke-virtual/range {v29 .. v30}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual/range {v35 .. v36}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v29
+    move-result v35
 
-    if-nez v29, :cond_9
+    if-nez v35, :cond_9
 
-    const-string/jumbo v29, "GLB"
+    const-string/jumbo v35, "GLB"
 
-    sget-object v30, Lcom/android/settings/DeviceInfoSettings;->sSalesCode:Ljava/lang/String;
+    sget-object v36, Lcom/android/settings/DeviceInfoSettings;->sSalesCode:Ljava/lang/String;
 
-    invoke-virtual/range {v29 .. v30}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual/range {v35 .. v36}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v29
+    move-result v35
 
-    if-eqz v29, :cond_23
+    if-eqz v35, :cond_23
 
     :cond_9
-    const-string/jumbo v29, "service_information"
+    const-string/jumbo v35, "service_information"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    move-result-object v29
+    move-result-object v35
 
-    const/16 v30, 0x1
+    const/16 v36, 0x1
 
-    invoke-virtual/range {v29 .. v30}, Landroid/preference/Preference;->setEnabled(Z)V
+    invoke-virtual/range {v35 .. v36}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    const-string/jumbo v29, "ntc_approval"
+    const-string/jumbo v35, "ntc_approval"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    move-result-object v25
+    move-result-object v31
 
-    check-cast v25, Landroid/preference/PreferenceScreen;
+    check-cast v31, Landroid/preference/PreferenceScreen;
 
-    new-instance v29, Lcom/android/settings/DeviceInfoSettings$8;
+    new-instance v35, Lcom/android/settings/DeviceInfoSettings$8;
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v35
 
     move-object/from16 v1, p0
 
     invoke-direct {v0, v1}, Lcom/android/settings/DeviceInfoSettings$8;-><init>(Lcom/android/settings/DeviceInfoSettings;)V
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v31
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->setOnPreferenceClickListener(Landroid/preference/Preference$OnPreferenceClickListener;)V
 
     :goto_e
     invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
 
-    move-result-object v29
+    move-result-object v35
 
-    const-string/jumbo v30, "CscFeature_Setting_SupportRegulatoryInfo"
+    const-string/jumbo v36, "CscFeature_Setting_SupportRegulatoryInfo"
 
-    invoke-virtual/range {v29 .. v30}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;)Z
+    invoke-virtual/range {v35 .. v36}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;)Z
 
-    move-result v29
+    move-result v35
 
-    if-eqz v29, :cond_24
+    if-eqz v35, :cond_24
 
-    const-string/jumbo v29, "TFG"
+    const-string/jumbo v35, "TFG"
 
-    sget-object v30, Lcom/android/settings/DeviceInfoSettings;->sSalesCode:Ljava/lang/String;
+    sget-object v36, Lcom/android/settings/DeviceInfoSettings;->sSalesCode:Ljava/lang/String;
 
-    invoke-virtual/range {v29 .. v30}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual/range {v35 .. v36}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v29
+    move-result v35
 
-    if-eqz v29, :cond_a
+    if-eqz v35, :cond_a
 
     invoke-static {}, Lcom/samsung/android/settings/deviceinfo/SecDeviceInfoUtils;->checkForTFGCostaRicaSIM()Z
 
-    move-result v29
+    move-result v35
 
-    if-eqz v29, :cond_24
+    if-eqz v35, :cond_24
 
     :cond_a
     :goto_f
@@ -4538,46 +4572,46 @@
 
     iget-object v0, v0, Lcom/android/settings/DeviceInfoSettings;->mContext:Landroid/content/Context;
 
-    move-object/from16 v29, v0
+    move-object/from16 v35, v0
 
-    const-string/jumbo v30, "com.samsung.ccr"
+    const-string/jumbo v36, "com.samsung.ccr"
 
-    invoke-static/range {v29 .. v30}, Lcom/samsung/android/settings/deviceinfo/SecDeviceInfoUtils;->isPackageLoaded(Landroid/content/Context;Ljava/lang/String;)Z
+    invoke-static/range {v35 .. v36}, Lcom/samsung/android/settings/deviceinfo/SecDeviceInfoUtils;->isPackageLoaded(Landroid/content/Context;Ljava/lang/String;)Z
 
-    move-result v29
+    move-result v35
 
-    if-nez v29, :cond_b
+    if-nez v35, :cond_b
 
-    const-string/jumbo v29, "DeviceInfoSettings"
+    const-string/jumbo v35, "DeviceInfoSettings"
 
-    const-string/jumbo v30, "remove diagnostics_and_usage"
+    const-string/jumbo v36, "remove diagnostics_and_usage"
 
-    invoke-static/range {v29 .. v30}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v35 .. v36}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v29, "diagnostics_and_usage"
+    const-string/jumbo v35, "diagnostics_and_usage"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->removePreference(Ljava/lang/String;)V
 
     :cond_b
     invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
 
-    move-result-object v29
+    move-result-object v35
 
-    const-string/jumbo v30, "CscFeature_Setting_EnableHwVersionDisplay"
+    const-string/jumbo v36, "CscFeature_Setting_EnableHwVersionDisplay"
 
-    invoke-virtual/range {v29 .. v30}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;)Z
+    invoke-virtual/range {v35 .. v36}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;)Z
 
-    move-result v29
+    move-result v35
 
-    if-eqz v29, :cond_26
+    if-eqz v35, :cond_26
 
-    const-string/jumbo v29, "ril.hw_ver"
+    const-string/jumbo v35, "ril.hw_ver"
 
-    invoke-static/range {v29 .. v29}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static/range {v35 .. v35}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
@@ -4585,245 +4619,245 @@
 
     invoke-static {}, Lcom/android/settings/Utils;->isChinaCMCCModel()Z
 
-    move-result v29
+    move-result v35
 
-    if-eqz v29, :cond_c
+    if-eqz v35, :cond_c
 
-    const/16 v29, 0x2e
+    const/16 v35, 0x2e
 
-    move/from16 v0, v29
+    move/from16 v0, v35
 
     invoke-virtual {v4, v0}, Ljava/lang/String;->indexOf(I)I
 
-    move-result v17
+    move-result v18
 
-    const/16 v29, -0x1
+    const/16 v35, -0x1
 
-    move/from16 v0, v17
+    move/from16 v0, v18
 
-    move/from16 v1, v29
+    move/from16 v1, v35
 
     if-eq v0, v1, :cond_c
 
-    add-int/lit8 v29, v17, 0x2
+    add-int/lit8 v35, v18, 0x2
 
-    const/16 v30, 0x0
+    const/16 v36, 0x0
 
-    move/from16 v0, v30
+    move/from16 v0, v36
 
-    move/from16 v1, v29
+    move/from16 v1, v35
 
     invoke-virtual {v4, v0, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v4
 
     :cond_c
-    const-string/jumbo v29, "hardware_version"
+    const-string/jumbo v35, "hardware_version"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    move-result-object v29
+    move-result-object v35
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v35
 
     invoke-virtual {v0, v4}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    const-string/jumbo v29, "DeviceInfoSettings"
+    const-string/jumbo v35, "DeviceInfoSettings"
 
-    new-instance v30, Ljava/lang/StringBuilder;
+    new-instance v36, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v30 .. v30}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v36 .. v36}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v31, "CSCFEATURE_SETTINGS_ENABLEHWVERSIONDISPLAY:"
+    const-string/jumbo v37, "CSCFEATURE_SETTINGS_ENABLEHWVERSIONDISPLAY:"
 
-    invoke-virtual/range {v30 .. v31}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v36 .. v37}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v30
+    move-result-object v36
 
-    move-object/from16 v0, v30
+    move-object/from16 v0, v36
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v30
+    move-result-object v36
 
-    invoke-virtual/range {v30 .. v30}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v36 .. v36}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v30
+    move-result-object v36
 
-    invoke-static/range {v29 .. v30}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v35 .. v36}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_10
-    const-string/jumbo v29, "ro.product.name"
+    const-string/jumbo v35, "ro.product.name"
 
-    invoke-static/range {v29 .. v29}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static/range {v35 .. v35}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v23
+    move-result-object v29
 
-    const-string/jumbo v29, "hero"
+    const-string/jumbo v35, "hero"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v29
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v29
+    move-result v35
 
-    if-eqz v29, :cond_28
+    if-eqz v35, :cond_28
 
     invoke-static {}, Lcom/android/settings/Utils;->isChinaCMCCModel()Z
 
-    move-result v29
+    move-result v35
 
-    if-eqz v29, :cond_28
+    if-eqz v35, :cond_28
 
-    const-string/jumbo v29, "software_version_cmcc"
+    const-string/jumbo v35, "software_version_cmcc"
 
-    const-string/jumbo v30, "ril.official_cscver"
+    const-string/jumbo v36, "ril.official_cscver"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
-    move-object/from16 v2, v30
+    move-object/from16 v2, v36
 
     invoke-direct {v0, v1, v2}, Lcom/android/settings/DeviceInfoSettings;->setValueSummary(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v29, "ril.approved_cscver"
+    const-string/jumbo v35, "ril.approved_cscver"
 
-    const-string/jumbo v30, "none"
+    const-string/jumbo v36, "none"
 
-    invoke-static/range {v29 .. v30}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static/range {v35 .. v36}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v5
 
     invoke-static {v5}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v29
+    move-result v35
 
-    if-nez v29, :cond_d
+    if-nez v35, :cond_d
 
-    const-string/jumbo v29, "none"
+    const-string/jumbo v35, "none"
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v35
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v29
+    move-result v35
 
-    if-eqz v29, :cond_27
+    if-eqz v35, :cond_27
 
     :cond_d
     :goto_11
     invoke-static {}, Lcom/android/settings/Utils;->isSprModel()Z
 
-    move-result v29
+    move-result v35
 
-    if-eqz v29, :cond_2a
+    if-eqz v35, :cond_2a
 
-    const-string/jumbo v29, "ril.hw_ver"
+    const-string/jumbo v35, "ril.hw_ver"
 
-    invoke-static/range {v29 .. v29}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static/range {v35 .. v35}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
-    const-string/jumbo v29, "hardware_version"
+    const-string/jumbo v35, "hardware_version"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->removePreference(Ljava/lang/String;)V
 
     if-eqz v4, :cond_29
 
-    const-string/jumbo v29, "hardware_version_spr"
+    const-string/jumbo v35, "hardware_version_spr"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    move-result-object v29
+    move-result-object v35
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v35
 
     invoke-virtual {v0, v4}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    const-string/jumbo v29, "DeviceInfoSettings"
+    const-string/jumbo v35, "DeviceInfoSettings"
 
-    new-instance v30, Ljava/lang/StringBuilder;
+    new-instance v36, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v30 .. v30}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v36 .. v36}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v31, "CSCFEATURE_SETTINGS_ENABLEHWVERSIONDISPLAY:"
+    const-string/jumbo v37, "CSCFEATURE_SETTINGS_ENABLEHWVERSIONDISPLAY:"
 
-    invoke-virtual/range {v30 .. v31}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v36 .. v37}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v30
+    move-result-object v36
 
-    move-object/from16 v0, v30
+    move-object/from16 v0, v36
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v30
+    move-result-object v36
 
-    invoke-virtual/range {v30 .. v30}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v36 .. v36}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v30
+    move-result-object v36
 
-    invoke-static/range {v29 .. v30}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v35 .. v36}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_12
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/DeviceInfoSettings;->getActivity()Landroid/app/Activity;
 
-    move-result-object v29
+    move-result-object v35
 
-    const-string/jumbo v30, "com.ctc.epush"
+    const-string/jumbo v36, "com.ctc.epush"
 
-    invoke-static/range {v29 .. v30}, Lcom/android/settings/Utils;->hasPackage(Landroid/content/Context;Ljava/lang/String;)Z
+    invoke-static/range {v35 .. v36}, Lcom/android/settings/Utils;->hasPackage(Landroid/content/Context;Ljava/lang/String;)Z
 
-    move-result v29
+    move-result v35
 
-    if-nez v29, :cond_e
+    if-nez v35, :cond_e
 
-    const-string/jumbo v29, "ctc_epush"
+    const-string/jumbo v35, "ctc_epush"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->removePreference(Ljava/lang/String;)V
 
     :cond_e
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/DeviceInfoSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v29
+    move-result-object v35
 
-    const-string/jumbo v30, "device_name"
+    const-string/jumbo v36, "device_name"
 
-    invoke-static/range {v29 .. v30}, Landroid/provider/Settings$Global;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static/range {v35 .. v36}, Landroid/provider/Settings$Global;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v12
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/DeviceInfoSettings;->getActivity()Landroid/app/Activity;
 
-    move-result-object v29
+    move-result-object v35
 
-    const-string/jumbo v30, "user"
+    const-string/jumbo v36, "user"
 
-    invoke-virtual/range {v29 .. v30}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual/range {v35 .. v36}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v29
+    move-result-object v35
 
-    check-cast v29, Landroid/os/UserManager;
+    check-cast v35, Landroid/os/UserManager;
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v35
 
     move-object/from16 v1, p0
 
@@ -4833,333 +4867,333 @@
 
     iget-object v0, v0, Lcom/android/settings/DeviceInfoSettings;->mUserManager:Landroid/os/UserManager;
 
-    move-object/from16 v29, v0
+    move-object/from16 v35, v0
 
     invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
-    move-result v30
+    move-result v36
 
-    invoke-virtual/range {v29 .. v30}, Landroid/os/UserManager;->getUserInfo(I)Landroid/content/pm/UserInfo;
+    invoke-virtual/range {v35 .. v36}, Landroid/os/UserManager;->getUserInfo(I)Landroid/content/pm/UserInfo;
 
-    move-result-object v29
+    move-result-object v35
 
-    invoke-virtual/range {v29 .. v29}, Landroid/content/pm/UserInfo;->isRestricted()Z
+    invoke-virtual/range {v35 .. v35}, Landroid/content/pm/UserInfo;->isRestricted()Z
 
-    move-result v29
+    move-result v35
 
-    if-eqz v29, :cond_f
+    if-eqz v35, :cond_f
 
     if-nez v12, :cond_f
 
-    const-string/jumbo v29, ""
+    const-string/jumbo v35, ""
 
     invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
 
-    move-result-object v30
+    move-result-object v36
 
-    const-string/jumbo v31, "SEC_FLOATING_FEATURE_SETTINGS_CONFIG_BRAND_NAME"
+    const-string/jumbo v37, "SEC_FLOATING_FEATURE_SETTINGS_CONFIG_BRAND_NAME"
 
-    invoke-virtual/range {v30 .. v31}, Lcom/samsung/android/feature/SemFloatingFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual/range {v36 .. v37}, Lcom/samsung/android/feature/SemFloatingFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v30
+    move-result-object v36
 
-    invoke-virtual/range {v29 .. v30}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual/range {v35 .. v36}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v29
+    move-result v35
 
-    if-nez v29, :cond_f
+    if-nez v35, :cond_f
 
     invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
 
-    move-result-object v29
+    move-result-object v35
 
-    const-string/jumbo v30, "SEC_FLOATING_FEATURE_SETTINGS_CONFIG_BRAND_NAME"
+    const-string/jumbo v36, "SEC_FLOATING_FEATURE_SETTINGS_CONFIG_BRAND_NAME"
 
-    invoke-virtual/range {v29 .. v30}, Lcom/samsung/android/feature/SemFloatingFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual/range {v35 .. v36}, Lcom/samsung/android/feature/SemFloatingFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v12
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/DeviceInfoSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v29
+    move-result-object v35
 
-    const-string/jumbo v30, "device_name"
+    const-string/jumbo v36, "device_name"
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v35
 
-    move-object/from16 v1, v30
+    move-object/from16 v1, v36
 
     invoke-static {v0, v1, v12}, Landroid/provider/Settings$System;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
 
     :cond_f
-    const-string/jumbo v29, "device_name"
+    const-string/jumbo v35, "device_name"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-direct {v0, v1, v12}, Lcom/android/settings/DeviceInfoSettings;->setStringSummary(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v29, "ro.csb_val"
+    const-string/jumbo v35, "ro.csb_val"
 
-    invoke-static/range {v29 .. v29}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static/range {v35 .. v35}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v19
+    move-result-object v20
 
-    const-string/jumbo v29, "DeviceInfoSettings"
+    const-string/jumbo v35, "DeviceInfoSettings"
 
-    new-instance v30, Ljava/lang/StringBuilder;
+    new-instance v36, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v30 .. v30}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v36 .. v36}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v31, "CSB debug keyindex= "
+    const-string/jumbo v37, "CSB debug keyindex= "
 
-    invoke-virtual/range {v30 .. v31}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v36 .. v37}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v30
+    move-result-object v36
 
-    move-object/from16 v0, v30
+    move-object/from16 v0, v36
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v20
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v30
+    move-result-object v36
 
-    invoke-virtual/range {v30 .. v30}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v36 .. v36}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v30
+    move-result-object v36
 
-    invoke-static/range {v29 .. v30}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v35 .. v36}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v29, "unknown"
+    const-string/jumbo v35, "unknown"
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v35
 
-    move-object/from16 v1, v19
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v29
-
-    if-nez v29, :cond_10
-
-    const-string/jumbo v29, "ABSENT"
-
-    move-object/from16 v0, v29
-
-    move-object/from16 v1, v19
+    move-object/from16 v1, v20
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v29
+    move-result v35
 
-    if-nez v29, :cond_10
+    if-nez v35, :cond_10
 
-    const-string/jumbo v29, ""
+    const-string/jumbo v35, "ABSENT"
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v35
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v20
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v29
+    move-result v35
 
-    if-eqz v29, :cond_2b
+    if-nez v35, :cond_10
+
+    const-string/jumbo v35, ""
+
+    move-object/from16 v0, v35
+
+    move-object/from16 v1, v20
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v35
+
+    if-eqz v35, :cond_2b
 
     :cond_10
-    const-string/jumbo v29, "csb_value"
+    const-string/jumbo v35, "csb_value"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->removePreference(Ljava/lang/String;)V
 
     :goto_13
-    const-string/jumbo v29, "fcc_id"
+    const-string/jumbo v35, "fcc_id"
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/DeviceInfoSettings;->mContext:Landroid/content/Context;
 
-    move-object/from16 v30, v0
+    move-object/from16 v36, v0
 
-    invoke-static/range {v30 .. v30}, Lcom/samsung/android/settings/deviceinfo/SecDeviceInfoUtils;->getDeviceFccId(Landroid/content/Context;)Ljava/lang/String;
+    invoke-static/range {v36 .. v36}, Lcom/samsung/android/settings/deviceinfo/SecDeviceInfoUtils;->getDeviceFccId(Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v30
+    move-result-object v36
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
-    move-object/from16 v2, v30
+    move-object/from16 v2, v36
 
     invoke-direct {v0, v1, v2}, Lcom/android/settings/DeviceInfoSettings;->setDeviceSpecStringSummary(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v29, "rated_value"
+    const-string/jumbo v35, "rated_value"
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/DeviceInfoSettings;->mContext:Landroid/content/Context;
 
-    move-object/from16 v30, v0
+    move-object/from16 v36, v0
 
-    invoke-static/range {v30 .. v30}, Lcom/samsung/android/settings/deviceinfo/SecDeviceInfoUtils;->getDeviceRated(Landroid/content/Context;)Ljava/lang/String;
+    invoke-static/range {v36 .. v36}, Lcom/samsung/android/settings/deviceinfo/SecDeviceInfoUtils;->getDeviceRated(Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v30
+    move-result-object v36
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
-    move-object/from16 v2, v30
+    move-object/from16 v2, v36
 
     invoke-direct {v0, v1, v2}, Lcom/android/settings/DeviceInfoSettings;->setDeviceSpecStringSummary(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v29, "battery_capacity"
+    const-string/jumbo v35, "battery_capacity"
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/DeviceInfoSettings;->mContext:Landroid/content/Context;
 
-    move-object/from16 v30, v0
+    move-object/from16 v36, v0
 
-    invoke-static/range {v30 .. v30}, Lcom/samsung/android/settings/deviceinfo/SecDeviceInfoUtils;->getDeviceBatteryCapacity(Landroid/content/Context;)Ljava/lang/String;
+    invoke-static/range {v36 .. v36}, Lcom/samsung/android/settings/deviceinfo/SecDeviceInfoUtils;->getDeviceBatteryCapacity(Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v30
+    move-result-object v36
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
-    move-object/from16 v2, v30
+    move-object/from16 v2, v36
 
     invoke-direct {v0, v1, v2}, Lcom/android/settings/DeviceInfoSettings;->setDeviceSpecStringSummary(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-static {}, Lcom/android/settings/Utils;->isDomesticModel()Z
 
-    move-result v29
+    move-result v35
 
-    if-eqz v29, :cond_11
+    if-eqz v35, :cond_11
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/DeviceInfoSettings;->mContext:Landroid/content/Context;
 
-    move-object/from16 v29, v0
+    move-object/from16 v35, v0
 
-    invoke-static/range {v29 .. v29}, Lcom/samsung/android/settings/deviceinfo/SecDeviceInfoUtils;->getDeviceRated(Landroid/content/Context;)Ljava/lang/String;
+    invoke-static/range {v35 .. v35}, Lcom/samsung/android/settings/deviceinfo/SecDeviceInfoUtils;->getDeviceRated(Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v29
+    move-result-object v35
 
-    invoke-static/range {v29 .. v29}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static/range {v35 .. v35}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v29
+    move-result v35
 
-    if-eqz v29, :cond_30
+    if-eqz v35, :cond_30
 
     :cond_11
-    const-string/jumbo v29, "customer_services"
+    const-string/jumbo v35, "customer_services"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->removePreference(Ljava/lang/String;)V
 
     :goto_14
-    const-string/jumbo v29, "persist.sys.iss.flag_altermodel"
+    const-string/jumbo v35, "persist.sys.iss.flag_altermodel"
 
-    const/16 v30, 0x0
+    const/16 v36, 0x0
 
-    invoke-static/range {v29 .. v30}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
+    invoke-static/range {v35 .. v36}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
 
-    move-result v29
+    move-result v35
 
-    const/16 v30, 0x1
+    const/16 v36, 0x1
 
-    move/from16 v0, v29
+    move/from16 v0, v35
 
-    move/from16 v1, v30
+    move/from16 v1, v36
 
     if-ne v0, v1, :cond_12
 
-    const-string/jumbo v29, "device_name"
+    const-string/jumbo v35, "device_name"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->removePreference(Ljava/lang/String;)V
 
-    const-string/jumbo v29, "device_model"
+    const-string/jumbo v35, "device_model"
 
-    const-string/jumbo v30, "persist.sys.iss.altermodel"
+    const-string/jumbo v36, "persist.sys.iss.altermodel"
 
-    invoke-static/range {v30 .. v30}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static/range {v36 .. v36}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v30
+    move-result-object v36
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
-    move-object/from16 v2, v30
+    move-object/from16 v2, v36
 
     invoke-direct {v0, v1, v2}, Lcom/android/settings/DeviceInfoSettings;->setStringSummary(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v29, "baseband_version"
+    const-string/jumbo v35, "baseband_version"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->removePreference(Ljava/lang/String;)V
 
-    const-string/jumbo v29, "kernel_version"
+    const-string/jumbo v35, "kernel_version"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->removePreference(Ljava/lang/String;)V
 
-    const-string/jumbo v29, "build_number"
+    const-string/jumbo v35, "build_number"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->removePreference(Ljava/lang/String;)V
 
-    const-string/jumbo v29, "selinux_status"
+    const-string/jumbo v35, "selinux_status"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->removePreference(Ljava/lang/String;)V
 
     :cond_12
-    sget-boolean v29, Lcom/android/settings/DeviceInfoSettings;->statusForChnRoot:Z
+    sget-boolean v35, Lcom/android/settings/DeviceInfoSettings;->statusForChnRoot:Z
 
-    if-eqz v29, :cond_31
+    if-eqz v35, :cond_31
 
-    const-string/jumbo v29, "status_info"
+    const-string/jumbo v35, "status_info"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->removePreference(Ljava/lang/String;)V
 
-    const-string/jumbo v29, "status_info_vzw"
+    const-string/jumbo v35, "status_info_vzw"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->removePreference(Ljava/lang/String;)V
 
@@ -5168,118 +5202,118 @@
 
     iget-object v0, v0, Lcom/android/settings/DeviceInfoSettings;->mContext:Landroid/content/Context;
 
-    move-object/from16 v29, v0
+    move-object/from16 v35, v0
 
-    const-string/jumbo v30, "com.samsung.android.app.omcagent"
+    const-string/jumbo v36, "com.samsung.android.app.omcagent"
 
-    invoke-static/range {v29 .. v30}, Lcom/android/settings/Utils;->hasPackage(Landroid/content/Context;Ljava/lang/String;)Z
+    invoke-static/range {v35 .. v36}, Lcom/android/settings/Utils;->hasPackage(Landroid/content/Context;Ljava/lang/String;)Z
 
-    move-result v29
+    move-result v35
 
-    if-eqz v29, :cond_34
+    if-eqz v35, :cond_34
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/DeviceInfoSettings;->mContext:Landroid/content/Context;
 
-    move-object/from16 v29, v0
+    move-object/from16 v35, v0
 
-    invoke-virtual/range {v29 .. v29}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual/range {v35 .. v35}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v29
+    move-result-object v35
 
-    const-string/jumbo v30, "OMC.configuration.version"
+    const-string/jumbo v36, "OMC.configuration.version"
 
-    invoke-static/range {v29 .. v30}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static/range {v35 .. v36}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v21
+    move-result-object v27
 
-    const-string/jumbo v20, ""
+    const-string/jumbo v26, ""
 
-    invoke-static/range {v21 .. v21}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static/range {v27 .. v27}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v29
+    move-result v35
 
-    if-nez v29, :cond_33
+    if-nez v35, :cond_33
 
-    new-instance v29, Ljava/lang/StringBuilder;
+    new-instance v35, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v29 .. v29}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v35 .. v35}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v30, "ro.serialno"
+    const-string/jumbo v36, "ro.serialno"
 
-    const-string/jumbo v31, "No ID"
+    const-string/jumbo v37, "No ID"
 
-    invoke-static/range {v30 .. v31}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static/range {v36 .. v37}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v30
+    move-result-object v36
 
-    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v29
+    move-result-object v35
 
-    const-string/jumbo v30, "\n"
+    const-string/jumbo v36, "\n"
 
-    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v29
+    move-result-object v35
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v35
 
-    move-object/from16 v1, v21
+    move-object/from16 v1, v27
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v29
+    move-result-object v35
 
-    invoke-virtual/range {v29 .. v29}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v35 .. v35}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v20
+    move-result-object v26
 
     :goto_16
-    const-string/jumbo v29, "omc_version"
+    const-string/jumbo v35, "omc_version"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
-    move-object/from16 v2, v20
+    move-object/from16 v2, v26
 
     invoke-direct {v0, v1, v2}, Lcom/android/settings/DeviceInfoSettings;->setStringSummary(Ljava/lang/String;Ljava/lang/String;)V
 
     :goto_17
     invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
-    move-result v29
+    move-result v35
 
-    if-nez v29, :cond_13
+    if-nez v35, :cond_13
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/DeviceInfoSettings;->getActivity()Landroid/app/Activity;
 
-    move-result-object v29
+    move-result-object v35
 
-    invoke-static/range {v29 .. v29}, Lcom/android/settings/Utils;->isWifiOnly(Landroid/content/Context;)Z
+    invoke-static/range {v35 .. v35}, Lcom/android/settings/Utils;->isWifiOnly(Landroid/content/Context;)Z
 
-    move-result v29
+    move-result v35
 
-    if-eqz v29, :cond_35
+    if-eqz v35, :cond_35
 
     :cond_13
-    const-string/jumbo v29, "my_phone_number"
+    const-string/jumbo v35, "my_phone_number"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->removePreference(Ljava/lang/String;)V
 
     :cond_14
     :goto_18
-    const-string/jumbo v29, "samsung_experience_version"
+    const-string/jumbo v35, "samsung_experience_version"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->removePreference(Ljava/lang/String;)V
 
@@ -5288,60 +5322,60 @@
     return-void
 
     :cond_15
-    const-string/jumbo v29, "security_sw_version"
+    const-string/jumbo v35, "security_sw_version"
 
-    new-instance v30, Ljava/lang/StringBuilder;
+    new-instance v36, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v30 .. v30}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v36 .. v36}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v31, "ASKS v1.3_"
+    const-string/jumbo v37, "ASKS v1.4 Release "
 
-    invoke-virtual/range {v30 .. v31}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v36 .. v37}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v30
+    move-result-object v36
 
     invoke-direct/range {p0 .. p0}, Lcom/android/settings/DeviceInfoSettings;->getASKSVersion()Ljava/lang/String;
 
-    move-result-object v31
+    move-result-object v37
 
-    invoke-virtual/range {v30 .. v31}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v36 .. v37}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v30
+    move-result-object v36
 
-    invoke-virtual/range {v30 .. v30}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v36 .. v36}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v30
+    move-result-object v36
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
-    move-object/from16 v2, v30
+    move-object/from16 v2, v36
 
     invoke-direct {v0, v1, v2}, Lcom/android/settings/DeviceInfoSettings;->setStringSummary(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v29, "security_sw_version"
+    const-string/jumbo v35, "security_sw_version"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    move-result-object v29
+    move-result-object v35
 
-    const/16 v30, 0x1
+    const/16 v36, 0x1
 
-    invoke-virtual/range {v29 .. v30}, Landroid/preference/Preference;->setEnabled(Z)V
+    invoke-virtual/range {v35 .. v36}, Landroid/preference/Preference;->setEnabled(Z)V
 
     goto/16 :goto_0
 
     :cond_16
-    const-string/jumbo v29, "knox_version"
+    const-string/jumbo v35, "knox_version"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->removePreference(Ljava/lang/String;)V
 
@@ -5350,19 +5384,19 @@
     :cond_17
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/DeviceInfoSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
-    move-result-object v29
+    move-result-object v35
 
-    const-string/jumbo v30, "knox_custom_configurator"
+    const-string/jumbo v36, "knox_custom_configurator"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v30
+    move-object/from16 v1, v36
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    move-result-object v30
+    move-result-object v36
 
-    invoke-virtual/range {v29 .. v30}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual/range {v35 .. v36}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     goto/16 :goto_2
 
@@ -5371,19 +5405,19 @@
 
     iget-object v0, v0, Lcom/android/settings/DeviceInfoSettings;->mDeviceName:Landroid/preference/Preference;
 
-    move-object/from16 v29, v0
+    move-object/from16 v35, v0
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/DeviceInfoSettings;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v30
+    move-result-object v36
 
-    const v31, 0x7f0b04e9
+    const v37, 0x7f0b04e9
 
-    invoke-virtual/range {v30 .. v31}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual/range {v36 .. v37}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move-result-object v30
+    move-result-object v36
 
-    invoke-virtual/range {v29 .. v30}, Landroid/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
+    invoke-virtual/range {v35 .. v36}, Landroid/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
     goto/16 :goto_3
 
@@ -5393,22 +5427,22 @@
     goto/16 :goto_4
 
     :cond_1a
-    const-string/jumbo v29, "software_version"
+    const-string/jumbo v35, "software_version"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->removePreference(Ljava/lang/String;)V
 
     goto/16 :goto_5
 
     :cond_1b
-    const-string/jumbo v29, "icon_glossary"
+    const-string/jumbo v35, "icon_glossary"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->removePreference(Ljava/lang/String;)V
 
@@ -5422,67 +5456,67 @@
     goto/16 :goto_7
 
     :cond_1c
-    const-string/jumbo v29, "build_number"
+    const-string/jumbo v35, "build_number"
 
-    sget-object v30, Landroid/os/Build;->DISPLAY:Ljava/lang/String;
+    sget-object v36, Landroid/os/Build;->DISPLAY:Ljava/lang/String;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
-    move-object/from16 v2, v30
+    move-object/from16 v2, v36
 
     invoke-direct {v0, v1, v2}, Lcom/android/settings/DeviceInfoSettings;->setStringSummary(Ljava/lang/String;Ljava/lang/String;)V
 
     goto/16 :goto_8
 
     :cond_1d
-    const-string/jumbo v29, "kernel_version"
+    const-string/jumbo v35, "kernel_version"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    move-result-object v29
+    move-result-object v35
 
     invoke-static {}, Lcom/android/settingslib/DeviceInfoUtils;->getFormattedKernelVersion()Ljava/lang/String;
 
-    move-result-object v30
+    move-result-object v36
 
-    invoke-virtual/range {v29 .. v30}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual/range {v35 .. v36}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     goto/16 :goto_9
 
     :catch_1
     move-exception v15
 
-    const-string/jumbo v29, "DeviceInfoSettings"
+    const-string/jumbo v35, "DeviceInfoSettings"
 
-    new-instance v30, Ljava/lang/StringBuilder;
+    new-instance v36, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v30 .. v30}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v36 .. v36}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v31, "KnoxVersion Exception : "
+    const-string/jumbo v37, "KnoxVersion Exception : "
 
-    invoke-virtual/range {v30 .. v31}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v36 .. v37}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v30
+    move-result-object v36
 
     invoke-virtual {v15}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
-    move-result-object v31
+    move-result-object v37
 
-    invoke-virtual/range {v30 .. v31}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v36 .. v37}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v30
+    move-result-object v36
 
-    invoke-virtual/range {v30 .. v30}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v36 .. v36}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v30
+    move-result-object v36
 
-    invoke-static/range {v29 .. v30}, Landroid/util/secutil/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v35 .. v36}, Landroid/util/secutil/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {v15}, Ljava/lang/Exception;->printStackTrace()V
 
@@ -5491,31 +5525,31 @@
     :catch_2
     move-exception v15
 
-    const-string/jumbo v29, "DeviceInfoSettings"
+    const-string/jumbo v35, "DeviceInfoSettings"
 
-    new-instance v30, Ljava/lang/StringBuilder;
+    new-instance v36, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v30 .. v30}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v36 .. v36}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v31, "KnoxVersion Exception : "
+    const-string/jumbo v37, "KnoxVersion Exception : "
 
-    invoke-virtual/range {v30 .. v31}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v36 .. v37}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v30
+    move-result-object v36
 
     invoke-virtual {v15}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
-    move-result-object v31
+    move-result-object v37
 
-    invoke-virtual/range {v30 .. v31}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v36 .. v37}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v30
+    move-result-object v36
 
-    invoke-virtual/range {v30 .. v30}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v36 .. v36}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v30
+    move-result-object v36
 
-    invoke-static/range {v29 .. v30}, Landroid/util/secutil/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v35 .. v36}, Landroid/util/secutil/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {v15}, Ljava/lang/Exception;->printStackTrace()V
 
@@ -5524,36 +5558,36 @@
     :cond_1e
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/DeviceInfoSettings;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v29
+    move-result-object v35
 
-    const v30, 0x7f0b1836
+    const v36, 0x7f0b1839
 
-    invoke-virtual/range {v29 .. v30}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual/range {v35 .. v36}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move-result-object v26
+    move-result-object v32
 
     goto/16 :goto_c
 
     :cond_1f
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/DeviceInfoSettings;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v29
+    move-result-object v35
 
-    const v30, 0x7f0b1835
+    const v36, 0x7f0b1838
 
-    invoke-virtual/range {v29 .. v30}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual/range {v35 .. v36}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move-result-object v26
+    move-result-object v32
 
     goto/16 :goto_c
 
     :cond_20
     :try_start_4
-    const-string/jumbo v29, "country_certification_info"
+    const-string/jumbo v35, "country_certification_info"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->removePreference(Ljava/lang/String;)V
     :try_end_4
@@ -5570,11 +5604,11 @@
 
     :cond_21
     :try_start_5
-    const-string/jumbo v29, "country_certification_info"
+    const-string/jumbo v35, "country_certification_info"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->removePreference(Ljava/lang/String;)V
     :try_end_5
@@ -5583,240 +5617,240 @@
     goto/16 :goto_d
 
     :cond_22
-    const-string/jumbo v29, "country_certification_info"
+    const-string/jumbo v35, "country_certification_info"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->removePreference(Ljava/lang/String;)V
 
     goto/16 :goto_d
 
     :cond_23
-    const-string/jumbo v29, "service_information"
+    const-string/jumbo v35, "service_information"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->removePreference(Ljava/lang/String;)V
 
-    const-string/jumbo v29, "ntc_approval"
+    const-string/jumbo v35, "ntc_approval"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->removePreference(Ljava/lang/String;)V
 
     goto/16 :goto_e
 
     :cond_24
-    const-string/jumbo v29, "regulatory_info"
+    const-string/jumbo v35, "regulatory_info"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->removePreference(Ljava/lang/String;)V
 
     goto/16 :goto_f
 
     :cond_25
-    const-string/jumbo v29, "hardware_version"
+    const-string/jumbo v35, "hardware_version"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    move-result-object v29
+    move-result-object v35
 
-    const v30, 0x7f0b1030
+    const v36, 0x7f0b1033
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v30
+    move/from16 v1, v36
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->getString(I)Ljava/lang/String;
 
-    move-result-object v30
+    move-result-object v36
 
-    invoke-virtual/range {v29 .. v30}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual/range {v35 .. v36}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     goto/16 :goto_10
 
     :cond_26
-    const-string/jumbo v29, "hardware_version"
+    const-string/jumbo v35, "hardware_version"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->removePreference(Ljava/lang/String;)V
 
     goto/16 :goto_10
 
     :cond_27
-    const-string/jumbo v29, "hardware_version"
+    const-string/jumbo v35, "hardware_version"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    move-result-object v29
+    move-result-object v35
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v35
 
     invoke-virtual {v0, v5}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     goto/16 :goto_11
 
     :cond_28
-    const-string/jumbo v29, "software_version_cmcc"
+    const-string/jumbo v35, "software_version_cmcc"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->removePreference(Ljava/lang/String;)V
 
     goto/16 :goto_11
 
     :cond_29
-    const-string/jumbo v29, "hardware_version_spr"
+    const-string/jumbo v35, "hardware_version_spr"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    move-result-object v29
+    move-result-object v35
 
-    const v30, 0x7f0b1030
+    const v36, 0x7f0b1033
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v30
+    move/from16 v1, v36
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->getString(I)Ljava/lang/String;
 
-    move-result-object v30
+    move-result-object v36
 
-    invoke-virtual/range {v29 .. v30}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual/range {v35 .. v36}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     goto/16 :goto_12
 
     :cond_2a
-    const-string/jumbo v29, "hardware_version_spr"
+    const-string/jumbo v35, "hardware_version_spr"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->removePreference(Ljava/lang/String;)V
 
     goto/16 :goto_12
 
     :cond_2b
-    const-string/jumbo v29, "1"
+    const-string/jumbo v35, "1"
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v35
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v20
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v29
+    move-result v35
 
-    if-eqz v29, :cond_2c
+    if-eqz v35, :cond_2c
 
-    const-string/jumbo v27, "Type: Samsung"
+    const-string/jumbo v33, "Type: Samsung"
 
     :goto_19
-    const-string/jumbo v29, "csb_value"
+    const-string/jumbo v35, "csb_value"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
-    move-object/from16 v2, v27
+    move-object/from16 v2, v33
 
     invoke-direct {v0, v1, v2}, Lcom/android/settings/DeviceInfoSettings;->setStringSummary(Ljava/lang/String;Ljava/lang/String;)V
 
     goto/16 :goto_13
 
     :cond_2c
-    const-string/jumbo v29, "2"
+    const-string/jumbo v35, "2"
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v35
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v20
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v29
+    move-result v35
 
-    if-eqz v29, :cond_2d
+    if-eqz v35, :cond_2d
 
-    const-string/jumbo v27, "Type: Knox A"
+    const-string/jumbo v33, "Type: Knox A"
 
     goto :goto_19
 
     :cond_2d
-    const-string/jumbo v29, "3"
+    const-string/jumbo v35, "3"
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v35
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v20
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v29
+    move-result v35
 
-    if-eqz v29, :cond_2e
+    if-eqz v35, :cond_2e
 
-    const-string/jumbo v27, "Type: Knox B"
+    const-string/jumbo v33, "Type: Knox B"
 
     goto :goto_19
 
     :cond_2e
-    const-string/jumbo v29, "4"
+    const-string/jumbo v35, "4"
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v35
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v20
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v29
+    move-result v35
 
-    if-eqz v29, :cond_2f
+    if-eqz v35, :cond_2f
 
-    const-string/jumbo v27, "Type: Knox C"
+    const-string/jumbo v33, "Type: Knox C"
 
     goto :goto_19
 
     :cond_2f
-    const-string/jumbo v27, "Type: Invalid"
+    const-string/jumbo v33, "Type: Invalid"
 
     goto :goto_19
 
     :cond_30
-    const-string/jumbo v29, "customer_services"
+    const-string/jumbo v35, "customer_services"
 
-    const-string/jumbo v30, "1588-3366 / www.3366.co.kr"
+    const-string/jumbo v36, "1588-3366 / www.3366.co.kr"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
-    move-object/from16 v2, v30
+    move-object/from16 v2, v36
 
     invoke-direct {v0, v1, v2}, Lcom/android/settings/DeviceInfoSettings;->setStringSummary(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -5825,152 +5859,599 @@
     :cond_31
     invoke-static {}, Lcom/samsung/android/settings/deviceinfo/SecDeviceInfoUtils;->isStatusLOSmenutree()Z
 
-    move-result v29
+    move-result v35
 
-    if-eqz v29, :cond_32
+    if-eqz v35, :cond_32
 
-    const-string/jumbo v29, "status_info"
+    const-string/jumbo v35, "status_info"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->removePreference(Ljava/lang/String;)V
 
-    const-string/jumbo v29, "status_info_root"
+    const-string/jumbo v35, "status_info_root"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->removePreference(Ljava/lang/String;)V
 
     goto/16 :goto_15
 
     :cond_32
-    const-string/jumbo v29, "status_info_vzw"
+    const-string/jumbo v35, "status_info_vzw"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->removePreference(Ljava/lang/String;)V
 
-    const-string/jumbo v29, "status_info_root"
+    const-string/jumbo v35, "status_info_root"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->removePreference(Ljava/lang/String;)V
 
     goto/16 :goto_15
 
     :cond_33
-    const-string/jumbo v29, "ro.serialno"
+    const-string/jumbo v35, "ro.serialno"
 
-    const-string/jumbo v30, "No ID"
+    const-string/jumbo v36, "No ID"
 
-    invoke-static/range {v29 .. v30}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static/range {v35 .. v36}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v20
+    move-result-object v26
 
     goto/16 :goto_16
 
     :cond_34
-    const-string/jumbo v29, "omc_version"
+    const-string/jumbo v35, "omc_version"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->removePreference(Ljava/lang/String;)V
 
     goto/16 :goto_17
 
     :cond_35
-    const-string/jumbo v29, "phone"
+    const-string/jumbo v35, "phone"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v28
+    move-result-object v34
 
-    check-cast v28, Landroid/telephony/TelephonyManager;
+    check-cast v34, Landroid/telephony/TelephonyManager;
 
-    invoke-virtual/range {v28 .. v28}, Landroid/telephony/TelephonyManager;->getLine1Number()Ljava/lang/String;
+    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/DeviceInfoSettings;->getContext()Landroid/content/Context;
 
-    move-result-object v24
+    move-result-object v35
 
-    const-string/jumbo v29, "DeviceInfoSettings"
+    invoke-static/range {v35 .. v35}, Landroid/telephony/SubscriptionManager;->from(Landroid/content/Context;)Landroid/telephony/SubscriptionManager;
 
-    new-instance v30, Ljava/lang/StringBuilder;
+    move-result-object v35
 
-    invoke-direct/range {v30 .. v30}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual/range {v35 .. v35}, Landroid/telephony/SubscriptionManager;->getActiveSubscriptionInfoList()Ljava/util/List;
 
-    const-string/jumbo v31, "getLine1Number:"
+    move-result-object v22
 
-    invoke-virtual/range {v30 .. v31}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-eqz v22, :cond_14
+
+    invoke-interface/range {v22 .. v22}, Ljava/util/List;->size()I
+
+    move-result v35
+
+    if-lez v35, :cond_14
+
+    invoke-interface/range {v22 .. v22}, Ljava/util/List;->size()I
+
+    move-result v25
+
+    const/16 v35, 0x1
+
+    move/from16 v0, v25
+
+    move/from16 v1, v35
+
+    if-ne v0, v1, :cond_37
+
+    const/16 v35, 0x0
+
+    move-object/from16 v0, v22
+
+    move/from16 v1, v35
+
+    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v23
+
+    check-cast v23, Landroid/telephony/SubscriptionInfo;
+
+    invoke-virtual/range {v23 .. v23}, Landroid/telephony/SubscriptionInfo;->getSubscriptionId()I
+
+    move-result v35
+
+    invoke-virtual/range {v34 .. v35}, Landroid/telephony/TelephonyManager;->getLine1Number(I)Ljava/lang/String;
 
     move-result-object v30
 
+    const-string/jumbo v35, "DeviceInfoSettings"
+
+    new-instance v36, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v36 .. v36}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v37, "getLine1Number:"
+
+    invoke-virtual/range {v36 .. v37}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v36
+
+    move-object/from16 v0, v36
+
+    move-object/from16 v1, v30
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v36
+
+    invoke-virtual/range {v36 .. v36}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v36
+
+    invoke-static/range {v35 .. v36}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/16 v16, 0x0
+
+    invoke-static/range {v30 .. v30}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v35
+
+    if-nez v35, :cond_14
+
+    invoke-static {}, Lcom/android/settings/Utils;->isDomesticModel()Z
+
+    move-result v35
+
+    if-eqz v35, :cond_36
+
+    const-string/jumbo v35, "\\+82"
+
+    const-string/jumbo v36, "0"
+
     move-object/from16 v0, v30
+
+    move-object/from16 v1, v35
+
+    move-object/from16 v2, v36
+
+    invoke-virtual {v0, v1, v2}, Ljava/lang/String;->replaceFirst(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v30
+
+    :cond_36
+    invoke-static/range {v30 .. v30}, Landroid/telephony/PhoneNumberUtils;->formatNumber(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v16
+
+    const-string/jumbo v35, "my_phone_number"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v35
+
+    move-object/from16 v2, v16
+
+    invoke-direct {v0, v1, v2}, Lcom/android/settings/DeviceInfoSettings;->setStringSummary(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto/16 :goto_18
+
+    :cond_37
+    const/16 v35, 0x1
+
+    move/from16 v0, v25
+
+    move/from16 v1, v35
+
+    if-le v0, v1, :cond_14
+
+    const-string/jumbo v24, ""
+
+    new-instance v21, Ljava/util/ArrayList;
+
+    invoke-direct/range {v21 .. v21}, Ljava/util/ArrayList;-><init>()V
+
+    const/16 v17, 0x0
+
+    :goto_1a
+    move/from16 v0, v17
+
+    move/from16 v1, v25
+
+    if-ge v0, v1, :cond_3d
+
+    move-object/from16 v0, v22
+
+    move/from16 v1, v17
+
+    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v23
+
+    check-cast v23, Landroid/telephony/SubscriptionInfo;
+
+    invoke-virtual/range {v23 .. v23}, Landroid/telephony/SubscriptionInfo;->getSubscriptionId()I
+
+    move-result v35
+
+    invoke-virtual/range {v34 .. v35}, Landroid/telephony/TelephonyManager;->getLine1Number(I)Ljava/lang/String;
+
+    move-result-object v30
+
+    const-string/jumbo v35, "DeviceInfoSettings"
+
+    new-instance v36, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v36 .. v36}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v37, "getLine1Number:"
+
+    invoke-virtual/range {v36 .. v37}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v36
+
+    move-object/from16 v0, v36
+
+    move-object/from16 v1, v30
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v36
+
+    invoke-virtual/range {v36 .. v36}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v36
+
+    invoke-static/range {v35 .. v36}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/16 v16, 0x0
+
+    invoke-static/range {v30 .. v30}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v35
+
+    if-nez v35, :cond_3b
+
+    invoke-static {}, Lcom/android/settings/Utils;->isDomesticModel()Z
+
+    move-result v35
+
+    if-eqz v35, :cond_38
+
+    const-string/jumbo v35, "\\+82"
+
+    const-string/jumbo v36, "0"
+
+    move-object/from16 v0, v30
+
+    move-object/from16 v1, v35
+
+    move-object/from16 v2, v36
+
+    invoke-virtual {v0, v1, v2}, Ljava/lang/String;->replaceFirst(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v30
+
+    :cond_38
+    invoke-static/range {v30 .. v30}, Landroid/telephony/PhoneNumberUtils;->formatNumber(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v16
+
+    invoke-static {}, Lcom/android/settings/Utils;->isLocaleRTL()Z
+
+    move-result v35
+
+    if-eqz v35, :cond_3a
+
+    new-instance v35, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v35 .. v35}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v36, "\u200f"
+
+    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v35
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v17
+
+    invoke-direct {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->getSimName(I)Ljava/lang/String;
+
+    move-result-object v36
+
+    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v35
+
+    const-string/jumbo v36, " : "
+
+    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v35
+
+    move-object/from16 v0, v35
+
+    move-object/from16 v1, v16
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v35
+
+    invoke-virtual/range {v35 .. v35}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v35
+
+    move-object/from16 v0, v21
+
+    move-object/from16 v1, v35
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    :goto_1b
+    add-int/lit8 v35, v25, -0x1
+
+    move/from16 v0, v17
+
+    move/from16 v1, v35
+
+    if-ge v0, v1, :cond_39
+
+    const-string/jumbo v35, "\n"
+
+    move-object/from16 v0, v21
+
+    move-object/from16 v1, v35
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    :cond_39
+    add-int/lit8 v17, v17, 0x1
+
+    goto/16 :goto_1a
+
+    :cond_3a
+    new-instance v35, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v35 .. v35}, Ljava/lang/StringBuilder;-><init>()V
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v17
+
+    invoke-direct {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->getSimName(I)Ljava/lang/String;
+
+    move-result-object v36
+
+    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v35
+
+    const-string/jumbo v36, " : "
+
+    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v35
+
+    move-object/from16 v0, v35
+
+    move-object/from16 v1, v16
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v35
+
+    invoke-virtual/range {v35 .. v35}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v35
+
+    move-object/from16 v0, v21
+
+    move-object/from16 v1, v35
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto :goto_1b
+
+    :cond_3b
+    invoke-static {}, Lcom/android/settings/Utils;->isLocaleRTL()Z
+
+    move-result v35
+
+    if-eqz v35, :cond_3c
+
+    new-instance v35, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v35 .. v35}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v36, "\u200f"
+
+    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v35
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v17
+
+    invoke-direct {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->getSimName(I)Ljava/lang/String;
+
+    move-result-object v36
+
+    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v35
+
+    const-string/jumbo v36, " : "
+
+    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v35
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/DeviceInfoSettings;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v36
+
+    const v37, 0x7f0b1033
+
+    invoke-virtual/range {v36 .. v37}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v36
+
+    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v35
+
+    invoke-virtual/range {v35 .. v35}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v35
+
+    move-object/from16 v0, v21
+
+    move-object/from16 v1, v35
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_1b
+
+    :cond_3c
+    new-instance v35, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v35 .. v35}, Ljava/lang/StringBuilder;-><init>()V
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v17
+
+    invoke-direct {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->getSimName(I)Ljava/lang/String;
+
+    move-result-object v36
+
+    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v35
+
+    const-string/jumbo v36, " : "
+
+    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v35
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/DeviceInfoSettings;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v36
+
+    const v37, 0x7f0b1033
+
+    invoke-virtual/range {v36 .. v37}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v36
+
+    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v35
+
+    invoke-virtual/range {v35 .. v35}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v35
+
+    move-object/from16 v0, v21
+
+    move-object/from16 v1, v35
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_1b
+
+    :cond_3d
+    const/16 v17, 0x0
+
+    :goto_1c
+    invoke-virtual/range {v21 .. v21}, Ljava/util/ArrayList;->size()I
+
+    move-result v35
+
+    move/from16 v0, v17
+
+    move/from16 v1, v35
+
+    if-ge v0, v1, :cond_3e
+
+    new-instance v35, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v35 .. v35}, Ljava/lang/StringBuilder;-><init>()V
+
+    move-object/from16 v0, v35
 
     move-object/from16 v1, v24
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v30
+    move-result-object v36
 
-    invoke-virtual/range {v30 .. v30}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-object/from16 v0, v21
 
-    move-result-object v30
+    move/from16 v1, v17
 
-    invoke-static/range {v29 .. v30}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    const/16 v16, 0x0
+    move-result-object v35
 
-    invoke-static/range {v24 .. v24}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    check-cast v35, Ljava/lang/String;
 
-    move-result v29
+    move-object/from16 v0, v36
 
-    if-nez v29, :cond_14
+    move-object/from16 v1, v35
 
-    invoke-static {}, Lcom/android/settings/Utils;->isDomesticModel()Z
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result v29
+    move-result-object v35
 
-    if-eqz v29, :cond_36
-
-    const-string/jumbo v29, "\\+82"
-
-    const-string/jumbo v30, "0"
-
-    move-object/from16 v0, v24
-
-    move-object/from16 v1, v29
-
-    move-object/from16 v2, v30
-
-    invoke-virtual {v0, v1, v2}, Ljava/lang/String;->replaceFirst(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual/range {v35 .. v35}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v24
 
-    :cond_36
-    invoke-static/range {v24 .. v24}, Landroid/telephony/PhoneNumberUtils;->formatNumber(Ljava/lang/String;)Ljava/lang/String;
+    add-int/lit8 v17, v17, 0x1
 
-    move-result-object v16
+    goto :goto_1c
 
-    const-string/jumbo v29, "my_phone_number"
+    :cond_3e
+    invoke-static/range {v24 .. v24}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v35
+
+    if-nez v35, :cond_14
+
+    const-string/jumbo v35, "my_phone_number"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v35
 
-    move-object/from16 v2, v16
+    move-object/from16 v2, v24
 
     invoke-direct {v0, v1, v2}, Lcom/android/settings/DeviceInfoSettings;->setStringSummary(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -6067,7 +6548,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b189c
+    const v0, 0x7f0b189f
 
     return v0
 .end method
@@ -6829,7 +7310,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b1031
+    const v7, 0x7f0b1034
 
     invoke-static {v6, v7, v9}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -6939,7 +7420,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b1032
+    const v7, 0x7f0b1035
 
     invoke-static {v6, v7, v9}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -7619,7 +8100,7 @@
 
     move-result-object v1
 
-    const v7, 0x7f1106e0
+    const v7, 0x7f1106de
 
     invoke-virtual {v1, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -7725,7 +8206,7 @@
 
     invoke-direct {v8, p0}, Lcom/android/settings/DeviceInfoSettings$10;-><init>(Lcom/android/settings/DeviceInfoSettings;)V
 
-    const v9, 0x7f0b1102
+    const v9, 0x7f0b1105
 
     invoke-virtual {v7, v9, v8}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

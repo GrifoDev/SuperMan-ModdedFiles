@@ -216,7 +216,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f0b0d7b
+    const v2, 0x7f0b0d85
 
     invoke-virtual {v0, v2, v1}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -457,7 +457,7 @@
 
     invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
 
-    const v6, 0x7f11058d
+    const v6, 0x7f11058b
 
     invoke-virtual {p1, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -465,7 +465,7 @@
 
     check-cast v0, Landroid/widget/LinearLayout;
 
-    const v6, 0x7f11058e
+    const v6, 0x7f11058c
 
     invoke-virtual {p1, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -555,7 +555,7 @@
 
     :cond_1
     :goto_0
-    const v6, 0x7f11058c
+    const v6, 0x7f11058a
 
     invoke-virtual {p1, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -582,7 +582,7 @@
 
     iput v6, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApConnectedDevice;->mIsButtonState:I
 
-    const v6, 0x7f0204ef
+    const v6, 0x7f0204ed
 
     invoke-virtual {v1, v6}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -600,7 +600,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b179b
+    const v7, 0x7f0b179e
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -693,7 +693,7 @@
 
     invoke-virtual {v6, v7, v8}, Landroid/net/wifi/WifiApWhiteList;->addWhiteList(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v3, 0x7f0b0d00
+    const v3, 0x7f0b0d0a
 
     new-instance v4, Landroid/os/Message;
 
@@ -766,7 +766,7 @@
 
     invoke-direct {p0}, Lcom/samsung/android/settings/wifi/mobileap/WifiApConnectedDevice;->reloadWhiteList()V
 
-    const v3, 0x7f0b0d01
+    const v3, 0x7f0b0d0b
 
     new-instance v2, Landroid/os/Message;
 

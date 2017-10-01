@@ -300,7 +300,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b1971
+    const v1, 0x7f0b1974
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -313,7 +313,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b196b
+    const v1, 0x7f0b196e
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -326,7 +326,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b196c
+    const v1, 0x7f0b196f
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -339,7 +339,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b196d
+    const v1, 0x7f0b1970
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -352,7 +352,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b196e
+    const v1, 0x7f0b1971
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -365,7 +365,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b196f
+    const v1, 0x7f0b1972
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -378,7 +378,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b1970
+    const v1, 0x7f0b1973
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -454,7 +454,7 @@
 
     iput-object v1, p0, Lcom/android/settings/notification/ImportanceSeekBarPreference;->mSeekBar:Landroid/widget/SeekBar;
 
-    const v1, 0x7f110554
+    const v1, 0x7f110552
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

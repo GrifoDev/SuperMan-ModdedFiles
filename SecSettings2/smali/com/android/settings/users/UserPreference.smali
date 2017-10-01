@@ -225,7 +225,7 @@
 
     invoke-direct {p0, v2}, Lcom/android/settings/users/UserPreference;->dimIcon(Z)V
 
-    const v7, 0x7f1105e4
+    const v7, 0x7f1105e2
 
     invoke-virtual {p1, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -255,19 +255,19 @@
 
     check-cast v5, Landroid/os/UserManager;
 
-    const v7, 0x7f110581
+    const v7, 0x7f11057f
 
     invoke-virtual {p1, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    const v7, 0x7f110580
+    const v7, 0x7f11057e
 
     invoke-virtual {p1, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v3
 
-    const v7, 0x7f11057e
+    const v7, 0x7f11057c
 
     invoke-virtual {p1, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -302,7 +302,7 @@
 
     :cond_2
     :goto_1
-    const v7, 0x7f11057c
+    const v7, 0x7f11057a
 
     invoke-virtual {p1, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

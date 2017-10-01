@@ -315,7 +315,7 @@
 
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    const v1, 0x7f0b14b5
+    const v1, 0x7f0b14b8
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/KnoxChooseLockFingerprintPassword;->getText(I)Ljava/lang/CharSequence;
 

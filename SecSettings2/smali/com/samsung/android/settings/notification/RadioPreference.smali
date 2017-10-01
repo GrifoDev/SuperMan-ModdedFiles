@@ -126,7 +126,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f110578
+    const v4, 0x7f110576
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -169,7 +169,7 @@
     invoke-virtual {v2, v5}, Landroid/widget/RadioButton;->setFocusable(Z)V
 
     :cond_0
-    const v4, 0x7f110577
+    const v4, 0x7f110575
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -181,7 +181,7 @@
 
     invoke-virtual {v1, v4}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v4, 0x7f11057a
+    const v4, 0x7f110578
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

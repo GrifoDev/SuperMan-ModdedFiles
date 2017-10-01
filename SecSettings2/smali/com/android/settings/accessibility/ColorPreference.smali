@@ -88,7 +88,7 @@
 
     aput-object v7, v6, v8
 
-    const v7, 0x7f0b1637
+    const v7, 0x7f0b163a
 
     invoke-virtual {v5, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -116,7 +116,7 @@
 
     move-result v0
 
-    const v6, 0x7f1101d2
+    const v6, 0x7f1101d1
 
     invoke-virtual {p1, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -163,7 +163,7 @@
 
     if-eqz v5, :cond_1
 
-    const v6, 0x7f1101d3
+    const v6, 0x7f1101d2
 
     invoke-virtual {p1, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -202,7 +202,7 @@
 
     if-eqz v3, :cond_0
 
-    const v3, 0x7f110547
+    const v3, 0x7f110545
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

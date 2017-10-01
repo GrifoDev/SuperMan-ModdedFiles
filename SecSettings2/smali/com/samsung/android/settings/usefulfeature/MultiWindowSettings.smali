@@ -262,7 +262,7 @@
 
     invoke-virtual {v6, v7}, Lcom/samsung/android/settings/WrapContentHeightViewPager;->setOnPageChangeListener(Landroid/support/v4/view/ViewPager$OnPageChangeListener;)V
 
-    const v6, 0x7f1103c5
+    const v6, 0x7f1103c3
 
     invoke-virtual {v1, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -293,7 +293,7 @@
 
     check-cast v4, Landroid/widget/ImageView;
 
-    const v6, 0x7f0b0917
+    const v6, 0x7f0b0921
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/usefulfeature/MultiWindowSettings;->getString(I)Ljava/lang/String;
 
@@ -641,9 +641,9 @@
 .method public onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
     .locals 10
 
-    const v6, 0x7f0b19d9
+    const v6, 0x7f0b19dc
 
-    const v5, 0x7f0b19d8
+    const v5, 0x7f0b19db
 
     const/4 v4, 0x1
 
@@ -826,13 +826,13 @@
 .method public onResume()V
     .locals 10
 
-    const v4, 0x7f0b19d8
+    const v4, 0x7f0b19db
 
     const/4 v9, 0x1
 
     const/4 v8, 0x0
 
-    const v5, 0x7f0b19d9
+    const v5, 0x7f0b19dc
 
     const/4 v7, 0x0
 

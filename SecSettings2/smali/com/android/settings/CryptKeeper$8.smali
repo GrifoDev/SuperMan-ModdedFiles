@@ -71,7 +71,7 @@
 
     iget-object v0, p0, Lcom/android/settings/CryptKeeper$8;->this$0:Lcom/android/settings/CryptKeeper;
 
-    invoke-static {v0}, Lcom/android/settings/CryptKeeper;->-get8(Lcom/android/settings/CryptKeeper;)Lcom/android/internal/widget/LockPatternView;
+    invoke-static {v0}, Lcom/android/settings/CryptKeeper;->-get9(Lcom/android/settings/CryptKeeper;)Lcom/android/internal/widget/LockPatternView;
 
     move-result-object v0
 
@@ -113,7 +113,7 @@
 
     iget-object v1, p0, Lcom/android/settings/CryptKeeper$8;->this$0:Lcom/android/settings/CryptKeeper;
 
-    invoke-static {v1}, Lcom/android/settings/CryptKeeper;->-get8(Lcom/android/settings/CryptKeeper;)Lcom/android/internal/widget/LockPatternView;
+    invoke-static {v1}, Lcom/android/settings/CryptKeeper;->-get9(Lcom/android/settings/CryptKeeper;)Lcom/android/internal/widget/LockPatternView;
 
     move-result-object v1
 
@@ -127,7 +127,7 @@
 
     iget-object v0, p0, Lcom/android/settings/CryptKeeper$8;->this$0:Lcom/android/settings/CryptKeeper;
 
-    invoke-static {v0}, Lcom/android/settings/CryptKeeper;->-get8(Lcom/android/settings/CryptKeeper;)Lcom/android/internal/widget/LockPatternView;
+    invoke-static {v0}, Lcom/android/settings/CryptKeeper;->-get9(Lcom/android/settings/CryptKeeper;)Lcom/android/internal/widget/LockPatternView;
 
     move-result-object v0
 

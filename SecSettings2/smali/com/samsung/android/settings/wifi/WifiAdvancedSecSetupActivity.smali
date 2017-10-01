@@ -289,7 +289,7 @@
 .method private refreshWifiInfo()V
     .locals 8
 
-    const v7, 0x7f0b13a2
+    const v7, 0x7f0b13a5
 
     const/4 v2, 0x0
 
@@ -704,13 +704,13 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0b0c75
+    const v1, 0x7f0b0c7f
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f0b0c76
+    const v1, 0x7f0b0c80
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -855,7 +855,7 @@
     :catch_0
     move-exception v2
 
-    const v5, 0x7f0b124b
+    const v5, 0x7f0b124e
 
     invoke-static {v1, v5, v8}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

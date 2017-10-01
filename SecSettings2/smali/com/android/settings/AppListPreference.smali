@@ -447,7 +447,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b1a96
+    const v11, 0x7f0b1a99
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -543,13 +543,13 @@
 
     invoke-super {p0, p1, p2}, Lcom/samsung/android/settings/SettingsListPreference;->setFullScreenLayout(Landroid/content/Context;Landroid/view/View;)V
 
-    const v3, 0x7f1102ba
+    const v3, 0x7f1102b8
 
     invoke-virtual {p2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    const v3, 0x7f1102bb
+    const v3, 0x7f1102b9
 
     invoke-virtual {p2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -747,7 +747,7 @@
 
     move-result-object v11
 
-    const v12, 0x7f0b1a96
+    const v12, 0x7f0b1a99
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 

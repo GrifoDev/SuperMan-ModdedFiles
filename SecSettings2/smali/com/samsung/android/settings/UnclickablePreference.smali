@@ -43,7 +43,7 @@
 
     invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
 
-    const v3, 0x7f11053c
+    const v3, 0x7f11053a
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -59,7 +59,7 @@
 
     check-cast v2, Landroid/widget/TextView;
 
-    const v3, 0x7f1101d3
+    const v3, 0x7f1101d2
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

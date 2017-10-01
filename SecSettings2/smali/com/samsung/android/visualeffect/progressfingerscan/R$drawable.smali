@@ -18,9 +18,9 @@
 
 .field public static final long_fingerprint_:I = 0x7f02033f
 
-.field public static final wipe_fingerprint:I = 0x7f02055c
+.field public static final wipe_fingerprint:I = 0x7f02055a
 
-.field public static final wipe_water:I = 0x7f02055d
+.field public static final wipe_water:I = 0x7f02055b
 
 
 # direct methods

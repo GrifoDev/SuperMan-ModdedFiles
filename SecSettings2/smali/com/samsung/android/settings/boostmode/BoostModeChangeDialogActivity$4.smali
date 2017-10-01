@@ -89,7 +89,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/boostmode/BoostModeChangeDialogActivity$4;->this$0:Lcom/samsung/android/settings/boostmode/BoostModeChangeDialogActivity;
 
-    const v6, 0x7f0b0a5c
+    const v6, 0x7f0b0a66
 
     invoke-virtual {v5, v6}, Lcom/samsung/android/settings/boostmode/BoostModeChangeDialogActivity;->getString(I)Ljava/lang/String;
 
@@ -97,7 +97,7 @@
 
     aput-object v5, v4, v7
 
-    const v5, 0x7f0b0a50
+    const v5, 0x7f0b0a5a
 
     invoke-virtual {v3, v5, v4}, Lcom/samsung/android/settings/boostmode/BoostModeChangeDialogActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

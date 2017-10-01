@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">تعاون</string>
     <string name="reset_network_settings_list_summary">‏Wi-Fi، بلیوٹوتھ، اور دیگر نیٹ ورک سیٹنگز کو ان کے طئے شدہ پر دوبارہ سیٹ کریں۔</string>
     <string name="master_clear_list_summary">اپنے آلہ کو اس کی فیکٹری ڈیفالٹ سیٹنگز پر پھر سیٹ کریں۔ اس سے تمام ڈیٹا مٹ جائے گا، بشمول فائلوں اور ڈاؤن لوڈ کردہ ایپلیکیشنز کے۔</string>
-    <string name="auto_restart_summary">اپنے آلے کو مقررہ اوقات پر خودبخود ری اسٹارٹ کر کے اس کی احسن کاری کریں۔ آلہ ری اسٹارٹ ہونے پر کوئی بھی غیر محفوظ شدہ ڈیٹا ضائع ہو جائے گا۔</string>
+    <string name="auto_restart_summary">ہفتہ میں ایک بار اسے خودکار طورپر دوبارہ اسٹارٹ کرکے اپنے فون کو احسن بنائیں۔ کوئی غیر محفوظ شدہ ڈیٹا آپ کے فون کے دوبارہ اسٹارٹ ہونے پر ضائع ہوجائے گا۔</string>
     <string name="search_settings">تلاش</string>
     <string name="related_results">%d سے متعلقہ اشیاء</string>
     <string name="no_results_found">کوئی نتائج نہیں ملے</string>
@@ -1485,6 +1485,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_verify_failed_summary">آپ کا آلہ دوبارہ اسٹارٹ کرنے سے قاصر۔ تصدیق کی سالمیت ناکام ہوگئی۔ آپ کو اپنے آلہ کو فیکٹری کے طے شدہ سیٹنگز پر پھر سیٹ کرنے کی ضرورت ہے۔ اس سے آپ کا تمام ڈیٹا مٹا دیا جائے گا۔</string>
     <string name="cryptkeeper_emergency_call">ایمرجنسی کال</string>
     <string name="cryptkeeper_return_to_call">کال پر واپس جائیں</string>
+    <string name="cryptkeeper_default_enter_msg">آپ کا فون سیکیورٹی کے لیے خفیہ کردیا گيا ہے۔</string>
     <string name="enter_password">اپنا آلہ شروع کرنے کے لیے، اپنا پاس ورڈ درج کریں۔</string>
     <string name="enter_pin">اپنا آلہ شروع کرنے کے لیے، اپنا پن درج کریں۔</string>
     <string name="enter_pattern">اپنا آلہ شروع کرنے کے لیے، اپنا نمونہ بنائیں۔</string>
@@ -1498,6 +1499,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_last_warn_wipe">فیکٹری ڈیفالٹ سیٹنگز پر پھر سیٹ کرنے سے قبل آپ کے پاس اپنے آلہ کو اسٹارٹ کرنے کے لیے صرف 1 کوشش بچی ہے۔ اس سے تمام ڈیٹا مٹ جائے گا، بشمول فائلز اور ڈاؤن لوڈ کردہ ایپلیکیشنز کے۔</string>
     <string name="crypt_keeper_failed_title_dec">ڈیکرپشن فیل۔</string>
     <string name="crypt_keeper_failed_summary_dec">خلل پیدا ہونے کی وجہ سے خفیہ کشائی مکمل کرنے سے قاصر۔ استعمال سے پہلے فیکٹری کوائف پھر سیٹ انجام دیں (تمام کوائف مٹا کر)۔</string>
+    <string name="crypt_keeper_set_screen_lock_type">اسکرین لاک قسم سیٹ کریں</string>
     <string name="encryption_interstitial_message_kor">آپ کے آلہ کی خفیہ کاری ہو گئی۔ آلہ کے پاور آن ہونے پر ڈیٹا کی خفیہ کشائی کرنے کے لیے ضروری اسکرین لاک منتخب کرکے اپنے خفیہ کار ڈیٹا کی حفاظت کریں۔ اس سے برباد یا چوری ہونے پر آلات کے ڈیٹا محفوظ رکھنے میں مدد ملتی ہے۔ جب بھی آپ اسے آن کرتے ہيں اس کے ڈیٹا کی خفیہ کشائی کرنے کے لیے آپ کو اپنے آلہ کو انلاک کرنے کی ضرورت ہوگی۔ آپ کوئی کالز، پیغامات، یا اطلاعات وصول نہیں کر پائنگے جب تک آپ اپنے آلہ کی خفیہ کشائی نہی کرتے۔</string>
     <string name="encryption_interstitial_message_direction">"آلہ کے پاور آن ہونے پر [مطلوبہ سمت لاک] منتخب کرکے اپنے آلہ کی حفاظت کریں۔ یہ ضائع یا چوری کی ہوئی آلات پر ڈیٹا کی حفاظت میں مدد کرتا ہے۔
 
@@ -1737,6 +1739,8 @@ You will also need it when:"</string>
     <string name="empty_content_toast">محفوظ کرنے کے لیے کوئی مواد نہیں ہے۔</string>
     <string name="find_my_mobile_message_zero">"میرا موبائل ڈھونڈیں ویب خدمت استعمال کرتے ہوئے دور سے اپنے آلے کا پتہ لگائیں اور اسے کنٹرول کریں۔ مزید معلومات اور دیگر فنکشنز کی دستیابی کے لیے، درج ذیل ویب سائٹ ملاحظہ کریں:
 %s"</string>
+    <string name="send_last_location_title">آخری مقام بھیجیں</string>
+    <string name="send_last_location_summary">جب بیٹری ایک خاص سطح سے نیچے آجائے تو سرور میں میرا موبائل ڈھونڈیں پر اپنے فون کو آخری مقام بھیجنے کی اجازت دیں۔</string>
     <string name="high_power_description">انفرادی ایپلیکیشنز کے لیے بیٹری کو احسن بننا اہل کریں۔ کچھ فنکشنز، جیسے کہ وہ جو موبائل نیٹ ورک یا مطابقت پذیر ڈیٹا استعمال کرتے ہيں، بیٹری پاور بچانے کے لیے روک دیے جائے گے۔</string>
     <string name="wifi_display_summary_off">آف</string>
     <string name="battery_usage_description">یہ اسکرین بیٹری کا استعمال کردہ ڈیٹا دکھاتا ہے آخری بار آلہ مکمل چارج ہونے کے بعد سے۔</string>
@@ -1968,6 +1972,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">لاک اسکرین پر کس ایپلیکیشن کا شاٹ کٹ استعمال کرنا چاہتے ہیں منتخب کریں۔</string>
     <string name="lockscreen_notifications">مقفل اسکرین پر نوٹیفکیشنز</string>
     <string name="work_profile_lockscreen_notifications">ورک پروفائل نوٹیفکیشنز</string>
+    <string name="lock_network_and_security">نیٹ ورک اور سیکیورٹی لاک کریں</string>
+    <string name="lock_network_and_security_summary">اپنے فون کے لاک ہونے پر نیٹ ورک اور سیکیورٹی سے متعلقہ فنکشنز کو لاک رکھیں، اگر یہ ضائع یا چوری ہوجاتی ہے تو اس کی نشاندھی اور حفاظت کے لیے آسان کرتا ہے۔</string>
     <string name="dualclock_settings_title">دوھری گھڑی</string>
     <string name="dualclock_settings_summary">رومنگ پر مقامی اور گھریلو منطقۂ وقت دونوں دکھائیں۔</string>
     <string name="set_home_city">مقامی منطقہ وقت سیٹ کریں</string>
@@ -2153,7 +2159,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="air_browse_music_on_lock_screen_title">لاک اسکرین پر میوزک</string>
     <string name="air_browse_music_on_lock_screen_summary">لاک سکرین پر میوزک ٹریکس تبدیل کریں۔</string>
     <string name="air_browse_note_summary">منظر مزاج میں صفحات کے درمیاں حرکت دیں۔</string>
-    <string name="data_usage_enable_mobile_summery">اگر موبائل ڈیٹا بند ہو، آپ کے آلہ کو ان خدمات کا استعمال کرنے کے لیے جن کے لیے ایک نیٹ ورک کنکشن درکار ہے Wi-Fi سے جڑا ہونا ضروری ہے۔</string>
+    <string name="data_usage_enable_mobile_summery">اپنے موبائل نیٹ ورک کے ذریعے انٹرنیٹ سے رسائی کریں۔</string>
     <string name="data_usage_enable_mobile_warning_skt">موبائل نیٹ ورکس سے جڑنے سے آپ کے ڈیٹا منصوبہ پر منحصر اضافی اخراجات آ سکتے ہیں۔ جاری رکھیں?</string>
     <string name="data_usage_enable_mobile_warning_ktt">موبائل نیٹ ورکس سے جڑنے سے آپ کے ڈیٹا منصوبہ پر منحصر اضافی اخراجات آ سکتے ہیں۔ جاری رکھیں?</string>
     <string name="data_usage_enable_mobile_warning_lgt">موبائل نیٹ ورکس سے جڑنے سے آپ کے ڈیٹا منصوبہ پر منحصر اضافی اخراجات آ سکتے ہیں۔ جاری رکھیں?</string>
@@ -2522,8 +2528,8 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="secure_folder_summary">سیکیورٹی افزوں کرنے کے لیے اپنے ذاتی مواد اور ایپلیکیشنز کو لاک کریں۔</string>
     <string name="text_biometrics_finger_title_enterprise">%2$s کو انلاک کرنے میں %1$s معاون نہیں ہے۔</string>
     <string name="edge_feeds_title">‏Edge فیڈز</string>
-    <string name="screensaver_settings_summary">آلہ کے کنارہ دار ہونے کے وقت واقع ہونے کا طریقہ اور/یا اسکرین کے بند کیے جانے کے دوران چارجنگ پر کنٹرول کریں۔ اس فنکشن کو ڈے ڈریم بھی کہا جاتا ہے۔</string>
-    <string name="screensaver_settings_summary_wo_dock">آلہ کے چارج ہونے کے دوران اسکرین کے خودکار طورپر آف ہونے کے بعد اسکرین سیور دکھائیں۔</string>
+    <string name="screensaver_settings_summary">آپ کے فون کے چارج ہونے کے دوران اسکرین کے خودکار طورپر آف ہونے کے بعد اسکرین سیور دکھائیں۔</string>
+    <string name="screensaver_settings_summary_wo_dock">آپ کا فون یکجا یا چارج ہونے کے دوران خودکار طورپراسکرین آف ہونے کے بعد اسکرین سیور دکھائیں۔</string>
     <string name="apn_already_exists">پہلے سے موجود۔</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">پورٹ نمبر %1$d اور %2$d کے درمیان ہونا چاہئیے</string>
@@ -3288,6 +3294,7 @@ Wi-Fi is now on."</string>
     <string name="wfd_connection_end_toast">‏Screen mirroring کنکشن ختم ہوگیا۔</string>
     <string name="wfd_descrpition_playvia">مواد چلائیں۔</string>
     <string name="wfd_descrpition_mirroring">معکوس اسکرین۔</string>
+    <string name="wfd_descrpition_playsound">آواز چلائیں۔</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">کئی دریچہ نااہل ہوجائے گا اور پوپ-اپ دریچوں میں کھلے تمام ایپلیکیشنز بند ہوجائیں گے۔</string>
     <string name="keyguard_password_attempt_count_pin_code">%d کوششیں باقی۔</string>
@@ -4127,7 +4134,7 @@ Receiving SMS"</string>
     <string name="location_network_based">وائرلیس نیٹ ورکس کا استعمال کریں</string>
     <string name="location_neighborhood_level">ایپس کو مقام کی تخمینے کے لئے Google مقام کی خدمت کے استعمال کی اجازت دیں۔ گم نام مقام کا ڈیٹا جمع کرکے Google کو بھیجا جائے گا۔</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">آلہ کے متعلق</string>
+    <string name="about_settings">فون کے متعلق</string>
     <string name="about_settings_vzw">آلہ کے بارے میں</string>
     <string name="legal_information">قانونی معلومات</string>
     <string name="regulatory_information">باقاعدہ نگرانی کی معلومات</string>
@@ -4312,7 +4319,7 @@ Receiving SMS"</string>
     <string name="phone_language">زبان</string>
     <string name="show_password">پاس ورڈز کو دیکھنے کے قابل بنائیں</string>
     <string name="show_password_summary">پاس ورڈ کو ٹائپ کرتے ہوئے اس کے حروف کو مختصر طور پر دکھائیں۔</string>
-    <string name="ime_security_warning">یہ طریقہ اندراج وہ تمام متن جو آپ داخل کریں، بشمول پاس ورڈز، کریڈٹ کارڈوں کے نمبر، اور دوسرے شخصی کوائف جمع کرلے۔ یہ %1$s ایپلیکشن سے آیا ہے۔ بہرصورت استعمال کریں؟</string>
+    <string name="ime_security_warning">%s ہوسکتا ہے آپ کا ٹائپ کردہ تمام متن جمع کرنے پر قادرہ ہو، بشمول ذاتی ڈیٹا جیسے پاس ورڈز اور کریڈٹ کارڈ نمبرز۔</string>
     <string name="failed_to_open_app_settings_toast">%s کے لئے سیٹنگز کھولنا ناکام ہوگیا۔</string>
     <string name="keyboard_and_input_methods_category">کیی بورڈز</string>
     <string name="virtual_keyboard_category">مجازی کی بورڈ</string>

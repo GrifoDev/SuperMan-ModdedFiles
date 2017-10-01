@@ -187,7 +187,7 @@
 
     invoke-super {p0, p1}, Landroid/preference/SwitchPreference;->onBindView(Landroid/view/View;)V
 
-    const v4, 0x7f11053f
+    const v4, 0x7f11053d
 
     invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -202,7 +202,7 @@
     :goto_0
     invoke-virtual {v1, v4}, Landroid/view/View;->setVisibility(I)V
 
-    const v4, 0x7f110540
+    const v4, 0x7f11053e
 
     invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -223,7 +223,7 @@
 
     invoke-virtual {v1, p0}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
-    const v4, 0x7f11053e
+    const v4, 0x7f11053c
 
     invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

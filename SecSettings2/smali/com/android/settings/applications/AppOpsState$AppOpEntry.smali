@@ -433,7 +433,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0b156c
+    const v0, 0x7f0b156f
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -473,7 +473,7 @@
     :cond_1
     if-eqz p2, :cond_2
 
-    const v0, 0x7f0b156d
+    const v0, 0x7f0b1570
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 

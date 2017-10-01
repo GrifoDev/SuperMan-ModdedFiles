@@ -82,7 +82,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f110459
+    const v2, 0x7f110457
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -114,7 +114,7 @@
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 7
 
-    const v5, 0x7f110459
+    const v5, 0x7f110457
 
     const/high16 v6, 0x3f800000    # 1.0f
 

@@ -431,13 +431,13 @@
 
     if-eqz v2, :cond_1
 
-    const v2, 0x7f0b0883
+    const v2, 0x7f0b088d
 
     :goto_0
     return v2
 
     :cond_1
-    const v2, 0x7f0b0882
+    const v2, 0x7f0b088c
 
     goto :goto_0
 
@@ -454,13 +454,13 @@
 
     if-eqz v2, :cond_3
 
-    const v2, 0x7f0b0716
+    const v2, 0x7f0b071e
 
     :goto_1
     return v2
 
     :cond_3
-    const v2, 0x7f0b0714
+    const v2, 0x7f0b071c
 
     goto :goto_1
 
@@ -547,7 +547,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0b0716
+    const v0, 0x7f0b071e
 
     invoke-virtual {p0, v0}, Lcom/android/settings/ConfirmLockPassword$ConfirmLockPasswordFragment;->getString(I)Ljava/lang/String;
 
@@ -557,7 +557,7 @@
     return-object v0
 
     :cond_0
-    const v0, 0x7f0b0714
+    const v0, 0x7f0b071c
 
     invoke-virtual {p0, v0}, Lcom/android/settings/ConfirmLockPassword$ConfirmLockPasswordFragment;->getString(I)Ljava/lang/String;
 
@@ -598,7 +598,7 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f0b07b4
+    const v1, 0x7f0b07bc
 
     invoke-virtual {p0, v1, v0}, Lcom/android/settings/ConfirmLockPassword$ConfirmLockPasswordFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -620,7 +620,7 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f0b07b6
+    const v1, 0x7f0b07be
 
     invoke-virtual {p0, v1, v0}, Lcom/android/settings/ConfirmLockPassword$ConfirmLockPasswordFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -633,7 +633,7 @@
 
     if-eqz v0, :cond_4
 
-    const v0, 0x7f0b14b8
+    const v0, 0x7f0b14bb
 
     invoke-virtual {p0, v0}, Lcom/android/settings/ConfirmLockPassword$ConfirmLockPasswordFragment;->getString(I)Ljava/lang/String;
 
@@ -643,7 +643,7 @@
     return-object v0
 
     :cond_4
-    const v0, 0x7f0b14ba
+    const v0, 0x7f0b14bd
 
     invoke-virtual {p0, v0}, Lcom/android/settings/ConfirmLockPassword$ConfirmLockPasswordFragment;->getString(I)Ljava/lang/String;
 
@@ -787,7 +787,7 @@
 .method private getErrorMessage()I
     .locals 1
 
-    const v0, 0x7f0b14d0
+    const v0, 0x7f0b14d3
 
     return v0
 .end method
@@ -835,7 +835,7 @@
 .method private handleNext()V
     .locals 15
 
-    const v7, 0x7f0b0a04
+    const v7, 0x7f0b0a0e
 
     const/4 v14, -0x1
 
@@ -1073,7 +1073,7 @@
     goto :goto_1
 
     :cond_9
-    const v6, 0x7f0b0a05
+    const v6, 0x7f0b0a0f
 
     goto :goto_3
 
@@ -1200,7 +1200,7 @@
     goto :goto_5
 
     :cond_f
-    const v7, 0x7f0b0a05
+    const v7, 0x7f0b0a0f
 
     goto :goto_6
 
@@ -1423,7 +1423,7 @@
 
     const-wide/16 v2, 0x0
 
-    const v4, 0x7f0b14d0
+    const v4, 0x7f0b14d3
 
     invoke-virtual {p0, v4, v2, v3}, Lcom/android/settings/ConfirmLockPassword$ConfirmLockPasswordFragment;->showError(IJ)V
 
@@ -1567,7 +1567,7 @@
 
     iget-object v0, p0, Lcom/android/settings/ConfirmLockPassword$ConfirmLockPasswordFragment;->mDetailsTextView:Landroid/widget/TextView;
 
-    const v1, 0x7f0b08cc
+    const v1, 0x7f0b08d6
 
     invoke-virtual {p0, v1}, Lcom/android/settings/ConfirmLockPassword$ConfirmLockPasswordFragment;->getString(I)Ljava/lang/String;
 
@@ -1868,13 +1868,13 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0b11be
+    const v0, 0x7f0b11c1
 
     :goto_0
     return v0
 
     :cond_0
-    const v0, 0x7f0b11bd
+    const v0, 0x7f0b11c0
 
     goto :goto_0
 .end method
@@ -2433,7 +2433,7 @@
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setVisibility(I)V
 
     :cond_3
-    const v2, 0x7f1101df
+    const v2, 0x7f1101de
 
     move-object/from16 v0, v16
 

@@ -537,7 +537,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f1101f7
+    const v2, 0x7f1101f5
 
     invoke-virtual {v1, v2}, Lcom/android/settings/CryptKeeper;->findViewById(I)Landroid/view/View;
 
@@ -545,7 +545,7 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    const v1, 0x7f0b0654
+    const v1, 0x7f0b0659
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 

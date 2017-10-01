@@ -175,13 +175,13 @@
 
     move-result-object v11
 
-    const v1, 0x7f0a0468
+    const v1, 0x7f0a0466
 
     invoke-virtual {v11, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    const v3, 0x7f0a045e
+    const v3, 0x7f0a045c
 
     invoke-virtual {v11, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -321,7 +321,7 @@
 
     const/4 v0, 0x1
 
-    const v1, 0x7f0b1a82
+    const v1, 0x7f0b1a85
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -331,7 +331,7 @@
 
     const/4 v0, 0x2
 
-    const v1, 0x7f0b1a83
+    const v1, 0x7f0b1a86
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -493,7 +493,7 @@
 
     if-eqz v3, :cond_0
 
-    const v3, 0x7f0b1a7c
+    const v3, 0x7f0b1a7f
 
     :goto_0
     invoke-virtual {v6, v3}, Landroid/preference/PreferenceGroup;->setTitle(I)V
@@ -536,7 +536,7 @@
     goto :goto_1
 
     :cond_0
-    const v3, 0x7f0b1a7b
+    const v3, 0x7f0b1a7e
 
     goto :goto_0
 

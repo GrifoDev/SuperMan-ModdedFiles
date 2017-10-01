@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen android:title="@string/about_settings"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <Preference android:persistent="false" android:enabled="false" android:title="@string/status_number" android:key="my_phone_number" android:summary="@string/device_info_not_available" android:shouldDisableView="false" />
+    <Preference android:persistent="false" android:enabled="false" android:title="@string/status_number" android:key="my_phone_number" android:summary="@string/device_info_default" android:shouldDisableView="false" />
     <Preference android:enabled="false" android:title="@string/software_version" android:key="software_version" android:summary="@string/device_info_default" android:shouldDisableView="false" />
     <Preference android:enabled="false" android:title="@string/hardware_version" android:key="hardware_version_spr" android:summary="@string/device_info_default" android:shouldDisableView="false" />
     <PreferenceScreen android:title="@string/diagnostics_and_usage_title" android:key="diagnostics_and_usage">

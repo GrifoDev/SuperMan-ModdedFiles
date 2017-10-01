@@ -289,9 +289,9 @@
 .method private updateEmptyView()V
     .locals 10
 
-    const v9, 0x7f0b1653
+    const v9, 0x7f0b1656
 
-    const v8, 0x7f0b164a
+    const v8, 0x7f0b164d
 
     const v7, 0x7f0400e6
 
@@ -329,7 +329,7 @@
 
     move-result v4
 
-    const v5, 0x7f110348
+    const v5, 0x7f110346
 
     if-eq v4, v5, :cond_0
 
@@ -403,7 +403,7 @@
 
     move-result v4
 
-    const v5, 0x7f11034a
+    const v5, 0x7f110348
 
     if-eq v4, v5, :cond_3
 
@@ -453,7 +453,7 @@
 
     move-result v4
 
-    const v5, 0x7f110348
+    const v5, 0x7f110346
 
     if-eq v4, v5, :cond_5
 
@@ -718,11 +718,11 @@
 .method public onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
     .locals 7
 
-    const v6, 0x7f11088b
+    const v6, 0x7f110889
 
-    const v5, 0x7f11088a
+    const v5, 0x7f110888
 
-    const v4, 0x7f110889
+    const v4, 0x7f110887
 
     invoke-super {p0, p1, p2}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
 

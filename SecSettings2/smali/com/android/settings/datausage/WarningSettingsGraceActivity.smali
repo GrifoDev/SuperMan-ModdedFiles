@@ -223,7 +223,7 @@
 
     iput v11, p0, Lcom/android/settings/datausage/WarningSettingsGraceActivity;->mSubId:I
 
-    const v11, 0x7f11052d
+    const v11, 0x7f11052b
 
     invoke-virtual {v7, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -233,7 +233,7 @@
 
     iput-object v11, p0, Lcom/android/settings/datausage/WarningSettingsGraceActivity;->mSeekbar:Landroid/widget/SeekBar;
 
-    const v11, 0x7f11085e
+    const v11, 0x7f11085c
 
     invoke-virtual {v7, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -243,7 +243,7 @@
 
     iput-object v11, p0, Lcom/android/settings/datausage/WarningSettingsGraceActivity;->mStartPercent:Landroid/widget/TextView;
 
-    const v11, 0x7f110860
+    const v11, 0x7f11085e
 
     invoke-virtual {v7, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -253,7 +253,7 @@
 
     iput-object v11, p0, Lcom/android/settings/datausage/WarningSettingsGraceActivity;->mediumText:Landroid/widget/TextView;
 
-    const v11, 0x7f11085f
+    const v11, 0x7f11085d
 
     invoke-virtual {v7, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -263,7 +263,7 @@
 
     iput-object v11, p0, Lcom/android/settings/datausage/WarningSettingsGraceActivity;->mEndPercent:Landroid/widget/TextView;
 
-    const v11, 0x7f110861
+    const v11, 0x7f11085f
 
     invoke-virtual {v7, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -277,7 +277,7 @@
 
     move-result-object v11
 
-    const v12, 0x7f0a02df
+    const v12, 0x7f0a02dd
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

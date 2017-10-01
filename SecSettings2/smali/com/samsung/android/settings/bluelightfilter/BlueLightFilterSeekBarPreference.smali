@@ -27,7 +27,7 @@
 
     const v5, 0x7f0401ff
 
-    const v6, 0x7f110564
+    const v6, 0x7f110562
 
     move-object v0, p0
 
@@ -59,7 +59,7 @@
 
     invoke-super {p0, p1}, Lcom/samsung/android/settings/display/DisplayCustomPreference;->onBindView(Landroid/view/View;)V
 
-    const v2, 0x7f110564
+    const v2, 0x7f110562
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

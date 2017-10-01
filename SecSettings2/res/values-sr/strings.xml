@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Podrška</string>
     <string name="reset_network_settings_list_summary">Resetujte podešavanja za Wi-Fi, Bluetooth i druga mrežna podešavanja na njihove podrazumevane vrednosti.</string>
     <string name="master_clear_list_summary">Resetujte uređaj na njegova podrazumevana fabrička podešavanja. Ovo će obrisati sve podatke, uključujući fajlove i preuzete aplikacije.</string>
-    <string name="auto_restart_summary">Optimizujte uređaj njegovim automatskim restartovanjem u podešeno vreme. Kada se uređaj bude restartovao, izgubiće se svi nesačuvani podaci.</string>
+    <string name="auto_restart_summary">Optimizacija telefona njegovim automatskim restartovanjem jedanput nedeljno. Svi podaci koji nisu sačuvani će se izgubiti kada se telefon restartuje.</string>
     <string name="search_settings">Pretraga</string>
     <string name="related_results">Srodnih stavki: %d</string>
     <string name="no_results_found">Nema rezultata</string>
@@ -1485,6 +1485,7 @@ Tokom procesa dešifrovanja, SD kartica ne može da se koristi."</string>
     <string name="crypt_keeper_verify_failed_summary">Nije moguće restartovati uređaj. Verifikacija integriteta nije uspela. Potrebno je da resetujete uređaj na podrazumevana fabrička podešavanja. To će obrisati sve vaše podatke.</string>
     <string name="cryptkeeper_emergency_call">Pozivi u hitnim slučajevima</string>
     <string name="cryptkeeper_return_to_call">Vrati se na poziv</string>
+    <string name="cryptkeeper_default_enter_msg">Telefon je šifrovan radi bezbednosti.</string>
     <string name="enter_password">Da biste pokrenuli uređaj, unesite svoju lozinku.</string>
     <string name="enter_pin">Da biste pokrenuli uređaj, unesite svoj PIN kod.</string>
     <string name="enter_pattern">Da biste pokrenuli uređaj, nacrtajte svoj obrazac.</string>
@@ -1498,6 +1499,7 @@ Tokom procesa dešifrovanja, SD kartica ne može da se koristi."</string>
     <string name="crypt_keeper_last_warn_wipe">Preostao vam je još samo 1 pokušaj za pokretanje uređaja pre nego što se on resetuje na svoja podrazumevana fabrička podešavanja. Ovo će obrisati sve podatke, uključujući fajlove i preuzete aplikacije.</string>
     <string name="crypt_keeper_failed_title_dec">Dešifrovanje neuspešno.</string>
     <string name="crypt_keeper_failed_summary_dec">Dešifrovanje nije moguće izvršiti zbog prekidanja. Vrati na fabrička podešavanja (obrisaće se svi podaci) pre upotrebe.</string>
+    <string name="crypt_keeper_set_screen_lock_type">Podesi tip zaključav. ekrana</string>
     <string name="encryption_interstitial_message_kor">Vaš uređaj je šifrovan. Zaštitite svoje šifrovane podatke tako što ćete izabrati opciju Zahtevaj da zaključan ekran dešifruje podatke kada se uređaj uključuje. Ova funkcija pomaže u zaštiti podataka na izgubljenim ili ukradenim uređajima. Moraćete da otključavate uređaj kad god se on uključuje da biste dešifrovali njegove podatke. Nećete primati nikakve pozive, poruke niti obaveštenja dok ne dešifrujete uređaj.</string>
     <string name="encryption_interstitial_message_direction">"Zaštitite svoj uređaj tako što ćete izabrati opciju Zahtevaj Pravac zaključavanja kada se uključi uređaj. Ova funkcija pomaže u zaštiti podataka na izgubljenim ili ukradenim uređajima.
 
@@ -1737,6 +1739,8 @@ Pre nego što zatražiš popravku pod garancijom, moraš da onemogućiš opciju 
     <string name="empty_content_toast">Nema sadržaja za memorisanje.</string>
     <string name="find_my_mobile_message_zero">"Pratite i kontrolišite svoj uređaj daljinski pomoću veb usluge Pronađi moj mobilni. Da biste saznali još informacija i otkrili druge dostupne funkcije, posetite sledeći sajt:
 %s"</string>
+    <string name="send_last_location_title">Pošalji poslednju lokaciju</string>
+    <string name="send_last_location_summary">Dozvolite da telefon šalje svoju poslednju lokaciju na server Pronađi moj mobilni kada energija baterije padne ispod određenog nivoa.</string>
     <string name="high_power_description">Omogućite opciju Optimizuj upotrebu baterije za pojedinačne aplikacije. Da bi se uštedela energija baterije, neke funkcije kao što su one koje koriste mobilne mreže ili sinhronizaciju podataka će biti ograničene.</string>
     <string name="wifi_display_summary_off">Isključeno</string>
     <string name="battery_usage_description">Ovaj ekran prikazuje podatke o upotrebi baterije nakon poslednjeg punjenja uređaja u potpunosti.</string>
@@ -1968,6 +1972,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">Izaberite prečice aplikacija koje želite da koristite na zaključanom ekranu.</string>
     <string name="lockscreen_notifications">Obaveštenja na zaključanom ekranu</string>
     <string name="work_profile_lockscreen_notifications">Obaveštenja poslovnog profila</string>
+    <string name="lock_network_and_security">Zaključavanje mreže i zaštite</string>
+    <string name="lock_network_and_security_summary">Neka funkcije koje su povezane sa mrežom i zaštitom budu zaključane dok je telefon zaključan, što olakšava njegovo lociranje i zaštitu ukoliko ga izgubite ili ukoliko vam ga ukradu.</string>
     <string name="dualclock_settings_title">Dvostruki sat</string>
     <string name="dualclock_settings_summary">Prikaži lokalnu i matičnu vremensku zonu u romingu.</string>
     <string name="set_home_city">Podesi kućnu vremen. zonu</string>
@@ -2153,7 +2159,7 @@ Da bi zakačio/la neku aplikaciju na ekran:
     <string name="air_browse_music_on_lock_screen_title">Muzika na zaključanom ekranu</string>
     <string name="air_browse_music_on_lock_screen_summary">Promeni muzičke numere na zaključanom ekranu.</string>
     <string name="air_browse_note_summary">Prelazi s jedne stranice na drugu dok si u režimu Prikaz.</string>
-    <string name="data_usage_enable_mobile_summery">Ako je isključena funkcija Mobilni podaci, uređaj mora da bude povezan na Wi-Fi mrežu da bi koristio usluge koje zahtevaju mrežnu vezu.</string>
+    <string name="data_usage_enable_mobile_summery">Pristupite internetu putem mobilne mreže.</string>
     <string name="data_usage_enable_mobile_warning_skt">Povezivanje na mrežu mobilne telefonije može dovesti do dodatnih troškova u zavisnosti od paketa za prenos podataka. Nastaviti?</string>
     <string name="data_usage_enable_mobile_warning_ktt">Povezivanje na mrežu mobilne telefonije može dovesti do dodatnih troškova u zavisnosti od paketa za prenos podataka. Nastaviti?</string>
     <string name="data_usage_enable_mobile_warning_lgt">Povezivanje na mrežu mobilne telefonije može dovesti do dodatnih troškova u zavisnosti od paketa za prenos podataka. Nastaviti?</string>
@@ -2523,8 +2529,8 @@ Probaj ponovo."</string>
     <string name="secure_folder_summary">Zaključajte svoj privatni sadržaj i aplikacije da biste poboljšali bezbednost.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s ne podržava opciju da otisci prstiju otključavaju %2$s.</string>
     <string name="edge_feeds_title">Edge kanali</string>
-    <string name="screensaver_settings_summary">Kontrolišite šta se događa kada je uređaj priključen i/ili se puni dok je ekran isključen. Ova funkcija se zove i Sanjarenje.</string>
-    <string name="screensaver_settings_summary_wo_dock">Prikažite čuvar ekrana nakon što se ekran automatski isključi dok se uređaj puni.</string>
+    <string name="screensaver_settings_summary">Prikaz čuvara ekrana nakon što se ekran automatski isključi dok se telefon puni.</string>
+    <string name="screensaver_settings_summary_wo_dock">Prikaz čuvara ekrana nakon što se ekran automatski isključi dok je telefon priključen ili se puni.</string>
     <string name="apn_already_exists">Već postoji.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Broj porta mora biti između %1$d i %2$d.</string>
@@ -3289,6 +3295,7 @@ Korišćenjem Mobilne pristupne tačke povećava se potrošnja baterije i upotre
     <string name="wfd_connection_end_toast">Screen Mirroring veza je prekinuta.</string>
     <string name="wfd_descrpition_playvia">Reprodukujte sadržaj.</string>
     <string name="wfd_descrpition_mirroring">Preslikajte ekran.</string>
+    <string name="wfd_descrpition_playsound">Reprodukujte zvuk.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">Funkcija Više prozora će biti onemogućena i sve aplikacije koje su otvorene u iskačućim prozorima biće zatvorene.</string>
     <string name="keyguard_password_attempt_count_pin_code">%d pokušaj ostao.</string>
@@ -4128,7 +4135,7 @@ Razmislite o upotrebi brže SD kartice ili USB uređaja za skladištenje da bist
     <string name="location_network_based">Koristi bežične mreže</string>
     <string name="location_neighborhood_level">Dozvoli da aplikac. koriste Google lociranja za bržu procenu lokacije. Podaci o lokaciji se anonimno prikupljaju i šalju Google-u.</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">O uređaju</string>
+    <string name="about_settings">O telefonu</string>
     <string name="about_settings_vzw">O uređaju</string>
     <string name="legal_information">Pravne informacije</string>
     <string name="regulatory_information">Regulatorna informacija</string>
@@ -4313,7 +4320,7 @@ Postojeći podaci o aplikaciji će biti izgubljeni."</string>
     <string name="phone_language">Jezik</string>
     <string name="show_password">Učini lozinke vidljivim</string>
     <string name="show_password_summary">Prikaži nakratko karaktere lozinke tokom njihovog unosa.</string>
-    <string name="ime_security_warning">Ovaj način može da prikupi sav uneti tekst, osim lozinki, ličnih podataka i brojeva kreditnih kartica. Proističe iz aplikacije %1$s. Ipak koristiti?</string>
+    <string name="ime_security_warning">Uređaj %s je možda u stanju da prikuplja sav uneti tekst, uključujući lične podatke kao što su lozinke i brojevi kreditnih kartica.</string>
     <string name="failed_to_open_app_settings_toast">Neuspešno otvaranje podešavanja za %s.</string>
     <string name="keyboard_and_input_methods_category">Tastature</string>
     <string name="virtual_keyboard_category">Virtuelna tastatura</string>

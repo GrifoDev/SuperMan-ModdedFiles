@@ -506,9 +506,9 @@
 .method private addMyDeviceCenterText(Z)V
     .locals 3
 
-    const v0, 0x7f0b0c6b
+    const v0, 0x7f0b0c75
 
-    const v1, 0x7f0b0c6e
+    const v1, 0x7f0b0c78
 
     const/4 v2, 0x0
 
@@ -668,7 +668,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0ccb
+    const v2, 0x7f0b0cd5
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1574,7 +1574,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mTextToSpeech:Landroid/speech/tts/TextToSpeech;
 
-    const v1, 0x7f0b0c64
+    const v1, 0x7f0b0c6e
 
     invoke-virtual {p0, v1}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->getString(I)Ljava/lang/String;
 
@@ -1692,7 +1692,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f02052d
+    const v5, 0x7f02052b
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1778,7 +1778,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f02052c
+    const v5, 0x7f02052a
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -3190,7 +3190,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b0c6a
+    const v11, 0x7f0b0c74
 
     const/4 v12, 0x1
 
@@ -3219,7 +3219,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b0c6d
+    const v11, 0x7f0b0c77
 
     const/4 v12, 0x1
 

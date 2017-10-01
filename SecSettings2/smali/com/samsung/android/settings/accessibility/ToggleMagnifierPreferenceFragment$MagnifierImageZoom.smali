@@ -87,7 +87,7 @@
 
     invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
 
-    const v3, 0x7f110472
+    const v3, 0x7f110470
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -97,7 +97,7 @@
 
     iput-object v3, p0, Lcom/samsung/android/settings/accessibility/ToggleMagnifierPreferenceFragment$MagnifierImageZoom;->mZoomLayer:Landroid/widget/LinearLayout;
 
-    const v3, 0x7f110471
+    const v3, 0x7f11046f
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -107,7 +107,7 @@
 
     iput-object v3, p0, Lcom/samsung/android/settings/accessibility/ToggleMagnifierPreferenceFragment$MagnifierImageZoom;->mTitle:Landroid/widget/TextView;
 
-    const v3, 0x7f110476
+    const v3, 0x7f110474
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -121,7 +121,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/accessibility/ToggleMagnifierPreferenceFragment$MagnifierImageZoom;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0204fc
+    const v5, 0x7f0204fa
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -151,7 +151,7 @@
 
     invoke-virtual {v3, v2}, Lcom/samsung/android/settings/widget/IntervalSeekBar;->setProgressTintList(Landroid/content/res/ColorStateList;)V
 
-    const v3, 0x7f110475
+    const v3, 0x7f110473
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -161,7 +161,7 @@
 
     iput-object v3, p0, Lcom/samsung/android/settings/accessibility/ToggleMagnifierPreferenceFragment$MagnifierImageZoom;->mPlusMagnifier:Landroid/widget/ImageView;
 
-    const v3, 0x7f110473
+    const v3, 0x7f110471
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -479,7 +479,7 @@
     nop
 
     :pswitch_data_0
-    .packed-switch 0x7f110473
+    .packed-switch 0x7f110471
         :pswitch_1
         :pswitch_0
         :pswitch_2
@@ -660,7 +660,7 @@
     goto :goto_0
 
     :pswitch_data_0
-    .packed-switch 0x7f110473
+    .packed-switch 0x7f110471
         :pswitch_1
         :pswitch_0
         :pswitch_2

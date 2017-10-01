@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Yordam</string>
     <string name="reset_network_settings_list_summary">Wi-Fi, Bluetooth va boshqa tarmoq parametrlarini birlamchi holatiga tashlang.</string>
     <string name="master_clear_list_summary">Qurilmani ishlab chiqaruvchi parametrlariga qaytarish. Bu barcha fayllar va yuklab olingan ilovalarni o‘chirib yuboradi.</string>
-    <string name="auto_restart_summary">Belgilangan vaqtda qurilmangizni avtomatik qayta ishga tushirish orqali qurilmangizni optimallashtiring. Qurilma qayta ishga tushirilgan vaqtda saqlanmagan ma’lumotlar yo‘qotiladi.</string>
+    <string name="auto_restart_summary">Haftada bir marta telefoningizni avtomatik qayta ishga tushirish orqali telefoningizni optimallashtiring. Telefoningiz qayta ishga tushirilganda, saqlanmagan ma’lumotlar yo‘qotiladi.</string>
     <string name="search_settings">Qidirish</string>
     <string name="related_results">%d ta tegishli element</string>
     <string name="no_results_found">Natijalar topilmadi</string>
@@ -1485,6 +1485,7 @@ Shifrlash bir yoki bir necha soatni olishi mumkin. Boshlashdan oldin batareya za
     <string name="crypt_keeper_verify_failed_summary">Qurilmani qayta ishga tushirib bo‘lmaydi. Yaxlitlik tasdiqlanishi bajarilmadi. Qurilmani ishlab chiqaruvchi parametrlariga tashlashingiz lozim. Bu barcha ma’lumotlarni o‘chiradi.</string>
     <string name="cryptkeeper_emergency_call">Favqulodda qo‘ng‘iroqlar</string>
     <string name="cryptkeeper_return_to_call">Qo‘ng‘iroqqa qaytish</string>
+    <string name="cryptkeeper_default_enter_msg">Telefoningiz xavfsizlik maqsadida shifrlandi.</string>
     <string name="enter_password">Qurilmani ishga tushirish uchun parolni kiriting.</string>
     <string name="enter_pin">Qurilmani ishga tushirish uchun PIN-kodni kiriting.</string>
     <string name="enter_pattern">Qurilmani ishga tushirish uchun chizma chizing.</string>
@@ -1498,6 +1499,7 @@ Shifrlash bir yoki bir necha soatni olishi mumkin. Boshlashdan oldin batareya za
     <string name="crypt_keeper_last_warn_wipe">Qurilmangizni qayta ishga tushirishga yana 1 ta noto‘g‘ri urinish uni ishlab chiqaruvchining birlamchi parametrlariga tashlanadi. Bu barcha fayllar va yuklab olingan ilovalarni o‘chirib yuboradi.</string>
     <string name="crypt_keeper_failed_title_dec">Shifrdan chiqarilmadi.</string>
     <string name="crypt_keeper_failed_summary_dec">Uzilish sababli shifrdan chiqarishni yakunlab bo‘lmadi. Foydalanishdan avval ishlab chiqaruvchi parametrlariga qaytaring (barcha ma’lumotlarni o‘chiradi).</string>
+    <string name="crypt_keeper_set_screen_lock_type">Ekranni bloklash turini o‘rnat</string>
     <string name="encryption_interstitial_message_kor">Qurilma shifrlangan. Qurilma yoqilganda, ma’lumotlarni shifrdan chiqarish uchun Ekran qulfini talab qilishni tanlash orqali shifrlangan ma’lumotlarni himoya qiling. Bu yo‘qolgan yoki o‘g‘irlangan qurilmalarda ma’lumotlarni himoya qilishga yordam beradi. Qurilma yoqilganda, uning ma’lumotlari shifrdan chiqarilishi uchun qurilmani blokdan chiqarishingiz lozim bo‘ladi. Qurilma shifrdan chiqarilmaguniga qadar Siz qo‘ng‘iroq, xabar yoki bildirishnomalarni qabul qila olmaysiz.</string>
     <string name="encryption_interstitial_message_direction">"Qurilma yoqilganda Yo‘nalishli bloklashni talab qilishni tanlash orqali uni himoya qiling. Bu yo‘qolgan yoki o‘g‘irlangan qurilmadagi ma’lumotlarni himoya qilishga yordam beradi.
 
@@ -1737,6 +1739,8 @@ Kafolat orqali ta’mirlashni so‘rashdan oldin Qayta faollashtirish bloki o‘
     <string name="empty_content_toast">Saqlash uchun tarkib yo‘q.</string>
     <string name="find_my_mobile_message_zero">"Mobil telefonimni topish veb-xizmati yordamida qurilmangizni masofadan kuzating va boshqaring. Qo‘shimcha ma’lumot olish va yana qanday funksiyalar mavjudligini aniqlash uchun quyidagi veb-saytga kiring:
 %s"</string>
+    <string name="send_last_location_title">Oxirgi joylashuv ma’l-ni yubor</string>
+    <string name="send_last_location_summary">Batareya quvvati belgilangan darajadan pastga tushganda, telefoningizga Mobil telefonimni topish serveriga oxirgi joylashuvini yuborish uchun ruxsat berish.</string>
     <string name="high_power_description">Alohida ilovalar uchun Batareya sarfini optimallashtirishni yoqing. Mobil tarmoqlardan foydalanadigan yoki ma’lumotni sinxronlaydigan ba’zi funksiyalar batareya quvvatini tejash maqsadida cheklanadi.</string>
     <string name="wifi_display_summary_off">O‘chir-gan</string>
     <string name="battery_usage_description">Ushbu ekranda qurilma oxirgi marta zaryadlangan buyon batareya ishlatilishi haqidagi ma’lumotlarni ko‘rsatadi.</string>
@@ -1968,6 +1972,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">Bloklash ekranida foydalanmoqchi bo‘lgan ilova yorliqlarini tanlang.</string>
     <string name="lockscreen_notifications">Bloklash ekranidagi bildirishnomalar</string>
     <string name="work_profile_lockscreen_notifications">Ish profili bildirishnomalari</string>
+    <string name="lock_network_and_security">Tarmoq va xavfsizlikni bloklash</string>
+    <string name="lock_network_and_security_summary">Telefoningiz bloklanganda tarmoq va xavfsizlikka oid funksiyalarni bloklangan holda saqlang va u yo‘qolganda yoki o‘g‘irlanganda, uning joylashuvini aniqlashni osonlashtiring.</string>
     <string name="dualclock_settings_title">Ikkitali soat</string>
     <string name="dualclock_settings_summary">Rouming vaqtida mahalliy va uy vaqt mintaqalarining har ikkalasini ko‘rsatish.</string>
     <string name="set_home_city">Uy vaqt mintaqa-ni o‘rnat</string>
@@ -2153,7 +2159,7 @@ Telefoningiz o‘g‘irlansa ham, bu telefondan biror kim foydalanmoqchi bo‘ls
     <string name="air_browse_music_on_lock_screen_title">Bloklash ekranidagi musiqa</string>
     <string name="air_browse_music_on_lock_screen_summary">Bloklash ekranida musiqa treklarini o‘zgartiring.</string>
     <string name="air_browse_note_summary">Ko‘rish rejimida sahifalar o‘rtasida almashish.</string>
-    <string name="data_usage_enable_mobile_summery">Mobil internet o‘chirilgan bo‘lsa, tarmoq ulanishini talab qiluvchi xizmatlardan foydalanish uchun qurilma Wi-Fi tarmoqqa ulangan bo‘lishi lozim.</string>
+    <string name="data_usage_enable_mobile_summery">Internetga mobil tarmog‘ingiz orqali kiring.</string>
     <string name="data_usage_enable_mobile_warning_skt">Mobil tarmoqqa ulanish, tarif rejangizga ko‘ra, qo‘shimcha to‘lov olinishi mumkin. Davom ettirilsinmi?</string>
     <string name="data_usage_enable_mobile_warning_ktt">Mobil tarmoqqa ulanish, tarif rejangizga ko‘ra, qo‘shimcha to‘lov olinishi mumkin. Davom ettirilsinmi?</string>
     <string name="data_usage_enable_mobile_warning_lgt">Mobil tarmoqqa ulanish, tarif rejangizga ko‘ra, qo‘shimcha to‘lov olinishi mumkin. Davom ettirilsinmi?</string>
@@ -2522,8 +2528,8 @@ rejim"</string>
     <string name="secure_folder_summary">Xavfsizlikni yaxshilash uchun maxfiy tarkib va ilovalarni qulflang.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s %2$s’ni blokdan chiqarish uchun barmoq izlarini qo‘llab-quvvatlamaydi.</string>
     <string name="edge_feeds_title">Yon kanallar</string>
-    <string name="screensaver_settings_summary">Ekran o‘chiq bo‘lganda, qurilma doklangan va/yoki zaryadlanayotganda amalga oshiriladigan amallarni boshqaring. Ushbu funksiya yana Ekran zastavkasi deb ham ataladi.</string>
-    <string name="screensaver_settings_summary_wo_dock">Qurilma zaryadlanayotganda ekran o‘chganidan so‘ng ekran lavhasi avtomatik ravishda ko‘rsatilsin.</string>
+    <string name="screensaver_settings_summary">Telefoningiz zaryadlanayotganda ekran avtomatik ravishda o‘chganidan so‘ng, ekran lavhasi ko‘rsatilsin.</string>
+    <string name="screensaver_settings_summary_wo_dock">Telefoningiz dokda bo‘lganda yoki zaryadlanayotganda ekran avtomatik ravishda o‘chganidan so‘ng, ekran lavhasi ko‘rsatilsin.</string>
     <string name="apn_already_exists">Avvaldan mavjud.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Port raqami %1$d va %2$d oralig‘ida bo‘lishi lozim.</string>
@@ -3288,6 +3294,7 @@ Mobil faol nuqtadan foydalanish batareya quvvati ishlatilishi va ma’lumot ishl
     <string name="wfd_connection_end_toast">Screen Mirroring ulnishi tugatildi.</string>
     <string name="wfd_descrpition_playvia">Tarkibni qo‘yish.</string>
     <string name="wfd_descrpition_mirroring">Ekranni aks ettirish.</string>
+    <string name="wfd_descrpition_playsound">Ovoz chiqarish.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">Ko‘p oyna o‘chiriladi va barcha qalqib chiquvchi oynada ochilgan ilovalar yopiladi.</string>
     <string name="keyguard_password_attempt_count_pin_code">%d urinish qoldi.</string>
@@ -4127,7 +4134,7 @@ Tezlikni oshirish uchun tezroq SD-karta yoki USB-ichki xotiradan foydalanish haq
     <string name="location_network_based">Simsiz tarmoqdan foydalan</string>
     <string name="location_neighborhood_level">Joy-vingizni tezroq aniqlash u-n ilov-ga Google joylashuv xiz-dan foyd-sh u-n rxs/b. Anonim joyl-v ma’l-lari to‘pl-di va Googlega yub-ladi.</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">Qurilma haqida</string>
+    <string name="about_settings">Telefon haqida</string>
     <string name="about_settings_vzw">Qurilma haqida</string>
     <string name="legal_information">Qonuniy ma’lumot</string>
     <string name="regulatory_information">Normativ ma’lumotlar</string>
@@ -4312,7 +4319,7 @@ Sizdagi mavjud ilova ma’lumotlari yo’qotilmaydi."</string>
     <string name="phone_language">Til</string>
     <string name="show_password">Parollarni ko‘rinadigan qilish</string>
     <string name="show_password_summary">Parol belgilarini kiritayotganingizda, ularni qisqa vaqt davomida ko‘rsatish.</string>
-    <string name="ime_security_warning">"Ushbu usul kiritilgan barcha matnni to‘plashi mumkin, jumladan, shaxsiy ma'lumotlar va kredit kartochka raqamlari, parollar bundan mustasno. Bu %1$s ilovasidan kelgan. Baribir ishlatilsinmi?"</string>
+    <string name="ime_security_warning">%s barcha kiritgan matningizni, jumladan, parol va kredit karta raqamlarini, to‘plash imkoniga ega bo‘lishi mumkin.</string>
     <string name="failed_to_open_app_settings_toast">%s parametrlarini ochib bo‘lmadi.</string>
     <string name="keyboard_and_input_methods_category">Klaviaturalar</string>
     <string name="virtual_keyboard_category">Virtual klaviatura</string>

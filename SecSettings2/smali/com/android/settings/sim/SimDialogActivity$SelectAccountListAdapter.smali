@@ -86,7 +86,7 @@
 
     iput-object v4, v0, Lcom/android/settings/sim/SimDialogActivity$SelectAccountListAdapter$ViewHolder;->title:Landroid/widget/TextView;
 
-    const v4, 0x7f1101d3
+    const v4, 0x7f1101d2
 
     invoke-virtual {v2, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

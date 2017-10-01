@@ -379,7 +379,7 @@ Geben Sie dann den Code ein, den Sie von Verizon erhalten:"</string>
     <string name="support">Support</string>
     <string name="reset_network_settings_list_summary">WLAN-, Bluetooth- und andere Netzwerkeinstellungen auf die Standardeinstellungen zurücksetzen.</string>
     <string name="master_clear_list_summary">Ihr Gerät auf Werkseinstellungen zurücksetzen. Dadurch werden alle Daten einschließlich Dateien und heruntergeladene Apps gelöscht.</string>
-    <string name="auto_restart_summary">Optimieren Sie Ihr Gerät, indem Sie es zu festgelegten Zeiten automatisch neu starten. Alle nicht gespeicherten Daten gehen bei einem Neustart des Geräts verloren.</string>
+    <string name="auto_restart_summary">Ihr Telefon optimieren, indem Sie es einmal pro Woche automatisch neu starten. Alle nicht gespeicherten Daten gehen bei einem Neustart Ihres Telefons verloren.</string>
     <string name="search_settings">Suche</string>
     <string name="related_results">%d zugehörige Elemente</string>
     <string name="no_results_found">Keine Ergebnisse</string>
@@ -1486,6 +1486,7 @@ Die Verschlüsselung kann eine Stunde oder länger dauern. Stellen Sie vor Begin
     <string name="crypt_keeper_verify_failed_summary">Ihr Gerät kann nicht neu gestartet werden. Die Integritätsüberprüfung ist fehlgeschlagen. Sie müssen Ihr Gerät auf die Werkseinstellungen zurücksetzen. Dabei werden alle Ihre Daten gelöscht.</string>
     <string name="cryptkeeper_emergency_call">Notruf</string>
     <string name="cryptkeeper_return_to_call">Zum Anruf zurückkehren</string>
+    <string name="cryptkeeper_default_enter_msg">Ihr Telefon ist zur Sicherheit verschlüsselt.</string>
     <string name="enter_password">Geben Sie Ihr Passwort ein, um das Gerät zu starten.</string>
     <string name="enter_pin">Geben Sie Ihre PIN ein, um das Gerät zu starten.</string>
     <string name="enter_pattern">Zeichnen Sie Ihr Muster, um das Gerät zu starten.</string>
@@ -1499,6 +1500,7 @@ Die Verschlüsselung kann eine Stunde oder länger dauern. Stellen Sie vor Begin
     <string name="crypt_keeper_last_warn_wipe">Sie haben nur noch 1 Versuch, Ihr Gerät zu starten, bevor es auf die Werkseinstellungen zurückgesetzt wird. Dabei werden alle Daten, auch Dateien und heruntergeladene Apps, gelöscht.</string>
     <string name="crypt_keeper_failed_title_dec">Entschlüsselung fehlgeschlagen</string>
     <string name="crypt_keeper_failed_summary_dec">Entschlüsselung aufgrund einer Unterbrechung nicht abgeschlossen. Vor Verwendung auf Werkseinstellungen zurücksetzen (alle Daten werden gelöscht).</string>
+    <string name="crypt_keeper_set_screen_lock_type">Sperrbildschirmtyp festlegen</string>
     <string name="encryption_interstitial_message_kor">Ihr Gerät ist verschlüsselt. Schützen Sie Ihre verschlüsselten Daten, indem Sie „Zur Datenentschlüsselung bei Gerätestart Bildschirmsperre anfordern“ auswählen. Diese Funktion schützt Ihre Daten, wenn Ihr Gerät verloren geht oder es gestohlen wurde. Bei jedem Einschalten des Geräts müssen Sie es entsperren, um die Gerätedaten zu entschlüsseln. Sie erhalten keine Anrufe, Nachrichten oder Benachrichtigungen, bis Sie Ihr Gerät entschlüsseln.</string>
     <string name="encryption_interstitial_message_direction">"Schützen Sie Ihr Gerät, indem Sie „Bei Gerätestart Richtungssperre anfordern“ auswählen. Diese Funktion schützt Ihre Daten, wenn Ihr Gerät verloren geht oder es gestohlen wurde.
 
@@ -1738,6 +1740,8 @@ Bevor Sie eine Reparatur als Garantieleistung vornehmen lassen, muss die Reaktiv
     <string name="empty_content_toast">Kein Inhalt zum Speichern.</string>
     <string name="find_my_mobile_message_zero">"Verfolgen und steuern Sie Ihr Gerät mit dem Find My Mobile-Webdienst aus der Ferne. Weitere Informationen auch zu zusätzlich verfügbaren Funktionen finden Sie auf der folgenden Webseite:
 %s"</string>
+    <string name="send_last_location_title">Letzten Standort senden</string>
+    <string name="send_last_location_summary">Zulassen, dass Ihr Telefon den letzten Standort an den Server von Find My Mobile sendet, wenn die Akkuladung ein bestimmtes Niveau unterschreitet.</string>
     <string name="high_power_description">Aktivieren Sie „Akkuverbrauch optimieren“ für einzelne Apps. Einige Funktionen, z. B. solche, die mobile Netze verwenden oder Daten synchronisieren, werden eingeschränkt, um Akkuladung zu sparen.</string>
     <string name="wifi_display_summary_off">Aus</string>
     <string name="battery_usage_description">Dieser Bildschirm zeigt die Akkuverwendung, seitdem das Gerät das letzte Mal voll geladen war.</string>
@@ -1969,6 +1973,8 @@ Für die Bestimmung Ihres Standorts wird das Mobilfunknetz genutzt. Dabei kommt 
     <string name="lock_screen_app_shortcut_summary">Auswählen, welche App-Shortcuts Sie auf dem Sperrbildschirm verwenden möchten.</string>
     <string name="lockscreen_notifications">Benachrichtigungen auf Sperrbildschirm</string>
     <string name="work_profile_lockscreen_notifications">Arbeitsprofilbenachrichtigungen</string>
+    <string name="lock_network_and_security">Netzwerk und Sicherheit sperren</string>
+    <string name="lock_network_and_security_summary">Netzwerk- und sicherheitsrelevante Funktionen gesperrt halten, wenn Ihr Telefon gesperrt ist. So ist es bei Verlust oder Diebstahl leichter zu orten und zu schützen.</string>
     <string name="dualclock_settings_title">Dual-Uhr</string>
     <string name="dualclock_settings_summary">Beim Roaming sowohl lokale als auch Heimatzeitzone anzeigen.</string>
     <string name="set_home_city">Heimatzeitzone einstellen</string>
@@ -2154,7 +2160,7 @@ Sogar, wenn Ihr Telefon gelöscht wird, ist vor Verwendung des Telefons immer no
     <string name="air_browse_music_on_lock_screen_title">Musik auf Sperrbildschirm</string>
     <string name="air_browse_music_on_lock_screen_summary">Musiktitel auf dem Sperrbildschirm ändern.</string>
     <string name="air_browse_note_summary">Im Anzeigemodus zwischen Seiten wechseln.</string>
-    <string name="data_usage_enable_mobile_summery">Wenn mobile Daten ausgeschaltet sind, muss Ihr Gerät zur Nutzung von Diensten, für die eine Netzwerkverbindung erforderlich ist, eine WLAN-Verbindung herstellen.</string>
+    <string name="data_usage_enable_mobile_summery">Über Ihr mobiles Netz auf das Internet zugreifen.</string>
     <string name="data_usage_enable_mobile_warning_skt">Bei einer Verbindung mit einem mobilen Netz fallen je nach Tarif möglicherweise zusätzliche Gebühren an. Fortfahren?</string>
     <string name="data_usage_enable_mobile_warning_ktt">Bei einer Verbindung mit einem mobilen Netz fallen je nach Tarif möglicherweise zusätzliche Gebühren an. Fortfahren?</string>
     <string name="data_usage_enable_mobile_warning_lgt">Bei einer Verbindung mit einem mobilen Netz fallen je nach Tarif möglicherweise zusätzliche Gebühren an. Fortfahren?</string>
@@ -2524,8 +2530,8 @@ Erneut versuchen"</string>
     <string name="secure_folder_summary">Private Inhalte und Apps sperren, um die Sicherheit zu erhöhen.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s unterstützt keine Fingerabdrücke zum Entsperren von %2$s.</string>
     <string name="edge_feeds_title">Seiten-Feeds</string>
-    <string name="screensaver_settings_summary">Steuern Sie, was geschieht, wenn sich ein Gerät im Dock befindet bzw. auflädt und der Bildschirm ausgeschaltet ist. Diese Funktion wird auch als Bildschirmschoner bezeichnet.</string>
-    <string name="screensaver_settings_summary_wo_dock">Nach dem automatischen Ausschalten des Bildschirms einen Bildschirmschoner anzeigen, während das Gerät geladen wird.</string>
+    <string name="screensaver_settings_summary">Nach dem automatischen Ausschalten des Bildschirms einen Bildschirmschoner anzeigen, während Ihr Telefon geladen wird.</string>
+    <string name="screensaver_settings_summary_wo_dock">Nach dem automatischen Ausschalten des Bildschirms einen Bildschirmschoner anzeigen, während sich Ihr Telefon im Dock befindet oder geladen wird.</string>
     <string name="apn_already_exists">Bereits vorhanden</string>
     <string name="error_unavailable_apn">Diese APN ist auf diesem Gerät nicht zulässig. Versuchen Sie eine andere.</string>
     <string name="error_message_port_out_of_range">Portnummer muss zwischen %1$d und %2$d liegen.</string>
@@ -3290,6 +3296,7 @@ Die Verwendung von Mobile Hotspots verbraucht mehr Akkuladung und erhöht Ihre D
     <string name="wfd_connection_end_toast">Screen Mirroring-Verbindung beendet.</string>
     <string name="wfd_descrpition_playvia">Inhalt wiedergeben.</string>
     <string name="wfd_descrpition_mirroring">Bildschirm spiegeln.</string>
+    <string name="wfd_descrpition_playsound">Ton wiedergeben.</string>
     <string name="usbtethering_notify_wifi_is_on">WLAN und USB-Tethering können nicht gleichzeitig aktiv sein. Schalten Sie WLAN aus.</string>
     <string name="disable_multi_window_dialog_text">Multi Window wird deaktiviert und alle in Pop-up-Fenstern geöffneten Apps werden geschlossen.</string>
     <string name="keyguard_password_attempt_count_pin_code">%d Versuch übrig</string>
@@ -4127,7 +4134,7 @@ Ziehen Sie die Verwendung einer schnelleren SD-Karte oder eines USB-Speicherger�
     <string name="location_network_based">Drahtlosnetze verwenden</string>
     <string name="location_neighborhood_level">Erlaubt Apps, zur Beschleunigung Google-Standortdienste zu verwenden. Anonyme Standortdaten werden an Google gesendet.</string>
     <string name="system_update">System-Update</string>
-    <string name="about_settings">Geräteinformationen</string>
+    <string name="about_settings">Telefoninfo</string>
     <string name="about_settings_vzw">Info zu Gerät</string>
     <string name="legal_information">Rechtliche Informationen</string>
     <string name="regulatory_information">Bestimmungen</string>
@@ -4312,7 +4319,7 @@ Sie verlieren keine vorhandenen Apps."</string>
     <string name="phone_language">Sprache</string>
     <string name="show_password">Passwörter sichtbar machen</string>
     <string name="show_password_summary">Zeichen des Passworts beim Eingeben kurz anzeigen.</string>
-    <string name="ime_security_warning">Diese Methode kann alle von Ihnen eingegebenen Texte einschließlich Kennwörter, Kreditkartennummern und andere persönliche Daten sammeln. Sie wird von der App %1$s verwendet. Trotzdem verwenden?</string>
+    <string name="ime_security_warning">%s kann alle von Ihnen eingegebenen Texte, einschließlich persönlicher Daten wie Passwörter und Kreditkartennummern, sammeln.</string>
     <string name="failed_to_open_app_settings_toast">Einstellungen für %s konnten nicht geöffnet werden.</string>
     <string name="keyboard_and_input_methods_category">Tastaturen</string>
     <string name="virtual_keyboard_category">Virtuelle Tastatur</string>

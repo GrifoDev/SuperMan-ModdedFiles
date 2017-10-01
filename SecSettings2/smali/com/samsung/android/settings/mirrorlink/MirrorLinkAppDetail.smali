@@ -292,7 +292,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/mirrorlink/MirrorLinkAppDetail;->mValidCheck:Landroid/widget/TextView;
 
-    const v1, 0x7f0b08f3
+    const v1, 0x7f0b08fd
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -343,7 +343,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/mirrorlink/MirrorLinkAppDetail;->mValidCheck:Landroid/widget/TextView;
 
-    const v1, 0x7f0b08f5
+    const v1, 0x7f0b08ff
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -374,7 +374,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/mirrorlink/MirrorLinkAppDetail;->mValidCheck:Landroid/widget/TextView;
 
-    const v1, 0x7f0b08f4
+    const v1, 0x7f0b08fe
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -548,7 +548,7 @@
 
     const/4 v1, 0x0
 
-    const v0, 0x7f0b08f2
+    const v0, 0x7f0b08fc
 
     invoke-interface {p1, v1, v2, v1, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -679,7 +679,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/mirrorlink/MirrorLinkAppDetail;->appSnippet:Landroid/view/View;
 
-    const v4, 0x7f11047a
+    const v4, 0x7f110478
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -689,7 +689,7 @@
 
     iput-object v3, p0, Lcom/samsung/android/settings/mirrorlink/MirrorLinkAppDetail;->mValidCheck:Landroid/widget/TextView;
 
-    const v3, 0x7f110496
+    const v3, 0x7f110494
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -699,7 +699,7 @@
 
     iput-object v3, p0, Lcom/samsung/android/settings/mirrorlink/MirrorLinkAppDetail;->mTextViewValidDateTitle:Landroid/widget/TextView;
 
-    const v3, 0x7f110497
+    const v3, 0x7f110495
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -709,7 +709,7 @@
 
     iput-object v3, p0, Lcom/samsung/android/settings/mirrorlink/MirrorLinkAppDetail;->mTextViewValidDate:Landroid/widget/TextView;
 
-    const v3, 0x7f110498
+    const v3, 0x7f110496
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -717,7 +717,7 @@
 
     iput-object v3, p0, Lcom/samsung/android/settings/mirrorlink/MirrorLinkAppDetail;->mTextViewValidDateUnderLine:Landroid/view/View;
 
-    const v3, 0x7f110493
+    const v3, 0x7f110491
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -727,7 +727,7 @@
 
     iput-object v3, p0, Lcom/samsung/android/settings/mirrorlink/MirrorLinkAppDetail;->mCertificateSigningEntity:Landroid/widget/TextView;
 
-    const v3, 0x7f110495
+    const v3, 0x7f110493
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

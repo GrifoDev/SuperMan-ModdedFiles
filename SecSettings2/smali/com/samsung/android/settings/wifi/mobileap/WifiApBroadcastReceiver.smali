@@ -635,7 +635,7 @@
     :cond_0
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mNotificationManager:Landroid/app/NotificationManager;
 
-    const v1, 0x7f0b0d03
+    const v1, 0x7f0b0d0d
 
     invoke-virtual {v0, v1}, Landroid/app/NotificationManager;->cancel(I)V
 
@@ -1008,6 +1008,12 @@
     move-result v46
 
     if-nez v46, :cond_9
+
+    invoke-direct/range {p0 .. p1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->isMobileApON(Landroid/content/Context;)Z
+
+    move-result v46
+
+    if-eqz v46, :cond_9
 
     invoke-virtual/range {v45 .. v45}, Landroid/net/wifi/WifiManager;->isWifiEnabled()Z
 
@@ -2365,7 +2371,7 @@
 
     if-eqz v46, :cond_1c
 
-    const v46, 0x7f0b0d05
+    const v46, 0x7f0b0d0f
 
     const/16 v47, 0x0
 
@@ -3385,7 +3391,7 @@
 
     invoke-static/range {v46 .. v47}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v46, 0x7f0b0cec
+    const v46, 0x7f0b0cf6
 
     const/16 v47, 0x1
 
@@ -3555,7 +3561,7 @@
 
     invoke-static/range {v46 .. v47}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v46, 0x7f0b0ceb
+    const v46, 0x7f0b0cf5
 
     const/16 v47, 0x1
 
@@ -3786,7 +3792,7 @@
 
     invoke-static/range {v46 .. v47}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v46, 0x7f0b0cec
+    const v46, 0x7f0b0cf6
 
     const/16 v47, 0x1
 
@@ -4051,7 +4057,7 @@
 
     const/4 v9, 0x0
 
-    const v8, 0x7f0b0d03
+    const v8, 0x7f0b0d0d
 
     const/4 v6, 0x0
 

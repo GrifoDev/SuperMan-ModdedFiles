@@ -834,7 +834,7 @@
 
     move/from16 v32, v0
 
-    if-eqz v32, :cond_b
+    if-eqz v32, :cond_a
 
     move-object/from16 v0, p0
 
@@ -848,7 +848,7 @@
 
     move/from16 v32, v0
 
-    if-nez v32, :cond_a
+    if-nez v32, :cond_9
 
     move-object/from16 v0, p0
 
@@ -982,7 +982,7 @@
 
     move/from16 v32, v0
 
-    if-nez v32, :cond_a
+    if-nez v32, :cond_9
 
     const/16 v32, 0x2
 
@@ -998,7 +998,7 @@
 
     move/from16 v1, v32
 
-    if-ne v0, v1, :cond_a
+    if-ne v0, v1, :cond_9
 
     :cond_8
     const-string/jumbo v32, "WifiDisplaySettings"
@@ -1007,37 +1007,24 @@
 
     invoke-static/range {v32 .. v33}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/wfd/WifiDisplaySettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v32
-
-    move-object/from16 v0, v32
-
-    instance-of v0, v0, Lcom/android/settings/wfd/WfdPickerDialog;
-
-    move/from16 v32, v0
-
-    if-eqz v32, :cond_9
-
     invoke-direct/range {p0 .. p0}, Lcom/android/settings/wfd/WifiDisplaySettings;->finishSettings()V
 
-    :cond_9
     return-void
 
-    :cond_a
+    :cond_9
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/settings/wfd/WifiDisplaySettings;->mStartWithConnectedState:Z
 
     move/from16 v32, v0
 
-    if-nez v32, :cond_b
+    if-nez v32, :cond_a
 
     invoke-direct/range {p0 .. p0}, Lcom/android/settings/wfd/WifiDisplaySettings;->semIsDlnaDeviceConnected()Z
 
     move-result v32
 
-    if-eqz v32, :cond_b
+    if-eqz v32, :cond_a
 
     const-string/jumbo v32, "WifiDisplaySettings"
 
@@ -1049,7 +1036,7 @@
 
     return-void
 
-    :cond_b
+    :cond_a
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/wfd/WifiDisplaySettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v24
@@ -1058,18 +1045,18 @@
 
     move-result v32
 
-    if-nez v32, :cond_c
+    if-nez v32, :cond_b
 
     invoke-virtual/range {v24 .. v24}, Landroid/preference/PreferenceScreen;->removeAll()V
 
-    :cond_c
+    :cond_b
     const/16 v32, 0x3
 
     move/from16 v0, v16
 
     move/from16 v1, v32
 
-    if-ne v0, v1, :cond_40
+    if-ne v0, v1, :cond_3f
 
     invoke-virtual/range {v31 .. v31}, Landroid/hardware/display/SemWifiDisplayStatus;->getActiveDisplay()Landroid/hardware/display/SemWifiDisplay;
 
@@ -1126,7 +1113,7 @@
 
     move/from16 v1, v33
 
-    if-ge v0, v1, :cond_e
+    if-ge v0, v1, :cond_d
 
     aget-object v10, v12, v32
 
@@ -1134,16 +1121,16 @@
 
     move-result v34
 
-    if-eqz v34, :cond_d
+    if-eqz v34, :cond_c
 
     invoke-interface {v11, v10}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    :cond_d
+    :cond_c
     add-int/lit8 v32, v32, 0x1
 
     goto :goto_2
 
-    :cond_e
+    :cond_d
     const/16 v32, 0x0
 
     move/from16 v0, v32
@@ -1190,7 +1177,7 @@
 
     move-result v32
 
-    if-eqz v32, :cond_12
+    if-eqz v32, :cond_11
 
     move-object/from16 v0, p0
 
@@ -1198,7 +1185,7 @@
 
     move/from16 v32, v0
 
-    if-eqz v32, :cond_12
+    if-eqz v32, :cond_11
 
     const/16 v32, 0x0
 
@@ -1211,7 +1198,7 @@
 
     move/from16 v1, v33
 
-    if-ge v0, v1, :cond_f
+    if-ge v0, v1, :cond_e
 
     aget-object v10, v6, v32
 
@@ -1239,7 +1226,7 @@
 
     move-result v34
 
-    if-eqz v34, :cond_11
+    if-eqz v34, :cond_10
 
     const/16 v32, 0x0
 
@@ -1265,9 +1252,9 @@
 
     iput-boolean v0, v1, Lcom/android/settings/wfd/WifiDisplaySettings$ConnectingDevice;->mPendingForPrevDisconnect:Z
 
-    :cond_f
+    :cond_e
     :goto_4
-    if-eqz p1, :cond_10
+    if-eqz p1, :cond_f
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/wfd/WifiDisplaySettings;->getActivity()Landroid/app/Activity;
 
@@ -1275,20 +1262,20 @@
 
     invoke-virtual/range {v32 .. v32}, Landroid/app/Activity;->invalidateOptionsMenu()V
 
-    :cond_10
+    :cond_f
     return-void
 
-    :cond_11
+    :cond_10
     add-int/lit8 v32, v32, 0x1
 
     goto :goto_3
 
-    :cond_12
+    :cond_11
     invoke-direct/range {p0 .. p0}, Lcom/android/settings/wfd/WifiDisplaySettings;->isPendingForPrevDisconnect()Z
 
     move-result v32
 
-    if-nez v32, :cond_f
+    if-nez v32, :cond_e
 
     move-object/from16 v0, p0
 
@@ -1306,7 +1293,7 @@
 
     sget-boolean v32, Lcom/android/settings/wfd/WifiDisplaySettings;->SS_WFD_SERVICE_WITH_GCAST:Z
 
-    if-eqz v32, :cond_14
+    if-eqz v32, :cond_13
 
     move-object/from16 v0, p0
 
@@ -1351,7 +1338,7 @@
 
     move/from16 v1, v29
 
-    if-ge v0, v1, :cond_14
+    if-ge v0, v1, :cond_13
 
     move-object/from16 v0, p0
 
@@ -1377,22 +1364,22 @@
 
     move-result v32
 
-    if-eqz v32, :cond_13
+    if-eqz v32, :cond_12
 
     invoke-virtual/range {v28 .. v28}, Landroid/media/MediaRouter$RouteInfo;->getDeviceAddress()Ljava/lang/String;
 
     move-result-object v32
 
-    if-nez v32, :cond_13
+    if-nez v32, :cond_12
 
     add-int/lit8 v25, v25, 0x1
 
-    :cond_13
+    :cond_12
     add-int/lit8 v18, v18, 0x1
 
     goto :goto_5
 
-    :cond_14
+    :cond_13
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/wfd/WifiDisplaySettings;->mDisplayManager:Landroid/hardware/display/DisplayManager;
@@ -1429,7 +1416,7 @@
 
     move-result v32
 
-    if-eqz v32, :cond_15
+    if-eqz v32, :cond_14
 
     move-object/from16 v0, p0
 
@@ -1443,14 +1430,14 @@
 
     invoke-virtual {v0, v1}, Lcom/android/settings/wfd/Wfd_Certification;->buildCertificationMenu(Landroid/preference/PreferenceScreen;)V
 
-    :cond_15
-    if-eqz v4, :cond_29
+    :cond_14
+    if-eqz v4, :cond_28
 
     const/16 v32, 0x2
 
     move/from16 v0, v32
 
-    if-ne v5, v0, :cond_29
+    if-ne v5, v0, :cond_28
 
     move-object/from16 v0, p0
 
@@ -1464,20 +1451,20 @@
 
     move/from16 v1, v33
 
-    if-ne v0, v1, :cond_16
+    if-ne v0, v1, :cond_15
 
     invoke-direct/range {p0 .. p0}, Lcom/android/settings/wfd/WifiDisplaySettings;->finishSettings()V
 
     return-void
 
-    :cond_16
+    :cond_15
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/wfd/WifiDisplaySettings;->mPairedDevicesCategory:Landroid/preference/PreferenceGroup;
 
     move-object/from16 v32, v0
 
-    if-nez v32, :cond_19
+    if-nez v32, :cond_18
 
     new-instance v32, Landroid/preference/PreferenceCategory;
 
@@ -1514,15 +1501,15 @@
 
     move/from16 v0, v32
 
-    if-eq v9, v0, :cond_17
+    if-eq v9, v0, :cond_16
 
     const/16 v32, 0xd
 
     move/from16 v0, v32
 
-    if-ne v9, v0, :cond_1a
+    if-ne v9, v0, :cond_19
 
-    :cond_17
+    :cond_16
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/wfd/WifiDisplaySettings;->mDisplayManager:Landroid/hardware/display/DisplayManager;
@@ -1541,7 +1528,7 @@
 
     move-result-object v26
 
-    if-eqz v26, :cond_1b
+    if-eqz v26, :cond_1a
 
     move-object/from16 v0, p0
 
@@ -1553,13 +1540,13 @@
 
     move-result-object v14
 
-    :cond_18
+    :cond_17
     :goto_7
     invoke-interface {v14}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v32
 
-    if-eqz v32, :cond_1b
+    if-eqz v32, :cond_1a
 
     invoke-interface {v14}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1579,7 +1566,7 @@
 
     move-result v32
 
-    if-eqz v32, :cond_18
+    if-eqz v32, :cond_17
 
     move-object/from16 v0, p0
 
@@ -1595,7 +1582,7 @@
 
     goto :goto_7
 
-    :cond_19
+    :cond_18
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/wfd/WifiDisplaySettings;->mPairedDevicesCategory:Landroid/preference/PreferenceGroup;
@@ -1606,7 +1593,7 @@
 
     goto :goto_6
 
-    :cond_1a
+    :cond_19
     const/16 v32, 0x1
 
     move-object/from16 v0, p0
@@ -1623,24 +1610,24 @@
 
     invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->addPreference(Landroid/preference/Preference;)Z
 
-    :cond_1b
+    :cond_1a
     array-length v0, v6
 
     move/from16 v32, v0
 
-    if-nez v32, :cond_1c
+    if-nez v32, :cond_1b
 
-    if-nez v25, :cond_1c
+    if-nez v25, :cond_1b
 
-    if-nez v15, :cond_1c
+    if-nez v15, :cond_1b
 
     invoke-virtual/range {v31 .. v31}, Landroid/hardware/display/SemWifiDisplayStatus;->isScanning()Z
 
     move-result v32
 
-    if-eqz v32, :cond_27
+    if-eqz v32, :cond_26
 
-    :cond_1c
+    :cond_1b
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/wfd/WifiDisplaySettings;->mNo_device_found_layout:Landroid/widget/LinearLayout;
@@ -1658,13 +1645,13 @@
 
     move/from16 v32, v0
 
-    if-eqz v32, :cond_1d
+    if-eqz v32, :cond_1c
 
     invoke-virtual/range {v31 .. v31}, Landroid/hardware/display/SemWifiDisplayStatus;->isScanning()Z
 
     move-result v32
 
-    if-eqz v32, :cond_28
+    if-eqz v32, :cond_27
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/wfd/WifiDisplaySettings;->getActivity()Landroid/app/Activity;
 
@@ -1676,7 +1663,7 @@
 
     invoke-virtual/range {v32 .. v33}, Lcom/android/settings/wfd/WfdPickerDialog;->showProgressBar(Z)V
 
-    :cond_1d
+    :cond_1c
     :goto_9
     move-object/from16 v0, p0
 
@@ -1684,7 +1671,7 @@
 
     move/from16 v32, v0
 
-    if-nez v32, :cond_1e
+    if-nez v32, :cond_1d
 
     move-object/from16 v0, p0
 
@@ -1692,26 +1679,26 @@
 
     move/from16 v32, v0
 
-    if-eqz v32, :cond_f
+    if-eqz v32, :cond_e
 
-    :cond_1e
+    :cond_1d
     array-length v0, v6
 
     move/from16 v32, v0
 
-    if-nez v32, :cond_1f
+    if-nez v32, :cond_1e
 
-    if-nez v25, :cond_1f
+    if-nez v25, :cond_1e
 
-    if-nez v15, :cond_1f
+    if-nez v15, :cond_1e
 
     invoke-virtual/range {v31 .. v31}, Landroid/hardware/display/SemWifiDisplayStatus;->isScanning()Z
 
     move-result v32
 
-    if-eqz v32, :cond_2c
+    if-eqz v32, :cond_2b
 
-    :cond_1f
+    :cond_1e
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/wfd/WifiDisplaySettings;->mNo_device_found_layout:Landroid/widget/LinearLayout;
@@ -1728,7 +1715,7 @@
 
     move/from16 v32, v0
 
-    if-eqz v32, :cond_2e
+    if-eqz v32, :cond_2d
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/wfd/WifiDisplaySettings;->getActivity()Landroid/app/Activity;
 
@@ -1740,7 +1727,7 @@
 
     move-result v32
 
-    if-eqz v32, :cond_2e
+    if-eqz v32, :cond_2d
 
     move-object/from16 v0, p0
 
@@ -1753,7 +1740,7 @@
     invoke-virtual/range {v32 .. v33}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
     :goto_a
-    if-eqz v20, :cond_20
+    if-eqz v20, :cond_1f
 
     const-string/jumbo v32, "WifiDisplaySettings"
 
@@ -1795,7 +1782,7 @@
 
     invoke-static/range {v32 .. v33}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_20
+    :cond_1f
     const-string/jumbo v32, "WifiDisplaySettings"
 
     new-instance v33, Ljava/lang/StringBuilder;
@@ -1876,12 +1863,12 @@
 
     move-result-object v14
 
-    :cond_21
+    :cond_20
     invoke-interface {v14}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v32
 
-    if-eqz v32, :cond_23
+    if-eqz v32, :cond_22
 
     invoke-interface {v14}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1893,7 +1880,7 @@
 
     move-result v19
 
-    if-eqz v4, :cond_2f
+    if-eqz v4, :cond_2e
 
     invoke-virtual {v4}, Landroid/hardware/display/SemWifiDisplay;->getDeviceAddress()Ljava/lang/String;
 
@@ -1908,13 +1895,13 @@
     move-result v32
 
     :goto_b
-    if-nez v32, :cond_22
+    if-nez v32, :cond_21
 
     invoke-direct/range {p0 .. p0}, Lcom/android/settings/wfd/WifiDisplaySettings;->semIsDlnaDeviceConnected()Z
 
     move-result v32
 
-    if-eqz v32, :cond_30
+    if-eqz v32, :cond_2f
 
     invoke-direct/range {p0 .. p0}, Lcom/android/settings/wfd/WifiDisplaySettings;->semGetDlnaDeviceUid()Ljava/lang/String;
 
@@ -1928,19 +1915,19 @@
 
     move-result v32
 
-    if-eqz v32, :cond_30
+    if-eqz v32, :cond_2f
 
-    :cond_22
+    :cond_21
     :goto_c
     invoke-direct/range {p0 .. p0}, Lcom/android/settings/wfd/WifiDisplaySettings;->isPendingForPrevDisconnect()Z
 
     move-result v32
 
-    if-nez v32, :cond_21
+    if-nez v32, :cond_20
 
-    if-eqz v19, :cond_33
+    if-eqz v19, :cond_32
 
-    if-eqz v20, :cond_33
+    if-eqz v20, :cond_32
 
     invoke-virtual/range {v20 .. v20}, Landroid/hardware/display/SemWifiDisplay;->getDeviceAddress()Ljava/lang/String;
 
@@ -1954,7 +1941,7 @@
 
     move-result v32
 
-    if-eqz v32, :cond_33
+    if-eqz v32, :cond_32
 
     move-object/from16 v0, p0
 
@@ -1964,9 +1951,9 @@
 
     move-result v32
 
-    if-eqz v32, :cond_33
+    if-eqz v32, :cond_32
 
-    if-nez v5, :cond_33
+    if-nez v5, :cond_32
 
     :goto_d
     move-object/from16 v0, p0
@@ -1987,7 +1974,7 @@
 
     move-object/from16 v1, v33
 
-    if-ne v0, v1, :cond_21
+    if-ne v0, v1, :cond_20
 
     const-string/jumbo v33, "WifiDisplaySettings"
 
@@ -2005,7 +1992,7 @@
 
     move-result-object v34
 
-    if-eqz v19, :cond_34
+    if-eqz v19, :cond_33
 
     const-string/jumbo v32, "sharing"
 
@@ -2040,7 +2027,7 @@
 
     new-instance v33, Lcom/android/settings/wfd/WifiDisplaySettings$ConnectingDevice;
 
-    if-eqz v19, :cond_35
+    if-eqz v19, :cond_34
 
     sget-object v32, Lcom/android/settings/wfd/WifiDisplaySettings$ConnectionType;->AP:Lcom/android/settings/wfd/WifiDisplaySettings$ConnectionType;
 
@@ -2061,7 +2048,7 @@
 
     invoke-direct/range {p0 .. p0}, Lcom/android/settings/wfd/WifiDisplaySettings;->connectScreenSharing()V
 
-    :cond_23
+    :cond_22
     const/16 v32, 0x0
 
     array-length v0, v6
@@ -2073,7 +2060,7 @@
 
     move/from16 v1, v33
 
-    if-ge v0, v1, :cond_3b
+    if-ge v0, v1, :cond_3a
 
     aget-object v10, v6, v32
 
@@ -2089,12 +2076,12 @@
 
     move-result-object v14
 
-    :cond_24
+    :cond_23
     invoke-interface {v14}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v34
 
-    if-eqz v34, :cond_25
+    if-eqz v34, :cond_24
 
     invoke-interface {v14}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2154,7 +2141,7 @@
 
     move-result v34
 
-    if-eqz v34, :cond_24
+    if-eqz v34, :cond_23
 
     move-object/from16 v0, p0
 
@@ -2164,20 +2151,20 @@
 
     move-result v34
 
-    if-eqz v34, :cond_24
+    if-eqz v34, :cond_23
 
     const/4 v7, 0x1
 
-    :cond_25
-    if-eqz v7, :cond_36
+    :cond_24
+    if-eqz v7, :cond_35
 
-    :cond_26
+    :cond_25
     :goto_11
     add-int/lit8 v32, v32, 0x1
 
     goto :goto_10
 
-    :cond_27
+    :cond_26
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/wfd/WifiDisplaySettings;->mNo_device_found_layout:Landroid/widget/LinearLayout;
@@ -2190,7 +2177,7 @@
 
     goto/16 :goto_8
 
-    :cond_28
+    :cond_27
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/wfd/WifiDisplaySettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v32
@@ -2203,12 +2190,12 @@
 
     goto/16 :goto_9
 
-    :cond_29
+    :cond_28
     invoke-direct/range {p0 .. p0}, Lcom/android/settings/wfd/WifiDisplaySettings;->semIsDlnaDeviceConnected()Z
 
     move-result v32
 
-    if-eqz v32, :cond_2b
+    if-eqz v32, :cond_2a
 
     move-object/from16 v0, p0
 
@@ -2220,13 +2207,13 @@
 
     move-result-object v14
 
-    :cond_2a
+    :cond_29
     :goto_12
     invoke-interface {v14}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v32
 
-    if-eqz v32, :cond_1d
+    if-eqz v32, :cond_1c
 
     invoke-interface {v14}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2238,7 +2225,7 @@
 
     move-result-object v27
 
-    if-eqz v27, :cond_2a
+    if-eqz v27, :cond_29
 
     invoke-virtual {v13}, Lcom/android/settings/wfd/WifiDisplaySettings$DeviceWrapper;->getId()Ljava/lang/String;
 
@@ -2252,7 +2239,7 @@
 
     move-result v32
 
-    if-eqz v32, :cond_2a
+    if-eqz v32, :cond_29
 
     move-object/from16 v0, p0
 
@@ -2268,16 +2255,16 @@
 
     goto :goto_12
 
-    :cond_2b
+    :cond_2a
     sget-boolean v32, Lcom/android/settings/wfd/WifiDisplaySettings;->SS_WFD_SERVICE_WITH_GCAST:Z
 
-    if-eqz v32, :cond_1d
+    if-eqz v32, :cond_1c
 
     invoke-direct/range {p0 .. p0}, Lcom/android/settings/wfd/WifiDisplaySettings;->isGCastConnected()Z
 
     move-result v32
 
-    if-eqz v32, :cond_1d
+    if-eqz v32, :cond_1c
 
     move-object/from16 v0, p0
 
@@ -2299,7 +2286,7 @@
 
     move-result-object v30
 
-    if-eqz v30, :cond_1d
+    if-eqz v30, :cond_1c
 
     const-string/jumbo v32, "WifiDisplaySettings"
 
@@ -2315,7 +2302,7 @@
 
     goto/16 :goto_9
 
-    :cond_2c
+    :cond_2b
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/wfd/WifiDisplaySettings;->mNo_device_found_layout:Landroid/widget/LinearLayout;
@@ -2326,20 +2313,20 @@
 
     invoke-virtual/range {v32 .. v33}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    :cond_2d
+    :cond_2c
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/settings/wfd/WifiDisplaySettings;->mInPickerDialog:Z
 
     move/from16 v32, v0
 
-    if-eqz v32, :cond_f
+    if-eqz v32, :cond_e
 
     invoke-virtual/range {v31 .. v31}, Landroid/hardware/display/SemWifiDisplayStatus;->isScanning()Z
 
     move-result v32
 
-    if-eqz v32, :cond_3f
+    if-eqz v32, :cond_3e
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/wfd/WifiDisplaySettings;->getActivity()Landroid/app/Activity;
 
@@ -2353,7 +2340,7 @@
 
     goto/16 :goto_4
 
-    :cond_2e
+    :cond_2d
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/wfd/WifiDisplaySettings;->mChange_device_info:Landroid/widget/LinearLayout;
@@ -2366,13 +2353,13 @@
 
     goto/16 :goto_a
 
-    :cond_2f
+    :cond_2e
     const/16 v32, 0x0
 
     goto/16 :goto_b
 
-    :cond_30
-    if-eqz v19, :cond_31
+    :cond_2f
+    if-eqz v19, :cond_30
 
     move-object/from16 v0, p0
 
@@ -2382,12 +2369,12 @@
 
     move-result v32
 
-    if-nez v32, :cond_32
+    if-nez v32, :cond_31
+
+    :cond_30
+    if-nez v19, :cond_21
 
     :cond_31
-    if-nez v19, :cond_22
-
-    :cond_32
     move-object/from16 v0, p0
 
     invoke-direct {v0, v13}, Lcom/android/settings/wfd/WifiDisplaySettings;->createDlnaPreference(Lcom/android/settings/wfd/WifiDisplaySettings$DeviceWrapper;)Lcom/android/settings/wfd/WifiDisplaySettings$DlnaPreference;
@@ -2402,16 +2389,16 @@
 
     goto/16 :goto_c
 
-    :cond_33
+    :cond_32
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/settings/wfd/WifiDisplaySettings;->mStartWithConnectedState:Z
 
     move/from16 v32, v0
 
-    if-nez v32, :cond_21
+    if-nez v32, :cond_20
 
-    if-eqz v21, :cond_21
+    if-eqz v21, :cond_20
 
     invoke-virtual/range {v21 .. v21}, Landroid/hardware/display/SemDlnaDevice;->getUid()Ljava/lang/String;
 
@@ -2425,21 +2412,21 @@
 
     move-result v32
 
-    if-eqz v32, :cond_21
+    if-eqz v32, :cond_20
 
     goto/16 :goto_d
 
-    :cond_34
+    :cond_33
     const-string/jumbo v32, "dlna"
 
     goto/16 :goto_e
 
-    :cond_35
+    :cond_34
     sget-object v32, Lcom/android/settings/wfd/WifiDisplaySettings$ConnectionType;->DLNA:Lcom/android/settings/wfd/WifiDisplaySettings$ConnectionType;
 
     goto/16 :goto_f
 
-    :cond_36
+    :cond_35
     const-string/jumbo v34, "WifiDisplaySettings"
 
     new-instance v35, Ljava/lang/StringBuilder;
@@ -2484,7 +2471,7 @@
 
     move-result v34
 
-    if-nez v34, :cond_37
+    if-nez v34, :cond_36
 
     const/16 v34, 0x1
 
@@ -2502,14 +2489,14 @@
 
     invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->addPreference(Landroid/preference/Preference;)Z
 
-    :cond_37
+    :cond_36
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/wfd/WifiDisplaySettings;->mConnectingAddressForSmartSchool:Ljava/lang/String;
 
     move-object/from16 v34, v0
 
-    if-eqz v34, :cond_38
+    if-eqz v34, :cond_37
 
     move-object/from16 v0, p0
 
@@ -2529,9 +2516,9 @@
 
     move-object/from16 v1, v35
 
-    if-ne v0, v1, :cond_38
+    if-ne v0, v1, :cond_37
 
-    if-nez v5, :cond_38
+    if-nez v5, :cond_37
 
     const-string/jumbo v34, "WifiDisplaySettings"
 
@@ -2579,14 +2566,14 @@
 
     goto/16 :goto_11
 
-    :cond_38
-    if-eqz v20, :cond_39
+    :cond_37
+    if-eqz v20, :cond_38
 
     invoke-virtual/range {v31 .. v31}, Landroid/hardware/display/SemWifiDisplayStatus;->isScanning()Z
 
     move-result v34
 
-    if-eqz v34, :cond_39
+    if-eqz v34, :cond_38
 
     invoke-virtual/range {v20 .. v20}, Landroid/hardware/display/SemWifiDisplay;->getDeviceAddress()Ljava/lang/String;
 
@@ -2600,7 +2587,7 @@
 
     move-result v34
 
-    if-eqz v34, :cond_39
+    if-eqz v34, :cond_38
 
     move-object/from16 v0, p0
 
@@ -2620,17 +2607,17 @@
 
     move-object/from16 v1, v35
 
-    if-ne v0, v1, :cond_39
+    if-ne v0, v1, :cond_38
 
-    if-nez v5, :cond_39
+    if-nez v5, :cond_38
 
     invoke-direct/range {p0 .. p0}, Lcom/android/settings/wfd/WifiDisplaySettings;->semIsDlnaDeviceConnected()Z
 
     move-result v34
 
-    if-eqz v34, :cond_3a
+    if-eqz v34, :cond_39
 
-    :cond_39
+    :cond_38
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/wfd/WifiDisplaySettings;->mWfdCertification:Lcom/android/settings/wfd/Wfd_Certification;
@@ -2641,15 +2628,15 @@
 
     move-result v34
 
-    if-nez v34, :cond_26
+    if-nez v34, :cond_25
 
     invoke-virtual/range {v31 .. v31}, Landroid/hardware/display/SemWifiDisplayStatus;->isScanning()Z
 
     move-result v34
 
-    if-nez v34, :cond_26
+    if-nez v34, :cond_25
 
-    if-nez v5, :cond_26
+    if-nez v5, :cond_25
 
     array-length v0, v6
 
@@ -2661,7 +2648,7 @@
 
     move/from16 v1, v35
 
-    if-ne v0, v1, :cond_26
+    if-ne v0, v1, :cond_25
 
     move-object/from16 v0, p0
 
@@ -2681,13 +2668,13 @@
 
     move-object/from16 v1, v35
 
-    if-ne v0, v1, :cond_26
+    if-ne v0, v1, :cond_25
 
     invoke-direct/range {p0 .. p0}, Lcom/android/settings/wfd/WifiDisplaySettings;->semIsDlnaDeviceConnected()Z
 
     move-result v34
 
-    if-nez v34, :cond_26
+    if-nez v34, :cond_25
 
     const-string/jumbo v34, "WifiDisplaySettings"
 
@@ -2717,7 +2704,7 @@
 
     goto/16 :goto_11
 
-    :cond_3a
+    :cond_39
     const-string/jumbo v34, "WifiDisplaySettings"
 
     new-instance v35, Ljava/lang/StringBuilder;
@@ -2766,10 +2753,10 @@
 
     goto/16 :goto_11
 
-    :cond_3b
+    :cond_3a
     sget-boolean v32, Lcom/android/settings/wfd/WifiDisplaySettings;->SS_WFD_SERVICE_WITH_GCAST:Z
 
-    if-eqz v32, :cond_2d
+    if-eqz v32, :cond_2c
 
     const/16 v18, 0x0
 
@@ -2778,7 +2765,7 @@
 
     move/from16 v1, v29
 
-    if-ge v0, v1, :cond_2d
+    if-ge v0, v1, :cond_2c
 
     move-object/from16 v0, p0
 
@@ -2804,13 +2791,13 @@
 
     move-result v32
 
-    if-eqz v32, :cond_3c
+    if-eqz v32, :cond_3b
 
     invoke-virtual/range {v28 .. v28}, Landroid/media/MediaRouter$RouteInfo;->getDeviceAddress()Ljava/lang/String;
 
     move-result-object v32
 
-    if-nez v32, :cond_3c
+    if-nez v32, :cond_3b
 
     invoke-virtual/range {v28 .. v28}, Landroid/media/MediaRouter$RouteInfo;->getName()Ljava/lang/CharSequence;
 
@@ -2844,15 +2831,15 @@
 
     move-result v32
 
-    if-eqz v32, :cond_3d
+    if-eqz v32, :cond_3c
 
-    :cond_3c
+    :cond_3b
     :goto_14
     add-int/lit8 v18, v18, 0x1
 
     goto :goto_13
 
-    :cond_3d
+    :cond_3c
     move-object/from16 v0, p0
 
     move-object/from16 v1, v28
@@ -2861,7 +2848,7 @@
 
     move-result-object v30
 
-    if-eqz v30, :cond_3e
+    if-eqz v30, :cond_3d
 
     move-object/from16 v0, v24
 
@@ -2869,7 +2856,7 @@
 
     invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->addPreference(Landroid/preference/Preference;)Z
 
-    :cond_3e
+    :cond_3d
     const-string/jumbo v32, "WifiDisplaySettings"
 
     new-instance v33, Ljava/lang/StringBuilder;
@@ -2918,13 +2905,13 @@
 
     move-object/from16 v1, v33
 
-    if-ne v0, v1, :cond_3c
+    if-ne v0, v1, :cond_3b
 
     invoke-virtual/range {v22 .. v22}, Ljava/lang/String;->isEmpty()Z
 
     move-result v32
 
-    if-nez v32, :cond_3c
+    if-nez v32, :cond_3b
 
     invoke-virtual/range {v28 .. v28}, Landroid/media/MediaRouter$RouteInfo;->getName()Ljava/lang/CharSequence;
 
@@ -2942,7 +2929,7 @@
 
     move-result v32
 
-    if-eqz v32, :cond_3c
+    if-eqz v32, :cond_3b
 
     const-string/jumbo v32, "WifiDisplaySettings"
 
@@ -2974,7 +2961,7 @@
 
     goto/16 :goto_14
 
-    :cond_3f
+    :cond_3e
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/wfd/WifiDisplaySettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v32
@@ -2987,14 +2974,14 @@
 
     goto/16 :goto_4
 
-    :cond_40
+    :cond_3f
     const/16 v32, 0x2
 
     move/from16 v0, v16
 
     move/from16 v1, v32
 
-    if-eq v0, v1, :cond_41
+    if-eq v0, v1, :cond_40
 
     const/16 v32, 0x1
 
@@ -3002,9 +2989,9 @@
 
     move/from16 v1, v32
 
-    if-ne v0, v1, :cond_f
+    if-ne v0, v1, :cond_e
 
-    :cond_41
+    :cond_40
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/wfd/WifiDisplaySettings;->mContext:Landroid/content/Context;
@@ -3041,7 +3028,7 @@
 
     move-object/from16 v1, v33
 
-    if-ne v0, v1, :cond_42
+    if-ne v0, v1, :cond_41
 
     move-object/from16 v0, p0
 
@@ -3049,10 +3036,10 @@
 
     move/from16 v32, v0
 
-    if-eqz v32, :cond_44
+    if-eqz v32, :cond_43
 
-    :cond_42
-    if-eqz v23, :cond_43
+    :cond_41
+    if-eqz v23, :cond_42
 
     const/16 v32, 0x0
 
@@ -3064,18 +3051,18 @@
 
     move-result v32
 
-    if-eqz v32, :cond_44
+    if-eqz v32, :cond_43
 
-    :cond_43
+    :cond_42
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/settings/wfd/WifiDisplaySettings;->mWifiDisplayOnSetting:Z
 
     move/from16 v32, v0
 
-    if-nez v32, :cond_f
+    if-nez v32, :cond_e
 
-    :cond_44
+    :cond_43
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/wfd/WifiDisplaySettings;->mNo_device_found_layout:Landroid/widget/LinearLayout;
@@ -3092,7 +3079,7 @@
 
     move-object/from16 v32, v0
 
-    if-eqz v32, :cond_45
+    if-eqz v32, :cond_44
 
     move-object/from16 v0, p0
 
@@ -3102,7 +3089,7 @@
 
     invoke-virtual/range {v32 .. v32}, Landroid/app/AlertDialog;->cancel()V
 
-    :cond_45
+    :cond_44
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/wfd/WifiDisplaySettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v32
@@ -4282,7 +4269,7 @@
 
     move-result-object v10
 
-    const v15, 0x7f11070b
+    const v15, 0x7f110709
 
     invoke-virtual {v10, v15}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -4290,7 +4277,7 @@
 
     check-cast v12, Landroid/widget/EditText;
 
-    const v15, 0x7f11070c
+    const v15, 0x7f11070a
 
     invoke-virtual {v10, v15}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -4310,7 +4297,7 @@
 
     iput-object v12, v0, Lcom/android/settings/wfd/WifiDisplaySettings;->mGlobalEditDeviceName:Landroid/widget/EditText;
 
-    const v15, 0x7f11070d
+    const v15, 0x7f11070b
 
     invoke-virtual {v10, v15}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -4322,7 +4309,7 @@
 
     invoke-virtual {v5, v15}, Landroid/widget/TextView;->setVisibility(I)V
 
-    const v15, 0x7f11070e
+    const v15, 0x7f11070c
 
     invoke-virtual {v10, v15}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -4412,7 +4399,7 @@
 
     invoke-direct/range {v15 .. v16}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v16, 0x7f0b0e36
+    const v16, 0x7f0b0e40
 
     invoke-virtual/range {v15 .. v16}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -4426,7 +4413,7 @@
 
     move-result-object v16
 
-    const v17, 0x7f0b153c
+    const v17, 0x7f0b153f
 
     invoke-virtual/range {v16 .. v17}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -4448,7 +4435,7 @@
 
     move-result-object v16
 
-    const v17, 0x7f0b153d
+    const v17, 0x7f0b1540
 
     invoke-virtual/range {v16 .. v17}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -4631,7 +4618,7 @@
 
     if-nez v4, :cond_0
 
-    const v4, 0x7f0b121e
+    const v4, 0x7f0b1221
 
     invoke-virtual {v2, v4}, Lcom/android/settings/wfd/WifiDisplaySettings$WifiDisplayPreference;->setSummary(I)V
 
@@ -4997,7 +4984,21 @@
 .end method
 
 .method private finishSettings()V
-    .locals 1
+    .locals 2
+
+    const-string/jumbo v0, "WifiDisplaySettings"
+
+    const-string/jumbo v1, "finishSettings"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {p0}, Lcom/android/settings/wfd/WifiDisplaySettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v0
+
+    instance-of v0, v0, Lcom/android/settings/wfd/WfdPickerDialog;
+
+    if-eqz v0, :cond_0
 
     invoke-virtual {p0}, Lcom/android/settings/wfd/WifiDisplaySettings;->getActivity()Landroid/app/Activity;
 
@@ -5007,7 +5008,13 @@
 
     invoke-virtual {v0}, Lcom/android/settings/wfd/WfdPickerDialog;->finish()V
 
+    :goto_0
     return-void
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/settings/wfd/WifiDisplaySettings;->finish()V
+
+    goto :goto_0
 .end method
 
 .method private getBssid()Ljava/lang/String;
@@ -6062,7 +6069,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f11027f
+    const v5, 0x7f11027d
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -6096,7 +6103,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b1221
+    const v6, 0x7f0b1224
 
     invoke-virtual {v5, v6}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -6106,13 +6113,13 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b1223
+    const v6, 0x7f0b1226
 
     invoke-virtual {v5, v6, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v5
 
-    const v6, 0x7f0b1222
+    const v6, 0x7f0b1225
 
     invoke-virtual {v5, v6, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -6310,7 +6317,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b18af
+    const v0, 0x7f0b18b2
 
     return v0
 .end method
@@ -6987,7 +6994,7 @@
 
     check-cast v3, Landroid/preference/Preference;
 
-    const v4, 0x7f0b0e30
+    const v4, 0x7f0b0e3a
 
     invoke-interface {p1, v4}, Landroid/view/ContextMenu;->setHeaderTitle(I)Landroid/view/ContextMenu;
 
@@ -7189,7 +7196,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f110713
+    const v1, 0x7f110711
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -7203,7 +7210,7 @@
 
     invoke-virtual {v1, v3}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    const v1, 0x7f110712
+    const v1, 0x7f110710
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -7768,7 +7775,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b0e38
+    const v6, 0x7f0b0e42
 
     invoke-virtual {p0, v6}, Lcom/android/settings/wfd/WifiDisplaySettings;->getString(I)Ljava/lang/String;
 
@@ -7795,7 +7802,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b0e39
+    const v6, 0x7f0b0e43
 
     invoke-virtual {p0, v6}, Lcom/android/settings/wfd/WifiDisplaySettings;->getString(I)Ljava/lang/String;
 

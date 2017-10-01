@@ -276,7 +276,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b06fb
+    const v2, 0x7f0b0703
 
     invoke-static {v1, v2, v5}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

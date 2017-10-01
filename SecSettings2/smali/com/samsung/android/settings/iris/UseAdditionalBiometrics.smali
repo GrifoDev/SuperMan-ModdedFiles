@@ -471,7 +471,7 @@
 .method private setBiometricsDescription()Ljava/lang/String;
     .locals 7
 
-    const v6, 0x7f0b06cb
+    const v6, 0x7f0b06d3
 
     const/4 v4, 0x1
 
@@ -511,7 +511,7 @@
 
     aput-object v4, v3, v5
 
-    const v4, 0x7f0b0767
+    const v4, 0x7f0b076f
 
     invoke-virtual {v2, v4, v3}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -536,7 +536,7 @@
 
     aput-object v4, v3, v5
 
-    const v4, 0x7f0b0768
+    const v4, 0x7f0b0770
 
     invoke-virtual {v2, v4, v3}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -561,7 +561,7 @@
 
     aput-object v4, v3, v5
 
-    const v4, 0x7f0b0766
+    const v4, 0x7f0b076e
 
     invoke-virtual {v2, v4, v3}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -982,10 +982,10 @@
 
     :sswitch_data_0
     .sparse-switch
-        0x7f11039c -> :sswitch_0
-        0x7f11039d -> :sswitch_1
-        0x7f1106c9 -> :sswitch_2
-        0x7f1106cc -> :sswitch_3
+        0x7f11039a -> :sswitch_0
+        0x7f11039b -> :sswitch_1
+        0x7f1106c7 -> :sswitch_2
+        0x7f1106ca -> :sswitch_3
     .end sparse-switch
 .end method
 
@@ -1036,7 +1036,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/iris/UseAdditionalBiometrics;->mIrisManager:Lcom/samsung/android/camera/iris/SemIrisManager;
 
-    const v1, 0x7f0b0765
+    const v1, 0x7f0b076d
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/iris/UseAdditionalBiometrics;->setTitle(I)V
 
@@ -1044,7 +1044,7 @@
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/iris/UseAdditionalBiometrics;->setContentView(I)V
 
-    const v1, 0x7f11039c
+    const v1, 0x7f11039a
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/iris/UseAdditionalBiometrics;->findViewById(I)Landroid/view/View;
 
@@ -1054,7 +1054,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/iris/UseAdditionalBiometrics;->laterBtn:Landroid/widget/Button;
 
-    const v1, 0x7f11039d
+    const v1, 0x7f11039b
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/iris/UseAdditionalBiometrics;->findViewById(I)Landroid/view/View;
 
@@ -1064,7 +1064,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/iris/UseAdditionalBiometrics;->okBtn:Landroid/widget/Button;
 
-    const v1, 0x7f1106c8
+    const v1, 0x7f1106c6
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/iris/UseAdditionalBiometrics;->findViewById(I)Landroid/view/View;
 
@@ -1074,7 +1074,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/iris/UseAdditionalBiometrics;->descriptionTextView:Landroid/widget/TextView;
 
-    const v1, 0x7f1106c9
+    const v1, 0x7f1106c7
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/iris/UseAdditionalBiometrics;->findViewById(I)Landroid/view/View;
 
@@ -1084,7 +1084,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/iris/UseAdditionalBiometrics;->fingerprintLayout:Landroid/widget/LinearLayout;
 
-    const v1, 0x7f1106cb
+    const v1, 0x7f1106c9
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/iris/UseAdditionalBiometrics;->findViewById(I)Landroid/view/View;
 
@@ -1094,7 +1094,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/iris/UseAdditionalBiometrics;->fingerprintSwitch:Landroid/widget/Switch;
 
-    const v1, 0x7f1106cc
+    const v1, 0x7f1106ca
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/iris/UseAdditionalBiometrics;->findViewById(I)Landroid/view/View;
 
@@ -1104,7 +1104,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/iris/UseAdditionalBiometrics;->irisLayout:Landroid/widget/LinearLayout;
 
-    const v1, 0x7f1106ce
+    const v1, 0x7f1106cc
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/iris/UseAdditionalBiometrics;->findViewById(I)Landroid/view/View;
 

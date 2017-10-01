@@ -77,7 +77,7 @@
 
     iget-object v1, p0, Lcom/android/settings/CryptKeeper$DirectionStichingTimer;->this$0:Lcom/android/settings/CryptKeeper;
 
-    invoke-static {v1}, Lcom/android/settings/CryptKeeper;->-get3(Lcom/android/settings/CryptKeeper;)Lcom/android/internal/widget/DirectionLockView;
+    invoke-static {v1}, Lcom/android/settings/CryptKeeper;->-get4(Lcom/android/settings/CryptKeeper;)Lcom/android/internal/widget/DirectionLockView;
 
     move-result-object v1
 
@@ -99,7 +99,7 @@
 
     iget-object v1, p0, Lcom/android/settings/CryptKeeper$DirectionStichingTimer;->this$0:Lcom/android/settings/CryptKeeper;
 
-    invoke-static {v1}, Lcom/android/settings/CryptKeeper;->-get3(Lcom/android/settings/CryptKeeper;)Lcom/android/internal/widget/DirectionLockView;
+    invoke-static {v1}, Lcom/android/settings/CryptKeeper;->-get4(Lcom/android/settings/CryptKeeper;)Lcom/android/internal/widget/DirectionLockView;
 
     move-result-object v1
 
@@ -109,7 +109,7 @@
 
     iget-object v1, p0, Lcom/android/settings/CryptKeeper$DirectionStichingTimer;->this$0:Lcom/android/settings/CryptKeeper;
 
-    invoke-static {v1}, Lcom/android/settings/CryptKeeper;->-get7(Lcom/android/settings/CryptKeeper;)Landroid/os/Handler;
+    invoke-static {v1}, Lcom/android/settings/CryptKeeper;->-get8(Lcom/android/settings/CryptKeeper;)Landroid/os/Handler;
 
     move-result-object v1
 

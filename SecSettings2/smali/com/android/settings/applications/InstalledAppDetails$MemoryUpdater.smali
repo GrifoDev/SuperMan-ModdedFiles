@@ -379,7 +379,7 @@
 
     iget-object v6, p0, Lcom/android/settings/applications/InstalledAppDetails$MemoryUpdater;->this$0:Lcom/android/settings/applications/InstalledAppDetails;
 
-    const v7, 0x7f0b1a81
+    const v7, 0x7f0b1a84
 
     invoke-virtual {v6, v7}, Lcom/android/settings/applications/InstalledAppDetails;->getString(I)Ljava/lang/String;
 

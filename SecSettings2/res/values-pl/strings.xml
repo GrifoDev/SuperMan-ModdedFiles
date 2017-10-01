@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Pomoc</string>
     <string name="reset_network_settings_list_summary">Resetuj ustawienia Wi-Fi, Bluetooth i innych sieci do wartości domyślnych.</string>
     <string name="master_clear_list_summary">Resetuj urządzenie do domyślnych ustawień fabrycznych. Spowoduje to skasowanie wszystkich danych, w tym plików i pobranych aplikacji.</string>
-    <string name="auto_restart_summary">Optymalizuj swoje urządzenie, automatycznie uruchamiając je ponownie w ustalonych odstępach czasu. Wszystkie niezapisane dane zostaną utracone przy ponownym uruchomieniu urządzenia.</string>
+    <string name="auto_restart_summary">Optymalizuj telefon dzięki automatycznemu ponownemu uruchamianiu raz w tygodniu. Wszystkie niezapisane dane zostaną utracone przy ponownym uruchomieniu telefonu.</string>
     <string name="search_settings">Szukaj</string>
     <string name="related_results">Powiązanych elementów: %d</string>
     <string name="no_results_found">Nie znaleziono wyników</string>
@@ -1485,6 +1485,7 @@ Szyfrowanie może potrwać co najmniej godzinę. Przed rozpoczęciem upewnij si�
     <string name="crypt_keeper_verify_failed_summary">Nie można uruchomić urządzenia ponownie. Weryfikacja integralności nie powiodła się. Musisz przywrócić w urządzeniu domyślne ustawienia fabryczne. Spowoduje to usunięcie wszystkich danych.</string>
     <string name="cryptkeeper_emergency_call">Połączenie alarmowe</string>
     <string name="cryptkeeper_return_to_call">Wróć do połączenia</string>
+    <string name="cryptkeeper_default_enter_msg">Telefon jest zaszyfrowany dla bezpieczeństwa.</string>
     <string name="enter_password">Wprowadź hasło, aby uruchomić urządzenie.</string>
     <string name="enter_pin">Wprowadź kod PIN, aby uruchomić urządzenie.</string>
     <string name="enter_pattern">Narysuj symbol, aby uruchomić urządzenie.</string>
@@ -1498,6 +1499,7 @@ Szyfrowanie może potrwać co najmniej godzinę. Przed rozpoczęciem upewnij si�
     <string name="crypt_keeper_last_warn_wipe">Została już tylko 1 próba uruchomienia urządzenia, zanim urządzenie zostanie zresetowane do domyślnych ustawień fabrycznych. Spowoduje to wymazanie wszystkich danych, w tym plików i pobranych aplikacji.</string>
     <string name="crypt_keeper_failed_title_dec">Błąd deszyfrowania</string>
     <string name="crypt_keeper_failed_summary_dec">Nie można zakończyć odszyfrowania z powodu przerwania. Przywróć ustawienia fabryczne (spowoduje to usunięcie wszystkich danych) przed użyciem.</string>
+    <string name="crypt_keeper_set_screen_lock_type">Ustaw typ blokady ekranu</string>
     <string name="encryption_interstitial_message_kor">Urządzenie jest zaszyfrowane. Chroń swoje zaszyfrowane dane, wybierając opcję Wymagaj blokady ekranu do odszyfrowania danych po włączeniu urządzenia. Takie ustawienie pomaga chronić dane w przypadku zagubienia lub kradzieży urządzenia. Do odszyfrowania danych po każdorazowym włączeniu urządzenia wymagane będzie jego odblokowanie. Urządzenie nie będzie odbierać połączeń, wiadomości czy powiadomień do momentu odszyfrowania.</string>
     <string name="encryption_interstitial_message_direction">"Chroń urządzenie, wymagając blokady kierunkami przed jego uruchomieniem. Pomaga to chronić dane na zagubionych lub skradzionych urządzeniach.
 
@@ -1737,6 +1739,8 @@ Przed żądaniem naprawy gwarancyjnej należy wyłączyć Blokadę ponownej akty
     <string name="empty_content_toast">Brak zawartości do zapisania.</string>
     <string name="find_my_mobile_message_zero">"Śledź i kontroluj zdalnie swoje urządzenie przy użyciu usługi internetowej Znajdź mój telefon. Aby uzyskać więcej informacji i poznać inne dostępne funkcje, odwiedź następującą witrynę WWW:
 %s"</string>
+    <string name="send_last_location_title">Wyślij ostatnią lokalizację</string>
+    <string name="send_last_location_summary">Zezwól na wysłanie ostatniej lokalizacji telefonu na serwer usługi Znajdź mój telefon, gdy naładowanie baterii spadnie poniżej pewnego poziomu.</string>
     <string name="high_power_description">Włącz opcję Optymalizuj użycie baterii dla poszczególnych aplikacji. Niektóre funkcje, np. korzystające z sieci komórkowych lub synchronizujące dane, zostaną ograniczone, aby oszczędzać naładowanie baterii.</string>
     <string name="wifi_display_summary_off">Wył.</string>
     <string name="battery_usage_description">Ten ekran przedstawia dane użycia baterii od czasu ostatniego pełnego naładowania urządzenia.</string>
@@ -1968,6 +1972,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">Wybierz, które skróty aplikacji mają być używane na ekranie blokady.</string>
     <string name="lockscreen_notifications">Powiadomienia na ekranie blokady</string>
     <string name="work_profile_lockscreen_notifications">Powiadom. profilu służbowego</string>
+    <string name="lock_network_and_security">Blokuj sieć blokady i zabezp.</string>
+    <string name="lock_network_and_security_summary">Utrzymuj funkcje powiązane z siecią i zabezpieczeniami jako zablokowane po zablokowaniu telefonu, aby ułatwić zlokalizowanie go i ochronę w przypadku utraty lub kradzieży.</string>
     <string name="dualclock_settings_title">Zegar podwójny</string>
     <string name="dualclock_settings_summary">Pokazuje lokalną i domową strefę czasową podczas roamingu.</string>
     <string name="set_home_city">Ustaw mac. strefę czasową</string>
@@ -2153,7 +2159,7 @@ Hasło konta Google będzie wymagane do użycia tego telefonu przez inną osobę
     <string name="air_browse_music_on_lock_screen_title">Muzyka na ekranie blokady</string>
     <string name="air_browse_music_on_lock_screen_summary">Zmień utwory muzyczne na ekranie blokady.</string>
     <string name="air_browse_note_summary">Przechodź między stronami w trybie przeglądania.</string>
-    <string name="data_usage_enable_mobile_summery">Jeśli funkcja Dane komórkowe jest wyłączona, urządzenie musi być połączone z siecią Wi-Fi, aby móc korzystać z usług wymagających połączenia sieciowego.</string>
+    <string name="data_usage_enable_mobile_summery">Uzyskaj dostęp do Internetu przez sieć komórkową.</string>
     <string name="data_usage_enable_mobile_warning_skt">Nawiązanie połączenia z sieciami komórkowymi może spowodować naliczenie dodatkowych opłat w zależności od pakietu transmisji danych. Kontynuować?</string>
     <string name="data_usage_enable_mobile_warning_ktt">Nawiązanie połączenia z sieciami komórkowymi może spowodować naliczenie dodatkowych opłat w zależności od pakietu transmisji danych. Kontynuować?</string>
     <string name="data_usage_enable_mobile_warning_lgt">Nawiązanie połączenia z sieciami komórkowymi może spowodować naliczenie dodatkowych opłat w zależności od pakietu transmisji danych. Kontynuować?</string>
@@ -2523,8 +2529,8 @@ Spróbuj ponownie."</string>
     <string name="secure_folder_summary">Zablokuj prywatną zawartość i prywatne aplikacje, aby zwiększyć bezpieczeństwo.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s nie obsługuje odcisków palców do odblokowania %2$s.</string>
     <string name="edge_feeds_title">Kanały przy kraw.</string>
-    <string name="screensaver_settings_summary">Kontroluj, co dzieje się z urządzeniem, gdy jest ono zadokowane i/lub jest ładowane przy wyłączonym ekranie. Tę funkcję nazywa się również Wygaszaczem ekranu.</string>
-    <string name="screensaver_settings_summary_wo_dock">Pokazuj wygaszacz ekranu po automatycznym wyłączeniu ekranu podczas ładowania urządzenia.</string>
+    <string name="screensaver_settings_summary">Pokazuj wygaszacz ekranu po automatycznym wyłączeniu ekranu podczas ładowania telefonu.</string>
+    <string name="screensaver_settings_summary_wo_dock">Pokazuj wygaszacz ekranu po automatycznym wyłączeniu ekranu podczas zadokowania lub ładowania telefonu.</string>
     <string name="apn_already_exists">Już istnieje.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Numer portu musi należeć do zakresu od %1$d do %2$d.</string>
@@ -3289,6 +3295,7 @@ Korzystanie z funkcji Router Wi-Fi zwiększa zużycie baterii i wykorzystanie da
     <string name="wfd_connection_end_toast">Zakończono połączenie za pośrednictwem funkcji Screen mirroring.</string>
     <string name="wfd_descrpition_playvia">Odtwórz zawartość.</string>
     <string name="wfd_descrpition_mirroring">Odzwierciedlaj ekran.</string>
+    <string name="wfd_descrpition_playsound">Odtwórz dźwięk.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">Funkcja wielu okien zostanie wyłączona, a wszystkie aplikacje otwarte w wyskakujących oknach zostaną zamknięte.</string>
     <string name="keyguard_password_attempt_count_pin_code">Pozostało prób: %d.</string>
@@ -4128,7 +4135,7 @@ Rozważ użycie szybszej karty pamięci lub urządzenia pamięci USB w celu popr
     <string name="location_network_based">Użyj sieci bezprzewodow.</string>
     <string name="location_neighborhood_level">Zezwal. aplikacj. na korz. z usługi lokal. Google do szyb. ustal. Twojej lokal. Anon. dane lokal. będą zbierane i wysył. do Google.</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">Informacje o urządzeniu</string>
+    <string name="about_settings">Telefon — informacje</string>
     <string name="about_settings_vzw">Informacje o urządzeniu</string>
     <string name="legal_information">Informacje prawne</string>
     <string name="regulatory_information">Inform. dot. regul. praw.</string>
@@ -4313,7 +4320,7 @@ Istniejące dane aplikacji nie zostaną utracone."</string>
     <string name="phone_language">Język</string>
     <string name="show_password">Widoczne hasła</string>
     <string name="show_password_summary">Pokazuj znaki hasła na krótko po ich wpisaniu.</string>
-    <string name="ime_security_warning">Ta metoda może mieć możliwość gromadzenia całego wpisywanego tekstu, łącznie z danymi osobistymi i numerami kart kredytowych (oprócz haseł). Metoda pochodzi z aplikacji %1$s. Użyć mimo to?</string>
+    <string name="ime_security_warning">Klawiatura %s może gromadzić cały wpisywany tekst, łącznie z takimi danymi osobistymi, jak hasła i numery kart kredytowych.</string>
     <string name="failed_to_open_app_settings_toast">Nie można otworzyć ustawień dla aplikacji %s.</string>
     <string name="keyboard_and_input_methods_category">Klawiatury</string>
     <string name="virtual_keyboard_category">Klawiatura wirtualna</string>

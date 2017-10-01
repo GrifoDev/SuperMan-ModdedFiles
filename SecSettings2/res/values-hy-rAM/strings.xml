@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Աջակցություն</string>
     <string name="reset_network_settings_list_summary">Wi-Fi-ի, Bluetooth-ի և այլ ցանցային դրվածքներ հետադարձել իրենց կանխադրվածքներին:</string>
     <string name="master_clear_list_summary">Սարքը հետադարձեք իր գործարանային կանխադրվածքներին: Այդ դեպքում կջնջվեն բոլոր տվյալները, ներառյալ ֆայլերը և ներբեռնված ծրագրերը:</string>
-    <string name="auto_restart_summary">Օպտիմալացրեք Ձեր սարքը՝ նախադրված ժամերին այն ինքնաբերաբար վերագործարկելով: Երբ սարքը վերագործարկվի, բոլոր չպահպանված տվյալները կկորչեն:</string>
+    <string name="auto_restart_summary">Լավարկեք հեռախոսի աշխատանքը՝ շաբաթը մեկ անգամ այն ինքնաբերաբար վերագործարկելով: Երբ հեռախոսը վերագործարկվի, բոլոր չպահպանված տվյալները կկորչեն:</string>
     <string name="search_settings">Որոնում</string>
     <string name="related_results">%d առնչվող տարր</string>
     <string name="no_results_found">Արդյունքներ չեն գտնվել</string>
@@ -1485,6 +1485,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_verify_failed_summary">Անհնար է վերագործարկել սարքը: Ամբողջության ստուգումը ձախողվեց: Անհրաժեշտ է ձեր սարքը հետադարձել գործարանային կանխադրվածքներին: Սա կջնջի ձեր բոլոր տվյալները:</string>
     <string name="cryptkeeper_emergency_call">Հրատապ զանգ</string>
     <string name="cryptkeeper_return_to_call">Վերադարձ զանգին</string>
+    <string name="cryptkeeper_default_enter_msg">Ձեր հեռախոսը ծածկագրված է անվտանգության համար:</string>
     <string name="enter_password">Սարքը գործարկելու համար մուտքագրեք Ձեր գաղտնաբառը:</string>
     <string name="enter_pin">Սարքը գործարկելու համար մուտքագրեք Ձեր PIN-ը:</string>
     <string name="enter_pattern">Սարքը գործարկելու համար գծեք Ձեր նախշը:</string>
@@ -1498,6 +1499,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_last_warn_wipe">Ձեզ ընդամենը 1 փորձ է մնացել սարքը գործարկելու համար, նախքան այն կհետադարձվի իր գործարանային կանխադրվածքներին: Այդ դեպքում կջնջվեն բոլոր տվյալները, ներառյալ ֆայլերը և ներբեռնված ծրագրերը:</string>
     <string name="crypt_keeper_failed_title_dec">Վերծանումը ձախողվեց:</string>
     <string name="crypt_keeper_failed_summary_dec">Անհնար է ավարտել վերծանումը՝ ընդհատման պատճառով: Օգտագործելուց առաջ կատարեք գործարանային տվյալների հետադարձում (որը կջնջի բոլոր տվյալները):</string>
+    <string name="crypt_keeper_set_screen_lock_type">Դնել էկրանի կողպման տեսակը</string>
     <string name="encryption_interstitial_message_kor">Ձեր սարքը ծածկագրված է: Պաշտպանեք ծածկագրված տվյալները՝ ընտրելով «Պահանջել էկրանի կողպում՝ տվյալները վերծանելու համար, երբ միանում է սարքի սնուցումը»: Դա կօգնի պաշտպանել կորած կամ գողացված սարքերի տվյալները: Անհրաժեշտ կլինի ամեն անգամ սարքը միացնելիս արգելաբացել այն՝ սարքի տվյալները վերծանելու համար: Դուք չեք ստանա կանչեր, հաղորդագրություններ կամ ծանուցումներ, մինչև վերծանեք Ձեր սարքը:</string>
     <string name="encryption_interstitial_message_direction">"Պաշտպանեք սարքը՝ ընտրելով «Պահանջել Ուղղությամբ կողպում», երբ սարքի սնուցումը միանում է: Դա կօգնի պաշտպանել կորած կամ գողացված սարքերի տվյալները:
 
@@ -1737,6 +1739,8 @@ You will also need it when:"</string>
     <string name="empty_content_toast">Պահպանելու բովանդակություն չկա:</string>
     <string name="find_my_mobile_message_zero">"Հեռակա կարգով հետևեք և վերահսկեք Ձեր սարքը՝ օգտվելով «Գտնել իմ շարժական սարքը» համացանցային ծառայությունից: Լրացուցիչ տեղեկություններ ստանալու և պարզելու համար, թե ուրիշ ինչ գործառույթներ են հասանելի, այցելեք հետևյալ կայքը՝
 %s"</string>
+    <string name="send_last_location_title">Ուղարկել վերջին տեղի տվյալները</string>
+    <string name="send_last_location_summary">Թույլ տվեք, որ հեռախոսն իր վերջին տեղի մասին տվյալներն ուղարկի «Գտնել իմ շարժական սարքը» ծառայության սերվերին, երբ մարտկոցի մակարդակն ընկնի մինչև որոշակի աստիճան:</string>
     <string name="high_power_description">Ընձեռել «Լավարկել մարտկոցի օգտագործումը» առանձին ծրագրերի համար: Որոշ գործառույթներ, օրինակ՝ շարժական կապի ցանցեր օգտագործողները կամ տվյալներ համաժամացնողները, կսահմանափակվեն մարտկոցի էներգիան խնայելու նպատակով:</string>
     <string name="wifi_display_summary_off">Անջտված է</string>
     <string name="battery_usage_description">Այս էկրանը ցույց է տալիս մարտկոցի օգտագործման մասին տվյալները սարքի վերջին լրիվ լիցքավորումից ի վեր:</string>
@@ -1968,6 +1972,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">Ընտրեք՝ որ ծրագրերի դյուրանցումներն եք ուզում օգտագործել կողպված էկրանի վրա:</string>
     <string name="lockscreen_notifications">Ծանուցումներ՝ կողպված էկրանին</string>
     <string name="work_profile_lockscreen_notifications">Աշխատանքի պրոֆիլի ծանուցումներ</string>
+    <string name="lock_network_and_security">Կողպել ցանցը և անվտանգությունը</string>
+    <string name="lock_network_and_security_summary">Քանի դեռ հեռախոսը կողպված է, ցանցը և անվտանգությանն առնչվող գործառույթները պահեք կողպված վիճակում, ինչը կհեշտացնի տեղորոշել և պաշտպանել հեռախոսը, եթե այն կորչի կամ գողացվի:</string>
     <string name="dualclock_settings_title">Կրկնակի ժամացույց</string>
     <string name="dualclock_settings_summary">Ռոումինգի ժամանակ ցույց տալ և՛ տեղական, և՛ տան ժամային գոտիները:</string>
     <string name="set_home_city">Նախադրել տան ժամային գոտի</string>
@@ -2153,7 +2159,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="air_browse_music_on_lock_screen_title">Երաժշտություն՝ կողպված էկրանին</string>
     <string name="air_browse_music_on_lock_screen_summary">Փոխեք երաժշտական երիզները կողպված էկրանի վրա:</string>
     <string name="air_browse_note_summary">Դիտման ռեժիմում անցեք էջից էջ:</string>
-    <string name="data_usage_enable_mobile_summery">Եթե Շարժական տվյալներն անջատված են, ապա սարքը պետք է միացված լինի Wi-Fi ցանցին՝ ցանցային միացում պահանջող ծառայություններ օգտագործելու համար:</string>
+    <string name="data_usage_enable_mobile_summery">Ինտերնետ մուտք գործեք ձեր շարժական կապի ցանցի միջոցով:</string>
     <string name="data_usage_enable_mobile_warning_skt">Շարժական ցանցերին միանալը կարող է հավելյալ վճար պահանջել՝ Ձեր սակագնային պլանից կախված. շարունակե՞լ:</string>
     <string name="data_usage_enable_mobile_warning_ktt">Շարժական ցանցերին միանալը կարող է հավելյալ վճար պահանջել՝ Ձեր սակագնային պլանից կախված. շարունակե՞լ:</string>
     <string name="data_usage_enable_mobile_warning_lgt">Շարժական ցանցերին միանալը կարող է հավելյալ վճար պահանջել՝ Ձեր սակագնային պլանից կախված. շարունակե՞լ:</string>
@@ -2523,8 +2529,8 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="secure_folder_summary">Անվտանգությունը մեծացնելու նպատակով կողպեք գաղտնի բովանդակությունն ու ծրագրերը:</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s-ը չի ապահովում մատնահետքերի գործողությունը %2$s-ն արգելաբացելու համար:</string>
     <string name="edge_feeds_title">Եզր. լրժպվններ</string>
-    <string name="screensaver_settings_summary">Վերահսկել, թե ինչ է տեղի ունենում, քանի դեռ սարքը միակցված է և (կամ) լիցքավորվում է, երբ էկրանն անջատված է: Այս գործառույթը նաև կոչվում է Էկրանի պահպանիչ:</string>
-    <string name="screensaver_settings_summary_wo_dock">Էկրանի անջատումից հետո ինքնաբերաբար ցույց տալ էկրանի պահպանիչը, երբ սարքը լիցքավորվում է:</string>
+    <string name="screensaver_settings_summary">Էկրանի անջատումից հետո ինքնաբերաբար ցույց տալ էկրանի պահպանիչը, երբ հեռախոսը լիցքավորվում է:</string>
+    <string name="screensaver_settings_summary_wo_dock">Էկրանի անջատումից հետո ինքնաբերաբար ցույց տալ էկրանի պահպանիչը, երբ հեռախոսը միակցված կամ լիցքավորվում է:</string>
     <string name="apn_already_exists">Արդեն գոյություն ունի:</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Պորտի համարը պետք է լինի %1$d-ի և %2$d-ի միջև:</string>
@@ -3289,6 +3295,7 @@ Wi-Fi is now on."</string>
     <string name="wfd_connection_end_toast">Screen Mirroring-ի միացումն ավարտվել է:</string>
     <string name="wfd_descrpition_playvia">Նվագարկել բովանդակություն:</string>
     <string name="wfd_descrpition_mirroring">Հայելային արտապատկերել էկրանը:</string>
+    <string name="wfd_descrpition_playsound">Վերարտադրել ձայն:</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">Բազմակի պատուհանը կկասեցվի, և ելնող պատուհաններում բաց բոլոր ծրագրերը կփակվեն:</string>
     <string name="keyguard_password_attempt_count_pin_code">Մնացել է %d փորձ:</string>
@@ -4128,7 +4135,7 @@ Receiving SMS"</string>
     <string name="location_network_based">Օգտագործել անլար ցանցեր</string>
     <string name="location_neighborhood_level">Թ. տ., որ ծրագրերն օգտվեն Google-ի տեղորոշման ծառ.-ից՝ Ձեր տեղն ավ. արագ որոշելու հր: Տեղի անանուն տվյալները կհավաքվեն և կուղարկվեն Google:</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">Սարքի մասին</string>
+    <string name="about_settings">Հեռախոսի մասին</string>
     <string name="about_settings_vzw">Սարքի մասին</string>
     <string name="legal_information">Իրավական տեղեկություններ</string>
     <string name="regulatory_information">Կարգավորիչ տեղեկատվթյուն</string>
@@ -4313,7 +4320,7 @@ Receiving SMS"</string>
     <string name="phone_language">Լեզու</string>
     <string name="show_password">Գաղտնաբառերը դարձնել տեսանելի</string>
     <string name="show_password_summary">Կարճատև ցույց տալ գաղտնաբառի նիշերը դրանք մուտքագրելիս:</string>
-    <string name="ime_security_warning">Այս եղանակը կարող է հավաքել Ձեր մուտքագրած ամբողջ տեքստը, բացի գաղտնաբառերից, ներառյալ անձնական տվյալներն ու վարկաքարտի համարները: Այն բխում է %1$s ծրագրից. օգտագործե՞լ ամեն դեպքում:</string>
+    <string name="ime_security_warning">%s-ը կկարողանա հավաքել Ձեր մուտքագրած ամբողջ տեքստը, ներառյալ անձնական տվյալները, ինչպիսիք են գաղտնաբառերը և վարկային քարտերի համարները:</string>
     <string name="failed_to_open_app_settings_toast">Չհաջողվեց բացել դրվածքները %s-ի համար:</string>
     <string name="keyboard_and_input_methods_category">Ստեղնաշարեր</string>
     <string name="virtual_keyboard_category">Վիրտուալ ստեղնաշար</string>

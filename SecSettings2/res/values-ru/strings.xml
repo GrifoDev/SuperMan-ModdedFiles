@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Поддержка</string>
     <string name="reset_network_settings_list_summary">Сброс настроек Wi-Fi, Bluetooth и других сетей до значений по умолчанию.</string>
     <string name="master_clear_list_summary">Сброс настроек устройства до заводских значений по умолчанию. При этом будут удалены все данные, включая файлы и загруженные приложения.</string>
-    <string name="auto_restart_summary">Оптимизируйте работу устройства, автоматически перезагружая его в установленное время. Перезапуск устройства приведет к потере всех несохраненных данных.</string>
+    <string name="auto_restart_summary">Оптимизируйте работу телефона с помощью автоматического перезапуска один раз в неделю. Перезапуск телефона приведет к потере всех несохраненных данных.</string>
     <string name="search_settings">Поиск</string>
     <string name="related_results">Связанных элементов: %d</string>
     <string name="no_results_found">Ничего не найдено</string>
@@ -1487,6 +1487,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_verify_failed_summary">Невозможно перезапустить устройство. Проверка целостности не пройдена. Вам требуется сбросить все настройки устройства до заводских настроек по умолчанию. При этом будут удалены все ваши данные.</string>
     <string name="cryptkeeper_emergency_call">Экстренный вызов</string>
     <string name="cryptkeeper_return_to_call">Вернуться к вызову</string>
+    <string name="cryptkeeper_default_enter_msg">Ваш телефон зашифрован из соображений безопасности.</string>
     <string name="enter_password">Для запуска устройства введите пароль.</string>
     <string name="enter_pin">Для запуска устройства введите PIN-код.</string>
     <string name="enter_pattern">Для запуска устройства начертите рисунок.</string>
@@ -1500,6 +1501,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_last_warn_wipe">У вас осталась всего 1 попытка запуска устройства перед сбросом его настроек на стандартные. Это удалит все данные, включая файлы и загруженные приложения.</string>
     <string name="crypt_keeper_failed_title_dec">Сбой расшифровки.</string>
     <string name="crypt_keeper_failed_summary_dec">Невозможно завершить расшифровку из-за прерывания. Выполните сброс данных перед использованием (при этом будут удалены все данные).</string>
+    <string name="crypt_keeper_set_screen_lock_type">Выбрать тип блокировки экрана</string>
     <string name="encryption_interstitial_message_kor">Устройство зашифровано. Защитите зашифрованные данные, выбрав опцию “Запрашивать блокировку экрана” для расшифровки данных при включении устройства. Это поможет защитить ваши данные, если устройство будет утеряно или украдено. Вам потребуется разблокировать устройство при каждом его включении для расшифровки данных. До этого вы не сможете получать вызовы, сообщения или уведомления.</string>
     <string name="encryption_interstitial_message_direction">"Вы можете повысить уровень безопасности устройства, включив запрос на разблокировку комбинацией направлений при запуске. Это поможет защитить данные в случае кражи или утери устройства.
 
@@ -1739,6 +1741,8 @@ You will also need it when:"</string>
     <string name="empty_content_toast">Содержимое для сохранения отсутствует.</string>
     <string name="find_my_mobile_message_zero">"Дистанционно отслеживайте ваше устройство и управляйте им с помощью веб-службы “Найти мой телефон”. Чтобы узнать детальную информацию и получить сведения о доступных функциях, посетите следующий сайт:
 %s"</string>
+    <string name="send_last_location_title">Отправление посл. местополож.</string>
+    <string name="send_last_location_summary">Разрешение на отправку последнего местоположения телефона на сервер “Найти мое мобильное устройство”, когда заряд аккумулятора опускается ниже определенного уровня.</string>
     <string name="high_power_description">Включите функцию оптимизации использования аккумулятора для отдельных приложений. Работа некоторых функций, например использования мобильных сетей или синхронизации данных, будет ограничена для экономии заряда батареи.</string>
     <string name="wifi_display_summary_off">Выключено</string>
     <string name="battery_usage_description">На экране отображается использование заряда батареи с момента последней полной зарядки устройства.</string>
@@ -1970,6 +1974,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">Выберите ярлыки приложений для использования на экране блокировки.</string>
     <string name="lockscreen_notifications">Уведомления на экране</string>
     <string name="work_profile_lockscreen_notifications">Уведомления рабочего профиля</string>
+    <string name="lock_network_and_security">Блокир. сетей и функций безопасности</string>
+    <string name="lock_network_and_security_summary">Блокировка сетевых функций и функций безопасности во время блокировки телефона, чтобы его было проще найти и защитить в случае потери или кражи.</string>
     <string name="dualclock_settings_title">Двойные часы</string>
     <string name="dualclock_settings_summary">Показывать в роуминге местный и домашний часовой пояс.</string>
     <string name="set_home_city">Устан. дом. часовой пояс</string>
@@ -2155,7 +2161,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="air_browse_music_on_lock_screen_title">Музыка на экране блокировки</string>
     <string name="air_browse_music_on_lock_screen_summary">Изменение музыкальных композиций на экране блокировки.</string>
     <string name="air_browse_note_summary">Переход между страницами в режиме просмотра.</string>
-    <string name="data_usage_enable_mobile_summery">Если мобильные данные отключены, устройство должно быть подключено к сети Wi-Fi для использования служб, требующих подключения к сети.</string>
+    <string name="data_usage_enable_mobile_summery">Используйте мобильную сеть для доступа в Интернет.</string>
     <string name="data_usage_enable_mobile_warning_skt">За подключение к мобильной сети может взиматься дополнительная плата (в зависимости от вашего тарифного плана). Продолжить?</string>
     <string name="data_usage_enable_mobile_warning_ktt">За подключение к мобильной сети может взиматься дополнительная плата (в зависимости от вашего тарифного плана). Продолжить?</string>
     <string name="data_usage_enable_mobile_warning_lgt">За подключение к мобильной сети может взиматься дополнительная плата (в зависимости от вашего тарифного плана). Продолжить?</string>
@@ -2525,8 +2531,8 @@ Turn off Mobile data?"</string>
     <string name="secure_folder_summary">Блокировка личного содержимого и приложений для повышения безопасности.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s не поддерживает разблокировку %2$s с помощью отпечатков пальцев.</string>
     <string name="edge_feeds_title">Каналы Edge</string>
-    <string name="screensaver_settings_summary">Управляет действиями при подключении устройства к док-станции и/или его зарядке при выключенном экране. Эта функция также называется экранной заставкой.</string>
-    <string name="screensaver_settings_summary_wo_dock">Отображение заставки после автоматического отключения экрана при зарядке устройства.</string>
+    <string name="screensaver_settings_summary">Отображение заставки после автоматического отключения экрана при зарядке телефона.</string>
+    <string name="screensaver_settings_summary_wo_dock">Отображение заставки после автоматического отключения экрана при зарядке телефона или его установке на док-станцию.</string>
     <string name="apn_already_exists">Уже существует.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Номер порта должен быть в диапазоне от %1$d до %2$d.</string>
@@ -3291,6 +3297,7 @@ Wi-Fi is now on."</string>
     <string name="wfd_connection_end_toast">Подключение Screen Mirroring завершено.</string>
     <string name="wfd_descrpition_playvia">Воспроизведение содержимого.</string>
     <string name="wfd_descrpition_mirroring">Отражение экрана.</string>
+    <string name="wfd_descrpition_playsound">Воспроизведение звука.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">Режим нескольких окон будет отключен, и все приложения, открытые во всплывающих окнах, будут закрыты.</string>
     <string name="keyguard_password_attempt_count_pin_code">Осталось попыток: %d.</string>
@@ -4130,7 +4137,7 @@ Wi-Fi is now on."</string>
     <string name="location_network_based">Исп. беспроводные сети</string>
     <string name="location_neighborhood_level">Разрешить приложениям использовать службу Google для ускорения поиска местоположения. В Google будут отправляться анонимные данные.</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">Об устройстве</string>
+    <string name="about_settings">Сведения о телефоне</string>
     <string name="about_settings_vzw">Об устройстве</string>
     <string name="legal_information">Юридическая информация</string>
     <string name="regulatory_information">Юридическая информация</string>
@@ -4315,7 +4322,7 @@ Wi-Fi is now on."</string>
     <string name="phone_language">Язык</string>
     <string name="show_password">Отображать пароли</string>
     <string name="show_password_summary">Краткое отображение символов пароля по мере их ввода.</string>
-    <string name="ime_security_warning">Этот метод может собирать все вводимые данные (за исключением паролей), в том числе личные сведения и номера кредитных карт. Он применяется приложением %1$s. Все равно использовать?</string>
+    <string name="ime_security_warning">%s может собирать весь набираемый вами текст, включая личные данные, такие как пароли и номера кредитных карт.</string>
     <string name="failed_to_open_app_settings_toast">Не удалось открыть параметры %s.</string>
     <string name="keyboard_and_input_methods_category">Клавиатуры</string>
     <string name="virtual_keyboard_category">Виртуальная клавиатура</string>

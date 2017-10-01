@@ -54,7 +54,7 @@
     :cond_0
     iget-object v3, p0, Lcom/android/settings/wifi/WifiSettingsForSetupWizard;->mMacAddressFooter:Landroid/view/View;
 
-    const v4, 0x7f110643
+    const v4, 0x7f110641
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -75,7 +75,7 @@
     return-void
 
     :cond_2
-    const v3, 0x7f0b13a2
+    const v3, 0x7f0b13a5
 
     invoke-virtual {p0, v3}, Lcom/android/settings/wifi/WifiSettingsForSetupWizard;->getString(I)Ljava/lang/String;
 

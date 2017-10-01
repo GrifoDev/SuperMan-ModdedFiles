@@ -61,7 +61,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/ResetSettings;->mContentView:Landroid/view/View;
 
-    const v1, 0x7f1105e1
+    const v1, 0x7f1105df
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -121,7 +121,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b0b40
+    const v3, 0x7f0b0b4a
 
     const/4 v6, 0x0
 
@@ -224,7 +224,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/ResetSettings;->mContentView:Landroid/view/View;
 
-    const v2, 0x7f1105e0
+    const v2, 0x7f1105de
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -240,7 +240,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0b42
+    const v3, 0x7f0b0b4c
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -260,7 +260,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0b43
+    const v3, 0x7f0b0b4d
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -280,7 +280,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0b44
+    const v3, 0x7f0b0b4e
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

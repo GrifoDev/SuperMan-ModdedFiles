@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Қолдау көрсету</string>
     <string name="reset_network_settings_list_summary">Wi-Fi, Bluetooth және басқа да желі параметрлерін өздерінің әдепкі мәндеріне қалпына келтіріңіз.</string>
     <string name="master_clear_list_summary">Құрылғыңызды өзінің зауыттық әдепкі параметрлеріне қалпына келтіріңіз. Бұл барлық деректерді, оның ішінде файлдар мен жүктелген қолданбаларды да өшіреді.</string>
-    <string name="auto_restart_summary">Құрылғыны орнатылған уақытта автоматты түрде қайта қосу арқылы оңтайландырыңыз. Құрылғы қайта қосылған кезде кез келген сақталмаған деректер жоғалады.</string>
+    <string name="auto_restart_summary">Телефонды аптасына бір рет автоматты түрде қайта іске қосу арқылы оңтайландырыңыз. Телефон қайта қосылған кезде, кез келген сақталмаған деректер жоғалады.</string>
     <string name="search_settings">Тізім</string>
     <string name="related_results">%d қатысты элемент</string>
     <string name="no_results_found">Нәтиже жоқ</string>
@@ -1485,6 +1485,7 @@ Samsung жарнамасының идентификаторын мобильді
     <string name="crypt_keeper_verify_failed_summary">Құрылғыңызды қайта іске қосу мүмкін емес. Тұтастықты тексеру сәтсіз болды. Құрылғыңызды зауыттық әдепкі параметрлерге қайта орнату қажет. Бұл барлық деректеріңізді өшіреді.</string>
     <string name="cryptkeeper_emergency_call">Шұғыл қоңырау шалу</string>
     <string name="cryptkeeper_return_to_call">Қоңырауға қайту</string>
+    <string name="cryptkeeper_default_enter_msg">Телефоныңыз қауіпсіздік мақсатында шифрланған.</string>
     <string name="enter_password">Құрылғы жұмысын бастау үшін құпия сөзді енгізіңіз.</string>
     <string name="enter_pin">Құрылғы жұмысын бастау үшін PIN кодын енгізіңіз.</string>
     <string name="enter_pattern">Құрылғы жұмысын бастау үшін үлгіні салыңыз.</string>
@@ -1499,6 +1500,7 @@ Samsung жарнамасының идентификаторын мобильді
     <string name="crypt_keeper_failed_title_dec">"Сипаттау
 үзіліп кетті."</string>
     <string name="crypt_keeper_failed_summary_dec">Үзілуден шифрсыздандыруды аяқтау мүмкін емес. Пайдаланудан бұрын зауыттық деректерді (барлық деректерді өшіре отырып) қалпына келтіріңіз.</string>
+    <string name="crypt_keeper_set_screen_lock_type">Экран құлыптау түрін орнату</string>
     <string name="encryption_interstitial_message_kor">Құрылғы шифрланды. Құрылғы қосылған кезде деректерді шифрсыздандыру үшін, “Экран құлпын сұрау” опциясын таңдау арқылы шифрланған деректеріңізді қорғаңыз. Бұл жоғалған немесе ұрланған құрылғылардағы деректерді қорғауға көмектеседі. Құрылғы қосылған кезде деректерді шифрсындандыру үшін құлпын ашу қажет болады. Құрылғы шифрсыздандырылмағанша, сізге қоңыраулар, хабарлар не хабарландырулар келмейді.</string>
     <string name="encryption_interstitial_message_direction">"Құрылғы қосылған кезде “Бағыт құлпын сұрау” опциясын таңдау арқылы құрылғыңызды қорғаңыз. Бұл жоғалған немесе ұрланған құрылғыларда деректерді қорғауға көмектеседі.
 
@@ -1738,6 +1740,8 @@ You will also need it when:"</string>
     <string name="empty_content_toast">Сақтайтын мазмұн жоқ.</string>
     <string name="find_my_mobile_message_zero">"Құрылғыңызды “Ұялы телефонымды табу” веб-қызметін пайдалану арқылы қашықтан бақылаңыз және басқарыңыз. Қосымша ақпарат алу және қолжетімді басқа функциялар туралы білу үшін, келесі веб-сайтқа кіріңіз:
 %s"</string>
+    <string name="send_last_location_title">Соңғы орынды жіберу</string>
+    <string name="send_last_location_summary">Телефоныңызға батарея қуаты белгіленген деңгейден төмендеген кезде өзінің соңғы орнын “Ұялы телефонымды табу” серверіне жіберуіне рұқсат беріңіз.</string>
     <string name="high_power_description">Жеке қолданбалар үшін батарея пайдаланылуын оңтайландыру мүмкіндігін қосады. Кейбір функцияларға, мысалы, ұялы желілерді пайдаланып, деректерді синхрондайтындарға, батарея қуатын үнемдеу үшін рұқсат берілмейді.</string>
     <string name="wifi_display_summary_off">Өшірілген</string>
     <string name="battery_usage_description">Бұл экран құрылғының соңғы рет толық зарядталған уақытынан бергі батареяны пайдалану туралы деректерін көрсетеді.</string>
@@ -1969,6 +1973,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">Құлыптау экранында пайдаланғыңыз келетін қолданбаның жедел пернелерін таңдаңыз.</string>
     <string name="lockscreen_notifications">Құлыптау экранындағы хабрландырулар</string>
     <string name="work_profile_lockscreen_notifications">Жұмыс профилі хабарландырулары</string>
+    <string name="lock_network_and_security">Желі мен қауіпсіздікті құлыптау</string>
+    <string name="lock_network_and_security_summary">Телефоныңыз құлыптаулы кезде желіге және қауіпсіздікке қатысты функцияларды да құлыптаулы күйінде қалдырыңыз, бұл телефоныңыз жоғалған немесе ұрланған жағдайда оның орнын анықтауды және оны қорғауды оңайлатады.</string>
     <string name="dualclock_settings_title">Қос сағат</string>
     <string name="dualclock_settings_summary">Роуминг кезінде жергілікті және өз еліңіздің уақыт белдеуін көрсетіңіз.</string>
     <string name="set_home_city">Басты уақыт белдеу орнату</string>
@@ -2154,7 +2160,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="air_browse_music_on_lock_screen_title">Құлыптау экранындағы музыка</string>
     <string name="air_browse_music_on_lock_screen_summary">Музыка тректерін құлып экранында өзгертіңіз.</string>
     <string name="air_browse_note_summary">Көру режиміндегі суреттер арасында жылжытыңыз.</string>
-    <string name="data_usage_enable_mobile_summery">Егер ұялы деректер өшірілген болса, желі қосылымын қажет ететін қызметтерді пайдалану үшін, құрылғыны Wi-Fi желісіне қосу қажет.</string>
+    <string name="data_usage_enable_mobile_summery">Ұялы желі арқылы Интернетке қатынасыңыз.</string>
     <string name="data_usage_enable_mobile_warning_skt">Тарифтік жоспарыңызға байланысты ұялы байланыс желілеріне қосылу ақылы болуы мүмкін. Жалғастыру керек пе?</string>
     <string name="data_usage_enable_mobile_warning_ktt">Тарифтік жоспарыңызға байланысты ұялы байланыс желілеріне қосылу ақылы болуы мүмкін. Жалғастыру керек пе?</string>
     <string name="data_usage_enable_mobile_warning_lgt">Тарифтік жоспарыңызға байланысты ұялы байланыс желілеріне қосылу ақылы болуы мүмкін. Жалғастыру керек пе?</string>
@@ -2524,8 +2530,8 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="secure_folder_summary">Қауіпсіздікті арттыру мақсатында жеке мазмұныңыз бен қолданбаларыңызды құлыптаңыз.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s %2$s құлпын ашу үшін саусақ іздеріне қолдау көрсетпейді.</string>
     <string name="edge_feeds_title">Қырлы арналар</string>
-    <string name="screensaver_settings_summary">Экран өшірулі кезде құрылғы блокталғанда және/не зарядталғанда орындалып жатқан әрекеттерді бақылаңыз. Сондай-ақ, бұл функция “Экран сақтағыш” деп те аталады.</string>
-    <string name="screensaver_settings_summary_wo_dock">Құрылғы зарядталып жатқан кезде, экран өшкеннен кейін экран сақтағыш автоматты түрде көрсетіледі.</string>
+    <string name="screensaver_settings_summary">Телефон зарядталып жатқан кезде, экран өшкеннен кейін экран сақтағыш автоматты түрде көрсетіледі.</string>
+    <string name="screensaver_settings_summary_wo_dock">Телефоныңыз док-станцияда тұрғанда немесе зарядталып жатқан кезде экран автоматты түрде өшкеннен кейін экран сақтағыш көрсетіледі.</string>
     <string name="apn_already_exists">Қолданыста бар.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Порт нөмірі %1$d және %2$d аралығында болуы керек.</string>
@@ -3290,6 +3296,7 @@ Wi-Fi is now on."</string>
     <string name="wfd_connection_end_toast">Screen Mirroring қосылымы аяқталды.</string>
     <string name="wfd_descrpition_playvia">Мазмұнды ойнатыңыз.</string>
     <string name="wfd_descrpition_mirroring">Экранды көрсетіңіз.</string>
+    <string name="wfd_descrpition_playsound">Дыбысты ойнатыңыз.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">Бірнеше терезе өшіріліп, қалқымалы терезелерде ашылған барлық бағдарламалар жабылады.</string>
     <string name="keyguard_password_attempt_count_pin_code">%d әрекеттену аяқталды.</string>
@@ -4129,7 +4136,7 @@ Receiving SMS"</string>
     <string name="location_network_based">Сымсыз желілерді пайд-ну</string>
     <string name="location_neighborhood_level">Бағд. Google орын қызметін пайд. үшін орынды жылдам есептеуге мүмкіндік беру. Анонимді орын дерек. жиналып, Google қызметіне жіберіледі.</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">Құрылғы туралы</string>
+    <string name="about_settings">Телефон туралы</string>
     <string name="about_settings_vzw">Құрылғы туралы</string>
     <string name="legal_information">Құқықтық ақпарат</string>
     <string name="regulatory_information">Реттеуші туралы ақпарат</string>
@@ -4314,7 +4321,7 @@ Receiving SMS"</string>
     <string name="phone_language">Тіл</string>
     <string name="show_password">Құпиясөздерді көрінетін ету</string>
     <string name="show_password_summary">Теру кезінде құпия сөз таңбаларын қысқаша көрсетіңіз.</string>
-    <string name="ime_security_warning">Бұл әдіс құпиясөздерден басқа, барлық енгізілген мәтінді, оның ішінде жеке деректер мен несие картасының нөмірлерін жинайды. Ол %1$s бағдарламасынан келеді. Бәрібір пайдалану керек пе?</string>
+    <string name="ime_security_warning">%s терілетін барлық мәтінді, оның ішінде, құпиясөздер мен несие картасы нөмірлері сияқты жеке деректерді жинай алады.</string>
     <string name="failed_to_open_app_settings_toast">%s үшін параметрлерді ашу сәтсіз болды.</string>
     <string name="keyboard_and_input_methods_category">Пернетақталар</string>
     <string name="virtual_keyboard_category">Виртуалды пернетақта</string>

@@ -188,7 +188,7 @@
     iput-object v6, v4, Lcom/android/internal/app/AlertController$AlertParams;->mMessage:Ljava/lang/CharSequence;
 
     :goto_2
-    const v6, 0x7f0b153c
+    const v6, 0x7f0b153f
 
     invoke-virtual {p0, v6}, Lcom/android/settings/SmsDefaultDialog;->getString(I)Ljava/lang/String;
 
@@ -196,7 +196,7 @@
 
     iput-object v6, v4, Lcom/android/internal/app/AlertController$AlertParams;->mPositiveButtonText:Ljava/lang/CharSequence;
 
-    const v6, 0x7f0b153d
+    const v6, 0x7f0b1540
 
     invoke-virtual {p0, v6}, Lcom/android/settings/SmsDefaultDialog;->getString(I)Ljava/lang/String;
 
@@ -219,7 +219,7 @@
     goto :goto_0
 
     :cond_4
-    const v6, 0x7f0b0af2
+    const v6, 0x7f0b0afc
 
     invoke-virtual {p0, v6}, Lcom/android/settings/SmsDefaultDialog;->getString(I)Ljava/lang/String;
 
@@ -238,7 +238,7 @@
 
     aput-object v7, v6, v8
 
-    const v7, 0x7f0b1473
+    const v7, 0x7f0b1476
 
     invoke-virtual {p0, v7, v6}, Lcom/android/settings/SmsDefaultDialog;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -265,7 +265,7 @@
 
     aput-object v7, v6, v9
 
-    const v7, 0x7f0b0af3
+    const v7, 0x7f0b0afd
 
     invoke-virtual {p0, v7, v6}, Lcom/android/settings/SmsDefaultDialog;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -332,7 +332,7 @@
 
     aput-object v7, v6, v8
 
-    const v7, 0x7f0b1473
+    const v7, 0x7f0b1476
 
     invoke-virtual {p0, v7, v6}, Lcom/android/settings/SmsDefaultDialog;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -403,7 +403,7 @@
 
     iput-object p0, v4, Lcom/android/internal/app/AlertController$AlertParams;->mOnClickListener:Landroid/content/DialogInterface$OnClickListener;
 
-    const v6, 0x7f0b153d
+    const v6, 0x7f0b1540
 
     invoke-virtual {p0, v6}, Lcom/android/settings/SmsDefaultDialog;->getString(I)Ljava/lang/String;
 

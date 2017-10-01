@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">ஆதரவு</string>
     <string name="reset_network_settings_list_summary">Wi-Fi, ப்ளூடூத் மற்றும் பிற நெட்வொர்க் அமைவுகளை அவற்றின் டீஃபால்ட்களுக்கு ரீசெட் செய்யவும்.</string>
     <string name="master_clear_list_summary">உங்கள் சாதனத்தை அதன் ஃபேக்டரி டீஃபால்ட் அமைவுகளுக்கு ரீசெட் செய்யவும். கோப்புகள் மற்றும் பதிவிறக்கப்பட்ட பயன்பாடுகள் உட்பட அனைத்து தரவையும் இது அழித்துவிடும்.</string>
-    <string name="auto_restart_summary">அமைக்கப்பட்ட நேரங்களில் உங்கள் சாதனத்தை தானாகவே மறுதுவக்கம் செய்வதன் மூலம் அதன் பயனை மேம்படுத்தவும். சாதனம் மறுதுவக்கம் செய்யும் போது, எந்தவொரு சேமிக்கப்படாத தரவும் இழக்கப்படும்.</string>
+    <string name="auto_restart_summary">வாரம் ஒருமுறை உங்கள் ஃபோனை மீண்டும் துவக்குவதன் மூலம் அதனை உகந்ததாக்கவும். உங்கள் ஃபோன் மீண்டும் துவங்கும் போது சேமிக்கப்படாத தரவை இழப்பீர்கள்.</string>
     <string name="search_settings">தேடு</string>
     <string name="related_results">%d தொடர்புடைய உருப்படிகள்</string>
     <string name="no_results_found">முடிவுகள் காணப்படவில்லை</string>
@@ -1485,6 +1485,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_verify_failed_summary">உங்கள் சாதனத்தை மீண்டும் துவங்க இயலவில்லை. பொருத்த சரிபார்ப்பு தோல்வியடைந்தது. உங்கள் சாதனத்தை ஃபேக்டரி டீஃபால்ட் அமைவுகளுக்கு ரீசெட் செய்ய வேண்டும். இது உங்கள் எல்லா தரவையும் அழிக்கும்.</string>
     <string name="cryptkeeper_emergency_call">அவசர அழைப்பு</string>
     <string name="cryptkeeper_return_to_call">அழைப்புக்கு திரும்புக</string>
+    <string name="cryptkeeper_default_enter_msg">பாதுகாப்புக்காக உங்கள் ஃபோன் மறைகுறியாக்கப்பட்டது.</string>
     <string name="enter_password">உங்கள் சாதனத்தை துவக்க, உங்கள் கடவுச்சொல்லை உள்ளிடவும்.</string>
     <string name="enter_pin">உங்கள் சாதனத்தை துவக்க, உங்கள் PIN-ஐ உள்ளிடவும்.</string>
     <string name="enter_pattern">உங்கள் சாதனத்தை துவக்க, உங்கள் பேட்டர்னை வரையவும்.</string>
@@ -1498,6 +1499,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_last_warn_wipe">உங்கள் சாதனத்தை அதன் ஃபேக்டரி டீஃபால்ட் அமைவுகளுக்கு ரீசெட் செய்யும் முன்பு துவங்க உங்களுக்கு 1 முயற்சி மீதம் உள்ளது. கோப்புகள் மற்றும் பதிவிறக்கப்பட்ட பயன்பாடுகள் உட்பட அனைத்து தரவையும் இது அழித்துவிடும்.</string>
     <string name="crypt_keeper_failed_title_dec">மறைகுறிநீக்கம் தோல்வி.</string>
     <string name="crypt_keeper_failed_summary_dec">இடையூறின் காரணமாக மறை நீக்கத்தை முடிக்க இயலவில்லை. பயன்படுத்தும் முன் ஃபேக்டரி ரீசெட் செய்யவேண்டும் (அனைத்து தரவையும் அழித்தல்).</string>
+    <string name="crypt_keeper_set_screen_lock_type">திரைப்பூட்டு வகையை அமைக்கவும்</string>
     <string name="encryption_interstitial_message_kor">உங்கள் சாதனம் மறைகுறியாக்கப்பட்டது. தரவை மறைகுறிநீக்க சாதனத்தை பவர் ஆன் செய்யும் போது, தேவையான திரைப் பூட்டை தேர்வு செய்வதன் மூலம் உங்கள் மறைகுறியாக்கப்பட்ட தரவைப் பாதுகாக்கவும். இது தொலைந்த அல்லது திருடப்பட்ட சாதனங்களிலுள்ள தரவைப் பாதுகாக்க உதவும். அதன் தரவை மறைகுறிநீக்கம் செய்ய ஆன் செய்யும் போது நீங்கள் உங்கள் சாதனத்தை பூட்டுநீக்க வேண்டும். உங்கள் சாதனத்தை மறைகுறி நீக்கும் வரை, எந்தவொரு அழைப்புகள், தகவல்கள் அல்லது அறிவிப்புகளையும் நீங்கள் பெறமாட்டீர்கள்.</string>
     <string name="encryption_interstitial_message_direction">"சாதனம் பவர் ஆன் ஆகும் போது திசை பூட்டு தேவை என்பதைத் தேர்வு செய்வதன் மூலம் சாதனத்தைப் பாதுகாக்கலாம். தொலைந்த அல்லது திருடப்பட்ட சாதனங்களில் உள்ள தரவைப் பாதுகாக்க இது உதவுகிறது.
 
@@ -1737,6 +1739,8 @@ You will also need it when:"</string>
     <string name="empty_content_toast">சேமிக்க உள்ளடக்கம் இல்லை.</string>
     <string name="find_my_mobile_message_zero">"எனது மொபைலைக் கண்டறியவும் என்ற இணைய சேவையைப் பயன்படுத்தி தொலைநிலையிலிருந்து உங்கள் சாதனத்தைக் கண்காணிக்கலாம் மற்றும் கட்டுப்படுத்தலாம். கூடுதல் தகவல்களுக்கும், கிடைக்கின்ற மற்ற செயல்பாடுகளைக் கண்டறிவதற்கும் பின்வரும் வலைத்தளத்தைப் பார்வையிடுக:
 %s"</string>
+    <string name="send_last_location_title">கடைசி இருப்பிடத்தை அனுப்பவும்</string>
+    <string name="send_last_location_summary">உங்கள் ஃபோனின் மின்கலம், குறிப்பிட்ட அளவிற்கும் கீழ் குறையும் போது அதன் கடைசி இருப்பிடத்தை எனது மொபைல் கண்டுபிடிக்கவும் வழங்கிக்கு அனுப்ப அனுமதிக்கவும்.</string>
     <string name="high_power_description">தனிப்பட்ட பயன்பாடுகளுக்கான மின்கலப் பயன்பாட்டை உகந்ததாக்கவும் என்பதைச் செயல்படுத்துக. மின்கல பவரைச் சேமிக்க, மொபைல் நெட்வொர்க்குகள் அல்லது தரவை ஒத்திசைவக்கவும் என்பதைப் பயன்படுத்துகின்ற சில செயல்பாடுகள் கட்டுப்படுத்தப்படும்.</string>
     <string name="wifi_display_summary_off">ஆஃப்</string>
     <string name="battery_usage_description">இந்த திரை சாதனம் கடைசியாக முழு சார்ஜ் செய்யப்பட்டதிலிருந்து, மின்கல பயன்பாட்டு தரவை காண்பிக்கிறது.</string>
@@ -1968,6 +1972,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">பூட்டுத் திரையில் நீங்கள் பயன்படுத்த விரும்பும் பயன்பாட்டு குறுக்குவழிகளை தேர்வுசெய்க.</string>
     <string name="lockscreen_notifications">திரைப் பூட்டு அறிவிப்புகள்</string>
     <string name="work_profile_lockscreen_notifications">பணி ப்ரொஃபைல் அறிவிப்புகள்</string>
+    <string name="lock_network_and_security">நெட்வொர்க் பூட்டு மற்றும் பாதுகாப்பு</string>
+    <string name="lock_network_and_security_summary">உங்கள் ஃபோன் பூட்டப்பட்டிருக்கும் போது நெட்வொர்க் மற்றும் பாதுகாப்பு தொடர்புடைய செயல்பாடுகளை பூட்டிய நிலையில் வைப்பது, ஃபோன் தொலைந்தாலோ அல்லது திருடப்பட்டாலோ அதைக் கண்டறிந்து, பாதுகாப்பதை எளிமையாக்குகிறது.</string>
     <string name="dualclock_settings_title">இரட்டை கடிகாரம்</string>
     <string name="dualclock_settings_summary">ரோமிங்கின் போது உள்ளூர் மற்றும் சொந்த நாட்டு நேர மண்டலம் ஆகிய இரண்டையும் காண்பிக்கவும்.</string>
     <string name="set_home_city">முகப்பு நேர மண்டலத்தை அமைக்கவும்</string>
@@ -2153,7 +2159,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="air_browse_music_on_lock_screen_title">பூட்டுத் திரையில் இசை</string>
     <string name="air_browse_music_on_lock_screen_summary">பூட்டுத் திரையில் உள்ள இசைத் தடங்களை மாற்றவும்.</string>
     <string name="air_browse_note_summary">காட்சி முறையில் இருக்கையில் பக்கங்கள் இடையே நகரவும்.</string>
-    <string name="data_usage_enable_mobile_summery">மொபைல் தரவு நிறுத்தப்பட்டால், ஒரு நெட்வொர்க் இணைப்புத் தேவையான சேவைகளைப் பயன்படுத்த, உங்கள் சாதனத்தை ஒரு Wi-Fi நெட்வொர்க்குடன் இணைக்க வேண்டும்.</string>
+    <string name="data_usage_enable_mobile_summery">உங்கள் மொபைல் நெட்வொர்க் வழியாக இணையத்தை அணுகவும்.</string>
     <string name="data_usage_enable_mobile_warning_skt">மொபைல் நெட்வொர்க்குகளுடன் இணைப்பது உங்களுடைய தரவுத் திட்டத்தைச் சார்ந்து கூடுதல் கட்டணங்களுக்கு உட்படக்கூடும். தொடரவா?</string>
     <string name="data_usage_enable_mobile_warning_ktt">மொபைல் நெட்வொர்க்குகளுடன் இணைப்பது உங்களுடைய தரவுத் திட்டத்தைச் சார்ந்து கூடுதல் கட்டணங்களுக்கு உட்படக்கூடும். தொடரவா?</string>
     <string name="data_usage_enable_mobile_warning_lgt">மொபைல் நெட்வொர்க்குகளுடன் இணைப்பது உங்களுடைய தரவுத் திட்டத்தைச் சார்ந்து கூடுதல் கட்டணங்களுக்கு உட்படக்கூடும். தொடரவா?</string>
@@ -2523,8 +2529,8 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="secure_folder_summary">பாதுகாப்பை மேம்படுத்த உங்கள் தனிப்பட்ட உள்ளடக்கம் மற்றும் பயன்பாடுகளை பூட்டவும்.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s, %2$s-ஐ பூட்டுநீக்க கைரேகைப் பதிவுகளை ஆதரிக்கவில்லை.</string>
     <string name="edge_feeds_title">Edge ஃபீடுகள்</string>
-    <string name="screensaver_settings_summary">திரை ஆஃப் செய்யப்படும் போது, சாதனம் டோக் செய்யப்படும் போது மற்றும்/அல்லது சார்ஜிங்கின் போது என்ன நடக்கிறது எனக் கட்டுப்படுத்தவும். இந்தச் செயல்பாடு பகற்கனவு எனவும் அழைக்கப்படுகிறது.</string>
-    <string name="screensaver_settings_summary_wo_dock">சாதனம் சார்ஜிங்கில் உள்ள போது, தானாக திரை ஆஃப் செய்யப்பட்டப் பிறகு ஸ்க்ரீன்சேவர் காண்பிக்கவும்.</string>
+    <string name="screensaver_settings_summary">ஃபோன் சார்ஜிங்கில் உள்ள போது, தானாக திரை ஆஃப் செய்யப்பட்ட பிறகு ஸ்க்ரீன்சேவரைக் காண்பிக்கவும்.</string>
+    <string name="screensaver_settings_summary_wo_dock">ஃபோன் டாக்கில் உள்ளபோது அல்லது சார்ஜிங்கில் உள்ளபோது, தானாக திரை ஆஃப் செய்யப்பட்ட பிறகு ஸ்க்ரீன்சேவரைக் காண்பிக்கவும்.</string>
     <string name="apn_already_exists">முன்பே உள்ளது.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">துறை எண் கண்டிப்பாக %1$d மற்றும் %2$d ஆகியவற்றுக்கு இடையே இருக்க வேண்டும்.</string>
@@ -3289,6 +3295,7 @@ Wi-Fi is now on."</string>
     <string name="wfd_connection_end_toast">Screen mirroring இணைப்பு முடிந்தது.</string>
     <string name="wfd_descrpition_playvia">உள்ளடக்கத்தை இயக்கவும்.</string>
     <string name="wfd_descrpition_mirroring">திரையைப் பிரதிபலிக்கவும்.</string>
+    <string name="wfd_descrpition_playsound">ஒலியை இயக்கவும்.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">மல்டி வின்டோ செயல்நீக்கப்படும் மற்றும் பாப்-அப் வின்டோக்களில் திறக்கப்பட்ட அனைத்து பயன்பாடுகளும் மூடப்படும்.</string>
     <string name="keyguard_password_attempt_count_pin_code">மேலும் %d முயற்சி உள்ளது.</string>
@@ -4128,7 +4135,7 @@ Receiving SMS"</string>
     <string name="location_network_based">ஒயர்லெஸ் நெட்வொர்க்கு. உபயோகி</string>
     <string name="location_neighborhood_level">உங்கள் இடத்தை வேகமாக கண்டறிய கூகுளின் இடச்சேவையைப் பயன்படுத்த பயன்பாட்டை அனுமதிக்கவும். தோராயமான இட விவரம் சேகரிக்கப்பட்டு அனுப்பப்படும்</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">சாதனம் பற்றி</string>
+    <string name="about_settings">ஃபோன் பற்றி</string>
     <string name="about_settings_vzw">சாதனம் பற்றி</string>
     <string name="legal_information">சட்டப்பூர்வ விவரம்</string>
     <string name="regulatory_information">ஒழுங்குமுறைத் தகவல்</string>
@@ -4313,7 +4320,7 @@ Receiving SMS"</string>
     <string name="phone_language">மொழி</string>
     <string name="show_password">கடவுச்சொற்களை தெரியும்படியாக செய்யவும்</string>
     <string name="show_password_summary">நீங்கள் கடவுச்சொல் எழுத்துக்களைத் தட்டச்சுச் செய்கையில் அவற்றைச் சுருக்கமாகக் காட்டவும்.</string>
-    <string name="ime_security_warning">நீங்கள் உள்ளிட்ட அனைத்து உரை, கடவுச்சொற்கள் தவிர, தனிப்பட்ட தரவு, கடனட்டை எண்கள் உட்பட அனைத்தையும் இந்த முறையில் சேகரிக்கலாம். இது அப் %1$s-லிருந்து வருகிறது. எப்படியும் பயன்படுத்தவா?</string>
+    <string name="ime_security_warning">கடவுச்சொற்கள் மற்றும் கடனட்டை எண்கள் போன்ற தனிப்பட்ட தரவு உட்பட, நீங்கள் தட்டச்சு செய்யும் எல்லா உரையையும் %s-ஆல் சேகரிக்க இயலும்.</string>
     <string name="failed_to_open_app_settings_toast">%sக்கான அமைவுகளை திறப்பதில் தோல்வி.</string>
     <string name="keyboard_and_input_methods_category">விசைப்பலகைகள்</string>
     <string name="virtual_keyboard_category">மெய்நிகர் விசைப்பலகை</string>

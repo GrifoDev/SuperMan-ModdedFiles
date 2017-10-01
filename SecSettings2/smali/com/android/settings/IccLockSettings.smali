@@ -385,7 +385,7 @@
 
     iget-object v1, p0, Lcom/android/settings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const v2, 0x7f0b0e49
+    const v2, 0x7f0b0e54
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -570,7 +570,7 @@
 
     if-eqz v2, :cond_0
 
-    const v2, 0x7f0b0e4d
+    const v2, 0x7f0b0e58
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -580,7 +580,7 @@
     return-object v1
 
     :cond_0
-    const v2, 0x7f0b0e4e
+    const v2, 0x7f0b0e59
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -595,7 +595,7 @@
 
     if-eqz v2, :cond_2
 
-    const v2, 0x7f0b1360
+    const v2, 0x7f0b1363
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -604,7 +604,7 @@
     goto :goto_0
 
     :cond_2
-    const v2, 0x7f0b1361
+    const v2, 0x7f0b1364
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -616,7 +616,7 @@
 .method private iccLockChanged(ZI)V
     .locals 5
 
-    const v4, 0x7f0b136f
+    const v4, 0x7f0b1372
 
     const/4 v1, 0x1
 
@@ -814,7 +814,7 @@
 
     iget-object v1, p0, Lcom/android/settings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const v2, 0x7f0b0e4c
+    const v2, 0x7f0b0e57
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -846,7 +846,7 @@
 
     iget-object v1, p0, Lcom/android/settings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const v2, 0x7f0b0e4a
+    const v2, 0x7f0b0e55
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -864,7 +864,7 @@
 .method private iccPinChanged(Landroid/os/AsyncResult;I)V
     .locals 7
 
-    const v5, 0x7f0b136d
+    const v5, 0x7f0b1370
 
     const/4 v2, 0x0
 
@@ -910,7 +910,7 @@
 
     iget-object v4, p0, Lcom/android/settings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const v5, 0x7f0b0e4c
+    const v5, 0x7f0b0e57
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -995,7 +995,7 @@
 
     iget-object v4, p0, Lcom/android/settings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const v5, 0x7f0b0e53
+    const v5, 0x7f0b0e5e
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1014,7 +1014,7 @@
 
     iget-object v4, p0, Lcom/android/settings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const v5, 0x7f0b136e
+    const v5, 0x7f0b1371
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1160,15 +1160,15 @@
 .method private setDialogValues()V
     .locals 10
 
-    const v9, 0x7f0b0e51
+    const v9, 0x7f0b0e5c
 
     const/4 v8, 0x1
 
-    const v7, 0x7f0b1366
+    const v7, 0x7f0b1369
 
     const/4 v6, 0x0
 
-    const v5, 0x7f0b1369
+    const v5, 0x7f0b136c
 
     iget-object v2, p0, Lcom/android/settings/IccLockSettings;->mPinDialog:Lcom/android/settings/EditPinPreference;
 
@@ -1253,7 +1253,7 @@
 
     aput-object v3, v2, v6
 
-    const v3, 0x7f0b0e48
+    const v3, 0x7f0b0e53
 
     invoke-virtual {p0, v3, v2}, Lcom/android/settings/IccLockSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1324,7 +1324,7 @@
 
     aput-object v3, v2, v6
 
-    const v3, 0x7f0b0e47
+    const v3, 0x7f0b0e52
 
     invoke-virtual {p0, v3, v2}, Lcom/android/settings/IccLockSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1377,7 +1377,7 @@
 
     iget-object v2, p0, Lcom/android/settings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const v4, 0x7f0b0e4f
+    const v4, 0x7f0b0e5a
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1391,7 +1391,7 @@
     :cond_5
     iget-object v2, p0, Lcom/android/settings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const v4, 0x7f0b0e50
+    const v4, 0x7f0b0e5b
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1442,7 +1442,7 @@
 
     iget-object v2, p0, Lcom/android/settings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const v4, 0x7f0b1364
+    const v4, 0x7f0b1367
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1456,7 +1456,7 @@
     :cond_7
     iget-object v2, p0, Lcom/android/settings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const v4, 0x7f0b1365
+    const v4, 0x7f0b1368
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1583,7 +1583,7 @@
 
     iget-object v3, p0, Lcom/android/settings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const v4, 0x7f0b0e52
+    const v4, 0x7f0b0e5d
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1630,7 +1630,7 @@
     :cond_9
     iget-object v2, p0, Lcom/android/settings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const v3, 0x7f0b1367
+    const v3, 0x7f0b136a
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1642,7 +1642,7 @@
 
     iget-object v3, p0, Lcom/android/settings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const v4, 0x7f0b1367
+    const v4, 0x7f0b136a
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1693,7 +1693,7 @@
 
     iget-object v3, p0, Lcom/android/settings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const v4, 0x7f0b0e54
+    const v4, 0x7f0b0e5f
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1740,7 +1740,7 @@
     :cond_a
     iget-object v2, p0, Lcom/android/settings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const v3, 0x7f0b1368
+    const v3, 0x7f0b136b
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1752,7 +1752,7 @@
 
     iget-object v3, p0, Lcom/android/settings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const v4, 0x7f0b1368
+    const v4, 0x7f0b136b
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1842,7 +1842,7 @@
 
     if-eqz p1, :cond_0
 
-    const v0, 0x7f0b081b
+    const v0, 0x7f0b0823
 
     invoke-direct {p0, v0}, Lcom/android/settings/IccLockSettings;->displayMessage(I)V
 
@@ -1850,7 +1850,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f0b081c
+    const v0, 0x7f0b0824
 
     invoke-direct {p0, v0}, Lcom/android/settings/IccLockSettings;->displayMessage(I)V
 
@@ -1918,9 +1918,9 @@
 .method private updatePreferences()V
     .locals 11
 
-    const v10, 0x7f0b1362
+    const v10, 0x7f0b1365
 
-    const v7, 0x7f0b135f
+    const v7, 0x7f0b1362
 
     const/4 v9, 0x0
 
@@ -2899,7 +2899,7 @@
 
     move-result-object v14
 
-    const v15, 0x7f1103d5
+    const v15, 0x7f1103d3
 
     invoke-virtual {v14, v15}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3044,7 +3044,7 @@
 
     aput-object v19, v18, v20
 
-    const v19, 0x7f0b18ec
+    const v19, 0x7f0b18ef
 
     move/from16 v0, v19
 
@@ -3299,7 +3299,7 @@
 
     iget-object v2, p0, Lcom/android/settings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const v3, 0x7f0b0e4b
+    const v3, 0x7f0b0e56
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3369,7 +3369,7 @@
 
     iget-object v2, p0, Lcom/android/settings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const v3, 0x7f0b136b
+    const v3, 0x7f0b136e
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3426,7 +3426,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0801
+    const v4, 0x7f0b0809
 
     invoke-static {v3, v4, v6}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -3564,7 +3564,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0801
+    const v4, 0x7f0b0809
 
     invoke-static {v3, v4, v5}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -3706,7 +3706,7 @@
 
     iget-object v5, p0, Lcom/android/settings/IccLockSettings;->mPinDialog_Kor:Landroid/preference/Preference;
 
-    const v6, 0x7f0b0800
+    const v6, 0x7f0b0808
 
     invoke-virtual {v5, v6}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -3771,7 +3771,7 @@
 
     iget-object v5, p0, Lcom/android/settings/IccLockSettings;->mPersoDialog:Landroid/preference/Preference;
 
-    const v6, 0x7f0b07ed
+    const v6, 0x7f0b07f5
 
     invoke-virtual {v5, v6}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -4011,7 +4011,7 @@
 .method public onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
     .locals 7
 
-    const v6, 0x7f0a04b5
+    const v6, 0x7f0a04b3
 
     const/4 v5, 0x0
 
@@ -4079,7 +4079,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a045c
+    const v3, 0x7f0a045a
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4089,7 +4089,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a045a
+    const v4, 0x7f0a0458
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

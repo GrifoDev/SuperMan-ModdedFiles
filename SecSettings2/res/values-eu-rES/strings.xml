@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Laguntza</string>
     <string name="reset_network_settings_list_summary">Berrezarri Wi-Fi, Bluetooth eta sareko bestelako ezarpenen balio lehenetsiak.</string>
     <string name="master_clear_list_summary">Berrezarri gailuaren ezarpen lehenetsiak. Datu guztiak ezabatuko dira, fitxategiak eta deskargatutako aplikazioak barne.</string>
-    <string name="auto_restart_summary">Optimizatu gailuaren funtzionamendu une jakin batzuetan automatikoki berrabiarazteko ezarrita. Gordetzen ez diren datuak galdu egingo dira gailua berrabiaraztean.</string>
+    <string name="auto_restart_summary">Optimizatu telefonoa astean behin automatikoki berrabiarazita. Gordetzen ez diren datuak galdu egingo dira telefonoa berrabiaraztean.</string>
     <string name="search_settings">Bilatu</string>
     <string name="related_results">%d elementu erlazionatu</string>
     <string name="no_results_found">Ez da emaitzarik aurkitu</string>
@@ -1485,6 +1485,7 @@ Baliteke enkriptatzeko ordubete edo gehiago behar izatea. Hasi baino lehen, ziur
     <string name="crypt_keeper_verify_failed_summary">Ezin da gailua berrabiarazi. Osotasunaren egiaztapenak huts egin du. Gailuan fabrikako ezarpen lehenetsiak berrezarri behar dituzu, baina hori eginez gero, datu guztiak garbituko dira.</string>
     <string name="cryptkeeper_emergency_call">Emergentzia deia</string>
     <string name="cryptkeeper_return_to_call">Itzuli deira</string>
+    <string name="cryptkeeper_default_enter_msg">Telefonoa enkriptatuta dago zure segurtasuna bermatzeko.</string>
     <string name="enter_password">Gailua abiarazteko, idatzi pasahitza.</string>
     <string name="enter_pin">Gailua abiarazteko, idatzi PINa.</string>
     <string name="enter_pattern">Gailua abiarazteko, marraztu patroia.</string>
@@ -1499,6 +1500,7 @@ Baliteke enkriptatzeko ordubete edo gehiago behar izatea. Hasi baino lehen, ziur
     <string name="crypt_keeper_failed_title_dec">"Dekodeketa
 errorea"</string>
     <string name="crypt_keeper_failed_summary_dec">Ezin da desekriptatzea osatu eten egin delako. Berrezarri fabrikako datuak (zure datu guztiak ezabatuz) erabili aurretik.</string>
+    <string name="crypt_keeper_set_screen_lock_type">Ezarri pantaila blokeo mota</string>
     <string name="encryption_interstitial_message_kor">Enkriptatuta dago gailua. Babestu enkriptatutako datuak, gailua pizten duzunean Eskatu blokeo pantaila hautatuta. Horrela, datuak babestuko dira, gailua galtzen baduzu edo lapurtzen badizute. Gailuaren babesa kendu beharko duzu bertak odatuak desenkriptatzeko gailua pizten duzun bakoitzean. Ez duzu deirik, mezurik edo jakinarazpenik jasoko gailua desenkriptatzen duzun arte.</string>
     <string name="encryption_interstitial_message_direction">"Babestu gailua Eskatu keinu bidezko blokeoa hautatuta gailua pizten denean. Horrela, datuak babestuko dira, gailua galtzen baduzu edo lapurtzen badizute.
 
@@ -1738,6 +1740,8 @@ Bermearen baitako konponketa bat eskatu aurretik, Berraktibatze blokeoa desgaitu
     <string name="empty_content_toast">Ez dago gordetzeko edukirik.</string>
     <string name="find_my_mobile_message_zero">"Egin jarraipena eta kontrolatu zure gailua urrunetik Bilatu nire mugikorra web zerbitzua erabiliz. Informazio gehiago lortzeko eta eskuragarri dauden funtzioak ezagutzeko, zoaz webgune honetara:
 %s"</string>
+    <string name="send_last_location_title">Bidali azken kokapena</string>
+    <string name="send_last_location_summary">Baimendu telefonoari azken kokapena Bilatu nire mugikorra zerbitzarira bidaltzea bateria maila jakin batera iristen denean.</string>
     <string name="high_power_description">Gaitu Optimizatu bateria erabilera banako aplikazioetan. Funtzio batzuk, hala nola sare mugikorrak edo datu sinkronizazioa darabiltzatenak, mugatuta egongo dira bateria aurrezteko.</string>
     <string name="wifi_display_summary_off">Desaktibatuta</string>
     <string name="battery_usage_description">Pantaila honek bateria erabileraren datuak erakusten ditu, gailua azken aldiz guztiz kargatu zenetik hasita.</string>
@@ -1969,6 +1973,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">Hautatu blokeo pantailan erabili nahi dituzun aplikazio lasterbideak.</string>
     <string name="lockscreen_notifications">Blokeo pantailako jakinarazpenak</string>
     <string name="work_profile_lockscreen_notifications">Laneko profilaren jakinarazp.</string>
+    <string name="lock_network_and_security">Blokeatu sarea eta segurtasuna</string>
+    <string name="lock_network_and_security_summary">Mantendu sare eta segurtasunarekin erlazionatutako funtzioak blokeatuta telefonoa blokeatuta dagoenean, errazago aurkitu eta babestu ahal izan dezazun galdu edo lapurtuz gero.</string>
     <string name="dualclock_settings_title">Erloju duala</string>
     <string name="dualclock_settings_summary">Erakutsi ordu zona lokala eta nagusia ibiltaritzan.</string>
     <string name="set_home_city">Ezarri etxeko ordu zona</string>
@@ -2154,7 +2160,7 @@ Telefono datuak ezabatzen badira ere, Google kontuaren pasahitza eskatuko da tel
     <string name="air_browse_music_on_lock_screen_title">Musika blokeo pantailan</string>
     <string name="air_browse_music_on_lock_screen_summary">Aldatu blokeo pantailako musika abestiak</string>
     <string name="air_browse_note_summary">Mugitu orrietan Ikuspegi moduan</string>
-    <string name="data_usage_enable_mobile_summery">Datu mugikorrak desaktibatuta badaude, gailua Wi-Fi sare batera konektatu beharko da sare konexioa behar duten zerbitzuak erabiltzeko.</string>
+    <string name="data_usage_enable_mobile_summery">Sartu Interneten sare mugikorraren bidez.</string>
     <string name="data_usage_enable_mobile_warning_skt">Baliteke sare mugikorretara konektatzeak kostu osagarriak eragitea zure datu planaren arabera. Jarraitu?</string>
     <string name="data_usage_enable_mobile_warning_ktt">Baliteke sare mugikorretara konektatzeak kostu osagarriak eragitea zure datu planaren arabera. Jarraitu?</string>
     <string name="data_usage_enable_mobile_warning_lgt">Baliteke sare mugikorretara konektatzeak kostu osagarriak eragitea zure datu planaren arabera. Jarraitu?</string>
@@ -2524,8 +2530,8 @@ Berriz saiatu."</string>
     <string name="secure_folder_summary">Segurtasuna areagotzeko, blokeatu eduki eta aplikazio pribatuak.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s eginbideak ez ditu hatz aztarnak onartzen %2$s desblokeatzeko.</string>
     <string name="edge_feeds_title">Edge jarioak</string>
-    <string name="screensaver_settings_summary">Kontrolatu, pantaila itzalita dagoela, gailua ainguratuta edo/eta kargatzen ari denean zer gertatzen den. Funtzio horri Fantasia ere deitu ohi zaio.</string>
-    <string name="screensaver_settings_summary_wo_dock">Erakutsi pantaila babeslea gailua kargatzen ari denean pantaila automatikoki itzali ondoren.</string>
+    <string name="screensaver_settings_summary">Erakutsi pantaila babeslea telefonoa kargatzen ari denean pantaila automatikoki itzali ondoren.</string>
+    <string name="screensaver_settings_summary_wo_dock">Erakutsi pantaila babeslea telefonoa oinarrian dagoenean edo kargatzen ari denean pantaila automatikoki itzali ondoren.</string>
     <string name="apn_already_exists">Dagoeneko badago</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Ataka zenbakia %1$d eta %2$d artekoa izan behar da</string>
@@ -3290,6 +3296,7 @@ Partekatutako konexioa erabiltzeak bateria gehiago kontsumitzen du eta zure datu
     <string name="wfd_connection_end_toast">Screen Mirroring konexioa gaitu da.</string>
     <string name="wfd_descrpition_playvia">Erreproduzitu edukia.</string>
     <string name="wfd_descrpition_mirroring">Islatu pantaila.</string>
+    <string name="wfd_descrpition_playsound">Erreproduzitu soinua.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">Leiho anitza desgaituko da eta leiho gainerakorretan irekitako aplikazio guztiak itxiko dira.</string>
     <string name="keyguard_password_attempt_count_pin_code">Saiakera %d geratzen da</string>
@@ -4129,7 +4136,7 @@ Errendimendua hobetzeko, erabili SD txartel azkarragoren bat edo USB biltegiratz
     <string name="location_network_based">Erabili hari gabeko sareak</string>
     <string name="location_neighborhood_level">Eman baimena aplikazioei Google kokapen zerbitzua erabiltzeko zure kokapena zehazteko. Datu anonimoak bidaliko zaizkio Google-ri.</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">Gailuari buruz</string>
+    <string name="about_settings">Telefonoari buruz</string>
     <string name="about_settings_vzw">Gailuari buruz</string>
     <string name="legal_information">Lege informazioa</string>
     <string name="regulatory_information">Erregulazio informazioa</string>
@@ -4314,7 +4321,7 @@ Aplikazioetan dituzun datuak ez dira galduko."</string>
     <string name="phone_language">Hizkuntza</string>
     <string name="show_password">Jarri pasahitza ikusgai</string>
     <string name="show_password_summary">Erakutsi pasahitzaren karaktereak labur, idatzi bitartean.</string>
-    <string name="ime_security_warning">Metodo horren bidez, idazten dituzun testu guztiak bilduko dira, kreditu txartelen zenbakiak eta datu pertsonalak barne, pasahitzak izan ezik. %1$s aplikaziotik dator. Hala ere, erabili nahi duzu?</string>
+    <string name="ime_security_warning">Idazten duzun testu guztia biltzeko gai izango da %s, datu pertsonalak barne (hala nola pasahitzak eta kreditu txartelen zenbakiak).</string>
     <string name="failed_to_open_app_settings_toast">Ezin izan da %s-rako ezarpenik ireki</string>
     <string name="keyboard_and_input_methods_category">Teklatuak</string>
     <string name="virtual_keyboard_category">Teklatu birtuala</string>

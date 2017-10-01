@@ -241,7 +241,7 @@
 
     invoke-direct {v4, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v5, 0x7f0b138f
+    const v5, 0x7f0b1392
 
     invoke-virtual {v4, v5}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -261,7 +261,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f1103de
+    const v4, 0x7f1103dc
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -269,7 +269,7 @@
 
     check-cast v1, Landroid/widget/ImageView;
 
-    const v4, 0x7f1103df
+    const v4, 0x7f1103dd
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

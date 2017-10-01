@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/settings/CryptKeeper$11;->this$0:Lcom/android/settings/CryptKeeper;
 
-    invoke-static {v0}, Lcom/android/settings/CryptKeeper;->-get9(Lcom/android/settings/CryptKeeper;)Landroid/widget/EditText;
+    invoke-static {v0}, Lcom/android/settings/CryptKeeper;->-get10(Lcom/android/settings/CryptKeeper;)Landroid/widget/EditText;
 
     move-result-object v0
 

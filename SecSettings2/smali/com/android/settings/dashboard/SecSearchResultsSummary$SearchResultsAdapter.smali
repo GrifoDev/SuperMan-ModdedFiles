@@ -1506,7 +1506,7 @@
 
     if-ne v0, v1, :cond_5
 
-    const v18, 0x7f11060f
+    const v18, 0x7f11060d
 
     invoke-virtual/range {v17 .. v18}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1656,7 +1656,7 @@
 
     check-cast v15, Landroid/widget/TextView;
 
-    const v18, 0x7f1101f7
+    const v18, 0x7f1101f5
 
     invoke-virtual/range {v17 .. v18}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

@@ -223,7 +223,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/qstile/PersonalModeTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0b0a11
+    const v1, 0x7f0b0a1b
 
     invoke-static {v0, v1, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -268,7 +268,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/qstile/PersonalModeTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0b0a08
+    const v1, 0x7f0b0a12
 
     invoke-static {v0, v1, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -386,7 +386,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b09f2
+    const v2, 0x7f0b09fc
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/qstile/PersonalModeTile;->getString(I)Ljava/lang/String;
 
@@ -457,7 +457,7 @@
 
     move-result v1
 
-    const v2, 0x7f1105a1
+    const v2, 0x7f11059f
 
     invoke-virtual {v0, v2, v1}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
@@ -467,7 +467,7 @@
 .method public semGetDetailViewTitle()Ljava/lang/CharSequence;
     .locals 1
 
-    const v0, 0x7f0b09f1
+    const v0, 0x7f0b09fb
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/qstile/PersonalModeTile;->getString(I)Ljava/lang/String;
 
@@ -535,7 +535,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/qstile/PersonalModeTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0b0a11
+    const v1, 0x7f0b0a1b
 
     invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -554,7 +554,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/qstile/PersonalModeTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0b0a08
+    const v1, 0x7f0b0a12
 
     invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

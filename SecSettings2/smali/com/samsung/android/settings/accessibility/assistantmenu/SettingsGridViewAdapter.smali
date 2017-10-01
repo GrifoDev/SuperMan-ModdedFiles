@@ -189,7 +189,7 @@
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 10
 
-    const v9, 0x7f110631
+    const v9, 0x7f11062f
 
     const/16 v8, 0x8
 
@@ -215,7 +215,7 @@
 
     move-result-object p2
 
-    const v5, 0x7f110632
+    const v5, 0x7f110630
 
     invoke-virtual {p2, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -237,7 +237,7 @@
 
     invoke-virtual {v0, v5}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    const v5, 0x7f110634
+    const v5, 0x7f110632
 
     invoke-virtual {p2, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -245,7 +245,7 @@
 
     check-cast v2, Landroid/widget/ImageView;
 
-    const v5, 0x7f110633
+    const v5, 0x7f110631
 
     invoke-virtual {p2, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -275,7 +275,7 @@
     invoke-virtual {v2, v8}, Landroid/widget/ImageView;->setVisibility(I)V
 
     :goto_0
-    const v5, 0x7f1104dd
+    const v5, 0x7f1104db
 
     invoke-virtual {p2, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

@@ -154,7 +154,7 @@
 
     if-eqz v0, :cond_2
 
-    const v1, 0x7f0b19d8
+    const v1, 0x7f0b19db
 
     :goto_1
     invoke-virtual {v2, v1}, Landroid/preference/PreferenceScreen;->setSummary(I)V
@@ -168,7 +168,7 @@
     goto :goto_0
 
     :cond_2
-    const v1, 0x7f0b19d9
+    const v1, 0x7f0b19dc
 
     goto :goto_1
 .end method
@@ -415,7 +415,7 @@
 
     iput-object p1, p0, Lcom/samsung/android/settings/safetycare/PanicModeSettings;->mTempView:Landroid/view/View;
 
-    const v4, 0x7f1104f0
+    const v4, 0x7f1104ee
 
     invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -423,7 +423,7 @@
 
     check-cast v3, Landroid/widget/TextView;
 
-    const v4, 0x7f1104f1
+    const v4, 0x7f1104ef
 
     invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -431,7 +431,7 @@
 
     check-cast v2, Landroid/widget/TextView;
 
-    const v4, 0x7f1104ef
+    const v4, 0x7f1104ed
 
     invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

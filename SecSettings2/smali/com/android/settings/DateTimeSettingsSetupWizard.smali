@@ -287,7 +287,7 @@
 
     iput-object v3, p0, Lcom/android/settings/DateTimeSettingsSetupWizard;->mSelectedTimeZone:Ljava/util/TimeZone;
 
-    const v4, 0x7f110289
+    const v4, 0x7f110287
 
     invoke-virtual {p0, v4}, Lcom/android/settings/DateTimeSettingsSetupWizard;->findViewById(I)Landroid/view/View;
 
@@ -328,7 +328,7 @@
     move-result v0
 
     :goto_0
-    const v4, 0x7f11028b
+    const v4, 0x7f110289
 
     invoke-virtual {p0, v4}, Lcom/android/settings/DateTimeSettingsSetupWizard;->findViewById(I)Landroid/view/View;
 
@@ -346,7 +346,7 @@
 
     invoke-virtual {v4, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    const v4, 0x7f110290
+    const v4, 0x7f11028e
 
     invoke-virtual {p0, v4}, Lcom/android/settings/DateTimeSettingsSetupWizard;->findViewById(I)Landroid/view/View;
 
@@ -365,7 +365,7 @@
     :goto_1
     invoke-virtual {v7, v4}, Landroid/widget/TimePicker;->setEnabled(Z)V
 
-    const v4, 0x7f11028d
+    const v4, 0x7f11028b
 
     invoke-virtual {p0, v4}, Lcom/android/settings/DateTimeSettingsSetupWizard;->findViewById(I)Landroid/view/View;
 
@@ -412,7 +412,7 @@
 
     invoke-virtual {v4, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v4, 0x7f110558
+    const v4, 0x7f110556
 
     invoke-virtual {p0, v4}, Lcom/android/settings/DateTimeSettingsSetupWizard;->findViewById(I)Landroid/view/View;
 
@@ -530,7 +530,7 @@
     return-void
 
     :sswitch_0
-    const v2, 0x7f110289
+    const v2, 0x7f110287
 
     invoke-direct {p0, v2}, Lcom/android/settings/DateTimeSettingsSetupWizard;->showTimezonePicker(I)V
 
@@ -669,8 +669,8 @@
     :sswitch_data_0
     .sparse-switch
         0x7f1101a9 -> :sswitch_1
-        0x7f110289 -> :sswitch_0
-        0x7f110558 -> :sswitch_2
+        0x7f110287 -> :sswitch_0
+        0x7f110556 -> :sswitch_2
     .end sparse-switch
 .end method
 
@@ -689,7 +689,7 @@
 
     invoke-virtual {p0, v3}, Lcom/android/settings/DateTimeSettingsSetupWizard;->setContentView(I)V
 
-    const v3, 0x7f110289
+    const v3, 0x7f110287
 
     invoke-virtual {p0, v3}, Lcom/android/settings/DateTimeSettingsSetupWizard;->findViewById(I)Landroid/view/View;
 
@@ -868,7 +868,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f110287
+    const v5, 0x7f110285
 
     invoke-virtual {v4, v5}, Landroid/app/FragmentManager;->findFragmentById(I)Landroid/app/Fragment;
 
@@ -896,7 +896,7 @@
 .method public onPreferenceStartFragment(Landroid/support/v14/preference/PreferenceFragment;Landroid/support/v7/preference/Preference;)Z
     .locals 1
 
-    const v0, 0x7f110286
+    const v0, 0x7f110284
 
     invoke-direct {p0, v0}, Lcom/android/settings/DateTimeSettingsSetupWizard;->showTimezonePicker(I)V
 

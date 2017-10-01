@@ -215,7 +215,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/notification/VolumeLimiterSeekBarPreference;->mIconView:Landroid/widget/ImageView;
 
-    const v0, 0x7f110582
+    const v0, 0x7f110580
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

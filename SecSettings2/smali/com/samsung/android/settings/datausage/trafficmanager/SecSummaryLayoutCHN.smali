@@ -473,7 +473,7 @@
 
     iget-object v6, p0, Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;->mResInstance:Landroid/content/res/Resources;
 
-    const v7, 0x7f0b17c6
+    const v7, 0x7f0b17c9
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1080,7 +1080,7 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v6, 0x7f11026d
+    const v6, 0x7f11026b
 
     invoke-virtual {p1, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1133,7 +1133,7 @@
     iput-object v6, p0, Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;->mDataUsedNoLimit_land:Landroid/widget/TextView;
 
     :goto_0
-    const v6, 0x7f110271
+    const v6, 0x7f11026f
 
     invoke-virtual {p1, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1143,7 +1143,7 @@
 
     iput-object v6, p0, Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;->mRamFree_land:Landroid/widget/TextView;
 
-    const v6, 0x7f110272
+    const v6, 0x7f110270
 
     invoke-virtual {p1, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1153,7 +1153,7 @@
 
     iput-object v6, p0, Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;->mtvTotalRam_land:Landroid/widget/TextView;
 
-    const v6, 0x7f11026f
+    const v6, 0x7f11026d
 
     invoke-virtual {p1, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1163,7 +1163,7 @@
 
     iput-object v6, p0, Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;->mUsedText_land:Landroid/widget/TextView;
 
-    const v6, 0x7f110273
+    const v6, 0x7f110271
 
     invoke-virtual {p1, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1225,7 +1225,7 @@
 
     iget-object v6, p0, Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;->mResInstance:Landroid/content/res/Resources;
 
-    const v7, 0x7f0a02ff
+    const v7, 0x7f0a02fd
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1241,7 +1241,7 @@
 
     iget-object v6, p0, Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;->mResInstance:Landroid/content/res/Resources;
 
-    const v7, 0x7f0a0578
+    const v7, 0x7f0a0576
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1249,7 +1249,7 @@
 
     iget-object v6, p0, Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;->mResInstance:Landroid/content/res/Resources;
 
-    const v7, 0x7f0a0577
+    const v7, 0x7f0a0575
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1266,7 +1266,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0a060a
+    const v7, 0x7f0a0608
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1318,7 +1318,7 @@
 
     if-eqz v6, :cond_2
 
-    const v6, 0x7f110270
+    const v6, 0x7f11026e
 
     invoke-virtual {p1, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1328,7 +1328,7 @@
 
     iput-object v6, p0, Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;->mSavedTV_land:Landroid/widget/TextView;
 
-    const v6, 0x7f11026e
+    const v6, 0x7f11026c
 
     invoke-virtual {p1, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1427,7 +1427,7 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v5, 0x7f110266
+    const v5, 0x7f110264
 
     invoke-virtual {p1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1480,7 +1480,7 @@
     iput-object v5, p0, Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;->mDataUsedNoLimit:Landroid/widget/TextView;
 
     :goto_0
-    const v5, 0x7f11026a
+    const v5, 0x7f110268
 
     invoke-virtual {p1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1490,7 +1490,7 @@
 
     iput-object v5, p0, Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;->mRamFree:Landroid/widget/TextView;
 
-    const v5, 0x7f11026b
+    const v5, 0x7f110269
 
     invoke-virtual {p1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1500,7 +1500,7 @@
 
     iput-object v5, p0, Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;->mtvTotalRam:Landroid/widget/TextView;
 
-    const v5, 0x7f110268
+    const v5, 0x7f110266
 
     invoke-virtual {p1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1510,7 +1510,7 @@
 
     iput-object v5, p0, Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;->mUsedText:Landroid/widget/TextView;
 
-    const v5, 0x7f11026c
+    const v5, 0x7f11026a
 
     invoke-virtual {p1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1532,7 +1532,7 @@
 
     if-eqz v5, :cond_0
 
-    const v5, 0x7f110269
+    const v5, 0x7f110267
 
     invoke-virtual {p1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1542,7 +1542,7 @@
 
     iput-object v5, p0, Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;->mSavedTV:Landroid/widget/TextView;
 
-    const v5, 0x7f110267
+    const v5, 0x7f110265
 
     invoke-virtual {p1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1599,7 +1599,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;->mResInstance:Landroid/content/res/Resources;
 
-    const v6, 0x7f0a02ff
+    const v6, 0x7f0a02fd
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1615,7 +1615,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;->mResInstance:Landroid/content/res/Resources;
 
-    const v6, 0x7f0a0578
+    const v6, 0x7f0a0576
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1623,7 +1623,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;->mResInstance:Landroid/content/res/Resources;
 
-    const v6, 0x7f0a0577
+    const v6, 0x7f0a0575
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1640,7 +1640,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0a060a
+    const v6, 0x7f0a0608
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1842,7 +1842,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;->mTabHost:Landroid/widget/TabHost;
 
-    const v1, 0x7f110276
+    const v1, 0x7f110274
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2149,7 +2149,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;->mResInstance:Landroid/content/res/Resources;
 
-    const v5, 0x7f0a054a
+    const v5, 0x7f0a0548
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2265,7 +2265,7 @@
 
     const/4 v6, 0x1
 
-    const v5, 0x7f0b0f01
+    const v5, 0x7f0b0f0c
 
     const/16 v3, 0x8
 
@@ -2279,7 +2279,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;->mResInstance:Landroid/content/res/Resources;
 
-    const v2, 0x7f0b17ef
+    const v2, 0x7f0b17f2
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2323,7 +2323,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;->mResInstance:Landroid/content/res/Resources;
 
-    const v2, 0x7f0b17ef
+    const v2, 0x7f0b17f2
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2505,7 +2505,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;->mResInstance:Landroid/content/res/Resources;
 
-    const v3, 0x7f0b0f02
+    const v3, 0x7f0b0f0d
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2545,7 +2545,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;->mResInstance:Landroid/content/res/Resources;
 
-    const v3, 0x7f0b0f02
+    const v3, 0x7f0b0f0d
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2597,7 +2597,7 @@
 
     aput-object v3, v2, v6
 
-    const v3, 0x7f0b0f00
+    const v3, 0x7f0b0f0b
 
     invoke-virtual {v1, v3, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2623,7 +2623,7 @@
 
     aput-object v3, v2, v6
 
-    const v3, 0x7f0b0f00
+    const v3, 0x7f0b0f0b
 
     invoke-virtual {v1, v3, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2794,7 +2794,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;->mResInstance:Landroid/content/res/Resources;
 
-    const v2, 0x7f0b0f03
+    const v2, 0x7f0b0f0e
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2806,7 +2806,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;->mResInstance:Landroid/content/res/Resources;
 
-    const v2, 0x7f0b0f03
+    const v2, 0x7f0b0f0e
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3014,7 +3014,7 @@
 
     const-string/jumbo v2, "bodyResId"
 
-    const v3, 0x7f0b0f0f
+    const v3, 0x7f0b0f1a
 
     invoke-virtual {v0, v2, v3}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
@@ -3037,7 +3037,7 @@
 .method private updateSavedTvState()V
     .locals 9
 
-    const v8, 0x7f0b0f12
+    const v8, 0x7f0b0f1d
 
     const/16 v1, 0x8
 
@@ -3407,7 +3407,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;->mResInstance:Landroid/content/res/Resources;
 
-    const v6, 0x7f0b1afa
+    const v6, 0x7f0b1afd
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3813,7 +3813,7 @@
 
     const-string/jumbo v4, "titleResId"
 
-    const v5, 0x7f0b0f09
+    const v5, 0x7f0b0f14
 
     invoke-virtual {v0, v4, v5}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
@@ -3831,7 +3831,7 @@
 
     const-string/jumbo v4, "bodyResId"
 
-    const v5, 0x7f0b0f08
+    const v5, 0x7f0b0f13
 
     invoke-virtual {v0, v4, v5}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
@@ -4338,7 +4338,7 @@
 .method public updateSavedDataCircleView()V
     .locals 9
 
-    const v8, 0x7f0a0300
+    const v8, 0x7f0a02fe
 
     const/16 v5, 0x8
 
@@ -4458,7 +4458,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;->mResInstance:Landroid/content/res/Resources;
 
-    const v4, 0x7f0a0301
+    const v4, 0x7f0a02ff
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -4466,7 +4466,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;->mResInstance:Landroid/content/res/Resources;
 
-    const v5, 0x7f0a0302
+    const v5, 0x7f0a0300
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -4478,7 +4478,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;->mResInstance:Landroid/content/res/Resources;
 
-    const v4, 0x7f0a0560
+    const v4, 0x7f0a055e
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -4529,7 +4529,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;->mResInstance:Landroid/content/res/Resources;
 
-    const v3, 0x7f0a0301
+    const v3, 0x7f0a02ff
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -4537,7 +4537,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;->mResInstance:Landroid/content/res/Resources;
 
-    const v4, 0x7f0a0302
+    const v4, 0x7f0a0300
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -4549,7 +4549,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;->mResInstance:Landroid/content/res/Resources;
 
-    const v3, 0x7f0a0560
+    const v3, 0x7f0a055e
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 

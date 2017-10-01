@@ -236,7 +236,7 @@
 
     if-eqz v1, :cond_1
 
-    const v0, 0x7f0b0bdc
+    const v0, 0x7f0b0be6
 
     :cond_0
     :goto_0
@@ -268,12 +268,12 @@
 
     if-nez v1, :cond_4
 
-    const v0, 0x7f0b0bde
+    const v0, 0x7f0b0be8
 
     goto :goto_0
 
     :cond_3
-    const v0, 0x7f0b0bdf
+    const v0, 0x7f0b0be9
 
     goto :goto_0
 
@@ -286,7 +286,7 @@
 
     if-nez v1, :cond_0
 
-    const v0, 0x7f0b0bdd
+    const v0, 0x7f0b0be7
 
     goto :goto_0
 .end method
@@ -294,7 +294,7 @@
 .method private getTextIdUnderNetworkStatus()I
     .locals 3
 
-    const v0, 0x7f0b0bd2
+    const v0, 0x7f0b0bdc
 
     const-string/jumbo v1, "VZW"
 
@@ -308,7 +308,7 @@
 
     if-eqz v1, :cond_0
 
-    const v0, 0x7f0b0bd1
+    const v0, 0x7f0b0bdb
 
     :cond_0
     iget-object v1, p0, Lcom/samsung/android/settings/smartbonding/SmartBondingEnabler;->mContext:Landroid/content/Context;
@@ -319,7 +319,7 @@
 
     if-eqz v1, :cond_2
 
-    const v0, 0x7f0b0bd9
+    const v0, 0x7f0b0be3
 
     :cond_1
     :goto_0
@@ -363,7 +363,7 @@
 
     if-eqz v1, :cond_6
 
-    const v0, 0x7f0b0bd5
+    const v0, 0x7f0b0bdf
 
     goto :goto_0
 
@@ -380,17 +380,17 @@
 
     if-eqz v1, :cond_5
 
-    const v0, 0x7f0b0bd7
+    const v0, 0x7f0b0be1
 
     goto :goto_0
 
     :cond_5
-    const v0, 0x7f0b0bd8
+    const v0, 0x7f0b0be2
 
     goto :goto_0
 
     :cond_6
-    const v0, 0x7f0b0bd6
+    const v0, 0x7f0b0be0
 
     goto :goto_0
 
@@ -415,12 +415,12 @@
 
     if-eqz v1, :cond_8
 
-    const v0, 0x7f0b0bd3
+    const v0, 0x7f0b0bdd
 
     goto :goto_0
 
     :cond_8
-    const v0, 0x7f0b0bd4
+    const v0, 0x7f0b0bde
 
     goto :goto_0
 .end method
@@ -483,7 +483,7 @@
 .method private onWidgetChanged(Z)Z
     .locals 10
 
-    const v9, 0x7f0b0bcd
+    const v9, 0x7f0b0bd7
 
     const/4 v5, 0x1
 
@@ -619,7 +619,7 @@
 
     invoke-virtual {v0, v9}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    const v3, 0x7f0b0b94
+    const v3, 0x7f0b0b9e
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -629,7 +629,7 @@
 
     if-eqz v3, :cond_8
 
-    const v3, 0x7f0b0ba2
+    const v3, 0x7f0b0bac
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -673,7 +673,7 @@
     if-eqz v3, :cond_a
 
     :cond_9
-    const v3, 0x7f0b0bab
+    const v3, 0x7f0b0bb5
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -700,7 +700,7 @@
 
     aput-object v7, v6, v4
 
-    const v7, 0x7f0b0bc4
+    const v7, 0x7f0b0bce
 
     invoke-virtual {v3, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -845,7 +845,7 @@
 .method private showNotificationDialog()Z
     .locals 11
 
-    const v10, 0x7f0b1109
+    const v10, 0x7f0b110c
 
     const v9, 0x104000a
 
@@ -889,7 +889,7 @@
 
     move-result-object v2
 
-    const v4, 0x7f0b0be0
+    const v4, 0x7f0b0bea
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -953,13 +953,13 @@
 
     invoke-direct {v4, v5}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v5, 0x7f0b0bd9
+    const v5, 0x7f0b0be3
 
     invoke-virtual {v4, v5}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v4
 
-    const v5, 0x7f0b0bcd
+    const v5, 0x7f0b0bd7
 
     invoke-virtual {v4, v5}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -1023,7 +1023,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b0bdb
+    const v6, 0x7f0b0be5
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1037,7 +1037,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b0bda
+    const v5, 0x7f0b0be4
 
     invoke-virtual {v4, v5}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -1080,7 +1080,7 @@
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
-    const v4, 0x7f0b0bce
+    const v4, 0x7f0b0bd8
 
     invoke-virtual {v0, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -1413,7 +1413,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/smartbonding/SmartBondingEnabler;->mSwitchPref:Landroid/preference/SwitchPreference;
 
-    const v2, 0x7f0b19d8
+    const v2, 0x7f0b19db
 
     invoke-virtual {v1, v2}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -1437,7 +1437,7 @@
     :cond_7
     iget-object v1, p0, Lcom/samsung/android/settings/smartbonding/SmartBondingEnabler;->mSwitchPref:Landroid/preference/SwitchPreference;
 
-    const v2, 0x7f0b19d9
+    const v2, 0x7f0b19dc
 
     invoke-virtual {v1, v2}, Landroid/preference/SwitchPreference;->setSummary(I)V
 

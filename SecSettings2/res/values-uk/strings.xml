@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Підтримка</string>
     <string name="reset_network_settings_list_summary">Скидання налаштувань Wi-Fi, Bluetooth та інших мереж до стандартних значень.</string>
     <string name="master_clear_list_summary">Скидання налаштувань пристрою до стандартних заводських значень. Це призведе до стирання всіх даних, в тому числі файлів та завантажених програм.</string>
-    <string name="auto_restart_summary">Оптимізуйте роботу пристрою, автоматично перезавантажуючи його в заданий час. Перезавантаження пристрою призведе до втрати усіх незбережених даних.</string>
+    <string name="auto_restart_summary">Оптимізуйте роботу телефону за допомогою автоматичного перезапуску один раз на тиждень. Перезапуск телефону призведе до втрати всіх незбережених даних.</string>
     <string name="search_settings">Пошук</string>
     <string name="related_results">Пов’язаних елементів: %d</string>
     <string name="no_results_found">Результатів не знайдено</string>
@@ -1487,6 +1487,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_verify_failed_summary">Неможливо перезавантажити пристрій. Стався збій перевірки цілісності. Пристрій необхідно скинути до заводських налаштувань. Це призведе до стирання всіх ваших даних.</string>
     <string name="cryptkeeper_emergency_call">Екстрений виклик</string>
     <string name="cryptkeeper_return_to_call">Повернутися до виклику</string>
+    <string name="cryptkeeper_default_enter_msg">Ваш телефон зашифровано з міркувань безпеки.</string>
     <string name="enter_password">Для запуску пристрою введіть пароль.</string>
     <string name="enter_pin">Для запуску пристрою введіть PIN-код.</string>
     <string name="enter_pattern">Для запуску пристрою накресліть малюнок.</string>
@@ -1500,6 +1501,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_last_warn_wipe">У вас залишилась лише 1 спроба запуску пристрою перед тим, як його налаштування буде скинуто до стандартних. Це призведе до стирання всіх даних, у тому числі файлів та завантажених програм.</string>
     <string name="crypt_keeper_failed_title_dec">Збій дешифрування.</string>
     <string name="crypt_keeper_failed_summary_dec">Неможливо завершити дешифрування через переривання. Скиньте дані до заводських значень (стирання всіх даних) перед використанням.</string>
+    <string name="crypt_keeper_set_screen_lock_type">Встанов. тип блокування екрана</string>
     <string name="encryption_interstitial_message_kor">Пристрій зашифровано. Захистіть зашифровані дані, установивши «Запит на розблокування екрана» після його ввімкнення. Це дозволить захистити дані у разі загублення або викрадення пристрою. Після кожного ввімкнення необхідно буде розблокувати його, щоб розшифрувати збережені на пристрої дані. Ви не отримуватимете викликів, повідомлень або сповіщень, доки не розшифруєте дані на пристрої.</string>
     <string name="encryption_interstitial_message_direction">"Можна підвищити рівень безпеки пристрою, увімкнувши запит на розблокування серією напрямків при ввімкненні. Це допомагає захистити дані у випадку загублення або викрадення пристрою.
 
@@ -1739,6 +1741,8 @@ You will also need it when:"</string>
     <string name="empty_content_toast">Немає вмісту для збереження.</string>
     <string name="find_my_mobile_message_zero">"Відстежуйте пристрій та керуйте ним дистанційно за допомогою веб-служби «Пошук мого телефону». Детальнішу інформацію, в тому числі про інші доступні функції, можна знайти на наступному веб-сайті:
 %s"</string>
+    <string name="send_last_location_title">Надсилання останнього розташув.</string>
+    <string name="send_last_location_summary">Дозвіл на надсилання останнього розташування телефону до сервера «Пошук мого мобільного пристрою», коли заряд батареї опускається нижче певного рівня.</string>
     <string name="high_power_description">Увімкніть функцію «Оптимізація використання батареї» для окремих програм. Роботу деяких функцій, наприклад використання мобільних мереж або синхронізації даних, буде обмежено для заощадження заряду акумулятора.</string>
     <string name="wifi_display_summary_off">Вимкнено</string>
     <string name="battery_usage_description">Після повного зарядження пристрою на екрані відображатимуться дані про заряд батареї.</string>
@@ -1970,6 +1974,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">Вибір ярликів програм для використання на екрані блокування.</string>
     <string name="lockscreen_notifications">Сповіщення на екрані блокування</string>
     <string name="work_profile_lockscreen_notifications">Сповіщення робочого профілю</string>
+    <string name="lock_network_and_security">Блокув. мереж і функцій безпеки</string>
+    <string name="lock_network_and_security_summary">Блокування мережі і функцій безпеки під час блокування телефону спрощує його пошук і захист у разі втрати чи крадіжки.</string>
     <string name="dualclock_settings_title">Подвійний годинник</string>
     <string name="dualclock_settings_summary">Показувати місцевий і домашній часові пояси в роумінгу.</string>
     <string name="set_home_city">Устан. дом. часов. поясу</string>
@@ -2155,7 +2161,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="air_browse_music_on_lock_screen_title">Музика на екрані блокування</string>
     <string name="air_browse_music_on_lock_screen_summary">Змінення музичних записів на екрані блокування.</string>
     <string name="air_browse_note_summary">Переміщення між сторінками під час використання режиму перегляду.</string>
-    <string name="data_usage_enable_mobile_summery">Якщо мобільні дані вимкнено, потрібно підключити пристрій до мережі Wi-Fi, щоб використовувати служби, які потребують з’єднання з мережею.</string>
+    <string name="data_usage_enable_mobile_summery">Використовуйте мобільну мережу для доступу в Інтернет.</string>
     <string name="data_usage_enable_mobile_warning_skt">Підключення до мобільних мереж може призвести до додаткових витрат залежно від тарифного плану. Продовжити?</string>
     <string name="data_usage_enable_mobile_warning_ktt">Підключення до мобільних мереж може призвести до додаткових витрат залежно від тарифного плану. Продовжити?</string>
     <string name="data_usage_enable_mobile_warning_lgt">Підключення до мобільних мереж може призвести до додаткових витрат залежно від тарифного плану. Продовжити?</string>
@@ -2525,8 +2531,8 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="secure_folder_summary">Блокування приватного вмісту та програм для посилення конфіденційності.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s не підтримує розблокування %2$s за допомогою відбитків пальців.</string>
     <string name="edge_feeds_title">Канали Edge</string>
-    <string name="screensaver_settings_summary">Керуйте тим, що відбувається, поки пристрій підключено до док-станції та/або заряджається, а його екран вимкнено. Цю функцію також називають екранною заставкою.</string>
-    <string name="screensaver_settings_summary_wo_dock">Відображення заставки після автоматичного вимкнення екрана під час заряджання пристрою.</string>
+    <string name="screensaver_settings_summary">Відображення заставки після автоматичного вимкнення екрана під час заряджання телефону.</string>
+    <string name="screensaver_settings_summary_wo_dock">Відображення заставки після автоматичного вимкнення екрана під час заряджання телефону або встановлення його на док-станцію.</string>
     <string name="apn_already_exists">Вже існує.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Номер порту має бути в межах від %1$d до %2$d.</string>
@@ -3291,6 +3297,7 @@ Wi-Fi is now on."</string>
     <string name="wfd_connection_end_toast">Підключення за допомогою Screen Mirroring завершено.</string>
     <string name="wfd_descrpition_playvia">Відтворити вміст.</string>
     <string name="wfd_descrpition_mirroring">Відображення екрана.</string>
+    <string name="wfd_descrpition_playsound">Відтворення звуку.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">Багатовіконний режим буде вимкнено; всі програми, відкриті у спливаючих вікнах, буде закрито.</string>
     <string name="keyguard_password_attempt_count_pin_code">%d спроба залишилась.</string>
@@ -4130,7 +4137,7 @@ Receiving SMS"</string>
     <string name="location_network_based">Використ. безпров. мережі</string>
     <string name="location_neighborhood_level">Дозволити програмам використовувати службу Google для прискорення пошуку місцерозташування. Анонімні дані будуть надсилатися до Google.</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">Про пристрій</string>
+    <string name="about_settings">Про телефон</string>
     <string name="about_settings_vzw">Про пристрій</string>
     <string name="legal_information">Юридична інформація</string>
     <string name="regulatory_information">Нормативна інформація</string>
@@ -4315,7 +4322,7 @@ Receiving SMS"</string>
     <string name="phone_language">Мова</string>
     <string name="show_password">Зробити паролі видимими</string>
     <string name="show_password_summary">Коротке відображення символів паролю під час введення.</string>
-    <string name="ime_security_warning">У разі використання цього способу може збиратися весь текст, який вводиться, окрім паролів, включно з особистими даними та номерами кредитних карток. Його джерело — програма %1$s. Все одно використати?</string>
+    <string name="ime_security_warning">Клавіатура %s може збирати інформацію про будь-який текст, який ви вводите, зокрема персональні дані, такі як паролі та номери кредитних карт.</string>
     <string name="failed_to_open_app_settings_toast">Не вдалося відкрити установки програми %s.</string>
     <string name="keyboard_and_input_methods_category">Клавіатури</string>
     <string name="virtual_keyboard_category">Віртуальна клавіатура</string>

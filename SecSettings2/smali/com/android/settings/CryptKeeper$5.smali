@@ -60,7 +60,7 @@
 
     iget-object v1, p0, Lcom/android/settings/CryptKeeper$5;->this$0:Lcom/android/settings/CryptKeeper;
 
-    invoke-static {v1}, Lcom/android/settings/CryptKeeper;->-get10(Lcom/android/settings/CryptKeeper;)Landroid/widget/Button;
+    invoke-static {v1}, Lcom/android/settings/CryptKeeper;->-get11(Lcom/android/settings/CryptKeeper;)Landroid/widget/Button;
 
     move-result-object v1
 
@@ -68,7 +68,7 @@
 
     iget-object v1, p0, Lcom/android/settings/CryptKeeper$5;->this$0:Lcom/android/settings/CryptKeeper;
 
-    invoke-static {v1}, Lcom/android/settings/CryptKeeper;->-get10(Lcom/android/settings/CryptKeeper;)Landroid/widget/Button;
+    invoke-static {v1}, Lcom/android/settings/CryptKeeper;->-get11(Lcom/android/settings/CryptKeeper;)Landroid/widget/Button;
 
     move-result-object v1
 

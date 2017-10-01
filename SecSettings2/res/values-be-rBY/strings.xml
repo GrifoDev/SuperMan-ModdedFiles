@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Падтрымка</string>
     <string name="reset_network_settings_list_summary">Скіньце налады Wi-Fi, Bluetooth і іншых сетак да стандартных.</string>
     <string name="master_clear_list_summary">Скіньце налады вашай прылады да заводскіх значэнняў. Гэта выдаліць усе даныя, у тым ліку файлы і спампаваныя праграмы.</string>
-    <string name="auto_restart_summary">Аптымізуйце прыладу, аўтаматычна перазапускаючы яе ў вызначаныя часы. Усе незахаваныя даныя будуць страчаны пры перазапуску прылады.</string>
+    <string name="auto_restart_summary">Аптымізуйце свой тэлефон шляхам аўтаматычнага перазапуску раз у тыдзень. Усе незахаваныя даныя будуць страчаны пры перазапуску тэлефона.</string>
     <string name="search_settings">Пошук</string>
     <string name="related_results">Звязаных элементаў: %d</string>
     <string name="no_results_found">Вынікі не знойдзены</string>
@@ -1485,6 +1485,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_verify_failed_summary">Немагчыма перазапусціць вашу прыладу. Збой праверкі цэласнасці. Трэба скінуць налады прылады да заводскіх значэнняў. Усе даныя пры гэтым будуць сцёрты.</string>
     <string name="cryptkeeper_emergency_call">Экстранны выклік</string>
     <string name="cryptkeeper_return_to_call">Вярнуцца да выкліку</string>
+    <string name="cryptkeeper_default_enter_msg">Ваш тэлефон зашыфраваны ў мэтах бяспекі.</string>
     <string name="enter_password">Каб запусціць прыладу, увядзіце пароль.</string>
     <string name="enter_pin">Каб запусціць прыладу, увядзіце PIN-код.</string>
     <string name="enter_pattern">Каб запусціць прыладу, намалюйце ўзор разблакіроўкі.</string>
@@ -1498,6 +1499,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_last_warn_wipe">У вас засталася толькі 1 спроба, каб запусціць прыладу, перш чым яе налады будуць скінуты да заводскіх значэнняў па змаўчанні. Гэта выдаліць усе даныя, у тым ліку файлы і спампаваныя праграмы.</string>
     <string name="crypt_keeper_failed_title_dec">Памылка расшыфроўкі.</string>
     <string name="crypt_keeper_failed_summary_dec">З-за перапынення немагчыма завяршыць расшыфроўку. Перад выкарыстаннем скіньце прыладу да заводскіх даных (сціранне ўсіх даных).</string>
+    <string name="crypt_keeper_set_screen_lock_type">Задаць тып блакіроўкі экрана</string>
     <string name="encryption_interstitial_message_kor">Прылада зашыфравана. Абараніце свае даныя зашыфраваныя даныя, выбіраючы «Патрабуе блакіроўкі экрана», каб расшыфраваць даныя пры ўключэнні прылады. Гэта дапамагае абараніць даныя на згубленых або скрадзеных прыладах. Трэба будзе разблакіроўваць экран прыладу, каб расшыфраваць даныя на ёй, пры кожным ўключэнні. Вы не зможаце атрымліваць выклікі, паведамленні або апавяшчэнні, пакуль не расшыфруеце прыладу.</string>
     <string name="encryption_interstitial_message_direction">"Абараніце сваю прыладу, выбраўшы «Патрабаваць напрамак блакіроўкі пры ўключэнні прылады». Гэта дапамагае абараніць даныя на згубленых або скрадзеных прыладах.
 
@@ -1737,6 +1739,8 @@ You will also need it when:"</string>
     <string name="empty_content_toast">No content to save.</string>
     <string name="find_my_mobile_message_zero">"Адсочвайце і аддалена кіруйце сваёй прыладай з дапамогай вэб-сэрвіса «Знайсці мой тэлефон». Для атрымання дадатковых звестак і каб даведацца, якія функцыі даступны, наведайце наступны вэб-сайт:
 %s"</string>
+    <string name="send_last_location_title">Адправіць апошняе месцазнаходж.</string>
+    <string name="send_last_location_summary">Дазвольце тэлефону адпраўляць яго апошняе месцазнаходжанне на сервер «Знайсці мой тэлефон», калі узровень зараду акумулятара апускаецца ніжэй за пэўны ўзровень.</string>
     <string name="high_power_description">Уключыце «Аптымізаваць выкарыстанне акумулятара» для асобных праграм. Некаторыя функцыі, напрыклад якія выкарыстоўваюць мабільныя сеткі або сінхранізуюць даныя, будуць забаронены для эканоміі зараду акумулятара.</string>
     <string name="wifi_display_summary_off">Выкл.</string>
     <string name="battery_usage_description">Гэты экран паказвае даныя спажывання зараду акумулятара з моманту апошняй поўнай зарадкі прылады.</string>
@@ -1968,6 +1972,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">Выберыце, якія ярлыкі праграм вы хочаце выкарыстоўваць на экране блакіроўкі.</string>
     <string name="lockscreen_notifications">Апавяшчэнні на экране блакіроўкі</string>
     <string name="work_profile_lockscreen_notifications">Апавяшчэнні працоўнага профілю</string>
+    <string name="lock_network_and_security">Блакіроўка сеткі і бяспека</string>
+    <string name="lock_network_and_security_summary">Трымайце сеткавыя функцыі і функцыі, звязаныя з бяспекай, заблакіраванымі, калі ваш тэлефон заблакіраваны, у выніку чаго яго будзе лягчэй знайсці і абараніць у выпадку яго крадзяжу або страты.</string>
     <string name="dualclock_settings_title">Двайны гадзіннік</string>
     <string name="dualclock_settings_summary">Паказваць у роўмінгу мясцовы і дамашні часавы пояс.</string>
     <string name="set_home_city">Задаць лакальны час. пояс</string>
@@ -2154,7 +2160,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="air_browse_music_on_lock_screen_title">Музыка на экране блакіроўкі</string>
     <string name="air_browse_music_on_lock_screen_summary">Змена музычных трэкаў на экране блакіроўкі.</string>
     <string name="air_browse_note_summary">Перамяшчэнне паміж старонкамі ў рэжыме прагляду.</string>
-    <string name="data_usage_enable_mobile_summery">Калі опцыя «Мабільная перадача даных» выключана, вашу прыладу трэба далучыць да сеткі Wi-Fi для выкарыстання паслуг, якія патрабуюць сеткавага падлучэння.</string>
+    <string name="data_usage_enable_mobile_summery">Атрымлівайце доступ у інтэрнэт праз мабільную сетку.</string>
     <string name="data_usage_enable_mobile_warning_skt">Злучэнне з мабільнымі сеткамі можа патрабаваць дадатковай аплаты, у залежнасці ад тарыфнага плана на перадачу даных. Працягнуць?</string>
     <string name="data_usage_enable_mobile_warning_ktt">Злучэнне з мабільнымі сеткамі можа патрабаваць дадатковай аплаты, у залежнасці ад тарыфнага плана на перадачу даных. Працягнуць?</string>
     <string name="data_usage_enable_mobile_warning_lgt">Злучэнне з мабільнымі сеткамі можа патрабаваць дадатковай аплаты, у залежнасці ад тарыфнага плана на перадачу даных. Працягнуць?</string>
@@ -2523,8 +2529,8 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="secure_folder_summary">Заблакіруйце прыватнае змесціва і праграмы, каб павялічыць узровень бяспекі.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s не падтрымлівае распазнаванне адбіткаў пальцаў для разблакіроўкі %2$s.</string>
     <string name="edge_feeds_title">Бакавыя каналы</string>
-    <string name="screensaver_settings_summary">Кантралюйце, што адбываецца, калі прылада знаходзіцца на падстаўца і/або зараджаецца, калі экран выключаны. Гэта функцыя таксама называецца «Экранная застаўка».</string>
-    <string name="screensaver_settings_summary_wo_dock">Паказваць застаўку пасля аўтаматычнага выключэння экрана падчас зарадкі прылады.</string>
+    <string name="screensaver_settings_summary">Паказваць застаўку пасля аўтаматычнага выключэння экрана падчас зарадкі тэлефона.</string>
+    <string name="screensaver_settings_summary_wo_dock">Паказваць застаўку пасля аўтаматычнага выключэння экрана падчас зарадкі тэлефона або яго знаходжання на падстаўцы.</string>
     <string name="apn_already_exists">Ужо існуе.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Нумар порта павінен быць ад %1$d да %2$d.</string>
@@ -3290,6 +3296,7 @@ Wi-Fi is now on."</string>
     <string name="wfd_connection_end_toast">Злучэнне Screen Mirroring скончана.</string>
     <string name="wfd_descrpition_playvia">Прайграць змесціва.</string>
     <string name="wfd_descrpition_mirroring">Адлюстраваць экран.</string>
+    <string name="wfd_descrpition_playsound">Прайграць гук.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">Рэжым прагляду ў некалькіх вокнах будзе адключаны, і ўсе праграмы, якія адкрыты ва ўсплывальных вокнах, будуць закрыты.</string>
     <string name="keyguard_password_attempt_count_pin_code">Засталося спроб: %d.</string>
@@ -4136,7 +4143,7 @@ SD-карту"</string>
     <string name="location_network_based">Ужываць бесправ. сеткі</string>
     <string name="location_neighborhood_level">Дазволіць праграмам ужываць сэрвісы Google для хуткага вызначэння месца. Даныя аб месцы будуць ананімна збірацца і адпраўляцца ў Google.</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">Аб прыладзе</string>
+    <string name="about_settings">Пра тэлефон</string>
     <string name="about_settings_vzw">Аб прыладзе</string>
     <string name="legal_information">Юрыдычная інфармацыя</string>
     <string name="regulatory_information">Нарматыўныя звесткі</string>
@@ -4321,7 +4328,7 @@ SD-карту"</string>
     <string name="phone_language">Мова</string>
     <string name="show_password">Зрабіць паролі бачнымі</string>
     <string name="show_password_summary">На кароткі час паказваць сімвалы пароля падчас іх уводу.</string>
-    <string name="ime_security_warning">Гэты спосаб уводу можа збіраць увесь тэкст, які ўводзіцца (за выключэннем пароляў), у тым ліку асабовыя даныя і нумары крэдытных карт. Яго забяспечвае праграма %1$s. Усё роўна выкарыстоўваць?</string>
+    <string name="ime_security_warning">%s можа збіраць увесь тэкст, які ўводзіцца, у тым ліку персанальныя даныя, напрыклад паролі і нумары крэдытных карт.</string>
     <string name="failed_to_open_app_settings_toast">Немагчыма адкрыць налады %s.</string>
     <string name="keyboard_and_input_methods_category">Клавіятуры</string>
     <string name="virtual_keyboard_category">Віртуальная клавіятура</string>

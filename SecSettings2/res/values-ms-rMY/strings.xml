@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Sokongan</string>
     <string name="reset_network_settings_list_summary">Tetap semula Wi-Fi, Bluetooth dan aturan rangkaian lain kepada aturan lalai.</string>
     <string name="master_clear_list_summary">Tetap semula peranti anda kepada aturan lalai kilang. Ini akan memadamkan semua data, termasuklah fail dan aplikasi yang dimuat turun.</string>
-    <string name="auto_restart_summary">Optimumkan peranti anda dengan memulakannya semula secara automatik pada masa yang ditetapkan. Sebarang data yang tidak disimpan akan hilang apabila peranti bermula semula.</string>
+    <string name="auto_restart_summary">Optimumkan telefon anda dengan memulakan semula secara automatik seminggu sekali. Sebarang data yang tidak disimpan akan hilang apabila telefon anda dimulakan semula.</string>
     <string name="search_settings">Cari</string>
     <string name="related_results">%d item berkaitan</string>
     <string name="no_results_found">Tiada keputusan ditemui</string>
@@ -1485,6 +1485,7 @@ Penyulitan mengambil masa satu jam atau lebih. Sebelum anda mula, pastikan bater
     <string name="crypt_keeper_verify_failed_summary">Tidak dapat memulakan semula peranti anda. Pengesahan integriti gagal. Anda perlu menetapkan semula peranti anda ke aturan lalai kilang. Ini akan memadamkan semua data anda.</string>
     <string name="cryptkeeper_emergency_call">Panggilan kecemasan</string>
     <string name="cryptkeeper_return_to_call">Kembali ke panggilan</string>
+    <string name="cryptkeeper_default_enter_msg">Telefon anda disulitkan untuk keselamatan.</string>
     <string name="enter_password">Untuk memulakan peranti anda, masukkan kata laluan anda.</string>
     <string name="enter_pin">Untuk memulakan peranti anda, masukkan PIN anda.</string>
     <string name="enter_pattern">Untuk memulakan peranti anda, lukis corak anda.</string>
@@ -1498,6 +1499,7 @@ Penyulitan mengambil masa satu jam atau lebih. Sebelum anda mula, pastikan bater
     <string name="crypt_keeper_last_warn_wipe">Anda mempunyai 1 percubaan lagi untuk memulakan peranti anda sebelum ia ditetap semula kepada aturan lalai kilang. Ini akan memadamkan semua data, termasuklah fail dan aplikasi yang dimuat turun.</string>
     <string name="crypt_keeper_failed_title_dec">Dekripsi gagal.</string>
     <string name="crypt_keeper_failed_summary_dec">Tidak dapat melengkapkan penyahsulitan kerana gangguan. Lakukan tetapan semula data kilang (yang akan memadam semua data) sebelum guna.</string>
+    <string name="crypt_keeper_set_screen_lock_type">Tetapkan jenis kunci skrin</string>
     <string name="encryption_interstitial_message_kor">Peranti anda disulitkan. Lindungi data disulit anda dengan memilih Perlukan skrin kunci untuk menyahsulitkan data apabila peranti dihidupkan kuasa. Ini membantu anda melindungi data pada peranti yang hilang atau dicuri. Anda perlu membuka kunci peranti anda untuk menyahsulitkan data apabila anda menghidupkan kuasanya. Anda tidak akan menerima sebarang panggilan, mesej atau pemberitahuan sehingga anda menyahsulitkan peranti anda.</string>
     <string name="encryption_interstitial_message_direction">"Lindungi peranti anda dengan memilih Perlukan Kunci arah apabila peranti dihidupkan kuasa. Ini membantu anda melindungi data pada peranti yang hilang atau dicuri.
 
@@ -1737,6 +1739,8 @@ Sebelum anda meminta pembaikan di bawah waranti, Kunci pengaktifan semula mesti 
     <string name="empty_content_toast">Tiada kandungan untuk disimpan.</string>
     <string name="find_my_mobile_message_zero">"Jejak dan kawal peranti anda secara jauh menggunakan perkhidmatan web Cari Telefon Bimbit Saya. Untuk maklumat lanjut dan mengetahui fungsi lain yang tersedia, lawati laman web berikut:
 %s"</string>
+    <string name="send_last_location_title">Hantar lokasi terakhir</string>
+    <string name="send_last_location_summary">Benarkan telefon anda menghantarkan lokasi terakhirnya ke pelayan Cari Telefon Bimbit Saya apabila bateri mencapai aras tertentu.</string>
     <string name="high_power_description">Aktifkan Optimumkan penggunaan bateri bagi aplikasi individu. Sesetengah fungsi, seperti fungsi yang menggunakan rangkaian mudah alih atau penyelarasan data akan dihadkan untuk menjimatkan kuasa bateri.</string>
     <string name="wifi_display_summary_off">Matikan</string>
     <string name="battery_usage_description">Skrin ini menunjukkan data penggunaan bateri sejak kali terakhir peranti dicas sepenuhnya.</string>
@@ -1968,6 +1972,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">Pilih pintasan aplikasi yang anda ingin gunakan pada skrin kunci.</string>
     <string name="lockscreen_notifications">Pemberitahuan pada skrin kunci</string>
     <string name="work_profile_lockscreen_notifications">Pemberitahuan profil kerja</string>
+    <string name="lock_network_and_security">Rangkaian kunci dan keselamatan</string>
+    <string name="lock_network_and_security_summary">Mengekalkan ciri berkaitan rangkaian dan keselamatan dikunci semasa telefon anda dikunci menjadikannya lebih mudah untuk dikesan dan melindunginya jika ia hilang atau dicuri.</string>
     <string name="dualclock_settings_title">Jam duaan</string>
     <string name="dualclock_settings_summary">Tunjukkan zon waktu tempatan dan negara sendiri semasa perayauan.</string>
     <string name="set_home_city">Tetapkan zon waktu utama</string>
@@ -2153,7 +2159,7 @@ Walaupun jika data telefon anda dipadam, kata laluan Akaun Google diperlukan seb
     <string name="air_browse_music_on_lock_screen_title">Muzik pada skrin kunci</string>
     <string name="air_browse_music_on_lock_screen_summary">Tukar lagu muzik pada skrin kunci.</string>
     <string name="air_browse_note_summary">Beralih antara halaman semasa dalam Mod pandangan.</string>
-    <string name="data_usage_enable_mobile_summery">Jika Data mudah alih dimatikan, peranti anda mesti disambungkan kepada rangkaian Wi-Fi untuk menggunakan perkhidmatan yang memerlukan sambungan rangkaian.</string>
+    <string name="data_usage_enable_mobile_summery">Capai Internet melalui rangkaian mudah alih anda.</string>
     <string name="data_usage_enable_mobile_warning_skt">Jika anda menyambung ke rangkaian mudah alih, caj tambahan boleh dikenakan, bergantung kepada pelan data anda. Teruskan?</string>
     <string name="data_usage_enable_mobile_warning_ktt">Jika anda menyambung ke rangkaian mudah alih, caj tambahan boleh dikenakan, bergantung kepada pelan data anda. Teruskan?</string>
     <string name="data_usage_enable_mobile_warning_lgt">Jika anda menyambung ke rangkaian mudah alih, caj tambahan boleh dikenakan, bergantung kepada pelan data anda. Teruskan?</string>
@@ -2523,8 +2529,8 @@ Cuba lagi."</string>
     <string name="secure_folder_summary">Kunci kandungan dan aplikasi peribadi anda untuk meningkatkan keselamatan.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s tidak menyokong cap jari untuk membuka kunci %2$s.</string>
     <string name="edge_feeds_title">Suapan Edge</string>
-    <string name="screensaver_settings_summary">Kawalan perkara yang berlaku apabila peranti dikunci dan/atau dicas apabila skrin dimatikan. Fungsi ini dikenali sebagai Pelindung skrin.</string>
-    <string name="screensaver_settings_summary_wo_dock">Tunjukkan pemelihara skrin selepas skrin dimatikan secara automatik semasa peranti sedang dicas.</string>
+    <string name="screensaver_settings_summary">Tunjukkan pemelihara skrin selepas skrin dimatikan secara automatik semasa telefon anda sedang dicas.</string>
+    <string name="screensaver_settings_summary_wo_dock">Tunjukkan pemelihara skrin selepas skrin dimatikan secara automatik semasa telefon anda sedang didok atau dicas.</string>
     <string name="apn_already_exists">Telah wujud.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Nombor port mesti antara %1$d dan %2$d.</string>
@@ -3289,6 +3295,7 @@ Penggunaan Mobile hotspot meningkatkan penggunaan bateri dan penggunaan data."</
     <string name="wfd_connection_end_toast">Sambungan Screen Mirroring ditamatkan.</string>
     <string name="wfd_descrpition_playvia">Mainkan kandungan.</string>
     <string name="wfd_descrpition_mirroring">Cerminkan skrin.</string>
+    <string name="wfd_descrpition_playsound">Mainkan bunyi.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">Berbilang tetingkap akan dinyahaktifkan dan semua aplikasi yang dibuka di dalam tetingkap pop timbul akan ditutup.</string>
     <string name="keyguard_password_attempt_count_pin_code">%d percubaan lagi.</string>
@@ -4128,7 +4135,7 @@ Pertimbangkan untuk menggunakan kad SD atau peranti storan USB untuk meningkatka
     <string name="location_network_based">Gunakn rangkaian wyrles</string>
     <string name="location_neighborhood_level">"Bnrkn apl utk m'gunakn p'khidmtn lokasi Google utk m'anggarkn lokasi anda dgn lbh cpt. Data lokasi tanpa nama akn dikumpulkn dn dihantr kpd Google."</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">Mengenai peranti</string>
+    <string name="about_settings">Mengenai telefon</string>
     <string name="about_settings_vzw">Tentang peranti</string>
     <string name="legal_information">Maklumat undang-undang</string>
     <string name="regulatory_information">Maklumat pengawalseliaan</string>
@@ -4313,7 +4320,7 @@ Data aplikasi sedia ada anda tidak akan hilang."</string>
     <string name="phone_language">Bahasa</string>
     <string name="show_password">Buat kata laluan kelihatan</string>
     <string name="show_password_summary">Tunjukkan aksara kata laluan sebentar semasa anda menaipnya.</string>
-    <string name="ime_security_warning">Kaedah ini boleh mengumpul semua teks yang anda masukkan, kecuali kata laluan, termasuk data dan nombor kad kredit peribadi. Ia datang daripada aplikasi %1$s. Gunakan juga?</string>
+    <string name="ime_security_warning">%s boleh mengumpul semua teks yang anda taip, termasuk data peribadi seperti kata laluan dan nombor kad kredit.</string>
     <string name="failed_to_open_app_settings_toast">Gagal membuka aturan untuk %s.</string>
     <string name="keyboard_and_input_methods_category">Papan kekunci</string>
     <string name="virtual_keyboard_category">Papan kekunci maya</string>

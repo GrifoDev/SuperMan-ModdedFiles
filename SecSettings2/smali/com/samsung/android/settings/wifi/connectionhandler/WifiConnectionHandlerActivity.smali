@@ -131,7 +131,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b0c38
+    const v5, 0x7f0b0c42
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -139,7 +139,7 @@
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v4, 0x7f1102b5
+    const v4, 0x7f1102b3
 
     invoke-virtual {v0, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -155,7 +155,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b0c37
+    const v5, 0x7f0b0c41
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -169,7 +169,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b0c3a
+    const v5, 0x7f0b0c44
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -185,7 +185,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b0c39
+    const v5, 0x7f0b0c43
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

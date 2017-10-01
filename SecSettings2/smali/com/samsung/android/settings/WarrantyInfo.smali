@@ -430,7 +430,7 @@
 
     move-result-object v5
 
-    const v7, 0x7f110706
+    const v7, 0x7f110704
 
     invoke-virtual {v5, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

@@ -521,7 +521,7 @@
 
     iget-object v6, p0, Lcom/samsung/android/settings/SmartStaySettings;->mView:Landroid/view/View;
 
-    const v7, 0x7f110655
+    const v7, 0x7f110653
 
     invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -536,7 +536,7 @@
     :cond_0
     iget-object v6, p0, Lcom/samsung/android/settings/SmartStaySettings;->mView:Landroid/view/View;
 
-    const v7, 0x7f110652
+    const v7, 0x7f110650
 
     invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -609,7 +609,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/SmartStaySettings;->mView:Landroid/view/View;
 
-    const v4, 0x7f110655
+    const v4, 0x7f110653
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -624,7 +624,7 @@
     :cond_0
     iget-object v3, p0, Lcom/samsung/android/settings/SmartStaySettings;->mView:Landroid/view/View;
 
-    const v4, 0x7f110652
+    const v4, 0x7f110650
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

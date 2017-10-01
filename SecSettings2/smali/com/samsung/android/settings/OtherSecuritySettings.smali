@@ -330,7 +330,7 @@
 .method private SetFirstTimePhonepassword(Landroid/content/Intent;)V
     .locals 5
 
-    const v4, 0x7f0b0b20
+    const v4, 0x7f0b0b2a
 
     const/16 v3, 0x64
 
@@ -392,7 +392,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0b22
+    const v1, 0x7f0b0b2c
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/OtherSecuritySettings;->getString(I)Ljava/lang/String;
 
@@ -454,13 +454,13 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0b1f
+    const v1, 0x7f0b0b29
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/OtherSecuritySettings;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    const v2, 0x7f0b0b23
+    const v2, 0x7f0b0b2d
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/OtherSecuritySettings;->getString(I)Ljava/lang/String;
 
@@ -483,7 +483,7 @@
 .method private StartPassword()V
     .locals 5
 
-    const v3, 0x7f0b0b1e
+    const v3, 0x7f0b0b28
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/OtherSecuritySettings;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -505,13 +505,13 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0b1f
+    const v2, 0x7f0b0b29
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/OtherSecuritySettings;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    const v3, 0x7f0b0b23
+    const v3, 0x7f0b0b2d
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/OtherSecuritySettings;->getString(I)Ljava/lang/String;
 
@@ -533,7 +533,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0b21
+    const v2, 0x7f0b0b2b
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/OtherSecuritySettings;->getString(I)Ljava/lang/String;
 
@@ -625,7 +625,7 @@
 
     move-object/from16 v22, v0
 
-    const v23, 0x7f0b0b1e
+    const v23, 0x7f0b0b28
 
     invoke-virtual/range {v22 .. v23}, Landroid/preference/PreferenceScreen;->setTitle(I)V
 
@@ -649,7 +649,7 @@
 
     invoke-direct {v13, v0}, Landroid/preference/PreferenceCategory;-><init>(Landroid/content/Context;)V
 
-    const v22, 0x7f0b0b1d
+    const v22, 0x7f0b0b27
 
     move/from16 v0, v22
 
@@ -742,7 +742,7 @@
 
     move-result-object v23
 
-    const v24, 0x7f0b135e
+    const v24, 0x7f0b1361
 
     invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -766,7 +766,7 @@
 
     move-result-object v23
 
-    const v24, 0x7f0b135d
+    const v24, 0x7f0b1360
 
     invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -902,7 +902,7 @@
 
     move-result-object v23
 
-    const v24, 0x7f0b19d8
+    const v24, 0x7f0b19db
 
     invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1066,7 +1066,7 @@
 
     if-eqz v22, :cond_12
 
-    const v17, 0x7f0b1714
+    const v17, 0x7f0b1717
 
     :goto_3
     move/from16 v0, v17
@@ -1474,7 +1474,7 @@
     goto/16 :goto_2
 
     :cond_12
-    const v17, 0x7f0b1715
+    const v17, 0x7f0b1718
 
     goto/16 :goto_3
 
@@ -1597,7 +1597,7 @@
 
     move-object/from16 v22, v0
 
-    const v23, 0x7f0b0b08
+    const v23, 0x7f0b0b12
 
     invoke-virtual/range {v22 .. v23}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -1616,7 +1616,7 @@
 
     move-object/from16 v22, v0
 
-    const v23, 0x7f0b0b09
+    const v23, 0x7f0b0b13
 
     invoke-virtual/range {v22 .. v23}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -1629,7 +1629,7 @@
 
     move-object/from16 v22, v0
 
-    const v23, 0x7f0b0b0a
+    const v23, 0x7f0b0b14
 
     invoke-virtual/range {v22 .. v23}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -1786,9 +1786,9 @@
 .method private getCurrentSecurityTitle()Ljava/lang/String;
     .locals 7
 
-    const v6, 0x7f0b088d
+    const v6, 0x7f0b0897
 
-    const v5, 0x7f0b088e
+    const v5, 0x7f0b0898
 
     const/4 v4, 0x1
 
@@ -1833,7 +1833,7 @@
     :sswitch_0
     new-array v1, v4, [Ljava/lang/Object;
 
-    const v2, 0x7f0b1193
+    const v2, 0x7f0b1196
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/OtherSecuritySettings;->getString(I)Ljava/lang/String;
 
@@ -1850,7 +1850,7 @@
     :sswitch_1
     new-array v1, v4, [Ljava/lang/Object;
 
-    const v2, 0x7f0b1195
+    const v2, 0x7f0b1198
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/OtherSecuritySettings;->getString(I)Ljava/lang/String;
 
@@ -1879,7 +1879,7 @@
 
     new-array v1, v4, [Ljava/lang/Object;
 
-    const v2, 0x7f0b1191
+    const v2, 0x7f0b1194
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/OtherSecuritySettings;->getString(I)Ljava/lang/String;
 
@@ -1911,7 +1911,7 @@
 
     const/4 v1, 0x0
 
-    const v2, 0x7f0b088d
+    const v2, 0x7f0b0897
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/OtherSecuritySettings;->getString(I)Ljava/lang/String;
 
@@ -2114,7 +2114,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b088b
+    const v9, 0x7f0b0895
 
     invoke-virtual {v8, v9}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -2312,7 +2312,7 @@
 
     if-eqz p1, :cond_2
 
-    const v0, 0x7f0b19d8
+    const v0, 0x7f0b19db
 
     :goto_1
     invoke-virtual {v3, v0}, Lcom/samsung/android/settings/SettingsSwitchPreference;->setSummary(I)V
@@ -2343,7 +2343,7 @@
     goto :goto_0
 
     :cond_2
-    const v0, 0x7f0b19d9
+    const v0, 0x7f0b19dc
 
     goto :goto_1
 
@@ -2448,7 +2448,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b18ad
+    const v0, 0x7f0b18b0
 
     return v0
 .end method

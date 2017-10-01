@@ -243,7 +243,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Pōmoc</string>
     <string name="reset_network_settings_list_summary">Resetuj sztalowania Wi-Fi, Bluetooth i inkszych sieci do wartości dōmyślnych.</string>
     <string name="master_clear_list_summary">Resetuj maszina do dōmyślnych sztalowań fabrycznych. Sprŏwi to skasowanie wszyjskich danych, w tym plikōw i zebranych aplikacyji.</string>
-    <string name="auto_restart_summary">Ôptymalizuj swoja maszina, autōmatycznie bez załónczynie ônyj jeszcze roz w ôbsztalowanych ôdstympach czasu. Wszyjske niyzachowane dane bydōm stracone przi sztartniyńciu masziny jeszcze roz.</string>
+    <string name="auto_restart_summary">Sztaluj mobilniŏk na ôptimum skuli autōmatycznego drugigo sztartniyńcio rŏz za tydziyń. Wszyjske niyzachowane dane bydōm stracōne przi resztarcie mobilniŏka.</string>
     <string name="search_settings">Sznupej</string>
     <string name="related_results">Zepniyntych dingsōw: %d</string>
     <string name="no_results_found">Niy znŏdłŏ wynikōw.</string>
@@ -1349,6 +1349,7 @@ Szyfrowanie poradzi zetrwać nojmynij godzina. Przed sztartniyńciym bydź ziche
     <string name="crypt_keeper_verify_failed_summary">Niy idzie sztartnōńć masziny drugi rŏz. Weryfikacyjo integralności niy podarziła sie. Musisz dać nazŏd w maszinie dōmyślne sztalowanie fabryczne. Sprowi to wyciepanie wszyjskich danych.</string>
     <string name="cryptkeeper_emergency_call">Połōnczyniy alarmowe</string>
     <string name="cryptkeeper_return_to_call">Nazŏd do połōnczyniŏ</string>
+    <string name="cryptkeeper_default_enter_msg">Telefon jest zaszyfrowany dla bezpieczeństwa.</string>
     <string name="enter_password">Wkludź hasło, coby sztartnōńć maszina.</string>
     <string name="enter_pin">Wkludź kod PIN, coby sztartnōńć maszina.</string>
     <string name="enter_pattern">Naszkryflej znak, coby sztartnōńć maszina.</string>
@@ -1362,6 +1363,7 @@ Szyfrowanie poradzi zetrwać nojmynij godzina. Przed sztartniyńciym bydź ziche
     <string name="crypt_keeper_last_warn_wipe">Ôstała już ino 1 prōba sztartniyńcio masziny, zanim maszina bydzie zresetowano do dōmyślnych sztalowań fabrycznych. Sprŏwi to co bydōm wypucowane wszyjske dane, w tym pliki i zebrane aplikacyje.</string>
     <string name="crypt_keeper_failed_title_dec">Niy poradziłżech ôdszifrować</string>
     <string name="crypt_keeper_failed_summary_dec">Niy dŏ się zakōńczyć ôdszyfrowaniŏ skuli sztopniyńciŏ. Wrōć nazŏd nasztalowania fabryczne (wyciepnie to wszyjskie dane) przed użyciem.</string>
+    <string name="crypt_keeper_set_screen_lock_type">Nasztaluj typ blokady ekrōnu</string>
     <string name="encryption_interstitial_message_kor">Maszina je zaszyfrowano. Dŏwej pozōr na swoje zaszyfrowane dane, bez ôbranie ôpcyji Dopōminej sie blokniyńcio ekranu do ôdszyfrowanio danych po załōnczyniu masziny. Take sztalowanie pōmogo dŏwać pozōr na dane kej sie trefi stracynie abo ukradzynie masziny. Do ôdszyfrowanio danych po kŏżdym jednym załōnczyniu masziny wymŏgane bydzie ônyj ôdblokniyńcie. Maszina niy bydzie przijmować gŏdek, wiadōmości jak tyż nowin do czasu ôdszyfrowanio.</string>
     <string name="encryption_interstitial_message_direction">"Dŏwej pozōr na maszina tak, co trza blokady kerunkami nim jōm sztarniesz. Spōmŏgŏ to dŏwać pozōr na dane na stracōnych abo chabniyntych maszinach.
 
@@ -1601,6 +1603,8 @@ Przed tym jak bydziesz dŏwōł do naprawy gwarancyjnyj, trza wyłōnczyć bloka
     <string name="empty_content_toast">Brak zawartości do zapisania.</string>
     <string name="find_my_mobile_message_zero">"Filuj i kōntroluj zdalnie swoja maszina bez użycie usugi internecowyj Wysznupej mōj telefōn. Coby chycić wiyncyj informacyji i poznać inksze fōnkcyje do chycynio, nawiydź dalij pokozano zajta WWW:
 %s"</string>
+    <string name="send_last_location_title">Wyślij ostatnią lokalizację</string>
+    <string name="send_last_location_summary">Zezwól na wysłanie ostatniej lokalizacji telefonu na serwer usługi Znajdź mój telefon, gdy naładowanie baterii spadnie poniżej pewnego poziomu.</string>
     <string name="high_power_description">Załōncz ôpcyjo Ôptymalizuj użycie baterii dlo kŏżdych jednych aplikacyji. Niykere fōnkcyje, np. bez używaniee z necōw mobilnych abo synchrōnizujące dane, bydōm ôgraniczōne, coby szporować nafolowanie baterii.</string>
     <string name="wifi_display_summary_off">Wył.</string>
     <string name="battery_usage_description">Tyn ekran pokozuje dane użycia baterii ôd czasu ôstatnigo cołkigo folowanio masziny.</string>
@@ -1832,6 +1836,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">Ôbier, kere skrōty aplikacyji majōm być używane na ekranie blokniyńcio.</string>
     <string name="lockscreen_notifications">Nowiny na ekranie blokady</string>
     <string name="work_profile_lockscreen_notifications">Powiadom. profilu służbowego</string>
+    <string name="lock_network_and_security">Blokuj nec blokady i zabezp.</string>
+    <string name="lock_network_and_security_summary">Trzimej fōnkcyje powiōnzane z necem i zabezpieczeniami jako zablokowane, kej zablokujesz telefōn, coby ulekszyć znŏlyziynie go i ôchrōna, kej go stracisz abo ci go chabnōm.</string>
     <string name="dualclock_settings_title">Podwōjny zygŏr</string>
     <string name="dualclock_settings_summary">Pokŏzuje lokalnŏ i dōmowŏ strefa czasowŏ przi roamingu.</string>
     <string name="set_home_city">Nastŏw dōm.strefa czas.</string>
@@ -2016,7 +2022,7 @@ Hasło kōnta Google bydzie wymŏgane coby używać tego mobilniŏka bez inkszo 
     <string name="air_browse_music_on_lock_screen_title">Muzyka na ekranie blokady</string>
     <string name="air_browse_music_on_lock_screen_summary">Zmiyń śpiywki na ekrōnie blokady.</string>
     <string name="air_browse_note_summary">Skŏkej miyndzy zajtami we trybie Pokŏż.</string>
-    <string name="data_usage_enable_mobile_summery">Jak fōnkcyjŏ Dane mobilne je wyłōnczōnŏ, maszina musi być pożyniōnŏ z necym Wi-Fi, coby szło używać usug, kerym trza pożyniynia necowego.</string>
+    <string name="data_usage_enable_mobile_summery">Dostōń dostymp do Internecu bez nec mobilny.</string>
     <string name="data_usage_enable_mobile_warning_skt">Łōnczyniy z necami mobilniŏkowymi może łōnaczyć narachowaniy dodatkowego płatu skuli paketu transmisyje danych. Idziesz dalij?</string>
     <string name="data_usage_enable_mobile_warning_ktt">Łōnczyniy z necami mobilniŏkowymi może łōnaczyć narachowaniy dodatkowego płatu skuli paketu transmisyje danych. Idziesz dalij?</string>
     <string name="data_usage_enable_mobile_warning_lgt">Łōnczyniy z necami mobilniŏkowymi może łōnaczyć narachowaniy dodatkowego płatu skuli paketu transmisyje danych. Idziesz dalij?</string>
@@ -2385,8 +2391,8 @@ prywatny"</string>
     <string name="secure_folder_summary">Bloknij prywatnŏ zawartość i prywatne aplikacyje, coby zwielgszyć bezpieczeństwo.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s nie obsługuje odcisków palców do odblokowania %2$s.</string>
     <string name="edge_feeds_title">Kanały Edge</string>
-    <string name="screensaver_settings_summary">Badej, co dzieje sie z maszinōm, kej je ôna zadokowano i/abo je folowano przi wyłōnczōnym ekranie. Ta fōnkcyjo mianuje sie tyż Wygoszaczym ekranu.</string>
-    <string name="screensaver_settings_summary_wo_dock">Pokŏzuj wygaszŏcz ekranu po autōmatycznym wyłōnczyniu ekranu bez czas folowanio masziny.</string>
+    <string name="screensaver_settings_summary">Pokŏzuj wygaszŏcz ekranu po autōmatycznym wyłōnczyniu ekranu bez czas folowanio mobilniŏka.</string>
+    <string name="screensaver_settings_summary_wo_dock">Pokazuj wygaszacz ekranu po automatycznym wyłączeniu ekranu podczas zadokowania lub ładowania telefonu.</string>
     <string name="apn_already_exists">Już sam je.</string>
     <string name="error_unavailable_apn">Tyn APN niy je dozwolōny na tyj maszinie. Sprōbuj inkszy.</string>
     <string name="error_message_port_out_of_range">Nōmer portu musi być ôd %1$d do %2$d.</string>
@@ -3151,6 +3157,7 @@ Używanie fōnkcyji Router Wi-Fi zwielgszŏ spotrzebowanie bateryji i danych."</
     <string name="wfd_connection_end_toast">Połōnczynie bez fōnkcyjŏ Screen Mirroring skōńczōne.</string>
     <string name="wfd_descrpition_playvia">Puś treść.</string>
     <string name="wfd_descrpition_mirroring">Pokŏzuj jaki je ekran.</string>
+    <string name="wfd_descrpition_playsound">Odtwórz dźwięk.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">Fōnkcyjo wielu ôkiyn bydzie wyłōnczōno, a wszyjske aplikacyje ôdewrzōne w ôkiynkach pop-up bydōm zawarte.</string>
     <string name="keyguard_password_attempt_count_pin_code">Ôstały prōby: %d.</string>
@@ -3989,7 +3996,7 @@ Rozważ użycie szybszej karty pamięci lub urządzenia pamięci USB w celu popr
     <string name="location_network_based">Użyj bezkablowych necōw</string>
     <string name="location_neighborhood_level">Dozwōlej aplikacyjōm na używanie usugi lokal.Google do gibkigo ôbsztal. kaj żeś je. Zebiyr.dane bydōm anōnim.i posyłane do Google.</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">Info ô maszinie</string>
+    <string name="about_settings">Mobilniŏk — informacyje</string>
     <string name="about_settings_vzw">Informacje o urządzeniu</string>
     <string name="legal_information">Informacyje prawne</string>
     <string name="regulatory_information">Info ô prawidłach</string>
@@ -4162,7 +4169,7 @@ Trzimane dane aplikacyji niy bydōm stracōne."</string>
     <string name="phone_language">Gŏdka</string>
     <string name="show_password">Hasła na widziku</string>
     <string name="show_password_summary">Pokŏż znaki ôd hasła krōtko przi jejich przidŏwaniu.</string>
-    <string name="ime_security_warning">Ten knif poradzi mieć możność zamlowaniŏ cŏłygo podanego tekstu, cuzamnyn z danymi ôsobistymi i nōmerami kart kredytowych (ôkrōm haseł). Knif je z aplikactji %1$s. Na sicher chcesz go użyć?</string>
+    <string name="ime_security_warning">Klawiatura %s może gromadzić cały wpisywany tekst, łącznie z takimi danymi osobistymi, jak hasła i numery kart kredytowych.</string>
     <string name="failed_to_open_app_settings_toast">Niy idzie ôdewrzić nasztalowań dlŏ aplikacje %s.</string>
     <string name="keyboard_and_input_methods_category">Klawiatury</string>
     <string name="virtual_keyboard_category">Klawiatura wirtualna</string>

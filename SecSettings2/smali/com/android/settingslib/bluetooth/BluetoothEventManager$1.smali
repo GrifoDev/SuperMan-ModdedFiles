@@ -38,13 +38,24 @@
 
     move-result-object v0
 
+    if-nez v0, :cond_0
+
+    const-string/jumbo v3, "BluetoothEventManager"
+
+    const-string/jumbo v4, "onReceive :: Intent.getAction() is return null"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_0
     const-string/jumbo v3, "BluetoothEventManager"
 
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v5, "onReceive :: "
+    const-string/jumbo v5, "onReceive :: getAction = "
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -58,7 +69,7 @@
 
     move-result-object v4
 
-    invoke-static {v3, v4}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v3, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager$1;->this$0:Lcom/android/settingslib/bluetooth/BluetoothEventManager;
 
@@ -66,7 +77,7 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1
 
     iget-object v3, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager$1;->this$0:Lcom/android/settingslib/bluetooth/BluetoothEventManager;
 
@@ -74,9 +85,9 @@
 
     move-result-object v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_2
 
-    :cond_0
+    :cond_1
     const-string/jumbo v3, "BluetoothEventManager"
 
     const-string/jumbo v4, "onReceive :: ignore this broadcast, because BluetoothSettings instance are not created yet"
@@ -85,14 +96,14 @@
 
     return-void
 
-    :cond_1
+    :cond_2
     iget-object v3, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager$1;->this$0:Lcom/android/settingslib/bluetooth/BluetoothEventManager;
 
     invoke-static {v3}, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->-get4(Lcom/android/settingslib/bluetooth/BluetoothEventManager;)Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
 
     move-result-object v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1
 
     const-string/jumbo v3, "android.bluetooth.device.extra.DEVICE"
 
@@ -114,10 +125,10 @@
 
     check-cast v2, Lcom/android/settingslib/bluetooth/BluetoothEventManager$Handler;
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3
 
     invoke-interface {v2, p1, p2, v1}, Lcom/android/settingslib/bluetooth/BluetoothEventManager$Handler;->onReceive(Landroid/content/Context;Landroid/content/Intent;Landroid/bluetooth/BluetoothDevice;)V
 
-    :cond_2
+    :cond_3
     return-void
 .end method

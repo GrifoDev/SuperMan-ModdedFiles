@@ -55,7 +55,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/widget/RelativeLinkView;->mParentView:Landroid/view/View;
 
-    const v1, 0x7f1105d4
+    const v1, 0x7f1105d2
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -212,7 +212,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a0555
+    const v4, 0x7f0a0553
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

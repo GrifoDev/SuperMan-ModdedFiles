@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">მხარდაჭერა</string>
     <string name="reset_network_settings_list_summary">დააბრუნეთ Wi-Fi, Bluetooth და ქსელის სხვა პარამეტრების ნაგულისხმევი მნიშვნელობები.</string>
     <string name="master_clear_list_summary">მოწყობილობაში დააბრუნეთ ქარხნული პარამეტრები. ამით წაიშლება ყველა მონაცემი, მათ შორის ფაილები და ჩამოტვირთული აპლიკაციები.</string>
-    <string name="auto_restart_summary">მოწყობილობის ოპტიმიზაციისთვის, ავტომატურად გადაიტვირთეთ იგი დაყენებულ დროებში. მოწყობილობის გადატვირთვის დროს დაიკარგება შეუნახავი მონაცემები.</string>
+    <string name="auto_restart_summary">ტელეფონის ოპტიმიზირებისთვის, კვირაში ერთხელ ავტომატურად გადატვირთეთ იგი. ტელეფონის გადატვირთვის დროს დაიკარგება შეუნახავი მონაცემები.</string>
     <string name="search_settings">ძიება</string>
     <string name="related_results">%d შესაბამისი ელემენტი</string>
     <string name="no_results_found">შედეგები ვერ მოიძებნა</string>
@@ -1485,6 +1485,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_verify_failed_summary">თქვენი მოწყობილობის გადატვირთვა შეუძლებელია. ერთიანობის შემოწმება ვერ შესრულდა. მოწყობილობაში უნდა დააბრუნოთ ქარხნული პარამეტრები. ეს წაშლის ყველა თქვენს მონაცემს.</string>
     <string name="cryptkeeper_emergency_call">საგანგებო ზარი</string>
     <string name="cryptkeeper_return_to_call">ზარზე დაბრუნება</string>
+    <string name="cryptkeeper_default_enter_msg">ტელეფონი დაშიფრულია, უსაფრთხოების მიზნით.</string>
     <string name="enter_password">თქვენი მოწყობილობის ჩატვირთვის დასაწყებად, შეიყვანეთ პაროლი.</string>
     <string name="enter_pin">თქვენი მოწყობილობის ჩატვირთვის დასაწყებად, შეიყვანეთ PIN.</string>
     <string name="enter_pattern">თქვენი მოწყობილობის ჩატვირთვის დასაწყებად, მოხაზეთ თქვენი ნიშანი.</string>
@@ -1498,6 +1499,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_last_warn_wipe">დარჩენილია მოწყობილობის ჩატვირთვის მხოლოდ 1 მცდელობა, სანამ დაბრუნდება ნაგულისხმევი ქარხნული პარამეტრები. ამით წაიშლება ყველა მონაცემი, მათ შორის ფაილები და ჩამოტვირთული აპლიკაციები.</string>
     <string name="crypt_keeper_failed_title_dec">ვერ გაიშიფრა.</string>
     <string name="crypt_keeper_failed_summary_dec">გაშიფვრა ვერ შესრულდა შეწყვეტის გამო. გამოყენებამდე დააბრუნეთ ქარხნული პარამეტრები (ყველა მონაცემი წაიშლება).</string>
+    <string name="crypt_keeper_set_screen_lock_type">დააყენე ეკრანის დაბლოკვის ტიპი</string>
     <string name="encryption_interstitial_message_kor">თქვენი მოწყობილობა დაშიფრულია. დაშიფრული მონაცემების დასაცავად, აირჩიეთ „ეკრანის დაბლოკვის მოთხოვნა“, რომ მონაცემები გაიშიფროს მოწყობილობის ჩართვისას. ეს დაიცავს მონაცემებს, მოწყობილობის დაკარგვის ან მოპარვის შემთხვევაში. მონაცემთა გასაშიფრად, უნდა განბლოკოთ მოწყობილობა, მისი ჩართვის ყოველ ჯერზე. მოწყობილობის გაშიფვრამდე ვერ მიიღებთ ზარებს, წერილებსა და შეტყობინებებს.</string>
     <string name="encryption_interstitial_message_direction">"მოწყობილობის დასაცავად, მოწყობილობის ჩართვისას მოითხოვეთ „მიმართულებით დაბლოკვა“. ეს დაიცავს მონაცემებს დაკარგულ ან მოპარულ მოწყობილობაში.
 
@@ -1737,6 +1739,8 @@ You will also need it when:"</string>
     <string name="empty_content_toast">შესანახი არაფერია.</string>
     <string name="find_my_mobile_message_zero">"თვალი ადევნეთ და მართეთ თქვენი მოწყობილობა დისტანციურად, ვებ-სერვისით „ჩემი მობილურის ძებნა“. დამატებითი ინფორმაციის მისაღებად და სხვა ხელმისაწვდომი ფუნქციების გასაცნობად, ეწვიეთ შემდეგ ვებსაიტს:
 %s"</string>
+    <string name="send_last_location_title">ბოლო ლოკაციის გაგზავნა</string>
+    <string name="send_last_location_summary">ტელეფონს მიეცით თავისი ბოლო ლოკაციის „ჩემი მობილურის ძებნის“ სერვერზე გაგზავნის ნებართვა, როდესაც ენერგია შემცირდება გარკვეულ დონემდე.</string>
     <string name="high_power_description">თითოეული აპლიკაციისთვის ჩართეთ „ენერგიის ხარჯვის ოპტიმიზაცია“. ენერგიის დაზოგვის მიზნით, შეიზღუდება ზოგიერთი ფუნქცია, რომლებიც იყენებს მობილურ ქსელებს ან ასინქრონებს მონაცემებს.</string>
     <string name="wifi_display_summary_off">გამორთ.</string>
     <string name="battery_usage_description">ეკრანზე ჩანს ენერგიის გამოყენების მონაცემები, კვების ელემენტის ბოლო დამუხტვის შემდეგ.</string>
@@ -1968,6 +1972,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">აირჩიეთ აპლიკაციების ღილაკები, რომლებიც გსურთ გამოჩნდეს დაბლოკილ ეკრანზე.</string>
     <string name="lockscreen_notifications">შეტყობინებები დაბლოკილ ეკრანზე</string>
     <string name="work_profile_lockscreen_notifications">სამსახურის პროფილის შეტყობინ.</string>
+    <string name="lock_network_and_security">ქსელის დაბლოკვა და უსაფრთხოება</string>
+    <string name="lock_network_and_security_summary">დაბლოკილი გქონდეთ ქსელისა და უსაფრთხოებასთან დაკავშირებული ფუნქციები, როდესაც ტელეფონი დაბლოკილია, რომ გამარტივდეს მოძებნა და დაცვა, მისი დაკარგვის ან მოპარვის შემთხვევაში.</string>
     <string name="dualclock_settings_title">ორმაგი საათი</string>
     <string name="dualclock_settings_summary">როუმინგში გამოჩნდეს ლოკალური და საშინაო დროითი სარტყელები.</string>
     <string name="set_home_city">დააყენეთ ადგილობრივი დრო</string>
@@ -2153,7 +2159,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="air_browse_music_on_lock_screen_title">მუსიკა დაბლოკილ ეკრანზე</string>
     <string name="air_browse_music_on_lock_screen_summary">შეცვალეთ მუსიკის ბილიკები დაბლოკილ ეკრანზე.</string>
     <string name="air_browse_note_summary">იმოძრავეთ გვერდებს შორის დათვალიერების რეჟიმში.</string>
-    <string name="data_usage_enable_mobile_summery">თუ მობილურ მონაცემთა ქსელი გამორთულია, მოწყობილობა უნდა დაუკავშირდეს Wi-Fi ქსელს იმ სერვისების გამოსაყენებლად, რომლებისთვისაც საჭიროა ქსელთან კავშირი.</string>
+    <string name="data_usage_enable_mobile_summery">დაუკავშირდით ინტერნეტს მობილური ქსელით.</string>
     <string name="data_usage_enable_mobile_warning_skt">მობილურ ქსელებთან დაკავშირება შეიძლება დამატებით გადასახადთან იყოს დაკავშირებული, თქვენი სატარიფო გეგმის მიხედვით. განაგრძობთ?</string>
     <string name="data_usage_enable_mobile_warning_ktt">მობილურ ქსელებთან დაკავშირება შეიძლება დამატებით გადასახადთან იყოს დაკავშირებული, თქვენი სატარიფო გეგმის მიხედვით. განაგრძობთ?</string>
     <string name="data_usage_enable_mobile_warning_lgt">მობილურ ქსელებთან დაკავშირება შეიძლება დამატებით გადასახადთან იყოს დაკავშირებული, თქვენი სატარიფო გეგმის მიხედვით. განაგრძობთ?</string>
@@ -2523,8 +2529,8 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="secure_folder_summary">დაბლოკეთ თქვენი პირადი მასალა და აპლიკაციები, უსაფრთხოების გაზრდის მიზნით.</string>
     <string name="text_biometrics_finger_title_enterprise">„%1$s“-ს არ შეუძლია თითის ანაბეჭდებით განბლოკოს „%2$s“.</string>
     <string name="edge_feeds_title">გვ. არხები</string>
-    <string name="screensaver_settings_summary">აკონტროლეთ რა მოხდეს, როდესაც მოწყობილობა დოკშია და/ან იტენება, სანამ ეკრანი გამორთულია. ამ ფუნქციას ასევე ეწოდება ეკრანმზოგი.</string>
-    <string name="screensaver_settings_summary_wo_dock">ეკრანმზოგი გამოჩნდეს ეკრანის ავტომატური გამორთვის შემდეგ, როდესაც მოწყობილობა იმუხტება.</string>
+    <string name="screensaver_settings_summary">ეკრანმზოგი გამოჩნდეს ეკრანის ავტომატური გამორთვის შემდეგ, როდესაც ტელეფონი იმუხტება.</string>
+    <string name="screensaver_settings_summary_wo_dock">ეკრანმზოგი გამოჩნდეს ეკრანის ავტომატური გამორთვის შემდეგ, როდესაც ტელეფონი დოკშია ან იმუხტება.</string>
     <string name="apn_already_exists">უკვე არის.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">პორტის ნომერი უნდა იყოს %1$d-%2$d შუალედში.</string>
@@ -3289,6 +3295,7 @@ Wi-Fi is now on."</string>
     <string name="wfd_connection_end_toast">Screen Mirroring კავშირი დასრულდა.</string>
     <string name="wfd_descrpition_playvia">დაუკარით მასალა.</string>
     <string name="wfd_descrpition_mirroring">არეკლეთ ეკრანი.</string>
+    <string name="wfd_descrpition_playsound">დაუკარით ხმა.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">მულტი–ფანჯრის რეჟიმი გამოირთვება და დაიხურება სარკმლებში გახსნილი ყველა აპლიკაცია.</string>
     <string name="keyguard_password_attempt_count_pin_code">%d ცდა დარჩა.</string>
@@ -4128,7 +4135,7 @@ Receiving SMS"</string>
     <string name="location_network_based">უსადენო ქსელის გამოყენება</string>
     <string name="location_neighborhood_level">ნება დართეთ პროგრამებს გამოიყენოს Google ლოკაციის სერვისი თქვენი ლოკაციის სწრაფად მოსაძებნად. ანონიმური მონაცემები გაიგზავნება Google-ში.</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">აპარატის შესახებ</string>
+    <string name="about_settings">ტელეფონის შესახებ</string>
     <string name="about_settings_vzw">აპარატის შესახებ</string>
     <string name="legal_information">სამართლებრივი ინფორმაცია</string>
     <string name="regulatory_information">სარეგულაციო ინფორმაცია</string>
@@ -4313,7 +4320,7 @@ Receiving SMS"</string>
     <string name="phone_language">ენა</string>
     <string name="show_password">გამოჩნდეს პაროლები</string>
     <string name="show_password_summary">პაროლის სიმბოლოები მცირე ხნით გამოჩნდეს, მათი აკრეფის დროს.</string>
-    <string name="ime_security_warning">ამ მეთოდით შესაძლებელია თქვენს მიერ აკრეფილი ყველა ტექსტის შეგროვება, გარდა პაროლებისა, პერსონალური მონაცემებისა და საკრედიტო ბარათის ნომრების ჩათვლით. ამას აკეთებს პროგრამა %1$s. მაინც გამოიყენებთ?</string>
+    <string name="ime_security_warning">%s-მ შეიძლება შეაგროვოს თქვენ მიერ აკრეფილი ყველა ტექსტი, პერსონალური მონაცემების ჩათვლით, როგორიცაა პაროლები და საკრედიტო ბარათების ნომრები.</string>
     <string name="failed_to_open_app_settings_toast">ვერ გაიხსნა %s-ის პარამეტრები.</string>
     <string name="keyboard_and_input_methods_category">კლავიატურები</string>
     <string name="virtual_keyboard_category">ვირტუალური კლავიატურა</string>

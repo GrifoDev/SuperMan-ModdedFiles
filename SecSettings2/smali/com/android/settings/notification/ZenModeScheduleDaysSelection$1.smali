@@ -37,7 +37,7 @@
 .method public onClick(Landroid/view/View;)V
     .locals 2
 
-    const v1, 0x7f11084a
+    const v1, 0x7f110848
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

@@ -1910,7 +1910,7 @@
 .method private showSecurityFields()V
     .locals 6
 
-    const v5, 0x7f11074b
+    const v5, 0x7f110749
 
     const/16 v4, 0x8
 
@@ -1918,7 +1918,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v2, 0x7f110752
+    const v2, 0x7f110750
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2396,7 +2396,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v1, 0x7f11074c
+    const v1, 0x7f11074a
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2669,7 +2669,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v1, 0x7f11074a
+    const v1, 0x7f110748
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2866,7 +2866,7 @@
 
     iget-object v8, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mContext:Landroid/content/Context;
 
-    const v9, 0x7f0b0e21
+    const v9, 0x7f0b0e2b
 
     invoke-virtual {v8, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2944,7 +2944,7 @@
     :sswitch_2
     iget-object v6, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v9, 0x7f110757
+    const v9, 0x7f110755
 
     invoke-virtual {v6, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3176,12 +3176,12 @@
 
     :sswitch_data_0
     .sparse-switch
-        0x7f11074c -> :sswitch_0
-        0x7f110750 -> :sswitch_1
-        0x7f110756 -> :sswitch_2
-        0x7f110759 -> :sswitch_5
-        0x7f11075c -> :sswitch_3
-        0x7f11075e -> :sswitch_4
+        0x7f11074a -> :sswitch_0
+        0x7f11074e -> :sswitch_1
+        0x7f110754 -> :sswitch_2
+        0x7f110757 -> :sswitch_5
+        0x7f11075a -> :sswitch_3
+        0x7f11075c -> :sswitch_4
     .end sparse-switch
 .end method
 
@@ -3222,7 +3222,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v11, 0x7f110751
+    const v11, 0x7f11074f
 
     invoke-virtual {v10, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3246,7 +3246,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v11, 0x7f11074a
+    const v11, 0x7f110748
 
     invoke-virtual {v10, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3288,7 +3288,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v11, 0x7f11049d
+    const v11, 0x7f11049b
 
     invoke-virtual {v10, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3300,7 +3300,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v11, 0x7f110749
+    const v11, 0x7f110747
 
     invoke-virtual {v10, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3312,7 +3312,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v11, 0x7f11074e
+    const v11, 0x7f11074c
 
     invoke-virtual {v10, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3324,13 +3324,13 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSsid:Landroid/widget/EditText;
 
-    const v11, 0x7f0b1274
+    const v11, 0x7f0b1277
 
     invoke-virtual {v10, v11}, Landroid/widget/EditText;->setHint(I)V
 
     iget-object v10, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v11, 0x7f1106fa
+    const v11, 0x7f1106f8
 
     invoke-virtual {v10, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3342,7 +3342,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v11, 0x7f110753
+    const v11, 0x7f110751
 
     invoke-virtual {v10, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3360,7 +3360,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v11, 0x7f11074f
+    const v11, 0x7f11074d
 
     invoke-virtual {v10, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3378,7 +3378,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v11, 0x7f110750
+    const v11, 0x7f11074e
 
     invoke-virtual {v10, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3392,7 +3392,7 @@
 
     iget-object v11, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mContext:Landroid/content/Context;
 
-    const v12, 0x7f0b0d1a
+    const v12, 0x7f0b0d24
 
     invoke-static {v11, v12}, Lcom/samsung/android/settings/WifiApUtils;->getString(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -3414,7 +3414,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v11, 0x7f110754
+    const v11, 0x7f110752
 
     invoke-virtual {v10, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3432,7 +3432,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v11, 0x7f110755
+    const v11, 0x7f110753
 
     invoke-virtual {v10, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3450,7 +3450,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v11, 0x7f110756
+    const v11, 0x7f110754
 
     invoke-virtual {v10, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3466,7 +3466,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v11, 0x7f11075f
+    const v11, 0x7f11075d
 
     invoke-virtual {v10, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3496,7 +3496,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v11, 0x7f11075b
+    const v11, 0x7f110759
 
     invoke-virtual {v10, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3508,7 +3508,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v11, 0x7f11075d
+    const v11, 0x7f11075b
 
     invoke-virtual {v10, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3520,7 +3520,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v11, 0x7f110758
+    const v11, 0x7f110756
 
     invoke-virtual {v10, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3532,7 +3532,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v11, 0x7f11075c
+    const v11, 0x7f11075a
 
     invoke-virtual {v10, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3544,7 +3544,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v11, 0x7f11075e
+    const v11, 0x7f11075c
 
     invoke-virtual {v10, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3556,7 +3556,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v11, 0x7f110759
+    const v11, 0x7f110757
 
     invoke-virtual {v10, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3580,7 +3580,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v11, 0x7f110760
+    const v11, 0x7f11075e
 
     invoke-virtual {v10, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3592,7 +3592,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v11, 0x7f11075a
+    const v11, 0x7f110758
 
     invoke-virtual {v10, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3639,7 +3639,7 @@
 
     :cond_1
     :goto_0
-    const v10, 0x7f0b12a3
+    const v10, 0x7f0b12a6
 
     invoke-virtual {v3, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3651,7 +3651,7 @@
 
     invoke-virtual {p0, v12, v10, v11}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
 
-    const v10, 0x7f0b12a5
+    const v10, 0x7f0b12a8
 
     invoke-virtual {v3, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3687,7 +3687,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mContext:Landroid/content/Context;
 
-    const v11, 0x7f0b0e25
+    const v11, 0x7f0b0e2f
 
     invoke-static {v10, v11}, Lcom/samsung/android/settings/WifiApUtils;->getString(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -3861,7 +3861,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v11, 0x7f11074c
+    const v11, 0x7f11074a
 
     invoke-virtual {v10, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3880,7 +3880,7 @@
     :goto_6
     iget-object v10, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v11, 0x7f11074c
+    const v11, 0x7f11074a
 
     invoke-virtual {v10, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3913,7 +3913,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v11, 0x7f110762
+    const v11, 0x7f110760
 
     invoke-virtual {v10, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -4213,7 +4213,7 @@
     :cond_d
     iget-object v10, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mContext:Landroid/content/Context;
 
-    const v11, 0x7f0b0e20
+    const v11, 0x7f0b0e2a
 
     invoke-static {v10, v11}, Lcom/samsung/android/settings/WifiApUtils;->getString(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -4318,7 +4318,7 @@
     :goto_c
     iget-object v10, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v11, 0x7f110764
+    const v11, 0x7f110762
 
     invoke-virtual {v10, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -4425,7 +4425,7 @@
     :cond_1a
     iget-object v10, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v11, 0x7f110761
+    const v11, 0x7f11075f
 
     invoke-virtual {v10, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -4446,7 +4446,7 @@
     :cond_1b
     iget-object v10, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v11, 0x7f110763
+    const v11, 0x7f110761
 
     invoke-virtual {v10, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -4540,7 +4540,7 @@
 
     if-nez v4, :cond_3
 
-    const v4, 0x7f0b0cd3
+    const v4, 0x7f0b0cdd
 
     invoke-virtual {v1, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -4720,7 +4720,7 @@
 
     if-nez v4, :cond_7
 
-    const v4, 0x7f0b0cd3
+    const v4, 0x7f0b0cdd
 
     invoke-virtual {v1, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -4987,12 +4987,12 @@
 
     :sswitch_data_0
     .sparse-switch
-        0x7f11074a -> :sswitch_0
-        0x7f110751 -> :sswitch_1
-        0x7f11075f -> :sswitch_2
-        0x7f110760 -> :sswitch_3
-        0x7f110762 -> :sswitch_4
-        0x7f110764 -> :sswitch_5
+        0x7f110748 -> :sswitch_0
+        0x7f11074f -> :sswitch_1
+        0x7f11075d -> :sswitch_2
+        0x7f11075e -> :sswitch_3
+        0x7f110760 -> :sswitch_4
+        0x7f110762 -> :sswitch_5
     .end sparse-switch
 .end method
 
@@ -5048,7 +5048,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v2, 0x7f11074a
+    const v2, 0x7f110748
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -5061,7 +5061,7 @@
     :cond_0
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v2, 0x7f110750
+    const v2, 0x7f11074e
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -5120,7 +5120,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v2, 0x7f11074c
+    const v2, 0x7f11074a
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -5134,7 +5134,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v2, 0x7f110756
+    const v2, 0x7f110754
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -5184,7 +5184,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v2, 0x7f11074c
+    const v2, 0x7f11074a
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -5198,7 +5198,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v2, 0x7f110756
+    const v2, 0x7f110754
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -5241,13 +5241,13 @@
 .method public show()V
     .locals 3
 
-    const v2, 0x7f110757
+    const v2, 0x7f110755
 
     invoke-super {p0}, Landroid/app/AlertDialog;->show()V
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v1, 0x7f110756
+    const v1, 0x7f110754
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -5334,7 +5334,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->customView:Landroid/view/View;
 
-    const v3, 0x7f11076b
+    const v3, 0x7f110769
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -5346,7 +5346,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->customView:Landroid/view/View;
 
-    const v3, 0x7f11072b
+    const v3, 0x7f110729
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -5358,7 +5358,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->customView:Landroid/view/View;
 
-    const v3, 0x7f11076a
+    const v3, 0x7f110768
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -5368,7 +5368,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b0d6c
+    const v3, 0x7f0b0d76
 
     invoke-static {v2, v3}, Lcom/samsung/android/settings/WifiApUtils;->getString(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -5378,7 +5378,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b0d6a
+    const v3, 0x7f0b0d74
 
     invoke-static {v2, v3}, Lcom/samsung/android/settings/WifiApUtils;->getString(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -5394,7 +5394,7 @@
 
     invoke-direct {v2, p0}, Lcom/samsung/android/settings/wifi/WifiApDialogSec$6;-><init>(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)V
 
-    const v3, 0x7f0b153c
+    const v3, 0x7f0b153f
 
     invoke-virtual {v0, v3, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

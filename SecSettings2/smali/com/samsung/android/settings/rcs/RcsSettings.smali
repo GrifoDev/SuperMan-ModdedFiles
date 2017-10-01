@@ -393,7 +393,7 @@
 
     invoke-virtual {p1, v3}, Lcom/samsung/android/settings/SettingsSwitchPreference;->semSetSummaryColorToColorPrimaryDark(Z)V
 
-    const v1, 0x7f0b19d8
+    const v1, 0x7f0b19db
 
     invoke-virtual {p1, v1}, Lcom/samsung/android/settings/SettingsSwitchPreference;->setSummary(I)V
 
@@ -408,7 +408,7 @@
 
     invoke-virtual {p1, v4}, Lcom/samsung/android/settings/SettingsSwitchPreference;->semSetSummaryColorToColorPrimaryDark(Z)V
 
-    const v1, 0x7f0b0af1
+    const v1, 0x7f0b0afb
 
     invoke-virtual {p1, v1}, Lcom/samsung/android/settings/SettingsSwitchPreference;->setSummary(I)V
 
@@ -416,7 +416,7 @@
 
     if-nez v1, :cond_1
 
-    const v1, 0x7f0b0af6
+    const v1, 0x7f0b0b00
 
     invoke-virtual {p1, v1}, Lcom/samsung/android/settings/SettingsSwitchPreference;->setSummary(I)V
 

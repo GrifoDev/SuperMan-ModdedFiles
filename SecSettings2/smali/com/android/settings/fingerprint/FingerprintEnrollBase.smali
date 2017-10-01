@@ -65,7 +65,7 @@
 .method protected getNavigationBar()Lcom/android/setupwizardlib/view/NavigationBar;
     .locals 1
 
-    const v0, 0x7f110664
+    const v0, 0x7f110662
 
     invoke-virtual {p0, v0}, Lcom/android/settings/fingerprint/FingerprintEnrollBase;->findViewById(I)Landroid/view/View;
 
@@ -93,7 +93,7 @@
 .method protected getSetupWizardLayout()Lcom/android/setupwizardlib/SetupWizardLayout;
     .locals 1
 
-    const v0, 0x7f110370
+    const v0, 0x7f11036e
 
     invoke-virtual {p0, v0}, Lcom/android/settings/fingerprint/FingerprintEnrollBase;->findViewById(I)Landroid/view/View;
 

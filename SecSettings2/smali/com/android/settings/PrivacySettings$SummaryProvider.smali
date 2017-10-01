@@ -83,7 +83,7 @@
 
     iget-object v6, p0, Lcom/android/settings/PrivacySettings$SummaryProvider;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f0b1731
+    const v7, 0x7f0b1734
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -103,7 +103,7 @@
 
     iget-object v6, p0, Lcom/android/settings/PrivacySettings$SummaryProvider;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f0b1ada
+    const v7, 0x7f0b1add
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

@@ -14,6 +14,8 @@
 
 
 # static fields
+.field private static final ASKS_VERSION:Ljava/lang/String;
+
 .field public static AUTO_AIR_VIEW_MODE:I
 
 .field public static final BADNESS_COLORS:[I
@@ -149,6 +151,8 @@
 .field private static mFeatureChecked:Z
 
 .field private static mFeatureEnabled:Z
+
+.field public static mImsManager:Lcom/sec/ims/ImsManager;
 
 .field public static mMenutreeCode:Ljava/lang/String;
 
@@ -668,6 +672,44 @@
     move-result-object v0
 
     sput-object v0, Lcom/android/settings/Utils;->mConfigNetworkTypeCapability:Ljava/lang/String;
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "ASKS v"
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v3, "security.ASKS.version"
+
+    const-string/jumbo v4, "0"
+
+    invoke-static {v3, v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v3, " Release "
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/android/settings/Utils;->ASKS_VERSION:Ljava/lang/String;
+
+    const/4 v0, 0x0
+
+    sput-object v0, Lcom/android/settings/Utils;->mImsManager:Lcom/sec/ims/ImsManager;
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -3005,7 +3047,7 @@
     :goto_1
     if-eqz v2, :cond_2
 
-    const v4, 0x7f0b06d9
+    const v4, 0x7f0b06e1
 
     invoke-virtual {p1, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3455,7 +3497,7 @@
 
     aput-object v6, v5, v11
 
-    const v6, 0x7f0b15eb
+    const v6, 0x7f0b15ee
 
     invoke-virtual {p0, v6, v5}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -3493,7 +3535,7 @@
 
     aput-object v6, v5, v10
 
-    const v6, 0x7f0b15ec
+    const v6, 0x7f0b15ef
 
     invoke-virtual {p0, v6, v5}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -3520,7 +3562,7 @@
 
     aput-object v6, v5, v9
 
-    const v6, 0x7f0b15ed
+    const v6, 0x7f0b15f0
 
     invoke-virtual {p0, v6, v5}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -3539,7 +3581,7 @@
 
     aput-object v6, v5, v8
 
-    const v6, 0x7f0b15ee
+    const v6, 0x7f0b15f1
 
     invoke-virtual {p0, v6, v5}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -3572,7 +3614,7 @@
 
     aput-object v6, v5, v10
 
-    const v6, 0x7f0b15ef
+    const v6, 0x7f0b15f2
 
     invoke-virtual {p0, v6, v5}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -4964,13 +5006,13 @@
 
     iget v4, v2, Landroid/util/TypedValue;->resourceId:I
 
-    const v5, 0x7f0b1030
+    const v5, 0x7f0b1033
 
     if-eq v4, v5, :cond_0
 
     iget v4, v2, Landroid/util/TypedValue;->resourceId:I
 
-    const v5, 0x7f0b1385
+    const v5, 0x7f0b1388
 
     if-eq v4, v5, :cond_0
 
@@ -8390,6 +8432,38 @@
     return-object v8
 .end method
 
+.method public static getImsManager(Landroid/content/Context;)V
+    .locals 2
+
+    sget-object v0, Lcom/android/settings/Utils;->mImsManager:Lcom/sec/ims/ImsManager;
+
+    if-eqz v0, :cond_0
+
+    return-void
+
+    :cond_0
+    if-nez p0, :cond_1
+
+    return-void
+
+    :cond_1
+    new-instance v0, Lcom/sec/ims/ImsManager;
+
+    new-instance v1, Lcom/android/settings/Utils$8;
+
+    invoke-direct {v1}, Lcom/android/settings/Utils$8;-><init>()V
+
+    invoke-direct {v0, p0, v1}, Lcom/sec/ims/ImsManager;-><init>(Landroid/content/Context;Lcom/sec/ims/ImsManager$ConnectionListener;)V
+
+    sput-object v0, Lcom/android/settings/Utils;->mImsManager:Lcom/sec/ims/ImsManager;
+
+    sget-object v0, Lcom/android/settings/Utils;->mImsManager:Lcom/sec/ims/ImsManager;
+
+    invoke-virtual {v0}, Lcom/sec/ims/ImsManager;->connectService()V
+
+    return-void
+.end method
+
 .method public static getKnoxName(Landroid/content/Context;)Ljava/lang/String;
     .locals 4
 
@@ -8417,7 +8491,7 @@
 
     if-eqz v3, :cond_1
 
-    const v3, 0x7f0b0ac3
+    const v3, 0x7f0b0acd
 
     invoke-virtual {p0, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -8551,7 +8625,7 @@
     :goto_1
     if-nez v2, :cond_2
 
-    const v0, 0x7f0b1960
+    const v0, 0x7f0b1963
 
     :goto_2
     return v0
@@ -8569,12 +8643,12 @@
     :cond_2
     if-eqz v1, :cond_3
 
-    const v0, 0x7f0b195e
+    const v0, 0x7f0b1961
 
     goto :goto_2
 
     :cond_3
-    const v0, 0x7f0b195f
+    const v0, 0x7f0b1962
 
     goto :goto_2
 .end method
@@ -9171,7 +9245,7 @@
 
     if-ne p1, v1, :cond_0
 
-    const v0, 0x7f0b19d8
+    const v0, 0x7f0b19db
 
     :goto_0
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -9185,7 +9259,7 @@
     return-object v1
 
     :cond_0
-    const v0, 0x7f0b19d9
+    const v0, 0x7f0b19dc
 
     goto :goto_0
 .end method
@@ -9883,7 +9957,7 @@
 
     if-eqz v3, :cond_0
 
-    const v2, 0x7f0b0a86
+    const v2, 0x7f0b0a90
 
     :cond_0
     invoke-static {}, Landroid/os/UserHandle;->myUserId()I
@@ -9914,7 +9988,7 @@
 
     if-eqz v3, :cond_5
 
-    const v2, 0x7f0b0a82
+    const v2, 0x7f0b0a8c
 
     :cond_2
     :goto_2
@@ -9960,17 +10034,17 @@
 
     if-nez v3, :cond_8
 
-    const v2, 0x7f0b0a82
+    const v2, 0x7f0b0a8c
 
     goto :goto_2
 
     :cond_7
-    const v2, 0x7f0b0a82
+    const v2, 0x7f0b0a8c
 
     goto :goto_2
 
     :cond_8
-    const v2, 0x7f0b0a84
+    const v2, 0x7f0b0a8e
 
     goto :goto_2
 .end method
@@ -10480,6 +10554,22 @@
     const v0, 0x7f0b0496
 
     :cond_0
+    return v0
+.end method
+
+.method public static getSPenUSPLevel(Landroid/content/Context;)I
+    .locals 3
+
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "com.sec.feature.spen_usp"
+
+    invoke-virtual {v1, v2}, Landroid/content/pm/PackageManager;->semGetSystemFeatureLevel(Ljava/lang/String;)I
+
+    move-result v0
+
     return v0
 .end method
 
@@ -12923,7 +13013,7 @@
 .method public static getTetheringSummary(Landroid/content/Context;Landroid/net/ConnectivityManager;)I
     .locals 8
 
-    const v7, 0x7f0b0b54
+    const v7, 0x7f0b0b5e
 
     invoke-virtual {p1}, Landroid/net/ConnectivityManager;->getTetherableUsbRegexs()[Ljava/lang/String;
 
@@ -12986,7 +13076,7 @@
 
     if-eqz v2, :cond_4
 
-    const v6, 0x7f0b0b55
+    const v6, 0x7f0b0b5f
 
     return v6
 
@@ -13000,7 +13090,7 @@
     :cond_5
     if-eqz v4, :cond_6
 
-    const v6, 0x7f0b0b56
+    const v6, 0x7f0b0b60
 
     return v6
 
@@ -13009,21 +13099,21 @@
 
     if-eqz v0, :cond_7
 
-    const v6, 0x7f0b0b59
+    const v6, 0x7f0b0b63
 
     return v6
 
     :cond_7
     if-eqz v2, :cond_8
 
-    const v6, 0x7f0b0b57
+    const v6, 0x7f0b0b61
 
     return v6
 
     :cond_8
     if-eqz v0, :cond_9
 
-    const v6, 0x7f0b0b58
+    const v6, 0x7f0b0b62
 
     return v6
 
@@ -16520,7 +16610,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {v2}, Landroid/telephony/TelephonyManager;->getPhoneCount()I
+    invoke-virtual {v2}, Landroid/telephony/TelephonyManager;->getSimCount()I
 
     move-result v3
 
@@ -16765,7 +16855,7 @@
 
     const/4 v2, 0x0
 
-    invoke-virtual {v3}, Landroid/telephony/TelephonyManager;->getPhoneCount()I
+    invoke-virtual {v3}, Landroid/telephony/TelephonyManager;->getSimCount()I
 
     move-result v4
 
@@ -19876,7 +19966,7 @@
     :cond_0
     iget v0, p0, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->titleRes:I
 
-    const v1, 0x7f0b0a8c
+    const v1, 0x7f0b0a96
 
     if-ne v0, v1, :cond_1
 
@@ -19906,7 +19996,7 @@
     :cond_2
     iget v0, p0, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->titleRes:I
 
-    const v1, 0x7f0b1142
+    const v1, 0x7f0b1145
 
     if-ne v0, v1, :cond_3
 
@@ -19921,7 +20011,7 @@
     :cond_3
     iget v0, p0, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->titleRes:I
 
-    const v1, 0x7f0b1596
+    const v1, 0x7f0b1599
 
     if-ne v0, v1, :cond_4
 
@@ -23671,70 +23761,6 @@
     return v0
 .end method
 
-.method public static isSupportPenUsp10(Landroid/content/Context;)Z
-    .locals 4
-
-    const/4 v0, 0x0
-
-    const-string/jumbo v1, "Utils"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "isSupportPenUsp10() uspLevel "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v1, 0x0
-
-    return v1
-.end method
-
-.method public static isSupportPenUsp20(Landroid/content/Context;)Z
-    .locals 4
-
-    const/4 v0, 0x0
-
-    const-string/jumbo v1, "Utils"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "isSupportPenUsp20() uspLevel "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v1, 0x0
-
-    return v1
-.end method
-
 .method public static isSupportPersonalAutoBrightness()Z
     .locals 2
 
@@ -24852,7 +24878,7 @@
 
     move-result-object v44
 
-    const v45, 0x7f0b0918
+    const v45, 0x7f0b0922
 
     move-object/from16 v0, v31
 
@@ -25277,7 +25303,7 @@
 
     move-result-object v44
 
-    const v45, 0x7f0b0be6
+    const v45, 0x7f0b0bf0
 
     move-object/from16 v0, v31
 
@@ -25301,11 +25327,17 @@
 
     move-result-object v10
 
-    invoke-static/range {p0 .. p0}, Lcom/android/settings/Utils;->isSupportPenUsp10(Landroid/content/Context;)Z
+    invoke-static/range {p0 .. p0}, Lcom/android/settings/Utils;->getSPenUSPLevel(Landroid/content/Context;)I
 
     move-result v44
 
-    if-nez v44, :cond_8
+    const/16 v45, 0xa
+
+    move/from16 v0, v44
+
+    move/from16 v1, v45
+
+    if-ge v0, v1, :cond_8
 
     const-string/jumbo v44, "air_button_onoff"
 
@@ -25372,7 +25404,7 @@
 
     move-result-object v44
 
-    const v45, 0x7f0b0be1
+    const v45, 0x7f0b0beb
 
     move-object/from16 v0, v31
 
@@ -25656,7 +25688,7 @@
 
     move-result-object v44
 
-    const v45, 0x7f0b0b5c
+    const v45, 0x7f0b0b66
 
     move-object/from16 v0, v31
 
@@ -26195,7 +26227,7 @@
 
     move-result-object v44
 
-    const v45, 0x7f0b0ad7
+    const v45, 0x7f0b0ae1
 
     move-object/from16 v0, v31
 
@@ -26277,7 +26309,7 @@
 
     move-result-object v44
 
-    const v45, 0x7f0b0ac8
+    const v45, 0x7f0b0ad2
 
     move-object/from16 v0, v31
 
@@ -26415,7 +26447,7 @@
 
     move-result-object v44
 
-    const v45, 0x7f0b1600
+    const v45, 0x7f0b1603
 
     move-object/from16 v0, v31
 
@@ -26855,7 +26887,7 @@
 
     move-result-object v44
 
-    const v45, 0x7f0b0be3
+    const v45, 0x7f0b0bed
 
     move-object/from16 v0, v31
 
@@ -27001,7 +27033,7 @@
 
     move-result-object v44
 
-    const v45, 0x7f0b0903
+    const v45, 0x7f0b090d
 
     move-object/from16 v0, v31
 
@@ -27156,7 +27188,7 @@
 
     move-result-object v44
 
-    const v45, 0x7f0b0ad5
+    const v45, 0x7f0b0adf
 
     move-object/from16 v0, v31
 
@@ -27224,7 +27256,7 @@
 
     move-result-object v44
 
-    const v45, 0x7f0b0ad6
+    const v45, 0x7f0b0ae0
 
     move-object/from16 v0, v31
 
@@ -27982,6 +28014,83 @@
     return v0
 .end method
 
+.method public static isVoWiFiSupported()Z
+    .locals 5
+
+    const/4 v0, 0x0
+
+    sget-object v2, Lcom/android/settings/Utils;->mImsManager:Lcom/sec/ims/ImsManager;
+
+    if-eqz v2, :cond_2
+
+    sget-object v2, Lcom/android/settings/Utils;->mImsManager:Lcom/sec/ims/ImsManager;
+
+    const-string/jumbo v3, "volte"
+
+    invoke-virtual {v2, v3}, Lcom/sec/ims/ImsManager;->getRegistrationInfoByServiceType(Ljava/lang/String;)Lcom/sec/ims/ImsRegistration;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {v1}, Lcom/sec/ims/ImsRegistration;->getEpdgStatus()Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    invoke-virtual {v1}, Lcom/sec/ims/ImsRegistration;->getNetworkType()I
+
+    move-result v2
+
+    const/4 v3, 0x1
+
+    if-ne v2, v3, :cond_1
+
+    :cond_0
+    const/4 v0, 0x1
+
+    :goto_0
+    const-string/jumbo v2, "ApnSettings"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "isVoWiFiSupported : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    :goto_1
+    return v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
+
+    :cond_2
+    const-string/jumbo v2, "ApnSettings"
+
+    const-string/jumbo v3, "mImsManager Null can not check voltesupport"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
+.end method
+
 .method public static isVodafoneSIMValid(Landroid/content/Context;)Z
     .locals 8
 
@@ -27997,7 +28106,7 @@
 
     const/4 v2, 0x0
 
-    invoke-virtual {v3}, Landroid/telephony/TelephonyManager;->getPhoneCount()I
+    invoke-virtual {v3}, Landroid/telephony/TelephonyManager;->getSimCount()I
 
     move-result v4
 
@@ -28450,7 +28559,7 @@
 
     if-eqz v2, :cond_0
 
-    const v7, 0x7f0b1597
+    const v7, 0x7f0b159a
 
     :cond_0
     invoke-static/range {p0 .. p0}, Lcom/android/settings/Utils;->isSplitViewSupported(Landroid/content/Context;)Z
@@ -29670,7 +29779,7 @@
 
     move-result v2
 
-    const v6, 0x7f0a0473
+    const v6, 0x7f0a0471
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -30115,6 +30224,21 @@
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
+.end method
+
+.method public static removeImsManager()V
+    .locals 1
+
+    sget-object v0, Lcom/android/settings/Utils;->mImsManager:Lcom/sec/ims/ImsManager;
+
+    if-eqz v0, :cond_0
+
+    sget-object v0, Lcom/android/settings/Utils;->mImsManager:Lcom/sec/ims/ImsManager;
+
+    invoke-virtual {v0}, Lcom/sec/ims/ImsManager;->disconnectService()V
+
+    :cond_0
+    return-void
 .end method
 
 .method public static removeKnoxCustomSettingsHiddenItems(Lcom/samsung/android/settings/SecSettingsPreferenceFragment;)V
@@ -32481,7 +32605,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_14
+    if-eqz v7, :cond_13
 
     :cond_12
     const-string/jumbo v7, "ims"
@@ -32558,19 +32682,55 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
+    const-string/jumbo v7, "XEO"
+
+    invoke-static {}, Lcom/android/settings/Utils;->getSalesCode()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_14
+
+    const-string/jumbo v7, "PLAY"
+
+    invoke-virtual {p4, v7}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_14
+
+    invoke-static {}, Lcom/android/settings/Utils;->isVoWiFiSupported()Z
+
+    move-result v7
+
+    if-eqz v7, :cond_14
+
+    const/4 v7, 0x0
+
+    return v7
+
+    :cond_13
+    const/4 v7, 0x1
+
+    return v7
+
+    :cond_14
     invoke-static {p2}, Lcom/android/settings/Utils;->isVzwEditable(Landroid/content/Intent;)Z
 
     move-result v7
 
-    if-nez v7, :cond_13
+    if-nez v7, :cond_15
 
     invoke-static {p2}, Lcom/android/settings/Utils;->isSprEditable(Landroid/content/Intent;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_15
+    if-eqz v7, :cond_16
 
-    :cond_13
+    :cond_15
     const-string/jumbo v7, "ApnSettings"
 
     const-string/jumbo v8, "vzw/spr editable show ims always"
@@ -32581,12 +32741,7 @@
 
     return v7
 
-    :cond_14
-    const/4 v7, 0x1
-
-    return v7
-
-    :cond_15
+    :cond_16
     const-string/jumbo v7, "ATL"
 
     invoke-static {}, Lcom/android/settings/Utils;->getSalesCode()Ljava/lang/String;
@@ -32597,15 +32752,15 @@
 
     move-result v7
 
-    if-eqz v7, :cond_16
+    if-eqz v7, :cond_17
 
     invoke-static {p3}, Lcom/android/settings/Utils;->isVodafoneSimInserted(Ljava/lang/String;)Z
 
     move-result v7
 
-    if-nez v7, :cond_17
+    if-nez v7, :cond_18
 
-    :cond_16
+    :cond_17
     const-string/jumbo v7, "PRT"
 
     invoke-static {}, Lcom/android/settings/Utils;->getSalesCode()Ljava/lang/String;
@@ -32616,9 +32771,9 @@
 
     move-result v7
 
-    if-eqz v7, :cond_18
+    if-eqz v7, :cond_19
 
-    :cond_17
+    :cond_18
     const-string/jumbo v7, "ApnSettings"
 
     const-string/jumbo v8, "ATL vodafone sim/PRT show ims always"
@@ -32629,12 +32784,12 @@
 
     return v7
 
-    :cond_18
+    :cond_19
     invoke-static {p3}, Lcom/android/settings/Utils;->isSPRSimInserted(Ljava/lang/String;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_19
+    if-eqz v7, :cond_1a
 
     const-string/jumbo v7, "ApnSettings"
 
@@ -32646,14 +32801,14 @@
 
     return v7
 
-    :cond_19
+    :cond_1a
     invoke-static {}, Lcom/android/settings/Utils;->isMultisimModel()Z
 
     move-result v7
 
-    if-eqz v7, :cond_1b
+    if-eqz v7, :cond_20
 
-    if-nez p8, :cond_1a
+    if-nez p8, :cond_1b
 
     const-string/jumbo v7, "0"
 
@@ -32669,19 +32824,15 @@
 
     move-result v7
 
-    if-eqz v7, :cond_1a
+    if-eqz v7, :cond_1b
 
-    const-string/jumbo v7, "ApnSettings"
+    invoke-static {}, Lcom/android/settings/Utils;->isVoWiFiSupported()Z
 
-    const-string/jumbo v8, "if SIMSLOT1 not ISIM, remove ims apn"
+    move-result v7
 
-    invoke-static {v7, v8}, Lcom/samsung/android/settings/LogMsg;->out(Ljava/lang/String;Ljava/lang/String;)V
+    if-eqz v7, :cond_1e
 
-    const/4 v7, 0x1
-
-    return v7
-
-    :cond_1a
+    :cond_1b
     const/4 v7, 0x1
 
     move/from16 v0, p8
@@ -32704,40 +32855,11 @@
 
     if-eqz v7, :cond_1c
 
-    const-string/jumbo v7, "ApnSettings"
-
-    const-string/jumbo v8, "if SIMSLOT2 not ISIM, remove ims apn"
-
-    invoke-static {v7, v8}, Lcom/samsung/android/settings/LogMsg;->out(Ljava/lang/String;Ljava/lang/String;)V
-
-    const/4 v7, 0x1
-
-    return v7
-
-    :cond_1b
-    const-string/jumbo v7, "0"
-
-    const-string/jumbo v8, "persist.ril.ims.eutranParam"
-
-    invoke-static {v8}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static {}, Lcom/android/settings/Utils;->isVoWiFiSupported()Z
 
     move-result v7
 
-    if-eqz v7, :cond_1c
-
-    const-string/jumbo v7, "ApnSettings"
-
-    const-string/jumbo v8, "if not ISIM, remove ims apn"
-
-    invoke-static {v7, v8}, Lcom/samsung/android/settings/LogMsg;->out(Ljava/lang/String;Ljava/lang/String;)V
-
-    const/4 v7, 0x1
-
-    return v7
+    if-eqz v7, :cond_1f
 
     :cond_1c
     const-string/jumbo v7, "CHM"
@@ -32750,9 +32872,9 @@
 
     move-result v7
 
-    if-eqz v7, :cond_1f
+    if-eqz v7, :cond_22
 
-    if-eqz p7, :cond_1f
+    if-eqz p7, :cond_22
 
     const-string/jumbo v7, "cmdm"
 
@@ -32802,7 +32924,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_1e
+    if-eqz v7, :cond_21
 
     :cond_1d
     const/4 v7, 0x1
@@ -32810,6 +32932,59 @@
     return v7
 
     :cond_1e
+    const-string/jumbo v7, "ApnSettings"
+
+    const-string/jumbo v8, "if SIMSLOT1 not ISIM, remove ims apn"
+
+    invoke-static {v7, v8}, Lcom/samsung/android/settings/LogMsg;->out(Ljava/lang/String;Ljava/lang/String;)V
+
+    const/4 v7, 0x1
+
+    return v7
+
+    :cond_1f
+    const-string/jumbo v7, "ApnSettings"
+
+    const-string/jumbo v8, "if SIMSLOT2 not ISIM, remove ims apn"
+
+    invoke-static {v7, v8}, Lcom/samsung/android/settings/LogMsg;->out(Ljava/lang/String;Ljava/lang/String;)V
+
+    const/4 v7, 0x1
+
+    return v7
+
+    :cond_20
+    const-string/jumbo v7, "0"
+
+    const-string/jumbo v8, "persist.ril.ims.eutranParam"
+
+    invoke-static {v8}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_1c
+
+    invoke-static {}, Lcom/android/settings/Utils;->isVoWiFiSupported()Z
+
+    move-result v7
+
+    if-nez v7, :cond_1c
+
+    const-string/jumbo v7, "ApnSettings"
+
+    const-string/jumbo v8, "if not ISIM, remove ims apn"
+
+    invoke-static {v7, v8}, Lcom/samsung/android/settings/LogMsg;->out(Ljava/lang/String;Ljava/lang/String;)V
+
+    const/4 v7, 0x1
+
+    return v7
+
+    :cond_21
     const-string/jumbo v7, "wap"
 
     move-object/from16 v0, p7
@@ -32818,7 +32993,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_1f
+    if-eqz v7, :cond_22
 
     const-string/jumbo v7, "WAP"
 
@@ -32826,7 +33001,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_1f
+    if-eqz v7, :cond_22
 
     const-string/jumbo v7, "cmwap"
 
@@ -32836,13 +33011,13 @@
 
     move-result v7
 
-    if-eqz v7, :cond_1f
+    if-eqz v7, :cond_22
 
     const/4 v7, 0x1
 
     return v7
 
-    :cond_1f
+    :cond_22
     const/4 v7, 0x0
 
     return v7

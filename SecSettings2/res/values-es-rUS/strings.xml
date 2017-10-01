@@ -379,7 +379,7 @@ Introduzca el código proporcionado por Verizon:"</string>
     <string name="support">Asistencia</string>
     <string name="reset_network_settings_list_summary">Restablecer Wi-Fi, Bluetooth y otros ajustes de red a sus valores predeterminados.</string>
     <string name="master_clear_list_summary">Restablecer el dispositivo a sus ajustes predeterminados. Esta acción eliminará todos los datos, incluidos los archivos y las aplicaciones descargadas.</string>
-    <string name="auto_restart_summary">Optimice su dispositivo configurándolo para que se reinicie automáticamente a horarios definidos. Los datos que no se hayan guardado se perderán cuando el dispositivo se reinicie.</string>
+    <string name="auto_restart_summary">Reiniciar el teléfono automáticamente una vez por semana para optimizarlo. Los datos que no se hayan guardado se perderán cuando el teléfono se reinicie.</string>
     <string name="search_settings">Buscar</string>
     <string name="related_results">%d elementos relacionados</string>
     <string name="no_results_found">No se encontraron resultados</string>
@@ -1487,6 +1487,7 @@ El proceso de encriptado puede tardar más de una hora. Antes de comenzar, aseg�
     <string name="crypt_keeper_verify_failed_summary">No es posible reiniciar el dispositivo debido a que se produjo un error durante la verificación de integridad. Debe reiniciar los ajustes predeterminados del dispositivo. Esta acción eliminará todos sus datos.</string>
     <string name="cryptkeeper_emergency_call">Llamada de emergencia</string>
     <string name="cryptkeeper_return_to_call">Devolver la llamada</string>
+    <string name="cryptkeeper_default_enter_msg">Su teléfono está encriptado por motivos de seguridad.</string>
     <string name="enter_password">Para iniciar el dispositivo, introduzca la contraseña.</string>
     <string name="enter_pin">Para iniciar el dispositivo, introduzca el PIN.</string>
     <string name="enter_pattern">Para iniciar el dispositivo, dibuje el patrón.</string>
@@ -1501,6 +1502,7 @@ El proceso de encriptado puede tardar más de una hora. Antes de comenzar, aseg�
     <string name="crypt_keeper_failed_title_dec">"Error de
 desencriptación."</string>
     <string name="crypt_keeper_failed_summary_dec">No se puede completar la desencriptación debido a una interrupción. Realice un restablecimiento predeterminado (eliminando todos los datos) antes de usar.</string>
+    <string name="crypt_keeper_set_screen_lock_type">Config. tipo de bloqueo de pant.</string>
     <string name="encryption_interstitial_message_kor">El dispositivo está encriptado. Proteja los datos encriptados al seleccionar la opción Solicitar bloqueo pantalla para desencriptar al encender. Esto ayuda a proteger los datos de los dispositivos extraviados o robados. Deberá desbloquear el dispositivo para desencriptar sus datos cada vez que lo encienda. No recibirá llamadas, mensajes ni notificaciones hasta que no desencripte el dispositivo.</string>
     <string name="encryption_interstitial_message_direction">"Proteja su dispositivo al seleccionar Solicitar Bloqueo con direcciones al encender el dispositivo. Esto ayuda a proteger los datos de los dispositivos extraviados o robados.
 
@@ -1740,6 +1742,8 @@ Desactive la función Bloqueo de reactivación antes de solicitar una reparació
     <string name="empty_content_toast">No hay contenido para guardar.</string>
     <string name="find_my_mobile_message_zero">"Rastree y controle su dispositivo de forma remota con el servicio web Localizar mi móvil. Para obtener más información y averiguar sobre las demás funciones disponibles, visite el siguiente sitio web:
 %s"</string>
+    <string name="send_last_location_title">Enviar última ubicación</string>
+    <string name="send_last_location_summary">Permitir que el teléfono envíe su última ubicación al servidor de Localizar mi móvil cuando la carga de la batería descienda a menos de determinado nivel.</string>
     <string name="high_power_description">Activar la función Optimizar uso de batería en aplicaciones específicas. Algunas funciones, como las que usan redes móviles o sincronizan datos, quedarán restringidas para ahorrar batería.</string>
     <string name="wifi_display_summary_off">Desactivado</string>
     <string name="battery_usage_description">Esta pantalla muestra la información de uso de la batería desde la última vez que el dispositivo se cargó por completo.</string>
@@ -1971,6 +1975,8 @@ Al determinar su ubicación se usará la red móvil. Se aplicará el uso de dato
     <string name="lock_screen_app_shortcut_summary">Seleccione los atajos de aplicaciones que desea usar en la Pantalla de bloqueo.</string>
     <string name="lockscreen_notifications">Notificaciones en pantalla de bloqueo</string>
     <string name="work_profile_lockscreen_notifications">Notificaciones perfil trabajo</string>
+    <string name="lock_network_and_security">Bloquear red y seguridad</string>
+    <string name="lock_network_and_security_summary">Mantener bloqueadas la red y las funciones relacionadas con la seguridad cuando el teléfono está bloqueado. Esto hace que sea más fácil localizarlo y protegerlo en caso de robo o extravío.</string>
     <string name="dualclock_settings_title">Reloj dual</string>
     <string name="dualclock_settings_summary">Mostrar la zona horaria local y la de origen mientras esté en roaming.</string>
     <string name="set_home_city">Zona horaria local</string>
@@ -2156,7 +2162,7 @@ Incluso si borran su teléfono, se requerirá la contraseña de su cuenta de Goo
     <string name="air_browse_music_on_lock_screen_title">Música en la pantalla de bloqueo</string>
     <string name="air_browse_music_on_lock_screen_summary">Cambiar las pistas de música en la pantalla de bloqueo.</string>
     <string name="air_browse_note_summary">Moverse entre páginas en el Modo de vista.</string>
-    <string name="data_usage_enable_mobile_summery">Si la función Datos móviles está desactivada, el dispositivo se debe conectar a una red Wi-Fi para poder usar los servicios que requieren una conexión de red.</string>
+    <string name="data_usage_enable_mobile_summery">Acceder a Internet mediante la red móvil.</string>
     <string name="data_usage_enable_mobile_warning_skt">La conexión a redes móviles puede generar costos adicionales dependiendo de su plan de datos. ¿Desea continuar?</string>
     <string name="data_usage_enable_mobile_warning_ktt">La conexión a redes móviles puede generar costos adicionales dependiendo de su plan de datos. ¿Desea continuar?</string>
     <string name="data_usage_enable_mobile_warning_lgt">La conexión a redes móviles puede generar costos adicionales dependiendo de su plan de datos. ¿Desea continuar?</string>
@@ -2525,8 +2531,8 @@ Privado"</string>
     <string name="secure_folder_summary">Proteja sus aplicaciones y contenido privados para aumentar la seguridad.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s no admite el desbloqueo de %2$s mediante huellas digitales.</string>
     <string name="edge_feeds_title">Fuentes Edge</string>
-    <string name="screensaver_settings_summary">Permite controlar lo que ocurre cuando el dispositivo se encuentra acoplado o cargando y la pantalla está apagada. Esta función también se denomina protector de pantalla.</string>
-    <string name="screensaver_settings_summary_wo_dock">Mostrar un salvapantallas cuando la pantalla se apaga automáticamente mientras se carga el dispositivo.</string>
+    <string name="screensaver_settings_summary">Mostrar un salvapantallas cuando la pantalla se apaga automáticamente mientras se carga el teléfono.</string>
+    <string name="screensaver_settings_summary_wo_dock">Mostrar un salvapantallas cuando la pantalla se apaga automáticamente mientras el teléfono se carga o está acoplado.</string>
     <string name="apn_already_exists">Ya existe.</string>
     <string name="error_unavailable_apn">No se permite este APN en este dispositivo. Inténtelo con otro.</string>
     <string name="error_message_port_out_of_range">El número de puerto debe estar entre %1$d y %2$d.</string>
@@ -3291,6 +3297,7 @@ Usar la Zona portátil consume más batería y aumenta el uso de datos."</string
     <string name="wfd_connection_end_toast">Conexión de Screen mirroring finalizada.</string>
     <string name="wfd_descrpition_playvia">Reproduzca contenido.</string>
     <string name="wfd_descrpition_mirroring">Duplicar la pantalla.</string>
+    <string name="wfd_descrpition_playsound">Reproducir sonido.</string>
     <string name="usbtethering_notify_wifi_is_on">No es posible activar Wi-Fi y Anclaje a red USB al mismo tiempo. Desactive Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">Se desactivará Ventana múltiple y se cerrarán todas las aplicaciones abiertas en ventanas emergentes.</string>
     <string name="keyguard_password_attempt_count_pin_code">Queda %d intento.</string>
@@ -4130,7 +4137,7 @@ Considere la posibilidad de usar una tarjeta SD más rápida o un dispositivo de
     <string name="location_network_based">Usar redes inalámbricas</string>
     <string name="location_neighborhood_level">Permite que las aplicaciones calculen su ubicación más rápido. Se reúnen datos anónimos y se envían a Google.</string>
     <string name="system_update">Actualización del sistema</string>
-    <string name="about_settings">Acerca del dispositivo</string>
+    <string name="about_settings">Acerca del teléfono</string>
     <string name="about_settings_vzw">Acerca del dispositivo</string>
     <string name="legal_information">Información legal</string>
     <string name="regulatory_information">Información reglamentaria</string>
@@ -4315,7 +4322,7 @@ No se perderán los datos existentes de las aplicaciones."</string>
     <string name="phone_language">Idioma</string>
     <string name="show_password">Hacer visible las contraseñas</string>
     <string name="show_password_summary">Mostrar caracteres de la contraseña brevemente a medida que los escribe.</string>
-    <string name="ime_security_warning">Este método puede recopilar todo el texto introducido, a excepción de las contraseñas, incluidos los datos personales y los números de las tarjetas de crédito. Proviene de la aplicación %1$s. ¿Utilizar?</string>
+    <string name="ime_security_warning">Es posible que %s pueda recopilar todo el texto que escriba. Esto incluye sus datos personales, como las contraseñas y los números de tarjetas de crédito.</string>
     <string name="failed_to_open_app_settings_toast">Error al abrir los ajustes de %s.</string>
     <string name="keyboard_and_input_methods_category">Teclados</string>
     <string name="virtual_keyboard_category">Teclado virtual</string>

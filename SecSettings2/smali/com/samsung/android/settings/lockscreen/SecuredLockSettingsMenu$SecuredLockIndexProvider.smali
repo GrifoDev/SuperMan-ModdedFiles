@@ -198,7 +198,7 @@
 
     const v5, 0x7f0b047f
 
-    const v9, 0x7f0b085b
+    const v9, 0x7f0b0863
 
     invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -305,7 +305,7 @@
     if-eqz v9, :cond_3
 
     :cond_1
-    const v9, 0x7f0b086e
+    const v9, 0x7f0b0878
 
     invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -322,7 +322,7 @@
     return-object v7
 
     :cond_3
-    const v9, 0x7f0b1133
+    const v9, 0x7f0b1136
 
     invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

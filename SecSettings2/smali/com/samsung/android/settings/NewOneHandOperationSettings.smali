@@ -509,7 +509,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b0b68
+    const v9, 0x7f0b0b72
 
     invoke-virtual {v8, v9}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -783,7 +783,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b1600
+    const v9, 0x7f0b1603
 
     invoke-virtual {v8, v9}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -803,7 +803,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b1612
+    const v9, 0x7f0b1615
 
     invoke-virtual {v8, v9}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -863,7 +863,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b0b69
+    const v9, 0x7f0b0b73
 
     invoke-virtual {v8, v9}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -1088,7 +1088,7 @@
 
     invoke-virtual {v8, v9}, Lcom/samsung/android/settings/WrapContentHeightViewPager;->setOnPageChangeListener(Landroid/support/v4/view/ViewPager$OnPageChangeListener;)V
 
-    const v8, 0x7f1103c5
+    const v8, 0x7f1103c3
 
     invoke-virtual {v3, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1121,7 +1121,7 @@
 
     check-cast v6, Landroid/widget/ImageView;
 
-    const v8, 0x7f0b0917
+    const v8, 0x7f0b0921
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/NewOneHandOperationSettings;->getString(I)Ljava/lang/String;
 
@@ -1413,7 +1413,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/NewOneHandOperationSettings;->mButtonType:Lcom/samsung/android/settings/SecRadioButtonPreference;
 
-    const v2, 0x7f0b0b65
+    const v2, 0x7f0b0b6f
 
     invoke-virtual {v1, v2}, Lcom/samsung/android/settings/SecRadioButtonPreference;->setSummary(I)V
 
@@ -1845,7 +1845,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0b6a
+    const v4, 0x7f0b0b74
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

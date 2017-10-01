@@ -243,7 +243,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">ပံ့ပိုးပါ</string>
     <string name="reset_network_settings_list_summary">Wi-Fi၊ ဘလူးတုသ္ႏွင့္ အျခားကြန္ယက္သတ္မွတ္ခ်က္မ်ားကို ၎တို႔၏မူရင္းပါပုံစံသို႔ ျပန္လည္သတ္မွတ္ပါ။</string>
     <string name="master_clear_list_summary">သင္၏ကိရိယာကို ၎၏မူရင္းပါပုံစံ သတ္မွတ္ခ်က္မ်ားသို႔ ျပန္လည္သတ္မွတ္ပါ။ ဤအရာသည္ ဖိုင္မ်ားႏွင့္ ေဒါင္းလုတ္လုပ္ထားသည့္ အက္ပ္မ်ားအပါအဝင္ ေဒတာအားလုံးကိုဖ်က္သြားမည္။</string>
-    <string name="auto_restart_summary">သတ္မွတ္အခ်ိန္မ်ားတြင္ ၎ကိုအလိုအေလ်ာက္ ျပန္လည္စတင္ျခင္းျဖင့္ သင့္ကိရိယာကို သင့္ျမတ္ေအာင္လုပ္ေဆာင္ပါ။ ကိရိယာ ျပန္လည္စတင္သည့္အခါ သိမ္းဆည္းမထားေသာ ေဒတာသည္ ေပ်ာက္ဆုံးသြားမည္။</string>
+    <string name="auto_restart_summary">သင့္ဖုန္းကုိ တစ္ပတ္တစ္ႀကိမ္ အလုိအေလ်ာက္ ပိတ္ၿပီးျပန္ပြင့္ေစျခင္းျဖင့္ ပုိေကာင္းေအာင္ လုပ္ပါ။ သင့္ဖုန္း ျပန္စပြင့္သည့္အခါ သိမ္းဆည္းမထားေသာ ေဒတာအားလံုး ေပ်ာက္ဆံုးပါမည္။</string>
     <string name="search_settings">ရွာေဖြ</string>
     <string name="related_results">သက္ဆိုင္ရာ အရာဝတၳဳ %d ခု</string>
     <string name="no_results_found">ရလဒ္မ်ား မေတြ႔ပါ</string>
@@ -1349,6 +1349,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_verify_failed_summary">သင္၏ကိရိယာကို ျပန္လည္စတင္၍မရႏိုင္ပါ။ ျပည့္စုံသည့္အေျခအေနကို စစ္ေဆးအတည္ျပဳမႈ မေအာင္ျမင္ပါ။ သင္၏ကိရိယာကို စက္႐ုံထုတ္မူရင္းပါပုံစံ သတ္မွတ္ခ်က္မ်ားသို႔ ျပန္လည္သတ္မွတ္ရန္ လိုအပ္သည္။ ဤအရာသည္ သင္၏ေဒတာအားလုံးကို ဖ်က္သြားမည္။</string>
     <string name="cryptkeeper_emergency_call">အေရးေပၚ ဖုန္းေခၚဆုိမႈ</string>
     <string name="cryptkeeper_return_to_call">ေခၚဆိုရန္ ျပန္လာပါ</string>
+    <string name="cryptkeeper_default_enter_msg">လံုျခံဳမႈအတြက္ သင့္ဖုန္းကို ကုဒ္ေျပာင္းထားသည္။</string>
     <string name="enter_password">သင့္ကိရိယာကို စတင္ရန္ သင္၏ စကားဝွက္ထည့္သြင္းပါ။</string>
     <string name="enter_pin">သင့္ကိရိယာကို စတင္ရန္ သင္၏ PIN ထည့္သြင္းပါ။</string>
     <string name="enter_pattern">သင့္ကိရိယာကို စတင္ရန္ သင္၏ ပုံစံေရးဆြဲပါ။</string>
@@ -1362,6 +1363,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_last_warn_wipe">သင့္ကိရိယာကို ၎၏ စက္႐ုံထုတ္ မူရင္းပါ သတ္မွတ္ခ်က္မ်ားသို႔ ျပန္မသတ္မွတ္မီ သင့္တြင္ စဖြင့္ႏိုင္ခြင့္ ၁ ႀကိမ္ က်န္ေနေသးသည္။ ၎က ဖိုင္မ်ားႏွင့္ ေဒါင္းလုတ္ထားေသာ အက္ပ္မ်ား အပါအဝင္၊ ေဒတာအားလုံးကို ဖ်က္ပါမည္။</string>
     <string name="crypt_keeper_failed_title_dec">ျပန္ေဖာ္ျခင္း မေအာင္ျမင္ပါ။</string>
     <string name="crypt_keeper_failed_summary_dec">အျပတ္အေတာက္ရွိသျဖင့္ ေဖာ္ျခင္း မျပီးစီးပါ။ အသံုးမျပဳမီ (ေဒတာ အားလံုး ဖ်က္ျခင္း) စက္ရံုေဒတာ ျပန္သတ္မွတ္ျခင္းကို ေဆာင္ရြက္ပါ။</string>
+    <string name="crypt_keeper_set_screen_lock_type">ဖန္သားျပင္ ေသာ့အမ်ဳိးအစား စီစဥ္ပါ</string>
     <string name="encryption_interstitial_message_kor">သင္၏ကိရိယာကို ကုဒ္သြင္းျမႇဳပ္ထားသည္။ ကိရိယာပါဝါဖြင့္ထားသည့္အခါ ေဒတာကို ကုဒ္ေျပာင္းေဖာ္ရန္ လိုအပ္သည့္ ဖန္သားျပင္ေသာ့ကိုေ႐ြးခ်ယ္ျခင္းျဖင့္ သင္၏ကုဒ္သြင္းျမႇဳပ္ထားသည့္ ေဒတာကိုကာကြယ္ပါ။ ဤအရာသည္ ကိရိယာမ်ားေပ်ာက္ဆုံးမႈႏွင့္ ခိုးယူခံရမႈရွိ ေဒတာကိုအကာအကြယ္ေပးရာတြင္ အကူအညီျပဳသည္။ ကိရိယာကို ပါဝါဖြင့္ထားသည့္အခါတိုင္း ၎၏ေဒတာကို ကုဒ္ေျပာင္းေဖာ္ရန္ သင္၏ကိရိယာကို ေသာ့ဖြင့္ရန္လိုအပ္လိမ့္မည္။ သင္၏ကိရိယာကို ကုဒ္ေျပာင္းေဖာ္ၿပီးသည့္တိုင္ အျခားေသာေခၚဆိုမႈမ်ား၊ မက္ေဆ့ခ္်မ်ား (သို႔) သတိေပးခ်က္မ်ား လက္ခံရရွိမည္မဟုတ္ပါ။</string>
     <string name="encryption_interstitial_message_direction">"ကိရိယာ ပါဝါပြင့္ေနစဥ္ “အလိုရွိရာ ဒါ႐ိုက္ရွင္ေသာ့” ကို ေ႐ြးခ်ယ္ၿပီး ကိရိယာကို ကာကြယ္ပါ။ ဤအရာသည္ ေပ်ာက္ဆုံး (သို႔) အခိုးခံရသည့္ ကိရိယာမ်ားမွ ေဒတာကို ကာကြယ္ရာတြင္ အေထာက္အကူျဖစ္သည္။
 
@@ -1601,6 +1603,8 @@ You will also need it when:"</string>
     <string name="empty_content_toast">သိမ္းဆည္းရန္ အေၾကာင္းအရာမ်ား မရွိပါ။</string>
     <string name="find_my_mobile_message_zero">"ကၽြႏ္ုပ္၏မိုဘိုင္းကို ရွာေဖြပါ ဝဘ္ ဝန္ေဆာင္မႈကို အသုံးျပဳ၍ သင့္ကိရိယာကို အေဝးမွ ေစာင့္ၾကည့္ၿပီး ထိန္းခ်ဳပ္ပါ။ ေနာက္ထပ္အခ်က္အလက္မ်ားႏွင့္ အျခားရရွိႏိုင္သည့္ လုပ္ေဆာင္ခ်က္မ်ားကို ရွာေဖြရန္၊ ဝင္ေရာက္ရမည့္ ေအာက္ပါ ဝဘ္ဆိုဒ္မွာ :
 %s"</string>
+    <string name="send_last_location_title">ေနာက္ဆံုး တည္ေနရာကုိ ပုိ႔ပါ</string>
+    <string name="send_last_location_summary">ဘက္ထရီက သတ္မွတ္အဆင့္ေအာက္သုိ႔ ေရာက္သြားသည့္အခါ သင့္ဖုန္း၏ ေနာက္ဆုံးတည္ေနရာကို Find My Mobile ဆာဗာထံသို႔ေပးပို႔ရန္ ခြင့္ျပဳပါ။</string>
     <string name="high_power_description">သီးျခားအက္ပ္မ်ားအတြက္ ဘက္ထရီအသုံးျပဳမႈကို အေကာင္းဆုံးျပဳလုပ္ပါကို ဖြင့္ပါ။ မိုဘိုင္းကြန္ယက္မ်ားအသုံးျပဳမႈ (သို႔) ေဒတာဆင့္လုပ္မႈကဲ့သို႔ အခ်ိဳ႕လုပ္ေဆာင္ခ်က္မ်ားသည္၊ ဘက္ထရီပါဝါေခၽြတာရန္ ကန္႔သတ္သြားမည္။</string>
     <string name="wifi_display_summary_off">ပိတ္</string>
     <string name="battery_usage_description">ဤဖန္သားျပင္သည္ ကိရိယာကို ေနာက္ဆုံးအားအျပည့္သြင္းထားၿပီးခ်ိန္မွစ၍ ဘက္ထရီအသုံးျပဳမႈေဒတာကို ျပသသည္။</string>
@@ -1832,6 +1836,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">ေသာ့ဖန္သားျပင္တြင္ သင္အသုံးျပဳလိုသည့္ အက္ပ္အျမန္သုံးသေကၤတမ်ားကို ေ႐ြးခ်ယ္ပါ။</string>
     <string name="lockscreen_notifications">ေသာ့ ဖန္သားျပင္ေပၚတြင္ သတိေပးခ်က္မ်ား</string>
     <string name="work_profile_lockscreen_notifications">အလုပ္ပ႐ိုဖိုင္အသိေပးခ်က္မ်ား</string>
+    <string name="lock_network_and_security">ေသာ့ခတ္ ကြန္ရက္ႏွင့္ လုံျခံဳေရး</string>
+    <string name="lock_network_and_security_summary">သင့္ဖုန္းေပ်ာက္ဆုံးပါက သို႔မဟုတ္ အခိုးခံရပါက ကာကြယ္ရန္ႏွင့္ ေနရာရွာရန္ ပို၍လြယ္ကူေအာင္ျပဳလုပ္ျခင္းအားျဖင့္ သင့္ဖုန္းေသာ့ပိတ္ထားစဥ္အတြင္း ကြန္ရက္ႏွင့္ လံုျခံဳေရးႏွင့္ ဆက္စပ္ေနေသာ အဂၤါရပ္မ်ားကို ဆက္လက္ ေသာ့ခတ္ထားပါ။</string>
     <string name="dualclock_settings_title">အခ်ိန္ဇံုႏွစ္ခုရွိ အခ်ိန္ကို တစ္ၿပိဳင္တည္းျပႏိုင္ေသာနာရီ</string>
     <string name="dualclock_settings_summary">လွည့္လည္စဥ္ ေဒသႏွင့္ ေနရပ္ အခ်ိန္ဇုန္ ႏွစ္ခုလံုး ျပပါ။</string>
     <string name="set_home_city">မူလအခ်ိန္ကို သုည သတ္မွတ္ပါ</string>
@@ -2017,7 +2023,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="air_browse_music_on_lock_screen_title">ေသာ့ ဖန္သားျပင္မွ ေတးဂီတ</string>
     <string name="air_browse_music_on_lock_screen_summary">ေသာ့ဖန္သားျပင္ေပၚမွ ေတးဂီတ သီခ်င္းမ်ား ေျပာင္းပါ။</string>
     <string name="air_browse_note_summary">ျမင္ကြင္းအေနအထားတြင္ စာမ်က္ႏွာမ်ားအၾကား ေရႊ႕ပါ။</string>
-    <string name="data_usage_enable_mobile_summery">အကယ္၍ မိုဘိုင္းေဒတာ ပိတ္ထားလၽွင္၊ သင့္ကိရိယာသည္ ဝန္ေဆာင္မႈမ်ားကို အသုံးျပဳရန္ Wi-Fi ကြန္ယက္တစ္ခုသို႔ ခ်ိတ္ဆက္ထားရမည္ျဖစ္ၿပီး ၎သည္ ကြန္ယက္ခ်ိတ္ဆက္မႈတစ္ခု လိုအပ္သည္။</string>
+    <string name="data_usage_enable_mobile_summery">သင့္မုိဘုိင္းကြန္ရက္သံုး၍ အင္တာနက္ကုိ ဝင္ေရာက္သံုးစြဲပါ။</string>
     <string name="data_usage_enable_mobile_warning_skt">ဆက္လက္လုပ္ေဆာင္လိုပါသလား?</string>
     <string name="data_usage_enable_mobile_warning_ktt">ဆက္လက္လုပ္ေဆာင္လိုပါသလား?</string>
     <string name="data_usage_enable_mobile_warning_lgt">ဆက္လက္လုပ္ေဆာင္လိုပါသလား?</string>
@@ -2386,8 +2392,8 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="secure_folder_summary">လုံၿခဳံေရးတိုးျမႇင့္ရန္ သီးသန္႔ျဖစ္မႈ ပါဝင္ခ်က္ႏွင့္ အက္ပ္မ်ားကို ေသာ့ခ်ပါ။</string>
     <string name="text_biometrics_finger_title_enterprise">%2$s ကို ေသာ့ဖြင့္ရန္အတြက္ %1$s က လက္ေဗြမ်ားကို ပ့ံပိုးမေပးပါ။</string>
     <string name="edge_feeds_title">Edge ေဖာ္ျပခ်က္မ်ား</string>
-    <string name="screensaver_settings_summary">ကိရိယာကို အားသြင္းကိရိယာေပၚတင္ထားစဥ္ ျဖစ္ပ်က္သည့္အရာႏွင့္/သို႔မဟုတ္ ဖန္သားျပင္ပိတ္ထားစဥ္ အားသြင္းမႈတို႔ကို ထိန္းခ်ဳပ္ပါ။ ဤလုပ္ေဆာင္ခ်က္ကို Daydream ဟုလည္းေခၚသည္။</string>
-    <string name="screensaver_settings_summary_wo_dock">ကိရိယာအားသြင္းေနစဥ္ ဖန္သားျပင္ အလိုအေလ်ာက္ပိတ္သြားၿပီးေနာက္ ဖန္သားျပင္ေနာက္ခံပုံရိပ္တစ္ခု ျပသပါ။</string>
+    <string name="screensaver_settings_summary">သင့္ဖုန္းအားသြင္းေနစဥ္ ဖန္သားျပင္ အလိုအေလ်ာက္ပိတ္သြားၿပီးေနာက္ ဖန္သားျပင္ေနာက္ခံပုံရိပ္တစ္ခု ျပသပါ။</string>
+    <string name="screensaver_settings_summary_wo_dock">သင့္ဖုန္းကုိ ခ်ထားစဥ္ (သုိ႔) အားသြင္းေနစဥ္ ဖန္သားျပင္ အလိုအေလ်ာက္ပိတ္သြားၿပီးေနာက္ ဖန္သားျပင္ေနာက္ခံပုံရိပ္တစ္ခု ျပသပါ။</string>
     <string name="apn_already_exists">ရွိေနၿပီး</string>
     <string name="error_unavailable_apn">ဤကိရိယာေပၚမွာ APN ခြင့္မျပဳပါ။ ေက်းဇူးျပဳျပီး အျခားဟာကို ၾကိဳးစားပါ။</string>
     <string name="error_message_port_out_of_range">ပို႔တ္နံပါတ္မွာ %1$d ႏွင့္ %2$d အၾကား ရွိရမည္။</string>
@@ -3152,6 +3158,7 @@ Wi-Fi is now on."</string>
     <string name="wfd_connection_end_toast">Screen mirroring ခ်ိတ္ဆက္မႈ ရပ္သြားသည္။</string>
     <string name="wfd_descrpition_playvia">ပါဝင္ခ်က္ကို ဖြင့္ပါ။</string>
     <string name="wfd_descrpition_mirroring">ဖန္းသားျပင္ျဖင့္ မွ်ေဝ၍ျပပါ။</string>
+    <string name="wfd_descrpition_playsound">အသံ ဖြင့္ရန္။</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">Multi window ကုိ ပိတ္သြားမည္ျဖစ္ၿပီး ေပါ့-အပ္ ဝင္းဒုိးမ်ားတြင္ ဖြင့္ထားေသာ အက္ပ္အားလံုးကို ပိတ္ပစ္မည္။</string>
     <string name="keyguard_password_attempt_count_pin_code">%d ႀကိမ္ ႀကိဳးစားရန္ က်န္ပါေသးသည္။</string>
@@ -3990,7 +3997,7 @@ Receiving SMS"</string>
     <string name="location_network_based">ဝါယာလက္ ကြန္ယက္မ်ား သံုးပါ</string>
     <string name="location_neighborhood_level">သင့္တည္ေနရာကို ပိုျမန္စြာ ခန္႔မွန္းႏိုင္ရန္ Google ၏ တည္ေနရာ ဝန္ေဆာင္မႈ သံုးရန္ အက္ပ္မ်ားကို ခြင့္ျပဳပါ။ အမည္မသိေသာ တည္ေနရာ ေဒတာကို ေကာက္ယူၿပီး Google သို႔ ပို႔လိမ့္မည္။</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">ကိရိယာအေၾကာင္း</string>
+    <string name="about_settings">ဖုန္းအေၾကာင္း</string>
     <string name="about_settings_vzw">ကိရိယာအေၾကာင္း</string>
     <string name="legal_information">တရားဝင္ သတင္းအခ်က္အလက္</string>
     <string name="regulatory_information">ထိန္းသိမ္းခြင့္ဆိုင္ရာ အခ်က္အလက္မ်ား</string>
@@ -4163,7 +4170,7 @@ Receiving SMS"</string>
     <string name="phone_language">ဘာသာစကား</string>
     <string name="show_password">စကားဝွက္ကို ျမင္ေအာင္လုပ္ပါ</string>
     <string name="show_password_summary">စကား၀ွက္ သေကၤတမ်ားကို သင္ တိုက္ရိုက္ထည့္မည္ ျဖစ္ေသာေၾကာင့္ ခဏ ျပပါ။</string>
-    <string name="ime_security_warning">ဤနည္းသည္ စကားဝွက္မွလြဲ၍ ပုဂၢိဳလ္ေရးအခ်က္အလက္မ်ား ခရိဒစ္ကတ္ နံပါတ္မ်ား အပါအဝင္ သင္သြင္းလိုက္သည္ စာသားအားလံုးကို စုေဆာင္းႏိုင္သည္။ ၎သည္ %1$s အပ္မွ လာသည္။ မည္သို႔ဆိုေစ သံုးမည္လား?</string>
+    <string name="ime_security_warning">စကားဝွက္မ်ားႏွင့္ ခရက္တစ္ကတ္ နံပါတ္မ်ားကဲ့သို႔ ကိုယ္ေရးကုိယ္တာ ေဒတာ အပါအဝင္ သင္႐ိုက္ထည့္သည့္ စာသားအားလုံးကို %s က စုစည္းေကာက္ယူႏိုင္သည္။</string>
     <string name="failed_to_open_app_settings_toast">%s အတြက္ သတ္မွတ္ခ်က္မ်ား ဖြင့္ရန္ လုပ္မရ။</string>
     <string name="keyboard_and_input_methods_category">ကီးဘုတ္မ်ား</string>
     <string name="virtual_keyboard_category">ကီးဘုတ္အေပ်ာ့</string>

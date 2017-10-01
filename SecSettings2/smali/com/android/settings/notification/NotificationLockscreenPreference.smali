@@ -238,7 +238,7 @@
 
     check-cast v1, Landroid/widget/LinearLayout;
 
-    const v5, 0x7f110463
+    const v5, 0x7f110461
 
     invoke-virtual {v1, v5}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -264,7 +264,7 @@
     :goto_1
     invoke-virtual {v0, v7}, Landroid/widget/CheckBox;->setEnabled(Z)V
 
-    const v5, 0x7f110464
+    const v5, 0x7f110462
 
     invoke-virtual {v1, v5}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 

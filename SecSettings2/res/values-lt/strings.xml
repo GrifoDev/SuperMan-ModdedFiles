@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Palaikymas</string>
     <string name="reset_network_settings_list_summary">Atkurti numatytuosius „Wi-Fi“, „Bluetooth“ ir kitus tinklo nustatymus.</string>
     <string name="master_clear_list_summary">Atkurti numatytuosius gamyklinius įrenginio nustatymus. Dėl to bus ištrinti visi įrenginio duomenys, įskaitant failus ir atsisiųstas programas.</string>
-    <string name="auto_restart_summary">Įrenginį automatiškai paleisdami iš naujo nustatytu laiku optimizuokite jo veikimą. Paleidus įrenginį iš naujo visi neišsaugoti duomenys bus prarasti.</string>
+    <string name="auto_restart_summary">Optimizuokite telefoną paleisdami jį iš naujo kartą per savaitę. Paleidus telefoną iš naujo visi neišsaugoti duomenys bus prarasti.</string>
     <string name="search_settings">Ieškoti</string>
     <string name="related_results">Susijusių elementų: %d</string>
     <string name="no_results_found">Rezultatų nerasta</string>
@@ -1485,6 +1485,7 @@ Atsižvelgiant į duomenų kiekį, šifruojama gali būti ilgai. Prieš pradėda
     <string name="crypt_keeper_verify_failed_summary">Neįmanoma leisti įrenginio iš naujo. Vientisumo patikrinti nepavyko. Turite iš naujo nustatyti gamyklinius numatytuosius įrenginio nustatymus. Taip bus ištrinti visi duomenys.</string>
     <string name="cryptkeeper_emergency_call">Pagalbos skambučiai</string>
     <string name="cryptkeeper_return_to_call">Grįžti į skambutį</string>
+    <string name="cryptkeeper_default_enter_msg">Dėl saugumo jūsų telefonas yra užšifruotas.</string>
     <string name="enter_password">Jei norite paleisti įrenginį, įveskite slaptažodį.</string>
     <string name="enter_pin">Jei norite paleisti įrenginį, įveskite PIN.</string>
     <string name="enter_pattern">Jei norite paleisti įrenginį, nupieškite šabloną.</string>
@@ -1499,6 +1500,7 @@ Atsižvelgiant į duomenų kiekį, šifruojama gali būti ilgai. Prieš pradėda
     <string name="crypt_keeper_failed_title_dec">"Iššifruoti
 nepavyko."</string>
     <string name="crypt_keeper_failed_summary_dec">Neįmanoma baigti iššifruoti dėl trikdžių. Prieš naudodami atkurkite gamyklinius duomenų nustatymus (ištrindami visus duomenis).</string>
+    <string name="crypt_keeper_set_screen_lock_type">Nustatyti ekrano užrakto tipą</string>
     <string name="encryption_interstitial_message_kor">Jūsų įrenginys užšifruotas. Apsaugokite savo šifruotus duomenis – pasirinkite „Duomenims iššifruoti reikalauti ekrano užrakto, kai įrenginys įjungiamas“. Tai padės apsaugoti duomenis, jei įrenginys būtų pamestas arba pavogtas. Norėdami iššifruoti duomenis turėsite atrakinti įrenginį kiekvieną kartą, kai jis įjungiamas. Jokių skambučių, žinučių ar pranešimų negausite tol, kol jūsų įrenginys nebus iššifruotas.</string>
     <string name="encryption_interstitial_message_direction">"Apsaugokite įrenginį pasirinkdami „Reikalauti kryptinio užrakto“, kai įrenginys įjungiamas. Tai padės apsaugoti duomenis, jei įrenginys būtų pamestas arba pavogtas.
 
@@ -1738,6 +1740,8 @@ Prieš pateikiant užklausą dėl garantinio remonto, būtina išjungti pakartot
     <string name="empty_content_toast">Nėra saugotino turinio.</string>
     <string name="find_my_mobile_message_zero">"Sekite ir valdykite savo įrenginį nuotoliniu būdu naudodami žiniatinklio paslaugą „Find My Mobile“. Jei reikia daugiau informacijos ir norite sužinoti apie kitas funkcijas, apsislankykite šioje svetainėje:
 %s"</string>
+    <string name="send_last_location_title">Siųsti paskutinę vietą</string>
+    <string name="send_last_location_summary">Leiskite telefonui siųsti vėliausią vietą į „Ieškoti mano mobiliojo“ serverį, kai akumuliatoriaus įkrova nukrinta iki tam tikro lygio.</string>
     <string name="high_power_description">Įjunkite „Optimizuot akumuliatoriaus naudojimą“ konkrečioms programoms. Kai kurios funkcijos, pvz., naudojančios mobiliuosius tinklus arba sinchronizuojančios duomenis, bus apribotos, kad būtų taupoma energija.</string>
     <string name="wifi_display_summary_off">Išjungta</string>
     <string name="battery_usage_description">Šiame ekrane rodomi akumuliatoriaus naudojimo duomenys po paskutiniojo įrenginio krovimo.</string>
@@ -1969,6 +1973,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">Pasirinkite, kuriuos programų sparčiuosius mygtukus norite naudoti užrakintame ekrane.</string>
     <string name="lockscreen_notifications">Pranešimai užrakinimo ekrane</string>
     <string name="work_profile_lockscreen_notifications">Darbo profilio pranešimai</string>
+    <string name="lock_network_and_security">Užrakinti tinklą ir saugumą</string>
+    <string name="lock_network_and_security_summary">Kai telefonas užrakintas, tinklo ir saugos funkcijas išlaikykite užrakintas, kad būtų lengviau jį surasti ir apsaugoti, jei telefoną pamestumėte ar jį pavogtų.</string>
     <string name="dualclock_settings_title">Dvigubas laikrodis</string>
     <string name="dualclock_settings_summary">Naudojant tarptinklinį ryšį rodomas vietinis ir namų juostos laikas.</string>
     <string name="set_home_city">Nustat. namų laiko juostą</string>
@@ -2154,7 +2160,7 @@ Net jei jūsų telefonas būtų išvalytas, prieš kam nors pradedant naudotis j
     <string name="air_browse_music_on_lock_screen_title">Muzika užrakinimo ekrane</string>
     <string name="air_browse_music_on_lock_screen_summary">Perjunkite muzikos takelius užrakinimo ekrane.</string>
     <string name="air_browse_note_summary">Eikite per puslapius naudodami rodinio režimą.</string>
-    <string name="data_usage_enable_mobile_summery">Jei mobilieji duomenys išjungti, įrenginys turi būti prijungtas prie „Wi-Fi“ tinklo, kad galėtumėte naudotis paslaugomis, kurioms būtinas tinklo ryšys.</string>
+    <string name="data_usage_enable_mobile_summery">Pasiekite internetą naudodami mobilųjį tinklą.</string>
     <string name="data_usage_enable_mobile_warning_skt">Jungiantis prie mobiliųjų tinklų gali būti taikomas papildomas mokestis, atsižvelgiant į jūsų duomenų perdavimo planą. Tęsti?</string>
     <string name="data_usage_enable_mobile_warning_ktt">Jungiantis prie mobiliųjų tinklų gali būti taikomas papildomas mokestis, atsižvelgiant į jūsų duomenų perdavimo planą. Tęsti?</string>
     <string name="data_usage_enable_mobile_warning_lgt">Jungiantis prie mobiliųjų tinklų gali būti taikomas papildomas mokestis, atsižvelgiant į jūsų duomenų perdavimo planą. Tęsti?</string>
@@ -2524,8 +2530,8 @@ Bandykite dar kartą."</string>
     <string name="secure_folder_summary">Sustiprinkite saugumą užrakindami privatų turinį ir programas.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s nepalaiko pirštų atspaudų, kad atrakintų %2$s.</string>
     <string name="edge_feeds_title">Kraš. nauj. k.</string>
-    <string name="screensaver_settings_summary">Valdo tai, kas vyksta prijungus įrenginį prie stotelės ir (arba) kraunant, kai ekranas yra išjungtas. Ši funkcija dar vadinama „Svajonė“.</string>
-    <string name="screensaver_settings_summary_wo_dock">Rodyti ekrano užsklandą, kai ekranas automatiškai išjungiamas įrenginį įkraunant.</string>
+    <string name="screensaver_settings_summary">Rodyti ekrano užsklandą, kai įkraunant telefoną ekranas automatiškai išjungiamas.</string>
+    <string name="screensaver_settings_summary_wo_dock">Rodyti ekrano užsklandą, kai telefoną įstačius į stotelę arba jį įkraunant ekranas automatiškai išjungiamas.</string>
     <string name="apn_already_exists">Jau yra.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Prievado numeris turi būti sudarytas iš %1$d–%2$d.</string>
@@ -3290,6 +3296,7 @@ Mobiliosios saitvietės naudojimas padidina akumuliatoriaus energijos sąnaudas 
     <string name="wfd_connection_end_toast">Ryšys su „Screen Mirroring“ nutrauktas.</string>
     <string name="wfd_descrpition_playvia">Leisti turinį.</string>
     <string name="wfd_descrpition_mirroring">Dubliuoti ekraną.</string>
+    <string name="wfd_descrpition_playsound">Groti garsą.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">Kelių langų režimas bus išjungtas, o visos iškylančiuosiuose languose atidarytos programos uždarytos.</string>
     <string name="keyguard_password_attempt_count_pin_code">%d likęs bandymas.</string>
@@ -4129,7 +4136,7 @@ Kad veikimas būtų geresnis, galbūt vertėtų naudoti spartesnę SD kortelę a
     <string name="location_network_based">Naudot belaidžius tinklus</string>
     <string name="location_neighborhood_level">Leisti progr.naudotis „Google“ buvimo vietos paslauga ir greičiau nustatyti vietą. Anon. vietos duomenys bus surinkti ir išsiųsti „Google“.</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">Apie įrenginį</string>
+    <string name="about_settings">Apie telefoną</string>
     <string name="about_settings_vzw">Apie įrenginį</string>
     <string name="legal_information">Teisinė informacija</string>
     <string name="regulatory_information">Teisinė informacija</string>
@@ -4314,7 +4321,7 @@ Jūsų turimi programų duomenys nebus prarasti."</string>
     <string name="phone_language">Kalba</string>
     <string name="show_password">Paversti slaptažodį matomu</string>
     <string name="show_password_summary">Įvedant trumpai rodyti slaptažodžio simbolius.</string>
-    <string name="ime_security_warning">Naudojant šį metodą, galima surinkti visą jūsų įvestą tekstą, išskyrus slaptažodžius, įskaitant asmeninius duomenis ir kredito kortelių numerius. Taip yra dėl %1$s programos. Vis tiek naudoti?</string>
+    <string name="ime_security_warning">%s galima surinkti visą jūsų įvestą tekstą, taip pat asmeninius duomenis, pvz., slaptažodžius ir kredito kortelių numerius.</string>
     <string name="failed_to_open_app_settings_toast">Nepavyko atidaryti %s skirtų nustatymų.</string>
     <string name="keyboard_and_input_methods_category">Klaviatūros</string>
     <string name="virtual_keyboard_category">Virtualioji klaviatūra</string>

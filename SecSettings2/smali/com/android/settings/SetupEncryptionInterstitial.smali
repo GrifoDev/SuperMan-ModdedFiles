@@ -83,7 +83,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/EncryptionInterstitial;->onCreate(Landroid/os/Bundle;)V
 
-    const v1, 0x7f110620
+    const v1, 0x7f11061e
 
     invoke-virtual {p0, v1}, Lcom/android/settings/SetupEncryptionInterstitial;->findViewById(I)Landroid/view/View;
 

@@ -583,7 +583,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b06b5
+    const v5, 0x7f0b06bd
 
     invoke-virtual {p0, v5}, Lcom/android/settings/fingerprint/FingerprintPassword$FingerprintPasswordFragment;->getString(I)Ljava/lang/String;
 
@@ -803,9 +803,9 @@
 .method private updateUi()V
     .locals 11
 
-    const v10, 0x7f0b0706
+    const v10, 0x7f0b070e
 
-    const v9, 0x7f0b0688
+    const v9, 0x7f0b0690
 
     const/4 v4, 0x1
 
@@ -848,7 +848,7 @@
 
     iget-object v6, p0, Lcom/android/settings/fingerprint/FingerprintPassword$FingerprintPasswordFragment;->mCancelButton:Landroid/widget/Button;
 
-    const v7, 0x7f0b11cf
+    const v7, 0x7f0b11d2
 
     invoke-virtual {v6, v7}, Landroid/widget/Button;->setText(I)V
 
@@ -920,7 +920,7 @@
     :cond_2
     iget-object v6, p0, Lcom/android/settings/fingerprint/FingerprintPassword$FingerprintPasswordFragment;->mCancelButton:Landroid/widget/Button;
 
-    const v7, 0x7f0b06fd
+    const v7, 0x7f0b0705
 
     invoke-virtual {v6, v7}, Landroid/widget/Button;->setText(I)V
 
@@ -946,7 +946,7 @@
     :cond_4
     iget-object v5, p0, Lcom/android/settings/fingerprint/FingerprintPassword$FingerprintPasswordFragment;->mHeaderText:Landroid/widget/TextView;
 
-    const v6, 0x7f0b083d
+    const v6, 0x7f0b0845
 
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(I)V
 
@@ -1093,7 +1093,7 @@
 
     if-eqz v28, :cond_0
 
-    const v28, 0x7f0b06f1
+    const v28, 0x7f0b06f9
 
     move-object/from16 v0, p0
 
@@ -1112,7 +1112,7 @@
 
     if-eqz v28, :cond_1
 
-    const v28, 0x7f0b070c
+    const v28, 0x7f0b0714
 
     move-object/from16 v0, p0
 
@@ -1163,7 +1163,7 @@
 
     aput-object v29, v28, v30
 
-    const v29, 0x7f0b11c1
+    const v29, 0x7f0b11c4
 
     move-object/from16 v0, p0
 
@@ -1216,7 +1216,7 @@
 
     aput-object v29, v28, v30
 
-    const v29, 0x7f0b11c4
+    const v29, 0x7f0b11c7
 
     move-object/from16 v0, p0
 
@@ -1277,7 +1277,7 @@
     if-le v6, v0, :cond_5
 
     :cond_4
-    const v28, 0x7f0b11c8
+    const v28, 0x7f0b11cb
 
     move-object/from16 v0, p0
 
@@ -1376,7 +1376,7 @@
     if-lez v26, :cond_b
 
     :cond_a
-    const v28, 0x7f0b11c6
+    const v28, 0x7f0b11c9
 
     move-object/from16 v0, p0
 
@@ -1822,7 +1822,7 @@
     :cond_12
     if-nez v19, :cond_15
 
-    const v28, 0x7f0b11c9
+    const v28, 0x7f0b11cc
 
     move-object/from16 v0, p0
 
@@ -1849,7 +1849,7 @@
 
     if-nez v22, :cond_16
 
-    const v28, 0x7f0b11ca
+    const v28, 0x7f0b11cd
 
     move-object/from16 v0, p0
 
@@ -2135,7 +2135,7 @@
 
     aput-object v29, v28, v30
 
-    const v29, 0x7f0b087d
+    const v29, 0x7f0b0887
 
     move-object/from16 v0, p0
 
@@ -2186,7 +2186,7 @@
 
     aput-object v29, v28, v30
 
-    const v29, 0x7f0b087c
+    const v29, 0x7f0b0886
 
     move-object/from16 v0, p0
 
@@ -2223,7 +2223,7 @@
 
     aput-object v29, v28, v30
 
-    const v29, 0x7f0b087f
+    const v29, 0x7f0b0889
 
     move-object/from16 v0, p0
 
@@ -2244,7 +2244,7 @@
 
     if-ne v13, v0, :cond_1d
 
-    const v28, 0x7f0b087e
+    const v28, 0x7f0b0888
 
     move-object/from16 v0, p0
 
@@ -2281,7 +2281,7 @@
 
     aput-object v29, v28, v30
 
-    const v29, 0x7f0b0880
+    const v29, 0x7f0b088a
 
     move-object/from16 v0, p0
 
@@ -2298,7 +2298,7 @@
     :cond_1e
     if-nez v18, :cond_19
 
-    const v28, 0x7f0b0881
+    const v28, 0x7f0b088b
 
     move-object/from16 v0, p0
 
@@ -3151,7 +3151,7 @@
 
     move-result-object v10
 
-    const v12, 0x7f110369
+    const v12, 0x7f110367
 
     invoke-virtual {v10, v12}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3183,7 +3183,7 @@
 
     iget-object v12, v0, Lcom/android/settings/fingerprint/FingerprintPassword$FingerprintPasswordFragment;->mPasswordDesc:Landroid/widget/TextView;
 
-    const v13, 0x7f0b06f0
+    const v13, 0x7f0b06f8
 
     invoke-virtual {v12, v13}, Landroid/widget/TextView;->setText(I)V
 
@@ -3506,7 +3506,7 @@
 
     if-eqz v12, :cond_c
 
-    const v9, 0x7f0b06b4
+    const v9, 0x7f0b06bc
 
     :goto_4
     move-object/from16 v0, p0
@@ -3654,7 +3654,7 @@
     goto/16 :goto_2
 
     :cond_b
-    const v12, 0x7f110366
+    const v12, 0x7f110364
 
     invoke-virtual {v10, v12}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3669,7 +3669,7 @@
     goto/16 :goto_3
 
     :cond_c
-    const v9, 0x7f0b0687
+    const v9, 0x7f0b068f
 
     goto/16 :goto_4
 .end method

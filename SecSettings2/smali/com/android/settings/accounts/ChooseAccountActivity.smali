@@ -850,6 +850,16 @@
 
     move-object/from16 v0, p0
 
+    iget-object v2, v0, Lcom/android/settings/accounts/ChooseAccountActivity;->mUserHandle:Landroid/os/UserHandle;
+
+    invoke-virtual {v2}, Landroid/os/UserHandle;->getIdentifier()I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Lcom/android/settings/accounts/ProviderPreference;->checkAccountManagementAndSetDisabled(I)V
+
+    move-object/from16 v0, p0
+
     iget-object v2, v0, Lcom/android/settings/accounts/ChooseAccountActivity;->mAddAccountGroup:Landroid/preference/PreferenceGroup;
 
     invoke-virtual {v2, v1}, Landroid/preference/PreferenceGroup;->addPreference(Landroid/preference/Preference;)Z
@@ -1428,7 +1438,7 @@
 .method public onActivityCreated(Landroid/os/Bundle;)V
     .locals 14
 
-    const v13, 0x7f0a045b
+    const v13, 0x7f0a0459
 
     const/4 v2, 0x0
 
@@ -1442,13 +1452,13 @@
 
     move-result-object v12
 
-    const v1, 0x7f0a0468
+    const v1, 0x7f0a0466
 
     invoke-virtual {v12, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    const v3, 0x7f0a045e
+    const v3, 0x7f0a045c
 
     invoke-virtual {v12, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1507,7 +1517,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a045c
+    const v3, 0x7f0a045a
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1525,7 +1535,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0a045a
+    const v6, 0x7f0a0458
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

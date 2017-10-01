@@ -107,23 +107,14 @@
 
     iget-object v3, v3, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;->context:Landroid/content/Context;
 
-    invoke-static {v3}, Lcom/android/settings/Utils;->isSupportPenUsp10(Landroid/content/Context;)Z
+    invoke-static {v3}, Lcom/android/settings/Utils;->getSPenUSPLevel(Landroid/content/Context;)I
 
     move-result v3
 
-    if-nez v3, :cond_3
+    const/16 v4, 0xa
 
-    iget-object v3, p0, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment$2;->this$0:Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;
+    if-lt v3, v4, :cond_0
 
-    iget-object v3, v3, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;->context:Landroid/content/Context;
-
-    invoke-static {v3}, Lcom/android/settings/Utils;->isSupportPenUsp20(Landroid/content/Context;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    :cond_3
     iget-object v3, p0, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment$2;->this$0:Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;
 
     invoke-static {v3}, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;->-wrap0(Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;)Landroid/content/ContentResolver;

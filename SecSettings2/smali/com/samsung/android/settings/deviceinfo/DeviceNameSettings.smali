@@ -156,7 +156,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;->mView:Landroid/view/View;
 
-    const v6, 0x7f1102ac
+    const v6, 0x7f1102aa
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -168,7 +168,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;->mView:Landroid/view/View;
 
-    const v6, 0x7f1102af
+    const v6, 0x7f1102ad
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -186,7 +186,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;->mView:Landroid/view/View;
 
-    const v6, 0x7f1102ae
+    const v6, 0x7f1102ac
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

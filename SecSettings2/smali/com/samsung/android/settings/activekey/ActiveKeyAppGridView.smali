@@ -587,7 +587,7 @@
 
     invoke-direct {v1, p1}, Lcom/samsung/android/settings/IconResizer;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0a047a
+    const v2, 0x7f0a0478
 
     invoke-virtual {v1, v2}, Lcom/samsung/android/settings/IconResizer;->setIconSize(I)V
 
@@ -695,7 +695,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f11045c
+    const v4, 0x7f11045a
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -717,7 +717,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f11045a
+    const v4, 0x7f110458
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -739,7 +739,7 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    const v3, 0x7f0b0838
+    const v3, 0x7f0b0840
 
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setText(I)V
 

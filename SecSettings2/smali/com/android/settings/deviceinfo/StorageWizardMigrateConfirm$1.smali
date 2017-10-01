@@ -48,7 +48,7 @@
 
     aput-object p1, v1, v2
 
-    const v2, 0x7f0b1408
+    const v2, 0x7f0b140b
 
     invoke-virtual {v0, v2, v1}, Lcom/android/settings/deviceinfo/StorageWizardMigrateConfirm;->setBodyText(I[Ljava/lang/String;)V
 

@@ -240,7 +240,7 @@
 
     invoke-direct {v1, p0}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f1107e5
+    const v3, 0x7f1107e3
 
     invoke-virtual {v1, v3}, Landroid/widget/FrameLayout;->setId(I)V
 
@@ -268,7 +268,7 @@
 
     invoke-virtual {v2}, Landroid/app/FragmentTransaction;->commitAllowingStateLoss()I
 
-    const v3, 0x7f1107f6
+    const v3, 0x7f1107f4
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/wifi/WifiPickerDialog;->findViewById(I)Landroid/view/View;
 
@@ -301,7 +301,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f020523
+    const v4, 0x7f020521
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -436,7 +436,7 @@
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     :goto_0
-    const v3, 0x7f0b1233
+    const v3, 0x7f0b1236
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/wifi/WifiPickerDialog;->setTitle(I)V
 

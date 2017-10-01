@@ -239,7 +239,7 @@
 
     const v5, 0x7f040200
 
-    const v6, 0x7f110565
+    const v6, 0x7f110563
 
     move-object v0, p0
 
@@ -1291,7 +1291,7 @@
 
     const/4 v8, -0x1
 
-    const v7, 0x7f110566
+    const v7, 0x7f110564
 
     const/4 v4, 0x1
 
@@ -1312,7 +1312,7 @@
 
     iput v8, p0, Lcom/samsung/android/settings/display/BrightnessSeekBarPreference;->mCurBrightness:I
 
-    const v3, 0x7f110565
+    const v3, 0x7f110563
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1332,7 +1332,7 @@
     goto :goto_0
 
     :cond_1
-    const v3, 0x7f110569
+    const v3, 0x7f110567
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1342,7 +1342,7 @@
 
     iput-object v3, p0, Lcom/samsung/android/settings/display/BrightnessSeekBarPreference;->mOverheatTextview:Landroid/widget/TextView;
 
-    const v3, 0x7f110568
+    const v3, 0x7f110566
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1560,7 +1560,7 @@
     return-void
 
     :cond_3
-    const v3, 0x7f110567
+    const v3, 0x7f110565
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

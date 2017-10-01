@@ -92,7 +92,7 @@
 
     move-result-object p1
 
-    const v10, 0x7f110542
+    const v10, 0x7f110540
 
     invoke-virtual {p1, v10}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -102,7 +102,7 @@
 
     iput-object v10, v9, Lcom/samsung/android/settings/bluetooth/BluetoothNoItemPreference$ViewHolder;->bodyLayout:Landroid/widget/LinearLayout;
 
-    const v10, 0x7f110543
+    const v10, 0x7f110541
 
     invoke-virtual {p1, v10}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -112,7 +112,7 @@
 
     iput-object v10, v9, Lcom/samsung/android/settings/bluetooth/BluetoothNoItemPreference$ViewHolder;->mainTextView:Landroid/widget/TextView;
 
-    const v10, 0x7f110544
+    const v10, 0x7f110542
 
     invoke-virtual {p1, v10}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

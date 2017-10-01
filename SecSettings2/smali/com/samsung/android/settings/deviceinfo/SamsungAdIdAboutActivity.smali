@@ -67,7 +67,7 @@
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/deviceinfo/SamsungAdIdAboutActivity;->setContentView(I)V
 
-    const v2, 0x7f110561
+    const v2, 0x7f11055f
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/deviceinfo/SamsungAdIdAboutActivity;->findViewById(I)Landroid/view/View;
 

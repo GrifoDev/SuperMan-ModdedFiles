@@ -243,7 +243,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">ସମର୍ଥନ</string>
     <string name="reset_network_settings_list_summary">ସେମାନଙ୍କ ଡିଫଲ୍ଟଗୁଡିକରେ Wi-Fi, ବ୍ଲୁଟୁଥ୍, ଏବଂ ଅନ୍ୟ ନେଟୱାର୍କ୍ ସେଟିଂସ୍ ପୁନଃସେଟ୍ କରନ୍ତୁ।</string>
     <string name="master_clear_list_summary">ଏହାର ଫ୍ୟାକ୍ଟୋରୀ ଡିଫଲ୍ଟ ସେଟିଂସରେ ଆପଣଙ୍କ ଡିଭାଇସ୍ ପୁନଃସେଟ୍ କରନ୍ତୁ। ଏହା ଫାଇଲଗୁଡିକ ଏବଂ ଡାଉନଲୋଡ୍ ହୋଇଥିବା ଆପସ୍ ଅନ୍ତର୍ଭୁକ୍ତ କରି, ସମସ୍ତ ଡାଟା ବିଲୋପ ହେବ।</string>
-    <string name="auto_restart_summary">ସେଟ୍ ହୋଇଥିବା ସମୟରେ ସ୍ୱତଃସ୍ପୃତ ଭାବେ ଏହା ପୁନଃଆରମ୍ଭ କରିବା ଦ୍ୱାରା ଆପଣଙ୍କ ଡିଭାଇସ୍ ଅପ୍ଟିମାଇଜ୍ କରନ୍ତୁ। ଡିଭାଇସ୍ ପୁନଃଆରମ୍ଭ ହେବା ବେଳେ କୌଣସି ଅସଞ୍ଚିତ ଡାଟା ହରାଇବେ।</string>
+    <string name="auto_restart_summary">ସପ୍ତାହରେ ଥରେ ଆପଣଙ୍କ ଫୋନ୍ ସ୍ୱତଃସ୍ପୃତ ଭାବେ ପୁନଃଆରମ୍ଭ କରି ଅପ୍ଟିମାଇଜ୍ କରନ୍ତୁ। ଆପଣଙ୍କ ଫୋନ୍ ପୁନଃଆରମ୍ଭ ହୋଇଥିବା ସମୟରେ ଯେକୌଣସି ଅସଞ୍ଚିତ ଡାଟା ହରାଇବେ।</string>
     <string name="search_settings">ସନ୍ଧାନ</string>
     <string name="related_results">%dଟି ସମ୍ବନ୍ଧୀୟ ଆଇଟମ୍‌</string>
     <string name="no_results_found">କୌଣସି ଫଳାଫଳ ମିଳିଲା ନାହିଁ</string>
@@ -1349,6 +1349,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_verify_failed_summary">ଆପଣଙ୍କ ଡିଭାଇସ୍ ପୁନଃଆରମ୍ଭ କରିବାକୁ ଅସମର୍ଥ। ଅଖଣ୍ଡତା ଯାଞ୍ଚକରଣ ବିଫଳ ହୋଇଛି। ଆପଣଙ୍କ ଡିଭାଇସକୁ ଆପଣଙ୍କୁ ଫ୍ୟାକ୍ଟୋରୀ ଡିଫଲ୍ଟ ସେଟିଂସ୍ ପୁନଃସେଟ୍ କରିବା ଆବଶ୍ୟକ। ଏହା ଆପଣଙ୍କ ସମସ୍ତ ଡାଟା ଲିଭାଇ ପାରେ।</string>
     <string name="cryptkeeper_emergency_call">ଜରୁରୀକାଳୀନ କଲ୍</string>
     <string name="cryptkeeper_return_to_call">କଲକୁ ଫେରିବା</string>
+    <string name="cryptkeeper_default_enter_msg">ସୁରକ୍ଷା ପାଇଁ ଆପଣଙ୍କ ଫୋନ୍ ଏନକ୍ରିପ୍ଟ ହୋଇଛି।</string>
     <string name="enter_password">ଆପଣଙ୍କ ଡିଭାଇସ୍ ଆରମ୍ଭ କରିବାକୁ, ଆପଣଙ୍କ ପାସୱାର୍ଡ୍ ପ୍ରବେଶ କରନ୍ତୁ।</string>
     <string name="enter_pin">ଆପଣଙ୍କ ଡିଭାଇସ୍ ଆରମ୍ଭ କରିବାକୁ, ଆପଣଙ୍କ PIN ପ୍ରବେଶ କରନ୍ତୁ।</string>
     <string name="enter_pattern">ଆପଣଙ୍କ ଡିଭାଇସ୍ ଆରମ୍ଭ କରିବାକୁ, ଆପଣଙ୍କ ଶୈଳୀ ଅଙ୍କନ କରନ୍ତୁ।</string>
@@ -1362,6 +1363,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_last_warn_wipe">ଆପଣଙ୍କ ଡିଭାଇସ୍ ଏହାର ଫ୍ୟାକ୍ଟୋରୀ ଡିଫଲ୍ଟ ସେଟିଂସରେ ପୁନଃସେଟ୍ ହେବା ପୂର୍ବରୁ ଆରମ୍ଭ କରିବାକୁ ଆପଣଙ୍କ ପାଖରେ କେବଳ 1 ଉଦ୍ୟମ ବାକି ରହିଛି। ଏହା ଫାଇଲ୍ ଏବଂ ଡାଉନଲୋଡ୍ ହୋଇଥିବା ଆପ୍ଲିକେସନ୍ ଅନ୍ତର୍ଭୁକ୍ତ କରି, ସମସ୍ତ ଡାଟା ବିଲୋପ କରିବ।</string>
     <string name="crypt_keeper_failed_title_dec">ଡିକ୍ରିପସନ୍‍ ବିଫଳ ହେଲା।</string>
     <string name="crypt_keeper_failed_summary_dec">ବାଧିତ ଯୋଗୁଁ ଡିକ୍ରିପସନ୍ ସମ୍ପୂର୍ଣ୍ଣ କରିବାକୁ ଅସମର୍ଥ। ବ୍ୟବହାର ପୂର୍ବରୁ ଫ୍ୟାକ୍ଟୋରୀ ଡାଟା ପୁନଃସେଟ୍ (ସମସ୍ତ ଡାଟା ପୁନଃସେଟ୍) କରନ୍ତୁ।</string>
+    <string name="crypt_keeper_set_screen_lock_type">ସ୍କ୍ରିନ୍ ଲକ୍ ପ୍ରକାର ଚୟନ କରନ୍ତୁ</string>
     <string name="encryption_interstitial_message_kor">ଆପଣଙ୍କ ଡିଭାଇସ୍ ଏନକ୍ରିପ୍ଟ ହୋଇଛି। ଡିଭାଇସ୍ ପାୱାରଗୁଡିକ ଅନ୍‌ ଥିବା ସମୟରେ ଆବଶ୍ୟକୀୟ ସ୍କ୍ରିନ୍‌ ଲକ୍ ଚୟନ କରିବା ଦ୍ୱାରା ଆପଣଙ୍କ ଏନକ୍ରିପ୍ଟ ଡାଟା ସୁରକ୍ଷିତ କରନ୍ତୁ। ଏହା ହଜି କିମ୍ୱା ଚୋରି ହୋଇଥିବା ଡିଭାଇସଗୁଡିକରେ ଡାଟା ସୁରକ୍ଷିତ କରିବାରେ ସହାୟତା କରେ। ଯେତେବେଳେ ଆପଣ ଏହାକୁ ଅନ୍ କରିବେ ଏହାର ଡାଟା ଡିକ୍ରିପ୍ଟ କରିବାକୁ ଆପଣଙ୍କୁ ଆପଣଙ୍କ ଡିଭାଇସ୍ ଅନଲକ୍ କରିବାର ଆବଶ୍ୟକତା ହୋଇପାରେ। ଆପଣଙ୍କ ଡିଭାଇସ୍ ଆପଣଙ୍କ ଡିକ୍ରିପ୍ଟ ନକରିଲା ପର୍ଯ୍ୟନ୍ତ ଆପଣଙ୍କୁ କୌଣସି କଲ୍, ସନ୍ଦେଶ, କିମ୍ୱା ବିଜ୍ଞପ୍ତି, ପ୍ରାପ୍ତ ହେବ ନାହିଁ।</string>
     <string name="encryption_interstitial_message_direction">"ଡିଭାଇସ୍ ପାୱାର୍ ଅନ୍‌ ଥିବା ସମୟରେ “ଆବଶ୍ୟକୀୟ ଦିଗ ଲକ୍” ଚୟନ କରି ଆପଣଙ୍କ ଡିଭାଇସ୍ ସୁରକ୍ଷିତ କରନ୍ତୁ। ଏହା ହଜି କିମ୍ୱା ଚୋରି ହୋଇଥିବା ଡିଭାଇସଗୁଡିକରେ ଡାଟା ସୁରକ୍ଷିତ କରିବାରେ ସହାୟତା କରିଥାଏ।
 
@@ -1601,6 +1603,8 @@ You will also need it when:"</string>
     <string name="empty_content_toast">ସଞ୍ଚୟ କରିବାକୁ ବିଷୟବସ୍ତୁ ନାହିଁ।</string>
     <string name="find_my_mobile_message_zero">"ମୋ ମୋବାଇଲ୍ ସନ୍ଧାନ ୱେବ୍ ସେବା ବ୍ୟବହାର କରି ଆପଣଙ୍କ ଡିଭାଇସ୍ ରିମୋଟ୍ ଭାବେ ଟ୍ରାକ୍ ଏବଂ ନିୟନ୍ତ୍ରଣ କରନ୍ତୁ। ଅଧିକ ସୂଚନା ପାଇଁ ଏବଂ କେଉଁ ଅନ୍ୟ ପ୍ରକାର୍ଯ୍ୟ ଉପଲବ୍ଧ ତାହା ସନ୍ଧାନ କରିବାକୁ, ନିମ୍ନଲିଖିତ ୱେବସାଇଟ୍ ପରିଦର୍ଶନ କରନ୍ତୁ:
 %s"</string>
+    <string name="send_last_location_title">ଶେଷ ଅବସ୍ଥାନ ପ୍ରେରଣ</string>
+    <string name="send_last_location_summary">ବ୍ୟାଟେରୀ ଏକ ଚୟନିତ ସ୍ତରରୁ ନିମ୍ନ ହୋଇଥିବା ସମୟରେ ଆପଣଙ୍କ ଫୋନ୍ ମୋ ମୋବାଇଲ୍ ସନ୍ଧାନ ସର୍ଭରକୁ ଏହାର ଶେଷ ଅବସ୍ଥାନ ପ୍ରେରଣ କରିବାକୁ ଅନୁମତି ଦିଅନ୍ତୁ।</string>
     <string name="high_power_description">ବ୍ୟକ୍ତିଗତ ଆପ୍ଲିକେସନଗୁଡିକ ପାଇଁ ଅପ୍ଟିମାଇଜ୍ ବ୍ୟାଟେରୀ ବ୍ୟବହାର ସକ୍ଷମ କରନ୍ତୁ। ମୋବାଇଲ୍ ନେଟୱାର୍କଗୁଡିକ ବ୍ୟବହାର କରେ, କିମ୍ୱା ଡାଟା ସିଙ୍କ୍ କରି ଏପରି କିଛି ପ୍ରକାର୍ଯ୍ୟ ବ୍ୟାଟେରୀ ପାୱାର୍ ସଞ୍ଚୟ କରିବାକୁ ପ୍ରତିବନ୍ଧିତ ହେବ।</string>
     <string name="wifi_display_summary_off">ଅଫ୍</string>
     <string name="battery_usage_description">ଯଦିଓ ଶେଷଥର ସମ୍ପୂର୍ଣ୍ଣ ଚାର୍ଜ ହୋଇଛି ତଥାପି ଏହି ସ୍କ୍ରିନ୍ ବ୍ୟାଟେରୀ ବ୍ୟବହାର ଡାଟା ଦେଖାଏ।</string>
@@ -1832,6 +1836,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">କେଉଁ ଆପ୍ଲିକେସନ୍‌ ସର୍ଟକଟଗୁଡିକ ଆପଣ ଲକ୍ ସ୍କ୍ରିନରେ ବ୍ୟବହାର କରିବାକୁ ଚାହୁଁଛନ୍ତି ଚୟନ କରନ୍ତୁ।</string>
     <string name="lockscreen_notifications">ଲକ୍ ସ୍କ୍ରିନରେ ବିଜ୍ଞପ୍ତିଗୁଡିକ</string>
     <string name="work_profile_lockscreen_notifications">କାର୍ଯ୍ୟ ପ୍ରୋଫାଇଲ୍ ବିଜ୍ଞପ୍ତି</string>
+    <string name="lock_network_and_security">ଲକ୍ ନେଟୱାର୍କ୍‌ ଏବଂ ସୁରକ୍ଷା</string>
+    <string name="lock_network_and_security_summary">ଯଦି ଆପଣଙ୍କ ଫୋନ୍ ହଜି କିମ୍ୱା ଚୋରି ହୋଇଯାଏ ଏହାକୁ ଚିହ୍ନଟ ଏବଂ ସୁରକ୍ଷିତ ରଖିବା ସହଜ କରିବାକୁ ଏହା ଲକ୍ ହୋଇଥିବା ସମୟରେ ନେଟୱାର୍କ୍ ଏବଂ ସୁରକ୍ଷା-ସମ୍ବନ୍ଧୀୟ ପ୍ରକାର୍ଯ୍ୟଗୁଡିକ ଲକ୍ ରଖନ୍ତୁ।</string>
     <string name="dualclock_settings_title">ଡୁଆଲ୍ ଘଣ୍ଟା</string>
     <string name="dualclock_settings_summary">ରୋମିଂ ସମୟରେ ଉଭୟ ସ୍ଥାନୀୟ ଏବଂ ମୂଳ ସ୍ଥାନର ସମୟ ଜୋନ୍ ଦେଖାନ୍ତୁ।</string>
     <string name="set_home_city">ହୋମ୍ ସମୟ ଅଞ୍ଚଳ ସେଟ୍ କର.</string>
@@ -2017,7 +2023,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="air_browse_music_on_lock_screen_title">ଲକ୍ ସ୍କ୍ରିନରେ ସଙ୍ଗୀତ</string>
     <string name="air_browse_music_on_lock_screen_summary">ଲକ୍ ସ୍କ୍ରିନ୍‌ରେ ସଙ୍ଗୀତ ଟ୍ରାକ୍ ପରିବର୍ତ୍ତନ କରନ୍ତୁ।</string>
     <string name="air_browse_note_summary">ଦୃଶ୍ୟ ମୋଡ୍‌ରେ ଥିବା ବେଳେ ପୃଷ୍ଠା ମଧ୍ୟରେ ଗତି କରନ୍ତୁ।</string>
-    <string name="data_usage_enable_mobile_summery">ଯଦି ମୋବାଇଲ୍ ଡାଟା ଟର୍ନ୍ ଅଫ୍ ହୁଏ, ତେବେ ଆପଣଙ୍କ ଡିଭାଇସକୁ ନେଟୱାର୍କ୍‌ ସଂଯୋଜିତ କରିବାକୁ ଆବଶ୍ୟକ ହୁଏ ଏପରି ସେବାଗୁଡିକ ବ୍ୟବହାର କରି ନିଶ୍ଚିତ ଏକ Wi-Fi ନେଟୱାର୍କ୍‌ ସହ ସଂଯୋଜନା ହେବାକୁ ହେବ।</string>
+    <string name="data_usage_enable_mobile_summery">ଆପଣଙ୍କ ମୋବାଇଲ୍ ନେଟୱାର୍କ୍ ମାଧ୍ୟମରେ ଇଣ୍ଟର୍ନେଟ୍ ଆକସେସ୍ କରନ୍ତୁ।</string>
     <string name="data_usage_enable_mobile_warning_skt">ମୋବାଇଲ୍ ନେଟୱାର୍କକୁ ସଂଯୋଗ କରିବା ଆପଣଙ୍କର ଡାଟା ଯୋଜନା ଉପରେ ନିର୍ଭରକରି ଅତିରିକ୍ତ ଦେୟ ଲାଗୁ ହୋଇପାରେ। ଜାରି ରଖିବେ?</string>
     <string name="data_usage_enable_mobile_warning_ktt">ମୋବାଇଲ୍ ନେଟୱାର୍କକୁ ସଂଯୋଗ କରିବା ଆପଣଙ୍କର ଡାଟା ଯୋଜନା ଉପରେ ନିର୍ଭରକରି ଅତିରିକ୍ତ ଦେୟ ଲାଗୁ ହୋଇପାରେ। ଜାରି ରଖିବେ?</string>
     <string name="data_usage_enable_mobile_warning_lgt">ମୋବାଇଲ୍ ନେଟୱାର୍କକୁ ସଂଯୋଗ କରିବା ଆପଣଙ୍କର ଡାଟା ଯୋଜନା ଉପରେ ନିର୍ଭରକରି ଅତିରିକ୍ତ ଦେୟ ଲାଗୁ ହୋଇପାରେ। ଜାରି ରଖିବେ?</string>
@@ -2386,8 +2392,8 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="secure_folder_summary">ସୁରକ୍ଷା ବଢାଇବାକୁ ଆପଣଙ୍କ ବ୍ୟକ୍ତିଗତ ବିଷୟବସ୍ତୁ ଏବଂ ଆପସ୍ ଲକ୍ କରନ୍ତୁ।</string>
     <string name="text_biometrics_finger_title_enterprise">%2$s ଅନଲକ୍ କରିବାକୁ %1$s ଟିପଚିହ୍ନ ସମର୍ଥନ କରେ ନାହିଁ।</string>
     <string name="edge_feeds_title">Edge ଫିଡସ୍</string>
-    <string name="screensaver_settings_summary">ଡିଭାଇସ୍ ଡକ୍ ଥିବା ସମୟରେ ଏବଂ/କିମ୍ୱା ସ୍କ୍ରିନ୍ ଟର୍ନ ଅଫ୍ ଥିବା ସମୟରେ ଚାର୍ଜିଂ ହେଲେ କଣ ହୋଇଥାଏ ନିୟନ୍ତ୍ରଣ କରନ୍ତୁ। ଏହି ପ୍ରକାର୍ଯ୍ୟକୁ ଡେଡ୍ରିମ୍ ମଧ୍ୟ କୁହାଯାଏ।</string>
-    <string name="screensaver_settings_summary_wo_dock">ଡିଭାଇସ୍ ଚାର୍ଜ ହେଉଥିବା ସମୟରେ ସ୍କ୍ରିନ୍ ସ୍ୱତଃସ୍ପୃତ ଭାବେ ଟର୍ନ୍ ଅଫ୍ ପରେ ଏକ ସ୍କ୍ରିନସେଭର୍ ଦେଖାଇବା।</string>
+    <string name="screensaver_settings_summary">ଆପଣଙ୍କ ଫୋନ୍ ଚାର୍ଜ ହେଉଥିବା ସମୟରେ ସ୍ୱତଃସ୍ପୃତ ଭାବେ ସ୍କ୍ରିନ୍ ଟର୍ନ୍ ଅଫ୍ ପରେ ଏକ ସ୍କ୍ରିନସେଭର୍ ଦେଖାଇବା।</string>
+    <string name="screensaver_settings_summary_wo_dock">ଆପଣଙ୍କ ଫୋନ୍ ଡକ୍ ହୋଇଥିବା କିମ୍ୱା ଚାର୍ଜ ହେଉଥିବା ସମୟରେ ସ୍ୱତଃସ୍ପୃତ ଭାବେ ସ୍କ୍ରିନ୍ ଟର୍ନ୍ ଅଫ୍ ପରେ ଏକ ସ୍କ୍ରିନସେଭର୍ ଦେଖାନ୍ତୁ।</string>
     <string name="apn_already_exists">ପୂର୍ବରୁ ବିଦ୍ୟମାନ ଅଛି।</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">ପୋର୍ଟ ନମ୍ବର %1$d ଏବଂ %2$d ମଧ୍ୟରେ ହେବା ଜରୁରୀ।</string>
@@ -3152,6 +3158,7 @@ Wi-Fi is now on."</string>
     <string name="wfd_connection_end_toast">Screen Mirroring ସଂଯୋଗ ଶେଷ ହୋଇଛି।</string>
     <string name="wfd_descrpition_playvia">ବିଷୟବସ୍ତୁ ଚାଳନ କରନ୍ତୁ।</string>
     <string name="wfd_descrpition_mirroring">ସ୍କ୍ରିନ୍ ମିରର୍ କରନ୍ତୁ।</string>
+    <string name="wfd_descrpition_playsound">ଧ୍ଵନି ଚାଳନ କରନ୍ତୁ।</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">ମଲ୍ଟି ୱିଣ୍ଡୋ ଅକ୍ଷମ ହେବ ଏବଂ ପପ୍-ଅପ୍ ୱିଣ୍ଡୋଗୁଡିକରେ ଖୋଲାଥିବା ସମସ୍ତ ଆପ୍ଲିକେସନସ୍‌ ବନ୍ଦ ହେବ।</string>
     <string name="keyguard_password_attempt_count_pin_code">%d ଚେଷ୍ଟା ବାକି ରହିଛି</string>
@@ -3988,7 +3995,7 @@ Receiving SMS"</string>
     <string name="location_network_based">ୱେୟାରଲେସ୍ ନେଟୱାର୍କ ବ୍ୟବହାର କରନ୍ତୁ।</string>
     <string name="location_neighborhood_level">ଆପଣଙ୍କର ଅବସ୍ଥାନ ଶୀଘ୍ର ଧାର୍ଯ୍ୟ କରିବାକୁ ଗୁଗୁଲର ଅବସ୍ଥାନ ବ୍ୟବହାର କରିବାକୁ ଆପସ୍ ଅନୁମତି କରନ୍ତୁ। ବେନାମି ଅବସ୍ଥାନ ଡାଟା ସଂଗୃହିତ ହେବ ଏବଂ ଗୁଗୁଲକୁ ପ୍ରେରଣ ହେବ।</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">ଡିଭାଇସ୍ ବିଷୟରେ</string>
+    <string name="about_settings">ଫୋନ୍ ବିଷୟରେ</string>
     <string name="about_settings_vzw">ଡିଭାଇସ୍ ବିଷୟରେ</string>
     <string name="legal_information">ଆଇନଗତ ସୂଚନା</string>
     <string name="regulatory_information">ରେଗୁଲେଟରୀ ସୂଚନା</string>
@@ -4161,7 +4168,7 @@ Receiving SMS"</string>
     <string name="phone_language">ଭାଷା</string>
     <string name="show_password">ପାସୱାର୍ଡ୍‌ ଦୃଶ୍ୟମାନ କରନ୍ତୁ</string>
     <string name="show_password_summary">ଆପଣ ପାସୱାର୍ଡ୍ ଟାଇପ୍‍ କରିବା ସମୟରେ ପାସୱାର୍ଡ୍ ବର୍ଣ୍ଣଗୁଡିକ ସଂକ୍ଷେପରେ ଦର୍ଶାଏ।</string>
-    <string name="ime_security_warning">ଆପଣ ପ୍ରବେଶ କରିଥିବା ସମସ୍ତ ଟେକ୍ସଟ୍‌, ପାସୱାର୍ଡ୍ ବ୍ୟତିତ, ବ୍ୟକ୍ତିଗତ ଡାଟା ଏବଂ କ୍ରେଡିଟ୍ କାର୍ଡ୍ ନମ୍ଵରଗୁଡିକ ସହିତକୁ ଏହି ପଦ୍ଧତି ସମସ୍ତ ସଂଗ୍ରହ କରିପାରିବ। ଏହା %1$s ଆପ୍ଲିକେସନ୍‌ ଠାରୁ ଆସିଛି। ଯେକୌଣସି ଭାବେ ବ୍ୟବହାର କରିବେ?</string>
+    <string name="ime_security_warning">%s ଆପଣ ଟାଇପ୍‌ କରିଥିବା ସମସ୍ତ ଟେକ୍ସଟ୍ ସଂଗ୍ରହ କରିବାକୁ ସମର୍ଥ, ଯେଉଁଥିରେ ବ୍ୟକ୍ତିଗତ ଡାଟା ଯେପରିକି ପାସୱା‌ର୍ଡ୍ ଏବଂ କ୍ରେଡିଟ୍ କାର୍ଡ ନମ୍ବରଗୁଡିକ ଅନ୍ତର୍ଭୁକ୍ତ ହୋଇପାରେ।</string>
     <string name="failed_to_open_app_settings_toast">%s ପାଇଁ ସେଟିଂସ୍ ଖୋଲିବାକୁ ବିଫଳ ହୋଇଛି।</string>
     <string name="keyboard_and_input_methods_category">କୀବୋର୍ଡ୍</string>
     <string name="virtual_keyboard_category">ଭର୍ଚୁଆଲ୍ କୀବୋର୍ଡ୍</string>

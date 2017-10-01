@@ -107,7 +107,7 @@
 .method initswitchBtn()V
     .locals 8
 
-    const v7, 0x7f020508
+    const v7, 0x7f020506
 
     const/4 v3, 0x0
 
@@ -167,7 +167,7 @@
 
     if-eqz v5, :cond_0
 
-    const v5, 0x7f11021c
+    const v5, 0x7f11021a
 
     invoke-virtual {v1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -180,7 +180,7 @@
     invoke-virtual {v2, v5}, Landroid/widget/LinearLayout;->setBackgroundResource(I)V
 
     :cond_0
-    const v5, 0x7f11021d
+    const v5, 0x7f11021b
 
     invoke-virtual {v1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -196,7 +196,7 @@
 
     invoke-static {v5, v6}, Lcom/android/settings/Utils;->setMaxFontScale(Landroid/content/Context;Landroid/widget/Button;)V
 
-    const v5, 0x7f11021e
+    const v5, 0x7f11021c
 
     invoke-virtual {v1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

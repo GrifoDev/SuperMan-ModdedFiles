@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Suport tècnic</string>
     <string name="reset_network_settings_list_summary">Restableixi el Wi-Fi, el Bluetooth i altres ajustaments de xarxa als valors predeterminats.</string>
     <string name="master_clear_list_summary">Restableixi el dispositiu als ajustaments predeterminats de fàbrica. Aquesta acció esborrarà totes les dades, inclosos els fitxers i les aplicacions descarregades.</string>
-    <string name="auto_restart_summary">"Optimitzi el dispositiu reiniciant-lo automàticament a les hores seleccionades. Les dades que no s'hagin desat es perdran quan es reiniciï el dispositiu."</string>
+    <string name="auto_restart_summary">"Optimitzi el telèfon reiniciant-lo automàticament un cop a la setmana. Les dades que no s'hagin desat es perdran quan es reiniciï el telèfon."</string>
     <string name="search_settings">Cercar</string>
     <string name="related_results">%d elements relacionats</string>
     <string name="no_results_found">"No s'han trobat resultats"</string>
@@ -1485,6 +1485,7 @@ El xifratge pot trigar una hora o més. Abans de començar, asseguri's que la ba
     <string name="crypt_keeper_verify_failed_summary">No es pot reiniciar el dispositiu. Error en verificar la integritat. Cal restablir el dispositiu als ajustaments predeterminats de fàbrica. Això esborrarà totes les dades.</string>
     <string name="cryptkeeper_emergency_call">"Trucada d'emergència"</string>
     <string name="cryptkeeper_return_to_call">Tornar a la trucada</string>
+    <string name="cryptkeeper_default_enter_msg">"S'ha xifrat el telèfon per seguretat."</string>
     <string name="enter_password">Per posar en marxa el dispositiu, introdueixi la contrasenya.</string>
     <string name="enter_pin">Per posar en marxa el dispositiu, introdueixi el PIN.</string>
     <string name="enter_pattern">Per posar en marxa el dispositiu, dibuixi el patró.</string>
@@ -1498,6 +1499,7 @@ El xifratge pot trigar una hora o més. Abans de començar, asseguri's que la ba
     <string name="crypt_keeper_last_warn_wipe">"Només li queda 1 intent per posar en marxa el dispositiu abans que es restableixin els ajustaments predeterminats de fàbrica. S'esborraran totes les dades, incloent-hi els fitxers i les apps descarregades."</string>
     <string name="crypt_keeper_failed_title_dec">Error de desencriptació</string>
     <string name="crypt_keeper_failed_summary_dec">"No es pot completar el desxifratge perquè s’ha interromput. Realitzi un restabliment de dades de fàbrica (cosa que esborrarà totes les dades) per poder reprendre'n l’ús."</string>
+    <string name="crypt_keeper_set_screen_lock_type">Definir tipus bloq pantalla</string>
     <string name="encryption_interstitial_message_kor">"El dispositiu està xifrat. Protegeixi les dades xifrades seleccionant Sol·licitar bloqueig de pantalla per desxifrar les dades quan el dispositiu s'engegui. Això ajuda a protegir les dades dels dispositius perduts o robats. Haurà de desbloquejar el dispositiu per desxifrar-ne les dades quan l'engegui. No rebrà cap trucada, missatge ni notificació fins que desxifri el dispositiu."</string>
     <string name="encryption_interstitial_message_direction">"Protegeixi el dispositiu seleccionant Demanar bloqueig de direcció quan el dispositiu es posi en marxa. Això ajuda a protegir les dades dels dispositius perduts o robats.
 
@@ -1737,6 +1739,8 @@ Abans de sol·licitar una reparació sota garantia, cal desactivar el Bloqueig d
     <string name="empty_content_toast">No hi ha contingut per desar.</string>
     <string name="find_my_mobile_message_zero">"Segueixi i controli el dispositiu a distància utilitzant el servei web Cercar el meu mòbil. Per obtenir més informació i descobrir quines altres funcions estan disponibles, consulti el següent lloc web:
 %s"</string>
+    <string name="send_last_location_title">"Enviar l'última ubicació"</string>
+    <string name="send_last_location_summary">"Permeti que el telèfon enviï la seva última ubicació al servidor de Cercar el meu mòbil quan la bateria baixi d'un nivell determinat."</string>
     <string name="high_power_description">"Activi l'opció Optimitzar l'ús de la bateria per a aplicacions individuals. Determinades funcions, com les que utilitzen xarxes mòbils o dades sincronitzades, estaran restringides per estalviar l'energia de la bateria."</string>
     <string name="wifi_display_summary_off">Desactivat</string>
     <string name="battery_usage_description">"Aquesta pantalla mostra les dades de l'ús de la bateria des que el dispositiu es va carregar totalment la darrera vegada."</string>
@@ -1968,6 +1972,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">"Seleccioni quins accessos directes de les aplicacions vol utilitzar a l'opció Bloquejar pantalla."</string>
     <string name="lockscreen_notifications">Notificacions a la pantalla de bloqueig</string>
     <string name="work_profile_lockscreen_notifications">Notificacions perfil de feina</string>
+    <string name="lock_network_and_security">Bloquejar xarxa i seguretat</string>
+    <string name="lock_network_and_security_summary">Mantingui bloquejades les funcions relacionades amb la seguretat i amb la xarxa mentre el telèfon estigui bloquejat, de manera que sigui més fàcil ubicar-lo i protegir-lo en cas de pèrdua o robatori.</string>
     <string name="dualclock_settings_title">Rellotge dual</string>
     <string name="dualclock_settings_summary">Mostrar tant la zona horària local com la de casa en itinerància.</string>
     <string name="set_home_city">Def zona horària local</string>
@@ -2153,7 +2159,7 @@ Fins i tot si el telèfon s'esborra, caldrà la contrasenya del compte de Google
     <string name="air_browse_music_on_lock_screen_title">Música a la pantalla de bloqueig</string>
     <string name="air_browse_music_on_lock_screen_summary">Canviar les pistes de música a la pantalla de bloqueig.</string>
     <string name="air_browse_note_summary">"Moure's entre pàgines mentre és al mode Vista."</string>
-    <string name="data_usage_enable_mobile_summery">Si les Dades mòbils estan desactivades, caldrà connectar el dispositiu a una xarxa Wi-Fi per utilitzar serveis que requereixen una connexió de xarxa.</string>
+    <string name="data_usage_enable_mobile_summery">Accedeixi a Internet a través de la xarxa mòbil.</string>
     <string name="data_usage_enable_mobile_warning_skt">Connectar a xarxes mòbils pot comportar càrrecs addicionals en funció del seu pla de dades. Continuar?</string>
     <string name="data_usage_enable_mobile_warning_ktt">Connectar a xarxes mòbils pot comportar càrrecs addicionals en funció del seu pla de dades. Continuar?</string>
     <string name="data_usage_enable_mobile_warning_lgt">Connectar a xarxes mòbils pot comportar càrrecs addicionals en funció del seu pla de dades. Continuar?</string>
@@ -2523,8 +2529,8 @@ Tornar a intentar."</string>
     <string name="secure_folder_summary">Bloquegi les apps i el contingut privat per millorar la seguretat.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s no admet les empremtes per desbloquejar %2$s.</string>
     <string name="edge_feeds_title">"Fonts d'Edge"</string>
-    <string name="screensaver_settings_summary">"Controli què passa mentre el dispositiu està acoblat i/o s'està carregant quan la pantalla està desactivada. Aquesta funció també s'anomena Protector de pantalla."</string>
-    <string name="screensaver_settings_summary_wo_dock">"Mostri un salvapantalles després que la pantalla s'apagui automàticament mentre el dispositiu s'estigui carregant."</string>
+    <string name="screensaver_settings_summary">"Mostri un salvapantalles després que la pantalla s'apagui automàticament mentre el telèfon s'estigui carregant."</string>
+    <string name="screensaver_settings_summary_wo_dock">"Mostra un estalvi de pantalla després que la pantalla s'apagui automàticament mentre el telèfon estigui acoblat o s'estigui carregant."</string>
     <string name="apn_already_exists">Ja existeix</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">"El número de port ha d'estar entre %1$d i %2$d"</string>
@@ -3289,6 +3295,7 @@ L'ús de la Connexió compartida augmenta el consum de bateria i l'ús de dades.
     <string name="wfd_connection_end_toast">Ha finalitzat la connexió de Screen Mirroring.</string>
     <string name="wfd_descrpition_playvia">Reproduir el contingut.</string>
     <string name="wfd_descrpition_mirroring">Reflectir la pantalla.</string>
+    <string name="wfd_descrpition_playsound">Reproduir so.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">Es deshabilitarà Multiwindow i es tancaran totes les aplicacions obertes en finestres emergents.</string>
     <string name="keyguard_password_attempt_count_pin_code">Queda %d intent</string>
@@ -4128,7 +4135,7 @@ Consideri l'ús d'una targeta SD o d'un dispositiu d'emmagatzematge USB més rà
     <string name="location_network_based">Utilit xarxes sense fils</string>
     <string name="location_neighborhood_level">"Permetre ap utilit servei ubic Google per calcular ubic més ràpidament. Es recopilaran dades ubic anònimes i s'enviaran a Google."</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">Sobre el dispositiu</string>
+    <string name="about_settings">Sobre el telèfon</string>
     <string name="about_settings_vzw">Sobre el dispositiu</string>
     <string name="legal_information">Informació legal</string>
     <string name="regulatory_information">Informació normativa</string>
@@ -4313,7 +4320,7 @@ Les dades de l'aplicació existents no es perdran."</string>
     <string name="phone_language">Idioma</string>
     <string name="show_password">Fer que la contrasenya sigui visible</string>
     <string name="show_password_summary">"Mostrar els caràcters de la contrasenya breument en escriure'ls."</string>
-    <string name="ime_security_warning">"Aquest mètode pot recopilar tot el text que introdueixi, excepte contrasenyes, fins i tot números de targeta de crèdit i dades personals. Prové de l'aplicació %1$s. Utilitzar de totes maneres?"</string>
+    <string name="ime_security_warning">%s podrà recopilar tots els textos que escrigui, incloent-hi les dades personals, com ara les contrasenyes i els números de targetes de crèdit.</string>
     <string name="failed_to_open_app_settings_toast">"Error en obrir l'ajustament de %s"</string>
     <string name="keyboard_and_input_methods_category">Teclats</string>
     <string name="virtual_keyboard_category">Teclat virtual</string>

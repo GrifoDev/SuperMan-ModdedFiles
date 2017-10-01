@@ -378,7 +378,7 @@
     <string name="support">支援</string>
     <string name="reset_network_settings_list_summary">將 Wi-Fi、藍牙、與其他網路設定重置為預設值。</string>
     <string name="master_clear_list_summary">將裝置重置為原廠預設設定。這將清除所有資料，包括檔案與已下載的應用程式。</string>
-    <string name="auto_restart_summary">在設定的時間點自動重新啟動以最佳化您的裝置。裝置重新啟動時，所有未儲存的數據將會遺失。</string>
+    <string name="auto_restart_summary">每週自動重新啟動一次以最佳化您的手機。手機重新啟動時，所有未儲存的資料將會遺失。</string>
     <string name="search_settings">搜尋</string>
     <string name="related_results">%d 個相關項目</string>
     <string name="no_results_found">無搜尋結果</string>
@@ -1483,6 +1483,7 @@ Wi-Fi 與藍牙也將關閉，但是可於 [設定] 或快速設定面板中再�
     <string name="crypt_keeper_verify_failed_summary">無法重啟裝置。完整性驗證失敗。您需要重設裝置為原廠預設值。這將會清除您的所有資料。</string>
     <string name="cryptkeeper_emergency_call">緊急電話</string>
     <string name="cryptkeeper_return_to_call">返回通話</string>
+    <string name="cryptkeeper_default_enter_msg">已加密手機來保障其安全性。</string>
     <string name="enter_password">若要啟動裝置，請輸入您的密碼。</string>
     <string name="enter_pin">若要啟動裝置，請輸入您的數字密碼。</string>
     <string name="enter_pattern">若要啟動裝置，請畫出您的圖形。</string>
@@ -1496,6 +1497,7 @@ Wi-Fi 與藍牙也將關閉，但是可於 [設定] 或快速設定面板中再�
     <string name="crypt_keeper_last_warn_wipe">您只剩 1 次機會來啟動裝置，之後將重置回原廠預設設定。此動作將清除所有資料，包含檔案與已下載的應用程式。</string>
     <string name="crypt_keeper_failed_title_dec">解密失敗</string>
     <string name="crypt_keeper_failed_summary_dec">因為發生中斷，無法完成解密。使用前執行原廠資料重設（清除所有的資料）。</string>
+    <string name="crypt_keeper_set_screen_lock_type">設定螢幕鎖定類型</string>
     <string name="encryption_interstitial_message_kor">您的裝置已加密。請選擇 [需要螢幕鎖定以於裝置開機時解密資料] 以保護您的加密資料。這能保護遺失或遭竊裝置中的資料。每次裝置開機時，您需要解除裝置鎖定才能將資料解密。裝置解密前，您將不會收到任何來電、訊息或通知。</string>
     <string name="encryption_interstitial_message_direction">"裝置開機時選擇 [需要方向鎖定] 來保護你的裝置。此方式可在裝置遺失或遭竊時保護資料。
 
@@ -1734,6 +1736,8 @@ Wi-Fi 與藍牙也將關閉，但是可於 [設定] 或快速設定面板中再�
     <string name="empty_recipient_toast">輸入號碼。</string>
     <string name="empty_content_toast">沒有可儲存的內容。</string>
     <string name="find_my_mobile_message_zero">使用 [尋找我的手機] 網路服務來遠端追蹤並控制裝置。如需更多資訊並瞭解還有哪些可用功能，請造訪下列網站：%s</string>
+    <string name="send_last_location_title">傳送最後位置</string>
+    <string name="send_last_location_summary">允許手機在電池降至特定電量以下時，將其最後定位傳送至 [尋找我的手機] 伺服器。</string>
     <string name="high_power_description">啟用個別應用程式的 [最佳化電池用量]。部分使用行動網路或同步資料的功能將受到限制，以節省電力。</string>
     <string name="wifi_display_summary_off">關</string>
     <string name="battery_usage_description">此畫面顯示電池自上次充電後的用量資料。</string>
@@ -1965,6 +1969,8 @@ Wi-Fi 與藍牙也將關閉，但是可於 [設定] 或快速設定面板中再�
     <string name="lock_screen_app_shortcut_summary">請選擇您想要在鎖定螢幕上使用的應用程式捷徑。</string>
     <string name="lockscreen_notifications">鎖定螢幕上的通知</string>
     <string name="work_profile_lockscreen_notifications">工作設定檔通知</string>
+    <string name="lock_network_and_security">鎖定網路與安全性</string>
+    <string name="lock_network_and_security_summary">手機鎖定時，網路與安全相關功能也會保持鎖定，手機即使遺失或遭竊也能輕易定位並保護其中資料。</string>
     <string name="dualclock_settings_title">雙時鐘</string>
     <string name="dualclock_settings_summary">漫遊時同時顯示本地與住家所在地時區。</string>
     <string name="set_home_city">設定本地時區</string>
@@ -2150,7 +2156,7 @@ Wi-Fi 與藍牙也將關閉，但是可於 [設定] 或快速設定面板中再�
     <string name="air_browse_music_on_lock_screen_title">鎖定螢幕上的音樂</string>
     <string name="air_browse_music_on_lock_screen_summary">在鎖定螢幕上變更音樂曲目。</string>
     <string name="air_browse_note_summary">在檢視模式中時於頁面間移動。</string>
-    <string name="data_usage_enable_mobile_summery">若行動數據關閉，您的裝置必須連接至 Wi-Fi 網路才能使用需要連接網路的服務。</string>
+    <string name="data_usage_enable_mobile_summery">透過您的行動網路存取網際網路。</string>
     <string name="data_usage_enable_mobile_warning_skt">連接至手機網路連接可能根據您的資費方案產生額外費用。繼續嗎？</string>
     <string name="data_usage_enable_mobile_warning_ktt">連接至手機網路連接可能根據您的資費方案產生額外費用。繼續嗎？</string>
     <string name="data_usage_enable_mobile_warning_lgt">連接至手機網路連接可能根據您的資費方案產生額外費用。繼續嗎？</string>
@@ -2520,8 +2526,8 @@ Wi-Fi 與藍牙也將關閉，但是可於 [設定] 或快速設定面板中再�
     <string name="secure_folder_summary">鎖定您的私人內容與應用程式以提升安全性。</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s 不支援以指紋解鎖 %2$s。</string>
     <string name="edge_feeds_title">資訊流</string>
-    <string name="screensaver_settings_summary">控制螢幕關閉時裝置插入底座與/或充電時的行為。此功能也稱為螢幕保護程式。</string>
-    <string name="screensaver_settings_summary_wo_dock">裝置充電期間螢幕自動關閉後顯示螢幕保護程式。</string>
+    <string name="screensaver_settings_summary">手機充電時，在螢幕自動關閉後顯示螢幕保護程式。</string>
+    <string name="screensaver_settings_summary_wo_dock">在手機插入底座或充電期間螢幕自動關閉後顯示螢幕保護程式。</string>
     <string name="apn_already_exists">已存在。</string>
     <string name="error_unavailable_apn">本裝置不允許此 APN。請於另一部裝置嘗試。</string>
     <string name="error_message_port_out_of_range">連接埠編號需介於 %1$d 至 %2$d 間。</string>
@@ -3286,6 +3292,7 @@ Wi-Fi 已開啟。"</string>
     <string name="wfd_connection_end_toast">Screen mirroring 連接已結束。</string>
     <string name="wfd_descrpition_playvia">播放內容。</string>
     <string name="wfd_descrpition_mirroring">鏡射螢幕。</string>
+    <string name="wfd_descrpition_playsound">播放聲音。</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi 與 [USB 網路共享] 無法同時開啟。請關閉 Wi-Fi。</string>
     <string name="disable_multi_window_dialog_text">將停用多重視窗並關閉所有以彈出視窗開啟的應用程式。</string>
     <string name="keyguard_password_attempt_count_pin_code">剩餘 %d 次嘗試機會。</string>
@@ -4123,7 +4130,7 @@ Wi-Fi 已開啟。"</string>
     <string name="location_network_based">使用無線網路</string>
     <string name="location_neighborhood_level">允許應用程式使用 Google 的位置服務以更快地估算您的位置。將蒐集匿名位置資料並傳送至 Google。</string>
     <string name="system_update">系統更新</string>
-    <string name="about_settings">關於裝置</string>
+    <string name="about_settings">關於手機</string>
     <string name="about_settings_vzw">關於裝置</string>
     <string name="legal_information">法律資訊</string>
     <string name="regulatory_information">規範資訊</string>
@@ -4308,7 +4315,7 @@ Wi-Fi 已開啟。"</string>
     <string name="phone_language">語言</string>
     <string name="show_password">顯示密碼</string>
     <string name="show_password_summary">當您輸入時顯示密碼字元。</string>
-    <string name="ime_security_warning">此方法可蒐集密碼以外的所有文字，包括個人資料與信用卡號碼。此方法來自應用程式 %1$s。仍要使用嗎？</string>
+    <string name="ime_security_warning">%s 可能會蒐集您輸入的所有文字，包含密碼與信用卡號等個人資料。</string>
     <string name="failed_to_open_app_settings_toast">無法開啟 %s 設定。</string>
     <string name="keyboard_and_input_methods_category">鍵盤</string>
     <string name="virtual_keyboard_category">虛擬鍵盤</string>

@@ -513,7 +513,7 @@
 
     move-result-object v10
 
-    const v4, 0x7f0b1214
+    const v4, 0x7f0b1217
 
     invoke-virtual {p0, v4}, Lcom/android/settings/bluetooth/DockService;->getString(I)Ljava/lang/String;
 
@@ -535,7 +535,7 @@
 
     move-result-object v2
 
-    const v4, 0x7f1105d5
+    const v4, 0x7f1105d3
 
     invoke-virtual {v2, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -642,7 +642,7 @@
     goto :goto_1
 
     :cond_3
-    const v4, 0x7f0b1214
+    const v4, 0x7f0b1217
 
     invoke-virtual {p0, v4}, Lcom/android/settings/bluetooth/DockService;->getString(I)Ljava/lang/String;
 
@@ -658,7 +658,7 @@
 
     move-result-object v2
 
-    const v4, 0x7f110337
+    const v4, 0x7f110335
 
     invoke-virtual {v2, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1181,7 +1181,7 @@
 .method private initBtSettings(Landroid/bluetooth/BluetoothDevice;IZ)[Ljava/lang/CharSequence;
     .locals 6
 
-    const v3, 0x7f0b1216
+    const v3, 0x7f0b1219
 
     const/4 v5, 0x1
 
@@ -1218,7 +1218,7 @@
     goto :goto_0
 
     :pswitch_2
-    const v2, 0x7f0b1215
+    const v2, 0x7f0b1218
 
     invoke-virtual {p0, v2}, Lcom/android/settings/bluetooth/DockService;->getString(I)Ljava/lang/String;
 

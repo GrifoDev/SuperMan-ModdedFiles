@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Podpora</string>
     <string name="reset_network_settings_list_summary">Ponastavitev vmesnikov Wi-Fi in Bluetooth ter drugih omrežnih nastavitev na privzete vrednosti.</string>
     <string name="master_clear_list_summary">Ponastavitev naprave na tovarniško privzete nastavitve. To bo izbrisalo vse podatke, tudi datoteke in prenesene aplikacije.</string>
-    <string name="auto_restart_summary">Optimizirajte napravo tako, da nastavite ure za samodejni vnovični zagon. Ko se naprava znova zažene, se izbrišejo vsi neshranjeni podatki.</string>
+    <string name="auto_restart_summary">Optimizacija telefona s samodejnim vnovičnim zagonom enkrat tedensko. Ko se telefon znova zažene, se izbrišejo vsi neshranjeni podatki.</string>
     <string name="search_settings">Iskanje</string>
     <string name="related_results">Št. sorod. elementov: %d</string>
     <string name="no_results_found">Ni najdenih rezultatov</string>
@@ -1485,6 +1485,7 @@ Med postopkom dešifriranja kartice SD ni mogoče uporabljati."</string>
     <string name="crypt_keeper_verify_failed_summary">Naprave ni mogoče zagnati znova. Preverjanje integritete ni uspelo. Napravo morate ponastaviti na tovarniško privzete nastavitve. To bo izbrisalo vse vaše podatke.</string>
     <string name="cryptkeeper_emergency_call">Klic v sili</string>
     <string name="cryptkeeper_return_to_call">Vrnitev na klic</string>
+    <string name="cryptkeeper_default_enter_msg">Zaradi varnosti je telefon šifriran.</string>
     <string name="enter_password">Če želite zagnati napravo, vnesite geslo.</string>
     <string name="enter_pin">Če želite zagnati napravo, vnesite kodo PIN.</string>
     <string name="enter_pattern">Če želite zagnati napravo, narišite vzorec.</string>
@@ -1498,6 +1499,7 @@ Med postopkom dešifriranja kartice SD ni mogoče uporabljati."</string>
     <string name="crypt_keeper_last_warn_wipe">Na voljo imate še 1 poskus, preden bo naprava ponastavljena na privzete tovarniške nastavitve. To bo izbrisalo vse podatke, tudi datoteke in prenesene aplikacije.</string>
     <string name="crypt_keeper_failed_title_dec">Dešifriranje ni uspelo.</string>
     <string name="crypt_keeper_failed_summary_dec">Dešifriranje je bilo prekinjeno in se zato ne more zaključiti. Izvesti morate tovarniško ponastavitev podatkov (brisanje vseh podatkov), preden lahko nadaljujete z uporabo.</string>
+    <string name="crypt_keeper_set_screen_lock_type">Nast. vrsto zaklepanja zaslona</string>
     <string name="encryption_interstitial_message_kor">Vaša naprava je šifrirana. Izberite možnost Ob vklopu naprave zahtevaj zaklepanje zaslona za dešifriranje podatkov, da zaščitite šifriranje podatkov. Tako boste zaščitili podatke, če napravo izgubite ali vam jo ukradejo. Ob vsakem vklopu boste morali za dešifriranje podatkov napravo odkleniti. Dokler naprave ne dešifrirate, ne boste prejemali nobenih klicev, sporočil ali obvestil.</string>
     <string name="encryption_interstitial_message_direction">"Ob vklopu naprave izberite možnost Zahtevaj zaklepanje s smerjo, da zaščitite napravo. Tako boste zaščitili podatke, če napravo izgubite ali vam jo ukradejo.
 
@@ -1737,6 +1739,8 @@ Preden zahtevate popravilo v okviru garancije, morate funkcijo Zaklepanje vnovi�
     <string name="empty_content_toast">Ni vsebine za shranjevanje.</string>
     <string name="find_my_mobile_message_zero">"Sledite napravi in jo upravljajte na daljavo s spletno storitvijo Poišči moj mobilni telefon. Za več informacij in podatkov o drugih razpoložljivih funkcijah obiščite to spletno mesto:
 %s"</string>
+    <string name="send_last_location_title">Pošiljanje zadnje lokacije</string>
+    <string name="send_last_location_summary">Telefonu dovolite, da pošlje svojo zadnjo lokacijo v strežnik storitve Poišči moj mobilni telefon, ko se baterija izprazni pod določeno raven.</string>
     <string name="high_power_description">Omogočite funkcijo Optimizacija porabe baterije za posamezne aplikacije. Zaradi varčevanja z močjo baterije bodo nekatere funkcije, denimo uporaba mobilnega omrežja ali sinhronizacija podatkov, omejene.</string>
     <string name="wifi_display_summary_off">Izključ.</string>
     <string name="battery_usage_description">Ta zaslon prikazuje podatke o porabi baterije, odkar je bila naprava zadnjič povsem napolnjena.</string>
@@ -1968,6 +1972,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">Izberite, katere bližnjice do aplikacij želite uporabljati na zaklenjenem zaslonu.</string>
     <string name="lockscreen_notifications">Obvestila na zaklenjenem zaslonu</string>
     <string name="work_profile_lockscreen_notifications">Obvestila delovnega profila</string>
+    <string name="lock_network_and_security">Zaklepanje omrežja in varnosti</string>
+    <string name="lock_network_and_security_summary">Ohranite zaklenjene funkcije, povezane z omrežjem in varnostjo, ko je telefon zaklenjen, kar vam bo olajšalo iskanje in zaščito telefona, če ga izgubite ali vam ga ukradejo.</string>
     <string name="dualclock_settings_title">Dvojna ura</string>
     <string name="dualclock_settings_summary">Prikaz lokalnega in domačega časovnega pasu na gostovanju.</string>
     <string name="set_home_city">Nastavite dom. časov. pas</string>
@@ -2153,7 +2159,7 @@ Tudi če nekdo iz telefona izbriše operacijski sistem, bo pred uporabo zahtevan
     <string name="air_browse_music_on_lock_screen_title">Glasba na zaklenjenem zaslonu</string>
     <string name="air_browse_music_on_lock_screen_summary">Spremenite glasbene skladbe na zaklenjenem zaslonu.</string>
     <string name="air_browse_note_summary">Pomikanje med stranmi v načinu prikaza.</string>
-    <string name="data_usage_enable_mobile_summery">Če je funkcija Prenos podatkov prek mobilnega omrežja izklopljena, mora biti naprava povezana z omrežjem Wi-Fi, če želite uporabljati storitve, ki zahtevajo omrežno povezavo.</string>
+    <string name="data_usage_enable_mobile_summery">Dostopajte do interneta prek mobilnega omrežja.</string>
     <string name="data_usage_enable_mobile_warning_skt">Povezava z mobilnimi omrežji lahko povzroči dodatne stroške, odvisno od vaše naročnine. Želite nadaljevati?</string>
     <string name="data_usage_enable_mobile_warning_ktt">Povezava z mobilnimi omrežji lahko povzroči dodatne stroške, odvisno od vaše naročnine. Želite nadaljevati?</string>
     <string name="data_usage_enable_mobile_warning_lgt">Povezava z mobilnimi omrežji lahko povzroči dodatne stroške, odvisno od vaše naročnine. Želite nadaljevati?</string>
@@ -2523,8 +2529,8 @@ Poskusite znova."</string>
     <string name="secure_folder_summary">Zaklenite zasebno vsebino in aplikacije, da izboljšate varnost.</string>
     <string name="text_biometrics_finger_title_enterprise">Vrsta zaklepanja %1$s ne podpira prstnih odtisov za odklepanje storitve %2$s.</string>
     <string name="edge_feeds_title">Viri na robu</string>
-    <string name="screensaver_settings_summary">Spremljajte, kaj se dogaja, ko je naprava v odložišču in/ali se polni, ko je zaslon izklopljen. Tej funkciji pravimo tudi Sanjarjenje.</string>
-    <string name="screensaver_settings_summary_wo_dock">Prikaz ohranjevalnika zaslona po samodejnem izklopu zaslona, ko se naprava polni.</string>
+    <string name="screensaver_settings_summary">Prikaz ohranjevalnika zaslona po samodejnem izklopu zaslona, ko se telefon polni.</string>
+    <string name="screensaver_settings_summary_wo_dock">Prikaz ohranjevalnika zaslona po samodejnem izklopu zaslona, ko je telefon odložen v nosilec ali se polni.</string>
     <string name="apn_already_exists">Že obstaja.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Številka vrat mora biti med %1$d in %2$d.</string>
@@ -3289,6 +3295,7 @@ Uporaba funkcije Mobilna dostopna točka poveča porabo baterije in podatkov."</
     <string name="wfd_connection_end_toast">Povezava s funkcijo Screen mirroring je prekinjena.</string>
     <string name="wfd_descrpition_playvia">Predvajanje vsebine.</string>
     <string name="wfd_descrpition_mirroring">Zrcali zaslon.</string>
+    <string name="wfd_descrpition_playsound">Predvajanje zvoka.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">Funkcija Več oken bo onemogočena in vse aplikacije, odprte v pojavnih oknih, se bodo zaprle.</string>
     <string name="keyguard_password_attempt_count_pin_code">%d preostali poizkus.</string>
@@ -4128,7 +4135,7 @@ Razmislite o uporabi hitrejše kartice SD ali naprave za shranjevanje USB, da iz
     <string name="location_network_based">Uporaba brezžičn. omrežij</string>
     <string name="location_neighborhood_level">Dovoli aplikacijam uporabo lokac. storit. Google za hitrejše določanje lokacije. Anonimni podatki o lokaciji bodo poslani v Google.</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">O napravi</string>
+    <string name="about_settings">O telefonu</string>
     <string name="about_settings_vzw">O napravi</string>
     <string name="legal_information">Pravne informacije</string>
     <string name="regulatory_information">Zakonodaja</string>
@@ -4313,7 +4320,7 @@ Obstoječi podatki aplikacij ne bodo izgubljeni."</string>
     <string name="phone_language">Jezik</string>
     <string name="show_password">Gesla naredite vidna</string>
     <string name="show_password_summary">Hitri prikaz znakov gesla, ko jih vnašate.</string>
-    <string name="ime_security_warning">Ta način lahko zbere vsa besedila, ki jih vnesete, razen gesel, vključno z osebnimi podatki in številkami kreditnih kartic. Uporablja ga program %1$s. Ga želite vseeno uporabiti?</string>
+    <string name="ime_security_warning">Tipkovnica %s lahko zbira celotno natipkano besedilo, vključno z osebnimi podatki, denimo gesli in številkami kreditnih kartic.</string>
     <string name="failed_to_open_app_settings_toast">Nastavitev za %s ni uspelo odpreti.</string>
     <string name="keyboard_and_input_methods_category">Tipkovnice</string>
     <string name="virtual_keyboard_category">Navidezna tipkovnica</string>

@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Podpora</string>
     <string name="reset_network_settings_list_summary">Pre nastavenia pripojení Wi-Fi, Bluetooth a ďalšie sieťové nastavenia sa obnovia predvolené hodnoty.</string>
     <string name="master_clear_list_summary">Zariadenie sa resetuje s obnovením predvolených nastavení od výrobcu. Tým sa vymažú všetky údaje vrátane súborov a stiahnutých aplikácií.</string>
-    <string name="auto_restart_summary">Zariadenie sa bude optimalizovať automatickým reštartovaním v nastavených časoch. Pri reštartovaní zariadenia sa stratia všetky neuložené údaje.</string>
+    <string name="auto_restart_summary">Telefón sa optimalizuje automatickým reštartovaním raz týždenne. Pri reštartovaní telefónu dôjde k strate všetkých neuložených údajov.</string>
     <string name="search_settings">Hľadať</string>
     <string name="related_results">Súvisiace položky: %d</string>
     <string name="no_results_found">Nenašli sa žiadne výsledky</string>
@@ -1485,6 +1485,7 @@ Počas procesu dešifrovania sa karta SD nedá používať."</string>
     <string name="crypt_keeper_verify_failed_summary">Zariadenie sa nedá reštartovať. Overenie integrity zlyhalo. Musíte resetovať zariadenie, aby sa obnovili predvolené nastavenia od výrobcu. Tým sa vymažú všetky vaše údaje.</string>
     <string name="cryptkeeper_emergency_call">Tiesňový hovor</string>
     <string name="cryptkeeper_return_to_call">Návrat k hovoru</string>
+    <string name="cryptkeeper_default_enter_msg">Váš telefón je šifrovaný z dôvodu zabezpečenia.</string>
     <string name="enter_password">Ak chcete spustiť zariadenie, zadajte heslo.</string>
     <string name="enter_pin">Ak chcete spustiť zariadenie, zadajte kód PIN.</string>
     <string name="enter_pattern">Ak chcete spustiť zariadenie, nakreslite vzor.</string>
@@ -1498,6 +1499,7 @@ Počas procesu dešifrovania sa karta SD nedá používať."</string>
     <string name="crypt_keeper_last_warn_wipe">Ešte 1 raz sa môžete pokúsiť o spustenie zariadenia a potom sa resetuje s obnovením predvolených nastavení od výrobcu. Tým sa vymažú všetky údaje vrátane súborov a stiahnutých aplikácií.</string>
     <string name="crypt_keeper_failed_title_dec">Dešifrovanie zlyhalo.</string>
     <string name="crypt_keeper_failed_summary_dec">Dešifrovanie sa nedá dokončiť z dôvodu prerušenia. Pred použitím vykonajte obnovenie údajov od výrobcu (vymazanie všetkých údajov).</string>
+    <string name="crypt_keeper_set_screen_lock_type">Nast. typ zamknutia obrazovky</string>
     <string name="encryption_interstitial_message_kor">Prebieha šifrovanie zariadenia. Výberom možnosti Vyžadovať zámok obrazovky na dešifrovanie údajov pri zapnutí zariadenia môžete chrániť svoje šifrované údaje. To pomáha ochrániť údaje v stratených alebo odcudzených zariadeniach. Pri každom zapnutí zariadenia ho budete musieť odomknúť, aby sa dešifrovali jeho údaje. Kým nedešifrujete zariadenie, nebudete prijímať žiadne hovory, správy ani oznámenia.</string>
     <string name="encryption_interstitial_message_direction">"Chráňte svoje zariadenie výberom možnosti Vyžadovať smerový zámok pri zapnutí zariadenia. Táto funkcia pomáha ochrániť údaje v stratených alebo odcudzených zariadeniach.
 
@@ -1737,6 +1739,8 @@ Pred požiadaním o opravu v rámci záruky musíte vypnúť funkciu Reaktivačn
     <string name="empty_content_toast">Žiadny obsah na uloženie.</string>
     <string name="find_my_mobile_message_zero">"Pomocou webovej služby Hľadať môj mobil môžete sledovať svoje zariadenie a ovládať ho na diaľku. Ďalšie informácie a informácie o ďalších dostupných funkciách nájdete na nasledujúcej webovej lokalite:
 %s"</string>
+    <string name="send_last_location_title">Odoslať poslednú polohu</string>
+    <string name="send_last_location_summary">Povolí telefónu, aby odoslal svoju poslednú polohu na server služby Hľadať môj mobil, keď nabitie batérie klesne pod určitú úroveň.</string>
     <string name="high_power_description">Zapnite funkciu Optimalizovať využívanie batérie pre jednotlivé aplikácie. Niektoré funkcie, napríklad tie, ktoré používajú mobilné siete alebo synchronizujú údaje, budú obmedzené, aby sa šetrila energia batérie.</string>
     <string name="wifi_display_summary_off">Vyp.</string>
     <string name="battery_usage_description">Na obrazovke sa zobrazujú údaje o využití batérie od posledného nabitia zariadenia.</string>
@@ -1968,6 +1972,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">Vyberte, ktoré odkazy na aplikácie chcete použiť na zamknutej obrazovke.</string>
     <string name="lockscreen_notifications">Oznámenia na zamknutej obrazovke</string>
     <string name="work_profile_lockscreen_notifications">Oznámenia z pracovného profilu</string>
+    <string name="lock_network_and_security">Zámok siete a zabezpečenie</string>
+    <string name="lock_network_and_security_summary">Uchováva funkcie súvisiace so sieťou a zabezpečením zamknuté, keď je telefón zamknutý, čím ho umožňuje jednoduchšie vyhľadať a ochrániť, ak dôjde k jeho strate alebo odcudzeniu.</string>
     <string name="dualclock_settings_title">Duálne hodiny</string>
     <string name="dualclock_settings_summary">Pri roamingu sa zobrazí lokálne aj domovské časové pásmo.</string>
     <string name="set_home_city">Nast. domov. časové pásmo</string>
@@ -2153,7 +2159,7 @@ Aj v prípade vymazania údajov z telefónu sa bude vyžadovať heslo konta Goog
     <string name="air_browse_music_on_lock_screen_title">Hudba na zamknutej obrazovke</string>
     <string name="air_browse_music_on_lock_screen_summary">Zmena hudobných skladieb na zamknutej obrazovke.</string>
     <string name="air_browse_note_summary">Premiestňovanie medzi stránkami v režime zobrazenia.</string>
-    <string name="data_usage_enable_mobile_summery">Ak je mobilné dátové pripojenie vypnuté, zariadenie sa musí pripojiť k sieti Wi-Fi, aby mohlo používať služby vyžadujúce sieťové pripojenie.</string>
+    <string name="data_usage_enable_mobile_summery">Pripojte sa na internet cez mobilnú sieť.</string>
     <string name="data_usage_enable_mobile_warning_skt">Pripojenie k mobilným sieťam môže znamenať ďalšie poplatky v závislosti od vášho dátového programu. Pokračovať?</string>
     <string name="data_usage_enable_mobile_warning_ktt">Pripojenie k mobilným sieťam môže znamenať ďalšie poplatky v závislosti od vášho dátového programu. Pokračovať?</string>
     <string name="data_usage_enable_mobile_warning_lgt">Pripojenie k mobilným sieťam môže znamenať ďalšie poplatky v závislosti od vášho dátového programu. Pokračovať?</string>
@@ -2523,8 +2529,8 @@ Skúste to znova."</string>
     <string name="secure_folder_summary">Môžete zamknúť súkromný obsah a aplikácie na zlepšenie zabezpečenia.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s nepodporuje odomykanie kontajnera %2$s odtlačkami prstov.</string>
     <string name="edge_feeds_title">Informačný panel</string>
-    <string name="screensaver_settings_summary">Umožňuje nastaviť, čo sa vykoná pri pripojení zariadenia k základňovej jednotke alebo pri nabíjaní, keď je vypnutá obrazovka. Táto funkcia sa nazýva aj šetrič obrazovky.</string>
-    <string name="screensaver_settings_summary_wo_dock">Po automatickom vypnutí obrazovky počas nabíjania zariadenia sa zobrazí šetrič obrazovky.</string>
+    <string name="screensaver_settings_summary">Po automatickom vypnutí obrazovky počas nabíjania telefónu sa zobrazí šetrič obrazovky.</string>
+    <string name="screensaver_settings_summary_wo_dock">Po automatickom vypnutí obrazovky počas nabíjania alebo pripojenia telefónu k doku sa zobrazí šetrič obrazovky.</string>
     <string name="apn_already_exists">Už existuje.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Číslo portu musí byť od %1$d do %2$d.</string>
@@ -3289,6 +3295,7 @@ Používanie funkcie Mobilný prístupový bod zvyšuje vybíjanie batérie a sp
     <string name="wfd_connection_end_toast">Pripojenie Screen mirroring sa ukončilo.</string>
     <string name="wfd_descrpition_playvia">Prehrá obsah.</string>
     <string name="wfd_descrpition_mirroring">Zrkadlí obrazovku.</string>
+    <string name="wfd_descrpition_playsound">Prehráva zvuk.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">Zobrazenie viacerých okien sa vypne a všetky aplikácie otvorené v kontextových oknách sa zavrú.</string>
     <string name="keyguard_password_attempt_count_pin_code">Počet zostávajúcich pokusov: %d.</string>
@@ -4128,7 +4135,7 @@ Zvážte použitie rýchlejšej karty SD alebo rýchlejšieho pamäťového zari
     <string name="location_network_based">Použiť bezdrôtové siete</string>
     <string name="location_neighborhood_level">Povolí aplikáciám používať lokal. službu Google na rýchl. zisťov. polohy. Anonym. lokal. údaje sa budú zhromažď. a odosielať do spoloč. Google.</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">Informácie o zariadení</string>
+    <string name="about_settings">Informácie o telefóne</string>
     <string name="about_settings_vzw">Informácie o zariadení</string>
     <string name="legal_information">Právne informácie</string>
     <string name="regulatory_information">Regulačné informácie</string>
@@ -4313,7 +4320,7 @@ Svoje existujúce aplikačné údaje nestratíte."</string>
     <string name="phone_language">Jazyk</string>
     <string name="show_password">Nastaviť heslá ako viditeľné</string>
     <string name="show_password_summary">Pri zadávaní znakov hesla sa tieto nakrátko zobrazia.</string>
-    <string name="ime_security_warning">Tento spôsob umožňuje zaznamenávať všetok text, ktorý zadáte, okrem hesiel, vrátane osobných údajov a čísel kreditných kariet. Pochádza z aplikácie %1$s. Použiť napriek tomu?</string>
+    <string name="ime_security_warning">%s môže zaznamenávať všetok text, ktorý napíšete, vrátane osobných údajov, ako sú heslá a čísla kreditných kariet.</string>
     <string name="failed_to_open_app_settings_toast">Nepodarilo sa otvoriť nastavenia aplikácie %s.</string>
     <string name="keyboard_and_input_methods_category">Klávesnice</string>
     <string name="virtual_keyboard_category">Virtuálna klávesnica</string>

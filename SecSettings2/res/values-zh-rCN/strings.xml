@@ -378,7 +378,7 @@
     <string name="support">支持</string>
     <string name="reset_network_settings_list_summary">将 Wi-Fi、蓝牙和其他网络设置重置为默认值</string>
     <string name="master_clear_list_summary">将设备重置为出厂默认设置。这将清除所有数据，包括文件和已下载的应用程序。</string>
-    <string name="auto_restart_summary">通过在设置的时间自动重启来优化您的设备。设备重启时，未保存的数据将会丢失。</string>
+    <string name="auto_restart_summary">通过每周自动重启来优化您的手机。手机重启时，所有未保存的数据将会丢失。</string>
     <string name="search_settings">搜索</string>
     <string name="related_results">%d 个相关项目</string>
     <string name="no_results_found">未找到结果</string>
@@ -1484,6 +1484,7 @@ Wi-Fi 和蓝牙也将关闭，但可以在【设置】或快捷设置面板中�
     <string name="crypt_keeper_verify_failed_summary">无法重启设备。完整性验证失败。您需要将设备恢复出厂默认设置，而这将会清除设备上的所有数据。</string>
     <string name="cryptkeeper_emergency_call">紧急呼叫</string>
     <string name="cryptkeeper_return_to_call">返回至通话</string>
+    <string name="cryptkeeper_default_enter_msg">出于安全考虑，您的手机已加密。</string>
     <string name="enter_password">若要启动您的设备，请输入您的混合密码。</string>
     <string name="enter_pin">若要启动您的设备，请输入您的数字密码。</string>
     <string name="enter_pattern">若要启动您的设备，请绘制您的图案。</string>
@@ -1497,6 +1498,7 @@ Wi-Fi 和蓝牙也将关闭，但可以在【设置】或快捷设置面板中�
     <string name="crypt_keeper_last_warn_wipe">您还可尝试启动设备 1 次，之后将重置为出厂默认设置。这将清除包括文件和已下载应用程序在内的所有数据。</string>
     <string name="crypt_keeper_failed_title_dec">解密失败</string>
     <string name="crypt_keeper_failed_summary_dec">由于中断无法完成解密。使用前进行出厂数据重置（删除所有数据）。</string>
+    <string name="crypt_keeper_set_screen_lock_type">设置屏幕锁类型</string>
     <string name="encryption_interstitial_message_kor">您的设备已加密。请选择【在设备开机时需要使用屏幕锁定方式解密数据】来保护已加密的数据，这可以帮助您保护丢失或被盗设备上的数据。每次设备开机时，您需要解锁设备才能解密数据。在您解密设备之前，将无法接收来电、信息或通知。</string>
     <string name="encryption_interstitial_message_direction">"通过要求在设备开机时输入方向锁定来保护您的设备。这可帮助保护丢失或被盗设备上的数据。
 
@@ -1736,6 +1738,8 @@ Wi-Fi 和蓝牙也将关闭，但可以在【设置】或快捷设置面板中�
     <string name="empty_content_toast">无可保存内容。</string>
     <string name="find_my_mobile_message_zero">"使用【查找我的手机】网络服务远程跟踪并控制您的设备。如需更多信息并了解还有哪些可用功能，请访问以下网站：
 %s"</string>
+    <string name="send_last_location_title">发送最后的位置</string>
+    <string name="send_last_location_summary">允许您的手机在电量降至特定水平时向【查找我的手机】服务器发送其最后的位置</string>
     <string name="high_power_description">为应用程序启用【优化电池使用量】。部分功能将受到限制，例如使用移动网络或同步数据。</string>
     <string name="wifi_display_summary_off">关</string>
     <string name="battery_usage_description">显示设备自上次充满电后的电量使用情况。</string>
@@ -1967,6 +1971,8 @@ Wi-Fi 和蓝牙也将关闭，但可以在【设置】或快捷设置面板中�
     <string name="lock_screen_app_shortcut_summary">请选择您要在锁定屏幕上使用的应用程序快捷方式</string>
     <string name="lockscreen_notifications">在锁定屏幕上显示通知</string>
     <string name="work_profile_lockscreen_notifications">工作配置文件通知</string>
+    <string name="lock_network_and_security">锁定网络和安全</string>
+    <string name="lock_network_and_security_summary">在手机锁定期间保持网络和安全相关的功能锁定，这更有利于在手机丢失或被盗时进行定位和提供保护。</string>
     <string name="dualclock_settings_title">双时钟</string>
     <string name="dualclock_settings_summary">漫游时同时显示当地和本地时区</string>
     <string name="set_home_city">设置本地时区</string>
@@ -2152,7 +2158,7 @@ Wi-Fi 和蓝牙也将关闭，但可以在【设置】或快捷设置面板中�
     <string name="air_browse_music_on_lock_screen_title">锁屏上的音乐</string>
     <string name="air_browse_music_on_lock_screen_summary">在锁屏上更改音乐歌曲。</string>
     <string name="air_browse_note_summary">在视图模式中的页面之间移动。</string>
-    <string name="data_usage_enable_mobile_summery">如果移动数据关闭，您的设备必须连接至 Wi-Fi 网络才能使用需要网络连接的服务。</string>
+    <string name="data_usage_enable_mobile_summery">通过您的移动网络访问互联网</string>
     <string name="data_usage_enable_mobile_warning_skt">根据您的流量套餐，连接至移动网络可能产生额外费用。是否继续？</string>
     <string name="data_usage_enable_mobile_warning_ktt">根据您的流量套餐，连接至移动网络可能产生额外费用。是否继续？</string>
     <string name="data_usage_enable_mobile_warning_lgt">根据您的流量套餐，连接至移动网络可能产生额外费用。是否继续？</string>
@@ -2521,8 +2527,8 @@ Wi-Fi 和蓝牙也将关闭，但可以在【设置】或快捷设置面板中�
     <string name="secure_folder_summary">锁定您的私人内容和应用程序可增强安全性</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s 不支持指纹解锁 %2$s。</string>
     <string name="edge_feeds_title">曲面侧屏订阅源</string>
-    <string name="screensaver_settings_summary">控制在屏幕关闭期间将设备插入底座和/或充电时执行的操作。该功能也被称为屏幕保护程序。</string>
-    <string name="screensaver_settings_summary_wo_dock">设备正在充电时，在屏幕自动关闭后显示屏幕保护程序。</string>
+    <string name="screensaver_settings_summary">当手机充电时，屏幕自动关闭后将显示屏幕保护程序。</string>
+    <string name="screensaver_settings_summary_wo_dock">当手机插入底座或充电时，屏幕自动关闭后将显示屏幕保护程序。</string>
     <string name="apn_already_exists">已存在。</string>
     <string name="error_unavailable_apn">该设备上不允许该 APN。请尝试另一个</string>
     <string name="error_message_port_out_of_range">端口编号需介于 %1$d 至 %2$d 间。</string>
@@ -3287,6 +3293,7 @@ Wi-Fi 已开启。"</string>
     <string name="wfd_connection_end_toast">屏幕共享连接已结束</string>
     <string name="wfd_descrpition_playvia">播放内容</string>
     <string name="wfd_descrpition_mirroring">共享屏幕</string>
+    <string name="wfd_descrpition_playsound">播放声音</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi 和【USB 网络共享】无法同时开启。请关闭 Wi-Fi。</string>
     <string name="disable_multi_window_dialog_text">将禁用多窗口并将关闭在弹出窗口中打开的所有应用程序。</string>
     <string name="keyguard_password_attempt_count_pin_code">还有%d次机会。</string>
@@ -4309,7 +4316,7 @@ Wi-Fi 已开启。"</string>
     <string name="phone_language">语言</string>
     <string name="show_password">密码可见</string>
     <string name="show_password_summary">在您输入时短暂显示密码字符</string>
-    <string name="ime_security_warning">该方法可收集您输入的所有文本，除密码以外，包括个人数据和信用卡编号。其来自应用程序 %1$s。是否使用？</string>
+    <string name="ime_security_warning">%s可能会收集您输入的全部文本，包括密码和信用卡号等个人数据。</string>
     <string name="failed_to_open_app_settings_toast">打开 %s 的设置失败。</string>
     <string name="keyboard_and_input_methods_category">键盘</string>
     <string name="virtual_keyboard_category">虚拟键盘</string>

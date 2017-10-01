@@ -1734,7 +1734,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f1106b4
+    const v1, 0x7f1106b2
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1744,7 +1744,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/wifi/ListAnimationController;->mListView:Landroid/widget/ListView;
 
-    const v1, 0x7f1106b3
+    const v1, 0x7f1106b1
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

@@ -105,7 +105,7 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0b1810
+    const v1, 0x7f0b1813
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -115,7 +115,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b1811
+    const v2, 0x7f0b1814
 
     invoke-virtual {v1, v2}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -129,7 +129,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b1804
+    const v2, 0x7f0b1807
 
     invoke-virtual {v1, v2}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -145,7 +145,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b1808
+    const v2, 0x7f0b180b
 
     invoke-virtual {v1, v2}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 

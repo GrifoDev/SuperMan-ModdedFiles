@@ -47,7 +47,7 @@
 
     const v5, 0x7f0202fe
 
-    const v6, 0x7f020559
+    const v6, 0x7f020557
 
     filled-new-array {v5, v6}, [I
 
@@ -155,7 +155,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_4
 
     new-instance v4, Landroid/text/SpannableString;
 
@@ -163,7 +163,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b0e43
+    const v6, 0x7f0b0e4d
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -196,6 +196,7 @@
     invoke-virtual {p0, v4}, Lcom/android/settings/wfd/WifiDisplaySettings$DlnaPreference;->setSummary(Ljava/lang/CharSequence;)V
 
     :cond_1
+    :goto_1
     invoke-virtual {p3}, Lcom/android/settings/wfd/WifiDisplaySettings$DeviceWrapper;->getName()Ljava/lang/String;
 
     move-result-object v5
@@ -239,6 +240,27 @@
     invoke-virtual {p0, v5}, Lcom/android/settings/wfd/WifiDisplaySettings$DlnaPreference;->setIcon(I)V
 
     goto :goto_0
+
+    :cond_4
+    invoke-virtual {p3}, Lcom/android/settings/wfd/WifiDisplaySettings$DeviceWrapper;->isOnlySupportsAudio()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_1
+
+    invoke-virtual {p1}, Lcom/android/settings/wfd/WifiDisplaySettings;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v5
+
+    const v6, 0x7f0b0e4f
+
+    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {p0, v5}, Lcom/android/settings/wfd/WifiDisplaySettings$DlnaPreference;->setSummary(Ljava/lang/CharSequence;)V
+
+    goto :goto_1
 .end method
 
 

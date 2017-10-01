@@ -170,7 +170,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f110847
+    const v1, 0x7f110845
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -211,7 +211,7 @@
 
     invoke-direct {v1, p1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0b1995
+    const v2, 0x7f0b1998
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -229,7 +229,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b1102
+    const v2, 0x7f0b1105
 
     invoke-virtual {v1, v2, v4}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -351,7 +351,7 @@
 
     if-nez v5, :cond_0
 
-    const v5, 0x7f110594
+    const v5, 0x7f110592
 
     invoke-virtual {v4, v5}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -418,7 +418,7 @@
 
     iget-object v2, p0, Lcom/android/settings/notification/ZenRuleSelectionDialog;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b199d
+    const v3, 0x7f0b19a0
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -484,7 +484,7 @@
 
     iget-object v2, p0, Lcom/android/settings/notification/ZenRuleSelectionDialog;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b199b
+    const v3, 0x7f0b199e
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

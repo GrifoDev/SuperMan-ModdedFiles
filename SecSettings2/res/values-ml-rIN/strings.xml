@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">പിന്തുണ</string>
     <string name="reset_network_settings_list_summary">Wi-Fi, ബ്ലൂടൂത്ത്, മറ്റ് നെറ്റ്‌വർക്ക് എന്നിവയുടെ ക്രമീകരണങ്ങളെ അവയുടെ ഡിഫോൾട്ടുകളിലേക്ക് പുനഃക്രമീകരിക്കുക.</string>
     <string name="master_clear_list_summary">നിങ്ങളുടെ ഉപകരണത്തെ അതിന്‍റെ ഫാക്ടറി ക്രമീകരണങ്ങളിലേക്ക് പുനഃക്രമീകരിക്കുക. ഫയലുകളും ഡൗൺലോഡ് ചെയ്ത ആപ്ലിക്കേഷനുകളും ഉൾപ്പെടെയുള്ള മുഴുവൻ ഡാറ്റയെയും ഇത് മായ്ക്കും.</string>
-    <string name="auto_restart_summary">ക്രമീകൃത സമയങ്ങളിൽ നിങ്ങളുടെ ഉപകരണത്തെ ഓട്ടോമാറ്റിക്കായി പുനരാരംഭിപ്പിച്ച് അതിനെ അനുയോജ്യമാക്കുക. സംരക്ഷിക്കാത്ത ഏത് ഡാറ്റയും ഉപകരണം പുനരാരംഭിക്കുമ്പോൾ നഷ്ടപ്പെടും.</string>
+    <string name="auto_restart_summary">അഴ്ചയിലൊരിക്കൽ നിങ്ങളുടെ ഫോണിനെ ഓട്ടോമാറ്റിക്കായി പുനരാരംഭിപ്പിച്ച് അതിനെ അനുയോജ്യമാക്കുക. സംരക്ഷിക്കാത്ത ഏത് ഡാറ്റയും നിങ്ങളുടെ ഫോൺ പുനരാരംഭിക്കുമ്പോൾ നഷ്ടപ്പെടും.</string>
     <string name="search_settings">തിരയു.</string>
     <string name="related_results">%d ബന്ധപ്പെട്ട ഇനങ്ങൾ</string>
     <string name="no_results_found">ഫലങ്ങളൊന്നും കണ്ടെത്തിയില്ല</string>
@@ -1485,6 +1485,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_verify_failed_summary">നിങ്ങളുടെ ഉപകരണം പുനരാരംഭിക്കാനാവില്ല. തനിമ പരിശോധിച്ചുറപ്പിക്കൽ പരാജയപ്പെട്ടു. നിങ്ങളുടെ ഉപകരണത്തെ ഫാക്ടറി ഡിഫോള്‍ട്ട് ക്രമീകരണങ്ങളിലേക്ക് പുനഃക്രമീകരിക്കേണ്ടതാവശ്യമാണ്. ഇത് നിങ്ങളുടെ എല്ലാ ഡാറ്റയെയും മായ്ക്കും.</string>
     <string name="cryptkeeper_emergency_call">എമര്‍ജന്‍സി കോള്‍</string>
     <string name="cryptkeeper_return_to_call">കോളിലേക്ക് മടങ്ങുക</string>
+    <string name="cryptkeeper_default_enter_msg">സുരക്ഷയ്ക്കായി നിങ്ങളുടെ ഫോൺ എൻക്രിപ്റ്റ് ചെയ്തിട്ടുണ്ട്.</string>
     <string name="enter_password">നിങ്ങളുടെ ഉപകരണം ആരംഭിക്കുന്നതിന്, നിങ്ങളുടെ പാസ്‌വേഡ് നൽകുക.</string>
     <string name="enter_pin">നിങ്ങളുടെ ഉപകരണം ആരംഭിക്കുന്നതിന്, നിങ്ങളുടെ PIN നൽകുക.</string>
     <string name="enter_pattern">നിങ്ങളുടെ ഉപകരണം ആരംഭിക്കുന്നതിന്, നിങ്ങളുടെ പാറ്റേൺ വരയ്ക്കുക.</string>
@@ -1498,6 +1499,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_last_warn_wipe">ഫാക്ടറി ഡിഫോൾട്ട് ക്രമീകരണങ്ങളിലേക്ക് പുനഃക്രമീകരിക്കുന്നതിന് ഉപകരണം സ്റ്റാർട്ട് ചെയ്യുന്നതിന് നിങ്ങൾക്ക് 1 ശ്രമം ശേഷിക്കുന്നുണ്ട്. ഫയലുകളും ഡൗൺലോഡ് ചെയ്ത ആപ്ലിക്കേഷനുകളും ഉൾപ്പെടെയുള്ള മുഴുവൻ ഡാറ്റയെയും ഇത് മായ്ക്കും.</string>
     <string name="crypt_keeper_failed_title_dec">ഡിക്രിപ്‌ഷന്‍ പരാജയപ്പെട്ടു.</string>
     <string name="crypt_keeper_failed_summary_dec">തടസം ഉണ്ടായതിനാല്‍ ഡീക്രിപ്ഷന്‍ പൂര്‍ത്തിയാക്കാന്‍ ആയില്ല. ഉപയോഗത്തിന്‌ മുമ്പ് ഫാക്ടറി ഡാറ്റാ പുനസജ്ജീകരണം നടത്തുക.</string>
+    <string name="crypt_keeper_set_screen_lock_type">സ്ക്രീന്‍ ലോക്ക് തരം ക്രമീകരിക്കുക</string>
     <string name="encryption_interstitial_message_kor">നിങ്ങളുടെ ഉപകരണം എൻക്രിപ്റ്റ് ചെയ്തു. ഉപകരണ പവർ ഓൺ ചെയ്യുമ്പോൾ ഡാറ്റ ഡീക്രിപ്റ്റ് ചെയ്യാൻ സ്ക്രീൻ ലോക്ക് ആവശ്യമാണ് എന്നത് തിരഞ്ഞെടുത്ത് എൻക്രിപ്റ്റ് ചെയ്ത നിങ്ങളുടെ ഡാറ്റയെ സംരക്ഷിക്കുക. നഷ്‌ടപ്പെട്ട അല്ലെങ്കിൽ മോഷ്ടിക്കപ്പെട്ട ഉപകരണങ്ങളിലെ ഡാറ്റയെ സംരക്ഷിക്കാൻ ഇത് സഹായിക്കുന്നു. ഉപകരണ പവർ ഓൺ ചെയ്യുമ്പോഴെല്ലാം ഉപകരണത്തിലെ ഡാറ്റയെ ഡീക്രിപ്റ്റ് ചെയ്യുന്നതിന് നിങ്ങൾക്കതിനെ അൺലോക്ക് ചെയ്യേണ്ടി വരും. നിങ്ങളുടെ ഉപകരണത്തെ നിങ്ങൾ ഡീക്രിപ്റ്റ് ചെയ്യുന്നതുവരെ നിങ്ങൾക്ക് ഏതെങ്കിലും കോളുകളോ സന്ദേശങ്ങളോ അറിയിപ്പുകളോ ലഭിക്കില്ല.</string>
     <string name="encryption_interstitial_message_direction">"ഉപകരണ പവർ ഓൺ ചെയ്യുമ്പോൾ “ദിശാ ലോക്ക് ആവശ്യമാണ്” എന്നത് തിരഞ്ഞെടുത്ത് നിങ്ങളുടെ ഉപകരണത്തെ സംരക്ഷിക്കുക. നഷ്ടപ്പെട്ട അല്ലെങ്കിൽ മോഷ്ടിക്കപ്പെട്ട ഉപകരണങ്ങളിലെ ഡാറ്റയെ സുരക്ഷിതമാക്കാൻ ഇത് സഹായിക്കുന്നു.
 
@@ -1737,6 +1739,8 @@ You will also need it when:"</string>
     <string name="empty_content_toast">സംരക്ഷിക്കുന്നതിനായി ഉള്ളടക്കം ഒന്നുമില്ല.</string>
     <string name="find_my_mobile_message_zero">"എന്‍റെ മൊബൈൽ കണ്ടെത്തുക വെബ് സേവനം ഉപയോഗിച്ച് നിങ്ങളുടെ ഉപകരണത്തെ വിദൂരമായി കണ്ടെത്തി നിയന്ത്രിക്കുക. അധിക വിവരങ്ങൾക്കും മറ്റ് പ്രവർത്തനങ്ങൾ എന്തൊക്കെ ലഭ്യമാണെന്ന്‍ കണ്ടെത്തുന്നതിനും, ഈ വെബ്സൈറ്റ് സന്ദർശിക്കുക:
 %s"</string>
+    <string name="send_last_location_title">അവസാന ലൊക്കേഷൻ അയയ്ക്കുക</string>
+    <string name="send_last_location_summary">ബാറ്ററി ഒരു നിശ്ചിത നിലയിലും താഴുമ്പോൾ നിങ്ങളുടെ ഫോണിനെ അതിന്‍റെ അവസാന ലൊക്കേഷൻ എന്‍റെ മൊബൈൽ കണ്ടെത്തുക എന്നതിന്‍റെ സെർവറിലേക്ക് അയയ്ക്കാൻ അനുവദിക്കുക.</string>
     <string name="high_power_description">വ്യക്തിഗത ആപ്ലിക്കേഷനുകൾക്കായി ബാറ്ററി ഉപയോഗം അനുയോജ്യമാക്കുക എന്നത് പ്രാപ്തമാക്കുക. മൊബൈൽ നെറ്റ്‌വർക്ക് അല്ലെങ്കിൽ സമന്വയ ഡാറ്റ ഉപയോഗിക്കുന്ന ചില പ്രവർത്തനങ്ങൾ ബാറ്ററി പവർ സംരക്ഷിക്കുന്നതിന് നിയന്ത്രിക്കപ്പെടും.</string>
     <string name="wifi_display_summary_off">ഓഫ്</string>
     <string name="battery_usage_description">ഉപകരണം അവസാനം പൂർണ്ണമായി ചാര്‍ജ്ജ് ചെയ്‌ത ശേഷമുള്ള ബാറ്ററി ഉപയോഗ ഡാറ്റയെ ഈ സ്ക്രീൻ കാണിക്കുന്നു.</string>
@@ -1968,6 +1972,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">ഉപയോഗിക്കേണ്ട ആപ്ലിക്കേഷൻ എളുപ്പവഴികൾ തിരഞ്ഞെടുക്കുക.</string>
     <string name="lockscreen_notifications">ലോക്ക് സ്ക്രീനിലെ അറിയിപ്പുകൾ</string>
     <string name="work_profile_lockscreen_notifications">പ്രവൃത്തി പ്രൊഫൈൽ അറിയിപ്പുകൾ</string>
+    <string name="lock_network_and_security">ലോക്ക് നെറ്റ്‌വർക്കും സുരക്ഷയും</string>
+    <string name="lock_network_and_security_summary">നഷ്ടമാവുകയോ മോഷ്ടിക്കപ്പെടുകയോ ചെയ്യുകയാണെങ്കിൽ കണ്ടെത്തുന്നതും സംരക്ഷിക്കുന്നതും എളുപ്പമാക്കുന്നതിന് നിങ്ങളുടെ ഫോൺ ലോക്കായിരിക്കുമ്പോൾ നെറ്റ്‌വർക്കും സുരക്ഷാ അനുബന്ധ പ്രവർത്തനങ്ങളും ലോക്കാക്കി വയ്ക്കുക.</string>
     <string name="dualclock_settings_title">ഇരട്ട ക്ലോക്ക്</string>
     <string name="dualclock_settings_summary">റോമിംഗിലായിരിക്കുമ്പോൾ ലോക്കൽ ടൈം സോണുകൾക്കൊപ്പം ഹോം ടൈം സോണുകളും കാണിക്കുക.</string>
     <string name="set_home_city">ഹോം സമയ മേഖല ക്രമീകരിക്കുക</string>
@@ -2153,7 +2159,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="air_browse_music_on_lock_screen_title">ലോക്ക് സ്ക്രീനിലെ മ്യൂസിക്</string>
     <string name="air_browse_music_on_lock_screen_summary">ലോക്ക് സ്ക്രീനിലെ സംഗീത ട്രാക്കുകൾ മാറ്റുക.</string>
     <string name="air_browse_note_summary">കാഴ്ച മോഡിൽ ആയിരിക്കുന്ന സമയത്ത് പേജുകളിലൂടെ നീങ്ങുക.</string>
-    <string name="data_usage_enable_mobile_summery">മൊബൈൽ ഡാറ്റ ഓഫ് ചെയ്യുകയാണെങ്കിൽ, ഒരു നെറ്റ്‌വർക്ക് കണക്ഷൻ ആവശ്യമായ സേവനങ്ങൾ ഉപയോഗിക്കുന്നതിന് നിങ്ങളുടെ ഉപകരണം ഒരു Wi-Fi നെറ്റ്‌വർക്കിലേക്ക് ബന്ധിപ്പിച്ചിരിക്കണം.</string>
+    <string name="data_usage_enable_mobile_summery">നിങ്ങളുടെ മൊബൈൽ നെറ്റ്‌വർക്ക് മുഖേന ഇന്‍റർനെറ്റ് ആക്സസ് ചെയ്യുക.</string>
     <string name="data_usage_enable_mobile_warning_skt">ഡാറ്റ പ്ലാനിനനുസരിച്ച്, മൊബൈല്‍ നെറ്റ്‌വര്‍ക്കുകളിലേക്ക് ബന്ധിപ്പിക്കുന്നത് അധിക നിരക്കുകള്‍ക്ക് ഇടയാക്കാം. തുടരണോ?</string>
     <string name="data_usage_enable_mobile_warning_ktt">ഡാറ്റ പ്ലാനിനനുസരിച്ച്, മൊബൈല്‍ നെറ്റ്‌വര്‍ക്കുകളിലേക്ക് ബന്ധിപ്പിക്കുന്നത് അധിക നിരക്കുകള്‍ക്ക് ഇടയാക്കാം. തുടരണോ?</string>
     <string name="data_usage_enable_mobile_warning_lgt">ഡാറ്റ പ്ലാനിനനുസരിച്ച്, മൊബൈല്‍ നെറ്റ്‌വര്‍ക്കുകളിലേക്ക് ബന്ധിപ്പിക്കുന്നത് അധിക നിരക്കുകള്‍ക്ക് ഇടയാക്കാം. തുടരണോ?</string>
@@ -2523,8 +2529,8 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="secure_folder_summary">നിങ്ങളുടെ സ്വകാര്യ ഉള്ളടക്കത്തിന്‍റെയും ആപ്ലിക്കേഷനുകളുടെയും സുരക്ഷ വർദ്ധിപ്പിക്കുന്നതിന് അവ ലോക്ക് ചെയ്യുക.</string>
     <string name="text_biometrics_finger_title_enterprise">%2$s അൺലോക്ക് ചെയ്യാൻ %1$s വിരലടയാളത്തെ പിന്തുണയ്ക്കുന്നില്ല.</string>
     <string name="edge_feeds_title">Edge ഫീഡുകൾ</string>
-    <string name="screensaver_settings_summary">സ്ക്രീൻ ഓഫ് ചെയ്തിരിക്കുന്ന സമയത്ത് ഉപകരണം ഡോക്ക് ചെയ്യുമ്പോൾ കൂടാതെ/അല്ലെങ്കിൽ ചാർജ്ജ് ചെയ്യുമ്പോൾ സംഭവിക്കുന്നതെന്തും നിയന്ത്രിക്കുക. ഈ പ്രവർത്തനം ഡേഡ്രീം എന്നും അറിയപ്പെടുന്നു.</string>
-    <string name="screensaver_settings_summary_wo_dock">ഉപകരണം ചാർജ്ജ് ചെയ്യുന്ന സമയത്ത് സ്ക്രീൻ ഓട്ടോമാറ്റിക്കായി ഓഫായിക്കഴിഞ്ഞാൽ ഒരു സ്ക്രീൻസേവർ പ്രദർശിപ്പിക്കുക.</string>
+    <string name="screensaver_settings_summary">നിങ്ങളുടെ ഫോൺ ചാർജ്ജ് ചെയ്യുന്ന സമയത്ത് സ്ക്രീൻ ഓട്ടോമാറ്റിക്കായി ഓഫായിക്കഴിഞ്ഞാൽ ഒരു സ്ക്രീൻസേവർ കാണിക്കുക.</string>
+    <string name="screensaver_settings_summary_wo_dock">നിങ്ങളുടെ ഫോൺ ചാർജ്ജ് ചെയ്യുന്ന അല്ലെങ്കിൽ ഡോക്ക് ചെയ്യുന്ന സമയത്ത് സ്ക്രീൻ ഓട്ടോമാറ്റിക്കായി ഓഫായിക്കഴിഞ്ഞാൽ ഒരു സ്ക്രീൻസേവർ കാണിക്കുക.</string>
     <string name="apn_already_exists">ഇതിനകം നിലവിലുണ്ട്.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">പോർട്ട് നമ്പർ %1$d നും %2$d നും ഇടയിലുള്ളതായിരിക്കണം.</string>
@@ -3289,6 +3295,7 @@ Wi-Fi is now on."</string>
     <string name="wfd_connection_end_toast">Screen Mirroring കണക്ഷൻ അവസാനിച്ചു.</string>
     <string name="wfd_descrpition_playvia">ഉള്ളടക്കം പ്ലേ ചെയ്യുക.</string>
     <string name="wfd_descrpition_mirroring">സ്ക്രീൻ മിറർ ചെയ്യുക.</string>
+    <string name="wfd_descrpition_playsound">ശബ്ദം പ്ലേ ചെയ്യുക.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">മൾട്ടി വിൻഡോ അപ്രാപ്തമാക്കപ്പെടുകയും പോപ്-അപ്പ് വിൻഡോകളിൽ തുറന്നിരിക്കുന്ന എല്ലാ ആപ്ലിക്കേഷനുകളും അടയ്ക്കുകയും ചെയ്യും.</string>
     <string name="keyguard_password_attempt_count_pin_code">%d ശ്രമങ്ങള്‍ ശേഷിക്കുന്നു.</string>
@@ -4128,7 +4135,7 @@ Receiving SMS"</string>
     <string name="location_network_based">വയർലസ് നെറ്റ്‌വർക്കുകൾ ഉപയോഗിക്കുക</string>
     <string name="location_neighborhood_level">നിങ്ങളുടെ ലൊക്കേഷന്‍ വേഗത്തില്‍ കണക്കാക്കുന്നതിനായി ഗൂഗിളിന്‍റെ ലൊക്കേഷന്‍ സേവനം ഉപയോഗിക്കാന്‍ ആപ്ലിക്കേഷനുകളെ അനുവദിക്കുക. അജ്ഞാതമായ ലൊക്കേഷന്‍ ഡാറ്റ ശേഖരിക്കുകയും ഗൂഗിളിലേക്ക് അയയ്ക്കുകയും ചെയ്യും</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">ഉപകരണത്തെക്കുറിച്ച്</string>
+    <string name="about_settings">ഫോൺ വിവരം</string>
     <string name="about_settings_vzw">ഉപകരണ വിവരം</string>
     <string name="legal_information">നിയമ വിവരങ്ങള്‍</string>
     <string name="regulatory_information">നിയമപരമായ വിവരം</string>
@@ -4313,7 +4320,7 @@ Receiving SMS"</string>
     <string name="phone_language">ഭാഷ</string>
     <string name="show_password">പാസ്‍വേഡുകള്‍ ദൃശ്യമാക്കുക</string>
     <string name="show_password_summary">നിങ്ങൾ പാസ്‍വേഡ് പ്രതീകങ്ങൾ ടൈപ്പ് ചെയ്യുമ്പോൾ അവയെ ചുരുക്കി കാണിക്കുക.</string>
-    <string name="ime_security_warning">സ്വകാര്യ ഡാറ്റയും ക്രെഡിറ്റ് കാര്‍ഡ് നമ്പറുകളും ഉള്‍പ്പെടെ എന്നാല്‍ പാസ്‍വേഡുകള്‍ ഒഴികെ നിങ്ങള്‍ നല്‍കുന്ന എല്ലാ ടെക്സ്റ്റും ഈ രീതിക്ക് കണക്ട് ചെയ്യാന്‍ കഴിയും. ഇത് ആപ് %1$s ല്‍ നിന്നും വരുന്നു. ഏതുവിധേനയും ഉപയോഗിക്കണമോ?</string>
+    <string name="ime_security_warning">പാസ്‌വേഡുകളും ക്രെഡിറ്റ് കാർഡ് നമ്പറുകളും പോലുള്ള വ്യക്തിഗത ഡാറ്റ ഉൾപ്പെടെ, നിങ്ങൾ ടൈപ്പ് ചെയ്യുന്ന എല്ലാ ടെക്സ്റ്റും ശേഖരിക്കാൻ %s-ന് സാധിച്ചേക്കും.</string>
     <string name="failed_to_open_app_settings_toast">%s-ന് വേണ്ടി ക്രമീകരണങ്ങള്‍ തുറക്കുന്നതില്‍ പരാജയപ്പെട്ടു.</string>
     <string name="keyboard_and_input_methods_category">കീബോര്‍ഡുകള്‍</string>
     <string name="virtual_keyboard_category">വെർച്വൽ കീബോർഡ്</string>

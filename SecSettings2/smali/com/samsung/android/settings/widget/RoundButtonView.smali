@@ -88,7 +88,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a03ac
+    const v1, 0x7f0a03aa
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -125,7 +125,7 @@
 
     check-cast v0, Landroid/graphics/drawable/RippleDrawable;
 
-    const v2, 0x7f110864
+    const v2, 0x7f110862
 
     invoke-virtual {v0, v2}, Landroid/graphics/drawable/RippleDrawable;->findDrawableByLayerId(I)Landroid/graphics/drawable/Drawable;
 
@@ -145,7 +145,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a04f1
+    const v3, 0x7f0a04ef
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

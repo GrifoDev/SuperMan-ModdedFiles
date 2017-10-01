@@ -1064,7 +1064,7 @@
 
     if-eqz v2, :cond_2
 
-    const v2, 0x7f0b19d8
+    const v2, 0x7f0b19db
 
     :goto_1
     invoke-virtual {v3, v2}, Landroid/widget/TextView;->setText(I)V
@@ -1072,7 +1072,7 @@
     goto :goto_0
 
     :cond_2
-    const v2, 0x7f0b19d9
+    const v2, 0x7f0b19dc
 
     goto :goto_1
 
@@ -1875,7 +1875,7 @@
 
     iget-object v2, v1, Lcom/android/settings/applications/AppViewHolder;->disabled:Landroid/widget/TextView;
 
-    const v3, 0x7f0b1534
+    const v3, 0x7f0b1537
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
     :try_end_0
@@ -1916,7 +1916,7 @@
 
     iget-object v2, v1, Lcom/android/settings/applications/AppViewHolder;->disabled:Landroid/widget/TextView;
 
-    const v3, 0x7f0b1533
+    const v3, 0x7f0b1536
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
     :try_end_1
@@ -2154,7 +2154,7 @@
 
     iget v0, p0, Lcom/android/settings/applications/ManageApplications$ApplicationsAdapter;->mLastSortMode:I
 
-    const v1, 0x7f11087b
+    const v1, 0x7f110879
 
     if-ne v0, v1, :cond_0
 
@@ -2310,7 +2310,7 @@
 
     iget v2, p0, Lcom/android/settings/applications/ManageApplications$ApplicationsAdapter;->mLastSortMode:I
 
-    const v3, 0x7f11087b
+    const v3, 0x7f110879
 
     if-ne v2, v3, :cond_0
 
@@ -2704,7 +2704,7 @@
     goto :goto_1
 
     :pswitch_data_0
-    .packed-switch 0x7f11087b
+    .packed-switch 0x7f110879
         :pswitch_0
     .end packed-switch
 

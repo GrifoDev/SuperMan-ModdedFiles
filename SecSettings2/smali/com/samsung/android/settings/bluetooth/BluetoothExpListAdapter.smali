@@ -255,109 +255,109 @@
 .end method
 
 .method public getChildView(IIZLandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .locals 12
+    .locals 9
 
-    move-object/from16 v6, p4
+    move-object v5, p4
 
     if-nez p4, :cond_5
 
     const v2, 0x7f0401d1
 
-    iget-object v7, p0, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter;->mContext:Landroid/content/Context;
+    iget-object v6, p0, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter;->mContext:Landroid/content/Context;
 
-    instance-of v7, v7, Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog;
+    instance-of v6, v6, Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog;
 
-    if-nez v7, :cond_0
+    if-nez v6, :cond_0
 
     invoke-static {}, Lcom/android/settings/Utils;->isTablet()Z
 
-    move-result v7
+    move-result v6
 
-    if-eqz v7, :cond_1
+    if-eqz v6, :cond_1
 
-    iget-object v7, p0, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter;->mContext:Landroid/content/Context;
+    iget-object v6, p0, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter;->mContext:Landroid/content/Context;
 
-    instance-of v7, v7, Lcom/android/settings/bluetooth/DevicePickerActivity;
+    instance-of v6, v6, Lcom/android/settings/bluetooth/DevicePickerActivity;
 
-    if-eqz v7, :cond_1
+    if-eqz v6, :cond_1
 
     :cond_0
     const v2, 0x7f0401d2
 
     :cond_1
-    iget-object v7, p0, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter;->mLayoutInflater:Landroid/view/LayoutInflater;
-
-    const/4 v8, 0x0
-
-    invoke-virtual {v7, v2, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object v6
-
-    new-instance v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;
+    iget-object v6, p0, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter;->mLayoutInflater:Landroid/view/LayoutInflater;
 
     const/4 v7, 0x0
 
-    invoke-direct {v1, v7}, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;-><init>(Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;)V
+    invoke-virtual {v6, v2, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
-    const v7, 0x1020006
+    move-result-object v5
 
-    invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    new-instance v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;
 
-    move-result-object v7
+    const/4 v6, 0x0
 
-    check-cast v7, Landroid/widget/ImageView;
+    invoke-direct {v1, v6}, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;-><init>(Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;)V
 
-    iput-object v7, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->icon:Landroid/widget/ImageView;
+    const v6, 0x1020006
 
-    const v7, 0x1020016
+    invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    move-result-object v6
 
-    move-result-object v7
+    check-cast v6, Landroid/widget/ImageView;
 
-    check-cast v7, Landroid/widget/TextView;
+    iput-object v6, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->icon:Landroid/widget/ImageView;
 
-    iput-object v7, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->title:Landroid/widget/TextView;
+    const v6, 0x1020016
 
-    const v7, 0x1020010
+    invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    move-result-object v6
 
-    move-result-object v7
+    check-cast v6, Landroid/widget/TextView;
 
-    check-cast v7, Landroid/widget/TextView;
+    iput-object v6, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->title:Landroid/widget/TextView;
 
-    iput-object v7, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->summary:Landroid/widget/TextView;
+    const v6, 0x1020010
 
-    const v7, 0x7f110546
+    invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    move-result-object v6
 
-    move-result-object v7
+    check-cast v6, Landroid/widget/TextView;
 
-    check-cast v7, Landroid/widget/ImageView;
+    iput-object v6, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->summary:Landroid/widget/TextView;
 
-    iput-object v7, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->details:Landroid/widget/ImageView;
+    const v6, 0x7f110544
 
-    const v7, 0x7f110545
+    invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    move-result-object v6
 
-    move-result-object v7
+    check-cast v6, Landroid/widget/ImageView;
 
-    check-cast v7, Landroid/widget/LinearLayout;
+    iput-object v6, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->details:Landroid/widget/ImageView;
 
-    iput-object v7, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->linearLayout:Landroid/widget/LinearLayout;
+    const v6, 0x7f110543
 
-    const v7, 0x7f110143
+    invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    move-result-object v6
 
-    move-result-object v7
+    check-cast v6, Landroid/widget/LinearLayout;
 
-    iput-object v7, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->divider:Landroid/view/View;
+    iput-object v6, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->linearLayout:Landroid/widget/LinearLayout;
 
-    invoke-virtual {v6, v1}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
+    const v6, 0x7f110143
+
+    invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v6
+
+    iput-object v6, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->divider:Landroid/view/View;
+
+    invoke-virtual {v5, v1}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
     :goto_0
     invoke-virtual {p0, p1, p2}, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter;->getChild(II)Lcom/android/settings/bluetooth/BluetoothDevicePreference;
@@ -374,189 +374,158 @@
 
     move-result-object v3
 
-    const-string/jumbo v7, "BluetoothExpListAdapter"
+    const-string/jumbo v6, "BluetoothExpListAdapter"
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v9, "getChildView ::  preference = "
+    const-string/jumbo v8, "getChildView ::  preference = "
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    const-string/jumbo v9, "isBonded = "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v0}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getBondState()I
-
-    move-result v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v7, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->title:Landroid/widget/TextView;
-
-    invoke-static {v3}, Landroid/text/Html;->fromHtml(Ljava/lang/String;)Landroid/text/Spanned;
-
-    move-result-object v8
-
-    invoke-virtual {v7, v8}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    invoke-virtual {v0}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->isConnected()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_6
-
-    iget-object v7, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->title:Landroid/widget/TextView;
-
-    iget-object v8, p0, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter;->mContext:Landroid/content/Context;
-
-    const v9, 0x7f0f01de
-
-    invoke-virtual {v7, v8, v9}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
-
-    :goto_1
-    iget-object v8, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->title:Landroid/widget/TextView;
-
-    invoke-virtual {v0}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->isBusy()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_7
-
-    const/4 v7, 0x0
-
-    :goto_2
-    invoke-virtual {v8, v7}, Landroid/widget/TextView;->setEnabled(Z)V
-
-    invoke-virtual {v0}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getConnectionSummary()I
-
-    move-result v7
-
-    if-eqz v7, :cond_8
-
-    iget-object v7, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->summary:Landroid/widget/TextView;
-
-    iget-object v8, p0, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getConnectionSummary()I
-
-    move-result v9
-
-    invoke-virtual {v8, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v7, v8}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    iget-object v7, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->summary:Landroid/widget/TextView;
-
-    const/4 v8, 0x0
-
-    invoke-virtual {v7, v8}, Landroid/widget/TextView;->setVisibility(I)V
-
-    :goto_3
-    iget-object v7, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->icon:Landroid/widget/ImageView;
-
-    invoke-virtual {v4}, Lcom/android/settings/bluetooth/BluetoothDevicePreference;->getIconDrawable()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v8
-
-    invoke-virtual {v7, v8}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    invoke-virtual {v0}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getBondState()I
-
-    move-result v7
-
-    const/16 v8, 0xc
-
-    if-ne v7, v8, :cond_2
-
-    iget-object v7, p0, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter;->mContext:Landroid/content/Context;
-
-    instance-of v7, v7, Lcom/android/settings/bluetooth/DevicePickerActivity;
-
-    if-eqz v7, :cond_9
-
-    :cond_2
-    iget-object v7, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->details:Landroid/widget/ImageView;
-
-    if-eqz v7, :cond_3
-
-    iget-object v7, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->linearLayout:Landroid/widget/LinearLayout;
-
-    const/16 v8, 0x8
-
-    invoke-virtual {v7, v8}, Landroid/widget/LinearLayout;->setVisibility(I)V
-
-    const/4 v5, 0x0
-
-    iget-object v7, p0, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter;->mContext:Landroid/content/Context;
-
-    instance-of v7, v7, Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog;
-
-    if-eqz v7, :cond_b
-
-    iget-object v7, p0, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v7}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v7
 
-    const v8, 0x7f0a0247
+    invoke-virtual {v7, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    move-result-object v7
 
-    move-result v5
+    const-string/jumbo v8, "isBonded = "
 
-    :goto_4
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v0}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getBondState()I
+
+    move-result v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v6, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->title:Landroid/widget/TextView;
+
+    invoke-static {v3}, Landroid/text/Html;->fromHtml(Ljava/lang/String;)Landroid/text/Spanned;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    invoke-virtual {v0}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->isConnected()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_6
+
+    iget-object v6, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->title:Landroid/widget/TextView;
+
+    iget-object v7, p0, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter;->mContext:Landroid/content/Context;
+
+    const v8, 0x7f0f01de
+
+    invoke-virtual {v6, v7, v8}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
+
+    :goto_1
     iget-object v7, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->title:Landroid/widget/TextView;
 
-    const/4 v8, 0x0
+    invoke-virtual {v0}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->isBusy()Z
 
-    const/4 v9, 0x0
+    move-result v6
 
-    const/4 v10, 0x0
+    if-eqz v6, :cond_7
 
-    invoke-virtual {v7, v8, v9, v5, v10}, Landroid/widget/TextView;->setPadding(IIII)V
+    const/4 v6, 0x0
+
+    :goto_2
+    invoke-virtual {v7, v6}, Landroid/widget/TextView;->setEnabled(Z)V
+
+    invoke-virtual {v0}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getConnectionSummary()I
+
+    move-result v6
+
+    if-eqz v6, :cond_8
+
+    iget-object v6, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->summary:Landroid/widget/TextView;
+
+    iget-object v7, p0, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getConnectionSummary()I
+
+    move-result v8
+
+    invoke-virtual {v7, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    iget-object v6, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->summary:Landroid/widget/TextView;
+
+    const/4 v7, 0x0
+
+    invoke-virtual {v6, v7}, Landroid/widget/TextView;->setVisibility(I)V
+
+    :goto_3
+    iget-object v6, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->icon:Landroid/widget/ImageView;
+
+    invoke-virtual {v4}, Lcom/android/settings/bluetooth/BluetoothDevicePreference;->getIconDrawable()Landroid/graphics/drawable/Drawable;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    invoke-virtual {v0}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getBondState()I
+
+    move-result v6
+
+    const/16 v7, 0xc
+
+    if-ne v6, v7, :cond_2
+
+    iget-object v6, p0, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter;->mContext:Landroid/content/Context;
+
+    instance-of v6, v6, Lcom/android/settings/bluetooth/DevicePickerActivity;
+
+    if-eqz v6, :cond_9
+
+    :cond_2
+    iget-object v6, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->details:Landroid/widget/ImageView;
+
+    if-eqz v6, :cond_3
+
+    iget-object v6, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->linearLayout:Landroid/widget/LinearLayout;
+
+    const/16 v7, 0x8
+
+    invoke-virtual {v6, v7}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
     :cond_3
-    :goto_5
-    iget-object v7, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->divider:Landroid/view/View;
+    :goto_4
+    iget-object v6, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->divider:Landroid/view/View;
 
-    if-eqz v7, :cond_4
+    if-eqz v6, :cond_4
 
-    if-eqz p3, :cond_c
+    if-eqz p3, :cond_a
 
-    iget-object v7, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->divider:Landroid/view/View;
+    iget-object v6, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->divider:Landroid/view/View;
 
-    const/16 v8, 0x8
+    const/16 v7, 0x8
 
-    invoke-virtual {v7, v8}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v6, v7}, Landroid/view/View;->setVisibility(I)V
 
     :cond_4
-    :goto_6
-    return-object v6
+    :goto_5
+    return-object v5
 
     :cond_5
-    invoke-virtual/range {p4 .. p4}, Landroid/view/View;->getTag()Ljava/lang/Object;
+    invoke-virtual {p4}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
     move-result-object v1
 
@@ -565,93 +534,65 @@
     goto/16 :goto_0
 
     :cond_6
-    iget-object v7, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->title:Landroid/widget/TextView;
+    iget-object v6, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->title:Landroid/widget/TextView;
 
-    iget-object v8, p0, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter;->mContext:Landroid/content/Context;
+    iget-object v7, p0, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter;->mContext:Landroid/content/Context;
 
-    const v9, 0x7f0f01df
+    const v8, 0x7f0f01df
 
-    invoke-virtual {v7, v8, v9}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
+    invoke-virtual {v6, v7, v8}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
 
-    goto/16 :goto_1
+    goto :goto_1
 
     :cond_7
-    const/4 v7, 0x1
+    const/4 v6, 0x1
 
     goto :goto_2
 
     :cond_8
-    iget-object v7, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->summary:Landroid/widget/TextView;
+    iget-object v6, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->summary:Landroid/widget/TextView;
 
-    const/16 v8, 0x8
+    const/16 v7, 0x8
 
-    invoke-virtual {v7, v8}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v6, v7}, Landroid/widget/TextView;->setVisibility(I)V
 
     goto :goto_3
 
     :cond_9
-    iget-object v7, p0, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter;->mContext:Landroid/content/Context;
+    iget-object v6, p0, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter;->mContext:Landroid/content/Context;
 
-    instance-of v7, v7, Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog;
+    instance-of v6, v6, Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog;
 
-    if-nez v7, :cond_2
+    if-nez v6, :cond_2
 
-    iget-object v7, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->linearLayout:Landroid/widget/LinearLayout;
+    iget-object v6, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->linearLayout:Landroid/widget/LinearLayout;
 
-    const/4 v8, 0x0
+    const/4 v7, 0x0
 
-    invoke-virtual {v7, v8}, Landroid/widget/LinearLayout;->setVisibility(I)V
+    invoke-virtual {v6, v7}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    iget-object v7, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->details:Landroid/widget/ImageView;
+    iget-object v6, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->details:Landroid/widget/ImageView;
 
-    if-eqz v7, :cond_a
+    if-eqz v6, :cond_3
 
-    iget-object v7, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->details:Landroid/widget/ImageView;
+    iget-object v6, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->details:Landroid/widget/ImageView;
 
-    invoke-virtual {v7, v4}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v6, v4}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    iget-object v7, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->details:Landroid/widget/ImageView;
+    iget-object v6, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->details:Landroid/widget/ImageView;
 
-    invoke-virtual {v7, v0}, Landroid/widget/ImageView;->setTag(Ljava/lang/Object;)V
-
-    :cond_a
-    iget-object v7, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->title:Landroid/widget/TextView;
-
-    const/4 v8, 0x0
-
-    const/4 v9, 0x0
-
-    const/4 v10, 0x0
-
-    const/4 v11, 0x0
-
-    invoke-virtual {v7, v8, v9, v10, v11}, Landroid/widget/TextView;->setPadding(IIII)V
-
-    goto :goto_5
-
-    :cond_b
-    iget-object v7, p0, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v7}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v7
-
-    const v8, 0x7f0a0246
-
-    invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v5
+    invoke-virtual {v6, v0}, Landroid/widget/ImageView;->setTag(Ljava/lang/Object;)V
 
     goto :goto_4
 
-    :cond_c
-    iget-object v7, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->divider:Landroid/view/View;
+    :cond_a
+    iget-object v6, v1, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->divider:Landroid/view/View;
 
-    const/4 v8, 0x0
+    const/4 v7, 0x0
 
-    invoke-virtual {v7, v8}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v6, v7}, Landroid/view/View;->setVisibility(I)V
 
-    goto :goto_6
+    goto :goto_5
 .end method
 
 .method public getChildrenCount(I)I
@@ -895,7 +836,7 @@
 
     if-ne v14, v15, :cond_6
 
-    const v14, 0x7f110542
+    const v14, 0x7f110540
 
     invoke-virtual {v13, v14}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -905,7 +846,7 @@
 
     iput-object v14, v5, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->linearLayout:Landroid/widget/LinearLayout;
 
-    const v14, 0x7f110543
+    const v14, 0x7f110541
 
     invoke-virtual {v13, v14}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -915,7 +856,7 @@
 
     iput-object v14, v5, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->title:Landroid/widget/TextView;
 
-    const v14, 0x7f110544
+    const v14, 0x7f110542
 
     invoke-virtual {v13, v14}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1108,7 +1049,7 @@
     invoke-virtual {v13, v14}, Landroid/view/View;->setVisibility(I)V
 
     :goto_3
-    const v14, 0x7f110541
+    const v14, 0x7f11053f
 
     invoke-virtual {v13, v14}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1169,7 +1110,7 @@
 
     move-result-object v11
 
-    const v14, 0x7f11055d
+    const v14, 0x7f11055b
 
     invoke-virtual {v13, v14}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1312,7 +1253,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0b11fb
+    const v2, 0x7f0b11fe
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1351,7 +1292,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0b11fa
+    const v2, 0x7f0b11fd
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

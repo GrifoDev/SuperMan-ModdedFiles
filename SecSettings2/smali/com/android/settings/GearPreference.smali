@@ -24,7 +24,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settingslib/RestrictedPreference;->onBindViewHolder(Landroid/support/v7/preference/PreferenceViewHolder;)V
 
-    const v1, 0x7f110585
+    const v1, 0x7f110583
 
     invoke-virtual {p1, v1}, Landroid/support/v7/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -46,7 +46,7 @@
 
     move-result v0
 
-    const v1, 0x7f110585
+    const v1, 0x7f110583
 
     if-ne v0, v1, :cond_0
 

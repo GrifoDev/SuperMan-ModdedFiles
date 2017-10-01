@@ -314,9 +314,9 @@
     :sswitch_data_0
     .sparse-switch
         0x7f1101a8 -> :sswitch_2
-        0x7f110345 -> :sswitch_3
-        0x7f1103d6 -> :sswitch_1
-        0x7f1103d8 -> :sswitch_0
+        0x7f110343 -> :sswitch_3
+        0x7f1103d4 -> :sswitch_1
+        0x7f1103d6 -> :sswitch_0
     .end sparse-switch
 .end method
 
@@ -339,7 +339,7 @@
 
     const v6, 0x7f0b0228
 
-    const v5, 0x7f020508
+    const v5, 0x7f020506
 
     const/4 v1, 0x1
 
@@ -380,7 +380,7 @@
     :goto_0
     iput-boolean v0, p0, Lcom/samsung/android/settings/display/IconBackgrounds;->mIsEnabledShowBtnBg:Z
 
-    const v0, 0x7f1103d8
+    const v0, 0x7f1103d6
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/display/IconBackgrounds;->findViewById(I)Landroid/view/View;
 
@@ -390,7 +390,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/display/IconBackgrounds;->mIconBackgroundsLayout:Landroid/widget/LinearLayout;
 
-    const v0, 0x7f1103d6
+    const v0, 0x7f1103d4
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/display/IconBackgrounds;->findViewById(I)Landroid/view/View;
 
@@ -400,7 +400,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/display/IconBackgrounds;->mIconOnlyLayout:Landroid/widget/LinearLayout;
 
-    const v0, 0x7f110343
+    const v0, 0x7f110341
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/display/IconBackgrounds;->findViewById(I)Landroid/view/View;
 
@@ -410,7 +410,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/display/IconBackgrounds;->mPreviewImage:Landroid/widget/ImageView;
 
-    const v0, 0x7f1103d9
+    const v0, 0x7f1103d7
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/display/IconBackgrounds;->findViewById(I)Landroid/view/View;
 
@@ -420,7 +420,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/display/IconBackgrounds;->mIconBackgroundsRadio:Landroid/widget/RadioButton;
 
-    const v0, 0x7f1103d7
+    const v0, 0x7f1103d5
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/display/IconBackgrounds;->findViewById(I)Landroid/view/View;
 
@@ -440,7 +440,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/display/IconBackgrounds;->mCancelButton:Landroid/widget/TextView;
 
-    const v0, 0x7f110345
+    const v0, 0x7f110343
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/display/IconBackgrounds;->findViewById(I)Landroid/view/View;
 

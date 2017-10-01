@@ -111,7 +111,7 @@
 
     move-result-object v3
 
-    const v5, 0x7f11065a
+    const v5, 0x7f110658
 
     invoke-virtual {v3, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -119,7 +119,7 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    const v5, 0x7f11065b
+    const v5, 0x7f110659
 
     invoke-virtual {v3, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -139,7 +139,7 @@
 
     aput-object v6, v5, v7
 
-    const v6, 0x7f0b13e9
+    const v6, 0x7f0b13ec
 
     invoke-virtual {p0, v6, v5}, Lcom/android/settings/deviceinfo/PrivateVolumeFormat;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

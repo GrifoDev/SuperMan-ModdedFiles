@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Υποστήριξη</string>
     <string name="reset_network_settings_list_summary">Να γίνει επαναφορά των ρυθμίσεων Wi-Fi, Bluetooth και άλλων ρυθμίσεων δικτύου στις προεπιλεγμένες τιμές τους.</string>
     <string name="master_clear_list_summary">Κάντε επαναφορά της συσκευής σας στις εργοστασιακές προεπιλεγμένες ρυθμίσεις. Αυτή η ενέργεια θα σβήσει όλα τα δεδομένα, συμπεριλαμβανομένων των αρχείων και των εφαρμογών που έχετε κάνει λήψη.</string>
-    <string name="auto_restart_summary">Βελτιστοποιήστε τη λειτουργία της συσκευής σας με την αυτόματη επανεκκίνησή της σε προκαθορισμένες ώρες. Κατά την επανεκκίνηση της συσκευής τυχόν μη αποθηκευμένα δεδομένα θα χαθούν.</string>
+    <string name="auto_restart_summary">Βελτιστοποιήστε το τηλέφωνό σας, κάνοντας αυτόματη επανεκκίνηση μία φορά την εβδομάδα. Κατά την επανεκκίνηση του τηλεφώνου τυχόν μη αποθηκευμένα δεδομένα θα χαθούν.</string>
     <string name="search_settings">Αναζήτηση</string>
     <string name="related_results">%d σχετικά στοιχεία</string>
     <string name="no_results_found">Δεν βρέθηκαν αποτελέσματα</string>
@@ -1485,6 +1485,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_verify_failed_summary">Δεν είναι δυνατή η επανεκκίνηση της συσκευής. Η επαλήθευση της ακεραιότητας απέτυχε. Πρέπει να επαναφέρετε τη συσκευή σας στις προεπιλεγμένες εργοστασιακές ρυθμίσεις. Η ενέργεια θα διαγράψει όλα τα δεδομένα σας.</string>
     <string name="cryptkeeper_emergency_call">Κλήση έκτακτης ανάγκης</string>
     <string name="cryptkeeper_return_to_call">Επιστροφή στην κλήση</string>
+    <string name="cryptkeeper_default_enter_msg">Το τηλέφωνο είναι κρυπτογραφημένο για ασφάλεια.</string>
     <string name="enter_password">Για την εκκίνηση της συσκευής, καταχωρήστε τον κωδικό πρόσβασης.</string>
     <string name="enter_pin">Για την εκκίνηση της συσκευής, καταχωρήστε το PIN.</string>
     <string name="enter_pattern">Για την εκκίνηση της συσκευής, σχεδιάστε το μοτίβο ξεκλειδώματος.</string>
@@ -1498,6 +1499,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_last_warn_wipe">Απομένει μόνο 1 προσπάθεια για την εκκίνηση της συσκευής πριν γίνει επαναφορά της στις προεπιλεγμένες εργοστασιακές ρυθμίσεις. Η ενέργεια θα διαγράψει όλα τα δεδομένα, συμπεριλαμβανομένων των αρχείων και των εφαρμογών που έχετε λάβει.</string>
     <string name="crypt_keeper_failed_title_dec">Αποτυχία αποκρυπτογράφησης.</string>
     <string name="crypt_keeper_failed_summary_dec">Η αποκρυπτογράφηση δεν ολοκληρώθηκε εξαιτίας κάποιας διακοπής. Εκτελέστε επαναφορά των εργοστασιακών ρυθμίσεων (διαγράφοντας όλα τα δεδομένα σας) για να είναι δυνατή η χρήση της συσκευής.</string>
+    <string name="crypt_keeper_set_screen_lock_type">Ορισμός τύπου οθόνης κλειδώμ.</string>
     <string name="encryption_interstitial_message_kor">Η συσκευή σας είναι κρυπτογραφημένη. Προστατέψτε τα κρυπτογραφημένα δεδομένα, επιλέγοντας «Να απαιτείται κλείδωμα οθόνης για την αποκρυπτογράφηση των δεδομένων όταν ενεργοποιείται η συσκευή». Η λειτουργία συμβάλλει στην προστασία των δεδομένων σε συσκευές που έχουν χαθεί ή κλαπεί. Κάθε φορά που ενεργοποιείτε τη συσκευή, θα πρέπει να την ξεκλειδώνετε για να αποκρυπτογραφείτε τα δεδομένα της. Μέχρι να αποκρυπτογραφήσετε τη συσκευή σας, δεν θα λαμβάνετε κλήσεις, μηνύματα ή ειδοποιήσεις.</string>
     <string name="encryption_interstitial_message_direction">"Προστατέψτε τη συσκευή, επιλέγοντας «Απαιτείται κλείδωμα με κατευθύνσεις κατά την ενεργοποίηση της συσκευής». Η ενέργεια συμβάλλει στην προστασία των δεδομένων σε περίπτωση απώλειας ή κλοπής μιας συσκευής.
 
@@ -1737,6 +1739,8 @@ You will also need it when:"</string>
     <string name="empty_content_toast">Δεν υπάρχει περιεχόμενο για αποθήκευση.</string>
     <string name="find_my_mobile_message_zero">"Παρακολουθήστε και ελέγξτε τη συσκευή σας από απόσταση, χρησιμοποιώντας την υπηρεσία web «Εύρεση του κινητού μου». Για περισσότερες πληροφορίες και για να μάθετε ποιες άλλες λειτουργίες είναι διαθέσιμες, επισκεφτείτε την παρακάτω τοποθεσία web:
 %s"</string>
+    <string name="send_last_location_title">Αποστολή τελευταίας τοποθεσίας</string>
+    <string name="send_last_location_summary">Να επιτρέπεται στο τηλέφωνό σας να στέλνει την τελευταία τοποθεσία του στο διακομιστή «Εύρεση του κινητού μου» όταν η ισχύς της μπαταρίας πέσει κάτω από ένα συγκεκριμένο επίπεδο.</string>
     <string name="high_power_description">Ενεργοποιήστε τη λειτουργία «Βελτιστοποίηση χρήσης μπαταρίας» για μεμονωμένες εφαρμογές. Ορισμένες λειτουργίες, όπως αυτές που χρησιμοποιούν δίκτυα κινητής τηλεφωνίας ή συγχρονίζουν δεδομένα, θα περιοριστούν για την εξοικονόμηση της ισχύος μπαταρίας.</string>
     <string name="wifi_display_summary_off">Ανενεργό</string>
     <string name="battery_usage_description">Αυτή η οθόνη εμφανίζει τα δεδομένα χρήσης για την μπαταρία από την τελευταία πλήρη φόρτιση της συσκευής.</string>
@@ -1968,6 +1972,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">Επιλέξτε ποιες συντομεύσεις εφαρμογών θέλετε να χρησιμοποιείτε στην οθόνη κλειδώματος.</string>
     <string name="lockscreen_notifications">Ειδοποιήσεις στην οθόνη κλειδώματος</string>
     <string name="work_profile_lockscreen_notifications">Ειδοποιήσεις προφίλ εργασίας</string>
+    <string name="lock_network_and_security">Κλείδωμα δικτύου και ασφάλειας</string>
+    <string name="lock_network_and_security_summary">Διατηρήστε κλειδωμένες τις λειτουργίες που σχετίζονται με το δίκτυο και την ασφάλεια όσο το τηλέφωνό σας είναι κλειδωμένο. Με αυτόν τον τρόπο, θα είναι πιο εύκολος ο εντοπισμός και η προστασία του σε περίπτωση απώλειας ή κλοπής.</string>
     <string name="dualclock_settings_title">Διπλό ρολόι</string>
     <string name="dualclock_settings_summary">Εμφάνιση της τοπικής ζώνης ώρας και της ζώνης ώρας της χώρας διαμονής κατά την περιαγωγή.</string>
     <string name="set_home_city">Ρύθ. ζών. ώρ. χώρας διαμ.</string>
@@ -2153,7 +2159,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="air_browse_music_on_lock_screen_title">Μουσική στην οθόνη κλειδώματος</string>
     <string name="air_browse_music_on_lock_screen_summary">Αλλαγή μουσικών κομματιών στην οθόνη κλειδώματος.</string>
     <string name="air_browse_note_summary">Μετακινηθείτε μεταξύ σελίδων κατά τη λειτουργία προβολής.</string>
-    <string name="data_usage_enable_mobile_summery">Αν τα δεδομένα κινητής τηλεφωνίας είναι απενεργοποιημένα, για να χρησιμοποιήσετε υπηρεσίες που απαιτούν σύνδεση δικτύου θα πρέπει η συσκευή να συνδεθεί σε δίκτυο Wi-Fi.</string>
+    <string name="data_usage_enable_mobile_summery">Αποκτήστε πρόσβαση στο Internet μέσω του δικτύου κινητής τηλεφωνίας.</string>
     <string name="data_usage_enable_mobile_warning_skt">Η σύνδεση σε δίκτυα κινητής τηλεφωνίας ενδέχεται να επιφέρει πρόσθετες χρεώσεις ανάλογα με το πρόγραμμα δεδομένων που διαθέτετε. Συνέχεια;</string>
     <string name="data_usage_enable_mobile_warning_ktt">Η σύνδεση σε δίκτυα κινητής τηλεφωνίας ενδέχεται να επιφέρει πρόσθετες χρεώσεις ανάλογα με το πρόγραμμα δεδομένων που διαθέτετε. Συνέχεια;</string>
     <string name="data_usage_enable_mobile_warning_lgt">Η σύνδεση σε δίκτυα κινητής τηλεφωνίας ενδέχεται να επιφέρει πρόσθετες χρεώσεις ανάλογα με το πρόγραμμα δεδομένων που διαθέτετε. Συνέχεια;</string>
@@ -2523,8 +2529,8 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="secure_folder_summary">Κλειδώστε το απόρρητο περιεχόμενο και τις εφαρμογές για να βελτιώσετε την ασφάλεια.</string>
     <string name="text_biometrics_finger_title_enterprise">Ο τύπος κλειδώματος «%1$s» δεν υποστηρίζει δαχτυλικά αποτυπώματα για το ξεκλείδωμα του %2$s.</string>
     <string name="edge_feeds_title">Τροφοδ. Edge</string>
-    <string name="screensaver_settings_summary">Ελέγξτε τι συμβαίνει όσο η συσκευή είναι συνδεδεμένη στη βάση ή/και φορτίζεται με απενεργοποιημένη την οθόνη. Αυτή η λειτουργία καλείται επίσης «Ονειροπόληση».</string>
-    <string name="screensaver_settings_summary_wo_dock">Να εμφανίζεται μια προφύλαξη οθόνης μετά την αυτόματη απενεργοποίηση της οθόνης όσο η συσκευή φορτίζει.</string>
+    <string name="screensaver_settings_summary">Να εμφανίζεται μια προφύλαξη οθόνης μετά την αυτόματη απενεργοποίηση της οθόνης όσο το τηλέφωνό σας φορτίζεται.</string>
+    <string name="screensaver_settings_summary_wo_dock">Να εμφανίζεται μια προφύλαξη οθόνης μετά την αυτόματη απενεργοποίηση της οθόνης όσο το τηλέφωνό σας βρίσκεται σε βάση ή φορτίζεται.</string>
     <string name="apn_already_exists">Υπάρχει ήδη.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Ο αριθμός της θύρας πρέπει να είναι μεταξύ του %1$d και του %2$d.</string>
@@ -3289,6 +3295,7 @@ Wi-Fi is now on."</string>
     <string name="wfd_connection_end_toast">Η λειτουργία Screen mirroring τερματίστηκε.</string>
     <string name="wfd_descrpition_playvia">Αναπαραγωγή περιεχομένου.</string>
     <string name="wfd_descrpition_mirroring">Εκτέλεση κατοπτρισμού της οθόνης.</string>
+    <string name="wfd_descrpition_playsound">Αναπαραγωγή ήχου.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">Η λειτουργία Πολλών παραθύρων θα απενεργοποιηθεί και όλες οι εφαρμογές που είναι ανοιχτές σε αναδυόμενα παράθυρα θα κλείσουν.</string>
     <string name="keyguard_password_attempt_count_pin_code">%d προσπάθεια απομένει.</string>
@@ -4128,7 +4135,7 @@ Receiving SMS"</string>
     <string name="location_network_based">Χρήση ασύρματων δικτύων</string>
     <string name="location_neighborhood_level">Επιτρ. σε εφαρμ. να χρησ. την υπηρ. εντοπ. τοποθ. Google για ταχ. υπολ. της θέσης σας. Συλλέγ. και αποστ. ανώνυμα δεδ. στην Google.</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">Πληροφορίες συσκευής</string>
+    <string name="about_settings">Πληροφορίες για το τηλέφωνο</string>
     <string name="about_settings_vzw">Πληροφορίες συσκευής</string>
     <string name="legal_information">Νομικές πληροφορίες</string>
     <string name="regulatory_information">Ρυθμιστικές πληροφορίες</string>
@@ -4313,7 +4320,7 @@ Receiving SMS"</string>
     <string name="phone_language">Γλώσσα</string>
     <string name="show_password">Ορατοί κωδικοί πρόσβασης</string>
     <string name="show_password_summary">Σύντομη εμφάνιση χαρακτήρων του κωδικού πρόσβασης κατά την πληκτρολόγηση τους.</string>
-    <string name="ime_security_warning">Αυτή η μέθοδος μπορεί να συλλέξει όλα τα κείμενα που πληκτρολογείτε, εκτός από τους κωδικούς πρόσβασης, συμπεριλαμβανομένων αριθμών πιστωτικών καρτών και άλλων προσωπικών δεδομένων. Προέρχεται από την εφαρμογή %1$s. Να χρησιμοποιηθεί;</string>
+    <string name="ime_security_warning">Το πληκτρολόγιο %s μπορεί να συλλέγει το κείμενο που πληκτρολογείτε, συμπεριλαμβανομένων των προσωπικών δεδομένων σας, όπως είναι οι κωδικοί πρόσβασης και οι αριθμοί πιστωτικών καρτών.</string>
     <string name="failed_to_open_app_settings_toast">Το άνοιγμα ρυθμίσεων για %s απέτυχε.</string>
     <string name="keyboard_and_input_methods_category">Πληκτρολόγια</string>
     <string name="virtual_keyboard_category">Εικονικό πληκτρολόγιο</string>

@@ -64,7 +64,7 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f0b16bf
+    const v1, 0x7f0b16c2
 
     invoke-virtual {p1, v1, v0}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -73,7 +73,7 @@
     return-object v0
 
     :cond_0
-    const v0, 0x7f0b16be
+    const v0, 0x7f0b16c1
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

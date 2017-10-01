@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Támogatás</string>
     <string name="reset_network_settings_list_summary">Visszaállítja a Wi-Fi, a Bluetooth és más hálózati beállítások alapértelmezéseit.</string>
     <string name="master_clear_list_summary">Visszaállítja az eszköz gyári alapértelmezéseit. Ez minden adatot töröl az eszközről, a fájlokat és a letöltött alkalmazásokat is beleértve.</string>
-    <string name="auto_restart_summary">A megadott időpontokban történő automatikus újraindítással optimalizálhatja az eszközt. Újraindításkor elvesznek a nem mentett adatok.</string>
+    <string name="auto_restart_summary">Heti egyszeri újraindítással optimalizálja a telefont. Újraindításakor a nem mentett adatok elvesznek.</string>
     <string name="search_settings">Keresés</string>
     <string name="related_results">%d kapcsolódó elem</string>
     <string name="no_results_found">Nincs találat</string>
@@ -1485,6 +1485,7 @@ A titkosítás egy óránál is tovább tarthat. A kezdés előtt töltse fel az
     <string name="crypt_keeper_verify_failed_summary">Nem lehet újraindítani a készüléket. Sikertelen volt az integritásellenőrzés. Vissza kell állítania az eszköz gyári alapértelmezett beállításait. Ezzel minden adatot törölni fog.</string>
     <string name="cryptkeeper_emergency_call">Segélyhívás</string>
     <string name="cryptkeeper_return_to_call">Vissza a híváshoz</string>
+    <string name="cryptkeeper_default_enter_msg">A telefon a biztonság érdekében titkosítva van.</string>
     <string name="enter_password">Az eszköz indításához adja meg a jelszót.</string>
     <string name="enter_pin">Az eszköz indításához adja meg a PIN-t.</string>
     <string name="enter_pattern">Az eszköz indításához rajzolja le a mintát.</string>
@@ -1498,6 +1499,7 @@ A titkosítás egy óránál is tovább tarthat. A kezdés előtt töltse fel az
     <string name="crypt_keeper_last_warn_wipe">Még csak 1 próbálkozása maradt az eszköz indítására. Ennek sikertelensége esetén visszaállnak a gyári alapértelmezések. Ebben az esetben minden adat törlődik az eszközről, a fájlokat és a letöltött alkalmazásokat is beleértve.</string>
     <string name="crypt_keeper_failed_title_dec">Visszafejtési hiba</string>
     <string name="crypt_keeper_failed_summary_dec">A dekódolás megszakítás miatt nem fejezhető be. A használathoz vissza kell állítani a gyári adatokat (minden adat törlődik).</string>
+    <string name="crypt_keeper_set_screen_lock_type">Képernyőzár típusának beá.</string>
     <string name="encryption_interstitial_message_kor">Az eszköz titkosítva van. Védje a titkosított adatokat a Képernyőzár igénylése az adatok dekódolásához bekapcsoláskor beállítás megadásával. A beállítás segíti az elveszett és ellopott eszközökön tárolt adatok védelmét. Az eszközön tárolt adatok dekódolásához az eszközt minden bekapcsolásakor fel kell oldani. Az eszköz dekódolásáig nem fogadhatók hívások és üzenetek, illetve nem jelennek meg értesítések.</string>
     <string name="encryption_interstitial_message_direction">"Az Irányzár aktiválása az eszköz bekapcsolásakor lehetőség választásával megvédheti az eszközt. Ez segíti az elveszett vagy ellopott eszközökön található adatok védelmét.
 
@@ -1737,6 +1739,8 @@ Garanciális javítás igénylése előtt az újraaktiválási zárat ki kell ka
     <string name="empty_content_toast">Nincs menthető tartalom.</string>
     <string name="find_my_mobile_message_zero">"Eszközét távolról is követheti és vezérelheti a Mobil megkeresése webszolgáltatás használatával. További információkért, valamint az egyéb funkciók megismeréséhez keresse fel a következő webhelyet:
 %s"</string>
+    <string name="send_last_location_title">Legutóbbi hely küldése</string>
+    <string name="send_last_location_summary">Engedélyezi, hogy a telefon elküldje legutóbbi helyadatait a Mobil megkeresése szolgáltatás szerverére, ha adott szint alá csökken a töltöttsége.</string>
     <string name="high_power_description">Bekapcsolhatja az Akkumulátorhasználat optimalizálását az egyes alkalmazásokhoz. Bizonyos funkciók – például a mobilhálózatokat használó vagy adatokat szinkronizáló funkciók – az akkumulátor kímélése érdekében csak korlátozottan fognak működni.</string>
     <string name="wifi_display_summary_off">Ki</string>
     <string name="battery_usage_description">Ezen a képernyőn az eszköz legutóbbi feltöltése óta gyűjtött akkumulátorhasználati adatok jelennek meg.</string>
@@ -1968,6 +1972,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">Válassza ki azokat az alkalmazás-parancsikonokat, amelyeket a zárolt képernyőn szeretne használni.</string>
     <string name="lockscreen_notifications">Értesítések a zárolt képernyőn</string>
     <string name="work_profile_lockscreen_notifications">Munkaprofil értesítései</string>
+    <string name="lock_network_and_security">Hálózat és védelem zárolása</string>
+    <string name="lock_network_and_security_summary">A hálózati és biztonsággal kapcsolatos funkciók zárolása, amikor a telefon zárolva van. Így könnyebb megtalálni és megvédeni az esetlegesen ellopott vagy elvesztett eszközt.</string>
     <string name="dualclock_settings_title">Második óra</string>
     <string name="dualclock_settings_summary">Roaming esetén a helyi és a hazai időzóna is megjelenik.</string>
     <string name="set_home_city">Hazai időzóna beállítása</string>
@@ -2153,7 +2159,7 @@ A telefon használatához még a rajta lévő adatok törlése után is szüksé
     <string name="air_browse_music_on_lock_screen_title">Zárolt képernyő zenéje</string>
     <string name="air_browse_music_on_lock_screen_summary">Zeneszámváltás a zárolt képernyőn.</string>
     <string name="air_browse_note_summary">Mozgás az oldalak között megjelenítési módban.</string>
-    <string name="data_usage_enable_mobile_summery">Kikapcsolt Mobilinternet-kapcsolat esetén a hálózati kapcsolatot igénylő szolgáltatások használatához az eszköznek Wi-Fi-hálózathoz kell kapcsolódnia.</string>
+    <string name="data_usage_enable_mobile_summery">Az internet eléréséhez használja a mobilhálózatot.</string>
     <string name="data_usage_enable_mobile_warning_skt">Mobilhálózati kapcsolat létesítése az előfizetéstől függően további költségekkel járhat. Folytatja?</string>
     <string name="data_usage_enable_mobile_warning_ktt">Mobilhálózati kapcsolat létesítése az előfizetéstől függően további költségekkel járhat. Folytatja?</string>
     <string name="data_usage_enable_mobile_warning_lgt">Mobilhálózati kapcsolat létesítése az előfizetéstől függően további költségekkel járhat. Folytatja?</string>
@@ -2523,8 +2529,8 @@ Próbálja újra."</string>
     <string name="secure_folder_summary">A hatékonyabb adatvédelem érdekében zárolhatja a privát tartalmait és alkalmazásait.</string>
     <string name="text_biometrics_finger_title_enterprise">A(z) %1$s nem támogatja a(z) %2$s ujjlenyomatos feloldását.</string>
     <string name="edge_feeds_title">Edge-hírcsat.</string>
-    <string name="screensaver_settings_summary">Beállíthatja, hogy mi történjen, amikor az eszköz dokkolva van és/vagy amikor töltés közben ki van kapcsolva a képernyő. Ezt a funkció Képernyővédő néven is ismert.</string>
-    <string name="screensaver_settings_summary_wo_dock">Képernyőkímélő megjelenítése, miután az eszköz töltése közben a képernyő automatikusan kikapcsol.</string>
+    <string name="screensaver_settings_summary">Képernyőkímélő megjelenítése, miután a telefon töltése közben a képernyő automatikusan kikapcsol.</string>
+    <string name="screensaver_settings_summary_wo_dock">Képernyőkímélő megjelenítése, miután a telefon töltése közben a képernyő automatikusan kikapcsol.</string>
     <string name="apn_already_exists">Már létezik.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">A portszámnak %1$d és %2$d között kell lennie.</string>
@@ -3289,6 +3295,7 @@ A Mobil hotspot használata esetén gyorsabban merül az akkumulátor, és megn�
     <string name="wfd_connection_end_toast">Screen mirroring-kapcsolat bontva.</string>
     <string name="wfd_descrpition_playvia">Tartalmat játszik le.</string>
     <string name="wfd_descrpition_mirroring">A képernyő tükrözése.</string>
+    <string name="wfd_descrpition_playsound">Hang lejátszása.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">A Több ablak funkció kikapcsol, és bezáródnak az előugró ablakokban megnyitott alkalmazások.</string>
     <string name="keyguard_password_attempt_count_pin_code">%d kísérlet maradt.</string>
@@ -4128,7 +4135,7 @@ A teljesítmény javítása érdekében mérlegelje egy gyorsabb SD-kártya vagy
     <string name="location_network_based">Vez. nélk. hál. használata</string>
     <string name="location_neighborhood_level">Google helymeghat. szolg. használatának eng. a gyorsabb hozzávet. helymegh.hoz. A helyadatgyűjtés és -küldés a Google-nak névtelen.</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">Az eszköz névjegye</string>
+    <string name="about_settings">A telefon névjegye</string>
     <string name="about_settings_vzw">Az eszköz névjegye</string>
     <string name="legal_information">Jogi információ</string>
     <string name="regulatory_information">Szabályozási információk</string>
@@ -4313,7 +4320,7 @@ A meglévő alkalmazásadatok nem vesznek el."</string>
     <string name="phone_language">Nyelv</string>
     <string name="show_password">Jelszavak láthatóvá tétele</string>
     <string name="show_password_summary">Beíráskor rövid ideig láthatók a jelszó karakterei.</string>
-    <string name="ime_security_warning">Ezzel a módszerrel minden bevitt szöveg összegyűjthető, ideértve a személyes adatokat és a hitelkártyaszámokat, a jelszavakat azonban nem. A funkciót a(z) %1$s alkalmazás biztosítja. Ennek ellenére használni kívánja?</string>
+    <string name="ime_security_warning">A(z) %s összegyűjtheti az összes beírt szöveget, beleértve a az olyan személyes adatokat is, mint a jelszavak és a bankkártyaszámok.</string>
     <string name="failed_to_open_app_settings_toast">Nem sikerült megnyitni a(z) %s beállításait.</string>
     <string name="keyboard_and_input_methods_category">Billentyűzetek</string>
     <string name="virtual_keyboard_category">Virtuális billentyűzet</string>

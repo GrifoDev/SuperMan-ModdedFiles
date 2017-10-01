@@ -55,7 +55,7 @@
     :pswitch_0
     iget-object v0, p0, Lcom/samsung/android/settings/usefulfeature/HDReffectSettings;->mImageView:Landroid/widget/ImageView;
 
-    const v1, 0x7f020516
+    const v1, 0x7f020514
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -64,7 +64,7 @@
     :pswitch_1
     iget-object v0, p0, Lcom/samsung/android/settings/usefulfeature/HDReffectSettings;->mImageView:Landroid/widget/ImageView;
 
-    const v1, 0x7f020517
+    const v1, 0x7f020515
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -86,13 +86,13 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a0468
+    const v3, 0x7f0a0466
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v3
 
-    const v4, 0x7f0a045e
+    const v4, 0x7f0a045c
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -130,7 +130,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/usefulfeature/HDReffectSettings;->hrdView:Landroid/view/View;
 
-    const v4, 0x7f1103d0
+    const v4, 0x7f1103ce
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

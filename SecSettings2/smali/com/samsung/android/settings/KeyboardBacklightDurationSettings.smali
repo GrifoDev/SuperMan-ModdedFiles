@@ -108,7 +108,7 @@
 
     invoke-direct {v10, v0, v3, v1}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;I[Ljava/lang/Object;)V
 
-    const v3, 0x7f110415
+    const v3, 0x7f110413
 
     move-object/from16 v0, v23
 
@@ -128,7 +128,7 @@
 
     move-result-object v20
 
-    const v3, 0x7f0a0468
+    const v3, 0x7f0a0466
 
     move-object/from16 v0, v20
 
@@ -136,7 +136,7 @@
 
     move-result v3
 
-    const v4, 0x7f0a045e
+    const v4, 0x7f0a045c
 
     move-object/from16 v0, v20
 
@@ -146,7 +146,7 @@
 
     add-int/2addr v3, v4
 
-    const v4, 0x7f0a046d
+    const v4, 0x7f0a046b
 
     move-object/from16 v0, v20
 

@@ -51,92 +51,119 @@
 
 # virtual methods
 .method protected varargs doInBackground([Ljava/lang/String;)Ljava/lang/Integer;
-    .locals 6
+    .locals 7
 
     :try_start_0
-    new-instance v2, Ljava/net/URL;
+    new-instance v3, Ljava/net/URL;
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    aget-object v3, p1, v3
+    aget-object v4, p1, v4
 
-    invoke-direct {v2, v3}, Ljava/net/URL;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v4}, Ljava/net/URL;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2}, Ljava/net/URL;->openConnection()Ljava/net/URLConnection;
-
-    move-result-object v3
-
-    check-cast v3, Ljava/net/HttpURLConnection;
-
-    iput-object v3, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->urlConnection:Ljava/net/HttpURLConnection;
-
-    iget-object v3, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->urlConnection:Ljava/net/HttpURLConnection;
-
-    const/4 v4, 0x1
-
-    invoke-virtual {v3, v4}, Ljava/net/HttpURLConnection;->setDoInput(Z)V
-
-    iget-object v3, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->urlConnection:Ljava/net/HttpURLConnection;
-
-    const/16 v4, 0x2710
-
-    invoke-virtual {v3, v4}, Ljava/net/HttpURLConnection;->setConnectTimeout(I)V
-
-    iget-object v3, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->urlConnection:Ljava/net/HttpURLConnection;
-
-    invoke-virtual {v3}, Ljava/net/HttpURLConnection;->connect()V
-
-    const-string/jumbo v3, "WifiSettingsBase"
-
-    const-string/jumbo v4, "Connected successfully!"
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v3, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->urlConnection:Ljava/net/HttpURLConnection;
-
-    invoke-virtual {v3}, Ljava/net/HttpURLConnection;->getResponseCode()I
-
-    move-result v3
-
-    iput v3, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->responseCode:I
-
-    const-string/jumbo v3, "WifiSettingsBase"
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v5, "Go To Webpage: HTTP Response "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3}, Ljava/net/URL;->openConnection()Ljava/net/URLConnection;
 
     move-result-object v4
 
-    iget v5, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->responseCode:I
+    check-cast v4, Ljava/net/HttpURLConnection;
 
-    invoke-static {v5}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    iput-object v4, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->urlConnection:Ljava/net/HttpURLConnection;
+
+    iget-object v4, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->urlConnection:Ljava/net/HttpURLConnection;
+
+    const/4 v5, 0x1
+
+    invoke-virtual {v4, v5}, Ljava/net/HttpURLConnection;->setDoInput(Z)V
+
+    iget-object v4, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->urlConnection:Ljava/net/HttpURLConnection;
+
+    const/16 v5, 0x2710
+
+    invoke-virtual {v4, v5}, Ljava/net/HttpURLConnection;->setConnectTimeout(I)V
+
+    iget-object v4, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->urlConnection:Ljava/net/HttpURLConnection;
+
+    invoke-virtual {v4}, Ljava/net/HttpURLConnection;->connect()V
+
+    const-string/jumbo v4, "WifiSettingsBase"
+
+    const-string/jumbo v5, "Connected successfully!"
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v4, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->urlConnection:Ljava/net/HttpURLConnection;
+
+    invoke-virtual {v4}, Ljava/net/HttpURLConnection;->getResponseCode()I
+
+    move-result v4
+
+    iput v4, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->responseCode:I
+
+    const-string/jumbo v4, "WifiSettingsBase"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "Go To Webpage: HTTP Response "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget v6, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->responseCode:I
 
-    move-result-object v4
+    invoke-static {v6}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v6
 
-    move-result-object v4
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v5
 
-    iget v3, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->responseCode:I
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget v4, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->responseCode:I
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
     :try_end_0
-    .catch Ljava/net/MalformedURLException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/net/MalformedURLException; {:try_start_0 .. :try_end_0} :catch_2
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/AssertionError; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result-object v3
+    move-result-object v4
+
+    const-string/jumbo v5, "WifiSettingsBase"
+
+    const-string/jumbo v6, "Go to Webpage: reach to finally"
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v5, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->urlConnection:Ljava/net/HttpURLConnection;
+
+    invoke-virtual {v5}, Ljava/net/HttpURLConnection;->disconnect()V
+
+    return-object v4
+
+    :catch_0
+    move-exception v0
+
+    :try_start_1
+    const-string/jumbo v4, "WifiSettingsBase"
+
+    const-string/jumbo v5, "Go to Webpage: Assertion Error occurs"
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {v0}, Ljava/lang/AssertionError;->printStackTrace()V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     const-string/jumbo v4, "WifiSettingsBase"
 
@@ -148,77 +175,77 @@
 
     invoke-virtual {v4}, Ljava/net/HttpURLConnection;->disconnect()V
 
-    return-object v3
-
-    :catch_0
-    move-exception v1
-
-    :try_start_1
-    const-string/jumbo v3, "WifiSettingsBase"
-
-    const-string/jumbo v4, "Go to Webpage: Error opening connection"
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    const-string/jumbo v3, "WifiSettingsBase"
-
-    const-string/jumbo v4, "Go to Webpage: reach to finally"
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v3, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->urlConnection:Ljava/net/HttpURLConnection;
-
-    invoke-virtual {v3}, Ljava/net/HttpURLConnection;->disconnect()V
-
     :goto_0
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    return-object v3
+    return-object v4
 
     :catch_1
-    move-exception v0
+    move-exception v2
 
     :try_start_2
-    const-string/jumbo v3, "WifiSettingsBase"
+    const-string/jumbo v4, "WifiSettingsBase"
 
-    const-string/jumbo v4, "Go to Webpage: Error getting URL"
+    const-string/jumbo v5, "Go to Webpage: Error opening connection"
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v0}, Ljava/net/MalformedURLException;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/io/IOException;->printStackTrace()V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    const-string/jumbo v3, "WifiSettingsBase"
+    const-string/jumbo v4, "WifiSettingsBase"
 
-    const-string/jumbo v4, "Go to Webpage: reach to finally"
+    const-string/jumbo v5, "Go to Webpage: reach to finally"
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v3, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->urlConnection:Ljava/net/HttpURLConnection;
+    iget-object v4, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->urlConnection:Ljava/net/HttpURLConnection;
 
-    invoke-virtual {v3}, Ljava/net/HttpURLConnection;->disconnect()V
+    invoke-virtual {v4}, Ljava/net/HttpURLConnection;->disconnect()V
+
+    goto :goto_0
+
+    :catch_2
+    move-exception v1
+
+    :try_start_3
+    const-string/jumbo v4, "WifiSettingsBase"
+
+    const-string/jumbo v5, "Go to Webpage: Error getting URL"
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {v1}, Ljava/net/MalformedURLException;->printStackTrace()V
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    const-string/jumbo v4, "WifiSettingsBase"
+
+    const-string/jumbo v5, "Go to Webpage: reach to finally"
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v4, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->urlConnection:Ljava/net/HttpURLConnection;
+
+    invoke-virtual {v4}, Ljava/net/HttpURLConnection;->disconnect()V
 
     goto :goto_0
 
     :catchall_0
-    move-exception v3
+    move-exception v4
 
-    const-string/jumbo v4, "WifiSettingsBase"
+    const-string/jumbo v5, "WifiSettingsBase"
 
-    const-string/jumbo v5, "Go to Webpage: reach to finally"
+    const-string/jumbo v6, "Go to Webpage: reach to finally"
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v4, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->urlConnection:Ljava/net/HttpURLConnection;
+    iget-object v5, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->urlConnection:Ljava/net/HttpURLConnection;
 
-    invoke-virtual {v4}, Ljava/net/HttpURLConnection;->disconnect()V
+    invoke-virtual {v5}, Ljava/net/HttpURLConnection;->disconnect()V
 
-    throw v3
+    throw v4
 .end method
 
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;

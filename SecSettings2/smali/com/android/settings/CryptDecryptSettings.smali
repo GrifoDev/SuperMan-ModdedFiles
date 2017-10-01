@@ -148,7 +148,7 @@
     return v5
 
     :cond_1
-    const v2, 0x7f0b0631
+    const v2, 0x7f0b0635
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 

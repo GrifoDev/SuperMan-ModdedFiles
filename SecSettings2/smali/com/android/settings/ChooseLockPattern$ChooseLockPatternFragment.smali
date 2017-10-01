@@ -91,8 +91,6 @@
 
 .field private mSaveAndFinishWorker:Lcom/android/settings/ChooseLockPattern$SaveAndFinishWorker;
 
-.field private mScrollView:Landroid/widget/ScrollView;
-
 .field mSharedPreferences:Landroid/content/SharedPreferences;
 
 .field private mUiStage:Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment$Stage;
@@ -133,15 +131,7 @@
     return v0
 .end method
 
-.method static synthetic -get4(Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;)Landroid/widget/ScrollView;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;->mScrollView:Landroid/widget/ScrollView;
-
-    return-object v0
-.end method
-
-.method static synthetic -get5(Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;)Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment$Stage;
+.method static synthetic -get4(Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;)Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment$Stage;
     .locals 1
 
     iget-object v0, p0, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;->mUiStage:Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment$Stage;
@@ -2003,7 +1993,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f0b08bc
+    const v4, 0x7f0b08c6
 
     invoke-virtual {p0, v4}, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;->getString(I)Ljava/lang/String;
 
@@ -2233,16 +2223,6 @@
 
     move-result-object v8
 
-    check-cast v8, Landroid/widget/ScrollView;
-
-    iput-object v8, p0, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;->mScrollView:Landroid/widget/ScrollView;
-
-    const v8, 0x7f1101c7
-
-    invoke-virtual {p1, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v8
-
     check-cast v8, Lcom/android/internal/widget/LockPatternView;
 
     iput-object v8, p0, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;->mLockPatternView:Lcom/android/internal/widget/LockPatternView;
@@ -2267,15 +2247,7 @@
 
     invoke-virtual {v8, v9}, Lcom/android/internal/widget/LockPatternView;->setTactileFeedbackEnabled(Z)V
 
-    iget-object v8, p0, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;->mLockPatternView:Lcom/android/internal/widget/LockPatternView;
-
-    new-instance v9, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment$3;
-
-    invoke-direct {v9, p0}, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment$3;-><init>(Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;)V
-
-    invoke-virtual {v8, v9}, Lcom/android/internal/widget/LockPatternView;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
-
-    const v8, 0x7f1101c8
+    const v8, 0x7f1101c7
 
     invoke-virtual {p1, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2285,7 +2257,7 @@
 
     iput-object v8, p0, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;->mFooterText:Landroid/widget/TextView;
 
-    const v8, 0x7f1101c9
+    const v8, 0x7f1101c8
 
     invoke-virtual {p1, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2295,7 +2267,7 @@
 
     iput-object v8, p0, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;->mFooterLeftButton:Landroid/widget/TextView;
 
-    const v8, 0x7f1101ca
+    const v8, 0x7f1101c9
 
     invoke-virtual {p1, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2533,7 +2505,7 @@
 
     iget-object v8, p0, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;->mChooseLockSettingsHelper:Lcom/android/settings/ChooseLockSettingsHelper;
 
-    const v9, 0x7f0b1188
+    const v9, 0x7f0b118b
 
     invoke-virtual {p0, v9}, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;->getString(I)Ljava/lang/String;
 
@@ -2610,7 +2582,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b08bf
+    const v10, 0x7f0b08c9
 
     invoke-virtual {v9, v10}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -2620,7 +2592,7 @@
 
     new-array v10, v10, [Ljava/lang/Object;
 
-    const v11, 0x7f0b1191
+    const v11, 0x7f0b1194
 
     invoke-virtual {p0, v11}, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;->getString(I)Ljava/lang/String;
 
@@ -2908,7 +2880,7 @@
 
     iget-object v2, p0, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;->mHeaderText:Landroid/widget/TextView;
 
-    const v3, 0x7f0b14d4
+    const v3, 0x7f0b14d7
 
     invoke-virtual {p0, v3}, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;->getString(I)Ljava/lang/String;
 

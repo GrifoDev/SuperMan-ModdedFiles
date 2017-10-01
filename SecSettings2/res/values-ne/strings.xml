@@ -243,7 +243,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">समर्थन</string>
     <string name="reset_network_settings_list_summary">Wi-Fi, ब्लुटूथ र अन्य नेटवर्क सेटिङहरूलाई तिनीहरूको पूर्वनिर्धारितहरूमा रिसेट गर्नुहोस्।</string>
     <string name="master_clear_list_summary">तपाईको यन्त्रलाई फ्याक्ट्री पूर्वनिर्धारित सेटिङहरूमा रिसेट गर्नुहोस्। यसले फाइलहरू र डाउनलोड गरिएका एप्स सहित, सबै डाटा मेट्नेछ।</string>
-    <string name="auto_restart_summary">सेट गरिएका समयहरूमा स्वचालित रूपमा पुनः सुरु गरेर तपाईको यन्त्रलाई अनुकूल बनाउनुहोस्। यन्त्र पुनः सुरु हुँदा कुनैपनि सेव नगरिएको डाटा गुम्नेछ।</string>
+    <string name="auto_restart_summary">हप्तामा एक पटक आफ्नो फोनलाई पुनः सुरु गरी त्यसलाई अनुकूल बनाउनुहोस्। तपाईको फोन पुनः सुरु हुँदा सेव नगरिएको जुनसुकै डाटा गुम्नेछ।</string>
     <string name="search_settings">खोज्‍नुहोस्</string>
     <string name="related_results">%d सम्बन्धित वस्तुहरू</string>
     <string name="no_results_found">कुनै परिणामहरू फेला परेनन्</string>
@@ -1349,6 +1349,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_verify_failed_summary">तपाईको यन्त्रलाई पुनः सुरु गर्न असमर्थ। अखण्डता प्रमाणीकरण असफल भएको छ। तपाईले आफ्नो यन्त्र फ्याक्ट्री पूर्वनिर्धारित सेटिङहरूमा रिसेट गर्न आवश्‍यक छ। यसले तपाईको सबै डाटा मेटाउनेछ।</string>
     <string name="cryptkeeper_emergency_call">आपतकालीन कल</string>
     <string name="cryptkeeper_return_to_call">कलमा फर्कनु</string>
+    <string name="cryptkeeper_default_enter_msg">सुरक्षाका लागि तपाईको फोनलाई इन्क्रिप्ट गरिएको छ।</string>
     <string name="enter_password">तपाईको यन्त्रलाइ्र सुरु गर्न, तपाईको पासवर्ड प्रविष्ट गर्नुहोस्।</string>
     <string name="enter_pin">तपाईको यन्त्रलाई सुरु गर्न, तपाईको PIN प्रविष्ट गर्नुहोस्।</string>
     <string name="enter_pattern">तपाईको यन्त्रलाई सुरु गर्न, तपाईको ढाँचा कोर्नुहोस्।</string>
@@ -1362,6 +1363,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_last_warn_wipe">तपाईको यन्त्र फ्याक्ट्री पूर्वनिर्धारित सेटिङहरूमा रिसेट हुनुभन्दा पहिले यसलाई सुरु गर्न 1 प्रयास मात्र बाँकी छ। यसले फाइलहरू र डाउनलोड गरिएका एप्स लगायत सबै डाटा मेटाउनेछ।</string>
     <string name="crypt_keeper_failed_title_dec">डिक्रिप्शन असफल भयो।</string>
     <string name="crypt_keeper_failed_summary_dec">अवरोधको कारण डिक्रिप्शन पुरा गर्न सकेन। प्रयोग गर्नुअघि फ्याक्ट्री डाटा रिसेट (सबै डाटाहरु मेटाएर) गर्नुहोस्।</string>
+    <string name="crypt_keeper_set_screen_lock_type">स्क्रीन लक प्रकार सेट गर्नु</string>
     <string name="encryption_interstitial_message_kor">तपाईको यन्त्र इन्क्रिप्ट गरिएको छ। यन्त्र पावर अन हुँदा डाटा डिक्रिप्ट गर्न स्क्रीन लक आवश्यक भन्ने विकल्पलाई चयन गरेर तपाईको इन्क्रिप्ट गरिएको डाटा सुरक्षित गर्नुहोस्। यसले हराएका वा चोरी भएका यन्त्रहरूको डाटा सुरक्षित गर्न मद्दत गर्छ। तपाईले जुनसुकै बेला आफ्नो यन्त्रलाई पावर अन गर्दा त्यसको डाटा डिक्रिप्ट गर्नको लागि यन्त्रलाई अनलक गर्नुपर्छ। तपाईले आफ्नो यन्त्रलाई डिक्रिप्ट नगरेसम्म कुनै पनि कल, संदेश वा सूचनाहरू प्राप्त गर्नुहुने छैन।</string>
     <string name="encryption_interstitial_message_direction">"यन्त्र पावर अन हुँदा “आवश्यक दिशा लक” चयन गरेर आफ्नो यन्त्रलाई सुरक्षित गर्नुहोस्। यसले हराएका वा चोरी भएका यन्त्रहरूमा रहेको डाटालाई सुरक्षित गर्न मद्दत गर्छ।
 
@@ -1601,6 +1603,8 @@ You will also need it when:"</string>
     <string name="empty_content_toast">सेव गर्नको लागि कुनै सामग्री छैन।</string>
     <string name="find_my_mobile_message_zero">"मेरो मोबाइल फेला पार्नुहोस् वेब सेवा प्रयोग गर्दै तपाईंको यन्त्रलाई ट्रयाक र नियन्त्रण गर्नुहोस्। थप जानकारी र अन्य के-कस्ता प्रकार्यहरू उपलब्ध छन् भनि फेला पार्नको लागि, निम्न वेबसाइटमा हेर्नुहोस्:
 %s"</string>
+    <string name="send_last_location_title">पछिल्लो स्थान पठाउनुहोस्</string>
+    <string name="send_last_location_summary">आफ्ना फोनलाई त्यसको बैटरी निश्चित स्तरभन्दा तल पुग्दा आफ्नो पछिल्लो स्थान मेरो मोबाइल फेला पार्नुहोस् सेवाको सर्भरमा पठाउन अनुमति दिनुहोस्।</string>
     <string name="high_power_description">व्यक्तिगत एप्सका लागि बैटरी पावर अप्टिमाइज गर्नुहोस् सक्षम गर्नुहोस्। बैटरी पावर बचत गर्नको लागि केही फंक्शनहरू, जस्तै मोबाइल नेटवर्कहरू वा सिंक डाटा प्रयोग गर्ने फंक्शनहरूलाई प्रतिबन्धित गरिनेछ।</string>
     <string name="wifi_display_summary_off">अफ</string>
     <string name="battery_usage_description">यो स्क्रीनले यन्त्र पछिल्लो पटक पूर्ण रूपमा चार्ज भएपछिबाट बैटरी प्रयोग डाटा देखाउँछ।</string>
@@ -1832,6 +1836,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">तपाईले लक स्क्रीनमा कुन एप शर्टकटहरू प्रयोग गर्न चाहनुहुन्छ भनी चयन गर्नुहोस्।</string>
     <string name="lockscreen_notifications">लक स्क्रीनको लागि सूचनाहरू</string>
     <string name="work_profile_lockscreen_notifications">कार्य प्रोफाइल सूचनाहरू</string>
+    <string name="lock_network_and_security">नेटवर्क र सुरक्षालाई लक गर्नु</string>
+    <string name="lock_network_and_security_summary">तपाईको फोन हराएको वा चोरी भएको बेला त्यसलाई पत्ता लगाउन र सुरक्षित गर्न सजिलो बनाउँदै आफ्नो फोन लक भएको बेला नेटवर्क र सुरक्षा-सम्बन्धित फंक्शनहरूलाई लक गरेर राख्नुहोस्।</string>
     <string name="dualclock_settings_title">डुअल घडी</string>
     <string name="dualclock_settings_summary">रोमिङ गर्दा दुवै स्थानीय र गृह समय क्षेत्रहरू देखाउनुहोस्।</string>
     <string name="set_home_city">गृह समय क्षेत्र सेट गर्नुहोस्</string>
@@ -2017,7 +2023,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="air_browse_music_on_lock_screen_title">लक स्क्रीनमा संगीत</string>
     <string name="air_browse_music_on_lock_screen_summary">लक स्क्रीनमा संगीत ट्रयाकहरू परिवर्तन गर्नुहोस्।</string>
     <string name="air_browse_note_summary">दृश्य मोडमा हुँदा पृष्ठहरू बीच सार्नुहोस्।</string>
-    <string name="data_usage_enable_mobile_summery">यदि मोबाइल डाटा अफ गरियो भने, नेटवर्क जडानको आवश्‍यकता पर्ने सेवाहरू प्रयोग गर्न तपाईको यन्त्र Wi-Fi नेटवर्कमा जडान भएको हुनुपर्छ।</string>
+    <string name="data_usage_enable_mobile_summery">आफ्नो मोबाइल नेटवर्क मार्फत इन्टरनेटमा पहुँच गर्नुहोस्।</string>
     <string name="data_usage_enable_mobile_warning_skt">मोबाइल नेटवर्कहरूसँग कनेक्‍ट हुँदा तपाईको डाटा प्‍लानबमोजिम थप रकम लिइन सक्‍नेछ। जारी राख्ने?</string>
     <string name="data_usage_enable_mobile_warning_ktt">मोबाइल नेटवर्कहरूसँग कनेक्‍ट हुँदा तपाईको डाटा प्‍लानबमोजिम थप रकम लिइन सक्‍नेछ। जारी राख्ने?</string>
     <string name="data_usage_enable_mobile_warning_lgt">मोबाइल नेटवर्कहरूसँग कनेक्‍ट हुँदा तपाईको डाटा प्‍लानबमोजिम थप रकम लिइन सक्‍नेछ। जारी राख्ने?</string>
@@ -2386,8 +2392,8 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="secure_folder_summary">सुरक्षा बढाउनका लागि आफ्नो निजी सामग्री र एप्सलाई लक गर्नुहोस्।</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s ले %2$s लाई अनलक गर्न फिंगरप्रिन्टहरूलाई समर्थन गर्दैन।</string>
     <string name="edge_feeds_title">Edge फीडहरू</string>
-    <string name="screensaver_settings_summary">स्क्रीन बन्द भएको बेला यन्त्रलाई डक गर्दा र/वा चार्ज गर्दा जे हुन्छ त्यसलाई नियन्त्रण गर्नुहोस्। यस फंक्शनलाई डेड्रिम पनि भनिन्छ।</string>
-    <string name="screensaver_settings_summary_wo_dock">यन्त्र चार्ज भइरहेको बेला स्क्रीन स्वचालित रूपमा अफ भएपछि एउटा स्क्रिनसेभर देखाउनुहोस्।</string>
+    <string name="screensaver_settings_summary">तपाईको फोन चार्ज भइरहेको बेला स्क्रीन स्वचालित रूपमा अफ भएपछि स्क्रीनसेभर देखाउनुहोस्।</string>
+    <string name="screensaver_settings_summary_wo_dock">तपाईको फोन डक गरिएको वा चार्ज भइरहेको बेला स्क्रीन स्वचालित रूपमा अफ भएपछि स्क्रीनसेभर देखाउनुहोस्।</string>
     <string name="apn_already_exists">पहिले नै स्थापित छ।</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">पोर्ट नम्बर %1$d र %2$d को बीचको हुनुपर्छ।</string>
@@ -3152,6 +3158,7 @@ Wi-Fi is now on."</string>
     <string name="wfd_connection_end_toast">Screen Mirroring जडान समाप्त गरियो।</string>
     <string name="wfd_descrpition_playvia">सामग्री प्ले गर्नुहोस्।</string>
     <string name="wfd_descrpition_mirroring">स्क्रीनलाई मिरर गर्नुहोस्।</string>
+    <string name="wfd_descrpition_playsound">ध्वनि प्ले गर्नुहोस्।</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">मल्टी विंडो असक्षम हुनेछ र पप-अप विंडोहरूमा खुलेका सबै एप्स बन्द हुनेछन्।</string>
     <string name="keyguard_password_attempt_count_pin_code">%d प्रयास शेष भयो।</string>
@@ -3990,7 +3997,7 @@ Receiving SMS"</string>
     <string name="location_network_based">वायरलेस नेटवर्कहरू प्रयोग गर्नुहोस्</string>
     <string name="location_neighborhood_level">तपाईको स्थान चाँडै अनुमान गर्नका लागि एप्सलाई गुगलको स्थान सेवा प्रयोग गर्न दिनुहोस्। अज्ञात स्थान डाटा संकलन गरी गुगललाई पठाइनेछ।</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">यन्त्रको बारेमा</string>
+    <string name="about_settings">फोनको बारेमा</string>
     <string name="about_settings_vzw">यन्त्रको बारेमा</string>
     <string name="legal_information">कानूनी जानकारी</string>
     <string name="regulatory_information">नियमक जानकारी</string>
@@ -4163,7 +4170,7 @@ Receiving SMS"</string>
     <string name="phone_language">भाषा</string>
     <string name="show_password">पासवर्डहरू देखिने बनाउनुहोस्</string>
     <string name="show_password_summary">तिनीहरूलाई तपाईले विभिन्न प्रकारको वर्णहरूको रूपमा पासवर्ड देखाउनुहोस्।</string>
-    <string name="ime_security_warning">यो विधिले तपाईले हालेको सबै पाठहरू, पासवर्ड बाहेक, निजि डाटा र क्रेडिटकार्ड नम्बरहरू समेत जमा गर्छ । यो एप %1$s बाट आउँछ। जे भए पनि प्रयोग गर्ने?</string>
+    <string name="ime_security_warning">%s ले पासवर्ड र क्रेडिट कार्ड नम्बरहरू जस्तो व्यक्तिगत डाटा लगायत तपाईले टाइप गर्नुहुने सबै पाठ सङ्कलन गर्न सक्छ।</string>
     <string name="failed_to_open_app_settings_toast">%s को लागि सेटिङहरू खोल्न असफल।</string>
     <string name="keyboard_and_input_methods_category">कीबोर्डहरू</string>
     <string name="virtual_keyboard_category">भर्चुअल कीबोर्ड</string>

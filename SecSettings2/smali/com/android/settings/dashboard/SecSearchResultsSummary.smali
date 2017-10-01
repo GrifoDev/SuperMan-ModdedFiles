@@ -1281,7 +1281,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f110600
+    const v2, 0x7f1105fe
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1291,7 +1291,7 @@
 
     iput-object v2, p0, Lcom/android/settings/dashboard/SecSearchResultsSummary;->mLayoutSuggestions:Landroid/view/ViewGroup;
 
-    const v2, 0x7f110602
+    const v2, 0x7f110600
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1301,7 +1301,7 @@
 
     iput-object v2, p0, Lcom/android/settings/dashboard/SecSearchResultsSummary;->mLayoutResults:Landroid/view/ViewGroup;
 
-    const v2, 0x7f11060c
+    const v2, 0x7f11060a
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1311,7 +1311,7 @@
 
     iput-object v2, p0, Lcom/android/settings/dashboard/SecSearchResultsSummary;->mNoResults:Landroid/view/ViewGroup;
 
-    const v2, 0x7f11045a
+    const v2, 0x7f110458
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1321,7 +1321,7 @@
 
     iput-object v2, p0, Lcom/android/settings/dashboard/SecSearchResultsSummary;->mLoading:Landroid/view/ViewGroup;
 
-    const v2, 0x7f11060b
+    const v2, 0x7f110609
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1363,7 +1363,7 @@
 
     invoke-virtual {v2, v0}, Lcom/android/settings/SettingsActivity;->updateOptionMenu(Landroid/view/Menu;)Z
 
-    const v2, 0x7f110888
+    const v2, 0x7f110886
 
     invoke-interface {v0, v2}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -1394,7 +1394,7 @@
     invoke-virtual {v2, v3}, Landroid/widget/Toolbar;->setNavigationOnClickListener(Landroid/view/View$OnClickListener;)V
 
     :goto_0
-    const v2, 0x7f110603
+    const v2, 0x7f110601
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1424,7 +1424,7 @@
 
     invoke-virtual {v2, v3}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
-    const v2, 0x7f110601
+    const v2, 0x7f1105ff
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

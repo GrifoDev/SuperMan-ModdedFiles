@@ -226,7 +226,7 @@
 
     iput-object v7, p0, Lcom/samsung/android/settings/lockappshortcut/LockAppShortcutSettings;->mCurrentHeaderView:Landroid/view/View;
 
-    const v8, 0x7f11045f
+    const v8, 0x7f11045d
 
     invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -234,7 +234,7 @@
 
     check-cast v5, Landroid/widget/ImageView;
 
-    const v8, 0x7f110460
+    const v8, 0x7f11045e
 
     invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -300,7 +300,7 @@
 
     iget-object v8, p0, Lcom/samsung/android/settings/lockappshortcut/LockAppShortcutSettings;->mShortcutOnLeft:Landroid/preference/PreferenceScreen;
 
-    const v9, 0x7f0b19d9
+    const v9, 0x7f0b19dc
 
     invoke-virtual {v8, v9}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -311,7 +311,7 @@
 
     iget-object v8, p0, Lcom/samsung/android/settings/lockappshortcut/LockAppShortcutSettings;->mShortcutOnRight:Landroid/preference/PreferenceScreen;
 
-    const v9, 0x7f0b19d9
+    const v9, 0x7f0b19dc
 
     invoke-virtual {v8, v9}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -369,7 +369,7 @@
     :cond_3
     iget-object v8, p0, Lcom/samsung/android/settings/lockappshortcut/LockAppShortcutSettings;->mShortcutOnLeft:Landroid/preference/PreferenceScreen;
 
-    const v9, 0x7f0b0837
+    const v9, 0x7f0b083f
 
     invoke-virtual {v8, v9}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -406,7 +406,7 @@
 
     aput-object v11, v10, v12
 
-    const v11, 0x7f0b0836
+    const v11, 0x7f0b083e
 
     invoke-virtual {v9, v11, v10}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -435,7 +435,7 @@
     :cond_7
     iget-object v8, p0, Lcom/samsung/android/settings/lockappshortcut/LockAppShortcutSettings;->mShortcutOnRight:Landroid/preference/PreferenceScreen;
 
-    const v9, 0x7f0b0837
+    const v9, 0x7f0b083f
 
     invoke-virtual {v8, v9}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -472,7 +472,7 @@
 
     aput-object v11, v10, v12
 
-    const v11, 0x7f0b0836
+    const v11, 0x7f0b083e
 
     invoke-virtual {v9, v11, v10}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/settings/CryptKeeper$1;->this$0:Lcom/android/settings/CryptKeeper;
 
-    invoke-static {}, Lcom/android/settings/CryptKeeper;->-get16()Ljava/lang/Integer;
+    invoke-static {}, Lcom/android/settings/CryptKeeper;->-get17()Ljava/lang/Integer;
 
     move-result-object v1
 

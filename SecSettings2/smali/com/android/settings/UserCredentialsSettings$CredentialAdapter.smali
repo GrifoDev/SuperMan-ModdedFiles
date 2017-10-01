@@ -64,7 +64,7 @@
 
     check-cast v0, Lcom/android/settings/UserCredentialsSettings$Credential;
 
-    const v1, 0x7f1106d0
+    const v1, 0x7f1106ce
 
     invoke-virtual {p2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -76,7 +76,7 @@
 
     invoke-virtual {v1, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v1, 0x7f1106d1
+    const v1, 0x7f1106cf
 
     invoke-virtual {p2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -97,7 +97,7 @@
     :goto_0
     invoke-virtual {v4, v1}, Landroid/view/View;->setVisibility(I)V
 
-    const v1, 0x7f1106d2
+    const v1, 0x7f1106d0
 
     invoke-virtual {p2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -118,7 +118,7 @@
     :goto_1
     invoke-virtual {v4, v1}, Landroid/view/View;->setVisibility(I)V
 
-    const v1, 0x7f1106d3
+    const v1, 0x7f1106d1
 
     invoke-virtual {p2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

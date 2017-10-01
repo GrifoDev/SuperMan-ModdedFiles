@@ -399,7 +399,7 @@
 .method private createConfirmCredentialReasonMessage()Ljava/lang/String;
     .locals 4
 
-    const v0, 0x7f0b163f
+    const v0, 0x7f0b1642
 
     iget-object v1, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
@@ -445,12 +445,12 @@
     return-object v1
 
     :sswitch_0
-    const v0, 0x7f0b163d
+    const v0, 0x7f0b1640
 
     goto :goto_0
 
     :sswitch_1
-    const v0, 0x7f0b163e
+    const v0, 0x7f0b1641
 
     goto :goto_0
 
@@ -491,7 +491,7 @@
 
     move-result-object v10
 
-    const v18, 0x7f11034b
+    const v18, 0x7f110349
 
     move/from16 v0, v18
 
@@ -531,7 +531,7 @@
 
     aput-object v19, v18, v20
 
-    const v19, 0x7f0b163b
+    const v19, 0x7f0b163e
 
     move-object/from16 v0, p0
 
@@ -554,7 +554,7 @@
     invoke-virtual {v12, v0}, Landroid/widget/TextView;->setVisibility(I)V
 
     :goto_0
-    const v18, 0x7f11034c
+    const v18, 0x7f11034a
 
     move/from16 v0, v18
 
@@ -588,7 +588,7 @@
 
     aput-object v19, v18, v20
 
-    const v19, 0x7f0b1639
+    const v19, 0x7f0b163c
 
     move-object/from16 v0, p0
 
@@ -629,7 +629,7 @@
     :cond_0
     invoke-virtual {v5, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v18, 0x7f11034d
+    const v18, 0x7f11034b
 
     move/from16 v0, v18
 
@@ -695,7 +695,7 @@
 
     invoke-direct {v0, v1, v2}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->setCapabilitiesText(Landroid/widget/TextView;Z)V
 
-    const v18, 0x7f0b1640
+    const v18, 0x7f0b1643
 
     move-object/from16 v0, p0
 
@@ -917,7 +917,7 @@
     goto/16 :goto_0
 
     :cond_2
-    const v18, 0x7f0b1641
+    const v18, 0x7f0b1644
 
     move-object/from16 v0, p0
 
@@ -1183,7 +1183,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a024e
+    const v3, 0x7f0a024c
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2154,43 +2154,43 @@
 .end method
 
 .method public onCreateDialog(I)Landroid/app/Dialog;
-    .locals 20
+    .locals 22
 
-    const/4 v15, 0x0
+    const/16 v16, 0x0
 
     const/4 v13, 0x0
 
-    const/4 v14, 0x0
+    const/4 v15, 0x0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mDialog:Landroid/app/Dialog;
 
-    move-object/from16 v16, v0
+    move-object/from16 v18, v0
 
-    if-eqz v16, :cond_0
+    if-eqz v18, :cond_0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mDialog:Landroid/app/Dialog;
 
-    move-object/from16 v16, v0
+    move-object/from16 v18, v0
 
-    invoke-virtual/range {v16 .. v16}, Landroid/app/Dialog;->dismiss()V
+    invoke-virtual/range {v18 .. v18}, Landroid/app/Dialog;->dismiss()V
 
     :cond_0
     packed-switch p1, :pswitch_data_0
 
-    new-instance v16, Ljava/lang/IllegalArgumentException;
+    new-instance v18, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct/range {v16 .. v16}, Ljava/lang/IllegalArgumentException;-><init>()V
+    invoke-direct/range {v18 .. v18}, Ljava/lang/IllegalArgumentException;-><init>()V
 
-    throw v16
+    throw v18
 
     :pswitch_0
-    const/16 v16, 0x1
+    const/16 v18, 0x1
 
-    move/from16 v0, v16
+    move/from16 v0, v18
 
     move-object/from16 v1, p0
 
@@ -2202,60 +2202,60 @@
 
     if-nez v11, :cond_1
 
-    const/16 v16, 0x0
+    const/16 v18, 0x0
 
-    return-object v16
+    return-object v18
 
     :cond_1
-    new-instance v16, Landroid/app/AlertDialog$Builder;
+    new-instance v18, Landroid/app/AlertDialog$Builder;
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v17
+    move-result-object v19
 
-    invoke-direct/range {v16 .. v17}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    invoke-direct/range {v18 .. v19}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
     move-object/from16 v0, p0
 
     invoke-direct {v0, v11}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->createEnableDialogContentView(Landroid/accessibilityservice/AccessibilityServiceInfo;)Landroid/view/View;
 
-    move-result-object v17
+    move-result-object v19
 
-    invoke-virtual/range {v16 .. v17}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual/range {v18 .. v19}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v16
+    move-result-object v18
 
-    const/16 v17, 0x1
+    const/16 v19, 0x1
 
-    invoke-virtual/range {v16 .. v17}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
+    invoke-virtual/range {v18 .. v19}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v16
+    move-result-object v18
 
-    const v17, 0x104000a
+    const v19, 0x104000a
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v18
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
     move-object/from16 v2, p0
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v16
+    move-result-object v18
 
-    const/high16 v17, 0x1040000
+    const/high16 v19, 0x1040000
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v18
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
     move-object/from16 v2, p0
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v16
+    move-result-object v18
 
-    invoke-virtual/range {v16 .. v16}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+    invoke-virtual/range {v18 .. v18}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v3
 
@@ -2267,17 +2267,41 @@
 
     invoke-virtual {v3}, Landroid/app/AlertDialog;->create()V
 
-    const/16 v16, -0x1
+    const/16 v18, -0x1
 
-    move/from16 v0, v16
+    move/from16 v0, v18
 
     invoke-virtual {v3, v0}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
 
-    move-result-object v16
+    move-result-object v18
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v18
 
     invoke-virtual {v0, v9}, Landroid/widget/Button;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+
+    invoke-virtual {v3}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
+
+    move-result-object v17
+
+    invoke-virtual/range {v17 .. v17}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
+
+    move-result-object v14
+
+    iget v0, v14, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
+
+    move/from16 v18, v0
+
+    const/high16 v19, 0x80000
+
+    or-int v18, v18, v19
+
+    move/from16 v0, v18
+
+    iput v0, v14, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
+
+    move-object/from16 v0, v17
+
+    invoke-virtual {v0, v14}, Landroid/view/Window;->setAttributes(Landroid/view/WindowManager$LayoutParams;)V
 
     move-object/from16 v0, p0
 
@@ -2286,9 +2310,9 @@
     return-object v3
 
     :pswitch_1
-    const/16 v16, 0x2
+    const/16 v18, 0x2
 
-    move/from16 v0, v16
+    move/from16 v0, v18
 
     move-object/from16 v1, p0
 
@@ -2300,187 +2324,187 @@
 
     if-nez v11, :cond_2
 
-    const/16 v16, 0x0
+    const/16 v18, 0x0
 
-    return-object v16
+    return-object v18
 
     :cond_2
-    new-instance v16, Landroid/app/AlertDialog$Builder;
+    new-instance v18, Landroid/app/AlertDialog$Builder;
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v17
+    move-result-object v19
 
-    invoke-direct/range {v16 .. v17}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    invoke-direct/range {v18 .. v19}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const/16 v17, 0x1
+    const/16 v19, 0x1
 
-    move/from16 v0, v17
+    move/from16 v0, v19
 
     new-array v0, v0, [Ljava/lang/Object;
 
-    move-object/from16 v17, v0
+    move-object/from16 v19, v0
 
     invoke-virtual {v11}, Landroid/accessibilityservice/AccessibilityServiceInfo;->getResolveInfo()Landroid/content/pm/ResolveInfo;
 
-    move-result-object v18
+    move-result-object v20
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v19
+    move-result-object v21
 
-    invoke-virtual/range {v18 .. v19}, Landroid/content/pm/ResolveInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+    invoke-virtual/range {v20 .. v21}, Landroid/content/pm/ResolveInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
-    move-result-object v18
+    move-result-object v20
 
-    const/16 v19, 0x0
+    const/16 v21, 0x0
 
-    aput-object v18, v17, v19
+    aput-object v20, v19, v21
 
-    const v18, 0x7f0b1643
+    const v20, 0x7f0b1646
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v18
+    move/from16 v1, v20
 
-    move-object/from16 v2, v17
+    move-object/from16 v2, v19
 
     invoke-virtual {v0, v1, v2}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v17
+    move-result-object v19
 
-    invoke-virtual/range {v16 .. v17}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual/range {v18 .. v19}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v16
+    move-result-object v18
 
-    const/16 v17, 0x1
+    const/16 v19, 0x1
 
-    invoke-virtual/range {v16 .. v17}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
+    invoke-virtual/range {v18 .. v19}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v16
+    move-result-object v18
 
-    const v17, 0x104000a
+    const v19, 0x104000a
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v18
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
     move-object/from16 v2, p0
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v16
+    move-result-object v18
 
-    const/high16 v17, 0x1040000
+    const/high16 v19, 0x1040000
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v18
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
     move-object/from16 v2, p0
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v16
+    move-result-object v18
 
-    invoke-virtual/range {v16 .. v16}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+    invoke-virtual/range {v18 .. v18}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
-    move-result-object v16
+    move-result-object v18
 
-    return-object v16
+    return-object v18
 
     :pswitch_2
-    const/16 v16, 0x3
+    const/16 v18, 0x3
 
-    move/from16 v0, v16
+    move/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mShownDialogId:I
 
-    const v16, 0x7f0b0be4
+    const v18, 0x7f0b0bee
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v16
+    move/from16 v1, v18
 
     invoke-virtual {v0, v1}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getString(I)Ljava/lang/String;
 
-    move-result-object v15
+    move-result-object v16
 
-    const v16, 0x7f0b0be5
+    const v18, 0x7f0b0bef
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v16
+    move/from16 v1, v18
 
     invoke-virtual {v0, v1}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getString(I)Ljava/lang/String;
 
     move-result-object v13
 
     :goto_0
-    const/16 v16, 0x3
+    const/16 v18, 0x3
 
     move/from16 v0, p1
 
-    move/from16 v1, v16
+    move/from16 v1, v18
 
     if-ne v0, v1, :cond_d
 
-    new-instance v16, Landroid/app/AlertDialog$Builder;
+    new-instance v18, Landroid/app/AlertDialog$Builder;
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v17
+    move-result-object v19
 
-    invoke-direct/range {v16 .. v17}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    invoke-direct/range {v18 .. v19}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v18
 
     invoke-virtual {v0, v13}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v16
+    move-result-object v18
 
-    const/16 v17, 0x1
+    const/16 v19, 0x1
 
-    invoke-virtual/range {v16 .. v17}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
+    invoke-virtual/range {v18 .. v19}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v16
+    move-result-object v18
 
-    const v17, 0x7f0b1822
+    const v19, 0x7f0b1825
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v18
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
     move-object/from16 v2, p0
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v16
+    move-result-object v18
 
-    const/high16 v17, 0x1040000
+    const/high16 v19, 0x1040000
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v18
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
     move-object/from16 v2, p0
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v16
+    move-result-object v18
 
-    invoke-virtual/range {v16 .. v16}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+    invoke-virtual/range {v18 .. v18}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
-    move-result-object v16
+    move-result-object v18
 
-    return-object v16
+    return-object v18
 
     :pswitch_3
-    const/16 v16, 0x4
+    const/16 v18, 0x4
 
-    move/from16 v0, v16
+    move/from16 v0, v18
 
     move-object/from16 v1, p0
 
@@ -2490,25 +2514,25 @@
 
     iget v0, v0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->talkbackType:I
 
-    move/from16 v16, v0
+    move/from16 v18, v0
 
-    if-nez v16, :cond_4
+    if-nez v18, :cond_4
 
-    const v16, 0x7f0b02a9
+    const v18, 0x7f0b02a9
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v16
+    move/from16 v1, v18
 
     invoke-virtual {v0, v1}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getString(I)Ljava/lang/String;
 
-    move-result-object v15
+    move-result-object v16
 
-    const v16, 0x7f0b02aa
+    const v18, 0x7f0b02aa
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v16
+    move/from16 v1, v18
 
     invoke-virtual {v0, v1}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getString(I)Ljava/lang/String;
 
@@ -2516,122 +2540,122 @@
 
     :cond_3
     :goto_1
-    new-instance v16, Landroid/app/AlertDialog$Builder;
+    new-instance v18, Landroid/app/AlertDialog$Builder;
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v17
+    move-result-object v19
 
-    invoke-direct/range {v16 .. v17}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    invoke-direct/range {v18 .. v19}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v18
 
     invoke-virtual {v0, v13}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v16
+    move-result-object v18
 
-    const/16 v17, 0x1
+    const/16 v19, 0x1
 
-    invoke-virtual/range {v16 .. v17}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
+    invoke-virtual/range {v18 .. v19}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v16
+    move-result-object v18
 
-    const/high16 v17, 0x1040000
+    const/high16 v19, 0x1040000
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v18
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
     move-object/from16 v2, p0
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNeutralButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v16
+    move-result-object v18
 
-    const v17, 0x7f0b158c
+    const v19, 0x7f0b158f
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v18
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
     move-object/from16 v2, p0
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v16
+    move-result-object v18
 
-    const v17, 0x7f0b0425
+    const v19, 0x7f0b0425
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v18
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
     move-object/from16 v2, p0
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v16
+    move-result-object v18
 
-    invoke-virtual/range {v16 .. v16}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+    invoke-virtual/range {v18 .. v18}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
-    move-result-object v16
+    move-result-object v18
 
-    return-object v16
+    return-object v18
 
     :cond_4
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->talkbackType:I
 
-    move/from16 v16, v0
+    move/from16 v18, v0
 
-    const/16 v17, 0x2
+    const/16 v19, 0x2
 
-    move/from16 v0, v16
+    move/from16 v0, v18
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
     if-ne v0, v1, :cond_5
 
-    const/16 v16, 0x1
+    const/16 v18, 0x1
 
-    move/from16 v0, v16
+    move/from16 v0, v18
 
     new-array v0, v0, [Ljava/lang/Object;
 
-    move-object/from16 v16, v0
+    move-object/from16 v18, v0
 
-    const v17, 0x7f0b0246
+    const v19, 0x7f0b0246
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
     invoke-virtual {v0, v1}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getString(I)Ljava/lang/String;
 
-    move-result-object v17
+    move-result-object v19
 
-    const/16 v18, 0x0
+    const/16 v20, 0x0
 
-    aput-object v17, v16, v18
+    aput-object v19, v18, v20
 
-    const v17, 0x7f0b05e5
+    const v19, 0x7f0b05e5
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
-    move-object/from16 v2, v16
+    move-object/from16 v2, v18
 
     invoke-virtual {v0, v1, v2}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v15
+    move-result-object v16
 
-    const v16, 0x7f0b02aa
+    const v18, 0x7f0b02aa
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v16
+    move/from16 v1, v18
 
     invoke-virtual {v0, v1}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getString(I)Ljava/lang/String;
 
@@ -2640,21 +2664,21 @@
     goto :goto_1
 
     :cond_5
-    const v16, 0x7f0b02a8
+    const v18, 0x7f0b02a8
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v16
+    move/from16 v1, v18
 
     invoke-virtual {v0, v1}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getString(I)Ljava/lang/String;
 
-    move-result-object v15
+    move-result-object v16
 
-    const v16, 0x7f0b02aa
+    const v18, 0x7f0b02aa
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v16
+    move/from16 v1, v18
 
     invoke-virtual {v0, v1}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getString(I)Ljava/lang/String;
 
@@ -2666,42 +2690,42 @@
 
     if-nez v11, :cond_6
 
-    const/16 v16, 0x0
+    const/16 v18, 0x0
 
-    return-object v16
+    return-object v18
 
     :cond_6
-    const/16 v16, 0x1
+    const/16 v18, 0x1
 
-    move/from16 v0, v16
+    move/from16 v0, v18
 
     new-array v0, v0, [Ljava/lang/Object;
 
-    move-object/from16 v16, v0
+    move-object/from16 v18, v0
 
     invoke-virtual {v11}, Landroid/accessibilityservice/AccessibilityServiceInfo;->getResolveInfo()Landroid/content/pm/ResolveInfo;
 
-    move-result-object v17
+    move-result-object v19
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v18
+    move-result-object v20
 
-    invoke-virtual/range {v17 .. v18}, Landroid/content/pm/ResolveInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+    invoke-virtual/range {v19 .. v20}, Landroid/content/pm/ResolveInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
-    move-result-object v17
+    move-result-object v19
 
-    const/16 v18, 0x0
+    const/16 v20, 0x0
 
-    aput-object v17, v16, v18
+    aput-object v19, v18, v20
 
-    const v17, 0x7f0b02a7
+    const v19, 0x7f0b02a7
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
-    move-object/from16 v2, v16
+    move-object/from16 v2, v18
 
     invoke-virtual {v0, v1, v2}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2711,45 +2735,45 @@
 
     iget v0, v0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->talkbackType:I
 
-    move/from16 v16, v0
+    move/from16 v18, v0
 
-    const/16 v17, -0x1
+    const/16 v19, -0x1
 
-    move/from16 v0, v16
+    move/from16 v0, v18
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
     if-ne v0, v1, :cond_3
 
-    const/16 v16, 0x2
+    const/16 v18, 0x2
 
-    move/from16 v0, v16
+    move/from16 v0, v18
 
     new-array v0, v0, [Ljava/lang/Object;
 
-    move-object/from16 v16, v0
+    move-object/from16 v18, v0
 
-    const/16 v17, 0x0
+    const/16 v19, 0x0
 
-    aput-object v12, v16, v17
+    aput-object v12, v18, v19
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->TLanguage:Ljava/lang/String;
 
-    move-object/from16 v17, v0
+    move-object/from16 v19, v0
 
-    const/16 v18, 0x1
+    const/16 v20, 0x1
 
-    aput-object v17, v16, v18
+    aput-object v19, v18, v20
 
-    const v17, 0x7f0b02ae
+    const v19, 0x7f0b02ae
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
-    move-object/from16 v2, v16
+    move-object/from16 v2, v18
 
     invoke-virtual {v0, v1, v2}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2758,19 +2782,19 @@
     goto/16 :goto_1
 
     :pswitch_4
-    const/16 v16, 0x5
+    const/16 v18, 0x5
 
-    move/from16 v0, v16
+    move/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mShownDialogId:I
 
-    const v16, 0x7f0b02ab
+    const v18, 0x7f0b02ab
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v16
+    move/from16 v1, v18
 
     invoke-virtual {v0, v1}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getString(I)Ljava/lang/String;
 
@@ -2780,39 +2804,39 @@
 
     iget v0, v0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->talkbackType:I
 
-    move/from16 v16, v0
+    move/from16 v18, v0
 
-    if-nez v16, :cond_8
+    if-nez v18, :cond_8
 
-    const v16, 0x7f0b02a9
+    const v18, 0x7f0b02a9
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v16
+    move/from16 v1, v18
 
     invoke-virtual {v0, v1}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getString(I)Ljava/lang/String;
 
-    move-result-object v15
+    move-result-object v16
 
-    const/16 v16, 0x1
+    const/16 v18, 0x1
 
-    move/from16 v0, v16
+    move/from16 v0, v18
 
     new-array v0, v0, [Ljava/lang/Object;
 
-    move-object/from16 v16, v0
+    move-object/from16 v18, v0
 
-    const/16 v17, 0x0
+    const/16 v19, 0x0
 
-    aput-object v5, v16, v17
+    aput-object v5, v18, v19
 
-    const v17, 0x7f0b02ad
+    const v19, 0x7f0b02ad
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
-    move-object/from16 v2, v16
+    move-object/from16 v2, v18
 
     invoke-virtual {v0, v1, v2}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2820,150 +2844,150 @@
 
     :cond_7
     :goto_2
-    new-instance v16, Landroid/app/AlertDialog$Builder;
+    new-instance v18, Landroid/app/AlertDialog$Builder;
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v17
+    move-result-object v19
 
-    invoke-direct/range {v16 .. v17}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    invoke-direct/range {v18 .. v19}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v18
 
     invoke-virtual {v0, v13}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v16
+    move-result-object v18
 
-    const/16 v17, 0x1
+    const/16 v19, 0x1
 
-    invoke-virtual/range {v16 .. v17}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
+    invoke-virtual/range {v18 .. v19}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v16
+    move-result-object v18
 
-    const/high16 v17, 0x1040000
+    const/high16 v19, 0x1040000
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v18
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
     move-object/from16 v2, p0
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNeutralButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v16
+    move-result-object v18
 
-    const v17, 0x7f0b158c
+    const v19, 0x7f0b158f
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v18
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
     move-object/from16 v2, p0
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v16
+    move-result-object v18
 
-    const v17, 0x7f0b0425
+    const v19, 0x7f0b0425
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v18
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
     move-object/from16 v2, p0
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v16
+    move-result-object v18
 
-    invoke-virtual/range {v16 .. v16}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+    invoke-virtual/range {v18 .. v18}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
-    move-result-object v16
+    move-result-object v18
 
-    return-object v16
+    return-object v18
 
     :cond_8
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->talkbackType:I
 
-    move/from16 v16, v0
+    move/from16 v18, v0
 
-    const/16 v17, 0x2
+    const/16 v19, 0x2
 
-    move/from16 v0, v16
+    move/from16 v0, v18
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
     if-ne v0, v1, :cond_9
 
-    const/16 v16, 0x1
+    const/16 v18, 0x1
 
-    move/from16 v0, v16
+    move/from16 v0, v18
 
     new-array v0, v0, [Ljava/lang/Object;
 
-    move-object/from16 v16, v0
+    move-object/from16 v18, v0
 
-    const v17, 0x7f0b0246
+    const v19, 0x7f0b0246
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
     invoke-virtual {v0, v1}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getString(I)Ljava/lang/String;
 
-    move-result-object v17
+    move-result-object v19
 
-    const/16 v18, 0x0
+    const/16 v20, 0x0
 
-    aput-object v17, v16, v18
+    aput-object v19, v18, v20
 
-    const v17, 0x7f0b05e5
+    const v19, 0x7f0b05e5
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
-    move-object/from16 v2, v16
+    move-object/from16 v2, v18
 
     invoke-virtual {v0, v1, v2}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v15
+    move-result-object v16
 
-    const/16 v16, 0x2
+    const/16 v18, 0x2
 
-    move/from16 v0, v16
+    move/from16 v0, v18
 
     new-array v0, v0, [Ljava/lang/Object;
 
-    move-object/from16 v16, v0
+    move-object/from16 v18, v0
 
-    const v17, 0x7f0b0246
+    const v19, 0x7f0b0246
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
     invoke-virtual {v0, v1}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getString(I)Ljava/lang/String;
 
-    move-result-object v17
+    move-result-object v19
 
-    const/16 v18, 0x0
+    const/16 v20, 0x0
 
-    aput-object v17, v16, v18
+    aput-object v19, v18, v20
 
-    const/16 v17, 0x1
+    const/16 v19, 0x1
 
-    aput-object v5, v16, v17
+    aput-object v5, v18, v19
 
-    const v17, 0x7f0b02ae
+    const v19, 0x7f0b02ae
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
-    move-object/from16 v2, v16
+    move-object/from16 v2, v18
 
     invoke-virtual {v0, v1, v2}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2972,35 +2996,35 @@
     goto/16 :goto_2
 
     :cond_9
-    const v16, 0x7f0b02a8
+    const v18, 0x7f0b02a8
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v16
+    move/from16 v1, v18
 
     invoke-virtual {v0, v1}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getString(I)Ljava/lang/String;
 
-    move-result-object v15
+    move-result-object v16
 
-    const/16 v16, 0x1
+    const/16 v18, 0x1
 
-    move/from16 v0, v16
+    move/from16 v0, v18
 
     new-array v0, v0, [Ljava/lang/Object;
 
-    move-object/from16 v16, v0
+    move-object/from16 v18, v0
 
-    const/16 v17, 0x0
+    const/16 v19, 0x0
 
-    aput-object v5, v16, v17
+    aput-object v5, v18, v19
 
-    const v17, 0x7f0b02ac
+    const v19, 0x7f0b02ac
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
-    move-object/from16 v2, v16
+    move-object/from16 v2, v18
 
     invoke-virtual {v0, v1, v2}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -3012,42 +3036,42 @@
 
     if-nez v11, :cond_a
 
-    const/16 v16, 0x0
+    const/16 v18, 0x0
 
-    return-object v16
+    return-object v18
 
     :cond_a
-    const/16 v16, 0x1
+    const/16 v18, 0x1
 
-    move/from16 v0, v16
+    move/from16 v0, v18
 
     new-array v0, v0, [Ljava/lang/Object;
 
-    move-object/from16 v16, v0
+    move-object/from16 v18, v0
 
     invoke-virtual {v11}, Landroid/accessibilityservice/AccessibilityServiceInfo;->getResolveInfo()Landroid/content/pm/ResolveInfo;
 
-    move-result-object v17
+    move-result-object v19
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v18
+    move-result-object v20
 
-    invoke-virtual/range {v17 .. v18}, Landroid/content/pm/ResolveInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+    invoke-virtual/range {v19 .. v20}, Landroid/content/pm/ResolveInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
-    move-result-object v17
+    move-result-object v19
 
-    const/16 v18, 0x0
+    const/16 v20, 0x0
 
-    aput-object v17, v16, v18
+    aput-object v19, v18, v20
 
-    const v17, 0x7f0b02a7
+    const v19, 0x7f0b02a7
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
-    move-object/from16 v2, v16
+    move-object/from16 v2, v18
 
     invoke-virtual {v0, v1, v2}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -3057,45 +3081,45 @@
 
     iget v0, v0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->talkbackType:I
 
-    move/from16 v16, v0
+    move/from16 v18, v0
 
-    const/16 v17, -0x1
+    const/16 v19, -0x1
 
-    move/from16 v0, v16
+    move/from16 v0, v18
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
     if-ne v0, v1, :cond_7
 
-    const/16 v16, 0x2
+    const/16 v18, 0x2
 
-    move/from16 v0, v16
+    move/from16 v0, v18
 
     new-array v0, v0, [Ljava/lang/Object;
 
-    move-object/from16 v16, v0
+    move-object/from16 v18, v0
 
-    const/16 v17, 0x0
+    const/16 v19, 0x0
 
-    aput-object v12, v16, v17
+    aput-object v12, v18, v19
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->TLanguage:Ljava/lang/String;
 
-    move-object/from16 v17, v0
+    move-object/from16 v19, v0
 
-    const/16 v18, 0x1
+    const/16 v20, 0x1
 
-    aput-object v17, v16, v18
+    aput-object v19, v18, v20
 
-    const v17, 0x7f0b02ae
+    const v19, 0x7f0b02ae
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
-    move-object/from16 v2, v16
+    move-object/from16 v2, v18
 
     invoke-virtual {v0, v1, v2}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -3104,9 +3128,9 @@
     goto/16 :goto_2
 
     :pswitch_5
-    const/16 v16, 0x6
+    const/16 v18, 0x6
 
-    move/from16 v0, v16
+    move/from16 v0, v18
 
     move-object/from16 v1, p0
 
@@ -3118,60 +3142,60 @@
 
     if-nez v11, :cond_b
 
-    const/16 v16, 0x0
+    const/16 v18, 0x0
 
-    return-object v16
+    return-object v18
 
     :cond_b
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->talkbackType:I
 
-    move/from16 v16, v0
+    move/from16 v18, v0
 
-    const/16 v17, 0x2
+    const/16 v19, 0x2
 
-    move/from16 v0, v16
+    move/from16 v0, v18
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
     if-ne v0, v1, :cond_c
 
-    const/16 v16, 0x1
+    const/16 v18, 0x1
 
-    move/from16 v0, v16
+    move/from16 v0, v18
 
     new-array v0, v0, [Ljava/lang/Object;
 
-    move-object/from16 v16, v0
+    move-object/from16 v18, v0
 
     invoke-virtual {v11}, Landroid/accessibilityservice/AccessibilityServiceInfo;->getResolveInfo()Landroid/content/pm/ResolveInfo;
 
-    move-result-object v17
+    move-result-object v19
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v18
+    move-result-object v20
 
-    invoke-virtual/range {v17 .. v18}, Landroid/content/pm/ResolveInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+    invoke-virtual/range {v19 .. v20}, Landroid/content/pm/ResolveInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
-    move-result-object v17
+    move-result-object v19
 
-    const/16 v18, 0x0
+    const/16 v20, 0x0
 
-    aput-object v17, v16, v18
+    aput-object v19, v18, v20
 
-    const v17, 0x7f0b05e5
+    const v19, 0x7f0b05e5
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
-    move-object/from16 v2, v16
+    move-object/from16 v2, v18
 
     invoke-virtual {v0, v1, v2}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v15
+    move-result-object v16
 
     :goto_3
     move-object/from16 v0, p0
@@ -3181,68 +3205,68 @@
     goto/16 :goto_0
 
     :cond_c
-    const/16 v16, 0x1
+    const/16 v18, 0x1
 
-    move/from16 v0, v16
+    move/from16 v0, v18
 
     new-array v0, v0, [Ljava/lang/Object;
 
-    move-object/from16 v16, v0
+    move-object/from16 v18, v0
 
     invoke-virtual {v11}, Landroid/accessibilityservice/AccessibilityServiceInfo;->getResolveInfo()Landroid/content/pm/ResolveInfo;
 
-    move-result-object v17
+    move-result-object v19
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v18
+    move-result-object v20
 
-    invoke-virtual/range {v17 .. v18}, Landroid/content/pm/ResolveInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+    invoke-virtual/range {v19 .. v20}, Landroid/content/pm/ResolveInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
-    move-result-object v17
+    move-result-object v19
 
-    const/16 v18, 0x0
+    const/16 v20, 0x0
 
-    aput-object v17, v16, v18
+    aput-object v19, v18, v20
 
-    const v17, 0x7f0b02a7
+    const v19, 0x7f0b02a7
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
-    move-object/from16 v2, v16
+    move-object/from16 v2, v18
 
     invoke-virtual {v0, v1, v2}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v15
+    move-result-object v16
 
     goto :goto_3
 
     :pswitch_6
-    const/16 v16, 0x7
+    const/16 v18, 0x7
 
-    move/from16 v0, v16
+    move/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mShownDialogId:I
 
-    const v16, 0x7f0b023e
+    const v18, 0x7f0b023e
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v16
+    move/from16 v1, v18
 
     invoke-virtual {v0, v1}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getString(I)Ljava/lang/String;
 
-    move-result-object v15
+    move-result-object v16
 
-    const v16, 0x7f0b023f
+    const v18, 0x7f0b023f
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v16
+    move/from16 v1, v18
 
     invoke-virtual {v0, v1}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getString(I)Ljava/lang/String;
 
@@ -3251,11 +3275,11 @@
     goto/16 :goto_0
 
     :cond_d
-    const/16 v16, 0x6
+    const/16 v18, 0x6
 
     move/from16 v0, p1
 
-    move/from16 v1, v16
+    move/from16 v1, v18
 
     if-ne v0, v1, :cond_e
 
@@ -3263,19 +3287,19 @@
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v16
+    move-result-object v18
 
-    const v17, 0x1030132
+    const v19, 0x1030132
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v18
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
     invoke-direct {v4, v0, v1}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
 
-    const-string/jumbo v16, "layout_inflater"
+    const-string/jumbo v18, "layout_inflater"
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v18
 
     invoke-virtual {v4, v0}, Landroid/view/ContextThemeWrapper;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -3283,13 +3307,13 @@
 
     check-cast v10, Landroid/view/LayoutInflater;
 
-    const v16, 0x7f04001b
+    const v18, 0x7f04001b
 
-    const/16 v17, 0x0
+    const/16 v19, 0x0
 
-    move/from16 v0, v16
+    move/from16 v0, v18
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v19
 
     invoke-virtual {v10, v0, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -3297,9 +3321,9 @@
 
     check-cast v8, Landroid/view/ViewGroup;
 
-    const v16, 0x7f11010d
+    const v18, 0x7f11010d
 
-    move/from16 v0, v16
+    move/from16 v0, v18
 
     invoke-virtual {v8, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -3307,9 +3331,9 @@
 
     check-cast v7, Landroid/widget/TextView;
 
-    const v16, 0x7f11010e
+    const v18, 0x7f11010e
 
-    move/from16 v0, v16
+    move/from16 v0, v18
 
     invoke-virtual {v8, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -3321,63 +3345,63 @@
 
     iget-object v0, v0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mDisableExclusiveOptionsDescription:Ljava/lang/String;
 
-    move-object/from16 v16, v0
+    move-object/from16 v18, v0
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v18
 
     invoke-virtual {v7, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     invoke-virtual {v6, v13}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    new-instance v16, Landroid/app/AlertDialog$Builder;
+    new-instance v18, Landroid/app/AlertDialog$Builder;
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v17
+    move-result-object v19
 
-    invoke-direct/range {v16 .. v17}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    invoke-direct/range {v18 .. v19}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v18
 
     invoke-virtual {v0, v8}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v16
+    move-result-object v18
 
-    const/16 v17, 0x1
+    const/16 v19, 0x1
 
-    invoke-virtual/range {v16 .. v17}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
+    invoke-virtual/range {v18 .. v19}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v16
+    move-result-object v18
 
-    const v17, 0x104000a
+    const v19, 0x104000a
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v18
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
     move-object/from16 v2, p0
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v16
+    move-result-object v18
 
-    const/high16 v17, 0x1040000
+    const/high16 v19, 0x1040000
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v18
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
     move-object/from16 v2, p0
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v16
+    move-result-object v18
 
-    invoke-virtual/range {v16 .. v16}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+    invoke-virtual/range {v18 .. v18}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
-    move-result-object v16
+    move-result-object v18
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p0
 
@@ -3387,107 +3411,107 @@
 
     iget-object v0, v0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mSTalkBackDialog:Landroid/app/AlertDialog;
 
-    move-object/from16 v16, v0
+    move-object/from16 v18, v0
 
-    return-object v16
+    return-object v18
 
     :cond_e
-    const/16 v16, 0x7
+    const/16 v18, 0x7
 
     move/from16 v0, p1
 
-    move/from16 v1, v16
+    move/from16 v1, v18
 
     if-ne v0, v1, :cond_f
 
-    new-instance v16, Landroid/app/AlertDialog$Builder;
+    new-instance v18, Landroid/app/AlertDialog$Builder;
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v17
+    move-result-object v19
 
-    invoke-direct/range {v16 .. v17}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    invoke-direct/range {v18 .. v19}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v18
 
     invoke-virtual {v0, v13}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v16
+    move-result-object v18
 
-    const/16 v17, 0x1
+    const/16 v19, 0x1
 
-    invoke-virtual/range {v16 .. v17}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
+    invoke-virtual/range {v18 .. v19}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v16
+    move-result-object v18
 
-    const v17, 0x7f0b023e
+    const v19, 0x7f0b023e
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v18
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
     move-object/from16 v2, p0
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v16
+    move-result-object v18
 
-    const v17, 0x7f0b153d
+    const v19, 0x7f0b1540
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v18
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
     move-object/from16 v2, p0
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v16
+    move-result-object v18
 
-    invoke-virtual/range {v16 .. v16}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+    invoke-virtual/range {v18 .. v18}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
-    move-result-object v16
+    move-result-object v18
 
-    return-object v16
+    return-object v18
 
     :cond_f
-    new-instance v16, Landroid/app/AlertDialog$Builder;
+    new-instance v18, Landroid/app/AlertDialog$Builder;
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v17
+    move-result-object v19
 
-    invoke-direct/range {v16 .. v17}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    invoke-direct/range {v18 .. v19}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v18
 
     invoke-virtual {v0, v13}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v16
+    move-result-object v18
 
-    const/16 v17, 0x1
+    const/16 v19, 0x1
 
-    invoke-virtual/range {v16 .. v17}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
+    invoke-virtual/range {v18 .. v19}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v16
+    move-result-object v18
 
-    const v17, 0x104000a
+    const v19, 0x104000a
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v18
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
     move-object/from16 v2, p0
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v16
+    move-result-object v18
 
-    invoke-virtual/range {v16 .. v16}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+    invoke-virtual/range {v18 .. v18}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
-    move-result-object v16
+    move-result-object v18
 
-    return-object v16
+    return-object v18
 
     nop
 

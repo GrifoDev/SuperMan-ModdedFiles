@@ -243,7 +243,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Дастгирӣ</string>
     <string name="reset_network_settings_list_summary">Барқарор кардани танзимоти Wi-Fi, Bluetooth ва танзимоти дигари шабакавӣ ба андозаҳои пешфарз.</string>
     <string name="master_clear_list_summary">Дастгоҳи худро ба танзимоти пешфарзи коргоҳ барқарор кунед. Ин ҳамаи иттилоотро, аз ҷумла файлҳо ва барномаҳои боршударо нест мекунад.</string>
-    <string name="auto_restart_summary">Дастгоҳи худро бо бозоғозии худкор дар вақтҳои додашуда такмил диҳед. Ҳангоми бозоғозии дастгоҳ ҳамаи иттилооти захиранашуда нест мешавад.</string>
+    <string name="auto_restart_summary">Телефон ҳар ҳафта як маротиба ба таври худкор аз нав ба кор дароварда шуда, муносиб карда мешавад. Ҳамаи иттилооти захиранашуда ҳангоми аз нав ба кор даромадани телефон аз даст дода мешавад.</string>
     <string name="search_settings">Ҷустуҷӯ кардан</string>
     <string name="related_results">%d ҷузъҳои марбут</string>
     <string name="no_results_found">Ягон натиҷа ёфт нашуд</string>
@@ -1349,6 +1349,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_verify_failed_summary">Аз нав ба кор даровардани дастгоҳ ғайриимкон аст. Санҷиши бутунӣ барор наёфт. Шумо бояд дастгоҳи худро ба танзимоти пешфарзи коргоҳ барқарор кунед. Ин ҳамаи иттилооти шуморо нест мекунад.</string>
     <string name="cryptkeeper_emergency_call">Зангҳои таъҷилӣ</string>
     <string name="cryptkeeper_return_to_call">Бозгашт ба занг</string>
+    <string name="cryptkeeper_default_enter_msg">Телефони шумо барои таъмини бехатарӣ рамзбандӣ карда шудааст.</string>
     <string name="enter_password">Барои дастгоҳи худро ба кор даровардан, пароли худро дохил кунед.</string>
     <string name="enter_pin">Барои дастгоҳи худро ба кор даровардан, PIN-и худро дохил кунед.</string>
     <string name="enter_pattern">Барои дастгоҳи худро ба кор даровардан, расми худро бикашед.</string>
@@ -1362,6 +1363,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_last_warn_wipe">Шумо танҳо 1 кӯшиши ба кор даровардани дастгоҳ доред, ки баъди сарф шудани он, дастгоҳ ба танзимоти пешфарзи коргоҳ барқарор карда мешавад. Ин ҳамаи иттилоотро, аз ҷумла файлҳо ва барномаҳои боршударо нест мекунад.</string>
     <string name="crypt_keeper_failed_title_dec">Озодкунӣ аз рамзбандӣ барор наёфт.</string>
     <string name="crypt_keeper_failed_summary_dec">Озодкунӣ аз рамзбандӣ бо сабаби қатъшавӣ иҷро нашуд. Пеш аз истифода, барқароркунии иттилооти истеҳсолкунандаро (тоза кардани тамоми иттилоот) иҷро кунед.</string>
+    <string name="crypt_keeper_set_screen_lock_type">Танзими навъи банди экран</string>
     <string name="encryption_interstitial_message_kor">Дастгоҳи шумо рамзбандӣ шудааст. Иттилооти рамзбандишударо тариқи интихоб кардани Талаб кардани банди экран барои рамзкушоии иттилоот ҳангоми фурӯзон шудани дастгоҳ муҳофизат кунед. Ин барои муҳофизат кардани иттилооти дастгоҳҳои гумшуда ё дуздидашуда кӯмак мерасонад. Ҳар дафъае, ки дастгоҳи худро фурӯзон мекунед, аз шумо талаб карда мешавад, ки барои рамзкушоӣ кардани иттилоот онро озод кунед. То берамз кардани дастгоҳи худ шумо ягон занг, паём ё огоҳӣ намегиред.</string>
     <string name="encryption_interstitial_message_direction">"Дастгоҳи худро ба тариқи интихоб кардани Талаб кардани Банди самт ҳангоми фурӯзон шудани барқи дастгоҳ муҳофизат кунед. Ин барои муҳофизати иттилооти дохили дастгоҳҳои гумшуда ё дуздидашуда кӯмак мерасонад.
 
@@ -1601,6 +1603,8 @@ You will also need it when:"</string>
     <string name="empty_content_toast">Муҳтавои барои захиракунӣ дастрас нест.</string>
     <string name="find_my_mobile_message_zero">"Дастгоҳи худро бо истифодаи хидмати веби Ёфтани телефони мобилии ман ба таври дастӣ пайгирӣ ва идора кунед. Барои тафсилот ва маълумот оиди функсияҳои дигари дастгиришаванда, ба вебсайти зерин гузаред:
 %s"</string>
+    <string name="send_last_location_title">Фиристодани макони охирин</string>
+    <string name="send_last_location_summary">Иҷозат ба телефони шумо барои ҳангоми аз сатҳи муқарраршуда камтар шудани барқи батарея ба сервери Ёфтани телефони мобилии ман макони охиринашро фиристодан.</string>
     <string name="high_power_description">Фаъол кардани Такмили истифодаи батарея барои барномаҳои алоҳида. Баъзе функсияҳо, аз қабили онҳое, ки шабакаҳои мобилиро истифода мебаранд ё иттилоотро ҳамоҳанг мекунанд, барои сарфа кардани барқи батарея маҳдуд карда мешаванд.</string>
     <string name="wifi_display_summary_off">Хомӯш</string>
     <string name="battery_usage_description">Ин экран иттилооти истифодаи батареяро аз барқдиҳии пурраи охирони дастгоҳ нишон медиҳад.</string>
@@ -1832,6 +1836,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">Миёнбурҳои барномаҳоеро интихоб кунед, ки мехоҳад дар экрани бандкунӣ истифода баред.</string>
     <string name="lockscreen_notifications">Огоҳиҳо дар экрани блоконӣ</string>
     <string name="work_profile_lockscreen_notifications">Огоҳиҳои профили корӣ</string>
+    <string name="lock_network_and_security">Бастани шабака ва амният</string>
+    <string name="lock_network_and_security_summary">Функсияҳои марбут ба шабака ва амният барои ёфтан ва муҳофизат кардани телефон ҳангоми гум ё дуздида шуданаш баста мемонанд.</string>
     <string name="dualclock_settings_title">Соати дучанда</string>
     <string name="dualclock_settings_summary">Ҳангоми роуминг нишон додани минтақаи вақти маҳаллӣ ва ватанӣ.</string>
     <string name="set_home_city">Танз. минт. вақти хонагӣ</string>
@@ -2017,7 +2023,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="air_browse_music_on_lock_screen_title">Мусиқӣ дар экрани блоконӣ</string>
     <string name="air_browse_music_on_lock_screen_summary">Иваз кардани сурудҳо дар экрани блоконӣ.</string>
     <string name="air_browse_note_summary">Гузариш байни саҳифаҳо дар Реҷаи намоиш.</string>
-    <string name="data_usage_enable_mobile_summery">Агар иттилооти мобилӣ хомӯш карда шавад, дастгоҳи шумо бояд бо шабакаи Wi-Fi пайваст бошад, то хидматҳои бо шабакаи мобили марбутро истифода бурда тавонад.</string>
+    <string name="data_usage_enable_mobile_summery">Интернетро тавассути шабакаи мобилӣ дастрас кунед.</string>
     <string name="data_usage_enable_mobile_warning_skt">Пайвастшавӣ ба шабакаҳои мобилӣ метавонад, ки вобаста аз нақшаи иттилооти шумо, сабабгори пардохтҳои изофӣ шавад. Идома медиҳед?</string>
     <string name="data_usage_enable_mobile_warning_ktt">Пайвастшавӣ ба шабакаҳои мобилӣ метавонад, ки вобаста аз нақшаи иттилооти шумо, сабабгори пардохтҳои изофӣ шавад. Идома медиҳед?</string>
     <string name="data_usage_enable_mobile_warning_lgt">Пайвастшавӣ ба шабакаҳои мобилӣ метавонад, ки вобаста аз нақшаи иттилооти шумо, сабабгори пардохтҳои изофӣ шавад. Идома медиҳед?</string>
@@ -2386,8 +2392,8 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="secure_folder_summary">Барои амниятро тақвият додан, муҳтаво ва барномаҳои махфии худро бандед.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s озод кардани %2$s-ро бо изҳои ангушт дастгирӣ намекунад.</string>
     <string name="edge_feeds_title">Маъхазҳои кнрӣ</string>
-    <string name="screensaver_settings_summary">Рафтори дастгоҳро ҳангоми ҷойгир будан дар васлак ва/ё барқгирӣ бо экрани хомӯш идора кунед. Ин функсия инчунин Пардаи экран номида мешавад.</string>
-    <string name="screensaver_settings_summary_wo_dock">Нишон додани муҳофизи экран баъди ба таври худкор хомӯш шудани экран ҳангоми барқ гирифтани дастгоҳ.</string>
+    <string name="screensaver_settings_summary">Нишон додани муҳофизи экран баъди ба таври худкор хомӯш шудани экран ҳангоми барқ гирифтани телефон.</string>
+    <string name="screensaver_settings_summary_wo_dock">Нишон додани муҳофизи экран баъди ба таври худкор хомӯш шудани экран ҳангоми дар васлак будан ё барқ гирифтани телефон.</string>
     <string name="apn_already_exists">Аллакай вуҷуд дорад.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Рақами порт бояд аз %1$d то %2$d бошад.</string>
@@ -3152,6 +3158,7 @@ Wi-Fi is now on."</string>
     <string name="wfd_connection_end_toast">Пайвасти Screen Mirroring ба анҷом расид.</string>
     <string name="wfd_descrpition_playvia">Пахши муҳтаво.</string>
     <string name="wfd_descrpition_mirroring">Экранро инъикос кардан.</string>
+    <string name="wfd_descrpition_playsound">Садо пахш кардан.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">Серравзана ғайрифаъол мешавад ва ҳамаи барномаҳо дар равзанаҳои бароянда кушодашуда пӯшида мешаванд.</string>
     <string name="keyguard_password_attempt_count_pin_code">%d кӯшиш мондааст.</string>
@@ -3988,7 +3995,7 @@ Receiving SMS"</string>
     <string name="location_network_based">Истифода бурдани шабакаҳои бесим</string>
     <string name="location_neighborhood_level">Додани иҷозат ба барномаҳо барои истифодаи хидмати муайянкунии ҷойгиршавии Google барои зудтар тахмин кардани мавқеъи шумо. Иттилооти анонимии оиди ҷойгиршавӣ ҷамъ карда мешавад ва ба Google фиристода мешавад.</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">Оиди дастгоҳ</string>
+    <string name="about_settings">Дар бораи телефон</string>
     <string name="about_settings_vzw">Оиди дастгоҳ</string>
     <string name="legal_information">Маълумоти ҳуқуқӣ</string>
     <string name="regulatory_information">Маълумоти ҳуқуқӣ</string>
@@ -4161,7 +4168,7 @@ Receiving SMS"</string>
     <string name="phone_language">Забон</string>
     <string name="show_password">Ошкор кардани паролҳо</string>
     <string name="show_password_summary">Аломатҳои паролро ҳангоми чинда шуданашон лаҳзае бинед.</string>
-    <string name="ime_security_warning">Ин усул метавонад ҳамаи матни дохилкардаи шуморо, аз он ҷумла иттилооти шахсӣ ва рақамҳои кортҳои қарзӣ (бо истиснои паролҳо), ҷамъ кунад. Он аз барномаи %1$s меояд. Ба ҳар ҳол истифода барем?</string>
+    <string name="ime_security_warning">%s метавонад ҳамаи матни чидаи шуморо ҷамъ оварад, аз ҷумла маълумоти шахсӣ, аз қабили паролҳо ва рақамҳои кортҳои қарзӣ.</string>
     <string name="failed_to_open_app_settings_toast">Кушодани танзимот барои %s барор наёфт.</string>
     <string name="keyboard_and_input_methods_category">Клавиатураҳо</string>
     <string name="virtual_keyboard_category">Клавиатураи виртуалӣ</string>

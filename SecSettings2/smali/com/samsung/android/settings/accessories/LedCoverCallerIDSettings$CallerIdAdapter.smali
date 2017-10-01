@@ -86,7 +86,7 @@
 
     invoke-direct {v0}, Lcom/samsung/android/settings/accessories/AccessoriesUtils$CallerIDListViewHolder;-><init>()V
 
-    const v2, 0x7f110437
+    const v2, 0x7f110435
 
     invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -96,7 +96,7 @@
 
     iput-object v2, v0, Lcom/samsung/android/settings/accessories/AccessoriesUtils$CallerIDListViewHolder;->icon:Landroid/widget/ImageView;
 
-    const v2, 0x7f110438
+    const v2, 0x7f110436
 
     invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -106,7 +106,7 @@
 
     iput-object v2, v0, Lcom/samsung/android/settings/accessories/AccessoriesUtils$CallerIDListViewHolder;->name:Landroid/widget/TextView;
 
-    const v2, 0x7f11043d
+    const v2, 0x7f11043b
 
     invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -116,7 +116,7 @@
 
     iput-object v2, v0, Lcom/samsung/android/settings/accessories/AccessoriesUtils$CallerIDListViewHolder;->count:Landroid/widget/TextView;
 
-    const v2, 0x7f11043f
+    const v2, 0x7f11043d
 
     invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -126,7 +126,7 @@
 
     iput-object v2, v0, Lcom/samsung/android/settings/accessories/AccessoriesUtils$CallerIDListViewHolder;->check:Landroid/widget/CheckBox;
 
-    const v2, 0x7f11043e
+    const v2, 0x7f11043c
 
     invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -136,7 +136,7 @@
 
     iput-object v2, v0, Lcom/samsung/android/settings/accessories/AccessoriesUtils$CallerIDListViewHolder;->checkArea:Landroid/widget/LinearLayout;
 
-    const v2, 0x7f110440
+    const v2, 0x7f11043e
 
     invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

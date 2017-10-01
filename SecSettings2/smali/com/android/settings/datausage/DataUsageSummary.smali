@@ -1232,7 +1232,7 @@
 
     aput-object v7, v6, v5
 
-    const v7, 0x7f0b0f17
+    const v7, 0x7f0b0f22
 
     invoke-virtual {p0, v7, v6}, Lcom/android/settings/datausage/DataUsageSummary;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1531,7 +1531,7 @@
 
     if-gtz v11, :cond_7
 
-    const v11, 0x7f0b1b02
+    const v11, 0x7f0b1b05
 
     :goto_1
     const/4 v13, 0x2
@@ -1643,7 +1643,7 @@
     goto/16 :goto_0
 
     :cond_7
-    const v11, 0x7f0b1b03
+    const v11, 0x7f0b1b06
 
     goto :goto_1
 
@@ -2391,7 +2391,7 @@
     :cond_d
     if-eqz v1, :cond_21
 
-    const v8, 0x7f0b1aff
+    const v8, 0x7f0b1b02
 
     :goto_9
     iput v8, p0, Lcom/android/settings/datausage/DataUsageSummary;->mDataUsageTemplate:I
@@ -2628,12 +2628,12 @@
     :cond_21
     if-eqz v2, :cond_22
 
-    const v8, 0x7f0b1b00
+    const v8, 0x7f0b1b03
 
     goto/16 :goto_9
 
     :cond_22
-    const v8, 0x7f0b1b01
+    const v8, 0x7f0b1b04
 
     goto/16 :goto_9
 .end method
@@ -3002,7 +3002,7 @@
     return v8
 
     :pswitch_data_0
-    .packed-switch 0x7f110875
+    .packed-switch 0x7f110873
         :pswitch_0
         :pswitch_2
         :pswitch_1
@@ -3193,7 +3193,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0f0d
+    const v2, 0x7f0b0f18
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3262,7 +3262,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b0f0a
+    const v3, 0x7f0b0f15
 
     move-object v4, v2
 
@@ -3561,7 +3561,7 @@
 
     const/4 v4, 0x0
 
-    const v3, 0x7f110875
+    const v3, 0x7f110873
 
     invoke-interface {p1, v3}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -3572,7 +3572,7 @@
     invoke-interface {v1, v4}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
 
     :cond_0
-    const v3, 0x7f110877
+    const v3, 0x7f110875
 
     invoke-interface {p1, v3}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -3594,7 +3594,7 @@
 
     :cond_1
     :goto_0
-    const v3, 0x7f110876
+    const v3, 0x7f110874
 
     invoke-interface {p1, v3}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 

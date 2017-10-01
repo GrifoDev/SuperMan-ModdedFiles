@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Тохируулах</string>
     <string name="reset_network_settings_list_summary">Wi-Fi, Bluetooth болон бусад сүлжээний тохиргоог өгөгдмөл болгож сэргээ.</string>
     <string name="master_clear_list_summary">Төхөөрөмжийнхөө үйлдвэрийн өгөгдмөл тохиргоог сэргээ. Энэ нь файл болон татаж авсан хэрэглүүрүүд зэрэг бүх өгөгдлийг арилгана.</string>
-    <string name="auto_restart_summary">Тогтоосон цагт төхөөрөмжөө автоматаар унтрааж асаагаад ажиллагааг тохиромжтой болго. Төхөөрөмжийг унтрааж асаахад хадгалагдаагүй бүх өгөгдөл устана.</string>
+    <string name="auto_restart_summary">Утсаа долоо хоногт нэг удаа автоматаар унтрааж асаагаад тохируул. Утас унтарч асахад хадгалаагүй өгөгдлүүд алдагдана.</string>
     <string name="search_settings">Хайх</string>
     <string name="related_results">%d холбогдох зүйл</string>
     <string name="no_results_found">Үр дүн олдсонгүй</string>
@@ -1485,6 +1485,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_verify_failed_summary">Таны төхөөрөмжийг дахин эхлүүлэх боломжгүй. Нэгдсэн баталгаажуулалт амжилтгүй болсон. Та төхөөрөмжийнхөө үйлдвэрийн өгөгдмөл тохиргоог сэргээх шаардлагатай. Энэ нь таны бүх өгөгдлийг арилгана.</string>
     <string name="cryptkeeper_emergency_call">Яаралтай тусламжийн дуудлага</string>
     <string name="cryptkeeper_return_to_call">Дуудлага руу буцах</string>
+    <string name="cryptkeeper_default_enter_msg">Аюулгүй байдлын үүднээс таны утсыг шифрлэлээ.</string>
     <string name="enter_password">Төхөөрөмжийг эхлүүлэхдээ нууц үгээ оруул.</string>
     <string name="enter_pin">Төхөөрөмжийг эхлүүлэхдээ PIN-гээ оруул.</string>
     <string name="enter_pattern">Төхөөрөмжийг эхлүүлэхдээ хээгээ зур.</string>
@@ -1498,6 +1499,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_last_warn_wipe">Төхөөрөмжийн үйлдвэрийн өгөгдмөл тохиргоог сэргээх хүртэл та 1 л удаа асаахаар оролдох боломжтой. Энэ нь таны файл, татаж авсан хэрэглүүрүүд зэрэг бүх мэдээллийг бүрмөсөн арчина.</string>
     <string name="crypt_keeper_failed_title_dec">Кодыг тайлж чадсангүй.</string>
     <string name="crypt_keeper_failed_summary_dec">Тасалдлаас шалтгаалж шифр тайлах боломжгүй байна. Ашиглахаас өмнө үйлдвэрийн өгөгдөл тэглэх (бүх өгөгдлийг арилгаж) ажиллагаа гүйцэтгэ.</string>
+    <string name="crypt_keeper_set_screen_lock_type">Дэлгэц түгжээн төрөл тохируул</string>
     <string name="encryption_interstitial_message_kor">Таны төхөөрөмжийг шифрлэсэн. Дэлгэцийн түгжээ шаардахыг сонгож, шифрлэсэн өгөгдлөө хамгаалаад төхөөрөмж асаалттай үед өгөгдлийн шифрийг тайл. Энэ нь алга болсон буюу хулгайлагдсан төхөөрөмжүүд дээрх өгөгдлийг хамгаалахад тусалдаг. Та төхөөрөмжийг асаах үед ч гэсэн төхөөрөмжийнхөө түгжээг тайлж, өгөгдлийн шифрийг нь тайлах шаардлагатай. Та төхөөрөмжийнхөө шифрийг тайлах хүртэл ямар ч дуудлага, зурвас, мэдэгдэл хүлээн авахгүй.</string>
     <string name="encryption_interstitial_message_direction">"Төхөөрөмжийг асаахдаа Чиглэлээр түгжихийг сонгож, төхөөрөмжөө хамгаал. Энэ нь алга болгосон буюу хулгайлагдсан төхөөрөмжүүд дээрх өгөгдлийг хамгаалахад тусалдаг.
 
@@ -1737,6 +1739,8 @@ You will also need it when:"</string>
     <string name="empty_content_toast">Хадгалах агуулга байхгүй.</string>
     <string name="find_my_mobile_message_zero">"Find My Mobile вэб үйлчилгээг ашиглаж төхөөрөмжөө алсаас хянаж, удирдана уу. Илүү их мэдээлэл авч, өөр ямар функц байгааг олж мэдээд дараах вэб сайтад зочилно уу:
 %s"</string>
+    <string name="send_last_location_title">Сүүлийн байршлыг илгээ</string>
+    <string name="send_last_location_summary">Утасны зайн цэнэг заасан түвшнээс доошлоход сүүлийн байршлаа Find My Mobile сервер рүү илгээхийг зөвшөөр.</string>
     <string name="high_power_description">Хэрэглүүр тус бүрд Зай ашиглалтыг тохируулахыг идэвхжүүл. Мобайл сүлжээ, синхрончлох өгөгдөл зэргийг ашигладаг зарим функц нь зайн тэжээл хэмнэлтийг хязгаарлана.</string>
     <string name="wifi_display_summary_off">Идэвхгүй</string>
     <string name="battery_usage_description">Энэ дэлгэц нь төхөөрөмжийг хамгийн сүүлд бүрэн цэнэглэснээс хойшхи зай ашиглалтын өгөгдлийг харуулдаг.</string>
@@ -1968,6 +1972,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">Ямар хэрэглүүрийн холбоосыг түгжих дэлгэц дээр ашиглахаа сонго.</string>
     <string name="lockscreen_notifications">Түгжих дэлгэц дээрх мэдэгдлүүд</string>
     <string name="work_profile_lockscreen_notifications">Ажлын профилийн мэдэгдлүүд</string>
+    <string name="lock_network_and_security">Сүлжээ болон хамгаалалтыг түгж</string>
+    <string name="lock_network_and_security_summary">Таны утас алдагдсан эсвэл хулгайлагдсан тохиолдолд олох болон хамгаалахыг амар болгохын тулд утсаа түгжээтэй үед сүлжээ болон хамгаалалттай холбоотой функцуудыг түгжээтэй байлга.</string>
     <string name="dualclock_settings_title">Хос цаг</string>
     <string name="dualclock_settings_summary">Роумингтай үед орон нутгийн болон эх нутгийн цагийн бүсүүдийг харуул.</string>
     <string name="set_home_city">Гэрийн цаг/бүс тохируулах</string>
@@ -2153,7 +2159,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="air_browse_music_on_lock_screen_title">Түгжих дэлгэц дээр хөгжим</string>
     <string name="air_browse_music_on_lock_screen_summary">Түгжих дэлгэц дээр хөгжмийн дууг өөрчил.</string>
     <string name="air_browse_note_summary">Харах горимд байхдаа хуудаснуудын хооронд шилж.</string>
-    <string name="data_usage_enable_mobile_summery">Хэрэв Хөдөлгөөнт өгөгдөл унтарвал, сүлжээний холболт шаарддаг үйлчилгээнүүдийг ашиглаж, төхөөрөмжөө Wi-Fi сүлжээнд холбох ёстой.</string>
+    <string name="data_usage_enable_mobile_summery">Мобайл сүлжээгээрээ интернетэд ханд.</string>
     <string name="data_usage_enable_mobile_warning_skt">Хөдөлгөөнт сүлжээгээр холбогдоход таны өгөгдлийн багцаас хамаарч нэмэлт төлбөр гарч болно. Үргэлжлүүлэх үү?</string>
     <string name="data_usage_enable_mobile_warning_ktt">Хөдөлгөөнт сүлжээгээр холбогдоход таны өгөгдлийн багцаас хамаарч нэмэлт төлбөр гарч болно. Үргэлжлүүлэх үү?</string>
     <string name="data_usage_enable_mobile_warning_lgt">Хөдөлгөөнт сүлжээгээр холбогдоход таны өгөгдлийн багцаас хамаарч нэмэлт төлбөр гарч болно. Үргэлжлүүлэх үү?</string>
@@ -2522,8 +2528,8 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="secure_folder_summary">Хувийн контент, хэрэглүүрүүдээ түгжээд хамгаалалтыг нь сайжруул.</string>
     <string name="text_biometrics_finger_title_enterprise">Хурууны хээгээр %2$s-н түгжээг тайлахад %1$s тохирохгүй.</string>
     <string name="edge_feeds_title">Захын эх сурв.</string>
-    <string name="screensaver_settings_summary">Төхөөрөмж залгасан буюу дэлгэц унтарсан үед цэнэглэх явцад юу болохыг удирд. Энэ функцыг мөн Өдрийн зүүд гэж нэрлэдэг.</string>
-    <string name="screensaver_settings_summary_wo_dock">Төхөөрөмж цэнэглэх үеэр дэлгэц унтарсны дараа дэлгэц амраагчийг харуул.</string>
+    <string name="screensaver_settings_summary">Утсаа цэнэглэх үеэр дэлгэц унтрахад дэлгэц амраагч харуул.</string>
+    <string name="screensaver_settings_summary_wo_dock">Утсыг сууринд залгасан эсвэл цэнэглэх үеэр дэлгэц унтрахад дэлгэц амраагч харуул.</string>
     <string name="apn_already_exists">Хэдийн оршиж байна</string>
     <string name="error_unavailable_apn">Энэ APN энэ төхөөрөмж дээр зөвшөөрөгдөөгүй. Өөрийг оролдож үзнэ үү.</string>
     <string name="error_message_port_out_of_range">Портын дугаар %1$d - %2$d тэмдэгтээс бүрдэх ёстой</string>
@@ -3288,6 +3294,7 @@ Wi-Fi is now on."</string>
     <string name="wfd_connection_end_toast">Screen Mirroring-н холболт тасарсан.</string>
     <string name="wfd_descrpition_playvia">Контентийг тоглуул.</string>
     <string name="wfd_descrpition_mirroring">Дэлгэцийг хуваалц.</string>
+    <string name="wfd_descrpition_playsound">Дуу тоглуул.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">Олон цонхыг идэвхгүй болгож жижиг цонхонд нээлттэй бүх аппыг хаана.</string>
     <string name="keyguard_password_attempt_count_pin_code">%d оролдлого үлдсэн.</string>
@@ -4127,7 +4134,7 @@ Receiving SMS"</string>
     <string name="location_network_based">Утасгүй сүлжээ ашиглах</string>
     <string name="location_neighborhood_level">Програмд Google-н байрлалын үйлчилгээгээр байрлал түргэн тооцоолохыг зөвшөөр. Нэргүй байрлалын өгөгдөл цуглуулж, Google-д илгээнэ.</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">Төхөөрөмжийн тухай</string>
+    <string name="about_settings">Утасны тухай</string>
     <string name="about_settings_vzw">Төхөөрөмжийн тухай</string>
     <string name="legal_information">Хууль эрх зүйн мэдээлэл</string>
     <string name="regulatory_information">Хууль тогтоомж.н мэдээлэл</string>
@@ -4312,7 +4319,7 @@ Receiving SMS"</string>
     <string name="phone_language">Хэл</string>
     <string name="show_password">Нууц үгсийг харагдуулах</string>
     <string name="show_password_summary">Нууц үгээ шивж байхдаа тэмдэгтүүдийг нь түр зуур харуул.</string>
-    <string name="ime_security_warning">Энэ арга таны оруулсан нууц үгсээс бусад бүх бичвэр, үүний дотор хувийн мэдээлэл болон кредит картын дугаарыг цуглуулж болно. Энэ нь %1$s програмынх болно. Ямар ч байсан ашиглах уу?</string>
+    <string name="ime_security_warning">%s нь таны бичиж буй бүх бичвэр, үүний дотор нууц үг, кредит картын дугаар зэрэг хувийн өгөгдлийг цуглуулж болзошгүй.</string>
     <string name="failed_to_open_app_settings_toast">%s-н тохиргоог нээж чадсангүй.</string>
     <string name="keyboard_and_input_methods_category">Гар</string>
     <string name="virtual_keyboard_category">Виртуал гар</string>

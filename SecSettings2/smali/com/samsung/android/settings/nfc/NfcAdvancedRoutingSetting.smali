@@ -327,7 +327,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0957
+    const v3, 0x7f0b0961
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -347,7 +347,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0959
+    const v3, 0x7f0b0963
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -391,7 +391,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b095a
+    const v3, 0x7f0b0964
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -412,7 +412,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b095c
+    const v3, 0x7f0b0966
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -426,7 +426,7 @@
 
     invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const v1, 0x7f1104ac
+    const v1, 0x7f1104aa
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;->findViewById(I)Landroid/view/View;
 
@@ -440,13 +440,13 @@
 
     move-result-object v10
 
-    const v1, 0x7f0a0469
+    const v1, 0x7f0a0467
 
     invoke-virtual {v10, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    const v2, 0x7f0a045e
+    const v2, 0x7f0a045c
 
     invoke-virtual {v10, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -454,7 +454,7 @@
 
     add-int/2addr v1, v2
 
-    const v2, 0x7f0a046d
+    const v2, 0x7f0a046b
 
     invoke-virtual {v10, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -890,13 +890,13 @@
 
     invoke-direct {v2, p0, v3}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;I)V
 
-    const v3, 0x7f0b0954
+    const v3, 0x7f0b095e
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v2
 
-    const v3, 0x7f0b0955
+    const v3, 0x7f0b095f
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -906,7 +906,7 @@
 
     invoke-direct {v3, p0, p1, v1}, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting$1;-><init>(Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;Ljava/lang/String;I)V
 
-    const v4, 0x7f0b1a09
+    const v4, 0x7f0b1a0c
 
     invoke-virtual {v2, v4, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

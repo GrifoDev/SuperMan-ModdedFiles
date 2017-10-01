@@ -67,7 +67,7 @@
 
     invoke-direct {v1, p0}, Lcom/android/settings/deviceinfo/UsbChargingNotiDialogVzw$2;-><init>(Lcom/android/settings/deviceinfo/UsbChargingNotiDialogVzw;)V
 
-    const v2, 0x7f0b1886
+    const v2, 0x7f0b1889
 
     invoke-virtual {v0, v2, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

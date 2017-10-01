@@ -485,7 +485,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Support</string>
     <string name="reset_network_settings_list_summary">Reset Wi-Fi, Bluetooth, and other network settings to their defaults.</string>
     <string name="master_clear_list_summary">Reset your device to its factory default settings. This will erase all data, including files and downloaded apps.</string>
-    <string name="auto_restart_summary">Optimise your device by restarting it automatically at set times. Any unsaved data will be lost when the device restarts.</string>
+    <string name="auto_restart_summary">Optimize your phone by restarting it automatically once a week. Any unsaved data will be lost when your phone restarts.</string>
     <string name="search_settings">Search</string>
     <string name="related_results">%d related items</string>
     <string name="no_results_found">No results found</string>
@@ -1628,6 +1628,10 @@ Tap OK to allow the brightness to be increased above safe levels."</string>
     <string name="crypt_keeper_vzw_password_warning">Set the Screen lock password with at least %d characters and 1 number.</string>
     <string name="crypt_keeper_decrypt_title">Decrypt Device</string>
     <string name="crypt_keeper_decrypt_summary">Device encrypted.</string>
+    <string name="crypt_keeper_type_pin">PIN</string>
+    <string name="crypt_keeper_type_pattern">Pattern</string>
+    <string name="crypt_keeper_type_password">Password</string>
+    <string name="crypt_keeper_type_direction">Direction lock</string>
     <string name="crypt_keeper_confirm_title_dec">Confirm decryption</string>
     <string name="crypt_keeper_force_power_cycle_pattern">To start up your device, power it off, power it on again, then try again. You must draw the pattern you use to start up the device and unlock the screen. Your backup PIN cannot be used to start up your device.</string>
     <string name="crypt_keeper_setup_description_dec">"Decrypting device. This may take some time. Please wait...
@@ -1720,6 +1724,7 @@ Encryption takes an hour or more. Before you start, ensure that the battery is c
     <string name="crypt_keeper_switch_input_method">Switch input method</string>
     <string name="cryptkeeper_emergency_call">Emergency call</string>
     <string name="cryptkeeper_return_to_call">Return to call</string>
+    <string name="cryptkeeper_default_enter_msg">Your phone is encrypted for security.</string>
     <string name="enter_password">To start up your device, enter your password.</string>
     <string name="enter_pin">To start up your device, enter your PIN.</string>
     <string name="enter_pattern">To start up your device, draw your pattern.</string>
@@ -1733,6 +1738,10 @@ Encryption takes an hour or more. Before you start, ensure that the battery is c
     <string name="crypt_keeper_last_warn_wipe">You have only 1 attempt left to start up your device before it is reset to its factory default settings. This will erase all data, including files and downloaded apps.</string>
     <string name="crypt_keeper_failed_title_dec">Decryption failed</string>
     <string name="crypt_keeper_failed_summary_dec">Unable to complete decryption because of interruption. Perform factory data reset (erasing all data) before use.</string>
+    <string name="crypt_keeper_set_screen_lock_type">Set screen lock type</string>
+    <string name="encryption_interstitial_message">"You can further protect this phone by requiring your %s to be entered before the phone starts up. This helps protect your data if the phone is lost or stolen. Some apps may require Secure Startup according to Device encryption policies for access to features, such as email sync.
+
+You will not receive any calls, messages, or notifications, and alarms will not sound, until the phone has started up."</string>
     <string name="encryption_interstitial_message_kor">Your device is encrypted. Protect your encrypted data by selecting Require screen lock to decrypt data when device powers on. This helps protect data on lost or stolen devices. You will need to unlock your device to decrypt its data whenever you power it on. You will not receive any calls, messages, or notifications until you decrypt your device.</string>
     <string name="encryption_interstitial_message_direction">"Protect your device by selecting Require Direction lock when device powers on. This helps protect data on lost or stolen devices.
 
@@ -1754,6 +1763,7 @@ You will not receive any calls, messages, or notifications, and alarms will not 
 You will not receive any calls, messages, or notifications, and alarms will not sound, until the device has started up."</string>
     <string name="encryption_interstitial_error_message">To protect your device data, change your screen lock type to PIN, Password, Pattern, or Fingerprint, then try again.</string>
     <string name="encryption_interstitial_error_message_direction">To protect your device data, change your screen lock type to PIN, Password, Pattern, Direction lock, or Fingerprints, then try again.</string>
+    <string name="encryption_interstitial_error_message_direction_without_fingerprint">To protect your device data, change your screen lock type to PIN, Password, Pattern or Direction lock then try again.</string>
     <string name="encryption_interstitial_error_message_iris_direction">To protect your device data, change your screen lock type to PIN, Password, Pattern, Direction lock, Fingerprints, or Irises, then try again.</string>
     <string name="encryption_interstitial_error_message_without_fingerprint">To protect your device data, change your screen lock type to PIN, Password, or Pattern, then try again.</string>
     <string name="encryption_interstitial_error_sktlock">Safety lock and Secure startup cannot be enabled at same time. Select a non-Safety lock and try again.</string>
@@ -2323,6 +2333,8 @@ Attempts Remaining :"</string>
     <string name="lock_screen_app_shortcut_summary">Select apps to open from the Lock screen.</string>
     <string name="lockscreen_notifications">Notifications on lock screen</string>
     <string name="work_profile_lockscreen_notifications">Work profile notifications</string>
+    <string name="lock_network_and_security">Lock network and security</string>
+    <string name="lock_network_and_security_summary">"Keep network and security-related functions locked while your phone is locked, making it easier to locate and protect if it's lost or stolen."</string>
     <string name="lock_screen_security">Screen security</string>
     <string name="lock_screen_swipe_options">Swipe options</string>
     <string name="lock_screen_pin_options">PIN lock options</string>
@@ -2533,7 +2545,7 @@ To use screen pinning:
     <string name="air_browse_music_on_lock_screen_title">Music on lock screen</string>
     <string name="air_browse_music_on_lock_screen_summary">Change music tracks on the lock screen.</string>
     <string name="air_browse_note_summary">Move between pages while in view mode.</string>
-    <string name="data_usage_enable_mobile_summery">If Mobile data is turned off, your device must be connected to a Wi-Fi network to use services that require a network connection.</string>
+    <string name="data_usage_enable_mobile_summery">Access the internet through your mobile network.</string>
     <string name="data_usage_enable_mobile_warning_skt">Data Network allowed. When using data calls, you will incur additional charges according to your data call plan.</string>
     <string name="data_usage_enable_mobile_warning_ktt">Data Network allowed. When using data calls, you will incur additional charges according to your data call plan.</string>
     <string name="data_usage_enable_mobile_warning_lgt">Data Network allowed. When using data calls, you will incur additional charges according to your data call plan.</string>
@@ -2965,8 +2977,8 @@ mode"</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s does not support fingerprints to unlock %2$s.</string>
     <string name="edge_feeds_title">Edge feeds</string>
     <string name="jansky_settings">Multi-line settings</string>
-    <string name="screensaver_settings_summary">Control what happens while the device is docked and/or charging while the screen is turned off. This function is also called Daydream.</string>
-    <string name="screensaver_settings_summary_wo_dock">Show a screensaver after the screen turns off automatically while the device is charging.</string>
+    <string name="screensaver_settings_summary">Show a screensaver after the screen turns off automatically while your phone is charging.</string>
+    <string name="screensaver_settings_summary_wo_dock">Show a screensaver after the screen turns off automatically while your phone is docked or charging.</string>
     <string name="apn_already_exists">Already exists.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one</string>
     <string name="error_message_port_out_of_range">Port number must be between %1$d and %2$d.</string>
@@ -2982,7 +2994,7 @@ mode"</string>
     <string name="sound_balance_summary">Adjust the left and right sound balance for listening to media players via earphones.</string>
     <string name="backup_samsung_account_title">Back up my data</string>
     <string name="restore_samsung_account_title">Restore</string>
-    <string name="auto_restart_header">Device management</string>
+    <string name="auto_restart_header">Phone management</string>
     <string name="auto_restart_title">Auto restart</string>
     <string name="switch_turn_on_text">Turn on</string>
     <string name="switch_turn_off_text">Turn off</string>
@@ -3932,6 +3944,7 @@ Use of service constitutes acceptance of the "<a href="http://cspire.com/tether"
     <string name="wfd_is_not_supported">This Function is not supported.</string>
     <string name="wfd_descrpition_playvia">Play content.</string>
     <string name="wfd_descrpition_mirroring">Mirror the screen.</string>
+    <string name="wfd_descrpition_playsound">Play sound.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">Multi window will be disabled and all apps open in pop-up windows will be closed.</string>
     <string name="keyguard_password_attempt_count_pin_code">%d attempt left.</string>
@@ -5412,7 +5425,7 @@ Consider using a faster SD card or USB storage device to improve performance."</
     <string name="location_access_summary">Allow apps that have asked your permission to use your location information.</string>
     <string name="location_sources_heading">Location sources</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">About device</string>
+    <string name="about_settings">About phone</string>
     <string name="about_settings_vzw">About device</string>
     <string name="about_settings_summary">View legal info, device status, and software version.</string>
     <string name="legal_information">Legal information</string>
@@ -7274,9 +7287,9 @@ To ensure the most up-to-date protection, enable automatic updates by accepting 
     <string name="rom_name">Rom Name</string>
     <string name="rom_name_details">SuperMan-Rom</string>
     <string name="rom_ver">Rom Version</string>
-    <string name="rom_ver_details">V2.6.0</string>
+    <string name="rom_ver_details">V2.7.0</string>
     <string name="rom_date">Rom Date</string>
-    <string name="rom_date_details">20.07.17</string>
+    <string name="rom_date_details">03.10.17</string>
     <string name="rom_developer">Rom Developer</string>
     <string name="rom_developer_name">Tkkg1994</string>
     <string name="autostarts_title">Autostarts</string>

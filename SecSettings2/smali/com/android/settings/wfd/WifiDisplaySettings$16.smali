@@ -76,7 +76,7 @@
 
     iget-object v3, p0, Lcom/android/settings/wfd/WifiDisplaySettings$16;->this$0:Lcom/android/settings/wfd/WifiDisplaySettings;
 
-    const v4, 0x7f0b0e37
+    const v4, 0x7f0b0e41
 
     invoke-virtual {v3, v4}, Lcom/android/settings/wfd/WifiDisplaySettings;->getString(I)Ljava/lang/String;
 

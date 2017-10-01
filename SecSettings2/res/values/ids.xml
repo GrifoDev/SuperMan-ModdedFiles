@@ -398,7 +398,6 @@
     <item type="id" name="helpText">false</item>
     <item type="id" name="emergencyCall">false</item>
     <item type="id" name="topLayout">false</item>
-    <item type="id" name="choose_pattern_scroll">false</item>
     <item type="id" name="lockPattern">false</item>
     <item type="id" name="footerText">false</item>
     <item type="id" name="footerLeftButton">false</item>
@@ -430,7 +429,6 @@
     <item type="id" name="ucmvendorIDText">false</item>
     <item type="id" name="leftSpacer">false</item>
     <item type="id" name="rightSpacer">false</item>
-    <item type="id" name="confirm_pattern_scroll">false</item>
     <item type="id" name="message_content">false</item>
     <item type="id" name="message_text_and_info">false</item>
     <item type="id" name="message_text">false</item>

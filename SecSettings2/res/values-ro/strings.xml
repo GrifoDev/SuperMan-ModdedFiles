@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Asistenţă</string>
     <string name="reset_network_settings_list_summary">Resetați la valorile implicite setările pentru conexiunile Wi-Fi, Bluetooth și alte rețele.</string>
     <string name="master_clear_list_summary">Resetați dispozitivul la setările implicite din fabrică. Această acțiune va elimina toate datele, inclusiv fișierele și aplicațiile descărcate.</string>
-    <string name="auto_restart_summary">Optimizați funcționarea dispozitivului repornindu-l automat la intervale stabilite. Toate datele nesalvate se vor pierde atunci când dispozitivul repornește.</string>
+    <string name="auto_restart_summary">Optimizați telefonul repornind-l automat o dată pe săptămână. Toate datele nesalvate se vor pierde atunci când telefonul repornește.</string>
     <string name="search_settings">Căutare</string>
     <string name="related_results">%d elemente corelate</string>
     <string name="no_results_found">Nu au fost găsite rezultate</string>
@@ -1485,6 +1485,7 @@ Criptarea durează cel puțin o oră. Înainte de a începe, asigurați-vă că 
     <string name="crypt_keeper_verify_failed_summary">Dispozitivul nu poate fi repornit. Verificarea integrității nu a reușit. Este necesar să resetați dispozitivul la setările din fabrică. Această acțiune vă va șterge toate datele.</string>
     <string name="cryptkeeper_emergency_call">Apel de urgență</string>
     <string name="cryptkeeper_return_to_call">Revenire la apel</string>
+    <string name="cryptkeeper_default_enter_msg">Telefonul este criptat pentru securitate.</string>
     <string name="enter_password">Pentru a porni dispozitivul, introduceți parola.</string>
     <string name="enter_pin">Pentru a porni dispozitivul, introduceți codul PIN.</string>
     <string name="enter_pattern">Pentru a porni dispozitivul, desenați modelul.</string>
@@ -1498,6 +1499,7 @@ Criptarea durează cel puțin o oră. Înainte de a începe, asigurați-vă că 
     <string name="crypt_keeper_last_warn_wipe">V-a mai rămas 1 încercare de pornire a dispozitivului înainte ca acesta să fie resetat la setările implicite din fabrică. Acest lucru va șterge toate datele, inclusiv fișierele și aplicațiile descărcate.</string>
     <string name="crypt_keeper_failed_title_dec">Decriptare nereușită</string>
     <string name="crypt_keeper_failed_summary_dec">Nu se poate finaliza decriptarea, din cauza unei întreruperi. Efectuați resetarea la datele din fabrică (ștergerea tuturor datelor) înainte de utilizare.</string>
+    <string name="crypt_keeper_set_screen_lock_type">Set. tip de blocare ecran</string>
     <string name="encryption_interstitial_message_kor">Dispozitivul dvs. este criptat. Protejați-vă datele criptate selectând Se solicită blocarea ecranului pentru a decripta datele atunci când dispozitivul pornește. Acest lucru ajută la protejarea datelor de pe dispozitivele pierdute sau furate. Va trebui să deblocați dispozitivul pentru a decripta datele de pe acesta de fiecare dată când îl porniți. Nu veți primi niciun apel, mesaj sau notificare până când nu decriptați dispozitivul.</string>
     <string name="encryption_interstitial_message_direction">"Protejați-vă dispozitivul selectând Este necesară Blocarea prin direcție la pornirea dispozitivului. Acest lucru ajută la protejarea datelor de pe dispozitivele pierdute sau furate.
 
@@ -1737,6 +1739,8 @@ You will also need it when:"</string>
     <string name="empty_content_toast">Nu există conținut pentru salvare.</string>
     <string name="find_my_mobile_message_zero">"Monitorizați și controlați dispozitivul de la distanță utilizând serviciul web Găsire dispozitiv mobil. Pentru mai multe informații și pentru a afla ce alte funcții sunt disponibile, accesați următorul site web:
 %s"</string>
+    <string name="send_last_location_title">Trimitere ultima locație</string>
+    <string name="send_last_location_summary">Permiteți telefonului să trimită ultima sa locație către serverul Găsire dispozitiv mobil atunci când bateria scade sub un anumit nivel.</string>
     <string name="high_power_description">Activați Optimizare utilizare baterie pentru aplicații individuale. Vor fi restricționate anumite funcții, cum ar fi cele care utilizează rețelele mobile sau date sincronizate, pentru a se economisi energia bateriei.</string>
     <string name="wifi_display_summary_off">Oprit</string>
     <string name="battery_usage_description">Ecranul afișează datele despre utilizarea bateriei de la ultima încărcare completă a dispozitivului.</string>
@@ -1968,6 +1972,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">Selectați ce comenzi rapide la aplicații doriți să utilizați pe ecranul de blocare.</string>
     <string name="lockscreen_notifications">Notificări pe ecranul de blocare</string>
     <string name="work_profile_lockscreen_notifications">Notificări profil de serviciu</string>
+    <string name="lock_network_and_security">Blocare rețea și securitate</string>
+    <string name="lock_network_and_security_summary">Mențineți blocate funcțiile asociate cu rețeaua și securitatea atunci când telefonul este blocat, simplificând localizarea și protejarea acestuia, dacă este pierdut sau furat.</string>
     <string name="dualclock_settings_title">Ceas dual</string>
     <string name="dualclock_settings_summary">Afișați fusul orar local și pe cel de domiciliu în roaming.</string>
     <string name="set_home_city">Setare fus orar de acasă</string>
@@ -2153,7 +2159,7 @@ Chiar dacă datele din telefon au fost șterse, se va cere parola contului Googl
     <string name="air_browse_music_on_lock_screen_title">Muzică pe ecranul de blocare</string>
     <string name="air_browse_music_on_lock_screen_summary">Schimbați piesele muzicale din ecranul de blocare.</string>
     <string name="air_browse_note_summary">Comutați între pagini când sunteți în modul Vizualizare.</string>
-    <string name="data_usage_enable_mobile_summery">Dacă opțiunea Date mobile este dezactivată, dispozitivul trebuie să fie conectat la o rețea Wi-Fi pentru a utiliza serviciile care necesită o conexiune la rețea.</string>
+    <string name="data_usage_enable_mobile_summery">Accesați internetul prin intermediul rețelei mobile.</string>
     <string name="data_usage_enable_mobile_warning_skt">Conectarea la rețelele mobile poate genera costuri suplimentare, în funcție de planul de date. Continuați?</string>
     <string name="data_usage_enable_mobile_warning_ktt">Conectarea la rețelele mobile poate genera costuri suplimentare, în funcție de planul de date. Continuați?</string>
     <string name="data_usage_enable_mobile_warning_lgt">Conectarea la rețelele mobile poate genera costuri suplimentare, în funcție de planul de date. Continuați?</string>
@@ -2523,8 +2529,8 @@ Reîncercați."</string>
     <string name="secure_folder_summary">Blocați conținutul și aplicațiile private pentru a îmbunătăți securitatea.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s nu acceptă amprentele pentru a debloca %2$s.</string>
     <string name="edge_feeds_title">Flux. Ecr. lat.</string>
-    <string name="screensaver_settings_summary">Controlați ceea ce se întâmplă atunci când dispozitivul este andocat și/sau se încarcă în timp ce ecranul este oprit. Această funcție mai este denumită și Daydream.</string>
-    <string name="screensaver_settings_summary_wo_dock">Afișați un economizor de ecran după ce ecranul se oprește automat în timp ce dispozitivul se încarcă.</string>
+    <string name="screensaver_settings_summary">Se afișează un economizor de ecran după ce ecranul se oprește automat în timp ce telefonul se încarcă.</string>
+    <string name="screensaver_settings_summary_wo_dock">Se afișează un screensaver după ce ecranul se oprește automat în timp ce telefonul este andocat sau se încarcă.</string>
     <string name="apn_already_exists">Există deja.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Numărul portului trebuie să fie cuprins între %1$d și %2$d.</string>
@@ -3289,6 +3295,7 @@ Utilizarea funcției Hotspot mobil crește consumul bateriei și utilizarea date
     <string name="wfd_connection_end_toast">Conexiunea Screen Mirroring s-a încheiat.</string>
     <string name="wfd_descrpition_playvia">Redați conținut.</string>
     <string name="wfd_descrpition_mirroring">Oglindiți ecranul.</string>
+    <string name="wfd_descrpition_playsound">Redați sunet.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">Opțiunea Ferestre multiple va fi dezactivată și toate aplicațiile deschise în ferestre pop-up vor fi închise.</string>
     <string name="keyguard_password_attempt_count_pin_code">%d încercare rămasă</string>
@@ -4128,7 +4135,7 @@ Se recomandă să utilizaţi un card SD sau un dispozitiv de stocare USB mai rap
     <string name="location_network_based">Utilizați rețele wireless</string>
     <string name="location_neighborhood_level">Perm. aplic. să utiliz. serv. de localiz. Google pt. a estima rapid loc. dvs. Datele despre locație vor fi col. și trim. la Google.</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">Despre dispozitiv</string>
+    <string name="about_settings">Despre telefon</string>
     <string name="about_settings_vzw">Despre dispozitiv</string>
     <string name="legal_information">Informații juridice</string>
     <string name="regulatory_information">Inform. de reglementare</string>
@@ -4313,7 +4320,7 @@ Datele existente ale aplicațiilor nu se vor pierde."</string>
     <string name="phone_language">Limbă</string>
     <string name="show_password">Faceți parolele vizibile</string>
     <string name="show_password_summary">Afișați scurt caracterele parolelor pe măsură ce le introduceți.</string>
-    <string name="ime_security_warning">Această metodă poate colecta tot textul pe care îl introduceți, cu excepția parolelor, inclusiv datele personale și numerele cardurilor de credit. Provine de la aplicația %1$s. Utilizați totuși?</string>
+    <string name="ime_security_warning">%s poate colecta toate textele pe care le introduceți, inclusiv date personale, cum ar fi parolele și numerele cardurilor de credit.</string>
     <string name="failed_to_open_app_settings_toast">Deschiderea setărilor pentru %s nu a reușit.</string>
     <string name="keyboard_and_input_methods_category">Tastaturi</string>
     <string name="virtual_keyboard_category">Tastatură virtuală</string>

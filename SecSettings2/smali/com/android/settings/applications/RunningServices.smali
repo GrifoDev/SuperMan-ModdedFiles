@@ -124,7 +124,7 @@
 
     iput-object p1, p0, Lcom/android/settings/applications/RunningServices;->mOptionsMenu:Landroid/view/Menu;
 
-    const v0, 0x7f0b1524
+    const v0, 0x7f0b1527
 
     invoke-interface {p1, v2, v1, v1, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -132,7 +132,7 @@
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
-    const v0, 0x7f0b1525
+    const v0, 0x7f0b1528
 
     invoke-interface {p1, v2, v3, v3, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -156,7 +156,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f11047c
+    const v1, 0x7f11047a
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -170,7 +170,7 @@
 
     invoke-virtual {v1}, Lcom/android/settings/applications/RunningProcessesView;->doCreate()V
 
-    const v1, 0x7f11044e
+    const v1, 0x7f11044c
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

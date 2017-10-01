@@ -785,7 +785,7 @@
 .method private AssignDragItem()V
     .locals 5
 
-    const v4, 0x7f110631
+    const v4, 0x7f11062f
 
     const v3, 0x7f020353
 
@@ -1248,7 +1248,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/accessibility/assistantmenu/SettingsMenuEditorFragment;->mResources:Landroid/content/res/Resources;
 
-    const v5, 0x7f0a05d7
+    const v5, 0x7f0a05d5
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2263,7 +2263,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/accessibility/assistantmenu/SettingsMenuEditorFragment;->mResources:Landroid/content/res/Resources;
 
-    const v2, 0x7f0a05d7
+    const v2, 0x7f0a05d5
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2798,7 +2798,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/accessibility/assistantmenu/SettingsMenuEditorFragment;->lin_Layout:Landroid/widget/LinearLayout;
 
-    const v1, 0x7f11062e
+    const v1, 0x7f11062c
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -2820,7 +2820,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/accessibility/assistantmenu/SettingsMenuEditorFragment;->lin_Layout:Landroid/widget/LinearLayout;
 
-    const v1, 0x7f11062f
+    const v1, 0x7f11062d
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -2842,7 +2842,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/accessibility/assistantmenu/SettingsMenuEditorFragment;->lin_Layout:Landroid/widget/LinearLayout;
 
-    const v1, 0x7f110630
+    const v1, 0x7f11062e
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -4876,7 +4876,7 @@
 
     :cond_0
     :goto_0
-    const v4, 0x7f110631
+    const v4, 0x7f11062f
 
     invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

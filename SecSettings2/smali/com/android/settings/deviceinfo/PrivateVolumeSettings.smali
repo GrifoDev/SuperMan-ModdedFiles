@@ -133,7 +133,7 @@
 .method static constructor <clinit>()V
     .locals 6
 
-    const v5, 0x7f0b13ee
+    const v5, 0x7f0b13f1
 
     const/4 v0, 0x1
 
@@ -145,15 +145,15 @@
 
     sput-object v0, Lcom/android/settings/deviceinfo/PrivateVolumeSettings;->ITEMS_NO_SHOW_SHARED:[I
 
-    const v0, 0x7f0b13a9
+    const v0, 0x7f0b13ac
 
-    const v1, 0x7f0b13a7
+    const v1, 0x7f0b13aa
 
     const v2, 0x7f0b04eb
 
     const v3, 0x7f0b04ea
 
-    const v4, 0x7f0b13f3
+    const v4, 0x7f0b13f6
 
     filled-new-array {v0, v1, v2, v3, v4}, [I
 
@@ -163,7 +163,7 @@
 
     const v0, 0x7f0b04ec
 
-    const v1, 0x7f0b13f1
+    const v1, 0x7f0b13f4
 
     filled-new-array {v5, v0, v1}, [I
 
@@ -185,13 +185,13 @@
 
     :array_0
     .array-data 4
-        0x7f0b13a9
-        0x7f0b13a7
+        0x7f0b13ac
+        0x7f0b13aa
         0x7f0b04eb
-        0x7f0b13ee
-        0x7f0b04ec
         0x7f0b13f1
-        0x7f0b13f3
+        0x7f0b04ec
+        0x7f0b13f4
+        0x7f0b13f6
     .end array-data
 .end method
 
@@ -367,7 +367,7 @@
     :cond_6
     aget v2, v1, v0
 
-    const v3, 0x7f0b13f1
+    const v3, 0x7f0b13f4
 
     if-ne v2, v3, :cond_2
 
@@ -412,7 +412,7 @@
     invoke-virtual {v0, v1}, Lcom/android/settings/deviceinfo/StorageItemPreference;->setKey(Ljava/lang/String;)V
 
     :goto_1
-    const v1, 0x7f0b13a9
+    const v1, 0x7f0b13ac
 
     if-ne p2, v1, :cond_2
 
@@ -456,7 +456,7 @@
     goto :goto_1
 
     :cond_2
-    const v1, 0x7f0b13a7
+    const v1, 0x7f0b13aa
 
     if-ne p2, v1, :cond_3
 
@@ -478,7 +478,7 @@
     goto :goto_2
 
     :cond_4
-    const v1, 0x7f0b13aa
+    const v1, 0x7f0b13ad
 
     invoke-virtual {v0, v1}, Lcom/android/settings/deviceinfo/StorageItemPreference;->setSummary(I)V
 
@@ -735,7 +735,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b0ac3
+    const v5, 0x7f0b0acd
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1318,14 +1318,14 @@
         0x7f0b04eb -> :sswitch_a
         0x7f0b04ec -> :sswitch_1
         0x7f0b04ed -> :sswitch_7
-        0x7f0b13a7 -> :sswitch_9
-        0x7f0b13a9 -> :sswitch_8
-        0x7f0b13ee -> :sswitch_0
-        0x7f0b13ef -> :sswitch_2
-        0x7f0b13f0 -> :sswitch_3
-        0x7f0b13f1 -> :sswitch_4
-        0x7f0b13f2 -> :sswitch_6
-        0x7f0b13f3 -> :sswitch_5
+        0x7f0b13aa -> :sswitch_9
+        0x7f0b13ac -> :sswitch_8
+        0x7f0b13f1 -> :sswitch_0
+        0x7f0b13f2 -> :sswitch_2
+        0x7f0b13f3 -> :sswitch_3
+        0x7f0b13f4 -> :sswitch_4
+        0x7f0b13f5 -> :sswitch_6
+        0x7f0b13f6 -> :sswitch_5
     .end sparse-switch
 .end method
 
@@ -1661,7 +1661,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b13c7
+    const v3, 0x7f0b13ca
 
     move-object v0, p0
 
@@ -1688,7 +1688,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b13c8
+    const v3, 0x7f0b13cb
 
     move-object v0, p0
 
@@ -1722,7 +1722,7 @@
     nop
 
     :pswitch_data_0
-    .packed-switch 0x7f11088e
+    .packed-switch 0x7f11088c
         :pswitch_0
         :pswitch_1
         :pswitch_2
@@ -1864,7 +1864,7 @@
 
     const/4 v5, 0x0
 
-    const v6, 0x7f0b13ee
+    const v6, 0x7f0b13f1
 
     const/4 v7, 0x0
 
@@ -2411,13 +2411,13 @@
         0x7f0b04ea -> :sswitch_9
         0x7f0b04ec -> :sswitch_8
         0x7f0b04ed -> :sswitch_7
-        0x7f0b13ce -> :sswitch_6
-        0x7f0b13ee -> :sswitch_0
-        0x7f0b13ef -> :sswitch_1
-        0x7f0b13f0 -> :sswitch_2
-        0x7f0b13f1 -> :sswitch_3
-        0x7f0b13f2 -> :sswitch_5
-        0x7f0b13f3 -> :sswitch_4
+        0x7f0b13d1 -> :sswitch_6
+        0x7f0b13f1 -> :sswitch_0
+        0x7f0b13f2 -> :sswitch_1
+        0x7f0b13f3 -> :sswitch_2
+        0x7f0b13f4 -> :sswitch_3
+        0x7f0b13f5 -> :sswitch_5
+        0x7f0b13f6 -> :sswitch_4
     .end sparse-switch
 .end method
 
@@ -2437,31 +2437,31 @@
     return-void
 
     :cond_0
-    const v6, 0x7f11088e
+    const v6, 0x7f11088c
 
     invoke-interface {p1, v6}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v4
 
-    const v6, 0x7f11088f
+    const v6, 0x7f11088d
 
     invoke-interface {p1, v6}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v2
 
-    const v6, 0x7f110890
+    const v6, 0x7f11088e
 
     invoke-interface {p1, v6}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v5
 
-    const v6, 0x7f110891
+    const v6, 0x7f11088f
 
     invoke-interface {p1, v6}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    const v6, 0x7f110892
+    const v6, 0x7f110890
 
     invoke-interface {p1, v6}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -2490,7 +2490,7 @@
     invoke-interface {v0, v8}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
 
     :goto_0
-    const v6, 0x7f0b13c9
+    const v6, 0x7f0b13cc
 
     invoke-interface {v0, v6}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
 
@@ -3006,7 +3006,7 @@
 
     move-object/from16 v23, v0
 
-    const v24, 0x7f0b13db
+    const v24, 0x7f0b13de
 
     move-object/from16 v0, p0
 
@@ -3076,7 +3076,7 @@
 
     aput-object v25, v24, v26
 
-    const v25, 0x7f0b13dc
+    const v25, 0x7f0b13df
 
     move-object/from16 v0, p0
 
@@ -3420,7 +3420,7 @@
 
     if-lez v23, :cond_16
 
-    const v23, 0x7f0b13d7
+    const v23, 0x7f0b13da
 
     move-object/from16 v0, p0
 
@@ -3528,7 +3528,7 @@
     invoke-direct {v0, v12, v1}, Lcom/android/settings/deviceinfo/PrivateVolumeSettings;->addCategory(Landroid/preference/PreferenceGroup;Ljava/lang/CharSequence;)Landroid/preference/PreferenceCategory;
 
     :cond_16
-    const v23, 0x7f0b13f2
+    const v23, 0x7f0b13f5
 
     const/16 v24, 0x0
 
@@ -3577,7 +3577,7 @@
 
     :cond_18
     :goto_c
-    const v23, 0x7f0b13ce
+    const v23, 0x7f0b13d1
 
     move-object/from16 v0, p0
 

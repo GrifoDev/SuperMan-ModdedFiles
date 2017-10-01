@@ -1150,7 +1150,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f0a044b
+    const v19, 0x7f0a0449
 
     invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1168,7 +1168,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f0a044c
+    const v19, 0x7f0a044a
 
     invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1186,7 +1186,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f0a044e
+    const v19, 0x7f0a044c
 
     invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1204,7 +1204,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f0a044d
+    const v19, 0x7f0a044b
 
     invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2119,7 +2119,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b1a09
+    const v5, 0x7f0b1a0c
 
     invoke-virtual {v4, v5}, Landroid/app/ActionBar;->setTitle(I)V
 
@@ -2281,7 +2281,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/accessories/LedCoverCallerIDSettings;->mSelectActionView:Landroid/view/View;
 
-    const v1, 0x7f11043a
+    const v1, 0x7f110438
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2301,7 +2301,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/accessories/LedCoverCallerIDSettings;->mSelectActionView:Landroid/view/View;
 
-    const v1, 0x7f110439
+    const v1, 0x7f110437
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2321,7 +2321,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/accessories/LedCoverCallerIDSettings;->mSelectActionView:Landroid/view/View;
 
-    const v1, 0x7f11043b
+    const v1, 0x7f110439
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2465,7 +2465,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f110442
+    const v1, 0x7f110440
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2475,7 +2475,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/accessories/LedCoverCallerIDSettings;->mGridViewWrapper:Landroid/widget/LinearLayout;
 
-    const v1, 0x7f110443
+    const v1, 0x7f110441
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2485,7 +2485,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/accessories/LedCoverCallerIDSettings;->mGridViewPreload:Lcom/samsung/android/settings/accessories/LedIconGridView;
 
-    const v1, 0x7f110446
+    const v1, 0x7f110444
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2495,7 +2495,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/accessories/LedCoverCallerIDSettings;->mGridViewCustom:Lcom/samsung/android/settings/accessories/LedIconGridView;
 
-    const v1, 0x7f110444
+    const v1, 0x7f110442
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2505,7 +2505,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/accessories/LedCoverCallerIDSettings;->mCustomCategoryTitle:Landroid/widget/TextView;
 
-    const v1, 0x7f110445
+    const v1, 0x7f110443
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2556,7 +2556,7 @@
     invoke-virtual {v1, v5}, Landroid/view/View;->setVisibility(I)V
 
     :cond_0
-    const v1, 0x7f110447
+    const v1, 0x7f110445
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2594,7 +2594,7 @@
 
     if-eqz v1, :cond_2
 
-    const v1, 0x7f110441
+    const v1, 0x7f11043f
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

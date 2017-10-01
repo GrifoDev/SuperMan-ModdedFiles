@@ -1058,7 +1058,7 @@
 
     if-eqz p1, :cond_0
 
-    const v2, 0x7f1103ac
+    const v2, 0x7f1103aa
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/display/FontPreviewTablet;->findViewById(I)Landroid/view/View;
 
@@ -1070,7 +1070,7 @@
 
     invoke-virtual {v0, p0}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v2, 0x7f1103af
+    const v2, 0x7f1103ad
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/display/FontPreviewTablet;->findViewById(I)Landroid/view/View;
 
@@ -1078,7 +1078,7 @@
 
     invoke-virtual {v1, v4}, Landroid/view/View;->setVisibility(I)V
 
-    const v2, 0x7f1103ae
+    const v2, 0x7f1103ac
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/display/FontPreviewTablet;->findViewById(I)Landroid/view/View;
 
@@ -1395,9 +1395,9 @@
 
     const/4 v6, 0x0
 
-    const v9, 0x7f1103b8
+    const v9, 0x7f1103b6
 
-    const v7, 0x7f1103b7
+    const v7, 0x7f1103b5
 
     const/4 v8, 0x0
 
@@ -1425,7 +1425,7 @@
 
     iput-object p0, v0, Lcom/android/internal/app/AlertController$AlertParams;->mPositiveButtonListener:Landroid/content/DialogInterface$OnClickListener;
 
-    const v5, 0x7f0b1102
+    const v5, 0x7f0b1105
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/display/FontPreviewTablet;->getString(I)Ljava/lang/String;
 
@@ -1433,7 +1433,7 @@
 
     iput-object v5, v0, Lcom/android/internal/app/AlertController$AlertParams;->mNegativeButtonText:Ljava/lang/CharSequence;
 
-    const v5, 0x7f0b153c
+    const v5, 0x7f0b153f
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/display/FontPreviewTablet;->getString(I)Ljava/lang/String;
 
@@ -1485,7 +1485,7 @@
 
     invoke-virtual {v5, v6}, Lcom/samsung/android/settings/widget/IntervalSeekBar;->semSetOverlapPointForDualColor(I)V
 
-    const v5, 0x7f1103b1
+    const v5, 0x7f1103af
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/display/FontPreviewTablet;->findViewById(I)Landroid/view/View;
 
@@ -1495,7 +1495,7 @@
 
     iput-object v5, p0, Lcom/samsung/android/settings/display/FontPreviewTablet;->mChangingSizeText:Landroid/widget/TextView;
 
-    const v5, 0x7f1103b6
+    const v5, 0x7f1103b4
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/display/FontPreviewTablet;->findViewById(I)Landroid/view/View;
 
@@ -1535,7 +1535,7 @@
 
     if-eqz p1, :cond_2
 
-    const v5, 0x7f1103b5
+    const v5, 0x7f1103b3
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/display/FontPreviewTablet;->findViewById(I)Landroid/view/View;
 
@@ -1777,7 +1777,7 @@
 
     invoke-virtual {v6}, Landroid/widget/ListView;->requestLayout()V
 
-    const v6, 0x7f1103b2
+    const v6, 0x7f1103b0
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/display/FontPreviewTablet;->findViewById(I)Landroid/view/View;
 
@@ -3268,7 +3268,7 @@
 
     invoke-direct {p0, v2}, Lcom/samsung/android/settings/display/FontPreviewTablet;->setAccessiblityFontSizeView(Z)V
 
-    const v2, 0x7f1103ba
+    const v2, 0x7f1103b8
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/display/FontPreviewTablet;->findViewById(I)Landroid/view/View;
 
@@ -3366,7 +3366,7 @@
     goto :goto_2
 
     :cond_7
-    const v2, 0x7f1103bb
+    const v2, 0x7f1103b9
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/display/FontPreviewTablet;->findViewById(I)Landroid/view/View;
 
@@ -3416,7 +3416,7 @@
 
     if-eqz v0, :cond_0
 
-    const v1, 0x7f11021d
+    const v1, 0x7f11021b
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3434,7 +3434,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v1, 0x7f11021e
+    const v1, 0x7f11021c
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3446,7 +3446,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/display/FontPreviewTablet;->mSaveButton:Landroid/widget/Button;
 
-    const v2, 0x7f0b1839
+    const v2, 0x7f0b183c
 
     invoke-virtual {v1, v2}, Landroid/widget/Button;->setText(I)V
 
@@ -4687,7 +4687,7 @@
 
     move-result-object v2
 
-    const v6, 0x7f0b13c3
+    const v6, 0x7f0b13c6
 
     invoke-virtual {v2, v6}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 

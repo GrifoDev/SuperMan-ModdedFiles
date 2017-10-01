@@ -2032,9 +2032,9 @@
 .method private updateDefaultPreferences()V
     .locals 11
 
-    const v7, 0x7f0b19d9
+    const v7, 0x7f0b19dc
 
-    const v6, 0x7f0b19d8
+    const v6, 0x7f0b19db
 
     const/4 v4, 0x1
 
@@ -2983,7 +2983,7 @@
 
     if-eqz v16, :cond_a
 
-    const v20, 0x7f0b19d8
+    const v20, 0x7f0b19db
 
     move-object/from16 v0, p0
 
@@ -3074,7 +3074,7 @@
 
     if-eqz v20, :cond_6
 
-    const v20, 0x7f0b1645
+    const v20, 0x7f0b1648
 
     move-object/from16 v0, p0
 
@@ -3141,7 +3141,7 @@
 
     const-string/jumbo v20, "settings_title"
 
-    const v21, 0x7f0b1616
+    const v21, 0x7f0b1619
 
     move-object/from16 v0, p0
 
@@ -3263,7 +3263,7 @@
     goto/16 :goto_3
 
     :cond_a
-    const v20, 0x7f0b19d9
+    const v20, 0x7f0b19dc
 
     move-object/from16 v0, p0
 
@@ -4315,7 +4315,7 @@
 
     move-result-object v17
 
-    const v18, 0x7f0b1600
+    const v18, 0x7f0b1603
 
     invoke-virtual/range {v17 .. v18}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -5712,7 +5712,7 @@
 
     if-eqz v12, :cond_2a
 
-    const v13, 0x7f0b19d8
+    const v13, 0x7f0b19db
 
     :goto_13
     invoke-virtual {v14, v13}, Lcom/samsung/android/settings/SettingsSwitchPreference;->setSummary(I)V
@@ -5769,7 +5769,7 @@
     goto :goto_12
 
     :cond_2a
-    const v13, 0x7f0b19d9
+    const v13, 0x7f0b19dc
 
     goto :goto_13
 
@@ -6446,7 +6446,7 @@
 
     const-string/jumbo v7, "title"
 
-    const v8, 0x7f0b1603
+    const v8, 0x7f0b1606
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsVision;->getString(I)Ljava/lang/String;
 
@@ -6456,7 +6456,7 @@
 
     const-string/jumbo v7, "summary"
 
-    const v8, 0x7f0b1606
+    const v8, 0x7f0b1609
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsVision;->getString(I)Ljava/lang/String;
 
@@ -6511,7 +6511,7 @@
 
     const-string/jumbo v7, "title"
 
-    const v8, 0x7f0b1600
+    const v8, 0x7f0b1603
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsVision;->getString(I)Ljava/lang/String;
 

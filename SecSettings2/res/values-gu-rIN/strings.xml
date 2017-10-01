@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">સમર્થન</string>
     <string name="reset_network_settings_list_summary">Wi-Fi, બ્લ્યુટુથ, અને અન્ય નેટવર્ક સેટિંગ્સને તેમના મૂળભૂત પર રીસેટ કરો.</string>
     <string name="master_clear_list_summary">તમારા ઉપકરણને ફેક્ટરી મૂળભૂત સેટિંગ્સ પર રીસેટ કરો. આ ફાઇલ્સ અને ડાઉનલોડ કરેલ એપ્લિકેશન્સ સહિત તમામ ડેટા ભૂંસી નાખશે.</string>
-    <string name="auto_restart_summary">સેટ કરેલ સમયોએ તમારા ઉપકરણનો સ્વચાલિત રીતે પુનઃપ્રારંભ કરીને તેને શ્રેષ્ઠ બનાવો. ઉપકરણનો પુનઃપ્રારંભ થાય ત્યારે કોઇપણ ન સાચવેલ ડેટા ખોવાઇ જશે.</string>
+    <string name="auto_restart_summary">તમારા ફોનને અઠવાડિયામાં એકવાર પુનઃપ્રારંભ કરીને શ્રેષ્ઠ બનાવો. જ્યારે તમારો ફોન પુનઃપ્રારંભ થાય ત્યારે કોઈપણ વણસાચવેલ ડેટા ગુમ થશે.</string>
     <string name="search_settings">શોધો</string>
     <string name="related_results">%d સંબંધિત વસ્તુઓ</string>
     <string name="no_results_found">કોઈ પરિણામો મળ્યાં નથી</string>
@@ -1485,6 +1485,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_verify_failed_summary">તમારા ઉપકરણને ફરીથી ચાલુ કરવામાં અસમર્થ. અખંડિતતા ચકાસણી નિષ્ફળ થઈ. તમારે તમારા ઉપકરણને ફેકટરી મૂળભૂત પર ફરી સુયોજીત કરવાની જરૂર છે. આ તમારા બધા ડેટાને ભૂંસી નાખશે.</string>
     <string name="cryptkeeper_emergency_call">તાત્કાલિક કૉલ</string>
     <string name="cryptkeeper_return_to_call">કૉલ પર પાછા જાઓ</string>
+    <string name="cryptkeeper_default_enter_msg">તમારો ફોન સુરક્ષા માટે એન્ક્રિપ્ટ કરાયો છે.</string>
     <string name="enter_password">તમારું ઉપકરણ પ્રારંભ કરવા માટે, તમારો પાસવર્ડ દાખલ કરો.</string>
     <string name="enter_pin">તમારું ઉપકરણ પ્રારંભ કરવા માટે, તમારો PIN દાખલ કરો.</string>
     <string name="enter_pattern">તમારું ઉપકરણ પ્રારંભ કરવા માટે, તમારી પેટર્ન દોરો.</string>
@@ -1498,6 +1499,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_last_warn_wipe">તમારી પાસે હવે ઉપકરણને ફેક્ટરી મૂળભૂત સેટિંગ્સ પર રીસેટ થાય પહેલા ચાલુ કરવા માટે ફક્ત 1 પ્રયાસ બાકી છે. આ ફાઇલ્સ અને ડાઉનલોડ કરેલ એપ્સ સહિત, બધો ડેટા ભૂંસી નાખશે.</string>
     <string name="crypt_keeper_failed_title_dec">ડિક્રિપ્શન નિષ્ફળ.</string>
     <string name="crypt_keeper_failed_summary_dec">અવરોધને કારણે ડિક્રિપ્શન પૂર્ણ કરવામાં અક્ષમ છે. વાપરવા પહેલાં ફેકટરી ડેટા રીસેટ (બધી માહિતી ભૂંસીને) કરો.</string>
+    <string name="crypt_keeper_set_screen_lock_type">સ્ક્રીન લોકનો પ્રકાર સેટ કરો</string>
     <string name="encryption_interstitial_message_kor">તમારું ઉપકરણ એન્ક્રિપ્ટ કરેલ છે. જ્યારે ઉપકરણનો પાવર ચાલુ હોય ત્યારે ડેટા ડિક્રિપ્ટ કરવા માટે આવશ્યક સ્ક્રીન લોક પસંદ કરીને તમારા એન્ક્રિપ્ટ કરેલ ડેટાની રક્ષા કરો. ઉપકરણો ગુમ થઈ જાય કે ચોરાઈ જાય ત્યારે ડેટાની રક્ષા કરવામાં આ મદદ કરે છે. જ્યારે પણ તમે તમારા ઉપકરણનો પાવર ચાલુ કરો ત્યારે તેનો ડેટા ડિક્રિપ્ટ કરવા માટે તમને તેને અનલોક કરવાની જરૂર પડશે. તમે તમારું ઉપકરણ ડિક્રિપ્ટ નહીં કરો ત્યાં સુધી તમને કોઇ કૉલ્સ, સંદેશા, અથવા સૂચનાઓ પ્રાપ્ત થશે નહીં.</string>
     <string name="encryption_interstitial_message_direction">"જ્યારે ઉપકરણનો પાવર ચાલુ થાય ત્યારે “આવશ્યક દિશા લોક” પસંદ કરીને તમારા ઉપકરણનું રક્ષણ કરો. આ ગુમ થયેલાં અથવા ચોરયેલાં ઉપકરણો પર ડેટાની સુરક્ષા કરવામાં મદદ કરે છે.
 
@@ -1737,6 +1739,8 @@ You will also need it when:"</string>
     <string name="empty_content_toast">સાચવવા માટે કોઈ સામગ્રી નથી.</string>
     <string name="find_my_mobile_message_zero">"મારો મોબાઇલ શોધો વેબ સેવાનો ઉપયોગ કરીને તમારા ઉપકરણને રિમોટલી ટ્રેક કરો અને તેનું નિયંત્રણ કરો. વધુ માહિતી માટે અને અન્ય ક્યા ફંક્શન્સ ઉપલબ્ધ છે તે શોધવા માટે, નીચેની વેબસાઇટની મુલાકાત લોઃ 
 %s"</string>
+    <string name="send_last_location_title">છેલ્લું સ્થાન મોકલો</string>
+    <string name="send_last_location_summary">જ્યારે બેટરી અમુક સ્તરની નીચે થઈ જાય ત્યારે તમારા ફોનને મારો મોબાઇલ શોધો સર્વરને તેનું છેલ્લું સ્થાન મોકલવાની મંજૂરી આપો.</string>
     <string name="high_power_description">વ્યક્તિગત એપ્સ માટે બેટરી વપરાશ શ્રેષ્ઠ બનાવો સક્ષમ કરો. કેટલાક ફંક્શન્સ, જેમ કે જે મોબાઇલ નેટવર્ક્સ અથવા સિંક ડેટાનો ઉપયોગ કરે છે તેને બેટરી પાવર બચાવવા પ્રતિબંધિત કરવામાં આવશે.</string>
     <string name="wifi_display_summary_off">બંધ</string>
     <string name="battery_usage_description">આ સ્ક્રીન ઉપકરણ છેલ્લે સંપૂર્ણપણે ચાર્જ થયું હતું તે પછીનો બેટરી વપરાશ ડેટા બતાવે છે.</string>
@@ -1968,6 +1972,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">તમે લોક સ્ક્રીન પર કયા એપ શોર્ટકટ્સનો ઉપયોગ કરવા માગો છો તે પસંદ કરો.</string>
     <string name="lockscreen_notifications">લોક સ્ક્રીન પર સૂચનાઓ</string>
     <string name="work_profile_lockscreen_notifications">કાર્ય પ્રોફાઇલ સૂચનાઓ</string>
+    <string name="lock_network_and_security">લોક નેટવર્ક અને સુરક્ષા</string>
+    <string name="lock_network_and_security_summary">તમારો ફોન લોક કરેલ હોય ત્યારે નેટવર્ક અને સુરક્ષા-સંબંધી ફંક્શન્સ લોક કરેલા રાખવા, જો તે ખોવાઈ જાય અથવા ચોરાઈ જાય તો તેને શોધવું અને સુરક્ષિત કરવું સરળ બનાવે છે.</string>
     <string name="dualclock_settings_title">ડ્યૂઅલ ઘડિયાળ</string>
     <string name="dualclock_settings_summary">રોમિંગ હોવા પર સ્થાનિક અને હોમ બન્ને સમય ક્ષેત્રો બતાવો.</string>
     <string name="set_home_city">ઘરનું સમય ક્ષેત્ર સેટ કરો</string>
@@ -2153,7 +2159,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="air_browse_music_on_lock_screen_title">લોક સ્ક્રીન પર સંગીત</string>
     <string name="air_browse_music_on_lock_screen_summary">લોક સ્ક્રીન પરના સંગીત ટ્રેક્સને બદલો.</string>
     <string name="air_browse_note_summary">વ્યૂ મોડમાં હોવ ત્યારે પૃષ્ઠો વચ્ચે ગતિમાન થાઓ.</string>
-    <string name="data_usage_enable_mobile_summery">જો મોબાઇલ ડેટા બંધ કરેલ હોય, તો તમારું ઉપકરણ નેટવર્ક જોડાણની આવશ્યક્તા હોય તેવી સેવાઓનો ઉપયોગ કરવા માટે Wi-Fi નેટવર્કથી જોડાયેલ હોવું આવશ્યક છે.</string>
+    <string name="data_usage_enable_mobile_summery">તમારા મોબાઇલ નેટવર્ક મારફતે ઇન્ટરનેટ ઍક્સેસ કરો.</string>
     <string name="data_usage_enable_mobile_warning_skt">મોબાઇલ નેટવર્ક્સથી જોડાવા પર તમારી ડેટા યોજનાનાં આધારે અતિરિક્ત શુલ્ક લાગુ થઈ શકે છે. ચાલુ રાખવું છે?</string>
     <string name="data_usage_enable_mobile_warning_ktt">મોબાઇલ નેટવર્ક્સથી જોડાવા પર તમારી ડેટા યોજનાનાં આધારે અતિરિક્ત શુલ્ક લાગુ થઈ શકે છે. ચાલુ રાખવું છે?</string>
     <string name="data_usage_enable_mobile_warning_lgt">મોબાઇલ નેટવર્ક્સથી જોડાવા પર તમારી ડેટા યોજનાનાં આધારે અતિરિક્ત શુલ્ક લાગુ થઈ શકે છે. ચાલુ રાખવું છે?</string>
@@ -2523,8 +2529,8 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="secure_folder_summary">સુરક્ષા વિસ્તૃત કરવા માટે તમારી ખાનગી સામગ્રી લોક કરો.</string>
     <string name="text_biometrics_finger_title_enterprise">%2$s ને અનલોક કરવા માટે %1$s ફિંગરપ્રિન્ટ્સને સમર્થન આપતું નથી.</string>
     <string name="edge_feeds_title">Edge ફીડ્સ</string>
-    <string name="screensaver_settings_summary">ઉપકરણ ડોક કરેલ હોય ત્યારે અને/અથવા સ્ક્રીન બંધ હોય ત્યારે ચાર્જ કરતી વખતે શું થાય તે નિયંત્રિત કરો. આ ફંક્શનને ડેડ્રીમ પણ કહેવાય છે.</string>
-    <string name="screensaver_settings_summary_wo_dock">ઉપકરણ ચાર્જ થઈ રહ્યું હોય ત્યારે સ્ક્રીન સ્વચાલિત રીતે બંધ થાય ત્યારે સ્ક્રીનસેવર બતાવો.</string>
+    <string name="screensaver_settings_summary">ફોન ચાર્જ થઈ રહ્યો હોય ત્યારે સ્ક્રીન સ્વચાલિત રીતે બંધ થાય ત્યારે સ્ક્રીનસેવર બતાવો.</string>
+    <string name="screensaver_settings_summary_wo_dock">જયારે તમારો ફોન ડૉક અથવા ચાર્જિંગ થઈ રહ્યો હોય ત્યારે સ્ક્રીન સ્વચાલિત રીતે બંધ થાય ત્યારે સ્ક્રીનસેવર બતાવો.</string>
     <string name="apn_already_exists">અગાઉથી છે.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">પોર્ટ નંબર %1$d અને %2$d વચ્ચેનો હોવો જરૂરી છે.</string>
@@ -3289,6 +3295,7 @@ Wi-Fi is now on."</string>
     <string name="wfd_connection_end_toast">Screen Mirroring જોડાણ સમાપ્ત કર્યુ.</string>
     <string name="wfd_descrpition_playvia">સામગ્રી ચલાવો.</string>
     <string name="wfd_descrpition_mirroring">સ્ક્રીન પ્રતિબિબિંત કરો.</string>
+    <string name="wfd_descrpition_playsound">ધ્વનિ ચલાવો.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">મલ્ટી વિન્ડોને અક્ષમ કરવામાં આવશે અને પોપ-અપ વિન્ડોઝમાં ખુલ્લી બધી એપ્સ બંધ થશે.</string>
     <string name="keyguard_password_attempt_count_pin_code">%d પ્રયત્ન બાકી.</string>
@@ -4128,7 +4135,7 @@ Receiving SMS"</string>
     <string name="location_network_based">વાયરલેસ નેટવર્ક્સનો ઉપયોગ કરો</string>
     <string name="location_neighborhood_level">તમારા સ્થાનનું ઝડપથી અનુમાન લગાવવા માટે એપ્સને ગૂગલની સ્થાન સેવાઓનો ઉપયોગ કરવાની અનુમતિ આપો. અજ્ઞાત સ્થાન ડેટા એકત્રિત કરવામાં અને ગૂગલને મોકલવામાં આવશે.</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">ઉપકરણ વિશે</string>
+    <string name="about_settings">ફોન વિશે</string>
     <string name="about_settings_vzw">ઉપકરણ વિશે</string>
     <string name="legal_information">કાનૂની માહિતી</string>
     <string name="regulatory_information">નિયામક માહિતી</string>
@@ -4313,7 +4320,7 @@ Receiving SMS"</string>
     <string name="phone_language">ભાષા</string>
     <string name="show_password">પાસવર્ડ દૃશ્યમાન કરો</string>
     <string name="show_password_summary">પાસવર્ડને તમારા લખતાની સાથે થોડીવાર બતાવો.</string>
-    <string name="ime_security_warning">આ પદ્ધતિ પાસવર્ડ સિવાય તમે દાખલ કરેલા બધા ટેક્સ્ટને સંગ્રહ કરી શકે છે, જેમાં વ્યક્તિગત ડેટા અને ક્રેડિટ કાર્ડ નંબરો સામેલ છે. એ %1$s એપમાંથી આવે છે. તોપણ ઉપયોગ કરીએ?</string>
+    <string name="ime_security_warning">આ ઇનપુટ પદ્ધતિ પાસવર્ડ્સ અને ક્રેડિટ કાર્ડ નંબર્સ જેવી %s વ્યક્તિગત માહિતી સહિત તમે ટાઇપ કરો એ બધા ટેક્સ્ટને એકત્ર કરવા માટે સમર્થ હોઈ શકે છે.</string>
     <string name="failed_to_open_app_settings_toast">%s માટે સેટિંગ્સ ખોલવામાં નિષ્ફળ.</string>
     <string name="keyboard_and_input_methods_category">કીબોર્ડ્સ</string>
     <string name="virtual_keyboard_category">આભાસી કીબોર્ડ</string>

@@ -94,7 +94,7 @@
 
     invoke-direct {v0, v3}, Lcom/samsung/android/settings/accessories/LedCoverCallerIDList$ViewHolder;-><init>(Lcom/samsung/android/settings/accessories/LedCoverCallerIDList;)V
 
-    const v3, 0x7f110438
+    const v3, 0x7f110436
 
     invoke-virtual {p2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -104,7 +104,7 @@
 
     iput-object v3, v0, Lcom/samsung/android/settings/accessories/LedCoverCallerIDList$ViewHolder;->text:Landroid/widget/TextView;
 
-    const v3, 0x7f110437
+    const v3, 0x7f110435
 
     invoke-virtual {p2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -114,7 +114,7 @@
 
     iput-object v3, v0, Lcom/samsung/android/settings/accessories/LedCoverCallerIDList$ViewHolder;->icon:Landroid/widget/ImageView;
 
-    const v3, 0x7f110435
+    const v3, 0x7f110433
 
     invoke-virtual {p2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -124,7 +124,7 @@
 
     iput-object v3, v0, Lcom/samsung/android/settings/accessories/LedCoverCallerIDList$ViewHolder;->check:Landroid/widget/CheckBox;
 
-    const v3, 0x7f110436
+    const v3, 0x7f110434
 
     invoke-virtual {p2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

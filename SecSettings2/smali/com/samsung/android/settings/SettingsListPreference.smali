@@ -222,7 +222,7 @@
     return-void
 
     :cond_0
-    const v1, 0x7f1102b7
+    const v1, 0x7f1102b5
 
     invoke-virtual {p2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -251,7 +251,7 @@
     invoke-virtual {v8, v1}, Landroid/widget/LinearLayout;->setBackgroundResource(I)V
 
     :cond_1
-    const v1, 0x7f1102b8
+    const v1, 0x7f1102b6
 
     invoke-virtual {p2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -282,7 +282,7 @@
     invoke-virtual {v11, v1}, Landroid/widget/Toolbar;->setTitle(Ljava/lang/CharSequence;)V
 
     :cond_2
-    const v1, 0x7f11024a
+    const v1, 0x7f110248
 
     invoke-virtual {p2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -337,13 +337,13 @@
 
     move-result-object v10
 
-    const v1, 0x7f0a0468
+    const v1, 0x7f0a0466
 
     invoke-virtual {v10, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    const v2, 0x7f0a045e
+    const v2, 0x7f0a045c
 
     invoke-virtual {v10, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -351,7 +351,7 @@
 
     add-int/2addr v1, v2
 
-    const v2, 0x7f0a046d
+    const v2, 0x7f0a046b
 
     invoke-virtual {v10, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

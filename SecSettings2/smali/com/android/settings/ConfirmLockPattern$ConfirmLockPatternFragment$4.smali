@@ -3,7 +3,7 @@
 .source "ConfirmLockPattern.java"
 
 # interfaces
-.implements Landroid/view/View$OnTouchListener;
+.implements Lcom/android/settingslib/animation/AppearAnimationUtils$RowTranslationScaler;
 
 
 # annotations
@@ -34,29 +34,16 @@
 
 
 # virtual methods
-.method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
+.method public getRowTranslationScale(II)F
     .locals 2
 
-    iget-object v0, p0, Lcom/android/settings/ConfirmLockPattern$ConfirmLockPatternFragment$4;->this$1:Lcom/android/settings/ConfirmLockPattern$ConfirmLockPatternFragment;
+    sub-int v0, p2, p1
 
-    invoke-static {v0}, Lcom/android/settings/ConfirmLockPattern$ConfirmLockPatternFragment;->-get11(Lcom/android/settings/ConfirmLockPattern$ConfirmLockPatternFragment;)Landroid/widget/ScrollView;
+    int-to-float v0, v0
 
-    move-result-object v0
+    int-to-float v1, p2
 
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/settings/ConfirmLockPattern$ConfirmLockPatternFragment$4;->this$1:Lcom/android/settings/ConfirmLockPattern$ConfirmLockPatternFragment;
-
-    invoke-static {v0}, Lcom/android/settings/ConfirmLockPattern$ConfirmLockPatternFragment;->-get11(Lcom/android/settings/ConfirmLockPattern$ConfirmLockPatternFragment;)Landroid/widget/ScrollView;
-
-    move-result-object v0
-
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v1}, Landroid/widget/ScrollView;->requestDisallowInterceptTouchEvent(Z)V
-
-    :cond_0
-    const/4 v0, 0x0
+    div-float/2addr v0, v1
 
     return v0
 .end method

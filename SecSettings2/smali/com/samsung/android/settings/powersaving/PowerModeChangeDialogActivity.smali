@@ -205,7 +205,7 @@
 
     move-result-object v18
 
-    const v2, 0x7f110535
+    const v2, 0x7f110533
 
     move-object/from16 v0, v18
 
@@ -215,7 +215,7 @@
 
     check-cast v22, Landroid/widget/ImageView;
 
-    const v2, 0x7f110515
+    const v2, 0x7f110513
 
     move-object/from16 v0, v34
 
@@ -247,7 +247,7 @@
 
     :cond_0
     :goto_1
-    const v2, 0x7f110536
+    const v2, 0x7f110534
 
     move-object/from16 v0, v18
 
@@ -263,7 +263,7 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setFocusable(Z)V
 
-    const v2, 0x7f110537
+    const v2, 0x7f110535
 
     move-object/from16 v0, v18
 
@@ -299,7 +299,7 @@
 
     iget-object v2, v0, Lcom/samsung/android/settings/powersaving/PowerModeChangeDialogActivity;->mCustomButton:Landroid/widget/TextView;
 
-    const v3, 0x7f02050b
+    const v3, 0x7f020509
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setBackgroundResource(I)V
 
@@ -449,7 +449,7 @@
     :cond_4
     if-nez v26, :cond_12
 
-    const v2, 0x7f0b084c
+    const v2, 0x7f0b0854
 
     move-object/from16 v0, p0
 
@@ -613,7 +613,7 @@
 
     if-eqz v19, :cond_14
 
-    const v2, 0x7f0b0a75
+    const v2, 0x7f0b0a7f
 
     move-object/from16 v0, p0
 
@@ -688,7 +688,7 @@
 
     new-instance v3, Lcom/samsung/android/settings/powersaving/PowerModeChangeDialogActivity$DetailedItem;
 
-    const v2, 0x7f0b0a34
+    const v2, 0x7f0b0a3e
 
     move-object/from16 v0, p0
 
@@ -696,7 +696,7 @@
 
     move-result-object v4
 
-    const v2, 0x7f0b0a3b
+    const v2, 0x7f0b0a45
 
     move-object/from16 v0, p0
 
@@ -710,7 +710,7 @@
 
     if-ne v0, v2, :cond_15
 
-    const v2, 0x7f0b0a2b
+    const v2, 0x7f0b0a35
 
     move-object/from16 v0, p0
 
@@ -754,7 +754,7 @@
 
     if-ne v13, v2, :cond_17
 
-    const v2, 0x7f0b0a3e
+    const v2, 0x7f0b0a48
 
     move-object/from16 v0, p0
 
@@ -765,7 +765,7 @@
     :goto_a
     new-instance v3, Lcom/samsung/android/settings/powersaving/PowerModeChangeDialogActivity$DetailedItem;
 
-    const v2, 0x7f0b0a35
+    const v2, 0x7f0b0a3f
 
     move-object/from16 v0, p0
 
@@ -777,7 +777,7 @@
 
     if-ne v13, v2, :cond_19
 
-    const v2, 0x7f0b0a2c
+    const v2, 0x7f0b0a36
 
     move-object/from16 v0, p0
 
@@ -897,7 +897,7 @@
 
     if-ne v2, v5, :cond_1d
 
-    const v2, 0x7f0b0a2c
+    const v2, 0x7f0b0a36
 
     move-object/from16 v0, p0
 
@@ -931,7 +931,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a050f
+    const v3, 0x7f0a050d
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -939,7 +939,7 @@
 
     float-to-int v8, v2
 
-    const v2, 0x7f110516
+    const v2, 0x7f110514
 
     move-object/from16 v0, v34
 
@@ -1001,7 +1001,7 @@
 
     iget-object v2, v0, Lcom/samsung/android/settings/powersaving/PowerModeChangeDialogActivity;->mApply:Lcom/samsung/android/settings/widget/RoundButtonView;
 
-    const v3, 0x7f0b1517
+    const v3, 0x7f0b151a
 
     move-object/from16 v0, p0
 
@@ -1057,7 +1057,7 @@
 
     invoke-virtual {v2, v3}, Lcom/samsung/android/settings/widget/RoundButtonView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v2, 0x7f110517
+    const v2, 0x7f110515
 
     move-object/from16 v0, v34
 
@@ -1099,7 +1099,7 @@
 
     iget-object v2, v0, Lcom/samsung/android/settings/powersaving/PowerModeChangeDialogActivity;->mCancel:Lcom/samsung/android/settings/widget/RoundButtonView;
 
-    const v3, 0x7f0b1102
+    const v3, 0x7f0b1105
 
     move-object/from16 v0, p0
 
@@ -1151,7 +1151,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v3, 0x7f0b0a43
+    const v3, 0x7f0b0a4d
 
     move-object/from16 v0, p0
 
@@ -1163,7 +1163,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0a44
+    const v3, 0x7f0b0a4e
 
     move-object/from16 v0, p0
 
@@ -1262,7 +1262,7 @@
     goto/16 :goto_4
 
     :cond_13
-    const v2, 0x7f0b0a72
+    const v2, 0x7f0b0a7c
 
     move-object/from16 v0, p0
 
@@ -1300,7 +1300,7 @@
     goto/16 :goto_7
 
     :cond_15
-    const v2, 0x7f0b0a2c
+    const v2, 0x7f0b0a36
 
     move-object/from16 v0, p0
 
@@ -1336,7 +1336,7 @@
 
     if-eqz v2, :cond_18
 
-    const v2, 0x7f0b0a3f
+    const v2, 0x7f0b0a49
 
     :goto_10
     move-object/from16 v0, p0
@@ -1348,12 +1348,12 @@
     goto/16 :goto_a
 
     :cond_18
-    const v2, 0x7f0b0a3d
+    const v2, 0x7f0b0a47
 
     goto :goto_10
 
     :cond_19
-    const v2, 0x7f0b0a2b
+    const v2, 0x7f0b0a35
 
     move-object/from16 v0, p0
 
@@ -1415,7 +1415,7 @@
 
     new-instance v3, Lcom/samsung/android/settings/powersaving/PowerModeChangeDialogActivity$DetailedItem;
 
-    const v2, 0x7f0b0a40
+    const v2, 0x7f0b0a4a
 
     move-object/from16 v0, p0
 
@@ -1423,7 +1423,7 @@
 
     move-result-object v4
 
-    const v2, 0x7f0b0a3d
+    const v2, 0x7f0b0a47
 
     move-object/from16 v0, p0
 
@@ -1435,7 +1435,7 @@
 
     if-ne v13, v2, :cond_1c
 
-    const v2, 0x7f0b0a2b
+    const v2, 0x7f0b0a35
 
     move-object/from16 v0, p0
 
@@ -1451,7 +1451,7 @@
     goto/16 :goto_c
 
     :cond_1c
-    const v2, 0x7f0b0a2c
+    const v2, 0x7f0b0a36
 
     move-object/from16 v0, p0
 
@@ -1462,7 +1462,7 @@
     goto :goto_11
 
     :cond_1d
-    const v2, 0x7f0b0a2b
+    const v2, 0x7f0b0a35
 
     move-object/from16 v0, p0
 
@@ -1479,7 +1479,7 @@
 
     iget-object v2, v0, Lcom/samsung/android/settings/powersaving/PowerModeChangeDialogActivity;->mApply:Lcom/samsung/android/settings/widget/RoundButtonView;
 
-    const v3, 0x7f0b0a39
+    const v3, 0x7f0b0a43
 
     move-object/from16 v0, p0
 
@@ -1523,7 +1523,7 @@
 
     aput-object v33, v2, v3
 
-    const v3, 0x7f0b0a4a
+    const v3, 0x7f0b0a54
 
     move-object/from16 v0, p0
 
@@ -1539,7 +1539,7 @@
 
     aput-object v3, v2, v4
 
-    const v3, 0x7f0b0a48
+    const v3, 0x7f0b0a52
 
     move-object/from16 v0, p0
 
@@ -1554,7 +1554,7 @@
     goto/16 :goto_f
 
     :cond_21
-    const v2, 0x7f0b0a49
+    const v2, 0x7f0b0a53
 
     move-object/from16 v0, p0
 
@@ -1637,7 +1637,7 @@
 
     if-ne v2, v3, :cond_4
 
-    const v2, 0x7f0b0a46
+    const v2, 0x7f0b0a50
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/powersaving/PowerModeChangeDialogActivity;->getString(I)Ljava/lang/String;
 
@@ -1697,7 +1697,7 @@
     goto :goto_0
 
     :cond_4
-    const v2, 0x7f0b0a47
+    const v2, 0x7f0b0a51
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/powersaving/PowerModeChangeDialogActivity;->getString(I)Ljava/lang/String;
 
@@ -1747,7 +1747,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f110535
+    const v4, 0x7f110533
 
     invoke-virtual {v1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1755,7 +1755,7 @@
 
     check-cast v2, Landroid/widget/ImageView;
 
-    const v4, 0x7f110515
+    const v4, 0x7f110513
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1783,7 +1783,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/powersaving/PowerModeChangeDialogActivity;->mCustomButton:Landroid/widget/TextView;
 
-    const v5, 0x7f02050b
+    const v5, 0x7f020509
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setBackgroundResource(I)V
 

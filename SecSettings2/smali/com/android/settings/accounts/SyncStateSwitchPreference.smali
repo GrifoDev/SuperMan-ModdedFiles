@@ -105,7 +105,7 @@
 
     invoke-super {p0, p1}, Landroid/preference/SwitchPreference;->onBindView(Landroid/view/View;)V
 
-    const v6, 0x7f110588
+    const v6, 0x7f110586
 
     invoke-virtual {p1, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -113,7 +113,7 @@
 
     check-cast v4, Lcom/android/settingslib/widget/AnimatedImageView;
 
-    const v6, 0x7f110587
+    const v6, 0x7f110585
 
     invoke-virtual {p1, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -186,7 +186,7 @@
 
     aput-object v9, v8, v7
 
-    const v7, 0x7f0b1785
+    const v7, 0x7f0b1788
 
     invoke-virtual {v6, v7, v8}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

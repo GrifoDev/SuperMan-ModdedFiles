@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Dukungan</string>
     <string name="reset_network_settings_list_summary">Reset pengaturan Wi-Fi, Bluetooth, dan jaringan lainnya ke default.</string>
     <string name="master_clear_list_summary">Reset perangkat Anda ke pengaturan default pabrik. Ini akan menghapus semua data, termasuk file dan aplikasi unduhan.</string>
-    <string name="auto_restart_summary">Optimalkan perangkat dengan memulai ulang otomatis pada waktu yang diatur. Data yang tidak disimpan akan hilang saat perangkat dimulai ulang.</string>
+    <string name="auto_restart_summary">Optimalkan ponsel Anda dengan memulainya ulang secara otomatis seminggu sekali. Semua data yang tidak disimpan akan hilang saat ponsel dimulai ulang.</string>
     <string name="search_settings">Cari</string>
     <string name="related_results">%d item terkait</string>
     <string name="no_results_found">Tidak menemukan hasil</string>
@@ -1485,6 +1485,7 @@ Enkripsi memerlukan waktu sejam atau lebih. Sebelum mulai, pastikan daya baterai
     <string name="crypt_keeper_verify_failed_summary">Tidak dapat memulai ulang perangkat Anda. Verifikasi integritas gagal. Anda harus mereset perangkat ke pengaturan default pabrik. Ini akan menghapus semua data Anda.</string>
     <string name="cryptkeeper_emergency_call">Panggilan darurat</string>
     <string name="cryptkeeper_return_to_call">Kembali ke panggilan</string>
+    <string name="cryptkeeper_default_enter_msg">Ponsel dienkripsi demi keamanan Anda.</string>
     <string name="enter_password">Untuk memulai perangkat, masukkan kata sandi.</string>
     <string name="enter_pin">Untuk memulai perangkat, masukkan PIN.</string>
     <string name="enter_pattern">Untuk memulai perangkat, gambar pola.</string>
@@ -1499,6 +1500,7 @@ Enkripsi memerlukan waktu sejam atau lebih. Sebelum mulai, pastikan daya baterai
     <string name="crypt_keeper_failed_title_dec">"Dekripsi
 digagalkan."</string>
     <string name="crypt_keeper_failed_summary_dec">Tidak dapat menyelesaikan dekripsi karena gangguan. Lakukan reset data pabrik (menghapus semua data) sebelum menggunakan.</string>
+    <string name="crypt_keeper_set_screen_lock_type">Atur tipe kunci layar</string>
     <string name="encryption_interstitial_message_kor">Perangkat Anda dienkripsi. Lindungi data enkripsi dengan memilih Perlu kunci layar untuk mendekripsi data saat perangkat dihidupkan. Ini membantu melindungi data jika perangkat hilang atau dicuri. Anda harus membuka kunci perangkat untuk mendekripsi datanya kapan pun perangkat dihidupkan. Anda tidak akan menerima panggilan, pesan, atau notifikasi sebelum mendekripsi perangkat.</string>
     <string name="encryption_interstitial_message_direction">"Lindungi perangkat Anda dengan memilih Perlu Kunci arah saat perangkat dihidupkan. Ini membantu mengamankan data di perangkat yang hilang atau dicuri.
 
@@ -1738,6 +1740,8 @@ Sebelum meminta perbaikan dengan garansi, Kunci aktivasi ulang harus dinonaktifk
     <string name="empty_content_toast">Tidak ada konten untuk disimpan.</string>
     <string name="find_my_mobile_message_zero">"Lacak dan kontrol perangkat dari jauh menggunakan layanan web Temukan Ponsel Saya. Untuk informasi lebih lanjut dan mengetahui fungsi lain yang tersedia, kunjungi situs web berikut:
 %s"</string>
+    <string name="send_last_location_title">Kirim lokasi terakhir</string>
+    <string name="send_last_location_summary">Izinkan ponsel mengirim lokasi terakhirnya ke server Temukan Ponsel Saya saat daya baterai berada di bawah tingkat tertentu.</string>
     <string name="high_power_description">Aktifkan Optimalkan penggunaan baterai untuk tiap aplikasi. Beberapa fungsi, seperti penggunaan jaringan seluler atau sinkronisasi data, akan dibatasi untuk menghemat daya baterai.</string>
     <string name="wifi_display_summary_off">Tdk aktif</string>
     <string name="battery_usage_description">Layar ini menampilkan data penggunaan baterai sejak pengisian penuh daya perangkat terakhir.</string>
@@ -1969,6 +1973,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">Pilih pintasan aplikasi mana yang ingin digunakan untuk mengunci layar.</string>
     <string name="lockscreen_notifications">Notifikasi di layar kunci</string>
     <string name="work_profile_lockscreen_notifications">Notifikasi profil kantor</string>
+    <string name="lock_network_and_security">Kunci jaringan dan keamanan</string>
+    <string name="lock_network_and_security_summary">Tetap kunci jaringan dan fungsi yang terkait keamanan ketika ponsel Anda terkunci, agar lebih mudah menemukan lokasinya dan melindunginya jika ponsel dicuri atau hilang.</string>
     <string name="dualclock_settings_title">Jam ganda</string>
     <string name="dualclock_settings_summary">Tampilkan zona waktu setempat dan daerah asal saat roaming.</string>
     <string name="set_home_city">Atur zona waktu utama</string>
@@ -2154,7 +2160,7 @@ Bahkan jika data telepon Anda dihapus, kata sandi Akun Google akan dibutuhkan se
     <string name="air_browse_music_on_lock_screen_title">Musik di layar kunci</string>
     <string name="air_browse_music_on_lock_screen_summary">Ubah trek musik di layar kunci.</string>
     <string name="air_browse_note_summary">Berpindah antar halaman saat ada di mode Tampilan.</string>
-    <string name="data_usage_enable_mobile_summery">Jika Data seluler dimatikan, perangkat harus tersambung ke jaringan Wi-Fi untuk menggunakan layanan yang memerlukan koneksi jaringan.</string>
+    <string name="data_usage_enable_mobile_summery">Akses internet lewat jaringan seluler.</string>
     <string name="data_usage_enable_mobile_warning_skt">Menyambung ke jaringan seluler dapat dikenai biaya tambahan tergantung pada paket data Anda. Lanjutkan?</string>
     <string name="data_usage_enable_mobile_warning_ktt">Menyambung ke jaringan seluler dapat dikenai biaya tambahan tergantung pada paket data Anda. Lanjutkan?</string>
     <string name="data_usage_enable_mobile_warning_lgt">Menyambung ke jaringan seluler dapat dikenai biaya tambahan tergantung pada paket data Anda. Lanjutkan?</string>
@@ -2524,8 +2530,8 @@ Coba lagi."</string>
     <string name="secure_folder_summary">Kunci aplikasi dan konten pribadi untuk meningkatkan keamanan.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s tidak mendukung sidik jari untuk membuka kunci %2$s.</string>
     <string name="edge_feeds_title">Umpan Edge</string>
-    <string name="screensaver_settings_summary">Kontrol apa yang terjadi saat perangkat di-dock dan/atau diisi daya saat layar mati. Fungsi ini juga disebut Screensaver.</string>
-    <string name="screensaver_settings_summary_wo_dock">Tampilkan screensaver setelah layar otomatis mati saat daya perangkat diisi.</string>
+    <string name="screensaver_settings_summary">Tampilkan screensaver setelah layar otomatis mati saat daya ponsel diisi.</string>
+    <string name="screensaver_settings_summary_wo_dock">Tampilkan screensaver setelah layar otomatis mati saat ponsel didok atau diisi daya.</string>
     <string name="apn_already_exists">Sudah ada.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Nomor port harus antara %1$d dan %2$d.</string>
@@ -3290,6 +3296,7 @@ Menggunakan Hotspot seluler dapat meningkatkan konsumsi daya baterai dan penggun
     <string name="wfd_connection_end_toast">Koneksi Screen Mirroring berakhir.</string>
     <string name="wfd_descrpition_playvia">Putar konten.</string>
     <string name="wfd_descrpition_mirroring">Mencerminkan layar.</string>
+    <string name="wfd_descrpition_playsound">Putar suara.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">Multi window akan dinonaktifkan dan semua aplikasi yang dibuka dalam jendela pop-up akan ditutup.</string>
     <string name="keyguard_password_attempt_count_pin_code">%d percobaan tersisa</string>
@@ -4129,7 +4136,7 @@ Pertimbangkan menggunakan kartu SD atau perangkat penyimpanan USB yang lebih cep
     <string name="location_network_based">Gunakan jaringan nirkabel</string>
     <string name="location_neighborhood_level">Izinkan apl mnggunakan layanan lokasi Google utk mmperkirakan lokasi lbh cepat. Data lokasi anonim dkmpulkan &amp; dkirim ke Google.</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">Tentang perangkat</string>
+    <string name="about_settings">Tentang ponsel</string>
     <string name="about_settings_vzw">Tentang perangkat</string>
     <string name="legal_information">Informasi hukum</string>
     <string name="regulatory_information">Informasi regulasi</string>
@@ -4314,7 +4321,7 @@ Data aplikasi Anda saat ini tidak akan hilang."</string>
     <string name="phone_language">Bahasa</string>
     <string name="show_password">Perlihatkan kata sandi</string>
     <string name="show_password_summary">Tampilkan karakter kata sandi sekilas selagi Anda mengetiknya.</string>
-    <string name="ime_security_warning">Metode ini dapat mengumpulkan semua teks yang Anda masukkan, kecuali kata sandi, termasuk data pribadi dan nomor kartu kredit. Berasal dari aplikasi %1$s. Tetap gunakan?</string>
+    <string name="ime_security_warning">%s mungkin dapat mengumpulkan semua teks yang Anda ketik, termasuk data pribadi seperti kata sandi dan nomor kartu kredit.</string>
     <string name="failed_to_open_app_settings_toast">Gagal membuka pengaturan untuk %s.</string>
     <string name="keyboard_and_input_methods_category">Keyboard</string>
     <string name="virtual_keyboard_category">Keyboard virtual</string>

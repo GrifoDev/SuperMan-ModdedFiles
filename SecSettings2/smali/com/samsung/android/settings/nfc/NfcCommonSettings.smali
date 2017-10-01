@@ -59,7 +59,7 @@
 .method public onCreate(Landroid/os/Bundle;)V
     .locals 3
 
-    const v2, 0x7f1104a1
+    const v2, 0x7f11049f
 
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 

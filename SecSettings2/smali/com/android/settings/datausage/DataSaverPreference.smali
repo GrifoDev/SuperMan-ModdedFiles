@@ -42,7 +42,7 @@
 
     if-eqz p1, :cond_0
 
-    const v0, 0x7f0b19d8
+    const v0, 0x7f0b19db
 
     :goto_0
     invoke-virtual {p0, v0}, Lcom/android/settings/datausage/DataSaverPreference;->setSummary(I)V
@@ -54,7 +54,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f0b19d9
+    const v0, 0x7f0b19dc
 
     goto :goto_0
 .end method

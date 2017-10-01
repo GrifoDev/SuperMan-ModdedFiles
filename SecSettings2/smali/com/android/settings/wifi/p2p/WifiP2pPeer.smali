@@ -67,61 +67,61 @@
 
     :array_0
     .array-data 4
-        0x7f020545
-        0x7f020558
-        0x7f02055b
-        0x7f02054a
-        0x7f020539
-        0x7f020559
         0x7f020543
-        0x7f020552
-        0x7f02054e
-        0x7f02055a
-        0x7f02053f
-        0x7f020540
-        0x7f020550
-        0x7f020557
-        0x7f02053a
-        0x7f020549
-        0x7f02054d
-        0x7f02054f
-        0x7f020553
-        0x7f02054c
-        0x7f020544
-        0x7f020555
+        0x7f020556
         0x7f020559
-        0x7f020552
-        0x7f020551
-        0x7f02053e
+        0x7f020548
+        0x7f020537
+        0x7f020557
+        0x7f020541
+        0x7f020550
+        0x7f02054c
+        0x7f020558
         0x7f02053d
+        0x7f02053e
+        0x7f02054e
+        0x7f020555
+        0x7f020538
+        0x7f020547
+        0x7f02054b
+        0x7f02054d
+        0x7f020551
+        0x7f02054a
+        0x7f020542
+        0x7f020553
+        0x7f020557
+        0x7f020550
+        0x7f02054f
+        0x7f02053c
+        0x7f02053b
     .end array-data
 
     :array_1
     .array-data 4
-        0x7f02054b
-        0x7f020547
+        0x7f020549
+        0x7f020545
+        0x7f02053f
+        0x7f020540
+        0x7f020552
+        0x7f020539
+        0x7f02053a
+        0x7f020544
         0x7f020541
-        0x7f020542
-        0x7f020554
-        0x7f02053b
-        0x7f02053c
-        0x7f020546
-        0x7f020543
     .end array-data
 
     :array_2
     .array-data 4
-        0x7f02054a
-        0x7f020542
-        0x7f02054c
-        0x7f02053e
-        0x7f020556
         0x7f020548
-        0x7f020559
+        0x7f020540
+        0x7f02054a
+        0x7f02053c
         0x7f020554
-        0x7f020541
-        0x7f020545
+        0x7f020546
+        0x7f020557
+        0x7f020552
+        0x7f02053f
         0x7f020543
+        0x7f020541
     .end array-data
 .end method
 
@@ -504,7 +504,7 @@
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setAlpha(F)V
 
-    const v2, 0x7f0b0c68
+    const v2, 0x7f0b0c72
 
     invoke-virtual {p0, v2}, Lcom/android/settings/wifi/p2p/WifiP2pPeer;->setSummary(I)V
 
@@ -512,7 +512,7 @@
 
     invoke-virtual {v2, v5}, Landroid/widget/TextView;->setVisibility(I)V
 
-    const v2, 0x7f0b0c65
+    const v2, 0x7f0b0c6f
 
     invoke-direct {p0, v2}, Lcom/android/settings/wifi/p2p/WifiP2pPeer;->setSecondSummary(I)V
 
@@ -545,7 +545,7 @@
     return-void
 
     :cond_2
-    const v2, 0x7f0b0c67
+    const v2, 0x7f0b0c71
 
     invoke-virtual {p0, v2}, Lcom/android/settings/wifi/p2p/WifiP2pPeer;->setSummary(I)V
 
@@ -576,7 +576,7 @@
 
     invoke-virtual {v2, v5}, Landroid/widget/TextView;->setVisibility(I)V
 
-    const v2, 0x7f0b0c66
+    const v2, 0x7f0b0c70
 
     invoke-direct {p0, v2}, Lcom/android/settings/wifi/p2p/WifiP2pPeer;->setSecondSummary(I)V
 
@@ -737,7 +737,7 @@
 
     iput-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pPeer;->mDeviceName:Landroid/widget/TextView;
 
-    const v0, 0x7f1107ea
+    const v0, 0x7f1107e8
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

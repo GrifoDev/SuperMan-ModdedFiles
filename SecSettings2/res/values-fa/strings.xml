@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">پشتیبانی</string>
     <string name="reset_network_settings_list_summary">تنظیمات Wi-Fi، بلوتوث و سایر تنظیمات شبکه را به مقادیر پیش‌فرض بازنشانی کنید.</string>
     <string name="master_clear_list_summary">دستگاه خود را به تنظیمات پیش‌فرض کارخانه بازنشانی کنید. با این کار تمام اطلاعات، از جمله فایل‌ها و برنامه‌های دانلود شده پاک خواهند شد.</string>
-    <string name="auto_restart_summary">با راه‌اندازی مجدد خودکار در زمان‌های تنظیم شده، دستگاه خود را بهینه کنید. وقتی دستگاه راه‌اندازی مجدد می‌شود، کل داده‌های ذخیره نشده از دست می‌رود.</string>
+    <string name="auto_restart_summary">برای بهینه‌سازی تلفن شما، هفته‌ای یکبار آن را به‌طور خودکار راه‌اندازی مجدد می‌کند. با راه‌اندازی مجدد تلفن، اطلاعات ذخیره نشده از بین خواهند رفت.</string>
     <string name="search_settings">جستجو</string>
     <string name="related_results">%d مورد مرتبط</string>
     <string name="no_results_found">نتیجه‌ای یافت نشد</string>
@@ -1485,6 +1485,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_verify_failed_summary">راه‌اندازی مجدد دستگاه ممکن نیست. تأیید اعتبار یکپارچگی ناموفق بود. باید دستگاه خود را به تنظیمات پیش‌فرض کارخانه بازنشانی کنید. با این کار تمام داده‌های شما پاک می‌شود.</string>
     <string name="cryptkeeper_emergency_call">تماس اضطراری</string>
     <string name="cryptkeeper_return_to_call">بازگشت به تماس</string>
+    <string name="cryptkeeper_default_enter_msg">تلفن شما برای امنیت رمزگذاری شده است.</string>
     <string name="enter_password">برای شروع به کار دستگاه، رمز عبور را وارد کنید.</string>
     <string name="enter_pin">برای شروع کار دستگاه، پین را وارد کنید.</string>
     <string name="enter_pattern">برای شروع به کار دستگاه، الگوی خود را ترسیم کنید.</string>
@@ -1498,6 +1499,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_last_warn_wipe">۱ تلاش دیگر برای شروع به کار دستگاه باقی مانده است و در صورت اشتباه بودن، به تنظیمات پیش‌فرض کارخانه بازنشانی می‌شود. با این کار تمام اطلاعات، از جمله فایل‌ها و برنامه‌های دانلود شده پاک خواهند شد.</string>
     <string name="crypt_keeper_failed_title_dec">آشکارسازی ناموفق بود.</string>
     <string name="crypt_keeper_failed_summary_dec">به دلیل ایجاد وقفه، امکان تکمیل رمزگشایی وجود ندارد. قبل از استفاده، تنظیمات کارخانه را بازیابی کنید (حذف تمام داده ها).</string>
+    <string name="crypt_keeper_set_screen_lock_type">تنظیم نوع قفل صفحه</string>
     <string name="encryption_interstitial_message_kor">دستگاهتان رمزگذاری شده است. برای حفاظت از اطلاعات رمزگذاری شده، &lt;درخواست قفل کردن صفحه> در هنگام روشن شدن دستگاه را انتخاب کنید. با این کار از اطلاعات در دستگاه‌های دزدیده یا مفقود شده محافظت می‌شود. برای رمزگشایی دستگاه در هنگام روشن شدن، باید قفل دستگاه را باز کنید. تا زمانی که دستگاه خود را رمزگشایی نکرده‌اید، هیچ تماس، پیام یا اعلانی دریافت نخواهید کرد.</string>
     <string name="encryption_interstitial_message_direction">"با انتخاب &lt;لزوم قفل کردن جهت‌دار> هنگام روشن شدن دستگاه، از دستگاهتان محافظت کنید. با این کار از اطلاعات موجود در دستگاه‌های مفقود یا دزدیده شده محافظت می‌شود.
 
@@ -1737,6 +1739,8 @@ You will also need it when:"</string>
     <string name="empty_content_toast">محتوایی برای ذخیره وجود ندارد.</string>
     <string name="find_my_mobile_message_zero">"با استفاده از سرویس وب یافتن تلفن من، دستگاه خود را از راه دور ردیابی و کنترل کنید. برای اطلاعات بیشتر و یافتن سایر عملکردهای در دسترس، به وب‌سای زیر مراجعه کنید:
 ‏%s"</string>
+    <string name="send_last_location_title">ارسال آخرین مکان</string>
+    <string name="send_last_location_summary">به تلفن اجازه دهید وقتی که باتری زیر سطح معینی می‌رسد آخرین مکان خود را به سِروِر یافتن تلفن من ارسال کند.</string>
     <string name="high_power_description">بهینه‌سازی مصرف باتری را برای هر برنامه فعال کنید. برای ذخیره نیروی باتری، برخی عملکردها که از شبکه تلفن همراه یا همگام‌سازی داده‌ها استفاده می‌کنند، محدود می‌شوند.</string>
     <string name="wifi_display_summary_off">خاموش</string>
     <string name="battery_usage_description">این صفحه داده‌های مصرف باتری از وقتی که دستگاه کاملاً شارژ بوده است را نشان می‌دهد.</string>
@@ -1968,6 +1972,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">انتخاب کنید که می‌خواهید از کدام میانبرهای برنامه در صفحه قفل استفاده شود.</string>
     <string name="lockscreen_notifications">اعلان‌ها در صفحه قفل</string>
     <string name="work_profile_lockscreen_notifications">اعلان‌های نمایه کاری</string>
+    <string name="lock_network_and_security">شبکه محلی و امنیت</string>
+    <string name="lock_network_and_security_summary">وقتی تلفن قفل می‌شود، شبکه و عملکردهای مربوط به امنیت را قفل می‌کند، و درصورت گم شدن یا سرقت، پیدا کردن و محافظت از آن را آسانتر می‌کند.</string>
     <string name="dualclock_settings_title">ساعت دوگانه</string>
     <string name="dualclock_settings_summary">هنگام رومینگ، هم منطقه زمانی اصلی و هم منطقه زمانی محلی نشان داده شود.</string>
     <string name="set_home_city">تنظیم منطقه زمانی اصلی</string>
@@ -2153,7 +2159,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="air_browse_music_on_lock_screen_title">موسیقی در صفحه قفل</string>
     <string name="air_browse_music_on_lock_screen_summary">آهنگ‌های موسیقی را در صفحه قفل تغییر دهید</string>
     <string name="air_browse_note_summary">در حالت مشاهده بین صفحات جابجا شوید</string>
-    <string name="data_usage_enable_mobile_summery">اگر داده تلفن همراه خاموش باشد، دستگاه شما برای استفاده از سرویس‌هایی که به اتصال شبکه نیاز دارند، باید به یک شبکه Wi-Fi متصل شود.</string>
+    <string name="data_usage_enable_mobile_summery">از طریق شبکه تلفن همراه، به اینترنت دسترسی یابید.</string>
     <string name="data_usage_enable_mobile_warning_skt">اتصال به شبکه‌های تلفن همراه، بسته به طرح داده مورد استفاده، ممکن است باعث ایجاد هزینه اضافی شود. ادامه می‌دهید؟</string>
     <string name="data_usage_enable_mobile_warning_ktt">اتصال به شبکه‌های تلفن همراه، بسته به طرح داده مورد استفاده، ممکن است باعث ایجاد هزینه اضافی شود. ادامه می‌دهید؟</string>
     <string name="data_usage_enable_mobile_warning_lgt">اتصال به شبکه‌های تلفن همراه، بسته به طرح داده مورد استفاده، ممکن است باعث ایجاد هزینه اضافی شود. ادامه می‌دهید؟</string>
@@ -2522,8 +2528,8 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="secure_folder_summary">برای افزایش امنیت، برنامه‌ها و محتوای خصوصی خود را قفل کنید.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s از اثر انگشت‌ها برای بازگشایی قفل ‎%2$s پشتیبانی نمی‌کند.</string>
     <string name="edge_feeds_title">فیدهای کناری</string>
-    <string name="screensaver_settings_summary">کنترل کنید هنگام قرارگیری دستگاه روی جایگاه و/یا در زمان شارژ شدن، وقتی صفحه خاموش است چه اتفاقی بیفتد. به این عملکرد، محافظ صفحه نیز گفته می‌شود.</string>
-    <string name="screensaver_settings_summary_wo_dock">وقتی دستگاه در حال شارژ است، پس از خاموش شدن صفحه، به طور خودکار یک محافظ صفحه نمایش داده می‌شود.</string>
+    <string name="screensaver_settings_summary">وقتی تلفن در حال شارژ است، پس از خاموش شدن صفحه، به طور خودکار یک محافظ صفحه نمایش داده می‌شود.</string>
+    <string name="screensaver_settings_summary_wo_dock">وقتی تلفن روی پایه یا در حال شارژ است، پس از خاموش شدن صفحه، به طور خودکار یک محافظ صفحه نمایش داده می‌شود.</string>
     <string name="apn_already_exists">موجود است.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">شماره پورت باید بین %1$d و %2$d باشد.</string>
@@ -3288,6 +3294,7 @@ Wi-Fi is now on."</string>
     <string name="wfd_connection_end_toast">اتصال Screen mirroring به پایان رسید.</string>
     <string name="wfd_descrpition_playvia">محتوا را پخش کنید.</string>
     <string name="wfd_descrpition_mirroring">صفحه تلفن را در تلویزیون نمایش دهید.</string>
+    <string name="wfd_descrpition_playsound">پخش صدا.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">حالت چند پنجره غیرفعال شده و تمام برنامه‌های باز در پنجره بازشو بسته خواهند شد.</string>
     <string name="keyguard_password_attempt_count_pin_code">%d فرصت داريد.</string>
@@ -4127,7 +4134,7 @@ Receiving SMS"</string>
     <string name="location_network_based">استفاده از شبکه بی‌سیم</string>
     <string name="location_neighborhood_level">برنامه ها مجاز می شوند که با سرویس مکان Google مکان شما را سریعتر تخمین بزنند. داده های مکان گمنام جمع شده و به Google ارسال میشود.</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">درباره دستگاه</string>
+    <string name="about_settings">درباره تلفن</string>
     <string name="about_settings_vzw">درباره دستگاه</string>
     <string name="legal_information">اطلاعات حقوقی</string>
     <string name="regulatory_information">اطلاعات نظارتی</string>
@@ -4312,7 +4319,7 @@ Receiving SMS"</string>
     <string name="phone_language">زبان</string>
     <string name="show_password">قابل رؤیت کردن رمزهای ورود</string>
     <string name="show_password_summary">وقتی رمز ورود را تایپ می‌کنید، نویسه‌ها مختصراً نمایش داده شوند.</string>
-    <string name="ime_security_warning">این روش می تواند همه متن هایی را که وارد کرده اید به جز رمزهای ورود را جمع آوری کند، از جمله داده های شخصی و شماره های کارت اعتباری. از برنامه %1$s می آید. در هر صورت استفاده می کنید؟</string>
+    <string name="ime_security_warning">%s ممکن است کل متنی که تایپ می‌کنید، شامل اطلاعات شخصی همچون رمزعبور و شماره کارت اعتباری شما را جمع‌آوری کند.</string>
     <string name="failed_to_open_app_settings_toast">باز کردن تنظیمات %s انجام نشد.</string>
     <string name="keyboard_and_input_methods_category">صفحه کلیدها</string>
     <string name="virtual_keyboard_category">صفحه کلید مجازی</string>

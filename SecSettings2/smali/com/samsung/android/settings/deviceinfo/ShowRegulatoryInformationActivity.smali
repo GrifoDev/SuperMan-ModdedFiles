@@ -134,7 +134,7 @@
 
     iput-object p0, p0, Lcom/samsung/android/settings/deviceinfo/ShowRegulatoryInformationActivity;->mContext:Landroid/content/Context;
 
-    const v8, 0x7f0b14a5
+    const v8, 0x7f0b14a8
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/deviceinfo/ShowRegulatoryInformationActivity;->setTitle(I)V
 
@@ -147,7 +147,7 @@
     invoke-virtual {v2, v1}, Landroid/app/ActionBar;->setDisplayHomeAsUpEnabled(Z)V
 
     :cond_0
-    const v8, 0x7f1105d2
+    const v8, 0x7f1105d0
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/deviceinfo/ShowRegulatoryInformationActivity;->findViewById(I)Landroid/view/View;
 

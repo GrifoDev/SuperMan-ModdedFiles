@@ -48,7 +48,7 @@
 .method private showSecurityFields()V
     .locals 3
 
-    const v2, 0x7f11074b
+    const v2, 0x7f110749
 
     const/4 v1, 0x0
 
@@ -240,7 +240,7 @@
 
     iget-object v6, p0, Lcom/android/settings/wifi/WifiApDialog;->mView:Landroid/view/View;
 
-    const v7, 0x7f11074a
+    const v7, 0x7f110748
 
     invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -250,7 +250,7 @@
 
     iget-object v6, p0, Lcom/android/settings/wifi/WifiApDialog;->mView:Landroid/view/View;
 
-    const v7, 0x7f11074d
+    const v7, 0x7f11074b
 
     invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -268,13 +268,13 @@
 
     move-result-object v1
 
-    const v6, 0x7f0b0e20
+    const v6, 0x7f0b0e2a
 
     invoke-virtual {p0, v6}, Lcom/android/settings/wifi/WifiApDialog;->setTitle(I)V
 
     iget-object v6, p0, Lcom/android/settings/wifi/WifiApDialog;->mView:Landroid/view/View;
 
-    const v7, 0x7f11049d
+    const v7, 0x7f11049b
 
     invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -284,7 +284,7 @@
 
     iget-object v6, p0, Lcom/android/settings/wifi/WifiApDialog;->mView:Landroid/view/View;
 
-    const v7, 0x7f110749
+    const v7, 0x7f110747
 
     invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -296,7 +296,7 @@
 
     iget-object v6, p0, Lcom/android/settings/wifi/WifiApDialog;->mView:Landroid/view/View;
 
-    const v7, 0x7f1106fa
+    const v7, 0x7f1106f8
 
     invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -382,7 +382,7 @@
 
     invoke-virtual {v0, v6}, Landroid/widget/ArrayAdapter;->setDropDownViewResource(I)V
 
-    const v6, 0x7f0b12a3
+    const v6, 0x7f0b12a6
 
     invoke-virtual {v1, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -394,7 +394,7 @@
 
     invoke-virtual {p0, v8, v6, v7}, Lcom/android/settings/wifi/WifiApDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
 
-    const v6, 0x7f0b12a5
+    const v6, 0x7f0b12a8
 
     invoke-virtual {v1, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -462,7 +462,7 @@
 
     iget-object v6, p0, Lcom/android/settings/wifi/WifiApDialog;->mView:Landroid/view/View;
 
-    const v7, 0x7f11074c
+    const v7, 0x7f11074a
 
     invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -552,7 +552,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/WifiApDialog;->mView:Landroid/view/View;
 
-    const v2, 0x7f11074c
+    const v2, 0x7f11074a
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

@@ -153,7 +153,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/SecAirplaneModeEnabler;->mSwitchPref:Landroid/preference/SwitchPreference;
 
-    const v5, 0x7f0b19d8
+    const v5, 0x7f0b19db
 
     invoke-virtual {v4, v5}, Landroid/preference/SwitchPreference;->setSummary(I)V
 

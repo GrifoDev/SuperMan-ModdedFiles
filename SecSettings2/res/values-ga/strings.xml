@@ -243,7 +243,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Tacaíocht</string>
     <string name="reset_network_settings_list_summary">Fill socruithe Wi-Fi, Bluetooth, agus socruithe líonra eile ar a réamhshocrú.</string>
     <string name="master_clear_list_summary">Fill do ghléas ar a réamhshocruithe monarchan. Léirscriosfar leis seo na sonraí uile, lena n-áirítear comhaid agus feidhmchláir a íoslódáladh.</string>
-    <string name="auto_restart_summary">Optamaigh do ghléas trína atosú go huathoibríoch ag amanna socraithe. Caillfear aon sonraí neamhshábháilte ar atosú an ghléis.</string>
+    <string name="auto_restart_summary">"Optamaigh d'fhón trína atosú go huathoibríoch uair sa tseachtain. Caillfear aon sonraí neamhshábháilte ar atosú d'fhóin."</string>
     <string name="search_settings">Cuardaigh</string>
     <string name="related_results">%d mír ghaolmhara</string>
     <string name="no_results_found">Níor aimsíodh torthaí</string>
@@ -1349,6 +1349,7 @@ Tógann sé uair an chloig nó níos mó le criptiú. Cinntigh go bhfuil an ceal
     <string name="crypt_keeper_verify_failed_summary">Ní féidir do ghléas a atosú. Theip ar an bhfíorú sláine. Ní foláir go bhfillfear do ghléas ar na réamhshocruithe monarchan. Léirscriosfar do shonraí go léir leis sin.</string>
     <string name="cryptkeeper_emergency_call">Glao éigeandála</string>
     <string name="cryptkeeper_return_to_call">Fill ar ghlao</string>
+    <string name="cryptkeeper_default_enter_msg">"Tá d'fhón criptithe ar mhaithe le slándáil."</string>
     <string name="enter_password">Le do ghléas a thosú, iontráil do phasfhocal.</string>
     <string name="enter_pin">Le do ghléas a thosú, iontráil do PIN.</string>
     <string name="enter_pattern">Le do ghléas a thosú, tarraing do phatrún.</string>
@@ -1362,6 +1363,7 @@ Tógann sé uair an chloig nó níos mó le criptiú. Cinntigh go bhfuil an ceal
     <string name="crypt_keeper_last_warn_wipe">Níl ach 1 iarracht fágtha agat le do ghléas a thosú sula bhfillfear ar a réamhshocruithe monarchan é. Léirscriosfar na sonraí uile leis sin, lena n-áirítear comhaid agus feidhmchláir a íoslódáladh.</string>
     <string name="crypt_keeper_failed_title_dec">Theip ar dhíchriptiú.</string>
     <string name="crypt_keeper_failed_summary_dec">Ní féidir an díchriptiú a chur i gcrích mar cuireadh isteach air. Déan athshocrú chuig sonraí monarchan (rud a léirscriosfaidh gach sonra) roimh úsáid.</string>
+    <string name="crypt_keeper_set_screen_lock_type">Socraigh cineál glas scáileáin</string>
     <string name="encryption_interstitial_message_kor">Tá do ghléas criptithe. Cosain do shonraí criptithe trí ‘Éiligh ar ghlas scáil. sonraí a dhíchriptiú ar chasadh air’ a roghnú. Cosnófar sonraí ar ghléasanna a goideadh agus ar ghléasanna atá ar iarraidh leis sin. Beidh ort do ghléas a dhíghlasáil lena shonraí a dhíchriptiú gach uair a chasann tú a chumhacht air. Ní bhfaighidh tú glaonna, teachtaireachtaí, ná fógraí go dtí go ndíchripteoidh tú an ghléas.</string>
     <string name="encryption_interstitial_message_direction">"Cosain do ghléas trí Éiligh Glas treo a roghnú ar chumhacht an ghléis a chasadh air. Cosnófar sonraí ar ghléasanna a goideadh nó ar ghléasanna atá ar iarraidh leis sin.
 
@@ -1601,6 +1603,8 @@ Sula n-iarrann tú deisiú faoin mbaránta, ní mór Glas athghníomhachtaithe a
     <string name="empty_content_toast">Níl inneachar ann le sábháil.</string>
     <string name="find_my_mobile_message_zero">"Rianaigh do ghléas agus cianrialaigh é le seirbhís ghréasáin Aimsigh M'Fhón Póca. Le tuilleadh faisnéise a fháil agus leis na feidhmeanna eile atá ar fáil a fháil amach, gabh chuig an láithreán gréasáin seo a leanas:
 %s"</string>
+    <string name="send_last_location_title">Seol an suíomh deireanach</string>
+    <string name="send_last_location_summary">"Ceadaigh do d'fhóin a shuíomh deireanach a sheoladh chuig freastalaí Aimsigh M'Fhón Póca nuair a théann an ceallra faoi bhun leibhéal áirithe."</string>
     <string name="high_power_description">"Cumasaigh Optamaigh úsáid cheallra d'fheidhmchláir aonair. Cuirfear srian ar roinnt feidhmeanna, amhail siúd a úsáideann líonraí móibíleacha nó lena sioncronaítear sonraí, le cumhacht an cheallra a choigilt."</string>
     <string name="wifi_display_summary_off">As</string>
     <string name="battery_usage_description">Taispeántar ar an scáileán seo sonraí maidir le húsáid an cheallra ó lánluchtaíodh an gléas an uair dheireanach.</string>
@@ -1832,6 +1836,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">Roghnaigh na haicearraí feidhmchláir is mian leat a úsáid ar an scáileán glasála.</string>
     <string name="lockscreen_notifications">Fógraí ar an scáileán glasála</string>
     <string name="work_profile_lockscreen_notifications">Fógraí próifíle oibre</string>
+    <string name="lock_network_and_security">Glasáil líonra agus slándáil</string>
+    <string name="lock_network_and_security_summary">"Coinnigh feidhmeanna a bhaineann le líonra agus slándáil glasáilte agus d'fhón glasáilte, ionas go mbeidh sé níos éasca é a aimsiú má chailltear nó má ghoidtear é."</string>
     <string name="dualclock_settings_title">Déchlog</string>
     <string name="dualclock_settings_summary">Taispeáin amchriosanna áitiúla agus baile le linn fánaíochta.</string>
     <string name="set_home_city">Socraigh Amchrios baile</string>
@@ -2017,7 +2023,7 @@ Fiú má ghlantar d'fhón, beidh pasfhocal do chuntais Google de dhíth sula mbe
     <string name="air_browse_music_on_lock_screen_title">Ceol ar scáileán glasála</string>
     <string name="air_browse_music_on_lock_screen_summary">Athraigh rianta ceoil ar an scáileán glasála.</string>
     <string name="air_browse_note_summary">Bog idir na leathanaigh agus tú i mód Amharc.</string>
-    <string name="data_usage_enable_mobile_summery">Má bhíonn Sonraí móibíleacha casta as, ní mór do do ghléas a bheith nasctha le líonra Wi-Fi le seirbhísí a úsáid a bhfuil nasc líonra de dhíth orthu.</string>
+    <string name="data_usage_enable_mobile_summery">Faigh rochtain ar an Idirlíon trí do líonra móibíleach.</string>
     <string name="data_usage_enable_mobile_warning_skt">Is féidir go ngearrfar táillí breise ar nascadh le líonraí móibíleacha ag brath ar do phlean sonraí. Ar aghaidh?</string>
     <string name="data_usage_enable_mobile_warning_ktt">Is féidir go ngearrfar táillí breise ar nascadh le líonraí móibíleacha ag brath ar do phlean sonraí. Ar aghaidh?</string>
     <string name="data_usage_enable_mobile_warning_lgt">Is féidir go ngearrfar táillí breise ar nascadh le líonraí móibíleacha ag brath ar do phlean sonraí. Ar aghaidh?</string>
@@ -2387,8 +2393,8 @@ Triail arís."</string>
     <string name="secure_folder_summary">"Glasáil d'inneachar agus d'fheidhmchláir phríobháideacha le slándáil a fheabhsú."</string>
     <string name="text_biometrics_finger_title_enterprise">Níl tacú in %1$s do mhéarloirg le %2$s a dhíghlasáil.</string>
     <string name="edge_feeds_title">Fothaí imill</string>
-    <string name="screensaver_settings_summary">Rialaigh a dtarlaíonn nuair a bhíonn an gléas i leaba nasctha agus/nó ag luchtú agus an scáileán casta as. Tugtar Aislingeacht ar an bhfeidhm seo freisin.</string>
-    <string name="screensaver_settings_summary_wo_dock">Taispeáin spárálaí scáileáin tar éis don scáileán casadh as go huathoibríoch agus an gléas á luchtú.</string>
+    <string name="screensaver_settings_summary">"Taispeáin spárálaí scáileáin tar éis don scáileán casadh as go huathoibríoch agus d'fhón á luchtú."</string>
+    <string name="screensaver_settings_summary_wo_dock">"Taispeáin spárálaí scáileáin tar éis don scáileán casadh as go huathoibríoch agus d'fhón i leaba nasctha nó á luchtú."</string>
     <string name="apn_already_exists">Ann cheana.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Ní mór don uimhir phoirt a bheith idir %1$d agus %2$d</string>
@@ -3153,6 +3159,7 @@ Méadaítear úsáid an cheallra agus úsáid sonraí le Ball te móibíleach."<
     <string name="wfd_connection_end_toast">Nasc le Screen mirroring scortha.</string>
     <string name="wfd_descrpition_playvia">Seinn inneachar.</string>
     <string name="wfd_descrpition_mirroring">Scáthánaigh an scáileán.</string>
+    <string name="wfd_descrpition_playsound">Seinn fuaim.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">Díchumasófar Ilfhuinneoga agus dúnfar gach feidhmchlár atá ar oscailt i bhfuinneoga aníos.</string>
     <string name="keyguard_password_attempt_count_pin_code">%d iarracht fágtha.</string>
@@ -3989,7 +3996,7 @@ Smaoinigh ar chárta SD nó gléas stórála USB níos tapa a úsáid leis an bh
     <string name="location_network_based">Úsáid líonraí gan sreang</string>
     <string name="location_neighborhood_level">"Lig d'f'chláir seirbhís suímh Google a úsáid le do shuíomh a mheas níos tapúla. Baileofar sonraí suímh gan ainm 's seolfar go Google iad."</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">Eolas faoin ngléas</string>
+    <string name="about_settings">Eolas faoin bhfón</string>
     <string name="about_settings_vzw">Eolas faoin ghléas</string>
     <string name="legal_information">Faisnéis dlí</string>
     <string name="regulatory_information">Faisnéis rialála</string>
@@ -4162,7 +4169,7 @@ Ní chaillfidh tú na sonraí feidhmchláir atá ann cheana."</string>
     <string name="phone_language">Teanga</string>
     <string name="show_password">Déan pasfhocail infheicthe</string>
     <string name="show_password_summary">Taispeán carachtair an phasfhocail go haicearrach agus iad á scríobh.</string>
-    <string name="ime_security_warning">Is féidir an téacs uile a iontrálfaidh tú a bhailiú, seachas pasfhocail, lena n-áirítear sonraí pearsanta agus uimhreacha cártaí creidmheasa sa mhod seo. Is as an bhfeidhmchlár %1$s é. Úsáid ar aon nós?</string>
+    <string name="ime_security_warning">"D'fhéadfadh sé go mbeadh %s in ann an téacs uile a chlóscríobhfaidh tú a bhailiú, lena n-áirítear sonraí pearsanta amhail pasfhocail agus uimhreacha cártaí creidmheasa."</string>
     <string name="failed_to_open_app_settings_toast">Theip ar oscailt socruithe do %s.</string>
     <string name="keyboard_and_input_methods_category">Eochairchláir</string>
     <string name="virtual_keyboard_category">Eochairchlár fíorúil</string>

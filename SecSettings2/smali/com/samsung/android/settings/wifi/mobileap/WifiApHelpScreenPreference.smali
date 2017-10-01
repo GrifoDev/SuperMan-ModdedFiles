@@ -29,7 +29,7 @@
 .method public onBindView(Landroid/view/View;)V
     .locals 10
 
-    const v9, 0x7f0b0d0d
+    const v9, 0x7f0b0d17
 
     const/4 v7, 0x1
 
@@ -37,7 +37,7 @@
 
     invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
 
-    const v4, 0x7f110767
+    const v4, 0x7f110765
 
     invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -45,7 +45,7 @@
 
     check-cast v2, Landroid/widget/ImageView;
 
-    const v4, 0x7f110344
+    const v4, 0x7f110342
 
     invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -53,7 +53,7 @@
 
     check-cast v3, Landroid/widget/TextView;
 
-    const v4, 0x7f110768
+    const v4, 0x7f110766
 
     invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -152,7 +152,7 @@
 
     if-eqz v4, :cond_3
 
-    const v4, 0x7f0b0d0e
+    const v4, 0x7f0b0d18
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(I)V
 
@@ -195,7 +195,7 @@
 
     if-nez v4, :cond_5
 
-    const v4, 0x7f0b0e07
+    const v4, 0x7f0b0e11
 
     invoke-static {v4}, Lcom/samsung/android/settings/WifiApUtils;->getStringID(I)I
 
@@ -250,7 +250,7 @@
     goto :goto_1
 
     :cond_5
-    const v4, 0x7f0b0e05
+    const v4, 0x7f0b0e0f
 
     invoke-static {v4}, Lcom/samsung/android/settings/WifiApUtils;->getStringID(I)I
 
@@ -265,7 +265,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b0e02
+    const v5, 0x7f0b0e0c
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

@@ -183,6 +183,12 @@
 
     if-nez v6, :cond_1
 
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+
+    move-result-object v6
+
+    if-eqz v6, :cond_5
+
     const-string/jumbo v6, "com.android.settings.bluetooth.action.DOCK_SHOW_UI"
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;

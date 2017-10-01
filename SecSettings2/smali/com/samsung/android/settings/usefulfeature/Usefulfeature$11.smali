@@ -85,7 +85,7 @@
 
     if-eqz v0, :cond_2
 
-    const v1, 0x7f0b19d8
+    const v1, 0x7f0b19db
 
     :goto_1
     invoke-virtual {v2, v1}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V

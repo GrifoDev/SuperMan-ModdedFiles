@@ -277,7 +277,7 @@
 
     move-result-object p2
 
-    const v4, 0x7f11025d
+    const v4, 0x7f11025b
 
     invoke-virtual {p2, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -297,7 +297,7 @@
 
     iput-object v4, v2, Lcom/samsung/android/settings/datausage/networkconnect/DataWarningViewHolder;->icon:Landroid/widget/ImageView;
 
-    const v4, 0x7f11027f
+    const v4, 0x7f11027d
 
     invoke-virtual {p2, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -307,7 +307,7 @@
 
     iput-object v4, v2, Lcom/samsung/android/settings/datausage/networkconnect/DataWarningViewHolder;->name:Landroid/widget/TextView;
 
-    const v4, 0x7f110280
+    const v4, 0x7f11027e
 
     invoke-virtual {p2, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -367,7 +367,7 @@
 
     iget-object v6, p0, Lcom/samsung/android/settings/datausage/networkconnect/DataWarningAdapter;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f0b0c4f
+    const v7, 0x7f0b0c59
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -522,7 +522,7 @@
 
     iget-object v6, p0, Lcom/samsung/android/settings/datausage/networkconnect/DataWarningAdapter;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f0b0c4f
+    const v7, 0x7f0b0c59
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

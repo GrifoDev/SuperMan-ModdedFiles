@@ -820,7 +820,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b1030
+    const v6, 0x7f0b1033
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1032,7 +1032,7 @@
 
     move-result-object v5
 
-    const v6, 0x104078e
+    const v6, 0x1040795
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1066,7 +1066,7 @@
 
     move-result-object v5
 
-    const v6, 0x104078f
+    const v6, 0x1040796
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1091,7 +1091,7 @@
 
     move-result-object v5
 
-    const v6, 0x1040790
+    const v6, 0x1040797
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1116,7 +1116,7 @@
 
     move-result-object v5
 
-    const v6, 0x1040791
+    const v6, 0x1040798
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1150,7 +1150,7 @@
 
     move-result-object v5
 
-    const v6, 0x1040793
+    const v6, 0x104079a
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1175,7 +1175,7 @@
 
     move-result-object v5
 
-    const v6, 0x1040794
+    const v6, 0x104079b
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1200,7 +1200,7 @@
 
     move-result-object v5
 
-    const v6, 0x104079e
+    const v6, 0x10407a5
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1474,7 +1474,7 @@
 
     const/4 v8, 0x1
 
-    const v7, 0x7f0b1030
+    const v7, 0x7f0b1033
 
     const/4 v6, 0x0
 
@@ -1688,7 +1688,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/nfc/PaymentDropDownPreference;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0b0952
+    const v6, 0x7f0b095c
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

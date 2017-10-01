@@ -84,7 +84,7 @@
 
     iput v2, v0, Lcom/samsung/android/settings/OneHandViewPagerAdapter$Description;->animation:I
 
-    const v2, 0x7f0b0b5d
+    const v2, 0x7f0b0b67
 
     iput v2, v0, Lcom/samsung/android/settings/OneHandViewPagerAdapter$Description;->summary:I
 
@@ -106,7 +106,7 @@
 
     if-eqz v1, :cond_0
 
-    const v2, 0x7f0b0b5e
+    const v2, 0x7f0b0b68
 
     iput v2, v0, Lcom/samsung/android/settings/OneHandViewPagerAdapter$Description;->summary:I
 
@@ -118,7 +118,7 @@
     return-void
 
     :cond_0
-    const v2, 0x7f0b0b5f
+    const v2, 0x7f0b0b69
 
     iput v2, v0, Lcom/samsung/android/settings/OneHandViewPagerAdapter$Description;->summary:I
 
@@ -247,7 +247,7 @@
 
     invoke-virtual {v4, v5}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
-    const v5, 0x7f1104f0
+    const v5, 0x7f1104ee
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -255,7 +255,7 @@
 
     check-cast v3, Landroid/widget/TextView;
 
-    const v5, 0x7f1104f1
+    const v5, 0x7f1104ef
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -263,7 +263,7 @@
 
     check-cast v2, Landroid/widget/TextView;
 
-    const v5, 0x7f1104ef
+    const v5, 0x7f1104ed
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

@@ -33,7 +33,7 @@
 
     iget-object v1, p0, Lcom/android/settings/localepicker/LocaleLinearLayoutManager;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0b10f6
+    const v2, 0x7f0b10f9
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -49,7 +49,7 @@
 
     iget-object v1, p0, Lcom/android/settings/localepicker/LocaleLinearLayoutManager;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0b10f7
+    const v2, 0x7f0b10fa
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -65,7 +65,7 @@
 
     iget-object v1, p0, Lcom/android/settings/localepicker/LocaleLinearLayoutManager;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0b10f8
+    const v2, 0x7f0b10fb
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -81,7 +81,7 @@
 
     iget-object v1, p0, Lcom/android/settings/localepicker/LocaleLinearLayoutManager;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0b10f9
+    const v2, 0x7f0b10fc
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -97,7 +97,7 @@
 
     iget-object v1, p0, Lcom/android/settings/localepicker/LocaleLinearLayoutManager;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0b10fa
+    const v2, 0x7f0b10fd
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

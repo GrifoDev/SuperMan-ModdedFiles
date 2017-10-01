@@ -31,7 +31,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f1101d4
+    const v6, 0x7f1101d3
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -232,7 +232,7 @@
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    const v2, 0x7f0b0e98
+    const v2, 0x7f0b0ea3
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 

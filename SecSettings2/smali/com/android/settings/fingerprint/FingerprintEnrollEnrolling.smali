@@ -640,7 +640,7 @@
 
     if-ne v0, v1, :cond_0
 
-    const v0, 0x7f0b115f
+    const v0, 0x7f0b1162
 
     invoke-virtual {p0, v0}, Lcom/android/settings/fingerprint/FingerprintEnrollEnrolling;->setHeaderText(I)V
 
@@ -656,7 +656,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f0b1161
+    const v0, 0x7f0b1164
 
     const/4 v1, 0x1
 
@@ -779,11 +779,11 @@
 
     invoke-virtual {p0, v0}, Lcom/android/settings/fingerprint/FingerprintEnrollEnrolling;->setContentView(I)V
 
-    const v0, 0x7f0b115f
+    const v0, 0x7f0b1162
 
     invoke-virtual {p0, v0}, Lcom/android/settings/fingerprint/FingerprintEnrollEnrolling;->setHeaderText(I)V
 
-    const v0, 0x7f110371
+    const v0, 0x7f11036f
 
     invoke-virtual {p0, v0}, Lcom/android/settings/fingerprint/FingerprintEnrollEnrolling;->findViewById(I)Landroid/view/View;
 
@@ -793,7 +793,7 @@
 
     iput-object v0, p0, Lcom/android/settings/fingerprint/FingerprintEnrollEnrolling;->mStartMessage:Landroid/widget/TextView;
 
-    const v0, 0x7f110372
+    const v0, 0x7f110370
 
     invoke-virtual {p0, v0}, Lcom/android/settings/fingerprint/FingerprintEnrollEnrolling;->findViewById(I)Landroid/view/View;
 
@@ -803,7 +803,7 @@
 
     iput-object v0, p0, Lcom/android/settings/fingerprint/FingerprintEnrollEnrolling;->mRepeatMessage:Landroid/widget/TextView;
 
-    const v0, 0x7f110373
+    const v0, 0x7f110371
 
     invoke-virtual {p0, v0}, Lcom/android/settings/fingerprint/FingerprintEnrollEnrolling;->findViewById(I)Landroid/view/View;
 
@@ -813,7 +813,7 @@
 
     iput-object v0, p0, Lcom/android/settings/fingerprint/FingerprintEnrollEnrolling;->mErrorText:Landroid/widget/TextView;
 
-    const v0, 0x7f110375
+    const v0, 0x7f110373
 
     invoke-virtual {p0, v0}, Lcom/android/settings/fingerprint/FingerprintEnrollEnrolling;->findViewById(I)Landroid/view/View;
 
@@ -823,7 +823,7 @@
 
     iput-object v0, p0, Lcom/android/settings/fingerprint/FingerprintEnrollEnrolling;->mProgressBar:Landroid/widget/ProgressBar;
 
-    const v0, 0x7f110374
+    const v0, 0x7f110372
 
     invoke-virtual {p0, v0}, Lcom/android/settings/fingerprint/FingerprintEnrollEnrolling;->findViewById(I)Landroid/view/View;
 
@@ -917,7 +917,7 @@
 
     packed-switch p1, :pswitch_data_0
 
-    const v0, 0x7f0b116f
+    const v0, 0x7f0b1172
 
     :goto_0
     invoke-virtual {p0, v0}, Lcom/android/settings/fingerprint/FingerprintEnrollEnrolling;->getText(I)Ljava/lang/CharSequence;
@@ -937,7 +937,7 @@
     return-void
 
     :pswitch_0
-    const v0, 0x7f0b116e
+    const v0, 0x7f0b1171
 
     goto :goto_0
 

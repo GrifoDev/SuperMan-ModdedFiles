@@ -70,7 +70,7 @@
 
     iget-object v10, p0, Lcom/android/settings/ResetNetwork;->mContentView:Landroid/view/View;
 
-    const v11, 0x7f1105dd
+    const v11, 0x7f1105db
 
     invoke-virtual {v10, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -82,7 +82,7 @@
 
     iget-object v10, p0, Lcom/android/settings/ResetNetwork;->mContentView:Landroid/view/View;
 
-    const v11, 0x7f1105dc
+    const v11, 0x7f1105da
 
     invoke-virtual {v10, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -108,7 +108,7 @@
 
     move-result-object v10
 
-    const v13, 0x7f0b16fd
+    const v13, 0x7f0b1700
 
     invoke-virtual {v10, v13}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -151,7 +151,7 @@
 
     move-result-object v11
 
-    const v12, 0x7f0b110d
+    const v12, 0x7f0b1110
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -181,7 +181,7 @@
 
     move-result-object v10
 
-    const v13, 0x7f0b11db
+    const v13, 0x7f0b11de
 
     invoke-virtual {v10, v13}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -519,7 +519,7 @@
     :goto_4
     iget-object v10, p0, Lcom/android/settings/ResetNetwork;->mContentView:Landroid/view/View;
 
-    const v11, 0x7f1105de
+    const v11, 0x7f1105dc
 
     invoke-virtual {v10, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -566,7 +566,7 @@
 
     invoke-direct {v1, v2, p0}, Lcom/android/settings/ChooseLockSettingsHelper;-><init>(Landroid/app/Activity;Landroid/app/Fragment;)V
 
-    const v2, 0x7f0b0b89
+    const v2, 0x7f0b0b93
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -637,7 +637,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b0b89
+    const v3, 0x7f0b0b93
 
     move-object v5, v4
 

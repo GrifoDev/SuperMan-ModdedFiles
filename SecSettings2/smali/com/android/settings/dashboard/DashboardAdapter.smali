@@ -372,13 +372,13 @@
 
     iget-object v2, v0, Lcom/android/settings/dashboard/DashboardAdapter$DashboardItemHolder;->itemView:Landroid/view/View;
 
-    const v3, 0x7f110223
+    const v3, 0x7f110221
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
-    const v3, 0x7f02050c
+    const v3, 0x7f02050a
 
     invoke-virtual {v2, v3}, Landroid/view/View;->setBackgroundResource(I)V
 
@@ -612,7 +612,7 @@
 
     iget-object v2, v0, Lcom/android/settings/dashboard/DashboardAdapter$DashboardItemHolder;->itemView:Landroid/view/View;
 
-    const v3, 0x7f110223
+    const v3, 0x7f110221
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1113,7 +1113,7 @@
 
     iget-object v14, v0, Lcom/android/settings/dashboard/DashboardAdapter$DashboardItemHolder;->itemView:Landroid/view/View;
 
-    const v15, 0x7f110239
+    const v15, 0x7f110237
 
     invoke-virtual {v14, v15}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1132,7 +1132,7 @@
 
     iget-object v14, v0, Lcom/android/settings/dashboard/DashboardAdapter$DashboardItemHolder;->itemView:Landroid/view/View;
 
-    const v15, 0x7f11022f
+    const v15, 0x7f11022d
 
     invoke-virtual {v14, v15}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1150,7 +1150,7 @@
 
     iget-object v14, v0, Lcom/android/settings/dashboard/DashboardAdapter$DashboardItemHolder;->itemView:Landroid/view/View;
 
-    const v15, 0x7f110239
+    const v15, 0x7f110237
 
     invoke-virtual {v14, v15}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1167,7 +1167,7 @@
 
     iget-object v14, v0, Lcom/android/settings/dashboard/DashboardAdapter$DashboardItemHolder;->itemView:Landroid/view/View;
 
-    const v15, 0x7f11022f
+    const v15, 0x7f11022d
 
     invoke-virtual {v14, v15}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1622,7 +1622,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0b0a9a
+    const v1, 0x7f0b0aa4
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1636,7 +1636,7 @@
     :cond_1
     iget-object v0, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0b0ab9
+    const v1, 0x7f0b0ac3
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1695,7 +1695,7 @@
     :cond_2
     iget-object v2, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b137b
+    const v3, 0x7f0b137e
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1733,7 +1733,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f1106e0
+    const v4, 0x7f1106de
 
     invoke-virtual {v1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1749,7 +1749,7 @@
 
     check-cast v3, Landroid/widget/TextView;
 
-    const v4, 0x7f0b0f19
+    const v4, 0x7f0b0f24
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(I)V
 
@@ -1809,7 +1809,7 @@
 .method private updateTile(Lcom/android/settingslib/drawer/Tile;)Lcom/android/settingslib/drawer/Tile;
     .locals 2
 
-    const v1, 0x7f0b130c
+    const v1, 0x7f0b130f
 
     iget-object v0, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
 
@@ -2177,7 +2177,7 @@
     :sswitch_2
     iget-object v1, p1, Lcom/android/settings/dashboard/DashboardAdapter$DashboardItemHolder;->itemView:Landroid/view/View;
 
-    const v2, 0x7f1103c4
+    const v2, 0x7f1103c2
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2212,7 +2212,7 @@
 
     iget-object v1, p1, Lcom/android/settings/dashboard/DashboardAdapter$DashboardItemHolder;->itemView:Landroid/view/View;
 
-    const v2, 0x7f110223
+    const v2, 0x7f110221
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2229,7 +2229,7 @@
     :sswitch_4
     iget-object v1, p1, Lcom/android/settings/dashboard/DashboardAdapter$DashboardItemHolder;->itemView:Landroid/view/View;
 
-    const v2, 0x7f110244
+    const v2, 0x7f110242
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2611,7 +2611,7 @@
 
     iget-object v9, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
 
-    const v10, 0x7f0b1340
+    const v10, 0x7f0b1343
 
     invoke-virtual {v9, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2681,7 +2681,7 @@
 
     iget-object v9, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
 
-    const v10, 0x7f0b1143
+    const v10, 0x7f0b1146
 
     invoke-virtual {v9, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

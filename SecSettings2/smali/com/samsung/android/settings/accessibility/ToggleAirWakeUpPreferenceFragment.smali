@@ -194,7 +194,7 @@
 
     move-result-object v1
 
-    const v6, 0x7f11053d
+    const v6, 0x7f11053b
 
     invoke-virtual {v1, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -221,7 +221,7 @@
     invoke-virtual {v0}, Landroid/graphics/drawable/AnimationDrawable;->start()V
 
     :cond_0
-    const v6, 0x7f11046f
+    const v6, 0x7f11046d
 
     invoke-virtual {v1, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -268,7 +268,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f11053d
+    const v3, 0x7f11053b
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

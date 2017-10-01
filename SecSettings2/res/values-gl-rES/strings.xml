@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Asistencia</string>
     <string name="reset_network_settings_list_summary">Restablece os axustes de Wi-Fi, Bluetooth e outros axustes de rede ao seus valores predeterminados.</string>
     <string name="master_clear_list_summary">Restablece o dispositivo aos axustes predeterminados de fábrica. Isto eliminará todos os datos, incluídos arquivos e aplicacións descargadas.</string>
-    <string name="auto_restart_summary">Optimiza o teu dispositivo reiniciándoo automaticamente ás horas definidas. Todos os datos sen gardar perderanse cando se reinicie o dispositivo.</string>
+    <string name="auto_restart_summary">Optimiza o teléfono reiniciándoo automaticamente unha vez á semana. Todos os datos sen gardar perderanse cando se reinicie o teléfono.</string>
     <string name="search_settings">Buscar</string>
     <string name="related_results">%d elementos relacionados</string>
     <string name="no_results_found">Non se atoparon resultados</string>
@@ -1485,6 +1485,7 @@ A cifraxe tarda unha hora ou máis. Antes de comezar, asegúrate de que a bater�
     <string name="crypt_keeper_verify_failed_summary">Non se pode reiniciar o teu dispositivo. Produciuse un erro na verificación da integridade. Precisas restablecer os axustes predeterminados de fábrica do teu dispositivo. Isto borrará todos os teus datos.</string>
     <string name="cryptkeeper_emergency_call">Chamada de urxencia</string>
     <string name="cryptkeeper_return_to_call">Volver á chamada</string>
+    <string name="cryptkeeper_default_enter_msg">O teléfono está cifrado por motivos de seguridade.</string>
     <string name="enter_password">Para iniciar o dispositivo, introduce o teu contrasinal.</string>
     <string name="enter_pin">Para iniciar o dispositivo, introduce o teu PIN.</string>
     <string name="enter_pattern">Para iniciar o dispositivo, debuxa o teu patrón.</string>
@@ -1498,6 +1499,7 @@ A cifraxe tarda unha hora ou máis. Antes de comezar, asegúrate de que a bater�
     <string name="crypt_keeper_last_warn_wipe">Quédache só 1 intento para iniciar o dispositivo antes de que se restablezan os axustes predeterminados de fábrica. Isto borrará todos os datos, incluídos os arquivos e as aplicacións descargadas.</string>
     <string name="crypt_keeper_failed_title_dec">Erro de decodificación</string>
     <string name="crypt_keeper_failed_summary_dec">Non se pode completar o descifrado debido á interrupción. Leva a cabo un restablecemento dos datos de fábrica (borrado de todos os datos) antes do uso.</string>
+    <string name="crypt_keeper_set_screen_lock_type">Definir tipo bloqueo pantalla</string>
     <string name="encryption_interstitial_message_kor">O dispositivo está cifrado. Protexe os teus datos cifrados seleccionando a opción Solicitar bloqueo de pantalla para descifrar datos durante o acendido do dispositivo. Isto axuda a protexer os datos en dispositivos perdidos ou roubados. Deberás desbloquear o dispositivo para cifrar os seus datos cando o acendas. Non recibirás ningunha chamada, mensaxe ou notificación ata que descifres o teu dispositivo.</string>
     <string name="encryption_interstitial_message_direction">"Selecciona Requirir bloqueo da dirección ao acender dispositivo para protexer o teu dispositivo. Isto axuda a protexer os datos en dispositivos perdidos ou roubados.
 
@@ -1737,6 +1739,8 @@ Para poder solicitar unha reparación en garantía, deberá desactivarse o Bloqu
     <string name="empty_content_toast">Non hai contidos para gardar.</string>
     <string name="find_my_mobile_message_zero">"Rastrexa e controla o teu dispositivo de xeito remoto mediante o servizo web Buscar o meu móbil. Para obter máis información e descubrir que outras funcións están dispoñibles, visita o seguinte sitio web:
 %s"</string>
+    <string name="send_last_location_title">Enviar última localización</string>
+    <string name="send_last_location_summary">Permite ao teléfono enviar a súa última localización ao servidor de Buscar o meu móbil cando queda menos dun determinado nivel de batería.</string>
     <string name="high_power_description">Activa Optimizar uso da batería para aplicacións individuais. Algunhas funcións, como as que usan redes móbiles ou sincronizan datos, restrinxiranse para aforrar carga da batería.</string>
     <string name="wifi_display_summary_off">Desactiv.</string>
     <string name="battery_usage_description">Esta pantalla amosa os datos de consumo de batería desde a última vez que se cargou o dispositivo por completo.</string>
@@ -1968,6 +1972,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">Selecciona que atallos de aplicación queres usar na pantalla de bloqueo.</string>
     <string name="lockscreen_notifications">Notificacións na pantalla de bloqueo</string>
     <string name="work_profile_lockscreen_notifications">Notificacións perfil de traballo</string>
+    <string name="lock_network_and_security">Bloquear rede e seguridade</string>
+    <string name="lock_network_and_security_summary">Mantén as funcións relacionadas coa rede e a seguridade bloqueadas cando o teléfono estea bloqueado para facilitar a súa localización e protección en caso de perda ou roubo.</string>
     <string name="dualclock_settings_title">Reloxo dual</string>
     <string name="dualclock_settings_summary">Amosa os fusos horarios local e da casa durante a itinerancia.</string>
     <string name="set_home_city">Definir zona horaria casa</string>
@@ -2153,7 +2159,7 @@ Aínda que se borre o teléfono, requirirase o contrasinal da conta de Google pa
     <string name="air_browse_music_on_lock_screen_title">Música na pantalla de bloqueo</string>
     <string name="air_browse_music_on_lock_screen_summary">Cambia as pistas de música na pantalla de bloqueo.</string>
     <string name="air_browse_note_summary">Desprázate entre as páxinas mentres estás no modo Vista.</string>
-    <string name="data_usage_enable_mobile_summery">Se os datos móbiles están desactivados, o teu dispositivo debe conectarse a unha rede Wi-Fi para usar servizos que requiran unha conexión de rede.</string>
+    <string name="data_usage_enable_mobile_summery">Accede a Internet a través da túa rede móbil.</string>
     <string name="data_usage_enable_mobile_warning_skt">A conexión a redes móbiles pode carrexar custos adicionais en función do teu plan de datos. Desexas continuar?</string>
     <string name="data_usage_enable_mobile_warning_ktt">A conexión a redes móbiles pode carrexar custos adicionais en función do teu plan de datos. Desexas continuar?</string>
     <string name="data_usage_enable_mobile_warning_lgt">A conexión a redes móbiles pode carrexar custos adicionais en función do teu plan de datos. Desexas continuar?</string>
@@ -2523,8 +2529,8 @@ Volva intentalo."</string>
     <string name="secure_folder_summary">Bloquea o teu contido e aplicacións privados para mellorar a seguridade.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s non admite as impresións dixitais para desbloquear %2$s.</string>
     <string name="edge_feeds_title">Fontes de Edge</string>
-    <string name="screensaver_settings_summary">Controla o que acontece cando o dispositivo está acoplado e/ou cargándose mentres a pantalla está apagada. Esta función tamén recibe o nome de Protector de pantalla.</string>
-    <string name="screensaver_settings_summary_wo_dock">Amosa un protector de pantalla cando se apaga a pantalla automaticamente mentres o dispositivo está cargando.</string>
+    <string name="screensaver_settings_summary">Amosa un protector de pantalla cando se apaga a pantalla automaticamente mentres o teléfono está cargando.</string>
+    <string name="screensaver_settings_summary_wo_dock">Amosa un protector de pantalla cando se apaga a pantalla automaticamente mentres o teléfono está cargando ou acoplado.</string>
     <string name="apn_already_exists">Xa existe</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">O número de porto debe estar comprendido entre %1$d e %2$d</string>
@@ -3289,6 +3295,7 @@ Usar Zona activa Wi-Fi aumenta o consumo de batería e o uso de datos."</string>
     <string name="wfd_connection_end_toast">Conexión de Screen Mirroring finalizada.</string>
     <string name="wfd_descrpition_playvia">Reproduce contido.</string>
     <string name="wfd_descrpition_mirroring">Reflexa a pantalla.</string>
+    <string name="wfd_descrpition_playsound">Reproducir son.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">Multiwindow desactivarase e todas as aplicacións abertas en ventás emerxentes pecharanse.</string>
     <string name="keyguard_password_attempt_count_pin_code">Queda %d intento</string>
@@ -4128,7 +4135,7 @@ Considera a posibilidade de usar unha tarxeta SD ou un dispositivo de almacename
     <string name="location_network_based">Usar redes sen fíos</string>
     <string name="location_neighborhood_level">Permi. ás aplic. usar servi. locali. Google para deter. túa situac. máis rápi. Recompi. datos situ. anóni. e serán envia. a Google.</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">Acerca do dispositivo</string>
+    <string name="about_settings">Acerca do teléfono</string>
     <string name="about_settings_vzw">Acerca do dispositivo</string>
     <string name="legal_information">Información legal</string>
     <string name="regulatory_information">Información normativa</string>
@@ -4313,7 +4320,7 @@ Non perderás ningún dato existente das aplicacións."</string>
     <string name="phone_language">Idioma</string>
     <string name="show_password">Facer visibles os contrasinais</string>
     <string name="show_password_summary">Amosar carácteres do contrasinal brevemente mentres os escribes.</string>
-    <string name="ime_security_warning">Este método pode recompilar todo o texto que insiras, excepto os contrasinais, incluídos os datos persoais e os números de tarxeta de crédito. Provén da aplicación %1$s. Desexas usalo igualmente?</string>
+    <string name="ime_security_warning">É posible que %s recompile todo o texto que escribas, incluídos datos persoais como contrasinais e números de tarxetas de crédito.</string>
     <string name="failed_to_open_app_settings_toast">Non se puideron abrir os axustes para %s</string>
     <string name="keyboard_and_input_methods_category">Teclados</string>
     <string name="virtual_keyboard_category">Teclado virtual</string>

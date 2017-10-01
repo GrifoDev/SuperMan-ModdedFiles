@@ -71,7 +71,7 @@
 .end method
 
 .method public getXmlResourcesToIndex(Landroid/content/Context;Z)Ljava/util/List;
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -88,11 +88,13 @@
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    invoke-static {p1}, Lcom/android/settings/Utils;->isSupportPenUsp10(Landroid/content/Context;)Z
+    invoke-static {p1}, Lcom/android/settings/Utils;->getSPenUSPLevel(Landroid/content/Context;)I
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    const/16 v3, 0xa
+
+    if-ne v2, v3, :cond_0
 
     new-instance v1, Landroid/provider/SearchIndexableResource;
 

@@ -45,7 +45,7 @@
 
     const-string/jumbo v1, "android.bluetooth.adapter.action.DISCOVERY_STARTED"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
@@ -53,7 +53,7 @@
 
     const-string/jumbo v1, "android.bluetooth.adapter.action.DISCOVERY_FINISHED"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 

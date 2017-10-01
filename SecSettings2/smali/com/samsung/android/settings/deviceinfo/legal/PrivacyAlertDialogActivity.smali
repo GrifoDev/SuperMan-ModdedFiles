@@ -30,7 +30,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f1101d4
+    const v2, 0x7f1101d3
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -85,7 +85,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/deviceinfo/legal/PrivacyAlertDialogActivity;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
-    const v1, 0x7f0b0e98
+    const v1, 0x7f0b0ea3
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/deviceinfo/legal/PrivacyAlertDialogActivity;->getString(I)Ljava/lang/String;
 
@@ -109,7 +109,7 @@
 
     iput-object p0, v0, Lcom/android/internal/app/AlertController$AlertParams;->mPositiveButtonListener:Landroid/content/DialogInterface$OnClickListener;
 
-    const v1, 0x7f0b1102
+    const v1, 0x7f0b1105
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/deviceinfo/legal/PrivacyAlertDialogActivity;->getString(I)Ljava/lang/String;
 

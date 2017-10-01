@@ -101,7 +101,7 @@
 
     if-eqz v7, :cond_3
 
-    const v7, 0x7f1104b7
+    const v7, 0x7f1104b5
 
     invoke-virtual {p1, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -139,7 +139,7 @@
 
     :cond_1
     :goto_0
-    const v7, 0x7f1104b9
+    const v7, 0x7f1104b7
 
     invoke-virtual {p1, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -160,7 +160,7 @@
     return-void
 
     :cond_3
-    const v7, 0x7f1104b8
+    const v7, 0x7f1104b6
 
     invoke-virtual {p1, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -168,7 +168,7 @@
 
     if-eqz v4, :cond_1
 
-    const v7, 0x7f1104b4
+    const v7, 0x7f1104b2
 
     invoke-virtual {v4, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -176,7 +176,7 @@
 
     check-cast v2, Landroid/widget/ImageView;
 
-    const v7, 0x7f1104b5
+    const v7, 0x7f1104b3
 
     invoke-virtual {v4, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

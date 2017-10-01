@@ -378,7 +378,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Mbështetje</string>
     <string name="reset_network_settings_list_summary">Reseto në parazgjedhje Wi-Fi, Bluetooth dhe cilësime të tjera të rrjetit.</string>
     <string name="master_clear_list_summary">Reseto pajisjen në parazgjedhjet e fabrikës. Kjo do t‘i fshijë të gjitha të dhënat, përfshi skedarët dhe app-et e shkarkuara.</string>
-    <string name="auto_restart_summary">Optimizoje pajisjen duke e rinisur automatikisht në orë të caktuara. Kur të riniset pajisja, të gjitha të dhënat e paruajtura do të humbasin.</string>
+    <string name="auto_restart_summary">Optimizoje telefonin duke e rinisur automatikisht një herë në javë. Kur të riniset telefoni, të gjitha të dhënat e paruajtura do të humbasin.</string>
     <string name="search_settings">Kërko</string>
     <string name="related_results">%d objekte të ndërlidhura</string>
     <string name="no_results_found">Nuk u gjetën rezultate</string>
@@ -1484,6 +1484,7 @@ Enkriptimi kërkon një orë ose më shumë. Para se të fillosh, sigurohu që b
     <string name="crypt_keeper_verify_failed_summary">Nuk mund ta rinis pajisjen. Verifikimi i integritetit dështoi. Duhet ta resetosh pajisjen në parazgjedhjet e fabrikës. Kjo do t‘i fshijë të gjitha të dhënat.</string>
     <string name="cryptkeeper_emergency_call">Telefonatë urgjence</string>
     <string name="cryptkeeper_return_to_call">Kthehu te thirrja</string>
+    <string name="cryptkeeper_default_enter_msg">Telefoni yt është enkriptuar për siguri.</string>
     <string name="enter_password">Për ta nisur pajisjen, fut fjalëkalimin.</string>
     <string name="enter_pin">Për ta nisur pajisjen, fut PIN-in.</string>
     <string name="enter_pattern">Për ta nisur pajisjen, vizatoje motivin.</string>
@@ -1497,6 +1498,7 @@ Enkriptimi kërkon një orë ose më shumë. Para se të fillosh, sigurohu që b
     <string name="crypt_keeper_last_warn_wipe">Të ka mbetur vetëm 1 orvatje për ta nisur pajisjen, para se kjo të resetohet në parazgjedhjet e fabrikës. Resetimi do t‘i fshijë të gjitha të dhënat, përfshi skedarët dhe app-et e shkarkuara.</string>
     <string name="crypt_keeper_failed_title_dec">Deshifrimi dështoi.</string>
     <string name="crypt_keeper_failed_summary_dec">Nuk mund ta përfundoj dekriptimin për shkak të ndërprerjes. Kryej një ricilësim me të dhënat e fabrikës (duke i fshirë të gjitha të dhënat) para përdorimit.</string>
+    <string name="crypt_keeper_set_screen_lock_type">Cilëso llojin e bllokimit</string>
     <string name="encryption_interstitial_message_kor">Pajisja jote është enkriptuar. Mbroji të dhënat e enkriptuara duke përzgjedhur Kërko bllokim ekrani për të dekriptuar të dhënat kur pajisja të ndizet. Kjo ndihmon për të mbrojtur të dhënat në pajisje të humbura ose të vjedhura. Do të duhet të zhbllokosh pajisjen për të dekriptuar të dhënat atje sa herë që e ndez. Nuk do të marrësh thirrje, mesazhe ose njoftime derisa ta dekriptosh pajisjen.</string>
     <string name="encryption_interstitial_message_direction">"Mbroje pajisjen tënde duke përzgjedhur Kërko Bllokim me drejtime kur të ndizet pajisja. Kjo ndihmon për të mbrojtur të dhënat në pajisje të humbura ose të vjedhura.
 
@@ -1736,6 +1738,8 @@ Para se të kërkosh një riparim nën garanci, duhet të paaftësosh Bllokimin 
     <string name="empty_content_toast">Nuk ka material për të ruajtur.</string>
     <string name="find_my_mobile_message_zero">"Gjurmoje dhe komandoje pajisjen tënde në distancë, duke përdorur shërbimin ueb Gjej celularin. Për më shumë informacion dhe për të marrë vesh se çfarë funksione të tjera janë në dispozicion, vizito uebsajtin e mëposhtëm:
 %s"</string>
+    <string name="send_last_location_title">Dërgo vendndodhjen e fundit</string>
+    <string name="send_last_location_summary">Lejo telefonin të dërgojë vendndodhjen e vet të fundit te serveri Gjej celularin kur bateria bie nën një nivel të caktuar.</string>
     <string name="high_power_description">Aftëso Optimizo përdorimin e baterisë për app-e individuale. Disa funksione, si ato që përdorin rrjetet celulare ose sinkronizojnë të dhëna, do të bllokohen për të kursyer energji nga bateria.</string>
     <string name="wifi_display_summary_off">Fikur</string>
     <string name="battery_usage_description">Ky ekran tregon të dhëna të përdorimit të baterisë qëkur u karikua plotësisht pajisja.</string>
@@ -1967,6 +1971,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">Përzgjidh cilat shkurtore app-esh dëshiron t‘i përdorësh në ekranin e bllokimit.</string>
     <string name="lockscreen_notifications">Njoftimet në ekranin e bllokimit</string>
     <string name="work_profile_lockscreen_notifications">Njoftimet nga profili Punë</string>
+    <string name="lock_network_and_security">Kyç rrjetin dhe sigurinë</string>
+    <string name="lock_network_and_security_summary">Mbaji funksionet e rrjetit dhe të sigurisë të kyçura kur telefoni yt është i bllokuar, për ta bërë më të lehtë që telefoni të gjehet dhe të mbrohet, në qoftë se të humb ose ta vjedhin.</string>
     <string name="dualclock_settings_title">Ora dyfishe</string>
     <string name="dualclock_settings_summary">Shfaq edhe zonën orare lokale edhe atë bazë kur je në bredhje.</string>
     <string name="set_home_city">Cilëso zonën orare bazë</string>
@@ -2152,7 +2158,7 @@ Edhe sikur telefonin të ta fshijnë, gjithnjë do të kërkohet llogaria jote G
     <string name="air_browse_music_on_lock_screen_title">Muzika në ekranin e bllokimit</string>
     <string name="air_browse_music_on_lock_screen_summary">Ndërro tingujt muzikore në ekranin e bllokimit.</string>
     <string name="air_browse_note_summary">Zhvendosu mes faqeve kur je në regjimin Pamje.</string>
-    <string name="data_usage_enable_mobile_summery">Në qoftë se Të dhënat celulare janë fikur, pajisja jote duhet të lidhet me një rrjet Wi-Fi, për të përdorur shërbime që kërkojnë lidhje me rrjetin.</string>
+    <string name="data_usage_enable_mobile_summery">Merr akses në Internet përmes rrjetit tënd celular.</string>
     <string name="data_usage_enable_mobile_warning_skt">Lidhja me rrjetet celulare mund të shoqërohet me tarifa shtesë, në varësi të planit tënd të të dhënave. Vazhdojmë?</string>
     <string name="data_usage_enable_mobile_warning_ktt">Lidhja me rrjetet celulare mund të shoqërohet me tarifa shtesë, në varësi të planit tënd të të dhënave. Vazhdojmë?</string>
     <string name="data_usage_enable_mobile_warning_lgt">Lidhja me rrjetet celulare mund të shoqërohet me tarifa shtesë, në varësi të planit tënd të të dhënave. Vazhdojmë?</string>
@@ -2522,8 +2528,8 @@ Provo përsëri."</string>
     <string name="secure_folder_summary">Kyçi materialet dhe app-et e tua private, për ta përmirësuar sigurinë.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s nuk i mbështet shenjat e gishtit për të zhbllokuar %2$s.</string>
     <string name="edge_feeds_title">Furnizime Edge</string>
-    <string name="screensaver_settings_summary">Kontrollo çfarë ndodh kur pajisja stacionohet dhe/ose është duke u karikuar me ekranin të fikur. Ky funksion quhet edhe Ëndërrim.</string>
-    <string name="screensaver_settings_summary_wo_dock">Trego një ekran-ruajtës pasi ekrani të fiket automatikisht kur pajisja po karikohet.</string>
+    <string name="screensaver_settings_summary">Trego një ekran-ruajtës pasi ekrani të fiket automatikisht kur telefoni yt po karikohet.</string>
+    <string name="screensaver_settings_summary_wo_dock">Trego një ekran-ruajtës pasi ekrani të fiket automatikisht kur telefoni yt është stacionuar ose po karikohet.</string>
     <string name="apn_already_exists">Ekziston tashmë.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Numri i portës duhet të jetë midis %1$d dhe %2$d.</string>
@@ -3288,6 +3294,7 @@ Shpërndarësja celulare konsumon më shumë energji nga bateria dhe rrit përdo
     <string name="wfd_connection_end_toast">Lidhja Screen mirroring u shkëput.</string>
     <string name="wfd_descrpition_playvia">Luaj materialet.</string>
     <string name="wfd_descrpition_mirroring">Pasqyroje ekranin.</string>
+    <string name="wfd_descrpition_playsound">Luaj tingull.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">Multi-window do të paaftësohet dhe të gjitha app-et e hapura në dritare kërcyese do të mbyllen.</string>
     <string name="keyguard_password_attempt_count_pin_code">%d perpjekje te mbetura.</string>
@@ -4127,7 +4134,7 @@ Shih se mos përdor një kartë SD ose një magazinë USB më të shpejtë, për
     <string name="location_network_based">Përdor rrjetet pa tel</string>
     <string name="location_neighborhood_level">Lejo app-et të përdorin shërbimin Google të vendndodhjes. Të dhënat do të mblidhen dhe të dërgohen në Google anonimisht.</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">Rreth pajisjes</string>
+    <string name="about_settings">Rreth telefonit</string>
     <string name="about_settings_vzw">Rreth pajisjes</string>
     <string name="legal_information">Informacioni juridik</string>
     <string name="regulatory_information">Informacion juridik</string>
@@ -4312,7 +4319,7 @@ Të dhënat e tua ekzistuese në app-et nuk do të humbasin."</string>
     <string name="phone_language">Gjuha</string>
     <string name="show_password">Bëji fjalëkalimet të dukshme</string>
     <string name="show_password_summary">Shfaq shenjat e fjalëkalimit për pak çaste, kur je duke i shtypur.</string>
-    <string name="ime_security_warning">Kjo mënyrë mund të grumbullojë të gjithë tekstin që shkruani, përveç fjalëkalimeve, duke përfshirë të dhënat personale dhe numrat e kartave të kreditit. Vjen nga aplikacioni %1$s. Të përdoret gjithsesi?</string>
+    <string name="ime_security_warning">%s mund të jetë në gjendje të mbledhë gjithë tekstin që ti shkruan, përfshi të dhëna personale si fjalëkalimet dhe numrat e kartave të kreditit.</string>
     <string name="failed_to_open_app_settings_toast">Dështova të hap cilësimet për %s.</string>
     <string name="keyboard_and_input_methods_category">Tastierat</string>
     <string name="virtual_keyboard_category">Tastiera virtuale</string>

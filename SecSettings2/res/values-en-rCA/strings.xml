@@ -178,7 +178,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Support</string>
     <string name="reset_network_settings_list_summary">Reset Wi-Fi, Bluetooth, and other network settings to their defaults.</string>
     <string name="master_clear_list_summary">Reset your device to its factory default settings. This will erase all data, including files and downloaded apps.</string>
-    <string name="auto_restart_summary">Optimize your device by restarting it automatically at set times. Any unsaved data will be lost when the device restarts.</string>
+    <string name="auto_restart_summary">Optimize your phone by restarting it automatically once a week. Any unsaved data will be lost when your phone restarts.</string>
     <string name="search_settings">Search</string>
     <string name="related_results">%d related items</string>
     <string name="no_results_found">No results found</string>
@@ -1209,6 +1209,10 @@ Tap OK to allow the brightness to be increased above safe levels."</string>
     <string name="crypt_keeper_vzw_password_warning">Set the Screen lock password with at least %d characters and 1 number.</string>
     <string name="crypt_keeper_decrypt_title">Decrypt device</string>
     <string name="crypt_keeper_decrypt_summary">Device encrypted.</string>
+    <string name="crypt_keeper_type_pin">PIN</string>
+    <string name="crypt_keeper_type_pattern">Pattern</string>
+    <string name="crypt_keeper_type_password">Password</string>
+    <string name="crypt_keeper_type_direction">Direction lock</string>
     <string name="crypt_keeper_confirm_title_dec">Confirm decryption</string>
     <string name="crypt_keeper_force_power_cycle_pattern">To start up your device, power it off, power it on again, then try again. You must draw the pattern you use to start up the device and unlock the screen. Your backup PIN cannot be used to start up your device.</string>
     <string name="crypt_keeper_setup_description_dec">"Decrypting device. This may take some time. Please wait…
@@ -1297,6 +1301,7 @@ Encryption takes an hour or more. Before you start, ensure that the battery is c
     <string name="crypt_keeper_verify_failed_summary">Unable to restart your device. The integrity verification has failed. You need to reset your device to factory default settings. This will erase all your data.</string>
     <string name="cryptkeeper_emergency_call">Emergency call</string>
     <string name="cryptkeeper_return_to_call">Return to call</string>
+    <string name="cryptkeeper_default_enter_msg">Your phone is encrypted for security.</string>
     <string name="enter_password">To start up your device, enter your password.</string>
     <string name="enter_pin">To start up your device, enter your PIN.</string>
     <string name="enter_pattern">To start up your device, draw your pattern.</string>
@@ -1310,6 +1315,10 @@ Encryption takes an hour or more. Before you start, ensure that the battery is c
     <string name="crypt_keeper_last_warn_wipe">You have only one attempt left to start up your device before it is reset to its factory default settings. This will erase all data, including files and downloaded apps.</string>
     <string name="crypt_keeper_failed_title_dec">Decryption failed.</string>
     <string name="crypt_keeper_failed_summary_dec">Unable to complete decryption because of interruption. Perform factory data reset (erasing all data) before use</string>
+    <string name="crypt_keeper_set_screen_lock_type">Set screen lock type</string>
+    <string name="encryption_interstitial_message">"You can further protect this phone by requiring your %s to be entered before the phone starts up. This helps protect your data if the phone is lost or stolen. Some apps may require Secure Startup according to Device encryption policies for access to features such as email sync.
+
+You will not receive any calls, messages or notifications, and alarms will not sound, until the phone has started up."</string>
     <string name="encryption_interstitial_message_kor">Your device is encrypted. Protect your encrypted data by selecting Require screen lock to decrypt data when device powers on. This helps protect data on lost or stolen devices. You will need to unlock your device to decrypt its data whenever you power it on. You will not receive any calls, messages, or notifications until you decrypt your device.</string>
     <string name="encryption_interstitial_message_direction">"Protect your device by selecting Require Direction lock when device powers on. This helps protect data on lost or stolen devices.
 
@@ -1550,7 +1559,7 @@ Before you request a repair under the warranty, Reactivation lock must be disabl
     <string name="find_my_mobile_message_zero">"Track and control your device remotely using the Find My Mobile web service. For more information and to find out what other functions are available, visit the following website:
 %s"</string>
     <string name="send_last_location_title">Send last location</string>
-    <string name="send_last_location_summary">"Allow your phone to send its last location to the Find My Mobile server before it's turned off."</string>
+    <string name="send_last_location_summary">Allow your phone to send its last location to the Find My Mobile server when the battery falls below a certain level.</string>
     <string name="high_power_description">Enable Optimize battery usage for individual apps. Some functions, such as those that use mobile networks or sync data, will be restricted to save battery power.</string>
     <string name="wifi_display_summary_off">Off</string>
     <string name="battery_usage_description">View battery usage data since your phone was last fully charged.</string>
@@ -1788,6 +1797,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">Select apps to open from the Lock screen.</string>
     <string name="lockscreen_notifications">Notifications</string>
     <string name="work_profile_lockscreen_notifications">Work profile notifications</string>
+    <string name="lock_network_and_security">Lock network and security</string>
+    <string name="lock_network_and_security_summary">"Keep network and security-related functions locked while your phone is locked, making it easier to locate and protect if it's lost or stolen."</string>
     <string name="dualclock_settings_title">Dual clock</string>
     <string name="dualclock_settings_summary">Show both local and home time zones when roaming.</string>
     <string name="set_home_city">Home time zone</string>
@@ -2364,10 +2375,8 @@ mode"</string>
     <string name="secure_folder_summary">Keep your personal files and apps safe and secure.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s does not support fingerprints to unlock %2$s.</string>
     <string name="edge_feeds_title">Edge feeds</string>
-    <string name="screensaver_settings_summary">"Control what happens while the device is docked and/or charging. The screensaver will be shown after the screen times out.
-
-This function is also called Daydream."</string>
-    <string name="screensaver_settings_summary_wo_dock">Show a screensaver after the screen turns off automatically while your phone is charging.</string>
+    <string name="screensaver_settings_summary">Show a screensaver after the screen turns off automatically while your phone is charging.</string>
+    <string name="screensaver_settings_summary_wo_dock">Show a screensaver after the screen turns off automatically while your phone is docked or charging.</string>
     <string name="apn_already_exists">Already exists.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Port number must be between %1$d and %2$d.</string>
@@ -3138,6 +3147,7 @@ Using Mobile hotspot increases battery consumption and data usage."</string>
     <string name="wfd_connection_end_toast">Screen Mirroring connection ended.</string>
     <string name="wfd_descrpition_playvia">Play content.</string>
     <string name="wfd_descrpition_mirroring">Mirror the screen.</string>
+    <string name="wfd_descrpition_playsound">Play sound.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">Multi window will be disabled and all apps open in pop-up windows will be closed.</string>
     <string name="keyguard_password_attempt_count_pin_code">%d attempt left.</string>
@@ -3978,7 +3988,7 @@ Consider using a faster SD card or USB storage device to improve performance."</
     <string name="location_network_based">Use wireless networks</string>
     <string name="location_neighborhood_level">"Allow apps to use Google's location service to estimate your location faster. Anonymous location data will be collected and sent to Google."</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">About device</string>
+    <string name="about_settings">About phone</string>
     <string name="about_settings_vzw">About device</string>
     <string name="legal_information">Legal information</string>
     <string name="regulatory_information">Regulatory information</string>
@@ -5049,6 +5059,10 @@ You will not receive any calls, messages, or notifications, and alarms will not 
     <string name="ucm_failed_to_connect_smartcard">Failed to connect to the smart card. Contact the device administrator.</string>
     <string name="ucm_loading">Loading…</string>
     <string name="wifi_unknown_secured_ap">Unknown security type. You cannot connect to this access point.</string>
+    <string name="lock_screen_doesnt_support_multi_window_text">"Can't use this feature in Multi window view."</string>
+    <string name="data_usage_turn_off_btn">Turn off</string>
+    <string name="easy_mode_app_help_dream_1">Use a simple Home screen layout and bigger on-screen items.</string>
+    <string name="easy_mode_app_help_dream_2">"Any customizations you've made to the Home screen will be discarded and the Screen zoom will be set to the maximum."</string>
     <string name="light_notification_title">Flash notification</string>
     <string name="light_notification_summary">Flash the camera light or the screen.</string>
     <string name="light_notification_guide">Flash the camera light or the screen when you receive notifications or when alarms sound.</string>
@@ -5113,15 +5127,7 @@ A notification will show if the user is exposed to loud sounds for a long period
     <string name="navigationbar_pressure_low">Low</string>
     <string name="navigationbar_pressure_high">High</string>
     <string name="full_screen_apps_summary">Choose which apps you want to use in the full screen aspect ratio.</string>
-    <string name="crypt_keeper_type_pin">PIN</string>
-    <string name="crypt_keeper_type_pattern">Pattern</string>
-    <string name="crypt_keeper_type_password">Password</string>
-    <string name="crypt_keeper_type_direction">Direction lock</string>
     <string name="crypt_keeper_dialog_message_sktlock">Safety lock and Encrypt device cannot be enabled at the same time. Select a non-secure screen lock type and try again.</string>
-    <string name="cryptkeeper_default_enter_msg">Your phone is encrypted for security.</string>
-    <string name="encryption_interstitial_message">"You can further protect this phone by requiring your %s to be entered before the phone starts up. This helps protect your data if the phone is lost or stolen. Some apps may require Secure Startup according to Device encryption policies for access to features such as email sync.
-
-You will not receive any calls, messages or notifications, and alarms will not sound, until the phone has started up."</string>
     <string name="fingerprint_delete_popup_title">Remove fingerprints?</string>
     <string name="fingerprint_rename_dialog_title">Rename the fingerprint</string>
     <string name="fingerprint_chooselock_help_text_1">To use fingerprints securely, you need to set a pattern, PIN, or password.</string>
@@ -5151,7 +5157,6 @@ You will not receive any calls, messages or notifications, and alarms will not s
 Turn on Fingerprint unlock to use your biometrics or your %s to unlock your phone."</string>
     <string name="fingerprint_lock_setttings_descrpition_fingerprint_v2_tablet">Your fingerprint has been added. Turn on Fingerprint lock to use your fingerprints or your %s to unlock your tablet.</string>
     <string name="fingerprint_backup_lock_type_helptext_ppp_directions">To use fingerprint recognition securely, you must set a pattern, PIN, password, or series of directions.</string>
-    <string name="lock_screen_doesnt_support_multi_window_text">"Can't use this feature in Multi window view."</string>
     <string name="wifi_dcm_disconnect">Disconnect</string>
     <string name="wifi_dcm_forget">Forget</string>
     <string name="wifi_add_network_dialog">Add Wi-Fi network</string>
@@ -5239,8 +5244,6 @@ To use your biometrics along with your %2$s to unlock your phone, turn on one or
     <string name="aod_disable_by_powersaving_mode">"Can't be used while Power saving mode is on."</string>
     <string name="aod_disable_by_smart_view">"Can't be used while Smart View is on."</string>
     <string name="lock_screen_menu_clearview_owner_infomation_summary">Show information such as your phone number or email address on the Lock screen and Clear View Cover.</string>
-    <string name="lock_network_and_security">Lock network and security</string>
-    <string name="lock_network_and_security_summary">"Keep network and security-related functions locked while your phone is locked, making it easier to locate and protect if it's lost or stolen."</string>
     <string name="roamingclock_settings_title">Roaming clock</string>
     <string name="contact_info_settings_title">Contact information</string>
     <string name="show_contact_info_on_lockscreen_label">Show information such as your phone number or email address on the Lock screen.</string>
@@ -5266,7 +5269,6 @@ Removing your biometric data is recommended, but you can keep it to continue usi
     <string name="finger_air_view_exclusive_options_popup_title">Turn on Air view</string>
     <string name="turn_on_button">Turn on</string>
     <string name="mobile_data_off_dialog_text_volte">"Your phone's Video Calling function won't work when mobile data is off. Also, you won't be able to use the Internet, Email or other apps that need a data connection unless you use Wi-Fi. Turn off the mobile data connection?"</string>
-    <string name="data_usage_turn_off_btn">Turn off</string>
     <string name="mobile_data_off_dialog_title">Turn off Mobile data?</string>
     <string name="multi_sound_summary">Play sound from one app on a speaker or headphones separate from the rest of the sounds on your device.</string>
     <string name="set_application_descryption">"Select an app below to play its sound on a separate audio device.
@@ -5284,8 +5286,6 @@ You can download more multimedia apps from Google Play."</string>
     <string name="psm_restricted_background_data_summary_wifi_only">Allow apps that are running in the background to use Wi-Fi.</string>
     <string name="alert_change_setting_exclusive_toast">"Can't change this setting while %s is on."</string>
     <string name="cloud_setting_summary_tablet">Back up your tablet and sync your data.</string>
-    <string name="easy_mode_app_help_dream_1">Use a simple Home screen layout and bigger on-screen items.</string>
-    <string name="easy_mode_app_help_dream_2">"Any customizations you've made to the Home screen will be discarded and the Screen zoom will be set to the maximum."</string>
     <string name="handwriting_language_desc_select_eng_reomove_gallery_feature">Handwriting can be recognized in S Note and Action memo. You will be able to search for handwriting in the language you select below. After you select a language, the device will recognize handwriting in that language.</string>
     <string name="handwriting_language_desc_select_exception">Handwriting can be recognized in S Note, Action memo, photo note, and photo frame feature. You will be able to search for handwriting in both %s and the language you select below. After you select a language the device will recognize handwriting in that language.</string>
     <string name="handwriting_language_desc_select_exception_reomove_gallery_feature">Handwriting can be recognized in S Note and Action memo. You will be able to search for handwriting in both %s and the language you select below. After you select a language, the device will recognize handwriting in that language.</string>

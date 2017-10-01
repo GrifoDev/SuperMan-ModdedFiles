@@ -521,7 +521,7 @@
     return v0
 
     :pswitch_2
-    const v0, 0x7f0b1a67
+    const v0, 0x7f0b1a6a
 
     return v0
 
@@ -531,7 +531,7 @@
     return v0
 
     :pswitch_4
-    const v0, 0x7f0b1a6f    # 1.8489994E38f
+    const v0, 0x7f0b1a72    # 1.849E38f
 
     return v0
 
@@ -588,7 +588,7 @@
     return v0
 
     :pswitch_2
-    const v0, 0x7f0b1a67
+    const v0, 0x7f0b1a6a
 
     return v0
 
@@ -598,7 +598,7 @@
     return v0
 
     :pswitch_4
-    const v0, 0x7f0b1a6e    # 1.8489992E38f
+    const v0, 0x7f0b1a71    # 1.8489998E38f
 
     return v0
 
@@ -645,32 +645,32 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0b1a34
+    const v0, 0x7f0b1a37
 
     return v0
 
     :cond_0
-    const v0, 0x7f0b1a64
+    const v0, 0x7f0b1a67
 
     return v0
 
     :pswitch_2
-    const v0, 0x7f0b1a66
-
-    return v0
-
-    :pswitch_3
     const v0, 0x7f0b1a69
 
     return v0
 
-    :pswitch_4
+    :pswitch_3
     const v0, 0x7f0b1a6c
 
     return v0
 
+    :pswitch_4
+    const v0, 0x7f0b1a6f    # 1.8489994E38f
+
+    return v0
+
     :pswitch_5
-    const v0, 0x7f0b1a71    # 1.8489998E38f
+    const v0, 0x7f0b1a74    # 1.8490004E38f
 
     return v0
 
@@ -712,32 +712,32 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0b1a34
+    const v0, 0x7f0b1a37
 
     return v0
 
     :cond_0
-    const v0, 0x7f0b1a64
+    const v0, 0x7f0b1a67
 
     return v0
 
     :pswitch_2
-    const v0, 0x7f0b1a66
+    const v0, 0x7f0b1a69
 
     return v0
 
     :pswitch_3
-    const v0, 0x7f0b1a68
-
-    return v0
-
-    :pswitch_4
     const v0, 0x7f0b1a6b
 
     return v0
 
+    :pswitch_4
+    const v0, 0x7f0b1a6e    # 1.8489992E38f
+
+    return v0
+
     :pswitch_5
-    const v0, 0x7f0b1a70    # 1.8489996E38f
+    const v0, 0x7f0b1a73    # 1.8490002E38f
 
     return v0
 
@@ -873,7 +873,7 @@
 
     invoke-virtual {p3, v2}, Landroid/widget/TextView;->setEnabled(Z)V
 
-    const v1, 0x7f110458
+    const v1, 0x7f110456
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1057,7 +1057,7 @@
 
     invoke-direct {v1, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v4, 0x7f0b1a73    # 1.8490002E38f
+    const v4, 0x7f0b1a76    # 1.8490008E38f
 
     invoke-virtual {v1, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -1081,7 +1081,7 @@
 
     invoke-direct {v4, p0}, Lcom/android/settings/deviceinfo/UsbModeChooserActivity$6;-><init>(Lcom/android/settings/deviceinfo/UsbModeChooserActivity;)V
 
-    const v5, 0x7f0b1102
+    const v5, 0x7f0b1105
 
     invoke-virtual {v1, v5, v4}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -1099,7 +1099,7 @@
 
     iget-object v1, p0, Lcom/android/settings/deviceinfo/UsbModeChooserActivity;->mDialog:Landroid/app/AlertDialog;
 
-    const v4, 0x7f11057b
+    const v4, 0x7f110579
 
     invoke-virtual {v1, v4}, Landroid/app/AlertDialog;->findViewById(I)Landroid/view/View;
 
@@ -1303,7 +1303,7 @@
     :cond_7
     iget-object v1, p0, Lcom/android/settings/deviceinfo/UsbModeChooserActivity;->mDialog:Landroid/app/AlertDialog;
 
-    const v2, 0x7f1106c7
+    const v2, 0x7f1106c5
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog;->findViewById(I)Landroid/view/View;
 

@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">គាំទ្រ</string>
     <string name="reset_network_settings_list_summary">ធ្វើ​ការកំណត់ Wi-Fi, Bluetooth និង បណ្ដាញ​ផ្សេងទៀត​ឡើងវិញ ទៅ​លំនាំដើម​របស់​ពួកវា។</string>
     <string name="master_clear_list_summary">ធ្វើ​ការកំណត់​ឧបករណ៍​របស់​អ្នក​ឡើងវិញ​ទៅ​ការកំណត់​លំនាំដើម​ពី​រោងចក្រ​របស់​វា។ នេះ​នឹង​លុប​ទិន្នន័យ​ទាំងអស់ រួមទាំង​ឯកសារ និង កម្មវិធី​ដែល​បាន​ទាញយក។</string>
-    <string name="auto_restart_summary">ធ្វើ​ឲ្យ​ឧបករណ៍​របស់​អ្នក​ល្អ​ប្រសើរ ដោយ​ចាប់ផ្ដើម​វា​ឡើងវិញ​ដោយ​ស្វ័យប្រវត្តិ នៅពេល​ដែល​បាន​កំណត់។ ទិន្នន័យ​ដែល​មិន​បាន​រក្សាទុក​ទាំងឡាយ​នឹង​បាត់បង់ នៅពេល​ឧបករណ៍​ចាប់ផ្ដើម​ឡើងវិញ។</string>
+    <string name="auto_restart_summary">ធ្វើ​ឲ្យ​ទូរសព្ទ​របស់​អ្នក​ល្អប្រសើរ ដោយ​ចាប់ផ្ដើម​វា​ឡើងវិញ​ដោយ​ស្វ័យប្រវត្តិ​ម្ដង​ក្នុង​មួយ​សប្ដាហ៍។ ទិន្នន័យ​ណា​មួយ​ដែល​មិន​បាន​រក្សាទុក នឹង​បាត់បង់ នៅពេល​ទូរសព្ទ​របស់​អ្នក​ចាប់ផ្ដើម​ឡើងវិញ។</string>
     <string name="search_settings">ស្វែង​រក</string>
     <string name="related_results">ធាតុ​ពាក់ព័ន្ធ %d</string>
     <string name="no_results_found">រក​មិនឃើញ​លទ្ធផល​ណា​មួយ</string>
@@ -1485,6 +1485,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_verify_failed_summary">មិន​អាច​ចាប់ផ្ដើម​ឧបករណ៍​របស់​អ្នក​ឡើងវិញ។ ការផ្ទៀងផ្ទាត់​សុចរិតភាព​បាន​បរាជ័យ។ អ្នក​ត្រូវ​កំណត់​ឧបករណ៍​របស់​អ្នក​ឡើងវិញ​ទៅ​ការកំណត់​លំនាំដើម​ពី​រោងចក្រ។ នេះ​នឹង​លុប​ទិន្នន័យ​របស់​អ្នក​ទាំងអស់។</string>
     <string name="cryptkeeper_emergency_call">ការហៅ​អាសន្ន</string>
     <string name="cryptkeeper_return_to_call">ត្រឡប់​ទៅ​ការហៅ</string>
+    <string name="cryptkeeper_default_enter_msg">ទូរសព្ទ​របស់​អ្នក​ត្រូវ​បាន​អ៊ិនគ្រីប​សម្រាប់​សន្តិសុខ។</string>
     <string name="enter_password">ដើម្បី​ចាប់ផ្ដើម​ឧបករណ៍​របស់​អ្នក សូម​វាយបញ្ចូល​ពាក្យសម្ងាត់​របស់​អ្នក។</string>
     <string name="enter_pin">ដើម្បី​ចាប់ផ្ដើម​ឧបករណ៍​របស់​អ្នក សូម​វាយបញ្ចូល PIN របស់​អ្នក។</string>
     <string name="enter_pattern">ដើម្បី​ចាប់ផ្ដើម​ឧបករណ៍​របស់​អ្នក សូម​គូស​លំនាំ​របស់​អ្នក។</string>
@@ -1498,6 +1499,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_last_warn_wipe">អ្នក​នៅសល់​ការប៉ុនប៉ង 1 ទៀត ដើម្បី​ចាប់ផ្ដើម​ឧបករណ៍​របស់​អ្នក មុនពេល​វា​ត្រូវ​បាន​កំណត់​ឡើងវិញ​ទៅ​ការកំណត់​លំនាំដើម​ពី​រោងចក្រ​របស់​វា។ នេះ​នឹង​លុប​ទិន្នន័យ​ទាំងអស់ រួមទាំង​ឯកសារ​និង​កម្មវិធី​ដែល​បាន​ទាញយក។</string>
     <string name="crypt_keeper_failed_title_dec">ឌីគ្រីបសុន​បរាជ័យ។</string>
     <string name="crypt_keeper_failed_summary_dec">មិន​អាច​បញ្ចប់​ឌីគ្រីបសុន ដោយសារ​ការបង្អាក់​រំខាន។ ធ្វើ​ការកំណត់​ឡើងវិញ​នូវ​ទិន្នន័យ​ពី​រោងចក្រ (លុប​ទិន្នន័យ​ទាំងអស់) មុន​ពេល​ប្រើ។</string>
+    <string name="crypt_keeper_set_screen_lock_type">កំណត់​ប្រភេទ​សោ​អេក្រង់</string>
     <string name="encryption_interstitial_message_kor">ឧបករណ៍​របស់​អ្នក​ត្រូវ​បាន​អ៊ិនគ្រីប។ ការពារ​ទិន្នន័យ​ដែល​អ្នក​បាន​អ៊ិនគ្រីប​ដោយ​ជ្រើស ត្រូវការ​សោ​អេក្រង់ ដើម្បី​ឌីគ្រីប​ទិន្នន័យ នៅពេល​ឧបករណ៍​បើក​ថាមពល។ នេះ​ជួយ​ការពារ​ទិន្នន័យ​លើ​ឧបករណ៍​ដែល​បាត់ ឬ ត្រូវ​បាន​លួច។ អ្នក​នឹង​ត្រូវការ​ដោះសោ​ឧបករណ៍​របស់​អ្នក ដើម្បី​ឌីគ្រីប​ទិន្នន័យ​របស់​វា គ្រប់​ពេល​ដែល​អ្នក​បើក​ថាមពល​វា។ អ្នក​នឹង​មិន​ទទួល​ការហៅ, សារ ឬ ការជូនដំណឹង​ផ្សេងទៀត​ឡើយ ទាល់តែ​អ្នក​ឌីគ្រីប​ឧបករណ៍​របស់​អ្នក។</string>
     <string name="encryption_interstitial_message_direction">"ការពារ​ឧបករណ៍​របស់​អ្នក​ដោយ​ជ្រើស ត្រូវការ​សោ​ទិសដៅ នៅពេល​ឧបករណ៍​បើក​ថាមពល។ នេះ​នឹង​ជួយ​ការពារ​ទិន្នន័យ​លើ​ឧបករណ៍​ដែល​បាន​បាត់​ឬ​ចោរ​លួច។
 
@@ -1737,6 +1739,8 @@ You will also need it when:"</string>
     <string name="empty_content_toast">គ្មាន​ខ្លឹមព័ត៌មាន​ត្រូវ​រក្សាទុក។</string>
     <string name="find_my_mobile_message_zero">"តាមដាន និង ត្រួតត្រា​ឧបករណ៍​របស់​អ្នក​ពីចម្ងាយ ដោយ​ប្រើ​សេវា​វិប រក​ឧបករណ៍​ចល័ត​ខ្ញុំ។ សម្រាប់​ព័ត៌មាន​បន្ថែម និង ដើម្បី​ស្វែងយល់​ពី​មុខងារ​ដែល​អាច​ប្រើ​បាន​ផ្សេងទៀត សូម​ចូលមើល​វិបសៃ​ខាងក្រោម៖
 %s"</string>
+    <string name="send_last_location_title">ផ្ញើ​ទីកន្លែង​ចុងក្រោយ</string>
+    <string name="send_last_location_summary">អនុញ្ញាត​ឲ្យ​ទូរសព្ទ​របស់​អ្នក​ផ្ញើ​ទីកន្លែង​ចុងក្រោយ​របស់​វា​ទៅ​សឺវើ រក​ឧបករណ៍​ចល័ត​ខ្ញុំ នៅពេល​ថ្ម​ធ្លាក់​ក្រោម​កម្រិត​មួយ​ចំនួន។</string>
     <string name="high_power_description">បើកប្រើ ធ្វើ​ឲ្យ​ការប្រើប្រាស់​ថ្ម​ល្អប្រសើរ សម្រាប់​កម្មវិធី​មួយៗ។ មុខងារ​ខ្លះ ដូចជា​មុខងារ​ដែល​ប្រើ​បណ្ដាញ​ចល័ត ឬ សមកាល​ទិន្នន័យ នឹង​ត្រូវ​បាន​កំហិត ដើម្បី​សំចៃ​ថាមពល​ថ្ម។</string>
     <string name="wifi_display_summary_off">បិទ</string>
     <string name="battery_usage_description">អេក្រង់​នេះ​បង្ហាញ​ទិន្នន័យ​ប្រើប្រាស់​ថ្ម ដោយសារ​ឧបករណ៍​ត្រូវ​បាន​សាក​ពេញ​ចុងក្រោយ។</string>
@@ -1968,6 +1972,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">ជ្រើស​ផ្លូវកាត់​កម្មវិធី​ណា​ដែល​អ្នក​ចង់​ប្រើ​លើ​អេក្រង់​ជាប់សោ។</string>
     <string name="lockscreen_notifications">ការជូនដំណឹង​លើ​អេក្រង់​ជាប់សោ</string>
     <string name="work_profile_lockscreen_notifications">ការជូនដំណឹង​ទម្រង់​ការងារ</string>
+    <string name="lock_network_and_security">ចាក់សោ​បណ្ដាញ និង សន្តិសុខ</string>
+    <string name="lock_network_and_security_summary">រក្សា​ការចាក់សោ​បណ្ដាញ​និង​មុខងារ​ពាក់ព័ន្ធ​នឹង​សន្តិសុខ ខណៈពេល​ទូរសព្ទ​របស់​អ្នក​ជាប់សោ ដែល​ធ្វើ​ឲ្យ​វា​ងាយស្រួល​ក្នុង​ការ​រក​និង​ការពារ បើ​វា​បាន​បាត់​ឬ​មាន​គេ​លួច។</string>
     <string name="dualclock_settings_title">នាឡិកា​ពីរ</string>
     <string name="dualclock_settings_summary">បង្ហាញ​ទាំង​តំបន់​ម៉ោង​ក្នុង​ស្រុក ទាំង​ម៉ោង​នៅ​ផ្ទះ នៅពេល​រ៉ូមីង។</string>
     <string name="set_home_city">កំណត់​តំបន់​ម៉ោង​ដើម</string>
@@ -2153,7 +2159,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="air_browse_music_on_lock_screen_title">តន្ដ្រី​លើ​អេក្រង់​ជាប់​សោ</string>
     <string name="air_browse_music_on_lock_screen_summary">ប្ដូរ​បទ​ភ្លេង​លើ​អេក្រង់​ជាប់សោ។</string>
     <string name="air_browse_note_summary">ផ្លាស់ទី​រវាង​ទំព័រ ខណៈពេល​ស្ថិត​ក្នុង​ទម្រង់​បង្ហាញ។</string>
-    <string name="data_usage_enable_mobile_summery">បើ​បាន​បិទ​ទិន្នន័យ​ចល័ត ឧបករណ៍​របស់​អ្នក​ត្រូវតែ​បាន​ភ្ជាប់​ទៅ​បណ្ដាញ Wi-Fi ដើម្បី​ប្រើ​សេវា​នានា ដែល​ត្រូវការ​ការភ្ជាប់​បណ្ដាញ។</string>
+    <string name="data_usage_enable_mobile_summery">ចូលប្រើ​អ៊ីនធើណិត​តាម​បណ្ដាញ​ចល័ត​របស់​អ្នក។</string>
     <string name="data_usage_enable_mobile_warning_skt">ការភ្ជាប់​ទៅ​បណ្ដាញ​ចល័ត​អាច​គិត​ថ្លៃ​បន្ថែម អាស្រ័យ​លើ​គម្រោង​ទិន្នន័យ​របស់​អ្នក។ បន្ត?</string>
     <string name="data_usage_enable_mobile_warning_ktt">ការភ្ជាប់​ទៅ​បណ្ដាញ​ចល័ត​អាច​គិត​ថ្លៃ​បន្ថែម អាស្រ័យ​លើ​គម្រោង​ទិន្នន័យ​របស់​អ្នក។ បន្ត?</string>
     <string name="data_usage_enable_mobile_warning_lgt">ការភ្ជាប់​ទៅ​បណ្ដាញ​ចល័ត​អាច​គិត​ថ្លៃ​បន្ថែម អាស្រ័យ​លើ​គម្រោង​ទិន្នន័យ​របស់​អ្នក។ បន្ត?</string>
@@ -2523,8 +2529,8 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="secure_folder_summary">ចាក់សោ​ខ្លឹមព័ត៌មាន​និង​កម្មវិធី​ឯកជន​របស់​អ្នក ដើម្បី​បង្កើន​សន្តិសុខ។</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s មិន​គាំទ្រ​ស្នាមម្រាមដៃ ដើម្បី​ដោះសោ %2$s។</string>
     <string name="edge_feeds_title">មតិ​ព័ត៌មាន​នៅ​គែម</string>
-    <string name="screensaver_settings_summary">ត្រួតត្រា​អ្វី​កើតឡើង ខណៈពេល​ឧបករណ៍​ត្រូវ​បាន​ភ្ជាប់​ដក់ និង/ឬ សាក ខណៈពេល​អេក្រង់​រលត់។ មុខងារ​នេះ​ក៏​ត្រូវ​បាន​ហៅ​ថា ធាតុរក្សា​អេក្រង់ ផងដែរ។</string>
-    <string name="screensaver_settings_summary_wo_dock">បង្ហាញ​ធាតុរក្សា​អេក្រង់ បន្ទាប់​ពី​អេក្រង់​រលត់​ដោយ​ស្វ័យប្រវត្តិ ខណៈពេល​ឧបករណ៍​កំពុង​សាក។</string>
+    <string name="screensaver_settings_summary">បង្ហាញ​ធាតុរក្សា​អេក្រង់​ដោយ​ស្វ័យប្រវត្តិ បន្ទាប់​ពី​អេក្រង់​រលត់ ខណៈពេល​ទូរសព្ទ​របស់​អ្នក​កំពុង​សាក។</string>
+    <string name="screensaver_settings_summary_wo_dock">បង្ហាញ​ធាតុរក្សា​អេក្រង់​បន្ទាប់​ពី​អេក្រង់​រលត់​ដោយ​ស្វ័យប្រវត្តិ ខណៈពេល​ទូរសព្ទ​របស់​អ្នក​ត្រូវ​បាន​ដក់ ឬ កំពុង​សាក។</string>
     <string name="apn_already_exists">មាន​ហើយ។</string>
     <string name="error_unavailable_apn">APN នេះ​មិន​ទទួល​ការគាំទ្រ​លើ​ឧបករណ៍​នេះ​ទេ។ សូម​សាកល្បង​មួយ​ផ្សេងទៀត។</string>
     <string name="error_message_port_out_of_range">លេខ​ច្រក​ត្រូវតែ​ស្ថិតនៅ​ចន្លោះ​ពី %1$d ទៅ %2$d។</string>
@@ -3289,6 +3295,7 @@ Wi-Fi is now on."</string>
     <string name="wfd_connection_end_toast">ការភ្ជាប់ Screen Mirroring បាន​បញ្ចប់។</string>
     <string name="wfd_descrpition_playvia">ចាក់​ខ្លឹមព័ត៌មាន។</string>
     <string name="wfd_descrpition_mirroring">Mirror អេក្រង់។</string>
+    <string name="wfd_descrpition_playsound">ចាក់​សំឡេង។</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">ពហុវីនដូវ​នឹង​ត្រូវ​បាន​បិទ ហើយ​កម្មវិធី​ទាំងអស់​ដែល​បាន​បើក​ក្នុង​វីនដូវ​ផុស នឹង​ត្រូវ​បាន​បិទ។</string>
     <string name="keyguard_password_attempt_count_pin_code">សល់​ការប៉ុនប៉ង %d។</string>
@@ -4128,7 +4135,7 @@ Receiving SMS"</string>
     <string name="location_network_based">ប្រើ​បណ្ដាញ​ឥតខ្សែ</string>
     <string name="location_neighborhood_level">អនុញ្ញាត​ឲ្យ​កម្មវិធី​ប្រើ​សេវា​ទីតាំង Google ដើម្បី​ស្ទង់​រក​មើល​ទីតាំង​អ្នក​កាន់​តែ​លឿន។ ទិន្នន័យ​ទីតាំង​អនាមិក​នឹង​ត្រូវ​បាន​ប្រមូល ហើយ​ផ្ញើ​ទៅ Google។</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">អំពី​ឧបករណ៍</string>
+    <string name="about_settings">អំពី​ទូរសព្ទ</string>
     <string name="about_settings_vzw">អំពី​ឧបករណ៍</string>
     <string name="legal_information">ព័ត៌មាន​អំពី​ច្បាប់</string>
     <string name="regulatory_information">ព័ត៌មាន​បញ្ញត្តិភាព</string>
@@ -4313,7 +4320,7 @@ Receiving SMS"</string>
     <string name="phone_language">ភាសា</string>
     <string name="show_password">ធ្វើ​ឲ្យ​មើល​ឃើញ​ពាក្យ​សម្ងាត់</string>
     <string name="show_password_summary">បង្ហាញ​តួអក្សរ​ពាក្យសម្ងាត់​បន្តិច នៅពេល​អ្នក​វាយ​ពួកវា។</string>
-    <string name="ime_security_warning">វិធី​នេះ​អាច​ប្រមូល​អត្ថបទ​ទាំងអស់​ដែល​អ្នក​វាយបញ្ចូល លើកលែង​តែ​ពាក្យ​សម្ងាត់ រួម​វាយបញ្ចូល​ទាំង​ទិន្នន័យ​ផ្ទាល់ខ្លួន និង លេខ​បណ្ណ​ឥណទាន។ វា​មក​ពី​កម្មវិធី %1$s។ នៅ​តែ​ប្រើ​ទៀត?</string>
+    <string name="ime_security_warning">%s ប្រហែល​ជា​អាច​ប្រមូល​អត្ថបទ​ទាំងអស់​ដែល​អ្នក​វាយ រួមទាំង​ទិន្នន័យ​ផ្ទាល់ខ្លួន ដូចជា​ពាក្យសម្ងាត់​និង​លេខ​បណ្ណ​ឥណទាន។</string>
     <string name="failed_to_open_app_settings_toast">បាន​បរាជ័យ​ក្នុង​ការ​បើក​ការកំណត់​សម្រាប់ %s។</string>
     <string name="keyboard_and_input_methods_category">ក្ដារចុច</string>
     <string name="virtual_keyboard_category">ក្ដារចុច​និម្មិត</string>

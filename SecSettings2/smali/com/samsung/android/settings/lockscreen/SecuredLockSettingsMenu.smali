@@ -49,6 +49,8 @@
 
 .field private mLockAfter:Lcom/samsung/android/settings/SettingsListPreference;
 
+.field private mLockNetworkAndSecurity:Landroid/preference/SwitchPreference;
+
 .field private mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
 .field private mLocktype:I
@@ -192,7 +194,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_8
+    if-eqz v10, :cond_9
 
     const/4 v6, 0x1
 
@@ -269,7 +271,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_9
+    if-eqz v10, :cond_a
 
     const/4 v9, 0x1
 
@@ -284,7 +286,7 @@
 
     const-string/jumbo v2, ""
 
-    const v10, 0x7f0b0b77
+    const v10, 0x7f0b0b81
 
     invoke-virtual {p0, v10}, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->getString(I)Ljava/lang/String;
 
@@ -316,7 +318,7 @@
 
     if-eqz v10, :cond_2
 
-    const v10, 0x7f0b0b78
+    const v10, 0x7f0b0b82
 
     invoke-virtual {p0, v10}, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->getString(I)Ljava/lang/String;
 
@@ -347,7 +349,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mDPM:Landroid/app/admin/DevicePolicyManager;
 
-    if-eqz v10, :cond_a
+    if-eqz v10, :cond_b
 
     iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mDPM:Landroid/app/admin/DevicePolicyManager;
 
@@ -357,7 +359,7 @@
 
     move-result v10
 
-    if-lez v10, :cond_a
+    if-lez v10, :cond_b
 
     iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mAutoFactoryReset:Landroid/preference/SwitchPreference;
 
@@ -367,6 +369,46 @@
 
     :cond_3
     :goto_2
+    const-string/jumbo v10, "lock_network_and_security"
+
+    invoke-virtual {p0, v10}, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v10
+
+    check-cast v10, Landroid/preference/SwitchPreference;
+
+    iput-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mLockNetworkAndSecurity:Landroid/preference/SwitchPreference;
+
+    iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mLockNetworkAndSecurity:Landroid/preference/SwitchPreference;
+
+    if-eqz v10, :cond_4
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v10
+
+    const-string/jumbo v11, "lock_function_val"
+
+    const/4 v12, 0x1
+
+    invoke-static {v10, v11, v12}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v10
+
+    if-eqz v10, :cond_d
+
+    const/4 v9, 0x1
+
+    :goto_3
+    iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mLockNetworkAndSecurity:Landroid/preference/SwitchPreference;
+
+    invoke-virtual {v10, v9}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+
+    iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mLockNetworkAndSecurity:Landroid/preference/SwitchPreference;
+
+    invoke-virtual {v10, p0}, Landroid/preference/SwitchPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+
+    :cond_4
     iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
     sget v11, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->MY_USER_ID:I
@@ -375,7 +417,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_8
 
     const-string/jumbo v10, "lock_after_timeout"
 
@@ -389,11 +431,11 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mLockAfter:Lcom/samsung/android/settings/SettingsListPreference;
 
-    if-eqz v10, :cond_6
+    if-eqz v10, :cond_7
 
     iget-boolean v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->isDeviceLockTime:Z
 
-    if-eqz v10, :cond_5
+    if-eqz v10, :cond_6
 
     const-string/jumbo v10, "ATT"
 
@@ -405,7 +447,7 @@
 
     move-result v10
 
-    if-nez v10, :cond_4
+    if-nez v10, :cond_5
 
     const-string/jumbo v10, "AIO"
 
@@ -417,22 +459,22 @@
 
     move-result v10
 
-    if-eqz v10, :cond_c
+    if-eqz v10, :cond_e
 
-    :cond_4
+    :cond_5
     iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mLockAfter:Lcom/samsung/android/settings/SettingsListPreference;
 
-    const v11, 0x7f0b086e
+    const v11, 0x7f0b0878
 
     invoke-virtual {v10, v11}, Lcom/samsung/android/settings/SettingsListPreference;->setTitle(I)V
 
     iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mLockAfter:Lcom/samsung/android/settings/SettingsListPreference;
 
-    const v11, 0x7f0b086e
+    const v11, 0x7f0b0878
 
     invoke-virtual {v10, v11}, Lcom/samsung/android/settings/SettingsListPreference;->setDialogTitle(I)V
 
-    :goto_3
+    :goto_4
     iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mLockAfter:Lcom/samsung/android/settings/SettingsListPreference;
 
     const v11, 0x7f0c0031
@@ -445,12 +487,12 @@
 
     invoke-virtual {v10, v11}, Lcom/samsung/android/settings/SettingsListPreference;->setEntryValues(I)V
 
-    :cond_5
+    :cond_6
     invoke-direct {p0}, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->setupLockAfterPreference()V
 
     invoke-direct {p0}, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->updateLockAfterPreferenceSummary()V
 
-    :cond_6
+    :cond_7
     const-string/jumbo v10, "power_button_instantly_locks"
 
     invoke-virtual {p0, v10}, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
@@ -463,7 +505,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mPowerButtonInstantlyLocks:Landroid/preference/SwitchPreference;
 
-    if-eqz v10, :cond_7
+    if-eqz v10, :cond_8
 
     iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mPowerButtonInstantlyLocks:Landroid/preference/SwitchPreference;
 
@@ -481,7 +523,7 @@
 
     invoke-virtual {v10, p0}, Landroid/preference/SwitchPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
-    :cond_7
+    :cond_8
     invoke-virtual {p0}, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->getActivity()Landroid/app/Activity;
 
     move-result-object v10
@@ -500,28 +542,28 @@
 
     const/4 v8, 0x0
 
-    if-nez v7, :cond_d
+    if-nez v7, :cond_f
 
     return-void
 
-    :cond_8
+    :cond_9
     const/4 v6, 0x0
 
     goto/16 :goto_0
 
-    :cond_9
+    :cond_a
     const/4 v9, 0x0
 
     goto/16 :goto_1
 
-    :cond_a
+    :cond_b
     iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mUserManager:Landroid/os/UserManager;
 
     invoke-virtual {v10}, Landroid/os/UserManager;->isAdminUser()Z
 
     move-result v10
 
-    if-nez v10, :cond_b
+    if-nez v10, :cond_c
 
     iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mUserManager:Landroid/os/UserManager;
 
@@ -529,7 +571,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_b
+    if-eqz v10, :cond_c
 
     iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mAutoFactoryReset:Landroid/preference/SwitchPreference;
 
@@ -539,7 +581,7 @@
 
     goto/16 :goto_2
 
-    :cond_b
+    :cond_c
     iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mAutoFactoryReset:Landroid/preference/SwitchPreference;
 
     const/4 v11, 0x1
@@ -548,30 +590,35 @@
 
     goto/16 :goto_2
 
-    :cond_c
+    :cond_d
+    const/4 v9, 0x0
+
+    goto/16 :goto_3
+
+    :cond_e
     iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mLockAfter:Lcom/samsung/android/settings/SettingsListPreference;
 
-    const v11, 0x7f0b1133
+    const v11, 0x7f0b1136
 
     invoke-virtual {v10, v11}, Lcom/samsung/android/settings/SettingsListPreference;->setTitle(I)V
 
     iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mLockAfter:Lcom/samsung/android/settings/SettingsListPreference;
 
-    const v11, 0x7f0b1133
+    const v11, 0x7f0b1136
 
     invoke-virtual {v10, v11}, Lcom/samsung/android/settings/SettingsListPreference;->setDialogTitle(I)V
 
-    goto/16 :goto_3
+    goto/16 :goto_4
 
-    :cond_d
+    :cond_f
     const/4 v4, 0x0
 
-    :goto_4
+    :goto_5
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v10
 
-    if-ge v4, v10, :cond_f
+    if-ge v4, v10, :cond_11
 
     invoke-virtual {v1, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
@@ -627,20 +674,20 @@
 
     move-result v10
 
-    if-nez v10, :cond_e
+    if-nez v10, :cond_10
 
     iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->smartlock:Landroid/preference/Preference;
 
     invoke-virtual {v7, v10}, Landroid/preference/PreferenceScreen;->addPreference(Landroid/preference/Preference;)Z
 
-    :cond_e
+    :cond_10
     iget-object v8, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->smartlock:Landroid/preference/Preference;
 
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_4
+    goto :goto_5
 
-    :cond_f
+    :cond_11
     const-string/jumbo v10, "lock_screen_visible"
 
     invoke-virtual {p0, v10}, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
@@ -691,7 +738,7 @@
 
     const/16 v11, 0x1000
 
-    if-eq v10, v11, :cond_10
+    if-eq v10, v11, :cond_12
 
     const/4 v10, 0x0
 
@@ -709,10 +756,10 @@
 
     iput-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mDirectionLockVoice:Landroid/preference/SwitchPreference;
 
-    :cond_10
+    :cond_12
     iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mDirectionLockVisible:Landroid/preference/SwitchPreference;
 
-    if-eqz v10, :cond_11
+    if-eqz v10, :cond_13
 
     iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mDirectionLockVisible:Landroid/preference/SwitchPreference;
 
@@ -734,17 +781,17 @@
 
     const/4 v12, 0x1
 
-    if-ne v10, v12, :cond_1b
+    if-ne v10, v12, :cond_1d
 
     const/4 v10, 0x1
 
-    :goto_5
+    :goto_6
     invoke-virtual {v11, v10}, Landroid/preference/SwitchPreference;->setChecked(Z)V
 
-    :cond_11
+    :cond_13
     iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mDirectionLockVibration:Landroid/preference/SwitchPreference;
 
-    if-eqz v10, :cond_12
+    if-eqz v10, :cond_14
 
     iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mDirectionLockVibration:Landroid/preference/SwitchPreference;
 
@@ -766,17 +813,17 @@
 
     const/4 v12, 0x1
 
-    if-ne v10, v12, :cond_1c
+    if-ne v10, v12, :cond_1e
 
     const/4 v10, 0x1
 
-    :goto_6
+    :goto_7
     invoke-virtual {v11, v10}, Landroid/preference/SwitchPreference;->setChecked(Z)V
 
-    :cond_12
+    :cond_14
     iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mDirectionLockBeep:Landroid/preference/SwitchPreference;
 
-    if-eqz v10, :cond_13
+    if-eqz v10, :cond_15
 
     iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mDirectionLockBeep:Landroid/preference/SwitchPreference;
 
@@ -798,17 +845,17 @@
 
     const/4 v12, 0x1
 
-    if-ne v10, v12, :cond_1d
+    if-ne v10, v12, :cond_1f
 
     const/4 v10, 0x1
 
-    :goto_7
+    :goto_8
     invoke-virtual {v11, v10}, Landroid/preference/SwitchPreference;->setChecked(Z)V
 
-    :cond_13
+    :cond_15
     iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mDirectionLockVoice:Landroid/preference/SwitchPreference;
 
-    if-eqz v10, :cond_14
+    if-eqz v10, :cond_16
 
     iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mDirectionLockVoice:Landroid/preference/SwitchPreference;
 
@@ -830,14 +877,14 @@
 
     const/4 v12, 0x1
 
-    if-ne v10, v12, :cond_1e
+    if-ne v10, v12, :cond_20
 
     const/4 v10, 0x1
 
-    :goto_8
+    :goto_9
     invoke-virtual {v11, v10}, Landroid/preference/SwitchPreference;->setChecked(Z)V
 
-    :cond_14
+    :cond_16
     invoke-virtual {p0}, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->getActivity()Landroid/app/Activity;
 
     move-result-object v10
@@ -846,11 +893,11 @@
 
     move-result v10
 
-    if-eqz v10, :cond_19
+    if-eqz v10, :cond_1b
 
     iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mLockAfter:Lcom/samsung/android/settings/SettingsListPreference;
 
-    if-eqz v10, :cond_15
+    if-eqz v10, :cond_17
 
     iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mLockAfter:Lcom/samsung/android/settings/SettingsListPreference;
 
@@ -858,10 +905,10 @@
 
     invoke-virtual {v10, v11}, Lcom/samsung/android/settings/SettingsListPreference;->setEnabled(Z)V
 
-    :cond_15
+    :cond_17
     iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mVisiblePattern:Landroid/preference/SwitchPreference;
 
-    if-eqz v10, :cond_16
+    if-eqz v10, :cond_18
 
     iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mVisiblePattern:Landroid/preference/SwitchPreference;
 
@@ -883,10 +930,10 @@
 
     invoke-virtual {v10, v11}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
 
-    :cond_16
+    :cond_18
     iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mPowerButtonInstantlyLocks:Landroid/preference/SwitchPreference;
 
-    if-eqz v10, :cond_17
+    if-eqz v10, :cond_19
 
     iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mPowerButtonInstantlyLocks:Landroid/preference/SwitchPreference;
 
@@ -900,17 +947,17 @@
 
     invoke-virtual {v10, v11}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
 
-    :cond_17
-    if-eqz v8, :cond_18
+    :cond_19
+    if-eqz v8, :cond_1a
 
     const/4 v10, 0x0
 
     invoke-virtual {v8, v10}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    :cond_18
+    :cond_1a
     iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mAutoFactoryReset:Landroid/preference/SwitchPreference;
 
-    if-eqz v10, :cond_19
+    if-eqz v10, :cond_1b
 
     iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mAutoFactoryReset:Landroid/preference/SwitchPreference;
 
@@ -918,10 +965,10 @@
 
     invoke-virtual {v10, v11}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
 
-    :cond_19
+    :cond_1b
     iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mLockAfter:Lcom/samsung/android/settings/SettingsListPreference;
 
-    if-eqz v10, :cond_1a
+    if-eqz v10, :cond_1c
 
     iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mLockAfter:Lcom/samsung/android/settings/SettingsListPreference;
 
@@ -929,28 +976,28 @@
 
     invoke-virtual {v10, v11}, Lcom/samsung/android/settings/SettingsListPreference;->semSetSummaryColorToColorPrimaryDark(Z)V
 
-    :cond_1a
-    return-void
-
-    :cond_1b
-    const/4 v10, 0x0
-
-    goto/16 :goto_5
-
     :cond_1c
-    const/4 v10, 0x0
-
-    goto/16 :goto_6
+    return-void
 
     :cond_1d
     const/4 v10, 0x0
 
-    goto :goto_7
+    goto/16 :goto_6
 
     :cond_1e
     const/4 v10, 0x0
 
+    goto/16 :goto_7
+
+    :cond_1f
+    const/4 v10, 0x0
+
     goto :goto_8
+
+    :cond_20
+    const/4 v10, 0x0
+
+    goto :goto_9
 .end method
 
 .method private RemoveMenu()V
@@ -1236,7 +1283,7 @@
 
     aput-object v13, v12, v14
 
-    const v13, 0x7f0b0872
+    const v13, 0x7f0b087c
 
     invoke-virtual {p0, v13, v12}, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2147,7 +2194,7 @@
 
     if-eqz v18, :cond_4
 
-    const v14, 0x7f0b086f
+    const v14, 0x7f0b0879
 
     :goto_3
     move-object/from16 v0, p0
@@ -2158,7 +2205,7 @@
 
     if-eqz v18, :cond_5
 
-    const v11, 0x7f0b0870
+    const v11, 0x7f0b087a
 
     :goto_4
     aget-object v18, v15, v4
@@ -2245,12 +2292,12 @@
     goto :goto_2
 
     :cond_4
-    const v14, 0x7f0b1134
+    const v14, 0x7f0b1137
 
     goto :goto_3
 
     :cond_5
-    const v11, 0x7f0b0871
+    const v11, 0x7f0b087b
 
     goto :goto_4
 
@@ -2494,7 +2541,7 @@
 
     invoke-super {p0, p1}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v0, 0x7f0b085d
+    const v0, 0x7f0b0865
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->getString(I)Ljava/lang/String;
 
@@ -2872,13 +2919,48 @@
     goto :goto_5
 
     :cond_8
+    const-string/jumbo v0, "lock_network_and_security"
+
+    invoke-virtual {v0, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_a
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "lock_function_val"
+
+    check-cast p2, Ljava/lang/Boolean;
+
+    invoke-virtual/range {p2 .. p2}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_9
+
+    const/4 v0, 0x1
+
+    :goto_6
+    invoke-static {v1, v2, v0}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    goto/16 :goto_1
+
+    :cond_9
+    const/4 v0, 0x0
+
+    goto :goto_6
+
+    :cond_a
     const-string/jumbo v0, "lock_after_timeout"
 
     invoke-virtual {v0, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_15
 
     check-cast p2, Ljava/lang/String;
 
@@ -2892,7 +2974,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_d
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -2902,7 +2984,7 @@
 
     invoke-static {v0, v1, v14}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    :goto_6
+    :goto_7
     :try_start_0
     invoke-virtual {p0}, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -2914,7 +2996,7 @@
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :goto_7
+    :goto_8
     invoke-static {}, Landroid/os/Process;->myPid()I
 
     move-result v3
@@ -2971,19 +3053,19 @@
 
     iget-boolean v0, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->isDeviceLockTime:Z
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_b
 
-    if-eqz v14, :cond_9
+    if-eqz v14, :cond_b
 
     int-to-long v0, v14
 
     cmp-long v0, v0, v10
 
-    if-gez v0, :cond_9
+    if-gez v0, :cond_b
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->showDeviceLockDialog()V
 
-    :cond_9
+    :cond_b
     invoke-direct {p0}, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->updateLockAfterPreferenceSummary()V
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->getContentResolver()Landroid/content/ContentResolver;
@@ -3004,12 +3086,12 @@
 
     cmp-long v0, v8, v0
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_e
 
     const/4 v7, 0x1
 
-    :cond_a
-    :goto_8
+    :cond_c
+    :goto_9
     invoke-virtual {p0}, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
@@ -3032,10 +3114,10 @@
 
     goto/16 :goto_1
 
-    :cond_b
+    :cond_d
     const v14, 0x1b7741
 
-    goto/16 :goto_6
+    goto/16 :goto_7
 
     :catch_0
     move-exception v12
@@ -3046,145 +3128,87 @@
 
     invoke-static {v0, v1, v12}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto/16 :goto_7
-
-    :cond_c
-    const-wide/16 v0, 0x3a98
-
-    cmp-long v0, v8, v0
-
-    if-nez v0, :cond_d
-
-    const/4 v7, 0x2
-
-    goto :goto_8
-
-    :cond_d
-    const-wide/16 v0, 0x7530
-
-    cmp-long v0, v8, v0
-
-    if-nez v0, :cond_e
-
-    const/4 v7, 0x3
-
-    goto :goto_8
+    goto/16 :goto_8
 
     :cond_e
-    const-wide/32 v0, 0xea60
+    const-wide/16 v0, 0x3a98
 
     cmp-long v0, v8, v0
 
     if-nez v0, :cond_f
 
-    const/4 v7, 0x4
+    const/4 v7, 0x2
 
-    goto :goto_8
+    goto :goto_9
 
     :cond_f
-    const-wide/32 v0, 0x1d4c0
+    const-wide/16 v0, 0x7530
 
     cmp-long v0, v8, v0
 
     if-nez v0, :cond_10
 
-    const/4 v7, 0x5
+    const/4 v7, 0x3
 
-    goto :goto_8
+    goto :goto_9
 
     :cond_10
-    const-wide/32 v0, 0x493e0
+    const-wide/32 v0, 0xea60
 
     cmp-long v0, v8, v0
 
     if-nez v0, :cond_11
 
-    const/4 v7, 0x6
+    const/4 v7, 0x4
 
-    goto :goto_8
+    goto :goto_9
 
     :cond_11
-    const-wide/32 v0, 0x927c0
+    const-wide/32 v0, 0x1d4c0
 
     cmp-long v0, v8, v0
 
     if-nez v0, :cond_12
 
-    const/4 v7, 0x7
+    const/4 v7, 0x5
 
-    goto :goto_8
+    goto :goto_9
 
     :cond_12
+    const-wide/32 v0, 0x493e0
+
+    cmp-long v0, v8, v0
+
+    if-nez v0, :cond_13
+
+    const/4 v7, 0x6
+
+    goto :goto_9
+
+    :cond_13
+    const-wide/32 v0, 0x927c0
+
+    cmp-long v0, v8, v0
+
+    if-nez v0, :cond_14
+
+    const/4 v7, 0x7
+
+    goto :goto_9
+
+    :cond_14
     const-wide/32 v0, 0x1b7740
 
     cmp-long v0, v8, v0
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_c
 
     const/16 v7, 0x8
 
-    goto :goto_8
-
-    :cond_13
-    const-string/jumbo v0, "lock_screen_visible"
-
-    invoke-virtual {v0, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_15
-
-    iget-object v0, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mDirectionLockVisible:Landroid/preference/SwitchPreference;
-
-    invoke-virtual {v0}, Landroid/preference/SwitchPreference;->isChecked()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_14
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "universal_lock_visible"
-
-    const/4 v2, 0x0
-
-    invoke-static {v0, v1, v2}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    iget-object v0, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
-    sget v1, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->MY_USER_ID:I
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, v2, v1}, Lcom/android/internal/widget/LockPatternUtils;->setDirectionShowEnabled(ZI)V
-
-    goto/16 :goto_1
-
-    :cond_14
-    invoke-virtual {p0}, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "universal_lock_visible"
-
-    const/4 v2, 0x1
-
-    invoke-static {v0, v1, v2}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    iget-object v0, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
-    sget v1, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->MY_USER_ID:I
-
-    const/4 v2, 0x1
-
-    invoke-virtual {v0, v2, v1}, Lcom/android/internal/widget/LockPatternUtils;->setDirectionShowEnabled(ZI)V
-
-    goto/16 :goto_1
+    goto :goto_9
 
     :cond_15
-    const-string/jumbo v0, "lock_screen_vibration"
+    const-string/jumbo v0, "lock_screen_visible"
 
     invoke-virtual {v0, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -3192,7 +3216,7 @@
 
     if-eqz v0, :cond_17
 
-    iget-object v0, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mDirectionLockVibration:Landroid/preference/SwitchPreference;
+    iget-object v0, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mDirectionLockVisible:Landroid/preference/SwitchPreference;
 
     invoke-virtual {v0}, Landroid/preference/SwitchPreference;->isChecked()Z
 
@@ -3204,7 +3228,7 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, "universal_lock_vibration"
+    const-string/jumbo v1, "universal_lock_visible"
 
     const/4 v2, 0x0
 
@@ -3216,7 +3240,7 @@
 
     const/4 v2, 0x0
 
-    invoke-virtual {v0, v2, v1}, Lcom/android/internal/widget/LockPatternUtils;->setDirectionVibrationEnabled(ZI)V
+    invoke-virtual {v0, v2, v1}, Lcom/android/internal/widget/LockPatternUtils;->setDirectionShowEnabled(ZI)V
 
     goto/16 :goto_1
 
@@ -3225,7 +3249,7 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, "universal_lock_vibration"
+    const-string/jumbo v1, "universal_lock_visible"
 
     const/4 v2, 0x1
 
@@ -3237,12 +3261,12 @@
 
     const/4 v2, 0x1
 
-    invoke-virtual {v0, v2, v1}, Lcom/android/internal/widget/LockPatternUtils;->setDirectionVibrationEnabled(ZI)V
+    invoke-virtual {v0, v2, v1}, Lcom/android/internal/widget/LockPatternUtils;->setDirectionShowEnabled(ZI)V
 
     goto/16 :goto_1
 
     :cond_17
-    const-string/jumbo v0, "lock_screen_beep"
+    const-string/jumbo v0, "lock_screen_vibration"
 
     invoke-virtual {v0, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -3250,7 +3274,7 @@
 
     if-eqz v0, :cond_19
 
-    iget-object v0, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mDirectionLockBeep:Landroid/preference/SwitchPreference;
+    iget-object v0, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mDirectionLockVibration:Landroid/preference/SwitchPreference;
 
     invoke-virtual {v0}, Landroid/preference/SwitchPreference;->isChecked()Z
 
@@ -3262,6 +3286,64 @@
 
     move-result-object v0
 
+    const-string/jumbo v1, "universal_lock_vibration"
+
+    const/4 v2, 0x0
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    iget-object v0, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    sget v1, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->MY_USER_ID:I
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v2, v1}, Lcom/android/internal/widget/LockPatternUtils;->setDirectionVibrationEnabled(ZI)V
+
+    goto/16 :goto_1
+
+    :cond_18
+    invoke-virtual {p0}, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "universal_lock_vibration"
+
+    const/4 v2, 0x1
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    iget-object v0, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    sget v1, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->MY_USER_ID:I
+
+    const/4 v2, 0x1
+
+    invoke-virtual {v0, v2, v1}, Lcom/android/internal/widget/LockPatternUtils;->setDirectionVibrationEnabled(ZI)V
+
+    goto/16 :goto_1
+
+    :cond_19
+    const-string/jumbo v0, "lock_screen_beep"
+
+    invoke-virtual {v0, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1b
+
+    iget-object v0, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mDirectionLockBeep:Landroid/preference/SwitchPreference;
+
+    invoke-virtual {v0}, Landroid/preference/SwitchPreference;->isChecked()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1a
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
     const-string/jumbo v1, "universal_lock_beep"
 
     const/4 v2, 0x0
@@ -3278,7 +3360,7 @@
 
     goto/16 :goto_1
 
-    :cond_18
+    :cond_1a
     invoke-virtual {p0}, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -3299,7 +3381,7 @@
 
     goto/16 :goto_1
 
-    :cond_19
+    :cond_1b
     const-string/jumbo v0, "lock_screen_voice"
 
     invoke-virtual {v0, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -3314,7 +3396,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_1c
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -3336,7 +3418,7 @@
 
     goto/16 :goto_1
 
-    :cond_1a
+    :cond_1c
     invoke-virtual {p0}, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -3517,7 +3599,7 @@
 
     move-result-object v2
 
-    const v4, 0x7f110549
+    const v4, 0x7f110547
 
     invoke-virtual {v2, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3525,13 +3607,13 @@
 
     check-cast v3, Landroid/widget/TextView;
 
-    const v4, 0x7f0b0874
+    const v4, 0x7f0b087e
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(I)V
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    const v4, 0x7f0b1344
+    const v4, 0x7f0b1347
 
     invoke-virtual {v0, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 

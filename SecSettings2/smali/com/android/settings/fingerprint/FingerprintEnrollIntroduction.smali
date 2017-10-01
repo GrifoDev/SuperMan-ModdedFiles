@@ -294,11 +294,11 @@
 
     invoke-virtual {p0, v4}, Lcom/android/settings/fingerprint/FingerprintEnrollIntroduction;->setContentView(I)V
 
-    const v4, 0x7f0b114f
+    const v4, 0x7f0b1152
 
     invoke-virtual {p0, v4}, Lcom/android/settings/fingerprint/FingerprintEnrollIntroduction;->setHeaderText(I)V
 
-    const v4, 0x7f110370
+    const v4, 0x7f11036e
 
     invoke-virtual {p0, v4}, Lcom/android/settings/fingerprint/FingerprintEnrollIntroduction;->findViewById(I)Landroid/view/View;
 
@@ -320,7 +320,7 @@
 
     invoke-virtual {v0, p0}, Lcom/android/setupwizardlib/items/RecyclerItemAdapter;->setOnItemSelectedListener(Lcom/android/setupwizardlib/items/RecyclerItemAdapter$OnItemSelectedListener;)V
 
-    const v4, 0x7f11084e
+    const v4, 0x7f11084c
 
     invoke-virtual {v0, v4}, Lcom/android/setupwizardlib/items/RecyclerItemAdapter;->findItemById(I)Lcom/android/setupwizardlib/items/ItemHierarchy;
 
@@ -328,7 +328,7 @@
 
     check-cast v1, Lcom/android/setupwizardlib/items/Item;
 
-    const v4, 0x7f0b18b0
+    const v4, 0x7f0b18b3
 
     invoke-virtual {p0, v4}, Lcom/android/settings/fingerprint/FingerprintEnrollIntroduction;->getString(I)Ljava/lang/String;
 
@@ -349,7 +349,7 @@
     const-string/jumbo v3, ""
 
     :cond_0
-    const v4, 0x7f0b1150
+    const v4, 0x7f0b1153
 
     invoke-virtual {p0, v4}, Lcom/android/settings/fingerprint/FingerprintEnrollIntroduction;->getText(I)Ljava/lang/CharSequence;
 

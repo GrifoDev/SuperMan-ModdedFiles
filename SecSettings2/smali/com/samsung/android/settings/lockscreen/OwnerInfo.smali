@@ -215,7 +215,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/lockscreen/OwnerInfo;->mView:Landroid/view/View;
 
-    const v4, 0x7f1104e4
+    const v4, 0x7f1104e2
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -227,7 +227,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/lockscreen/OwnerInfo;->mView:Landroid/view/View;
 
-    const v4, 0x7f1104e7
+    const v4, 0x7f1104e5
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -239,7 +239,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/lockscreen/OwnerInfo;->mView:Landroid/view/View;
 
-    const v4, 0x7f1102af
+    const v4, 0x7f1102ad
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -259,7 +259,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/lockscreen/OwnerInfo;->mView:Landroid/view/View;
 
-    const v4, 0x7f1104e5
+    const v4, 0x7f1104e3
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -356,7 +356,7 @@
     :cond_4
     iget-object v3, p0, Lcom/samsung/android/settings/lockscreen/OwnerInfo;->mView:Landroid/view/View;
 
-    const v4, 0x7f1104e6
+    const v4, 0x7f1104e4
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -401,7 +401,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/lockscreen/OwnerInfo;->mCheckbox:Landroid/widget/CheckBox;
 
-    const v4, 0x7f0b113f
+    const v4, 0x7f0b1142
 
     invoke-virtual {v3, v4}, Landroid/widget/CheckBox;->setText(I)V
 
@@ -452,7 +452,7 @@
     :cond_8
     iget-object v3, p0, Lcom/samsung/android/settings/lockscreen/OwnerInfo;->mCheckbox:Landroid/widget/CheckBox;
 
-    const v4, 0x7f0b0c41
+    const v4, 0x7f0b0c4b
 
     invoke-virtual {v3, v4}, Landroid/widget/CheckBox;->setText(I)V
 
@@ -975,7 +975,7 @@
 
     if-eqz v1, :cond_0
 
-    const v0, 0x7f0b113e
+    const v0, 0x7f0b1141
 
     :cond_0
     new-instance v1, Landroid/app/AlertDialog$Builder;
@@ -996,7 +996,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b1839
+    const v2, 0x7f0b183c
 
     invoke-virtual {v1, v2, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

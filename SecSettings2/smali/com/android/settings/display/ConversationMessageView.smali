@@ -127,7 +127,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a06bb
+    const v2, 0x7f0a06b9
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -467,7 +467,7 @@
 .method protected onFinishInflate()V
     .locals 1
 
-    const v0, 0x7f1101e7
+    const v0, 0x7f1101e5
 
     invoke-virtual {p0, v0}, Lcom/android/settings/display/ConversationMessageView;->findViewById(I)Landroid/view/View;
 
@@ -477,7 +477,7 @@
 
     iput-object v0, p0, Lcom/android/settings/display/ConversationMessageView;->mMessageBubble:Landroid/widget/LinearLayout;
 
-    const v0, 0x7f1101e8
+    const v0, 0x7f1101e6
 
     invoke-virtual {p0, v0}, Lcom/android/settings/display/ConversationMessageView;->findViewById(I)Landroid/view/View;
 
@@ -487,7 +487,7 @@
 
     iput-object v0, p0, Lcom/android/settings/display/ConversationMessageView;->mMessageTextAndInfoView:Landroid/view/ViewGroup;
 
-    const v0, 0x7f1101e9
+    const v0, 0x7f1101e7
 
     invoke-virtual {p0, v0}, Lcom/android/settings/display/ConversationMessageView;->findViewById(I)Landroid/view/View;
 
@@ -497,7 +497,7 @@
 
     iput-object v0, p0, Lcom/android/settings/display/ConversationMessageView;->mMessageTextView:Landroid/widget/TextView;
 
-    const v0, 0x7f1101ea
+    const v0, 0x7f1101e8
 
     invoke-virtual {p0, v0}, Lcom/android/settings/display/ConversationMessageView;->findViewById(I)Landroid/view/View;
 

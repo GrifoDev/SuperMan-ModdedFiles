@@ -78,7 +78,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/AppListPreference;->onBindView(Landroid/view/View;)V
 
-    const v1, 0x7f110585
+    const v1, 0x7f110583
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

@@ -379,7 +379,7 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Destek</string>
     <string name="reset_network_settings_list_summary">Wi-Fi, Bluetooth ve diğer ağ ayarlarını varsayılanlarına sıfırlayın.</string>
     <string name="master_clear_list_summary">Cihazınızı varsayılan fabrika ayarlarına sıfırlayın. Bu işlem, dosyalar ve indirilen uygulamalar dahil olmak üzere tüm verileri siler.</string>
-    <string name="auto_restart_summary">Cihazınızı belirlenen zamanlarda otomatik olarak yeniden başlatarak optimize edin. Cihaz yeniden başlatıldığında kaydedilmemiş tüm veriler kaybolur.</string>
+    <string name="auto_restart_summary">Telefonunuzu haftada bir kez otomatik olarak yeniden başlatıp optimize edin. Telefonunuz yeniden başlatıldığında kayıtlı olmayan tüm veriler kaybolur.</string>
     <string name="search_settings">Ara</string>
     <string name="related_results">%d ilgili öğe</string>
     <string name="no_results_found">Sonuç bulunamadı</string>
@@ -1485,6 +1485,7 @@ Parlaklığın güvenli seviyelerin üzerine çıkmasına izin vermek için Tama
     <string name="crypt_keeper_verify_failed_summary">Cihazınız yeniden başlatılamıyor. Bütünlük doğrulaması başarısız. Cihazınızı varsayılan fabrika ayarlarına sıfırlamanız gerekiyor. Bu işlem tüm verilerinizi silecek.</string>
     <string name="cryptkeeper_emergency_call">Acil arama</string>
     <string name="cryptkeeper_return_to_call">Aramaya geri dön</string>
+    <string name="cryptkeeper_default_enter_msg">Telefonunuz güvenlik nedeniyle şifrelenir.</string>
     <string name="enter_password">Cihazınızı başlatmak için şifrenizi girin.</string>
     <string name="enter_pin">"Cihazınızı başlatmak için PIN'inizi girin."</string>
     <string name="enter_pattern">Cihazınızı başlatmak için deseninizi çizin.</string>
@@ -1498,6 +1499,7 @@ Parlaklığın güvenli seviyelerin üzerine çıkmasına izin vermek için Tama
     <string name="crypt_keeper_last_warn_wipe">Cihazınız varsayılan fabrika ayarlarına sıfırlanmadan önce cihazınızı başlatmak için sadece 1 deneme hakkınız kaldı. Bu işlem, dosyalar ve indirilen uygulamalar dahil olmak üzere tüm verileri siler.</string>
     <string name="crypt_keeper_failed_title_dec">Şifreleme hatası.</string>
     <string name="crypt_keeper_failed_summary_dec">Kesinti nedeniyle şifre çözme tamamlanamıyor. Kullanmadan önce fabrika verilerine sıfırlama (tüm verileri siler) yapın.</string>
+    <string name="crypt_keeper_set_screen_lock_type">Ekran kilidi türünü ayarla</string>
     <string name="encryption_interstitial_message_kor">Cihazınız şifreli. Cihaz açıldığında, Verilerin şifresini açmak için ekran kilidi gerektir öğesini seçerek şifrelenmiş verilerinizi koruyun. Bu, kaybolan veya çalınan cihazlardaki verileri korumaya yardımcı olur. Cihazı her açtığınızda verilerinizin şifresini çözmek için cihazınızın kilidini açmanız gerekecektir. Cihazınızın şifresini çözene kadar hiçbir arama, mesaj veya bildirim almayacaksınız.</string>
     <string name="encryption_interstitial_message_direction">"Cihaz açıldığında Yön kilidi gerektir öğesini seçerek cihazınızı koruyun. Bu, kaybolan veya çalınan cihazlardaki verileri korumaya yardımcı olur.
 
@@ -1737,6 +1739,8 @@ Garanti kapsamında onarım talebinde bulunmanız için Yeniden etkinleştirme k
     <string name="empty_content_toast">Kaydedilecek içerik yok.</string>
     <string name="find_my_mobile_message_zero">"Cihazımı Bul web servisini kullanarak cihazınızı uzaktan takip ve kontrol edin. Daha fazla bilgi edinmek ve mevcut diğer işlevleri öğrenmek için şu web sitesini ziyaret edin:
 %s"</string>
+    <string name="send_last_location_title">Son konumu gönder</string>
+    <string name="send_last_location_summary">Telefonunuzun pili belirli bir düzeyin altına indiğinde son konumunu Cihazımı Bul sunucusuna göndermesine izin verin.</string>
     <string name="high_power_description">Tekil uygulamalar için Pil kullanımını optimize et seçeneğini etkinleştirin. Mobil ağları kullanan veya verileri eşitleyenler gibi bazı işlevler, pil gücünden tasarruf etmek için kısıtlanacak.</string>
     <string name="wifi_display_summary_off">Kapalı</string>
     <string name="battery_usage_description">Bu ekran, cihazın son tamamen şarj işleminden bu yana pil kullanım verilerini gösterir.</string>
@@ -1968,6 +1972,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="lock_screen_app_shortcut_summary">Kilit ekranında kullanmak istediğiniz uygulama kısayollarını seçin.</string>
     <string name="lockscreen_notifications">Kilit ekranındaki bildirimler</string>
     <string name="work_profile_lockscreen_notifications">İş profili bildirimleri</string>
+    <string name="lock_network_and_security">Ağ ve güvenliği kilitle</string>
+    <string name="lock_network_and_security_summary">Telefonunuz kilitliyken ağ ve güvenlikle ilgili işlevleri kilitli tutarak telefonunuz kaybolduğunda veya çalındığında yerinin bulunmasını ve korunmasını kolaylaştırır.</string>
     <string name="dualclock_settings_title">Çift saat</string>
     <string name="dualclock_settings_summary">Dolaşım esnasında yerel zaman dilimini ve ülkenizdeki zaman dilimini birlikte gösterir.</string>
     <string name="set_home_city">Yerel saat dilimini ayrla</string>
@@ -2153,7 +2159,7 @@ Telefonunuz silinse bile birinin bu telefonu kullanabilmesi için Google Hesabı
     <string name="air_browse_music_on_lock_screen_title">Kilit ekranında müzik</string>
     <string name="air_browse_music_on_lock_screen_summary">Kilit ekranındaki müzik parçalarını değiştirin.</string>
     <string name="air_browse_note_summary">Görünüm modundayken sayfalar arasında hareket edin.</string>
-    <string name="data_usage_enable_mobile_summery">Mobil veri kapatılırsa cihazınızın, ağ bağlantısı gerektiren servisleri kullanması için bir Wi-Fi ağına bağlanması gerekir.</string>
+    <string name="data_usage_enable_mobile_summery">İnternete mobil ağınız üzerinden erişin.</string>
     <string name="data_usage_enable_mobile_warning_skt">Mobil ağlara bağlanmak veri planınıza bağlı olarak ekstra ücrete tabi olabilir. Devam edilsin mi?</string>
     <string name="data_usage_enable_mobile_warning_ktt">Mobil ağlara bağlanmak veri planınıza bağlı olarak ekstra ücrete tabi olabilir. Devam edilsin mi?</string>
     <string name="data_usage_enable_mobile_warning_lgt">Mobil ağlara bağlanmak veri planınıza bağlı olarak ekstra ücrete tabi olabilir. Devam edilsin mi?</string>
@@ -2523,8 +2529,8 @@ Lütfen tekrar deneyin."</string>
     <string name="secure_folder_summary">Güvenliği artırmak için gizli içeriklerinizi ve uygulamalarınızı kilitleyin.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s, %2$s kilidini açmak için parmak izlerini desteklemez.</string>
     <string name="edge_feeds_title">"Edge feed'leri"</string>
-    <string name="screensaver_settings_summary">Cihaz istasyona bağlıyken ve/veya ekran kapalı halde şarj olurken olanları kontrol edin. Bu işleve Daydream adı da verilir.</string>
-    <string name="screensaver_settings_summary_wo_dock">Cihaz şarj olurken ekran otomatik olarak kapandıktan sonra bir ekran koruyucu gösterir.</string>
+    <string name="screensaver_settings_summary">Telefonunuz şarj olurken ekran otomatik olarak kapandıktan sonra bir ekran koruyucu gösterir.</string>
+    <string name="screensaver_settings_summary_wo_dock">Telefonunuz yuvaya yerleştirildiğinde veya şarj olurken ekran otomatik olarak kapandıktan sonra bir ekran koruyucu gösterir.</string>
     <string name="apn_already_exists">Zaten var.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Port numarası %1$d ile %2$d arasında olmalıdır.</string>
@@ -3289,6 +3295,7 @@ Mobil erişim noktasının kullanılması pil tüketimini ve veri kullanımını
     <string name="wfd_connection_end_toast">Screen Mirroring bağlantısı sonlandı.</string>
     <string name="wfd_descrpition_playvia">İçeriği oynatın.</string>
     <string name="wfd_descrpition_mirroring">Ekranı yansıtın.</string>
+    <string name="wfd_descrpition_playsound">Ses oynatın.</string>
     <string name="usbtethering_notify_wifi_is_on">Wi-Fi and USB tethering cannot be on at the same time. Turn off Wi-Fi.</string>
     <string name="disable_multi_window_dialog_text">Çoklu pencere devre dışı bırakılacak ve açılır pencerelerde açık olan tüm uygulamalar kapatılacak.</string>
     <string name="keyguard_password_attempt_count_pin_code">%d deneme kaldı.</string>
@@ -4128,7 +4135,7 @@ Performansı iyileştirmek için daha hızlı bir SD kart veya USB depolama ciha
     <string name="location_network_based">Kablosuz ağları kullan</string>
     <string name="location_neighborhood_level">"Konmnzu dha hzlı belrlmek üzr uyglmalrın Google'ın konm hzmtini kllanmsına izn vr. İsmsz konm verilri tplncak ve Google'a gndrilck."</string>
     <string name="system_update">System Update</string>
-    <string name="about_settings">Cihaz hakkında</string>
+    <string name="about_settings">Telefon hakkında</string>
     <string name="about_settings_vzw">Cihaz hakkında</string>
     <string name="legal_information">Yasal bilgi</string>
     <string name="regulatory_information">Düzenleyici bilgiler</string>
@@ -4313,7 +4320,7 @@ Mevcut uygulama verileriniz kaybolmaz."</string>
     <string name="phone_language">Dil</string>
     <string name="show_password">Şifreyi görünür yap</string>
     <string name="show_password_summary">Şifre karakterlerini siz yazarken kısa süreyle gösterir.</string>
-    <string name="ime_security_warning">Bu yöntem, şifreler hariç, kişisel veriler ve kredi kartı numaraları dahil girdiğiniz metinleri toplayabilir. %1$s uygulamasından gelir. Yine de kullanılsın mı?</string>
+    <string name="ime_security_warning">%s, şifreler ve kredi kartı numaraları gibi kişisel veriler dahil olmak üzere yazdığınız tüm metinleri toplayabilir.</string>
     <string name="failed_to_open_app_settings_toast">%s için ayarları açma başarısız.</string>
     <string name="keyboard_and_input_methods_category">Klavyeler</string>
     <string name="virtual_keyboard_category">Sanal klavye</string>

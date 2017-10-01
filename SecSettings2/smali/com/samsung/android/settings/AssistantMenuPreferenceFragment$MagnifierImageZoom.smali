@@ -94,7 +94,7 @@
 
     invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
 
-    const v2, 0x7f110472
+    const v2, 0x7f110470
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -104,7 +104,7 @@
 
     iput-object v2, p0, Lcom/samsung/android/settings/AssistantMenuPreferenceFragment$MagnifierImageZoom;->mZoomLayer:Landroid/widget/LinearLayout;
 
-    const v2, 0x7f110471
+    const v2, 0x7f11046f
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -114,7 +114,7 @@
 
     iput-object v2, p0, Lcom/samsung/android/settings/AssistantMenuPreferenceFragment$MagnifierImageZoom;->mTitle:Landroid/widget/TextView;
 
-    const v2, 0x7f110474
+    const v2, 0x7f110472
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -124,7 +124,7 @@
 
     iput-object v2, p0, Lcom/samsung/android/settings/AssistantMenuPreferenceFragment$MagnifierImageZoom;->mSeekBar:Landroid/widget/SeekBar;
 
-    const v2, 0x7f110475
+    const v2, 0x7f110473
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -134,7 +134,7 @@
 
     iput-object v2, p0, Lcom/samsung/android/settings/AssistantMenuPreferenceFragment$MagnifierImageZoom;->mPlusMagnifier:Landroid/widget/ImageView;
 
-    const v2, 0x7f110473
+    const v2, 0x7f110471
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -468,7 +468,7 @@
     nop
 
     :pswitch_data_0
-    .packed-switch 0x7f110473
+    .packed-switch 0x7f110471
         :pswitch_1
         :pswitch_0
         :pswitch_2
@@ -542,7 +542,7 @@
     goto :goto_0
 
     :pswitch_data_0
-    .packed-switch 0x7f110473
+    .packed-switch 0x7f110471
         :pswitch_1
         :pswitch_0
         :pswitch_2
