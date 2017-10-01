@@ -1467,6 +1467,12 @@
 
     if-eqz v0, :cond_0
 
+    invoke-virtual {p0}, Lcom/android/systemui/volume/VolumeDialogController;->getVolumeWarningTweak()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
     iget-object v0, p0, Lcom/android/systemui/volume/VolumeDialogController;->mCallbacks:Lcom/android/systemui/volume/VolumeDialogController$C;
 
     invoke-virtual {v0, p1}, Lcom/android/systemui/volume/VolumeDialogController$C;->onShowSafetyWarning(I)V
@@ -2635,6 +2641,20 @@
     invoke-virtual {v0, v1}, Lcom/android/systemui/volume/VolumeDialogController$W;->sendEmptyMessage(I)Z
 
     return-void
+.end method
+
+.method public getVolumeWarningTweak()Z
+    .locals 2
+
+    const-string/jumbo v0, "disable_volume_warning"
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public hasVibrator()Z
