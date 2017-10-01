@@ -957,6 +957,7 @@ Wi-Fi-anropsikonet vises på varselspanelet som vist nedenfor, mens tjenesten er
     <string name="quick_settings_dual_label_content_description">%s, Knappetikett, Trykk raskt to ganger for å vise relevante hurtigvalg.</string>
     <string name="accessibility_button">Knapp</string>
     <string name="quick_settings_brightness_auto_brightness">Automatisk lysstyrke</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">Juster skjermlysstyrken automatisk basert på lysforholdene.</string>
     <string name="quick_settings_brightness_quick_access">Vis kontroll øverst</string>
     <string name="quick_settings_brightness_quick_access_summary">Vis lysstyrkekontrollen over varselspanelet.</string>
     <string name="quick_settings_brightness_detail_level">Nivå</string>
@@ -1277,6 +1278,7 @@ For mer informasjon, ta kontakt med administratoren."</string>
     <string name="keyboard_shortcut_group_system_notifications">Varsler</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">Hurtigtaster</string>
     <string name="keyboard_shortcut_group_system_switch_input">Bytt inndatametode</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">Bytt språk</string>
     <string name="keyboard_shortcut_group_applications">Apper</string>
     <string name="keyboard_shortcut_group_applications_assist">Assist</string>
     <string name="keyboard_shortcut_group_applications_browser">Nettleser</string>
@@ -1480,8 +1482,10 @@ Overoppheting kan være forårsaket av:
     <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
     <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
     <string name="battery_low_sec_title">Batteristrøm %d %%</string>
-    <string name="battery_low_sec_body_in_normal_mode">Lad enheten, eller trykk her for å aktivere Strømsparingsmodus.</string>
-    <string name="battery_low_sec_body_in_ups_mode">Koble enheten til en lader.</string>
+    <string name="battery_low_sec_body_phone">Lad telefonen, eller trykk her for å slå på Strømsparingsmodus.</string>
+    <string name="battery_low_sec_body_tablet">Lad nettbrettet, eller trykk her for å slå på Strømsparingsmodus.</string>
+    <string name="battery_low_sec_body_phone_psm">Lad telefonen.</string>
+    <string name="battery_low_sec_body_tablet_psm">Lad nettbrettet.</string>
     <string name="battery_cable_charging_title">Kabellading</string>
     <string name="battery_charging_title">Lader</string>
     <string name="battery_fast_charging_title">Hurtiglading</string>
@@ -1500,7 +1504,10 @@ Overoppheting kan være forårsaket av:
     <string name="battery_saver_notification_text_time_extend">Batterilevetiden er forlenget.</string>
     <string name="button_detail">Info</string>
     <string name="battery_saver_recommend_notification_title">Batteristrøm %d %%</string>
-    <string name="battery_saver_recommend_notification_text">Lad enheten, eller trykk her for å aktivere Strømsparingsmodus.</string>
+    <string name="battery_saver_recommend_notification_text_phone">Lad telefonen, eller trykk her for å slå på Strømsparingsmodus.</string>
+    <string name="battery_saver_recommend_notification_text_tablet">Lad nettbrettet, eller trykk her for å slå på Strømsparingsmodus.</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">Lad telefonen.</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">Lad nettbrettet.</string>
     <string name="button_close">Lukk</string>
     <string name="battery_health_interruption_title">Kan ikke lade</string>
     <string name="battery_health_interruption_by_terminal_open_text">Kan ikke lade enheten. Sørg for at du bruker et batteri og en lader som er kompatible med Samsung, og at enheten er skikkelig koblet til laderen.</string>
@@ -1589,6 +1596,7 @@ oppskaler"</string>
     <string name="uhq_mode_noti_text">Forbedre lydoppløsningen på musikk og videoer for en klarere lytteopplevelse.</string>
     <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
     <string name="assistance_app_setting_item_none">Ingen</string>
+    <string name="remote_input_send_text">Send</string>
     <string name="remote_input_toast_text_on_sview_cover">Kan ikke bruke Hurtigsvar-funksjonen mens S View-dekslet er lukket.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -1844,7 +1852,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_direction_shutdown_instructions">Tegn serien med retninger for å slå av</string>
     <string name="kg_none_multi_pin_restart_instructions">Enheten din ble startet på nytt og må låses opp ved å bruke PIN-koden din. Du kan bruke biometri neste gang du låser opp enheten.</string>
     <string name="kg_tablet_multi_pin_restart_instructions">Enheten din ble startet på nytt og må låses opp ved å bruke PIN-koden din. Du kan bruke biometri neste gang du låser opp enheten.</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">Enheten din ble startet på nytt og må låses opp ved å bruke PIN-koden din. Du kan bruke fingeravtrykkene neste gang du låser opp enheten.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">Telefonen din ble startet på nytt og må låses opp ved å bruke PIN-koden din. Du kan bruke fingeravtrykkene neste gang du låser opp telefonen.</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">Enheten din ble startet på nytt og må låses opp ved å bruke PIN-koden din. Du kan bruke fingeravtrykkene neste gang du låser opp enheten.</string>
     <string name="kg_none_iris_pin_restart_instructions">Enheten din ble startet på nytt og må låses opp ved å bruke PIN-koden din. Du kan bruke irisene neste gang du låser opp enheten.</string>
     <string name="kg_tablet_iris_pin_restart_instructions">Enheten din ble startet på nytt og må låses opp ved å bruke PIN-koden din. Du kan bruke irisene neste gang du låser opp enheten.</string>
@@ -1874,7 +1882,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pattern_deviceadmin_instructions">Tegn mønster i stedet for å bruke irisgjenkjenning på grunn av sikkerhetspolicy</string>
     <string name="kg_none_multi_password_restart_instructions">Enheten din ble startet på nytt og må låses opp ved å bruke passordet ditt. Du kan bruke biometri neste gang du låser opp enheten.</string>
     <string name="kg_tablet_multi_password_restart_instructions">Enheten din ble startet på nytt og må låses opp ved å bruke passordet ditt. Du kan bruke biometri neste gang du låser opp enheten.</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">Enheten din ble startet på nytt og må låses opp ved å bruke passordet ditt. Du kan bruke fingeravtrykkene neste gang du låser opp enheten.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">Telefonen din ble startet på nytt og må låses opp ved å bruke passordet ditt. Du kan bruke fingeravtrykkene neste gang du låser opp telefonen.</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">Enheten din ble startet på nytt og må låses opp ved å bruke passordet ditt. Du kan bruke fingeravtrykkene neste gang du låser opp enheten.</string>
     <string name="kg_none_iris_password_restart_instructions">Enheten din ble startet på nytt og må låses opp ved å bruke passordet ditt. Du kan bruke irisene neste gang du låser opp enheten.</string>
     <string name="kg_tablet_iris_password_restart_instructions">Enheten din ble startet på nytt og må låses opp ved å bruke passordet ditt. Du kan bruke irisene neste gang du låser opp enheten.</string>
@@ -1889,7 +1897,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_password_deviceadmin_instructions">Angi passord i stedet for å bruke irisgjenkjenning på grunn av sikkerhetspolicy</string>
     <string name="kg_none_multi_direction_restart_instructions">Enheten din ble startet på nytt og må låses opp ved å bruke serien med retninger. Du kan bruke biometri neste gang du låser opp enheten.</string>
     <string name="kg_tablet_multi_direction_restart_instructions">Enheten din ble startet på nytt og må låses opp ved å bruke serien med retninger. Du kan bruke biometri neste gang du låser opp enheten.</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">Enheten din ble startet på nytt og må låses opp ved å bruke serien med retninger. Du kan bruke fingeravtrykkene neste gang du låser opp enheten.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">Telefonen din ble startet på nytt og må låses opp ved å bruke serien med retninger. Du kan bruke fingeravtrykkene neste gang du låser opp telefonen.</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">Enheten din ble startet på nytt og må låses opp ved å bruke serien med retninger. Du kan bruke fingeravtrykkene neste gang du låser opp enheten.</string>
     <string name="kg_none_iris_direction_restart_instructions">Enheten din ble startet på nytt og må låses opp ved å bruke serien med retninger. Du kan bruke irisene neste gang du låser opp enheten.</string>
     <string name="kg_tablet_iris_direction_restart_instructions">Enheten din ble startet på nytt og må låses opp ved å bruke serien med retninger. Du kan bruke irisene neste gang du låser opp enheten.</string>
@@ -2012,6 +2020,9 @@ Prøv igjen om 1 sekund"</string>
     <string name="recents_help_dlg_split_icon_desc">Trykk på Delt skjerm-ikonet på tittellinjen i appvinduet for å åpne apper i delt skjerm-visning. Dette ikonet vises når appen støtter Flervindu.</string>
     <string name="recents_help_dlg_long_click_recents_key_text">Trykk på og hold nyligtasten mens du bruker en app i fullskjermvisning for å bytte til delt skjerm-visning.</string>
     <string name="recents_help_dlg_home_key_in_split_text">Hvis du trykker på Hjem-tasten mens du bruker delt skjerm-visning, blir appen som vises på øverste halvdel av skjermen, minimert. Hvis du åpner en app fra startskjermbildet mens statuslinjen er blå, åpnes appen i delt skjerm-visning på nederste halvdel av skjermen.</string>
+    <string name="battery_low_sec_body_in_normal_mode">Lad enheten, eller trykk her for å aktivere Strømsparingsmodus.</string>
+    <string name="battery_low_sec_body_in_ups_mode">Koble enheten til en lader.</string>
+    <string name="battery_saver_recommend_notification_text">Lad enheten, eller trykk her for å aktivere Strømsparingsmodus.</string>
     <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
 
 If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>

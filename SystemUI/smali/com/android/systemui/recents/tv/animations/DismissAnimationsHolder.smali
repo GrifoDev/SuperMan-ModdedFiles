@@ -39,7 +39,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const v1, 0x7f130323
+    const v1, 0x7f130324
 
     invoke-virtual {p1, v1}, Lcom/android/systemui/recents/tv/views/TaskCardView;->findViewById(I)Landroid/view/View;
 
@@ -49,7 +49,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/recents/tv/animations/DismissAnimationsHolder;->mInfoField:Landroid/widget/LinearLayout;
 
-    const v1, 0x7f130328
+    const v1, 0x7f130329
 
     invoke-virtual {p1, v1}, Lcom/android/systemui/recents/tv/views/TaskCardView;->findViewById(I)Landroid/view/View;
 
@@ -57,7 +57,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/recents/tv/animations/DismissAnimationsHolder;->mThumbnailView:Landroid/view/View;
 
-    const v1, 0x7f130326
+    const v1, 0x7f130327
 
     invoke-virtual {p1, v1}, Lcom/android/systemui/recents/tv/views/TaskCardView;->findViewById(I)Landroid/view/View;
 
@@ -83,7 +83,7 @@
 
     invoke-virtual {v1, v2}, Landroid/graphics/drawable/TransitionDrawable;->setCrossFadeEnabled(Z)V
 
-    const v1, 0x7f130327
+    const v1, 0x7f130328
 
     invoke-virtual {p1, v1}, Lcom/android/systemui/recents/tv/views/TaskCardView;->findViewById(I)Landroid/view/View;
 
@@ -111,7 +111,7 @@
 
     iput v1, p0, Lcom/android/systemui/recents/tv/animations/DismissAnimationsHolder;->mDismissStartYDelta:I
 
-    const v1, 0x7f0c0070
+    const v1, 0x7f0c0072
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -121,7 +121,7 @@
 
     iput-wide v2, p0, Lcom/android/systemui/recents/tv/animations/DismissAnimationsHolder;->mShortDuration:J
 
-    const v1, 0x7f0c0071
+    const v1, 0x7f0c0073
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -135,7 +135,7 @@
 
     if-nez v1, :cond_0
 
-    const v1, 0x7f0c0079
+    const v1, 0x7f0c007b
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -147,7 +147,7 @@
     return-void
 
     :cond_0
-    const v1, 0x7f0c0080
+    const v1, 0x7f0c0082
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getFloat(I)F
 

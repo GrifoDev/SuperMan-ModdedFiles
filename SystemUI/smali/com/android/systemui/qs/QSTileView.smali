@@ -253,7 +253,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f04010a
+    const v2, 0x7f04010b
 
     const/4 v3, 0x0
 
@@ -261,7 +261,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f1302f8
+    const v1, 0x7f1302f9
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -312,7 +312,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f04010b
+    const v2, 0x7f04010c
 
     const/4 v3, 0x0
 
@@ -320,7 +320,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f1302f9
+    const v1, 0x7f1302fa
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -339,7 +339,7 @@
     invoke-virtual {v1, v4}, Landroid/widget/TextView;->setTextColor(I)V
 
     :cond_0
-    const v1, 0x7f1302fa
+    const v1, 0x7f1302fb
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -763,7 +763,7 @@
 
     if-eqz v0, :cond_1
 
-    const v1, 0x7f020559
+    const v1, 0x7f02055c
 
     :goto_1
     invoke-virtual {v3, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -780,7 +780,7 @@
     goto :goto_0
 
     :cond_1
-    const v1, 0x7f020556
+    const v1, 0x7f020559
 
     goto :goto_1
 .end method

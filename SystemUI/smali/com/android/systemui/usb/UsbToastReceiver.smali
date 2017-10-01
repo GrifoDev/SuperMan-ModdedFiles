@@ -43,7 +43,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/usb/UsbToastReceiver;->mContext:Landroid/content/Context;
 
-    const v2, 0x1040a86
+    const v2, 0x1040a8f
 
     const/4 v3, 0x1
 

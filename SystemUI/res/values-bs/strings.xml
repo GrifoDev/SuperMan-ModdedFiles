@@ -370,6 +370,7 @@ Ikona za Wi-Fi pozivanje će se pojavljivati na tabli sa obavještenjima kao št
     <string name="quick_settings_dual_label_content_description">%s, oznaka dugmeta, dvaput dodirnite za prikaz odgovarajućih brzih postavki.</string>
     <string name="accessibility_button">Tipka</string>
     <string name="quick_settings_brightness_auto_brightness">Automatsko osvjetljenje</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">Automatski prilagodite osvijetljenost ekrana na osnovu uvjeta osvjetljenja.</string>
     <string name="quick_settings_brightness_quick_access">Prikaži kontrolu na vrhu</string>
     <string name="quick_settings_brightness_quick_access_summary">Prikažite kontrolu osvijetljenosti iznad table obavještenja.</string>
     <string name="quick_settings_brightness_detail_level">Nivo</string>
@@ -399,6 +400,7 @@ Ikona za Wi-Fi pozivanje će se pojavljivati na tabli sa obavještenjima kao št
     <string name="wifi_ap_wifi_p2p_off_warn">Omogućavanjem Mobilne pristupne tačke prekinut će se veza sa bilo kojim uređajem koji je trenutno povezan putem opcije Wi-Fi Direct.</string>
     <string name="wifi_ap_wifi_p2p_off_warn_china">Enabling Portable WLAN hotspot will disconnect device connected via WLAN Direct.</string>
     <string name="dialog_battery_data_warning">Mobilna pristupna tačka će biti omogućena. Time će se povećati potrošnja baterije i korištenje podataka.</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">Promijeni jezik</string>
     <string name="keyboard_shortcut_group_applications_email">E-pošta</string>
     <string name="qs_edit">UREDI</string>
     <string name="sec_qs_edit">Uredi</string>
@@ -525,8 +527,10 @@ Pregrijavanje može nastati usljed:
     <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
     <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
     <string name="battery_low_sec_title">Nivo baterije %d%%</string>
-    <string name="battery_low_sec_body_in_normal_mode">Napunite uređaj ili dodirnite ovdje za omogućavanje režima Štednja energije.</string>
-    <string name="battery_low_sec_body_in_ups_mode">Priključite uređaj na punjač.</string>
+    <string name="battery_low_sec_body_phone">Napunite telefon ili dodirnite ovdje da uključite režim Štednja energije.</string>
+    <string name="battery_low_sec_body_tablet">Napunite tablet ili dodirnite ovdje da uključite režim Štednja energije.</string>
+    <string name="battery_low_sec_body_phone_psm">Napunite telefon.</string>
+    <string name="battery_low_sec_body_tablet_psm">Napunite tablet.</string>
     <string name="battery_cable_charging_title">Kabl za punjenje</string>
     <string name="battery_charging_title">Punjenje</string>
     <string name="battery_fast_charging_title">Brzo punjenje</string>
@@ -545,7 +549,10 @@ Pregrijavanje može nastati usljed:
     <string name="battery_saver_notification_text_time_extend">Životni vijek baterije je produžen.</string>
     <string name="button_detail">Detalji</string>
     <string name="battery_saver_recommend_notification_title">Nivo baterije %d%%</string>
-    <string name="battery_saver_recommend_notification_text">Napunite uređaj ili dodirnite ovdje za omogućavanje režima Štednja energije.</string>
+    <string name="battery_saver_recommend_notification_text_phone">Napunite telefon ili dodirnite ovdje da uključite režim Štednja energije.</string>
+    <string name="battery_saver_recommend_notification_text_tablet">Napunite tablet ili dodirnite ovdje da uključite režim Štednja energije.</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">Napunite telefon.</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">Napunite tablet.</string>
     <string name="button_close">Zatvori</string>
     <string name="battery_health_interruption_title">Punjenje nije moguće</string>
     <string name="battery_health_interruption_by_terminal_open_text">Uređaj se ne može puniti. Uvjerite se da koristite Samsung kompatibilnu bateriju i punjač, kao i da je uređaj pravilno priključen na punjač.</string>
@@ -634,6 +641,7 @@ naviše"</string>
     <string name="uhq_mode_noti_text">Poboljšaj rezoluciju zvuka muzike i video zapisa za osjećaj čišćeg zvuka tokom slušanja.</string>
     <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
     <string name="assistance_app_setting_item_none">Nema</string>
+    <string name="remote_input_send_text">Pošalji</string>
     <string name="remote_input_toast_text_on_sview_cover">Nije moguće koristiti funkciju Brzi odgovor dok je zatvoren S omot za ekran.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -822,7 +830,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_direction_shutdown_instructions">Nacrtaj niz pravaca za isključivanje</string>
     <string name="kg_none_multi_pin_restart_instructions">Vaš uređaj je ponovno pokrenut i treba ga otključati pomoću PIN koda. Sljedeći put kada budete otključavali uređaj možete koristiti biometriju.</string>
     <string name="kg_tablet_multi_pin_restart_instructions">Vaš uređaj je ponovno pokrenut i treba ga otključati pomoću PIN koda. Sljedeći put kada budete otključavali uređaj možete koristiti biometriju.</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">Vaš uređaj je ponovno pokrenut i treba ga otključati pomoću PIN koda. Sljedeći put kada budete otključavali uređaj možete koristiti otiske prstiju.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">Vaš telefon je ponovno pokrenut i treba ga otključati pomoću PIN koda. Sljedeći put kada budete otključavali telefon možete koristiti otiske prstiju.</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">Vaš uređaj je ponovno pokrenut i treba ga otključati pomoću PIN koda. Sljedeći put kada budete otključavali uređaj možete koristiti otiske prstiju.</string>
     <string name="kg_none_iris_pin_restart_instructions">Vaš uređaj je ponovno pokrenut i treba ga otključati pomoću PIN koda. Sljedeći put kada budete otključavali uređaj možete koristiti šarenice očiju.</string>
     <string name="kg_tablet_iris_pin_restart_instructions">Vaš uređaj je ponovno pokrenut i treba ga otključati pomoću PIN koda. Sljedeći put kada budete otključavali uređaj možete koristiti šarenice očiju.</string>
@@ -852,7 +860,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pattern_deviceadmin_instructions">Nacrtajte obrazac umjesto da koristite prepoznavanje šarenice oka zbog pravila sigurnosti</string>
     <string name="kg_none_multi_password_restart_instructions">Vaš uređaj je ponovo pokrenut i treba ga otključati pomoću lozinke. Sljedeći put kada budete otključavali uređaj možete koristiti biometriju.</string>
     <string name="kg_tablet_multi_password_restart_instructions">Vaš uređaj je ponovo pokrenut i treba ga otključati pomoću lozinke. Sljedeći put kada budete otključavali uređaj možete koristiti biometriju.</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">Vaš uređaj je ponovno pokrenut i treba ga otključati pomoću lozinke. Sljedeći put kada budete otključavali uređaj možete koristiti otiske prstiju.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">Vaš telefon je ponovno pokrenut i treba ga otključati pomoću lozinke. Sljedeći put kada budete otključavali telefon možete koristiti otiske prstiju.</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">Vaš uređaj je ponovno pokrenut i treba ga otključati pomoću lozinke. Sljedeći put kada budete otključavali uređaj možete koristiti otiske prstiju.</string>
     <string name="kg_none_iris_password_restart_instructions">Vaš uređaj je ponovno pokrenut i treba ga otključati pomoću lozinke. Sljedeći put kada budete otključavali uređaj možete koristiti šarenice očiju.</string>
     <string name="kg_tablet_iris_password_restart_instructions">Vaš uređaj je ponovno pokrenut i treba ga otključati pomoću lozinke. Sljedeći put kada budete otključavali uređaj možete koristiti šarenice očiju.</string>
@@ -867,7 +875,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_password_deviceadmin_instructions">Unesite lozinku umjesto da koristite prepoznavanje šarenice oka zbog pravila sigurnosti</string>
     <string name="kg_none_multi_direction_restart_instructions">Vaš uređaj je ponovno pokrenut i treba ga otključati pomoću niza pravaca. Sljedeći put kada budete otključavali uređaj možete koristiti biometriju.</string>
     <string name="kg_tablet_multi_direction_restart_instructions">Vaš uređaj je ponovno pokrenut i treba ga otključati pomoću niza pravaca. Sljedeći put kada budete otključavali uređaj možete koristiti biometriju.</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">Vaš uređaj je ponovno pokrenut i treba ga otključati pomoću niza pravaca. Sljedeći put kada budete otključavali uređaj možete koristiti otiske prstiju.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">Vaš telefon je ponovno pokrenut i treba ga otključati pomoću niza pravaca. Sljedeći put kada budete otključavali telefon možete koristiti otiske prstiju.</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">Vaš uređaj je ponovno pokrenut i treba ga otključati pomoću niza pravaca. Sljedeći put kada budete otključavali uređaj možete koristiti otiske prstiju.</string>
     <string name="kg_none_iris_direction_restart_instructions">Vaš uređaj je ponovno pokrenut i treba ga otključati pomoću niza pravaca. Sljedeći put kada budete otključavali uređaj možete koristiti šarenice očiju.</string>
     <string name="kg_tablet_iris_direction_restart_instructions">Vaš uređaj je ponovno pokrenut i treba ga otključati pomoću niza pravaca. Sljedeći put kada budete otključavali uređaj možete koristiti šarenice očiju.</string>
@@ -985,6 +993,9 @@ Pokušajte ponovno za 1 sekundu"</string>
     <string name="recents_help_dlg_split_icon_desc">Dodirnite ikonu Podijeljeni ekran na naslovnoj traci prozora aplikacije da biste otvorili aplikacije u prikazu podijeljenog ekrana. Ova ikona se prikazuje kada aplikacija podržava funkciju Više prozora.</string>
     <string name="recents_help_dlg_long_click_recents_key_text">Držite pritisnutim Nedavno korištenu tipku, dok koristite aplikaciju u prikazu preko cijelog ekrana, da biste prešli na prikaz podijeljenog ekrana.</string>
     <string name="recents_help_dlg_home_key_in_split_text">Ukoliko pritisnete tipku Početak dok koristite prikaz podijeljenog ekrana, aplikacija prikazana na gornjoj polovini ekrana će biti umanjenja. Ukoliko otvorite aplikaciju sa početnog ekrana dok je boja statusne trake plava, aplikacija će se otvoriti u prikazu podijeljenog ekrana na donjoj polovini ekrana.</string>
+    <string name="battery_low_sec_body_in_normal_mode">Napunite uređaj ili dodirnite ovdje za omogućavanje režima Štednja energije.</string>
+    <string name="battery_low_sec_body_in_ups_mode">Priključite uređaj na punjač.</string>
+    <string name="battery_saver_recommend_notification_text">Napunite uređaj ili dodirnite ovdje za omogućavanje režima Štednja energije.</string>
     <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
 
 If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>

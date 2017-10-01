@@ -277,7 +277,7 @@
 
     invoke-virtual {v2, v3, p0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
-    const v2, 0x7f1302de
+    const v2, 0x7f1302df
 
     invoke-virtual {p0, v2}, Lcom/android/systemui/AutoReinflateContainer;->findViewById(I)Landroid/view/View;
 

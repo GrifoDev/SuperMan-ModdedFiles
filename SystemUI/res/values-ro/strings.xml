@@ -956,6 +956,7 @@ Pictograma de apelare prin Wi-Fi va apărea în panoul de notificare, după cum 
     <string name="quick_settings_dual_label_content_description">%s, etichetă buton, atingeți de două ori pentru a vizualiza setările rapide corespunzătoare.</string>
     <string name="accessibility_button">Buton</string>
     <string name="quick_settings_brightness_auto_brightness">Luminozitate automată</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">Reglați automat luminozitatea ecranului în funcție de condițiile de iluminare.</string>
     <string name="quick_settings_brightness_quick_access">Afișare control deasupra</string>
     <string name="quick_settings_brightness_quick_access_summary">Afișați controlul luminozității deasupra panoului de notificare.</string>
     <string name="quick_settings_brightness_detail_level">Nivel</string>
@@ -1276,6 +1277,7 @@ Pentru mai multe informații, contactați administratorul."</string>
     <string name="keyboard_shortcut_group_system_notifications">Notificări</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">Comenzi rapide de la tastatură</string>
     <string name="keyboard_shortcut_group_system_switch_input">Comutați metoda de introducere a textului</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">Comutare limbi</string>
     <string name="keyboard_shortcut_group_applications">Aplicații</string>
     <string name="keyboard_shortcut_group_applications_assist">Asistent</string>
     <string name="keyboard_shortcut_group_applications_browser">Browser</string>
@@ -1479,8 +1481,10 @@ Supraîncălzirea poate fi cauzată de:
     <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
     <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
     <string name="battery_low_sec_title">Nivel baterie: %d%%</string>
-    <string name="battery_low_sec_body_in_normal_mode">Încărcați dispozitivul sau atingeți aici pentru a activa Modul Economisire energie.</string>
-    <string name="battery_low_sec_body_in_ups_mode">Conectați dispozitivul la un încărcător.</string>
+    <string name="battery_low_sec_body_phone">Încărcați telefonul sau atingeți aici pentru a porni Modul Economisire energie.</string>
+    <string name="battery_low_sec_body_tablet">Încărcați tableta sau atingeți aici pentru a porni Modul Economisire energie.</string>
+    <string name="battery_low_sec_body_phone_psm">Încărcați telefonul.</string>
+    <string name="battery_low_sec_body_tablet_psm">Încărcați tableta.</string>
     <string name="battery_cable_charging_title">Încărcare prin cablu</string>
     <string name="battery_charging_title">Se încarcă</string>
     <string name="battery_fast_charging_title">Încărc. rapidă</string>
@@ -1499,7 +1503,10 @@ Supraîncălzirea poate fi cauzată de:
     <string name="battery_saver_notification_text_time_extend">Durata de viață a bateriei dispozitivului dvs. a fost extinsă.</string>
     <string name="button_detail">Detaliu</string>
     <string name="battery_saver_recommend_notification_title">Nivel baterie: %d%%</string>
-    <string name="battery_saver_recommend_notification_text">Încărcați dispozitivul sau atingeți aici pentru a activa Modul Economisire energie.</string>
+    <string name="battery_saver_recommend_notification_text_phone">Încărcați telefonul sau atingeți aici pentru a porni Modul Economisire energie.</string>
+    <string name="battery_saver_recommend_notification_text_tablet">Încărcați tableta sau atingeți aici pentru a porni Modul Economisire energie.</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">Încărcați telefonul.</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">Încărcați tableta.</string>
     <string name="button_close">Închide</string>
     <string name="battery_health_interruption_title">Nu se poate încărca</string>
     <string name="battery_health_interruption_by_terminal_open_text">Dispozitivul nu se poate încărca. Asigurați-vă că utilizați o baterie și un încărcător compatibil Samsung și că dispozitivul este conectat corect la încărcător.</string>
@@ -1588,6 +1595,7 @@ rez. UHQ"</string>
     <string name="uhq_mode_noti_text">Îmbunătățiți rezoluția sunetului pentru muzică și videoclipuri în vederea obținerii unei experiențe audio mai clare.</string>
     <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
     <string name="assistance_app_setting_item_none">Niciuna</string>
+    <string name="remote_input_send_text">Trimitere</string>
     <string name="remote_input_toast_text_on_sview_cover">Nu se poate utiliza funcția Răspuns rapid atunci când S View Cover este închisă.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -1843,7 +1851,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_direction_shutdown_instructions">Desenați seriile de direcții pentru a opri</string>
     <string name="kg_none_multi_pin_restart_instructions">Dispozitivul a fost repornit și trebuie deblocat prin intermediul codului PIN. Puteți utiliza datele biometrice data viitoare când vă deblocați dispozitivul.</string>
     <string name="kg_tablet_multi_pin_restart_instructions">Dispozitivul a fost repornit și trebuie deblocat prin intermediul codului PIN. Puteți utiliza datele biometrice data viitoare când vă deblocați dispozitivul.</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">Dispozitivul a fost repornit și trebuie deblocat prin intermediul codului PIN. Puteți utiliza amprentele data viitoare când vă deblocați dispozitivul.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">Telefonul a fost repornit și trebuie deblocat prin intermediul codului PIN. Puteți utiliza amprentele data viitoare când vă deblocați telefonul.</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">Dispozitivul a fost repornit și trebuie deblocat prin intermediul codului PIN. Puteți utiliza amprentele data viitoare când vă deblocați dispozitivul.</string>
     <string name="kg_none_iris_pin_restart_instructions">Dispozitivul a fost repornit și trebuie deblocat prin intermediul codului PIN. Puteți utiliza irisurile data viitoare când vă deblocați dispozitivul.</string>
     <string name="kg_tablet_iris_pin_restart_instructions">Dispozitivul a fost repornit și trebuie deblocat prin intermediul codului PIN. Puteți utiliza irisurile data viitoare când vă deblocați dispozitivul.</string>
@@ -1873,7 +1881,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pattern_deviceadmin_instructions">Desenați modelul în loc să utilizați recunoașterea prin iris, din cauza politicii de securitate</string>
     <string name="kg_none_multi_password_restart_instructions">Dispozitivul a fost repornit și trebuie deblocat prin intermediul parolei. Puteți utiliza datele biometrice data viitoare când vă deblocați dispozitivul.</string>
     <string name="kg_tablet_multi_password_restart_instructions">Dispozitivul a fost repornit și trebuie deblocat prin intermediul parolei. Puteți utiliza datele biometrice data viitoare când vă deblocați dispozitivul.</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">Dispozitivul a fost repornit și trebuie deblocat prin intermediul parolei. Puteți utiliza amprentele data viitoare când vă deblocați dispozitivul.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">Telefonul a fost repornit și trebuie deblocat prin intermediul parolei. Puteți utiliza amprentele data viitoare când vă deblocați telefonul.</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">Dispozitivul a fost repornit și trebuie deblocat prin intermediul parolei. Puteți utiliza amprentele data viitoare când vă deblocați dispozitivul.</string>
     <string name="kg_none_iris_password_restart_instructions">Dispozitivul a fost repornit și trebuie deblocat prin intermediul parolei. Puteți utiliza irisurile data viitoare când vă deblocați dispozitivul.</string>
     <string name="kg_tablet_iris_password_restart_instructions">Dispozitivul a fost repornit și trebuie deblocat prin intermediul parolei. Puteți utiliza irisurile data viitoare când vă deblocați dispozitivul.</string>
@@ -1888,7 +1896,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_password_deviceadmin_instructions">Introduceți parola în loc să utilizați recunoașterea prin iris, din cauza politicii de securitate</string>
     <string name="kg_none_multi_direction_restart_instructions">Dispozitivul a fost repornit și trebuie deblocat prin intermediul seriilor de direcții. Puteți utiliza datele biometrice data viitoare când vă deblocați dispozitivul.</string>
     <string name="kg_tablet_multi_direction_restart_instructions">Dispozitivul a fost repornit și trebuie deblocat prin intermediul seriilor de direcții. Puteți utiliza datele biometrice data viitoare când vă deblocați dispozitivul.</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">Dispozitivul a fost repornit și trebuie deblocat prin intermediul seriilor de direcții. Puteți utiliza amprentele data viitoare când vă deblocați dispozitivul.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">Telefonul a fost repornit și trebuie deblocat prin intermediul seriilor de direcții. Puteți utiliza amprentele data viitoare când vă deblocați telefonul.</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">Dispozitivul a fost repornit și trebuie deblocat prin intermediul seriilor de direcții. Puteți utiliza amprentele data viitoare când vă deblocați dispozitivul.</string>
     <string name="kg_none_iris_direction_restart_instructions">Dispozitivul a fost repornit și trebuie deblocat prin intermediul seriilor de direcții. Puteți utiliza irisurile data viitoare când vă deblocați dispozitivul.</string>
     <string name="kg_tablet_iris_direction_restart_instructions">Dispozitivul a fost repornit și trebuie deblocat prin intermediul seriilor de direcții. Puteți utiliza irisurile data viitoare când vă deblocați dispozitivul.</string>
@@ -2010,6 +2018,9 @@ Dacă nu vă cunoașteți codul PUK, consultați un centru de asistență pentru
     <string name="recents_help_dlg_split_icon_desc">Pentru a deschide aplicații în vizualizarea de tip ecran divizat, atingeți pictograma Ecran divizat de pe bara de titlu a ferestrei aplicației. Pictograma este afișată atunci când aplicația acceptă vizualizarea Ferestre multiple.</string>
     <string name="recents_help_dlg_long_click_recents_key_text">Mențineți apăsată tasta Aplicații recente în timp ce utilizați aplicația în vizualizarea ecran complet pentru a o schimba la vizualizarea de tip ecran divizat.</string>
     <string name="recents_help_dlg_home_key_in_split_text">Dacă apăsați tasta Acasă atunci când utilizați vizualizarea de tip ecran divizat, aplicația afișată pe jumătatea de sus a ecranului va fi minimizată. Dacă deschideți o aplicație pe ecranul Acasă atunci când bara de stare este colorată în albastru, aplicația se va deschide în vizualizarea de tip ecran divizat în jumătatea de jos a ecranului.</string>
+    <string name="battery_low_sec_body_in_normal_mode">Încărcați dispozitivul sau atingeți aici pentru a activa Modul Economisire energie.</string>
+    <string name="battery_low_sec_body_in_ups_mode">Conectați dispozitivul la un încărcător.</string>
+    <string name="battery_saver_recommend_notification_text">Încărcați dispozitivul sau atingeți aici pentru a activa Modul Economisire energie.</string>
     <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
 
 If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>

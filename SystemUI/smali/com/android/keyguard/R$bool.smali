@@ -14,6 +14,8 @@
 
 .field public static final theme_use_image_clock:I = 0x7f120034
 
+.field public static final theme_use_image_pinlock:I = 0x7f12002a
+
 .field public static final theme_use_pattern_failed_image:I = 0x7f120030
 
 .field public static final theme_use_pattern_normal_image:I = 0x7f12002e

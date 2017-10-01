@@ -90,7 +90,7 @@
 
     invoke-direct {v3}, Lcom/android/systemui/qs/QSDetailItems$Item;-><init>()V
 
-    const v5, 0x7f02034b
+    const v5, 0x7f02034c
 
     iput v5, v3, Lcom/android/systemui/qs/QSDetailItems$Item;->icon:I
 
@@ -214,21 +214,11 @@
 
     move-result-object v1
 
-    const v3, 0x7f0400f3
+    const v3, 0x7f0400f4
 
     invoke-virtual {v1, v3, p3, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object p2
-
-    const v1, 0x7f1302ce
-
-    invoke-virtual {p2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/widget/TextView;
-
-    iput-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter;->mMobileApName:Landroid/widget/TextView;
 
     const v1, 0x7f1302cf
 
@@ -238,7 +228,7 @@
 
     check-cast v1, Landroid/widget/TextView;
 
-    iput-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter;->mConnectionMode:Landroid/widget/TextView;
+    iput-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter;->mMobileApName:Landroid/widget/TextView;
 
     const v1, 0x7f1302d0
 
@@ -248,9 +238,19 @@
 
     check-cast v1, Landroid/widget/TextView;
 
-    iput-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter;->mConnectedListTitle:Landroid/widget/TextView;
+    iput-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter;->mConnectionMode:Landroid/widget/TextView;
 
     const v1, 0x7f1302d1
+
+    invoke-virtual {p2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/widget/TextView;
+
+    iput-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter;->mConnectedListTitle:Landroid/widget/TextView;
+
+    const v1, 0x7f1302d2
 
     invoke-virtual {p2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

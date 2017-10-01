@@ -48,7 +48,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0f0692
+    const v1, 0x7f0f069c
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->showTransientIndication(I)V
 

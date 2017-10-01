@@ -731,39 +731,6 @@
 
 
 # virtual methods
-.method protected composeChangeAnnouncement()Ljava/lang/String;
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mState:Lcom/android/systemui/qs/QSTile$State;
-
-    check-cast v0, Lcom/android/systemui/qs/QSTile$BooleanState;
-
-    iget-boolean v0, v0, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mContext:Landroid/content/Context;
-
-    const v1, 0x7f0f0327
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mContext:Landroid/content/Context;
-
-    const v1, 0x7f0f0326
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
 .method public getDetailAdapter()Lcom/android/systemui/qs/QSTile$DetailAdapter;
     .locals 1
 
@@ -1121,7 +1088,7 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f0203fe
+    const v0, 0x7f020401
 
     :goto_1
     invoke-static {v0}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
@@ -1189,7 +1156,7 @@
     goto :goto_0
 
     :cond_1
-    const v0, 0x7f020418
+    const v0, 0x7f02041b
 
     goto :goto_1
 

@@ -954,6 +954,7 @@ Wi-FiとBluetoothもOFFになりますが、設定またはクイック設定パ
     <string name="quick_settings_dual_label_content_description">%s、ボタンラベル。関連するクイック設定を表示するには、ダブルタップしてください。</string>
     <string name="accessibility_button">ボタン</string>
     <string name="quick_settings_brightness_auto_brightness">明るさ自動調整</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">周囲の明るさに応じて、画面の明るさを自動的に調整します。</string>
     <string name="quick_settings_brightness_quick_access">コントロールをトップ画面に表示</string>
     <string name="quick_settings_brightness_quick_access_summary">明るさ調節を通知パネルの上に表示します。</string>
     <string name="quick_settings_brightness_detail_level">レベル</string>
@@ -1274,6 +1275,7 @@ VPNにも接続しているため、VPNもネットワークアクティビテ�
     <string name="keyboard_shortcut_group_system_notifications">通知</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">キーボード ショートカット</string>
     <string name="keyboard_shortcut_group_system_switch_input">入力方法の切り替え</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">言語を切り替え</string>
     <string name="keyboard_shortcut_group_applications">アプリ</string>
     <string name="keyboard_shortcut_group_applications_assist">アシスト</string>
     <string name="keyboard_shortcut_group_applications_browser">ブラウザ</string>
@@ -1477,8 +1479,10 @@ VPNにも接続しているため、VPNもネットワークアクティビテ�
     <string name="safe_mode_alert_body_vzw">端末を再起動してセーフモードをOFFにしますか？全てのアプリが復元されます。</string>
     <string name="safe_mode_alert_positive_button_vzw">セーフモードOFF</string>
     <string name="battery_low_sec_title">バッテリー残量%d%%</string>
-    <string name="battery_low_sec_body_in_normal_mode">端末を充電するか、ここをタップして省電力モードを有効にしてください。</string>
-    <string name="battery_low_sec_body_in_ups_mode">端末を充電器に接続してください。</string>
+    <string name="battery_low_sec_body_phone">端末を充電するか、ここをタップして省電力モードをONにしてください。</string>
+    <string name="battery_low_sec_body_tablet">タブレットを充電するか、ここをタップして省電力モードをONにしてください。</string>
+    <string name="battery_low_sec_body_phone_psm">充電してください。</string>
+    <string name="battery_low_sec_body_tablet_psm">充電してください。</string>
     <string name="battery_cable_charging_title">通常充電</string>
     <string name="battery_charging_title">充電中</string>
     <string name="battery_fast_charging_title">急速充電</string>
@@ -1497,7 +1501,10 @@ VPNにも接続しているため、VPNもネットワークアクティビテ�
     <string name="battery_saver_notification_text_time_extend">バッテリーの残り使用時間が延びました。</string>
     <string name="button_detail">詳細</string>
     <string name="battery_saver_recommend_notification_title">バッテリー残量%d%%</string>
-    <string name="battery_saver_recommend_notification_text">端末を充電するか、ここをタップして省電力モードを有効にしてください。</string>
+    <string name="battery_saver_recommend_notification_text_phone">端末を充電するか、ここをタップして省電力モードをONにしてください。</string>
+    <string name="battery_saver_recommend_notification_text_tablet">タブレットを充電するか、ここをタップして省電力モードをONにしてください。</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">充電してください。</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">充電してください。</string>
     <string name="button_close">閉じる</string>
     <string name="battery_health_interruption_title">充電不可</string>
     <string name="battery_health_interruption_by_terminal_open_text">端末を充電することができません。Samsung対応のバッテリーや充電器を使用していることと、端末が正しく充電器に接続していることを確認してください。</string>
@@ -1588,6 +1595,7 @@ VPNにも接続しているため、VPNもネットワークアクティビテ�
     <string name="assistance_app_setting_item_none">なし</string>
     <string name="no_sim_notification_title_cct">検出されたSIMカードなし</string>
     <string name="no_sim_notification_text_cct">XFINITY Mobile SIMを挿入してください。詳細を確認するには、xfinitymobile.com/activateにアクセスするか、888-936-4968にお電話ください。</string>
+    <string name="remote_input_send_text">送信</string>
     <string name="accessibility_camera_button_nexti">カメラ</string>
     <string name="accessibility_phone_icon_nexti">電話</string>
     <string name="accessibility_unlock_button_nexti">ロック解除</string>
@@ -1854,7 +1862,7 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="kg_none_direction_shutdown_instructions">電源をOFFにするには、スワイプ方向の組み合わせを入力してください</string>
     <string name="kg_none_multi_pin_restart_instructions">端末が再起動したため、生体認証の代わりにPINを使用してロックを解除する必要があります。生体認証は、次回端末のロックを解除するときから使用することができます。</string>
     <string name="kg_tablet_multi_pin_restart_instructions">端末が再起動したため、生体認証の代わりにPINを使用してロックを解除する必要があります。生体認証は、次回端末のロックを解除するときから使用することができます。</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">端末が再起動したため、指紋認証の代わりにPINを使用してロックを解除する必要があります。指紋認証は、次回端末のロックを解除するときから使用することができます。</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">端末が再起動したため、PINを使用してロックを解除する必要があります。指紋認証は、次回端末のロックを解除するときから使用することができます。</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">端末が再起動したため、指紋認証の代わりにPINを使用してロックを解除する必要があります。指紋認証は、次回端末のロックを解除するときから使用することができます。</string>
     <string name="kg_none_iris_pin_restart_instructions">端末が再起動したため、虹彩認証の代わりにPINを使用してロックを解除する必要があります。虹彩認証は、次回端末のロックを解除するときから使用することができます。</string>
     <string name="kg_tablet_iris_pin_restart_instructions">端末が再起動したため、虹彩認証の代わりにPINを使用してロックを解除する必要があります。虹彩認証は、次回端末のロックを解除するときから使用することができます。</string>
@@ -1884,7 +1892,7 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="kg_none_iris_pattern_deviceadmin_instructions">セキュリティポリシーのため、虹彩認証を使用する代わりに、パターンを入力してください</string>
     <string name="kg_none_multi_password_restart_instructions">端末が再起動したため、パスワードを使用してロックを解除する必要があります。生体認証は、次回端末のロックを解除するときから使用することができます。</string>
     <string name="kg_tablet_multi_password_restart_instructions">端末が再起動したため、パスワードを使用してロックを解除する必要があります。生体認証は、次回端末のロックを解除するときから使用することができます。</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">端末が再起動したため、指紋認証の代わりにパスワードを使用してロックを解除する必要があります。指紋認証は、次回端末のロックを解除するときから使用することができます。</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">端末が再起動したため、パスワードを使用してロックを解除する必要があります。指紋認証は、次回端末のロックを解除するときから使用することができます。</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">端末が再起動したため、指紋認証の代わりにパスワードを使用してロックを解除する必要があります。指紋認証は、次回端末のロックを解除するときから使用することができます。</string>
     <string name="kg_none_iris_password_restart_instructions">端末が再起動したため、虹彩認証の代わりにパスワードを使用してロックを解除する必要があります。虹彩認証は、次回端末のロックを解除するときから使用することができます。</string>
     <string name="kg_tablet_iris_password_restart_instructions">端末が再起動したため、虹彩認証の代わりにパスワードを使用してロックを解除する必要があります。虹彩認証は、次回端末のロックを解除するときから使用することができます。</string>
@@ -1899,7 +1907,7 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="kg_none_iris_password_deviceadmin_instructions">セキュリティポリシーのため、虹彩認証を使用する代わりに、パスワードを入力してください</string>
     <string name="kg_none_multi_direction_restart_instructions">端末が再起動したため、生体認証の代わりにスワイプ方向の組み合わせを使用してロックを解除する必要があります。生体認証は、次回端末のロックを解除するときから使用することができます。</string>
     <string name="kg_tablet_multi_direction_restart_instructions">端末が再起動したため、生体認証の代わりにスワイプ方向の組み合わせを使用してロックを解除する必要があります。生体認証は、次回端末のロックを解除するときから使用することができます。</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">端末が再起動したため、指紋認証の代わりにスワイプ方向の組み合わせを使用してロックを解除する必要があります。指紋認証は、次回端末のロックを解除するときから使用することができます。</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">端末が再起動したため、スワイプ方向の組み合わせを使用してロックを解除する必要があります。指紋認証は、次回端末のロックを解除するときから使用することができます。</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">端末が再起動したため、指紋認証の代わりにスワイプ方向の組み合わせを使用してロックを解除する必要があります。指紋認証は、次回端末のロックを解除するときから使用することができます。</string>
     <string name="kg_none_iris_direction_restart_instructions">端末が再起動したため、虹彩認証の代わりにスワイプ方向の組み合わせを使用してロックを解除する必要があります。虹彩認証は、次回端末のロックを解除するときから使用することができます。</string>
     <string name="kg_tablet_iris_direction_restart_instructions">端末が再起動したため、虹彩認証の代わりにスワイプ方向の組み合わせを使用してロックを解除する必要があります。虹彩認証は、次回端末のロックを解除するときから使用することができます。</string>
@@ -2024,6 +2032,9 @@ PUKが不明な場合は、カスタマーサービスセンターにお問い�
     <string name="recents_help_dlg_split_icon_desc">アプリを分割画面表示で起動するには、アプリウィンドウのタイトルバーにある分割画面アイコンをタップします。このアイコンは、マルチウィンドウに対応しているアプリに表示されます。</string>
     <string name="recents_help_dlg_long_click_recents_key_text">分割画面表示に変更するには、アプリを全画面表示で使用しているときに履歴キーを長押しします。</string>
     <string name="recents_help_dlg_home_key_in_split_text">分割画面表示を使用中にホームキーを押すと、画面の上半分に表示されているアプリは最小化されます。ステータスバーが青色のときにホーム画面からアプリを起動すると、そのアプリは画面の下半分に分割画面で起動されます。</string>
+    <string name="battery_low_sec_body_in_normal_mode">端末を充電するか、ここをタップして省電力モードを有効にしてください。</string>
+    <string name="battery_low_sec_body_in_ups_mode">端末を充電器に接続してください。</string>
+    <string name="battery_saver_recommend_notification_text">端末を充電するか、ここをタップして省電力モードを有効にしてください。</string>
     <string name="kg_none_direction_1_frpt">"正しくないスワイプ方向の組み合わせをあと1回入力すると、この端末は自動的に工場出荷時の状態にリセットされ、端末の全ての情報は消去されます。
 
 端末がリセットされた場合、端末を再度使用できるようにするために、この端末に関連付けられたGoogleアカウント情報(Eメールアドレスとパスワード)を入力する必要がある場合があります。"</string>

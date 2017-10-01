@@ -692,7 +692,7 @@
 
     invoke-virtual {v14, v10}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    const v14, 0x7f13028e
+    const v14, 0x7f13028f
 
     move-object/from16 v0, p1
 
@@ -704,7 +704,7 @@
 
     invoke-virtual {v14, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v14, 0x7f130297
+    const v14, 0x7f130298
 
     invoke-virtual {v7, v14}, Lcom/android/systemui/statusbar/NotificationGuts;->findViewById(I)Landroid/view/View;
 
@@ -723,7 +723,7 @@
     invoke-virtual {v13, v14}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     :goto_1
-    const v14, 0x7f130298
+    const v14, 0x7f130299
 
     move-object/from16 v0, p1
 
@@ -1882,7 +1882,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v1, 0x7f1302ae
+    const v1, 0x7f1302af
 
     invoke-virtual {p2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2082,7 +2082,7 @@
 .method protected bindVetoButtonClickListener(Landroid/view/View;Landroid/service/notification/StatusBarNotification;)Landroid/view/View;
     .locals 8
 
-    const v0, 0x7f1303db
+    const v0, 0x7f1303dc
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3916,7 +3916,7 @@
 
     check-cast v30, Landroid/view/LayoutInflater;
 
-    const v5, 0x7f040161
+    const v5, 0x7f040162
 
     const/4 v6, 0x0
 
@@ -4814,7 +4814,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0201ef
+    const v9, 0x7f0201f0
 
     invoke-virtual {v7, v9, v8, v6}, Landroid/app/Notification$Builder;->addAction(ILjava/lang/CharSequence;Landroid/app/PendingIntent;)Landroid/app/Notification$Builder;
 

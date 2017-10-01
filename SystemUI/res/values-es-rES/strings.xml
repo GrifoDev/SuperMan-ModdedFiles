@@ -388,6 +388,7 @@ Cuando el servicio está disponible, el icono de Llamadas Wi-Fi aparecerá en el
     <string name="quick_settings_dual_label_content_description">%s, Etiqueta de botón, Pulsar dos veces para ver los ajustes rápidos correspondientes.</string>
     <string name="accessibility_button">Botón</string>
     <string name="quick_settings_brightness_auto_brightness">Brillo automático</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">Ajusta el brillo de la pantalla automáticamente en función de las condiciones de luz.</string>
     <string name="quick_settings_brightness_quick_access">Mostrar control arriba</string>
     <string name="quick_settings_brightness_quick_access_summary">Mostrar el control de brillo encima del panel de notificaciones.</string>
     <string name="quick_settings_brightness_detail_level">Nivel</string>
@@ -417,6 +418,7 @@ Cuando el servicio está disponible, el icono de Llamadas Wi-Fi aparecerá en el
     <string name="wifi_ap_wifi_p2p_off_warn">Al activar Conexión compartida, se desconectarán los dispositivos conectados actualmente mediante Wi-Fi Direct.</string>
     <string name="wifi_ap_wifi_p2p_off_warn_china">Al activar Zona WLAN portátil, se desconectará el dispositivo conectado mediante WLAN Direct.</string>
     <string name="dialog_battery_data_warning">La Conexión compartida se activará. Esta conexión aumentará el consumo de batería y el uso de datos.</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">Cambiar idiomas</string>
     <string name="keyboard_shortcut_group_applications_email">Correo electrónico</string>
     <string name="qs_edit">EDITAR</string>
     <string name="sec_qs_edit">Editar</string>
@@ -543,8 +545,10 @@ El sobrecalentamiento puede producirse por varios motivos:
     <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
     <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
     <string name="battery_low_sec_title">Nivel de batería al %d%%</string>
-    <string name="battery_low_sec_body_in_normal_mode">Cargue el dispositivo o pulse aquí para activar el modo Ahorro de energía.</string>
-    <string name="battery_low_sec_body_in_ups_mode">Conecte el dispositivo a un cargador.</string>
+    <string name="battery_low_sec_body_phone">Cargue el teléfono o pulse aquí para activar el modo Ahorro de energía.</string>
+    <string name="battery_low_sec_body_tablet">Cargue la tableta o pulse aquí para activar el modo Ahorro de energía.</string>
+    <string name="battery_low_sec_body_phone_psm">Cargue el teléfono.</string>
+    <string name="battery_low_sec_body_tablet_psm">Cargue la tableta.</string>
     <string name="battery_cable_charging_title">Carga de cable</string>
     <string name="battery_charging_title">Cargando</string>
     <string name="battery_fast_charging_title">Carga rápida</string>
@@ -563,7 +567,10 @@ El sobrecalentamiento puede producirse por varios motivos:
     <string name="battery_saver_notification_text_time_extend">Se ha prolongado la duración de la batería.</string>
     <string name="button_detail">Detalle</string>
     <string name="battery_saver_recommend_notification_title">Nivel de batería al %d%%</string>
-    <string name="battery_saver_recommend_notification_text">Cargue el dispositivo o pulse aquí para activar el modo Ahorro de energía.</string>
+    <string name="battery_saver_recommend_notification_text_phone">Cargue el teléfono o pulse aquí para activar el modo Ahorro de energía.</string>
+    <string name="battery_saver_recommend_notification_text_tablet">Cargue la tableta o pulse aquí para activar el modo Ahorro de energía.</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">Cargue el teléfono.</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">Cargue la tableta.</string>
     <string name="button_close">Cerrar</string>
     <string name="battery_health_interruption_title">No se puede cargar</string>
     <string name="battery_health_interruption_by_terminal_open_text">No se puede cargar el dispositivo. Asegúrese de que utiliza una batería y un cargador compatibles con Samsung, y de que su dispositivo está conectado adecuadamente al cargador.</string>
@@ -652,6 +659,7 @@ UHQ"</string>
     <string name="uhq_mode_noti_text">Mejore la resolución del sonido de música y vídeos para una experiencia acústica más nítida.</string>
     <string name="assistance_app_setting_alert_dialog_title">Seleccione la aplicación que quiera que se abra al mantener pulsado el botón Inicio. Para cambiar la aplicación seleccionada más adelante, vaya a Aplicación de asistencia del dispositivo en Ajustes.</string>
     <string name="assistance_app_setting_item_none">No</string>
+    <string name="remote_input_send_text">Enviar</string>
     <string name="remote_input_toast_text_on_sview_cover">No se puede usar la función Respuesta rápida mientras S View Cover está cerrada.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -840,7 +848,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_direction_shutdown_instructions">Dibujar serie de direcciones para apagar</string>
     <string name="kg_none_multi_pin_restart_instructions">El dispositivo se reinició y tiene que desbloquearse mediante PIN. Podrá usar sus datos biométricos la próxima vez que desbloquee el dispositivo.</string>
     <string name="kg_tablet_multi_pin_restart_instructions">El dispositivo se reinició y tiene que desbloquearse mediante PIN. Podrá usar sus datos biométricos la próxima vez que desbloquee el dispositivo.</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">El dispositivo se reinició y tiene que desbloquearse mediante PIN. Podrá usar sus huellas digitales la próxima vez que desbloquee el dispositivo.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">El teléfono se ha reiniciado y debes desbloquearlo con el PIN. Podrás usar tus huellas digitales la próxima vez que desbloquees el teléfono.</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">El dispositivo se reinició y tiene que desbloquearse mediante PIN. Podrá usar sus huellas digitales la próxima vez que desbloquee el dispositivo.</string>
     <string name="kg_none_iris_pin_restart_instructions">El dispositivo se reinició y tiene que desbloquearse mediante PIN. Podrá usar los iris la próxima vez que desbloquee el dispositivo.</string>
     <string name="kg_tablet_iris_pin_restart_instructions">El dispositivo se reinició y tiene que desbloquearse mediante PIN. Podrá usar los iris la próxima vez que desbloquee el dispositivo.</string>
@@ -855,7 +863,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">Conforme a la política de seguridad, debe introducir su PIN en lugar de usar el reconocimiento de iris</string>
     <string name="kg_none_multi_pattern_restart_instructions">El dispositivo se reinició y tiene que desbloquearse mediante el patrón. Podrá usar sus datos biométricos la próxima vez que desbloquee el dispositivo.</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">El dispositivo se reinició y tiene que desbloquearse mediante el patrón. Podrá usar sus datos biométricos la próxima vez que desbloquee el dispositivo.</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">El teléfono se reinició y debe desbloquearse mediante el patrón. Podrá usar sus huellas digitales la próxima vez que desbloquee el teléfono.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">El teléfono se ha reiniciado y debes desbloquearlo con el patrón. Podrás usar tus huellas digitales la próxima vez que desbloquees el teléfono.</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">El dispositivo se reinició y tiene que desbloquearse mediante el patrón. Podrá usar sus huellas digitales la próxima vez que desbloquee el dispositivo.</string>
     <string name="kg_none_iris_pattern_restart_instructions">El dispositivo se reinició y tiene que desbloquearse mediante el patrón. Podrá usar los iris la próxima vez que desbloquee el dispositivo.</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">El dispositivo se reinició y tiene que desbloquearse mediante el patrón. Podrá usar los iris la próxima vez que desbloquee el dispositivo.</string>
@@ -870,7 +878,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pattern_deviceadmin_instructions">Conforme a la política de seguridad, debe dibujar su patrón en lugar de usar el reconocimiento de iris</string>
     <string name="kg_none_multi_password_restart_instructions">El dispositivo se reinició y tiene que desbloquearse mediante la contraseña. Podrá usar sus datos biométricos la próxima vez que desbloquee el dispositivo.</string>
     <string name="kg_tablet_multi_password_restart_instructions">El dispositivo se reinició y tiene que desbloquearse mediante la contraseña. Podrá usar sus datos biométricos la próxima vez que desbloquee el dispositivo.</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">El dispositivo se reinició y tiene que desbloquearse mediante la contraseña. Podrá usar sus huellas digitales la próxima vez que desbloquee el dispositivo.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">El teléfono se ha reiniciado y debes desbloquearlo mediante la contraseña. Podrás usar tus huellas digitales la próxima vez que desbloquees el teléfono.</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">El dispositivo se reinició y tiene que desbloquearse mediante la contraseña. Podrá usar sus huellas digitales la próxima vez que desbloquee el dispositivo.</string>
     <string name="kg_none_iris_password_restart_instructions">El dispositivo se reinició y tiene que desbloquearse mediante la contraseña. Podrá usar los iris la próxima vez que desbloquee el dispositivo.</string>
     <string name="kg_tablet_iris_password_restart_instructions">El dispositivo se reinició y tiene que desbloquearse mediante la contraseña. Podrá usar los iris la próxima vez que desbloquee el dispositivo.</string>
@@ -885,7 +893,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_password_deviceadmin_instructions">Conforme a la política de seguridad, debe introducir su contraseña en lugar de usar el reconocimiento de iris</string>
     <string name="kg_none_multi_direction_restart_instructions">El dispositivo se reinició y tiene que desbloquearse mediante la serie de direcciones. Podrá usar sus datos biométricos la próxima vez que desbloquee el dispositivo.</string>
     <string name="kg_tablet_multi_direction_restart_instructions">El dispositivo se reinició y tiene que desbloquearse mediante la serie de direcciones. Podrá usar sus datos biométricos la próxima vez que desbloquee el dispositivo.</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">El dispositivo se reinició y tiene que desbloquearse mediante la serie de direcciones. Podrá usar sus huellas digitales la próxima vez que desbloquee el dispositivo.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">El teléfono se ha reiniciado y debes desbloquearlo mediante la serie de direcciones. Podrás usar tus huellas digitales la próxima vez que desbloquees el teléfono.</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">El dispositivo se reinició y tiene que desbloquearse mediante la serie de direcciones. Podrá usar sus huellas digitales la próxima vez que desbloquee el dispositivo.</string>
     <string name="kg_none_iris_direction_restart_instructions">El dispositivo se reinició y tiene que desbloquearse mediante la serie de direcciones. Podrá usar los iris la próxima vez que desbloquee el dispositivo.</string>
     <string name="kg_tablet_iris_direction_restart_instructions">El dispositivo se reinició y tiene que desbloquearse mediante la serie de direcciones. Podrá usar los iris la próxima vez que desbloquee el dispositivo.</string>
@@ -1007,6 +1015,9 @@ Inténtelo de nuevo en 1 segundo"</string>
     <string name="recents_help_dlg_split_icon_desc">Pulse el icono de pantalla dividida en la barra de título de la ventana de la aplicación para abrir aplicaciones en la vista de pantalla dividida. Este icono se muestra cuando la aplicación admite la vista Multiwindow.</string>
     <string name="recents_help_dlg_long_click_recents_key_text">Mantenga pulsada la tecla Aplicaciones recientes mientras usa una aplicación en la vista de pantalla completa para cambiar a la vista de pantalla dividida.</string>
     <string name="recents_help_dlg_home_key_in_split_text">Si pulsa el botón Inicio mientras usa la vista de pantalla dividida, se minimizará la aplicación que aparece en la mitad superior de la pantalla. Si abre una aplicación desde la pantalla Inicio mientras la barra de estado está de color azul, la aplicación se abrirá en la vista de pantalla dividida en la mitad inferior de la pantalla.</string>
+    <string name="battery_low_sec_body_in_normal_mode">Cargue el dispositivo o pulse aquí para activar el modo Ahorro de energía.</string>
+    <string name="battery_low_sec_body_in_ups_mode">Conecte el dispositivo a un cargador.</string>
+    <string name="battery_saver_recommend_notification_text">Cargue el dispositivo o pulse aquí para activar el modo Ahorro de energía.</string>
     <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
 
 If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>

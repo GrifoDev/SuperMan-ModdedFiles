@@ -117,12 +117,12 @@
     return v0
 
     :pswitch_1
-    const v0, 0x7f020210
+    const v0, 0x7f020211
 
     return v0
 
     :pswitch_2
-    const v0, 0x7f020200
+    const v0, 0x7f020201
 
     return v0
 

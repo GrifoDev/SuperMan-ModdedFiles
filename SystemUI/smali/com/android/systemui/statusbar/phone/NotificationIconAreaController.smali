@@ -328,7 +328,7 @@
 .method protected inflateIconArea(Landroid/view/LayoutInflater;)Landroid/view/View;
     .locals 2
 
-    const v0, 0x7f0400c3
+    const v0, 0x7f0400c4
 
     const/4 v1, 0x0
 
@@ -356,7 +356,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mNotificationIconArea:Landroid/view/View;
 
-    const v2, 0x7f13029b
+    const v2, 0x7f13029c
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -368,7 +368,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mNotificationIconArea:Landroid/view/View;
 
-    const v2, 0x7f13029a
+    const v2, 0x7f13029b
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

@@ -50,11 +50,11 @@
 
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    const v0, 0x7f04016d
+    const v0, 0x7f04016e
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/tv/pip/PipOnboardingActivity;->setContentView(I)V
 
-    const v0, 0x7f1301ed
+    const v0, 0x7f1301ee
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/tv/pip/PipOnboardingActivity;->findViewById(I)Landroid/view/View;
 
@@ -188,7 +188,7 @@
 
     new-array v2, v2, [Landroid/animation/Animator;
 
-    const v3, 0x7f130244
+    const v3, 0x7f130245
 
     const v4, 0x7f0500d9
 
@@ -200,7 +200,7 @@
 
     aput-object v3, v2, v4
 
-    const v3, 0x7f130401
+    const v3, 0x7f130402
 
     invoke-direct {p0, v3, v5}, Lcom/android/systemui/tv/pip/PipOnboardingActivity;->loadAnimator(II)Landroid/animation/Animator;
 
@@ -210,7 +210,7 @@
 
     aput-object v3, v2, v4
 
-    const v3, 0x7f130402
+    const v3, 0x7f130403
 
     invoke-direct {p0, v3, v5}, Lcom/android/systemui/tv/pip/PipOnboardingActivity;->loadAnimator(II)Landroid/animation/Animator;
 
@@ -232,7 +232,7 @@
 
     aput-object v3, v2, v4
 
-    const v3, 0x7f130227
+    const v3, 0x7f130228
 
     const v4, 0x7f0500db
 
@@ -244,7 +244,7 @@
 
     aput-object v3, v2, v4
 
-    const v3, 0x7f1301ed
+    const v3, 0x7f1301ee
 
     const v4, 0x7f0500da
 
@@ -270,7 +270,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0c0075
+    const v2, 0x7f0c0077
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 

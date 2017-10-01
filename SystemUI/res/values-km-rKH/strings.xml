@@ -957,6 +957,7 @@ Wi-Fi និង Bluetooth ក៏​នឹង​ត្រូវ​បាន​ប
     <string name="quick_settings_dual_label_content_description">%s, ស្លាក​ប៊ូតុង, ប៉ះ​ពីរ​ដង ដើម្បី​បង្ហាញ​ការកំណត់​រហ័ស​ដែល​ពាក់ព័ន្ធ។</string>
     <string name="accessibility_button">ប៊ូតុង</string>
     <string name="quick_settings_brightness_auto_brightness">ស្វ័យ​ពន្លឺ</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">លៃតម្រូវ​ពន្លឺ​អេក្រង់​ដោយ​ស្វ័យប្រវត្តិ ផ្អែក​លើ​ស្ថានភាព​ពន្លឺ។</string>
     <string name="quick_settings_brightness_quick_access">បង្ហាញ​ការបញ្ជា​នៅ​ខាងលើ</string>
     <string name="quick_settings_brightness_quick_access_summary">បង្ហាញ​ការត្រួតត្រា​ពន្លឺ​ខាងលើ​ផ្ទាំង​ជូនដំណឹង។</string>
     <string name="quick_settings_brightness_detail_level">កម្រិត</string>
@@ -1277,6 +1278,7 @@ Wi-Fi និង Bluetooth ក៏​នឹង​ត្រូវ​បាន​ប
     <string name="keyboard_shortcut_group_system_notifications">ការជូនដំណឹង</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">ផ្លូវកាត់ក្ដារចុច</string>
     <string name="keyboard_shortcut_group_system_switch_input">ប្ដូរវិធីសាស្ត្របញ្ចូល</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">ប្ដូរ​ភាសា</string>
     <string name="keyboard_shortcut_group_applications">កម្មវិធី</string>
     <string name="keyboard_shortcut_group_applications_assist">ជំនួយ</string>
     <string name="keyboard_shortcut_group_applications_browser">កម្មវិធីរុករក</string>
@@ -1480,8 +1482,10 @@ Using your tablet in a very hot location."</string>
     <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
     <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
     <string name="battery_low_sec_title">ថាមពល​ថ្ម %d%%</string>
-    <string name="battery_low_sec_body_in_normal_mode">សាក​ឧបករណ៍​របស់​អ្នក ឬ​ក៏​ប៉ះ​ទីនេះ ដើម្បី​បើកប្រើ​ទម្រង់​សំចៃ​ថាមពល។</string>
-    <string name="battery_low_sec_body_in_ups_mode">ភ្ជាប់​ឧបករណ៍​របស់​អ្នក​ទៅ​ឆ្នាំងសាក។</string>
+    <string name="battery_low_sec_body_phone">សាក​ទូរសព្ទ​របស់​អ្នក ឬ​ក៏​ប៉ះ​ទីនេះ ដើម្បី​បើក​ទម្រង់​សំចៃ​ថាមពល។</string>
+    <string name="battery_low_sec_body_tablet">សាក​ថេប្លិត​របស់​អ្នក ឬ​ក៏​ប៉ះ​ទីនេះ ដើម្បី​បើក​ទម្រង់​សំចៃ​ថាមពល។</string>
+    <string name="battery_low_sec_body_phone_psm">សាក​ទូរសព្ទ​របស់​អ្នក។</string>
+    <string name="battery_low_sec_body_tablet_psm">សាក​ថេប្លិត​របស់​អ្នក។</string>
     <string name="battery_cable_charging_title">កំពុង​សាក​តាម​ខ្សែ</string>
     <string name="battery_charging_title">កំពុង​សាក</string>
     <string name="battery_fast_charging_title">ការសាក​លឿន</string>
@@ -1500,7 +1504,10 @@ Using your tablet in a very hot location."</string>
     <string name="battery_saver_notification_text_time_extend">ជីវិត​ថ្ម​របស់​អ្នក​ត្រូវ​បាន​ពន្យារ។</string>
     <string name="button_detail">ព័ត៌មាន​លម្អិត</string>
     <string name="battery_saver_recommend_notification_title">ថាមពល​ថ្ម %d%%</string>
-    <string name="battery_saver_recommend_notification_text">សាក​ឧបករណ៍​របស់​អ្នក ឬ​ក៏​ប៉ះ​ទីនេះ ដើម្បី​បើកប្រើ​ទម្រង់​សំចៃ​ថាមពល។</string>
+    <string name="battery_saver_recommend_notification_text_phone">សាក​ទូរសព្ទ​របស់​អ្នក ឬ​ក៏​ប៉ះ​ទីនេះ ដើម្បី​បើក​ទម្រង់​សំចៃ​ថាមពល។</string>
+    <string name="battery_saver_recommend_notification_text_tablet">សាក​ថេប្លិត​របស់​អ្នក ឬ​ក៏​ប៉ះ​ទីនេះ ដើម្បី​បើក​ទម្រង់​សំចៃ​ថាមពល។</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">សាក​ទូរសព្ទ​របស់​អ្នក។</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">សាក​ថេប្លិត​របស់​អ្នក។</string>
     <string name="button_close">បិទ</string>
     <string name="battery_health_interruption_title">មិន​អាច​សាក</string>
     <string name="battery_health_interruption_by_terminal_open_text">មិន​អាច​សាក​ឧបករណ៍​របស់​អ្នក។ ត្រូវ​ប្រាកដ​ថា​អ្នក​កំពុង​ប្រើ​ថ្ម និង ឆ្នាំងសាក​ដែល​ត្រូវគ្នា​របស់ Samsung ហើយ​ឧបករណ៍​របស់​អ្នក​បាន​ភ្ជាប់​ត្រឹមត្រូវ​ទៅ​ឆ្នាំងសាក។</string>
@@ -1589,6 +1596,7 @@ upscaler"</string>
     <string name="uhq_mode_noti_text">បង្កើន​រីសូលូសិន​សំឡេង​នៃ​តន្ដ្រី​និង​វីដេអូ ដើម្បី​ទទួល​បទពិសោធន៍​ស្ដាប់​កាន់តែ​ច្បាស់។</string>
     <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
     <string name="assistance_app_setting_item_none">គ្មាន</string>
+    <string name="remote_input_send_text">ផ្ញើ</string>
     <string name="remote_input_toast_text_on_sview_cover">មិន​អាច​ប្រើ​មុខងារ​ឆ្លើយតប​រហ័ស ខណៈពេល​បាន​បិទ S View Cover។</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -1844,7 +1852,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_direction_shutdown_instructions">គូស​ស៊េរី​នៃ​ទិសដៅ ដើម្បី​បិទ​ថាមពល</string>
     <string name="kg_none_multi_pin_restart_instructions">ឧបករណ៍​របស់​អ្នក​ត្រូវ​បាន​ចាប់ផ្ដើម​ឡើងវិញ ហើយ​ត្រូវការ​ដោះសោ​ដោយ​ប្រើ PIN របស់​អ្នក។ អ្នក​អាច​ប្រើ​ជីវមាត្រ​របស់​អ្នក​នៅពេល​ក្រោយ​ដែល​អ្នក​ដោះសោ​ឧបករណ៍​របស់​អ្នក។</string>
     <string name="kg_tablet_multi_pin_restart_instructions">ឧបករណ៍​របស់​អ្នក​ត្រូវ​បាន​ចាប់ផ្ដើម​ឡើងវិញ ហើយ​ត្រូវការ​ដោះសោ​ដោយ​ប្រើ PIN របស់​អ្នក។ អ្នក​អាច​ប្រើ​ជីវមាត្រ​របស់​អ្នក​នៅពេល​ក្រោយ​ដែល​អ្នក​ដោះសោ​ឧបករណ៍​របស់​អ្នក។</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">ឧបករណ៍​របស់​អ្នក​ត្រូវ​បាន​ចាប់ផ្ដើម​ឡើងវិញ ហើយ​ត្រូវការ​ដោះសោ​ដោយ​ប្រើ PIN របស់​អ្នក។ អ្នក​អាច​ប្រើ​ស្នាមម្រាមដៃ​របស់​អ្នក​នៅពេល​ក្រោយ​ដែល​អ្នក​ដោះសោ​ឧបករណ៍​របស់​អ្នក។</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">ទូរសព្ទ​របស់​អ្នក​ត្រូវ​បាន​ចាប់ផ្ដើម​ឡើងវិញ ហើយ​ត្រូវការ​ដោះសោ​ដោយ​ប្រើ PIN របស់​អ្នក។ អ្នក​អាច​ប្រើ​ខ្ចៅដៃ​របស់​អ្នក​នៅពេល​ក្រោយ​បន្ទាប់​ពី​អ្នក​ដោះសោ​ទូរសព្ទ​របស់​អ្នក។</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">ឧបករណ៍​របស់​អ្នក​ត្រូវ​បាន​ចាប់ផ្ដើម​ឡើងវិញ ហើយ​ត្រូវការ​ដោះសោ​ដោយ​ប្រើ PIN របស់​អ្នក។ អ្នក​អាច​ប្រើ​ស្នាមម្រាមដៃ​របស់​អ្នក​នៅពេល​ក្រោយ​ដែល​អ្នក​ដោះសោ​ឧបករណ៍​របស់​អ្នក។</string>
     <string name="kg_none_iris_pin_restart_instructions">ឧបករណ៍​របស់​អ្នក​ត្រូវ​បាន​ចាប់ផ្ដើម​ឡើងវិញ ហើយ​ត្រូវការ​ដោះសោ​ដោយ​ប្រើ PIN របស់​អ្នក។ អ្នក​អាច​ប្រើ​ប្រស្រីភ្នែក​របស់​អ្នក​នៅពេល​ក្រោយ​ដែល​អ្នក​ដោះសោ​ឧបករណ៍​របស់​អ្នក។</string>
     <string name="kg_tablet_iris_pin_restart_instructions">ឧបករណ៍​របស់​អ្នក​ត្រូវ​បាន​ចាប់ផ្ដើម​ឡើងវិញ ហើយ​ត្រូវការ​ដោះសោ​ដោយ​ប្រើ PIN របស់​អ្នក។ អ្នក​អាច​ប្រើ​ប្រស្រីភ្នែក​របស់​អ្នក​នៅពេល​ក្រោយ​ដែល​អ្នក​ដោះសោ​ឧបករណ៍​របស់​អ្នក។</string>
@@ -1874,7 +1882,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pattern_deviceadmin_instructions">គូស​លំនាំ ជំនួស​ឲ្យ​ការប្រើ​ការទទួលស្គាល់​ប្រស្រីភ្នែក ដោយសារ​គោលការណ៍​សន្តិសុខ</string>
     <string name="kg_none_multi_password_restart_instructions">ឧបករណ៍​របស់​អ្នក​ត្រូវ​បាន​ចាប់ផ្ដើម​ឡើងវិញ ហើយ​ត្រូវការ​ដោះសោ​ដោយ​ប្រើ​ពាក្យសម្ងាត់​របស់​អ្នក។ អ្នក​អាច​ប្រើ​ជីវមាត្រ​របស់​អ្នក​នៅពេល​ក្រោយ​ដែល​អ្នក​ដោះសោ​ឧបករណ៍​របស់​អ្នក។</string>
     <string name="kg_tablet_multi_password_restart_instructions">ឧបករណ៍​របស់​អ្នក​ត្រូវ​បាន​ចាប់ផ្ដើម​ឡើងវិញ ហើយ​ត្រូវការ​ដោះសោ​ដោយ​ប្រើ​ពាក្យសម្ងាត់​របស់​អ្នក។ អ្នក​អាច​ប្រើ​ជីវមាត្រ​របស់​អ្នក​នៅពេល​ក្រោយ​ដែល​អ្នក​ដោះសោ​ឧបករណ៍​របស់​អ្នក។</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">ឧបករណ៍​របស់​អ្នក​ត្រូវ​បាន​ចាប់ផ្ដើម​ឡើងវិញ ហើយ​ត្រូវការ​ដោះសោ​ដោយ​ប្រើ​ពាក្យសម្ងាត់​របស់​អ្នក។ អ្នក​អាច​ប្រើ​ស្នាមម្រាមដៃ​របស់​អ្នក​នៅពេល​ក្រោយ​ដែល​អ្នក​ដោះសោ​ឧបករណ៍​របស់​អ្នក។</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">ទូរសព្ទ​របស់​អ្នក​ត្រូវ​បាន​ចាប់ផ្ដើម​ឡើងវិញ ហើយ​ត្រូវការ​ដោះសោ​ដោយ​ប្រើ​ពាក្យសម្ងាត់​របស់​អ្នក។ អ្នក​អាច​ប្រើ​ខ្ចៅដៃ​របស់​អ្នក​នៅពេល​ក្រោយ​បន្ទាប់​ពី​អ្នក​ដោះសោ​ទូរសព្ទ​របស់​អ្នក។</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">ឧបករណ៍​របស់​អ្នក​ត្រូវ​បាន​ចាប់ផ្ដើម​ឡើងវិញ ហើយ​ត្រូវការ​ដោះសោ​ដោយ​ប្រើ​ពាក្យសម្ងាត់​របស់​អ្នក។ អ្នក​អាច​ប្រើ​ស្នាមម្រាមដៃ​របស់​អ្នក​នៅពេល​ក្រោយ​ដែល​អ្នក​ដោះសោ​ឧបករណ៍​របស់​អ្នក។</string>
     <string name="kg_none_iris_password_restart_instructions">ឧបករណ៍​របស់​អ្នក​ត្រូវ​បាន​ចាប់ផ្ដើម​ឡើងវិញ ហើយ​ត្រូវការ​ដោះសោ​ដោយ​ប្រើ​ពាក្យសម្ងាត់​របស់​អ្នក។ អ្នក​អាច​ប្រើ​ប្រស្រីភ្នែក​របស់​អ្នក​នៅពេល​ក្រោយ​ដែល​អ្នក​ដោះសោ​ឧបករណ៍​របស់​អ្នក។</string>
     <string name="kg_tablet_iris_password_restart_instructions">ឧបករណ៍​របស់​អ្នក​ត្រូវ​បាន​ចាប់ផ្ដើម​ឡើងវិញ ហើយ​ត្រូវការ​ដោះសោ​ដោយ​ប្រើ​ពាក្យសម្ងាត់​របស់​អ្នក។ អ្នក​អាច​ប្រើ​ប្រស្រីភ្នែក​របស់​អ្នក​នៅពេល​ក្រោយ​ដែល​អ្នក​ដោះសោ​ឧបករណ៍​របស់​អ្នក។</string>
@@ -1889,7 +1897,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_password_deviceadmin_instructions">វាយបញ្ចូល​ពាក្យសម្ងាត់​ជំនួស​ឲ្យ​ការប្រើ​ការទទួលស្គាល់​ប្រស្រីភ្នែក ដោយសារ​គោលការណ៍​សន្តិសុខ</string>
     <string name="kg_none_multi_direction_restart_instructions">ឧបករណ៍​របស់​អ្នក​ត្រូវ​បាន​ចាប់ផ្ដើម​ឡើងវិញ ហើយ​ត្រូវការ​ដោះសោ​ដោយ​ប្រើ​ទិសដៅ​មួយ​ស៊េរី​របស់​អ្នក។ អ្នក​អាច​ប្រើ​ជីវមាត្រ​របស់​អ្នក​នៅពេល​ក្រោយ​ដែល​អ្នក​ដោះសោ​ឧបករណ៍​របស់​អ្នក។</string>
     <string name="kg_tablet_multi_direction_restart_instructions">ឧបករណ៍​របស់​អ្នក​ត្រូវ​បាន​ចាប់ផ្ដើម​ឡើងវិញ ហើយ​ត្រូវការ​ដោះសោ​ដោយ​ប្រើ​ទិសដៅ​មួយ​ស៊េរី​របស់​អ្នក។ អ្នក​អាច​ប្រើ​ជីវមាត្រ​របស់​អ្នក​នៅពេល​ក្រោយ​ដែល​អ្នក​ដោះសោ​ឧបករណ៍​របស់​អ្នក។</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">ឧបករណ៍​របស់​អ្នក​ត្រូវ​បាន​ចាប់ផ្ដើម​ឡើងវិញ ហើយ​ត្រូវការ​ដោះសោ​ដោយ​ប្រើ​ទិសដៅ​មួយ​ស៊េរី​របស់​អ្នក។ អ្នក​អាច​ប្រើ​ស្នាមម្រាមដៃ​របស់​អ្នក​នៅពេល​ក្រោយ​ដែល​អ្នក​ដោះសោ​ឧបករណ៍​របស់​អ្នក។</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">ទូរសព្ទ​របស់​អ្នក​ត្រូវ​បាន​ចាប់ផ្ដើម​ឡើងវិញ ហើយ​ត្រូវការ​ដោះសោ​ដោយ​ប្រើ​ស៊េរី​នៃ​ទិសដៅ​របស់​អ្នក។ អ្នក​អាច​ប្រើ​ខ្ចៅដៃ​របស់​អ្នក​នៅពេល​ក្រោយ​បន្ទាប់​ពី​អ្នក​ដោះសោ​ទូរសព្ទ​របស់​អ្នក។</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">ឧបករណ៍​របស់​អ្នក​ត្រូវ​បាន​ចាប់ផ្ដើម​ឡើងវិញ ហើយ​ត្រូវការ​ដោះសោ​ដោយ​ប្រើ​ទិសដៅ​មួយ​ស៊េរី​របស់​អ្នក។ អ្នក​អាច​ប្រើ​ស្នាមម្រាមដៃ​របស់​អ្នក​នៅពេល​ក្រោយ​ដែល​អ្នក​ដោះសោ​ឧបករណ៍​របស់​អ្នក។</string>
     <string name="kg_none_iris_direction_restart_instructions">ឧបករណ៍​របស់​អ្នក​ត្រូវ​បាន​ចាប់ផ្ដើម​ឡើងវិញ ហើយ​ត្រូវការ​ដោះសោ​ដោយ​ប្រើ​ទិសដៅ​មួយ​ស៊េរី​របស់​អ្នក។ អ្នក​អាច​ប្រើ​ប្រស្រីភ្នែក​របស់​អ្នក​នៅពេល​ក្រោយ​ដែល​អ្នក​ដោះសោ​ឧបករណ៍​របស់​អ្នក។</string>
     <string name="kg_tablet_iris_direction_restart_instructions">ឧបករណ៍​របស់​អ្នក​ត្រូវ​បាន​ចាប់ផ្ដើម​ឡើងវិញ ហើយ​ត្រូវការ​ដោះសោ​ដោយ​ប្រើ​ទិសដៅ​មួយ​ស៊េរី​របស់​អ្នក។ អ្នក​អាច​ប្រើ​ប្រស្រីភ្នែក​របស់​អ្នក​នៅពេល​ក្រោយ​ដែល​អ្នក​ដោះសោ​ឧបករណ៍​របស់​អ្នក។</string>
@@ -2008,6 +2016,9 @@ PIN ត្រូវតែ​មាន​ប្រវែង 4 ទៅ 8 ខ្ទ�
     <string name="recents_help_dlg_split_icon_desc">ប៉ះ​អាយខុន​បំបែក​អេក្រង់​លើ​របារ​ចំណងជើង​នៃ​វីនដូវ​កម្មវិធី ដើម្បី​បើក​កម្មវិធី​ក្នុង​ទិដ្ឋភាព​បំបែក​អេក្រង់។ អាយខុន​នេះ​បង្ហាញ​ឡើង នៅពេល​កម្មវិធី​គាំទ្រ​ពហុវីនដូវ។</string>
     <string name="recents_help_dlg_long_click_recents_key_text">ចុច​ឲ្យ​ជាប់​លើ​គ្រាប់ចុច​ថ្មីៗ ខណៈពេល​កំពុង​ប្រើ​កម្មវិធី​ក្នុង​ទិដ្ឋភាព​ពេញអេក្រង់ ដើម្បី​ប្ដូរ​ទៅ​ទិដ្ឋភាព​បំបែក​អេក្រង់។</string>
     <string name="recents_help_dlg_home_key_in_split_text">បើ​អ្នក​ចុច​គេហប៊ូតុង ខណៈពេល​កំពុង​ប្រើ​ទិដ្ឋភាព​បំបែក​អេក្រង់ កម្មវិធី​ដែល​បាន​បង្ហាញ​នៅ​ពាក់កណ្ដាល​ខាងលើ​នៃ​អេក្រង់ នឹង​ត្រូវ​បាន​បង្រួម​តូច។ បើ​អ្នក​បើក​កម្មវិធី​មួយ​ពី​គេហអេក្រង់ ខណៈពេល​របារ​ស្ថានភាព​មាន​ពណ៌​ខៀវ កម្មវិធី​នោះ​នឹង​បើក​ក្នុង​ទិដ្ឋភាព​បំបែក​អេក្រង់​នៅ​ពាក់កណ្ដាល​ខាងក្រោម​នៃ​អេក្រង់។</string>
+    <string name="battery_low_sec_body_in_normal_mode">សាក​ឧបករណ៍​របស់​អ្នក ឬ​ក៏​ប៉ះ​ទីនេះ ដើម្បី​បើកប្រើ​ទម្រង់​សំចៃ​ថាមពល។</string>
+    <string name="battery_low_sec_body_in_ups_mode">ភ្ជាប់​ឧបករណ៍​របស់​អ្នក​ទៅ​ឆ្នាំងសាក។</string>
+    <string name="battery_saver_recommend_notification_text">សាក​ឧបករណ៍​របស់​អ្នក ឬ​ក៏​ប៉ះ​ទីនេះ ដើម្បី​បើកប្រើ​ទម្រង់​សំចៃ​ថាមពល។</string>
     <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
 
 If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>

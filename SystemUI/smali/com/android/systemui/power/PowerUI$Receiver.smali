@@ -66,6 +66,14 @@
 
     invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    const-string/jumbo v2, "com.samsung.intent.action.KSO_SHOW_POPUP"
+
+    invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string/jumbo v2, "com.samsung.intent.action.KSO_CLOSE_POPUP"
+
+    invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
     const-string/jumbo v2, "android.intent.action.BOOT_COMPLETED"
 
     invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
@@ -1553,6 +1561,48 @@
     goto/16 :goto_6
 
     :cond_1e
+    const-string/jumbo v5, "com.samsung.intent.action.KSO_SHOW_POPUP"
+
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_1f
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/systemui/power/PowerUI$Receiver;->this$0:Lcom/android/systemui/power/PowerUI;
+
+    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get21(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
+
+    move-result-object v5
+
+    invoke-interface {v5}, Lcom/android/systemui/power/PowerUI$WarningsUI;->showUnintentionalLcdOnNotice()V
+
+    goto/16 :goto_6
+
+    :cond_1f
+    const-string/jumbo v5, "com.samsung.intent.action.KSO_CLOSE_POPUP"
+
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_20
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/systemui/power/PowerUI$Receiver;->this$0:Lcom/android/systemui/power/PowerUI;
+
+    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get21(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
+
+    move-result-object v5
+
+    invoke-interface {v5}, Lcom/android/systemui/power/PowerUI$WarningsUI;->dismissUnintentionalLcdOnNotice()V
+
+    goto/16 :goto_6
+
+    :cond_20
     const-string/jumbo v5, "PowerUI"
 
     new-instance v6, Ljava/lang/StringBuilder;

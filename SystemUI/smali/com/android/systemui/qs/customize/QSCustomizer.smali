@@ -101,7 +101,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0400e5
+    const v3, 0x7f0400e6
 
     invoke-virtual {v2, v3, p0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -117,7 +117,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/qs/customize/QSCustomizer;->mToolbar:Landroid/widget/Toolbar;
 
-    const v3, 0x7f0f059a
+    const v3, 0x7f0f059b
 
     invoke-virtual {v2, v3}, Landroid/widget/Toolbar;->setTitle(I)V
 

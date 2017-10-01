@@ -918,7 +918,7 @@
 
     move-result-object v25
 
-    const v26, 0x7f02056f
+    const v26, 0x7f020572
 
     invoke-virtual/range {v25 .. v26}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
@@ -1006,7 +1006,7 @@
 
     move-result-object v25
 
-    const v26, 0x7f02056f
+    const v26, 0x7f020572
 
     invoke-virtual/range {v25 .. v26}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
@@ -1981,7 +1981,7 @@
 
     if-eqz v30, :cond_7
 
-    const v30, 0x7f020712
+    const v30, 0x7f020715
 
     move-object/from16 v0, v21
 
@@ -2112,7 +2112,7 @@
 
     if-eqz v30, :cond_8
 
-    const v30, 0x7f020711
+    const v30, 0x7f020714
 
     move-object/from16 v0, v21
 
@@ -2232,7 +2232,7 @@
 
     if-eqz v30, :cond_a
 
-    const v30, 0x7f020710
+    const v30, 0x7f020713
 
     move-object/from16 v0, v21
 

@@ -237,7 +237,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/UHQTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f0686
+    const v1, 0x7f0f068f
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -481,7 +481,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/UHQTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f0684
+    const v1, 0x7f0f068d
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -542,7 +542,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/qs/tiles/UHQTile;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0f0683
+    const v3, 0x7f0f068c
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -599,7 +599,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/UHQTile;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f0683
+    const v2, 0x7f0f068c
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -645,7 +645,7 @@
 
     iput-boolean v0, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
 
-    const v1, 0x7f0203ab
+    const v1, 0x7f0203ae
 
     invoke-static {v1}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 
@@ -655,7 +655,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/UHQTile;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f0684
+    const v2, 0x7f0f068d
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

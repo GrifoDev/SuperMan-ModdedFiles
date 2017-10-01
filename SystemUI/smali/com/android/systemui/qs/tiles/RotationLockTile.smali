@@ -127,7 +127,7 @@
 .method public constructor <init>(Lcom/android/systemui/qs/QSTile$Host;)V
     .locals 8
 
-    const v6, 0x7f0c007c
+    const v6, 0x7f0c007e
 
     const v4, 0x7f0b00f9
 
@@ -135,9 +135,9 @@
 
     new-instance v0, Lcom/android/systemui/qs/QSTile$AnimationIcon;
 
-    const v2, 0x7f0203e0
+    const v2, 0x7f0203e3
 
-    const v3, 0x7f0203f0
+    const v3, 0x7f0203f3
 
     move-object v1, p0
 
@@ -151,9 +151,9 @@
 
     new-instance v0, Lcom/android/systemui/qs/QSTile$AnimationIcon;
 
-    const v2, 0x7f0203be
+    const v2, 0x7f0203c1
 
-    const v3, 0x7f0203ce
+    const v3, 0x7f0203d1
 
     move-object v1, p0
 
@@ -167,9 +167,9 @@
 
     new-instance v0, Lcom/android/systemui/qs/QSTile$AnimationIcon;
 
-    const v2, 0x7f0203cf
+    const v2, 0x7f0203d2
 
-    const v3, 0x7f0203df
+    const v3, 0x7f0203e2
 
     move-object v1, p0
 
@@ -183,9 +183,9 @@
 
     new-instance v0, Lcom/android/systemui/qs/QSTile$AnimationIcon;
 
-    const v2, 0x7f0203ad
+    const v2, 0x7f0203b0
 
-    const v3, 0x7f0203bd
+    const v3, 0x7f0203c0
 
     move-object v1, p0
 
@@ -362,18 +362,6 @@
 
 
 # virtual methods
-.method protected composeChangeAnnouncement()Ljava/lang/String;
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/systemui/qs/tiles/RotationLockTile;->mRotationLocked:Z
-
-    invoke-direct {p0, v0}, Lcom/android/systemui/qs/tiles/RotationLockTile;->getAccessibilityString(Z)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
 .method public getDetailAdapter()Lcom/android/systemui/qs/QSTile$DetailAdapter;
     .locals 1
 
@@ -586,7 +574,7 @@
 
     if-eqz v3, :cond_2
 
-    const v3, 0x7f0203ce
+    const v3, 0x7f0203d1
 
     invoke-static {v3}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 
@@ -646,7 +634,7 @@
 
     if-eqz v3, :cond_5
 
-    const v3, 0x7f0203f0
+    const v3, 0x7f0203f3
 
     invoke-static {v3}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 

@@ -26,7 +26,7 @@
         <LinearLayout android:orientation="horizontal" android:id="@id/row4" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
             <Space android:layout_width="0.0px" android:layout_height="fill_parent" android:layout_weight="1.0" />
             <com.android.keyguard.NumPadKey android:id="@id/key0" android:layout_width="0.0px" android:layout_height="fill_parent" android:layout_weight="1.0" androidprv:digit="0" androidprv:textView="@id/pinEntry" />
-            <com.android.keyguard.AlphaOptimizedImageButton android:id="@id/key_enter" android:background="@drawable/ripple_drawable" android:paddingBottom="11.0sp" android:layout_width="0.0px" android:layout_height="fill_parent" android:src="@drawable/ic_done_wht" android:layout_weight="1.0" android:contentDescription="@string/keyboardview_keycode_enter" />
+            <com.android.keyguard.AlphaOptimizedImageButton android:id="@id/key_enter" android:background="@drawable/ripple_drawable" android:layout_width="0.0px" android:layout_height="fill_parent" android:src="@drawable/ic_done_wht" android:layout_weight="1.0" android:contentDescription="@string/keyboardview_keycode_enter" />
         </LinearLayout>
     </LinearLayout>
     <include android:gravity="center_horizontal" android:layout_gravity="bottom|center" android:orientation="vertical" android:id="@id/keyguard_selector_fade_container" android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/keyguard_eca" />

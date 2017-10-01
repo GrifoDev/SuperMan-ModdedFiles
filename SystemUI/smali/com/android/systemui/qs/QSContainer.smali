@@ -719,7 +719,7 @@
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
 
-    const v2, 0x7f1302de
+    const v2, 0x7f1302df
 
     invoke-virtual {p0, v2}, Lcom/android/systemui/qs/QSContainer;->findViewById(I)Landroid/view/View;
 
@@ -729,7 +729,7 @@
 
     iput-object v2, p0, Lcom/android/systemui/qs/QSContainer;->mQSPanel:Lcom/android/systemui/qs/QSPanel;
 
-    const v2, 0x7f1302df
+    const v2, 0x7f1302e0
 
     invoke-virtual {p0, v2}, Lcom/android/systemui/qs/QSContainer;->findViewById(I)Landroid/view/View;
 
@@ -739,7 +739,7 @@
 
     iput-object v2, p0, Lcom/android/systemui/qs/QSContainer;->mQSDetail:Lcom/android/systemui/qs/QSDetail;
 
-    const v2, 0x7f130305
+    const v2, 0x7f130306
 
     invoke-virtual {p0, v2}, Lcom/android/systemui/qs/QSContainer;->findViewById(I)Landroid/view/View;
 
@@ -757,7 +757,7 @@
 
     invoke-virtual {v2, v3, v4}, Lcom/android/systemui/qs/QSDetail;->setQsPanel(Lcom/android/systemui/qs/QSPanel;Lcom/android/systemui/statusbar/phone/BaseStatusBarHeader;)V
 
-    const v2, 0x7f1302e1
+    const v2, 0x7f1302e2
 
     invoke-virtual {p0, v2}, Lcom/android/systemui/qs/QSContainer;->findViewById(I)Landroid/view/View;
 
@@ -860,7 +860,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/qs/QSContainer;->mHeader:Lcom/android/systemui/statusbar/phone/BaseStatusBarHeader;
 
-    const v4, 0x7f13030e
+    const v4, 0x7f13030f
 
     invoke-virtual {v2, v4}, Lcom/android/systemui/statusbar/phone/BaseStatusBarHeader;->findViewById(I)Landroid/view/View;
 
@@ -1059,6 +1059,12 @@
 
     iput-boolean p1, p0, Lcom/android/systemui/qs/QSContainer;->mQsExpanded:Z
 
+    iget-object v0, p0, Lcom/android/systemui/qs/QSContainer;->mHeader:Lcom/android/systemui/statusbar/phone/BaseStatusBarHeader;
+
+    iget-boolean v1, p0, Lcom/android/systemui/qs/QSContainer;->mListening:Z
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/BaseStatusBarHeader;->setListening(Z)V
+
     iget-object v1, p0, Lcom/android/systemui/qs/QSContainer;->mQSPanel:Lcom/android/systemui/qs/QSPanel;
 
     iget-boolean v0, p0, Lcom/android/systemui/qs/QSContainer;->mListening:Z
@@ -1145,29 +1151,44 @@
 .end method
 
 .method public setListening(Z)V
-    .locals 2
+    .locals 3
+
+    const/4 v1, 0x0
 
     iput-boolean p1, p0, Lcom/android/systemui/qs/QSContainer;->mListening:Z
 
+    iget-object v2, p0, Lcom/android/systemui/qs/QSContainer;->mHeader:Lcom/android/systemui/statusbar/phone/BaseStatusBarHeader;
+
+    if-eqz p1, :cond_1
+
     iget-object v0, p0, Lcom/android/systemui/qs/QSContainer;->mHeader:Lcom/android/systemui/statusbar/phone/BaseStatusBarHeader;
 
-    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/phone/BaseStatusBarHeader;->setListening(Z)V
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/BaseStatusBarHeader;->getVisibility()I
 
-    iget-object v1, p0, Lcom/android/systemui/qs/QSContainer;->mQSPanel:Lcom/android/systemui/qs/QSPanel;
+    move-result v0
 
-    iget-boolean v0, p0, Lcom/android/systemui/qs/QSContainer;->mListening:Z
+    if-nez v0, :cond_1
 
-    if-eqz v0, :cond_0
-
-    iget-boolean v0, p0, Lcom/android/systemui/qs/QSContainer;->mQsExpanded:Z
+    const/4 v0, 0x1
 
     :goto_0
-    invoke-virtual {v1, v0}, Lcom/android/systemui/qs/QSPanel;->setListening(Z)V
+    invoke-virtual {v2, v0}, Lcom/android/systemui/statusbar/phone/BaseStatusBarHeader;->setListening(Z)V
+
+    iget-object v0, p0, Lcom/android/systemui/qs/QSContainer;->mQSPanel:Lcom/android/systemui/qs/QSPanel;
+
+    iget-boolean v2, p0, Lcom/android/systemui/qs/QSContainer;->mListening:Z
+
+    if-eqz v2, :cond_0
+
+    iget-boolean v1, p0, Lcom/android/systemui/qs/QSContainer;->mQsExpanded:Z
+
+    :cond_0
+    invoke-virtual {v0, v1}, Lcom/android/systemui/qs/QSPanel;->setListening(Z)V
 
     return-void
 
-    :cond_0
-    const/4 v0, 0x0
+    :cond_1
+    move v0, v1
 
     goto :goto_0
 .end method

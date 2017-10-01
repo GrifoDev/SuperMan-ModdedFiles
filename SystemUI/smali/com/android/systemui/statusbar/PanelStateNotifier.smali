@@ -6,6 +6,8 @@
 # static fields
 .field private static mBarState:I
 
+.field private static mPanelExpandState:Z
+
 .field private static mState:I
 
 .field private static mStatusBarManager:Landroid/app/SemStatusBarManager;
@@ -13,19 +15,21 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .locals 2
+
+    const/4 v1, 0x0
 
     const/4 v0, 0x0
 
     sput-object v0, Lcom/android/systemui/statusbar/PanelStateNotifier;->mStatusBarManager:Landroid/app/SemStatusBarManager;
 
-    const/4 v0, 0x0
-
-    sput v0, Lcom/android/systemui/statusbar/PanelStateNotifier;->mBarState:I
+    sput v1, Lcom/android/systemui/statusbar/PanelStateNotifier;->mBarState:I
 
     const/4 v0, -0x1
 
     sput v0, Lcom/android/systemui/statusbar/PanelStateNotifier;->mState:I
+
+    sput-boolean v1, Lcom/android/systemui/statusbar/PanelStateNotifier;->mPanelExpandState:Z
 
     return-void
 .end method
@@ -132,7 +136,7 @@
     :cond_1
     sput p1, Lcom/android/systemui/statusbar/PanelStateNotifier;->mState:I
 
-    if-ne p1, v5, :cond_5
+    if-ne p1, v5, :cond_6
 
     const-string/jumbo v0, "com.samsung.systemui.statusbar.ANIMATING"
 
@@ -145,7 +149,7 @@
 
     invoke-virtual {p0, v1, v4}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
-    if-eq p1, v5, :cond_4
+    if-eq p1, v5, :cond_5
 
     sget-boolean v4, Lcom/android/systemui/SystemUIRune;->SUPPORT_PANEL_STATE_NOTIFIER_FOR_KDDI:Z
 
@@ -198,12 +202,15 @@
     invoke-virtual {v4, v3}, Landroid/app/SemStatusBarManager;->setPanelExpandState(Z)V
 
     :cond_4
-    return-void
+    sput-boolean v3, Lcom/android/systemui/statusbar/PanelStateNotifier;->mPanelExpandState:Z
 
     :cond_5
+    return-void
+
+    :cond_6
     const/4 v4, 0x2
 
-    if-ne p1, v4, :cond_6
+    if-ne p1, v4, :cond_7
 
     const-string/jumbo v0, "com.samsung.systemui.statusbar.EXPANDED"
 
@@ -211,8 +218,8 @@
 
     goto :goto_0
 
-    :cond_6
-    if-nez p1, :cond_7
+    :cond_7
+    if-nez p1, :cond_8
 
     const-string/jumbo v0, "com.samsung.systemui.statusbar.COLLAPSED"
 
@@ -220,7 +227,7 @@
 
     goto :goto_0
 
-    :cond_7
+    :cond_8
     const-string/jumbo v4, "PanelStateNotifier"
 
     const-string/jumbo v5, "Invalid panel open state"

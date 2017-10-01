@@ -44,7 +44,7 @@
 
 .field private mScrollContainerChild:Landroid/view/View;
 
-.field private mSendButton:Landroid/widget/ImageButton;
+.field private mSendButton:Landroid/widget/TextView;
 
 .field private mSignature:Ljava/lang/String;
 
@@ -181,7 +181,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040130
+    const v2, 0x7f040131
 
     const/4 v3, 0x0
 
@@ -219,11 +219,11 @@
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;->setEnabled(Z)V
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mSendButton:Landroid/widget/ImageButton;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mSendButton:Landroid/widget/TextView;
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageButton;->setVisibility(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mProgressBar:Landroid/widget/ProgressBar;
 
@@ -291,11 +291,11 @@
 
     invoke-virtual {v3, v5}, Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;->setEnabled(Z)V
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mSendButton:Landroid/widget/ImageButton;
+    iget-object v3, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mSendButton:Landroid/widget/TextView;
 
     const/4 v4, 0x4
 
-    invoke-virtual {v3, v4}, Landroid/widget/ImageButton;->setVisibility(I)V
+    invoke-virtual {v3, v4}, Landroid/widget/TextView;->setVisibility(I)V
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mProgressBar:Landroid/widget/ProgressBar;
 
@@ -394,7 +394,7 @@
 
     const/4 v0, 0x0
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mSendButton:Landroid/widget/ImageButton;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mSendButton:Landroid/widget/TextView;
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mEditText:Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;
 
@@ -411,7 +411,7 @@
     const/4 v0, 0x1
 
     :cond_0
-    invoke-virtual {v1, v0}, Landroid/widget/ImageButton;->setEnabled(Z)V
+    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setEnabled(Z)V
 
     return-void
 .end method
@@ -570,7 +570,7 @@
 .method public onClick(Landroid/view/View;)V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mSendButton:Landroid/widget/ImageButton;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mSendButton:Landroid/widget/TextView;
 
     if-ne p1, v0, :cond_0
 
@@ -662,7 +662,7 @@
 
     invoke-super {p0}, Landroid/widget/LinearLayout;->onFinishInflate()V
 
-    const v0, 0x7f130353
+    const v0, 0x7f130354
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->findViewById(I)Landroid/view/View;
 
@@ -672,19 +672,19 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mProgressBar:Landroid/widget/ProgressBar;
 
-    const v0, 0x7f130352
+    const v0, 0x7f130353
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    check-cast v0, Landroid/widget/ImageButton;
+    check-cast v0, Landroid/widget/TextView;
 
-    iput-object v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mSendButton:Landroid/widget/ImageButton;
+    iput-object v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mSendButton:Landroid/widget/TextView;
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mSendButton:Landroid/widget/ImageButton;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mSendButton:Landroid/widget/TextView;
 
-    invoke-virtual {v0, p0}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, p0}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->getChildAt(I)Landroid/view/View;
 

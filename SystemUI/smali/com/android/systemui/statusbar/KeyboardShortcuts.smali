@@ -359,7 +359,7 @@
 
     move-object/from16 v20, v0
 
-    const v21, 0x7f0f056e
+    const v21, 0x7f0f056f
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -406,7 +406,7 @@
 
     move-object/from16 v20, v0
 
-    const v21, 0x7f0f056f
+    const v21, 0x7f0f0570
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -453,7 +453,7 @@
 
     move-object/from16 v20, v0
 
-    const v21, 0x7f0f0570
+    const v21, 0x7f0f0571
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -500,7 +500,7 @@
 
     move-object/from16 v20, v0
 
-    const v21, 0x7f0f0571
+    const v21, 0x7f0f0572
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -547,7 +547,7 @@
 
     move-object/from16 v20, v0
 
-    const v21, 0x7f0f0572
+    const v21, 0x7f0f0573
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -596,7 +596,7 @@
 
     move-object/from16 v20, v0
 
-    const v21, 0x7f0f0573
+    const v21, 0x7f0f0574
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -645,7 +645,7 @@
 
     move-object/from16 v20, v0
 
-    const v21, 0x7f0f0575
+    const v21, 0x7f0f0576
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -740,7 +740,7 @@
 
     move-object/from16 v20, v0
 
-    const v21, 0x7f0f056d
+    const v21, 0x7f0f056e
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1153,7 +1153,9 @@
 .end method
 
 .method private getSystemShortcuts()Landroid/view/KeyboardShortcutGroup;
-    .locals 6
+    .locals 7
+
+    const/4 v6, 0x1
 
     const/high16 v5, 0x10000
 
@@ -1167,9 +1169,7 @@
 
     move-result-object v1
 
-    const/4 v2, 0x1
-
-    invoke-direct {v0, v1, v2}, Landroid/view/KeyboardShortcutGroup;-><init>(Ljava/lang/CharSequence;Z)V
+    invoke-direct {v0, v1, v6}, Landroid/view/KeyboardShortcutGroup;-><init>(Ljava/lang/CharSequence;Z)V
 
     new-instance v1, Landroid/view/KeyboardShortcutInfo;
 
@@ -1257,7 +1257,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/KeyboardShortcuts;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0f056c
+    const v3, 0x7f0f056d
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1265,7 +1265,7 @@
 
     const/16 v3, 0x3e
 
-    invoke-direct {v1, v2, v3, v5}, Landroid/view/KeyboardShortcutInfo;-><init>(Ljava/lang/CharSequence;II)V
+    invoke-direct {v1, v2, v3, v6}, Landroid/view/KeyboardShortcutInfo;-><init>(Ljava/lang/CharSequence;II)V
 
     invoke-virtual {v0, v1}, Landroid/view/KeyboardShortcutGroup;->addItem(Landroid/view/KeyboardShortcutInfo;)V
 

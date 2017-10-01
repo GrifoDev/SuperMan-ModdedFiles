@@ -391,7 +391,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0c0082
+    const v1, 0x7f0c0084
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -399,7 +399,7 @@
 
     iput v1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mSlowThreshold:I
 
-    const v1, 0x7f0c0083
+    const v1, 0x7f0c0085
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -622,7 +622,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0f064e
+    const v3, 0x7f0f0657
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -663,7 +663,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0f064f
+    const v6, 0x7f0f0658
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -718,7 +718,7 @@
 
     aput-object v1, v7, v8
 
-    const v8, 0x7f0f0654
+    const v8, 0x7f0f065d
 
     invoke-virtual {v6, v8, v7}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -751,7 +751,7 @@
 
     aput-object v7, v6, v8
 
-    const v7, 0x7f0f0650
+    const v7, 0x7f0f0659
 
     invoke-virtual {v5, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -772,7 +772,7 @@
 
     aput-object v7, v6, v8
 
-    const v7, 0x7f0f0651
+    const v7, 0x7f0f065a
 
     invoke-virtual {v5, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -793,7 +793,7 @@
 
     aput-object v7, v6, v8
 
-    const v7, 0x7f0f0652
+    const v7, 0x7f0f065b
 
     invoke-virtual {v5, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -814,7 +814,7 @@
 
     aput-object v7, v6, v8
 
-    const v7, 0x7f0f0653
+    const v7, 0x7f0f065c
 
     invoke-virtual {v5, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -936,7 +936,7 @@
 
     aput-object v8, v7, v9
 
-    const v8, 0x7f0f0655
+    const v8, 0x7f0f065e
 
     invoke-virtual {v6, v8, v7}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -962,7 +962,7 @@
 
     aput-object v8, v7, v9
 
-    const v8, 0x7f0f0656
+    const v8, 0x7f0f065f
 
     invoke-virtual {v6, v8, v7}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1015,7 +1015,7 @@
 
     aput-object v8, v7, v9
 
-    const v8, 0x7f0f0657
+    const v8, 0x7f0f0660
 
     invoke-virtual {v6, v8, v7}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1061,7 +1061,7 @@
 
     aput-object v8, v7, v9
 
-    const v8, 0x7f0f0657
+    const v8, 0x7f0f0660
 
     invoke-virtual {v6, v8, v7}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1129,9 +1129,9 @@
 
     move-result-object v0
 
-    const v1, 0x7f0202e8
+    const v1, 0x7f0202e9
 
-    const v2, 0x7f0202e9
+    const v2, 0x7f0202ea
 
     const/4 v3, 0x2
 
@@ -1295,7 +1295,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mTextView:Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;
 
-    const/4 v3, 0x6
+    const/4 v3, 0x2
 
     invoke-virtual {v1, v2, v3}, Lcom/android/keyguard/util/ViewStyleUtils;->updateViewStyle(Landroid/widget/TextView;I)V
 
@@ -1494,7 +1494,7 @@
 
     if-ne p1, v12, :cond_10
 
-    const v7, 0x7f0f064a
+    const v7, 0x7f0f0653
 
     :goto_2
     iget-object v8, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mContext:Landroid/content/Context;
@@ -1529,7 +1529,7 @@
 
     if-ne p1, v12, :cond_7
 
-    const v7, 0x7f0f0645
+    const v7, 0x7f0f064e
 
     :cond_6
     :goto_5
@@ -1594,12 +1594,12 @@
     :cond_7
     if-eqz v4, :cond_8
 
-    const v7, 0x7f0f0697
+    const v7, 0x7f0f06a1
 
     goto :goto_5
 
     :cond_8
-    const v7, 0x7f0f0646
+    const v7, 0x7f0f064f
 
     goto :goto_5
 
@@ -1608,19 +1608,19 @@
 
     if-ne p1, v12, :cond_a
 
-    const v7, 0x7f0f0647
+    const v7, 0x7f0f0650
 
     goto :goto_5
 
     :cond_a
     if-eqz v4, :cond_b
 
-    const v7, 0x7f0f0695
+    const v7, 0x7f0f069f
 
     goto :goto_5
 
     :cond_b
-    const v7, 0x7f0f0648
+    const v7, 0x7f0f0651
 
     goto :goto_5
 
@@ -1629,19 +1629,19 @@
 
     if-ne p1, v12, :cond_d
 
-    const v7, 0x7f0f064c
+    const v7, 0x7f0f0655
 
     goto :goto_5
 
     :cond_d
     if-eqz v4, :cond_e
 
-    const v7, 0x7f0f0696
+    const v7, 0x7f0f06a0
 
     goto :goto_5
 
     :cond_e
-    const v7, 0x7f0f0649
+    const v7, 0x7f0f0652
 
     goto :goto_5
 
@@ -1655,7 +1655,7 @@
     goto/16 :goto_3
 
     :cond_10
-    const v7, 0x7f0f064b
+    const v7, 0x7f0f0654
 
     goto/16 :goto_2
 
@@ -1664,24 +1664,24 @@
 
     if-eqz v4, :cond_12
 
-    const v7, 0x7f0f0698
+    const v7, 0x7f0f06a2
 
     goto/16 :goto_2
 
     :cond_12
-    const v7, 0x7f0f064c
+    const v7, 0x7f0f0655
 
     goto/16 :goto_2
 
     :cond_13
     if-eqz v4, :cond_14
 
-    const v7, 0x7f0f0694
+    const v7, 0x7f0f069e
 
     goto/16 :goto_2
 
     :cond_14
-    const v7, 0x7f0f064d
+    const v7, 0x7f0f0656
 
     goto/16 :goto_2
 

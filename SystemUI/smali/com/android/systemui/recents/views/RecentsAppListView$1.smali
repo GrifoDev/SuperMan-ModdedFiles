@@ -3,12 +3,12 @@
 .source "RecentsAppListView.java"
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/recents/views/RecentsAppListView;->bindViews(Landroid/view/View;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/systemui/recents/views/RecentsAppListView;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,14 +34,14 @@
 
 
 # virtual methods
-.method public onClick(Landroid/view/View;)V
+.method public run()V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsAppListView$1;->this$0:Lcom/android/systemui/recents/views/RecentsAppListView;
 
-    const/4 v1, 0x0
+    const/4 v1, 0x1
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/views/RecentsAppListView;->smoothScrollToPosition(I)V
+    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/views/RecentsAppListView;->handleGoToTopButton(Z)V
 
     return-void
 .end method

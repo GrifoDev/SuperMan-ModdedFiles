@@ -2,5 +2,5 @@
 <selector
   xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_enabled="true" android:color="@color/remote_input_text_enabled" />
-    <item android:color="#99ffffff" />
+    <item android:color="@color/remote_input_hint" />
 </selector>

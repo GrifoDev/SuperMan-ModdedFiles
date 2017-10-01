@@ -132,6 +132,10 @@
 
     iput v0, p0, Lcom/android/systemui/qs/PageIndicator;->mPageDotWidth:I
 
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/PageIndicator;->setFocusable(Z)V
+
     return-void
 .end method
 
@@ -408,7 +412,7 @@
 
     aput-object v5, v4, v7
 
-    const v5, 0x7f0f05c3
+    const v5, 0x7f0f05c4
 
     invoke-virtual {v3, v5, v4}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -508,7 +512,7 @@
 
     invoke-direct {v1, v2}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f020353
+    const v2, 0x7f020354
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 

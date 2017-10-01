@@ -464,7 +464,7 @@
 
     iget-object v5, p0, Lcom/android/systemui/recents/misc/SystemServicesProxy;->mAppLockBmpOpts:Landroid/graphics/BitmapFactory$Options;
 
-    const v6, 0x7f02020f
+    const v6, 0x7f020210
 
     invoke-static {v4, v6, v5}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;ILandroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
 
@@ -476,7 +476,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0f0681
+    const v5, 0x7f0f068a
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

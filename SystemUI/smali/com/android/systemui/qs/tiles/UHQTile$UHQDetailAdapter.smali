@@ -55,7 +55,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0400f9
+    const v1, 0x7f0400fa
 
     const/4 v2, 0x0
 
@@ -65,7 +65,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/UHQTile$UHQDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/UHQTile;
 
-    const v0, 0x7f1301fd
+    const v0, 0x7f1301fe
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -121,7 +121,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0f0685
+    const v1, 0x7f0f068e
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -294,7 +294,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0f0683
+    const v3, 0x7f0f068c
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

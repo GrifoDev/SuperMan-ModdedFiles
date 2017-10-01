@@ -132,7 +132,7 @@
     goto :goto_0
 
     :pswitch_data_0
-    .packed-switch 0x7f130437
+    .packed-switch 0x7f130438
         :pswitch_0
         :pswitch_1
         :pswitch_2

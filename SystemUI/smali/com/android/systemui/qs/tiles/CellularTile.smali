@@ -254,7 +254,7 @@
 .method protected handleUpdateState(Lcom/android/systemui/qs/QSTile$SignalState;Ljava/lang/Object;)V
     .locals 11
 
-    const v5, 0x7f0201c0
+    const v5, 0x7f0201c1
 
     const/4 v10, 0x3
 
@@ -404,7 +404,7 @@
 
     aput-object v8, v6, v7
 
-    const v8, 0x7f0f05c1
+    const v8, 0x7f0f05c2
 
     invoke-virtual {v3, v8, v6}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -459,7 +459,7 @@
     if-eqz v6, :cond_4
 
     :cond_3
-    const v2, 0x7f0201d0
+    const v2, 0x7f0201d1
 
     goto/16 :goto_0
 
@@ -473,7 +473,7 @@
     goto/16 :goto_0
 
     :cond_5
-    const v2, 0x7f0201db
+    const v2, 0x7f0201dc
 
     goto/16 :goto_0
 

@@ -957,6 +957,7 @@ Wi-Fi ба Bluetooth мөн унтрах боловч түргэн тохирг�
     <string name="quick_settings_dual_label_content_description">%s, Товчлуурын шошго, Давхар товшоод холбогдох шуурхай тохиргоог хар.</string>
     <string name="accessibility_button">Товч</string>
     <string name="quick_settings_brightness_auto_brightness">Автомат цайралт</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">Орчны гэрэлтүүлгээс хамаараад дэлгэцийн цайралтыг автоматаар тааруул.</string>
     <string name="quick_settings_brightness_quick_access">Удирдлагыг дээд хэсэгт харуул</string>
     <string name="quick_settings_brightness_quick_access_summary">Цайралтын удирдлагыг мэдэгдлийн самбарын дээд талд харуул.</string>
     <string name="quick_settings_brightness_detail_level">Түвшин</string>
@@ -1276,6 +1277,7 @@ Wi-Fi ба Bluetooth мөн унтрах боловч түргэн тохирг�
     <string name="keyboard_shortcut_group_system_notifications">Мэдэгдэл</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">Гарын товчлол</string>
     <string name="keyboard_shortcut_group_system_switch_input">Оролтын аргыг солих</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">Хэл солих</string>
     <string name="keyboard_shortcut_group_applications">Апп</string>
     <string name="keyboard_shortcut_group_applications_assist">Дэмжлэг</string>
     <string name="keyboard_shortcut_group_applications_browser">Хөтөч</string>
@@ -1479,8 +1481,10 @@ Using your tablet in a very hot location."</string>
     <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
     <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
     <string name="battery_low_sec_title">Зайн цэнэг %d%%</string>
-    <string name="battery_low_sec_body_in_normal_mode">Төхөөрөмжөө цэнэглэх буюу энд товшоод Тэжээл хэмнэх горимыг идэвхжүүлнэ үү.</string>
-    <string name="battery_low_sec_body_in_ups_mode">Төхөөрөмжөө цэнэглэгчид холбо.</string>
+    <string name="battery_low_sec_body_phone">Утсаа цэнэглэ эсвэл энд товшоод Тэжээл хэмнэх горимыг идэвхжүүлнэ үү.</string>
+    <string name="battery_low_sec_body_tablet">Таблетаа цэнэглэ эсвэл энд товшоод Тэжээл хэмнэх горимыг идэвхжүүлнэ үү.</string>
+    <string name="battery_low_sec_body_phone_psm">Утсаа цэнэглэ.</string>
+    <string name="battery_low_sec_body_tablet_psm">Таблетаа цэнэглэ.</string>
     <string name="battery_cable_charging_title">Кабелиар цэнэглэх</string>
     <string name="battery_charging_title">Цэнэглэж байна</string>
     <string name="battery_fast_charging_title">Хурдан цэнэглэх</string>
@@ -1499,7 +1503,10 @@ Using your tablet in a very hot location."</string>
     <string name="battery_saver_notification_text_time_extend">Таны зайн цэнэг дуусах хугацааг уртасгасан.</string>
     <string name="button_detail">Дэлгэрэнгүй</string>
     <string name="battery_saver_recommend_notification_title">Зайн цэнэг %d%%</string>
-    <string name="battery_saver_recommend_notification_text">Төхөөрөмжөө цэнэглэх буюу энд товшоод Тэжээл хэмнэх горимыг идэвхжүүлнэ үү.</string>
+    <string name="battery_saver_recommend_notification_text_phone">Утсаа цэнэглэ эсвэл энд товшоод Тэжээл хэмнэх горимыг идэвхжүүлнэ үү.</string>
+    <string name="battery_saver_recommend_notification_text_tablet">Таблетаа цэнэглэ эсвэл энд товшоод Тэжээл хэмнэх горимыг идэвхжүүлнэ үү.</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">Утсаа цэнэглэ.</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">Таблетаа цэнэглэ.</string>
     <string name="button_close">Хаах</string>
     <string name="battery_health_interruption_title">Цэнэглэх боломжгүй</string>
     <string name="battery_health_interruption_by_terminal_open_text">Таны төхөөрөмжийг цэнэглэх боломжгүй. Та Samsung-ийн нийцтэй зай, цэнэглэгч хэрэглэж байгаа бөгөөд таны төхөөрөмж цэнэглэгчид зөв холбогдсон эсэхийг нягтал.</string>
@@ -1588,6 +1595,7 @@ upscaler"</string>
     <string name="uhq_mode_noti_text">Хөгжмийн дууны нягтралыг сайжруулж, видеонуудыг сонсгоход тод болгоно.</string>
     <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
     <string name="assistance_app_setting_item_none">Алга</string>
+    <string name="remote_input_send_text">Илгээх</string>
     <string name="remote_input_toast_text_on_sview_cover">S view хавтсыг хаасан үед Түргэн хариу илгээх функцийг ашиглах боломжгүй.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -1843,7 +1851,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_direction_shutdown_instructions">Багц чиглэл зураад унтраана уу</string>
     <string name="kg_none_multi_pin_restart_instructions">Таны төхөөрөмж унтарч ассан тул PIN-гээр түгжээг тайлах хэрэгтэй. Та дараагийн удаа биометрээ ашиглан төхөөрөмжийнхөө түгжээг тайлна уу.</string>
     <string name="kg_tablet_multi_pin_restart_instructions">Таны төхөөрөмж унтарч ассан тул PIN-гээр түгжээг тайлах хэрэгтэй. Та дараагийн удаа биометрээ ашиглан төхөөрөмжийнхөө түгжээг тайлна уу.</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">Таны төхөөрөмж унтарч ассан тул PIN-гээр түгжээг тайлах хэрэгтэй. Та дараагийн удаа хурууны хээгээ ашиглан төхөөрөмжийнхөө түгжээг тайлна уу.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">Таны утас унтарч ассан тул PIN-гээр түгжээг тайлах хэрэгтэй. Та дараагийн удаа хурууны хээгээ ашиглан утасныхаа түгжээг тайлна уу.</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">Таны төхөөрөмж унтарч ассан тул PIN-гээр түгжээг тайлах хэрэгтэй. Та дараагийн удаа хурууны хээгээ ашиглан төхөөрөмжийнхөө түгжээг тайлна уу.</string>
     <string name="kg_none_iris_pin_restart_instructions">Таны төхөөрөмж унтарч ассан тул PIN-гээр түгжээг тайлах хэрэгтэй. Та дараагийн удаа солонгон бүрхэвчээрээ төхөөрөмжийнхөө түгжээг тайлна уу.</string>
     <string name="kg_tablet_iris_pin_restart_instructions">Таны төхөөрөмж унтарч ассан тул PIN-гээр түгжээг тайлах хэрэгтэй. Та дараагийн удаа солонгон бүрхэвчээрээ төхөөрөмжийнхөө түгжээг тайлна уу.</string>
@@ -1873,7 +1881,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pattern_deviceadmin_instructions">Хамгаалалтын бодлогын дагуу нүдний солонгон бүрхэвч таниулахгүйгээр хээ зур</string>
     <string name="kg_none_multi_password_restart_instructions">Төхөөрөмж унтарч ассан тул нууц үгээр түгжээг тайлах ёстой. Та дараагийн ундаа биометр ашиглан төхөөрөмжийн түгжээг тайлж болно.</string>
     <string name="kg_tablet_multi_password_restart_instructions">Төхөөрөмж унтарч ассан тул нууц үгээр түгжээг тайлах ёстой. Та дараагийн ундаа биометр ашиглан төхөөрөмжийн түгжээг тайлж болно.</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">Таны төхөөрөмж унтарч ассан тул нууц үгээр түгжээг тайлах хэрэгтэй. Та дараагийн удаа хурууны хээгээ ашиглан төхөөрөмжийнхөө түгжээг тайлна уу.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">Таны утас унтарч ассан тул нууц үгээр түгжээг тайлах хэрэгтэй. Та дараагийн удаа хурууны хээгээ ашиглан утасныхаа түгжээг тайлна уу.</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">Таны төхөөрөмж унтарч ассан тул нууц үгээр түгжээг тайлах хэрэгтэй. Та дараагийн удаа хурууны хээгээ ашиглан төхөөрөмжийнхөө түгжээг тайлна уу.</string>
     <string name="kg_none_iris_password_restart_instructions">Таны төхөөрөмж унтарч ассан тул нууц үгээр түгжээг тайлах хэрэгтэй. Та дараагийн удаа солонгон бүрхэвчээрээ төхөөрөмжийнхөө түгжээг тайлна уу.</string>
     <string name="kg_tablet_iris_password_restart_instructions">Таны төхөөрөмж унтарч ассан тул нууц үгээр түгжээг тайлах хэрэгтэй. Та дараагийн удаа солонгон бүрхэвчээрээ төхөөрөмжийнхөө түгжээг тайлна уу.</string>
@@ -1888,7 +1896,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_password_deviceadmin_instructions">Хамгаалалтын бодлогын дагуу нүдний солонгон бүрхэвч таниулахгүйгээр нууц үг оруул</string>
     <string name="kg_none_multi_direction_restart_instructions">Таны төхөөрөмж унтарч ассан тул багц чиглэлээр түгжээг тайлах хэрэгтэй. Та дараагийн удаа биометрээ ашиглан төхөөрөмжийнхөө түгжээг тайлна уу.</string>
     <string name="kg_tablet_multi_direction_restart_instructions">Таны төхөөрөмж унтарч ассан тул багц чиглэлээр түгжээг тайлах хэрэгтэй. Та дараагийн удаа биометрээ ашиглан төхөөрөмжийнхөө түгжээг тайлна уу.</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">Таны төхөөрөмж унтарч ассан тул багц чиглэлээр түгжээг тайлах хэрэгтэй. Та дараагийн удаа хурууны хээгээ ашиглан төхөөрөмжийнхөө түгжээг тайлна уу.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">Таны утас унтарч ассан тул багц чиглэлээр түгжээг тайлах хэрэгтэй. Та дараагийн удаа хурууны хээгээ ашиглан утасныхаа түгжээг тайлна уу.</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">Таны төхөөрөмж унтарч ассан тул багц чиглэлээр түгжээг тайлах хэрэгтэй. Та дараагийн удаа хурууны хээгээ ашиглан төхөөрөмжийнхөө түгжээг тайлна уу.</string>
     <string name="kg_none_iris_direction_restart_instructions">Таны төхөөрөмж унтарч ассан тул багц чиглэлээр түгжээг тайлах хэрэгтэй. Та дараагийн удаа солонгон бүрхэвчээрээ төхөөрөмжийнхөө түгжээг тайлна уу.</string>
     <string name="kg_tablet_iris_direction_restart_instructions">Таны төхөөрөмж унтарч ассан тул багц чиглэлээр түгжээг тайлах хэрэгтэй. Та дараагийн удаа солонгон бүрхэвчээрээ төхөөрөмжийнхөө түгжээг тайлна уу.</string>
@@ -2007,6 +2015,9 @@ PIN 4-8 оронтой байх ёстой."</string>
     <string name="recents_help_dlg_split_icon_desc">Гарчгийн мөрөн дээрх Дэлгэц хуваах дүрсийг товшоод хэрэглүүрүүдийг дэлгэц хуваах горимд нээнэ. Олон цонхонд тохиромжтой хэрэглүүр байвал энэ дүрс харагдана.</string>
     <string name="recents_help_dlg_long_click_recents_key_text">Хэрэглүүрийг бүтэн дэлгэц дээр хэрэглэнгээ Сүүлийн товчийг удаан дараад дэлгэц хуваах хэлбэрт шилжиж болно.</string>
     <string name="recents_help_dlg_home_key_in_split_text">Хэрвээ та дэлгэц хуваах горимд Үндсэн товчийг дарвал дэлгэцийн дээд хагаст буй хэрэглүүр эвхэгдэнэ. Төлөвийн мөр хөх өнгөтэй байхад эх дэлгэцээс хэрэглүүр нээвэл уг хэрэглүүр нь дэлгэц хуваах горимд, дэлгэцийн доод хагаст нээгдэнэ.</string>
+    <string name="battery_low_sec_body_in_normal_mode">Төхөөрөмжөө цэнэглэх буюу энд товшоод Тэжээл хэмнэх горимыг идэвхжүүлнэ үү.</string>
+    <string name="battery_low_sec_body_in_ups_mode">Төхөөрөмжөө цэнэглэгчид холбо.</string>
+    <string name="battery_saver_recommend_notification_text">Төхөөрөмжөө цэнэглэх буюу энд товшоод Тэжээл хэмнэх горимыг идэвхжүүлнэ үү.</string>
     <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
 
 If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>

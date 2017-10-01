@@ -42,6 +42,9 @@
 .method public abstract dismissPowerSupplyingInLowBatteryNotice()V
 .end method
 
+.method public abstract dismissUnintentionalLcdOnNotice()V
+.end method
+
 .method public abstract dismissWaterProtectionAlertDialog()V
 .end method
 
@@ -97,6 +100,9 @@
 .end method
 
 .method public abstract showSafeModeNotice()V
+.end method
+
+.method public abstract showUnintentionalLcdOnNotice()V
 .end method
 
 .method public abstract showWaterProtectionAlertDialog()V

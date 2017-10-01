@@ -983,7 +983,19 @@
 
     invoke-virtual {v0, v1}, Lcom/android/keyguard/PasswordTextView;->setUserActivityListener(Lcom/android/keyguard/PasswordTextView$UserActivityListener;)V
 
-    sget v0, Lcom/android/keyguard/R$id;->key_enter_text:I
+    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardPinBasedInputView;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    sget v1, Lcom/android/keyguard/R$bool;->theme_use_image_pinlock:I
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    sget v0, Lcom/android/keyguard/R$id;->key_enter:I
 
     invoke-virtual {p0, v0}, Lcom/android/keyguard/KeyguardPinBasedInputView;->findViewById(I)Landroid/view/View;
 
@@ -991,6 +1003,7 @@
 
     iput-object v0, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mOkButton:Landroid/view/View;
 
+    :goto_0
     sget v0, Lcom/android/keyguard/R$id;->input_container:I
 
     invoke-virtual {p0, v0}, Lcom/android/keyguard/KeyguardPinBasedInputView;->findViewById(I)Landroid/view/View;
@@ -1191,6 +1204,18 @@
 
     iput-object v0, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mButton9:Landroid/view/View;
 
+    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardPinBasedInputView;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    sget v1, Lcom/android/keyguard/R$bool;->theme_use_image_pinlock:I
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
     iget-object v0, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mButton0:Landroid/view/View;
 
     sget v1, Lcom/android/keyguard/R$id;->klondike_text:I
@@ -1203,6 +1228,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
+    :cond_2
     iget-object v0, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mPasswordEntry:Lcom/android/keyguard/PasswordTextView;
 
     invoke-virtual {v0}, Lcom/android/keyguard/PasswordTextView;->requestFocus()Z
@@ -1212,6 +1238,17 @@
     invoke-virtual {p0}, Lcom/android/keyguard/KeyguardPinBasedInputView;->updateChildViewsLook()V
 
     return-void
+
+    :cond_3
+    sget v0, Lcom/android/keyguard/R$id;->key_enter_text:I
+
+    invoke-virtual {p0, v0}, Lcom/android/keyguard/KeyguardPinBasedInputView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mOkButton:Landroid/view/View;
+
+    goto/16 :goto_0
 .end method
 
 .method public onKey(Landroid/view/View;ILandroid/view/KeyEvent;)Z
@@ -1619,6 +1656,91 @@
 
     invoke-virtual {v1}, Lcom/android/keyguard/PasswordTextView;->setColorToDrawPaint()V
 
+    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardPinBasedInputView;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    sget v2, Lcom/android/keyguard/R$bool;->theme_use_image_pinlock:I
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    sget v1, Lcom/android/keyguard/R$id;->key_enter:I
+
+    invoke-virtual {p0, v1}, Lcom/android/keyguard/KeyguardPinBasedInputView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mOkButton:Landroid/view/View;
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mDeleteButton:Landroid/view/View;
+
+    check-cast v1, Landroid/widget/ImageButton;
+
+    sget-object v2, Landroid/widget/ImageView$ScaleType;->FIT_XY:Landroid/widget/ImageView$ScaleType;
+
+    invoke-virtual {v1, v2}, Landroid/widget/ImageButton;->setScaleType(Landroid/widget/ImageView$ScaleType;)V
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mDeleteButton:Landroid/view/View;
+
+    check-cast v1, Landroid/widget/ImageButton;
+
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mContext:Landroid/content/Context;
+
+    sget v3, Lcom/android/keyguard/R$drawable;->pin_lock_btn_back:I
+
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/widget/ImageButton;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    :goto_0
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mEcaView:Landroid/view/View;
+
+    instance-of v1, v1, Lcom/android/keyguard/EmergencyCarrierArea;
+
+    if-eqz v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mEcaView:Landroid/view/View;
+
+    check-cast v1, Lcom/android/keyguard/EmergencyCarrierArea;
+
+    invoke-virtual {v1}, Lcom/android/keyguard/EmergencyCarrierArea;->updateChildViewsLook()V
+
+    :cond_1
+    sget v1, Lcom/android/keyguard/R$id;->carrier_text:I
+
+    invoke-virtual {p0, v1}, Lcom/android/keyguard/KeyguardPinBasedInputView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mContext:Landroid/content/Context;
+
+    invoke-static {v1}, Lcom/android/keyguard/util/ViewStyleUtils;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/ViewStyleUtils;
+
+    move-result-object v1
+
+    const/4 v2, 0x2
+
+    invoke-virtual {v1, v0, v2}, Lcom/android/keyguard/util/ViewStyleUtils;->updateViewStyle(Landroid/widget/TextView;I)V
+
+    return-void
+
+    :cond_2
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mDeleteButton:Landroid/view/View;
+
+    check-cast v1, Landroid/widget/ImageButton;
+
+    sget-object v2, Landroid/widget/ImageView$ScaleType;->CENTER:Landroid/widget/ImageView$ScaleType;
+
+    invoke-virtual {v1, v2}, Landroid/widget/ImageButton;->setScaleType(Landroid/widget/ImageView$ScaleType;)V
+
     iget-object v1, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mButton0:Landroid/view/View;
 
     check-cast v1, Lcom/android/keyguard/NumPadKey;
@@ -1679,6 +1801,26 @@
 
     invoke-virtual {v1}, Lcom/android/keyguard/NumPadKey;->updateChildViewsLook()V
 
+    sget v1, Lcom/android/keyguard/R$id;->key_enter_text:I
+
+    invoke-virtual {p0, v1}, Lcom/android/keyguard/KeyguardPinBasedInputView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mOkButton:Landroid/view/View;
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mContext:Landroid/content/Context;
+
+    invoke-static {v1}, Lcom/android/keyguard/util/ViewStyleUtils;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/ViewStyleUtils;
+
+    move-result-object v2
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mOkButton:Landroid/view/View;
+
+    check-cast v1, Landroid/widget/TextView;
+
+    invoke-virtual {v2, v1, v5}, Lcom/android/keyguard/util/ViewStyleUtils;->updateViewStyle(Landroid/widget/TextView;I)V
+
     iget-object v1, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mDeleteButton:Landroid/view/View;
 
     check-cast v1, Landroid/widget/ImageButton;
@@ -1699,48 +1841,5 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageButton;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mContext:Landroid/content/Context;
-
-    invoke-static {v1}, Lcom/android/keyguard/util/ViewStyleUtils;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/ViewStyleUtils;
-
-    move-result-object v2
-
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mOkButton:Landroid/view/View;
-
-    check-cast v1, Landroid/widget/TextView;
-
-    invoke-virtual {v2, v1, v5}, Lcom/android/keyguard/util/ViewStyleUtils;->updateViewStyle(Landroid/widget/TextView;I)V
-
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mEcaView:Landroid/view/View;
-
-    instance-of v1, v1, Lcom/android/keyguard/EmergencyCarrierArea;
-
-    if-eqz v1, :cond_1
-
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mEcaView:Landroid/view/View;
-
-    check-cast v1, Lcom/android/keyguard/EmergencyCarrierArea;
-
-    invoke-virtual {v1}, Lcom/android/keyguard/EmergencyCarrierArea;->updateChildViewsLook()V
-
-    :cond_1
-    sget v1, Lcom/android/keyguard/R$id;->carrier_text:I
-
-    invoke-virtual {p0, v1}, Lcom/android/keyguard/KeyguardPinBasedInputView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/TextView;
-
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mContext:Landroid/content/Context;
-
-    invoke-static {v1}, Lcom/android/keyguard/util/ViewStyleUtils;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/ViewStyleUtils;
-
-    move-result-object v1
-
-    const/4 v2, 0x2
-
-    invoke-virtual {v1, v0, v2}, Lcom/android/keyguard/util/ViewStyleUtils;->updateViewStyle(Landroid/widget/TextView;I)V
-
-    return-void
+    goto/16 :goto_0
 .end method

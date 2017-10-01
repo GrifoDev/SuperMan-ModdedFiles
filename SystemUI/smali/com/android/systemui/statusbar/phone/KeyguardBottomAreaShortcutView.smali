@@ -647,9 +647,67 @@
 .end method
 
 .method private updateCustomShortcutIcon(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;IZ)V
-    .locals 3
+    .locals 5
 
     const/16 v1, 0x8
+
+    const-string/jumbo v2, "KeyguardBottomAreaShortcutView"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "UpdateShortcutIcon, th : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, ", enable : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, ", shouldDisableShortcut ? "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaShortcutView;->shouldDisableShortcut()Z
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, ", mUserSetupComplete ? "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    iget-boolean v4, p0, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaShortcutView;->mUserSetupComplete:Z
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaShortcutView;->shouldDisableShortcut()Z
 
@@ -716,9 +774,9 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaShortcutView;->mLockSecureIcon:Lcom/android/systemui/statusbar/phone/KeyguardLockSecureIconView;
 
-    const v3, 0x7f0202e8
+    const v3, 0x7f0202e9
 
-    const v4, 0x7f0202e9
+    const v4, 0x7f0202ea
 
     invoke-virtual {v1, v3, v4, v5}, Lcom/android/keyguard/util/ViewStyleUtils;->updateImageStyle(III)Landroid/graphics/drawable/Drawable;
 
@@ -1317,6 +1375,36 @@
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaShortcutView;->showShortcutsIfPossible()V
 
     :cond_0
+    return-void
+.end method
+
+.method public setAlpha(F)V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    cmpl-float v0, p1, v0
+
+    if-nez v0, :cond_0
+
+    invoke-static {}, Lcom/android/systemui/statusbar/BottomAreaDebugLogUtil;->addBottomAreaAlphaDebugLogs()V
+
+    :cond_0
+    invoke-super {p0, p1}, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->setAlpha(F)V
+
+    return-void
+.end method
+
+.method public setVisibility(I)V
+    .locals 0
+
+    if-eqz p1, :cond_0
+
+    invoke-static {}, Lcom/android/systemui/statusbar/BottomAreaDebugLogUtil;->addBottomAreaVisibilityDebugLogs()V
+
+    :cond_0
+    invoke-super {p0, p1}, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->setVisibility(I)V
+
     return-void
 .end method
 

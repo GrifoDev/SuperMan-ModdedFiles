@@ -129,11 +129,11 @@
 
     sput-object v0, Lcom/android/systemui/qs/tiles/SoundModeTile;->SOUND_MODE_TEXT:[I
 
-    const v0, 0x7f0203f4
+    const v0, 0x7f0203f7
 
-    const v1, 0x7f0203f5
+    const v1, 0x7f0203f8
 
-    const v2, 0x7f0203f3
+    const v2, 0x7f0203f6
 
     filled-new-array {v0, v1, v2}, [I
 
@@ -375,6 +375,46 @@
 
 
 # virtual methods
+.method protected composeChangeAnnouncement(Lcom/android/systemui/qs/QSTile$BooleanState;)Ljava/lang/String;
+    .locals 4
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/SoundModeTile;->mState:Lcom/android/systemui/qs/QSTile$State;
+
+    check-cast v1, Lcom/android/systemui/qs/QSTile$BooleanState;
+
+    iget-object v1, v1, Lcom/android/systemui/qs/QSTile$BooleanState;->label:Ljava/lang/CharSequence;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, ", "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/SoundModeTile;->mContext:Landroid/content/Context;
+
+    const v3, 0x7f0f02cd
+
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    return-object v1
+.end method
+
 .method public getDetailAdapter()Lcom/android/systemui/qs/QSTile$DetailAdapter;
     .locals 1
 

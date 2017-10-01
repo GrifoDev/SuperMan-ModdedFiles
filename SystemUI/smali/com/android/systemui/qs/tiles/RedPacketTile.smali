@@ -281,7 +281,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/RedPacketTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f0667
+    const v1, 0x7f0f0670
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -452,13 +452,13 @@
     :cond_0
     iget-object v3, p0, Lcom/android/systemui/qs/tiles/RedPacketTile;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f040171
+    const v4, 0x7f040172
 
     invoke-static {v3, v4, v5}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v2
 
-    const v3, 0x7f130408
+    const v3, 0x7f130409
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -466,11 +466,11 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    const v3, 0x7f0f0667
+    const v3, 0x7f0f0670
 
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setText(I)V
 
-    const v3, 0x7f130409
+    const v3, 0x7f13040a
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -569,7 +569,7 @@
 
     invoke-direct {v3, v4}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    const v4, 0x7f020329
+    const v4, 0x7f02032a
 
     invoke-virtual {v3, v4}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
@@ -595,7 +595,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/qs/tiles/RedPacketTile;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0f0668
+    const v4, 0x7f0f0671
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -605,7 +605,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/qs/tiles/RedPacketTile;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0f0669
+    const v4, 0x7f0f0672
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -663,7 +663,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/RedPacketTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f0666
+    const v1, 0x7f0f066f
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -797,7 +797,7 @@
 
     iput-boolean v0, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
 
-    const v0, 0x7f02039a
+    const v0, 0x7f02039d
 
     invoke-static {v0}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 
@@ -807,7 +807,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/RedPacketTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f0666
+    const v1, 0x7f0f066f
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

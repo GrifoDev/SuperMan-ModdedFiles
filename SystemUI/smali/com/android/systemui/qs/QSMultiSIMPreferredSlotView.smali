@@ -238,15 +238,15 @@
 
     :array_0
     .array-data 4
-        0x7f0203a1
-        0x7f0203a2
-        0x7f0203a3
-        0x7f0203a9
-        0x7f0203a7
-        0x7f0203a6
-        0x7f0203a5
-        0x7f0203a8
         0x7f0203a4
+        0x7f0203a5
+        0x7f0203a6
+        0x7f0203ac
+        0x7f0203aa
+        0x7f0203a9
+        0x7f0203a8
+        0x7f0203ab
+        0x7f0203a7
     .end array-data
 .end method
 
@@ -327,11 +327,11 @@
 
     move-result-object v0
 
-    const v1, 0x7f040101
+    const v1, 0x7f040102
 
     invoke-virtual {v0, v1, p0, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    const v0, 0x7f1302e6
+    const v0, 0x7f1302e7
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/QSMultiSIMPreferredSlotView;->findViewById(I)Landroid/view/View;
 
@@ -729,7 +729,7 @@
 
     invoke-static {v4, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v4, 0x7f1302e8
+    const v4, 0x7f1302e9
 
     invoke-virtual {p0, v4}, Lcom/android/systemui/qs/QSMultiSIMPreferredSlotView;->findViewById(I)Landroid/view/View;
 
@@ -739,7 +739,7 @@
 
     iput-object v4, p0, Lcom/android/systemui/qs/QSMultiSIMPreferredSlotView;->mSlotButtonGroup:Landroid/widget/LinearLayout;
 
-    const v4, 0x7f1302e9
+    const v4, 0x7f1302ea
 
     invoke-virtual {p0, v4}, Lcom/android/systemui/qs/QSMultiSIMPreferredSlotView;->findViewById(I)Landroid/view/View;
 
@@ -763,7 +763,7 @@
 
     invoke-virtual {v4, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const v4, 0x7f1302ea
+    const v4, 0x7f1302eb
 
     invoke-virtual {p0, v4}, Lcom/android/systemui/qs/QSMultiSIMPreferredSlotView;->findViewById(I)Landroid/view/View;
 
@@ -787,7 +787,7 @@
 
     invoke-virtual {v4, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const v4, 0x7f1302eb
+    const v4, 0x7f1302ec
 
     invoke-virtual {p0, v4}, Lcom/android/systemui/qs/QSMultiSIMPreferredSlotView;->findViewById(I)Landroid/view/View;
 

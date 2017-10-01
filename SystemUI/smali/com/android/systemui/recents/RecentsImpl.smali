@@ -160,7 +160,7 @@
 
     iput-object v5, p0, Lcom/android/systemui/recents/RecentsImpl;->mDummyStackView:Lcom/android/systemui/recents/views/TaskStackView;
 
-    const v5, 0x7f040125
+    const v5, 0x7f040126
 
     const/4 v6, 0x0
 
@@ -1778,6 +1778,16 @@
 
     move-result-object v8
 
+    invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
+
+    move-result-object v0
+
+    new-instance v2, Lcom/android/systemui/recents/events/activity/DockedTimeOutRequestEvent;
+
+    invoke-direct {v2}, Lcom/android/systemui/recents/events/activity/DockedTimeOutRequestEvent;-><init>()V
+
+    invoke-virtual {v0, v2}, Lcom/android/systemui/recents/events/EventBus;->send(Lcom/android/systemui/recents/events/EventBus$Event;)V
+
     invoke-virtual {v8, p1, p3, p4}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->moveTaskToDockedStack(IILandroid/graphics/Rect;)Z
 
     move-result v0
@@ -2106,27 +2116,8 @@
 .end method
 
 .method public onBootCompleted()V
-    .locals 2
+    .locals 0
 
-    sget-boolean v0, Lcom/android/systemui/recents/RecentsDebugFlags$Static;->EnableAppList:Z
-
-    if-eqz v0, :cond_0
-
-    const-string/jumbo v0, "RecentsImpl"
-
-    const-string/jumbo v1, "onBootCompleted"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v0, p0, Lcom/android/systemui/recents/RecentsImpl;->mContext:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/android/systemui/recents/model/RecentsAppListLoader;->getInstance(Landroid/content/Context;)Lcom/android/systemui/recents/model/RecentsAppListLoader;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/systemui/recents/model/RecentsAppListLoader;->preload()V
-
-    :cond_0
     return-void
 .end method
 

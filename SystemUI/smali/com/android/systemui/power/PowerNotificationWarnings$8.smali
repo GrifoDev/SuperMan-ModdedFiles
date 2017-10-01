@@ -41,7 +41,7 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/systemui/power/PowerNotificationWarnings;->-set9(Lcom/android/systemui/power/PowerNotificationWarnings;Landroid/app/ProgressDialog;)Landroid/app/ProgressDialog;
+    invoke-static {v0, v1}, Lcom/android/systemui/power/PowerNotificationWarnings;->-set10(Lcom/android/systemui/power/PowerNotificationWarnings;Landroid/app/ProgressDialog;)Landroid/app/ProgressDialog;
 
     return-void
 .end method

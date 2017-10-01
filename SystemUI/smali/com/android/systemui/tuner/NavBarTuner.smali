@@ -119,7 +119,7 @@
 
     if-eqz v0, :cond_3
 
-    const v0, 0x7f0f0588
+    const v0, 0x7f0f0589
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -136,7 +136,7 @@
 
     if-eqz v0, :cond_4
 
-    const v0, 0x7f0f0589
+    const v0, 0x7f0f058a
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -153,7 +153,7 @@
 
     if-eqz v0, :cond_5
 
-    const v0, 0x7f0f0590
+    const v0, 0x7f0f0591
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -170,7 +170,7 @@
 
     if-eqz v0, :cond_6
 
-    const v0, 0x7f0f0593
+    const v0, 0x7f0f0594
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -270,7 +270,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0400b5
+    const v10, 0x7f0400b6
 
     const/4 v11, 0x0
 
@@ -332,7 +332,7 @@
 
     iget-object v9, p0, Lcom/android/systemui/tuner/NavBarTuner;->mPreview:Lcom/android/systemui/tuner/PreviewNavInflater;
 
-    const v10, 0x7f13027e
+    const v10, 0x7f13027f
 
     invoke-virtual {v9, v10}, Lcom/android/systemui/tuner/PreviewNavInflater;->findViewById(I)Landroid/view/View;
 
@@ -344,7 +344,7 @@
 
     iget-object v9, p0, Lcom/android/systemui/tuner/NavBarTuner;->mPreview:Lcom/android/systemui/tuner/PreviewNavInflater;
 
-    const v10, 0x7f13027f
+    const v10, 0x7f130280
 
     invoke-virtual {v9, v10}, Lcom/android/systemui/tuner/PreviewNavInflater;->findViewById(I)Landroid/view/View;
 
@@ -383,7 +383,7 @@
     :cond_6
     iget-object v9, p0, Lcom/android/systemui/tuner/NavBarTuner;->mPreview:Lcom/android/systemui/tuner/PreviewNavInflater;
 
-    const v10, 0x7f13027f
+    const v10, 0x7f130280
 
     invoke-virtual {v9, v10}, Lcom/android/systemui/tuner/PreviewNavInflater;->findViewById(I)Landroid/view/View;
 
@@ -395,7 +395,7 @@
 
     iget-object v9, p0, Lcom/android/systemui/tuner/NavBarTuner;->mPreview:Lcom/android/systemui/tuner/PreviewNavInflater;
 
-    const v10, 0x7f13027e
+    const v10, 0x7f13027f
 
     invoke-virtual {v9, v10}, Lcom/android/systemui/tuner/PreviewNavInflater;->findViewById(I)Landroid/view/View;
 
@@ -507,7 +507,7 @@
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
-    const v0, 0x7f0f058c
+    const v0, 0x7f0f058d
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/tuner/NavBarTuner;->getString(I)Ljava/lang/String;
 
@@ -523,7 +523,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 3
 
-    const v1, 0x7f0400b4
+    const v1, 0x7f0400b5
 
     const/4 v2, 0x0
 
@@ -531,7 +531,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f13027d
+    const v1, 0x7f13027e
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -593,13 +593,13 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0f058d
+    const v1, 0x7f0f058e
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f0f058e
+    const v1, 0x7f0f058f
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -727,7 +727,7 @@
 
     new-array v2, v6, [Ljava/lang/String;
 
-    const v6, 0x7f0f0585
+    const v6, 0x7f0f0586
 
     invoke-virtual {p0, v6}, Lcom/android/systemui/tuner/NavBarTuner;->getString(I)Ljava/lang/String;
 
@@ -737,7 +737,7 @@
 
     aput-object v6, v2, v7
 
-    const v6, 0x7f0f0586
+    const v6, 0x7f0f0587
 
     invoke-virtual {p0, v6}, Lcom/android/systemui/tuner/NavBarTuner;->getString(I)Ljava/lang/String;
 
@@ -747,7 +747,7 @@
 
     aput-object v6, v2, v7
 
-    const v6, 0x7f0f0587
+    const v6, 0x7f0f0588
 
     invoke-virtual {p0, v6}, Lcom/android/systemui/tuner/NavBarTuner;->getString(I)Ljava/lang/String;
 
@@ -815,7 +815,7 @@
 
     const-string/jumbo v7, "add"
 
-    const v8, 0x7f0f058b
+    const v8, 0x7f0f058c
 
     invoke-virtual {p0, v8}, Lcom/android/systemui/tuner/NavBarTuner;->getString(I)Ljava/lang/String;
 

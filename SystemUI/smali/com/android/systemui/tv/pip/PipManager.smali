@@ -1165,7 +1165,7 @@
 
     iput-object v2, p0, Lcom/android/systemui/tv/pip/PipManager;->mRecentsFocusedPipBounds:Landroid/graphics/Rect;
 
-    const v2, 0x7f0c0072
+    const v2, 0x7f0c0074
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 

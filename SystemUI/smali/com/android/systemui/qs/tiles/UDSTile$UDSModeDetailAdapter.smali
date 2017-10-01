@@ -59,7 +59,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0400fa
+    const v1, 0x7f0400fb
 
     const/4 v2, 0x0
 
@@ -67,7 +67,7 @@
 
     move-result-object p2
 
-    const v0, 0x7f1302d9
+    const v0, 0x7f1302da
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -77,7 +77,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/tiles/UDSTile$UDSModeDetailAdapter;->mSummary1:Landroid/widget/TextView;
 
-    const v0, 0x7f1302ac
+    const v0, 0x7f1302ad
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

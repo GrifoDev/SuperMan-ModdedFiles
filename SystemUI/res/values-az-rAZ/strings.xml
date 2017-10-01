@@ -956,6 +956,7 @@ Xidmət mövcud olan zaman Wi-Fi zəng nişanı aşağıdakı kimi bildiriş pan
     <string name="quick_settings_dual_label_content_description">%s, Düymə leyblı, müvafiq cəld parametrlərə baxmaq üçün iki dəfə vurun.</string>
     <string name="accessibility_button">Düymə</string>
     <string name="quick_settings_brightness_auto_brightness">Avtoparlaqlıq</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">İşıqlanma şəraitinə əsasən ekranın parlaqlığını avtomatk tənzimləyin.</string>
     <string name="quick_settings_brightness_quick_access">Nəzarəti yuxarıda göstər</string>
     <string name="quick_settings_brightness_quick_access_summary">Bildiriş panelinin yuxarısında parlaqlıq nəzarətini göstər.</string>
     <string name="quick_settings_brightness_detail_level">Səviyyə</string>
@@ -1276,6 +1277,7 @@ Siz, həmçinin, %3$s tətbiqinə də qoşulsunuz və o, şəxsi şəbəkə fəa
     <string name="keyboard_shortcut_group_system_notifications">Bildirişlər</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">Klaviatura qısa yolları</string>
     <string name="keyboard_shortcut_group_system_switch_input">Daxiletmə metoduna keçin</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">Dilləri keçir</string>
     <string name="keyboard_shortcut_group_applications">Tətbiqlər</string>
     <string name="keyboard_shortcut_group_applications_assist">Yardım</string>
     <string name="keyboard_shortcut_group_applications_browser">Brauzer</string>
@@ -1479,8 +1481,10 @@ Həddindən artıq qızmaya aşağıdakılar səbəb ola bilər:
     <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
     <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
     <string name="battery_low_sec_title">Batareya enerjisi %d%%</string>
-    <string name="battery_low_sec_body_in_normal_mode">Cihazınızı yükləyin və ya Enerjiyə qənaət rejimini aktiv edin.</string>
-    <string name="battery_low_sec_body_in_ups_mode">Cihazınızı adapterə qoşun.</string>
+    <string name="battery_low_sec_body_phone">Telefonu yükləyin və ya Enerjiyə qənaət rejimini yandırmaq üçün bura vurun.</string>
+    <string name="battery_low_sec_body_tablet">Tableti yükləyin və ya Enerjiyə qənaət rejimini yandırmaq üçün bura vurun.</string>
+    <string name="battery_low_sec_body_phone_psm">Telefonu yükləyin.</string>
+    <string name="battery_low_sec_body_tablet_psm">Tableti yükləyin.</string>
     <string name="battery_cable_charging_title">Kabel doldurulması</string>
     <string name="battery_charging_title">Yüklənir</string>
     <string name="battery_fast_charging_title">Sürətli yükləmə</string>
@@ -1499,7 +1503,10 @@ Həddindən artıq qızmaya aşağıdakılar səbəb ola bilər:
     <string name="battery_saver_notification_text_time_extend">Batareyanın ömrü uzadıldı.</string>
     <string name="button_detail">Təfərrüat</string>
     <string name="battery_saver_recommend_notification_title">Batareya enerjisi %d%%</string>
-    <string name="battery_saver_recommend_notification_text">Cihazınızı yükləyin və ya Enerjiyə qənaət rejimini aktiv edin.</string>
+    <string name="battery_saver_recommend_notification_text_phone">Telefonu yükləyin və ya Enerjiyə qənaət rejimini yandırmaq üçün bura vurun.</string>
+    <string name="battery_saver_recommend_notification_text_tablet">Tableti yükləyin və ya Enerjiyə qənaət rejimini yandırmaq üçün bura vurun.</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">Telefonu yükləyin.</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">Tableti yükləyin.</string>
     <string name="button_close">Bağla</string>
     <string name="battery_health_interruption_title">Enerji yükləmək mümkün deyil</string>
     <string name="battery_health_interruption_by_terminal_open_text">Cihazınızı yükləmək mümkün olmadı. Uyğun Samsung batareyasından və adapterindən istifadə etdiyinizdən və cihazın adapterə düzgün qoşulduğundan əmin olun.</string>
@@ -1588,6 +1595,7 @@ upscaler"</string>
     <string name="uhq_mode_noti_text">Daha aydın eşitmək üçün musiqi və videoların səs rezolyusiyasını genişləndirin.</string>
     <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
     <string name="assistance_app_setting_item_none">Yoxdur</string>
+    <string name="remote_input_send_text">Göndər</string>
     <string name="remote_input_toast_text_on_sview_cover">S görünüş qapağı bağlı olduqda Cəld cavab funksiyasından istifadə etmək olmur.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -1843,7 +1851,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_direction_shutdown_instructions">Söndürmək üçün istiqamət seriyası çəkin</string>
     <string name="kg_none_multi_pin_restart_instructions">Cihazınız sönüb yandı və PIN ilə kiliddən açılmalıdır. Növbəti dəfə cihazı kiliddən açdıqda bioölçüdən istifadə edə bilərsiniz.</string>
     <string name="kg_tablet_multi_pin_restart_instructions">Cihazınız sönüb yandı və PIN ilə kiliddən açılmalıdır. Növbəti dəfə cihazı kiliddən açdıqda bioölçüdən istifadə edə bilərsiniz.</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">Cihazınız sönüb-yandı və PIN-lə kiliddən açılmalıdır. Növbəti dəfə cihazı kiliddən açan zaman barmaq izlərindən istifadə edə bilərsiniz.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">Cihazınız sönüb yandı və PIN ilə kiliddən açılmalıdır. Növbəti dəfə telefonu kiliddən açdıqda barmaq izlərindən istifadə edə bilərsiniz.</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">Cihazınız sönüb-yandı və PIN-lə kiliddən açılmalıdır. Növbəti dəfə cihazı kiliddən açan zaman barmaq izlərindən istifadə edə bilərsiniz.</string>
     <string name="kg_none_iris_pin_restart_instructions">Cihazınız sönüb-yandı və PIN-lə kiliddən açılmalıdır. Növbəti dəfə cihazı kiliddən açan zaman diafraqmalardan istifadə edə bilərsiniz.</string>
     <string name="kg_tablet_iris_pin_restart_instructions">Cihazınız sönüb-yandı və PIN-lə kiliddən açılmalıdır. Növbəti dəfə cihazı kiliddən açan zaman diafraqmalardan istifadə edə bilərsiniz.</string>
@@ -1873,7 +1881,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pattern_deviceadmin_instructions">Təhlükəsizlik siyasətinə görə diafraqma tanınması əvəzinə model çək</string>
     <string name="kg_none_multi_password_restart_instructions">Cihaz sönüb yanacdı və parolla kiliddən açılmalıdır. Bioölçülərinizdən növbəti dəfə cihazı kiliddən açdıqda istifadə edə bilərsiniz.</string>
     <string name="kg_tablet_multi_password_restart_instructions">Cihaz sönüb yanacdı və parolla kiliddən açılmalıdır. Bioölçülərinizdən növbəti dəfə cihazı kiliddən açdıqda istifadə edə bilərsiniz.</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">Cihazınız sönüb-yandı və parolla kiliddən açılmalıdır. Növbəti dəfə cihazı kiliddən açan zaman barmaq izlərindən istifadə edə bilərsiniz.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">Cihazınız sönüb yandı və parolla kiliddən açılmalıdır. Növbəti dəfə telefonu kiliddən açdıqda barmaq izlərindən istifadə edə bilərsiniz.</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">Cihazınız sönüb-yandı və parolla kiliddən açılmalıdır. Növbəti dəfə cihazı kiliddən açan zaman barmaq izlərindən istifadə edə bilərsiniz.</string>
     <string name="kg_none_iris_password_restart_instructions">Cihazınız sönüb-yandı və parolla kiliddən açılmalıdır. Növbəti dəfə cihazı kiliddən açan zaman diafraqmalardan istifadə edə bilərsiniz.</string>
     <string name="kg_tablet_iris_password_restart_instructions">Cihazınız sönüb-yandı və parolla kiliddən açılmalıdır. Növbəti dəfə cihazı kiliddən açan zaman diafraqmalardan istifadə edə bilərsiniz.</string>
@@ -1888,7 +1896,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_password_deviceadmin_instructions">Təhlükəsizlik siyasətinə görə diafraqma tanınması əvəzinə parol daxil et</string>
     <string name="kg_none_multi_direction_restart_instructions">Cihazınız sönüb yandı və istiqamət seriyası ilə açılmalıdır. Növbəti dəfə cihazı kiliddən açdıqda bioölçüdən istifadə edə bilərsiniz.</string>
     <string name="kg_tablet_multi_direction_restart_instructions">Cihazınız sönüb yandı və istiqamət seriyası ilə açılmalıdır. Növbəti dəfə cihazı kiliddən açdıqda bioölçüdən istifadə edə bilərsiniz.</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">Cihazınız sönüb-yandı və istiqamətlər seriyası ilə kiliddən açılmalıdır. Növbəti dəfə cihazı kiliddən açan zaman barmaq izlərindən istifadə edə bilərsiniz.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">Cihazınız sönüb yandı və istiqamət seriyası ilə kiliddən açılmalıdır. Növbəti dəfə telefonu kiliddən açdıqda barmaq izlərindən istifadə edə bilərsiniz.</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">Cihazınız sönüb-yandı və istiqamətlər seriyası ilə kiliddən açılmalıdır. Növbəti dəfə cihazı kiliddən açan zaman barmaq izlərindən istifadə edə bilərsiniz.</string>
     <string name="kg_none_iris_direction_restart_instructions">Cihazınız sönüb-yandı və istiqamətlər seriyası ilə kiliddən açılmalıdır. Növbəti dəfə cihazı kiliddən açan zaman diafraqmalardan istifadə edə bilərsiniz.</string>
     <string name="kg_tablet_iris_direction_restart_instructions">Cihazınız sönüb-yandı və istiqamətlər seriyası ilə kiliddən açılmalıdır. Növbəti dəfə cihazı kiliddən açan zaman diafraqmalardan istifadə edə bilərsiniz.</string>
@@ -2007,6 +2015,9 @@ PUK-unuzu bilmirsinizsə, müştəri xidməti ilə əlaqə saxlayın."</string>
     <string name="recents_help_dlg_split_icon_desc">Proqramları ayrı ekran görünüşündə açmaq üçün proqram pəncərəsinin başlıq panelində Ayrı ekran nişanına vurun. Bu nişan proqram Çoxsaylı pəncərə görünüşünü dəstəklədikdə görünür.</string>
     <string name="recents_help_dlg_long_click_recents_key_text">Ayrı ekran görünüşünə dəyişmək üçün proqramdan tam ekran görünüşündə istifadə edən zaman Sonuncular düyməsinə vurub saxlayın.</string>
     <string name="recents_help_dlg_home_key_in_split_text">Ayrı ekran görünüşündən istifadə etdikdə Əsas ekran düyməsinə vursanız ekranın yuxarısında görünən proqram kiçiləcək. Status paneli mavi olan zaman əsas ekrandan proqramı açsanız, proqram ekranın aşağısında ayrı ekran görünüşündə açılacaq.</string>
+    <string name="battery_low_sec_body_in_normal_mode">Cihazınızı yükləyin və ya Enerjiyə qənaət rejimini aktiv edin.</string>
+    <string name="battery_low_sec_body_in_ups_mode">Cihazınızı adapterə qoşun.</string>
+    <string name="battery_saver_recommend_notification_text">Cihazınızı yükləyin və ya Enerjiyə qənaət rejimini aktiv edin.</string>
     <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
 
 If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>

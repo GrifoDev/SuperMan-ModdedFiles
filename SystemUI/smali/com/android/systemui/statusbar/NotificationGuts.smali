@@ -292,7 +292,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/NotificationGuts;->mInactiveSliderTint:Landroid/content/res/ColorStateList;
 
-    const v1, 0x7f130295
+    const v1, 0x7f130296
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -312,7 +312,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/NotificationGuts;->mImportanceTitle:Landroid/widget/TextView;
 
-    const v1, 0x7f130283
+    const v1, 0x7f130284
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -347,7 +347,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/SeekBar;->setProgress(I)V
 
-    const v1, 0x7f130296
+    const v1, 0x7f130297
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -406,7 +406,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/RadioGroup;->setOnCheckedChangeListener(Landroid/widget/RadioGroup$OnCheckedChangeListener;)V
 
-    const v0, 0x7f130292
+    const v0, 0x7f130293
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -416,7 +416,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/NotificationGuts;->mBlock:Landroid/widget/RadioButton;
 
-    const v0, 0x7f130291
+    const v0, 0x7f130292
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -426,7 +426,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/NotificationGuts;->mSilent:Landroid/widget/RadioButton;
 
-    const v0, 0x7f130293
+    const v0, 0x7f130294
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -873,13 +873,13 @@
     move-result v5
 
     :goto_1
-    const v6, 0x7f130294
+    const v6, 0x7f130295
 
     invoke-virtual {p3, v6}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->findViewById(I)Landroid/view/View;
 
     move-result-object v3
 
-    const v6, 0x7f130290
+    const v6, 0x7f130291
 
     invoke-virtual {p3, v6}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->findViewById(I)Landroid/view/View;
 
@@ -1127,7 +1127,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationGuts;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f02032f
+    const v1, 0x7f020330
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

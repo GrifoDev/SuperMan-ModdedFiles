@@ -110,17 +110,13 @@
     if-eqz v8, :cond_3
 
     :cond_2
-    new-instance v2, Lcom/android/systemui/recents/model/RecentsAppListLoader$AppInfo;
+    new-instance v2, Lcom/android/systemui/recents/model/AppInfo;
 
-    iget-object v8, p0, Lcom/android/systemui/recents/model/RecentsAppListLoader$AppListPackageMonitor;->this$0:Lcom/android/systemui/recents/model/RecentsAppListLoader;
-
-    invoke-direct {v2, v8}, Lcom/android/systemui/recents/model/RecentsAppListLoader$AppInfo;-><init>(Lcom/android/systemui/recents/model/RecentsAppListLoader;)V
-
-    iput-object v5, v2, Lcom/android/systemui/recents/model/RecentsAppListLoader$AppInfo;->resolveInfo:Landroid/content/pm/ResolveInfo;
+    invoke-direct {v2, v5}, Lcom/android/systemui/recents/model/AppInfo;-><init>(Landroid/content/pm/ResolveInfo;)V
 
     const/4 v8, 0x0
 
-    iput v8, v2, Lcom/android/systemui/recents/model/RecentsAppListLoader$AppInfo;->executeCount:I
+    iput v8, v2, Lcom/android/systemui/recents/model/AppInfo;->executeCount:I
 
     invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
@@ -133,13 +129,13 @@
     if-eqz v7, :cond_4
 
     :goto_1
-    iput-object v7, v2, Lcom/android/systemui/recents/model/RecentsAppListLoader$AppInfo;->title:Ljava/lang/String;
+    iput-object v7, v2, Lcom/android/systemui/recents/model/AppInfo;->title:Ljava/lang/String;
 
     invoke-virtual {v6, v0}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->shouldLaunchAsMultiInstance(Landroid/content/pm/ActivityInfo;)Z
 
     move-result v8
 
-    iput-boolean v8, v2, Lcom/android/systemui/recents/model/RecentsAppListLoader$AppInfo;->supportMultiInstance:Z
+    iput-boolean v8, v2, Lcom/android/systemui/recents/model/AppInfo;->supportMultiInstance:Z
 
     sget-object v9, Lcom/android/systemui/recents/model/RecentsAppListLoader;->mAppInfoList:Ljava/util/ArrayList;
 
@@ -201,9 +197,9 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/android/systemui/recents/model/RecentsAppListLoader$AppInfo;
+    check-cast v0, Lcom/android/systemui/recents/model/AppInfo;
 
-    iget-object v4, v0, Lcom/android/systemui/recents/model/RecentsAppListLoader$AppInfo;->resolveInfo:Landroid/content/pm/ResolveInfo;
+    iget-object v4, v0, Lcom/android/systemui/recents/model/AppInfo;->resolveInfo:Landroid/content/pm/ResolveInfo;
 
     invoke-virtual {v4}, Landroid/content/pm/ResolveInfo;->getComponentInfo()Landroid/content/pm/ComponentInfo;
 
@@ -221,7 +217,7 @@
 
     invoke-virtual {v4, v2}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
-    iget-object v4, v0, Lcom/android/systemui/recents/model/RecentsAppListLoader$AppInfo;->resolveInfo:Landroid/content/pm/ResolveInfo;
+    iget-object v4, v0, Lcom/android/systemui/recents/model/AppInfo;->resolveInfo:Landroid/content/pm/ResolveInfo;
 
     iget-object v4, v4, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
@@ -410,7 +406,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/recents/model/RecentsAppListLoader$AppListPackageMonitor;->this$0:Lcom/android/systemui/recents/model/RecentsAppListLoader;
 
-    invoke-static {v1}, Lcom/android/systemui/recents/model/RecentsAppListLoader;->-get2(Lcom/android/systemui/recents/model/RecentsAppListLoader;)I
+    invoke-static {v1}, Lcom/android/systemui/recents/model/RecentsAppListLoader;->-get3(Lcom/android/systemui/recents/model/RecentsAppListLoader;)I
 
     move-result v1
 
@@ -430,7 +426,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/recents/model/RecentsAppListLoader$AppListPackageMonitor;->this$0:Lcom/android/systemui/recents/model/RecentsAppListLoader;
 
-    invoke-static {v3}, Lcom/android/systemui/recents/model/RecentsAppListLoader;->-get2(Lcom/android/systemui/recents/model/RecentsAppListLoader;)I
+    invoke-static {v3}, Lcom/android/systemui/recents/model/RecentsAppListLoader;->-get3(Lcom/android/systemui/recents/model/RecentsAppListLoader;)I
 
     move-result v3
 

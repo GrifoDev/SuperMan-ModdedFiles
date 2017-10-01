@@ -957,6 +957,7 @@ Lilitaw ang Wi-Fi calling icon sa notification panel gaya ng ipinapakita sa ibab
     <string name="quick_settings_dual_label_content_description">%s, Button label, I-double tap para tingnan ang mga kaugnay na quick setting.</string>
     <string name="accessibility_button">Button</string>
     <string name="quick_settings_brightness_auto_brightness">Awto brightness</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">Awtomatikong i-adjust ang liwanag ng screen batay sa kondisyon ng ilaw.</string>
     <string name="quick_settings_brightness_quick_access">Ipakita ang control sa itaas</string>
     <string name="quick_settings_brightness_quick_access_summary">Ipakita ang kontrol sa liwanag sa ibabaw ng notification panel.</string>
     <string name="quick_settings_brightness_detail_level">Antas</string>
@@ -1277,6 +1278,7 @@ Para sa higit pang impormasyon, makipag-ugnayan sa iyong administrator."</string
     <string name="keyboard_shortcut_group_system_notifications">Mga Notification</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">Mga Keyboard Shortcut</string>
     <string name="keyboard_shortcut_group_system_switch_input">Magpalit ng pamamaraan ng pag-input</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">Magpalit ng wika</string>
     <string name="keyboard_shortcut_group_applications">Mga Application</string>
     <string name="keyboard_shortcut_group_applications_assist">Tulong</string>
     <string name="keyboard_shortcut_group_applications_browser">Browser</string>
@@ -1480,8 +1482,10 @@ Ang pag-overheat ay maaaring dulot ng:
     <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
     <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
     <string name="battery_low_sec_title">Karga ng baterya %d%%</string>
-    <string name="battery_low_sec_body_in_normal_mode">I-charge ang device mo o i-tap dito para paganahin ang Power saving mode.</string>
-    <string name="battery_low_sec_body_in_ups_mode">Ikonekta ang iyong device sa isang charger.</string>
+    <string name="battery_low_sec_body_phone">I-charge ang telepono mo o i-tap dito para i-on ang Power saving mode.</string>
+    <string name="battery_low_sec_body_tablet">I-charge ang tablet mo o i-tap dito para i-on ang Power saving mode.</string>
+    <string name="battery_low_sec_body_phone_psm">I-charge ang telepono mo.</string>
+    <string name="battery_low_sec_body_tablet_psm">I-charge ang tablet mo.</string>
     <string name="battery_cable_charging_title">Nagcha-charge gamit ang kable</string>
     <string name="battery_charging_title">Nagcha-charge</string>
     <string name="battery_fast_charging_title">Mabilis na pag-charge</string>
@@ -1500,7 +1504,10 @@ Ang pag-overheat ay maaaring dulot ng:
     <string name="battery_saver_notification_text_time_extend">Pinahabaan ang buhay ng baterya mo.</string>
     <string name="button_detail">Detalye</string>
     <string name="battery_saver_recommend_notification_title">Karga ng baterya %d%%</string>
-    <string name="battery_saver_recommend_notification_text">I-charge ang device mo o i-tap dito para paganahin ang Power saving mode.</string>
+    <string name="battery_saver_recommend_notification_text_phone">I-charge ang telepono mo o i-tap dito para i-on ang Power saving mode.</string>
+    <string name="battery_saver_recommend_notification_text_tablet">I-charge ang tablet mo o i-tap dito para i-on ang Power saving mode.</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">I-charge ang telepono mo.</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">I-charge ang tablet mo.</string>
     <string name="button_close">Isara</string>
     <string name="battery_health_interruption_title">Hindi makapag-charge</string>
     <string name="battery_health_interruption_by_terminal_open_text">Hindi ma-charge ang iyong device. Siguraduhing gumagamit ka ng baterya at charger na akma sa Samsung at nakakonekta nang ayos sa charger ang iyong device.</string>
@@ -1589,6 +1596,7 @@ upscaler"</string>
     <string name="uhq_mode_noti_text">Pagandahin ang resolution ng tunog ng musika at mga video para sa mas malinaw na karanasan sa pakikinig.</string>
     <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
     <string name="assistance_app_setting_item_none">Wala</string>
+    <string name="remote_input_send_text">Ipadala</string>
     <string name="remote_input_toast_text_on_sview_cover">Hindi magamit ang Quick reply function habang nakasara ang S view cover.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -1844,7 +1852,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_direction_shutdown_instructions">Iguhit ang serye ng mga direksyon para mag-power off</string>
     <string name="kg_none_multi_pin_restart_instructions">Nai-restart ang device mo at kailangang i-unlock gamit ang PIN mo. Magagamit mo ang biometrics mo sa susunod na i-unlock ang device mo.</string>
     <string name="kg_tablet_multi_pin_restart_instructions">Nai-restart ang device mo at kailangang i-unlock gamit ang PIN mo. Magagamit mo ang biometrics mo sa susunod na i-unlock ang device mo.</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">Nag-restart ang device mo at kailangan itong i-unlock gamit ang PIN mo. Magagamit mo ang mga fingerprint mo sa susunod na i-unlock mo ang device mo.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">Nag-restart ang telepono mo at kailangan itong i-unlock gamit ang PIN mo. Magagamit mo ang mga fingerprint mo sa susunod na i-unlock mo ang telepono mo.</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">Nag-restart ang device mo at kailangan itong i-unlock gamit ang PIN mo. Magagamit mo ang mga fingerprint mo sa susunod na i-unlock mo ang device mo.</string>
     <string name="kg_none_iris_pin_restart_instructions">Nag-restart ang device mo at kailangan itong i-unlock gamit ang PIN mo. Magagamit mo ang mga iris mo sa susunod na i-unlock mo ang device mo.</string>
     <string name="kg_tablet_iris_pin_restart_instructions">Nag-restart ang device mo at kailangan itong i-unlock gamit ang PIN mo. Magagamit mo ang mga iris mo sa susunod na i-unlock mo ang device mo.</string>
@@ -1874,7 +1882,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pattern_deviceadmin_instructions">Iguhit ang pattern sa halip na gamitin ang iris recognition dahil sa patakaran ng seguridad</string>
     <string name="kg_none_multi_password_restart_instructions">Ini-restart ang device mo at kailangang i-unlock gamit ang password mo. Magagamit mo ang biometrics mo sa sususnod na i-unlock mo ang device mo.</string>
     <string name="kg_tablet_multi_password_restart_instructions">Ini-restart ang device mo at kailangang i-unlock gamit ang password mo. Magagamit mo ang biometrics mo sa sususnod na i-unlock mo ang device mo.</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">Nag-restart ang device mo at kailangan itong i-unlock gamit ang password mo. Magagamit mo ang mga fingerprint mo sa susunod na i-unlock mo ang device mo.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">Nag-restart ang telepono mo at kailangan itong i-unlock gamit ang password mo. Magagamit mo ang mga fingerprint mo sa susunod na i-unlock mo ang telepono mo.</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">Nag-restart ang device mo at kailangan itong i-unlock gamit ang password mo. Magagamit mo ang mga fingerprint mo sa susunod na i-unlock mo ang device mo.</string>
     <string name="kg_none_iris_password_restart_instructions">Nag-restart ang device mo at kailangan itong i-unlock gamit ang password mo. Magagamit mo ang mga iris mo sa susunod na i-unlock mo ang device mo.</string>
     <string name="kg_tablet_iris_password_restart_instructions">Nag-restart ang device mo at kailangan itong i-unlock gamit ang password mo. Magagamit mo ang mga iris mo sa susunod na i-unlock mo ang device mo.</string>
@@ -1889,7 +1897,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_password_deviceadmin_instructions">Ipasok ang password sa halip na gamitin ang iris recognition dahil sa patakaran ng seguridad</string>
     <string name="kg_none_multi_direction_restart_instructions">Nai-restart ang device mo at kailangang i-unlock gamit ang serye ng mga direksiyon mo. Magagamit mo ang biometrics mo sa susunod na i-unlock ang device mo.</string>
     <string name="kg_tablet_multi_direction_restart_instructions">Nai-restart ang device mo at kailangang i-unlock gamit ang serye ng mga direksiyon mo. Magagamit mo ang biometrics mo sa susunod na i-unlock ang device mo.</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">Nag-restart ang device mo at kailangan itong i-unlock gamit ang serye ng mga direksiyon mo. Magagamit mo ang mga fingerprint mo sa susunod na i-unlock mo ang device mo.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">Nag-restart ang telepono mo at kailangan itong i-unlock gamit ang serye ng mga direksiyon mo. Magagamit mo ang mga fingerprint mo sa susunod na i-unlock mo ang telepono mo.</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">Nag-restart ang device mo at kailangan itong i-unlock gamit ang serye ng mga direksiyon mo. Magagamit mo ang mga fingerprint mo sa susunod na i-unlock mo ang device mo.</string>
     <string name="kg_none_iris_direction_restart_instructions">Nag-restart ang device mo at kailangan itong i-unlock gamit ang serye ng mga direksiyon mo. Magagamit mo ang mga iris mo sa susunod na i-unlock mo ang device mo.</string>
     <string name="kg_tablet_iris_direction_restart_instructions">Nag-restart ang device mo at kailangan itong i-unlock gamit ang serye ng mga direksiyon mo. Magagamit mo ang mga iris mo sa susunod na i-unlock mo ang device mo.</string>
@@ -2008,6 +2016,9 @@ Subukang muli pagkalipas ng 1 segundo"</string>
     <string name="recents_help_dlg_split_icon_desc">I-tap ang Split screen icon sa title bar ng app window para buksan ang mga app nang naka-split screen view. Ipapakita ang icon na ito kung sumusuporta ang app ng Multi window.</string>
     <string name="recents_help_dlg_long_click_recents_key_text">I-press at i-hold ang Recents key habang ginagamit ang app nang full screen view para lumipat sa split screen view.</string>
     <string name="recents_help_dlg_home_key_in_split_text">Kung pipindutin mo ang Home key habang ginagamit ang split screen view, imi-minimize ang app na ipinapakita sa itaas na kalahati ng screen. Kung magbubukas ka ng app mula sa home screen habang kulay asul ang status bar, magbubukas ang app sa split screen view sa ibabang kalahati ng screen.</string>
+    <string name="battery_low_sec_body_in_normal_mode">I-charge ang device mo o i-tap dito para paganahin ang Power saving mode.</string>
+    <string name="battery_low_sec_body_in_ups_mode">Ikonekta ang iyong device sa isang charger.</string>
+    <string name="battery_saver_recommend_notification_text">I-charge ang device mo o i-tap dito para paganahin ang Power saving mode.</string>
     <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
 
 If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>

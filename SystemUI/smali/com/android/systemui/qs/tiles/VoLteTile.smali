@@ -674,7 +674,7 @@
 
     iput-object v0, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->label:Ljava/lang/CharSequence;
 
-    const v0, 0x7f0203fc
+    const v0, 0x7f0203ff
 
     invoke-static {v0}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 

@@ -34,29 +34,7 @@
 .end method
 
 .method private onScrollYChanged(Z)V
-    .locals 5
-
-    const-string/jumbo v0, "RecentsAppListView"
-
-    const-string/jumbo v1, "onScrollYChanged() - isTop=%b\n"
-
-    const/4 v2, 0x1
-
-    new-array v2, v2, [Ljava/lang/Object;
-
-    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v3
-
-    const/4 v4, 0x0
-
-    aput-object v3, v2, v4
-
-    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsAppListView$AppListScroller;->this$0:Lcom/android/systemui/recents/views/RecentsAppListView;
 
@@ -72,10 +50,45 @@
 
 # virtual methods
 .method public onScrollStateChanged(Landroid/support/v7/widget/RecyclerView;I)V
-    .locals 0
+    .locals 4
+
+    const/4 v3, 0x0
 
     invoke-super {p0, p1, p2}, Landroid/support/v7/widget/RecyclerView$OnScrollListener;->onScrollStateChanged(Landroid/support/v7/widget/RecyclerView;I)V
 
+    if-nez p2, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsAppListView$AppListScroller;->this$0:Lcom/android/systemui/recents/views/RecentsAppListView;
+
+    iget-boolean v0, v0, Lcom/android/systemui/recents/views/RecentsAppListView;->mGoToTopScrollRequested:Z
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsAppListView$AppListScroller;->this$0:Lcom/android/systemui/recents/views/RecentsAppListView;
+
+    invoke-static {v0}, Lcom/android/systemui/recents/views/RecentsAppListView;->-get0(Lcom/android/systemui/recents/views/RecentsAppListView;)Landroid/widget/EdgeEffect;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/widget/EdgeEffect;->onRelease()V
+
+    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsAppListView$AppListScroller;->this$0:Lcom/android/systemui/recents/views/RecentsAppListView;
+
+    invoke-static {v0}, Lcom/android/systemui/recents/views/RecentsAppListView;->-get0(Lcom/android/systemui/recents/views/RecentsAppListView;)Landroid/widget/EdgeEffect;
+
+    move-result-object v0
+
+    const/high16 v1, 0x3f800000    # 1.0f
+
+    const/high16 v2, 0x3f000000    # 0.5f
+
+    invoke-virtual {v0, v1, v2}, Landroid/widget/EdgeEffect;->onPull(FF)V
+
+    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsAppListView$AppListScroller;->this$0:Lcom/android/systemui/recents/views/RecentsAppListView;
+
+    iput-boolean v3, v0, Lcom/android/systemui/recents/views/RecentsAppListView;->mGoToTopScrollRequested:Z
+
+    :cond_0
     return-void
 .end method
 
@@ -133,8 +146,6 @@
     .locals 2
 
     const/4 v1, 0x0
-
-    iput v1, p0, Lcom/android/systemui/recents/views/RecentsAppListView$AppListScroller;->mPrevScrollY:I
 
     iput v1, p0, Lcom/android/systemui/recents/views/RecentsAppListView$AppListScroller;->mCurrentScrollY:I
 

@@ -957,6 +957,7 @@ Zerbitzua erabilgarri badago, Wi-Fi deien ikonoa agertuko da jakinarazpen panele
     <string name="quick_settings_dual_label_content_description">%s, Botoiaren etiketa, Ukitu bi aldiz ezarpen azkarrak ikusteko.</string>
     <string name="accessibility_button">Botoia</string>
     <string name="quick_settings_brightness_auto_brightness">Argitasun automatikoa</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">Egokitu automatikoki pantailaren argitasuna argiztapen baldintzetan oinarrituta.</string>
     <string name="quick_settings_brightness_quick_access">Erakutsi kontrolak goian</string>
     <string name="quick_settings_brightness_quick_access_summary">Erakutsi argitasun kontrolak jakinarazpen panelaren gainean.</string>
     <string name="quick_settings_brightness_detail_level">Maila</string>
@@ -1277,6 +1278,7 @@ Informazio gehiago lortzeko, jarri administratzailearekin harremanetan."</string
     <string name="keyboard_shortcut_group_system_notifications">Jakinarazpenak</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">Lasterbideak</string>
     <string name="keyboard_shortcut_group_system_switch_input">Aldatu idazketa-metodoa</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">Aldatu hizkuntzak</string>
     <string name="keyboard_shortcut_group_applications">Aplikazioak</string>
     <string name="keyboard_shortcut_group_applications_assist">Laguntzailea</string>
     <string name="keyboard_shortcut_group_applications_browser">Arakatzailea</string>
@@ -1480,8 +1482,10 @@ Gehiegi berotzearen arrazoiak:
     <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
     <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
     <string name="battery_low_sec_title">Bateria: %%%d</string>
-    <string name="battery_low_sec_body_in_normal_mode">Kargatu gailua edo ukitu hau Bateria aurrezteko modua gaitzeko.</string>
-    <string name="battery_low_sec_body_in_ups_mode">Konektatu zure gailua kargadore batekin.</string>
+    <string name="battery_low_sec_body_phone">Kargatu telefonoa edo ukitu hau Bateria aurrezteko modua aktibatzeko.</string>
+    <string name="battery_low_sec_body_tablet">Kargatu tableta edo ukitu hau Bateria aurrezteko modua aktibatzeko.</string>
+    <string name="battery_low_sec_body_phone_psm">Kargatu telefonoa.</string>
+    <string name="battery_low_sec_body_tablet_psm">Kargatu tableta.</string>
     <string name="battery_cable_charging_title">Kable bidez kargatu</string>
     <string name="battery_charging_title">Kargatzea</string>
     <string name="battery_fast_charging_title">Azkar kargatzea</string>
@@ -1500,7 +1504,10 @@ Gehiegi berotzearen arrazoiak:
     <string name="battery_saver_notification_text_time_extend">Bateriaren iraupena luzatu da.</string>
     <string name="button_detail">Zehaztasuna</string>
     <string name="battery_saver_recommend_notification_title">Bateria: %%%d</string>
-    <string name="battery_saver_recommend_notification_text">Kargatu gailua edo ukitu hau Bateria aurrezteko modua gaitzeko.</string>
+    <string name="battery_saver_recommend_notification_text_phone">Kargatu telefonoa edo ukitu hau Bateria aurrezteko modua aktibatzeko.</string>
+    <string name="battery_saver_recommend_notification_text_tablet">Kargatu tableta edo ukitu hau Bateria aurrezteko modua aktibatzeko.</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">Kargatu telefonoa.</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">Kargatu tableta.</string>
     <string name="button_close">Itxi</string>
     <string name="battery_health_interruption_title">Ezin da kargatu</string>
     <string name="battery_health_interruption_by_terminal_open_text">Ezin da zure gailua kargatu. Ziurtatu Samsung-ekin bateragarria den bateria eta kargadorea erabiltzen ari zarela, eta zure gailuak behar bezala konektatuta dagoela kargadorera.</string>
@@ -1589,6 +1596,7 @@ upscaler"</string>
     <string name="uhq_mode_noti_text">Hobetu musika eta bideoen soinu bereizmena, soinuaren kalitatea hobea izan dadin.</string>
     <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
     <string name="assistance_app_setting_item_none">Bat ere ez</string>
+    <string name="remote_input_send_text">Bidali</string>
     <string name="remote_input_toast_text_on_sview_cover">Ezin da erabili Erantzun azkarra funtzioa S View Cover itxita badago.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -1844,7 +1852,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_direction_shutdown_instructions">Marraztu keinuak pantaila itzaltzeko</string>
     <string name="kg_none_multi_pin_restart_instructions">Gailua berrabiarazi da eta PINa erabiliz desblokeatu behar da. Hurrengo aldian, datu biometrikoak erabil ditzakezu gailua desblokeatzeko.</string>
     <string name="kg_tablet_multi_pin_restart_instructions">Gailua berrabiarazi da eta PINa erabiliz desblokeatu behar da. Hurrengo aldian, datu biometrikoak erabil ditzakezu gailua desblokeatzeko.</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">Gailua berrabiarazi da eta PINa erabiliz desblokeatu behar da. Hurrengo aldian, hatz aztarnak erabil ditzakezu gailua desblokeatzeko.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">Telefonoa berrabiarazi da eta PINa erabiliz desblokeatu behar da. Hurrengo aldian, hatz aztarnak erabil ditzakezu telefonoa desblokeatzeko.</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">Gailua berrabiarazi da eta PINa erabiliz desblokeatu behar da. Hurrengo aldian, hatz aztarnak erabil ditzakezu gailua desblokeatzeko.</string>
     <string name="kg_none_iris_pin_restart_instructions">Gailua berrabiarazi da eta PINa erabiliz desblokeatu behar da. Hurrengo aldian, irisak erabil ditzakezu gailua desblokeatzeko.</string>
     <string name="kg_tablet_iris_pin_restart_instructions">Gailua berrabiarazi da eta PINa erabiliz desblokeatu behar da. Hurrengo aldian, irisak erabil ditzakezu gailua desblokeatzeko.</string>
@@ -1874,7 +1882,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pattern_deviceadmin_instructions">Segurtasun politika dela eta, marraztu patroia irisaren hautematea erabili beharrean</string>
     <string name="kg_none_multi_password_restart_instructions">Gailua berrabiarazi da eta pasahitza erabiliz desblokeatu behar da. Hurrengo aldian, datu biometrikoak erabil ditzakezu gailua desblokeatzeko.</string>
     <string name="kg_tablet_multi_password_restart_instructions">Gailua berrabiarazi da eta pasahitza erabiliz desblokeatu behar da. Hurrengo aldian, datu biometrikoak erabil ditzakezu gailua desblokeatzeko.</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">Gailua berrabiarazi da eta pasahitza erabiliz desblokeatu behar da. Hurrengo aldian, hatz aztarnak erabil ditzakezu gailua desblokeatzeko.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">Telefonoa berrabiarazi da eta pasahitza erabiliz desblokeatu behar da. Hurrengo aldian, hatz aztarnak erabil ditzakezu telefonoa desblokeatzeko.</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">Gailua berrabiarazi da eta pasahitza erabiliz desblokeatu behar da. Hurrengo aldian, hatz aztarnak erabil ditzakezu gailua desblokeatzeko.</string>
     <string name="kg_none_iris_password_restart_instructions">Gailua berrabiarazi da eta pasahitza erabiliz desblokeatu behar da. Hurrengo aldian, irisak erabil ditzakezu gailua desblokeatzeko.</string>
     <string name="kg_tablet_iris_password_restart_instructions">Gailua berrabiarazi da eta pasahitza erabiliz desblokeatu behar da. Hurrengo aldian, irisak erabil ditzakezu gailua desblokeatzeko.</string>
@@ -1889,7 +1897,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_password_deviceadmin_instructions">Segurtasun politika dela eta, idatzi pasahitza irisaren hautematea erabili beharrean</string>
     <string name="kg_none_multi_direction_restart_instructions">Gailua berrabiarazi da eta keinu segida erabiliz desblokeatu behar da. Hurrengo aldian, datu biometrikoak erabil ditzakezu gailua desblokeatzeko.</string>
     <string name="kg_tablet_multi_direction_restart_instructions">Gailua berrabiarazi da eta keinu segida erabiliz desblokeatu behar da. Hurrengo aldian, datu biometrikoak erabil ditzakezu gailua desblokeatzeko.</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">Gailua berrabiarazi da eta keinu segida erabiliz desblokeatu behar da. Hurrengo aldian, hatz aztarnak erabil ditzakezu gailua desblokeatzeko.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">Telefonoa berrabiarazi da eta keinu segida erabiliz desblokeatu behar da. Hurrengo aldian, hatz aztarnak erabil ditzakezu telefonoa desblokeatzeko.</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">Gailua berrabiarazi da eta keinu segida erabiliz desblokeatu behar da. Hurrengo aldian, hatz aztarnak erabil ditzakezu gailua desblokeatzeko.</string>
     <string name="kg_none_iris_direction_restart_instructions">Gailua berrabiarazi da eta keinu segida erabiliz desblokeatu behar da. Hurrengo aldian, irisak erabil ditzakezu gailua desblokeatzeko.</string>
     <string name="kg_tablet_iris_direction_restart_instructions">Gailua berrabiarazi da eta keinu segida erabiliz desblokeatu behar da. Hurrengo aldian, irisak erabil ditzakezu gailua desblokeatzeko.</string>
@@ -2008,6 +2016,9 @@ Saiatu berriz 1 segundo barru"</string>
     <string name="recents_help_dlg_split_icon_desc">Bereizitako pantailaren ikuspegian aplikazioak irekitzeko, ukitu aplikazioaren leihoko titulu barran dagoen Bereizitako pantailaren ikonoa. Aplikazioak Leiho anitza onartzen duenean erakusten da ikono hori.</string>
     <string name="recents_help_dlg_long_click_recents_key_text">Bereizitako pantaila ikuspegira aldatzeko, sakatu eta eutsi Azkenak teklari pantaila osoko ikuspegian aplikazio bat erabiltzen ari zarenean.</string>
     <string name="recents_help_dlg_home_key_in_split_text">Bereizitako pantaila ikuspegia erabiltzen ari zarela Tekla nagusia sakatzen duzunean, pantailaren goiko erdialdean agertzen den aplikazioa minimizatu egingo da. Egoera barra urdina duen pantaila nagusiko aplikazio bat irekitzen duzunean, bereizitako pantaila ikuspegian irekiko da aplikazioa pantailaren beheko erdialdean.</string>
+    <string name="battery_low_sec_body_in_normal_mode">Kargatu gailua edo ukitu hau Bateria aurrezteko modua gaitzeko.</string>
+    <string name="battery_low_sec_body_in_ups_mode">Konektatu zure gailua kargadore batekin.</string>
+    <string name="battery_saver_recommend_notification_text">Kargatu gailua edo ukitu hau Bateria aurrezteko modua gaitzeko.</string>
     <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
 
 If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>

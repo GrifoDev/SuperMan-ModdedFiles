@@ -340,7 +340,7 @@
     :goto_0
     iput-boolean v0, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
 
-    const v0, 0x7f020377
+    const v0, 0x7f02037a
 
     invoke-static {v0}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 

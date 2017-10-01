@@ -957,6 +957,7 @@ Wi-Fi чалуу сүрөтчөсү, төмөндө көрсөтүлгөндөй
     <string name="quick_settings_dual_label_content_description">Тийиштүү тез орнотууларды көрүүгө, %s, Баскыч белгисин Эки жолу басыңыз.</string>
     <string name="accessibility_button">Баскыч</string>
     <string name="quick_settings_brightness_auto_brightness">Авто жарыктык</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">Жарык кылуу шарттарына жараша, экрандын жарыктыгын автоматтык түрдө жөндөңүз.</string>
     <string name="quick_settings_brightness_quick_access">Көзөмөл. жогорудан көрсөтүү</string>
     <string name="quick_settings_brightness_quick_access_summary">Эскертүү панелинин жогору жагындагы жарык көзөмөлдөгүчүн көрсөтүңүз.</string>
     <string name="quick_settings_brightness_detail_level">Деңгээл</string>
@@ -1277,6 +1278,7 @@ Wi-Fi чалуу сүрөтчөсү, төмөндө көрсөтүлгөндөй
     <string name="keyboard_shortcut_group_system_notifications">Эскертмелер</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">Баскычтоптун кыска жолдору</string>
     <string name="keyboard_shortcut_group_system_switch_input">Киргизүү ыкмасын которуштуруу</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">Которуу тилдери</string>
     <string name="keyboard_shortcut_group_applications">Колдонмолор</string>
     <string name="keyboard_shortcut_group_applications_assist">Көмөкчү</string>
     <string name="keyboard_shortcut_group_applications_browser">Серепчи</string>
@@ -1480,8 +1482,10 @@ Using your tablet in a very hot location."</string>
     <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
     <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
     <string name="battery_low_sec_title">Батарея кубаты %d%%</string>
-    <string name="battery_low_sec_body_in_normal_mode">Түзмөгүңүздү заряддаңыз же Кубат үнөмдөө режимин иштетүү үчүн бул жерди басыңыз.</string>
-    <string name="battery_low_sec_body_in_ups_mode">Алгач түзмөгүңүздү заряддагычка туташтырыңыз.</string>
+    <string name="battery_low_sec_body_phone">Телефонуңузду заряддаңыз же батарея Кубатын үнөмдөө режимин күйгүзүү үчүн, бул жерди басыңыз.</string>
+    <string name="battery_low_sec_body_tablet">Планшетиңизди заряддаңыз же батарея Кубатын үнөмдөө режимин күйгүзүү үчүн, бул жерди басыңыз.</string>
+    <string name="battery_low_sec_body_phone_psm">Телефонуң. заряддаңыз.</string>
+    <string name="battery_low_sec_body_tablet_psm">Планшетиң. заряддаңыз.</string>
     <string name="battery_cable_charging_title">Кабель менен заряддоо</string>
     <string name="battery_charging_title">Дүрмөттөө</string>
     <string name="battery_fast_charging_title">Тез заряддоо</string>
@@ -1500,7 +1504,10 @@ Using your tablet in a very hot location."</string>
     <string name="battery_saver_notification_text_time_extend">Батареяңыздын кызмат мөөнөтү узартылды.</string>
     <string name="button_detail">Тасмия</string>
     <string name="battery_saver_recommend_notification_title">Батарея кубаты %d%%</string>
-    <string name="battery_saver_recommend_notification_text">Түзмөгүңүздү заряддаңыз же Кубат үнөмдөө режимин иштетүү үчүн бул жерди басыңыз.</string>
+    <string name="battery_saver_recommend_notification_text_phone">Телефонуңузду заряддаңыз же батарея Кубатын үнөмдөө режимин күйгүзүү үчүн, бул жерди басыңыз.</string>
+    <string name="battery_saver_recommend_notification_text_tablet">Планшетиңизди заряддаңыз же батарея Кубатын үнөмдөө режимин күйгүзүү үчүн, бул жерди басыңыз.</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">Телефонуң. заряддаңыз.</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">Планшетиң. заряддаңыз.</string>
     <string name="button_close">Жабуу</string>
     <string name="battery_health_interruption_title">Заряддоо мүмкүн эмес</string>
     <string name="battery_health_interruption_by_terminal_open_text">Түзмөгүңүздү заряддоо мүмкүн эмес. Туура келген Samsung батареясын жана заряддагычын колдонуп жатканыңызды жана түзмөгүңүз заряддагычка жакшы туташканын текшериңиз.</string>
@@ -1589,6 +1596,7 @@ upscaler"</string>
     <string name="uhq_mode_noti_text">Тазараак угуу тажрыйбасы үчүн, музыканын жана видеолордун үн чечүүсүн байытыңыз.</string>
     <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
     <string name="assistance_app_setting_item_none">Жок</string>
+    <string name="remote_input_send_text">Жөнөтүү</string>
     <string name="remote_input_toast_text_on_sview_cover">S view cover жабык болгон учурда Тез жооп функциясын колдонуу үчүн иштетиңиз.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -1844,7 +1852,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_direction_shutdown_instructions">Өчүрүү үчүн багытоолордун катарын тартыңыз</string>
     <string name="kg_none_multi_pin_restart_instructions">Түзмөгүңуз кайра иштетилген жана ПИН кодуңузду колдонуу менен кулпуну ачуу керек. Сиз кийинки жолу түзмөгүңүздүн кулпусун ачуу үчүн, биометрикалык маалыматтарыңызды колдонсоңуз болот.</string>
     <string name="kg_tablet_multi_pin_restart_instructions">Түзмөгүңуз кайра иштетилген жана ПИН кодуңузду колдонуу менен кулпуну ачуу керек. Сиз кийинки жолу түзмөгүңүздүн кулпусун ачуу үчүн, биометрикалык маалыматтарыңызды колдонсоңуз болот.</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">Түзмөгүңүз кайра иштелиген жана аны ПИН кодуңузду колдонуу менен кулпудан ачуу зарыл. Түзмөгүңүздү кийинки жолу кулпудан ачуу үчүн бармак издериңизди колдонсоңуз болот.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">Телефонуңуз кайра иштетилген жана ПИН кодуңуздун колдонуу менен анын кулпусун ачуу керек. Кийинки жолу телефонуңуздун кулпусун ачууда бармак издериңизди колдоно аласыз.</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">Түзмөгүңүз кайра иштелиген жана аны ПИН кодуңузду колдонуу менен кулпудан ачуу зарыл. Түзмөгүңүздү кийинки жолу кулпудан ачуу үчүн бармак издериңизди колдонсоңуз болот.</string>
     <string name="kg_none_iris_pin_restart_instructions">Түзмөгүңүз кайра иштелиген жана аны ПИН кодуңузду колдонуу менен кулпудан ачуу зарыл. Түзмөгүңүздү кийинки жолу кулпудан ачуу үчүн көз челдериңизди колдонсоңуз болот.</string>
     <string name="kg_tablet_iris_pin_restart_instructions">Түзмөгүңүз кайра иштелиген жана аны ПИН кодуңузду колдонуу менен кулпудан ачуу зарыл. Түзмөгүңүздү кийинки жолу кулпудан ачуу үчүн көз челдериңизди колдонсоңуз болот.</string>
@@ -1874,7 +1882,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pattern_deviceadmin_instructions">Коопсуздук саясатына байланыштуу карек аныктоонун ордуна, сүрөт тартыңыз</string>
     <string name="kg_none_multi_password_restart_instructions">Түзмөгүңүз иштетилди жана сырсөзүңуздү колдонуу менен кулпусун ачылышы керек. Мобилдик түзмөктүн кулпусун ачуу үчүн, биометрикалык маалыматтарыңызды кийики учурда колдоно аласыз.</string>
     <string name="kg_tablet_multi_password_restart_instructions">Түзмөгүңүз иштетилди жана сырсөзүңуздү колдонуу менен кулпусун ачылышы керек. Мобилдик түзмөктүн кулпусун ачуу үчүн, биометрикалык маалыматтарыңызды кийики учурда колдоно аласыз.</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">Түзмөгүңүз кайра иштелиген жана аны сырсөзүңүздү колдонуу менен кулпудан ачуу зарыл. Түзмөгүңүздү кийинки жолу кулпудан ачуу үчүн бармак издериңизди колдонсоңуз болот.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">Телефонуңуз кайра иштетилген жана сырсөзүңүздү колдонуу менен анын кулпусун ачуу керек. Кийинки жолу телефонуңуздун кулпусун ачууда бармак издериңизди колдоно аласыз.</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">Түзмөгүңүз кайра иштелиген жана аны сырсөзүңүздү колдонуу менен кулпудан ачуу зарыл. Түзмөгүңүздү кийинки жолу кулпудан ачуу үчүн бармак издериңизди колдонсоңуз болот.</string>
     <string name="kg_none_iris_password_restart_instructions">Түзмөгүңүз кайра иштелиген жана аны сырсөзүңүздү колдонуу менен кулпудан ачуу зарыл. Түзмөгүңүздү кийинки жолу кулпудан ачуу үчүн көз челдериңизди колдонсоңуз болот.</string>
     <string name="kg_tablet_iris_password_restart_instructions">Түзмөгүңүз кайра иштелиген жана аны сырсөзүңүздү колдонуу менен кулпудан ачуу зарыл. Түзмөгүңүздү кийинки жолу кулпудан ачуу үчүн көз челдериңизди колдонсоңуз болот.</string>
@@ -1889,7 +1897,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_password_deviceadmin_instructions">Коопсуздук саясатына байланыштуу карек аныктоонун ордуна, сырсөз киргизиңиз</string>
     <string name="kg_none_multi_direction_restart_instructions">Түзмөгүңуз кайра иштетилген жана катар багыттарыңызды колдонуу менен кулпуну ачуу керек. Сиз кийинки жолу түзмөгүңүздүн кулпусун ачуу үчүн, биометрикалык маалыматтарыңызды колдонсоңуз болот.</string>
     <string name="kg_tablet_multi_direction_restart_instructions">Түзмөгүңуз кайра иштетилген жана катар багыттарыңызды колдонуу менен кулпуну ачуу керек. Сиз кийинки жолу түзмөгүңүздүн кулпусун ачуу үчүн, биометрикалык маалыматтарыңызды колдонсоңуз болот.</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">Түзмөгүңүз кайра иштелиген жана аны багыттарыңыздын катарын колдонуу менен кулпудан ачуу зарыл. Түзмөгүңүздү кийинки жолу кулпудан ачуу үчүн бармак издериңизди колдонсоңуз болот.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">Телефонуңуз кайра иштетилген жана жаңсоолорун бир нече түрүн аткаруу менен анын кулпусун ачуу керек. Кийинки жолу телефонуңуздун кулпусун ачууда бармак издериңизди колдоно аласыз.</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">Түзмөгүңүз кайра иштелиген жана аны багыттарыңыздын катарын колдонуу менен кулпудан ачуу зарыл. Түзмөгүңүздү кийинки жолу кулпудан ачуу үчүн бармак издериңизди колдонсоңуз болот.</string>
     <string name="kg_none_iris_direction_restart_instructions">Түзмөгүңүз кайра иштелиген жана аны багыттарыңыздын катарын колдонуу менен кулпудан ачуу зарыл. Түзмөгүңүздү кийинки жолу кулпудан ачуу үчүн көз челдериңизди колдонсоңуз болот.</string>
     <string name="kg_tablet_iris_direction_restart_instructions">Түзмөгүңүз кайра иштелиген жана аны багыттарыңыздын катарын колдонуу менен кулпудан ачуу зарыл. Түзмөгүңүздү кийинки жолу кулпудан ачуу үчүн көз челдериңизди колдонсоңуз болот.</string>
@@ -2008,6 +2016,9 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="recents_help_dlg_split_icon_desc">Колдонмолорду бөлүнгөн экран көрүнүшүндө ачуу үчүн, колдонмо терезесинин аталыш тилкесиндеги Бөлүнгөн экран сүрөтчөсүн басыңыз. Бул сүрөтчө, колдонмо Көп терезени колдоого алган учурда көрсөтүлөт.</string>
     <string name="recents_help_dlg_long_click_recents_key_text">Бөлүнгөн экран көрүнүшүнө өзгөртүү үчүн, колдонмону толук экран көрүнүшүндө колдонуп жатканда, Акыркылар баскычын басып, кармаңыз.</string>
     <string name="recents_help_dlg_home_key_in_split_text">Эгерде бөлүнгөн экран көрүнүшүн колдонуп жаткан учурда, Башкы баскычты баса турган болсоңуз, экрандын жогорку жарымында көрсөтүлгөн колдонмо кичирейтилет. Эгерде абал тилкеси көк түстө болуп турганда, башкы экрандан колдонмо ача турган болсоңуз, анда колдонмо экрандын төмөнкү жарымындагы бөлүнгөн экран көрүнүшүнөн ачылат.</string>
+    <string name="battery_low_sec_body_in_normal_mode">Түзмөгүңүздү заряддаңыз же Кубат үнөмдөө режимин иштетүү үчүн бул жерди басыңыз.</string>
+    <string name="battery_low_sec_body_in_ups_mode">Алгач түзмөгүңүздү заряддагычка туташтырыңыз.</string>
+    <string name="battery_saver_recommend_notification_text">Түзмөгүңүздү заряддаңыз же Кубат үнөмдөө режимин иштетүү үчүн бул жерди басыңыз.</string>
     <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
 
 If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>

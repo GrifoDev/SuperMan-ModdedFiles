@@ -102,7 +102,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f04011d
+    const v2, 0x7f04011e
 
     const/4 v3, 0x0
 
@@ -110,7 +110,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f13032a
+    const v2, 0x7f13032b
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -120,7 +120,7 @@
 
     iput-object v2, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mHelpRootView:Landroid/view/ViewGroup;
 
-    const v2, 0x7f13032b
+    const v2, 0x7f13032c
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -136,7 +136,7 @@
 
     invoke-virtual {v2, v3}, Landroid/view/ViewGroup;->setAccessibilityLiveRegion(I)V
 
-    const v2, 0x7f13032c
+    const v2, 0x7f13032d
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -146,7 +146,7 @@
 
     iput-object v2, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mHelpImage:Landroid/widget/ImageView;
 
-    const v2, 0x7f13032d
+    const v2, 0x7f13032e
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -156,7 +156,7 @@
 
     iput-object v2, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mHelpHubText:Lcom/android/systemui/recents/misc/HelpHubTextView;
 
-    const v2, 0x7f13032e
+    const v2, 0x7f13032f
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

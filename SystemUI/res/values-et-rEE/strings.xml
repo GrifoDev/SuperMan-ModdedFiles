@@ -954,6 +954,7 @@ Kui teenus on saadaval, ilmub teavituste paneelile Wi-Fi helistamise ikoon, nagu
     <string name="quick_settings_dual_label_content_description">%s, nupu silt, topelttoksake, et kuvada asjakohased kiirseaded.</string>
     <string name="accessibility_button">Nupp</string>
     <string name="quick_settings_brightness_auto_brightness">Automaatne heledus</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">Saate muuta ekraani heledust automaatselt, võttes aluseks valgustingimused.</string>
     <string name="quick_settings_brightness_quick_access">Juhtnupu kuvamine üleval</string>
     <string name="quick_settings_brightness_quick_access_summary">Saate kuvada heleduse juhtnuppu teavituste paneeli kohal.</string>
     <string name="quick_settings_brightness_detail_level">Tase</string>
@@ -1274,6 +1275,7 @@ Lisateabe saamiseks võtke ühendust administraatoriga."</string>
     <string name="keyboard_shortcut_group_system_notifications">Märguanded</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">Klaviatuuri otseteed</string>
     <string name="keyboard_shortcut_group_system_switch_input">Sisestusmeetodi vahetamine</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">Keelte vahetamine</string>
     <string name="keyboard_shortcut_group_applications">Rakendused</string>
     <string name="keyboard_shortcut_group_applications_assist">Abi</string>
     <string name="keyboard_shortcut_group_applications_browser">Brauser</string>
@@ -1477,8 +1479,10 @@ Using your tablet in a very hot location."</string>
     <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
     <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
     <string name="battery_low_sec_title">Akutoide %d%%</string>
-    <string name="battery_low_sec_body_in_normal_mode">Laadige oma seadet või toksake energiasäästurežiimi aktiveerimiseks siin.</string>
-    <string name="battery_low_sec_body_in_ups_mode">Ühendage oma seade laadijaga.</string>
+    <string name="battery_low_sec_body_phone">Laadige oma telefoni või toksake siin, et lülitada sisse energiasäästurežiim.</string>
+    <string name="battery_low_sec_body_tablet">Laadige oma tahvelarvutit või toksake siin, et lülitada sisse energiasäästurežiim.</string>
+    <string name="battery_low_sec_body_phone_psm">Laadige oma telefoni.</string>
+    <string name="battery_low_sec_body_tablet_psm">Laadige tahvelarvutit.</string>
     <string name="battery_cable_charging_title">Kaabliga laadimine</string>
     <string name="battery_charging_title">Laadimine</string>
     <string name="battery_fast_charging_title">Kiirlaadimine</string>
@@ -1497,7 +1501,10 @@ Using your tablet in a very hot location."</string>
     <string name="battery_saver_notification_text_time_extend">Teie aku eluiga pikenes.</string>
     <string name="button_detail">Üksikasi</string>
     <string name="battery_saver_recommend_notification_title">Akutoide %d%%</string>
-    <string name="battery_saver_recommend_notification_text">Laadige oma seadet või toksake energiasäästurežiimi aktiveerimiseks siin.</string>
+    <string name="battery_saver_recommend_notification_text_phone">Laadige oma telefoni või toksake siin, et lülitada sisse energiasäästurežiim.</string>
+    <string name="battery_saver_recommend_notification_text_tablet">Laadige oma tahvelarvutit või toksake siin, et lülitada sisse energiasäästurežiim.</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">Laadige oma telefoni.</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">Laadige tahvelarvutit.</string>
     <string name="button_close">Sulge</string>
     <string name="battery_health_interruption_title">Ei saa laadida</string>
     <string name="battery_health_interruption_by_terminal_open_text">Seadet ei saa laadida, Veenduge, et kasutate Samsungi ühilduvusega akut ja laadijat ning teie seade on laadijaga korralikult ühendatud.</string>
@@ -1586,6 +1593,7 @@ upscaler"</string>
     <string name="uhq_mode_noti_text">Täiustage muusika ja videote heli eraldusvõimet, et pakkuda puhtamat kuulamiselamust.</string>
     <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
     <string name="assistance_app_setting_item_none">Puudub</string>
+    <string name="remote_input_send_text">Saada</string>
     <string name="remote_input_toast_text_on_sview_cover">Kiirvastuse funktsiooni ei saa kasutada, kui S View kate on suletud.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -1841,7 +1849,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_direction_shutdown_instructions">Joonistage mitmes suunas, et välja lülitada</string>
     <string name="kg_none_multi_pin_restart_instructions">Teie seade taaskäivitati ning teil tuleb see oma PIN-koodi abil lukust avada. Järgmisel seadme lukust avamisel saate kasutada biomeetriat.</string>
     <string name="kg_tablet_multi_pin_restart_instructions">Teie seade taaskäivitati ning teil tuleb see oma PIN-koodi abil lukust avada. Järgmisel seadme lukust avamisel saate kasutada biomeetriat.</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">Teie seade taaskäivitati ning teil tuleb see oma PIN-koodi abil lukust avada. Järgmisel seadme lukust avamisel saate kasutada sõrmejälgi.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">Teie telefon taaskäivitus ja tuleb PIN-koodi abil lukust avada. Telefoni järgmisel avamisel saate kasutada oma sõrmejälgi.</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">Teie seade taaskäivitati ning teil tuleb see oma PIN-koodi abil lukust avada. Järgmisel seadme lukust avamisel saate kasutada sõrmejälgi.</string>
     <string name="kg_none_iris_pin_restart_instructions">Teie seade taaskäivitati ning teil tuleb see oma PIN-koodi abil lukust avada. Järgmisel korral seadme avamisel võid kasutada oma iiriseid.</string>
     <string name="kg_tablet_iris_pin_restart_instructions">Teie seade taaskäivitati ning teil tuleb see oma PIN-koodi abil lukust avada. Järgmisel korral seadme avamisel võid kasutada oma iiriseid.</string>
@@ -1871,7 +1879,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pattern_deviceadmin_instructions">Iirisetuvastuse kasutamise asemel joonistage muster turvalisuse poliisi tõttu</string>
     <string name="kg_none_multi_password_restart_instructions">Teie seade taaskäivitus ja tuleb parooliga avada. Järgmine kord saate seadme avamiseks kasutada oma biomeetriat.</string>
     <string name="kg_tablet_multi_password_restart_instructions">Teie seade taaskäivitus ja tuleb parooliga avada. Järgmine kord saate seadme avamiseks kasutada oma biomeetriat.</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">Teie seade taaskäivitati ning teil tuleb see oma parooli abil lukust avada. Järgmisel seadme lukust avamisel saate kasutada sõrmejälgi.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">Teie telefon taaskäivitus ja tuleb parooli abil lukust avada. Telefoni järgmisel avamisel saate kasutada oma sõrmejälgi.</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">Teie seade taaskäivitati ning teil tuleb see oma parooli abil lukust avada. Järgmisel seadme lukust avamisel saate kasutada sõrmejälgi.</string>
     <string name="kg_none_iris_password_restart_instructions">Teie seade taaskäivitati ning teil tuleb see oma parooli abil lukust avada. Järgmisel korral seadme avamisel võid kasutada oma iiriseid.</string>
     <string name="kg_tablet_iris_password_restart_instructions">Teie seade taaskäivitati ning teil tuleb see oma parooli abil lukust avada. Järgmisel korral seadme avamisel võid kasutada oma iiriseid.</string>
@@ -1886,7 +1894,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_password_deviceadmin_instructions">Iirisetuvastuse kasutamise asemel sisestage parool turvalisuse poliisi tõttu</string>
     <string name="kg_none_multi_direction_restart_instructions">Teie seade taaskäivitati ning teil tuleb see oma suundade abil lukust avada. Järgmisel seadme lukust avamisel saate kasutada biomeetriat.</string>
     <string name="kg_tablet_multi_direction_restart_instructions">Teie seade taaskäivitati ning teil tuleb see oma suundade abil lukust avada. Järgmisel seadme lukust avamisel saate kasutada biomeetriat.</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">Teie seade taaskäivitati ning teil tuleb see oma suundade abil lukust avada. Järgmisel seadme lukust avamisel saate kasutada sõrmejälgi.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">Teie telefon taaskäivitus ja tuleb suundade abil lukust avada. Telefoni järgmisel avamisel saate kasutada oma sõrmejälgi.</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">Teie seade taaskäivitati ning teil tuleb see oma suundade abil lukust avada. Järgmisel seadme lukust avamisel saate kasutada sõrmejälgi.</string>
     <string name="kg_none_iris_direction_restart_instructions">Teie seade taaskäivitati ning teil tuleb see oma suundade abil lukust avada. Järgmisel korral seadme avamisel võid kasutada oma iiriseid.</string>
     <string name="kg_tablet_iris_direction_restart_instructions">Teie seade taaskäivitati ning teil tuleb see oma suundade abil lukust avada. Järgmisel korral seadme avamisel võid kasutada oma iiriseid.</string>
@@ -2005,6 +2013,9 @@ Proovige uuesti 1 sekundi pärast"</string>
     <string name="recents_help_dlg_split_icon_desc">Toksake rakenduste akna pealkirjaribal poolitatud ekraani ikooni, et avada rakendused poolitatud ekraani vaates. See ikoon kuvatakse, kui rakendus toetab mitmikakent.</string>
     <string name="recents_help_dlg_long_click_recents_key_text">Kui kasutate rakendust täisekraani vaates, vajutage ja hoidke hiljutise klahvi, et vahetada poolitatud ekraani vaatesse.</string>
     <string name="recents_help_dlg_home_key_in_split_text">Kui vajutate poolitatud ekraani vaates avaekraani klahvi, minimeeritakse rakendus, mida kuvatakse ekraani ülemisel poolel. Kui avate rakenduse avaekraanilt sel ajal, kui olekuriba on sinist värvi, avaneb rakendus poolitatud ekraani vaates ekraani alumisel poolel.</string>
+    <string name="battery_low_sec_body_in_normal_mode">Laadige oma seadet või toksake energiasäästurežiimi aktiveerimiseks siin.</string>
+    <string name="battery_low_sec_body_in_ups_mode">Ühendage oma seade laadijaga.</string>
+    <string name="battery_saver_recommend_notification_text">Laadige oma seadet või toksake energiasäästurežiimi aktiveerimiseks siin.</string>
     <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
 
 If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>

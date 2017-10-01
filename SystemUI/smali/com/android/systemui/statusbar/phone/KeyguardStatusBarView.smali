@@ -515,7 +515,7 @@
 
     invoke-super {p0}, Landroid/widget/RelativeLayout;->onFinishInflate()V
 
-    const v6, 0x7f1301ce
+    const v6, 0x7f1301cf
 
     invoke-virtual {p0, v6}, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->findViewById(I)Landroid/view/View;
 
@@ -523,7 +523,7 @@
 
     iput-object v6, p0, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->mSystemIconsSuperContainer:Landroid/view/View;
 
-    const v6, 0x7f1301cc
+    const v6, 0x7f1301cd
 
     invoke-virtual {p0, v6}, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->findViewById(I)Landroid/view/View;
 
@@ -533,7 +533,7 @@
 
     iput-object v6, p0, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->mMultiUserSwitch:Lcom/android/systemui/statusbar/phone/MultiUserSwitch;
 
-    const v6, 0x7f1301cd
+    const v6, 0x7f1301ce
 
     invoke-virtual {p0, v6}, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->findViewById(I)Landroid/view/View;
 
@@ -543,7 +543,7 @@
 
     iput-object v6, p0, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->mMultiUserAvatar:Landroid/widget/ImageView;
 
-    const v6, 0x7f1301d0
+    const v6, 0x7f1301d1
 
     invoke-virtual {p0, v6}, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->findViewById(I)Landroid/view/View;
 
@@ -553,7 +553,7 @@
 
     iput-object v6, p0, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->mBatteryLevel:Landroid/widget/TextView;
 
-    const v6, 0x7f1301d2
+    const v6, 0x7f1301d3
 
     invoke-virtual {p0, v6}, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->findViewById(I)Landroid/view/View;
 
@@ -704,7 +704,7 @@
 
     iget-object v6, p0, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->mOperatorLogoView:Landroid/widget/ImageView;
 
-    const v7, 0x7f020574
+    const v7, 0x7f020577
 
     invoke-virtual {v6, v7}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -724,7 +724,7 @@
 
     invoke-virtual {v6, v7, v9, v9, v9}, Landroid/widget/ImageView;->setPaddingRelative(IIII)V
 
-    const v6, 0x7f1301d1
+    const v6, 0x7f1301d2
 
     invoke-virtual {p0, v6}, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->findViewById(I)Landroid/view/View;
 
@@ -761,7 +761,7 @@
 
     invoke-virtual {v6, v7}, Landroid/widget/ImageView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    const v6, 0x7f1303ee
+    const v6, 0x7f1303ef
 
     invoke-virtual {p0, v6}, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->findViewById(I)Landroid/view/View;
 
@@ -808,7 +808,7 @@
 
     iget-object v6, p0, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->mOperatorLogoView:Landroid/widget/ImageView;
 
-    const v7, 0x7f020572
+    const v7, 0x7f020575
 
     invoke-virtual {v6, v7}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -827,7 +827,7 @@
 
     iget-object v6, p0, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->mOperatorLogoView:Landroid/widget/ImageView;
 
-    const v7, 0x7f020573
+    const v7, 0x7f020576
 
     invoke-virtual {v6, v7}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -846,7 +846,7 @@
 
     iget-object v6, p0, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->mOperatorLogoView:Landroid/widget/ImageView;
 
-    const v7, 0x7f020576
+    const v7, 0x7f020579
 
     invoke-virtual {v6, v7}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -864,7 +864,7 @@
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->mBatteryController:Lcom/android/systemui/statusbar/policy/BatteryController;
 
-    const v0, 0x7f1303f2
+    const v0, 0x7f1303f3
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->findViewById(I)Landroid/view/View;
 

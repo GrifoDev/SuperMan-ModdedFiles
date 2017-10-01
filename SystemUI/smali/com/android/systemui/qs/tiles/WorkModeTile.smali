@@ -19,56 +19,14 @@
 
 
 # instance fields
-.field private final mDisable:Lcom/android/systemui/qs/QSTile$AnimationIcon;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Lcom/android/systemui/qs/QSTile",
-            "<",
-            "Lcom/android/systemui/qs/QSTile$BooleanState;",
-            ">.AnimationIcon;"
-        }
-    .end annotation
-.end field
-
-.field private final mEnable:Lcom/android/systemui/qs/QSTile$AnimationIcon;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Lcom/android/systemui/qs/QSTile",
-            "<",
-            "Lcom/android/systemui/qs/QSTile$BooleanState;",
-            ">.AnimationIcon;"
-        }
-    .end annotation
-.end field
-
 .field private final mProfileController:Lcom/android/systemui/statusbar/phone/ManagedProfileController;
 
 
 # direct methods
 .method public constructor <init>(Lcom/android/systemui/qs/QSTile$Host;)V
-    .locals 3
+    .locals 1
 
     invoke-direct {p0, p1}, Lcom/android/systemui/qs/QSTile;-><init>(Lcom/android/systemui/qs/QSTile$Host;)V
-
-    new-instance v0, Lcom/android/systemui/qs/QSTile$AnimationIcon;
-
-    const v1, 0x7f0201ff
-
-    const v2, 0x7f0201fc
-
-    invoke-direct {v0, p0, v1, v2}, Lcom/android/systemui/qs/QSTile$AnimationIcon;-><init>(Lcom/android/systemui/qs/QSTile;II)V
-
-    iput-object v0, p0, Lcom/android/systemui/qs/tiles/WorkModeTile;->mEnable:Lcom/android/systemui/qs/QSTile$AnimationIcon;
-
-    new-instance v0, Lcom/android/systemui/qs/QSTile$AnimationIcon;
-
-    const v1, 0x7f0201fd
-
-    const v2, 0x7f0201fe
-
-    invoke-direct {v0, p0, v1, v2}, Lcom/android/systemui/qs/QSTile$AnimationIcon;-><init>(Lcom/android/systemui/qs/QSTile;II)V
-
-    iput-object v0, p0, Lcom/android/systemui/qs/tiles/WorkModeTile;->mDisable:Lcom/android/systemui/qs/QSTile$AnimationIcon;
 
     invoke-interface {p1}, Lcom/android/systemui/qs/QSTile$Host;->getManagedProfileController()Lcom/android/systemui/statusbar/phone/ManagedProfileController;
 
@@ -201,7 +159,9 @@
 .end method
 
 .method protected handleUpdateState(Lcom/android/systemui/qs/QSTile$BooleanState;Ljava/lang/Object;)V
-    .locals 2
+    .locals 3
+
+    const v2, 0x7f020366
 
     instance-of v0, p2, Ljava/lang/Boolean;
 
@@ -230,7 +190,9 @@
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/WorkModeTile;->mEnable:Lcom/android/systemui/qs/QSTile$AnimationIcon;
+    invoke-static {v2}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
+
+    move-result-object v0
 
     iput-object v0, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->icon:Lcom/android/systemui/qs/QSTile$Icon;
 
@@ -269,7 +231,9 @@
     goto :goto_0
 
     :cond_1
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/WorkModeTile;->mDisable:Lcom/android/systemui/qs/QSTile$AnimationIcon;
+    invoke-static {v2}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
+
+    move-result-object v0
 
     iput-object v0, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->icon:Lcom/android/systemui/qs/QSTile$Icon;
 

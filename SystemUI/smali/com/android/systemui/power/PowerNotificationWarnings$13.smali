@@ -45,7 +45,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$13;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
 
-    invoke-static {v0}, Lcom/android/systemui/power/PowerNotificationWarnings;->-get0(Lcom/android/systemui/power/PowerNotificationWarnings;)I
+    invoke-static {v0}, Lcom/android/systemui/power/PowerNotificationWarnings;->-get1(Lcom/android/systemui/power/PowerNotificationWarnings;)I
 
     move-result v0
 
@@ -55,7 +55,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$13;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
 
-    invoke-static {v0}, Lcom/android/systemui/power/PowerNotificationWarnings;->-get3(Lcom/android/systemui/power/PowerNotificationWarnings;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/systemui/power/PowerNotificationWarnings;->-get5(Lcom/android/systemui/power/PowerNotificationWarnings;)Landroid/os/Handler;
 
     move-result-object v0
 

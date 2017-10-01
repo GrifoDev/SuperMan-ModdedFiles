@@ -177,7 +177,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mParent:Landroid/view/ViewGroup;
 
-    const v2, 0x7f0400eb
+    const v2, 0x7f0400ec
 
     const/4 v3, 0x0
 
@@ -324,7 +324,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0400e1
+    const v5, 0x7f0400e2
 
     invoke-virtual {v4, v5, p0, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -357,7 +357,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0400e2
+    const v5, 0x7f0400e3
 
     invoke-virtual {v4, v5, p0, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -394,7 +394,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0400e6
+    const v5, 0x7f0400e7
 
     invoke-virtual {v4, v5, p0, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 

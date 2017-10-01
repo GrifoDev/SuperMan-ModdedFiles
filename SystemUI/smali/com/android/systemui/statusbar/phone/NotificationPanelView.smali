@@ -1615,7 +1615,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0f05b6
+    const v1, 0x7f0f05b7
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -6990,7 +6990,7 @@
 
     if-nez v1, :cond_0
 
-    const v1, 0x7f1303c6
+    const v1, 0x7f1303c7
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->findViewById(I)Landroid/view/View;
 
@@ -6998,7 +6998,7 @@
 
     check-cast v0, Landroid/view/ViewStub;
 
-    const v1, 0x7f0400c6
+    const v1, 0x7f0400c7
 
     invoke-virtual {v0, v1}, Landroid/view/ViewStub;->setLayoutResource(I)V
 
@@ -8316,7 +8316,7 @@
 
     invoke-super {p0}, Lcom/android/systemui/statusbar/phone/PanelView;->onFinishInflate()V
 
-    const v1, 0x7f1301cb
+    const v1, 0x7f1301cc
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->findViewById(I)Landroid/view/View;
 
@@ -8326,7 +8326,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mKeyguardStatusBar:Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;
 
-    const v1, 0x7f1303bc
+    const v1, 0x7f1303bd
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->findViewById(I)Landroid/view/View;
 
@@ -8334,7 +8334,7 @@
 
     check-cast v0, Landroid/view/ViewStub;
 
-    const v1, 0x7f040068
+    const v1, 0x7f040069
 
     invoke-virtual {v0, v1}, Landroid/view/ViewStub;->setLayoutResource(I)V
 
@@ -8350,7 +8350,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mKeyguardStatusBase:Lcom/android/keyguard/servicebox/KeyguardStatusBase;
 
-    const v1, 0x7f1303c0
+    const v1, 0x7f1303c1
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->findViewById(I)Landroid/view/View;
 
@@ -8368,7 +8368,7 @@
 
     invoke-virtual {v1, v2}, Lcom/android/systemui/AutoReinflateContainer;->addInflateListener(Lcom/android/systemui/AutoReinflateContainer$InflateListener;)V
 
-    const v1, 0x7f1301ab
+    const v1, 0x7f1301ac
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->findViewById(I)Landroid/view/View;
 
@@ -8378,7 +8378,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mClockView:Landroid/widget/TextView;
 
-    const v1, 0x7f1303bf
+    const v1, 0x7f1303c0
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->findViewById(I)Landroid/view/View;
 
@@ -8432,7 +8432,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0c006e
+    const v3, 0x7f0c0070
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -8441,7 +8441,7 @@
     invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setGravity(I)V
 
     :cond_0
-    const v1, 0x7f1303c1
+    const v1, 0x7f1303c2
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->findViewById(I)Landroid/view/View;
 
@@ -8481,7 +8481,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mFastOutLinearInterpolator:Landroid/view/animation/Interpolator;
 
-    const v1, 0x7f1303c4
+    const v1, 0x7f1303c5
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->findViewById(I)Landroid/view/View;
 
@@ -8524,7 +8524,7 @@
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->resetKeyguardBottomAreaHelpers()V
 
     :cond_1
-    const v1, 0x7f1303c5
+    const v1, 0x7f1303c6
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->findViewById(I)Landroid/view/View;
 
@@ -8546,7 +8546,7 @@
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->setKeyguardTouchHelpers()V
 
-    const v1, 0x7f1303be
+    const v1, 0x7f1303bf
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->findViewById(I)Landroid/view/View;
 
@@ -11719,7 +11719,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0c006e
+    const v4, 0x7f0c0070
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -11773,6 +11773,16 @@
     invoke-virtual {v3, v0}, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     :cond_1
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mNotificationStackScroller:Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;
+
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mStatusBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+
+    invoke-virtual {v4}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->getBarState()I
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->updateStackScrollerScale(I)V
+
     return-void
 .end method
 

@@ -130,7 +130,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f04010e
+    const v1, 0x7f04010f
 
     const/4 v2, 0x0
 
@@ -239,7 +239,7 @@
 .method protected onFinishInflate()V
     .locals 1
 
-    const v0, 0x7f1301db
+    const v0, 0x7f1301dc
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tiles/UserDetailItemView;->findViewById(I)Landroid/view/View;
 
@@ -287,7 +287,7 @@
     :cond_1
     invoke-direct {p0}, Lcom/android/systemui/qs/tiles/UserDetailItemView;->updateTypeface()V
 
-    const v0, 0x7f1302fa
+    const v0, 0x7f1302fb
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tiles/UserDetailItemView;->findViewById(I)Landroid/view/View;
 

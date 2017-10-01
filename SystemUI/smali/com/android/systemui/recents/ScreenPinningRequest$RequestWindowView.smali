@@ -125,7 +125,7 @@
 .method private inflateView(Z)V
     .locals 7
 
-    const v6, 0x7f13036d
+    const v6, 0x7f13036e
 
     const/4 v5, 0x3
 
@@ -135,7 +135,7 @@
 
     if-eqz p1, :cond_0
 
-    const v2, 0x7f04013f
+    const v2, 0x7f040140
 
     :goto_0
     const/4 v4, 0x0
@@ -162,7 +162,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/recents/ScreenPinningRequest$RequestWindowView;->mLayout:Landroid/view/ViewGroup;
 
-    const v3, 0x7f130369
+    const v3, 0x7f13036a
 
     invoke-virtual {v2, v3}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -172,7 +172,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/recents/ScreenPinningRequest$RequestWindowView;->mLayout:Landroid/view/ViewGroup;
 
-    const v3, 0x7f130363
+    const v3, 0x7f130364
 
     invoke-virtual {v2, v3}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -195,7 +195,7 @@
     :goto_1
     iget-object v2, p0, Lcom/android/systemui/recents/ScreenPinningRequest$RequestWindowView;->mLayout:Landroid/view/ViewGroup;
 
-    const v3, 0x7f13036c
+    const v3, 0x7f13036d
 
     invoke-virtual {v2, v3}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -226,7 +226,7 @@
     :goto_2
     iget-object v2, p0, Lcom/android/systemui/recents/ScreenPinningRequest$RequestWindowView;->mLayout:Landroid/view/ViewGroup;
 
-    const v3, 0x7f13036b
+    const v3, 0x7f13036c
 
     invoke-virtual {v2, v3}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -255,7 +255,7 @@
     :goto_3
     iget-object v2, p0, Lcom/android/systemui/recents/ScreenPinningRequest$RequestWindowView;->mLayout:Landroid/view/ViewGroup;
 
-    const v3, 0x7f130366
+    const v3, 0x7f130367
 
     invoke-virtual {v2, v3}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -265,7 +265,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/recents/ScreenPinningRequest$RequestWindowView;->mLayout:Landroid/view/ViewGroup;
 
-    const v3, 0x7f130365
+    const v3, 0x7f130366
 
     invoke-virtual {v2, v3}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -286,7 +286,7 @@
     return-void
 
     :cond_0
-    const v2, 0x7f04013c
+    const v2, 0x7f04013d
 
     goto/16 :goto_0
 

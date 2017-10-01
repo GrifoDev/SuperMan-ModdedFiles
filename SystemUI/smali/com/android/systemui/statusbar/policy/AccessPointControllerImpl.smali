@@ -82,16 +82,6 @@
 
     new-array v0, v0, [[I
 
-    const v1, 0x7f02022a
-
-    const v2, 0x7f02022f
-
-    filled-new-array {v1, v2}, [I
-
-    move-result-object v1
-
-    aput-object v1, v0, v4
-
     const v1, 0x7f02022b
 
     const v2, 0x7f020230
@@ -100,7 +90,7 @@
 
     move-result-object v1
 
-    aput-object v1, v0, v5
+    aput-object v1, v0, v4
 
     const v1, 0x7f02022c
 
@@ -110,7 +100,7 @@
 
     move-result-object v1
 
-    aput-object v1, v0, v6
+    aput-object v1, v0, v5
 
     const v1, 0x7f02022d
 
@@ -120,11 +110,21 @@
 
     move-result-object v1
 
-    aput-object v1, v0, v3
+    aput-object v1, v0, v6
 
     const v1, 0x7f02022e
 
     const v2, 0x7f020233
+
+    filled-new-array {v1, v2}, [I
+
+    move-result-object v1
+
+    aput-object v1, v0, v3
+
+    const v1, 0x7f02022f
+
+    const v2, 0x7f020234
 
     filled-new-array {v1, v2}, [I
 
@@ -138,16 +138,6 @@
 
     new-array v0, v0, [[I
 
-    const v1, 0x7f02023a
-
-    const v2, 0x7f020234
-
-    filled-new-array {v1, v2}, [I
-
-    move-result-object v1
-
-    aput-object v1, v0, v4
-
     const v1, 0x7f02023b
 
     const v2, 0x7f020235
@@ -156,7 +146,7 @@
 
     move-result-object v1
 
-    aput-object v1, v0, v5
+    aput-object v1, v0, v4
 
     const v1, 0x7f02023c
 
@@ -166,7 +156,7 @@
 
     move-result-object v1
 
-    aput-object v1, v0, v6
+    aput-object v1, v0, v5
 
     const v1, 0x7f02023d
 
@@ -176,7 +166,7 @@
 
     move-result-object v1
 
-    aput-object v1, v0, v3
+    aput-object v1, v0, v6
 
     const v1, 0x7f02023e
 
@@ -186,19 +176,29 @@
 
     move-result-object v1
 
+    aput-object v1, v0, v3
+
+    const v1, 0x7f02023f
+
+    const v2, 0x7f020239
+
+    filled-new-array {v1, v2}, [I
+
+    move-result-object v1
+
     aput-object v1, v0, v7
 
     sput-object v0, Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl;->ICONS_GIGA:[[I
 
-    const v0, 0x7f02023f
+    const v0, 0x7f020240
 
-    const v1, 0x7f020240
+    const v1, 0x7f020241
 
-    const v2, 0x7f020241
+    const v2, 0x7f020242
 
-    const v3, 0x7f020242
+    const v3, 0x7f020243
 
-    const v4, 0x7f020243
+    const v4, 0x7f020244
 
     filled-new-array {v0, v1, v2, v3, v4}, [I
 

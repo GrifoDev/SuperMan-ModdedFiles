@@ -357,6 +357,7 @@
     <item type="id" name="keyguard_host_view">false</item>
     <item type="id" name="keyguard_security_container">false</item>
     <item type="id" name="view_flipper">false</item>
+    <item type="id" name="digit_image">false</item>
     <item type="id" name="keyguard_iris_text_preview">false</item>
     <item type="id" name="keyguard_iris_help_text">false</item>
     <item type="id" name="keyguard_iris_cancel_button">false</item>

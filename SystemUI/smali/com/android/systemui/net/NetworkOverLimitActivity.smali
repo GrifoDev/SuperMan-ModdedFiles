@@ -48,13 +48,13 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0f0675
+    const v0, 0x7f0f067e
 
     :goto_0
     return v0
 
     :cond_0
-    const v0, 0x7f0f0674
+    const v0, 0x7f0f067d
 
     goto :goto_0
 
@@ -132,7 +132,7 @@
 
     if-eqz v7, :cond_0
 
-    const v0, 0x7f0f0677
+    const v0, 0x7f0f0680
 
     :goto_0
     invoke-virtual {v1, v6}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
@@ -143,7 +143,7 @@
 
     if-eqz v7, :cond_1
 
-    const v4, 0x7f0f0679
+    const v4, 0x7f0f0682
 
     :goto_1
     const v7, 0x104000a
@@ -205,12 +205,12 @@
     return-void
 
     :cond_0
-    const v0, 0x7f0f0676
+    const v0, 0x7f0f067f
 
     goto :goto_0
 
     :cond_1
-    const v4, 0x7f0f0678
+    const v4, 0x7f0f0681
 
     goto :goto_1
 .end method

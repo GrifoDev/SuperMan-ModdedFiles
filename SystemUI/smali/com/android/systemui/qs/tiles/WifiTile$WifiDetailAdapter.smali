@@ -332,7 +332,7 @@
     const v0, 0x7f0f038c
 
     :goto_3
-    const v2, 0x7f0201e4
+    const v2, 0x7f0201e5
 
     invoke-virtual {v1, v2, v0}, Lcom/android/systemui/qs/QSDetailItems;->setEmptyState(II)V
 
@@ -824,7 +824,7 @@
     const v0, 0x7f0f038c
 
     :goto_0
-    const v2, 0x7f0201e4
+    const v2, 0x7f0201e5
 
     invoke-virtual {v1, v2, v0}, Lcom/android/systemui/qs/QSDetailItems;->setEmptyState(II)V
 

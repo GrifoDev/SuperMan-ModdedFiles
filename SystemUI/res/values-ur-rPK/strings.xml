@@ -957,6 +957,7 @@ Wi-Fiکالنگ شبیہ نوٹیفکیشن پینل میں خدمت کے دست
     <string name="quick_settings_dual_label_content_description">%s، بٹن لیبل، متعلقہ فوری سیٹنگز دیکھنے کے لیے دوہری تھپکی دیں۔</string>
     <string name="accessibility_button">بٹن</string>
     <string name="quick_settings_brightness_auto_brightness">خودکار چمک</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">روشنی کے شرائط کی بنیاد پر اسکرین کی چمک کو خودکار طورپر ایڈجیسٹ کریں۔</string>
     <string name="quick_settings_brightness_quick_access">بالائی میں کنٹرول دکھائیں</string>
     <string name="quick_settings_brightness_quick_access_summary">مذکورہ معلومات پینل پر چمک پر کنٹرول دکھائیں۔</string>
     <string name="quick_settings_brightness_detail_level">لیول</string>
@@ -1277,6 +1278,7 @@ Wi-Fiکالنگ شبیہ نوٹیفکیشن پینل میں خدمت کے دست
     <string name="keyboard_shortcut_group_system_notifications">اطلاعات</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">کی بورڈ شارٹ کٹس</string>
     <string name="keyboard_shortcut_group_system_switch_input">اندراج کا طریقہ سوئچ کریں</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">زبانیں سوئچ کریں</string>
     <string name="keyboard_shortcut_group_applications">ایپلیکیشنز</string>
     <string name="keyboard_shortcut_group_applications_assist">اسسٹ</string>
     <string name="keyboard_shortcut_group_applications_browser">براؤزر</string>
@@ -1480,8 +1482,10 @@ Using your tablet in a very hot location."</string>
     <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
     <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
     <string name="battery_low_sec_title">بیٹری پاور %d%%</string>
-    <string name="battery_low_sec_body_in_normal_mode">اپنے آلہ کو چارج کریں یا [پاور بچت موڈ] اہل کرنے کے لیے یہاں تھپکی دیں۔</string>
-    <string name="battery_low_sec_body_in_ups_mode">اپنے آلہ کو ایک چارجر سے جوڑیں۔</string>
+    <string name="battery_low_sec_body_phone">اپنے فون کو چارج کریں یا پاور بچت موڈ آن کرنے کے لیے یہاں تھپکی دیں۔</string>
+    <string name="battery_low_sec_body_tablet">اپنے ٹیبلیٹ کو چارج کریں یا پاور بچت موڈ آن کرنے کے لیے یہاں تھپکی دیں۔</string>
+    <string name="battery_low_sec_body_phone_psm">اپنا فون چارج کريں۔</string>
+    <string name="battery_low_sec_body_tablet_psm">اپنے ٹیبلیٹ کو چارج کریں۔</string>
     <string name="battery_cable_charging_title">تار چارج کر رہا ہے</string>
     <string name="battery_charging_title">چارج کر رہا ہے</string>
     <string name="battery_fast_charging_title">تیز چارجنگ</string>
@@ -1500,7 +1504,10 @@ Using your tablet in a very hot location."</string>
     <string name="battery_saver_notification_text_time_extend">آپ کی بیٹری کی لائف توسیع کردی گئی ہے۔</string>
     <string name="button_detail">تفصیل</string>
     <string name="battery_saver_recommend_notification_title">بیٹری پاور ‪%d%%</string>
-    <string name="battery_saver_recommend_notification_text">اپنے آلہ کو چارج کریں یا [پاور بچت موڈ] اہل کرنے کے لیے یہاں تھپکی دیں۔</string>
+    <string name="battery_saver_recommend_notification_text_phone">اپنے فون کو چارج کریں یا پاور بچت موڈ آن کرنے کے لیے یہاں تھپکی دیں۔</string>
+    <string name="battery_saver_recommend_notification_text_tablet">اپنے ٹیبلیٹ کو چارج کریں یا پاور بچت موڈ آن کرنے کے لیے یہاں تھپکی دیں۔</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">اپنا فون چارج کريں۔</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">اپنے ٹیبلیٹ کو چارج کریں۔</string>
     <string name="button_close">بند کریں</string>
     <string name="battery_health_interruption_title">چارج کرنے سے قاصر</string>
     <string name="battery_health_interruption_by_terminal_open_text">آپ کا آلہ چارج کرنے سے قاصر۔ اس بات کو یقینی بنائیں کہ آپ سیمسنگ کیلئے موزوں بیٹری اور چارجر استعمال کر رہے ہیں اور یہ کہ آپ کا آلہ چارجر سے ٹھیک سے جڑا ہوا ہے۔</string>
@@ -1589,6 +1596,7 @@ upscaler"</string>
     <string name="uhq_mode_noti_text">صاف سماعت کے تجربہ کے لیے میوزک کی ساؤنڈ جزیات کاری کو افزوں کریں۔</string>
     <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
     <string name="assistance_app_setting_item_none">نہیں</string>
+    <string name="remote_input_send_text">بھیجیں</string>
     <string name="remote_input_toast_text_on_sview_cover">‏S view سرورق بند ہوجانے پر فوری جواب فنکشن استعمال کرنے سے قاصر۔</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -1844,7 +1852,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_direction_shutdown_instructions">پاور آف کرنے کے لیے سمتوں کا سلسہ بنائيں</string>
     <string name="kg_none_multi_pin_restart_instructions">آپ کا آلہ رجسٹر کردیا گیا ہے اور آپ کا پن استعمال کرکے انلاک کیے جانے کی ضرورت ہے۔ اگلی مرتبہ جب آپ اپنا آلہ انلاک کریں تو آپ اپنا بایومیٹرک استعمال کرسکتے ہیں۔</string>
     <string name="kg_tablet_multi_pin_restart_instructions">آپ کا آلہ رجسٹر کردیا گیا ہے اور آپ کا پن استعمال کرکے انلاک کیے جانے کی ضرورت ہے۔ اگلی مرتبہ جب آپ اپنا آلہ انلاک کریں تو آپ اپنا بایومیٹرک استعمال کرسکتے ہیں۔</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">آپ کا آلہ رجسٹر کردیا گیا ہے اور آپ کا پن استعمال کرکے انلاک کیے جانے کی ضرورت ہے۔ اگلی مرتبہ جب آپ اپنا آلہ انلاک کریں تو آپ اپنا فنگرپرنٹ استعمال کرسکتے ہیں۔</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">آپ کا فون دوبارہ اسٹارٹ کردیا گیا ہے اور آپ کا پن استعمال کرکے انلاک کیے جانے کی ضرورت ہے۔ اگلی مرتبہ جب آپ اپنا فون انلاک کریں تو آپ اپنا فنگرپرنٹ استعمال کرسکتے ہیں۔</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">آپ کا آلہ رجسٹر کردیا گیا ہے اور آپ کا پن استعمال کرکے انلاک کیے جانے کی ضرورت ہے۔ اگلی مرتبہ جب آپ اپنا آلہ انلاک کریں تو آپ اپنا فنگرپرنٹ استعمال کرسکتے ہیں۔</string>
     <string name="kg_none_iris_pin_restart_instructions">آپ کا آلہ رجسٹر کردیا گیا ہے اور آپ کا پن استعمال کرکے انلاک کیے جانے کی ضرورت ہے۔ اگلی مرتبہ جب آپ اپنا آلہ انلاک کریں تو آپ اپنا آئریسز استعمال کرسکتے ہیں۔</string>
     <string name="kg_tablet_iris_pin_restart_instructions">آپ کا آلہ رجسٹر کردیا گیا ہے اور آپ کا پن استعمال کرکے انلاک کیے جانے کی ضرورت ہے۔ اگلی مرتبہ جب آپ اپنا آلہ انلاک کریں تو آپ اپنا آئریسز استعمال کرسکتے ہیں۔</string>
@@ -1874,7 +1882,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pattern_deviceadmin_instructions">سلامتی پالیسی کی وجہ سے آئریس شناخت کے استعمال کے بجائے نمونہ بنائیں</string>
     <string name="kg_none_multi_password_restart_instructions">آپ کا آلہ دوبارہ اسٹارٹ کیا گیا ہے اور آپ کا پاس ورڈ استعمال کرکے انلاک کیے جانے کی ضرورت ہے۔ اگلی مرتبہ جب آپ اپنا آلہ انلاک کریں تو آپ اپنا بایومیٹرکس استعمال کرسکتے ہیں۔</string>
     <string name="kg_tablet_multi_password_restart_instructions">آپ کا آلہ دوبارہ اسٹارٹ کیا گیا ہے اور آپ کا پاس ورڈ استعمال کرکے انلاک کیے جانے کی ضرورت ہے۔ اگلی مرتبہ جب آپ اپنا آلہ انلاک کریں تو آپ اپنا بایومیٹرکس استعمال کرسکتے ہیں۔</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">آپ کا آلہ رجسٹر کردیا گیا ہے اور آپ کا پاس ورڈ استعمال کرکے انلاک کیے جانے کی ضرورت ہے۔ اگلی مرتبہ جب آپ اپنا آلہ انلاک کریں تو آپ اپنا فنگرپرنٹ استعمال کرسکتے ہیں۔</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">آپ کا فون دوبارہ اسٹارٹ کردیا گیا ہے اور آپ کا پاس ورڈ استعمال کرکے انلاک کیے جانے کی ضرورت ہے۔ اگلی مرتبہ جب آپ اپنا فون انلاک کریں تو آپ اپنا فنگرپرنٹ استعمال کرسکتے ہیں۔</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">آپ کا آلہ رجسٹر کردیا گیا ہے اور آپ کا پاس ورڈ استعمال کرکے انلاک کیے جانے کی ضرورت ہے۔ اگلی مرتبہ جب آپ اپنا آلہ انلاک کریں تو آپ اپنا فنگرپرنٹ استعمال کرسکتے ہیں۔</string>
     <string name="kg_none_iris_password_restart_instructions">آپ کا آلہ رجسٹر کردیا گیا ہے اور آپ کا پاس ورڈ استعمال کرکے انلاک کیے جانے کی ضرورت ہے۔ اگلی مرتبہ جب آپ اپنا آلہ انلاک کریں تو آپ اپنا آئریسز استعمال کرسکتے ہیں۔</string>
     <string name="kg_tablet_iris_password_restart_instructions">آپ کا آلہ رجسٹر کردیا گیا ہے اور آپ کا پاس ورڈ استعمال کرکے انلاک کیے جانے کی ضرورت ہے۔ اگلی مرتبہ جب آپ اپنا آلہ انلاک کریں تو آپ اپنا آئریسز استعمال کرسکتے ہیں۔</string>
@@ -1889,7 +1897,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_password_deviceadmin_instructions">سلامتی پالیسی کی وجہ سے آئریس شناخت کے استعمال کے بجائے پاس ورڈ درج کریں</string>
     <string name="kg_none_multi_direction_restart_instructions">آپ کا آلہ رجسٹر کردیا گیا ہے اور آپ کے سمتوں کے سلسلے استعمال کرکے انلاک کیے جانے کی ضرورت ہے۔ اگلی مرتبہ جب آپ اپنا آلہ انلاک کریں تو آپ اپنا بایومیٹرک استعمال کرسکتے ہیں۔</string>
     <string name="kg_tablet_multi_direction_restart_instructions">آپ کا آلہ رجسٹر کردیا گیا ہے اور آپ کے سمتوں کے سلسلے استعمال کرکے انلاک کیے جانے کی ضرورت ہے۔ اگلی مرتبہ جب آپ اپنا آلہ انلاک کریں تو آپ اپنا بایومیٹرک استعمال کرسکتے ہیں۔</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">آپ کا آلہ رجسٹر کردیا گیا ہے اور آپ کے سمتوں کے سلسلے استعمال کرکے انلاک کیے جانے کی ضرورت ہے۔ اگلی مرتبہ جب آپ اپنا آلہ انلاک کریں تو آپ اپنا فنگرپرنٹ استعمال کرسکتے ہیں۔</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">آپ کا فون دوبارہ اسٹارٹ کردیا گیا ہے اور آپ کے سمتوں کے سلسلے استعمال کرکے انلاک کیے جانے کی ضرورت ہے۔ اگلی مرتبہ جب آپ اپنا فون انلاک کریں تو آپ اپنا فنگرپرنٹ استعمال کرسکتے ہیں۔</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">آپ کا آلہ رجسٹر کردیا گیا ہے اور آپ کے سمتوں کے سلسلے استعمال کرکے انلاک کیے جانے کی ضرورت ہے۔ اگلی مرتبہ جب آپ اپنا آلہ انلاک کریں تو آپ اپنا فنگرپرنٹ استعمال کرسکتے ہیں۔</string>
     <string name="kg_none_iris_direction_restart_instructions">آپ کا آلہ رجسٹر کردیا گیا ہے اور آپ کے سمتوں کے سلسلے استعمال کرکے انلاک کیے جانے کی ضرورت ہے۔ اگلی مرتبہ جب آپ اپنا آلہ انلاک کریں تو آپ اپنا آئریسز استعمال کرسکتے ہیں۔</string>
     <string name="kg_tablet_iris_direction_restart_instructions">آپ کا آلہ رجسٹر کردیا گیا ہے اور آپ کے سمتوں کے سلسلے استعمال کرکے انلاک کیے جانے کی ضرورت ہے۔ اگلی مرتبہ جب آپ اپنا آلہ انلاک کریں تو آپ اپنا آئریسز استعمال کرسکتے ہیں۔</string>
@@ -2008,6 +2016,9 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="recents_help_dlg_split_icon_desc">ایپلیکیشن ونڈو کے ٹائٹل بار پر اسپلٹ اسکرین منظر میں ایپلیکیشنز کھولنے کے لیے اسپلٹ اسکرین شبیہ پر تھپکی دیں۔ یہ شبیہ ایپلیکیشن کا متعدد ونڈو کے تعاون کرنے پر دکھایا گيا ہے۔</string>
     <string name="recents_help_dlg_long_click_recents_key_text">مکمل اسکرین منظر میں ایک ایپلیکیشن استعمال کرنے پر اسکرین منظر اسپلٹ کرنے میں تبدیل کرنے کے لیے حالیہ کلید دبائیں اور ہولڈ کریں۔</string>
     <string name="recents_help_dlg_home_key_in_split_text">اگر آپ اسپلٹ اسکرین منظر استعمال کرتے وقت ہوم کیی دباتے ہیں، تو نصف اسکرین کے بالائی میں دکھایا گيا ایپلیکیشن چھوٹا ہوجائے گا۔ اگر آپ اسٹیٹس بار کے نیلے رنگ میں ہونے پر ہوم اسکرین سے ایک ایپلیکیشن کھولتے ہیں، تو ایپلیکیشن نصف اسکرین کے نچلے حصہ پر اسپلٹ اسکرین منظر میں کھل جائے گا۔</string>
+    <string name="battery_low_sec_body_in_normal_mode">اپنے آلہ کو چارج کریں یا [پاور بچت موڈ] اہل کرنے کے لیے یہاں تھپکی دیں۔</string>
+    <string name="battery_low_sec_body_in_ups_mode">اپنے آلہ کو ایک چارجر سے جوڑیں۔</string>
+    <string name="battery_saver_recommend_notification_text">اپنے آلہ کو چارج کریں یا [پاور بچت موڈ] اہل کرنے کے لیے یہاں تھپکی دیں۔</string>
     <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
 
 If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>

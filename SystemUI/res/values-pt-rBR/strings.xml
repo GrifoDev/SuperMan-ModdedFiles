@@ -956,6 +956,7 @@ O ícone de chamada por Wi-Fi será exibido no painel de notificações, como mo
     <string name="quick_settings_dual_label_content_description">%s, Etiqueta de botão, Toque duas vezes para ver as configurações rápidas relevantes.</string>
     <string name="accessibility_button">Botão</string>
     <string name="quick_settings_brightness_auto_brightness">Brilho automático</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">Ajuste o brilho da tela automaticamente com base nas condições de iluminação.</string>
     <string name="quick_settings_brightness_quick_access">Exibir controle em cima</string>
     <string name="quick_settings_brightness_quick_access_summary">Exibir o controle de brilho acima do painel de notificações.</string>
     <string name="quick_settings_brightness_detail_level">Nível</string>
@@ -1276,6 +1277,7 @@ Para ver mais informações, entre em contato com seu administrador."</string>
     <string name="keyboard_shortcut_group_system_notifications">Notificações</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">Atalhos do teclado</string>
     <string name="keyboard_shortcut_group_system_switch_input">Alterar o método de entrada</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">Alternar idiomas</string>
     <string name="keyboard_shortcut_group_applications">Aplicativos</string>
     <string name="keyboard_shortcut_group_applications_assist">Assistente</string>
     <string name="keyboard_shortcut_group_applications_browser">Navegador</string>
@@ -1479,8 +1481,10 @@ O aquecimento pode ter sido causado por:
     <string name="safe_mode_alert_body_vzw">Deseja reiniciar o telefone para desativar o Modo seguro? Todos os apps serão restaurados.</string>
     <string name="safe_mode_alert_positive_button_vzw">Desativar o Modo seguro</string>
     <string name="battery_low_sec_title">%d%% de energia da bateria</string>
-    <string name="battery_low_sec_body_in_normal_mode">Carregue seu aparelho ou toque aqui para ativar o Modo economia de energia.</string>
-    <string name="battery_low_sec_body_in_ups_mode">Conecte seu dispositivo a um carregador.</string>
+    <string name="battery_low_sec_body_phone">Carregue seu telefone ou toque aqui para ativar o Modo economia de energia.</string>
+    <string name="battery_low_sec_body_tablet">Carregue seu tablet ou toque aqui para ativar o Modo economia de energia.</string>
+    <string name="battery_low_sec_body_phone_psm">Carregue seu telefone.</string>
+    <string name="battery_low_sec_body_tablet_psm">Carregue seu tablet.</string>
     <string name="battery_cable_charging_title">Carregamento por cabo</string>
     <string name="battery_charging_title">Carregamento</string>
     <string name="battery_fast_charging_title">Carga rápida</string>
@@ -1499,7 +1503,10 @@ O aquecimento pode ter sido causado por:
     <string name="battery_saver_notification_text_time_extend">A duração da bateria foi estendida.</string>
     <string name="button_detail">Detalhes</string>
     <string name="battery_saver_recommend_notification_title">%d%% de energia da bateria</string>
-    <string name="battery_saver_recommend_notification_text">Carregue seu aparelho ou toque aqui para ativar o Modo economia de energia.</string>
+    <string name="battery_saver_recommend_notification_text_phone">Carregue seu telefone ou toque aqui para ativar o Modo economia de energia.</string>
+    <string name="battery_saver_recommend_notification_text_tablet">Carregue seu tablet ou toque aqui para ativar o Modo economia de energia.</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">Carregue seu telefone.</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">Carregue seu tablet.</string>
     <string name="button_close">Fechar</string>
     <string name="battery_health_interruption_title">Não é possível carregar</string>
     <string name="battery_health_interruption_by_terminal_open_text">Não é possível carregar seu dispositivo. Certifique-se que está usando uma bateria e carregador Samsung compatíveis com o seu dispositivo e que seu dispositivo esteja conectado corretamente no carregador.</string>
@@ -1588,6 +1595,7 @@ UHQ"</string>
     <string name="uhq_mode_noti_text">Aprimora a resolução do som de músicas e vídeos para uma experiência de audição mais pura.</string>
     <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
     <string name="assistance_app_setting_item_none">Nenhum</string>
+    <string name="remote_input_send_text">Enviar</string>
     <string name="remote_input_toast_text_on_sview_cover">Não será possível usar a função Resposta rápida quando a S View Cover estiver fechada.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -1843,7 +1851,7 @@ Se o seu tablet for redefinido, talvez seja necessário inserir as informações
     <string name="kg_none_direction_shutdown_instructions">Desenhar uma série de direções para desligar</string>
     <string name="kg_none_multi_pin_restart_instructions">Seu aparelho foi reiniciado e precisa ser desbloqueado usando seu PIN. Você poderá usar seus dados biométricos na próxima vez que desbloquear o aparelho.</string>
     <string name="kg_tablet_multi_pin_restart_instructions">Seu aparelho foi reiniciado e precisa ser desbloqueado usando seu PIN. Você poderá usar seus dados biométricos na próxima vez que desbloquear o aparelho.</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">Seu aparelho foi reiniciado e precisa ser desbloqueado usando seu PIN. Você poderá usar suas impressões digitais na próxima vez que desbloquear o aparelho.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">Seu telefone foi reiniciado e precisa ser desbloqueado com o seu PIN. Você poderá usar suas impressões digitais na próxima vez em que desbloquear o telefone.</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">Seu aparelho foi reiniciado e precisa ser desbloqueado usando seu PIN. Você poderá usar suas impressões digitais na próxima vez que desbloquear o aparelho.</string>
     <string name="kg_none_iris_pin_restart_instructions">Seu aparelho foi reiniciado e precisa ser desbloqueado usando seu PIN. Você poderá usar suas íris na próxima vez que desbloquear o aparelho.</string>
     <string name="kg_tablet_iris_pin_restart_instructions">Seu aparelho foi reiniciado e precisa ser desbloqueado usando seu PIN. Você poderá usar suas íris na próxima vez que desbloquear o aparelho.</string>
@@ -1873,7 +1881,7 @@ Se o seu tablet for redefinido, talvez seja necessário inserir as informações
     <string name="kg_none_iris_pattern_deviceadmin_instructions">Desenhar o padrão em vez de usar o reconhecimento de íris devido à política de segurança</string>
     <string name="kg_none_multi_password_restart_instructions">Seu aparelho foi reiniciado e precisa ser desbloqueado usando sua senha. Você poderá usar seus dados biométricos na próxima vez que desbloquear o aparelho.</string>
     <string name="kg_tablet_multi_password_restart_instructions">Seu aparelho foi reiniciado e precisa ser desbloqueado usando sua senha. Você poderá usar seus dados biométricos na próxima vez que desbloquear o aparelho.</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">Seu aparelho foi reiniciado e precisa ser desbloqueado usando sua senha. Você poderá usar suas impressões digitais na próxima vez que desbloquear o aparelho.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">Seu telefone foi reiniciado e precisa ser desbloqueado com a sua senha. Você poderá usar suas impressões digitais na próxima vez em que desbloquear o telefone.</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">Seu aparelho foi reiniciado e precisa ser desbloqueado usando sua senha. Você poderá usar suas impressões digitais na próxima vez que desbloquear o aparelho.</string>
     <string name="kg_none_iris_password_restart_instructions">Seu aparelho foi reiniciado e precisa ser desbloqueado usando sua senha. Você poderá usar suas íris na próxima vez que desbloquear o aparelho.</string>
     <string name="kg_tablet_iris_password_restart_instructions">Seu aparelho foi reiniciado e precisa ser desbloqueado usando sua senha. Você poderá usar suas íris na próxima vez que desbloquear o aparelho.</string>
@@ -1888,7 +1896,7 @@ Se o seu tablet for redefinido, talvez seja necessário inserir as informações
     <string name="kg_none_iris_password_deviceadmin_instructions">Inserir a senha em vez de usar o reconhecimento de íris devido à política de segurança</string>
     <string name="kg_none_multi_direction_restart_instructions">Seu aparelho foi reiniciado e precisa ser desbloqueado usando sua série de direções. Você poderá usar seus dados biométricos na próxima vez que desbloquear o aparelho.</string>
     <string name="kg_tablet_multi_direction_restart_instructions">Seu aparelho foi reiniciado e precisa ser desbloqueado usando sua série de direções. Você poderá usar seus dados biométricos na próxima vez que desbloquear o aparelho.</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">Seu aparelho foi reiniciado e precisa ser desbloqueado usando sua série de direções. Você poderá usar suas impressões digitais na próxima vez que desbloquear o aparelho.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">Seu telefone foi reiniciado e precisa ser desbloqueado usando sua série de direções. Você poderá usar as impressões digitais na próxima vez desbloquear seu telefone.</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">Seu aparelho foi reiniciado e precisa ser desbloqueado usando sua série de direções. Você poderá usar suas impressões digitais na próxima vez que desbloquear o aparelho.</string>
     <string name="kg_none_iris_direction_restart_instructions">Seu aparelho foi reiniciado e precisa ser desbloqueado usando sua série de direções. Você poderá usar suas íris na próxima vez que desbloquear o aparelho.</string>
     <string name="kg_tablet_iris_direction_restart_instructions">Seu aparelho foi reiniciado e precisa ser desbloqueado usando sua série de direções. Você poderá usar suas íris na próxima vez que desbloquear o aparelho.</string>
@@ -2010,6 +2018,9 @@ Tente novamente em 1 segundo"</string>
     <string name="recents_help_dlg_split_icon_desc">Para abrir aplicativos na exibição em tela dividida, toque no ícone de Tela dividida na barra de título da janela do aplicativo. Esse ícone é exibido quando o aplicativo aceita a função Múltiplas janelas.</string>
     <string name="recents_help_dlg_long_click_recents_key_text">Mantenha pressionada a Tecla Aplicativos recentes enquanto estiver usando um aplicativo na exibição de tela cheia para alterar para a exibição em tela dividida.</string>
     <string name="recents_help_dlg_home_key_in_split_text">Se você pressionar a Tecla Início ao usar a exibição em tela dividida, o aplicativo exibido na metade superior da tela será minimizado. Se você abrir um aplicativo a partir da tela inicial enquanto a barra de status estiver azul, ele será aberto na metade inferior da tela da exibição em tela dividida.</string>
+    <string name="battery_low_sec_body_in_normal_mode">Carregue seu aparelho ou toque aqui para ativar o Modo economia de energia.</string>
+    <string name="battery_low_sec_body_in_ups_mode">Conecte seu dispositivo a um carregador.</string>
+    <string name="battery_saver_recommend_notification_text">Carregue seu aparelho ou toque aqui para ativar o Modo economia de energia.</string>
     <string name="kg_none_direction_1_frpt">"Se você não desenhar a série de direções correta na próxima tentativa, seu telefone será redefinido automaticamente para as configurações de fábrica e todas as informações contidas nele serão apagadas.
 
 Se o seu telefone for redefinido, talvez seja necessário inserir as informações da conta Google (e-mail e senha) associadas a esse telefone para poder usá-lo novamente."</string>

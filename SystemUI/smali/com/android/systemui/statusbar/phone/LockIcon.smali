@@ -130,7 +130,7 @@
     return v0
 
     :cond_0
-    const v0, 0x7f020300
+    const v0, 0x7f020301
 
     goto :goto_0
 
@@ -481,7 +481,7 @@
 
     const/4 v5, 0x0
 
-    const v4, 0x7f0202e0
+    const v4, 0x7f0202e1
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/LockIcon;->getState()I
 
@@ -517,7 +517,7 @@
     invoke-interface {v2, v5}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$Callback;->onSwipingStarted(Z)V
 
     :pswitch_1
-    const v2, 0x7f0202e1
+    const v2, 0x7f0202e2
 
     invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/phone/LockIcon;->setImageResource(I)V
 
@@ -770,7 +770,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0f0658
+    const v5, 0x7f0f0661
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

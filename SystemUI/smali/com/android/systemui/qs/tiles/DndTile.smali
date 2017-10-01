@@ -160,7 +160,7 @@
 
     sput-object v0, Lcom/android/systemui/qs/tiles/DndTile;->DND_SETTINGS:Landroid/content/Intent;
 
-    const v0, 0x7f0201bc
+    const v0, 0x7f0201bd
 
     invoke-static {v0}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 
@@ -174,7 +174,7 @@
 .method public constructor <init>(Lcom/android/systemui/qs/QSTile$Host;)V
     .locals 4
 
-    const v2, 0x7f0201ba
+    const v2, 0x7f0201bb
 
     invoke-direct {p0, p1}, Lcom/android/systemui/qs/QSTile;-><init>(Lcom/android/systemui/qs/QSTile$Host;)V
 
@@ -370,39 +370,6 @@
 
 
 # virtual methods
-.method protected composeChangeAnnouncement()Ljava/lang/String;
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/DndTile;->mState:Lcom/android/systemui/qs/QSTile$State;
-
-    check-cast v0, Lcom/android/systemui/qs/QSTile$BooleanState;
-
-    iget-boolean v0, v0, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/DndTile;->mContext:Landroid/content/Context;
-
-    const v1, 0x7f0f030f
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/DndTile;->mContext:Landroid/content/Context;
-
-    const v1, 0x7f0f030e
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
 .method public getDetailAdapter()Lcom/android/systemui/qs/QSTile$DetailAdapter;
     .locals 1
 
@@ -568,7 +535,7 @@
 
     if-eqz v3, :cond_4
 
-    const v3, 0x7f0203fd
+    const v3, 0x7f020400
 
     :goto_3
     invoke-static {v3}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
@@ -616,7 +583,7 @@
     goto :goto_2
 
     :cond_4
-    const v3, 0x7f02037b
+    const v3, 0x7f02037e
 
     goto :goto_3
 .end method

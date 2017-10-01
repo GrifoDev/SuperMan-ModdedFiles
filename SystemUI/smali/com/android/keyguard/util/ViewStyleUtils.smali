@@ -6,6 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/android/keyguard/util/ViewStyleUtils$FontType;,
         Lcom/android/keyguard/util/ViewStyleUtils$UpdatedFrom;
     }
 .end annotation
@@ -348,6 +349,125 @@
     invoke-virtual {p1, v4}, Landroid/widget/TextView;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
     goto :goto_0
+.end method
+
+.method public varargs updateFontTypeface(Lcom/android/keyguard/util/ViewStyleUtils$FontType;[Landroid/widget/TextView;)V
+    .locals 6
+
+    if-nez p2, :cond_0
+
+    return-void
+
+    :cond_0
+    const/4 v2, 0x0
+
+    sget-object v4, Lcom/android/keyguard/util/ViewStyleUtils$FontType;->Clock:Lcom/android/keyguard/util/ViewStyleUtils$FontType;
+
+    if-ne p1, v4, :cond_5
+
+    iget-object v4, p0, Lcom/android/keyguard/util/ViewStyleUtils;->mContext:Landroid/content/Context;
+
+    invoke-static {v4}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/android/keyguard/util/SettingsHelper;->getOpenThemeClockFont()Ljava/lang/String;
+
+    move-result-object v2
+
+    :cond_1
+    :goto_0
+    const/4 v3, 0x0
+
+    if-eqz v2, :cond_2
+
+    invoke-virtual {v2}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_7
+
+    :cond_2
+    const/4 v0, 0x0
+
+    sget-object v4, Lcom/android/keyguard/util/ViewStyleUtils$FontType;->Clock:Lcom/android/keyguard/util/ViewStyleUtils$FontType;
+
+    if-ne p1, v4, :cond_6
+
+    const-string/jumbo v0, "clock2016"
+
+    :cond_3
+    :goto_1
+    const/4 v4, 0x0
+
+    invoke-static {v0, v4}, Landroid/graphics/Typeface;->create(Ljava/lang/String;I)Landroid/graphics/Typeface;
+
+    move-result-object v3
+
+    :goto_2
+    if-eqz v3, :cond_8
+
+    const/4 v1, 0x0
+
+    :goto_3
+    array-length v4, p2
+
+    if-ge v1, v4, :cond_8
+
+    aget-object v4, p2, v1
+
+    if-eqz v4, :cond_4
+
+    aget-object v4, p2, v1
+
+    invoke-virtual {v4, v3}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
+
+    :cond_4
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_3
+
+    :cond_5
+    sget-object v4, Lcom/android/keyguard/util/ViewStyleUtils$FontType;->Numeric:Lcom/android/keyguard/util/ViewStyleUtils$FontType;
+
+    if-ne p1, v4, :cond_1
+
+    iget-object v4, p0, Lcom/android/keyguard/util/ViewStyleUtils;->mContext:Landroid/content/Context;
+
+    invoke-static {v4}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/android/keyguard/util/SettingsHelper;->getOpenThemeNumericFont()Ljava/lang/String;
+
+    move-result-object v2
+
+    goto :goto_0
+
+    :cond_6
+    sget-object v4, Lcom/android/keyguard/util/ViewStyleUtils$FontType;->Numeric:Lcom/android/keyguard/util/ViewStyleUtils$FontType;
+
+    if-ne p1, v4, :cond_3
+
+    iget-object v4, p0, Lcom/android/keyguard/util/ViewStyleUtils;->mContext:Landroid/content/Context;
+
+    sget v5, Lcom/android/keyguard/R$string;->pinlock_numeric_font_family:I
+
+    invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_1
+
+    :cond_7
+    invoke-static {v2}, Landroid/graphics/Typeface;->createFromFile(Ljava/lang/String;)Landroid/graphics/Typeface;
+
+    move-result-object v3
+
+    goto :goto_2
+
+    :cond_8
+    return-void
 .end method
 
 .method public updateImageStyle(III)Landroid/graphics/drawable/Drawable;

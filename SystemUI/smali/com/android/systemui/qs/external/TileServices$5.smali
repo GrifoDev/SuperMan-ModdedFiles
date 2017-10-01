@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/qs/external/TileServices;->onStartActivity(Landroid/os/IBinder;)V
+    value = Lcom/android/systemui/qs/external/TileServices;->onShowDialog(Landroid/os/IBinder;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/external/TileServices$5;->this$0:Lcom/android/systemui/qs/external/TileServices;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/external/TileServices;->-get0(Lcom/android/systemui/qs/external/TileServices;)Lcom/android/systemui/statusbar/phone/QSTileHost;
+    invoke-static {v0}, Lcom/android/systemui/qs/external/TileServices;->-get1(Lcom/android/systemui/qs/external/TileServices;)Lcom/android/systemui/statusbar/phone/QSTileHost;
 
     move-result-object v0
 

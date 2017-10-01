@@ -548,7 +548,7 @@ Use only the supplied charger."</string>
     <string name="brightness_controller_label_text">Auto</string>
     <string name="quick_settings_brightness_controller_hbm">Maximised for best viewing in sunlight</string>
     <string name="status_bar_settings_notifications">Notifications</string>
-    <string name="status_bar_network_name_separator">|</string>
+    <string name="status_bar_network_name_separator">" | "</string>
     <string name="bluetooth_tethered">Bluetooth tethered</string>
     <string name="status_bar_input_method_settings_configure_input_methods">Set up input methods</string>
     <string name="status_bar_use_physical_keyboard">Physical keyboard</string>
@@ -928,7 +928,7 @@ data"</string>
     <string name="quick_settings_volte_label">VoLTE</string>
     <string name="quick_settings_wificalling_label">"Wifi
 Calling"</string>
-    <string name="quick_settings_wificalling_label_non_translatable">"Wifi
+    <string name="quick_settings_wificalling_label_non_translatable">"WiFi
 Calling"</string>
     <string name="quick_settings_personal_mode_label">"Private
 mode"</string>
@@ -1452,6 +1452,7 @@ For more information, contact your administrator."</string>
     <string name="keyboard_shortcut_group_system_notifications">Notifications</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">Keyboard Shortcuts</string>
     <string name="keyboard_shortcut_group_system_switch_input">Switch input method</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">Switch languages</string>
     <string name="keyboard_shortcut_group_applications">Applications</string>
     <string name="keyboard_shortcut_group_applications_assist">Assist</string>
     <string name="keyboard_shortcut_group_applications_browser">Browser</string>
@@ -1672,8 +1673,10 @@ Overheating can be caused by:
     <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
     <string name="safe_mode_alert_positive_button_vzw">TURN OFF SAFE MODE</string>
     <string name="battery_low_sec_title">Battery power %d%%</string>
-    <string name="battery_low_sec_body_in_normal_mode">Charge your device or tap here to enable Power saving mode.</string>
-    <string name="battery_low_sec_body_in_ups_mode">Connect your device to a charger.</string>
+    <string name="battery_low_sec_body_phone">Charge your phone or tap here to turn on Power saving mode.</string>
+    <string name="battery_low_sec_body_tablet">Charge your tablet or tap here to turn on Power saving mode.</string>
+    <string name="battery_low_sec_body_phone_psm">Charge your phone.</string>
+    <string name="battery_low_sec_body_tablet_psm">Charge your tablet.</string>
     <string name="battery_cable_charging_title">Cable charging</string>
     <string name="battery_charging_title">Charging</string>
     <string name="battery_fast_charging_title">Fast charging</string>
@@ -1692,7 +1695,10 @@ Overheating can be caused by:
     <string name="battery_saver_notification_text_time_extend">Your battery life has been extended.</string>
     <string name="button_detail">Detail</string>
     <string name="battery_saver_recommend_notification_title">Battery power %d%%</string>
-    <string name="battery_saver_recommend_notification_text">Charge your device or tap here to enable Power saving mode.</string>
+    <string name="battery_saver_recommend_notification_text_phone">Charge your phone or tap here to turn on Power saving mode.</string>
+    <string name="battery_saver_recommend_notification_text_tablet">Charge your tablet or tap here to turn on Power saving mode.</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">Charge your phone.</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">Charge your tablet.</string>
     <string name="button_close">Close</string>
     <string name="battery_health_interruption_title">Unable to charge</string>
     <string name="battery_health_interruption_by_terminal_open_text">Unable to charge your device. Make sure you are using a Samsung compatible battery and charger and that your device is properly connected to the charger.</string>
@@ -1710,6 +1716,9 @@ Disconnecting and reconnecting the charger may allow charging to continue normal
     <string name="warning_alert_check">Do not show again</string>
     <string name="power_supplying_low_battery_alert_title">Battery power low</string>
     <string name="power_supplying_low_battery_alert_body">This device is charging another device that is connected via USB. This increases the battery consumption of this device. Disconnect the USB cable to stop charging the connected device.</string>
+    <string name="unintentional_lcd_on_alert_title">Touch input blocked</string>
+    <string name="unintentional_lcd_on_alert_body">To prevent this from happening again, check if the proximity sensor is blocked.</string>
+    <string name="unintentional_lcd_on_alert_body2">Tap %s to continue using your phone.</string>
     <string name="kg_iris_or_fingerprint_active_instructions">Use fingerprint to open or swipe screen to use iris instead</string>
     <string name="kg_iris_or_fingerprint_unlock_instructions">Use fingerprint to unlock or swipe screen to use iris instead</string>
     <string name="kg_fingerprint_or_swipe_active_instructions">Use fingerprint or swipe screen to open</string>
@@ -1791,6 +1800,7 @@ upscaler"</string>
     <string name="no_sim_notification_text_cct">Insert an XFINITY Mobile SIM. To learn more visit xfinitymobile.com/activate or call 888-936-4968.</string>
     <string name="url_activation_needed_cct">https://xfinitymobile.com/activate</string>
     <string name="over_flow_number">%d</string>
+    <string name="remote_input_send_text">SEND</string>
     <string name="accessibility_camera_button_nexti">Camera</string>
     <string name="accessibility_phone_icon_nexti">Phone</string>
     <string name="accessibility_unlock_button_nexti">Unlock</string>
@@ -1822,8 +1832,8 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">I ACCEPT</string>
-    <item type="string" name="APKTOOL_DUMMY_6a8">false</item>
-    <item type="string" name="APKTOOL_DUMMY_6a9">false</item>
+    <item type="string" name="APKTOOL_DUMMY_6b5">false</item>
+    <item type="string" name="APKTOOL_DUMMY_6b6">false</item>
     <string name="car_lockscreen_disclaimer_title">Drive safely</string>
     <string name="car_lockscreen_disclaimer_text">Stay fully aware of driving conditions and always obey applicable laws. Directions may be inaccurate, incomplete, dangerous, not suitable, prohibited, or involve crossing administrative areas. Business information may also be inaccurate or incomplete. Data is not real-time, and location accuracy cannot be guaranteed. Do not handle your mobile device or use apps not intended for Android Auto while driving.</string>
     <string name="pip_close">Close PIP</string>
@@ -1847,6 +1857,7 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="keyguard_ampm_view_12hour_format">aa</string>
     <string name="keyguard_ampm_view_24hour_format" />
     <string name="theme_pin_enter_text">OK</string>
+    <string name="pinlock_numeric_font_family">sans-serif-light</string>
     <string name="app_name">Keyguard</string>
     <string name="keyguard_password_enter_pin_code">Type PIN code</string>
     <string name="keyguard_password_enter_puk_code">Type SIM PUK and new PIN code</string>
@@ -2111,7 +2122,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_direction_shutdown_instructions">Draw series of directions to power off</string>
     <string name="kg_none_multi_pin_restart_instructions">Your device was restarted and needs to be unlocked using your PIN. You can use your biometrics next time you unlock your device.</string>
     <string name="kg_tablet_multi_pin_restart_instructions">Your device was restarted and needs to be unlocked using your PIN. You can use your biometrics next time you unlock your device.</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">Your device was restarted and needs to be unlocked using your PIN. You can use your fingerprints next time you unlock your device.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">Your phone was restarted and needs to be unlocked using your PIN. You can use your fingerprints next time you unlock your phone.</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">Your device was restarted and needs to be unlocked using your PIN. You can use your fingerprints next time you unlock your device.</string>
     <string name="kg_none_iris_pin_restart_instructions">Your device was restarted and needs to be unlocked using your PIN. You can use your irises next time you unlock your device.</string>
     <string name="kg_tablet_iris_pin_restart_instructions">Your device was restarted and needs to be unlocked using your PIN. You can use your irises next time you unlock your device.</string>
@@ -2141,7 +2152,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pattern_deviceadmin_instructions">Draw pattern instead of using iris recognition because of security policy</string>
     <string name="kg_none_multi_password_restart_instructions">Your device was restarted and needs to be unlocked using your password. You can use your biometrics next time you unlock your device.</string>
     <string name="kg_tablet_multi_password_restart_instructions">Your device was restarted and needs to be unlocked using your password. You can use your biometrics next time you unlock your device.</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">Your device was restarted and needs to be unlocked using your password. You can use your fingerprints next time you unlock your device.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">Your phone was restarted and needs to be unlocked using your password. You can use your fingerprints next time you unlock your phone.</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">Your device was restarted and needs to be unlocked using your password. You can use your fingerprints next time you unlock your device.</string>
     <string name="kg_none_iris_password_restart_instructions">Your device was restarted and needs to be unlocked using your password. You can use your irises next time you unlock your device.</string>
     <string name="kg_tablet_iris_password_restart_instructions">Your device was restarted and needs to be unlocked using your password. You can use your irises next time you unlock your device.</string>
@@ -2156,7 +2167,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_password_deviceadmin_instructions">Enter password instead of using iris recognition because of security policy</string>
     <string name="kg_none_multi_direction_restart_instructions">Your device was restarted and needs to be unlocked using your series of directions. You can use your biometrics next time you unlock your device.</string>
     <string name="kg_tablet_multi_direction_restart_instructions">Your device was restarted and needs to be unlocked using your series of directions. You can use your biometrics next time you unlock your device.</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">Your device was restarted and needs to be unlocked using your series of directions. You can use your fingerprints next time you unlock your device.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">Your phone was restarted and needs to be unlocked using your series of directions. You can use your fingerprints next time you unlock your phone.</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">Your device was restarted and needs to be unlocked using your series of directions. You can use your fingerprints next time you unlock your device.</string>
     <string name="kg_none_iris_direction_restart_instructions">Your device was restarted and needs to be unlocked using your series of directions. You can use your irises next time you unlock your device.</string>
     <string name="kg_tablet_iris_direction_restart_instructions">Your device was restarted and needs to be unlocked using your series of directions. You can use your irises next time you unlock your device.</string>

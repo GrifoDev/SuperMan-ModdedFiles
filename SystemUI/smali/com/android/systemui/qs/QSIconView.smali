@@ -3,6 +3,10 @@
 .source "QSIconView.java"
 
 
+# static fields
+.field static final DEBUG:Z
+
+
 # instance fields
 .field private mAnimationEnabled:Z
 
@@ -14,6 +18,22 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 2
+
+    const-string/jumbo v0, "QSIconView"
+
+    const/4 v1, 0x3
+
+    invoke-static {v0, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/systemui/qs/QSIconView;->DEBUG:Z
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 2
 
@@ -98,6 +118,169 @@
     move-result v0
 
     return v0
+.end method
+
+.method protected getColor(Lcom/android/systemui/qs/QSTile$State;)I
+    .locals 8
+
+    const v7, 0x7f0b00f9
+
+    instance-of v4, p1, Lcom/android/systemui/qs/QSTile$BooleanState;
+
+    if-eqz v4, :cond_3
+
+    move-object v0, p1
+
+    check-cast v0, Lcom/android/systemui/qs/QSTile$BooleanState;
+
+    iget-boolean v4, v0, Lcom/android/systemui/qs/QSTile$BooleanState;->dim:Z
+
+    if-eqz v4, :cond_1
+
+    iget-object v4, p0, Lcom/android/systemui/qs/QSIconView;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v4, v7}, Landroid/content/Context;->getColor(I)I
+
+    move-result v4
+
+    ushr-int/lit8 v4, v4, 0x18
+
+    int-to-float v4, v4
+
+    iget-object v5, p0, Lcom/android/systemui/qs/QSIconView;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v5
+
+    const v6, 0x7f0c007d
+
+    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getFloat(I)F
+
+    move-result v5
+
+    mul-float/2addr v4, v5
+
+    float-to-int v2, v4
+
+    const/high16 v4, 0x1000000
+
+    mul-int/2addr v4, v2
+
+    const v5, 0xffffff
+
+    add-int/2addr v4, v5
+
+    and-int/lit8 v3, v4, -0x1
+
+    iget-object v4, p0, Lcom/android/systemui/qs/QSIconView;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v4, v7}, Landroid/content/Context;->getColor(I)I
+
+    move-result v4
+
+    and-int v1, v4, v3
+
+    :goto_0
+    sget-boolean v4, Lcom/android/systemui/qs/QSIconView;->DEBUG:Z
+
+    if-eqz v4, :cond_0
+
+    const-string/jumbo v4, "QSIconView"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "getColor : Label = "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    iget-object v6, p1, Lcom/android/systemui/qs/QSTile$State;->label:Ljava/lang/CharSequence;
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string/jumbo v6, ", color = "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    return v1
+
+    :cond_1
+    iget-boolean v4, v0, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
+
+    if-eqz v4, :cond_2
+
+    iget-object v4, p0, Lcom/android/systemui/qs/QSIconView;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v4, v7}, Landroid/content/Context;->getColor(I)I
+
+    move-result v1
+
+    goto :goto_0
+
+    :cond_2
+    iget-object v4, p0, Lcom/android/systemui/qs/QSIconView;->mContext:Landroid/content/Context;
+
+    const v5, 0x7f0b00fa
+
+    invoke-virtual {v4, v5}, Landroid/content/Context;->getColor(I)I
+
+    move-result v1
+
+    goto :goto_0
+
+    :cond_3
+    const-string/jumbo v4, "QSIconView"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "getColor : Label = "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    iget-object v6, p1, Lcom/android/systemui/qs/QSTile$State;->label:Ljava/lang/CharSequence;
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string/jumbo v6, ", state is not BooleanState"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v4, 0x0
+
+    return v4
 .end method
 
 .method protected getIconMeasureMode()I
@@ -213,17 +396,17 @@
 
     iget-object v3, p2, Lcom/android/systemui/qs/QSTile$State;->icon:Lcom/android/systemui/qs/QSTile$Icon;
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_4
 
     invoke-virtual {p1}, Landroid/widget/ImageView;->isShown()Z
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_3
 
     iget-boolean v3, p0, Lcom/android/systemui/qs/QSIconView;->mAnimationEnabled:Z
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_3
 
     iget-object v3, p2, Lcom/android/systemui/qs/QSTile$State;->icon:Lcom/android/systemui/qs/QSTile$Icon;
 
@@ -236,7 +419,7 @@
     :goto_0
     iget-object v3, p2, Lcom/android/systemui/qs/QSTile$State;->icon:Lcom/android/systemui/qs/QSTile$Icon;
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_5
 
     iget-object v3, p2, Lcom/android/systemui/qs/QSTile$State;->icon:Lcom/android/systemui/qs/QSTile$Icon;
 
@@ -265,19 +448,6 @@
     invoke-virtual {p1, v3}, Landroid/widget/ImageView;->setScaleType(Landroid/widget/ImageView$ScaleType;)V
 
     :cond_1
-    iget-object v3, p2, Lcom/android/systemui/qs/QSTile$State;->icon:Lcom/android/systemui/qs/QSTile$Icon;
-
-    if-eqz v3, :cond_2
-
-    if-eqz v1, :cond_2
-
-    iget-object v3, p2, Lcom/android/systemui/qs/QSTile$State;->icon:Lcom/android/systemui/qs/QSTile$Icon;
-
-    iget-object v4, p0, Lcom/android/systemui/qs/QSIconView;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v3, v4, p2, v1}, Lcom/android/systemui/qs/QSTile$Icon;->setColor(Landroid/content/Context;Lcom/android/systemui/qs/QSTile$State;Landroid/graphics/drawable/Drawable;)Z
-
-    :cond_2
     invoke-virtual {p1, v1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
     iget-object v3, p2, Lcom/android/systemui/qs/QSTile$State;->icon:Lcom/android/systemui/qs/QSTile$Icon;
@@ -290,13 +460,13 @@
 
     instance-of v3, v1, Landroid/graphics/drawable/Animatable;
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_2
 
     invoke-virtual {p1}, Landroid/widget/ImageView;->isShown()Z
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_2
 
     move-object v0, v1
 
@@ -308,14 +478,14 @@
 
     move-result v3
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_2
 
     invoke-interface {v0}, Landroid/graphics/drawable/Animatable;->stop()V
 
-    :cond_3
+    :cond_2
     iget-boolean v3, p2, Lcom/android/systemui/qs/QSTile$State;->disabledByPolicy:Z
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_6
 
     invoke-virtual {p0}, Lcom/android/systemui/qs/QSIconView;->getContext()Landroid/content/Context;
 
@@ -332,7 +502,7 @@
     :goto_2
     return-void
 
-    :cond_4
+    :cond_3
     iget-object v3, p2, Lcom/android/systemui/qs/QSTile$State;->icon:Lcom/android/systemui/qs/QSTile$Icon;
 
     iget-object v4, p0, Lcom/android/systemui/qs/QSIconView;->mContext:Landroid/content/Context;
@@ -343,18 +513,24 @@
 
     goto :goto_0
 
-    :cond_5
+    :cond_4
     const/4 v1, 0x0
 
     goto :goto_0
 
-    :cond_6
+    :cond_5
     const/4 v2, 0x0
 
     goto :goto_1
 
-    :cond_7
-    invoke-virtual {p1}, Landroid/widget/ImageView;->clearColorFilter()V
+    :cond_6
+    invoke-virtual {p0, p2}, Lcom/android/systemui/qs/QSIconView;->getColor(Lcom/android/systemui/qs/QSTile$State;)I
+
+    move-result v3
+
+    sget-object v4, Landroid/graphics/PorterDuff$Mode;->SRC_IN:Landroid/graphics/PorterDuff$Mode;
+
+    invoke-virtual {p1, v3, v4}, Landroid/widget/ImageView;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
 
     goto :goto_2
 .end method

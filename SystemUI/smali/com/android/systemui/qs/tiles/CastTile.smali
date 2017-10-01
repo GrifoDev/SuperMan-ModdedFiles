@@ -421,7 +421,7 @@
 
     if-eqz v4, :cond_4
 
-    const v4, 0x7f0201b7
+    const v4, 0x7f0201b8
 
     :goto_1
     invoke-static {v4}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
@@ -462,7 +462,7 @@
 
     iget-object v5, p0, Lcom/android/systemui/qs/tiles/CastTile;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0f05c0
+    const v6, 0x7f0f05c1
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -481,7 +481,7 @@
     return-void
 
     :cond_4
-    const v4, 0x7f0201b6
+    const v4, 0x7f0201b7
 
     goto :goto_1
 .end method

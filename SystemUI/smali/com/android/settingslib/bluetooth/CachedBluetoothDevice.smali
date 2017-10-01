@@ -4807,7 +4807,9 @@
 
     iget-object v8, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v8, v3}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+    const-string/jumbo v9, "com.samsung.bluetooth.permission.BLUETOOTH_DEVICE"
+
+    invoke-virtual {v8, v3, v9}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;Ljava/lang/String;)V
 
     const-string/jumbo v8, "CachedBluetoothDevice"
 
@@ -4919,7 +4921,9 @@
 
     iget-object v8, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v8, v3}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+    const-string/jumbo v9, "com.samsung.bluetooth.permission.BLUETOOTH_DEVICE"
+
+    invoke-virtual {v8, v3, v9}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;Ljava/lang/String;)V
 
     :cond_2
     :goto_1
@@ -4997,7 +5001,9 @@
 
     iget-object v8, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v8, v3}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+    const-string/jumbo v9, "com.samsung.bluetooth.permission.BLUETOOTH_DEVICE"
+
+    invoke-virtual {v8, v3, v9}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;Ljava/lang/String;)V
 
     goto :goto_1
 
@@ -5026,7 +5032,9 @@
 
     iget-object v8, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v8, v3}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+    const-string/jumbo v9, "com.samsung.bluetooth.permission.BLUETOOTH_DEVICE"
+
+    invoke-virtual {v8, v3, v9}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;Ljava/lang/String;)V
 
     goto :goto_1
 
@@ -5061,7 +5069,9 @@
 
     iget-object v8, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v8, v3}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+    const-string/jumbo v9, "com.samsung.bluetooth.permission.BLUETOOTH_DEVICE"
+
+    invoke-virtual {v8, v3, v9}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;Ljava/lang/String;)V
 
     const-string/jumbo v8, "CachedBluetoothDevice"
 
@@ -5147,7 +5157,9 @@
 
     iget-object v8, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v8, v3}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+    const-string/jumbo v9, "com.samsung.bluetooth.permission.BLUETOOTH_DEVICE"
+
+    invoke-virtual {v8, v3, v9}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;Ljava/lang/String;)V
 
     const-string/jumbo v8, "CachedBluetoothDevice"
 

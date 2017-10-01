@@ -97,9 +97,9 @@
 
     new-instance v0, Lcom/android/systemui/qs/QSTile$AnimationIcon;
 
-    const v1, 0x7f0201fb
+    const v1, 0x7f0201fc
 
-    const v2, 0x7f0201f8
+    const v2, 0x7f0201f9
 
     invoke-direct {v0, p0, v1, v2}, Lcom/android/systemui/qs/QSTile$AnimationIcon;-><init>(Lcom/android/systemui/qs/QSTile;II)V
 
@@ -107,9 +107,9 @@
 
     new-instance v0, Lcom/android/systemui/qs/QSTile$AnimationIcon;
 
-    const v1, 0x7f0201f9
+    const v1, 0x7f0201fa
 
-    const v2, 0x7f0201fa
+    const v2, 0x7f0201fb
 
     invoke-direct {v0, p0, v1, v2}, Lcom/android/systemui/qs/QSTile$AnimationIcon;-><init>(Lcom/android/systemui/qs/QSTile;II)V
 
@@ -215,39 +215,6 @@
 
 
 # virtual methods
-.method protected composeChangeAnnouncement()Ljava/lang/String;
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/LocationTile;->mState:Lcom/android/systemui/qs/QSTile$State;
-
-    check-cast v0, Lcom/android/systemui/qs/QSTile$BooleanState;
-
-    iget-boolean v0, v0, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/LocationTile;->mContext:Landroid/content/Context;
-
-    const v1, 0x7f0f031a
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/LocationTile;->mContext:Landroid/content/Context;
-
-    const v1, 0x7f0f0319
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
 .method public getDetailAdapter()Lcom/android/systemui/qs/QSTile$DetailAdapter;
     .locals 1
 
@@ -465,7 +432,7 @@
 
     invoke-virtual {p0, p1, v1}, Lcom/android/systemui/qs/tiles/LocationTile;->checkIfRestrictionEnforcedByAdminOnly(Lcom/android/systemui/qs/QSTile$State;Ljava/lang/String;)V
 
-    const v1, 0x7f02039b
+    const v1, 0x7f02039e
 
     invoke-static {v1}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 

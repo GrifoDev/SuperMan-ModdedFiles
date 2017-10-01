@@ -24,6 +24,8 @@
 
 .field final synthetic val$opts:Landroid/app/ActivityOptions;
 
+.field final synthetic val$screenPinningRequested:Z
+
 .field final synthetic val$stack:Lcom/android/systemui/recents/model/TaskStack;
 
 .field final synthetic val$task:Lcom/android/systemui/recents/model/Task;
@@ -34,7 +36,7 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/recents/views/RecentsTransitionHelper;Lcom/android/systemui/recents/model/TaskStack;Lcom/android/systemui/recents/model/Task;Lcom/android/systemui/recents/views/TaskView;Landroid/app/ActivityOptions;Landroid/view/IAppTransitionAnimationSpecsFuture;Landroid/app/ActivityOptions$OnAnimationStartedListener;)V
+.method constructor <init>(Lcom/android/systemui/recents/views/RecentsTransitionHelper;Lcom/android/systemui/recents/model/TaskStack;Lcom/android/systemui/recents/model/Task;Lcom/android/systemui/recents/views/TaskView;Landroid/app/ActivityOptions;Landroid/view/IAppTransitionAnimationSpecsFuture;Landroid/app/ActivityOptions$OnAnimationStartedListener;Z)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/recents/views/RecentsTransitionHelper$4;->this$0:Lcom/android/systemui/recents/views/RecentsTransitionHelper;
@@ -51,6 +53,8 @@
 
     iput-object p7, p0, Lcom/android/systemui/recents/views/RecentsTransitionHelper$4;->val$animStartedListener:Landroid/app/ActivityOptions$OnAnimationStartedListener;
 
+    iput-boolean p8, p0, Lcom/android/systemui/recents/views/RecentsTransitionHelper$4;->val$screenPinningRequested:Z
+
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -59,7 +63,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 7
+    .locals 8
 
     iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsTransitionHelper$4;->this$0:Lcom/android/systemui/recents/views/RecentsTransitionHelper;
 
@@ -75,7 +79,9 @@
 
     iget-object v6, p0, Lcom/android/systemui/recents/views/RecentsTransitionHelper$4;->val$animStartedListener:Landroid/app/ActivityOptions$OnAnimationStartedListener;
 
-    invoke-static/range {v0 .. v6}, Lcom/android/systemui/recents/views/RecentsTransitionHelper;->-wrap1(Lcom/android/systemui/recents/views/RecentsTransitionHelper;Lcom/android/systemui/recents/model/TaskStack;Lcom/android/systemui/recents/model/Task;Lcom/android/systemui/recents/views/TaskView;Landroid/app/ActivityOptions;Landroid/view/IAppTransitionAnimationSpecsFuture;Landroid/app/ActivityOptions$OnAnimationStartedListener;)V
+    iget-boolean v7, p0, Lcom/android/systemui/recents/views/RecentsTransitionHelper$4;->val$screenPinningRequested:Z
+
+    invoke-static/range {v0 .. v7}, Lcom/android/systemui/recents/views/RecentsTransitionHelper;->-wrap1(Lcom/android/systemui/recents/views/RecentsTransitionHelper;Lcom/android/systemui/recents/model/TaskStack;Lcom/android/systemui/recents/model/Task;Lcom/android/systemui/recents/views/TaskView;Landroid/app/ActivityOptions;Landroid/view/IAppTransitionAnimationSpecsFuture;Landroid/app/ActivityOptions$OnAnimationStartedListener;Z)V
 
     return-void
 .end method

@@ -958,6 +958,7 @@ Ikonet for Wi-Fi-opkald vises i informationspanelet som vist nedenfor, når tjen
     <string name="quick_settings_dual_label_content_description">%s, Knapmærkat, Dobbelttryk for at se relevante hurtigindstillinger.</string>
     <string name="accessibility_button">Tast</string>
     <string name="quick_settings_brightness_auto_brightness">Automatisk lysstyrke</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">Juster skærmens lysstyrke automatisk efter lysforholdene.</string>
     <string name="quick_settings_brightness_quick_access">Vis kontrolelement øverst</string>
     <string name="quick_settings_brightness_quick_access_summary">Vis lysstyrkekontrolelementet over informationspanelet.</string>
     <string name="quick_settings_brightness_detail_level">Niveau</string>
@@ -1278,6 +1279,7 @@ Kontakt din administrator for at få flere oplysninger."</string>
     <string name="keyboard_shortcut_group_system_notifications">Underretninger</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">Tastaturgenveje</string>
     <string name="keyboard_shortcut_group_system_switch_input">Skift indtastningsmetode</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">Skift sprog</string>
     <string name="keyboard_shortcut_group_applications">Applikationer</string>
     <string name="keyboard_shortcut_group_applications_assist">Assistance</string>
     <string name="keyboard_shortcut_group_applications_browser">Browser</string>
@@ -1481,8 +1483,10 @@ Overophedning kan skyldes:
     <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
     <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
     <string name="battery_low_sec_title">Batteristrøm %d %%</string>
-    <string name="battery_low_sec_body_in_normal_mode">Oplad din enhed, eller tryk her for at aktivere strømbesparende tilstand.</string>
-    <string name="battery_low_sec_body_in_ups_mode">Forbind din enhed til en oplader.</string>
+    <string name="battery_low_sec_body_phone">Oplad din telefon, eller tryk her for at aktivere strømbesparende tilstand.</string>
+    <string name="battery_low_sec_body_tablet">Oplad din tablet, eller tryk her for at aktivere strømbesparende tilstand.</string>
+    <string name="battery_low_sec_body_phone_psm">Oplad din telefon.</string>
+    <string name="battery_low_sec_body_tablet_psm">Oplad din tablet.</string>
     <string name="battery_cable_charging_title">Opladning med kabel</string>
     <string name="battery_charging_title">Oplader</string>
     <string name="battery_fast_charging_title">Hurtigopladning</string>
@@ -1501,7 +1505,10 @@ Overophedning kan skyldes:
     <string name="battery_saver_notification_text_time_extend">Dit batteris levetid er blevet forlænget.</string>
     <string name="button_detail">Detaljer</string>
     <string name="battery_saver_recommend_notification_title">Batteristrøm %d %%</string>
-    <string name="battery_saver_recommend_notification_text">Oplad din enhed, eller tryk her for at aktivere strømbesparende tilstand.</string>
+    <string name="battery_saver_recommend_notification_text_phone">Oplad din telefon, eller tryk her for at aktivere strømbesparende tilstand.</string>
+    <string name="battery_saver_recommend_notification_text_tablet">Oplad din tablet, eller tryk her for at aktivere strømbesparende tilstand.</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">Oplad din telefon.</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">Oplad din tablet.</string>
     <string name="button_close">Luk</string>
     <string name="battery_health_interruption_title">Kunne ikke oplade</string>
     <string name="battery_health_interruption_by_terminal_open_text">Ude af stand til at oplade din enhed. Kontroller, at du bruger et Samsung-kompatibelt batteri og oplader, og at din enhed er korrekt sluttet til opladeren.</string>
@@ -1590,6 +1597,7 @@ upscaler"</string>
     <string name="uhq_mode_noti_text">Få bedre lydopløsning af musik og videoer, og opnå en renere lytteoplevelse.</string>
     <string name="assistance_app_setting_alert_dialog_title">Vælg en app, der skal åbnes, når du trykker og holder på starttasten. Du kan ændre den valgte app senere ved at gå til appen Enhedsassistance under Indstillinger.</string>
     <string name="assistance_app_setting_item_none">Ingen</string>
+    <string name="remote_input_send_text">Send</string>
     <string name="remote_input_toast_text_on_sview_cover">Kan ikke bruge funktionen Hurtigt svar, når S View Cover er lukket.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -1845,7 +1853,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_direction_shutdown_instructions">Tegn en serie af retninger for at slukke</string>
     <string name="kg_none_multi_pin_restart_instructions">Enheden blev genstartet og skal låses op med din PIN-kode. Du kan bruge dine biometriske data, næste gang du låser enheden op.</string>
     <string name="kg_tablet_multi_pin_restart_instructions">Enheden blev genstartet og skal låses op med din PIN-kode. Du kan bruge dine biometriske data, næste gang du låser enheden op.</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">Enheden blev genstartet og skal låses op med din PIN-kode. Du kan bruge dine fingeraftryk, næste gang du låser enheden op.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">Din telefon blev genstartet og skal låses op med din PIN-kode. Du kan bruge dine fingeraftryk, næste gang du låser telefonen op.</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">Enheden blev genstartet og skal låses op med din PIN-kode. Du kan bruge dine fingeraftryk, næste gang du låser enheden op.</string>
     <string name="kg_none_iris_pin_restart_instructions">Enheden blev genstartet og skal låses op med din PIN-kode. Du kan bruge din iris, næste gang du låser enheden op.</string>
     <string name="kg_tablet_iris_pin_restart_instructions">Enheden blev genstartet og skal låses op med din PIN-kode. Du kan bruge din iris, næste gang du låser enheden op.</string>
@@ -1875,7 +1883,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pattern_deviceadmin_instructions">Tegn mønster i stedet for at bruge irisgenkendelse på grund af sikkerhedspolitikken</string>
     <string name="kg_none_multi_password_restart_instructions">Enheden blev genstartet og skal låses op med din adgangskode. Du kan bruge dine biometriske data, næste gang du låser enheden op.</string>
     <string name="kg_tablet_multi_password_restart_instructions">Enheden blev genstartet og skal låses op med din adgangskode. Du kan bruge dine biometriske data, næste gang du låser enheden op.</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">Enheden blev genstartet og skal låses op med din adgangskode. Du kan bruge dine fingeraftryk, næste gang du låser enheden op.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">Din telefon blev genstartet og skal låses op med din adgangskode. Du kan bruge dine fingeraftryk, næste gang du låser din telefon op.</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">Enheden blev genstartet og skal låses op med din adgangskode. Du kan bruge dine fingeraftryk, næste gang du låser enheden op.</string>
     <string name="kg_none_iris_password_restart_instructions">Enheden blev genstartet og skal låses op med din adgangskode. Du kan bruge din iris, næste gang du låser enheden op.</string>
     <string name="kg_tablet_iris_password_restart_instructions">Enheden blev genstartet og skal låses op med din adgangskode. Du kan bruge din iris, næste gang du låser enheden op.</string>
@@ -1890,7 +1898,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_password_deviceadmin_instructions">Indtast adgangskode i stedet for at bruge irisgenkendelse på grund af sikkerhedspolitikken</string>
     <string name="kg_none_multi_direction_restart_instructions">Enheden blev genstartet og skal låses op med din serie af retninger. Du kan bruge dine biometriske data, næste gang du låser enheden op.</string>
     <string name="kg_tablet_multi_direction_restart_instructions">Enheden blev genstartet og skal låses op med din serie af retninger. Du kan bruge dine biometriske data, næste gang du låser enheden op.</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">Enheden blev genstartet og skal låses op med din serie af retninger. Du kan bruge dine fingeraftryk, næste gang du låser enheden op.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">Din telefon blev genstartet og skal låses op med din serie af retninger. Du kan bruge dine fingeraftryk, næste gang du låser din telefon op.</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">Enheden blev genstartet og skal låses op med din serie af retninger. Du kan bruge dine fingeraftryk, næste gang du låser enheden op.</string>
     <string name="kg_none_iris_direction_restart_instructions">Enheden blev genstartet og skal låses op med din serie af retninger. Du kan bruge din iris, næste gang du låser enheden op.</string>
     <string name="kg_tablet_iris_direction_restart_instructions">Enheden blev genstartet og skal låses op med din serie af retninger. Du kan bruge din iris, næste gang du låser enheden op.</string>
@@ -2012,6 +2020,9 @@ Prøv igen om 1 sekund"</string>
     <string name="recents_help_dlg_split_icon_desc">Tryk på ikonet Opdelt skærm i appvinduets titellinje for at åbne apps med opdelt skærm. Dette ikon vises, når appen understøtter Multi-vindue.</string>
     <string name="recents_help_dlg_long_click_recents_key_text">Tryk og hold på tasten seneste, mens du bruger en app i fuldskærmsvisning, for at skifte til opdelt skærm.</string>
     <string name="recents_help_dlg_home_key_in_split_text">Hvis du trykker på starttasten under visning med opdelt skærm, vil den viste app i øverste halvdel af skærmen blive minimeret. Hvis du åbner en app fra startskærmen, mens statuslinjen er blå, vil appen åbne med opdelt skærm i den nederste del af skærmen.</string>
+    <string name="battery_low_sec_body_in_normal_mode">Oplad din enhed, eller tryk her for at aktivere strømbesparende tilstand.</string>
+    <string name="battery_low_sec_body_in_ups_mode">Forbind din enhed til en oplader.</string>
+    <string name="battery_saver_recommend_notification_text">Oplad din enhed, eller tryk her for at aktivere strømbesparende tilstand.</string>
     <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
 
 If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>

@@ -389,6 +389,7 @@ Ikōna Połōnczyniŏ bez nec Wi-Fi pokŏże się na pŏsku nowin, jak pokŏzano
     <string name="quick_settings_dual_label_content_description">%s, Etyketa knefel, Tyknij dwa razy, coby pokŏzać pasowne gibke sztalowania.</string>
     <string name="accessibility_button">Knefel</string>
     <string name="quick_settings_brightness_auto_brightness">Automatyczna jasność</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">Autōmatycznie napasuj jasność ekranu podōg warunkōw ôświytlyniŏ.</string>
     <string name="quick_settings_brightness_quick_access">Pokaż kontrolkę na wierzchu</string>
     <string name="quick_settings_brightness_quick_access_summary">Pokaż element sterujący jasnością powyżej panelu powiadomień.</string>
     <string name="quick_settings_brightness_detail_level">Poziōm</string>
@@ -418,6 +419,7 @@ Ikōna Połōnczyniŏ bez nec Wi-Fi pokŏże się na pŏsku nowin, jak pokŏzano
     <string name="wifi_ap_wifi_p2p_off_warn">Włączenie funkcji Mobile hotspot spowoduje odłączenie wszystkich urządzeń aktualnie podłączonych za pośrednictwem funkcji Wi-Fi Direct.</string>
     <string name="wifi_ap_wifi_p2p_off_warn_china">Załōnczyniy mobilnego hotspotu WLAN rozłōnczy masziny połōnczōne bez WLAN direct</string>
     <string name="dialog_battery_data_warning">Fōnkcyjŏ Mobile hotspot bydzie załōnczono. Zwiynkszy to zużycie baterii i danych.</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">Przeciep gŏdki</string>
     <string name="keyboard_shortcut_group_applications_email">E-mail</string>
     <string name="qs_edit">POPRŎW</string>
     <string name="sec_qs_edit">Poprŏw</string>
@@ -544,8 +546,10 @@ Przegrzewanie może być spowodowane przez:
     <string name="safe_mode_alert_body_vzw">Chcesz załōnczyć mobilniŏk nazŏd coby wyłōnczyć Tryb Bezpieczny? Wszyjske aplikacyje bydōm przywrōcone.</string>
     <string name="safe_mode_alert_positive_button_vzw">Wyłōncz Tryb Bezpieczny</string>
     <string name="battery_low_sec_title">Nafolowanie baterji %d%%</string>
-    <string name="battery_low_sec_body_in_normal_mode">Nafoluj maszina abo tyknij tukej, coby załōnczyć Tryb szporowanio ynergji.</string>
-    <string name="battery_low_sec_body_in_ups_mode">Podłōncz swoja maszina do ladowaniŏ.</string>
+    <string name="battery_low_sec_body_phone">Nafoluj telefōn abo tyknij tukej, coby załōnczyć Tryb szporowaniŏ ynergie.</string>
+    <string name="battery_low_sec_body_tablet">Nafoluj tablet abo tyknij tukej, coby załōnczyć Tryb szporowaniŏ ynergie.</string>
+    <string name="battery_low_sec_body_phone_psm">Nafoluj telefōn.</string>
+    <string name="battery_low_sec_body_tablet_psm">Nafoluj tablet.</string>
     <string name="battery_cable_charging_title">Ładowanie przi użyciu kabla</string>
     <string name="battery_charging_title">Folowanie</string>
     <string name="battery_fast_charging_title">Gibke folowanie</string>
@@ -564,7 +568,10 @@ Przegrzewanie może być spowodowane przez:
     <string name="battery_saver_notification_text_time_extend">Czas fōngowanio baterji je wydugszōny.</string>
     <string name="button_detail">Szczegōły</string>
     <string name="battery_saver_recommend_notification_title">Nafolowanie baterji %d%%</string>
-    <string name="battery_saver_recommend_notification_text">Nafoluj maszina abo tyknij tukej, coby załōnczyć Tryb szporowanio ynergji.</string>
+    <string name="battery_saver_recommend_notification_text_phone">Nafoluj telefōn abo tyknij tukej, coby załōnczyć Tryb szporowaniŏ ynergie.</string>
+    <string name="battery_saver_recommend_notification_text_tablet">Nafoluj tablet abo tyknij tukej, coby załōnczyć Tryb szporowaniŏ ynergie.</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">Nafoluj telefōn.</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">Nafoluj tablet.</string>
     <string name="button_close">Zawrzij</string>
     <string name="battery_health_interruption_title">Niy idzie ladować</string>
     <string name="battery_health_interruption_by_terminal_open_text">Niy idzie naładować masziny. Badnij, czy mŏsz zgodne bateryje i ładowarka Samsung i co maszina je prawidłowo podłōnczōnŏ do ładowarki.</string>
@@ -653,6 +660,7 @@ UHQ"</string>
     <string name="uhq_mode_noti_text">Poprŏw rozdziylczość klangu dlŏ muzyki i filmōw, coby dostać lepszŏ jakość, kej słuchŏsz.</string>
     <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
     <string name="assistance_app_setting_item_none">Żŏdyn</string>
+    <string name="remote_input_send_text">Poślij</string>
     <string name="remote_input_toast_text_on_sview_cover">Niy idzie używać fōnkcyji gibkigo ôdpedzynio po zawarciu deklika S View.</string>
     <string name="wfc_enable_dialog_opv_title">WITAMY W USŁUDZE Wi-Fi CALLING</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling to usługa świadczona przez Twojego operatora, Orange Polska S.A.
@@ -841,7 +849,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_direction_shutdown_instructions">Narysuj sekwencję kierunków, aby wyłączyć zasilanie</string>
     <string name="kg_none_multi_pin_restart_instructions">Maszina je sztartniynto drugi rŏz i trza ôna ôdbloknōńć bez użycie kodu PIN. Na drugi rŏz do ôdblokniyńcio masziny poradzisz użyć danych biometrycznych.</string>
     <string name="kg_tablet_multi_pin_restart_instructions">Maszina je sztartniynto drugi rŏz i trza ôna ôdbloknōńć bez użycie kodu PIN. Na drugi rŏz do ôdblokniyńcio masziny poradzisz użyć danych biometrycznych.</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">Maszina je sztartniynto drugi rŏz i trza ôna ôdbloknōńć bez użycie kodu PIN. Na drugi rŏz do ôdblokniyńcio masziny poradzisz użyć ôdciskōw palcōw.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">Telefōn resztartowano i trza go ôdblokować bez kod PIN. Dalij idzie do ôdblokowaniŏ telefōnu użyć ôdciskōw palcōw.</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">Maszina je sztartniynto drugi rŏz i trza ôna ôdbloknōńć bez użycie kodu PIN. Na drugi rŏz do ôdblokniyńcio masziny poradzisz użyć ôdciskōw palcōw.</string>
     <string name="kg_none_iris_pin_restart_instructions">Maszina je sztartniynto drugi rŏz i trza ôna ôdbloknōńć bez użycie kodu PIN. Na drugi rŏz do ôdblokniyńcio masziny poradzisz użyć tynczōwek.</string>
     <string name="kg_tablet_iris_pin_restart_instructions">Maszina je sztartniynto drugi rŏz i trza ôna ôdbloknōńć bez użycie kodu PIN. Na drugi rŏz do ôdblokniyńcio masziny poradzisz użyć tynczōwek.</string>
@@ -871,7 +879,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pattern_deviceadmin_instructions">Naszkryflej znak coby niy używać poznŏwanio tynczōwki skuli prawideł bezpieczyństwa</string>
     <string name="kg_none_multi_password_restart_instructions">Maszina je sztartniynto drugi rŏz i trza ôna ôdbloknōńć bez użycie hasła. Na drugi rŏz do ôdblokniyńcio masziny poradzisz użyć danych biometrycznych.</string>
     <string name="kg_tablet_multi_password_restart_instructions">Maszina je sztartniynto drugi rŏz i trza ôna ôdbloknōńć bez użycie hasła. Na drugi rŏz do ôdblokniyńcio masziny poradzisz użyć danych biometrycznych.</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">Maszina je sztartniynto drugi rŏz i trza ôna ôdbloknōńć bez użycie hasła. Na drugi rŏz do ôdblokniyńcio masziny poradzisz użyć ôdciskōw palcōw.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">Telefōn resztartowano i trza go ôdblokować bez hasło. Dalij idzie do ôdblokowaniŏ telefōnu użyć ôdciskōw palcōw.</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">Maszina je sztartniynto drugi rŏz i trza ôna ôdbloknōńć bez użycie hasła. Na drugi rŏz do ôdblokniyńcio masziny poradzisz użyć ôdciskōw palcōw.</string>
     <string name="kg_none_iris_password_restart_instructions">Maszina je sztartniynto drugi rŏz i trza ôna ôdbloknōńć bez użycie hasła. Na drugi rŏz do ôdblokniyńcio masziny poradzisz użyć tynczōwek.</string>
     <string name="kg_tablet_iris_password_restart_instructions">Maszina je sztartniynto drugi rŏz i trza ôna ôdbloknōńć bez użycie hasła. Na drugi rŏz do ôdblokniyńcio masziny poradzisz użyć tynczōwek.</string>
@@ -886,7 +894,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_password_deviceadmin_instructions">Wkludź hasło coby niy używać poznŏwanio tynczōwki skuli prawideł bezpieczyństwa</string>
     <string name="kg_none_multi_direction_restart_instructions">Maszina je sztartniynto drugi rŏz i trza ôna ôdbloknōńć bez użycie seryji kerōnkōw. Na drugi rŏz do ôdblokniyńcio masziny poradzisz użyć danych biometrycznych.</string>
     <string name="kg_tablet_multi_direction_restart_instructions">Maszina je sztartniynto drugi rŏz i trza ôna ôdbloknōńć bez użycie seryji kerōnkōw. Na drugi rŏz do ôdblokniyńcio masziny poradzisz użyć danych biometrycznych.</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">Maszina je sztartniynto drugi rŏz i trza ôna ôdbloknōńć bez użycie seryji kerōnkōw. Na drugi rŏz do ôdblokniyńcio masziny poradzisz użyć ôdciskōw palcōw.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">Telefōn resztartowano i trza go ôdblokować bez sekwencyjŏ kerunkōw. Dalij idzie do ôdblokowaniŏ telefōnu użyć ôdciskōw palcōw.</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">Maszina je sztartniynto drugi rŏz i trza ôna ôdbloknōńć bez użycie seryji kerōnkōw. Na drugi rŏz do ôdblokniyńcio masziny poradzisz użyć ôdciskōw palcōw.</string>
     <string name="kg_none_iris_direction_restart_instructions">Maszina je sztartniynto drugi rŏz i trza ôna ôdbloknōńć bez użycie seryji kerōnkōw. Na drugi rŏz do ôdblokniyńcio masziny poradzisz użyć tynczōwek.</string>
     <string name="kg_tablet_iris_direction_restart_instructions">Maszina je sztartniynto drugi rŏz i trza ôna ôdbloknōńć bez użycie seryji kerōnkōw. Na drugi rŏz do ôdblokniyńcio masziny poradzisz użyć tynczōwek.</string>
@@ -1005,6 +1013,9 @@ Wybadej drugi rŏz za 1 sekunda"</string>
     <string name="recents_help_dlg_split_icon_desc">Dotknij ikony dzielenia ekranu na pasku tytułu okna aplikacji, aby otwierać aplikacje w widoku podzielonego ekranu. Ikona ta jest wyświetlana, gdy aplikacja obsługuje wiele okien.</string>
     <string name="recents_help_dlg_long_click_recents_key_text">Naciśnij i przytrzymaj klawisz Ostatnie podczas używania aplikacji w widoku pełnoekranowym, aby przejść do widoku podzielonego ekranu.</string>
     <string name="recents_help_dlg_home_key_in_split_text">Jeśli podczas korzystania z widoku podzielonego ekranu naciśniesz klawisz ekranu startowego, aplikacja wyświetlana w górnej połowie ekranu zostanie zminimalizowana. Jeśli pasek stanu jest niebieski i otworzysz aplikację z ekranu startowego, zostanie ona otwarta w dolnej połowie widoku podzielonego ekranu.</string>
+    <string name="battery_low_sec_body_in_normal_mode">Nafoluj maszina abo tyknij tukej, coby załōnczyć Tryb szporowanio ynergji.</string>
+    <string name="battery_low_sec_body_in_ups_mode">Podłōncz swoja maszina do ladowaniŏ.</string>
+    <string name="battery_saver_recommend_notification_text">Nafoluj maszina abo tyknij tukej, coby załōnczyć Tryb szporowanio ynergji.</string>
     <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
 
 If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>

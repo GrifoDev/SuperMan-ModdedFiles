@@ -104,6 +104,20 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsTransitionHelper$2;->this$0:Lcom/android/systemui/recents/views/RecentsTransitionHelper;
 
+    invoke-static {v0}, Lcom/android/systemui/recents/views/RecentsTransitionHelper;->-get3(Lcom/android/systemui/recents/views/RecentsTransitionHelper;)Landroid/os/Handler;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/systemui/recents/views/RecentsTransitionHelper$2;->this$0:Lcom/android/systemui/recents/views/RecentsTransitionHelper;
+
+    invoke-static {v1}, Lcom/android/systemui/recents/views/RecentsTransitionHelper;->-get4(Lcom/android/systemui/recents/views/RecentsTransitionHelper;)Lcom/android/systemui/recents/views/RecentsTransitionHelper$StartScreenPinningRunnableRunnable;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+
+    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsTransitionHelper$2;->this$0:Lcom/android/systemui/recents/views/RecentsTransitionHelper;
+
     invoke-static {v0}, Lcom/android/systemui/recents/views/RecentsTransitionHelper;->-get4(Lcom/android/systemui/recents/views/RecentsTransitionHelper;)Lcom/android/systemui/recents/views/RecentsTransitionHelper$StartScreenPinningRunnableRunnable;
 
     move-result-object v0

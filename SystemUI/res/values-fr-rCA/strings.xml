@@ -956,6 +956,7 @@ L'icône Appels Wifi apparaitra dans le volet des raccourcis, comme indiqué ci-
     <string name="quick_settings_dual_label_content_description">%s, intitulé du bouton, touchez deux fois pour afficher les raccourcis correspondants.</string>
     <string name="accessibility_button">Bouton</string>
     <string name="quick_settings_brightness_auto_brightness">Luminosité automatique</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">"Ajustez automatiquement la luminosité de l'écran en fonction des conditions d'éclairage."</string>
     <string name="quick_settings_brightness_quick_access">Afficher le contrôle en haut</string>
     <string name="quick_settings_brightness_quick_access_summary">Affichez le contrôle de la luminosité au-dessus du panneau des notifications.</string>
     <string name="quick_settings_brightness_detail_level">Niveau</string>
@@ -1276,6 +1277,7 @@ Pour en savoir plus, communiquez avec votre administrateur."</string>
     <string name="keyboard_shortcut_group_system_notifications">Notifications</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">Raccourcis clavier</string>
     <string name="keyboard_shortcut_group_system_switch_input">"Changer de méthode d'entrée"</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">Changement de langues</string>
     <string name="keyboard_shortcut_group_applications">Applications</string>
     <string name="keyboard_shortcut_group_applications_assist">Assistance</string>
     <string name="keyboard_shortcut_group_applications_browser">Navigateur</string>
@@ -1479,8 +1481,10 @@ Les causes de surchauffe sont diverses :
     <string name="safe_mode_alert_body_vzw">Redémarrer le téléphone pour désactiver mode Sécurisé ? Toutes vos applis seront restaurées.</string>
     <string name="safe_mode_alert_positive_button_vzw">Désactiver le mode Sécurisé</string>
     <string name="battery_low_sec_title">Niveau de pile à %d %%</string>
-    <string name="battery_low_sec_body_in_normal_mode">"Chargez votre appareil ou touchez ici pour activer le mode Économie d'énergie."</string>
-    <string name="battery_low_sec_body_in_ups_mode">Connectez un chargeur à votre appareil.</string>
+    <string name="battery_low_sec_body_phone">"Chargez votre téléphone ou touchez ici pour activer le mode Économie d'énergie."</string>
+    <string name="battery_low_sec_body_tablet">"Chargez votre tablette ou touchez ici pour activer le mode Économie d'énergie."</string>
+    <string name="battery_low_sec_body_phone_psm">Chargez votre téléphone.</string>
+    <string name="battery_low_sec_body_tablet_psm">Chargez votre tablette.</string>
     <string name="battery_cable_charging_title">Chargement par câble</string>
     <string name="battery_charging_title">Chargement</string>
     <string name="battery_fast_charging_title">Charg. rapide</string>
@@ -1499,7 +1503,10 @@ Les causes de surchauffe sont diverses :
     <string name="battery_saver_notification_text_time_extend">"L'autonomie de votre pile a été prolongée."</string>
     <string name="button_detail">Détail</string>
     <string name="battery_saver_recommend_notification_title">Niveau de pile à %d %%</string>
-    <string name="battery_saver_recommend_notification_text">"Chargez votre appareil ou touchez ici pour activer le mode Économie d'énergie."</string>
+    <string name="battery_saver_recommend_notification_text_phone">"Chargez votre téléphone ou touchez ici pour activer le mode Économie d'énergie."</string>
+    <string name="battery_saver_recommend_notification_text_tablet">"Chargez votre tablette ou touchez ici pour activer le mode Économie d'énergie."</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">Chargez votre téléphone.</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">Chargez votre tablette.</string>
     <string name="button_close">Fermer</string>
     <string name="battery_health_interruption_title">Chargement impossible</string>
     <string name="battery_health_interruption_by_terminal_open_text">"Impossible de charger votre appareil. Assurez-vous d'utiliser une pile et un chargeur compatibles Samsung et vérifiez que votre appareil est correctement raccordé au chargeur."</string>
@@ -1588,6 +1595,7 @@ UHQ"</string>
     <string name="uhq_mode_noti_text">"Améliorez la résolution sonore de la musique et des vidéos pour bénéficier d'une expérience d'écoute plus agréable."</string>
     <string name="assistance_app_setting_alert_dialog_title">"Sélectionnez une application à ouvrir lorsque vous maintenez la touche Accueil. Pour modifier ultérieurement l'application sélectionnée, accédez à l'application d'assistance de l'appareil dans Paramètres."</string>
     <string name="assistance_app_setting_item_none">Aucun</string>
+    <string name="remote_input_send_text">Envoyer</string>
     <string name="remote_input_toast_text_on_sview_cover">"Impossible d'utiliser la fonction Réponse rapide quand S View Cover est fermé."</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -1843,7 +1851,7 @@ Si votre tablette est réinitialisée, vous pouvez être amené à entrer les in
     <string name="kg_none_direction_shutdown_instructions">Tracer une série de directions pour éteindre</string>
     <string name="kg_none_multi_pin_restart_instructions">Votre appareil a été redémarré et doit être déverrouillé avec votre NIP. Vous pourrez utiliser vos données biométriques lors du prochain déverrouillage de votre appareil.</string>
     <string name="kg_tablet_multi_pin_restart_instructions">Votre appareil a été redémarré et doit être déverrouillé avec votre NIP. Vous pourrez utiliser vos données biométriques lors du prochain déverrouillage de votre appareil.</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">Votre appareil a été redémarré et doit être déverrouillé avec votre NIP. Vous pourrez utiliser vos empreintes lors du prochain déverrouillage de votre appareil.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">Votre téléphone a été redémarré et doit être déverrouillé avec votre NIP. Vous pourrez utiliser vos empreintes lors du prochain déverrouillage de votre téléphone.</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">Votre appareil a été redémarré et doit être déverrouillé avec votre NIP. Vous pourrez utiliser vos empreintes lors du prochain déverrouillage de votre appareil.</string>
     <string name="kg_none_iris_pin_restart_instructions">Votre appareil a été redémarré et doit être déverrouillé avec votre NIP. Vous pourrez utiliser vos iris lors du prochain déverrouillage de votre appareil.</string>
     <string name="kg_tablet_iris_pin_restart_instructions">Votre appareil a été redémarré et doit être déverrouillé avec votre NIP. Vous pourrez utiliser vos iris lors du prochain déverrouillage de votre appareil.</string>
@@ -1873,7 +1881,7 @@ Si votre tablette est réinitialisée, vous pouvez être amené à entrer les in
     <string name="kg_none_iris_pattern_deviceadmin_instructions">"Dessiner le modèle au lieu d'utiliser la reconnaissance par iris en raison de la politique de sécurité"</string>
     <string name="kg_none_multi_password_restart_instructions">Votre appareil a été redémarré et doit être déverrouillé avec votre mot de passe. Vous pourrez utiliser vos données biométriques lors du prochain déverrouillage de votre appareil.</string>
     <string name="kg_tablet_multi_password_restart_instructions">Votre appareil a été redémarré et doit être déverrouillé avec votre mot de passe. Vous pourrez utiliser vos données biométriques lors du prochain déverrouillage de votre appareil.</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">Votre appareil a été redémarré et doit être déverrouillé avec votre mot de passe. Vous pourrez utiliser vos empreintes lors du prochain déverrouillage de votre appareil.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">Votre téléphone a été redémarré et doit être déverrouillé avec votre mot de passe. Vous pourrez utiliser vos empreintes lors du prochain déverrouillage de votre téléphone.</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">Votre appareil a été redémarré et doit être déverrouillé avec votre mot de passe. Vous pourrez utiliser vos empreintes lors du prochain déverrouillage de votre appareil.</string>
     <string name="kg_none_iris_password_restart_instructions">Votre appareil a été redémarré et doit être déverrouillé avec votre mot de passe. Vous pourrez utiliser vos iris lors du prochain déverrouillage de votre appareil.</string>
     <string name="kg_tablet_iris_password_restart_instructions">Votre appareil a été redémarré et doit être déverrouillé avec votre mot de passe. Vous pourrez utiliser vos iris lors du prochain déverrouillage de votre appareil.</string>
@@ -1888,7 +1896,7 @@ Si votre tablette est réinitialisée, vous pouvez être amené à entrer les in
     <string name="kg_none_iris_password_deviceadmin_instructions">"Entrer le mot de passe au lieu d'utiliser la reconnaissance par iris en raison de la politique de sécurité"</string>
     <string name="kg_none_multi_direction_restart_instructions">Votre appareil a été redémarré et doit être déverrouillé avec votre série de directions. Vous pourrez utiliser vos données biométriques lors du prochain déverrouillage de votre appareil.</string>
     <string name="kg_tablet_multi_direction_restart_instructions">Votre appareil a été redémarré et doit être déverrouillé avec votre série de directions. Vous pourrez utiliser vos données biométriques lors du prochain déverrouillage de votre appareil.</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">Votre appareil a été redémarré et doit être déverrouillé avec votre série de directions. Vous pourrez utiliser vos empreintes lors du prochain déverrouillage de votre appareil.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">Votre téléphone a été redémarré et doit être déverrouillé avec votre série de directions. Vous pourrez utiliser vos empreintes lors du prochain déverrouillage de votre téléphone.</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">Votre appareil a été redémarré et doit être déverrouillé avec votre série de directions. Vous pourrez utiliser vos empreintes lors du prochain déverrouillage de votre appareil.</string>
     <string name="kg_none_iris_direction_restart_instructions">Votre appareil a été redémarré et doit être déverrouillé avec votre série de directions. Vous pourrez utiliser vos iris lors du prochain déverrouillage de votre appareil.</string>
     <string name="kg_tablet_iris_direction_restart_instructions">Votre appareil a été redémarré et doit être déverrouillé avec votre série de directions. Vous pourrez utiliser vos iris lors du prochain déverrouillage de votre appareil.</string>
@@ -2008,6 +2016,9 @@ Réessayez dans 1 seconde"</string>
     <string name="recents_help_dlg_split_icon_desc">"Touchez l'icône de fractionnement d'écran dans la barre de titre de la fenêtre de l'application pour ouvrir les applications en affichage fractionné. Cette icône apparait lorsque l'application prend en charge la fonction multifenêtre."</string>
     <string name="recents_help_dlg_long_click_recents_key_text">Touchez longuement la touche Applications récentes lorsque vous utilisez une application en plein écran pour basculer vers un affichage fractionné.</string>
     <string name="recents_help_dlg_home_key_in_split_text">"Si vous touchez la touche Accueil en affichage fractionné, l'application affichée dans la partie supérieure de l'écran sera réduite. Si vous ouvrez une application depuis l'écran d'accueil lorsque la barre d'état est de couleur bleue, elle s'ouvrira en affichage fractionné dans la partie inférieure de l'écran."</string>
+    <string name="battery_low_sec_body_in_normal_mode">"Chargez votre appareil ou touchez ici pour activer le mode Économie d'énergie."</string>
+    <string name="battery_low_sec_body_in_ups_mode">Connectez un chargeur à votre appareil.</string>
+    <string name="battery_saver_recommend_notification_text">"Chargez votre appareil ou touchez ici pour activer le mode Économie d'énergie."</string>
     <string name="kg_none_direction_1_frpt">"Si vous ne tracez pas la série de directions correcte lors de la prochaine tentative, votre téléphone sera automatiquement réinitialisé avec les paramètres d'usine et toutes les informations y figurant seront effacées.
 
 Si votre téléphone est réinitialisé, vous pouvez être amené à entrer les informations de compte Google (adresse courriel et mot de passe) qui lui sont associées pour pouvoir l'utiliser à nouveau."</string>

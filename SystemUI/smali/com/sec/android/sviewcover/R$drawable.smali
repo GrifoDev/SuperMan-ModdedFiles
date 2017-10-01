@@ -12,23 +12,23 @@
 
 .field public static final clear_music_play:I = 0x7f020101
 
-.field public static final lock_btn_arrow:I = 0x7f0202d0
+.field public static final lock_btn_arrow:I = 0x7f0202d1
 
-.field public static final lock_btn_call_normal:I = 0x7f0202d1
+.field public static final lock_btn_call_normal:I = 0x7f0202d2
 
-.field public static final lock_btn_call_pressed:I = 0x7f0202d2
+.field public static final lock_btn_call_pressed:I = 0x7f0202d3
 
-.field public static final lock_btn_call_swipe:I = 0x7f0202d3
+.field public static final lock_btn_call_swipe:I = 0x7f0202d4
 
-.field public static final lock_btn_camera_normal:I = 0x7f0202d4
+.field public static final lock_btn_camera_normal:I = 0x7f0202d5
 
-.field public static final lock_btn_camera_pressed:I = 0x7f0202d5
+.field public static final lock_btn_camera_pressed:I = 0x7f0202d6
 
-.field public static final lock_btn_camera_swipe:I = 0x7f0202d6
+.field public static final lock_btn_camera_swipe:I = 0x7f0202d7
 
-.field public static final sview_cover_kids_wallpaper:I = 0x7f0206fd
+.field public static final sview_cover_kids_wallpaper:I = 0x7f020700
 
-.field public static final wallpaper_default_01:I = 0x7f02073e
+.field public static final wallpaper_default_01:I = 0x7f020741
 
 
 # direct methods

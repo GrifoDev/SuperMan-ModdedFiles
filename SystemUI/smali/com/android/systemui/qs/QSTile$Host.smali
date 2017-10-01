@@ -36,6 +36,9 @@
 .method public abstract getContext()Landroid/content/Context;
 .end method
 
+.method public abstract getCustomTileNameFromSpec(Ljava/lang/String;)Ljava/lang/String;
+.end method
+
 .method public abstract getFlashlightController()Lcom/android/systemui/statusbar/policy/FlashlightController;
 .end method
 

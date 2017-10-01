@@ -59,7 +59,7 @@
 .method protected onFinishInflate()V
     .locals 1
 
-    const v0, 0x7f1302a0
+    const v0, 0x7f1302a1
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/NotificationBottomBarView;->findViewById(I)Landroid/view/View;
 
@@ -67,7 +67,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/NotificationBottomBarView;->mNormalModeView:Landroid/view/View;
 
-    const v0, 0x7f1302a3
+    const v0, 0x7f1302a4
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/NotificationBottomBarView;->findViewById(I)Landroid/view/View;
 
@@ -75,7 +75,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/NotificationBottomBarView;->mBlockModeView:Landroid/view/View;
 
-    const v0, 0x7f1302a4
+    const v0, 0x7f1302a5
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/NotificationBottomBarView;->findViewById(I)Landroid/view/View;
 
@@ -85,7 +85,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/NotificationBottomBarView;->mBlockButton:Landroid/widget/TextView;
 
-    const v0, 0x7f1302a2
+    const v0, 0x7f1302a3
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/NotificationBottomBarView;->findViewById(I)Landroid/view/View;
 
@@ -95,7 +95,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/NotificationBottomBarView;->mClearAllButton:Landroid/widget/TextView;
 
-    const v0, 0x7f1302a1
+    const v0, 0x7f1302a2
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/NotificationBottomBarView;->findViewById(I)Landroid/view/View;
 
@@ -105,7 +105,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/NotificationBottomBarView;->mNotiSettingButton:Landroid/widget/TextView;
 
-    const v0, 0x7f1302a5
+    const v0, 0x7f1302a6
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/NotificationBottomBarView;->findViewById(I)Landroid/view/View;
 
@@ -218,7 +218,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationBottomBarView;->mNotiSettingButton:Landroid/widget/TextView;
 
-    const v1, 0x7f0f0660
+    const v1, 0x7f0f0669
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -229,9 +229,9 @@
 .method public updateShowButtonBackground()V
     .locals 5
 
-    const v1, 0x7f020557
+    const v1, 0x7f02055a
 
-    const v2, 0x7f020555
+    const v2, 0x7f020558
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationBottomBarView;->mContext:Landroid/content/Context;
 

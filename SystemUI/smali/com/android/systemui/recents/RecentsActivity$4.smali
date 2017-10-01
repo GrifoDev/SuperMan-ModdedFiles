@@ -7,8 +7,8 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/recents/RecentsActivity;->onCreate(Landroid/os/Bundle;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/systemui/recents/RecentsActivity;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -37,11 +37,15 @@
 .method public run()V
     .locals 2
 
-    iget-object v0, p0, Lcom/android/systemui/recents/RecentsActivity$4;->this$0:Lcom/android/systemui/recents/RecentsActivity;
+    invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
 
-    const/16 v1, 0x120
+    move-result-object v0
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/RecentsActivity;->dismissRecentsToFocusedTask(I)Z
+    new-instance v1, Lcom/android/systemui/recents/events/activity/DockedTopTaskFailedEvent;
+
+    invoke-direct {v1}, Lcom/android/systemui/recents/events/activity/DockedTopTaskFailedEvent;-><init>()V
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/events/EventBus;->send(Lcom/android/systemui/recents/events/EventBus$Event;)V
 
     return-void
 .end method

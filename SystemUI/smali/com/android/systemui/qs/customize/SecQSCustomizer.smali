@@ -440,7 +440,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040141
+    const v1, 0x7f040142
 
     invoke-virtual {v0, v1, p0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -1346,7 +1346,7 @@
 
     sub-int v1, v4, v5
 
-    const v4, 0x7f13036e
+    const v4, 0x7f13036f
 
     invoke-virtual {p0, v4}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->findViewById(I)Landroid/view/View;
 
@@ -1354,7 +1354,7 @@
 
     check-cast v0, Landroid/widget/LinearLayout;
 
-    const v4, 0x7f13036f
+    const v4, 0x7f130370
 
     invoke-virtual {v0, v4}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -1394,7 +1394,7 @@
 
     invoke-virtual {v4, v2}, Landroid/widget/FrameLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    const v4, 0x7f130371
+    const v4, 0x7f130372
 
     invoke-virtual {v0, v4}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -1476,7 +1476,7 @@
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    const v4, 0x7f130370
+    const v4, 0x7f130371
 
     invoke-virtual {p0, v4}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->findViewById(I)Landroid/view/View;
 
@@ -1486,7 +1486,7 @@
 
     iput-object v4, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer;->mActiveTileLayout:Lcom/android/systemui/qs/customize/SecQSCustomizer$QSCustomizerTileLayout;
 
-    const v4, 0x7f130374
+    const v4, 0x7f130375
 
     invoke-virtual {p0, v4}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->findViewById(I)Landroid/view/View;
 
@@ -1508,7 +1508,7 @@
 
     check-cast v4, Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;
 
-    const v5, 0x7f020350
+    const v5, 0x7f020351
 
     invoke-virtual {v4, v5}, Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;->setBackgroundResource(I)V
 
@@ -1556,7 +1556,7 @@
 
     invoke-virtual {v1, v4, v5}, Landroid/graphics/drawable/ColorDrawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
 
-    const v4, 0x7f130372
+    const v4, 0x7f130373
 
     invoke-virtual {p0, v4}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->findViewById(I)Landroid/view/View;
 
@@ -1566,7 +1566,7 @@
 
     invoke-virtual {v3, v6}, Landroid/view/View;->setElevation(F)V
 
-    const v4, 0x7f130373
+    const v4, 0x7f130374
 
     invoke-virtual {p0, v4}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->findViewById(I)Landroid/view/View;
 
@@ -1574,7 +1574,7 @@
 
     invoke-virtual {v2, v1}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    const v4, 0x7f1302b9
+    const v4, 0x7f1302ba
 
     invoke-virtual {p0, v4}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->findViewById(I)Landroid/view/View;
 
@@ -2261,7 +2261,7 @@
 
     if-eqz v0, :cond_2
 
-    const v2, 0x7f020559
+    const v2, 0x7f02055c
 
     :goto_2
     invoke-virtual {v4, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -2305,7 +2305,7 @@
     goto :goto_1
 
     :cond_2
-    const v2, 0x7f020556
+    const v2, 0x7f020559
 
     goto :goto_2
 .end method

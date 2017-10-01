@@ -1115,7 +1115,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f020579
+    const v4, 0x7f02057c
 
     const v5, 0x7f0f02e2
 
@@ -2109,19 +2109,19 @@
 
     if-eqz v8, :cond_2
 
-    const v8, 0x7f0f066c
+    const v8, 0x7f0f0675
 
     invoke-virtual {v3, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v7
 
-    const v8, 0x7f0f066e
+    const v8, 0x7f0f0677
 
     invoke-virtual {v3, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v6
 
-    const v1, 0x7f0205e5
+    const v1, 0x7f0205e8
 
     :goto_1
     new-instance v8, Landroid/app/Notification$Builder;
@@ -2221,19 +2221,19 @@
 
     if-eqz v8, :cond_3
 
-    const v8, 0x7f0f066b
+    const v8, 0x7f0f0674
 
     invoke-virtual {v3, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v7
 
-    const v8, 0x7f0f066d
+    const v8, 0x7f0f0676
 
     invoke-virtual {v3, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v6
 
-    const v1, 0x7f0205e4
+    const v1, 0x7f0205e7
 
     goto :goto_1
 
@@ -2248,36 +2248,36 @@
 
     if-eqz v8, :cond_4
 
-    const v8, 0x7f0f0689
+    const v8, 0x7f0f0692
 
     invoke-virtual {v3, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v7
 
-    const v8, 0x7f0f068a
+    const v8, 0x7f0f0693
 
     invoke-virtual {v3, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v6
 
-    const v1, 0x7f0205e4
+    const v1, 0x7f0205e7
 
     goto/16 :goto_1
 
     :cond_4
-    const v8, 0x7f0f066a
+    const v8, 0x7f0f0673
 
     invoke-virtual {v3, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v7
 
-    const v8, 0x7f0f066d
+    const v8, 0x7f0f0676
 
     invoke-virtual {v3, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v6
 
-    const v1, 0x7f0205e4
+    const v1, 0x7f0205e7
 
     goto/16 :goto_1
 
@@ -2298,7 +2298,7 @@
 
     iget-object v9, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mContext:Landroid/content/Context;
 
-    const v10, 0x7f0f068b
+    const v10, 0x7f0f0694
 
     invoke-virtual {v9, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2384,7 +2384,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f020579
+    const v5, 0x7f02057c
 
     const v6, 0x7f0f02e2
 
@@ -2681,7 +2681,7 @@
 
     move-object/from16 v28, v0
 
-    const v29, 0x7f020579
+    const v29, 0x7f02057c
 
     const v30, 0x7f0f02e2
 
@@ -4530,6 +4530,40 @@
     goto :goto_0
 .end method
 
+.method public onEmergencyModeChanged()V
+    .locals 3
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mMobileSignalControllers:Ljava/util/Map;
+
+    invoke-interface {v2}, Ljava/util/Map;->values()Ljava/util/Collection;
+
+    move-result-object v2
+
+    invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/policy/MobileSignalController;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/policy/MobileSignalController;->onEmergencyModeChanged()V
+
+    goto :goto_0
+
+    :cond_0
+    return-void
+.end method
+
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 10
 
@@ -5445,11 +5479,11 @@
 
     if-eqz v10, :cond_b
 
-    const v7, 0x7f0205ce
+    const v7, 0x7f0205d1
 
     if-eqz v9, :cond_9
 
-    const v5, 0x7f0205cf
+    const v5, 0x7f0205d2
 
     :goto_6
     if-eqz v3, :cond_a
@@ -5462,7 +5496,7 @@
     :goto_7
     packed-switch v0, :pswitch_data_0
 
-    const v1, 0x7f0205d3
+    const v1, 0x7f0205d6
 
     :cond_8
     :goto_8
@@ -5475,7 +5509,7 @@
     goto :goto_5
 
     :cond_9
-    const v5, 0x7f0205d0
+    const v5, 0x7f0205d3
 
     goto :goto_6
 
@@ -5487,17 +5521,17 @@
     goto :goto_7
 
     :pswitch_0
-    const v1, 0x7f0205d1
-
-    goto :goto_8
-
-    :pswitch_1
     const v1, 0x7f0205d4
 
     goto :goto_8
 
+    :pswitch_1
+    const v1, 0x7f0205d7
+
+    goto :goto_8
+
     :pswitch_2
-    const v1, 0x7f0205d2
+    const v1, 0x7f0205d5
 
     goto :goto_8
 
@@ -5514,28 +5548,28 @@
 
     if-eqz v9, :cond_c
 
-    const v7, 0x7f0205d5
+    const v7, 0x7f0205d8
 
     or-int v0, v2, v8
 
     packed-switch v0, :pswitch_data_1
 
-    const v1, 0x7f0205d8
+    const v1, 0x7f0205db
 
     goto :goto_8
 
     :pswitch_3
-    const v1, 0x7f0205d6
-
-    goto :goto_8
-
-    :pswitch_4
     const v1, 0x7f0205d9
 
     goto :goto_8
 
+    :pswitch_4
+    const v1, 0x7f0205dc
+
+    goto :goto_8
+
     :pswitch_5
-    const v1, 0x7f0205d7
+    const v1, 0x7f0205da
 
     goto :goto_8
 
@@ -5602,30 +5636,30 @@
 
     if-ne v11, v10, :cond_f
 
-    const v7, 0x7f0205dd
+    const v7, 0x7f0205e0
 
-    const v5, 0x7f0205de
+    const v5, 0x7f0205e1
 
     or-int v0, v2, v8
 
     packed-switch v0, :pswitch_data_2
 
-    const v1, 0x7f0205e2
+    const v1, 0x7f0205e5
 
     goto/16 :goto_8
 
     :pswitch_6
-    const v1, 0x7f0205e0
-
-    goto/16 :goto_8
-
-    :pswitch_7
     const v1, 0x7f0205e3
 
     goto/16 :goto_8
 
+    :pswitch_7
+    const v1, 0x7f0205e6
+
+    goto/16 :goto_8
+
     :pswitch_8
-    const v1, 0x7f0205e1
+    const v1, 0x7f0205e4
 
     goto/16 :goto_8
 
@@ -5637,11 +5671,11 @@
     return-void
 
     :cond_10
-    const v7, 0x7f0205dc
+    const v7, 0x7f0205df
 
     if-eqz v9, :cond_12
 
-    const v5, 0x7f0205da
+    const v5, 0x7f0205dd
 
     :goto_9
     if-eqz v3, :cond_13
@@ -5654,12 +5688,12 @@
     :goto_a
     packed-switch v0, :pswitch_data_3
 
-    const v1, 0x7f020699
+    const v1, 0x7f02069c
 
     goto/16 :goto_8
 
     :cond_12
-    const v5, 0x7f0205db
+    const v5, 0x7f0205de
 
     goto :goto_9
 
@@ -5671,17 +5705,17 @@
     goto :goto_a
 
     :pswitch_9
-    const v1, 0x7f02068b
+    const v1, 0x7f02068e
 
     goto/16 :goto_8
 
     :pswitch_a
-    const v1, 0x7f0206a0
+    const v1, 0x7f0206a3
 
     goto/16 :goto_8
 
     :pswitch_b
-    const v1, 0x7f020693
+    const v1, 0x7f020696
 
     goto/16 :goto_8
 
@@ -6118,536 +6152,777 @@
 .end method
 
 .method public updateCarrierText(Ljava/lang/String;)V
-    .locals 3
+    .locals 6
 
-    const-string/jumbo v0, "NetworkController"
+    const-string/jumbo v3, "NetworkController"
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "updateCarrierText : "
+    const-string/jumbo v5, "updateCarrierText : "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v4
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v4
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v4
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mAirplaneMode:Z
+    iget-boolean v3, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mAirplaneMode:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v3, :cond_1
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->hasVoiceCallingFeature()Z
 
-    move-result v0
+    move-result v3
 
-    if-nez v0, :cond_0
+    if-nez v3, :cond_0
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->hasMobileDataFeature()Z
 
-    move-result v0
+    move-result v3
 
-    if-eqz v0, :cond_1
+    if-eqz v3, :cond_1
 
     :cond_0
-    const-string/jumbo v0, "ZVV"
+    const-string/jumbo v3, "ZVV"
 
-    sget-object v1, Lcom/android/systemui/SystemUIRune;->STATUSBAR_ICON_BRANDING:Ljava/lang/String;
+    sget-object v4, Lcom/android/systemui/SystemUIRune;->STATUSBAR_ICON_BRANDING:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v3
 
-    if-eqz v0, :cond_2
+    if-eqz v3, :cond_2
 
     const-string/jumbo p1, ""
 
     :cond_1
     :goto_0
-    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mHandler:Landroid/os/Handler;
+    iget-object v3, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mHandler:Landroid/os/Handler;
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mHandler:Landroid/os/Handler;
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v1, v2, p1}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
-
-    return-void
-
-    :cond_2
-    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mContext:Landroid/content/Context;
-
-    const v1, 0x7f0f0672
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object p1
-
-    sget-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_PLMN_TMOWFC:Z
-
-    if-eqz v0, :cond_3
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/samsung/tmowfc/wfcutils/WfcDbHelper;->getRegistrationState(Landroid/content/ContentResolver;)Lcom/samsung/tmowfc/wfcutils/WfcDbHelper$RegistrationStateContract$State;
-
-    move-result-object v0
-
-    sget-object v1, Lcom/samsung/tmowfc/wfcutils/WfcDbHelper$RegistrationStateContract$State;->REGISTERED:Lcom/samsung/tmowfc/wfcutils/WfcDbHelper$RegistrationStateContract$State;
-
-    if-ne v0, v1, :cond_3
-
-    sget-object p1, Lcom/android/systemui/SystemUIRune;->PLMN_INFO_BRANDING_TMOWFC:Ljava/lang/String;
-
-    const-string/jumbo v0, "NetworkController"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "updateCarrierText when WFC is enabled: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_3
-    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mImsManager:Lcom/sec/ims/ImsManager;
-
-    if-nez v0, :cond_4
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mContext:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/android/systemui/statusbar/DeviceState;->getImsManager(Landroid/content/Context;)Lcom/sec/ims/ImsManager;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mImsManager:Lcom/sec/ims/ImsManager;
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mImsManager:Lcom/sec/ims/ImsManager;
-
-    if-eqz v0, :cond_4
-
-    new-instance v0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$RegistrationListener;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$RegistrationListener;-><init>(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;)V
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mRegiListener:Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$RegistrationListener;
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mImsManager:Lcom/sec/ims/ImsManager;
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mRegiListener:Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$RegistrationListener;
-
-    invoke-virtual {v0, v1}, Lcom/sec/ims/ImsManager;->registerImsRegistrationListener(Lcom/sec/ims/IImsRegistrationListener;)V
-
-    :cond_4
-    sget-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_WFC_PLMN_AT_AIRPLANE_MODE:Z
-
-    if-eqz v0, :cond_1
-
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mVoWifiConnected:Z
-
-    if-eqz v0, :cond_1
-
-    sget-object p1, Lcom/android/systemui/SystemUIRune;->WFC_PLMN_INFO_AT_AIRPLANE_MODE:Ljava/lang/String;
-
-    const-string/jumbo v0, "NetworkController"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "updateCarrierText : WFC PLMN = "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_0
-.end method
-
-.method public updateCarrierText(Ljava/lang/String;I)V
-    .locals 7
-
-    const/4 v6, 0x1
+    iget-object v4, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mHandler:Landroid/os/Handler;
 
     const/4 v5, 0x0
 
-    const-string/jumbo v2, "NetworkController"
+    invoke-virtual {v4, v5, p1}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v3, v4}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    const-string/jumbo v4, "updateCarrierText : "
+    return-void
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :cond_2
+    move-object v2, p1
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mContext:Landroid/content/Context;
+
+    const v4, 0x7f0f067b
+
+    invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p1
+
+    sget-boolean v3, Lcom/android/systemui/SystemUIRune;->SUPPORT_PLMN_TMOWFC:Z
+
+    if-eqz v3, :cond_3
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v3}, Lcom/samsung/tmowfc/wfcutils/WfcDbHelper;->getRegistrationState(Landroid/content/ContentResolver;)Lcom/samsung/tmowfc/wfcutils/WfcDbHelper$RegistrationStateContract$State;
 
     move-result-object v3
 
-    const-string/jumbo v4, ", slotId = "
+    sget-object v4, Lcom/samsung/tmowfc/wfcutils/WfcDbHelper$RegistrationStateContract$State;->REGISTERED:Lcom/samsung/tmowfc/wfcutils/WfcDbHelper$RegistrationStateContract$State;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-ne v3, v4, :cond_3
+
+    sget-object p1, Lcom/android/systemui/SystemUIRune;->PLMN_INFO_BRANDING_TMOWFC:Ljava/lang/String;
+
+    const-string/jumbo v3, "NetworkController"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "updateCarrierText when WFC is enabled: "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_3
+    iget-object v3, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mImsManager:Lcom/sec/ims/ImsManager;
+
+    if-nez v3, :cond_4
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mContext:Landroid/content/Context;
+
+    invoke-static {v3}, Lcom/android/systemui/statusbar/DeviceState;->getImsManager(Landroid/content/Context;)Lcom/sec/ims/ImsManager;
 
     move-result-object v3
 
-    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    iput-object v3, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mImsManager:Lcom/sec/ims/ImsManager;
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mImsManager:Lcom/sec/ims/ImsManager;
+
+    if-eqz v3, :cond_4
+
+    new-instance v3, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$RegistrationListener;
+
+    invoke-direct {v3, p0}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$RegistrationListener;-><init>(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;)V
+
+    iput-object v3, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mRegiListener:Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$RegistrationListener;
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mImsManager:Lcom/sec/ims/ImsManager;
+
+    iget-object v4, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mRegiListener:Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$RegistrationListener;
+
+    invoke-virtual {v3, v4}, Lcom/sec/ims/ImsManager;->registerImsRegistrationListener(Lcom/sec/ims/IImsRegistrationListener;)V
+
+    :cond_4
+    iget-boolean v3, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mVoWifiConnected:Z
+
+    if-eqz v3, :cond_1
+
+    const-string/jumbo v3, ""
+
+    sget-object v4, Lcom/android/systemui/SystemUIRune;->WFC_PLMN_INFO_AT_AIRPLANE_MODE:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_5
+
+    sget-object p1, Lcom/android/systemui/SystemUIRune;->WFC_PLMN_INFO_AT_AIRPLANE_MODE:Ljava/lang/String;
+
+    const-string/jumbo v3, "NetworkController"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "updateCarrierText : WFC PLMN by Csc = "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_0
+
+    :cond_5
+    iget-object v3, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mMobileSignalControllers:Ljava/util/Map;
+
+    invoke-interface {v3}, Ljava/util/Map;->values()Ljava/util/Collection;
 
     move-result-object v3
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :cond_6
+    :goto_1
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    const/4 v1, 0x0
+    move-result v3
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mContext:Landroid/content/Context;
+    if-eqz v3, :cond_1
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/DeviceState;->getActiveSimCount(Landroid/content/Context;)I
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/policy/MobileSignalController;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/policy/MobileSignalController;->isVoWifiInfo()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_6
+
+    move-object p1, v2
+
+    const-string/jumbo v3, "NetworkController"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "updateCarrierText : WFC PLMN by RIL = "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
+.end method
+
+.method public updateCarrierText(Ljava/lang/String;I)V
+    .locals 10
+
+    const/4 v9, 0x1
+
+    const/4 v8, 0x0
+
+    const-string/jumbo v5, "NetworkController"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "updateCarrierText : "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string/jumbo v7, ", slotId = "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v4, 0x0
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mContext:Landroid/content/Context;
+
+    invoke-static {v5}, Lcom/android/systemui/statusbar/DeviceState;->getActiveSimCount(Landroid/content/Context;)I
 
     move-result v0
 
-    iget-boolean v2, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mAirplaneMode:Z
+    iget-boolean v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mAirplaneMode:Z
 
-    if-eqz v2, :cond_4
+    if-eqz v5, :cond_9
 
-    const-string/jumbo v2, "ZVV"
+    const-string/jumbo v5, "ZVV"
 
-    sget-object v3, Lcom/android/systemui/SystemUIRune;->STATUSBAR_ICON_BRANDING:Ljava/lang/String;
+    sget-object v6, Lcom/android/systemui/SystemUIRune;->STATUSBAR_ICON_BRANDING:Ljava/lang/String;
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v5
 
-    if-eqz v2, :cond_3
+    if-eqz v5, :cond_4
 
     const-string/jumbo p1, ""
-
-    :goto_0
-    const/4 v1, 0x1
 
     :cond_0
-    :goto_1
-    const-string/jumbo v2, "CTC"
-
-    sget-object v3, Lcom/android/systemui/SystemUIRune;->PLMN_INFO_BRANDING:Ljava/lang/String;
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    iget-object v2, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->multiSimCarrierText:[Ljava/lang/String;
-
-    if-eqz v2, :cond_1
-
-    const/4 v1, 0x1
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v3, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->multiSimCarrierText:[Ljava/lang/String;
-
-    aget-object v3, v3, v5
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, " | "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->multiSimCarrierText:[Ljava/lang/String;
-
-    aget-object v3, v3, v6
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
+    :goto_0
+    const/4 v4, 0x1
 
     :cond_1
-    if-eqz v1, :cond_2
+    :goto_1
+    const-string/jumbo v5, "CTC"
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mHandler:Landroid/os/Handler;
+    sget-object v6, Lcom/android/systemui/SystemUIRune;->PLMN_INFO_BRANDING:Ljava/lang/String;
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mHandler:Landroid/os/Handler;
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v3, v5, p1}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    move-result v5
 
-    move-result-object v3
+    if-eqz v5, :cond_2
 
-    invoke-virtual {v2, v3}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+    iget-object v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->multiSimCarrierText:[Ljava/lang/String;
 
-    :cond_2
-    return-void
+    if-eqz v5, :cond_2
 
-    :cond_3
-    iget-object v2, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mContext:Landroid/content/Context;
+    const/4 v4, 0x1
 
-    const v3, 0x7f0f0672
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v6, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->multiSimCarrierText:[Ljava/lang/String;
+
+    aget-object v6, v6, v8
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string/jumbo v6, " | "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    iget-object v6, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->multiSimCarrierText:[Ljava/lang/String;
+
+    aget-object v6, v6, v9
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
-    goto :goto_0
+    :cond_2
+    if-eqz v4, :cond_3
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mHandler:Landroid/os/Handler;
+
+    iget-object v6, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mHandler:Landroid/os/Handler;
+
+    invoke-virtual {v6, v8, p1}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+
+    :cond_3
+    return-void
 
     :cond_4
-    const-string/jumbo v2, "NetworkController"
+    move-object v3, p1
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    iget-object v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mContext:Landroid/content/Context;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    const v6, 0x7f0f067b
 
-    const-string/jumbo v4, "updateCarrierText : numberOfSim = "
+    invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    move-result-object v3
+    sget-boolean v5, Lcom/android/systemui/SystemUIRune;->SUPPORT_PLMN_TMOWFC:Z
 
-    iget v4, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->numberOfSim:I
+    if-eqz v5, :cond_5
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    iget-object v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mContext:Landroid/content/Context;
 
-    move-result-object v3
+    invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v5
 
-    move-result-object v3
+    invoke-static {v5}, Lcom/samsung/tmowfc/wfcutils/WfcDbHelper;->getRegistrationState(Landroid/content/ContentResolver;)Lcom/samsung/tmowfc/wfcutils/WfcDbHelper$RegistrationStateContract$State;
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v5
 
-    iget v2, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->numberOfSim:I
+    sget-object v6, Lcom/samsung/tmowfc/wfcutils/WfcDbHelper$RegistrationStateContract$State;->REGISTERED:Lcom/samsung/tmowfc/wfcutils/WfcDbHelper$RegistrationStateContract$State;
 
-    if-nez v2, :cond_5
+    if-ne v5, v6, :cond_5
 
-    if-nez p2, :cond_0
+    sget-object p1, Lcom/android/systemui/SystemUIRune;->PLMN_INFO_BRANDING_TMOWFC:Ljava/lang/String;
 
-    const/4 v1, 0x1
+    const-string/jumbo v5, "NetworkController"
 
-    const-string/jumbo v2, "CU"
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    sget-object v3, Lcom/android/systemui/SystemUIRune;->PLMN_INFO_BRANDING:Ljava/lang/String;
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string/jumbo v7, "updateCarrierText when WFC is enabled: "
 
-    move-result v2
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-eqz v2, :cond_0
+    move-result-object v6
 
-    const-string/jumbo p1, ""
+    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_5
-    iget v2, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->numberOfSim:I
+    iget-object v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mImsManager:Lcom/sec/ims/ImsManager;
 
-    if-ne v2, v6, :cond_9
+    if-nez v5, :cond_6
 
-    invoke-static {v5}, Lcom/android/systemui/statusbar/DeviceState;->isSimCardInserted(I)Z
+    iget-object v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mContext:Landroid/content/Context;
 
-    move-result v2
+    invoke-static {v5}, Lcom/android/systemui/statusbar/DeviceState;->getImsManager(Landroid/content/Context;)Lcom/sec/ims/ImsManager;
 
-    if-eqz v2, :cond_6
+    move-result-object v5
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mContext:Landroid/content/Context;
+    iput-object v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mImsManager:Lcom/sec/ims/ImsManager;
 
-    invoke-static {v2, v5}, Lcom/android/systemui/statusbar/DeviceState;->getSimSettingState(Landroid/content/Context;I)I
+    iget-object v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mImsManager:Lcom/sec/ims/ImsManager;
 
-    move-result v2
+    if-eqz v5, :cond_6
 
-    if-nez v2, :cond_7
+    new-instance v5, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$RegistrationListener;
+
+    invoke-direct {v5, p0}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$RegistrationListener;-><init>(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;)V
+
+    iput-object v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mRegiListener:Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$RegistrationListener;
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mImsManager:Lcom/sec/ims/ImsManager;
+
+    iget-object v6, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mRegiListener:Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$RegistrationListener;
+
+    invoke-virtual {v5, v6}, Lcom/sec/ims/ImsManager;->registerImsRegistrationListener(Lcom/sec/ims/IImsRegistrationListener;)V
 
     :cond_6
-    if-ne p2, v6, :cond_7
+    iget-boolean v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mVoWifiConnected:Z
 
-    const/4 v1, 0x1
+    if-eqz v5, :cond_0
 
-    goto/16 :goto_1
+    const-string/jumbo v5, ""
+
+    sget-object v6, Lcom/android/systemui/SystemUIRune;->WFC_PLMN_INFO_AT_AIRPLANE_MODE:Ljava/lang/String;
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_7
+
+    sget-object p1, Lcom/android/systemui/SystemUIRune;->WFC_PLMN_INFO_AT_AIRPLANE_MODE:Ljava/lang/String;
+
+    const-string/jumbo v5, "NetworkController"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "updateCarrierText : WFC PLMN by Csc = "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_0
 
     :cond_7
-    invoke-static {v6}, Lcom/android/systemui/statusbar/DeviceState;->isSimCardInserted(I)Z
+    iget-object v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mMobileSignalControllers:Ljava/util/Map;
 
-    move-result v2
+    invoke-interface {v5}, Ljava/util/Map;->values()Ljava/util/Collection;
 
-    if-eqz v2, :cond_8
+    move-result-object v5
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mContext:Landroid/content/Context;
+    invoke-interface {v5}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    invoke-static {v2, v6}, Lcom/android/systemui/statusbar/DeviceState;->getSimSettingState(Landroid/content/Context;I)I
-
-    move-result v2
-
-    if-nez v2, :cond_0
+    move-result-object v2
 
     :cond_8
-    if-nez p2, :cond_0
+    :goto_2
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    const/4 v1, 0x1
+    move-result v5
 
-    goto/16 :goto_1
+    if-eqz v5, :cond_0
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/systemui/statusbar/policy/MobileSignalController;
+
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/policy/MobileSignalController;->getSlotId()I
+
+    move-result v5
+
+    if-ne v5, p2, :cond_8
+
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/policy/MobileSignalController;->isVoWifiInfo()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_8
+
+    move-object p1, v3
+
+    const-string/jumbo v5, "NetworkController"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "updateCarrierText : WFC PLMN by RIL = "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_2
 
     :cond_9
-    const/4 v1, 0x1
+    const-string/jumbo v5, "NetworkController"
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mContext:Landroid/content/Context;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-static {v2, v5}, Lcom/android/systemui/statusbar/DeviceState;->getSimSettingState(Landroid/content/Context;I)I
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result v2
+    const-string/jumbo v7, "updateCarrierText : numberOfSim = "
 
-    if-nez v2, :cond_a
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->multiSimCarrierText:[Ljava/lang/String;
+    move-result-object v6
 
-    aget-object p1, v2, v6
+    iget v7, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->numberOfSim:I
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->numberOfSim:I
+
+    if-nez v5, :cond_a
+
+    if-nez p2, :cond_1
+
+    const/4 v4, 0x1
+
+    const-string/jumbo v5, "CU"
+
+    sget-object v6, Lcom/android/systemui/SystemUIRune;->PLMN_INFO_BRANDING:Ljava/lang/String;
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_1
+
+    const-string/jumbo p1, ""
 
     goto/16 :goto_1
 
     :cond_a
-    iget-object v2, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mContext:Landroid/content/Context;
+    iget v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->numberOfSim:I
 
-    invoke-static {v2, v6}, Lcom/android/systemui/statusbar/DeviceState;->getSimSettingState(Landroid/content/Context;I)I
+    if-ne v5, v9, :cond_e
 
-    move-result v2
+    invoke-static {v8}, Lcom/android/systemui/statusbar/DeviceState;->isSimCardInserted(I)Z
 
-    if-nez v2, :cond_b
+    move-result v5
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->multiSimCarrierText:[Ljava/lang/String;
+    if-eqz v5, :cond_b
 
-    aget-object p1, v2, v5
+    iget-object v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mContext:Landroid/content/Context;
+
+    invoke-static {v5, v8}, Lcom/android/systemui/statusbar/DeviceState;->getSimSettingState(Landroid/content/Context;I)I
+
+    move-result v5
+
+    if-nez v5, :cond_c
+
+    :cond_b
+    if-ne p2, v9, :cond_c
+
+    const/4 v4, 0x1
 
     goto/16 :goto_1
 
-    :cond_b
-    iget-boolean v2, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mIsRtoL:Z
+    :cond_c
+    invoke-static {v9}, Lcom/android/systemui/statusbar/DeviceState;->isSimCardInserted(I)Z
 
-    if-eqz v2, :cond_c
+    move-result v5
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    if-eqz v5, :cond_d
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    iget-object v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v3, "\u200e"
+    invoke-static {v5, v9}, Lcom/android/systemui/statusbar/DeviceState;->getSimSettingState(Landroid/content/Context;I)I
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result v5
 
-    move-result-object v2
+    if-nez v5, :cond_1
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->multiSimCarrierText:[Ljava/lang/String;
+    :cond_d
+    if-nez p2, :cond_1
 
-    aget-object v3, v3, v6
+    const/4 v4, 0x1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    goto/16 :goto_1
 
-    move-result-object v2
+    :cond_e
+    const/4 v4, 0x1
 
-    const-string/jumbo v3, " | "
+    iget-object v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v5, v8}, Lcom/android/systemui/statusbar/DeviceState;->getSimSettingState(Landroid/content/Context;I)I
 
-    move-result-object v2
+    move-result v5
 
-    const-string/jumbo v3, "\u200e"
+    if-nez v5, :cond_f
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->multiSimCarrierText:[Ljava/lang/String;
 
-    move-result-object v2
+    aget-object p1, v5, v9
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->multiSimCarrierText:[Ljava/lang/String;
+    goto/16 :goto_1
 
-    aget-object v3, v3, v5
+    :cond_f
+    iget-object v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v5, v9}, Lcom/android/systemui/statusbar/DeviceState;->getSimSettingState(Landroid/content/Context;I)I
 
-    move-result-object v2
+    move-result v5
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    if-nez v5, :cond_10
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->multiSimCarrierText:[Ljava/lang/String;
+
+    aget-object p1, v5, v8
+
+    goto/16 :goto_1
+
+    :cond_10
+    iget-boolean v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mIsRtoL:Z
+
+    if-eqz v5, :cond_11
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "\u200e"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    iget-object v6, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->multiSimCarrierText:[Ljava/lang/String;
+
+    aget-object v6, v6, v9
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string/jumbo v6, " | "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "\u200e"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    iget-object v6, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->multiSimCarrierText:[Ljava/lang/String;
+
+    aget-object v6, v6, v8
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
     goto/16 :goto_1
 
-    :cond_c
-    new-instance v2, Ljava/lang/StringBuilder;
+    :cond_11
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->multiSimCarrierText:[Ljava/lang/String;
+    iget-object v6, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->multiSimCarrierText:[Ljava/lang/String;
 
-    aget-object v3, v3, v5
+    aget-object v6, v6, v8
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v5
 
-    const-string/jumbo v3, " | "
+    const-string/jumbo v6, " | "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v5
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->multiSimCarrierText:[Ljava/lang/String;
+    iget-object v6, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->multiSimCarrierText:[Ljava/lang/String;
 
-    aget-object v3, v3, v6
+    aget-object v6, v6, v9
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v5
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 

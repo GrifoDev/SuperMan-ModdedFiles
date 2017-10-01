@@ -956,6 +956,7 @@ A icona de chamadas Wi-Fi aparecerá no panel de notificacións tal e como se am
     <string name="quick_settings_dual_label_content_description">%s, Etiqueta do botón, Toca dúas veces para ver axustes rápidos relevantes.</string>
     <string name="accessibility_button">Botón</string>
     <string name="quick_settings_brightness_auto_brightness">Brillo automático</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">Axusta o brillo da pantalla automaticamente en función das condicións de iluminación.</string>
     <string name="quick_settings_brightness_quick_access">Mostrar control na parte super.</string>
     <string name="quick_settings_brightness_quick_access_summary">Mostra o control do brillo sobre o panel de notificación.</string>
     <string name="quick_settings_brightness_detail_level">Nivel</string>
@@ -1276,6 +1277,7 @@ Para obter máis información, contacta co teu administrador."</string>
     <string name="keyboard_shortcut_group_system_notifications">Notificacións</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">Atallos de teclado</string>
     <string name="keyboard_shortcut_group_system_switch_input">Cambiar de método de entrada</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">Cambiar idiomas</string>
     <string name="keyboard_shortcut_group_applications">Aplicacións</string>
     <string name="keyboard_shortcut_group_applications_assist">Asistente</string>
     <string name="keyboard_shortcut_group_applications_browser">Navegador</string>
@@ -1479,8 +1481,10 @@ O exceso de temperatura pode deberse a:
     <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
     <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
     <string name="battery_low_sec_title">Carga da batería %d%%</string>
-    <string name="battery_low_sec_body_in_normal_mode">Carga o dispositivo ou toca aquí para activar o modo Aforro de enerxía.</string>
-    <string name="battery_low_sec_body_in_ups_mode">Conecta o teu dispositivo a un cargador.</string>
+    <string name="battery_low_sec_body_phone">Carga o teléfono ou toca aquí para activar o modo Aforro de enerxía.</string>
+    <string name="battery_low_sec_body_tablet">Carga a tableta ou toca aquí para activar o modo Aforro de enerxía.</string>
+    <string name="battery_low_sec_body_phone_psm">Carga o teléfono.</string>
+    <string name="battery_low_sec_body_tablet_psm">Carga a tableta.</string>
     <string name="battery_cable_charging_title">Carga mediante cable</string>
     <string name="battery_charging_title">Cargando</string>
     <string name="battery_fast_charging_title">Carga rápida</string>
@@ -1499,7 +1503,10 @@ O exceso de temperatura pode deberse a:
     <string name="battery_saver_notification_text_time_extend">Ampliouse a duración da batería.</string>
     <string name="button_detail">Detalle</string>
     <string name="battery_saver_recommend_notification_title">Carga da batería %d%%</string>
-    <string name="battery_saver_recommend_notification_text">Carga o dispositivo ou toca aquí para activar o modo Aforro de enerxía.</string>
+    <string name="battery_saver_recommend_notification_text_phone">Carga o teléfono ou toca aquí para activar o modo Aforro de enerxía.</string>
+    <string name="battery_saver_recommend_notification_text_tablet">Carga a tableta ou toca aquí para activar o modo Aforro de enerxía.</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">Carga o teléfono.</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">Carga a tableta.</string>
     <string name="button_close">Cerrar</string>
     <string name="battery_health_interruption_title">Non se pode cargar</string>
     <string name="battery_health_interruption_by_terminal_open_text">Non se pode cargar o teu dispositivo. Asegúrate de estar usando unha batería e un cargador de Samsung compatibles e que o teu dispositivo estea conectado correctamente ao cargador.</string>
@@ -1588,6 +1595,7 @@ UHQ"</string>
     <string name="uhq_mode_noti_text">Mellora a resolución de son de música e vídeos para unha escoita máis nítida.</string>
     <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
     <string name="assistance_app_setting_item_none">Ningún</string>
+    <string name="remote_input_send_text">Enviar</string>
     <string name="remote_input_toast_text_on_sview_cover">Non se pode usar a función Reposta rápida con S View Cover pechado.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -1843,7 +1851,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_direction_shutdown_instructions">Debuxa unha serie de direccións para apagar</string>
     <string name="kg_none_multi_pin_restart_instructions">Reiniciouse o teu dispositivo e cómpre desbloquealo co teu PIN. Podes usar os teus datos biométricos a próxima vez para desbloquear o teu dispositivo.</string>
     <string name="kg_tablet_multi_pin_restart_instructions">Reiniciouse o teu dispositivo e cómpre desbloquealo co teu PIN. Podes usar os teus datos biométricos a próxima vez para desbloquear o teu dispositivo.</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">Reiniciouse o teu dispositivo e cómpre desbloquealo co teu PIN. Podes usar as túas impresións dixitais a próxima vez para desbloquear o teu dispositivo.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">Reiniciouse o teléfono e cómpre desbloquealo co PIN. Podes usar as impresións dixitais a próxima vez para desbloquear o teléfono.</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">Reiniciouse o teu dispositivo e cómpre desbloquealo co teu PIN. Podes usar as túas impresións dixitais a próxima vez para desbloquear o teu dispositivo.</string>
     <string name="kg_none_iris_pin_restart_instructions">Reiniciouse o teu dispositivo e cómpre desbloquealo co teu PIN. Podes usar os teus iris a próxima vez para desbloquear o teu dispositivo.</string>
     <string name="kg_tablet_iris_pin_restart_instructions">Reiniciouse o teu dispositivo e cómpre desbloquealo co teu PIN. Podes usar os teus iris a próxima vez para desbloquear o teu dispositivo.</string>
@@ -1873,7 +1881,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pattern_deviceadmin_instructions">Debuxar un patrón en lugar de usar o recoñecemento do iris debido á política de seguridade</string>
     <string name="kg_none_multi_password_restart_instructions">Reiniciouse o teu dispositivo e cómpre desbloquealo co teu contrasinal. Podes usar os teus datos biométricos a próxima vez para desbloquear o teu dispositivo.</string>
     <string name="kg_tablet_multi_password_restart_instructions">Reiniciouse o teu dispositivo e cómpre desbloquealo co teu contrasinal. Podes usar os teus datos biométricos a próxima vez para desbloquear o teu dispositivo.</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">Reiniciouse o teu dispositivo e cómpre desbloquealo co teu contrasinal. Podes usar as túas impresións dixitais a próxima vez para desbloquear o teu dispositivo.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">Reiniciouse o teléfono e cómpre desbloquealo co contrasinal. Podes usar as impresións dixitais a próxima vez para desbloquear o teléfono.</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">Reiniciouse o teu dispositivo e cómpre desbloquealo co teu contrasinal. Podes usar as túas impresións dixitais a próxima vez para desbloquear o teu dispositivo.</string>
     <string name="kg_none_iris_password_restart_instructions">Reiniciouse o teu dispositivo e cómpre desbloquealo co teu contrasinal. Podes usar os teus iris a próxima vez para desbloquear o teu dispositivo.</string>
     <string name="kg_tablet_iris_password_restart_instructions">Reiniciouse o teu dispositivo e cómpre desbloquealo co teu contrasinal. Podes usar os teus iris a próxima vez para desbloquear o teu dispositivo.</string>
@@ -1888,7 +1896,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_password_deviceadmin_instructions">Introducir o contrasinal en lugar de usar o recoñecemento do iris debido á política de seguridade</string>
     <string name="kg_none_multi_direction_restart_instructions">Reiniciouse o teu dispositivo e cómpre desbloquealo coa túa serie de indicacións. Podes usar os teus datos biométricos dixitais a próxima vez para desbloquear o teu dispositivo.</string>
     <string name="kg_tablet_multi_direction_restart_instructions">Reiniciouse o teu dispositivo e cómpre desbloquealo coa túa serie de indicacións. Podes usar os teus datos biométricos dixitais a próxima vez para desbloquear o teu dispositivo.</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">Reiniciouse o teu dispositivo e cómpre desbloquealo coa túa serie de indicacións. Podes usar as túas impresións dixitais a próxima vez para desbloquear o teu dispositivo.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">Reiniciouse o teléfono e cómpre desbloquealo coa túa serie de direccións. Podes usar as impresións dixitais a próxima vez para desbloquear o teléfono.</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">Reiniciouse o teu dispositivo e cómpre desbloquealo coa túa serie de indicacións. Podes usar as túas impresións dixitais a próxima vez para desbloquear o teu dispositivo.</string>
     <string name="kg_none_iris_direction_restart_instructions">Reiniciouse o teu dispositivo e cómpre desbloquealo coa túa serie de indicacións. Podes usar os teus iris a próxima vez para desbloquear o teu dispositivo.</string>
     <string name="kg_tablet_iris_direction_restart_instructions">Reiniciouse o teu dispositivo e cómpre desbloquealo coa túa serie de indicacións. Podes usar os teus iris a próxima vez para desbloquear o teu dispositivo.</string>
@@ -2007,6 +2015,9 @@ Téntao outra vez dentro de 1 segundo"</string>
     <string name="recents_help_dlg_split_icon_desc">Toca a icona de pantalla dividida na barra do título da ventá da aplicación para abrir aplicacións en vista de pantalla dividida. Esta icona amósase cando a aplicación é compatible con Multiwindow.</string>
     <string name="recents_help_dlg_long_click_recents_key_text">Mantén pulsada a tecla Recentes mentres utilizas unha aplicación en vista de pantalla completa para cambiala á vista de pantalla dividida.</string>
     <string name="recents_help_dlg_home_key_in_split_text">Se premes o botón Inicio mentres utilizas a vista de pantalla dividida, a aplicación amosada na metade superior da pantalla minimizarase. Se abres unha aplicación desde a pantalla Inicio coa barra de estado de cor azul, a aplicación abrirase en vista de pantalla dividida na metade inferior da pantalla.</string>
+    <string name="battery_low_sec_body_in_normal_mode">Carga o dispositivo ou toca aquí para activar o modo Aforro de enerxía.</string>
+    <string name="battery_low_sec_body_in_ups_mode">Conecta o teu dispositivo a un cargador.</string>
+    <string name="battery_saver_recommend_notification_text">Carga o dispositivo ou toca aquí para activar o modo Aforro de enerxía.</string>
     <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
 
 If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>

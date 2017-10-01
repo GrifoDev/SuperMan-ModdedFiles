@@ -957,6 +957,7 @@ Ikon panggilan Wi-Fi akan muncul dalam panel pemberitahuan seperti yang ditunjuk
     <string name="quick_settings_dual_label_content_description">%s, Label butang, Dwiketik untuk melihat aturan cepat berkaitan.</string>
     <string name="accessibility_button">Butang</string>
     <string name="quick_settings_brightness_auto_brightness">Kecerahan auto</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">Laraskan kecerahan skrin secara automatik berdasarkan keadaan cahaya.</string>
     <string name="quick_settings_brightness_quick_access">Tunjukkan kawalan pd bhgian atas</string>
     <string name="quick_settings_brightness_quick_access_summary">Tunjukkan kawalan kecerahan di atas panel pemberitahuan.</string>
     <string name="quick_settings_brightness_detail_level">Aras</string>
@@ -1277,6 +1278,7 @@ Untuk mendapatkan maklumat lanjut, hubungi pentadbir anda."</string>
     <string name="keyboard_shortcut_group_system_notifications">Pemberitahuan</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">Pintasan Papan Kekunci</string>
     <string name="keyboard_shortcut_group_system_switch_input">Tukar kaedah input</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">Tukar bahasa</string>
     <string name="keyboard_shortcut_group_applications">Aplikasi</string>
     <string name="keyboard_shortcut_group_applications_assist">Bantu</string>
     <string name="keyboard_shortcut_group_applications_browser">Penyemak imbas</string>
@@ -1480,8 +1482,10 @@ Kepanasan yang terlampau boleh disebabkan oleh:
     <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
     <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
     <string name="battery_low_sec_title">Kuasa bateri %d%%</string>
-    <string name="battery_low_sec_body_in_normal_mode">Cas peranti anda atau ketik di sini untuk mengaktifkan Mod penjimatan kuasa.</string>
-    <string name="battery_low_sec_body_in_ups_mode">Sambungkan peranti anda ke pengecas.</string>
+    <string name="battery_low_sec_body_phone">Cas telefon anda atau ketik di sini untuk menghidupkan Mod penjimatan kuasa.</string>
+    <string name="battery_low_sec_body_tablet">Cas tablet anda atau ketik di sini untuk menghidupkan Mod penjimatan kuasa.</string>
+    <string name="battery_low_sec_body_phone_psm">Cas telefon anda.</string>
+    <string name="battery_low_sec_body_tablet_psm">Cas tablet anda.</string>
     <string name="battery_cable_charging_title">Mengecas kabel</string>
     <string name="battery_charging_title">Mengecas</string>
     <string name="battery_fast_charging_title">Pgecasan pantas</string>
@@ -1500,7 +1504,10 @@ Kepanasan yang terlampau boleh disebabkan oleh:
     <string name="battery_saver_notification_text_time_extend">Hayat bateri anda telah dilanjutkan.</string>
     <string name="button_detail">Butiran</string>
     <string name="battery_saver_recommend_notification_title">Kuasa bateri %d%%</string>
-    <string name="battery_saver_recommend_notification_text">Cas peranti anda atau ketik di sini untuk mengaktifkan Mod penjimatan kuasa.</string>
+    <string name="battery_saver_recommend_notification_text_phone">Cas telefon anda atau ketik di sini untuk menghidupkan Mod penjimatan kuasa.</string>
+    <string name="battery_saver_recommend_notification_text_tablet">Cas tablet anda atau ketik di sini untuk menghidupkan Mod penjimatan kuasa.</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">Cas telefon anda.</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">Cas tablet anda.</string>
     <string name="button_close">Tutup</string>
     <string name="battery_health_interruption_title">Tidak dapat mengecas</string>
     <string name="battery_health_interruption_by_terminal_open_text">Tidak dapat mengecas peranti anda. Pastikan anda menggunakan bateri dan pengecas serasi Samsung dan peranti anda disambungkan ke pengecas dengan betul.</string>
@@ -1589,6 +1596,7 @@ upscaler"</string>
     <string name="uhq_mode_noti_text">Tingkatkan peleraian bunyi muzik dan video untuk menikmati pengalaman mendengar yang lebih jelas.</string>
     <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
     <string name="assistance_app_setting_item_none">Tiada</string>
+    <string name="remote_input_send_text">Hantar</string>
     <string name="remote_input_toast_text_on_sview_cover">Tidak dapat menggunakan fungsi Balasan cepat semasa S view cover ditutup.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -1844,7 +1852,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_direction_shutdown_instructions">Lukiskan siri arah untuk mematikan kuasa</string>
     <string name="kg_none_multi_pin_restart_instructions">Peranti anda telah dimulakan semula dan perlu dibuka kunci menggunakan PIN anda. Anda boleh menggunakan biometrik anda pada kali berikutnya anda membuka kunci peranti anda.</string>
     <string name="kg_tablet_multi_pin_restart_instructions">Peranti anda telah dimulakan semula dan perlu dibuka kunci menggunakan PIN anda. Anda boleh menggunakan biometrik anda pada kali berikutnya anda membuka kunci peranti anda.</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">Peranti anda telah dimulakan semula dan perlu dibuka kunci menggunakan PIN anda. Anda boleh menggunakan cap jari anda pada kali berikutnya anda membuka kunci peranti anda.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">Telefon anda telah dimulakan semula dan perlu dibuka kunci menggunakan PIN anda. Anda boleh menggunakan cap jari anda pada kali berikutnya anda membuka kunci telefon anda.</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">Peranti anda telah dimulakan semula dan perlu dibuka kunci menggunakan PIN anda. Anda boleh menggunakan cap jari anda pada kali berikutnya anda membuka kunci peranti anda.</string>
     <string name="kg_none_iris_pin_restart_instructions">Peranti anda telah dimulakan semula dan perlu dibuka kunci menggunakan PIN anda. Anda boleh menggunakan iris anda pada kali berikutnya anda membuka kunci peranti anda.</string>
     <string name="kg_tablet_iris_pin_restart_instructions">Peranti anda telah dimulakan semula dan perlu dibuka kunci menggunakan PIN anda. Anda boleh menggunakan iris anda pada kali berikutnya anda membuka kunci peranti anda.</string>
@@ -1874,7 +1882,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pattern_deviceadmin_instructions">Lukis corak dan bukannya menggunakan pengecaman iris atas sebab dasar keselamatan</string>
     <string name="kg_none_multi_password_restart_instructions">Peranti anda telah dimulakan semula dan perlu dibuka kunci menggunakan kata laluan anda. Anda boleh menggunakan biometrik anda pada kali berikut anda membuka kunci peranti anda.</string>
     <string name="kg_tablet_multi_password_restart_instructions">Peranti anda telah dimulakan semula dan perlu dibuka kunci menggunakan kata laluan anda. Anda boleh menggunakan biometrik anda pada kali berikut anda membuka kunci peranti anda.</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">Peranti anda telah dimulakan semula dan perlu dibuka kunci menggunakan kata laluan anda. Anda boleh menggunakan cap jari anda pada kali berikutnya anda membuka kunci peranti anda.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">Telefon anda telah dimulakan semula dan perlu dibuka kunci menggunakan kata laluan anda. Anda boleh menggunakan cap jari anda pada kali berikutnya anda membuka kunci telefon anda.</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">Peranti anda telah dimulakan semula dan perlu dibuka kunci menggunakan kata laluan anda. Anda boleh menggunakan cap jari anda pada kali berikutnya anda membuka kunci peranti anda.</string>
     <string name="kg_none_iris_password_restart_instructions">Peranti anda telah dimulakan semula dan perlu dibuka kunci menggunakan kata laluan anda. Anda boleh menggunakan iris anda pada kali berikutnya anda membuka kunci peranti anda.</string>
     <string name="kg_tablet_iris_password_restart_instructions">Peranti anda telah dimulakan semula dan perlu dibuka kunci menggunakan kata laluan anda. Anda boleh menggunakan iris anda pada kali berikutnya anda membuka kunci peranti anda.</string>
@@ -1889,7 +1897,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_password_deviceadmin_instructions">Masukkan kata laluan dan bukannya menggunakan pengecaman iris atas sebab dasar keselamatan</string>
     <string name="kg_none_multi_direction_restart_instructions">Peranti anda telah dimulakan semula dan perlu dibuka kunci menggunakan siri arah anda. Anda boleh menggunakan biometrik anda pada kali berikutnya anda membuka kunci peranti anda.</string>
     <string name="kg_tablet_multi_direction_restart_instructions">Peranti anda telah dimulakan semula dan perlu dibuka kunci menggunakan siri arah anda. Anda boleh menggunakan biometrik anda pada kali berikutnya anda membuka kunci peranti anda.</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">Peranti anda telah dimulakan semula dan perlu dibuka kunci menggunakan siri arah anda. Anda boleh menggunakan cap jari anda pada kali berikutnya anda membuka kunci peranti anda.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">Telefon anda telah dimulakan semula dan perlu dibuka kunci menggunakan siri arah anda. Anda boleh menggunakan cap jari anda pada kali berikutnya anda membuka kunci telefon anda.</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">Peranti anda telah dimulakan semula dan perlu dibuka kunci menggunakan siri arah anda. Anda boleh menggunakan cap jari anda pada kali berikutnya anda membuka kunci peranti anda.</string>
     <string name="kg_none_iris_direction_restart_instructions">Peranti anda telah dimulakan semula dan perlu dibuka kunci menggunakan siri arah anda. Anda boleh menggunakan iris anda pada kali berikutnya anda membuka kunci peranti anda.</string>
     <string name="kg_tablet_iris_direction_restart_instructions">Peranti anda telah dimulakan semula dan perlu dibuka kunci menggunakan siri arah anda. Anda boleh menggunakan iris anda pada kali berikutnya anda membuka kunci peranti anda.</string>
@@ -2008,6 +2016,9 @@ Cuba lagi selepas 1 saat"</string>
     <string name="recents_help_dlg_split_icon_desc">Ketik ikon Skrin Pisah pada bar tajuk tetingkap aplikasi untuk membuka aplikasi dalam paparan skrin pisah. Ikon ini ditunjukkan apabila aplikasi menyokong Berbilang tetingkap.</string>
     <string name="recents_help_dlg_long_click_recents_key_text">Tekan dan tahan kekunci Terkini semasa menggunakan aplikasi dalam pandangan skrin penuh untuk bertukar kepada pandangan skrin pisah.</string>
     <string name="recents_help_dlg_home_key_in_split_text">Jika anda menekan kekunci Utama semasa menggunakan paparan skrin pisah, aplikasi yang ditunjukkan di bahagian atas skrin akan diminimumkan. Jika anda membuka aplikasi dari skrin utama semasa bar status berwarna biru, aplikasi akan dibuka dalam paparan skrin pisah di bahagian bawah skrin.</string>
+    <string name="battery_low_sec_body_in_normal_mode">Cas peranti anda atau ketik di sini untuk mengaktifkan Mod penjimatan kuasa.</string>
+    <string name="battery_low_sec_body_in_ups_mode">Sambungkan peranti anda ke pengecas.</string>
+    <string name="battery_saver_recommend_notification_text">Cas peranti anda atau ketik di sini untuk mengaktifkan Mod penjimatan kuasa.</string>
     <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
 
 If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>

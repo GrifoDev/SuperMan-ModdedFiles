@@ -7,7 +7,8 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/android/systemui/qs/external/TileServices$1;,
-        Lcom/android/systemui/qs/external/TileServices$2;
+        Lcom/android/systemui/qs/external/TileServices$2;,
+        Lcom/android/systemui/qs/external/TileServices$3;
     }
 .end annotation
 
@@ -50,6 +51,8 @@
     .end annotation
 .end field
 
+.field private final mTileUpdateReceiver:Landroid/content/BroadcastReceiver;
+
 .field private final mTiles:Landroid/util/ArrayMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -76,10 +79,26 @@
 
 
 # direct methods
-.method static synthetic -get0(Lcom/android/systemui/qs/external/TileServices;)Lcom/android/systemui/statusbar/phone/QSTileHost;
+.method static synthetic -get0(Lcom/android/systemui/qs/external/TileServices;)Landroid/os/Handler;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/qs/external/TileServices;->mHandler:Landroid/os/Handler;
+
+    return-object v0
+.end method
+
+.method static synthetic -get1(Lcom/android/systemui/qs/external/TileServices;)Lcom/android/systemui/statusbar/phone/QSTileHost;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/qs/external/TileServices;->mHost:Lcom/android/systemui/statusbar/phone/QSTileHost;
+
+    return-object v0
+.end method
+
+.method static synthetic -get2(Lcom/android/systemui/qs/external/TileServices;)Landroid/util/ArrayMap;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/qs/external/TileServices;->mServices:Landroid/util/ArrayMap;
 
     return-object v0
 .end method
@@ -95,9 +114,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    new-instance v0, Lcom/android/systemui/qs/external/TileServices$2;
+    new-instance v0, Lcom/android/systemui/qs/external/TileServices$3;
 
-    invoke-direct {v0}, Lcom/android/systemui/qs/external/TileServices$2;-><init>()V
+    invoke-direct {v0}, Lcom/android/systemui/qs/external/TileServices$3;-><init>()V
 
     sput-object v0, Lcom/android/systemui/qs/external/TileServices;->SERVICE_SORT:Ljava/util/Comparator;
 
@@ -105,75 +124,95 @@
 .end method
 
 .method public constructor <init>(Lcom/android/systemui/statusbar/phone/QSTileHost;Landroid/os/Looper;)V
-    .locals 4
+    .locals 5
 
     invoke-direct {p0}, Landroid/service/quicksettings/IQSService$Stub;-><init>()V
 
-    new-instance v0, Landroid/util/ArrayMap;
+    new-instance v1, Landroid/util/ArrayMap;
 
-    invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
+    invoke-direct {v1}, Landroid/util/ArrayMap;-><init>()V
 
-    iput-object v0, p0, Lcom/android/systemui/qs/external/TileServices;->mServices:Landroid/util/ArrayMap;
+    iput-object v1, p0, Lcom/android/systemui/qs/external/TileServices;->mServices:Landroid/util/ArrayMap;
 
-    new-instance v0, Landroid/util/ArrayMap;
+    new-instance v1, Landroid/util/ArrayMap;
 
-    invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
+    invoke-direct {v1}, Landroid/util/ArrayMap;-><init>()V
 
-    iput-object v0, p0, Lcom/android/systemui/qs/external/TileServices;->mTiles:Landroid/util/ArrayMap;
+    iput-object v1, p0, Lcom/android/systemui/qs/external/TileServices;->mTiles:Landroid/util/ArrayMap;
 
-    new-instance v0, Landroid/util/ArrayMap;
+    new-instance v1, Landroid/util/ArrayMap;
 
-    invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
+    invoke-direct {v1}, Landroid/util/ArrayMap;-><init>()V
 
-    iput-object v0, p0, Lcom/android/systemui/qs/external/TileServices;->mTokenMap:Landroid/util/ArrayMap;
+    iput-object v1, p0, Lcom/android/systemui/qs/external/TileServices;->mTokenMap:Landroid/util/ArrayMap;
 
-    const/16 v0, 0x9
+    const/16 v1, 0x9
 
-    iput v0, p0, Lcom/android/systemui/qs/external/TileServices;->mMaxBound:I
+    iput v1, p0, Lcom/android/systemui/qs/external/TileServices;->mMaxBound:I
 
-    new-instance v0, Lcom/android/systemui/qs/external/TileServices$1;
+    new-instance v1, Lcom/android/systemui/qs/external/TileServices$1;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/qs/external/TileServices$1;-><init>(Lcom/android/systemui/qs/external/TileServices;)V
+    invoke-direct {v1, p0}, Lcom/android/systemui/qs/external/TileServices$1;-><init>(Lcom/android/systemui/qs/external/TileServices;)V
 
-    iput-object v0, p0, Lcom/android/systemui/qs/external/TileServices;->mRequestListeningReceiver:Landroid/content/BroadcastReceiver;
+    iput-object v1, p0, Lcom/android/systemui/qs/external/TileServices;->mRequestListeningReceiver:Landroid/content/BroadcastReceiver;
+
+    new-instance v1, Lcom/android/systemui/qs/external/TileServices$2;
+
+    invoke-direct {v1, p0}, Lcom/android/systemui/qs/external/TileServices$2;-><init>(Lcom/android/systemui/qs/external/TileServices;)V
+
+    iput-object v1, p0, Lcom/android/systemui/qs/external/TileServices;->mTileUpdateReceiver:Landroid/content/BroadcastReceiver;
 
     iput-object p1, p0, Lcom/android/systemui/qs/external/TileServices;->mHost:Lcom/android/systemui/statusbar/phone/QSTileHost;
 
-    iget-object v0, p0, Lcom/android/systemui/qs/external/TileServices;->mHost:Lcom/android/systemui/statusbar/phone/QSTileHost;
+    iget-object v1, p0, Lcom/android/systemui/qs/external/TileServices;->mHost:Lcom/android/systemui/statusbar/phone/QSTileHost;
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/QSTileHost;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/systemui/qs/external/TileServices;->mContext:Landroid/content/Context;
-
-    iget-object v0, p0, Lcom/android/systemui/qs/external/TileServices;->mContext:Landroid/content/Context;
-
-    iget-object v1, p0, Lcom/android/systemui/qs/external/TileServices;->mRequestListeningReceiver:Landroid/content/BroadcastReceiver;
-
-    new-instance v2, Landroid/content/IntentFilter;
-
-    const-string/jumbo v3, "android.service.quicksettings.action.REQUEST_LISTENING"
-
-    invoke-direct {v2, v3}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
-
-    new-instance v0, Landroid/os/Handler;
-
-    invoke-direct {v0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
-
-    iput-object v0, p0, Lcom/android/systemui/qs/external/TileServices;->mHandler:Landroid/os/Handler;
-
-    new-instance v0, Landroid/os/Handler;
-
-    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/QSTileHost;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
-    invoke-direct {v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+    iput-object v1, p0, Lcom/android/systemui/qs/external/TileServices;->mContext:Landroid/content/Context;
 
-    iput-object v0, p0, Lcom/android/systemui/qs/external/TileServices;->mMainHandler:Landroid/os/Handler;
+    iget-object v1, p0, Lcom/android/systemui/qs/external/TileServices;->mContext:Landroid/content/Context;
+
+    iget-object v2, p0, Lcom/android/systemui/qs/external/TileServices;->mRequestListeningReceiver:Landroid/content/BroadcastReceiver;
+
+    new-instance v3, Landroid/content/IntentFilter;
+
+    const-string/jumbo v4, "android.service.quicksettings.action.REQUEST_LISTENING"
+
+    invoke-direct {v3, v4}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v1, v2, v3}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+
+    new-instance v0, Landroid/content/IntentFilter;
+
+    invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
+
+    const-string/jumbo v1, "android.intent.action.LOCALE_CHANGED"
+
+    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    iget-object v1, p0, Lcom/android/systemui/qs/external/TileServices;->mContext:Landroid/content/Context;
+
+    iget-object v2, p0, Lcom/android/systemui/qs/external/TileServices;->mTileUpdateReceiver:Landroid/content/BroadcastReceiver;
+
+    invoke-virtual {v1, v2, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+
+    new-instance v1, Landroid/os/Handler;
+
+    invoke-direct {v1, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+
+    iput-object v1, p0, Lcom/android/systemui/qs/external/TileServices;->mHandler:Landroid/os/Handler;
+
+    new-instance v1, Landroid/os/Handler;
+
+    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
+
+    move-result-object v2
+
+    invoke-direct {v1, v2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+
+    iput-object v1, p0, Lcom/android/systemui/qs/external/TileServices;->mMainHandler:Landroid/os/Handler;
 
     return-void
 .end method
@@ -443,9 +482,9 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/external/TileServices;->mMainHandler:Landroid/os/Handler;
 
-    new-instance v3, Lcom/android/systemui/qs/external/TileServices$3;
+    new-instance v3, Lcom/android/systemui/qs/external/TileServices$4;
 
-    invoke-direct {v3, p0, v0}, Lcom/android/systemui/qs/external/TileServices$3;-><init>(Lcom/android/systemui/qs/external/TileServices;Ljava/lang/String;)V
+    invoke-direct {v3, p0, v0}, Lcom/android/systemui/qs/external/TileServices$4;-><init>(Lcom/android/systemui/qs/external/TileServices;Ljava/lang/String;)V
 
     invoke-virtual {v1, v3}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
     :try_end_0
@@ -652,9 +691,9 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/external/TileServices;->mHandler:Landroid/os/Handler;
 
-    new-instance v2, Lcom/android/systemui/qs/external/TileServices$4;
+    new-instance v2, Lcom/android/systemui/qs/external/TileServices$5;
 
-    invoke-direct {v2, p0}, Lcom/android/systemui/qs/external/TileServices$4;-><init>(Lcom/android/systemui/qs/external/TileServices;)V
+    invoke-direct {v2, p0}, Lcom/android/systemui/qs/external/TileServices$5;-><init>(Lcom/android/systemui/qs/external/TileServices;)V
 
     const-wide/16 v4, 0x1f4
 
@@ -689,9 +728,9 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/external/TileServices;->mHandler:Landroid/os/Handler;
 
-    new-instance v2, Lcom/android/systemui/qs/external/TileServices$5;
+    new-instance v2, Lcom/android/systemui/qs/external/TileServices$6;
 
-    invoke-direct {v2, p0}, Lcom/android/systemui/qs/external/TileServices$5;-><init>(Lcom/android/systemui/qs/external/TileServices;)V
+    invoke-direct {v2, p0}, Lcom/android/systemui/qs/external/TileServices$6;-><init>(Lcom/android/systemui/qs/external/TileServices;)V
 
     const-wide/16 v4, 0x1f4
 
@@ -1114,9 +1153,9 @@
     :goto_0
     iget-object v3, p0, Lcom/android/systemui/qs/external/TileServices;->mMainHandler:Landroid/os/Handler;
 
-    new-instance v4, Lcom/android/systemui/qs/external/TileServices$6;
+    new-instance v4, Lcom/android/systemui/qs/external/TileServices$7;
 
-    invoke-direct {v4, p0, v7, v0}, Lcom/android/systemui/qs/external/TileServices$6;-><init>(Lcom/android/systemui/qs/external/TileServices;Landroid/content/ComponentName;Lcom/android/internal/statusbar/StatusBarIcon;)V
+    invoke-direct {v4, p0, v7, v0}, Lcom/android/systemui/qs/external/TileServices$7;-><init>(Lcom/android/systemui/qs/external/TileServices;Landroid/content/ComponentName;Lcom/android/internal/statusbar/StatusBarIcon;)V
 
     invoke-virtual {v3, v4}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
     :try_end_0

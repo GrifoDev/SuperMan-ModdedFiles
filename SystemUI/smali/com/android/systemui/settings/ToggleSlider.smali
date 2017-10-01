@@ -297,7 +297,7 @@
 
     iput-object p1, p0, Lcom/android/systemui/settings/ToggleSlider;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f040145
+    const v3, 0x7f040146
 
     invoke-static {p1, v3, p0}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -311,7 +311,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f13037b
+    const v3, 0x7f13037c
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/settings/ToggleSlider;->findViewById(I)Landroid/view/View;
 
@@ -327,7 +327,7 @@
 
     invoke-virtual {v3, v4}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    const v3, 0x7f130378
+    const v3, 0x7f130379
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/settings/ToggleSlider;->findViewById(I)Landroid/view/View;
 
@@ -367,7 +367,7 @@
 
     invoke-virtual {v3, v4}, Lcom/android/systemui/settings/ToggleSeekBar;->setFluidColor(I)V
 
-    const v3, 0x7f1301ee
+    const v3, 0x7f1301ef
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/settings/ToggleSlider;->findViewById(I)Landroid/view/View;
 
@@ -385,7 +385,7 @@
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v3, 0x7f130379
+    const v3, 0x7f13037a
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/settings/ToggleSlider;->findViewById(I)Landroid/view/View;
 
@@ -964,7 +964,7 @@
 
     iget-object v1, v1, Lcom/android/systemui/settings/ToggleSlider;->mSlider:Lcom/android/systemui/settings/ToggleSeekBar;
 
-    const v2, 0x7f02071e
+    const v2, 0x7f020721
 
     invoke-virtual {v0, v2, v3}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 
@@ -976,7 +976,7 @@
 
     iget-object v1, v1, Lcom/android/systemui/settings/ToggleSlider;->mSlider:Lcom/android/systemui/settings/ToggleSeekBar;
 
-    const v2, 0x7f020551
+    const v2, 0x7f020554
 
     invoke-virtual {v0, v2, v3}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 

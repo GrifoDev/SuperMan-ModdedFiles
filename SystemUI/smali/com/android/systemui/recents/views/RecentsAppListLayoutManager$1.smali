@@ -62,19 +62,8 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$1;->this$0:Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;
-
-    iget-object v0, v0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;->mAdapter:Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;
-
-    invoke-virtual {v0, p1}, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->isFrequencyAppPosition(I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    :cond_0
     iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$1;->this$0:Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;
 
     invoke-virtual {v0}, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;->getSpanCount()I
@@ -83,7 +72,7 @@
 
     return v0
 
-    :cond_1
+    :cond_0
     const/4 v0, 0x1
 
     return v0

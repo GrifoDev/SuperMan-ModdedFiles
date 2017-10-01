@@ -5331,6 +5331,16 @@
     return-void
 .end method
 
+.method public resetInitializeInterpolator()V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/systemui/recents/views/TaskStackLayoutAlgorithm;->mInitializeInterpolator:Z
+
+    return-void
+.end method
+
 .method public setFocusState(I)V
     .locals 2
 

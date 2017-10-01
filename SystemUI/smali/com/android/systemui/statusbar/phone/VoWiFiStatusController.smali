@@ -142,7 +142,7 @@
 
     const-string/jumbo v3, "vowifi"
 
-    const v4, 0x7f020701
+    const v4, 0x7f020704
 
     const/4 v5, 0x0
 
@@ -1046,7 +1046,7 @@
 
     if-eqz v4, :cond_5
 
-    const v3, 0x7f020700
+    const v3, 0x7f020703
 
     :goto_0
     const-string/jumbo v0, "VoWiFi Rove In"
@@ -1080,7 +1080,7 @@
     return-void
 
     :cond_5
-    const v3, 0x7f020700
+    const v3, 0x7f020703
 
     goto :goto_0
 
@@ -1106,7 +1106,7 @@
     :cond_7
     const/4 v2, 0x1
 
-    const v3, 0x7f020701
+    const v3, 0x7f020704
 
     const-string/jumbo v0, "VoWiFi Rove Out"
 

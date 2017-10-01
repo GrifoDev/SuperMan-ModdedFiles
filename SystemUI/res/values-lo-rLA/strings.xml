@@ -957,6 +957,7 @@ Wi-Fi ແລະ​ບ​ລູ​ທູດ​ຈະ​ປິດ, ແຕ່​ສ
     <string name="quick_settings_dual_label_content_description">%s, ເຄື່ອງໝາຍປຸ່ມ, ແຕະສອງຄັ້ງເພື່ອເບິ່ງການຕັ້ງຄ່າດ່ວນທີ່ກ່ຽວຂ້ອງ.</string>
     <string name="accessibility_button">ປຸ່ມ</string>
     <string name="quick_settings_brightness_auto_brightness">ຄວາມແຈ້ງອັດຕະໂນມັດ</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">ປັບປ່ຽນຄວາມແຈ້ງໜ້າຈໍໂດຍອັດຕະໂນມັດຕາມສະພາບຄວາມສະຫວ່າງ.</string>
     <string name="quick_settings_brightness_quick_access">ສະແດງການຄວບຄຸມຢູ່ເບື້ອງເທິງສຸດ</string>
     <string name="quick_settings_brightness_quick_access_summary">ສະແດງການຄວບຄຸມຄວາມແຈ້ງຢູ່ເທິງແຜງການແຈ້ງເຕືອນ.</string>
     <string name="quick_settings_brightness_detail_level">ລະດັບ</string>
@@ -1277,6 +1278,7 @@ Wi-Fi ແລະ​ບ​ລູ​ທູດ​ຈະ​ປິດ, ແຕ່​ສ
     <string name="keyboard_shortcut_group_system_notifications">ການແຈ້ງເຕືອນ</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">ປຸ່ມລັດແປ້ນພິມ</string>
     <string name="keyboard_shortcut_group_system_switch_input">ສະລັບຮູບແບບການປ້ອນຂໍ້ມູນ</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">ສັບປ່ຽນພາສາ</string>
     <string name="keyboard_shortcut_group_applications">ແອັບພລິເຄຊັນ</string>
     <string name="keyboard_shortcut_group_applications_assist">ຕົວຊ່ວຍ</string>
     <string name="keyboard_shortcut_group_applications_browser">ໂປຣແກຣມທ່ອງເວັບ</string>
@@ -1480,8 +1482,10 @@ Using your tablet in a very hot location."</string>
     <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
     <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
     <string name="battery_low_sec_title">ໄຟແບັດເຕີຣີ %d%%</string>
-    <string name="battery_low_sec_body_in_normal_mode">ສາກອຸປະກອນຂອງທ່ານ ຫຼືແຕະທີ່ນີ້ເພື່ອເປີດໃຊ້ງານ [ໂໝດປະຢັດໄຟ].</string>
-    <string name="battery_low_sec_body_in_ups_mode">ເຊື່ອມຕໍ່ເຄື່ອງຂອງທ່ານກັບເຄື່ອງສາກ.</string>
+    <string name="battery_low_sec_body_phone">ສາກໂທລະສັບຂອງທ່ານ ຫຼື ແຕະທີ່ນີ້ເພື່ອເປີດໂໝດປະຢັດໄຟ.</string>
+    <string name="battery_low_sec_body_tablet">ສາກແທັບເລັດຂອງທ່ານ ຫຼື ແຕະທີ່ນີ້ເພື່ອເປີດໂໝດປະຢັດໄຟ.</string>
+    <string name="battery_low_sec_body_phone_psm">ສາກໂທລະສັບຂອງທ່ານ.</string>
+    <string name="battery_low_sec_body_tablet_psm">ສາກແທັບເລັດຂອງທ່ານ.</string>
     <string name="battery_cable_charging_title">ກໍາລັງສາກດ້ວຍສາຍເຄເບິ້ລ</string>
     <string name="battery_charging_title">ກໍາລັງສາກ</string>
     <string name="battery_fast_charging_title">ກໍາລັງສາກດ່ວນ</string>
@@ -1500,7 +1504,10 @@ Using your tablet in a very hot location."</string>
     <string name="battery_saver_notification_text_time_extend">ອາຍຸແບັດເຕີຣີຂອງທ່ານຈະຖືກຂະຫຍາຍອອກ.</string>
     <string name="button_detail">ລາຍລະອຽດ</string>
     <string name="battery_saver_recommend_notification_title">ໄຟແບັດເຕີຣີ %d%%</string>
-    <string name="battery_saver_recommend_notification_text">ສາກອຸປະກອນຂອງທ່ານ ຫຼືແຕະທີ່ນີ້ເພື່ອເປີດໃຊ້ງານ [ໂໝດປະຢັດໄຟ].</string>
+    <string name="battery_saver_recommend_notification_text_phone">ສາກໂທລະສັບຂອງທ່ານ ຫຼື ແຕະທີ່ນີ້ເພື່ອເປີດໂໝດປະຢັດໄຟ.</string>
+    <string name="battery_saver_recommend_notification_text_tablet">ສາກແທັບເລັດຂອງທ່ານ ຫຼື ແຕະທີ່ນີ້ເພື່ອເປີດໂໝດປະຢັດໄຟ.</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">ສາກໂທລະສັບຂອງທ່ານ.</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">ສາກແທັບເລັດຂອງທ່ານ.</string>
     <string name="button_close">ປິດ</string>
     <string name="battery_health_interruption_title">ບໍ່ສາມາດສາກໄດ້</string>
     <string name="battery_health_interruption_by_terminal_open_text">ບໍ່ສາມາດສາກເຄື່ອງຂອງທ່ານໄດ້. ໃຫ້ແນ່ໃຈວ່າ ທ່ານກໍາລັງໃຊ້ແບັດເຕີຣີ ແລະເຄື່ອງສາກທີ່ເຂົ້າກັບຊໍາຊຸງ ແລະເຄື່ອງຂອງທ່ານໄດ້ເຊື່ອມຕໍ່ກັບເຄື່ອງສາກຢ່າງຖືກຕ້ອງ.</string>
@@ -1589,6 +1596,7 @@ upscaler"</string>
     <string name="uhq_mode_noti_text">ເພີ່ມຄວາມລະອຽດສຽງຂອງເພງແລະວິດີໂອຂຶ້ນສຳລັບປະສົບການຟັງທີ່ແຈ້ງຂຶ້ນ.</string>
     <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
     <string name="assistance_app_setting_item_none">ບໍ່ມີ</string>
+    <string name="remote_input_send_text">ສົ່ງ</string>
     <string name="remote_input_toast_text_on_sview_cover">ບໍ່​ສາ​ມາດ​ໃຊ້​ຟັງ​ຄ໌​ຊັນ​ຕອບ​ຄືນ​ດ່ວນ​ໃນ​ຂະ​ນະ​ທີ່​ຝາ​ປິດ​​ S view ​ປິດ​ຢູ່.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -1844,7 +1852,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_direction_shutdown_instructions">ແຕ້ມຊຸດ​ທິດ​ທາງເພື່ອປິດເຄື່ອງ</string>
     <string name="kg_none_multi_pin_restart_instructions">ອຸປະກອນຂອງທ່ານຖືກປິດເປີດໃໝ່ແລ້ວ ແລະຈຳເປັນຕ້ອງໄດ້ຖືກປົດລັອກໂດຍໃຊ້ PIN ຂອງທ່ານ. ທ່ານສາມາດໃຊ້ໄບໂອແມັດທຣິກຂອງທ່ານໃນຄັ້ງຕໍ່ໄປທີ່ທ່ານປົດລັອກອຸປະກອນຂອງທ່ານ.</string>
     <string name="kg_tablet_multi_pin_restart_instructions">ອຸປະກອນຂອງທ່ານຖືກປິດເປີດໃໝ່ແລ້ວ ແລະຈຳເປັນຕ້ອງໄດ້ຖືກປົດລັອກໂດຍໃຊ້ PIN ຂອງທ່ານ. ທ່ານສາມາດໃຊ້ໄບໂອແມັດທຣິກຂອງທ່ານໃນຄັ້ງຕໍ່ໄປທີ່ທ່ານປົດລັອກອຸປະກອນຂອງທ່ານ.</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">ອຸປະກອນຂອງທ່ານຖືກປິດເປີດໃໝ່ແລ້ວ ແລະຈຳເປັນຕ້ອງໄດ້ປົດລັອກໂດຍໃຊ້ PIN ຂອງທ່ານ. ທ່ານສາມາດໃຊ້ລາຍນິ້ວມືຂອງທ່ານໃນຄັ້ງຕໍ່ໄປທີ່ທ່ານປົດລັອກອຸປະກອນຂອງທ່ານ.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">ໂທລະສັບຂອງທ່ານຖືກປິດເປີດຄືນໃໝ່ແລ້ວ ແລະຈຳເປັນຕ້ອງໄດ້ປົດລັອກໂດຍໃຊ້ PIN ຂອງທ່ານ. ທ່ານສາມາດໃຊ້ລາຍນິ້ວມືຂອງທ່ານໃນຄັ້ງຕໍ່ໄປທີ່ທ່ານປົດລັອກໂທລະສັບຂອງທ່ານ.</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">ອຸປະກອນຂອງທ່ານຖືກປິດເປີດໃໝ່ແລ້ວ ແລະຈຳເປັນຕ້ອງໄດ້ປົດລັອກໂດຍໃຊ້ PIN ຂອງທ່ານ. ທ່ານສາມາດໃຊ້ລາຍນິ້ວມືຂອງທ່ານໃນຄັ້ງຕໍ່ໄປທີ່ທ່ານປົດລັອກອຸປະກອນຂອງທ່ານ.</string>
     <string name="kg_none_iris_pin_restart_instructions">ອຸປະກອນຂອງທ່ານຖືກປິດເປີດໃໝ່ແລ້ວ ແລະຈຳເປັນຕ້ອງໄດ້ປົດລັອກໂດຍໃຊ້ PIN ຂອງທ່ານ. ທ່ານສາມາດໃຊ້ມ່ານຕາຂອງທ່ານໃນຄັ້ງຕໍ່ໄປທີ່ທ່ານປົດລັອກອຸປະກອນຂອງທ່ານ.</string>
     <string name="kg_tablet_iris_pin_restart_instructions">ອຸປະກອນຂອງທ່ານຖືກປິດເປີດໃໝ່ແລ້ວ ແລະຈຳເປັນຕ້ອງໄດ້ປົດລັອກໂດຍໃຊ້ PIN ຂອງທ່ານ. ທ່ານສາມາດໃຊ້ມ່ານຕາຂອງທ່ານໃນຄັ້ງຕໍ່ໄປທີ່ທ່ານປົດລັອກອຸປະກອນຂອງທ່ານ.</string>
@@ -1874,7 +1882,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pattern_deviceadmin_instructions">ແຕ້ມຮູບແບບແທນການໃຊ້ການຈົດຈຳມ່ານຕາຍ້ອນນະໂຍບາຍດ້ານຄວາມປອດໄພ</string>
     <string name="kg_none_multi_password_restart_instructions">ອຸປະກອນຂອງທ່ານຖືກປິດເປີດຄືນໃໝ່ ແລະຈຳເປັນຕ້ອງຖືກປົດລັອກໂດຍໃຊ້ລະຫັດຜ່ານຂອງທ່ານ. ທ່ານສາມາດໃຊ້ໄບໂອແມັດທຣິກຂອງທ່ານໃນຄັ້ງຕໍ່ໄປທີ່ທ່ານປົດລັອກອຸປະກອນຂອງທ່ານ.</string>
     <string name="kg_tablet_multi_password_restart_instructions">ອຸປະກອນຂອງທ່ານຖືກປິດເປີດຄືນໃໝ່ ແລະຈຳເປັນຕ້ອງຖືກປົດລັອກໂດຍໃຊ້ລະຫັດຜ່ານຂອງທ່ານ. ທ່ານສາມາດໃຊ້ໄບໂອແມັດທຣິກຂອງທ່ານໃນຄັ້ງຕໍ່ໄປທີ່ທ່ານປົດລັອກອຸປະກອນຂອງທ່ານ.</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">ອຸປະກອນຂອງທ່ານຖືກປິດເປີດໃໝ່ແລ້ວ ແລະຈຳເປັນຕ້ອງໄດ້ປົດລັອກໂດຍໃຊ້ລະຫັດຜ່ານຂອງທ່ານ. ທ່ານສາມາດໃຊ້ລາຍນິ້ວມືຂອງທ່ານໃນຄັ້ງຕໍ່ໄປທີ່ທ່ານປົດລັອກອຸປະກອນຂອງທ່ານ.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">ໂທລະສັບຂອງທ່ານຖືກປິດເປີດຄືນໃໝ່ແລ້ວ ແລະຈຳເປັນຕ້ອງໄດ້ປົດລັອກໂດຍໃຊ້ລະຫັດຜ່ານຂອງທ່ານ. ທ່ານສາມາດໃຊ້ລາຍນິ້ວມືຂອງທ່ານໃນຄັ້ງຕໍ່ໄປທີ່ທ່ານປົດລັອກໂທລະສັບຂອງທ່ານ.</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">ອຸປະກອນຂອງທ່ານຖືກປິດເປີດໃໝ່ແລ້ວ ແລະຈຳເປັນຕ້ອງໄດ້ປົດລັອກໂດຍໃຊ້ລະຫັດຜ່ານຂອງທ່ານ. ທ່ານສາມາດໃຊ້ລາຍນິ້ວມືຂອງທ່ານໃນຄັ້ງຕໍ່ໄປທີ່ທ່ານປົດລັອກອຸປະກອນຂອງທ່ານ.</string>
     <string name="kg_none_iris_password_restart_instructions">ອຸປະກອນຂອງທ່ານຖືກປິດເປີດໃໝ່ແລ້ວ ແລະຈຳເປັນຕ້ອງໄດ້ປົດລັອກໂດຍໃຊ້ລະຫັດຜ່ານຂອງທ່ານ. ທ່ານສາມາດໃຊ້ມ່ານຕາຂອງທ່ານໃນຄັ້ງຕໍ່ໄປທີ່ທ່ານປົດລັອກອຸປະກອນຂອງທ່ານ.</string>
     <string name="kg_tablet_iris_password_restart_instructions">ອຸປະກອນຂອງທ່ານຖືກປິດເປີດໃໝ່ແລ້ວ ແລະຈຳເປັນຕ້ອງໄດ້ປົດລັອກໂດຍໃຊ້ລະຫັດຜ່ານຂອງທ່ານ. ທ່ານສາມາດໃຊ້ມ່ານຕາຂອງທ່ານໃນຄັ້ງຕໍ່ໄປທີ່ທ່ານປົດລັອກອຸປະກອນຂອງທ່ານ.</string>
@@ -1889,7 +1897,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_password_deviceadmin_instructions">ປ້ອນລະຫັດຜ່ານເຂົ້າແທນການໃຊ້ການຈົດຈຳມ່ານຕາຍ້ອນນະໂຍບາຍດ້ານຄວາມປອດໄພ</string>
     <string name="kg_none_multi_direction_restart_instructions">ອຸປະກອນຂອງທ່ານຖືກປິດເປີດໃໝ່ແລ້ວ ແລະຈຳເປັນຕ້ອງໄດ້ຖືກປົດລັອກໂດຍໃຊ້ຊຸດທິດທາງຂອງທ່ານ. ທ່ານສາມາດໃຊ້ໄບໂອແມັດທຣິກຂອງທ່ານໃນຄັ້ງຕໍ່ໄປທີ່ທ່ານປົດລັອກອຸປະກອນຂອງທ່ານ.</string>
     <string name="kg_tablet_multi_direction_restart_instructions">ອຸປະກອນຂອງທ່ານຖືກປິດເປີດໃໝ່ແລ້ວ ແລະຈຳເປັນຕ້ອງໄດ້ຖືກປົດລັອກໂດຍໃຊ້ຊຸດທິດທາງຂອງທ່ານ. ທ່ານສາມາດໃຊ້ໄບໂອແມັດທຣິກຂອງທ່ານໃນຄັ້ງຕໍ່ໄປທີ່ທ່ານປົດລັອກອຸປະກອນຂອງທ່ານ.</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">ອຸປະກອນຂອງທ່ານຖືກປິດເປີດໃໝ່ແລ້ວ ແລະຈຳເປັນຕ້ອງໄດ້ປົດລັອກໂດຍໃຊ້ຊຸດທິດທາງຂອງທ່ານ. ທ່ານສາມາດໃຊ້ລາຍນິ້ວມືຂອງທ່ານໃນຄັ້ງຕໍ່ໄປທີ່ທ່ານປົດລັອກອຸປະກອນຂອງທ່ານ.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">ໂທລະສັບຂອງທ່ານຖືກປິດເປີດຄືນໃໝ່ແລ້ວ ແລະຈຳເປັນຕ້ອງໄດ້ປົດລັອກໂດຍໃຊ້ຊຸດທິດທາງຂອງທ່ານ. ທ່ານສາມາດໃຊ້ລາຍນິ້ວມືຂອງທ່ານໃນຄັ້ງຕໍ່ໄປທີ່ທ່ານປົດລັອກໂທລະສັບຂອງທ່ານ.</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">ອຸປະກອນຂອງທ່ານຖືກປິດເປີດໃໝ່ແລ້ວ ແລະຈຳເປັນຕ້ອງໄດ້ປົດລັອກໂດຍໃຊ້ຊຸດທິດທາງຂອງທ່ານ. ທ່ານສາມາດໃຊ້ລາຍນິ້ວມືຂອງທ່ານໃນຄັ້ງຕໍ່ໄປທີ່ທ່ານປົດລັອກອຸປະກອນຂອງທ່ານ.</string>
     <string name="kg_none_iris_direction_restart_instructions">ອຸປະກອນຂອງທ່ານຖືກປິດເປີດໃໝ່ແລ້ວ ແລະຈຳເປັນຕ້ອງໄດ້ປົດລັອກໂດຍໃຊ້ຊຸດທິດທາງຂອງທ່ານ. ທ່ານສາມາດໃຊ້ມ່ານຕາຂອງທ່ານໃນຄັ້ງຕໍ່ໄປທີ່ທ່ານປົດລັອກອຸປະກອນຂອງທ່ານ.</string>
     <string name="kg_tablet_iris_direction_restart_instructions">ອຸປະກອນຂອງທ່ານຖືກປິດເປີດໃໝ່ແລ້ວ ແລະຈຳເປັນຕ້ອງໄດ້ປົດລັອກໂດຍໃຊ້ຊຸດທິດທາງຂອງທ່ານ. ທ່ານສາມາດໃຊ້ມ່ານຕາຂອງທ່ານໃນຄັ້ງຕໍ່ໄປທີ່ທ່ານປົດລັອກອຸປະກອນຂອງທ່ານ.</string>
@@ -2008,6 +2016,9 @@ PIN ຈະຕ້ອງມີຄວາມຍາວ 4 ຫາ 8 ຕົວເລກ.
     <string name="recents_help_dlg_split_icon_desc">ແຕະໄອຄອນໜ້າຈໍແຍກໃນແຖບຫົວຂໍ້ຂອງໜ້າຕ່າງແອັບເພື່ອເປີດແອັບໃນມຸມມອງໜ້າຈໍແຍກ. ໄອຄອນນີ້ຖືກສະແດງຂຶ້ນເມື່ອແອັບຮອງຮັບມັລຕິວິນໂດ.</string>
     <string name="recents_help_dlg_long_click_recents_key_text">ກົດປຸ່ມຫຼ້າສຸດຄ້າງໄວ້ໃນຂະນະທີ່ໃຊ້ແອັບໃນແບບມຸມມອງເຕັມໜ້າຈໍເພື່ອປ່ຽນເປັນມຸມມອງໜ້າຈໍແຍກ.</string>
     <string name="recents_help_dlg_home_key_in_split_text">ຖ້າທ່ານກົດປຸ່ມໂຮມໃນຂະນະທີ່ໃຊ້ມຸມມອງໜ້າຈໍແຍກ, ແອັບທີ່ສະແດງຢູ່ເຄິ່ງເບື້ອງເທິງຂອງໜ້າຈໍຈະຖືກເຮັດໃຫ້ນ້ອຍລົງ. ຖ້າທ່ານເປີດແອັບຈາກໜ້າຈໍຫຼັກໃນຂະນະທີ່ແຖບສະຖານະມີສີຟ້າ, ແອັບຈະເປີດໃນມຸມມອງໜ້າຈໍແຍກໃນເຄິ່ງເບື້ອງລຸ່ມສຸດຂອງໜ້າຈໍ.</string>
+    <string name="battery_low_sec_body_in_normal_mode">ສາກອຸປະກອນຂອງທ່ານ ຫຼືແຕະທີ່ນີ້ເພື່ອເປີດໃຊ້ງານ [ໂໝດປະຢັດໄຟ].</string>
+    <string name="battery_low_sec_body_in_ups_mode">ເຊື່ອມຕໍ່ເຄື່ອງຂອງທ່ານກັບເຄື່ອງສາກ.</string>
+    <string name="battery_saver_recommend_notification_text">ສາກອຸປະກອນຂອງທ່ານ ຫຼືແຕະທີ່ນີ້ເພື່ອເປີດໃຊ້ງານ [ໂໝດປະຢັດໄຟ].</string>
     <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
 
 If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>

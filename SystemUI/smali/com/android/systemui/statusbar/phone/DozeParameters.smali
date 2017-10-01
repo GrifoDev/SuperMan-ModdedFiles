@@ -339,7 +339,7 @@
 
     const-string/jumbo v0, "doze.pickup.vibration.threshold"
 
-    const v1, 0x7f0c005c
+    const v1, 0x7f0c005e
 
     invoke-direct {p0, v0, v1}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getInt(Ljava/lang/String;I)I
 
@@ -391,7 +391,7 @@
 
     const-string/jumbo v0, "doze.pulse.duration.in.pickup"
 
-    const v1, 0x7f0c005e
+    const v1, 0x7f0c0060
 
     invoke-direct {p0, v0, v1}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getInt(Ljava/lang/String;I)I
 
@@ -403,7 +403,7 @@
     :cond_0
     const-string/jumbo v0, "doze.pulse.duration.in"
 
-    const v1, 0x7f0c005d
+    const v1, 0x7f0c005f
 
     invoke-direct {p0, v0, v1}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getInt(Ljava/lang/String;I)I
 
@@ -465,7 +465,7 @@
 
     const-string/jumbo v0, "doze.pulse.duration.out"
 
-    const v1, 0x7f0c0060
+    const v1, 0x7f0c0062
 
     invoke-direct {p0, v0, v1}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getInt(Ljava/lang/String;I)I
 
@@ -521,7 +521,7 @@
 
     const-string/jumbo v0, "doze.pulse.schedule.resets"
 
-    const v1, 0x7f0c005b
+    const v1, 0x7f0c005d
 
     invoke-direct {p0, v0, v1}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getInt(Ljava/lang/String;I)I
 

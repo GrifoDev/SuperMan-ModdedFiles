@@ -1680,6 +1680,46 @@
     return v0
 .end method
 
+.method public getOpenThemeClockFont()Ljava/lang/String;
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/keyguard/util/SettingsHelper;->mItemLists:Ljava/util/ArrayList;
+
+    const/16 v1, 0x14
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/keyguard/util/SettingsHelper$Item;
+
+    invoke-virtual {v0}, Lcom/android/keyguard/util/SettingsHelper$Item;->getStringValue()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public getOpenThemeNumericFont()Ljava/lang/String;
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/keyguard/util/SettingsHelper;->mItemLists:Ljava/util/ArrayList;
+
+    const/16 v1, 0x15
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/keyguard/util/SettingsHelper$Item;
+
+    invoke-virtual {v0}, Lcom/android/keyguard/util/SettingsHelper$Item;->getStringValue()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public getSharedDeviceEnabled()I
     .locals 2
 

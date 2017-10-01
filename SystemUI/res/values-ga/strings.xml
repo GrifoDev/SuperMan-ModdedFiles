@@ -389,6 +389,7 @@ Taispeánfar an t-íocón Glaoch Wi-Fi sa phainéal fógraí de réir mar a thai
     <string name="quick_settings_dual_label_content_description">%s, Lipéad cnaipe, Déthapáil le hamharc ar na mearshocruithe ábhartha.</string>
     <string name="accessibility_button">Cnaipe</string>
     <string name="quick_settings_brightness_auto_brightness">Uathghile</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">Ceartaigh gile an scáileáin go huathoibríoch bunaithe ar na dálaí soilsithe.</string>
     <string name="quick_settings_brightness_quick_access">Taispeáin rialtán ar an mbarr</string>
     <string name="quick_settings_brightness_quick_access_summary">Taispeáin an rialtán gile os cionn an phainéil fógraí.</string>
     <string name="quick_settings_brightness_detail_level">Leibhéal</string>
@@ -418,6 +419,7 @@ Taispeánfar an t-íocón Glaoch Wi-Fi sa phainéal fógraí de réir mar a thai
     <string name="wifi_ap_wifi_p2p_off_warn">Dínascfar aon ghléas atá nasctha faoi láthair le Wi-Fi Direct má chumasaítear Ball te móibíleach.</string>
     <string name="wifi_ap_wifi_p2p_off_warn_china">Enabling Portable WLAN hotspot will disconnect device connected via WLAN Direct.</string>
     <string name="dialog_battery_data_warning">Cumasófar Ball Te Móibíleach. Cuirfidh sé sin méadú ar ídiú an cheallra agus ar úsáid sonraí.</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">Aistrigh teangacha</string>
     <string name="keyboard_shortcut_group_applications_email">R-phost</string>
     <string name="qs_edit">C. IN EAG.</string>
     <string name="sec_qs_edit">Cuir in eagar</string>
@@ -544,8 +546,10 @@ Is féidir go n-éiríonn sé róthe ar na cúiseanna seo a leanas:
     <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
     <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
     <string name="battery_low_sec_title">Cumhacht an cheallra %d%%</string>
-    <string name="battery_low_sec_body_in_normal_mode">Luchtaigh do ghléas nó tapáil anseo le Mód coigilte cumhachta a chumasú.</string>
-    <string name="battery_low_sec_body_in_ups_mode">Ceangail do ghléas le luchtaire.</string>
+    <string name="battery_low_sec_body_phone">"Luchtaigh d'fhón nó tapáil anseo le Mód coigilte cumhachta a chasadh air."</string>
+    <string name="battery_low_sec_body_tablet">Luchtaigh do tháibléad nó tapáil anseo le Mód coigilte cumhachta a chasadh air.</string>
+    <string name="battery_low_sec_body_phone_psm">"Luchtaigh d'fhón."</string>
+    <string name="battery_low_sec_body_tablet_psm">Luchtaigh do tháibléad.</string>
     <string name="battery_cable_charging_title">Luchtú cábla</string>
     <string name="battery_charging_title">Luchtú</string>
     <string name="battery_fast_charging_title">Mearluchtú</string>
@@ -564,7 +568,10 @@ Is féidir go n-éiríonn sé róthe ar na cúiseanna seo a leanas:
     <string name="battery_saver_notification_text_time_extend">Síneadh saolré do cheallra.</string>
     <string name="button_detail">Mionsonraí</string>
     <string name="battery_saver_recommend_notification_title">Cumhacht an cheallra %d%%</string>
-    <string name="battery_saver_recommend_notification_text">Luchtaigh do ghléas nó tapáil anseo le Mód coigilte cumhachta a chumasú.</string>
+    <string name="battery_saver_recommend_notification_text_phone">"Luchtaigh d'fhón nó tapáil anseo le Mód coigilte cumhachta a chasadh air."</string>
+    <string name="battery_saver_recommend_notification_text_tablet">Luchtaigh do tháibléad nó tapáil anseo le Mód coigilte cumhachta a chasadh air.</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">"Luchtaigh d'fhón."</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">Luchtaigh do tháibléad.</string>
     <string name="button_close">Dún</string>
     <string name="battery_health_interruption_title">Luchtú dodhéanta</string>
     <string name="battery_health_interruption_by_terminal_open_text">Ní féidir do ghléas a athrú. Cinntigh go bhfuil ceallra agus luchtaire a oireann le Samsung in úsáid agat agus go bhfuil do ghléas nasctha i gceart leis an luchtaire.</string>
@@ -653,6 +660,7 @@ suas UHQ"</string>
     <string name="uhq_mode_noti_text">"Feabhsaigh an taifeach fuaime don cheol agus d'fhíseáin le heispéireas níos soiléire éisteachta a bhrath."</string>
     <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
     <string name="assistance_app_setting_item_none">Dada</string>
+    <string name="remote_input_send_text">Seol</string>
     <string name="remote_input_toast_text_on_sview_cover">Ní féidir an fheidhm Mearfhreagairt a úsáid agus an S View Cover dúnta.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -841,7 +849,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_direction_shutdown_instructions">Tarraing sraith treonna leis an gcumhacht a chasadh as</string>
     <string name="kg_none_multi_pin_restart_instructions">Atosaíodh do ghléas agus ní foláir é a dhíghlasáil le do PIN dá bharr sin. Beidh tú in ann do bhithmhéadracht a úsáid le do ghléas a dhíghlasáil an chéad uair eile.</string>
     <string name="kg_tablet_multi_pin_restart_instructions">Atosaíodh do ghléas agus ní foláir é a dhíghlasáil le do PIN dá bharr sin. Beidh tú in ann do bhithmhéadracht a úsáid le do ghléas a dhíghlasáil an chéad uair eile.</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">Atosaíodh do ghléas agus ní foláir é a dhíghlasáil le do PIN dá bharr sin. Beidh tú in ann do mhéarloirg a úsáid le do ghléas a dhíghlasáil an chéad uair eile.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">"Atosaíodh d'fhón agus ní foláir é a dhíghlasáil le do PIN dá bharr sin. Beidh tú in ann do mhéarloirg a úsáid le d'fhón a dhíghlasáil an chéad uair eile."</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">Atosaíodh do ghléas agus ní foláir é a dhíghlasáil le do PIN dá bharr sin. Beidh tú in ann do mhéarloirg a úsáid le do ghléas a dhíghlasáil an chéad uair eile.</string>
     <string name="kg_none_iris_pin_restart_instructions">"Atosaíodh do ghléas agus ní foláir é a dhíghlasáil le do PIN dá bharr sin. Beidh tú in ann d'inteacháin a úsáid le do ghléas a dhíghlasáil an chéad uair eile."</string>
     <string name="kg_tablet_iris_pin_restart_instructions">"Atosaíodh do ghléas agus ní foláir é a dhíghlasáil le do PIN dá bharr sin. Beidh tú in ann d'inteacháin a úsáid le do ghléas a dhíghlasáil an chéad uair eile."</string>
@@ -871,7 +879,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pattern_deviceadmin_instructions">Tarraing patrún in ionad Aithint inteacháin a úsáid de bharr an bheartais slándála</string>
     <string name="kg_none_multi_password_restart_instructions">"Atosaíodh do ghléas agus ní foláir é a dhíghlasáil le do phasfhocal dá bharr sin. Beidh tú in ann d'fhaisnéis bhithmhéadrach a úsáid le do ghléas a dhíghlasáil an chéad uair eile."</string>
     <string name="kg_tablet_multi_password_restart_instructions">"Atosaíodh do ghléas agus ní foláir é a dhíghlasáil le do phasfhocal dá bharr sin. Beidh tú in ann d'fhaisnéis bhithmhéadrach a úsáid le do ghléas a dhíghlasáil an chéad uair eile."</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">Atosaíodh do ghléas agus ní foláir é a dhíghlasáil le do phasfhocal dá bharr sin. Beidh tú in ann do mhéarloirg a úsáid le do ghléas a dhíghlasáil an chéad uair eile.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">"Atosaíodh d'fhón agus ní foláir é a dhíghlasáil le do phasfhocal dá bharr sin. Beidh tú in ann do mhéarloirg a úsáid le d'fhón a dhíghlasáil an chéad uair eile."</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">Atosaíodh do ghléas agus ní foláir é a dhíghlasáil le do phasfhocal dá bharr sin. Beidh tú in ann do mhéarloirg a úsáid le do ghléas a dhíghlasáil an chéad uair eile.</string>
     <string name="kg_none_iris_password_restart_instructions">"Atosaíodh do ghléas agus ní foláir é a dhíghlasáil le do phasfhocal dá bharr sin. Beidh tú in ann d'inteacháin a úsáid le do ghléas a dhíghlasáil an chéad uair eile."</string>
     <string name="kg_tablet_iris_password_restart_instructions">"Atosaíodh do ghléas agus ní foláir é a dhíghlasáil le do phasfhocal dá bharr sin. Beidh tú in ann d'inteacháin a úsáid le do ghléas a dhíghlasáil an chéad uair eile."</string>
@@ -886,7 +894,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_password_deviceadmin_instructions">Iontráil pasfhocal in ionad Aithint inteacháin a úsáid de bharr an bheartais slándála</string>
     <string name="kg_none_multi_direction_restart_instructions">Atosaíodh do ghléas agus ní foláir é a dhíghlasáil le do shraith treonna dá bharr sin. Beidh tú in ann do bhithmhéadracht a úsáid le do ghléas a dhíghlasáil an chéad uair eile.</string>
     <string name="kg_tablet_multi_direction_restart_instructions">Atosaíodh do ghléas agus ní foláir é a dhíghlasáil le do shraith treonna dá bharr sin. Beidh tú in ann do bhithmhéadracht a úsáid le do ghléas a dhíghlasáil an chéad uair eile.</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">Atosaíodh do ghléas agus ní foláir é a dhíghlasáil le do shraith treonna dá bharr sin. Beidh tú in ann do mhéarloirg a úsáid le do ghléas a dhíghlasáil an chéad uair eile.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">"Atosaíodh d'fhón agus ní foláir é a dhíghlasáil le do shraith treonna dá bharr sin. Beidh tú in ann do mhéarloirg a úsáid le d'fhón a dhíghlasáil an chéad uair eile."</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">Atosaíodh do ghléas agus ní foláir é a dhíghlasáil le do shraith treonna dá bharr sin. Beidh tú in ann do mhéarloirg a úsáid le do ghléas a dhíghlasáil an chéad uair eile.</string>
     <string name="kg_none_iris_direction_restart_instructions">"Atosaíodh do ghléas agus ní foláir é a dhíghlasáil le do shraith treonna dá bharr sin. Beidh tú in ann d'inteacháin a úsáid le do ghléas a dhíghlasáil an chéad uair eile."</string>
     <string name="kg_tablet_iris_direction_restart_instructions">"Atosaíodh do ghléas agus ní foláir é a dhíghlasáil le do shraith treonna dá bharr sin. Beidh tú in ann d'inteacháin a úsáid le do ghléas a dhíghlasáil an chéad uair eile."</string>
@@ -1008,6 +1016,9 @@ Triail arís i gceann 1 soicind"</string>
     <string name="recents_help_dlg_split_icon_desc">"Tapáil an t-íocón Scoilt scáileán ar bharra teidil na fuinneoige feidhmchláir le feidhmchláir a oscailt san amharc scáileáin scoilte. Taispeántar an t-íocón seo nuair atá tacú ann san fheidhmchlár d'Ilfhuinneoga."</string>
     <string name="recents_help_dlg_long_click_recents_key_text">Brúigh agus coinnigh an eochair Le Déanaí nuair atá an feidhmchlár á úsáid agat san amharc lánscáileáin le hathrú chuig an amharc scáileáin scoilte.</string>
     <string name="recents_help_dlg_home_key_in_split_text">Má bhrúnn tú an eochair Baile agus an t-amharc scáileáin scoilte á úsáid agat, déanfar an feidhmchlár atá ar taispeáint sa leath uachtair den scáileán a íoslaghdú. Má osclaíonn tú feidhmchláir ón scáileán baile agus dath gorm ar an mbarra stádais, osclóidh an feidhmchlár san amharc scáileáin scoilte sa leath íochtair den scáileán.</string>
+    <string name="battery_low_sec_body_in_normal_mode">Luchtaigh do ghléas nó tapáil anseo le Mód coigilte cumhachta a chumasú.</string>
+    <string name="battery_low_sec_body_in_ups_mode">Ceangail do ghléas le luchtaire.</string>
+    <string name="battery_saver_recommend_notification_text">Luchtaigh do ghléas nó tapáil anseo le Mód coigilte cumhachta a chumasú.</string>
     <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
 
 If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>

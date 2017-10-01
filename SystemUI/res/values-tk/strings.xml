@@ -389,6 +389,7 @@ Hyzmat elýeterli wagty, aşakda görkezilişi ýaly, Wi-Fi jaň şekiljigi haba
     <string name="quick_settings_dual_label_content_description">%s, Düwme derejesi, Dahylly çalt sazlamalary görmek üçin, iki gezek basyň.</string>
     <string name="accessibility_button">Düwme</string>
     <string name="quick_settings_brightness_auto_brightness">Awto-ýagtylyk</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">Ýagtylandyryş şertleri esasynda, ekran ýagtylygyny awtomatik sazlaň.</string>
     <string name="quick_settings_brightness_quick_access">Dolandyryşy iň ýokarda görkez</string>
     <string name="quick_settings_brightness_quick_access_summary">Ýagtylyk dolandyryşyny habarnama paneliniň üstünde görkez.</string>
     <string name="quick_settings_brightness_detail_level">Dereje</string>
@@ -418,6 +419,7 @@ Hyzmat elýeterli wagty, aşakda görkezilişi ýaly, Wi-Fi jaň şekiljigi haba
     <string name="wifi_ap_wifi_p2p_off_warn">Mobil geçiş nokadyny açmak Göni Wi-Fi üsti bilen açyk bolan ähli enjamlaryň baglanyşygyny kesýär.</string>
     <string name="wifi_ap_wifi_p2p_off_warn_china">Enabling Portable WLAN hotspot will disconnect device connected via WLAN Direct.</string>
     <string name="dialog_battery_data_warning">Mobil giriş nokady işlediler. Bu batareýanyň harç edilişini we maglumatyň ulanylyşyny artdyrar.</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">Dilleri çalyş</string>
     <string name="keyboard_shortcut_group_applications_email">E-poçta</string>
     <string name="qs_edit">DÜZET</string>
     <string name="sec_qs_edit">Düzet</string>
@@ -544,8 +546,10 @@ Gaty gyzmagyň sebäbi şular bolup biler:
     <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
     <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
     <string name="battery_low_sec_title">Zarýad %d%%</string>
-    <string name="battery_low_sec_body_in_normal_mode">Enjama zarýad beriň ýa-da şu ýere basyp, Güýç tygşytlaýjy tertibi işlediň.</string>
-    <string name="battery_low_sec_body_in_ups_mode">Enjamyňyzy zarýadnige birikdiriň.</string>
+    <string name="battery_low_sec_body_phone">Telefonyňyza zarýad beriň ýa-da şu ýere basyp, Güýç tygşytlaýjy tertibi açyň.</string>
+    <string name="battery_low_sec_body_tablet">Planşetiňize zarýad beriň ýa-da şu ýere basyp, Güýç tygşytlaýjy tertibi açyň.</string>
+    <string name="battery_low_sec_body_phone_psm">Telefona zarýad beriň.</string>
+    <string name="battery_low_sec_body_tablet_psm">Planşete zarýad beriň.</string>
     <string name="battery_cable_charging_title">Kabel bilen güýjini alyň</string>
     <string name="battery_charging_title">Zarýad</string>
     <string name="battery_fast_charging_title">Çalt zarýad beriş</string>
@@ -564,7 +568,10 @@ Gaty gyzmagyň sebäbi şular bolup biler:
     <string name="battery_saver_notification_text_time_extend">Batareýa ömri uzadyldy.</string>
     <string name="button_detail">Detal</string>
     <string name="battery_saver_recommend_notification_title">Zarýad %d%%</string>
-    <string name="battery_saver_recommend_notification_text">Enjama zarýad beriň ýa-da şu ýere basyp, Güýç tygşytlaýjy tertibi işlediň.</string>
+    <string name="battery_saver_recommend_notification_text_phone">Telefonyňyza zarýad beriň ýa-da şu ýere basyp, Güýç tygşytlaýjy tertibi açyň.</string>
+    <string name="battery_saver_recommend_notification_text_tablet">Planşetiňize zarýad beriň ýa-da şu ýere basyp, Güýç tygşytlaýjy tertibi açyň.</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">Telefona zarýad beriň.</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">Planşete zarýad beriň.</string>
     <string name="button_close">Ýap</string>
     <string name="battery_health_interruption_title">Güýç berip bolanok</string>
     <string name="battery_health_interruption_by_terminal_open_text">Enjamyňyzy zarýadlap bolmaýar. Samsung bilen ylalaşykly batareýany we zarýadnigi ulanýandygyňya hem-de enjamyňyzyň zarýad berijä dogry dakylandygyna göz ýetiriň.</string>
@@ -653,6 +660,7 @@ upscaler"</string>
     <string name="uhq_mode_noti_text">Has aýdyň diňlemek üçin, aýdym-sazdyr wideolaryň ses çözgüdini güýçlendiriň.</string>
     <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
     <string name="assistance_app_setting_item_none">Ýok</string>
+    <string name="remote_input_send_text">Iber</string>
     <string name="remote_input_toast_text_on_sview_cover">S View gapagy ýapyk wagty, Çalt jogap funksiýasyny ulanyp bolmaýar.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -841,7 +849,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_direction_shutdown_instructions">Ýapmak üçin, ugur tapgyryny çyz</string>
     <string name="kg_none_multi_pin_restart_instructions">Enjamyňyz açylyp ýapyldy we onuň gulpuny PIN bilen açmaly. Indiki gezek enjamyň gulpuny açmak üçin, biometrikaňyzy ulanyp bilersiňiz.</string>
     <string name="kg_tablet_multi_pin_restart_instructions">Enjamyňyz açylyp ýapyldy we onuň gulpuny PIN bilen açmaly. Indiki gezek enjamyň gulpuny açmak üçin, biometrikaňyzy ulanyp bilersiňiz.</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">Enjamyňyz açylyp ýapyldy we onuň gulpuny PIN bilen açmaly. Indiki gezek enjamyň gulpuny açmak üçin, barmak yzlaryňyzy ulanyp bilersiňiz.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">Telefonyňyz açylyp ýapyldy we onuň gulpuny PIN bilen açmaly. Indiki gezek telefonyň gulpuny açmak üçin, barmak yzlaryňyzy ulanyp bilersiňiz.</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">Enjamyňyz açylyp ýapyldy we onuň gulpuny PIN bilen açmaly. Indiki gezek enjamyň gulpuny açmak üçin, barmak yzlaryňyzy ulanyp bilersiňiz.</string>
     <string name="kg_none_iris_pin_restart_instructions">Enjamyňyz açylyp ýapyldy we onuň gulpuny PIN bilen açmaly. Indiki gezek enjamyň gulpuny açmak üçin, gözleriňizi ulanyp bilersiňiz.</string>
     <string name="kg_tablet_iris_pin_restart_instructions">Enjamyňyz açylyp ýapyldy we onuň gulpuny PIN bilen açmaly. Indiki gezek enjamyň gulpuny açmak üçin, gözleriňizi ulanyp bilersiňiz.</string>
@@ -871,7 +879,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pattern_deviceadmin_instructions">Howpsuzlyk syýasaty sebäpli, göz tanamaga derek, şablon çyz</string>
     <string name="kg_none_multi_password_restart_instructions">Enjamyňyz açylyp ýapyldy we onuň gulpuny parol bilen açmaly. Indiki gezek enjamyň gulpuny açmak üçin, biometrikaňyzy ulanyp bilersiňiz.</string>
     <string name="kg_tablet_multi_password_restart_instructions">Enjamyňyz açylyp ýapyldy we onuň gulpuny parol bilen açmaly. Indiki gezek enjamyň gulpuny açmak üçin, biometrikaňyzy ulanyp bilersiňiz.</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">Enjamyňyz açylyp ýapyldy we onuň gulpuny parol bilen açmaly. Indiki gezek enjamyň gulpuny açmak üçin, barmak yzlaryňyzy ulanyp bilersiňiz.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">Telefonyňyz açylyp ýapyldy we onuň gulpuny parol bilen açmaly. Indiki gezek telefonyň gulpuny açmak üçin, barmak yzlaryňyzy ulanyp bilersiňiz.</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">Enjamyňyz açylyp ýapyldy we onuň gulpuny parol bilen açmaly. Indiki gezek enjamyň gulpuny açmak üçin, barmak yzlaryňyzy ulanyp bilersiňiz.</string>
     <string name="kg_none_iris_password_restart_instructions">Enjamyňyz açylyp ýapyldy we onuň gulpuny parol bilen açmaly. Indiki gezek enjamyň gulpuny açmak üçin, gözleriňizi ulanyp bilersiňiz.</string>
     <string name="kg_tablet_iris_password_restart_instructions">Enjamyňyz açylyp ýapyldy we onuň gulpuny parol bilen açmaly. Indiki gezek enjamyň gulpuny açmak üçin, gözleriňizi ulanyp bilersiňiz.</string>
@@ -886,7 +894,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_password_deviceadmin_instructions">Howpsuzlyk syýasaty sebäpli, göz tanamaga derek, parol giriz</string>
     <string name="kg_none_multi_direction_restart_instructions">Enjamyňyz açylyp ýapyldy we onuň gulpuny ugur tapgyry bilen açmaly. Indiki gezek enjamyň gulpuny açmak üçin, biometrikaňyzy ulanyp bilersiňiz.</string>
     <string name="kg_tablet_multi_direction_restart_instructions">Enjamyňyz açylyp ýapyldy we onuň gulpuny ugur tapgyry bilen açmaly. Indiki gezek enjamyň gulpuny açmak üçin, biometrikaňyzy ulanyp bilersiňiz.</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">Enjamyňyz açylyp ýapyldy we onuň gulpuny ugur tapgyry bilen açmaly. Indiki gezek enjamyň gulpuny açmak üçin, barmak yzlaryňyzy ulanyp bilersiňiz.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">Telefonyňyz açylyp ýapyldy we onuň gulpuny ugur tapgyry bilen açmaly. Indiki gezek telefonyň gulpuny açmak üçin, barmak yzlaryňyzy ulanyp bilersiňiz.</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">Enjamyňyz açylyp ýapyldy we onuň gulpuny ugur tapgyry bilen açmaly. Indiki gezek enjamyň gulpuny açmak üçin, barmak yzlaryňyzy ulanyp bilersiňiz.</string>
     <string name="kg_none_iris_direction_restart_instructions">Enjamyňyz açylyp ýapyldy we onuň gulpuny ugur tapgyry bilen açmaly. Indiki gezek enjamyň gulpuny açmak üçin, gözleriňizi ulanyp bilersiňiz.</string>
     <string name="kg_tablet_iris_direction_restart_instructions">Enjamyňyz açylyp ýapyldy we onuň gulpuny ugur tapgyry bilen açmaly. Indiki gezek enjamyň gulpuny açmak üçin, gözleriňizi ulanyp bilersiňiz.</string>
@@ -1005,6 +1013,9 @@ PUK koduňyzy bilmeýän bolsaňyz, müşderi hyzmaty merkezine baryň."</string
     <string name="recents_help_dlg_split_icon_desc">Bölünen ekranda goýmalary açmak üçin, goýma penjiresiniň at setirinde Bölünen ekran şekiljigine s basyň. Goýma Köp-penjiräni goldaýan wagty, şu şekiljik görkezilýär.</string>
     <string name="recents_help_dlg_long_click_recents_key_text">Bölünen ekrana geçmek üçin, doly ekranda goýma ulanýarkaňyz, Soňkular düwmesini basyp saklaň.</string>
     <string name="recents_help_dlg_home_key_in_split_text">Bölünen ekranda Öý düwmä bassaňyz, ekranyň ýokarky ýarymyndaky goýma kiçeldiler. Ýagdaý setiri gök wagty, öý ekrandan goýma açsaňyz, goýma ekranyň aşaky ýarymynda bölünen ekranda açylar.</string>
+    <string name="battery_low_sec_body_in_normal_mode">Enjama zarýad beriň ýa-da şu ýere basyp, Güýç tygşytlaýjy tertibi işlediň.</string>
+    <string name="battery_low_sec_body_in_ups_mode">Enjamyňyzy zarýadnige birikdiriň.</string>
+    <string name="battery_saver_recommend_notification_text">Enjama zarýad beriň ýa-da şu ýere basyp, Güýç tygşytlaýjy tertibi işlediň.</string>
     <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
 
 If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>

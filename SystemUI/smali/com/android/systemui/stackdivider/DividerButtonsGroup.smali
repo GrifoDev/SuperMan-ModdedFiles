@@ -110,13 +110,13 @@
 
     move-result v3
 
-    const v4, 0x7f130279
+    const v4, 0x7f13027a
 
     if-ne v3, v4, :cond_0
 
     check-cast v1, Landroid/widget/ImageView;
 
-    const v3, 0x7f020324
+    const v3, 0x7f020325
 
     const/4 v4, 0x0
 
@@ -726,7 +726,7 @@
 .method protected onFinishInflate()V
     .locals 11
 
-    const v10, 0x7f130279
+    const v10, 0x7f13027a
 
     const/16 v9, 0x8
 
@@ -772,7 +772,7 @@
     :goto_1
     iget-object v6, p0, Lcom/android/systemui/stackdivider/DividerButtonsGroup;->mButtons:Landroid/util/ArrayMap;
 
-    const v7, 0x7f13027a
+    const v7, 0x7f13027b
 
     invoke-virtual {p0, v7}, Lcom/android/systemui/stackdivider/DividerButtonsGroup;->findViewById(I)Landroid/view/View;
 
@@ -790,7 +790,7 @@
 
     iget-object v6, p0, Lcom/android/systemui/stackdivider/DividerButtonsGroup;->mButtons:Landroid/util/ArrayMap;
 
-    const v7, 0x7f13027b
+    const v7, 0x7f13027c
 
     invoke-virtual {p0, v7}, Lcom/android/systemui/stackdivider/DividerButtonsGroup;->findViewById(I)Landroid/view/View;
 
@@ -801,7 +801,7 @@
     :goto_2
     iget-object v6, p0, Lcom/android/systemui/stackdivider/DividerButtonsGroup;->mButtons:Landroid/util/ArrayMap;
 
-    const v7, 0x7f13027c
+    const v7, 0x7f13027d
 
     invoke-virtual {p0, v7}, Lcom/android/systemui/stackdivider/DividerButtonsGroup;->findViewById(I)Landroid/view/View;
 
@@ -809,7 +809,7 @@
 
     invoke-virtual {v6, v7, v8}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const v6, 0x7f130278
+    const v6, 0x7f130279
 
     invoke-virtual {p0, v6}, Lcom/android/systemui/stackdivider/DividerButtonsGroup;->findViewById(I)Landroid/view/View;
 
@@ -817,7 +817,7 @@
 
     iput-object v6, p0, Lcom/android/systemui/stackdivider/DividerButtonsGroup;->mButtonsWrapper:Landroid/view/View;
 
-    const v6, 0x7f130277
+    const v6, 0x7f130278
 
     invoke-virtual {p0, v6}, Lcom/android/systemui/stackdivider/DividerButtonsGroup;->findViewById(I)Landroid/view/View;
 
@@ -892,7 +892,7 @@
 
     move-result v6
 
-    const v7, 0x7f13027c
+    const v7, 0x7f13027d
 
     if-eq v6, v7, :cond_0
 
@@ -966,7 +966,7 @@
     goto/16 :goto_1
 
     :cond_3
-    const v6, 0x7f13027b
+    const v6, 0x7f13027c
 
     invoke-virtual {p0, v6}, Lcom/android/systemui/stackdivider/DividerButtonsGroup;->findViewById(I)Landroid/view/View;
 
@@ -1010,7 +1010,7 @@
     return-void
 
     :pswitch_data_0
-    .packed-switch 0x7f130279
+    .packed-switch 0x7f13027a
         :pswitch_0
         :pswitch_1
         :pswitch_2

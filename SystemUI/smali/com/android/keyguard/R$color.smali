@@ -4,21 +4,21 @@
 
 
 # static fields
-.field public static final theme_clock_date_color:I = 0x7f0b0193
+.field public static final theme_clock_date_color:I = 0x7f0b0195
 
-.field public static final theme_keyguard_indication_text_color:I = 0x7f0b018f
+.field public static final theme_keyguard_indication_text_color:I = 0x7f0b0191
 
-.field public static final theme_keyguard_message_area_text_color:I = 0x7f0b018e
+.field public static final theme_keyguard_message_area_text_color:I = 0x7f0b0190
 
-.field public static final theme_pattern_line_color:I = 0x7f0b0189
+.field public static final theme_pattern_line_color:I = 0x7f0b018b
 
-.field public static final theme_pin_digit_text_color:I = 0x7f0b018c
+.field public static final theme_pin_digit_text_color:I = 0x7f0b018e
 
-.field public static final theme_pin_klondike_text_color:I = 0x7f0b018d
+.field public static final theme_pin_klondike_text_color:I = 0x7f0b018f
 
-.field public static final theme_pin_text_color:I = 0x7f0b018a
+.field public static final theme_pin_text_color:I = 0x7f0b018c
 
-.field public static final theme_textclock_color:I = 0x7f0b0192
+.field public static final theme_textclock_color:I = 0x7f0b0194
 
 
 # direct methods

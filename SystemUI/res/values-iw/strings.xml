@@ -957,6 +957,7 @@ Turn on Airplane mode?"</string>
     <string name="quick_settings_dual_label_content_description">%s, תווית לחצן, הקש הקשה כפולה כדי להציג הגדרות מהירות רלוונטיות.</string>
     <string name="accessibility_button">לחצן</string>
     <string name="quick_settings_brightness_auto_brightness">בהירות אוטומטית</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">התאם את בהירות המסך באופן אוטומטי, על פי תנאי התאורה.</string>
     <string name="quick_settings_brightness_quick_access">בורר בהירות עליון</string>
     <string name="quick_settings_brightness_quick_access_summary">הצג את פקד הבהירות מעל חלונית ההתראות.</string>
     <string name="quick_settings_brightness_detail_level">רמה</string>
@@ -1277,6 +1278,7 @@ Turn on Airplane mode?"</string>
     <string name="keyboard_shortcut_group_system_notifications">הודעות</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">מקשי קיצור במקלדת</string>
     <string name="keyboard_shortcut_group_system_switch_input">החלפת שיטת קלט</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">החלף שפות</string>
     <string name="keyboard_shortcut_group_applications">אפליקציות</string>
     <string name="keyboard_shortcut_group_applications_assist">מסייע</string>
     <string name="keyboard_shortcut_group_applications_browser">דפדפן</string>
@@ -1480,8 +1482,10 @@ Using your tablet in a very hot location."</string>
     <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
     <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
     <string name="battery_low_sec_title">רמת מתח בסוללה: %d%%</string>
-    <string name="battery_low_sec_body_in_normal_mode">טען את המכשיר או הקש כאן כדי להפעיל מצב חיסכון בחשמל.</string>
-    <string name="battery_low_sec_body_in_ups_mode">חבר את המכשיר שלך למטען.</string>
+    <string name="battery_low_sec_body_phone">"טען את הטלפון או הקש כאן כדי להפעיל מצב 'חיסכון בחשמל'."</string>
+    <string name="battery_low_sec_body_tablet">"טען את הטאבלט או הקש כאן כדי להפעיל מצב 'חיסכון בחשמל'."</string>
+    <string name="battery_low_sec_body_phone_psm">טען את הטלפון.</string>
+    <string name="battery_low_sec_body_tablet_psm">טען את הטאבלט.</string>
     <string name="battery_cable_charging_title">טעינה באמצעות כבל</string>
     <string name="battery_charging_title">טוען</string>
     <string name="battery_fast_charging_title">טעינה מהירה</string>
@@ -1500,7 +1504,10 @@ Using your tablet in a very hot location."</string>
     <string name="battery_saver_notification_text_time_extend">הוארך משך השימוש בסוללה שלך.</string>
     <string name="button_detail">פרטים</string>
     <string name="battery_saver_recommend_notification_title">רמת מתח בסוללה: %d%%</string>
-    <string name="battery_saver_recommend_notification_text">טען את המכשיר או הקש כאן כדי להפעיל מצב חיסכון בחשמל.</string>
+    <string name="battery_saver_recommend_notification_text_phone">"טען את הטלפון או הקש כאן כדי להפעיל מצב 'חיסכון בחשמל'."</string>
+    <string name="battery_saver_recommend_notification_text_tablet">"טען את הטאבלט או הקש כאן כדי להפעיל מצב 'חיסכון בחשמל'."</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">טען את הטלפון.</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">טען את הטאבלט.</string>
     <string name="button_close">סגור</string>
     <string name="battery_health_interruption_title">לא ניתן לטעון</string>
     <string name="battery_health_interruption_by_terminal_open_text">לא ניתן לטעון את המכשיר. ודא שאתה משתמש בסוללה ומטען המתאימים למכשירי Samsung וכי המכשיר שלך מחובר למטען באופן תקין.</string>
@@ -1588,6 +1595,7 @@ upscaler"</string>
     <string name="uhq_mode_noti_text">שפר את רזולוציית הצלילים בפריטי מוסיקה וסרטוני וידאו כדי ליהנות מחוויית האזנה צלולה יותר.</string>
     <string name="assistance_app_setting_alert_dialog_title">"בחר את היישום שתוכל לפתוח בלחיצה ארוכה על מקש הבית. כדי להחליף את היישום הנבחר בהמשך, עבור אל 'יישום לסיוע במכשיר' דרך 'הגדרות'."</string>
     <string name="assistance_app_setting_item_none">ללא</string>
+    <string name="remote_input_send_text">שלח</string>
     <string name="remote_input_toast_text_on_sview_cover">"לא ניתן להשתמש ביישום 'מענה מהיר' כאשר כיסוי S view סגור."</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -1843,7 +1851,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_direction_shutdown_instructions">צייר סדרה של כיוונים כדי לכבות</string>
     <string name="kg_none_multi_pin_restart_instructions">המכשיר שלך הופעל מחדש, לכן עליך לבטל את נעילתו בעזרת קוד ה-PIN שלך. תוכל להשתמש בנתונים ביומטריים בפעם הבאה שתרצה לבטל את נעילת המכשיר.</string>
     <string name="kg_tablet_multi_pin_restart_instructions">המכשיר שלך הופעל מחדש, לכן עליך לבטל את נעילתו בעזרת קוד ה-PIN שלך. תוכל להשתמש בנתונים ביומטריים בפעם הבאה שתרצה לבטל את נעילת המכשיר.</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">המכשיר הופעל מחדש ועליך לבטל את נעילתו בעזרת קוד ה-PIN שלך. תוכל להשתמש בטביעות אצבע בפעם הבאה שתרצה לבטל את נעילת המכשיר.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">הטלפון הופעל מחדש ועליך לבטל את נעילתו בעזרת קוד ה-PIN שלך. תוכל להשתמש בטביעות אצבע בפעם הבאה שתרצה לבטל את נעילת הטלפון.</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">המכשיר הופעל מחדש ועליך לבטל את נעילתו בעזרת קוד ה-PIN שלך. תוכל להשתמש בטביעות אצבע בפעם הבאה שתרצה לבטל את נעילת המכשיר.</string>
     <string name="kg_none_iris_pin_restart_instructions">המכשיר הופעל מחדש ועליך לבטל את נעילתו בעזרת קוד ה-PIN שלך. תוכל להשתמש בנתוני קשתיות בפעם הבאה שתרצה לבטל את נעילת המכשיר.</string>
     <string name="kg_tablet_iris_pin_restart_instructions">המכשיר הופעל מחדש ועליך לבטל את נעילתו בעזרת קוד ה-PIN שלך. תוכל להשתמש בנתוני קשתיות בפעם הבאה שתרצה לבטל את נעילת המכשיר.</string>
@@ -1873,7 +1881,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pattern_deviceadmin_instructions">צייר דפוס במקום להשתמש בזיהוי קשתיות, בשל מדיניות האבטחה</string>
     <string name="kg_none_multi_password_restart_instructions">המכשיר שלך הופעל מחדש, לכן יש לבטל את נעילתו בעזרת הסיסמה. בפעם הבאה, תוכל לבטל את נעילת המכשיר בעזרת נתונים ביומטריים.</string>
     <string name="kg_tablet_multi_password_restart_instructions">המכשיר שלך הופעל מחדש, לכן יש לבטל את נעילתו בעזרת הסיסמה. בפעם הבאה, תוכל לבטל את נעילת המכשיר בעזרת נתונים ביומטריים.</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">המכשיר הופעל מחדש ועליך לבטל את נעילתו בעזרת הסיסמה שלך. תוכל להשתמש בטביעות אצבע בפעם הבאה שתרצה לבטל את נעילת המכשיר.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">הטלפון הופעל מחדש ועליך לבטל את נעילתו בעזרת הסיסמה שלך. תוכל להשתמש בטביעות אצבע בפעם הבאה שתרצה לבטל את נעילת הטלפון.</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">המכשיר הופעל מחדש ועליך לבטל את נעילתו בעזרת הסיסמה שלך. תוכל להשתמש בטביעות אצבע בפעם הבאה שתרצה לבטל את נעילת המכשיר.</string>
     <string name="kg_none_iris_password_restart_instructions">המכשיר הופעל מחדש ועליך לבטל את נעילתו בעזרת הסיסמה שלך. תוכל להשתמש בנתוני קשתיות בפעם הבאה שתרצה לבטל את נעילת המכשיר.</string>
     <string name="kg_tablet_iris_password_restart_instructions">המכשיר הופעל מחדש ועליך לבטל את נעילתו בעזרת הסיסמה שלך. תוכל להשתמש בנתוני קשתיות בפעם הבאה שתרצה לבטל את נעילת המכשיר.</string>
@@ -1888,7 +1896,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_password_deviceadmin_instructions">הזן סיסמה במקום להשתמש בזיהוי קשתיות, בשל מדיניות האבטחה</string>
     <string name="kg_none_multi_direction_restart_instructions">המכשיר שלך הופעל מחדש, לכן עליך לבטל את נעילתו בעזרת סדרת הכיוונים שלך. תוכל להשתמש בנתונים ביומטריים בפעם הבאה שתרצה לבטל את נעילת המכשיר.</string>
     <string name="kg_tablet_multi_direction_restart_instructions">המכשיר שלך הופעל מחדש, לכן עליך לבטל את נעילתו בעזרת סדרת הכיוונים שלך. תוכל להשתמש בנתונים ביומטריים בפעם הבאה שתרצה לבטל את נעילת המכשיר.</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">המכשיר הופעל מחדש ועליך לבטל את נעילתו בעזרת סדרת הכיוונים שלך. תוכל להשתמש בטביעות אצבע בפעם הבאה שתרצה לבטל את נעילת המכשיר.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">הטלפון הופעל מחדש ועליך לבטל את נעילתו בעזרת סדרת הכיוונים שלך. תוכל להשתמש בטביעות אצבע בפעם הבאה שתרצה לבטל את נעילת הטלפון.</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">המכשיר הופעל מחדש ועליך לבטל את נעילתו בעזרת סדרת הכיוונים שלך. תוכל להשתמש בטביעות אצבע בפעם הבאה שתרצה לבטל את נעילת המכשיר.</string>
     <string name="kg_none_iris_direction_restart_instructions">המכשיר הופעל מחדש ועליך לבטל את נעילתו בעזרת סדרת הכיוונים שלך. תוכל להשתמש בנתוני קשתיות בפעם הבאה שתרצה לבטל את נעילת המכשיר.</string>
     <string name="kg_tablet_iris_direction_restart_instructions">המכשיר הופעל מחדש ועליך לבטל את נעילתו בעזרת סדרת הכיוונים שלך. תוכל להשתמש בנתוני קשתיות בפעם הבאה שתרצה לבטל את נעילת המכשיר.</string>
@@ -2010,6 +2018,9 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="recents_help_dlg_split_icon_desc">"כדי לפתוח יישומים בתצוגת מסך מפוצל, הקש על סמל 'מסך מפוצל' בשורת הכותרת של חלון היישום. סמל זה יוצג אם היישום תומך בתצוגת 'חלונות מרובים'."</string>
     <string name="recents_help_dlg_long_click_recents_key_text">"כדי לעבור לתצוגת מסך מפוצל, לחץ לחיצה ארוכה על מקש 'אחרונים' תוך כדי שימוש ביישום במצב מסך מלא."</string>
     <string name="recents_help_dlg_home_key_in_split_text">לחיצה על מקש הבית בתצוגת מסך מפוצל תגרום למזעור של היישום המוצג בחלק העליון של המסך. אם תפתח יישום מתוך מסך הבית כאשר שורת המצב בצבע כחול, היישום ייפתח בתצוגת מסך מפוצל ויוצג בחלק התחתון של המסך.</string>
+    <string name="battery_low_sec_body_in_normal_mode">טען את המכשיר או הקש כאן כדי להפעיל מצב חיסכון בחשמל.</string>
+    <string name="battery_low_sec_body_in_ups_mode">חבר את המכשיר שלך למטען.</string>
+    <string name="battery_saver_recommend_notification_text">טען את המכשיר או הקש כאן כדי להפעיל מצב חיסכון בחשמל.</string>
     <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
 
 If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>

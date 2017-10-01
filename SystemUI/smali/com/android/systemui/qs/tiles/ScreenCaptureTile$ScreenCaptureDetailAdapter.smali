@@ -93,13 +93,13 @@
 
     move-result-object v0
 
-    const v1, 0x7f0400f0
+    const v1, 0x7f0400f1
 
     invoke-virtual {v0, v1, p3, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object p2
 
-    const v0, 0x7f1302c5
+    const v0, 0x7f1302c6
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -111,7 +111,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/ScreenCaptureTile$ScreenCaptureDetailAdapter;->mRadioButton:[Landroid/widget/RadioButton;
 
-    const v0, 0x7f1302c6
+    const v0, 0x7f1302c7
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -123,7 +123,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/ScreenCaptureTile$ScreenCaptureDetailAdapter;->mRadioButton:[Landroid/widget/RadioButton;
 
-    const v0, 0x7f1302c7
+    const v0, 0x7f1302c8
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

@@ -55,7 +55,7 @@
 
     const/4 v1, 0x0
 
-    const v2, 0x7f1303db
+    const v2, 0x7f1303dc
 
     invoke-virtual {p0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

@@ -7,17 +7,14 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$1;,
-        Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$AppListItemDecoration;
+        Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$AppListItemDecoration;,
+        Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;
     }
 .end annotation
 
 
 # static fields
-.field public static mItemContentHeight:I
-
-.field public static mItemContentWidth:I
-
-.field public static mItemContentWidthLand:I
+.field private static sAttr:Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;
 
 
 # instance fields
@@ -25,13 +22,7 @@
 
 .field mContext:Landroid/content/Context;
 
-.field mFreqAppCount:I
-
 .field mItemDecoration:Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$AppListItemDecoration;
-
-.field mOffsetOthers:I
-
-.field mOffsetTop:I
 
 .field mSpanSizeLookup:Landroid/support/v7/widget/GridLayoutManager$SpanSizeLookup;
 
@@ -39,10 +30,22 @@
 
 
 # direct methods
+.method static synthetic -get0()Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;
+    .locals 1
+
+    sget-object v0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;->sAttr:Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;
+
+    return-object v0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/recents/views/RecentsAppListView;)V
     .locals 3
 
-    const/4 v0, 0x4
+    invoke-static {p1}, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;->initAttr(Landroid/content/Context;)Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;
+
+    move-result-object v0
+
+    iget v0, v0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;->mSpanCount:I
 
     const/4 v1, 0x1
 
@@ -76,87 +79,29 @@
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/recents/views/RecentsAppListView;->addItemDecoration(Landroid/support/v7/widget/RecyclerView$ItemDecoration;)V
 
-    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x7f0d03a4
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v0
-
-    float-to-int v0, v0
-
-    iput v0, p0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;->mOffsetTop:I
-
-    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x7f0d03a5
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v0
-
-    float-to-int v0, v0
-
-    iput v0, p0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;->mOffsetOthers:I
-
-    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x7f0d03ae
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v0
-
-    float-to-int v0, v0
-
-    sput v0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;->mItemContentHeight:I
-
-    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x7f0d03ac
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v0
-
-    float-to-int v0, v0
-
-    sput v0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;->mItemContentWidth:I
-
-    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x7f0d03ad
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v0
-
-    float-to-int v0, v0
-
-    sput v0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;->mItemContentWidthLand:I
-
     return-void
+.end method
+
+.method public static getAttr()Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;
+    .locals 1
+
+    sget-object v0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;->sAttr:Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;
+
+    return-object v0
+.end method
+
+.method public static initAttr(Landroid/content/Context;)Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;
+    .locals 1
+
+    new-instance v0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;-><init>(Landroid/content/Context;)V
+
+    sput-object v0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;->sAttr:Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;
+
+    sget-object v0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;->sAttr:Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;
+
+    return-object v0
 .end method
 
 
@@ -170,19 +115,24 @@
 .end method
 
 .method public reload()V
-    .locals 1
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/android/systemui/recents/model/RecentsAppListLoader;->getInstance(Landroid/content/Context;)Lcom/android/systemui/recents/model/RecentsAppListLoader;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/systemui/recents/model/RecentsAppListLoader;->getFrequentlyUsedAppCount()I
+    invoke-virtual {p0}, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;->getSpanCount()I
 
     move-result v0
 
-    iput v0, p0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;->mFreqAppCount:I
+    sget-object v1, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;->sAttr:Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;
 
+    iget v1, v1, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;->mSpanCount:I
+
+    if-eq v0, v1, :cond_0
+
+    sget-object v0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;->sAttr:Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;
+
+    iget v0, v0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;->mSpanCount:I
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;->setSpanCount(I)V
+
+    :cond_0
     return-void
 .end method

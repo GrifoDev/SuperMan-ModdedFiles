@@ -955,6 +955,7 @@ Wi-Fi и Bluetooth исто ќе се исклучат, но можат да с�
     <string name="quick_settings_dual_label_content_description">%s, етикета Копче, Допрете двапати за да ги видите релевантните брзи поставувања.</string>
     <string name="accessibility_button">Копче</string>
     <string name="quick_settings_brightness_auto_brightness">Автоматска осветленост</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">Прилагодете ја осветленоста на екранот автоматски врз основа на светлото.</string>
     <string name="quick_settings_brightness_quick_access">Прикажи контрола одгоре</string>
     <string name="quick_settings_brightness_quick_access_summary">Покажи ја контролата за осветленост над таблата за известувања.</string>
     <string name="quick_settings_brightness_detail_level">Ниво</string>
@@ -1275,6 +1276,7 @@ Wi-Fi и Bluetooth исто ќе се исклучат, но можат да с�
     <string name="keyboard_shortcut_group_system_notifications">Известувања</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">Кратенки на тастатурата</string>
     <string name="keyboard_shortcut_group_system_switch_input">Префрли метод за внесување</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">Сменете јазици</string>
     <string name="keyboard_shortcut_group_applications">Апликации</string>
     <string name="keyboard_shortcut_group_applications_assist">Помош</string>
     <string name="keyboard_shortcut_group_applications_browser">Прелистувач</string>
@@ -1478,8 +1480,10 @@ Using your tablet in a very hot location."</string>
     <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
     <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
     <string name="battery_low_sec_title">Преостаната батерија %d%%</string>
-    <string name="battery_low_sec_body_in_normal_mode">Наполнете го уредот или допрете тука за да овозможите Режим за штедење енергија.</string>
-    <string name="battery_low_sec_body_in_ups_mode">Поврзете го уредот со полнач.</string>
+    <string name="battery_low_sec_body_phone">Полнете го телефонот или допрете тука за да вклучите Режим за штедење енергија.</string>
+    <string name="battery_low_sec_body_tablet">Полнете го таблетот или допрете тука за да вклучите Режим за штедење енергија.</string>
+    <string name="battery_low_sec_body_phone_psm">Полнете го телефонот.</string>
+    <string name="battery_low_sec_body_tablet_psm">Полнете го таблетот.</string>
     <string name="battery_cable_charging_title">Полнење со кабел</string>
     <string name="battery_charging_title">Полнење</string>
     <string name="battery_fast_charging_title">Брзо полнење</string>
@@ -1498,7 +1502,10 @@ Using your tablet in a very hot location."</string>
     <string name="battery_saver_notification_text_time_extend">Траењето на батеријата е продолжено.</string>
     <string name="button_detail">Детали</string>
     <string name="battery_saver_recommend_notification_title">Преостаната батерија %d%%</string>
-    <string name="battery_saver_recommend_notification_text">Наполнете го уредот или допрете тука за да овозможите Режим за штедење енергија.</string>
+    <string name="battery_saver_recommend_notification_text_phone">Полнете го телефонот или допрете тука за да вклучите Режим за штедење енергија.</string>
+    <string name="battery_saver_recommend_notification_text_tablet">Полнете го таблетот или допрете тука за да вклучите Режим за штедење енергија.</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">Полнете го телефонот.</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">Полнете го таблетот.</string>
     <string name="button_close">Затвори</string>
     <string name="battery_health_interruption_title">Не може да се полни</string>
     <string name="battery_health_interruption_by_terminal_open_text">Не може да се полни уредот. Проверете дали користите батерија и полнач компатибилни со Samsung и дали уредот е правилно поврзан со полначот.</string>
@@ -1587,6 +1594,7 @@ If you turn mobile data back on, you may be charged for data usage by your carri
     <string name="uhq_mode_noti_text">Подобрете ја звучната резолуција на музиката и видеата за почисто доживување при слушањето.</string>
     <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
     <string name="assistance_app_setting_item_none">Ништо</string>
+    <string name="remote_input_send_text">Прати</string>
     <string name="remote_input_toast_text_on_sview_cover">Не може да се користи функцијата Брз одговор додека е затворено S View Cover.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -1842,7 +1850,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_direction_shutdown_instructions">Нацртајте низа насоки за исклучување</string>
     <string name="kg_none_multi_pin_restart_instructions">Уредот се рестартираше и треба да се отклучи со користење PIN. Биометријата може да ја користите следниот пат кога ќе го отклучувате уредот.</string>
     <string name="kg_tablet_multi_pin_restart_instructions">Уредот се рестартираше и треба да се отклучи со користење PIN. Биометријата може да ја користите следниот пат кога ќе го отклучувате уредот.</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">Уредот се рестартираше и треба да се отклучи со користење PIN. Отпечатоците од прсти може да ги користите следниот пат кога ќе го отклучувате телефонот.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">Телефонот се рестартираше и треба да се отклучи со користење PIN. Отпечатоците од прст може да ги користите следниот пат кога ќе го отклучувате телефонот.</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">Уредот се рестартираше и треба да се отклучи со користење PIN. Отпечатоците од прсти може да ги користите следниот пат кога ќе го отклучувате телефонот.</string>
     <string name="kg_none_iris_pin_restart_instructions">Уредот се рестартираше и треба да се отклучи со користење PIN. Зениците може да ги користите следниот пат кога ќе го отклучувате телефонот.</string>
     <string name="kg_tablet_iris_pin_restart_instructions">Уредот се рестартираше и треба да се отклучи со користење PIN. Зениците може да ги користите следниот пат кога ќе го отклучувате телефонот.</string>
@@ -1872,7 +1880,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pattern_deviceadmin_instructions">Нацртајте шара наместо да користите препознавање зеници поради безбедносната политика</string>
     <string name="kg_none_multi_password_restart_instructions">Уредот се рестартираше и треба да се отклучи со користење на лозинката. Може да користите биометрија следниот пат кога ќе го отклучувате уредот.</string>
     <string name="kg_tablet_multi_password_restart_instructions">Уредот се рестартираше и треба да се отклучи со користење на лозинката. Може да користите биометрија следниот пат кога ќе го отклучувате уредот.</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">Уредот се рестартираше и треба да се отклучи со користење на лозинката. Отпечатоците од прсти може да ги користите следниот пат кога ќе го отклучувате телефонот.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">Телефонот се рестартираше и треба да се отклучи со користење на лозинката. Отпечатоците од прст може да ги користите следниот пат кога ќе го отклучувате телефонот.</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">Уредот се рестартираше и треба да се отклучи со користење на лозинката. Отпечатоците од прсти може да ги користите следниот пат кога ќе го отклучувате телефонот.</string>
     <string name="kg_none_iris_password_restart_instructions">Уредот се рестартираше и треба да се отклучи со користење на лозинката. Зениците може да ги користите следниот пат кога ќе го отклучувате телефонот.</string>
     <string name="kg_tablet_iris_password_restart_instructions">Уредот се рестартираше и треба да се отклучи со користење на лозинката. Зениците може да ги користите следниот пат кога ќе го отклучувате телефонот.</string>
@@ -1887,7 +1895,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_password_deviceadmin_instructions">Внесете лозинка наместо да користите препознавање зеници поради безбедносната политика</string>
     <string name="kg_none_multi_direction_restart_instructions">Уредот се рестартираше и треба да се отклучи со користење серија насоки. Биометријата може да ја користите следниот пат кога ќе го отклучувате уредот.</string>
     <string name="kg_tablet_multi_direction_restart_instructions">Уредот се рестартираше и треба да се отклучи со користење серија насоки. Биометријата може да ја користите следниот пат кога ќе го отклучувате уредот.</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">Уредот се рестартираше и треба да се отклучи со користење серија насоки. Отпечатоците од прсти може да ги користите следниот пат кога ќе го отклучувате телефонот.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">Телефонот се рестартираше и треба да се отклучи со користење на низа насоки. Отпечатоците од прст може да ги користите следниот пат кога ќе го отклучувате телефонот.</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">Уредот се рестартираше и треба да се отклучи со користење серија насоки. Отпечатоците од прсти може да ги користите следниот пат кога ќе го отклучувате телефонот.</string>
     <string name="kg_none_iris_direction_restart_instructions">Уредот се рестартираше и треба да се отклучи со користење серија насоки. Зениците може да ги користите следниот пат кога ќе го отклучувате телефонот.</string>
     <string name="kg_tablet_iris_direction_restart_instructions">Уредот се рестартираше и треба да се отклучи со користење серија насоки. Зениците може да ги користите следниот пат кога ќе го отклучувате телефонот.</string>
@@ -2006,6 +2014,9 @@ PIN-от мора да содржи од 4 до 8 цифри."</string>
     <string name="recents_help_dlg_split_icon_desc">Допрете ја иконата Поделен екран на насловната лента на прозорецот на апликацијата за да отворите апликации во преглед на поделен екран. Оваа икона е прикажана кога апликацијата поддржува Повеќе прозорци.</string>
     <string name="recents_help_dlg_long_click_recents_key_text">Притиснете го и држете го копчето Последни додека користите апликација во преглед на цел екран за да смените во преглед на поделен екран.</string>
     <string name="recents_help_dlg_home_key_in_split_text">Ако го притиснете копчето Дома додека користите преглед на поделен екран, апликацијата прикажана на горната половина од екранот ќе се минимизира. Ако отворите апликација од почетниот екран додека статусната лента е обоена во сино, апликацијата ќе се отвори во преглед на поделен екран на долната половина од екранот.</string>
+    <string name="battery_low_sec_body_in_normal_mode">Наполнете го уредот или допрете тука за да овозможите Режим за штедење енергија.</string>
+    <string name="battery_low_sec_body_in_ups_mode">Поврзете го уредот со полнач.</string>
+    <string name="battery_saver_recommend_notification_text">Наполнете го уредот или допрете тука за да овозможите Режим за штедење енергија.</string>
     <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
 
 If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>

@@ -4,15 +4,15 @@
 
 
 # static fields
-.field public static final restricted_icon:I = 0x7f040131
+.field public static final restricted_icon:I = 0x7f040132
 
-.field public static final restricted_switch_preference:I = 0x7f040132
+.field public static final restricted_switch_preference:I = 0x7f040133
 
-.field public static final restricted_switch_widget:I = 0x7f040133
+.field public static final restricted_switch_widget:I = 0x7f040134
 
-.field public static final settings_with_drawer:I = 0x7f040153
+.field public static final settings_with_drawer:I = 0x7f040154
 
-.field public static final usage_view:I = 0x7f040177
+.field public static final usage_view:I = 0x7f040178
 
 
 # direct methods

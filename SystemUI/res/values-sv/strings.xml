@@ -957,6 +957,7 @@ Wi-Fi-samtalsikonen visas i aviseringspanelen som bilden nedan visar då tjänst
     <string name="quick_settings_dual_label_content_description">%s, knappetikett, dubbeltryck för att visa relevanta snabbinställningar.</string>
     <string name="accessibility_button">Knapp</string>
     <string name="quick_settings_brightness_auto_brightness">Automatisk ljusstyrka</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">Justera skärmens ljusstyrka automatiskt efter ljusförhållandena.</string>
     <string name="quick_settings_brightness_quick_access">Visa kontrollen överst</string>
     <string name="quick_settings_brightness_quick_access_summary">Visa ljusstyrkekontrollen ovanför aviseringspanelen.</string>
     <string name="quick_settings_brightness_detail_level">Nivå</string>
@@ -1277,6 +1278,7 @@ Kontakta administratören för mer information."</string>
     <string name="keyboard_shortcut_group_system_notifications">Aviseringar</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">Kortkommandon</string>
     <string name="keyboard_shortcut_group_system_switch_input">Byt inmatningsmetod</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">Byt språk</string>
     <string name="keyboard_shortcut_group_applications">Appar</string>
     <string name="keyboard_shortcut_group_applications_assist">Hjälp</string>
     <string name="keyboard_shortcut_group_applications_browser">Webbläsare</string>
@@ -1480,8 +1482,10 @@ Using your tablet in a very hot location."</string>
     <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
     <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
     <string name="battery_low_sec_title">Batteriladdning %d %%</string>
-    <string name="battery_low_sec_body_in_normal_mode">Ladda enheten eller tryck här om du vill aktivera energisparläget.</string>
-    <string name="battery_low_sec_body_in_ups_mode">Anslut enheten till en laddare.</string>
+    <string name="battery_low_sec_body_phone">Ladda telefonen eller tryck här om du vill slå på energisparläget.</string>
+    <string name="battery_low_sec_body_tablet">Ladda surfplattan eller tryck här om du vill slå på energisparläget.</string>
+    <string name="battery_low_sec_body_phone_psm">Ladda telefonen.</string>
+    <string name="battery_low_sec_body_tablet_psm">Ladda surfplattan.</string>
     <string name="battery_cable_charging_title">Laddning med kabel</string>
     <string name="battery_charging_title">Laddning</string>
     <string name="battery_fast_charging_title">Snabbladdning</string>
@@ -1500,7 +1504,10 @@ Using your tablet in a very hot location."</string>
     <string name="battery_saver_notification_text_time_extend">Batteritiden har utökats.</string>
     <string name="button_detail">Information</string>
     <string name="battery_saver_recommend_notification_title">Batteriladdning %d %%</string>
-    <string name="battery_saver_recommend_notification_text">Ladda enheten eller tryck här om du vill aktivera energisparläget.</string>
+    <string name="battery_saver_recommend_notification_text_phone">Ladda telefonen eller tryck här om du vill slå på energisparläget.</string>
+    <string name="battery_saver_recommend_notification_text_tablet">Ladda surfplattan eller tryck här om du vill slå på energisparläget.</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">Ladda telefonen.</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">Ladda surfplattan.</string>
     <string name="button_close">Stäng</string>
     <string name="battery_health_interruption_title">Det går inte att ladda</string>
     <string name="battery_health_interruption_by_terminal_open_text">Det går inte att ladda din enhet. Se till att du använder Samsung-kompatibelt batteri och laddare och att din enhet är ordentligt ansluten till laddaren.</string>
@@ -1589,6 +1596,7 @@ uppskaln."</string>
     <string name="uhq_mode_noti_text">Förbättra ljudupplösningen i musik och videor för en finare lyssnarupplevelse.</string>
     <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
     <string name="assistance_app_setting_item_none">Ingen</string>
+    <string name="remote_input_send_text">Skicka</string>
     <string name="remote_input_toast_text_on_sview_cover">Det går inte att använda funktionen Snabbsvar när S View-fodralet är stängt.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -1844,7 +1852,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_direction_shutdown_instructions">Rita en följd av riktningar om du vill stänga av</string>
     <string name="kg_none_multi_pin_restart_instructions">Enheten har startats om och måste låsas upp med pinkoden. Nästa gång du låser upp enheten kan du använda biometrik.</string>
     <string name="kg_tablet_multi_pin_restart_instructions">Enheten har startats om och måste låsas upp med pinkoden. Nästa gång du låser upp enheten kan du använda biometrik.</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">Enheten har startats om och måste låsas upp med pinkoden. Nästa gång du låser upp enheten kan du använda fingeravtryck.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">Telefonen har startats om och måste låsas upp med pinkoden. Nästa gång du låser upp telefonen kan du använda fingeravtryck.</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">Enheten har startats om och måste låsas upp med pinkoden. Nästa gång du låser upp enheten kan du använda fingeravtryck.</string>
     <string name="kg_none_iris_pin_restart_instructions">Enheten har startats om och måste låsas upp med pinkoden. Nästa gång du låser upp enheten kan du använda irisidentifiering.</string>
     <string name="kg_tablet_iris_pin_restart_instructions">Enheten har startats om och måste låsas upp med pinkoden. Nästa gång du låser upp enheten kan du använda irisidentifiering.</string>
@@ -1874,7 +1882,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pattern_deviceadmin_instructions">På grund av säkerhetspolicyn måste du rita ett mönster i stället för att använda irisidentifiering</string>
     <string name="kg_none_multi_password_restart_instructions">Enheten har startats om och måste låsas upp med ditt lösenord. Nästa gång du låser upp enheten kan du använda biometrik.</string>
     <string name="kg_tablet_multi_password_restart_instructions">Enheten har startats om och måste låsas upp med ditt lösenord. Nästa gång du låser upp enheten kan du använda biometrik.</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">Enheten har startats om och måste låsas upp med lösenordet. Nästa gång du låser upp enheten kan du använda fingeravtryck.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">Telefonen har startats om och måste låsas upp med lösenordet. Nästa gång du låser upp telefonen kan du använda fingeravtryck.</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">Enheten har startats om och måste låsas upp med lösenordet. Nästa gång du låser upp enheten kan du använda fingeravtryck.</string>
     <string name="kg_none_iris_password_restart_instructions">Enheten har startats om och måste låsas upp med lösenordet. Nästa gång du låser upp enheten kan du använda irisidentifiering.</string>
     <string name="kg_tablet_iris_password_restart_instructions">Enheten har startats om och måste låsas upp med lösenordet. Nästa gång du låser upp enheten kan du använda irisidentifiering.</string>
@@ -1889,7 +1897,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_password_deviceadmin_instructions">På grund av säkerhetspolicyn måste du ange ett lösenord i stället för att använda irisidentifiering</string>
     <string name="kg_none_multi_direction_restart_instructions">Enheten har startats om och måste låsas upp med följden av riktningar. Nästa gång du låser upp enheten kan du använda biometrik.</string>
     <string name="kg_tablet_multi_direction_restart_instructions">Enheten har startats om och måste låsas upp med följden av riktningar. Nästa gång du låser upp enheten kan du använda biometrik.</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">Enheten har startats om och måste låsas upp med följden av riktningar. Nästa gång du låser upp enheten kan du använda fingeravtryck.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">Telefonen har startats om och måste låsas upp med följden av riktningar. Nästa gång du låser upp telefonen kan du använda fingeravtryck.</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">Enheten har startats om och måste låsas upp med följden av riktningar. Nästa gång du låser upp enheten kan du använda fingeravtryck.</string>
     <string name="kg_none_iris_direction_restart_instructions">Enheten har startats om och måste låsas upp med följden av riktningar. Nästa gång du låser upp enheten kan du använda irisidentifiering.</string>
     <string name="kg_tablet_iris_direction_restart_instructions">Enheten har startats om och måste låsas upp med följden av riktningar. Nästa gång du låser upp enheten kan du använda irisidentifiering.</string>
@@ -2011,6 +2019,9 @@ Försök igen om 1 sekund"</string>
     <string name="recents_help_dlg_split_icon_desc">Tryck på skärmdelningsikonen i programfönstrets rubrikfält om du vill öppna program på delad skärm. Ikonen visas när programmet går att använda med Flera fönster.</string>
     <string name="recents_help_dlg_long_click_recents_key_text">Tryck och håll ned knappen Senaste när du använder ett program i helskärm om du vill ändra till delad skärm.</string>
     <string name="recents_help_dlg_home_key_in_split_text">Om du trycker på hemknappen när du använder delad skärm minimeras programmet som visas på skärmens övre del. Om du öppnar ett program från hemskärmen när statusfältet är blått öppnas programmet på skärmens nedre del.</string>
+    <string name="battery_low_sec_body_in_normal_mode">Ladda enheten eller tryck här om du vill aktivera energisparläget.</string>
+    <string name="battery_low_sec_body_in_ups_mode">Anslut enheten till en laddare.</string>
+    <string name="battery_saver_recommend_notification_text">Ladda enheten eller tryck här om du vill aktivera energisparläget.</string>
     <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
 
 If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>

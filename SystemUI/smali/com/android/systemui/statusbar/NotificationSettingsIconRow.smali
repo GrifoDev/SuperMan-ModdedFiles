@@ -383,7 +383,7 @@
 
     move-result v4
 
-    const v5, 0x7f13029f
+    const v5, 0x7f1302a0
 
     if-ne v4, v5, :cond_0
 
@@ -470,7 +470,7 @@
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
 
-    const v0, 0x7f13029f
+    const v0, 0x7f1302a0
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/NotificationSettingsIconRow;->findViewById(I)Landroid/view/View;
 

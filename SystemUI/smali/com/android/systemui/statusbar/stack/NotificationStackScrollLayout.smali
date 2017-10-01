@@ -332,6 +332,8 @@
 
 .field private mNotificationBottomBarView:Lcom/android/systemui/statusbar/NotificationBottomBarView;
 
+.field private mNotificationStackScrollerScaleForCover:F
+
 .field private mNotificationStackScrollerTopPaddingScaleForCover:F
 
 .field private mOnEmptySpaceClickListener:Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout$OnEmptySpaceClickListener;
@@ -3566,6 +3568,18 @@
 
     iput v1, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->mNotificationStackScrollerTopPaddingScaleForCover:F
 
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x7f0d0391
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getFloat(I)F
+
+    move-result v1
+
+    iput v1, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->mNotificationStackScrollerScaleForCover:F
+
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -5333,7 +5347,7 @@
     invoke-virtual {v1, v3}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->setDismissed(Z)V
 
     :cond_1
-    const v3, 0x7f1303db
+    const v3, 0x7f1303dc
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -12331,6 +12345,76 @@
     invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/stack/AmbientState;->setSpeedBumpIndex(I)V
 
     return-void
+.end method
+
+.method public updateStackScrollerScale(I)V
+    .locals 3
+
+    const/high16 v2, 0x3f800000    # 1.0f
+
+    const/4 v1, 0x0
+
+    const/4 v0, 0x5
+
+    if-ne p1, v0, :cond_0
+
+    iget v0, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->mNotificationStackScrollerScaleForCover:F
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->setScaleX(F)V
+
+    iget v0, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->mNotificationStackScrollerScaleForCover:F
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->setScaleY(F)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+
+    move-result-object v0
+
+    iget v0, v0, Landroid/util/DisplayMetrics;->widthPixels:I
+
+    div-int/lit8 v0, v0, 0x2
+
+    int-to-float v0, v0
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->setPivotX(F)V
+
+    invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->setPivotY(F)V
+
+    :goto_0
+    return-void
+
+    :cond_0
+    invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->setScaleX(F)V
+
+    invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->setScaleY(F)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+
+    move-result-object v0
+
+    iget v0, v0, Landroid/util/DisplayMetrics;->widthPixels:I
+
+    div-int/lit8 v0, v0, 0x2
+
+    int-to-float v0, v0
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->setPivotX(F)V
+
+    invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->setPivotY(F)V
+
+    goto :goto_0
 .end method
 
 .method public updateSwipeProgress(Landroid/view/View;ZF)Z

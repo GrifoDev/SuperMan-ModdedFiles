@@ -380,6 +380,7 @@ The Wi-Fi calling icon will appear in the notification panel as shown below whil
     <string name="quick_settings_dual_label_content_description">%s, Button label, Double tap to view relevant quick settings.</string>
     <string name="accessibility_button">Button</string>
     <string name="quick_settings_brightness_auto_brightness">Auto brightness</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">Adjust the screen brightness automatically based on the lighting conditions.</string>
     <string name="quick_settings_brightness_quick_access">Show control on top</string>
     <string name="quick_settings_brightness_quick_access_summary">Show the brightness control above the notification panel.</string>
     <string name="quick_settings_brightness_detail_level">Level</string>
@@ -409,6 +410,7 @@ The Wi-Fi calling icon will appear in the notification panel as shown below whil
     <string name="wifi_ap_wifi_p2p_off_warn">Enabling Mobile hotspot will disconnect any devices currently connected via Wi-Fi Direct.</string>
     <string name="wifi_ap_wifi_p2p_off_warn_china">Enabling Portable WLAN hotspot will disconnect device connected via WLAN Direct.</string>
     <string name="dialog_battery_data_warning">Mobile hotspot will be enabled. This will increase battery consumption and data usage.</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">Switch languages</string>
     <string name="keyboard_shortcut_group_applications_email">Email</string>
     <string name="qs_edit">EDIT</string>
     <string name="sec_qs_edit">Edit</string>
@@ -535,8 +537,10 @@ Overheating can be caused by:
     <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
     <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
     <string name="battery_low_sec_title">Battery power %d%%</string>
-    <string name="battery_low_sec_body_in_normal_mode">Charge your device or tap here to enable Power saving mode.</string>
-    <string name="battery_low_sec_body_in_ups_mode">Connect your device to a charger.</string>
+    <string name="battery_low_sec_body_phone">Charge your phone or tap here to turn on Power saving mode.</string>
+    <string name="battery_low_sec_body_tablet">Charge your tablet or tap here to turn on Power saving mode.</string>
+    <string name="battery_low_sec_body_phone_psm">Charge your phone.</string>
+    <string name="battery_low_sec_body_tablet_psm">Charge your tablet.</string>
     <string name="battery_cable_charging_title">Cable charging</string>
     <string name="battery_charging_title">Charging</string>
     <string name="battery_fast_charging_title">Fast charging</string>
@@ -555,7 +559,10 @@ Overheating can be caused by:
     <string name="battery_saver_notification_text_time_extend">Your battery life has been extended.</string>
     <string name="button_detail">Detail</string>
     <string name="battery_saver_recommend_notification_title">Battery power %d%%</string>
-    <string name="battery_saver_recommend_notification_text">Charge your device or tap here to enable Power saving mode.</string>
+    <string name="battery_saver_recommend_notification_text_phone">Charge your phone or tap here to turn on Power saving mode.</string>
+    <string name="battery_saver_recommend_notification_text_tablet">Charge your tablet or tap here to turn on Power saving mode.</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">Charge your phone.</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">Charge your tablet.</string>
     <string name="button_close">Close</string>
     <string name="battery_health_interruption_title">Unable to charge</string>
     <string name="battery_health_interruption_by_terminal_open_text">Unable to charge your device. Make sure you are using a Samsung compatible battery and charger and that your device is properly connected to the charger.</string>
@@ -644,6 +651,7 @@ upscaler"</string>
     <string name="uhq_mode_noti_text">Enhance the sound resolution of music and videos for a clearer listening experience.</string>
     <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
     <string name="assistance_app_setting_item_none">None</string>
+    <string name="remote_input_send_text">Send</string>
     <string name="remote_input_toast_text_on_sview_cover">Unable to use Quick reply function while S View Cover closed.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -832,7 +840,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_direction_shutdown_instructions">Draw series of directions to power off</string>
     <string name="kg_none_multi_pin_restart_instructions">Your device was restarted and needs to be unlocked using your PIN. You can use your biometrics next time you unlock your device.</string>
     <string name="kg_tablet_multi_pin_restart_instructions">Your device was restarted and needs to be unlocked using your PIN. You can use your biometrics next time you unlock your device.</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">Your device was restarted and needs to be unlocked using your PIN. You can use your fingerprints next time you unlock your device.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">Your phone was restarted and needs to be unlocked using your PIN. You can use your fingerprints next time you unlock your phone.</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">Your device was restarted and needs to be unlocked using your PIN. You can use your fingerprints next time you unlock your device.</string>
     <string name="kg_none_iris_pin_restart_instructions">Your device was restarted and needs to be unlocked using your PIN. You can use your irises next time you unlock your device.</string>
     <string name="kg_tablet_iris_pin_restart_instructions">Your device was restarted and needs to be unlocked using your PIN. You can use your irises next time you unlock your device.</string>
@@ -862,7 +870,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pattern_deviceadmin_instructions">Draw pattern instead of using iris recognition because of security policy</string>
     <string name="kg_none_multi_password_restart_instructions">Your device was restarted and needs to be unlocked using your password. You can use your biometrics next time you unlock your device.</string>
     <string name="kg_tablet_multi_password_restart_instructions">Your device was restarted and needs to be unlocked using your password. You can use your biometrics next time you unlock your device.</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">Your device was restarted and needs to be unlocked using your password. You can use your fingerprints next time you unlock your device.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">Your phone was restarted and needs to be unlocked using your password. You can use your fingerprints next time you unlock your phone.</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">Your device was restarted and needs to be unlocked using your password. You can use your fingerprints next time you unlock your device.</string>
     <string name="kg_none_iris_password_restart_instructions">Your device was restarted and needs to be unlocked using your password. You can use your irises next time you unlock your device.</string>
     <string name="kg_tablet_iris_password_restart_instructions">Your device was restarted and needs to be unlocked using your password. You can use your irises next time you unlock your device.</string>
@@ -877,7 +885,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_password_deviceadmin_instructions">Enter password instead of using iris recognition because of security policy</string>
     <string name="kg_none_multi_direction_restart_instructions">Your device was restarted and needs to be unlocked using your series of directions. You can use your biometrics next time you unlock your device.</string>
     <string name="kg_tablet_multi_direction_restart_instructions">Your device was restarted and needs to be unlocked using your series of directions. You can use your biometrics next time you unlock your device.</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">Your device was restarted and needs to be unlocked using your series of directions. You can use your fingerprints next time you unlock your device.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">Your phone was restarted and needs to be unlocked using your series of directions. You can use your fingerprints next time you unlock your phone.</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">Your device was restarted and needs to be unlocked using your series of directions. You can use your fingerprints next time you unlock your device.</string>
     <string name="kg_none_iris_direction_restart_instructions">Your device was restarted and needs to be unlocked using your series of directions. You can use your irises next time you unlock your device.</string>
     <string name="kg_tablet_iris_direction_restart_instructions">Your device was restarted and needs to be unlocked using your series of directions. You can use your irises next time you unlock your device.</string>
@@ -995,6 +1003,9 @@ Try again in 1 second"</string>
     <string name="recents_help_dlg_split_icon_desc">Tap the Split screen icon on the title bar of the app window to open apps in split screen view. This icon is shown when the app supports Multi window.</string>
     <string name="recents_help_dlg_long_click_recents_key_text">Press and hold the Recents key while using an app in full screen view to change to split screen view.</string>
     <string name="recents_help_dlg_home_key_in_split_text">If you press the Home key while using split screen view, the app shown on the top half of the screen will be minimised. If you open an app from the home screen while the status bar is coloured blue, the app will open in split screen view on the bottom half of the screen.</string>
+    <string name="battery_low_sec_body_in_normal_mode">Charge your device or tap here to enable Power saving mode.</string>
+    <string name="battery_low_sec_body_in_ups_mode">Connect your device to a charger.</string>
+    <string name="battery_saver_recommend_notification_text">Charge your device or tap here to enable Power saving mode.</string>
     <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
 
 If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>

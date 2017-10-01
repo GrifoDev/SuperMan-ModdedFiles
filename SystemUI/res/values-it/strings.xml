@@ -956,6 +956,7 @@ L'icona di Chiamata Wi-Fi verrà visualizzata nel pannello notifiche come mostra
     <string name="quick_settings_dual_label_content_description">%s, Pulsante, Toccate due volte per visualizzare le impostazioni rapide corrispondenti.</string>
     <string name="accessibility_button">Pulsante</string>
     <string name="quick_settings_brightness_auto_brightness">Luminosità automatica</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">Regola automaticamente la luminosità dello schermo in base alle condizioni di illuminazione.</string>
     <string name="quick_settings_brightness_quick_access">Mostra controllo in alto</string>
     <string name="quick_settings_brightness_quick_access_summary">Mostra il controllo della luminosità sopra il pannello notifiche.</string>
     <string name="quick_settings_brightness_detail_level">Livello</string>
@@ -1276,6 +1277,7 @@ Per ulteriori informazioni, contatta l'amministratore."</string>
     <string name="keyboard_shortcut_group_system_notifications">Notifiche</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">Scorciatoie da tastiera</string>
     <string name="keyboard_shortcut_group_system_switch_input">Cambia metodo di immissione</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">Cambia lingua</string>
     <string name="keyboard_shortcut_group_applications">Applicazioni</string>
     <string name="keyboard_shortcut_group_applications_assist">Assistenza</string>
     <string name="keyboard_shortcut_group_applications_browser">Browser</string>
@@ -1479,8 +1481,10 @@ Il surriscaldamento può essere causato da:
     <string name="safe_mode_alert_body_vzw">Riavviare il telefono per disattivare la mod. provv.? Tutte le app verranno ripristinate.</string>
     <string name="safe_mode_alert_positive_button_vzw">Disattiva mod. provv.</string>
     <string name="battery_low_sec_title">Livello batteria %d%%</string>
-    <string name="battery_low_sec_body_in_normal_mode">Caricate il dispositivo o toccate qui per attivare la modalità Risparmio energetico.</string>
-    <string name="battery_low_sec_body_in_ups_mode">Collegate il dispositivo a un caricabatterie.</string>
+    <string name="battery_low_sec_body_phone">Caricate il telefono o toccate qui per attivare la modalità Risparmio energetico.</string>
+    <string name="battery_low_sec_body_tablet">Caricate il tablet o toccate qui per attivare la modalità Risparmio energetico.</string>
+    <string name="battery_low_sec_body_phone_psm">Caricate il telefono.</string>
+    <string name="battery_low_sec_body_tablet_psm">Caricate il tablet.</string>
     <string name="battery_cable_charging_title">Carica tramite cavo</string>
     <string name="battery_charging_title">In carica</string>
     <string name="battery_fast_charging_title">Ricarica rapida</string>
@@ -1499,7 +1503,10 @@ Il surriscaldamento può essere causato da:
     <string name="battery_saver_notification_text_time_extend">La durata della batteria è stata prolungata.</string>
     <string name="button_detail">Dettaglio</string>
     <string name="battery_saver_recommend_notification_title">Livello batteria %d%%</string>
-    <string name="battery_saver_recommend_notification_text">Caricate il dispositivo o toccate qui per attivare la modalità Risparmio energetico.</string>
+    <string name="battery_saver_recommend_notification_text_phone">Caricate il telefono o toccate qui per attivare la modalità Risparmio energetico.</string>
+    <string name="battery_saver_recommend_notification_text_tablet">Caricate il tablet o toccate qui per attivare la modalità Risparmio energetico.</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">Caricate il telefono.</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">Caricate il tablet.</string>
     <string name="button_close">Chiudi</string>
     <string name="battery_health_interruption_title">Impossibile caricare</string>
     <string name="battery_health_interruption_by_terminal_open_text">Impossibile ricaricare il dispositivo. Utilizzate un caricatore e una batteria compatibili Samsung e verificate che il dispositivo sia connesso al caricatore.</string>
@@ -1590,6 +1597,7 @@ UHQ"</string>
     <string name="assistance_app_setting_item_none">Nessuno</string>
     <string name="no_sim_notification_title_cct">Nessuna scheda SIM rilevata</string>
     <string name="no_sim_notification_text_cct">"Inserite una scheda SIM XFINITY Mobile. Per ulteriori informazioni, visitate l'indirizzo xfinitymobile.com/activate o chiamate il numero 888-936-4968."</string>
+    <string name="remote_input_send_text">Invia</string>
     <string name="remote_input_toast_text_on_sview_cover">Impossibile utilizzare la funzione Risposta rapida mentre S View Cover è chiusa.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -1845,7 +1853,7 @@ Se il tablet viene ripristinato, potrebbe essere necessario inserire le informaz
     <string name="kg_none_direction_shutdown_instructions">Tracciate una serie di direzioni per spegnere</string>
     <string name="kg_none_multi_pin_restart_instructions">Il dispositivo è stato riavviato e deve essere sbloccato con il PIN. Al successivo sblocco del dispositivo, potrete utilizzare i dati biometrici.</string>
     <string name="kg_tablet_multi_pin_restart_instructions">Il dispositivo è stato riavviato e deve essere sbloccato con il PIN. Al successivo sblocco del dispositivo, potrete utilizzare i dati biometrici.</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">Il dispositivo è stato riavviato e deve essere sbloccato con il PIN. Al successivo sblocco del dispositivo, potrete utilizzare le impronte digitali.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">Il telefono è stato riavviato e deve essere sbloccato con il PIN. Al successivo sblocco del telefono, potrete utilizzare le impronte digitali.</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">Il dispositivo è stato riavviato e deve essere sbloccato con il PIN. Al successivo sblocco del dispositivo, potrete utilizzare le impronte digitali.</string>
     <string name="kg_none_iris_pin_restart_instructions">Il dispositivo è stato riavviato e deve essere sbloccato con il PIN. Al successivo sblocco del dispositivo, potrete utilizzare le iridi.</string>
     <string name="kg_tablet_iris_pin_restart_instructions">Il dispositivo è stato riavviato e deve essere sbloccato con il PIN. Al successivo sblocco del dispositivo, potrete utilizzare le iridi.</string>
@@ -1875,7 +1883,7 @@ Se il tablet viene ripristinato, potrebbe essere necessario inserire le informaz
     <string name="kg_none_iris_pattern_deviceadmin_instructions">"In base ai criteri di protezione, tracciate il segno invece di utilizzare il riconoscimento dell'iride"</string>
     <string name="kg_none_multi_password_restart_instructions">Il dispositivo è stato riavviato e deve essere sbloccato con la password. Al successivo sblocco del dispositivo, potrete utilizzare i dati biometrici.</string>
     <string name="kg_tablet_multi_password_restart_instructions">Il dispositivo è stato riavviato e deve essere sbloccato con la password. Al successivo sblocco del dispositivo, potrete utilizzare i dati biometrici.</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">Il dispositivo è stato riavviato e deve essere sbloccato con la password. Al successivo sblocco del dispositivo, potrete utilizzare le impronte digitali.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">Il telefono è stato riavviato e deve essere sbloccato con la password. Al successivo sblocco del telefono, potrete utilizzare le impronte digitali.</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">Il dispositivo è stato riavviato e deve essere sbloccato con la password. Al successivo sblocco del dispositivo, potrete utilizzare le impronte digitali.</string>
     <string name="kg_none_iris_password_restart_instructions">Il dispositivo è stato riavviato e deve essere sbloccato con la password. Al successivo sblocco del dispositivo, potrete utilizzare le iridi.</string>
     <string name="kg_tablet_iris_password_restart_instructions">Il dispositivo è stato riavviato e deve essere sbloccato con la password. Al successivo sblocco del dispositivo, potrete utilizzare le iridi.</string>
@@ -1890,7 +1898,7 @@ Se il tablet viene ripristinato, potrebbe essere necessario inserire le informaz
     <string name="kg_none_iris_password_deviceadmin_instructions">"In base ai criteri di protezione, inserite la password invece di utilizzare il riconoscimento dell'iride"</string>
     <string name="kg_none_multi_direction_restart_instructions">Il dispositivo è stato riavviato e deve essere sbloccato con la serie di direzioni. Al successivo sblocco del dispositivo, potrete utilizzare i dati biometrici.</string>
     <string name="kg_tablet_multi_direction_restart_instructions">Il dispositivo è stato riavviato e deve essere sbloccato con la serie di direzioni. Al successivo sblocco del dispositivo, potrete utilizzare i dati biometrici.</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">Il dispositivo è stato riavviato e deve essere sbloccato con la serie di direzioni. Al successivo sblocco del dispositivo, potrete utilizzare le impronte digitali.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">Il telefono è stato riavviato e deve essere sbloccato con la serie di direzioni. Al successivo sblocco del telefono, potrete utilizzare le impronte digitali.</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">Il dispositivo è stato riavviato e deve essere sbloccato con la serie di direzioni. Al successivo sblocco del dispositivo, potrete utilizzare le impronte digitali.</string>
     <string name="kg_none_iris_direction_restart_instructions">Il dispositivo è stato riavviato e deve essere sbloccato con la serie di direzioni. Al successivo sblocco del dispositivo, potrete utilizzare le iridi.</string>
     <string name="kg_tablet_iris_direction_restart_instructions">Il dispositivo è stato riavviato e deve essere sbloccato con la serie di direzioni. Al successivo sblocco del dispositivo, potrete utilizzare le iridi.</string>
@@ -2012,6 +2020,9 @@ Riprovate tra 1 secondo"</string>
     <string name="recents_help_dlg_split_icon_desc">"Toccate l'icona dello schermo diviso sulla barra del titolo della finestra delle applicazioni per aprire le applicazioni nella visualizzazione a schermo diviso. L'icona viene visualizzata se l'applicazione supporta Multischermo."</string>
     <string name="recents_help_dlg_long_click_recents_key_text">"Tenete premuto il tasto Applicazioni recenti mentre utilizzate un'applicazione nella visualizzazione a schermo intero per passare alla visualizzazione a schermo diviso."</string>
     <string name="recents_help_dlg_home_key_in_split_text">"Se premete il tasto Home nella modalità di visualizzazione a schermo diviso, l'applicazione visualizzata nella metà superiore della schermata verrà ridotta a icona. Se aprite un'applicazione dalla schermata Home mentre la barra di stato è blu, l'applicazione si aprirà nella visualizzazione a schermo diviso nella metà inferiore della schermata."</string>
+    <string name="battery_low_sec_body_in_normal_mode">Caricate il dispositivo o toccate qui per attivare la modalità Risparmio energetico.</string>
+    <string name="battery_low_sec_body_in_ups_mode">Collegate il dispositivo a un caricabatterie.</string>
+    <string name="battery_saver_recommend_notification_text">Caricate il dispositivo o toccate qui per attivare la modalità Risparmio energetico.</string>
     <string name="kg_none_direction_1_frpt">"Se non tracciate la serie di direzioni corretta al prossimo tentativo, il dispositivo verrà ripristinato automaticamente alle impostazioni di fabbrica e tutte le informazioni che contiene verranno cancellate.
 
 Se il dispositivo viene ripristinato, potrebbe essere necessario inserire le informazioni sull'account Google (indirizzo e-mail e password) associate al dispositivo per poterlo utilizzare nuovamente."</string>

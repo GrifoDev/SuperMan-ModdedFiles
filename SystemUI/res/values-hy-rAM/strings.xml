@@ -957,6 +957,7 @@ Wi-Fi կանչի պատկերակը կհայտնվի ծանուցումների 
     <string name="quick_settings_dual_label_content_description">%s, Կոճակի պիտակ, Կրկնակի թակեք՝ համապատասխան արագ դրվածքները դիտելու համար:</string>
     <string name="accessibility_button">Կոճակ</string>
     <string name="quick_settings_brightness_auto_brightness">Ինքնաբերական պայծառություն</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">Ինքնաբերաբար կարգավորել էկրանի պայծառությունը՝ ըստ լուսավորության պայմանների:</string>
     <string name="quick_settings_brightness_quick_access">Կարգավորումը ցույց տալ վերևում</string>
     <string name="quick_settings_brightness_quick_access_summary">Պայծառության կարգավորումը ցույց տալ ծանուցումների վահանակից վերև:</string>
     <string name="quick_settings_brightness_detail_level">Մակարդակ</string>
@@ -1277,6 +1278,7 @@ Wi-Fi կանչի պատկերակը կհայտնվի ծանուցումների 
     <string name="keyboard_shortcut_group_system_notifications">Ծանուցումներ</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">Ստեղնային դյուրանցումներ</string>
     <string name="keyboard_shortcut_group_system_switch_input">Փոխարկել մուտքագրման եղանակը</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">Փոխարկել լեզուները</string>
     <string name="keyboard_shortcut_group_applications">Հավելվածներ</string>
     <string name="keyboard_shortcut_group_applications_assist">Օգնություն</string>
     <string name="keyboard_shortcut_group_applications_browser">Դիտարկիչ</string>
@@ -1480,8 +1482,10 @@ Using your tablet in a very hot location."</string>
     <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
     <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
     <string name="battery_low_sec_title">Մարտկոցի էներգիա %d%%</string>
-    <string name="battery_low_sec_body_in_normal_mode">Լիցքավորեք սարքը կամ թակեք այստեղ՝ Էներգիայի խնայման ռեժիմն ընձեռելու համար:</string>
-    <string name="battery_low_sec_body_in_ups_mode">Սարքը միացրեք լիցքավորիչին:</string>
+    <string name="battery_low_sec_body_phone">Լիցքավորեք հեռախոսը կամ թակեք այստեղ՝ Էներգիայի խնայման ռեժիմը միացնելու համար:</string>
+    <string name="battery_low_sec_body_tablet">Լիցքավորեք պլանշետը կամ թակեք այստեղ՝ Էներգիայի խնայման ռեժիմը միացնելու համար:</string>
+    <string name="battery_low_sec_body_phone_psm">Լիցքավորեք հեռախոսը:</string>
+    <string name="battery_low_sec_body_tablet_psm">Լիցքավորեք պլանշետը:</string>
     <string name="battery_cable_charging_title">Լարով լիցքավորում</string>
     <string name="battery_charging_title">Լիցքավորում</string>
     <string name="battery_fast_charging_title">Արագ լիցքվորում</string>
@@ -1500,7 +1504,10 @@ Using your tablet in a very hot location."</string>
     <string name="battery_saver_notification_text_time_extend">Մարտկոցի կյանքը երկարացվել է:</string>
     <string name="button_detail">Տվյալ</string>
     <string name="battery_saver_recommend_notification_title">Մարտկոցի էներգիա %d%%</string>
-    <string name="battery_saver_recommend_notification_text">Լիցքավորեք սարքը կամ թակեք այստեղ՝ Էներգիայի խնայման ռեժիմն ընձեռելու համար:</string>
+    <string name="battery_saver_recommend_notification_text_phone">Լիցքավորեք հեռախոսը կամ թակեք այստեղ՝ Էներգիայի խնայման ռեժիմը միացնելու համար:</string>
+    <string name="battery_saver_recommend_notification_text_tablet">Լիցքավորեք պլանշետը կամ թակեք այստեղ՝ Էներգիայի խնայման ռեժիմը միացնելու համար:</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">Լիցքավորեք հեռախոսը:</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">Լիցքավորեք պլանշետը:</string>
     <string name="button_close">Փակել</string>
     <string name="battery_health_interruption_title">Անհնար է լիցքավորել</string>
     <string name="battery_health_interruption_by_terminal_open_text">Անհնար է լիցքավորել Ձեր սարքը: Համոզվեք, որ օգտագործում եք Samsung-ի հետ համատեղելի մարտկոց ու լիցքավորիչ, և որ Ձեր սարքը ճիշտ է միացված լիցքավորիչին:</string>
@@ -1589,6 +1596,7 @@ upscaler"</string>
     <string name="uhq_mode_noti_text">Մեծացրեք երաժշտության և տեսանյութերի հնչողության լուծաչափը ավելի հստակ ունկնդրության համար:</string>
     <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
     <string name="assistance_app_setting_item_none">Չկա</string>
+    <string name="remote_input_send_text">Ուղարկել</string>
     <string name="remote_input_toast_text_on_sview_cover">Անհնար է օգտագործել Արագ պատասխանի գործառույթը, քանի դեռ S view շապիկը փակ է:</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -1844,7 +1852,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_direction_shutdown_instructions">Սնուցումն անջատելու համար գծել ուղղությունների շարք</string>
     <string name="kg_none_multi_pin_restart_instructions">Ձեր սարքը վերագործարկվեց, և հարկավոր է այն արգելաբացել Ձեր PIN-ով: Կարող եք կենսաչափական տվյալներն օգտագործել հաջորդ անգամ սարքն արգելաբացելիս:</string>
     <string name="kg_tablet_multi_pin_restart_instructions">Ձեր սարքը վերագործարկվեց, և հարկավոր է այն արգելաբացել Ձեր PIN-ով: Կարող եք կենսաչափական տվյալներն օգտագործել հաջորդ անգամ սարքն արգելաբացելիս:</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">Ձեր սարքը վերագործարկվեց, և հարկավոր է այն արգելաբացել Ձեր PIN-ով: Կարող եք մատնահետքերն օգտագործել հաջորդ անգամ սարքն արգելաբացելիս:</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">Ձեր հեռախոսը վերագործարկվեց, և հարկավոր է այն արգելաբացել Ձեր PIN-ով: Կարող եք մատնահետքերն օգտագործել հաջորդ անգամ հեռախոսն արգելաբացելիս:</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">Ձեր սարքը վերագործարկվեց, և հարկավոր է այն արգելաբացել Ձեր PIN-ով: Կարող եք մատնահետքերն օգտագործել հաջորդ անգամ սարքն արգելաբացելիս:</string>
     <string name="kg_none_iris_pin_restart_instructions">Ձեր սարքը վերագործարկվեց, և հարկավոր է այն արգելաբացել Ձեր PIN-ով: Կարող եք ծիածանաթաղանթներն օգտագործել հաջորդ անգամ սարքն արգելաբացելիս:</string>
     <string name="kg_tablet_iris_pin_restart_instructions">Ձեր սարքը վերագործարկվեց, և հարկավոր է այն արգելաբացել Ձեր PIN-ով: Կարող եք ծիածանաթաղանթներն օգտագործել հաջորդ անգամ սարքն արգելաբացելիս:</string>
@@ -1874,7 +1882,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pattern_deviceadmin_instructions">Անվտանգության քաղաքականության նկատառումներով՝ ծիածանաթաղանթի ճանաչում օգտագործելու փոխարեն գծեք նախշ</string>
     <string name="kg_none_multi_password_restart_instructions">Ձեր սարքը վերագործարկվեց, և հարկավոր է այն արգելաբացել Ձեր գաղտնաբառով: Կարող եք կենսաչափական տվյալներն օգտագործել հաջորդ անգամ սարքն արգելաբացելիս:</string>
     <string name="kg_tablet_multi_password_restart_instructions">Ձեր սարքը վերագործարկվեց, և հարկավոր է այն արգելաբացել Ձեր գաղտնաբառով: Կարող եք կենսաչափական տվյալներն օգտագործել հաջորդ անգամ սարքն արգելաբացելիս:</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">Ձեր սարքը վերագործարկվեց, և հարկավոր է այն արգելաբացել Ձեր գաղտնաբառով: Կարող եք մատնահետքերն օգտագործել հաջորդ անգամ սարքն արգելաբացելիս:</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">Ձեր հեռախոսը վերագործարկվեց, և հարկավոր է այն արգելաբացել Ձեր գաղտնաբառով: Կարող եք մատնահետքերն օգտագործել հաջորդ անգամ հեռախոսն արգելաբացելիս:</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">Ձեր սարքը վերագործարկվեց, և հարկավոր է այն արգելաբացել Ձեր գաղտնաբառով: Կարող եք մատնահետքերն օգտագործել հաջորդ անգամ սարքն արգելաբացելիս:</string>
     <string name="kg_none_iris_password_restart_instructions">Ձեր սարքը վերագործարկվեց, և հարկավոր է այն արգելաբացել Ձեր գաղտնաբառով: Կարող եք ծիածանաթաղանթներն օգտագործել հաջորդ անգամ սարքն արգելաբացելիս:</string>
     <string name="kg_tablet_iris_password_restart_instructions">Ձեր սարքը վերագործարկվեց, և հարկավոր է այն արգելաբացել Ձեր գաղտնաբառով: Կարող եք ծիածանաթաղանթներն օգտագործել հաջորդ անգամ սարքն արգելաբացելիս:</string>
@@ -1889,7 +1897,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_password_deviceadmin_instructions">Անվտանգության քաղաքականության նկատառումներով՝ ծիածանաթաղանթի ճանաչում օգտագործելու փոխարեն մուտքագրեք գաղտնաբառ</string>
     <string name="kg_none_multi_direction_restart_instructions">Ձեր սարքը վերագործարկվեց, և հարկավոր է այն արգելաբացել Ձեր ուղղությունների շարքով: Կարող եք կենսաչափական տվյալներն օգտագործել հաջորդ անգամ սարքն արգելաբացելիս:</string>
     <string name="kg_tablet_multi_direction_restart_instructions">Ձեր սարքը վերագործարկվեց, և հարկավոր է այն արգելաբացել Ձեր ուղղությունների շարքով: Կարող եք կենսաչափական տվյալներն օգտագործել հաջորդ անգամ սարքն արգելաբացելիս:</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">Ձեր սարքը վերագործարկվեց, և հարկավոր է այն արգելաբացել Ձեր ուղղությունների շարքով: Կարող եք մատնահետքերն օգտագործել հաջորդ անգամ սարքն արգելաբացելիս:</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">Ձեր հեռախոսը վերագործարկվեց, և հարկավոր է այն արգելաբացել Ձեր ուղղությունների շարքով: Կարող եք մատնահետքերն օգտագործել հաջորդ անգամ հեռախոսն արգելաբացելիս:</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">Ձեր սարքը վերագործարկվեց, և հարկավոր է այն արգելաբացել Ձեր ուղղությունների շարքով: Կարող եք մատնահետքերն օգտագործել հաջորդ անգամ սարքն արգելաբացելիս:</string>
     <string name="kg_none_iris_direction_restart_instructions">Ձեր սարքը վերագործարկվեց, և հարկավոր է այն արգելաբացել Ձեր հրահանգների հաջորդականությամբ: Կարող եք ծիածանաթաղանթներն օգտագործել հաջորդ անգամ սարքն արգելաբացելիս:</string>
     <string name="kg_tablet_iris_direction_restart_instructions">Ձեր սարքը վերագործարկվեց, և հարկավոր է այն արգելաբացել Ձեր հրահանգների հաջորդականությամբ: Կարող եք ծիածանաթաղանթներն օգտագործել հաջորդ անգամ սարքն արգելաբացելիս:</string>
@@ -2008,6 +2016,9 @@ PIN-ը պետք է լինի 4-ից 8 նիշանի:"</string>
     <string name="recents_help_dlg_split_icon_desc">Ծրագրի պատուհանի անվանագոտում թակեք Տրոհված էկրանի պատկերակը՝ տրոհված էկրանի դիտակերպում ծրագրեր բացելու համար: Այս պատկերակը ցույց է տրվում, երբ ծրագիրն ապահովում է Բազմակի պատուհանի օգտագործում:</string>
     <string name="recents_help_dlg_long_click_recents_key_text">Լիաէկրան դիտակերպում ծրագիր օգտագործելու ընթացքում սեղմեք և պահեք Վերջին օգտագործումների ստեղնը, որպեսզի դիտումը փոխեք տրոհված էկրանի դիտակերպի:</string>
     <string name="recents_help_dlg_home_key_in_split_text">Եթե տրոհված էկրանի դիտակերպն օգտագործելու ընթացքում սեղմեք Սկզբի ստեղնը, ապա էկրանի վերին կեսում ցուցադրված ծրագիրը կծալվի: Եթե հիմնական էկրանից ծրագիր բացեք, երբ վիճակագոտին կապույտ գույնի է, ապա ծրագիրը կբացվի տրոհված էկրանի դիտակերպում՝ էկրանի ստորին կեսում:</string>
+    <string name="battery_low_sec_body_in_normal_mode">Լիցքավորեք սարքը կամ թակեք այստեղ՝ Էներգիայի խնայման ռեժիմն ընձեռելու համար:</string>
+    <string name="battery_low_sec_body_in_ups_mode">Սարքը միացրեք լիցքավորիչին:</string>
+    <string name="battery_saver_recommend_notification_text">Լիցքավորեք սարքը կամ թակեք այստեղ՝ Էներգիայի խնայման ռեժիմն ընձեռելու համար:</string>
     <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
 
 If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>

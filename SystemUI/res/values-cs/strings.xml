@@ -955,6 +955,7 @@ Ikona volání pomocí Wi-Fi se zobrazí na oznamovacím panelu tak jak je uvede
     <string name="quick_settings_dual_label_content_description">%s, popisek tlačítka, poklepáním zobrazíte příslušné rychlé nastavení.</string>
     <string name="accessibility_button">Tlačítko</string>
     <string name="quick_settings_brightness_auto_brightness">Automatický jas</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">Automaticky upraví jas obrazovky podle světelných podmínek.</string>
     <string name="quick_settings_brightness_quick_access">Zobrazit ovládací prvek nahoře</string>
     <string name="quick_settings_brightness_quick_access_summary">Zobrazí ovládací prvek jasu nad oznamovacím panelem.</string>
     <string name="quick_settings_brightness_detail_level">Úroveň</string>
@@ -1275,6 +1276,7 @@ O další informace požádejte svého administrátora."</string>
     <string name="keyboard_shortcut_group_system_notifications">Oznámení</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">Klávesové zkratky</string>
     <string name="keyboard_shortcut_group_system_switch_input">Přepnout metodu zadávání</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">Přepnout jazyky</string>
     <string name="keyboard_shortcut_group_applications">Aplikace</string>
     <string name="keyboard_shortcut_group_applications_assist">Asistence</string>
     <string name="keyboard_shortcut_group_applications_browser">Prohlížeč</string>
@@ -1478,8 +1480,10 @@ Přehřátí může být způsobeno:
     <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
     <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
     <string name="battery_low_sec_title">Energie baterie %d %%</string>
-    <string name="battery_low_sec_body_in_normal_mode">Nabijte zařízení, nebo klepněte sem a zapněte možnost Úsporný režim.</string>
-    <string name="battery_low_sec_body_in_ups_mode">Připojte zařízení k nabíječce.</string>
+    <string name="battery_low_sec_body_phone">Nabijte telefon, nebo klepněte sem a zapněte Úsporný režim.</string>
+    <string name="battery_low_sec_body_tablet">Nabijte tablet, nebo klepněte sem a zapněte Úsporný režim.</string>
+    <string name="battery_low_sec_body_phone_psm">Nabijte telefon.</string>
+    <string name="battery_low_sec_body_tablet_psm">Nabijte tablet.</string>
     <string name="battery_cable_charging_title">Nabíjení pomocí kabelu</string>
     <string name="battery_charging_title">Nabíjení</string>
     <string name="battery_fast_charging_title">Rychlé nabíjení</string>
@@ -1498,7 +1502,10 @@ Přehřátí může být způsobeno:
     <string name="battery_saver_notification_text_time_extend">Životnost baterie byla prodloužena.</string>
     <string name="button_detail">Detail</string>
     <string name="battery_saver_recommend_notification_title">Energie baterie %d %%</string>
-    <string name="battery_saver_recommend_notification_text">Nabijte zařízení, nebo klepněte sem a zapněte možnost Úsporný režim.</string>
+    <string name="battery_saver_recommend_notification_text_phone">Nabijte telefon, nebo klepněte sem a zapněte Úsporný režim.</string>
+    <string name="battery_saver_recommend_notification_text_tablet">Nabijte tablet, nebo klepněte sem a zapněte Úsporný režim.</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">Nabijte telefon.</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">Nabijte tablet.</string>
     <string name="button_close">Zavřít</string>
     <string name="battery_health_interruption_title">Nelze nabíjet</string>
     <string name="battery_health_interruption_by_terminal_open_text">Zařízení nelze nabít. Zkontrolujte, zda používáte kompatibilní baterii a nabíječku Samsung a že zařízení je správně připojeno k nabíječce.</string>
@@ -1587,6 +1594,7 @@ rozs. UHQ"</string>
     <string name="uhq_mode_noti_text">Zvýší rozlišení zvuku u hudby a videa a zajistí kvalitnější posluchačský zážitek.</string>
     <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
     <string name="assistance_app_setting_item_none">Žádná</string>
+    <string name="remote_input_send_text">Odeslat</string>
     <string name="remote_input_toast_text_on_sview_cover">Když je zavřené pouzdro S View Cover, nelze použít funkci Rychlá odpověď.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -1842,7 +1850,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_direction_shutdown_instructions">Nakreslete řadu směrů pro vypnutí</string>
     <string name="kg_none_multi_pin_restart_instructions">Zařízení bylo restartováno a je potřeba ho odemknout pomocí PIN kódu. Při příštím odemknutí zařízení budete moci použít biometriku.</string>
     <string name="kg_tablet_multi_pin_restart_instructions">Zařízení bylo restartováno a je potřeba ho odemknout pomocí PIN kódu. Při příštím odemknutí zařízení budete moci použít biometriku.</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">Zařízení bylo restartováno a je potřeba ho odemknout pomocí PIN kódu. Při příštím odemknutí zařízení budete moci použít otisky prstů.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">Telefon byl restartován a je potřeba ho odemknout pomocí PIN kódu. Při příštím odemknutí telefonu budete moci použít otisky prstů.</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">Zařízení bylo restartováno a je potřeba ho odemknout pomocí PIN kódu. Při příštím odemknutí zařízení budete moci použít otisky prstů.</string>
     <string name="kg_none_iris_pin_restart_instructions">Zařízení bylo restartováno a je potřeba ho odemknout pomocí PIN kódu. Při příštím odemknutí zařízení budete moci použít duhovky.</string>
     <string name="kg_tablet_iris_pin_restart_instructions">Zařízení bylo restartováno a je potřeba ho odemknout pomocí PIN kódu. Při příštím odemknutí zařízení budete moci použít duhovky.</string>
@@ -1872,7 +1880,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pattern_deviceadmin_instructions">Z důvodu zásad zabezpečení nakreslete místo použití rozpoznávání duhovky znak</string>
     <string name="kg_none_multi_password_restart_instructions">Zařízení bylo restartováno a je potřeba ho odemknout pomocí hesla. Při příštím odemknutí zařízení budete moci použít biometriku.</string>
     <string name="kg_tablet_multi_password_restart_instructions">Zařízení bylo restartováno a je potřeba ho odemknout pomocí hesla. Při příštím odemknutí zařízení budete moci použít biometriku.</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">Zařízení bylo restartováno a je potřeba ho odemknout pomocí hesla. Při příštím odemknutí zařízení budete moci použít otisky prstů.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">Telefon byl restartován a je potřeba ho odemknout pomocí hesla. Při příštím odemknutí telefonu budete moci použít otisky prstů.</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">Zařízení bylo restartováno a je potřeba ho odemknout pomocí hesla. Při příštím odemknutí zařízení budete moci použít otisky prstů.</string>
     <string name="kg_none_iris_password_restart_instructions">Zařízení bylo restartováno a je potřeba ho odemknout pomocí hesla. Při příštím odemknutí zařízení budete moci použít duhovky.</string>
     <string name="kg_tablet_iris_password_restart_instructions">Zařízení bylo restartováno a je potřeba ho odemknout pomocí hesla. Při příštím odemknutí zařízení budete moci použít duhovky.</string>
@@ -1887,7 +1895,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_password_deviceadmin_instructions">Z důvodu zásad zabezpečení zadejte místo použití rozpoznávání duhovky heslo</string>
     <string name="kg_none_multi_direction_restart_instructions">Zařízení bylo restartováno a je potřeba ho odemknout pomocí řady směrů. Při příštím odemknutí zařízení budete moci použít biometriku.</string>
     <string name="kg_tablet_multi_direction_restart_instructions">Zařízení bylo restartováno a je potřeba ho odemknout pomocí řady směrů. Při příštím odemknutí zařízení budete moci použít biometriku.</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">Zařízení bylo restartováno a je potřeba ho odemknout pomocí řady směrů. Při příštím odemknutí zařízení budete moci použít otisky prstů.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">Telefon byl restartován a je potřeba ho odemknout pomocí řady směrů. Při příštím odemknutí telefonu budete moci použít otisky prstů.</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">Zařízení bylo restartováno a je potřeba ho odemknout pomocí řady směrů. Při příštím odemknutí zařízení budete moci použít otisky prstů.</string>
     <string name="kg_none_iris_direction_restart_instructions">Zařízení bylo restartováno a je potřeba ho odemknout pomocí řady směrů. Při příštím odemknutí zařízení budete moci použít duhovky.</string>
     <string name="kg_tablet_iris_direction_restart_instructions">Zařízení bylo restartováno a je potřeba ho odemknout pomocí řady směrů. Při příštím odemknutí zařízení budete moci použít duhovky.</string>
@@ -2009,6 +2017,9 @@ Opakujte akci za 1 sekundu"</string>
     <string name="recents_help_dlg_split_icon_desc">Klepnutím na ikonu Rozdělit obrazovku v záhlaví okna aplikace otevřete aplikace v zobrazení na rozdělené obrazovce. Tato ikona se zobrazí, když aplikace podporuje funkci Více oken.</string>
     <string name="recents_help_dlg_long_click_recents_key_text">Když stisknete a přidržíte tlačítko Poslední v okamžiku, kdy je aplikace zobrazená na celou obrazovku, zobrazení se změní na rozdělenou obrazovku.</string>
     <string name="recents_help_dlg_home_key_in_split_text">Když stisknete tlačítko Domů v okamžiku, kdy používáte zobrazení na rozdělené obrazovce, aplikace zobrazená v horní polovině obrazovky bude minimalizována. Když otevřete aplikaci na domovské obrazovce v okamžiku, kdy je stavový panel modrý, aplikace se otevře v zobrazení na rozdělené obrazovce v dolní polovině obrazovky.</string>
+    <string name="battery_low_sec_body_in_normal_mode">Nabijte zařízení, nebo klepněte sem a zapněte možnost Úsporný režim.</string>
+    <string name="battery_low_sec_body_in_ups_mode">Připojte zařízení k nabíječce.</string>
+    <string name="battery_saver_recommend_notification_text">Nabijte zařízení, nebo klepněte sem a zapněte možnost Úsporný režim.</string>
     <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
 
 If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>

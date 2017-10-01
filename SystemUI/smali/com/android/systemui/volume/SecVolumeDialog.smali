@@ -2842,7 +2842,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040174
+    const v2, 0x7f040175
 
     invoke-direct {v0, v1, v2}, Landroid/widget/RemoteViews;-><init>(Ljava/lang/String;I)V
 
@@ -2858,7 +2858,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040172
+    const v2, 0x7f040173
 
     invoke-direct {v0, v1, v2}, Landroid/widget/RemoteViews;-><init>(Ljava/lang/String;I)V
 
@@ -3243,14 +3243,14 @@
 
     iget-object v0, p0, Lcom/android/systemui/volume/SecVolumeDialog;->mDialog:Lcom/android/systemui/volume/SecVolumeDialog$CustomDialog;
 
-    const v1, 0x7f040179
+    const v1, 0x7f04017a
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/volume/SecVolumeDialog$CustomDialog;->setContentView(I)V
 
     :goto_0
     iget-object v0, p0, Lcom/android/systemui/volume/SecVolumeDialog;->mDialog:Lcom/android/systemui/volume/SecVolumeDialog$CustomDialog;
 
-    const v1, 0x7f130417
+    const v1, 0x7f130418
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/volume/SecVolumeDialog$CustomDialog;->findViewById(I)Landroid/view/View;
 
@@ -3270,7 +3270,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/volume/SecVolumeDialog;->mDialog:Lcom/android/systemui/volume/SecVolumeDialog$CustomDialog;
 
-    const v1, 0x7f130418
+    const v1, 0x7f130419
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/volume/SecVolumeDialog$CustomDialog;->findViewById(I)Landroid/view/View;
 
@@ -3284,7 +3284,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/volume/SecVolumeDialog;->mDialogView:Landroid/view/ViewGroup;
 
-    const v1, 0x7f130419
+    const v1, 0x7f13041a
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -3318,14 +3318,14 @@
 
     iget-object v0, p0, Lcom/android/systemui/volume/SecVolumeDialog;->mLockScreenDialog:Lcom/android/systemui/volume/SecVolumeDialog$CustomDialog;
 
-    const v1, 0x7f0400ad
+    const v1, 0x7f0400ae
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/volume/SecVolumeDialog$CustomDialog;->setContentView(I)V
 
     :goto_1
     iget-object v0, p0, Lcom/android/systemui/volume/SecVolumeDialog;->mLockScreenDialog:Lcom/android/systemui/volume/SecVolumeDialog$CustomDialog;
 
-    const v1, 0x7f13025d
+    const v1, 0x7f13025e
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/volume/SecVolumeDialog$CustomDialog;->findViewById(I)Landroid/view/View;
 
@@ -3337,7 +3337,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/volume/SecVolumeDialog;->mLockScreenDialog:Lcom/android/systemui/volume/SecVolumeDialog$CustomDialog;
 
-    const v1, 0x7f13025e
+    const v1, 0x7f13025f
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/volume/SecVolumeDialog$CustomDialog;->findViewById(I)Landroid/view/View;
 
@@ -3417,9 +3417,9 @@
 
     const/16 v0, 0xa
 
-    const v1, 0x7f020716
+    const v1, 0x7f020719
 
-    const v2, 0x7f020716
+    const v2, 0x7f020719
 
     invoke-direct {p0, v0, v1, v2, v8}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow(IIIZ)V
 
@@ -3427,24 +3427,24 @@
 
     invoke-direct {p0, v0, v11, v10, v8}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow(IIIZ)V
 
-    const v0, 0x7f02071a
+    const v0, 0x7f02071d
 
-    const v1, 0x7f020718
+    const v1, 0x7f02071b
 
     invoke-direct {p0, v12, v0, v1, v9}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow_lockscreen(IIIZ)V
 
     const/16 v0, 0xb
 
-    const v1, 0x7f02071a
+    const v1, 0x7f02071d
 
-    const v2, 0x7f020718
+    const v2, 0x7f02071b
 
     invoke-direct {p0, v0, v1, v2, v9}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow_lockscreen(IIIZ)V
 
     :goto_2
     iget-object v0, p0, Lcom/android/systemui/volume/SecVolumeDialog;->mDialog:Lcom/android/systemui/volume/SecVolumeDialog$CustomDialog;
 
-    const v1, 0x7f13041a
+    const v1, 0x7f13041b
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/volume/SecVolumeDialog$CustomDialog;->findViewById(I)Landroid/view/View;
 
@@ -3460,7 +3460,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f04017b
+    const v1, 0x7f04017c
 
     const/4 v2, 0x0
 
@@ -3497,7 +3497,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/volume/SecVolumeDialog;->mDialogDndView:Landroid/view/ViewGroup;
 
-    const v1, 0x7f13041c
+    const v1, 0x7f13041d
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -3547,7 +3547,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0c0067
+    const v1, 0x7f0c0069
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -3560,7 +3560,7 @@
     :cond_2
     iget-object v0, p0, Lcom/android/systemui/volume/SecVolumeDialog;->mDialog:Lcom/android/systemui/volume/SecVolumeDialog$CustomDialog;
 
-    const v1, 0x7f040179
+    const v1, 0x7f04017a
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/volume/SecVolumeDialog$CustomDialog;->setContentView(I)V
 
@@ -3569,7 +3569,7 @@
     :cond_3
     iget-object v0, p0, Lcom/android/systemui/volume/SecVolumeDialog;->mLockScreenDialog:Lcom/android/systemui/volume/SecVolumeDialog$CustomDialog;
 
-    const v1, 0x7f0400ad
+    const v1, 0x7f0400ae
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/volume/SecVolumeDialog$CustomDialog;->setContentView(I)V
 
@@ -3604,9 +3604,9 @@
 
     const/16 v0, 0xa
 
-    const v1, 0x7f020716
+    const v1, 0x7f020719
 
-    const v2, 0x7f020716
+    const v2, 0x7f020719
 
     invoke-direct {p0, v0, v1, v2, v8}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow(IIIZ)V
 
@@ -3614,17 +3614,17 @@
 
     invoke-direct {p0, v0, v11, v10, v8}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow(IIIZ)V
 
-    const v0, 0x7f02071a
+    const v0, 0x7f02071d
 
-    const v1, 0x7f020718
+    const v1, 0x7f02071b
 
     invoke-direct {p0, v12, v0, v1, v9}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow_lockscreen(IIIZ)V
 
     const/16 v0, 0xb
 
-    const v1, 0x7f02071a
+    const v1, 0x7f02071d
 
-    const v2, 0x7f020718
+    const v2, 0x7f02071b
 
     invoke-direct {p0, v0, v1, v2, v9}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow_lockscreen(IIIZ)V
 
@@ -3669,7 +3669,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f04017c
+    const v5, 0x7f04017d
 
     const/4 v6, 0x0
 
@@ -3690,7 +3690,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f13041f
+    const v5, 0x7f130420
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3712,7 +3712,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f130260
+    const v5, 0x7f130261
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3793,7 +3793,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f13025f
+    const v5, 0x7f130260
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3941,7 +3941,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f04017c
+    const v5, 0x7f04017d
 
     const/4 v6, 0x0
 
@@ -4082,7 +4082,7 @@
 .method private initRow_lockscreen(Lcom/android/systemui/volume/SecVolumeDialog$VolumeRow;IIIZ)V
     .locals 6
 
-    const v2, 0x7f0400ae
+    const v2, 0x7f0400af
 
     const/4 v5, 0x3
 
@@ -4125,7 +4125,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f130260
+    const v2, 0x7f130261
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -4171,7 +4171,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f13025f
+    const v2, 0x7f130260
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -5031,9 +5031,9 @@
 
     sput v7, Lcom/android/systemui/volume/SecVolumeDialog;->mRemoteControlCurrentVolume:I
 
-    const v7, 0x7f02021e
+    const v7, 0x7f02021f
 
-    const v8, 0x7f02021f
+    const v8, 0x7f020220
 
     invoke-direct {p0, v6, v7, v8, v10}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow(IIIZ)V
 
@@ -7273,7 +7273,7 @@
 
     move-result-object v6
 
-    const v8, 0x7f040174
+    const v8, 0x7f040175
 
     invoke-direct {v5, v6, v8}, Landroid/widget/RemoteViews;-><init>(Ljava/lang/String;I)V
 
@@ -7332,11 +7332,11 @@
 
     move-result-object v4
 
-    const v6, 0x7f13040b
+    const v6, 0x7f13040c
 
     invoke-virtual {v5, v6, v3}, Landroid/widget/RemoteViews;->setOnClickPendingIntent(ILandroid/app/PendingIntent;)V
 
-    const v6, 0x7f13040c
+    const v6, 0x7f13040d
 
     invoke-virtual {v5, v6, v4}, Landroid/widget/RemoteViews;->setOnClickPendingIntent(ILandroid/app/PendingIntent;)V
 
@@ -7403,7 +7403,7 @@
 
     move-result-object v6
 
-    const v8, 0x7f040173
+    const v8, 0x7f040174
 
     invoke-direct {v5, v6, v8}, Landroid/widget/RemoteViews;-><init>(Ljava/lang/String;I)V
 
@@ -7418,7 +7418,7 @@
 
     move-result-object v6
 
-    const v8, 0x7f040172
+    const v8, 0x7f040173
 
     invoke-direct {v5, v6, v8}, Landroid/widget/RemoteViews;-><init>(Ljava/lang/String;I)V
     :try_end_4
@@ -7438,7 +7438,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/volume/SecVolumeDialog;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f0662
+    const v2, 0x7f0f066b
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -10174,7 +10174,7 @@
 
     move-result-object v34
 
-    const v35, 0x7f0f0662
+    const v35, 0x7f0f066b
 
     invoke-virtual/range {v34 .. v35}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -10186,7 +10186,7 @@
 
     move-object/from16 v34, v0
 
-    const v35, 0x7f13041d
+    const v35, 0x7f13041e
 
     invoke-virtual/range {v34 .. v35}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 

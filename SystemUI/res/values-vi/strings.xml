@@ -957,6 +957,7 @@ Biểu tượng Cuộc gọi Wi-Fi sẽ xuất hiện trên bảng thông báo n
     <string name="quick_settings_dual_label_content_description">%s, Nhãn của phím, Chạm hai lần để xem các cài đặt nhanh liên quan.</string>
     <string name="accessibility_button">Phím</string>
     <string name="quick_settings_brightness_auto_brightness">Độ sáng tự động</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">Tự động điều chỉnh độ sáng màn hình dựa vào điều kiện ánh sáng.</string>
     <string name="quick_settings_brightness_quick_access">Hiển thị mục đ.khiển trên cùng</string>
     <string name="quick_settings_brightness_quick_access_summary">Hiển thị mục điều khiển độ sáng bên trên bảng thông báo.</string>
     <string name="quick_settings_brightness_detail_level">Độ sáng</string>
@@ -1276,6 +1277,7 @@ Bạn được kết nối với %2$s. Ứng dụng này có thể giám sát ho
     <string name="keyboard_shortcut_group_system_notifications">Thông báo</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">Phím tắt</string>
     <string name="keyboard_shortcut_group_system_switch_input">Chuyển phương thức nhập</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">Chuyển ngôn ngữ</string>
     <string name="keyboard_shortcut_group_applications">Ứng dụng</string>
     <string name="keyboard_shortcut_group_applications_assist">Trợ lý</string>
     <string name="keyboard_shortcut_group_applications_browser">Trình duyệt</string>
@@ -1479,8 +1481,10 @@ Tình trạng quá nóng có thể do:
     <string name="safe_mode_alert_body_vzw">Bạn có muốn khởi động lại điện thoại để tắt Chế độ An toàn không? Tất cả ứng dụng của bạn sẽ được khôi phục.</string>
     <string name="safe_mode_alert_positive_button_vzw">Tắt Chế độ An toàn</string>
     <string name="battery_low_sec_title">Nguồn pin %d%%</string>
-    <string name="battery_low_sec_body_in_normal_mode">Hãy sạc thiết bị hoặc chạm vào đây để bật chế độ Tiết kiệm pin.</string>
-    <string name="battery_low_sec_body_in_ups_mode">Kết nối thiết bị với bộ sạc.</string>
+    <string name="battery_low_sec_body_phone">Sạc điện thoại của bạn hoặc chạm vào đây để bật chế độ Tiết kiệm pin.</string>
+    <string name="battery_low_sec_body_tablet">Sạc máy tính bảng của bạn hoặc chạm vào đây để bật chế độ Tiết kiệm pin.</string>
+    <string name="battery_low_sec_body_phone_psm">Hãy sạc điện thoại.</string>
+    <string name="battery_low_sec_body_tablet_psm">Hãy sạc máy tính bảng.</string>
     <string name="battery_cable_charging_title">Đang sạc bằng cáp</string>
     <string name="battery_charging_title">Đang sạc</string>
     <string name="battery_fast_charging_title">Sạc nhanh</string>
@@ -1499,7 +1503,10 @@ Tình trạng quá nóng có thể do:
     <string name="battery_saver_notification_text_time_extend">Thời lượng pin của bạn đã được kéo dài.</string>
     <string name="button_detail">Chi tiết</string>
     <string name="battery_saver_recommend_notification_title">Nguồn pin %d%%</string>
-    <string name="battery_saver_recommend_notification_text">Hãy sạc thiết bị hoặc chạm vào đây để bật chế độ Tiết kiệm pin.</string>
+    <string name="battery_saver_recommend_notification_text_phone">Sạc điện thoại của bạn hoặc chạm vào đây để bật chế độ Tiết kiệm pin.</string>
+    <string name="battery_saver_recommend_notification_text_tablet">Sạc máy tính bảng của bạn hoặc chạm vào đây để bật chế độ Tiết kiệm pin.</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">Hãy sạc điện thoại.</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">Hãy sạc máy tính bảng.</string>
     <string name="button_close">Đóng</string>
     <string name="battery_health_interruption_title">Không thể sạc</string>
     <string name="battery_health_interruption_by_terminal_open_text">Không thể sạc thiết bị. Đảm bảo bạn đang sử dụng pin và bộ sạc tương thích của Samsung và thiết bị của bạn được kết nối đúng cách với bộ sạc.</string>
@@ -1590,6 +1597,7 @@ upscaler"</string>
     <string name="assistance_app_setting_item_none">Không dùng</string>
     <string name="no_sim_notification_title_cct">Không phát hiện thẻ SIM</string>
     <string name="no_sim_notification_text_cct">Hãy gắn SIM di động XFINITY. Để tìm hiểu thêm, hãy truy cập xfinitymobile.com/activate hoặc gọi số 888-936-4968.</string>
+    <string name="remote_input_send_text">Gửi</string>
     <string name="remote_input_toast_text_on_sview_cover">Không thể sử dụng chức năng Trả lời nhanh khi đóng vỏ S view.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -1845,7 +1853,7 @@ Nếu máy tính bảng được đặt lại, bạn có thể cần nhập thô
     <string name="kg_none_direction_shutdown_instructions">Vẽ chuỗi hướng để tắt nguồn</string>
     <string name="kg_none_multi_pin_restart_instructions">Thiết bị của bạn đã khởi động lại và cần được mở khóa bằng mã PIN của bạn. Bạn có thể dùng dữ liệu sinh trắc học vào lần mở khóa thiết bị tiếp theo.</string>
     <string name="kg_tablet_multi_pin_restart_instructions">Thiết bị của bạn đã khởi động lại và cần được mở khóa bằng mã PIN của bạn. Bạn có thể dùng dữ liệu sinh trắc học vào lần mở khóa thiết bị tiếp theo.</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">Thiết bị của bạn đã khởi động lại và cần được mở khóa bằng mã PIN. Bạn có thể sử dụng vân tay vào lần mở khóa thiết bị tiếp theo.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">Điện thoại của bạn đã khởi động lại và cần được mở khóa bằng mã PIN của bạn. Bạn có thể dùng vân tay vào lần mở khóa điện thoại tiếp theo.</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">Thiết bị của bạn đã khởi động lại và cần được mở khóa bằng mã PIN. Bạn có thể sử dụng vân tay vào lần mở khóa thiết bị tiếp theo.</string>
     <string name="kg_none_iris_pin_restart_instructions">Thiết bị của bạn đã khởi động lại và cần được mở khóa bằng mã PIN. Bạn có thể sử dụng mống mắt vào lần mở khóa thiết bị tiếp theo.</string>
     <string name="kg_tablet_iris_pin_restart_instructions">Thiết bị của bạn đã khởi động lại và cần được mở khóa bằng mã PIN. Bạn có thể sử dụng mống mắt vào lần mở khóa thiết bị tiếp theo.</string>
@@ -1875,7 +1883,7 @@ Nếu máy tính bảng được đặt lại, bạn có thể cần nhập thô
     <string name="kg_none_iris_pattern_deviceadmin_instructions">Vẽ mẫu hình thay vì sử dụng nhận dạng mống mắt do chính sách bảo mật</string>
     <string name="kg_none_multi_password_restart_instructions">Thiết bị của bạn đã khởi động lại và cần được mở khóa bằng mật mã. Bạn có thể dùng dữ liệu sinh trắc học vào lần mở khóa thiết bị tiếp theo.</string>
     <string name="kg_tablet_multi_password_restart_instructions">Thiết bị của bạn đã khởi động lại và cần được mở khóa bằng mật mã. Bạn có thể dùng dữ liệu sinh trắc học vào lần mở khóa thiết bị tiếp theo.</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">Thiết bị của bạn đã khởi động lại và cần được mở khóa bằng mật mã. Bạn có thể sử dụng vân tay vào lần mở khóa thiết bị tiếp theo.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">Điện thoại của bạn đã khởi động lại và cần được mở khóa bằng mật mã của bạn. Bạn có thể dùng vân tay vào lần mở khóa điện thoại tiếp theo.</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">Thiết bị của bạn đã khởi động lại và cần được mở khóa bằng mật mã. Bạn có thể sử dụng vân tay vào lần mở khóa thiết bị tiếp theo.</string>
     <string name="kg_none_iris_password_restart_instructions">Thiết bị của bạn đã khởi động lại và cần được mở khóa bằng mật mã. Bạn có thể sử dụng mống mắt vào lần mở khóa thiết bị tiếp theo.</string>
     <string name="kg_tablet_iris_password_restart_instructions">Thiết bị của bạn đã khởi động lại và cần được mở khóa bằng mật mã. Bạn có thể sử dụng mống mắt vào lần mở khóa thiết bị tiếp theo.</string>
@@ -1890,7 +1898,7 @@ Nếu máy tính bảng được đặt lại, bạn có thể cần nhập thô
     <string name="kg_none_iris_password_deviceadmin_instructions">Nhập mật mã thay vì sử dụng nhận dạng mống mắt do chính sách bảo mật</string>
     <string name="kg_none_multi_direction_restart_instructions">Thiết bị của bạn đã khởi động lại và cần được mở khóa bằng chuỗi hướng của bạn. Bạn có thể dùng dữ liệu sinh trắc học vào lần mở khóa thiết bị tiếp theo.</string>
     <string name="kg_tablet_multi_direction_restart_instructions">Thiết bị của bạn đã khởi động lại và cần được mở khóa bằng chuỗi hướng của bạn. Bạn có thể dùng dữ liệu sinh trắc học vào lần mở khóa thiết bị tiếp theo.</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">Thiết bị của bạn đã khởi động lại và cần được mở khóa bằng chuỗi hướng. Bạn có thể sử dụng vân tay vào lần mở khóa thiết bị tiếp theo.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">Điện thoại của bạn đã khởi động lại và cần được mở khóa bằng chuỗi hướng của bạn. Bạn có thể dùng vân tay vào lần mở khóa điện thoại tiếp theo.</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">Thiết bị của bạn đã khởi động lại và cần được mở khóa bằng chuỗi hướng. Bạn có thể sử dụng vân tay vào lần mở khóa thiết bị tiếp theo.</string>
     <string name="kg_none_iris_direction_restart_instructions">Thiết bị của bạn đã khởi động lại và cần được mở khóa bằng chuỗi hướng. Bạn có thể sử dụng mống mắt vào lần mở khóa thiết bị tiếp theo.</string>
     <string name="kg_tablet_iris_direction_restart_instructions">Thiết bị của bạn đã khởi động lại và cần được mở khóa bằng chuỗi hướng. Bạn có thể sử dụng mống mắt vào lần mở khóa thiết bị tiếp theo.</string>
@@ -2012,6 +2020,9 @@ Hãy thử lại sau 1 giây"</string>
     <string name="recents_help_dlg_split_icon_desc">Chạm biểu tượng Chia đôi màn hình trên thanh tiêu đề của cửa sổ ứng dụng để mở ứng dụng ở dạng xem chia đôi màn hình. Biểu tượng này hiển thị khi ứng dụng hỗ trợ Đa cửa sổ.</string>
     <string name="recents_help_dlg_long_click_recents_key_text">Nhấn và giữ phím Gần đây khi đang dùng một ứng dụng ở dạng xem toàn màn hình để chuyển sang dạng xem chia đôi màn hình.</string>
     <string name="recents_help_dlg_home_key_in_split_text">Nếu bạn nhấn phím Trang chính trong khi sử dụng dạng xem chia đôi màn hình, ứng dụng hiển thị ở nửa trên màn hình sẽ được thu nhỏ. Nếu bạn mở một ứng dụng từ màn hình chờ trong khi thanh trạng thái có màu xanh dương, ứng dụng đó sẽ mở ở dạng xem chia đôi màn hình ở nửa cuối màn hình.</string>
+    <string name="battery_low_sec_body_in_normal_mode">Hãy sạc thiết bị hoặc chạm vào đây để bật chế độ Tiết kiệm pin.</string>
+    <string name="battery_low_sec_body_in_ups_mode">Kết nối thiết bị với bộ sạc.</string>
+    <string name="battery_saver_recommend_notification_text">Hãy sạc thiết bị hoặc chạm vào đây để bật chế độ Tiết kiệm pin.</string>
     <string name="kg_none_direction_1_frpt">"Nếu bạn không vẽ đúng chuỗi hướng trong lần thử tiếp theo, điện thoại của bạn sẽ tự động khôi phục cài đặt gốc và tất cả thông tin trên điện thoại sẽ bị xóa.
 
 Nếu điện thoại được đặt lại, bạn có thể cần nhập thông tin tài khoản Google (địa chỉ email và mật mã) liên kết với điện thoại này để có thể sử dụng lại."</string>

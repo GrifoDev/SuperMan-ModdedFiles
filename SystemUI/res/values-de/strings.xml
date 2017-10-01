@@ -957,6 +957,7 @@ Das WLAN-Anrufsymbol wird wie unten abgebildet im Benachrichtigungsfeld angezeig
     <string name="quick_settings_dual_label_content_description">%s, Schaltflächenbeschriftung, zweimal tippen, um relevante Schnelleinstellungen anzuzeigen.</string>
     <string name="accessibility_button">Taste</string>
     <string name="quick_settings_brightness_auto_brightness">Automatische Helligkeit</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">Bildschirmhelligkeit automatisch entsprechend den Lichtverhältnissen anpassen.</string>
     <string name="quick_settings_brightness_quick_access">Regler oben anzeigen</string>
     <string name="quick_settings_brightness_quick_access_summary">Helligkeitsregler über dem Benachrichtigungsfeld anzeigen.</string>
     <string name="quick_settings_brightness_detail_level">Stufe</string>
@@ -1277,6 +1278,7 @@ Weitere Informationen erhältst du bei deinem Administrator."</string>
     <string name="keyboard_shortcut_group_system_notifications">Benachrichtigungen</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">Tastenkombinationen</string>
     <string name="keyboard_shortcut_group_system_switch_input">Eingabemethode wechseln</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">Sprachen wechseln</string>
     <string name="keyboard_shortcut_group_applications">Apps</string>
     <string name="keyboard_shortcut_group_applications_assist">Assistent</string>
     <string name="keyboard_shortcut_group_applications_browser">Browser</string>
@@ -1480,8 +1482,10 @@ Eine Überhitzung kann folgende Ursachen haben:
     <string name="safe_mode_alert_body_vzw">Möchten Sie Ihr Telefon im sicheren Modus neu starten? Alle Apps werden wiederhergestellt.</string>
     <string name="safe_mode_alert_positive_button_vzw">Sicheren Modus aussch.</string>
     <string name="battery_low_sec_title">Akkuladung %d %%</string>
-    <string name="battery_low_sec_body_in_normal_mode">Laden Sie Ihr Gerät auf oder tippen Sie hier, um den Energiesparmodus zu aktivieren.</string>
-    <string name="battery_low_sec_body_in_ups_mode">Schließen Sie Ihr Gerät an ein Ladegerät an.</string>
+    <string name="battery_low_sec_body_phone">Laden Sie Ihr Telefon auf oder tippen Sie hier, um den Energiesparmodus zu aktivieren.</string>
+    <string name="battery_low_sec_body_tablet">Laden Sie Ihr Tablet auf oder tippen Sie hier, um den Energiesparmodus zu aktivieren.</string>
+    <string name="battery_low_sec_body_phone_psm">Ihr Telefon aufladen.</string>
+    <string name="battery_low_sec_body_tablet_psm">Ihr Tablet aufladen.</string>
     <string name="battery_cable_charging_title">Laden über Kabel</string>
     <string name="battery_charging_title">Aufladen</string>
     <string name="battery_fast_charging_title">Schnellladen</string>
@@ -1500,7 +1504,10 @@ Eine Überhitzung kann folgende Ursachen haben:
     <string name="battery_saver_notification_text_time_extend">Ihre Akkulaufzeit wurde verlängert.</string>
     <string name="button_detail">Detail</string>
     <string name="battery_saver_recommend_notification_title">Akkuladung %d %%</string>
-    <string name="battery_saver_recommend_notification_text">Laden Sie Ihr Gerät auf oder tippen Sie hier, um den Energiesparmodus zu aktivieren.</string>
+    <string name="battery_saver_recommend_notification_text_phone">Laden Sie Ihr Telefon auf oder tippen Sie hier, um den Energiesparmodus zu aktivieren.</string>
+    <string name="battery_saver_recommend_notification_text_tablet">Laden Sie Ihr Tablet auf oder tippen Sie hier, um den Energiesparmodus zu aktivieren.</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">Ihr Telefon aufladen.</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">Ihr Tablet aufladen.</string>
     <string name="button_close">Schließen</string>
     <string name="battery_health_interruption_title">Aufladen nicht möglich</string>
     <string name="battery_health_interruption_by_terminal_open_text">Ihr Gerät kann nicht aufgeladen werden. Überprüfen Sie ob Sie einen mit Samsung kompatiblen Akku und ein entsprechendes Ladegerät verwenden sowie ob Ihr Gerät ordnungsgemäß mit dem Ladegerät verbunden ist.</string>
@@ -1591,6 +1598,7 @@ Optimierung"</string>
     <string name="assistance_app_setting_item_none">Ohne</string>
     <string name="no_sim_notification_title_cct">No SIM card detected</string>
     <string name="no_sim_notification_text_cct">Insert an XFINITY Mobile SIM. To learn more, visit xfinitymobile.com/activate or call 888-936-4968.</string>
+    <string name="remote_input_send_text">Senden</string>
     <string name="remote_input_toast_text_on_sview_cover">Schnellantwortfunktion kann nicht verwendet werden, wenn S View Cover geschlossen ist.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -1846,7 +1854,7 @@ Wenn Ihr Tablet zurückgesetzt wird, müssen Sie möglicherweise die Google-Kont
     <string name="kg_none_direction_shutdown_instructions">Richtungsabfolge zeichnen, um auszuschalten.</string>
     <string name="kg_none_multi_pin_restart_instructions">Ihr Gerät wurde neu gestartet und muss mit Ihrer PIN entsperrt werden. Sie können das nächste Mal Biometrie zum Entsperren verwenden.</string>
     <string name="kg_tablet_multi_pin_restart_instructions">Ihr Gerät wurde neu gestartet und muss mit Ihrer PIN entsperrt werden. Sie können das nächste Mal Biometrie zum Entsperren verwenden.</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">Ihr Gerät wurde neu gestartet und muss mit Ihrer PIN entsperrt werden. Sie können das nächste Mal Ihren Fingerabdruck zum Entsperren Ihres Tablets verwenden.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">Ihr Telefon wurde neu gestartet und muss mit Ihrer PIN entsperrt werden. Sie können das nächste Mal Ihren Fingerabdruck zum Entsperren verwenden.</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">Ihr Gerät wurde neu gestartet und muss mit Ihrer PIN entsperrt werden. Sie können das nächste Mal Ihren Fingerabdruck zum Entsperren Ihres Tablets verwenden.</string>
     <string name="kg_none_iris_pin_restart_instructions">Ihr Gerät wurde neu gestartet und muss mit Ihrer PIN entsperrt werden. Sie können das nächste Mal Ihre Iris zum Entsperren verwenden.</string>
     <string name="kg_tablet_iris_pin_restart_instructions">Ihr Gerät wurde neu gestartet und muss mit Ihrer PIN entsperrt werden. Sie können das nächste Mal Ihre Iris zum Entsperren verwenden.</string>
@@ -1876,7 +1884,7 @@ Wenn Ihr Tablet zurückgesetzt wird, müssen Sie möglicherweise die Google-Kont
     <string name="kg_none_iris_pattern_deviceadmin_instructions">Zeichnen Sie aufgrund der Sicherheitsrichtlinien Ihr Muster anstatt die Iriserkennung zu verwenden.</string>
     <string name="kg_none_multi_password_restart_instructions">Ihr Gerät wurde neu gestartet und muss mit Ihrem Passwort entsperrt werden. Sie können das nächste Mal Ihre Biometrie zum Entsperren des Geräts verwenden.</string>
     <string name="kg_tablet_multi_password_restart_instructions">Ihr Gerät wurde neu gestartet und muss mit Ihrem Passwort entsperrt werden. Sie können das nächste Mal Ihre Biometrie zum Entsperren des Geräts verwenden.</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">Ihr Gerät wurde neu gestartet und muss mit Ihrem Passwort entsperrt werden. Sie können das nächste Mal Ihren Fingerabdruck zum Entsperren Ihres Tablets verwenden.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">Ihr Telefon wurde neu gestartet und muss mit Ihrem Passwort entsperrt werden. Sie können das nächste Mal Ihren Fingerabdruck zum Entsperren verwenden.</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">Ihr Gerät wurde neu gestartet und muss mit Ihrem Passwort entsperrt werden. Sie können das nächste Mal Ihren Fingerabdruck zum Entsperren Ihres Tablets verwenden.</string>
     <string name="kg_none_iris_password_restart_instructions">Ihr Gerät wurde neu gestartet und muss mit Ihrem Passwort entsperrt werden. Sie können das nächste Mal Ihre Iris zum Entsperren verwenden.</string>
     <string name="kg_tablet_iris_password_restart_instructions">Ihr Gerät wurde neu gestartet und muss mit Ihrem Passwort entsperrt werden. Sie können das nächste Mal Ihre Iris zum Entsperren verwenden.</string>
@@ -1891,7 +1899,7 @@ Wenn Ihr Tablet zurückgesetzt wird, müssen Sie möglicherweise die Google-Kont
     <string name="kg_none_iris_password_deviceadmin_instructions">Geben Sie aufgrund der Sicherheitsrichtlinien Ihr Passwort ein anstatt die Iriserkennung zu verwenden.</string>
     <string name="kg_none_multi_direction_restart_instructions">Ihr Gerät wurde neu gestartet und muss mit Ihrer Richtungsabfolge entsperrt werden. Sie können das nächste Mal Biometrie zum Entsperren verwenden.</string>
     <string name="kg_tablet_multi_direction_restart_instructions">Ihr Gerät wurde neu gestartet und muss mit Ihrer Richtungsabfolge entsperrt werden. Sie können das nächste Mal Biometrie zum Entsperren verwenden.</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">Ihr Gerät wurde neu gestartet und muss mit Ihrer Richtungsabfolge entsperrt werden. Sie können das nächste Mal Ihren Fingerabdruck zum Entsperren verwenden.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">Ihr Telefon wurde neu gestartet und muss mit Ihrer Richtungsabfolge entsperrt werden. Sie können das nächste Mal Ihren Fingerabdruck zum Entsperren verwenden.</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">Ihr Gerät wurde neu gestartet und muss mit Ihrer Richtungsabfolge entsperrt werden. Sie können das nächste Mal Ihren Fingerabdruck zum Entsperren verwenden.</string>
     <string name="kg_none_iris_direction_restart_instructions">Ihr Gerät wurde neu gestartet und muss mit Ihrer Richtungsabfolge entsperrt werden. Sie können das nächste Mal Ihre Iris zum Entsperren verwenden.</string>
     <string name="kg_tablet_iris_direction_restart_instructions">Ihr Gerät wurde neu gestartet und muss mit Ihrer Richtungsabfolge entsperrt werden. Sie können das nächste Mal Ihre Iris zum Entsperren verwenden.</string>
@@ -2013,6 +2021,9 @@ Erneuter Versuch in 1 Sekunde"</string>
     <string name="recents_help_dlg_split_icon_desc">In der Titelleiste des App-Fensters auf das Symbol für „Bildschirm teilen“ tippen, um Apps in der geteilten Bildschirmansicht zu öffnen. Dieses Symbol wird angezeigt, wenn die App Multi Window unterstützt.</string>
     <string name="recents_help_dlg_long_click_recents_key_text">Drücken und halten Sie die „Aktuelle Anwendungen“-Taste, wenn Sie eine App in Vollbild anzeigen, um in die geteilte Bildschirmansicht zu wechseln.</string>
     <string name="recents_help_dlg_home_key_in_split_text">Wenn Sie in der geteilten Bildschirmansicht die Home-Taste drücken, wird die App in der oberen Bildschirmhälfte minimiert. Wenn Sie eine App bei blauer Statusleiste auf dem Startbildschirm öffnen, wird die App in der gelteilten Bildschirmansicht in der unteren Bildschirmhälfte angezeigt.</string>
+    <string name="battery_low_sec_body_in_normal_mode">Laden Sie Ihr Gerät auf oder tippen Sie hier, um den Energiesparmodus zu aktivieren.</string>
+    <string name="battery_low_sec_body_in_ups_mode">Schließen Sie Ihr Gerät an ein Ladegerät an.</string>
+    <string name="battery_saver_recommend_notification_text">Laden Sie Ihr Gerät auf oder tippen Sie hier, um den Energiesparmodus zu aktivieren.</string>
     <string name="kg_none_direction_1_frpt">"Wenn Sie beim nächsten Versuch nicht die richtige Abfolge von Richtungen zeichnen, wird Ihr Telefon automatisch auf die Standardeinstellungen zurückgesetzt und alle Informationen auf dem Telefon werden gelöscht.
 
 Wenn Ihr Telefon zurückgesetzt wird, müssen Sie möglicherweise die Google-Kontoinformationen (E-Mail-Adresse und Passwort) angeben, die diesem Telefon zugeordnet sind, um es erneut verwenden zu können."</string>

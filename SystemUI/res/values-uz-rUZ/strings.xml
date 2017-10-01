@@ -956,6 +956,7 @@ Xizmatdan foydalanish mumkin bo‘lganda, bildirishnoma panelida Wi-Fi qo‘ng�
     <string name="quick_settings_dual_label_content_description">%s, Tugma yorlig‘i, Tegishli tezkor parametrlarni ko‘rish uchun ikki marta teging.</string>
     <string name="accessibility_button">Tugma</string>
     <string name="quick_settings_brightness_auto_brightness">Avtomatik yorqinlik</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">Yoritish sharoitiga qarab ekran yorqinligini avtomatik tarzda sozlang.</string>
     <string name="quick_settings_brightness_quick_access">Boshqaruv yuqorida ko‘rsatilsin</string>
     <string name="quick_settings_brightness_quick_access_summary">Yorqinlik boshqaruvini bildirishnoma paneli tepasida ko‘rsatish.</string>
     <string name="quick_settings_brightness_detail_level">Daraja</string>
@@ -1276,6 +1277,7 @@ Batafsil ma’lumot olish uchun administrator bilan bog‘laning."</string>
     <string name="keyboard_shortcut_group_system_notifications">Bildirishnomalar</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">Tezkor tugmalar</string>
     <string name="keyboard_shortcut_group_system_switch_input">Matn kiritish usulini o‘zgartirish</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">Tillarni almashtirish</string>
     <string name="keyboard_shortcut_group_applications">Ilovalar</string>
     <string name="keyboard_shortcut_group_applications_assist">Yordamchi</string>
     <string name="keyboard_shortcut_group_applications_browser">Brauzer</string>
@@ -1479,8 +1481,10 @@ Qizib ketish sababi quyidagilar bo‘lishi mumkin:
     <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
     <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
     <string name="battery_low_sec_title">Batareya quvvati %d%%</string>
-    <string name="battery_low_sec_body_in_normal_mode">Qurilmani zaryadlang yoki Quvvat tejash rejimini yoqish uchun bu yerga teging.</string>
-    <string name="battery_low_sec_body_in_ups_mode">Qurilmangizni zaryadlash qurilmasiga ulang.</string>
+    <string name="battery_low_sec_body_phone">Telefoningizni zaryadlang yoki Quvvat tejash rejimini yoqish uchun bu yerga teging.</string>
+    <string name="battery_low_sec_body_tablet">Planshetingizni zaryadlang yoki Quvvat tejash rejimini yoqish uchun bu yerga teging.</string>
+    <string name="battery_low_sec_body_phone_psm">Telefonni zaryadlang.</string>
+    <string name="battery_low_sec_body_tablet_psm">Planshetni zaryadlang.</string>
     <string name="battery_cable_charging_title">Kabel bilan zaryadlash</string>
     <string name="battery_charging_title">Zaryadlash</string>
     <string name="battery_fast_charging_title">Tez zaryadlash</string>
@@ -1499,7 +1503,10 @@ Qizib ketish sababi quyidagilar bo‘lishi mumkin:
     <string name="battery_saver_notification_text_time_extend">Batareya xizmat qilish davri uzaytirildi.</string>
     <string name="button_detail">Tafsilotlar</string>
     <string name="battery_saver_recommend_notification_title">Batareya quvvati %d%%</string>
-    <string name="battery_saver_recommend_notification_text">Qurilmani zaryadlang yoki Quvvat tejash rejimini yoqish uchun bu yerga teging.</string>
+    <string name="battery_saver_recommend_notification_text_phone">Telefoningizni zaryadlang yoki Quvvat tejash rejimini yoqish uchun bu yerga teging.</string>
+    <string name="battery_saver_recommend_notification_text_tablet">Planshetingizni zaryadlang yoki Quvvat tejash rejimini yoqish uchun bu yerga teging.</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">Telefonni zaryadlang.</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">Planshetni zaryadlang.</string>
     <string name="button_close">Yopish</string>
     <string name="battery_health_interruption_title">Zaryadlab bo‘lmaydi</string>
     <string name="battery_health_interruption_by_terminal_open_text">Qurilmangizni zaryadlab bo‘lmaydi. Siz Samsungga mos batareya va zaryadlash qurilmasidan foydalanayotganingizga va qurilmangiz zaryadlash qurilmasiga to‘g‘ri ulanganligiga ishonch hosil qiling.</string>
@@ -1588,6 +1595,7 @@ upscaler"</string>
     <string name="uhq_mode_noti_text">Tinglash sifatini yaxshilash uchun musiqa va videolarning ovoz aniqligini kuchaytiring.</string>
     <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
     <string name="assistance_app_setting_item_none">Hech qaysi</string>
+    <string name="remote_input_send_text">Yuborish</string>
     <string name="remote_input_toast_text_on_sview_cover">S View muqovasi yopilgan vaqtda Tezkor javob funksiyasidan foydalanib bo‘lmaydi.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -1843,7 +1851,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_direction_shutdown_instructions">O‘chirish uchun yo‘nalishlar ketma-ketligini chizing</string>
     <string name="kg_none_multi_pin_restart_instructions">Qurilmangiz qayta ishga tushirildi va PIN-kod yordamida blokdan chiqarilishi lozim. Keyingi gal qurilmani blokdan chiqarishda biometrik ma’lumotlardan foydalanishingiz mumkin.</string>
     <string name="kg_tablet_multi_pin_restart_instructions">Qurilmangiz qayta ishga tushirildi va PIN-kod yordamida blokdan chiqarilishi lozim. Keyingi gal qurilmani blokdan chiqarishda biometrik ma’lumotlardan foydalanishingiz mumkin.</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">Qurilmangiz qayta ishga tushirildi va PIN-kod yordamida blokdan chiqarilishi lozim. Keyingi gal qurilmani blokdan chiqarishda barmoq izlaridan foydalanishingiz mumkin.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">Telefoningiz qayta ishga tushirildi va PIN-kod yordamida blokdan chiqarilishi lozim. Telefoningizni keyingi gal blokdan chiqarishda barmoq izlaridan foydalanishingiz mumkin.</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">Qurilmangiz qayta ishga tushirildi va PIN-kod yordamida blokdan chiqarilishi lozim. Keyingi gal qurilmani blokdan chiqarishda barmoq izlaridan foydalanishingiz mumkin.</string>
     <string name="kg_none_iris_pin_restart_instructions">Qurilmangiz qayta ishga tushirildi va PIN-kod yordamida blokdan chiqarilishi lozim. Qurilmani keyingi gal blokdan chiqarganingizda, ko‘z pardalaridan foydalanishingiz mumkin bo‘ladi.</string>
     <string name="kg_tablet_iris_pin_restart_instructions">Qurilmangiz qayta ishga tushirildi va PIN-kod yordamida blokdan chiqarilishi lozim. Qurilmani keyingi gal blokdan chiqarganingizda, ko‘z pardalaridan foydalanishingiz mumkin bo‘ladi.</string>
@@ -1873,7 +1881,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pattern_deviceadmin_instructions">Xavfsizlik siyosati sababli ko‘z pardasini tanish o‘rniga chizma chizing</string>
     <string name="kg_none_multi_password_restart_instructions">Qurilmangiz qayta ishga tushirildi va parol yordamida blokdan chiqarilishi lozim. Qurilmani keyingi gal blokdan chiqarganingizda, biometrik ma’lumotlardan foydalanishingiz mumkin bo‘ladi.</string>
     <string name="kg_tablet_multi_password_restart_instructions">Qurilmangiz qayta ishga tushirildi va parol yordamida blokdan chiqarilishi lozim. Qurilmani keyingi gal blokdan chiqarganingizda, biometrik ma’lumotlardan foydalanishingiz mumkin bo‘ladi.</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">Qurilmangiz qayta ishga tushirildi va parol yordamida blokdan chiqarilishi lozim. Keyingi gal qurilmani blokdan chiqarishda barmoq izlaridan foydalanishingiz mumkin.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">Telefoningiz qayta ishga tushirildi va parol yordamida blokdan chiqarilishi lozim. Telefoningizni keyingi gal blokdan chiqarishda barmoq izlaridan foydalanishingiz mumkin.</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">Qurilmangiz qayta ishga tushirildi va parol yordamida blokdan chiqarilishi lozim. Keyingi gal qurilmani blokdan chiqarishda barmoq izlaridan foydalanishingiz mumkin.</string>
     <string name="kg_none_iris_password_restart_instructions">Qurilmangiz qayta ishga tushirildi va parol yordamida blokdan chiqarilishi lozim. Qurilmani keyingi gal blokdan chiqarganingizda, ko‘z pardalaridan foydalanishingiz mumkin bo‘ladi.</string>
     <string name="kg_tablet_iris_password_restart_instructions">Qurilmangiz qayta ishga tushirildi va parol yordamida blokdan chiqarilishi lozim. Qurilmani keyingi gal blokdan chiqarganingizda, ko‘z pardalaridan foydalanishingiz mumkin bo‘ladi.</string>
@@ -1888,7 +1896,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_password_deviceadmin_instructions">Xavfsizlik siyosati sababli ko‘z pardasini tanish o‘rniga parol kiriting</string>
     <string name="kg_none_multi_direction_restart_instructions">Qurilmangiz qayta ishga tushirildi va yo‘nalishlar ketma-ketligi yordamida blokdan chiqarilishi lozim. Keyingi gal qurilmani blokdan chiqarishda biometrik ma’lumotlardan foydalanishingiz mumkin.</string>
     <string name="kg_tablet_multi_direction_restart_instructions">Qurilmangiz qayta ishga tushirildi va yo‘nalishlar ketma-ketligi yordamida blokdan chiqarilishi lozim. Keyingi gal qurilmani blokdan chiqarishda biometrik ma’lumotlardan foydalanishingiz mumkin.</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">Qurilmangiz qayta ishga tushirildi va yo‘nalishlar ketma-ketligi yordamida blokdan chiqarilishi lozim. Keyingi gal qurilmani blokdan chiqarishda barmoq izlaridan foydalanishingiz mumkin.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">Telefoningiz qayta ishga tushirildi va chizmalar yordamida blokdan chiqarilishi lozim. Telefoningizni keyingi gal blokdan chiqarishda barmoq izlaridan foydalanishingiz mumkin.</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">Qurilmangiz qayta ishga tushirildi va yo‘nalishlar ketma-ketligi yordamida blokdan chiqarilishi lozim. Keyingi gal qurilmani blokdan chiqarishda barmoq izlaridan foydalanishingiz mumkin.</string>
     <string name="kg_none_iris_direction_restart_instructions">Qurilmangiz qayta ishga tushirildi va yo‘nalishlar ketma-ketligi yordamida blokdan chiqarilishi lozim. Qurilmani keyingi gal blokdan chiqarganingizda, ko‘z pardalaridan foydalanishingiz mumkin bo‘ladi.</string>
     <string name="kg_tablet_iris_direction_restart_instructions">Qurilmangiz qayta ishga tushirildi va yo‘nalishlar ketma-ketligi yordamida blokdan chiqarilishi lozim. Qurilmani keyingi gal blokdan chiqarganingizda, ko‘z pardalaridan foydalanishingiz mumkin bo‘ladi.</string>
@@ -2007,6 +2015,9 @@ PUK-kod esingizdan chiqqan bo‘lsa, mijozlarga xizmat ko‘rsatish markazi bila
     <string name="recents_help_dlg_split_icon_desc">Ilovalarni alohida ekran ko‘rinishida ochish uchun ilova oynasining sarlavha satridagi Alohida ekran ikonachasiga teging. Ilova Ko‘p oynani qo‘llab-quvvatlanganda, bu ikonacha ko‘rsatiladi.</string>
     <string name="recents_help_dlg_long_click_recents_key_text">Alohida ekran ko‘rinishiga o‘zgartirish uchun ilovadan to‘liq ekranda foydalanayotganda, Oxirgilar tugmasini bosib turing.</string>
     <string name="recents_help_dlg_home_key_in_split_text">Alohida ekran ko‘rinishidan foydalanayotganda, Asosiy tugmani bossangiz, ekranning yuqori yarmida ko‘rsatilgan ilova kichraytiriladi. Agar ilovani asosiy ekrandan holat satri ko‘k rangda bo‘lgan vaqtda ochsangiz, ilova alohida ekran ko‘rinishida ekranning patdagi yarmida ochiladi.</string>
+    <string name="battery_low_sec_body_in_normal_mode">Qurilmani zaryadlang yoki Quvvat tejash rejimini yoqish uchun bu yerga teging.</string>
+    <string name="battery_low_sec_body_in_ups_mode">Qurilmangizni zaryadlash qurilmasiga ulang.</string>
+    <string name="battery_saver_recommend_notification_text">Qurilmani zaryadlang yoki Quvvat tejash rejimini yoqish uchun bu yerga teging.</string>
     <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
 
 If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>

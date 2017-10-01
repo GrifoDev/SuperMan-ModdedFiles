@@ -102,7 +102,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040144
+    const v1, 0x7f040145
 
     invoke-virtual {v0, v1, p0, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -112,7 +112,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f130474
+    const v0, 0x7f130475
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/QSBrightnessView;->findViewById(I)Landroid/view/View;
 
@@ -123,7 +123,7 @@
     invoke-virtual {v0, v5}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
     :cond_0
-    const v0, 0x7f130301
+    const v0, 0x7f130302
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/QSBrightnessView;->findViewById(I)Landroid/view/View;
 
@@ -133,7 +133,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/QSBrightnessView;->mIcon:Landroid/widget/ImageView;
 
-    const v0, 0x7f130377
+    const v0, 0x7f130378
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/QSBrightnessView;->findViewById(I)Landroid/view/View;
 
@@ -143,7 +143,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/QSBrightnessView;->mIcon2:Landroid/widget/ImageView;
 
-    const v0, 0x7f130302
+    const v0, 0x7f130303
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/QSBrightnessView;->findViewById(I)Landroid/view/View;
 
@@ -207,7 +207,7 @@
 
     invoke-virtual {v0, p0, v1}, Lcom/android/systemui/tuner/TunerService;->addTunable(Lcom/android/systemui/tuner/TunerService$Tunable;[Ljava/lang/String;)V
 
-    const v0, 0x7f130375
+    const v0, 0x7f130376
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/QSBrightnessView;->findViewById(I)Landroid/view/View;
 
@@ -221,7 +221,7 @@
 
     invoke-virtual {v0, p3}, Lcom/android/systemui/settings/BrightnessDetail;->setQsPanel(Lcom/android/systemui/qs/QSPanel;)V
 
-    const v0, 0x7f130376
+    const v0, 0x7f130377
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/QSBrightnessView;->findViewById(I)Landroid/view/View;
 
@@ -558,7 +558,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f130302
+    const v2, 0x7f130303
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -578,7 +578,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f130376
+    const v2, 0x7f130377
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

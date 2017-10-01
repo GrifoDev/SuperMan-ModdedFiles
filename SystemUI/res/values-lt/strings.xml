@@ -957,6 +957,7 @@ Veikiant paslaugai „Wi-Fi“ skambinimo piktograma atsiras pranešimų skydely
     <string name="quick_settings_dual_label_content_description">%s, Mygtuko etiketė, Bakstelėkite du kartus ir peržiūrėkite susijusius sparčiuosius nustatymus.</string>
     <string name="accessibility_button">Mygtukas</string>
     <string name="quick_settings_brightness_auto_brightness">Automatinis šviesinimas</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">Automatiškai koreguokite ekrano šviesumą pagal apšvietimo sąlygas.</string>
     <string name="quick_settings_brightness_quick_access">Rodyti valdiklį viršuje</string>
     <string name="quick_settings_brightness_quick_access_summary">Rodyti šviesumo valdiklį virš pranešimų skydelio.</string>
     <string name="quick_settings_brightness_detail_level">Lygis</string>
@@ -1277,6 +1278,7 @@ Daugiau informacijos galite gauti susisiekę su administratoriumi."</string>
     <string name="keyboard_shortcut_group_system_notifications">Pranešimai</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">Spartieji klavišai</string>
     <string name="keyboard_shortcut_group_system_switch_input">Perjungti įvesties metodą</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">Perjungti kalbas</string>
     <string name="keyboard_shortcut_group_applications">Programos</string>
     <string name="keyboard_shortcut_group_applications_assist">Pagalbinė programa</string>
     <string name="keyboard_shortcut_group_applications_browser">Naršyklė</string>
@@ -1480,8 +1482,10 @@ Using your tablet in a very hot location."</string>
     <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
     <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
     <string name="battery_low_sec_title">Akumuliatoriaus įkr. %d%%</string>
-    <string name="battery_low_sec_body_in_normal_mode">Įkraukite įrenginį arba bakstelėkite čia, kad įjungtumėte energijos taupymo režimą.</string>
-    <string name="battery_low_sec_body_in_ups_mode">Prijunkite įrenginį prie kroviklio.</string>
+    <string name="battery_low_sec_body_phone">Įkraukite telefoną arba bakstelėkite čia, kad įjungtumėte energijos taupymo režimą.</string>
+    <string name="battery_low_sec_body_tablet">Įkraukite planšetinį kompiuterį arba bakstelėkite čia, kad įjungtumėte energijos taupymo režimą.</string>
+    <string name="battery_low_sec_body_phone_psm">Įkraukite telefoną.</string>
+    <string name="battery_low_sec_body_tablet_psm">Įkraukite planšetę.</string>
     <string name="battery_cable_charging_title">Įkrovimas naudojant laidą</string>
     <string name="battery_charging_title">Įkrovimas</string>
     <string name="battery_fast_charging_title">Spartus įkrov.</string>
@@ -1500,7 +1504,10 @@ Using your tablet in a very hot location."</string>
     <string name="battery_saver_notification_text_time_extend">Akumuliatoriaus naudojimo laikas pailgintas.</string>
     <string name="button_detail">Išsamiai</string>
     <string name="battery_saver_recommend_notification_title">Akumuliatoriaus įkr. %d%%</string>
-    <string name="battery_saver_recommend_notification_text">Įkraukite įrenginį arba bakstelėkite čia, kad įjungtumėte energijos taupymo režimą.</string>
+    <string name="battery_saver_recommend_notification_text_phone">Įkraukite telefoną arba bakstelėkite čia, kad įjungtumėte energijos taupymo režimą.</string>
+    <string name="battery_saver_recommend_notification_text_tablet">Įkraukite planšetinį kompiuterį arba bakstelėkite čia, kad įjungtumėte energijos taupymo režimą.</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">Įkraukite telefoną.</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">Įkraukite planšetę.</string>
     <string name="button_close">Uždaryti</string>
     <string name="battery_health_interruption_title">Neįmanoma krauti</string>
     <string name="battery_health_interruption_by_terminal_open_text">Neina įkrauti prietaiso. Įsitikinkite, kad naudojate su „Samsung“ suderinamą akumuliatorių ir įkroviklį ir kad prietaisas tinkamai prijungtas prie įkroviklio.</string>
@@ -1589,6 +1596,7 @@ upscaler"</string>
     <string name="uhq_mode_noti_text">Patobulinkite muzikos ir vaizdo įrašų garso raišką, kad girdėtumėte aiškiau.</string>
     <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
     <string name="assistance_app_setting_item_none">Nėra</string>
+    <string name="remote_input_send_text">Siųsti</string>
     <string name="remote_input_toast_text_on_sview_cover">Neįmanoma naudoti Greito atsakymo funkcijos, jei „S View“ viršelis uždarytas.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -1844,7 +1852,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_direction_shutdown_instructions">Jei norite išjungti, nupieškite krypčių seką</string>
     <string name="kg_none_multi_pin_restart_instructions">Jūsų įrenginys buvo paleistas iš naujo, todėl jį reikia atrakinti naudojant PIN. Kitą kartą atrakindami įrenginį galėsite naudoti biometrinius duomenis.</string>
     <string name="kg_tablet_multi_pin_restart_instructions">Jūsų įrenginys buvo paleistas iš naujo, todėl jį reikia atrakinti naudojant PIN. Kitą kartą atrakindami įrenginį galėsite naudoti biometrinius duomenis.</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">Jūsų įrenginys buvo paleistas iš naujo, todėl jį reikia atrakinti naudojant PIN. Kitą kartą atrakindami įrenginį galėsite naudoti pirštų atspaudus.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">Jūsų telefonas buvo paleistas iš naujo, todėl jį reikia atrakinti naudojant PIN. Kitą kartą atrakindami telefoną galėsite naudoti pirštų atspaudus.</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">Jūsų įrenginys buvo paleistas iš naujo, todėl jį reikia atrakinti naudojant PIN. Kitą kartą atrakindami įrenginį galėsite naudoti pirštų atspaudus.</string>
     <string name="kg_none_iris_pin_restart_instructions">Jūsų įrenginys buvo paleistas iš naujo, todėl jį reikia atrakinti naudojant PIN. Kitą kartą atrakindami įrenginį galėsite naudoti raineles.</string>
     <string name="kg_tablet_iris_pin_restart_instructions">Jūsų įrenginys buvo paleistas iš naujo, todėl jį reikia atrakinti naudojant PIN. Kitą kartą atrakindami įrenginį galėsite naudoti raineles.</string>
@@ -1874,7 +1882,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pattern_deviceadmin_instructions">Dėl saugos politikos vietoje rainelės atpažinimo nupieškite šabloną</string>
     <string name="kg_none_multi_password_restart_instructions">Jūsų įrenginys buvo paleistas iš naujo, todėl jį reikia atrakinti naudojant slaptažodį. Kitą kartą atrakindami įrenginį galėsite naudoti biometrinius duomenis.</string>
     <string name="kg_tablet_multi_password_restart_instructions">Jūsų įrenginys buvo paleistas iš naujo, todėl jį reikia atrakinti naudojant slaptažodį. Kitą kartą atrakindami įrenginį galėsite naudoti biometrinius duomenis.</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">Jūsų įrenginys buvo paleistas iš naujo, todėl jį reikia atrakinti naudojant slaptažodį. Kitą kartą atrakindami įrenginį galėsite naudoti pirštų atspaudus.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">Jūsų telefonas buvo paleistas iš naujo, todėl jį reikia atrakinti naudojant slaptažodį. Kitą kartą atrakindami telefoną galėsite naudoti pirštų atspaudus.</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">Jūsų įrenginys buvo paleistas iš naujo, todėl jį reikia atrakinti naudojant slaptažodį. Kitą kartą atrakindami įrenginį galėsite naudoti pirštų atspaudus.</string>
     <string name="kg_none_iris_password_restart_instructions">Jūsų įrenginys buvo paleistas iš naujo, todėl jį reikia atrakinti naudojant slaptažodį. Kitą kartą atrakindami įrenginį galėsite naudoti raineles.</string>
     <string name="kg_tablet_iris_password_restart_instructions">Jūsų įrenginys buvo paleistas iš naujo, todėl jį reikia atrakinti naudojant slaptažodį. Kitą kartą atrakindami įrenginį galėsite naudoti raineles.</string>
@@ -1889,7 +1897,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_password_deviceadmin_instructions">Dėl saugos politikos vietoje rainelės atpažinimo įveskite slaptažodį</string>
     <string name="kg_none_multi_direction_restart_instructions">Jūsų įrenginys buvo paleistas iš naujo, todėl jį reikia atrakinti naudojant krypčių seką. Kitą kartą atrakindami įrenginį galėsite naudoti biometrinius duomenis.</string>
     <string name="kg_tablet_multi_direction_restart_instructions">Jūsų įrenginys buvo paleistas iš naujo, todėl jį reikia atrakinti naudojant krypčių seką. Kitą kartą atrakindami įrenginį galėsite naudoti biometrinius duomenis.</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">Jūsų įrenginys buvo paleistas iš naujo, todėl jį reikia atrakinti naudojant krypčių seką. Kitą kartą atrakindami įrenginį galėsite naudoti pirštų atspaudus.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">Jūsų telefonas buvo paleistas iš naujo, todėl jį reikia atrakinti naudojant krypčių seką. Kitą kartą atrakindami telefoną galėsite naudoti pirštų atspaudus.</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">Jūsų įrenginys buvo paleistas iš naujo, todėl jį reikia atrakinti naudojant krypčių seką. Kitą kartą atrakindami įrenginį galėsite naudoti pirštų atspaudus.</string>
     <string name="kg_none_iris_direction_restart_instructions">Jūsų įrenginys buvo paleistas iš naujo, todėl jį reikia atrakinti naudojant krypčių seką. Kitą kartą atrakindami įrenginį galėsite naudoti raineles.</string>
     <string name="kg_tablet_iris_direction_restart_instructions">Jūsų įrenginys buvo paleistas iš naujo, todėl jį reikia atrakinti naudojant krypčių seką. Kitą kartą atrakindami įrenginį galėsite naudoti raineles.</string>
@@ -2013,6 +2021,9 @@ Bandykite dar kartą po 1 sek."</string>
     <string name="recents_help_dlg_split_icon_desc">Programos lango pavadinimo juostoje bakstelėkite padalinto ekrano piktogramą ir atidarykite programas padalinto ekrano rodinyje. Ši piktograma rodoma, kai programa palaiko kelių langų rodinį.</string>
     <string name="recents_help_dlg_long_click_recents_key_text">Jei norite įjungti perskirto ekrano rodinį, paleidę programą viso ekrano režimu paspauskite ir palaikykite vėliausiai naudotų elementų mygtuką.</string>
     <string name="recents_help_dlg_home_key_in_split_text">Jei naudodami padalinto ekrano rodinį paspausite pradžios mygtuką, viršutinėje ekrano dalyje rodoma programa bus sumažinta. Jei pradžios ekrane atidarysite programą, kol būsenos juosta yra mėlyna, programa bus atidaryta padalinto ekrano rodinyje, apatinėje ekrano dalyje.</string>
+    <string name="battery_low_sec_body_in_normal_mode">Įkraukite įrenginį arba bakstelėkite čia, kad įjungtumėte energijos taupymo režimą.</string>
+    <string name="battery_low_sec_body_in_ups_mode">Prijunkite įrenginį prie kroviklio.</string>
+    <string name="battery_saver_recommend_notification_text">Įkraukite įrenginį arba bakstelėkite čia, kad įjungtumėte energijos taupymo režimą.</string>
     <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
 
 If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>

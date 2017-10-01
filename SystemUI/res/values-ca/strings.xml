@@ -957,6 +957,7 @@ La icona de trucades Wi-Fi apareixerà al tauler de notificacions com es mostra 
     <string name="quick_settings_dual_label_content_description">%s, Etiqueta del botó, Toqui dos cops per veure els ajustaments ràpids rellevants.</string>
     <string name="accessibility_button">Botó</string>
     <string name="quick_settings_brightness_auto_brightness">Brillantor automàtica</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">Ajusti la brillantor de la pantalla automàticament en funció de les condicions de llum.</string>
     <string name="quick_settings_brightness_quick_access">Mostrar els controls a dalt</string>
     <string name="quick_settings_brightness_quick_access_summary">Mostri el control de brillantor sobre el tauler de notificacions.</string>
     <string name="quick_settings_brightness_detail_level">Nivell</string>
@@ -1277,6 +1278,7 @@ Per obtenir més informació, contacta amb l'administrador."</string>
     <string name="keyboard_shortcut_group_system_notifications">Notificacions</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">Tecles de drecera</string>
     <string name="keyboard_shortcut_group_system_switch_input">"Canvia el mètode d'introducció"</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">"Canviar d'idioma"</string>
     <string name="keyboard_shortcut_group_applications">Aplicacions</string>
     <string name="keyboard_shortcut_group_applications_assist">Assistència</string>
     <string name="keyboard_shortcut_group_applications_browser">Navegador</string>
@@ -1480,8 +1482,10 @@ El sobreescalfament pot ser causat per:
     <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
     <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
     <string name="battery_low_sec_title">Bateria %d%%</string>
-    <string name="battery_low_sec_body_in_normal_mode">"Carregui el dispositiu o toqui aquí per activar el mode Estalvi d'energia."</string>
-    <string name="battery_low_sec_body_in_ups_mode">Connecti el dispositiu a un carregador.</string>
+    <string name="battery_low_sec_body_phone">"Carregui el telèfon o toqui aquí per activar el mode Estalvi d'energia."</string>
+    <string name="battery_low_sec_body_tablet">"Carregui la tablet o toqui aquí per activar el mode Estalvi d'energia."</string>
+    <string name="battery_low_sec_body_phone_psm">Carregui el telèfon.</string>
+    <string name="battery_low_sec_body_tablet_psm">Carregui la tablet.</string>
     <string name="battery_cable_charging_title">Carrega de cable</string>
     <string name="battery_charging_title">Carregant</string>
     <string name="battery_fast_charging_title">Càrrega ràpida</string>
@@ -1500,7 +1504,10 @@ El sobreescalfament pot ser causat per:
     <string name="battery_saver_notification_text_time_extend">"La bateria del dispositiu s'ha augmentat."</string>
     <string name="button_detail">Detall</string>
     <string name="battery_saver_recommend_notification_title">Bateria %d%%</string>
-    <string name="battery_saver_recommend_notification_text">"Carregui el dispositiu o toqui aquí per activar el mode Estalvi d'energia."</string>
+    <string name="battery_saver_recommend_notification_text_phone">"Carregui el telèfon o toqui aquí per activar el mode Estalvi d'energia."</string>
+    <string name="battery_saver_recommend_notification_text_tablet">"Carregui la tablet o toqui aquí per activar el mode Estalvi d'energia."</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">Carregui el telèfon.</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">Carregui la tablet.</string>
     <string name="button_close">Tancar</string>
     <string name="battery_health_interruption_title">No es pot carregar</string>
     <string name="battery_health_interruption_by_terminal_open_text">"No es pot carregar el dispositiu. Asseguri's que estigui utilitzant una bateria i un carregador compatibles amb Samsung i que el dispositiu estigui connectat al carregador."</string>
@@ -1589,6 +1596,7 @@ dor UHQ"</string>
     <string name="uhq_mode_noti_text">"Millori la resolució del so de la música i els vídeos per gaudir d'una experiència sonora més nítida."</string>
     <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
     <string name="assistance_app_setting_item_none">Cap</string>
+    <string name="remote_input_send_text">Enviar</string>
     <string name="remote_input_toast_text_on_sview_cover">No es pot utilitzar la funció Resposta ràpida mentre S View Cover estigui tancat.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -1844,7 +1852,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_direction_shutdown_instructions">Dibuixar una sèrie de direccions per apagar</string>
     <string name="kg_none_multi_pin_restart_instructions">"S'ha reiniciat el dispositiu i cal desbloquejar-lo utilitzant el PIN. Pot utilitzar la biometria el proper cop que desbloquegi el dispositiu."</string>
     <string name="kg_tablet_multi_pin_restart_instructions">"S'ha reiniciat el dispositiu i cal desbloquejar-lo utilitzant el PIN. Pot utilitzar la biometria el proper cop que desbloquegi el dispositiu."</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">"S'ha reiniciat el dispositiu i cal desbloquejar-lo utilitzant el PIN. Pot utilitzar les empremtes el proper cop que desbloquegi el dispositiu."</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">"S'ha reiniciat el telèfon i cal desbloquejar-lo utilitzant el PIN. Pot utilitzar les empremtes el proper cop que desbloquegi el telèfon."</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">"S'ha reiniciat el dispositiu i cal desbloquejar-lo utilitzant el PIN. Pot utilitzar les empremtes el proper cop que desbloquegi el dispositiu."</string>
     <string name="kg_none_iris_pin_restart_instructions">"S'ha reiniciat el dispositiu i cal desbloquejar-lo utilitzant el PIN. Pot utilitzar l'iris el proper cop que desbloquegi el dispositiu."</string>
     <string name="kg_tablet_iris_pin_restart_instructions">"S'ha reiniciat el dispositiu i cal desbloquejar-lo utilitzant el PIN. Pot utilitzar l'iris el proper cop que desbloquegi el dispositiu."</string>
@@ -1874,7 +1882,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pattern_deviceadmin_instructions">"Dibuixi un patró en comptes d'utilitzar el reconeixement d'iris per adequar-se a la política de seguretat"</string>
     <string name="kg_none_multi_password_restart_instructions">"S'ha reiniciat el dispositiu i cal desbloquejar-lo utilitzant la contrasenya. Pot utilitzar la biometria el proper cop que desbloquegi el dispositiu."</string>
     <string name="kg_tablet_multi_password_restart_instructions">"S'ha reiniciat el dispositiu i cal desbloquejar-lo utilitzant la contrasenya. Pot utilitzar la biometria el proper cop que desbloquegi el dispositiu."</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">"S'ha reiniciat el dispositiu i cal desbloquejar-lo utilitzant la contrasenya. Pot utilitzar les empremtes el proper cop que desbloquegi el dispositiu."</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">"S'ha reiniciat el telèfon i cal desbloquejar-lo utilitzant la contrasenya. Pot utilitzar les empremtes el proper cop que desbloquegi el telèfon."</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">"S'ha reiniciat el dispositiu i cal desbloquejar-lo utilitzant la contrasenya. Pot utilitzar les empremtes el proper cop que desbloquegi el dispositiu."</string>
     <string name="kg_none_iris_password_restart_instructions">"S'ha reiniciat el dispositiu i cal desbloquejar-lo utilitzant la contrasenya. Pot utilitzar l'iris el proper cop que desbloquegi el dispositiu."</string>
     <string name="kg_tablet_iris_password_restart_instructions">"S'ha reiniciat el dispositiu i cal desbloquejar-lo utilitzant la contrasenya. Pot utilitzar l'iris el proper cop que desbloquegi el dispositiu."</string>
@@ -1889,7 +1897,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_password_deviceadmin_instructions">"Introdueixi una contrasenya en comptes d'utilitzar el reconeixement d'iris per adequar-se a la política de seguretat"</string>
     <string name="kg_none_multi_direction_restart_instructions">"S'ha reiniciat el dispositiu i cal desbloquejar-lo utilitzant la sèrie de direccions. Pot utilitzar la biometria el proper cop que desbloquegi el dispositiu."</string>
     <string name="kg_tablet_multi_direction_restart_instructions">"S'ha reiniciat el dispositiu i cal desbloquejar-lo utilitzant la sèrie de direccions. Pot utilitzar la biometria el proper cop que desbloquegi el dispositiu."</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">"S'ha reiniciat el dispositiu i cal desbloquejar-lo utilitzant la sèrie de direccions. Pot utilitzar les empremtes el proper cop que desbloquegi el dispositiu."</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">"S'ha reiniciat el telèfon i cal desbloquejar-lo utilitzant la sèrie de direccions. Pot utilitzar les empremtes el proper cop que desbloquegi el telèfon."</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">"S'ha reiniciat el dispositiu i cal desbloquejar-lo utilitzant la sèrie de direccions. Pot utilitzar les empremtes el proper cop que desbloquegi el dispositiu."</string>
     <string name="kg_none_iris_direction_restart_instructions">"S'ha reiniciat el dispositiu i cal desbloquejar-lo utilitzant la sèrie de direccions. Pot utilitzar l'iris el proper cop que desbloquegi el dispositiu."</string>
     <string name="kg_tablet_iris_direction_restart_instructions">"S'ha reiniciat el dispositiu i cal desbloquejar-lo utilitzant la sèrie de direccions. Pot utilitzar l'iris el proper cop que desbloquegi el dispositiu."</string>
@@ -2011,6 +2019,9 @@ Torni-ho a intentar d'aquí a 1 segon"</string>
     <string name="recents_help_dlg_split_icon_desc">"Toqui la icona de pantalla dividida a la barra de títol de la finestra de l'aplicació per obrir les aplicacions en vista de pantalla dividida. Aquesta icona es mostra quan l'aplicació admet Multiwindow."</string>
     <string name="recents_help_dlg_long_click_recents_key_text">Mantingui premuda la tecla Recents mentre utilitza una aplicació en vista a pantalla completa per canviar a vista de pantalla dividida.</string>
     <string name="recents_help_dlg_home_key_in_split_text">"Si prem la tecla Inici mentre utilitza la vista de pantalla dividida, l'aplicació que es mostra a la meitat superior de la pantalla es minimitzarà. Si obre l'aplicació des de la pantalla d'inici mentre la barra d'estat està de color blau, s'obrirà l'aplicació en vista de pantalla dividida a la meitat inferior de la pantalla."</string>
+    <string name="battery_low_sec_body_in_normal_mode">"Carregui el dispositiu o toqui aquí per activar el mode Estalvi d'energia."</string>
+    <string name="battery_low_sec_body_in_ups_mode">Connecti el dispositiu a un carregador.</string>
+    <string name="battery_saver_recommend_notification_text">"Carregui el dispositiu o toqui aquí per activar el mode Estalvi d'energia."</string>
     <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
 
 If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>

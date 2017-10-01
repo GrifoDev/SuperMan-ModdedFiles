@@ -243,8 +243,8 @@
     <color name="minimize_dock_shadow_start">#60000000</color>
     <color name="minimize_dock_shadow_end">#00000000</color>
     <color name="default_remote_input_background">@android:color/notification_default_color</color>
-    <color name="remote_input_text_enabled">#ffffffff</color>
-    <color name="remote_input_hint">#99ffffff</color>
+    <color name="remote_input_text_enabled">#fffafafa</color>
+    <color name="remote_input_hint">#99fafafa</color>
     <color name="remote_input_accent">#ffeeeeee</color>
     <color name="qs_tile_tint_unavailable">#40ffffff</color>
     <color name="qs_tile_tint_inactive">#4dffffff</color>
@@ -371,6 +371,8 @@
     <color name="notification_stack_scroller_background_on_white_keyguard">#66a5a5a5</color>
     <color name="notification_material_background_dimmed_color_white_lockscreen">#9afafafa</color>
     <color name="notification_material_background_color_white_lockscreen">#fffafafa</color>
+    <color name="remote_input_send_text_disable">#66fafafa</color>
+    <color name="remote_input_send_text_enable">#fffafafa</color>
     <color name="recents_tv_card_background_color">#ff263238</color>
     <color name="recents_tv_card_title_text_color">#cceeeeee</color>
     <color name="recents_tv_dismiss_text_color">#7feeeeee</color>

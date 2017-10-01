@@ -29,7 +29,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/ExpandableIndicator;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f05bd
+    const v1, 0x7f0f05be
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -41,7 +41,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/ExpandableIndicator;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f05bc
+    const v1, 0x7f0f05bd
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -53,9 +53,9 @@
 .method private getDrawableResourceId(Z)I
     .locals 3
 
-    const v1, 0x7f020219
+    const v1, 0x7f02021a
 
-    const v0, 0x7f020217
+    const v0, 0x7f020218
 
     iget-boolean v2, p0, Lcom/android/systemui/statusbar/phone/ExpandableIndicator;->mIsDefaultDirection:Z
 

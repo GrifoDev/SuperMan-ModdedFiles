@@ -38,11 +38,11 @@
 
     move-result-object v0
 
-    const v1, 0x7f040104
+    const v1, 0x7f040105
 
     invoke-virtual {v0, v1, p0, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    const v0, 0x7f1302f3
+    const v0, 0x7f1302f4
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/QSSFinderView;->findViewById(I)Landroid/view/View;
 
@@ -64,7 +64,7 @@
 
     iput v0, p0, Lcom/android/systemui/qs/QSSFinderView;->mSFinederTranslation:F
 
-    const v0, 0x7f1302f6
+    const v0, 0x7f1302f7
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/QSSFinderView;->findViewById(I)Landroid/view/View;
 
@@ -74,7 +74,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/QSSFinderView;->mSFinderIconView:Landroid/widget/ImageView;
 
-    const v0, 0x7f1302f4
+    const v0, 0x7f1302f5
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/QSSFinderView;->findViewById(I)Landroid/view/View;
 

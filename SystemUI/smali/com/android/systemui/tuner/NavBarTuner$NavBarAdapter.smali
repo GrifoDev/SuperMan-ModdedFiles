@@ -315,6 +315,16 @@
 
     iget-object v0, p1, Lcom/android/systemui/tuner/NavBarTuner$Holder;->itemView:Landroid/view/View;
 
+    const v1, 0x7f130282
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0, p1}, Lcom/android/systemui/tuner/NavBarTuner$NavBarAdapter;->bindClick(Landroid/view/View;Lcom/android/systemui/tuner/NavBarTuner$Holder;)V
+
+    iget-object v0, p1, Lcom/android/systemui/tuner/NavBarTuner$Holder;->itemView:Landroid/view/View;
+
     const v1, 0x7f130281
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -325,17 +335,7 @@
 
     iget-object v0, p1, Lcom/android/systemui/tuner/NavBarTuner$Holder;->itemView:Landroid/view/View;
 
-    const v1, 0x7f130280
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    invoke-direct {p0, v0, p1}, Lcom/android/systemui/tuner/NavBarTuner$NavBarAdapter;->bindClick(Landroid/view/View;Lcom/android/systemui/tuner/NavBarTuner$Holder;)V
-
-    iget-object v0, p1, Lcom/android/systemui/tuner/NavBarTuner$Holder;->itemView:Landroid/view/View;
-
-    const v1, 0x7f130282
+    const v1, 0x7f130283
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -534,7 +534,7 @@
 
     invoke-direct {v3, p1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v4, 0x7f0f058a
+    const v4, 0x7f0f058b
 
     invoke-virtual {v3, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -576,13 +576,13 @@
 
     invoke-direct {v0, p1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0f0590
+    const v1, 0x7f0f0591
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f0f0591
+    const v1, 0x7f0f0592
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -613,13 +613,13 @@
 
     invoke-direct {v1, p1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0f0593
+    const v2, 0x7f0f0594
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v1
 
-    const v2, 0x7f0f0594
+    const v2, 0x7f0f0595
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -663,13 +663,13 @@
 
     invoke-direct {v4, p2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v5, 0x7f0f058f
+    const v5, 0x7f0f0590
 
     invoke-virtual {v4, v5}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v4
 
-    const v5, 0x7f0400b8
+    const v5, 0x7f0400b9
 
     invoke-virtual {v4, v5}, Landroid/app/AlertDialog$Builder;->setView(I)Landroid/app/AlertDialog$Builder;
 
@@ -703,7 +703,7 @@
 
     invoke-virtual {v2}, Landroid/app/AlertDialog;->show()V
 
-    const v4, 0x7f130283
+    const v4, 0x7f130284
 
     invoke-virtual {v2, v4}, Landroid/app/AlertDialog;->findViewById(I)Landroid/view/View;
 
@@ -1093,7 +1093,7 @@
 
     move-result v2
 
-    const v3, 0x7f130280
+    const v3, 0x7f130281
 
     if-ne v2, v3, :cond_1
 
@@ -1112,7 +1112,7 @@
 
     move-result v2
 
-    const v3, 0x7f130281
+    const v3, 0x7f130282
 
     if-ne v2, v3, :cond_0
 
@@ -1180,7 +1180,7 @@
 
     check-cast v3, Landroid/view/ViewGroup;
 
-    const v4, 0x7f0400b6
+    const v4, 0x7f0400b7
 
     invoke-virtual {v1, v4, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 

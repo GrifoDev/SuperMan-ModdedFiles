@@ -1942,7 +1942,7 @@
 
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
-    const v1, 0x7f1301dc
+    const v1, 0x7f1301dd
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->findViewById(I)Landroid/view/View;
 
@@ -2854,7 +2854,7 @@
 
     const v2, 0x7f0201a0
 
-    const v0, 0x7f0f05cb
+    const v0, 0x7f0f05cc
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->mAffordanceViews:[Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 

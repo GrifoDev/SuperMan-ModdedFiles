@@ -951,6 +951,7 @@ Wi-Fi 與藍牙也將關閉，但可於 [設定] 或快速設定面板中再次�
     <string name="quick_settings_dual_label_content_description">%s、按鍵標籤、輕觸兩下以檢視相關快速設定。</string>
     <string name="accessibility_button">按鈕</string>
     <string name="quick_settings_brightness_auto_brightness">自動亮度</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">根據光線條件自動調整螢幕亮度。</string>
     <string name="quick_settings_brightness_quick_access">頂部顯示控制</string>
     <string name="quick_settings_brightness_quick_access_summary">在通知面板上方顯示亮度控制。</string>
     <string name="quick_settings_brightness_detail_level">級別</string>
@@ -1271,6 +1272,7 @@ Wi-Fi 與藍牙也將關閉，但可於 [設定] 或快速設定面板中再次�
     <string name="keyboard_shortcut_group_system_notifications">通知</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">鍵盤快速鍵</string>
     <string name="keyboard_shortcut_group_system_switch_input">切換輸入法</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">切換語言</string>
     <string name="keyboard_shortcut_group_applications">應用程式</string>
     <string name="keyboard_shortcut_group_applications_assist">輔助</string>
     <string name="keyboard_shortcut_group_applications_browser">瀏覽器</string>
@@ -1472,8 +1474,10 @@ Wi-Fi 與藍牙也將關閉，但可於 [設定] 或快速設定面板中再次�
     <string name="safe_mode_alert_body_vzw">要重新啟動您的手機以關閉安全模式嗎？您的所有應用程式將被還原。</string>
     <string name="safe_mode_alert_positive_button_vzw">關閉安全模式</string>
     <string name="battery_low_sec_title">電池電量 %d%%</string>
-    <string name="battery_low_sec_body_in_normal_mode">為裝置充電或輕觸此處以啟用省電模式。</string>
-    <string name="battery_low_sec_body_in_ups_mode">將您的裝置連接至充電器。</string>
+    <string name="battery_low_sec_body_phone">為您的手機充電或輕觸此處以開啟省電模式。</string>
+    <string name="battery_low_sec_body_tablet">為您的平板電腦充電或輕觸此處以開啟省電模式。</string>
+    <string name="battery_low_sec_body_phone_psm">為您的手機充電。</string>
+    <string name="battery_low_sec_body_tablet_psm">為您的平板電腦充電。</string>
     <string name="battery_cable_charging_title">傳輸線充電</string>
     <string name="battery_charging_title">正在充電</string>
     <string name="battery_fast_charging_title">快速充電</string>
@@ -1492,7 +1496,10 @@ Wi-Fi 與藍牙也將關閉，但可於 [設定] 或快速設定面板中再次�
     <string name="battery_saver_notification_text_time_extend">您的電池使用時間已延長。</string>
     <string name="button_detail">詳細資料</string>
     <string name="battery_saver_recommend_notification_title">電池電量 %d%%</string>
-    <string name="battery_saver_recommend_notification_text">為裝置充電或輕觸此處以啟用省電模式。</string>
+    <string name="battery_saver_recommend_notification_text_phone">為您的手機充電或輕觸此處以開啟省電模式。</string>
+    <string name="battery_saver_recommend_notification_text_tablet">為您的平板電腦充電或輕觸此處以開啟省電模式。</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">為您的手機充電。</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">為您的平板電腦充電。</string>
     <string name="button_close">關閉</string>
     <string name="battery_health_interruption_title">無法充電</string>
     <string name="battery_health_interruption_by_terminal_open_text">無法為您的裝置充電。確認您正在使用三星相容電池與充電器，並且裝置已正確連接至充電器。</string>
@@ -1580,6 +1587,7 @@ Wi-Fi 與藍牙也將關閉，但可於 [設定] 或快速設定面板中再次�
     <string name="assistance_app_setting_item_none">無</string>
     <string name="no_sim_notification_title_cct">未偵測到 SIM 卡</string>
     <string name="no_sim_notification_text_cct">請插入 XFINITY 手機 SIM 卡。若要瞭解更多資訊，請訪問 xfinitymobile.com/activate 或致電 888-936-4968。</string>
+    <string name="remote_input_send_text">發送</string>
     <string name="remote_input_toast_text_on_sview_cover">S view 保護套已關閉時無法使用快速回覆功能。</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -1835,7 +1843,7 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="kg_none_direction_shutdown_instructions">繪製方向序列以關機</string>
     <string name="kg_none_multi_pin_restart_instructions">您的裝置已重新啟動，需要使用 PIN 碼解鎖。您下次可以使用生物特徵解鎖裝置。</string>
     <string name="kg_tablet_multi_pin_restart_instructions">您的裝置已重新啟動，需要使用 PIN 碼解鎖。您下次可以使用生物特徵解鎖裝置。</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">您的裝置已重新啟動，需要使用 PIN 碼解鎖。您下次可以使用指紋解鎖裝置。</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">您的手機已重新啟動，需要使用數字密碼解鎖。您下次可以使用指紋解鎖手機。</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">您的裝置已重新啟動，需要使用 PIN 碼解鎖。您下次可以使用指紋解鎖裝置。</string>
     <string name="kg_none_iris_pin_restart_instructions">您的裝置已重新啟動，需要使用 PIN 碼解鎖。您下次可以使用虹膜解鎖裝置。</string>
     <string name="kg_tablet_iris_pin_restart_instructions">您的裝置已重新啟動，需要使用 PIN 碼解鎖。您下次可以使用虹膜解鎖裝置。</string>
@@ -1865,7 +1873,7 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="kg_none_iris_pattern_deviceadmin_instructions">因為安全性政策，繪製圖案而非使用虹膜識別</string>
     <string name="kg_none_multi_password_restart_instructions">您的裝置已重新啟動，需要使用密碼解鎖。您下次可以使用生物特徵解鎖裝置。</string>
     <string name="kg_tablet_multi_password_restart_instructions">您的裝置已重新啟動，需要使用密碼解鎖。您下次可以使用生物特徵解鎖裝置。</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">您的裝置已重新啟動，需要使用密碼解鎖。您下次可以使用指紋解鎖裝置。</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">您的手機已重新啟動，需要使用密碼解鎖。您下次可以使用指紋解鎖手機。</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">您的裝置已重新啟動，需要使用密碼解鎖。您下次可以使用指紋解鎖裝置。</string>
     <string name="kg_none_iris_password_restart_instructions">您的裝置已重新啟動，需要使用密碼解鎖。您下次可以使用虹膜解鎖裝置。</string>
     <string name="kg_tablet_iris_password_restart_instructions">您的裝置已重新啟動，需要使用密碼解鎖。您下次可以使用虹膜解鎖裝置。</string>
@@ -1880,7 +1888,7 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="kg_none_iris_password_deviceadmin_instructions">因為安全性政策，輸入密碼而非使用虹膜識別</string>
     <string name="kg_none_multi_direction_restart_instructions">您的裝置已重新啟動，需要使用方向序列解鎖。您下次可以使用生物特徵解鎖裝置。</string>
     <string name="kg_tablet_multi_direction_restart_instructions">您的裝置已重新啟動，需要使用方向序列解鎖。您下次可以使用生物特徵解鎖裝置。</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">您的裝置已重新啟動，需要使用方向序列解鎖。您下次可以使用指紋解鎖裝置。</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">您的手機已重新啟動，需要使用方向序列解鎖。您下次可以使用指紋解鎖手機。</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">您的裝置已重新啟動，需要使用方向序列解鎖。您下次可以使用指紋解鎖裝置。</string>
     <string name="kg_none_iris_direction_restart_instructions">您的裝置已重新啟動，需要使用方向序列解鎖。您下次可以使用虹膜解鎖裝置。</string>
     <string name="kg_tablet_iris_direction_restart_instructions">您的裝置已重新啟動，需要使用方向序列解鎖。您下次可以使用虹膜解鎖裝置。</string>
@@ -2002,6 +2010,9 @@ PIN 碼必須為 4 至 8 位數。"</string>
     <string name="recents_help_dlg_split_icon_desc">輕觸應用程式視窗標題列上的分屏式螢幕圖示以在分屏式螢幕檢視中開啟應用程式。此圖示將在應用程式支援多重視窗時顯示。</string>
     <string name="recents_help_dlg_long_click_recents_key_text">在全螢幕檢視中使用應用程式時按住最近使用鍵以變更至分屏式螢幕檢視。</string>
     <string name="recents_help_dlg_home_key_in_split_text">如果您在使用分屏式螢幕檢視時按下首頁鍵，螢幕上半部分上顯示的應用程式將最小化。如果您在狀態列呈藍色時從主螢幕開啟應用程式，該應用程式將在分屏式螢幕檢視的螢幕下半部分開啟。</string>
+    <string name="battery_low_sec_body_in_normal_mode">為裝置充電或輕觸此處以啟用省電模式。</string>
+    <string name="battery_low_sec_body_in_ups_mode">將您的裝置連接至充電器。</string>
+    <string name="battery_saver_recommend_notification_text">為裝置充電或輕觸此處以啟用省電模式。</string>
     <string name="kg_none_direction_1_frpt">"如果您未在下一次嘗試中繪製正確的方向序列，您的手機將自動重設為原廠設定且手機上的所有資訊將被清除。
 
 如果您的手機被重設，您可能需要輸入與此手機相關的 Google 帳戶資訊 (電子郵件地址與密碼) 以便再次使用。"</string>

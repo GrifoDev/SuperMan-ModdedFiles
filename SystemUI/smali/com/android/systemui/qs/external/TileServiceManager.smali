@@ -29,6 +29,8 @@
 
 .field private final mHandler:Landroid/os/Handler;
 
+.field private mIsDefaultTile:Z
+
 .field private mJustBound:Z
 
 .field final mJustBoundOver:Ljava/lang/Runnable;
@@ -410,6 +412,14 @@
     return v0
 .end method
 
+.method public getIsDefaultTile()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mIsDefaultTile:Z
+
+    return v0
+.end method
+
 .method public getTileService()Landroid/service/quicksettings/IQSTileService;
     .locals 1
 
@@ -577,6 +587,14 @@
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     goto :goto_1
+.end method
+
+.method public setIsDefaultTile(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mIsDefaultTile:Z
+
+    return-void
 .end method
 
 .method public setLastUpdate(J)V

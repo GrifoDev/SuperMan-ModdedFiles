@@ -955,6 +955,7 @@ Turn on Airplane mode?"</string>
     <string name="quick_settings_dual_label_content_description">%s، تسمية الزر، انقر نقراً مزدوجاً لعرض الضبط السريع ذي الصلة.</string>
     <string name="accessibility_button">الزر</string>
     <string name="quick_settings_brightness_auto_brightness">السطوع التلقائي</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">يمكنك تعديل سطوع الشاشة تلقائياً وفقاً لحالات الإضاءة.</string>
     <string name="quick_settings_brightness_quick_access">إظهار عناصر التحكم في الجزء العلوي</string>
     <string name="quick_settings_brightness_quick_access_summary">يمكنك إظهار عنصر التحكم بالسطوع فوق لوحة الإشعارات.</string>
     <string name="quick_settings_brightness_detail_level">المستوى</string>
@@ -1275,6 +1276,7 @@ Turn on Airplane mode?"</string>
     <string name="keyboard_shortcut_group_system_notifications">الإشعارات</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">اختصارات لوحة المفاتيح</string>
     <string name="keyboard_shortcut_group_system_switch_input">تبديل أسلوب الإدخال</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">تبديل اللغات</string>
     <string name="keyboard_shortcut_group_applications">التطبيقات</string>
     <string name="keyboard_shortcut_group_applications_assist">التطبيق المساعد</string>
     <string name="keyboard_shortcut_group_applications_browser">المتصفح</string>
@@ -1478,8 +1480,10 @@ Using your tablet in a very hot location."</string>
     <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
     <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
     <string name="battery_low_sec_title">طاقة البطارية %d%%</string>
-    <string name="battery_low_sec_body_in_normal_mode">اشحن جهازك أو انقر هنا لتفعيل ”وضع توفير الطاقة“.</string>
-    <string name="battery_low_sec_body_in_ups_mode">قم بتوصيل جهازك بشاحن.</string>
+    <string name="battery_low_sec_body_phone">اشحن هاتفك أو انقر هنا لتشغيل وضع توفير الطاقة.</string>
+    <string name="battery_low_sec_body_tablet">اشحن جهازك اللوحي أو انقر هنا لتشغيل وضع توفير الطاقة.</string>
+    <string name="battery_low_sec_body_phone_psm">اشحن هاتفك.</string>
+    <string name="battery_low_sec_body_tablet_psm">اشحن جهازك اللوحي.</string>
     <string name="battery_cable_charging_title">شحن باستخدام الكابل</string>
     <string name="battery_charging_title">الشحن</string>
     <string name="battery_fast_charging_title">الشحن السريع</string>
@@ -1498,7 +1502,10 @@ Using your tablet in a very hot location."</string>
     <string name="battery_saver_notification_text_time_extend">تم تمديد عمر البطارية جهازك.</string>
     <string name="button_detail">التفاصيل</string>
     <string name="battery_saver_recommend_notification_title">طاقة البطارية %d%%</string>
-    <string name="battery_saver_recommend_notification_text">اشحن جهازك أو انقر هنا لتفعيل ”وضع توفير الطاقة“.</string>
+    <string name="battery_saver_recommend_notification_text_phone">اشحن هاتفك أو انقر هنا لتشغيل وضع توفير الطاقة.</string>
+    <string name="battery_saver_recommend_notification_text_tablet">اشحن جهازك اللوحي أو انقر هنا لتشغيل وضع توفير الطاقة.</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">اشحن هاتفك.</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">اشحن جهازك اللوحي.</string>
     <string name="button_close">اغلاق</string>
     <string name="battery_health_interruption_title">يتعذر الشحن</string>
     <string name="battery_health_interruption_by_terminal_open_text">يتعذر شحن جهازك. تأكد من أنك تستخدم بطارية وشاحن متوافقين مع Samsung وأن جهازك متصل بطريقة صحيحة بالشاحن.</string>
@@ -1587,6 +1594,7 @@ upscaler"</string>
     <string name="uhq_mode_noti_text">قم بتحسين دقة صوت الموسيقى ومقاطع الفيديو للحصول على تجربة استماع أوضح.</string>
     <string name="assistance_app_setting_alert_dialog_title">حدد تطبيقاً لفتحه عند الضغط مع الاستمرار على مفتاح الشاشة الرئيسية. لتغيير التطبيق المحدد لاحقاً، انتقل إلى تطبيق مساعدة الجهاز في الضبط.</string>
     <string name="assistance_app_setting_item_none">لاشيء</string>
+    <string name="remote_input_send_text">إرسال</string>
     <string name="remote_input_toast_text_on_sview_cover">يتعذر استخدام وظيفة الرد السريع عندما يكون غلاف S الشفاف مغلقاً.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -1842,7 +1850,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_direction_shutdown_instructions">رسم سلسلة من الاتجاهات لإيقاف التشغيل</string>
     <string name="kg_none_multi_pin_restart_instructions">تمت إعادة تشغيل جهازك ويجب إلغاء قفله باستخدام رقم PIN. يمكنك استخدام بيانات مقاييسك الحيوية في المرة المقبلة التي تقوم فيها بإلغاء قفل جهازك.</string>
     <string name="kg_tablet_multi_pin_restart_instructions">تمت إعادة تشغيل جهازك ويجب إلغاء قفله باستخدام رقم PIN. يمكنك استخدام بيانات مقاييسك الحيوية في المرة المقبلة التي تقوم فيها بإلغاء قفل جهازك.</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">تمت إعادة تشغيل جهازك وهو بحاجة إلى إلغاء القفل باستخدام رقم PIN الخاص بك. يمكنك استخدام بصمات أصابعك في المرة القادمة التي تقوم فيها بإلغاء قفل جهازك.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">تمت إعادة تشغيل هاتفك وهو بحاجة إلى إلغاء قفله باستخدام رقم PIN. يمكنك استخدام بصمة أصابعك في المرة القادمة التي تقوم فيها بإلغاء قفل هاتفك.</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">تمت إعادة تشغيل جهازك وهو بحاجة إلى إلغاء القفل باستخدام رقم PIN الخاص بك. يمكنك استخدام بصمات أصابعك في المرة القادمة التي تقوم فيها بإلغاء قفل جهازك.</string>
     <string name="kg_none_iris_pin_restart_instructions">تمت إعادة تشغيل جهازك وهو بحاجة إلى إلغاء القفل باستخدام رقم PIN الخاص بك. يمكنك استخدام بصمة عينيك في المرة القادمة التي تقوم فيها بإلغاء قفل جهازك.</string>
     <string name="kg_tablet_iris_pin_restart_instructions">تمت إعادة تشغيل جهازك وهو بحاجة إلى إلغاء القفل باستخدام رقم PIN الخاص بك. يمكنك استخدام بصمة عينيك في المرة القادمة التي تقوم فيها بإلغاء قفل جهازك.</string>
@@ -1872,7 +1880,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pattern_deviceadmin_instructions">ارسم نمطاً بدلاً من استخدام ميزة التعرف على بصمة العين بسبب سياسة الحماية</string>
     <string name="kg_none_multi_password_restart_instructions">تمت إعادة تشغيل جهازك ويجب إلغاء قفله بواسطة كلمة مرورك. يمكنك استخدام بيانات المقاييس الحيوية في المرة المقبلة التي تقوم فيها بإلغاء قفل جهازك.</string>
     <string name="kg_tablet_multi_password_restart_instructions">تمت إعادة تشغيل جهازك ويجب إلغاء قفله بواسطة كلمة مرورك. يمكنك استخدام بيانات المقاييس الحيوية في المرة المقبلة التي تقوم فيها بإلغاء قفل جهازك.</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">تمت إعادة تشغيل جهازك وهو بحاجة إلى إلغاء القفل باستخدام كلمة المرور الخاصة بك. يمكنك استخدام بصمات أصابعك في المرة القادمة التي تقوم فيها بإلغاء قفل جهازك.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">تمت إعادة تشغيل هاتفك وهو بحاجة إلى إلغاء قفله باستخدام كلمة المرور. يمكنك استخدام بصمة أصابعك في المرة القادمة التي تقوم فيها بإلغاء قفل هاتفك.</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">تمت إعادة تشغيل جهازك وهو بحاجة إلى إلغاء القفل باستخدام كلمة المرور الخاصة بك. يمكنك استخدام بصمات أصابعك في المرة القادمة التي تقوم فيها بإلغاء قفل جهازك.</string>
     <string name="kg_none_iris_password_restart_instructions">تمت إعادة تشغيل جهازك وهو بحاجة إلى إلغاء القفل باستخدام كلمة المرور الخاصة بك. يمكنك استخدام بصمة عينيك في المرة القادمة التي تقوم فيها بإلغاء قفل جهازك.</string>
     <string name="kg_tablet_iris_password_restart_instructions">تمت إعادة تشغيل جهازك وهو بحاجة إلى إلغاء القفل باستخدام كلمة المرور الخاصة بك. يمكنك استخدام بصمة عينيك في المرة القادمة التي تقوم فيها بإلغاء قفل جهازك.</string>
@@ -1887,7 +1895,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_password_deviceadmin_instructions">أدخل كلمة مرور بدلاً من استخدام ميزة التعرف على بصمة العين بسبب سياسة الحماية</string>
     <string name="kg_none_multi_direction_restart_instructions">تمت إعادة تشغيل جهازك ويجب إلغاء قفله باستخدام خيار سلسلة من الاتجاهات. يمكنك استخدام بيانات مقاييسك الحيوية في المرة المقبلة التي تقوم فيها بإلغاء قفل جهازك.</string>
     <string name="kg_tablet_multi_direction_restart_instructions">تمت إعادة تشغيل جهازك ويجب إلغاء قفله باستخدام خيار سلسلة من الاتجاهات. يمكنك استخدام بيانات مقاييسك الحيوية في المرة المقبلة التي تقوم فيها بإلغاء قفل جهازك.</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">تمت إعادة تشغيل جهازك وهو بحاجة إلى إلغاء القفل باستخدام سلسلة الاتجاهات الخاصة بك. يمكنك استخدام بصمات أصابعك في المرة القادمة التي تقوم فيها بإلغاء قفل جهازك.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">تمت إعادة تشغيل هاتفك وهو بحاجة إلى إلغاء قفله باستخدام سلسلة من الاتجاهات. يمكنك استخدام بصمة أصابعك في المرة القادمة التي تقوم فيها بإلغاء قفل هاتفك.</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">تمت إعادة تشغيل جهازك وهو بحاجة إلى إلغاء القفل باستخدام سلسلة الاتجاهات الخاصة بك. يمكنك استخدام بصمات أصابعك في المرة القادمة التي تقوم فيها بإلغاء قفل جهازك.</string>
     <string name="kg_none_iris_direction_restart_instructions">تمت إعادة تشغيل جهازك وهو بحاجة إلى إلغاء القفل باستخدام سلسلة الاتجاهات الخاصة بك. يمكنك استخدام بصمة عينيك في المرة القادمة التي تقوم فيها بإلغاء قفل جهازك.</string>
     <string name="kg_tablet_iris_direction_restart_instructions">تمت إعادة تشغيل جهازك وهو بحاجة إلى إلغاء القفل باستخدام سلسلة الاتجاهات الخاصة بك. يمكنك استخدام بصمة عينيك في المرة القادمة التي تقوم فيها بإلغاء قفل جهازك.</string>
@@ -2009,6 +2017,9 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="recents_help_dlg_split_icon_desc">انقر فوق رمز تقسيم الشاشة على شريط العنوان الخاص بإطار التطبيق لفتح التطبيقات في عرض تقسيم الشاشة. يتم عرض هذا الرمز عندما يدعم التطبيق عرض الإطارات المتعددة.</string>
     <string name="recents_help_dlg_long_click_recents_key_text">اضغط مع الاستمرار على مفتاح التطبيقات الأخيرة أثناء استخدام تطبيق في عرض ملء الشاشة للتغيير إلى عرض تقسيم الشاشة.</string>
     <string name="recents_help_dlg_home_key_in_split_text">إذا عمدت إلى الضغط على مفتاح الشاشة الرئيسية أثناء استخدام عرض تقسيم الشاشة، فسيتم تصغير التطبيق المعروض في نصف الشاشة العلوي. إذا فتحت تطبيقاً من الشاشة الرئيسية عندما يكون شريط الحالة باللون الأزرق، فسيفتح التطبيق في عرض تقسيم الشاشة في نصف الشاشة السفلي.</string>
+    <string name="battery_low_sec_body_in_normal_mode">اشحن جهازك أو انقر هنا لتفعيل ”وضع توفير الطاقة“.</string>
+    <string name="battery_low_sec_body_in_ups_mode">قم بتوصيل جهازك بشاحن.</string>
+    <string name="battery_saver_recommend_notification_text">اشحن جهازك أو انقر هنا لتفعيل ”وضع توفير الطاقة“.</string>
     <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
 
 If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>

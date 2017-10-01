@@ -4,11 +4,11 @@
 
 
 # static fields
-.field public static final icon_frame:I = 0x7f1302b0
+.field public static final icon_frame:I = 0x7f1302b1
 
-.field public static final spinner:I = 0x7f1302b1
+.field public static final spinner:I = 0x7f1302b2
 
-.field public static final switchWidget:I = 0x7f1302b5
+.field public static final switchWidget:I = 0x7f1302b6
 
 
 # direct methods

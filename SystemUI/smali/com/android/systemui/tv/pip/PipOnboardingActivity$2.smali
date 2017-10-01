@@ -36,7 +36,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/tv/pip/PipOnboardingActivity$2;->this$0:Lcom/android/systemui/tv/pip/PipOnboardingActivity;
 
-    const v2, 0x7f130402
+    const v2, 0x7f130403
 
     invoke-virtual {v1, v2}, Lcom/android/systemui/tv/pip/PipOnboardingActivity;->findViewById(I)Landroid/view/View;
 

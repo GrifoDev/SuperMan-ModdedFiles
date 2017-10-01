@@ -170,39 +170,6 @@
 
 
 # virtual methods
-.method protected composeChangeAnnouncement()Ljava/lang/String;
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mState:Lcom/android/systemui/qs/QSTile$State;
-
-    check-cast v0, Lcom/android/systemui/qs/QSTile$BooleanState;
-
-    iget-boolean v0, v0, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
-
-    const v1, 0x7f0f0316
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
-
-    const v1, 0x7f0f0315
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
 .method public getDetailAdapter()Lcom/android/systemui/qs/QSTile$DetailAdapter;
     .locals 1
 
@@ -461,7 +428,7 @@
 
     if-eqz v1, :cond_4
 
-    const v6, 0x7f0201aa
+    const v6, 0x7f0201ab
 
     invoke-static {v6}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 
@@ -546,7 +513,7 @@
 
     :cond_1
     :goto_2
-    const v6, 0x7f020379
+    const v6, 0x7f02037c
 
     invoke-static {v6}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 
@@ -655,7 +622,7 @@
     :cond_4
     if-eqz v2, :cond_5
 
-    const v6, 0x7f0201ab
+    const v6, 0x7f0201ac
 
     invoke-static {v6}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 
@@ -714,7 +681,7 @@
     goto/16 :goto_1
 
     :cond_5
-    const v6, 0x7f0201ae
+    const v6, 0x7f0201af
 
     invoke-static {v6}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 
@@ -799,7 +766,7 @@
     goto/16 :goto_1
 
     :cond_6
-    const v6, 0x7f0201ad
+    const v6, 0x7f0201ae
 
     invoke-static {v6}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 

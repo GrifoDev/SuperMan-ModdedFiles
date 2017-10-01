@@ -952,6 +952,7 @@ Wi-Fi 전화를 사용할 수 있는 경우 상태표시줄에 Wi-Fi 전화 아�
     <string name="quick_settings_dual_label_content_description">%s, 버튼 라벨, 해당 설정과 관련된 항목을 보려면 두 번 누르세요.</string>
     <string name="accessibility_button">버튼</string>
     <string name="quick_settings_brightness_auto_brightness">자동 밝기</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">주변 밝기에 따라 화면 밝기를 자동으로 조절합니다.</string>
     <string name="quick_settings_brightness_quick_access">알림창에 조절창 표시</string>
     <string name="quick_settings_brightness_quick_access_summary">알림창에 밝기 조절창을 표시합니다.</string>
     <string name="quick_settings_brightness_detail_level">단계</string>
@@ -1272,6 +1273,7 @@ VPN에 연결되어 있으므로 VPN 업체에서 이메일, 앱, 웹사이트�
     <string name="keyboard_shortcut_group_system_notifications">알림</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">단축키</string>
     <string name="keyboard_shortcut_group_system_switch_input">입력 방법 전환</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">언어 변경</string>
     <string name="keyboard_shortcut_group_applications">애플리케이션</string>
     <string name="keyboard_shortcut_group_applications_assist">지원</string>
     <string name="keyboard_shortcut_group_applications_browser">브라우저</string>
@@ -1477,8 +1479,10 @@ VPN에 연결되어 있으므로 VPN 업체에서 이메일, 앱, 웹사이트�
     <string name="safe_mode_alert_body_vzw">안전 모드를 해제하기 위해 휴대전화를 다시 시작할까요? 모든 앱을 복원합니다.</string>
     <string name="safe_mode_alert_positive_button_vzw">안전 모드 해제</string>
     <string name="battery_low_sec_title">배터리 잔량 %d%%</string>
-    <string name="battery_low_sec_body_in_normal_mode">디바이스를 충전하거나 여기를 눌러 절전 모드를 실행하세요.</string>
-    <string name="battery_low_sec_body_in_ups_mode">디바이스를 충전기에 연결하세요.</string>
+    <string name="battery_low_sec_body_phone">휴대전화를 충전하거나 여기를 눌러 절전 모드를 실행하세요.</string>
+    <string name="battery_low_sec_body_tablet">태블릿을 충전하거나 여기를 눌러 절전 모드를 실행하세요.</string>
+    <string name="battery_low_sec_body_phone_psm">휴대전화를 충전하세요.</string>
+    <string name="battery_low_sec_body_tablet_psm">태블릿을 충전하세요.</string>
     <string name="battery_cable_charging_title">유선 충전</string>
     <string name="battery_charging_title">충전 중</string>
     <string name="battery_fast_charging_title">스마트 고속 충전</string>
@@ -1497,7 +1501,10 @@ VPN에 연결되어 있으므로 VPN 업체에서 이메일, 앱, 웹사이트�
     <string name="battery_saver_notification_text_time_extend">배터리 사용 가능 시간이 증가했습니다.</string>
     <string name="button_detail">상세정보</string>
     <string name="battery_saver_recommend_notification_title">배터리 잔량 %d%%</string>
-    <string name="battery_saver_recommend_notification_text">디바이스를 충전하거나 여기를 눌러 절전 모드를 실행하세요.</string>
+    <string name="battery_saver_recommend_notification_text_phone">휴대전화를 충전하거나 여기를 눌러 절전 모드를 실행하세요.</string>
+    <string name="battery_saver_recommend_notification_text_tablet">태블릿을 충전하거나 여기를 눌러 절전 모드를 실행하세요.</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">휴대전화를 충전하세요.</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">태블릿을 충전하세요.</string>
     <string name="button_close">닫기</string>
     <string name="battery_health_interruption_title">충전할 수 없음</string>
     <string name="battery_health_interruption_by_terminal_open_text">디바이스를 충전할 수 없습니다. 배터리 및 충전기가 삼성 호환 제품인지, 디바이스와 충전기가 바르게 연결되어 있는지 확인하세요.</string>
@@ -1587,6 +1594,7 @@ upscaler"</string>
     <string name="assistance_app_setting_item_none">설정 안 함</string>
     <string name="no_sim_notification_title_cct">인식된 SIM 카드 없음</string>
     <string name="no_sim_notification_text_cct">XFINITY 모바일 SIM 카드를 삽입하세요. 자세히 확인하려면 xfinitymobile.com/activate에 방문하거나 888-936-4968에 전화하세요.</string>
+    <string name="remote_input_send_text">보내기</string>
     <string name="accessibility_camera_button_nexti">카메라</string>
     <string name="accessibility_phone_icon_nexti">전화</string>
     <string name="accessibility_unlock_button_nexti">잠금해제</string>
@@ -1854,7 +1862,7 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="kg_none_direction_shutdown_instructions">전원을 끄려면 방향 조합을 그리세요</string>
     <string name="kg_none_multi_pin_restart_instructions">디바이스를 다시 시작하여 PIN으로 잠금을 해제해야 합니다. 다음 휴대전화 잠금 해제 시에 생체 인식을 사용할 수 있습니다.</string>
     <string name="kg_tablet_multi_pin_restart_instructions">디바이스를 다시 시작하여 PIN으로 잠금을 해제해야 합니다. 다음 휴대전화 잠금 해제 시에 생체 인식을 사용할 수 있습니다.</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">디바이스를 다시 시작하여 PIN으로 잠금을 해제해야 합니다. 지문 인식은 다음 번에 잠금을 해제할 때부터 사용할 수 있습니다.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">휴대전화를 다시 시작하여 PIN으로 잠금을 해제해야 합니다. 지문 인식은 다음 번에 잠금을 해제할 때부터 사용할 수 있습니다.</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">디바이스를 다시 시작하여 PIN으로 잠금을 해제해야 합니다. 다음 디바이스 잠금 해제 시에 지문 인식을 사용할 수 있습니다.</string>
     <string name="kg_none_iris_pin_restart_instructions">디바이스를 다시 시작하여 PIN으로 잠금을 해제해야 합니다. 다음 디바이스 잠금 해제 시에 홍채 인식을 사용할 수 있습니다.</string>
     <string name="kg_tablet_iris_pin_restart_instructions">디바이스를 다시 시작하여 PIN으로 잠금을 해제해야 합니다. 다음 디바이스 잠금 해제 시에 홍채 인식을 사용할 수 있습니다.</string>
@@ -1884,7 +1892,7 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="kg_none_iris_pattern_deviceadmin_instructions">보안정책에 따라 홍채 인식 대신 패턴을 그리세요</string>
     <string name="kg_none_multi_password_restart_instructions">디바이스를 다시 시작하여 비밀번호로 잠금을 해제해야 합니다. 다음 디바이스 잠금 해제 시에 생체 인식을 사용할 수 있습니다.</string>
     <string name="kg_tablet_multi_password_restart_instructions">디바이스를 다시 시작하여 비밀번호로 잠금을 해제해야 합니다. 다음 디바이스 잠금 해제 시에 생체 인식을 사용할 수 있습니다.</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">디바이스를 다시 시작하여 비밀번호로 잠금을 해제해야 합니다. 다음 디바이스 잠금 해제 시에 지문 인식을 사용할 수 있습니다.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">휴대전화를 다시 시작하여 비밀번호로 잠금을 해제해야 합니다. 지문 인식은 다음 번에 잠금을 해제할 때부터 사용할 수 있습니다.</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">디바이스를 다시 시작하여 비밀번호로 잠금을 해제해야 합니다. 다음 디바이스 잠금 해제 시에 지문 인식을 사용할 수 있습니다.</string>
     <string name="kg_none_iris_password_restart_instructions">디바이스를 다시 시작하여 비밀번호로 잠금을 해제해야 합니다. 다음 디바이스 잠금 해제 시에 홍채 인식을 사용할 수 있습니다.</string>
     <string name="kg_tablet_iris_password_restart_instructions">디바이스를 다시 시작하여 비밀번호로 잠금을 해제해야 합니다. 다음 디바이스 잠금 해제 시에 홍채 인식을 사용할 수 있습니다.</string>
@@ -1899,7 +1907,7 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="kg_none_iris_password_deviceadmin_instructions">보안정책에 따라 홍채 인식 대신 비밀번호를 입력하세요</string>
     <string name="kg_none_multi_direction_restart_instructions">디바이스를 다시 시작하여 방향 조합으로 잠금을 해제해야 합니다. 다음 휴대전화 잠금 해제 시에 생체 인식을 사용할 수 있습니다.</string>
     <string name="kg_tablet_multi_direction_restart_instructions">디바이스를 다시 시작하여 방향 조합으로 잠금을 해제해야 합니다. 다음 휴대전화 잠금 해제 시에 생체 인식을 사용할 수 있습니다.</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">디바이스를 다시 시작하여 방향 조합으로 잠금을 해제해야 합니다. 다음 디바이스 잠금 해제 시에 지문 인식을 사용할 수 있습니다.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">휴대전화를 다시 시작하여 방향 조합으로 잠금을 해제해야 합니다. 지문 인식은 다음 번에 잠금을 해제할 때부터 사용할 수 있습니다.</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">디바이스를 다시 시작하여 방향 조합으로 잠금을 해제해야 합니다. 다음 디바이스 잠금 해제 시에 지문 인식을 사용할 수 있습니다.</string>
     <string name="kg_none_iris_direction_restart_instructions">디바이스를 다시 시작하여 방향 조합으로 잠금을 해제해야 합니다. 다음 디바이스 잠금 해제 시에 홍채 인식을 사용할 수 있습니다.</string>
     <string name="kg_tablet_iris_direction_restart_instructions">디바이스를 다시 시작하여 방향 조합으로 잠금을 해제해야 합니다. 다음 디바이스 잠금 해제 시에 홍채 인식을 사용할 수 있습니다.</string>
@@ -2030,6 +2038,9 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="recents_help_dlg_split_icon_desc">분할 화면으로 앱을 실행하려면 앱 창의 제목표시줄에서 분할 화면 아이콘을 누르세요. 이 아이콘은 멀티윈도우 기능이 지원되는 앱에서만 표시됩니다.</string>
     <string name="recents_help_dlg_long_click_recents_key_text">전체 화면으로 사용 중인 앱을 분할 화면 보기로 변경하려면 최근 앱 버튼을 길게 누르세요.</string>
     <string name="recents_help_dlg_home_key_in_split_text">분할 화면 사용 중 홈 버튼을 누르면 화면 상단에 표시된 앱이 최소화됩니다. 상태표시줄이 파란색일 때 홈 화면에서 앱을 실행하면 분할 화면 하단에서 실행됩니다.</string>
+    <string name="battery_low_sec_body_in_normal_mode">디바이스를 충전하거나 여기를 눌러 절전 모드를 실행하세요.</string>
+    <string name="battery_low_sec_body_in_ups_mode">디바이스를 충전기에 연결하세요.</string>
+    <string name="battery_saver_recommend_notification_text">디바이스를 충전하거나 여기를 눌러 절전 모드를 실행하세요.</string>
     <string name="kg_none_direction_1_frpt">"다음 번에 방향 조합을 잘못 입력하면 휴대전화가 자동으로 초기화되고 저장된 모든 정보가 삭제됩니다.
 
 휴대전화가 초기화되면 휴대전화를 다시 사용할 수 있도록 Google 계정 정보(이메일 주소 및 비밀번호)를 다시 입력해야 할 수도 있습니다."</string>

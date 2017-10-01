@@ -347,7 +347,7 @@
 .method public createDetailView(Landroid/content/Context;Landroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 6
 
-    const v5, 0x7f0201ac
+    const v5, 0x7f0201ad
 
     const/4 v4, 0x0
 
@@ -363,7 +363,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0400ee
+    const v2, 0x7f0400ef
 
     const/4 v3, 0x0
 
@@ -371,7 +371,7 @@
 
     move-result-object p2
 
-    const v1, 0x7f1302c2
+    const v1, 0x7f1302c3
 
     invoke-virtual {p2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -395,7 +395,7 @@
 
     invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
-    const v1, 0x7f1302c3
+    const v1, 0x7f1302c4
 
     invoke-virtual {p2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -438,7 +438,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
-    const v1, 0x7f1302c4
+    const v1, 0x7f1302c5
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -856,7 +856,7 @@
     const v1, 0x7f0f036c
 
     :goto_1
-    const v3, 0x7f0201ac
+    const v3, 0x7f0201ad
 
     invoke-virtual {v2, v3, v1}, Lcom/android/systemui/qs/QSDetailItems;->setEmptyState(II)V
 

@@ -168,17 +168,17 @@
 
     new-instance v0, Lcom/android/systemui/qs/QSTile$AnimationIcon;
 
-    const v2, 0x7f020389
+    const v2, 0x7f02038c
 
-    const v3, 0x7f020399
+    const v3, 0x7f02039c
 
     const v4, 0x7f0b00fa
 
     const v5, 0x7f0b00f9
 
-    const v6, 0x7f0c007d
+    const v6, 0x7f0c007f
 
-    const v7, 0x7f0c007c
+    const v7, 0x7f0c007e
 
     move-object v1, p0
 
@@ -188,17 +188,17 @@
 
     new-instance v0, Lcom/android/systemui/qs/QSTile$AnimationIcon;
 
-    const v2, 0x7f02037d
+    const v2, 0x7f020380
 
-    const v3, 0x7f020388
+    const v3, 0x7f02038b
 
     const v4, 0x7f0b00f9
 
     const v5, 0x7f0b00fa
 
-    const v6, 0x7f0c007c
+    const v6, 0x7f0c007e
 
-    const v7, 0x7f0c007d
+    const v7, 0x7f0c007f
 
     move-object v1, p0
 
@@ -483,7 +483,7 @@
 
     invoke-direct {v1, v4}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    const v4, 0x7f02056a
+    const v4, 0x7f02056d
 
     invoke-virtual {v1, v4}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
@@ -560,39 +560,6 @@
 
 
 # virtual methods
-.method protected composeChangeAnnouncement()Ljava/lang/String;
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/FlashlightTile;->mState:Lcom/android/systemui/qs/QSTile$State;
-
-    check-cast v0, Lcom/android/systemui/qs/QSTile$BooleanState;
-
-    iget-boolean v0, v0, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/FlashlightTile;->mContext:Landroid/content/Context;
-
-    const v1, 0x7f0f0323
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/FlashlightTile;->mContext:Landroid/content/Context;
-
-    const v1, 0x7f0f0322
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
 .method public getDetailAdapter()Lcom/android/systemui/qs/QSTile$DetailAdapter;
     .locals 1
 
@@ -889,7 +856,7 @@
 
     if-eqz v2, :cond_3
 
-    const v2, 0x7f020388
+    const v2, 0x7f02038b
 
     invoke-static {v2}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 

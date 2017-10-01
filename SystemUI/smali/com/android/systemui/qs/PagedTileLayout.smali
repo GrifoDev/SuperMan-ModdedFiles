@@ -245,7 +245,7 @@
 
     move-result-object v5
 
-    const v7, 0x7f0400fd
+    const v7, 0x7f0400fe
 
     invoke-virtual {v5, v7, p0, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -641,7 +641,7 @@
 
     invoke-super {p0}, Landroid/support/v4/view/ViewPager;->onFinishInflate()V
 
-    const v0, 0x7f13022e
+    const v0, 0x7f13022f
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/PagedTileLayout;->findViewById(I)Landroid/view/View;
 
@@ -651,7 +651,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/PagedTileLayout;->mPageIndicator:Lcom/android/systemui/qs/PageIndicator;
 
-    const v0, 0x7f1302dc
+    const v0, 0x7f1302dd
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/PagedTileLayout;->findViewById(I)Landroid/view/View;
 
@@ -679,7 +679,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0400fd
+    const v2, 0x7f0400fe
 
     const/4 v3, 0x0
 

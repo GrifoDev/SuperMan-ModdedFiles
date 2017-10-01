@@ -108,7 +108,7 @@
 
     const-string/jumbo v5, "tuner"
 
-    const v6, 0x7f130218
+    const v6, 0x7f130219
 
     invoke-virtual {v4, v6, v1, v5}, Landroid/app/FragmentTransaction;->replace(ILandroid/app/Fragment;Ljava/lang/String;)Landroid/app/FragmentTransaction;
 
@@ -173,7 +173,7 @@
 
     invoke-virtual {p0, v4}, Lcom/android/systemui/tuner/TunerActivity;->setTitle(Ljava/lang/CharSequence;)V
 
-    const v4, 0x7f130218
+    const v4, 0x7f130219
 
     invoke-virtual {v3, v4, v2}, Landroid/app/FragmentTransaction;->replace(ILandroid/app/Fragment;)Landroid/app/FragmentTransaction;
 
@@ -240,7 +240,7 @@
 
     invoke-virtual {v1, p1, v3}, Lcom/android/systemui/tuner/TunerActivity$SubSettingsFragment;->setTargetFragment(Landroid/app/Fragment;I)V
 
-    const v3, 0x7f130218
+    const v3, 0x7f130219
 
     invoke-virtual {v2, v3, v1}, Landroid/app/FragmentTransaction;->replace(ILandroid/app/Fragment;)Landroid/app/FragmentTransaction;
 

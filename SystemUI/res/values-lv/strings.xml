@@ -957,6 +957,7 @@ Kad pakalpojums ir pieejams, paziņojumu panelī ir redzama Wi-Fi zvanu ikona, k
     <string name="quick_settings_dual_label_content_description">%s, pogas apzīmējums, veiciet dubultskārienu, lai skatītu saistītos ātros iestatījumus.</string>
     <string name="accessibility_button">Poga</string>
     <string name="quick_settings_brightness_auto_brightness">Automātisks spilgtums</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">Automātiski pielāgojiet ekrāna spilgtumu atbilstoši apgaismojuma apstākļiem.</string>
     <string name="quick_settings_brightness_quick_access">Rādīt vadīklu augšdaļā</string>
     <string name="quick_settings_brightness_quick_access_summary">Parādiet spilgtuma vadīklu virs paziņojumu paneļa.</string>
     <string name="quick_settings_brightness_detail_level">Līmenis</string>
@@ -1277,6 +1278,7 @@ Lai iegūtu plašāku informāciju, sazinieties ar administratoru."</string>
     <string name="keyboard_shortcut_group_system_notifications">Paziņojumi</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">Īsinājumtaustiņi</string>
     <string name="keyboard_shortcut_group_system_switch_input">Pārslēgt ievades metodi</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">Valodu pārslēgšana</string>
     <string name="keyboard_shortcut_group_applications">Lietojumprogrammas</string>
     <string name="keyboard_shortcut_group_applications_assist">Palīgs</string>
     <string name="keyboard_shortcut_group_applications_browser">Pārlūkprogramma</string>
@@ -1480,8 +1482,10 @@ Pārkaršanu var izraisīt:
     <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
     <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
     <string name="battery_low_sec_title">Akum. uzlād. līmenis %d%%</string>
-    <string name="battery_low_sec_body_in_normal_mode">Uzlādējiet ierīci vai pieskarieties šeit, lai aktivizētu enerģijas taupīšanas režīmu.</string>
-    <string name="battery_low_sec_body_in_ups_mode">Savienojiet ierīci ar lādētāju.</string>
+    <string name="battery_low_sec_body_phone">Uzlādējiet tālruni vai pieskarieties šeit, lai ieslēgtu enerģijas taupīšanas režīmu.</string>
+    <string name="battery_low_sec_body_tablet">Uzlādējiet planšetdatoru vai pieskarieties šeit, lai ieslēgtu enerģijas taupīšanas režīmu.</string>
+    <string name="battery_low_sec_body_phone_psm">Uzlādējiet tālruni.</string>
+    <string name="battery_low_sec_body_tablet_psm">Uzlādējiet planšetdat.</string>
     <string name="battery_cable_charging_title">Uzlāde ar kabeli</string>
     <string name="battery_charging_title">Uzlāde</string>
     <string name="battery_fast_charging_title">Ātrā uzlāde</string>
@@ -1500,7 +1504,10 @@ Pārkaršanu var izraisīt:
     <string name="battery_saver_notification_text_time_extend">Akumulatora darbības laiks ir pagarināts.</string>
     <string name="button_detail">Dati</string>
     <string name="battery_saver_recommend_notification_title">Akum. uzlād. līmenis %d%%</string>
-    <string name="battery_saver_recommend_notification_text">Uzlādējiet ierīci vai pieskarieties šeit, lai aktivizētu enerģijas taupīšanas režīmu.</string>
+    <string name="battery_saver_recommend_notification_text_phone">Uzlādējiet tālruni vai pieskarieties šeit, lai ieslēgtu enerģijas taupīšanas režīmu.</string>
+    <string name="battery_saver_recommend_notification_text_tablet">Uzlādējiet planšetdatoru vai pieskarieties šeit, lai ieslēgtu enerģijas taupīšanas režīmu.</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">Uzlādējiet tālruni.</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">Uzlādējiet planšetdat.</string>
     <string name="button_close">Aizvērt</string>
     <string name="battery_health_interruption_title">Nevar uzlādēt</string>
     <string name="battery_health_interruption_by_terminal_open_text">Nevar uzlādēt jūsu ierīci. Pārliecinieties, ka jūs lietojat ar Samsung savietojamu akumulatoru un lādētāju un ka jūsu ierīce ir pareizi savienota ar lādētāju.</string>
@@ -1589,6 +1596,7 @@ upscaler"</string>
     <string name="uhq_mode_noti_text">Uzlabojiet mūzikas un videoklipu skaņas izšķirtspēju, lai nodrošinātu skaidrāku skaņu.</string>
     <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
     <string name="assistance_app_setting_item_none">Nav</string>
+    <string name="remote_input_send_text">Sūtīt</string>
     <string name="remote_input_toast_text_on_sview_cover">Ātrās atbildes funkciju nevar izmantot, ja S View vāks ir aizvērts.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -1844,7 +1852,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_direction_shutdown_instructions">Lai izslēgtu, uzvelciet virzienu sēriju</string>
     <string name="kg_none_multi_pin_restart_instructions">Ierīce tika restartēta un ir jāatbloķē ar PIN kodu. Nākamreiz ierīces atbloķēšanai varēsit izmantot biometriju.</string>
     <string name="kg_tablet_multi_pin_restart_instructions">Ierīce tika restartēta un ir jāatbloķē ar PIN kodu. Nākamreiz ierīces atbloķēšanai varēsit izmantot biometriju.</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">Ierīce tika restartēta un ir jāatbloķē ar PIN kodu. Nākamreiz ierīces atbloķēšanai varēsit izmantot pirkstu nospiedumus.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">Jūsu tālrunis tika restartēts, un tas ir jāatbloķē, izmantojot PIN kodu. Nākamreiz tālruņa atbloķēšanai varēsit izmantot pirkstu nospiedumus.</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">Ierīce tika restartēta un ir jāatbloķē ar PIN kodu. Nākamreiz ierīces atbloķēšanai varēsit izmantot pirkstu nospiedumus.</string>
     <string name="kg_none_iris_pin_restart_instructions">Ierīce tika restartēta un ir jāatbloķē ar PIN kodu. Nākamreiz ierīces atbloķēšanai varēsit izmantot varavīksneni.</string>
     <string name="kg_tablet_iris_pin_restart_instructions">Ierīce tika restartēta un ir jāatbloķē ar PIN kodu. Nākamreiz ierīces atbloķēšanai varēsit izmantot varavīksneni.</string>
@@ -1874,7 +1882,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pattern_deviceadmin_instructions">Drošības politikas dēļ uzvelciet figūru, nevis izmantojiet varavīksnenes atpazīšanu</string>
     <string name="kg_none_multi_password_restart_instructions">Jūsu ierīce tika restartēta un tā ir jāatbloķē, izmantojot paroli. Nākamreiz ierīces atbloķēšanai varēsit izmantot biometrijas datus.</string>
     <string name="kg_tablet_multi_password_restart_instructions">Jūsu ierīce tika restartēta un tā ir jāatbloķē, izmantojot paroli. Nākamreiz ierīces atbloķēšanai varēsit izmantot biometrijas datus.</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">Ierīce tika restartēta un ir jāatbloķē ar paroli. Nākamreiz ierīces atbloķēšanai varēsit izmantot pirkstu nospiedumus.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">Jūsu tālrunis tika restartēts, un tas ir jāatbloķē, izmantojot paroli. Nākamreiz tālruņa atbloķēšanai varēsit izmantot pirkstu nospiedumus.</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">Ierīce tika restartēta un ir jāatbloķē ar paroli. Nākamreiz ierīces atbloķēšanai varēsit izmantot pirkstu nospiedumus.</string>
     <string name="kg_none_iris_password_restart_instructions">Ierīce tika restartēta un ir jāatbloķē ar paroli. Nākamreiz ierīces atbloķēšanai varēsit izmantot varavīksneni.</string>
     <string name="kg_tablet_iris_password_restart_instructions">Ierīce tika restartēta un ir jāatbloķē ar paroli. Nākamreiz ierīces atbloķēšanai varēsit izmantot varavīksneni.</string>
@@ -1889,7 +1897,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_password_deviceadmin_instructions">Drošības politikas dēļ ievadiet paroli, nevis izmantojiet varavīksnenes atpazīšanu</string>
     <string name="kg_none_multi_direction_restart_instructions">Ierīce tika restartēta un ir jāatbloķē ar virzienu sēriju. Nākamreiz ierīces atbloķēšanai varēsit izmantot biometriju.</string>
     <string name="kg_tablet_multi_direction_restart_instructions">Ierīce tika restartēta un ir jāatbloķē ar virzienu sēriju. Nākamreiz ierīces atbloķēšanai varēsit izmantot biometriju.</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">Ierīce tika restartēta un ir jāatbloķē ar virzienu sēriju. Nākamreiz ierīces atbloķēšanai varēsit izmantot pirkstu nospiedumus.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">Jūsu tālrunis tika restartēts, un tas ir jāatbloķē ar virzienu sēriju. Nākamreiz tālruņa atbloķēšanai varēsit izmantot pirkstu nospiedumus.</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">Ierīce tika restartēta un ir jāatbloķē ar virzienu sēriju. Nākamreiz ierīces atbloķēšanai varēsit izmantot pirkstu nospiedumus.</string>
     <string name="kg_none_iris_direction_restart_instructions">Ierīce tika restartēta un ir jāatbloķē ar virzienu sēriju. Nākamreiz ierīces atbloķēšanai varēsit izmantot varavīksneni.</string>
     <string name="kg_tablet_iris_direction_restart_instructions">Ierīce tika restartēta un ir jāatbloķē ar virzienu sēriju. Nākamreiz ierīces atbloķēšanai varēsit izmantot varavīksneni.</string>
@@ -2011,6 +2019,9 @@ Mēģiniet vēlreiz pēc 1 sekundes"</string>
     <string name="recents_help_dlg_split_icon_desc">Pieskarieties dalītā ekrāna ikonai programmas loga nosaukuma joslā, lai programmas atvērtu dalītā ekrāna skatā. Šī ikona tiek rādīta, ja programma atbalsta vairāklogu funkciju.</string>
     <string name="recents_help_dlg_long_click_recents_key_text">Nospiediet un turiet pēdējo lietoto programmu taustiņu, kad lietojat programmu pilnekrāna skatā, lai pārslēgtos uz dalītā ekrāna skatu.</string>
     <string name="recents_help_dlg_home_key_in_split_text">Ja laikā, kad izmantojat dalītā ekrāna skatu, nospiedīsit sākuma taustiņu, ekrāna augšdaļā parādītā programma tiks minimizēta. Ja atvērsit programmu no sākuma ekrāna, kad statusa josla ir zilā krāsā, programma tiks atvērta dalītā ekrāna skatā ekrāna apakšdaļā.</string>
+    <string name="battery_low_sec_body_in_normal_mode">Uzlādējiet ierīci vai pieskarieties šeit, lai aktivizētu enerģijas taupīšanas režīmu.</string>
+    <string name="battery_low_sec_body_in_ups_mode">Savienojiet ierīci ar lādētāju.</string>
+    <string name="battery_saver_recommend_notification_text">Uzlādējiet ierīci vai pieskarieties šeit, lai aktivizētu enerģijas taupīšanas režīmu.</string>
     <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
 
 If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>

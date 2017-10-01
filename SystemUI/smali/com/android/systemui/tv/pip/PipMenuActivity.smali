@@ -67,7 +67,7 @@
 
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    const v0, 0x7f04016c
+    const v0, 0x7f04016d
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/tv/pip/PipMenuActivity;->setContentView(I)V
 
@@ -79,7 +79,7 @@
 
     iput-boolean v0, p0, Lcom/android/systemui/tv/pip/PipMenuActivity;->mRestorePipSizeWhenClose:Z
 
-    const v0, 0x7f1303ff
+    const v0, 0x7f130400
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/tv/pip/PipMenuActivity;->findViewById(I)Landroid/view/View;
 

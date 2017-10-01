@@ -38,73 +38,55 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$AppListItemDecoration;->this$0:Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;
 
-    iget v0, v0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;->mFreqAppCount:I
+    iget-object v0, v0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;->mAdapter:Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;
 
-    if-nez v0, :cond_2
+    invoke-virtual {v0, p2}, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->isHeaderPosition(I)Z
 
-    if-nez p2, :cond_1
+    move-result v0
 
-    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$AppListItemDecoration;->this$0:Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;
+    if-eqz v0, :cond_1
 
-    iget v0, v0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;->mOffsetTop:I
+    sget v0, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->INDEX_HEADER_RECOMMENDATION_APPS:I
+
+    if-ne p2, v0, :cond_0
+
+    invoke-static {}, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;->-get0()Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;
+
+    move-result-object v0
+
+    iget v0, v0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;->mOffsetTop:I
 
     iput v0, p1, Landroid/graphics/Rect;->top:I
 
-    :cond_0
     :goto_0
     iput v1, p1, Landroid/graphics/Rect;->left:I
 
     iput v1, p1, Landroid/graphics/Rect;->right:I
 
-    iput v1, p1, Landroid/graphics/Rect;->bottom:I
-
+    :goto_1
     return-void
 
-    :cond_1
-    const/4 v0, 0x1
-
-    if-ne p2, v0, :cond_0
-
+    :cond_0
     iput v1, p1, Landroid/graphics/Rect;->top:I
 
     goto :goto_0
 
-    :cond_2
-    if-nez p2, :cond_3
+    :cond_1
+    iput v1, p1, Landroid/graphics/Rect;->left:I
 
-    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$AppListItemDecoration;->this$0:Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;
+    iput v1, p1, Landroid/graphics/Rect;->top:I
 
-    iget v0, v0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;->mOffsetTop:I
+    iput v1, p1, Landroid/graphics/Rect;->right:I
 
-    iput v0, p1, Landroid/graphics/Rect;->top:I
+    invoke-static {}, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;->-get0()Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;
 
-    :goto_1
-    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$AppListItemDecoration;->this$0:Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;
+    move-result-object v0
 
-    iget v0, v0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;->mOffsetOthers:I
+    iget v0, v0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;->mOffsetGap:I
 
-    iput v0, p1, Landroid/graphics/Rect;->left:I
-
-    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$AppListItemDecoration;->this$0:Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;
-
-    iget v0, v0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;->mOffsetOthers:I
-
-    iput v0, p1, Landroid/graphics/Rect;->right:I
-
-    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$AppListItemDecoration;->this$0:Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;
-
-    iget v0, v0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;->mOffsetOthers:I
+    mul-int/lit8 v0, v0, 0x2
 
     iput v0, p1, Landroid/graphics/Rect;->bottom:I
-
-    return-void
-
-    :cond_3
-    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$AppListItemDecoration;->this$0:Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;
-
-    iget v0, v0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;->mOffsetOthers:I
-
-    iput v0, p1, Landroid/graphics/Rect;->top:I
 
     goto :goto_1
 .end method

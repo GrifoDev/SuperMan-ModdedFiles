@@ -181,15 +181,15 @@
 .method public constructor <init>(Landroid/content/Context;Landroid/view/View;Landroid/view/View;Lcom/android/systemui/statusbar/phone/PhoneStatusBar;)V
     .locals 11
 
-    const v8, 0x7f1303f0
+    const v8, 0x7f1303f1
 
-    const v7, 0x7f1303ef
+    const v7, 0x7f1303f0
 
-    const v6, 0x7f1303ee
+    const v6, 0x7f1303ef
 
-    const v5, 0x7f130391
+    const v5, 0x7f130392
 
-    const v4, 0x7f1303f2
+    const v4, 0x7f1303f3
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -229,7 +229,7 @@
 
     iput-object p4, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mPhoneStatusBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
-    const v2, 0x7f1303b7
+    const v2, 0x7f1303b8
 
     invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -239,7 +239,7 @@
 
     iput-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mSystemIconArea:Landroid/widget/LinearLayout;
 
-    const v2, 0x7f130467
+    const v2, 0x7f130468
 
     invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -299,7 +299,7 @@
 
     iput-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mNotificationIconAreaInner:Landroid/view/View;
 
-    const v2, 0x7f1303b6
+    const v2, 0x7f1303b7
 
     invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -369,7 +369,7 @@
 
     iput-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mKeyguardBatteryMeterView:Lcom/android/systemui/BatteryMeterView;
 
-    const v2, 0x7f1301d2
+    const v2, 0x7f1301d3
 
     invoke-virtual {p3, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -422,7 +422,7 @@
     iput-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mKeyguardTwoPhoneModeIcon:Landroid/widget/ImageView;
 
     :cond_2
-    const v2, 0x7f1303f1
+    const v2, 0x7f1303f2
 
     invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -432,7 +432,7 @@
 
     iput-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mBatteryText:Landroid/widget/TextView;
 
-    const v2, 0x7f1303f1
+    const v2, 0x7f1303f2
 
     invoke-virtual {p3, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -446,7 +446,7 @@
 
     if-eqz v2, :cond_3
 
-    const v2, 0x7f1303b5
+    const v2, 0x7f1303b6
 
     invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -457,7 +457,7 @@
     iput-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mStatusBarContents:Landroid/widget/LinearLayout;
 
     :cond_3
-    const v2, 0x7f1301aa
+    const v2, 0x7f1301ab
 
     invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -467,7 +467,7 @@
 
     iput-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mClock:Landroid/widget/TextView;
 
-    const v2, 0x7f130466
+    const v2, 0x7f130467
 
     invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -477,7 +477,7 @@
 
     iput-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mClockLeft:Landroid/widget/TextView;
 
-    const v2, 0x7f130465
+    const v2, 0x7f130466
 
     invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2887,7 +2887,7 @@
 .method public updateBatteryTextLevel(I)V
     .locals 7
 
-    const v6, 0x7f0f05fc
+    const v6, 0x7f0f05fd
 
     const/4 v5, 0x1
 

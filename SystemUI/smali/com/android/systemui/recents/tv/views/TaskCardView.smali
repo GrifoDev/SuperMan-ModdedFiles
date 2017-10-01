@@ -325,7 +325,7 @@
 .method private setThumbnailView()V
     .locals 7
 
-    const v4, 0x7f130329
+    const v4, 0x7f13032a
 
     invoke-virtual {p0, v4}, Lcom/android/systemui/recents/tv/views/TaskCardView;->findViewById(I)Landroid/view/View;
 
@@ -643,7 +643,7 @@
 
     invoke-super {p0}, Landroid/widget/LinearLayout;->onFinishInflate()V
 
-    const v1, 0x7f130328
+    const v1, 0x7f130329
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/recents/tv/views/TaskCardView;->findViewById(I)Landroid/view/View;
 
@@ -651,7 +651,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/recents/tv/views/TaskCardView;->mThumbnailView:Landroid/view/View;
 
-    const v1, 0x7f130323
+    const v1, 0x7f130324
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/recents/tv/views/TaskCardView;->findViewById(I)Landroid/view/View;
 
@@ -659,7 +659,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/recents/tv/views/TaskCardView;->mInfoFieldView:Landroid/view/View;
 
-    const v1, 0x7f130325
+    const v1, 0x7f130326
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/recents/tv/views/TaskCardView;->findViewById(I)Landroid/view/View;
 
@@ -669,7 +669,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/recents/tv/views/TaskCardView;->mTitleTextView:Landroid/widget/TextView;
 
-    const v1, 0x7f130324
+    const v1, 0x7f130325
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/recents/tv/views/TaskCardView;->findViewById(I)Landroid/view/View;
 
@@ -679,7 +679,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/recents/tv/views/TaskCardView;->mBadgeView:Landroid/widget/ImageView;
 
-    const v1, 0x7f130326
+    const v1, 0x7f130327
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/recents/tv/views/TaskCardView;->findViewById(I)Landroid/view/View;
 

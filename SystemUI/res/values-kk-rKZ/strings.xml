@@ -956,6 +956,7 @@ Wi-Fi қоңырау шалу белгішесі қызмет қолжетімд
     <string name="quick_settings_dual_label_content_description">%s, түйме белгісі, сәйкес жылдам параметрлерді көру үшін, екі рет түртіңіз.</string>
     <string name="accessibility_button">Түйме</string>
     <string name="quick_settings_brightness_auto_brightness">Автоматты жарықтық</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">Экранның жарықтығы жарықтың түсу жағдайларының негізінде автоматты түрде реттеледі.</string>
     <string name="quick_settings_brightness_quick_access">Басқару элем. жоғарыда көрсету</string>
     <string name="quick_settings_brightness_quick_access_summary">Жарықтықты басқару элементі хабарландыру тақтасының жоғарғы жағында көрсетіледі.</string>
     <string name="quick_settings_brightness_detail_level">Деңгей</string>
@@ -1276,6 +1277,7 @@ Wi-Fi қоңырау шалу белгішесі қызмет қолжетімд
     <string name="keyboard_shortcut_group_system_notifications">Хабарландырулар</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">Пернелер тіркесімдері</string>
     <string name="keyboard_shortcut_group_system_switch_input">Енгізу әдісін ауыстыру</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">Тілдерді ауыстыру</string>
     <string name="keyboard_shortcut_group_applications">Қолданбалар</string>
     <string name="keyboard_shortcut_group_applications_assist">Көмекші</string>
     <string name="keyboard_shortcut_group_applications_browser">Браузер</string>
@@ -1479,8 +1481,10 @@ Using your tablet in a very hot location."</string>
     <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
     <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
     <string name="battery_low_sec_title">Батарея қуаты: %d%%</string>
-    <string name="battery_low_sec_body_in_normal_mode">Құрылғыңызды зарядтаңыз немесе “Қуатты үнемдеу режимін” қосу үшін, осы жерді түртіңіз.</string>
-    <string name="battery_low_sec_body_in_ups_mode">Құрылғыңызды зарядтағышқа жалғаңыз.</string>
+    <string name="battery_low_sec_body_phone">Телефоныңызды зарядтаңыз немесе “Қуатты үнемдеу режимін” қосу үшін осы жерді түртіңіз.</string>
+    <string name="battery_low_sec_body_tablet">Планшетіңізді зарядтаңыз немесе “Қуатты үнемдеу режимін” қосу үшін осы жерді түртіңіз.</string>
+    <string name="battery_low_sec_body_phone_psm">Телефонды зарядтаңыз.</string>
+    <string name="battery_low_sec_body_tablet_psm">Планшетті зарядтаңыз.</string>
     <string name="battery_cable_charging_title">Кабель зарядталуда</string>
     <string name="battery_charging_title">Зарядтау</string>
     <string name="battery_fast_charging_title">Жылдам зарядтау</string>
@@ -1499,7 +1503,10 @@ Using your tablet in a very hot location."</string>
     <string name="battery_saver_notification_text_time_extend">Батареяның жұмыс уақыты ұзартылды.</string>
     <string name="button_detail">Мәлімет</string>
     <string name="battery_saver_recommend_notification_title">Батарея қуаты: %d%%</string>
-    <string name="battery_saver_recommend_notification_text">Құрылғыңызды зарядтаңыз немесе “Қуатты үнемдеу режимін” қосу үшін, осы жерді түртіңіз.</string>
+    <string name="battery_saver_recommend_notification_text_phone">Телефоныңызды зарядтаңыз немесе “Қуатты үнемдеу режимін” қосу үшін осы жерді түртіңіз.</string>
+    <string name="battery_saver_recommend_notification_text_tablet">Планшетіңізді зарядтаңыз немесе “Қуатты үнемдеу режимін” қосу үшін осы жерді түртіңіз.</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">Телефонды зарядтаңыз.</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">Планшетті зарядтаңыз.</string>
     <string name="button_close">Жабу</string>
     <string name="battery_health_interruption_title">Зарядтау мүмкін емес</string>
     <string name="battery_health_interruption_by_terminal_open_text">Құрылғыны зарядтау мүмкін емес. Samsung үйлесімді батарея мен зарядтағышты пайдаланыңыз және құрылғыңыздың зарядтағышқа дұрыс қосылғанын тексеріңіз.</string>
@@ -1588,6 +1595,7 @@ upscaler"</string>
     <string name="uhq_mode_noti_text">Анық тыңдау тәжірибесі үшін музыка мен бейнелердің дыбыс ажыратымдылығын жақсартыңыз.</string>
     <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
     <string name="assistance_app_setting_item_none">Жоқ</string>
+    <string name="remote_input_send_text">Жіберу</string>
     <string name="remote_input_toast_text_on_sview_cover">S view cover тысы жабық кезде “Жылдам жауап беру” функциясын пайдалану мүмкін емес.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -1843,7 +1851,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_direction_shutdown_instructions">Қуатты өшіру үшін бағыттардың бірдей тізбекті қосылысын сызу</string>
     <string name="kg_none_multi_pin_restart_instructions">Құрылғыңыз қайта іске қосылды және PIN код арқылы құлпын ашуды қажет етеді. Келесі жолы құрылғы құлпын ашқан кезде, биометрлік деректеріңізді пайдалана аласыз.</string>
     <string name="kg_tablet_multi_pin_restart_instructions">Құрылғыңыз қайта іске қосылды және PIN код арқылы құлпын ашуды қажет етеді. Келесі жолы құрылғы құлпын ашқан кезде, биометрлік деректеріңізді пайдалана аласыз.</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">Құрылғыңыз қайта іске қосылды және PIN код арқылы құлпын ашуды қажет етеді. Келесі жолы құрылғыңыздың құлпын ашқан кезде саусақ іздеріңізді пайдалана аласыз.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">Телефоныңыз қайта қосылды және оның құлпын PIN коды арқылы ашу қажет. Келесі жолы телефон құлпын ашқан кезде саусақ іздерін пайдалануға болады.</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">Құрылғыңыз қайта іске қосылды және PIN код арқылы құлпын ашуды қажет етеді. Келесі жолы құрылғыңыздың құлпын ашқан кезде саусақ іздеріңізді пайдалана аласыз.</string>
     <string name="kg_none_iris_pin_restart_instructions">Құрылғыңыз қайта іске қосылды және PIN код арқылы құлпын ашуды қажет етеді. Келесі жолы құрылғыңыздың құлпын ашқан кезде көзіңіздің қабықтарын пайдалана аласыз.</string>
     <string name="kg_tablet_iris_pin_restart_instructions">Құрылғыңыз қайта іске қосылды және PIN код арқылы құлпын ашуды қажет етеді. Келесі жолы құрылғыңыздың құлпын ашқан кезде көзіңіздің қабықтарын пайдалана аласыз.</string>
@@ -1873,7 +1881,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pattern_deviceadmin_instructions">Қауіпсіздік саясатына байланысты көздің қабығын тану әдісін пайдаланудың орнына үлгіні сызыңыз</string>
     <string name="kg_none_multi_password_restart_instructions">Құрылғыңыз қайта іске қосылды және құпиясөз арқылы құлпын ашуды қажет етеді. Келесі жолы құрылғы құлпын ашқан кезде, биометрлік деректеріңізді пайдалана аласыз.</string>
     <string name="kg_tablet_multi_password_restart_instructions">Құрылғыңыз қайта іске қосылды және құпиясөз арқылы құлпын ашуды қажет етеді. Келесі жолы құрылғы құлпын ашқан кезде, биометрлік деректеріңізді пайдалана аласыз.</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">Құрылғыңыз қайта іске қосылды және құпиясөз арқылы құлпын ашуды қажет етеді. Келесі жолы құрылғыңыздың құлпын ашқан кезде саусақ іздеріңізді пайдалана аласыз.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">Телефоныңыз қайта қосылды және оның құлпын құпиясөз арқылы ашу қажет. Келесі жолы телефон құлпын ашқан кезде саусақ іздерін пайдалануға болады.</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">Құрылғыңыз қайта іске қосылды және құпиясөз арқылы құлпын ашуды қажет етеді. Келесі жолы құрылғыңыздың құлпын ашқан кезде саусақ іздеріңізді пайдалана аласыз.</string>
     <string name="kg_none_iris_password_restart_instructions">Құрылғыңыз қайта іске қосылды және құпиясөз арқылы құлпын ашуды қажет етеді. Келесі жолы құрылғыңыздың құлпын ашқан кезде көзіңіздің қабықтарын пайдалана аласыз.</string>
     <string name="kg_tablet_iris_password_restart_instructions">Құрылғыңыз қайта іске қосылды және құпиясөз арқылы құлпын ашуды қажет етеді. Келесі жолы құрылғыңыздың құлпын ашқан кезде көзіңіздің қабықтарын пайдалана аласыз.</string>
@@ -1888,7 +1896,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_password_deviceadmin_instructions">Қауіпсіздік саясатына байланысты көздің қабығын тану әдісін пайдаланудың орнына құпиясөзді енгізіңіз</string>
     <string name="kg_none_multi_direction_restart_instructions">Құрылғыңыз қайта іске қосылды және бағыттардың бірдей тізбекті қосылысын пайдалану арқылы құлпын ашуды қажет етеді. Келесі жолы құрылғы құлпын ашқан кезде, биометрлік деректеріңізді пайдалана аласыз.</string>
     <string name="kg_tablet_multi_direction_restart_instructions">Құрылғыңыз қайта іске қосылды және бағыттардың бірдей тізбекті қосылысын пайдалану арқылы құлпын ашуды қажет етеді. Келесі жолы құрылғы құлпын ашқан кезде, биометрлік деректеріңізді пайдалана аласыз.</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">Құрылғыңыз қайта іске қосылды және бағыттардың бірдей тізбекті қосылысын пайдалану арқылы құлпын ашуды қажет етеді. Келесі жолы құрылғыңыздың құлпын ашқан кезде саусақ іздеріңізді пайдалана аласыз.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">Телефоныңыз қайта қосылды және оның құлпын бірнеше бағытты сызу арқылы ашу қажет. Келесі жолы телефон құлпын ашқан кезде саусақ іздерін пайдалануға болады.</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">Құрылғыңыз қайта іске қосылды және бағыттардың бірдей тізбекті қосылысын пайдалану арқылы құлпын ашуды қажет етеді. Келесі жолы құрылғыңыздың құлпын ашқан кезде саусақ іздеріңізді пайдалана аласыз.</string>
     <string name="kg_none_iris_direction_restart_instructions">Құрылғыңыз қайта іске қосылды және бағыттардың бірдей тізбекті қосылысын пайдалану арқылы құлпын ашуды қажет етеді. Келесі жолы құрылғыңыздың құлпын ашқан кезде көзіңіздің қабықтарын пайдалана аласыз.</string>
     <string name="kg_tablet_iris_direction_restart_instructions">Құрылғыңыз қайта іске қосылды және бағыттардың бірдей тізбекті қосылысын пайдалану арқылы құлпын ашуды қажет етеді. Келесі жолы құрылғыңыздың құлпын ашқан кезде көзіңіздің қабықтарын пайдалана аласыз.</string>
@@ -2007,6 +2015,9 @@ PIN код 4 пен 8 таңба аралығында болуы қажет."</s
     <string name="recents_help_dlg_split_icon_desc">Қолданбаларды бөлінген экран көрінісінде ашу үшін, қолданба терезесінің тақырып жолағындағы бөлінген экран белгішесін түртіңіз. Бұл белгіше қолданба “Көп терезе” функциясына қолдау көрсеткен кезде көрсетіледі.</string>
     <string name="recents_help_dlg_long_click_recents_key_text">Қолданбаны толық экран көрінісінде пайдалану кезінде оны бөлінген экран көрінісіне ауыстыру үшін, “Соңғылар” пернесін басып тұрыңыз.</string>
     <string name="recents_help_dlg_home_key_in_split_text">Егер бөлінген экран көрінісін пайдалану кезінде “Бастапқы” пернесін бассаңыз, онда экранның жоғарғы бөлігіндегі қолданба кішірейтіледі. Егер күй жолағы көк болғанда бастапқы экраннан қолданбаны ашсаңыз, онда қолданба экранның төменгі жағында бөлінген экран көрінісінде ашылады.</string>
+    <string name="battery_low_sec_body_in_normal_mode">Құрылғыңызды зарядтаңыз немесе “Қуатты үнемдеу режимін” қосу үшін, осы жерді түртіңіз.</string>
+    <string name="battery_low_sec_body_in_ups_mode">Құрылғыңызды зарядтағышқа жалғаңыз.</string>
+    <string name="battery_saver_recommend_notification_text">Құрылғыңызды зарядтаңыз немесе “Қуатты үнемдеу режимін” қосу үшін, осы жерді түртіңіз.</string>
     <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
 
 If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>

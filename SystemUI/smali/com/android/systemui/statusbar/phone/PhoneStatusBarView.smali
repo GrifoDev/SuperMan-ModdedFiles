@@ -370,7 +370,7 @@
 
     invoke-virtual {v3}, Lcom/android/systemui/statusbar/phone/PhoneStatusBarTransitions;->init()V
 
-    const v3, 0x7f130244
+    const v3, 0x7f130245
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/statusbar/phone/PhoneStatusBarView;->findViewById(I)Landroid/view/View;
 
@@ -378,7 +378,7 @@
 
     iput-object v3, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarView;->mBackgroundView:Landroid/view/View;
 
-    const v3, 0x7f1303b5
+    const v3, 0x7f1303b6
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/statusbar/phone/PhoneStatusBarView;->findViewById(I)Landroid/view/View;
 

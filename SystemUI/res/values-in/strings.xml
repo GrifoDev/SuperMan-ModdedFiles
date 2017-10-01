@@ -957,6 +957,7 @@ Ikon panggilan Wi-Fi akan muncul di panel notifikasi seperti yang ditampilkan di
     <string name="quick_settings_dual_label_content_description">%s, Label tombol, Ketuk dua kali untuk melihat pengaturan cepat terkait.</string>
     <string name="accessibility_button">Tombol</string>
     <string name="quick_settings_brightness_auto_brightness">Kecerahan otomatis</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">Sesuaikan kecerahan layar secara otomatis berdasarkan kondisi pencahayaan.</string>
     <string name="quick_settings_brightness_quick_access">Tampilkan kontrol di atas</string>
     <string name="quick_settings_brightness_quick_access_summary">Tampilkan kontrol kecerahan di atas panel notifikasi.</string>
     <string name="quick_settings_brightness_detail_level">Tingkat</string>
@@ -1277,6 +1278,7 @@ Untuk informasi selengkapnya, hubungi administrator."</string>
     <string name="keyboard_shortcut_group_system_notifications">Notifikasi</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">Pintasan Keyboard</string>
     <string name="keyboard_shortcut_group_system_switch_input">Beralih metode masukan</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">Alihkan bahasa</string>
     <string name="keyboard_shortcut_group_applications">Aplikasi</string>
     <string name="keyboard_shortcut_group_applications_assist">Bantuan</string>
     <string name="keyboard_shortcut_group_applications_browser">Browser</string>
@@ -1480,8 +1482,10 @@ Terlalu panas dapat disebabkan oleh:
     <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
     <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
     <string name="battery_low_sec_title">Daya baterai %d%%</string>
-    <string name="battery_low_sec_body_in_normal_mode">Isi daya perangkat atau ketuk di sini untuk mengaktifkan Mode hemat daya.</string>
-    <string name="battery_low_sec_body_in_ups_mode">Sambungkan perangkat Anda ke pengisi daya.</string>
+    <string name="battery_low_sec_body_phone">Isi daya ponsel atau ketuk di sini untuk mengaktifkan Mode hemat daya.</string>
+    <string name="battery_low_sec_body_tablet">Isi daya tablet atau ketuk di sini untuk mengaktifkan Mode hemat daya.</string>
+    <string name="battery_low_sec_body_phone_psm">Isi daya ponsel Anda.</string>
+    <string name="battery_low_sec_body_tablet_psm">Isi daya tablet Anda.</string>
     <string name="battery_cable_charging_title">Pengisian daya lewat kabel</string>
     <string name="battery_charging_title">Isi daya</string>
     <string name="battery_fast_charging_title">Isi daya cepat</string>
@@ -1500,7 +1504,10 @@ Terlalu panas dapat disebabkan oleh:
     <string name="battery_saver_notification_text_time_extend">Durasi penggunaan baterai telah diperpanjang.</string>
     <string name="button_detail">Rincian</string>
     <string name="battery_saver_recommend_notification_title">Daya baterai %d%%</string>
-    <string name="battery_saver_recommend_notification_text">Isi daya perangkat atau ketuk di sini untuk mengaktifkan Mode hemat daya.</string>
+    <string name="battery_saver_recommend_notification_text_phone">Isi daya ponsel atau ketuk di sini untuk mengaktifkan Mode hemat daya.</string>
+    <string name="battery_saver_recommend_notification_text_tablet">Isi daya tablet atau ketuk di sini untuk mengaktifkan Mode hemat daya.</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">Isi daya ponsel Anda.</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">Isi daya tablet Anda.</string>
     <string name="button_close">Tutup</string>
     <string name="battery_health_interruption_title">Tidak dapat mengisi daya</string>
     <string name="battery_health_interruption_by_terminal_open_text">Tidak dapat mengisi daya perangkat Anda. Pastikan Anda menggunakan baterai dan pengisi daya yang kompatibel dengan perangkat Samsung dan pastikan perangkat Anda sudah tersambung ke pengisi daya dengan benar.</string>
@@ -1589,6 +1596,7 @@ upscaler"</string>
     <string name="uhq_mode_noti_text">Tingkatkan resolusi suara musik dan video untuk pengalaman mendengar yang lebih jelas.</string>
     <string name="assistance_app_setting_alert_dialog_title">Pilih aplikasi untuk dibuka saat Anda menekan dan menahan Tombol depan. Untuk mengubah aplikasi yang dipilih nanti, buka aplikasi Bantuan perangkat di Pengaturan.</string>
     <string name="assistance_app_setting_item_none">Tidak ada</string>
+    <string name="remote_input_send_text">Kirim</string>
     <string name="remote_input_toast_text_on_sview_cover">Tidak dapat menggunakan fungsi Balas cepat saat cover S view ditutup.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -1844,7 +1852,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_direction_shutdown_instructions">Gambar rangkaian arah untuk mematikan</string>
     <string name="kg_none_multi_pin_restart_instructions">Perangkat dimulai ulang dan kuncinya harus dibuka menggunakan PIN. Anda dapat menggunakan biometrik pada saat berikutnya membuka kunci perangkat.</string>
     <string name="kg_tablet_multi_pin_restart_instructions">Perangkat dimulai ulang dan kuncinya harus dibuka menggunakan PIN. Anda dapat menggunakan biometrik pada saat berikutnya membuka kunci perangkat.</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">Perangkat Anda dimulai ulang dan kuncinya harus dibuka menggunakan PIN. Anda dapat menggunakan sidik jari pada saat berikutnya membuka kunci perangkat.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">Telepon Anda dimulai ulang dan kuncinya harus dibuka menggunakan PIN. Anda dapat menggunakan sidik jari pada saat berikutnya membuka kunci telepon.</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">Perangkat Anda dimulai ulang dan kuncinya harus dibuka menggunakan PIN. Anda dapat menggunakan sidik jari pada saat berikutnya membuka kunci perangkat.</string>
     <string name="kg_none_iris_pin_restart_instructions">Perangkat Anda dimulai ulang dan kuncinya harus dibuka menggunakan PIN. Anda dapat menggunakan iris pada saat berikutnya membuka kunci perangkat.</string>
     <string name="kg_tablet_iris_pin_restart_instructions">Perangkat Anda dimulai ulang dan kuncinya harus dibuka menggunakan PIN. Anda dapat menggunakan iris pada saat berikutnya membuka kunci perangkat.</string>
@@ -1874,7 +1882,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pattern_deviceadmin_instructions">Gambar pola alih-alih menggunakan pengenalan iris karena kebijakan keamanan</string>
     <string name="kg_none_multi_password_restart_instructions">Perangkat Anda dimulai ulang dan kuncinya harus dibuka menggunakan kata sandi. Anda dapat menggunakan biometrik pada saat berikutnya membuka kunci perangkat.</string>
     <string name="kg_tablet_multi_password_restart_instructions">Perangkat Anda dimulai ulang dan kuncinya harus dibuka menggunakan kata sandi. Anda dapat menggunakan biometrik pada saat berikutnya membuka kunci perangkat.</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">Perangkat Anda dimulai ulang dan kuncinya harus dibuka menggunakan kata sandi. Anda dapat menggunakan sidik jari pada saat berikutnya membuka kunci perangkat.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">Telepon Anda dimulai ulang dan kuncinya harus dibuka menggunakan kata sandi. Anda dapat menggunakan sidik jari pada saat berikutnya membuka kunci telepon.</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">Perangkat Anda dimulai ulang dan kuncinya harus dibuka menggunakan kata sandi. Anda dapat menggunakan sidik jari pada saat berikutnya membuka kunci perangkat.</string>
     <string name="kg_none_iris_password_restart_instructions">Perangkat Anda dimulai ulang dan kuncinya harus dibuka menggunakan kata sandi. Anda dapat menggunakan iris pada saat berikutnya membuka kunci perangkat.</string>
     <string name="kg_tablet_iris_password_restart_instructions">Perangkat Anda dimulai ulang dan kuncinya harus dibuka menggunakan kata sandi. Anda dapat menggunakan iris pada saat berikutnya membuka kunci perangkat.</string>
@@ -1889,7 +1897,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_password_deviceadmin_instructions">Masukkan kata sandi alih-alih menggunakan pengenalan iris karena kebijakan keamanan</string>
     <string name="kg_none_multi_direction_restart_instructions">Perangkat dimulai ulang dan kuncinya harus dibuka menggunakan rangkaian arah. Anda dapat menggunakan biometrik pada saat berikutnya membuka kunci perangkat.</string>
     <string name="kg_tablet_multi_direction_restart_instructions">Perangkat dimulai ulang dan kuncinya harus dibuka menggunakan rangkaian arah. Anda dapat menggunakan biometrik pada saat berikutnya membuka kunci perangkat.</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">Perangkat Anda dimulai ulang dan kuncinya harus dibuka menggunakan rangkaian arah. Anda dapat menggunakan sidik jari pada saat berikutnya membuka kunci perangkat.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">Telepon Anda dimulai ulang dan kuncinya harus dibuka menggunakan rangkaian arah. Anda dapat menggunakan sidik jari pada saat berikutnya membuka kunci telepon.</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">Perangkat Anda dimulai ulang dan kuncinya harus dibuka menggunakan rangkaian arah. Anda dapat menggunakan sidik jari pada saat berikutnya membuka kunci perangkat.</string>
     <string name="kg_none_iris_direction_restart_instructions">Perangkat Anda dimulai ulang dan kuncinya harus dibuka menggunakan rangkaian arah. Anda dapat menggunakan iris pada saat berikutnya membuka kunci perangkat.</string>
     <string name="kg_tablet_iris_direction_restart_instructions">Perangkat Anda dimulai ulang dan kuncinya harus dibuka menggunakan rangkaian arah. Anda dapat menggunakan iris pada saat berikutnya membuka kunci perangkat.</string>
@@ -2011,6 +2019,9 @@ Coba lagi dalam 1 detik"</string>
     <string name="recents_help_dlg_split_icon_desc">Ketuk ikon Layar pisah di bilah judul jendela aplikasi untuk membuka aplikasi dalam tampilan layar pisah. Ikon ini muncul saat aplikasi mendukung Multi window.</string>
     <string name="recents_help_dlg_long_click_recents_key_text">Tekan dan tahan tombol Terbaru saat menggunakan aplikasi dalam tampilan layar penuh untuk mengubahnya ke tampilan layar pisah.</string>
     <string name="recents_help_dlg_home_key_in_split_text">Jika menekan Tombol depan dalam tampilan layar pisah, aplikasi di separuh atas layar akan diminimalkan. Jika membuka aplikasi dari layar depan saat bilah status berwarna biru, aplikasi akan dibuka dalam tampilan layar pisah di separuh bagian bawah layar.</string>
+    <string name="battery_low_sec_body_in_normal_mode">Isi daya perangkat atau ketuk di sini untuk mengaktifkan Mode hemat daya.</string>
+    <string name="battery_low_sec_body_in_ups_mode">Sambungkan perangkat Anda ke pengisi daya.</string>
+    <string name="battery_saver_recommend_notification_text">Isi daya perangkat atau ketuk di sini untuk mengaktifkan Mode hemat daya.</string>
     <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
 
 If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>

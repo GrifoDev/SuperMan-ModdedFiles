@@ -109,7 +109,7 @@
 
     check-cast v0, Landroid/view/LayoutInflater;
 
-    const v3, 0x7f04016a
+    const v3, 0x7f04016b
 
     invoke-virtual {v0, v3, p0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -119,7 +119,7 @@
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/tv/pip/PipControlButtonView;->setGravity(I)V
 
-    const v3, 0x7f1301ed
+    const v3, 0x7f1301ee
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/tv/pip/PipControlButtonView;->findViewById(I)Landroid/view/View;
 
@@ -129,7 +129,7 @@
 
     iput-object v3, p0, Lcom/android/systemui/tv/pip/PipControlButtonView;->mButtonImageView:Landroid/widget/ImageView;
 
-    const v3, 0x7f1303fb
+    const v3, 0x7f1303fc
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/tv/pip/PipControlButtonView;->findViewById(I)Landroid/view/View;
 

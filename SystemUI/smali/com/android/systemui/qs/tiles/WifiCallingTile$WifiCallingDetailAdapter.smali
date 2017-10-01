@@ -193,7 +193,7 @@
 
     const/4 v5, 0x0
 
-    const v3, 0x7f1302da
+    const v3, 0x7f1302db
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -203,7 +203,7 @@
 
     iput-object v3, p0, Lcom/android/systemui/qs/tiles/WifiCallingTile$WifiCallingDetailAdapter;->mRadioGroup:Landroid/widget/RadioGroup;
 
-    const v3, 0x7f130295
+    const v3, 0x7f130296
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -406,7 +406,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0400fb
+    const v1, 0x7f0400fc
 
     const/4 v2, 0x0
 

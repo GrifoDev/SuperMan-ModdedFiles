@@ -4,9 +4,9 @@
 
 
 # static fields
-.field public static final config_max_unlock_countdown_times:I = 0x7f0c0084
+.field public static final config_max_unlock_countdown_times:I = 0x7f0c0086
 
-.field public static final shortcut_icon_utilization_ratio:I = 0x7f0c0085
+.field public static final shortcut_icon_utilization_ratio:I = 0x7f0c0087
 
 
 # direct methods

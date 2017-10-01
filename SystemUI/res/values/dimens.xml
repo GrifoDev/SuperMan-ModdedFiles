@@ -933,7 +933,8 @@
     <dimen name="helphub_help_list_item_image_bitmap_y_diff">4.0dip</dimen>
     <dimen name="helphub_icon_inside_text_side_margin">0.0dip</dimen>
     <dimen name="recents_app_list_margin_top">49.0dip</dimen>
-    <dimen name="recents_app_list_margin_others">2.0dip</dimen>
+    <dimen name="recents_app_list_margin_gap">1.5dip</dimen>
+    <dimen name="recents_app_list_margin_edge">7.5dip</dimen>
     <dimen name="recents_app_list_go_to_top_button_size">40.0dip</dimen>
     <dimen name="recents_app_list_go_to_top_button_margin_bottom">13.0dip</dimen>
     <dimen name="recents_app_list_item_header_height">15.0dip</dimen>
@@ -941,7 +942,6 @@
     <dimen name="recents_app_list_item_header_text_size">13.0dip</dimen>
     <dimen name="recents_app_list_item_header_text_padding_right">6.0dip</dimen>
     <dimen name="recents_app_list_item_content_width">85.0dip</dimen>
-    <dimen name="recents_app_list_item_content_width_land">77.0dip</dimen>
     <dimen name="recents_app_list_item_content_height">88.0dip</dimen>
     <dimen name="recents_app_list_item_icon_size">48.0dip</dimen>
     <dimen name="recents_app_list_item_label_text_size">12.0dip</dimen>

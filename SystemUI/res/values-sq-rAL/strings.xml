@@ -956,6 +956,7 @@ Ikona e thirrjes Wi-Fi do të shfaqet në panelin e njoftimeve siç tregohet në
     <string name="quick_settings_dual_label_content_description">%s, Etiketë butoni, Dy-trokit për të parë cilësimet e shpejta përkatëse.</string>
     <string name="accessibility_button">Buton</string>
     <string name="quick_settings_brightness_auto_brightness">Ndriçim auto</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">Përshtat ndriçimin e ekranit automatikisht, në bazë të ndriçimit në mjedis.</string>
     <string name="quick_settings_brightness_quick_access">Tregoje komandën sipër</string>
     <string name="quick_settings_brightness_quick_access_summary">Tregoje komandën e ndriçimit sipër panelit të njoftimeve.</string>
     <string name="quick_settings_brightness_detail_level">Niveli</string>
@@ -1275,6 +1276,7 @@ Për më shumë informacion, kontakto me administratorin tënd."</string>
     <string name="keyboard_shortcut_group_system_notifications">Njoftimet</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">Shkurtoret e tastierës</string>
     <string name="keyboard_shortcut_group_system_switch_input">Ndërro metodën e hyrjes</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">Këmbe gjuhët</string>
     <string name="keyboard_shortcut_group_applications">Aplikacionet</string>
     <string name="keyboard_shortcut_group_applications_assist">Asistenti</string>
     <string name="keyboard_shortcut_group_applications_browser">Shfletuesi</string>
@@ -1478,8 +1480,10 @@ Mbinxehja mund të shkaktohet nga:
     <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
     <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
     <string name="battery_low_sec_title">Energjia e baterisë %d%%</string>
-    <string name="battery_low_sec_body_in_normal_mode">Karikoje pajisjen ose trokit këtu për të aftësuar regjimin Kursim energjie.</string>
-    <string name="battery_low_sec_body_in_ups_mode">Lidh pajisjen tënde me një ngarkues.</string>
+    <string name="battery_low_sec_body_phone">Karikoje telefonin ose trokit këtu për të ndezur Regjimin kursim energjie.</string>
+    <string name="battery_low_sec_body_tablet">Karikoje tabletën ose trokit këtu për të ndezur Regjimin kursim energjie.</string>
+    <string name="battery_low_sec_body_phone_psm">Karikoje telefonin.</string>
+    <string name="battery_low_sec_body_tablet_psm">Karikoje tabletën.</string>
     <string name="battery_cable_charging_title">Ngarkim me kabllo</string>
     <string name="battery_charging_title">Në ngarkim</string>
     <string name="battery_fast_charging_title">Karikimi shpejt</string>
@@ -1498,7 +1502,10 @@ Mbinxehja mund të shkaktohet nga:
     <string name="battery_saver_notification_text_time_extend">Jeta e baterisë sate u zgjat.</string>
     <string name="button_detail">Detaje</string>
     <string name="battery_saver_recommend_notification_title">Energjia e baterisë %d%%</string>
-    <string name="battery_saver_recommend_notification_text">Karikoje pajisjen ose trokit këtu për të aftësuar regjimin Kursim energjie.</string>
+    <string name="battery_saver_recommend_notification_text_phone">Karikoje telefonin ose trokit këtu për të ndezur Regjimin kursim energjie.</string>
+    <string name="battery_saver_recommend_notification_text_tablet">Karikoje tabletën ose trokit këtu për të ndezur Regjimin kursim energjie.</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">Karikoje telefonin.</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">Karikoje tabletën.</string>
     <string name="button_close">Mbyll</string>
     <string name="battery_health_interruption_title">Nuk mund të ngarkoj</string>
     <string name="battery_health_interruption_by_terminal_open_text">Nuk mund ta ngarkoj pajisjen. Sigurohu që je duke përdorur një bateri dhe një ngarkues të pajtueshëm me Samsung-un dhe se pajisja jote është lidhur mirë me ngarkuesin.</string>
@@ -1587,6 +1594,7 @@ UHQ"</string>
     <string name="uhq_mode_noti_text">Përmirëso rezolucionin e tingullit të muzikës dhe videove për një përvojë dëgjimi më të mirë.</string>
     <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
     <string name="assistance_app_setting_item_none">Asnjë</string>
+    <string name="remote_input_send_text">Dërgo</string>
     <string name="remote_input_toast_text_on_sview_cover">Nuk mund ta përdor regjimin e Përgjigjes së shpejtë kur është mbyllur mbulesa S View.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -1842,7 +1850,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_direction_shutdown_instructions">Vizato një seri drejtimesh për të fikur</string>
     <string name="kg_none_multi_pin_restart_instructions">Pajisja jote u rinis dhe ka nevojë të zhbllokohet me anë të PIN-it. Mund t’i përdorësh të dhënat biometrike herën tjetër që ta zhbllokosh pajisjen.</string>
     <string name="kg_tablet_multi_pin_restart_instructions">Pajisja jote u rinis dhe ka nevojë të zhbllokohet me anë të PIN-it. Mund t’i përdorësh të dhënat biometrike herën tjetër që ta zhbllokosh pajisjen.</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">Pajisja jote u rinis dhe ka nevojë të zhbllokohet me anë të PIN-it. Mund t’i përdorësh shenjat e gishtit herën tjetër që ta zhbllokosh pajisjen.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">Telefoni yt u rinis dhe ka nevojë të zhbllokohet me anë të PIN-it. Mund t’i përdorësh shenjat e gishtit herën tjetër që ta zhbllokosh telefonin.</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">Pajisja jote u rinis dhe ka nevojë të zhbllokohet me anë të PIN-it. Mund t’i përdorësh shenjat e gishtit herën tjetër që ta zhbllokosh pajisjen.</string>
     <string name="kg_none_iris_pin_restart_instructions">Pajisja jote u rinis dhe ka nevojë të zhbllokohet me anë të PIN-it. Mund t’i përdorësh iriset herën tjetër që ta zhbllokosh pajisjen.</string>
     <string name="kg_tablet_iris_pin_restart_instructions">Pajisja jote u rinis dhe ka nevojë të zhbllokohet me anë të PIN-it. Mund t’i përdorësh iriset herën tjetër që ta zhbllokosh pajisjen.</string>
@@ -1872,7 +1880,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pattern_deviceadmin_instructions">Vizato motivin në vend që të përdorësh njohjen me iris, për shkak të politikës së sigurisë</string>
     <string name="kg_none_multi_password_restart_instructions">Pajisja jote u rinis dhe ka nevojë të zhbllokohet me anë të fjalëkalimit. Mund t’i përdorësh të dhënat biometrike herën tjetër që ta zhbllokosh pajisjen.</string>
     <string name="kg_tablet_multi_password_restart_instructions">Pajisja jote u rinis dhe ka nevojë të zhbllokohet me anë të fjalëkalimit. Mund t’i përdorësh të dhënat biometrike herën tjetër që ta zhbllokosh pajisjen.</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">Pajisja jote u rinis dhe ka nevojë të zhbllokohet me anë të fjalëkalimit. Mund t’i përdorësh shenjat e gishtit herën tjetër që ta zhbllokosh pajisjen.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">Telefoni yt u rinis dhe ka nevojë të zhbllokohet me anë të fjalëkalimit. Mund t’i përdorësh shenjat e gishtit herën tjetër që ta zhbllokosh telefonin.</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">Pajisja jote u rinis dhe ka nevojë të zhbllokohet me anë të fjalëkalimit. Mund t’i përdorësh shenjat e gishtit herën tjetër që ta zhbllokosh pajisjen.</string>
     <string name="kg_none_iris_password_restart_instructions">Pajisja jote u rinis dhe ka nevojë të zhbllokohet me anë të fjalëkalimit. Mund t’i përdorësh iriset herën tjetër që ta zhbllokosh pajisjen.</string>
     <string name="kg_tablet_iris_password_restart_instructions">Pajisja jote u rinis dhe ka nevojë të zhbllokohet me anë të fjalëkalimit. Mund t’i përdorësh iriset herën tjetër që ta zhbllokosh pajisjen.</string>
@@ -1887,7 +1895,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_password_deviceadmin_instructions">Fut fjalëkalimin në vend që të përdorësh njohjen me iris, për shkak të politikës së sigurisë</string>
     <string name="kg_none_multi_direction_restart_instructions">Pajisja jote u rinis dhe ka nevojë të zhbllokohet me anë të serisë së drejtimeve. Mund t’i përdorësh të dhënat biometrike herën tjetër që ta zhbllokosh pajisjen.</string>
     <string name="kg_tablet_multi_direction_restart_instructions">Pajisja jote u rinis dhe ka nevojë të zhbllokohet me anë të serisë së drejtimeve. Mund t’i përdorësh të dhënat biometrike herën tjetër që ta zhbllokosh pajisjen.</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">Pajisja jote u rinis dhe ka nevojë të zhbllokohet me anë të serisë së drejtimeve. Mund t’i përdorësh shenjat e gishtit herën tjetër që ta zhbllokosh pajisjen.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">Telefoni yt u rinis dhe ka nevojë të zhbllokohet me anë të serisë së drejtimeve. Mund t’i përdorësh shenjat e gishtit herën tjetër që ta zhbllokosh telefonin.</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">Pajisja jote u rinis dhe ka nevojë të zhbllokohet me anë të serisë së drejtimeve. Mund t’i përdorësh shenjat e gishtit herën tjetër që ta zhbllokosh pajisjen.</string>
     <string name="kg_none_iris_direction_restart_instructions">Pajisja jote u rinis dhe ka nevojë të zhbllokohet me anë të serisë së drejtimeve. Mund t’i përdorësh iriset herën tjetër që ta zhbllokosh pajisjen.</string>
     <string name="kg_tablet_iris_direction_restart_instructions">Pajisja jote u rinis dhe ka nevojë të zhbllokohet me anë të serisë së drejtimeve. Mund t’i përdorësh iriset herën tjetër që ta zhbllokosh pajisjen.</string>
@@ -2006,6 +2014,9 @@ Provo sërish pas 1 sekonde"</string>
     <string name="recents_help_dlg_split_icon_desc">Për të hapur app-e në pamjen me ekran të ndarë, trokit mbi ikonën Ekran i ndarë në shiritin e titullit të dritares së app-it. Kjo ikonë do të tregohet kur app-i e mbështet Multi-Window.</string>
     <string name="recents_help_dlg_long_click_recents_key_text">Shtyp dhe mbaj tastin Së fundi kur po përdor një app në ekran të plotë, për të kaluar në pamjen me ekran të ndarë.</string>
     <string name="recents_help_dlg_home_key_in_split_text">Kur ti shtyp tastin Bazë gjatë kohës që je duke përdorur pamjen me ekran të ndarë, app-i i treguar në gjysmën e sipërme të ekranit do të minimizohet. Në qoftë se hap një app nga ekrani bazë kur shiriti i statusit ka ngjyrë të kaltër, app-i do të hapet në pamjen me ekran të ndarë në gjysmën e poshtme të ekranit.</string>
+    <string name="battery_low_sec_body_in_normal_mode">Karikoje pajisjen ose trokit këtu për të aftësuar regjimin Kursim energjie.</string>
+    <string name="battery_low_sec_body_in_ups_mode">Lidh pajisjen tënde me një ngarkues.</string>
+    <string name="battery_saver_recommend_notification_text">Karikoje pajisjen ose trokit këtu për të aftësuar regjimin Kursim energjie.</string>
     <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
 
 If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>

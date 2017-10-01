@@ -955,6 +955,7 @@ Ko bo storitev na voljo, se bo na obvestilni plošči pojavila ikona funkcije Kl
     <string name="quick_settings_dual_label_content_description">%s, Oznaka gumba, Dvakrat pritisnite za prikaz ustreznih hitrih nastavitev.</string>
     <string name="accessibility_button">Gumb</string>
     <string name="quick_settings_brightness_auto_brightness">Samodejna svetlost</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">Samodejna prilagoditev svetlosti zaslona glede na svetlobne pogoje.</string>
     <string name="quick_settings_brightness_quick_access">Prikaz kontrolnika na vrhu</string>
     <string name="quick_settings_brightness_quick_access_summary">Prikaz kontrolnika svetlosti nad obvestilno ploščo.</string>
     <string name="quick_settings_brightness_detail_level">Nivo</string>
@@ -1275,6 +1276,7 @@ Povezani ste z aplikacijo %2$s, ki lahko nadzira omrežno dejavnost, vključno z
     <string name="keyboard_shortcut_group_system_notifications">Obvestila</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">Bližnjične tipke</string>
     <string name="keyboard_shortcut_group_system_switch_input">Preklop načina vnosa</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">Zamenjava jezikov</string>
     <string name="keyboard_shortcut_group_applications">Aplikacije</string>
     <string name="keyboard_shortcut_group_applications_assist">Pomoč</string>
     <string name="keyboard_shortcut_group_applications_browser">Brskalnik</string>
@@ -1478,8 +1480,10 @@ Pregrevanje je lahko posledica:
     <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
     <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
     <string name="battery_low_sec_title">Moč baterije %d %%</string>
-    <string name="battery_low_sec_body_in_normal_mode">Napolnite napravo ali pritisnite tukaj, da omogočite način varčevanja z energijo.</string>
-    <string name="battery_low_sec_body_in_ups_mode">Napravo priključite na napajalnik.</string>
+    <string name="battery_low_sec_body_phone">Napolnite telefon ali pritisnite tukaj, da vklopite način varčevanja z energijo.</string>
+    <string name="battery_low_sec_body_tablet">Napolnite tablični računalnik ali pritisnite tukaj, da vklopite način varčevanja z energijo.</string>
+    <string name="battery_low_sec_body_phone_psm">Napolnite telefon.</string>
+    <string name="battery_low_sec_body_tablet_psm">Napolnite tabl. račun.</string>
     <string name="battery_cable_charging_title">Polnjenje s kablom</string>
     <string name="battery_charging_title">Polnjenje</string>
     <string name="battery_fast_charging_title">Hitro polnjenje</string>
@@ -1498,7 +1502,10 @@ Pregrevanje je lahko posledica:
     <string name="battery_saver_notification_text_time_extend">Čas delovanja baterije je podaljšan.</string>
     <string name="button_detail">Podrobnosti</string>
     <string name="battery_saver_recommend_notification_title">Moč baterije %d %%</string>
-    <string name="battery_saver_recommend_notification_text">Napolnite napravo ali pritisnite tukaj, da omogočite način varčevanja z energijo.</string>
+    <string name="battery_saver_recommend_notification_text_phone">Napolnite telefon ali pritisnite tukaj, da vklopite način varčevanja z energijo.</string>
+    <string name="battery_saver_recommend_notification_text_tablet">Napolnite tablični računalnik ali pritisnite tukaj, da vklopite način varčevanja z energijo.</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">Napolnite telefon.</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">Napolnite tabl. račun.</string>
     <string name="button_close">Zapri</string>
     <string name="battery_health_interruption_title">Polnjenje ni mogoče</string>
     <string name="battery_health_interruption_by_terminal_open_text">Naprave ni mogoče polniti. Preverite, ali uporabljate baterijo ter napajalnik, ki sta združljiva s telefoni Samsung, in ali je naprava pravilno povezana z napajalnikom.</string>
@@ -1587,6 +1594,7 @@ UHQ"</string>
     <string name="uhq_mode_noti_text">Izboljšava ločljivosti zvoka glasbe in videov za čistejšo izkušnjo poslušanja.</string>
     <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
     <string name="assistance_app_setting_item_none">Brez</string>
+    <string name="remote_input_send_text">Pošlji</string>
     <string name="remote_input_toast_text_on_sview_cover">Funkcije Hitri odgovor ni mogoče uporabiti, če je ovitek z okenčkom S zaprt.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -1842,7 +1850,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_direction_shutdown_instructions">Za izklop narišite serijo smeri</string>
     <string name="kg_none_multi_pin_restart_instructions">Naprava je bila znova zagnana in jo morate odkleniti s kodo PIN. Ko boste naslednjič odklepali napravo, lahko uporabite biometrične podatke.</string>
     <string name="kg_tablet_multi_pin_restart_instructions">Naprava je bila znova zagnana in jo morate odkleniti s kodo PIN. Ko boste naslednjič odklepali napravo, lahko uporabite biometrične podatke.</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">Naprava je bila znova zagnana in jo morate odkleniti s kodo PIN. Ko boste naslednjič odklepali napravo, lahko uporabite prstne odtise.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">Telefon je bil znova zagnan, odkleniti ga morate s kodo PIN. Ko boste naslednjič odklepali telefon, lahko uporabite prstne odtise.</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">Naprava je bila znova zagnana in jo morate odkleniti s kodo PIN. Ko boste naslednjič odklepali napravo, lahko uporabite prstne odtise.</string>
     <string name="kg_none_iris_pin_restart_instructions">Naprava je bila znova zagnana in jo morate odkleniti s kodo PIN. Ko boste naslednjič odklepali napravo, lahko uporabite šarenici.</string>
     <string name="kg_tablet_iris_pin_restart_instructions">Naprava je bila znova zagnana in jo morate odkleniti s kodo PIN. Ko boste naslednjič odklepali napravo, lahko uporabite šarenici.</string>
@@ -1872,7 +1880,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pattern_deviceadmin_instructions">Zaradi varnostnega pravilnika namesto prepoznavanja šarenice narišite vzorec</string>
     <string name="kg_none_multi_password_restart_instructions">Naprava je bila znova zagnana in jo morate odkleniti z geslom. Ko boste naslednjič odklepali napravo, lahko uporabite biometrične podatke.</string>
     <string name="kg_tablet_multi_password_restart_instructions">Naprava je bila znova zagnana in jo morate odkleniti z geslom. Ko boste naslednjič odklepali napravo, lahko uporabite biometrične podatke.</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">Naprava je bila znova zagnana in jo morate odkleniti z geslom. Ko boste naslednjič odklepali napravo, lahko uporabite prstne odtise.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">Telefon je bil znova zagnan, odkleniti ga morate z geslom. Ko boste naslednjič odklepali telefon, lahko uporabite prstne odtise.</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">Naprava je bila znova zagnana in jo morate odkleniti z geslom. Ko boste naslednjič odklepali napravo, lahko uporabite prstne odtise.</string>
     <string name="kg_none_iris_password_restart_instructions">Naprava je bila znova zagnana in jo morate odkleniti z geslom. Ko boste naslednjič odklepali napravo, lahko uporabite šarenici.</string>
     <string name="kg_tablet_iris_password_restart_instructions">Naprava je bila znova zagnana in jo morate odkleniti z geslom. Ko boste naslednjič odklepali napravo, lahko uporabite šarenici.</string>
@@ -1887,7 +1895,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_password_deviceadmin_instructions">Zaradi varnostnega pravilnika namesto prepoznavanja šarenice vnesite geslo</string>
     <string name="kg_none_multi_direction_restart_instructions">Naprava je bila znova zagnana in jo morate odkleniti s serijo smeri. Ko boste naslednjič odklepali napravo, lahko uporabite biometrične podatke.</string>
     <string name="kg_tablet_multi_direction_restart_instructions">Naprava je bila znova zagnana in jo morate odkleniti s serijo smeri. Ko boste naslednjič odklepali napravo, lahko uporabite biometrične podatke.</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">Naprava je bila znova zagnana in jo morate odkleniti s serijo smeri. Ko boste naslednjič odklepali napravo, lahko uporabite prstne odtise.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">Telefon je bil znova zagnan, odkleniti ga morate s serijo smeri. Ko boste naslednjič odklepali telefon, lahko uporabite prstne odtise.</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">Naprava je bila znova zagnana in jo morate odkleniti s serijo smeri. Ko boste naslednjič odklepali napravo, lahko uporabite prstne odtise.</string>
     <string name="kg_none_iris_direction_restart_instructions">Naprava je bila znova zagnana in jo morate odkleniti s serijo smeri. Ko boste naslednjič odklepali napravo, lahko uporabite šarenici.</string>
     <string name="kg_tablet_iris_direction_restart_instructions">Naprava je bila znova zagnana in jo morate odkleniti s serijo smeri. Ko boste naslednjič odklepali napravo, lahko uporabite šarenici.</string>
@@ -2009,6 +2017,9 @@ Poskusite znova čez 1 sekundo"</string>
     <string name="recents_help_dlg_split_icon_desc">Pritisnite ikono funkcije Razdeljen zaslon v naslovni vrstici okna aplikacije, da aplikacije odprete v pogledu razdeljenega zaslona. Ta ikona je prikazana, če aplikacija podpira funkcijo Več oken.</string>
     <string name="recents_help_dlg_long_click_recents_key_text">Med uporabo aplikacije v celozaslonskem pogledu pritisnite in pridržite tudi tipko Nedavno, da preklopite v pogled razdeljenega zaslona.</string>
     <string name="recents_help_dlg_home_key_in_split_text">Če v pogledu razdeljenega zaslona pritisnete in pridržite tipko Domov, se bo aplikacija na zgornji polovici zaslona pomanjšala. Če aplikacijo odprete z domačega zaslona, ko je vrstica stanja modre barve, se bo aplikacija odprla v pogledu razdeljenega zaslona na spodnji polovici zaslona.</string>
+    <string name="battery_low_sec_body_in_normal_mode">Napolnite napravo ali pritisnite tukaj, da omogočite način varčevanja z energijo.</string>
+    <string name="battery_low_sec_body_in_ups_mode">Napravo priključite na napajalnik.</string>
+    <string name="battery_saver_recommend_notification_text">Napolnite napravo ali pritisnite tukaj, da omogočite način varčevanja z energijo.</string>
     <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
 
 If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>

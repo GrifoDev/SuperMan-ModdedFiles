@@ -958,6 +958,7 @@ Turn on Airplane mode?"</string>
     <string name="quick_settings_dual_label_content_description">%s, Ετικέτα κουμπιού, Διπλό πάτημα για την προβολή των σχετικών γρήγορων ρυθμίσεων.</string>
     <string name="accessibility_button">Κουμπί</string>
     <string name="quick_settings_brightness_auto_brightness">Αυτόματη φωτεινότητα</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">Να προσαρμόζεται αυτόματα η φωτεινότητα της οθόνης ανάλογα με τις συνθήκες φωτισμού.</string>
     <string name="quick_settings_brightness_quick_access">Εμφάν. στοιχείων ελέγχου επάνω</string>
     <string name="quick_settings_brightness_quick_access_summary">Εμφάνιση στοιχείων ελέγχου φωτεινότητας πάνω από τον πίνακα ειδοποιήσεων.</string>
     <string name="quick_settings_brightness_detail_level">Eπίπεδο</string>
@@ -1278,6 +1279,7 @@ Turn on Airplane mode?"</string>
     <string name="keyboard_shortcut_group_system_notifications">Ειδοποιήσεις</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">Συντομεύσεις πληκτρολογίου</string>
     <string name="keyboard_shortcut_group_system_switch_input">Εναλλαγή μεθόδου εισαγωγής</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">Εναλλαγή γλωσσών</string>
     <string name="keyboard_shortcut_group_applications">Εφαρμογές</string>
     <string name="keyboard_shortcut_group_applications_assist">Υποβοήθηση</string>
     <string name="keyboard_shortcut_group_applications_browser">Πρόγραμμα περιήγησης</string>
@@ -1481,8 +1483,10 @@ Using your tablet in a very hot location."</string>
     <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
     <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
     <string name="battery_low_sec_title">Ισχύς μπαταρίας %d%%</string>
-    <string name="battery_low_sec_body_in_normal_mode">Φορτίστε τη συσκευή σας ή πατήστε εδώ για να ενεργοποιήσετε τη λειτουργία εξοικονόμησης ενέργειας.</string>
-    <string name="battery_low_sec_body_in_ups_mode">Συνδέστε τη συσκευή σας σε ένα φορτιστή.</string>
+    <string name="battery_low_sec_body_phone">Φορτίστε το τηλέφωνό σας ή πατήστε εδώ για να ενεργοποιήσετε τη λειτουργία εξοικονόμησης ενέργειας.</string>
+    <string name="battery_low_sec_body_tablet">Φορτίστε το tablet σας ή πατήστε εδώ για να ενεργοποιήσετε τη λειτουργία εξοικονόμησης ενέργειας.</string>
+    <string name="battery_low_sec_body_phone_psm">Φορτίστε το τηλ. σας.</string>
+    <string name="battery_low_sec_body_tablet_psm">Φορτ. το tablet σας.</string>
     <string name="battery_cable_charging_title">Φόρτιση μέσω καλωδίου</string>
     <string name="battery_charging_title">Φόρτιση</string>
     <string name="battery_fast_charging_title">Γρήγορη φόρτιση</string>
@@ -1501,7 +1505,10 @@ Using your tablet in a very hot location."</string>
     <string name="battery_saver_notification_text_time_extend">Η διάρκεια της μπαταρίας αυξήθηκε.</string>
     <string name="button_detail">Λεπτομέρεια</string>
     <string name="battery_saver_recommend_notification_title">Ισχύς μπαταρίας %d%%</string>
-    <string name="battery_saver_recommend_notification_text">Φορτίστε τη συσκευή σας ή πατήστε εδώ για να ενεργοποιήσετε τη λειτουργία εξοικονόμησης ενέργειας.</string>
+    <string name="battery_saver_recommend_notification_text_phone">Φορτίστε το τηλέφωνό σας ή πατήστε εδώ για να ενεργοποιήσετε τη λειτουργία εξοικονόμησης ενέργειας.</string>
+    <string name="battery_saver_recommend_notification_text_tablet">Φορτίστε το tablet σας ή πατήστε εδώ για να ενεργοποιήσετε τη λειτουργία εξοικονόμησης ενέργειας.</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">Φορτίστε το τηλ. σας.</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">Φορτ. το tablet σας.</string>
     <string name="button_close">Κλείσιμο</string>
     <string name="battery_health_interruption_title">Δεν είναι δυνατή η φόρτιση</string>
     <string name="battery_health_interruption_by_terminal_open_text">Αδύνατη η φόρτιση της συσκευής σας. Βεβαιωθείτε ότι χρησιμοποιείτε μπαταρία και φορτιστή που είναι συμβατά με συσκευές Samsung και ότι η συσκευή σας είναι συνδεδεμένη σωστά με το φορτιστή.</string>
@@ -1590,6 +1597,7 @@ If you turn mobile data back on, you may be charged for data usage by your carri
     <string name="uhq_mode_noti_text">Βελτιώστε την ανάλυση ήχου της μουσικής και των βίντεο για καλύτερη εμπειρία ακρόασης.</string>
     <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
     <string name="assistance_app_setting_item_none">Κανένα</string>
+    <string name="remote_input_send_text">Αποστολή</string>
     <string name="remote_input_toast_text_on_sview_cover">Δεν είναι δυνατή η χρήση της λειτουργίας «Γρήγορη απάντηση» όταν το κάλυμμα S View είναι κλειστό.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -1845,7 +1853,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_direction_shutdown_instructions">Σχεδίαση σειράς κατευθύνσεων για απενεργοποίηση</string>
     <string name="kg_none_multi_pin_restart_instructions">Η συσκευή σας επανεκκινήθηκε και πρέπει να ξεκλειδωθεί χρησιμοποιώντας το PIN σας. Μπορείτε να χρησιμοποιήσετε τα βιομετρικά δεδομένα σας την επόμενη φορά που θα ξεκλειδώσετε τη συσκευή σας.</string>
     <string name="kg_tablet_multi_pin_restart_instructions">Η συσκευή σας επανεκκινήθηκε και πρέπει να ξεκλειδωθεί χρησιμοποιώντας το PIN σας. Μπορείτε να χρησιμοποιήσετε τα βιομετρικά δεδομένα σας την επόμενη φορά που θα ξεκλειδώσετε τη συσκευή σας.</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">Η συσκευή σας επανεκκινήθηκε και πρέπει να ξεκλειδωθεί χρησιμοποιώντας το PIN σας. Μπορείτε να χρησιμοποιήσετε τα δαχτυλικά σας αποτυπώματα την επόμενη φορά που θα ξεκλειδώσετε τη συσκευή σας.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">Το τηλέφωνό σας επανεκκινήθηκε και πρέπει να ξεκλειδωθεί χρησιμοποιώντας το PIN σας. Μπορείτε να χρησιμοποιήσετε τα δαχτυλικά σας αποτυπώματα την επόμενη φορά που θα ξεκλειδώσετε το τηλέφωνό σας.</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">Η συσκευή σας επανεκκινήθηκε και πρέπει να ξεκλειδωθεί χρησιμοποιώντας το PIN σας. Μπορείτε να χρησιμοποιήσετε τα δαχτυλικά σας αποτυπώματα την επόμενη φορά που θα ξεκλειδώσετε τη συσκευή σας.</string>
     <string name="kg_none_iris_pin_restart_instructions">Η συσκευή σας επανεκκινήθηκε και πρέπει να ξεκλειδωθεί χρησιμοποιώντας το PIN σας. Μπορείτε να χρησιμοποιήσετε τις ίριδές σας την επόμενη φορά που θα ξεκλειδώσετε τη συσκευή σας.</string>
     <string name="kg_tablet_iris_pin_restart_instructions">Η συσκευή σας επανεκκινήθηκε και πρέπει να ξεκλειδωθεί χρησιμοποιώντας το PIN σας. Μπορείτε να χρησιμοποιήσετε τις ίριδές σας την επόμενη φορά που θα ξεκλειδώσετε τη συσκευή σας.</string>
@@ -1875,7 +1883,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pattern_deviceadmin_instructions">Σχεδιάστε το μοτίβο επειδή δεν επιτρέπεται η χρήση της αναγνώρισης ίριδας από την πολιτική ασφάλειας</string>
     <string name="kg_none_multi_password_restart_instructions">Η συσκευή σας επανεκκινήθηκε και πρέπει να ξεκλειδωθεί χρησιμοποιώντας τον κωδικό πρόσβασής σας. Μπορείτε να χρησιμοποιήσετε τα βιομετρικά δεδομένα σας την επόμενη φορά που θα ξεκλειδώσετε τη συσκευή σας.</string>
     <string name="kg_tablet_multi_password_restart_instructions">Η συσκευή σας επανεκκινήθηκε και πρέπει να ξεκλειδωθεί χρησιμοποιώντας τον κωδικό πρόσβασής σας. Μπορείτε να χρησιμοποιήσετε τα βιομετρικά δεδομένα σας την επόμενη φορά που θα ξεκλειδώσετε τη συσκευή σας.</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">Η συσκευή σας επανεκκινήθηκε και πρέπει να ξεκλειδωθεί χρησιμοποιώντας τον κωδικό πρόσβασής σας. Μπορείτε να χρησιμοποιήσετε τα δαχτυλικά σας αποτυπώματα την επόμενη φορά που θα ξεκλειδώσετε τη συσκευή σας.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">Το τηλέφωνό σας επανεκκινήθηκε και πρέπει να ξεκλειδωθεί χρησιμοποιώντας τον κωδικό πρόσβασής σας. Μπορείτε να χρησιμοποιήσετε τα δαχτυλικά σας αποτυπώματα την επόμενη φορά που θα ξεκλειδώσετε το τηλέφωνό σας.</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">Η συσκευή σας επανεκκινήθηκε και πρέπει να ξεκλειδωθεί χρησιμοποιώντας τον κωδικό πρόσβασής σας. Μπορείτε να χρησιμοποιήσετε τα δαχτυλικά σας αποτυπώματα την επόμενη φορά που θα ξεκλειδώσετε τη συσκευή σας.</string>
     <string name="kg_none_iris_password_restart_instructions">Η συσκευή σας επανεκκινήθηκε και πρέπει να ξεκλειδωθεί χρησιμοποιώντας τον κωδικό πρόσβασής σας. Μπορείτε να χρησιμοποιήσετε τις ίριδες την επόμενη φορά που θα ξεκλειδώσετε τη συσκευή σας.</string>
     <string name="kg_tablet_iris_password_restart_instructions">Η συσκευή σας επανεκκινήθηκε και πρέπει να ξεκλειδωθεί χρησιμοποιώντας τον κωδικό πρόσβασής σας. Μπορείτε να χρησιμοποιήσετε τις ίριδες την επόμενη φορά που θα ξεκλειδώσετε τη συσκευή σας.</string>
@@ -1890,7 +1898,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_password_deviceadmin_instructions">Καταχωρήστε τον κωδικό πρόσβασης αντί για τη χρήση της αναγνώρισης ίριδας λόγω της πολιτικής ασφάλειας</string>
     <string name="kg_none_multi_direction_restart_instructions">Η συσκευή σας επανεκκινήθηκε και πρέπει να ξεκλειδωθεί χρησιμοποιώντας τη σειρά κατευθύνσεων. Μπορείτε να χρησιμοποιήσετε τα βιομετρικά δεδομένα σας την επόμενη φορά που θα ξεκλειδώσετε τη συσκευή σας.</string>
     <string name="kg_tablet_multi_direction_restart_instructions">Η συσκευή σας επανεκκινήθηκε και πρέπει να ξεκλειδωθεί χρησιμοποιώντας τη σειρά κατευθύνσεων. Μπορείτε να χρησιμοποιήσετε τα βιομετρικά δεδομένα σας την επόμενη φορά που θα ξεκλειδώσετε τη συσκευή σας.</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">Η συσκευή σας επανεκκινήθηκε και πρέπει να ξεκλειδωθεί χρησιμοποιώντας τη σειρά κατευθύνσεων. Μπορείτε να χρησιμοποιήσετε τα δαχτυλικά σας αποτυπώματα την επόμενη φορά που θα ξεκλειδώσετε τη συσκευή σας.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">Το τηλέφωνό σας επανεκκινήθηκε και πρέπει να ξεκλειδωθεί χρησιμοποιώντας τη σειρά κατευθύνσεων. Μπορείτε να χρησιμοποιήσετε τα δαχτυλικά σας αποτυπώματα την επόμενη φορά που θα ξεκλειδώσετε το τηλέφωνό σας.</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">Η συσκευή σας επανεκκινήθηκε και πρέπει να ξεκλειδωθεί χρησιμοποιώντας τη σειρά κατευθύνσεων. Μπορείτε να χρησιμοποιήσετε τα δαχτυλικά σας αποτυπώματα την επόμενη φορά που θα ξεκλειδώσετε τη συσκευή σας.</string>
     <string name="kg_none_iris_direction_restart_instructions">Η συσκευή σας επανεκκινήθηκε και πρέπει να ξεκλειδωθεί χρησιμοποιώντας τη σειρά κατευθύνσεων. Μπορείτε να χρησιμοποιήσετε τις ίριδές σας την επόμενη φορά που θα ξεκλειδώσετε τη συσκευή σας.</string>
     <string name="kg_tablet_iris_direction_restart_instructions">Η συσκευή σας επανεκκινήθηκε και πρέπει να ξεκλειδωθεί χρησιμοποιώντας τη σειρά κατευθύνσεων. Μπορείτε να χρησιμοποιήσετε τις ίριδές σας την επόμενη φορά που θα ξεκλειδώσετε τη συσκευή σας.</string>
@@ -2012,6 +2020,9 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="recents_help_dlg_split_icon_desc">Πατήστε το εικονίδιο διαχωρισμένης οθόνης στη γραμμή τίτλου του παραθύρου της εφαρμογής, για να ανοίξετε εφαρμογές σε προβολή διαχωρισμένης οθόνης. Αυτό το εικονίδιο εμφανίζεται όταν η εφαρμογή υποστηρίζει τη λειτουργία πολλών παραθύρων.</string>
     <string name="recents_help_dlg_long_click_recents_key_text">Πιέστε παρατεταμένα το πλήκτρο πρόσφατων ενώ χρησιμοποιείτε μια εφαρμογή σε προβολή πλήρους οθόνης, για να αλλάξετε σε προβολή διαχωρισμένης οθόνης.</string>
     <string name="recents_help_dlg_home_key_in_split_text">Αν πιέσετε το κεντρικό πλήκτρο ενώ χρησιμοποιείτε την προβολή διαχωρισμένης οθόνης, η εφαρμογή που εμφανίζεται στο επάνω μισό μέρος της οθόνης θα ελαχιστοποιηθεί. Αν ανοίξετε μια εφαρμογή από την αρχική οθόνη όσο η γραμμή κατάστασης είναι μπλε, η εφαρμογή θα ανοίξει σε προβολή διαχωρισμένης οθόνης στο κάτω μισό μέρος της οθόνης.</string>
+    <string name="battery_low_sec_body_in_normal_mode">Φορτίστε τη συσκευή σας ή πατήστε εδώ για να ενεργοποιήσετε τη λειτουργία εξοικονόμησης ενέργειας.</string>
+    <string name="battery_low_sec_body_in_ups_mode">Συνδέστε τη συσκευή σας σε ένα φορτιστή.</string>
+    <string name="battery_saver_recommend_notification_text">Φορτίστε τη συσκευή σας ή πατήστε εδώ για να ενεργοποιήσετε τη λειτουργία εξοικονόμησης ενέργειας.</string>
     <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
 
 If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>

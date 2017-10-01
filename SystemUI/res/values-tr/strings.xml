@@ -955,6 +955,7 @@ Servis kullanılabilir olduğunda Wi-Fi arama simgesi, aşağıda gösterildiği
     <string name="quick_settings_dual_label_content_description">%s, Tuş etiketi, İlgili hızlı ayarları görüntülemek için çift dokunun.</string>
     <string name="accessibility_button">Düğme</string>
     <string name="quick_settings_brightness_auto_brightness">Otomatik parlaklık</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">Aydınlatma koşullarına göre ekran parlaklığını otomatik olarak ayarlayın.</string>
     <string name="quick_settings_brightness_quick_access">Kontrolü üstte göster</string>
     <string name="quick_settings_brightness_quick_access_summary">Parlaklık kontrolünü bildirim panelinin üstünde gösterir.</string>
     <string name="quick_settings_brightness_detail_level">Seviye</string>
@@ -1275,6 +1276,7 @@ Daha fazla bilgi edinmek için yöneticinizle iletişim kurun."</string>
     <string name="keyboard_shortcut_group_system_notifications">Bildirimler</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">Klavye Kısayolları</string>
     <string name="keyboard_shortcut_group_system_switch_input">Giriş yöntemini değiştir</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">Dilleri değiştir</string>
     <string name="keyboard_shortcut_group_applications">Uygulamalar</string>
     <string name="keyboard_shortcut_group_applications_assist">Asist</string>
     <string name="keyboard_shortcut_group_applications_browser">Tarayıcı</string>
@@ -1479,8 +1481,10 @@ Aşırı ısınma şunlardan kaynaklanabilir:
     <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
     <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
     <string name="battery_low_sec_title">Pil gücü %%%d</string>
-    <string name="battery_low_sec_body_in_normal_mode">Cihazınızı şarj edin veya Güç tasarrufu modunu etkinleştirmek için buraya dokunun.</string>
-    <string name="battery_low_sec_body_in_ups_mode">Cihazınızı bir şarj aletine bağlayın.</string>
+    <string name="battery_low_sec_body_phone">Telefonunuzu şarj edin veya Güç tasarrufu modunu açmak için buraya dokunun.</string>
+    <string name="battery_low_sec_body_tablet">Tabletinizi şarj edin veya Güç tasarrufu modunu açmak için buraya dokunun.</string>
+    <string name="battery_low_sec_body_phone_psm">Telefonunuzu şarj edn.</string>
+    <string name="battery_low_sec_body_tablet_psm">Tabletinizi şarj edin.</string>
     <string name="battery_cable_charging_title">Kablo şarjı</string>
     <string name="battery_charging_title">Şarj oluyor</string>
     <string name="battery_fast_charging_title">Hızlı şarj</string>
@@ -1499,7 +1503,10 @@ Aşırı ısınma şunlardan kaynaklanabilir:
     <string name="battery_saver_notification_text_time_extend">Pilinizin ömrü uzatıldı.</string>
     <string name="button_detail">Ayrıntı</string>
     <string name="battery_saver_recommend_notification_title">Pil gücü %%%d</string>
-    <string name="battery_saver_recommend_notification_text">Cihazınızı şarj edin veya Güç tasarrufu modunu etkinleştirmek için buraya dokunun.</string>
+    <string name="battery_saver_recommend_notification_text_phone">Telefonunuzu şarj edin veya Güç tasarrufu modunu açmak için buraya dokunun.</string>
+    <string name="battery_saver_recommend_notification_text_tablet">Tabletinizi şarj edin veya Güç tasarrufu modunu açmak için buraya dokunun.</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">Telefonunuzu şarj edn.</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">Tabletinizi şarj edin.</string>
     <string name="button_close">Kapat</string>
     <string name="battery_health_interruption_title">Şarj edilemiyor</string>
     <string name="battery_health_interruption_by_terminal_open_text">Cihazınız şarj edilemiyor. Samsung uyumlu bir pil ve şarj cihazı kullandığınızdan ve cihazınızın şarj cihazına düzgün şekilde bağlandığından emin olun.</string>
@@ -1588,6 +1595,7 @@ upscaler"</string>
     <string name="uhq_mode_noti_text">Daha net bir dinleme deneyimi için müzik ve videoların ses çözünürlüğünü geliştirir.</string>
     <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
     <string name="assistance_app_setting_item_none">Hiçbiri</string>
+    <string name="remote_input_send_text">Gönder</string>
     <string name="remote_input_toast_text_on_sview_cover">S view kapağı kapalıyken Hızlı yanıt işlevi kullanılamaz.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -1843,7 +1851,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_direction_shutdown_instructions">Kapatmak için yön serileri çizin</string>
     <string name="kg_none_multi_pin_restart_instructions">"Cihazınız yeniden başlatıldı ve PIN'iniz kullanılarak kilidinin açılması gerekiyor. Bir sonraki sefer cihazınızın kilidini açarken biyometrik verilerinizi kullanabilirsiniz."</string>
     <string name="kg_tablet_multi_pin_restart_instructions">"Cihazınız yeniden başlatıldı ve PIN'iniz kullanılarak kilidinin açılması gerekiyor. Bir sonraki sefer cihazınızın kilidini açarken biyometrik verilerinizi kullanabilirsiniz."</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">"Cihazınız yeniden başlatıldı ve PIN'iniz kullanılarak kilidinin açılması gerekiyor. Bir sonraki sefer cihazınızın kilidini açarken parmak izlerinizi kullanabilirsiniz."</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">"Telefonunuz yeniden başlatıldı ve PIN'iniz kullanılarak kilidinin açılması gerekiyor. Bir sonraki sefer telefonunuzun kilidini açarken parmak izlerinizi kullanabilirsiniz."</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">"Cihazınız yeniden başlatıldı ve PIN'iniz kullanılarak kilidinin açılması gerekiyor. Bir sonraki sefer cihazınızın kilidini açarken parmak izlerinizi kullanabilirsiniz."</string>
     <string name="kg_none_iris_pin_restart_instructions">"Cihazınız yeniden başlatıldı ve PIN'iniz kullanılarak kilidinin açılması gerekiyor. Bir sonraki sefer cihazınızın kilidini açarken irislerinizi kullanabilirsiniz."</string>
     <string name="kg_tablet_iris_pin_restart_instructions">"Cihazınız yeniden başlatıldı ve PIN'iniz kullanılarak kilidinin açılması gerekiyor. Bir sonraki sefer cihazınızın kilidini açarken irislerinizi kullanabilirsiniz."</string>
@@ -1873,7 +1881,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pattern_deviceadmin_instructions">Güvenlik ilkesi nedeniyle iris tanımayı kullanmak yerine desen çizin</string>
     <string name="kg_none_multi_password_restart_instructions">Cihazınız yeniden başlatıldı. Şifrenizi kullanarak cihaz kilidini açmanız gerekiyor. Cihazınızın kilidini bir sonraki açışınızda, biyometrik verilerinizi kullanabilirsiniz.</string>
     <string name="kg_tablet_multi_password_restart_instructions">Cihazınız yeniden başlatıldı. Şifrenizi kullanarak cihaz kilidini açmanız gerekiyor. Cihazınızın kilidini bir sonraki açışınızda, biyometrik verilerinizi kullanabilirsiniz.</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">Cihazınız yeniden başlatıldı ve şifreniz kullanılarak kilidinin açılması gerekiyor. Bir sonraki sefer cihazınızın kilidini açarken parmak izlerinizi kullanabilirsiniz.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">Telefonunuz yeniden başlatıldı ve şifreniz kullanılarak kilidinin açılması gerekiyor. Bir sonraki sefer telefonunuzun kilidini açarken parmak izlerinizi kullanabilirsiniz.</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">Cihazınız yeniden başlatıldı ve şifreniz kullanılarak kilidinin açılması gerekiyor. Bir sonraki sefer cihazınızın kilidini açarken parmak izlerinizi kullanabilirsiniz.</string>
     <string name="kg_none_iris_password_restart_instructions">Cihazınız yeniden başlatıldı ve şifreniz kullanılarak kilidinin açılması gerekiyor. Bir sonraki sefer cihazınızın kilidini açarken irislerinizi kullanabilirsiniz.</string>
     <string name="kg_tablet_iris_password_restart_instructions">Cihazınız yeniden başlatıldı ve şifreniz kullanılarak kilidinin açılması gerekiyor. Bir sonraki sefer cihazınızın kilidini açarken irislerinizi kullanabilirsiniz.</string>
@@ -1888,7 +1896,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_password_deviceadmin_instructions">Güvenlik ilkesi nedeniyle iris tanımayı kullanmak yerine şifre girin</string>
     <string name="kg_none_multi_direction_restart_instructions">Cihazınız yeniden başlatıldı ve yön seriniz kullanılarak kilidinin açılması gerekiyor. Bir sonraki sefer cihazınızın kilidini açarken biyometrik verilerinizi kullanabilirsiniz.</string>
     <string name="kg_tablet_multi_direction_restart_instructions">Cihazınız yeniden başlatıldı ve yön seriniz kullanılarak kilidinin açılması gerekiyor. Bir sonraki sefer cihazınızın kilidini açarken biyometrik verilerinizi kullanabilirsiniz.</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">Cihazınız yeniden başlatıldı ve yön seriniz kullanılarak kilidinin açılması gerekiyor. Bir sonraki sefer cihazınızın kilidini açarken parmak izlerinizi kullanabilirsiniz.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">Telefonunuz yeniden başlatıldı ve yön seriniz kullanılarak kilidinin açılması gerekiyor. Bir sonraki sefer telefonunuzun kilidini açarken parmak izlerinizi kullanabilirsiniz.</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">Cihazınız yeniden başlatıldı ve yön seriniz kullanılarak kilidinin açılması gerekiyor. Bir sonraki sefer cihazınızın kilidini açarken parmak izlerinizi kullanabilirsiniz.</string>
     <string name="kg_none_iris_direction_restart_instructions">Cihazınız yeniden başlatıldı ve yön seriniz kullanılarak kilidinin açılması gerekiyor. Bir sonraki sefer cihazınızın kilidini açarken irislerinizi kullanabilirsiniz.</string>
     <string name="kg_tablet_iris_direction_restart_instructions">Cihazınız yeniden başlatıldı ve yön seriniz kullanılarak kilidinin açılması gerekiyor. Bir sonraki sefer cihazınızın kilidini açarken irislerinizi kullanabilirsiniz.</string>
@@ -2012,6 +2020,9 @@ PUK'unuzu bilmiyorsanız bir müşteri hizmetleri merkezini ziyaret edin."</stri
     <string name="recents_help_dlg_split_icon_desc">Uygulamaları bölünmüş ekran görünümünde açmak için uygulama penceresinin başlık çubuğundaki Bölünmüş ekran simgesine dokunun. Uygulama Çoklu pencereyi desteklediğinde bu simge gösterilir.</string>
     <string name="recents_help_dlg_long_click_recents_key_text">Bir uygulamayı tam ekran görünümünde kullanırken bölünmüş ekran görünümüne geçmek için Donanım tuşunu basılı tutun.</string>
     <string name="recents_help_dlg_home_key_in_split_text">Bölünmüş ekran görünümünü kullanırken Ana ekran tuşuna basarsanız ekranın üst yarısında gösterilen uygulama simge durumuna küçültülür. Durum çubuğu mavi renkliyken ana ekrandan bir uygulama açarsanız uygulama, ekranın alt yarısında bölünmüş ekran görünümünde açılır.</string>
+    <string name="battery_low_sec_body_in_normal_mode">Cihazınızı şarj edin veya Güç tasarrufu modunu etkinleştirmek için buraya dokunun.</string>
+    <string name="battery_low_sec_body_in_ups_mode">Cihazınızı bir şarj aletine bağlayın.</string>
+    <string name="battery_saver_recommend_notification_text">Cihazınızı şarj edin veya Güç tasarrufu modunu etkinleştirmek için buraya dokunun.</string>
     <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
 
 If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>

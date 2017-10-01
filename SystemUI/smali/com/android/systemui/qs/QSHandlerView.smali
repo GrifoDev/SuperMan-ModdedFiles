@@ -81,13 +81,13 @@
 
     move-result-object v0
 
-    const v1, 0x7f040100
+    const v1, 0x7f040101
 
     const/4 v2, 0x1
 
     invoke-virtual {v0, v1, p0, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    const v0, 0x7f1302e2
+    const v0, 0x7f1302e3
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/QSHandlerView;->findViewById(I)Landroid/view/View;
 
@@ -97,7 +97,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/QSHandlerView;->mHandlerView:Landroid/widget/ImageView;
 
-    const v0, 0x7f1302e3
+    const v0, 0x7f1302e4
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/QSHandlerView;->findViewById(I)Landroid/view/View;
 
@@ -107,7 +107,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/QSHandlerView;->mCueLayout:Landroid/widget/FrameLayout;
 
-    const v0, 0x7f1302e4
+    const v0, 0x7f1302e5
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/QSHandlerView;->findViewById(I)Landroid/view/View;
 
@@ -117,7 +117,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/QSHandlerView;->mTopCueImage:Landroid/widget/ImageView;
 
-    const v0, 0x7f1302e5
+    const v0, 0x7f1302e6
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/QSHandlerView;->findViewById(I)Landroid/view/View;
 

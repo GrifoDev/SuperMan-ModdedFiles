@@ -31,17 +31,25 @@
 
 .field private final mDetailAdapter:Lcom/android/systemui/qs/external/CustomTile$CustomDetailAdapter;
 
+.field private mIsDefaultTile:Z
+
 .field private mIsShowingDialog:Z
 
 .field private mIsTokenGranted:Z
 
 .field private mListening:Z
 
+.field private mPrefsKey:Ljava/lang/String;
+
 .field private final mService:Landroid/service/quicksettings/IQSTileService;
 
 .field private final mServiceManager:Lcom/android/systemui/qs/external/TileServiceManager;
 
 .field private final mTile:Landroid/service/quicksettings/Tile;
+
+.field private mTileClassName:Ljava/lang/String;
+
+.field private mTileState:I
 
 .field private final mToken:Landroid/os/IBinder;
 
@@ -93,6 +101,10 @@
     invoke-direct {v0}, Landroid/os/Binder;-><init>()V
 
     iput-object v0, p0, Lcom/android/systemui/qs/external/CustomTile;->mToken:Landroid/os/IBinder;
+
+    const/4 v0, -0x1
+
+    iput v0, p0, Lcom/android/systemui/qs/external/CustomTile;->mTileState:I
 
     invoke-static {}, Landroid/view/WindowManagerGlobal;->getWindowManagerService()Landroid/view/IWindowManager;
 
@@ -149,6 +161,24 @@
     invoke-direct {v0, p0, v1}, Lcom/android/systemui/qs/external/CustomTile$CustomDetailAdapter;-><init>(Lcom/android/systemui/qs/external/CustomTile;Landroid/service/quicksettings/IQSTileService;)V
 
     iput-object v0, p0, Lcom/android/systemui/qs/external/CustomTile;->mDetailAdapter:Lcom/android/systemui/qs/external/CustomTile$CustomDetailAdapter;
+
+    iget-object v0, p0, Lcom/android/systemui/qs/external/CustomTile;->mHost:Lcom/android/systemui/qs/QSTile$Host;
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/external/CustomTile;->getComponent()Landroid/content/ComponentName;
+
+    move-result-object v1
+
+    invoke-interface {v0, v1}, Lcom/android/systemui/qs/QSTile$Host;->isDefaultCustomTile(Landroid/content/ComponentName;)Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Lcom/android/systemui/qs/external/CustomTile;->mIsDefaultTile:Z
+
+    iget-object v0, p0, Lcom/android/systemui/qs/external/CustomTile;->mServiceManager:Lcom/android/systemui/qs/external/TileServiceManager;
+
+    iget-boolean v1, p0, Lcom/android/systemui/qs/external/CustomTile;->mIsDefaultTile:Z
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/qs/external/TileServiceManager;->setIsDefaultTile(Z)V
 
     return-void
 .end method
@@ -285,6 +315,310 @@
 
     move-result-object v1
 
+    return-object v1
+.end method
+
+.method private getDefaultState(Ljava/lang/String;)I
+    .locals 3
+
+    const/4 v2, 0x2
+
+    const/4 v1, 0x1
+
+    if-eqz p1, :cond_b
+
+    const-string/jumbo v0, "PerformanceTile"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    return v1
+
+    :cond_0
+    const-string/jumbo v0, "AODTileService"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    return v2
+
+    :cond_1
+    const-string/jumbo v0, "DeviceVisibilityTile"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    return v1
+
+    :cond_2
+    const-string/jumbo v0, "PowerSavingTile"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    return v1
+
+    :cond_3
+    const-string/jumbo v0, "SecAccountTiles"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    return v2
+
+    :cond_4
+    const-string/jumbo v0, "PersonalModeTile"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_5
+
+    return v1
+
+    :cond_5
+    const-string/jumbo v0, "SmartMirroringTile"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_6
+
+    const-string/jumbo v0, "AllShareCastTile"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_7
+
+    :cond_6
+    return v1
+
+    :cond_7
+    const-string/jumbo v0, "NfcTile"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_8
+
+    return v2
+
+    :cond_8
+    const-string/jumbo v0, "SecureFolderTile"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_9
+
+    return v1
+
+    :cond_9
+    const-string/jumbo v0, "EdgeLightingTile"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_a
+
+    return v2
+
+    :cond_a
+    const-string/jumbo v0, "UDSTile"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_b
+
+    return v1
+
+    :cond_b
+    return v1
+.end method
+
+.method private getPrefKey(Ljava/lang/String;)Ljava/lang/String;
+    .locals 2
+
+    const/4 v1, 0x0
+
+    if-eqz p1, :cond_b
+
+    const-string/jumbo v0, "PerformanceTile"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v0, "QsPerformanceCustomTileState"
+
+    return-object v0
+
+    :cond_0
+    const-string/jumbo v0, "AODTileService"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    const-string/jumbo v0, "QsAodCustomTileState"
+
+    return-object v0
+
+    :cond_1
+    const-string/jumbo v0, "DeviceVisibilityTile"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    const-string/jumbo v0, "QsDeviceVisibilityCustomTileState"
+
+    return-object v0
+
+    :cond_2
+    const-string/jumbo v0, "PowerSavingTile"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    const-string/jumbo v0, "QsPowerSavingCustomTileState"
+
+    return-object v0
+
+    :cond_3
+    const-string/jumbo v0, "SecAccountTiles"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    const-string/jumbo v0, "QsSyncCustomTileState"
+
+    return-object v0
+
+    :cond_4
+    const-string/jumbo v0, "PersonalModeTile"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_5
+
+    const-string/jumbo v0, "QsPersonalModeCustomTileState"
+
+    return-object v0
+
+    :cond_5
+    const-string/jumbo v0, "SmartMirroringTile"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_6
+
+    const-string/jumbo v0, "AllShareCastTile"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_7
+
+    :cond_6
+    const-string/jumbo v0, "QsSmartViewCustomTileState"
+
+    return-object v0
+
+    :cond_7
+    const-string/jumbo v0, "NfcTile"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_8
+
+    const-string/jumbo v0, "QsNfcCustomTileState"
+
+    return-object v0
+
+    :cond_8
+    const-string/jumbo v0, "SecureFolderTile"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_9
+
+    const-string/jumbo v0, "QsSecureFolderCustomTileState"
+
+    return-object v0
+
+    :cond_9
+    const-string/jumbo v0, "EdgeLightingTile"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_a
+
+    const-string/jumbo v0, "QsEdgeLightingCustomTileState"
+
+    return-object v0
+
+    :cond_a
+    const-string/jumbo v0, "UDSTile"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_b
+
+    const-string/jumbo v0, "QsUDSCustomTileState"
+
+    return-object v0
+
+    :cond_b
     return-object v1
 .end method
 
@@ -429,6 +763,57 @@
 
     :cond_0
     return-object v1
+.end method
+
+.method private setStateToPref(I)V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/systemui/qs/external/CustomTile;->mPrefsKey:Ljava/lang/String;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/qs/external/CustomTile;->mContext:Landroid/content/Context;
+
+    iget-object v1, p0, Lcom/android/systemui/qs/external/CustomTile;->mPrefsKey:Ljava/lang/String;
+
+    invoke-static {v0, v1, p1}, Lcom/android/systemui/Prefs;->putInt(Landroid/content/Context;Ljava/lang/String;I)V
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/systemui/qs/external/CustomTile;->TAG:Ljava/lang/String;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "setStateToPref : mPrefsKey = "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/systemui/qs/external/CustomTile;->mPrefsKey:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, ", tileState = "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
 .end method
 
 .method private setTileIcon()V
@@ -690,15 +1075,7 @@
     return-object v1
 
     :cond_1
-    iget-object v2, p0, Lcom/android/systemui/qs/external/CustomTile;->mHost:Lcom/android/systemui/qs/QSTile$Host;
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/external/CustomTile;->getComponent()Landroid/content/ComponentName;
-
-    move-result-object v3
-
-    invoke-interface {v2, v3}, Lcom/android/systemui/qs/QSTile$Host;->isDefaultCustomTile(Landroid/content/ComponentName;)Z
-
-    move-result v2
+    iget-boolean v2, p0, Lcom/android/systemui/qs/external/CustomTile;->mIsDefaultTile:Z
 
     if-eqz v2, :cond_2
 
@@ -797,9 +1174,80 @@
 
     if-nez v1, :cond_0
 
+    iget-object v1, p0, Lcom/android/systemui/qs/external/CustomTile;->TAG:Ljava/lang/String;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "handleClick : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/android/systemui/qs/external/CustomTile;->mTileClassName:Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, " STATE_UNAVAILABLE"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
     return-void
 
     :cond_0
+    iget-object v1, p0, Lcom/android/systemui/qs/external/CustomTile;->mServiceManager:Lcom/android/systemui/qs/external/TileServiceManager;
+
+    invoke-virtual {v1}, Lcom/android/systemui/qs/external/TileServiceManager;->hasPendingBind()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/systemui/qs/external/CustomTile;->TAG:Ljava/lang/String;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "handleClick : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/android/systemui/qs/external/CustomTile;->mTileClassName:Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, " hasPendingBind"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_1
     :try_start_0
     iget-object v1, p0, Lcom/android/systemui/qs/external/CustomTile;->mWindowManager:Landroid/view/IWindowManager;
 
@@ -823,7 +1271,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
     iget-object v1, p0, Lcom/android/systemui/qs/external/CustomTile;->mServiceManager:Lcom/android/systemui/qs/external/TileServiceManager;
 
@@ -835,7 +1283,7 @@
 
     invoke-interface {v1}, Landroid/service/quicksettings/IQSTileService;->onStartListening()V
 
-    :cond_1
+    :cond_2
     iget-object v1, p0, Lcom/android/systemui/qs/external/CustomTile;->mService:Landroid/service/quicksettings/IQSTileService;
 
     iget-object v2, p0, Lcom/android/systemui/qs/external/CustomTile;->mToken:Landroid/os/IBinder;
@@ -931,8 +1379,6 @@
 
     if-eqz v6, :cond_0
 
-    const/4 v5, 0x0
-
     :cond_0
     :try_start_0
     iget-object v6, p0, Lcom/android/systemui/qs/external/CustomTile;->mTile:Landroid/service/quicksettings/Tile;
@@ -950,16 +1396,68 @@
     move-result-object v0
 
     :goto_0
+    iput-boolean v7, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->isCustomTile:Z
+
+    sget-boolean v6, Lcom/android/systemui/SystemUIRune;->SUPPORT_GSIM_LOG:Z
+
+    if-eqz v6, :cond_2
+
+    iget-object v6, p0, Lcom/android/systemui/qs/external/CustomTile;->mTileClassName:Ljava/lang/String;
+
+    if-nez v6, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/external/CustomTile;->getTileSpec()Ljava/lang/String;
+
+    move-result-object v6
+
+    if-eqz v6, :cond_1
+
+    iget-object v6, p0, Lcom/android/systemui/qs/external/CustomTile;->mHost:Lcom/android/systemui/qs/QSTile$Host;
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/external/CustomTile;->getTileSpec()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-interface {v6, v9}, Lcom/android/systemui/qs/QSTile$Host;->getCustomTileNameFromSpec(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    iput-object v6, p0, Lcom/android/systemui/qs/external/CustomTile;->mTileClassName:Ljava/lang/String;
+
+    iget-object v6, p0, Lcom/android/systemui/qs/external/CustomTile;->mTileClassName:Ljava/lang/String;
+
+    if-nez v6, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/external/CustomTile;->getTileSpec()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v6}, Lcom/android/systemui/qs/external/CustomTile;->getComponentFromSpec(Ljava/lang/String;)Landroid/content/ComponentName;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
+
+    move-result-object v6
+
+    iput-object v6, p0, Lcom/android/systemui/qs/external/CustomTile;->mTileClassName:Ljava/lang/String;
+
+    :cond_1
+    iget-object v6, p0, Lcom/android/systemui/qs/external/CustomTile;->mTileClassName:Ljava/lang/String;
+
+    iput-object v6, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->tileClassName:Ljava/lang/String;
+
+    :cond_2
     const/4 v6, 0x2
 
-    if-ne v5, v6, :cond_2
+    if-ne v5, v6, :cond_4
 
     move v6, v7
 
     :goto_1
     iput-boolean v6, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
 
-    if-nez v5, :cond_3
+    if-nez v5, :cond_5
 
     :goto_2
     iput-boolean v7, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->dim:Z
@@ -976,23 +1474,15 @@
 
     move-result v4
 
-    iget-object v6, p0, Lcom/android/systemui/qs/external/CustomTile;->mHost:Lcom/android/systemui/qs/QSTile$Host;
+    iget-boolean v6, p0, Lcom/android/systemui/qs/external/CustomTile;->mIsDefaultTile:Z
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/external/CustomTile;->getComponent()Landroid/content/ComponentName;
-
-    move-result-object v7
-
-    invoke-interface {v6, v7}, Lcom/android/systemui/qs/QSTile$Host;->isDefaultCustomTile(Landroid/content/ComponentName;)Z
-
-    move-result v6
-
-    if-nez v6, :cond_4
+    if-nez v6, :cond_6
 
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
     move-result v6
 
-    if-eq v4, v6, :cond_4
+    if-eq v4, v6, :cond_6
 
     int-to-float v6, v4
 
@@ -1022,6 +1512,16 @@
 
     invoke-direct {v3, v0, v2}, Lcom/android/systemui/statusbar/ScalingDrawableWrapper;-><init>(Landroid/graphics/drawable/Drawable;F)V
 
+    invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Landroid/graphics/drawable/Drawable$ConstantState;->newDrawable()Landroid/graphics/drawable/Drawable;
+
+    move-result-object v6
+
+    invoke-virtual {v3, v6}, Lcom/android/systemui/statusbar/ScalingDrawableWrapper;->setCloneDrawable(Landroid/graphics/drawable/Drawable;)V
+
     new-instance v6, Lcom/android/systemui/qs/QSTile$DrawableIcon;
 
     invoke-direct {v6, v3}, Lcom/android/systemui/qs/QSTile$DrawableIcon;-><init>(Landroid/graphics/drawable/Drawable;)V
@@ -1043,7 +1543,7 @@
 
     move-result-object v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_3
 
     iget-object v6, p0, Lcom/android/systemui/qs/external/CustomTile;->mTile:Landroid/service/quicksettings/Tile;
 
@@ -1053,7 +1553,7 @@
 
     iput-object v6, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->contentDescription:Ljava/lang/CharSequence;
 
-    :cond_1
+    :cond_3
     return-void
 
     :catch_0
@@ -1075,19 +1575,19 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto/16 :goto_0
 
-    :cond_2
+    :cond_4
     move v6, v8
 
     goto :goto_1
 
-    :cond_3
+    :cond_5
     move v7, v8
 
     goto :goto_2
 
-    :cond_4
+    :cond_6
     new-instance v6, Lcom/android/systemui/qs/QSTile$DrawableIcon;
 
     invoke-direct {v6, v0}, Lcom/android/systemui/qs/QSTile$DrawableIcon;-><init>(Landroid/graphics/drawable/Drawable;)V
@@ -1247,15 +1747,7 @@
 
     invoke-interface {v1}, Landroid/service/quicksettings/IQSTileService;->onStopListening()V
 
-    iget-object v1, p0, Lcom/android/systemui/qs/external/CustomTile;->mHost:Lcom/android/systemui/qs/QSTile$Host;
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/external/CustomTile;->getComponent()Landroid/content/ComponentName;
-
-    move-result-object v2
-
-    invoke-interface {v1, v2}, Lcom/android/systemui/qs/QSTile$Host;->isDefaultCustomTile(Landroid/content/ComponentName;)Z
-
-    move-result v1
+    iget-boolean v1, p0, Lcom/android/systemui/qs/external/CustomTile;->mIsDefaultTile:Z
 
     if-nez v1, :cond_4
 
@@ -1315,6 +1807,66 @@
     goto :goto_2
 .end method
 
+.method public setTileSpec(Ljava/lang/String;)V
+    .locals 5
+
+    const/4 v3, -0x1
+
+    invoke-super {p0, p1}, Lcom/android/systemui/qs/QSTile;->setTileSpec(Ljava/lang/String;)V
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/qs/external/CustomTile;->getPrefKey(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/systemui/qs/external/CustomTile;->mPrefsKey:Ljava/lang/String;
+
+    iget-object v1, p0, Lcom/android/systemui/qs/external/CustomTile;->mContext:Landroid/content/Context;
+
+    iget-object v2, p0, Lcom/android/systemui/qs/external/CustomTile;->mPrefsKey:Ljava/lang/String;
+
+    invoke-static {v1, v2, v3}, Lcom/android/systemui/Prefs;->getInt(Landroid/content/Context;Ljava/lang/String;I)I
+
+    move-result v0
+
+    if-eq v0, v3, :cond_0
+
+    iget-object v1, p0, Lcom/android/systemui/qs/external/CustomTile;->mTile:Landroid/service/quicksettings/Tile;
+
+    iget-object v2, p0, Lcom/android/systemui/qs/external/CustomTile;->mContext:Landroid/content/Context;
+
+    iget-object v3, p0, Lcom/android/systemui/qs/external/CustomTile;->mPrefsKey:Ljava/lang/String;
+
+    const/4 v4, 0x1
+
+    invoke-static {v2, v3, v4}, Lcom/android/systemui/Prefs;->getInt(Landroid/content/Context;Ljava/lang/String;I)I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Landroid/service/quicksettings/Tile;->setState(I)V
+
+    :goto_0
+    iget-object v1, p0, Lcom/android/systemui/qs/external/CustomTile;->mTile:Landroid/service/quicksettings/Tile;
+
+    invoke-virtual {v1}, Landroid/service/quicksettings/Tile;->getState()I
+
+    move-result v1
+
+    iput v1, p0, Lcom/android/systemui/qs/external/CustomTile;->mTileState:I
+
+    return-void
+
+    :cond_0
+    iget-object v1, p0, Lcom/android/systemui/qs/external/CustomTile;->mTile:Landroid/service/quicksettings/Tile;
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/qs/external/CustomTile;->getDefaultState(Ljava/lang/String;)I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Landroid/service/quicksettings/Tile;->setState(I)V
+
+    goto :goto_0
+.end method
+
 .method public startUnlockAndRun()V
     .locals 2
 
@@ -1330,93 +1882,152 @@
 .end method
 
 .method public updateState(Landroid/service/quicksettings/Tile;)V
-    .locals 3
+    .locals 4
 
-    iget-object v0, p0, Lcom/android/systemui/qs/external/CustomTile;->mTile:Landroid/service/quicksettings/Tile;
+    iget-object v1, p0, Lcom/android/systemui/qs/external/CustomTile;->mTile:Landroid/service/quicksettings/Tile;
 
     invoke-virtual {p1}, Landroid/service/quicksettings/Tile;->getIcon()Landroid/graphics/drawable/Icon;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v0, v1}, Landroid/service/quicksettings/Tile;->setIcon(Landroid/graphics/drawable/Icon;)V
+    invoke-virtual {v1, v2}, Landroid/service/quicksettings/Tile;->setIcon(Landroid/graphics/drawable/Icon;)V
 
-    iget-object v0, p0, Lcom/android/systemui/qs/external/CustomTile;->mTile:Landroid/service/quicksettings/Tile;
-
-    invoke-virtual {p1}, Landroid/service/quicksettings/Tile;->getLabel()Ljava/lang/CharSequence;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/service/quicksettings/Tile;->setLabel(Ljava/lang/CharSequence;)V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/external/CustomTile;->mTile:Landroid/service/quicksettings/Tile;
-
-    invoke-virtual {p1}, Landroid/service/quicksettings/Tile;->getContentDescription()Ljava/lang/CharSequence;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/service/quicksettings/Tile;->setContentDescription(Ljava/lang/CharSequence;)V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/external/CustomTile;->mTile:Landroid/service/quicksettings/Tile;
-
-    invoke-virtual {p1}, Landroid/service/quicksettings/Tile;->getState()I
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Landroid/service/quicksettings/Tile;->setState(I)V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/external/CustomTile;->TAG:Ljava/lang/String;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "updateState : Label = "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
+    iget-object v1, p0, Lcom/android/systemui/qs/external/CustomTile;->mTile:Landroid/service/quicksettings/Tile;
 
     invoke-virtual {p1}, Landroid/service/quicksettings/Tile;->getLabel()Ljava/lang/CharSequence;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Landroid/service/quicksettings/Tile;->setLabel(Ljava/lang/CharSequence;)V
 
-    move-result-object v1
+    iget-object v1, p0, Lcom/android/systemui/qs/external/CustomTile;->mTile:Landroid/service/quicksettings/Tile;
 
-    const-string/jumbo v2, ", State = "
+    invoke-virtual {p1}, Landroid/service/quicksettings/Tile;->getContentDescription()Ljava/lang/CharSequence;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    move-result-object v1
+    invoke-virtual {v1, v2}, Landroid/service/quicksettings/Tile;->setContentDescription(Ljava/lang/CharSequence;)V
+
+    iget-object v1, p0, Lcom/android/systemui/qs/external/CustomTile;->mTile:Landroid/service/quicksettings/Tile;
 
     invoke-virtual {p1}, Landroid/service/quicksettings/Tile;->getState()I
 
     move-result v2
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Landroid/service/quicksettings/Tile;->setState(I)V
 
-    move-result-object v1
+    iget-object v1, p0, Lcom/android/systemui/qs/external/CustomTile;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v2, ", Icon = "
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v1
+    const-string/jumbo v3, "updateState : Label = "
 
-    invoke-virtual {p1}, Landroid/service/quicksettings/Tile;->getIcon()Landroid/graphics/drawable/Icon;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1}, Landroid/service/quicksettings/Tile;->getLabel()Ljava/lang/CharSequence;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v3, ", State = "
 
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {p1}, Landroid/service/quicksettings/Tile;->getState()I
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, ", Icon = "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {p1}, Landroid/service/quicksettings/Tile;->getIcon()Landroid/graphics/drawable/Icon;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-boolean v1, p0, Lcom/android/systemui/qs/external/CustomTile;->mIsDefaultTile:Z
+
+    if-eqz v1, :cond_1
+
+    iget-boolean v1, p0, Lcom/android/systemui/qs/external/CustomTile;->mListening:Z
+
+    if-nez v1, :cond_0
+
+    const/4 v1, 0x0
+
+    :try_start_0
+    iput-boolean v1, p0, Lcom/android/systemui/qs/external/CustomTile;->mListening:Z
+
+    iget-object v1, p0, Lcom/android/systemui/qs/external/CustomTile;->mService:Landroid/service/quicksettings/IQSTileService;
+
+    invoke-interface {v1}, Landroid/service/quicksettings/IQSTileService;->onStopListening()V
+
+    iget-object v1, p0, Lcom/android/systemui/qs/external/CustomTile;->mServiceManager:Lcom/android/systemui/qs/external/TileServiceManager;
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v2}, Lcom/android/systemui/qs/external/TileServiceManager;->setBindRequested(Z)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_0
+    :goto_0
+    iget v1, p0, Lcom/android/systemui/qs/external/CustomTile;->mTileState:I
+
+    iget-object v2, p0, Lcom/android/systemui/qs/external/CustomTile;->mTile:Landroid/service/quicksettings/Tile;
+
+    invoke-virtual {v2}, Landroid/service/quicksettings/Tile;->getState()I
+
+    move-result v2
+
+    if-eq v1, v2, :cond_1
+
+    iget-object v1, p0, Lcom/android/systemui/qs/external/CustomTile;->mTile:Landroid/service/quicksettings/Tile;
+
+    invoke-virtual {v1}, Landroid/service/quicksettings/Tile;->getState()I
+
+    move-result v1
+
+    iput v1, p0, Lcom/android/systemui/qs/external/CustomTile;->mTileState:I
+
+    iget-object v1, p0, Lcom/android/systemui/qs/external/CustomTile;->mTile:Landroid/service/quicksettings/Tile;
+
+    invoke-virtual {v1}, Landroid/service/quicksettings/Tile;->getState()I
+
+    move-result v1
+
+    invoke-direct {p0, v1}, Lcom/android/systemui/qs/external/CustomTile;->setStateToPref(I)V
+
+    :cond_1
     return-void
+
+    :catch_0
+    move-exception v0
+
+    goto :goto_0
 .end method

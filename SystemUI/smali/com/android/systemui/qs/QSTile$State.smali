@@ -29,11 +29,15 @@
 
 .field public icon:Lcom/android/systemui/qs/QSTile$Icon;
 
+.field public isCustomTile:Z
+
 .field public label:Ljava/lang/CharSequence;
 
 .field public minimalAccessibilityClassName:Ljava/lang/String;
 
 .field public minimalContentDescription:Ljava/lang/CharSequence;
+
+.field public tileClassName:Ljava/lang/String;
 
 
 # direct methods
@@ -248,6 +252,14 @@
     iput-object v3, p1, Lcom/android/systemui/qs/QSTile$State;->enforcedAdmin:Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
 
     :goto_1
+    iget-boolean v1, p0, Lcom/android/systemui/qs/QSTile$State;->isCustomTile:Z
+
+    iput-boolean v1, p1, Lcom/android/systemui/qs/QSTile$State;->isCustomTile:Z
+
+    iget-object v1, p0, Lcom/android/systemui/qs/QSTile$State;->tileClassName:Ljava/lang/String;
+
+    iput-object v1, p1, Lcom/android/systemui/qs/QSTile$State;->tileClassName:Ljava/lang/String;
+
     return v0
 
     :cond_2
@@ -419,6 +431,26 @@
     iget-object v2, p0, Lcom/android/systemui/qs/QSTile$State;->enforcedAdmin:Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string/jumbo v1, ",isCustomTile="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-boolean v2, p0, Lcom/android/systemui/qs/QSTile$State;->isCustomTile:Z
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    const-string/jumbo v1, ",tileClassName="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/systemui/qs/QSTile$State;->tileClassName:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     const/16 v1, 0x5d
 

@@ -639,12 +639,43 @@
 .end method
 
 .method public click()V
-    .locals 6
+    .locals 7
+
+    const/4 v6, 0x0
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_GSIM_LOG:Z
 
     if-eqz v0, :cond_0
 
+    iget-object v0, p0, Lcom/android/systemui/qs/QSTile;->mState:Lcom/android/systemui/qs/QSTile$State;
+
+    iget-boolean v0, v0, Lcom/android/systemui/qs/QSTile$State;->isCustomTile:Z
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/qs/QSTile;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v1, "com.android.systemui.statusbar.policy.quicksetting"
+
+    const-string/jumbo v2, "QP06"
+
+    iget-object v3, p0, Lcom/android/systemui/qs/QSTile;->mState:Lcom/android/systemui/qs/QSTile$State;
+
+    iget-object v3, v3, Lcom/android/systemui/qs/QSTile$State;->tileClassName:Ljava/lang/String;
+
+    invoke-static {v0, v1, v2, v3, v6}, Lcom/android/keyguard/util/GsimLogManager;->sendLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;)V
+
+    :cond_0
+    :goto_0
+    iget-object v0, p0, Lcom/android/systemui/qs/QSTile;->mHandler:Lcom/android/systemui/qs/QSTile$H;
+
+    const/4 v1, 0x2
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/qs/QSTile$H;->sendEmptyMessage(I)Z
+
+    return-void
+
+    :cond_1
     iget-object v0, p0, Lcom/android/systemui/qs/QSTile;->mContext:Landroid/content/Context;
 
     const-string/jumbo v1, "com.android.systemui.statusbar.policy.quicksetting"
@@ -667,18 +698,9 @@
 
     move-result-object v3
 
-    const/4 v4, 0x0
+    invoke-static {v0, v1, v2, v3, v6}, Lcom/android/keyguard/util/GsimLogManager;->sendLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;)V
 
-    invoke-static {v0, v1, v2, v3, v4}, Lcom/android/keyguard/util/GsimLogManager;->sendLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;)V
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/qs/QSTile;->mHandler:Lcom/android/systemui/qs/QSTile$H;
-
-    const/4 v1, 0x2
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/qs/QSTile$H;->sendEmptyMessage(I)Z
-
-    return-void
+    goto :goto_0
 .end method
 
 .method protected composeChangeAnnouncement()Ljava/lang/String;
@@ -696,64 +718,36 @@
 .end method
 
 .method protected composeChangeAnnouncement(Lcom/android/systemui/qs/QSTile$BooleanState;)Ljava/lang/String;
-    .locals 4
+    .locals 2
 
-    iget-object v0, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->label:Ljava/lang/CharSequence;
+    iget-object v0, p0, Lcom/android/systemui/qs/QSTile;->mState:Lcom/android/systemui/qs/QSTile$State;
 
-    check-cast v0, Ljava/lang/String;
+    check-cast v0, Lcom/android/systemui/qs/QSTile$BooleanState;
+
+    iget-boolean v0, v0, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
 
     if-eqz v0, :cond_0
 
-    const-string/jumbo v1, "\n"
-
-    const-string/jumbo v2, ","
-
-    invoke-virtual {v0, v1, v2}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    :cond_0
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, ","
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/android/systemui/qs/QSTile;->mContext:Landroid/content/Context;
-
-    iget-boolean v1, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
-
-    if-eqz v1, :cond_1
+    iget-object v0, p0, Lcom/android/systemui/qs/QSTile;->mContext:Landroid/content/Context;
 
     const v1, 0x7f0f02cd
 
-    :goto_0
-    invoke-virtual {v3, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    return-object v0
 
-    move-result-object v1
+    :cond_0
+    iget-object v0, p0, Lcom/android/systemui/qs/QSTile;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    return-object v1
-
-    :cond_1
     const v1, 0x7f0f02ce
 
-    goto :goto_0
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method public createTileView(Landroid/content/Context;)Lcom/android/systemui/qs/QSIconView;
@@ -1079,12 +1073,43 @@
 .end method
 
 .method public longClick()V
-    .locals 6
+    .locals 7
+
+    const/4 v6, 0x0
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_GSIM_LOG:Z
 
     if-eqz v0, :cond_0
 
+    iget-object v0, p0, Lcom/android/systemui/qs/QSTile;->mState:Lcom/android/systemui/qs/QSTile$State;
+
+    iget-boolean v0, v0, Lcom/android/systemui/qs/QSTile$State;->isCustomTile:Z
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/qs/QSTile;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v1, "com.android.systemui.statusbar.policy.quicksetting"
+
+    const-string/jumbo v2, "QS03"
+
+    iget-object v3, p0, Lcom/android/systemui/qs/QSTile;->mState:Lcom/android/systemui/qs/QSTile$State;
+
+    iget-object v3, v3, Lcom/android/systemui/qs/QSTile$State;->tileClassName:Ljava/lang/String;
+
+    invoke-static {v0, v1, v2, v3, v6}, Lcom/android/keyguard/util/GsimLogManager;->sendLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;)V
+
+    :cond_0
+    :goto_0
+    iget-object v0, p0, Lcom/android/systemui/qs/QSTile;->mHandler:Lcom/android/systemui/qs/QSTile$H;
+
+    const/4 v1, 0x4
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/qs/QSTile$H;->sendEmptyMessage(I)Z
+
+    return-void
+
+    :cond_1
     iget-object v0, p0, Lcom/android/systemui/qs/QSTile;->mContext:Landroid/content/Context;
 
     const-string/jumbo v1, "com.android.systemui.statusbar.policy.quicksetting"
@@ -1107,18 +1132,9 @@
 
     move-result-object v3
 
-    const/4 v4, 0x0
+    invoke-static {v0, v1, v2, v3, v6}, Lcom/android/keyguard/util/GsimLogManager;->sendLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;)V
 
-    invoke-static {v0, v1, v2, v3, v4}, Lcom/android/keyguard/util/GsimLogManager;->sendLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;)V
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/qs/QSTile;->mHandler:Lcom/android/systemui/qs/QSTile$H;
-
-    const/4 v1, 0x4
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/qs/QSTile$H;->sendEmptyMessage(I)Z
-
-    return-void
+    goto :goto_0
 .end method
 
 .method public abstract newTileState()Lcom/android/systemui/qs/QSTile$State;
@@ -1184,12 +1200,43 @@
 .end method
 
 .method public secondaryClick()V
-    .locals 6
+    .locals 7
+
+    const/4 v6, 0x0
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_GSIM_LOG:Z
 
     if-eqz v0, :cond_0
 
+    iget-object v0, p0, Lcom/android/systemui/qs/QSTile;->mState:Lcom/android/systemui/qs/QSTile$State;
+
+    iget-boolean v0, v0, Lcom/android/systemui/qs/QSTile$State;->isCustomTile:Z
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/qs/QSTile;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v1, "com.android.systemui.statusbar.policy.quicksetting"
+
+    const-string/jumbo v2, "QP12"
+
+    iget-object v3, p0, Lcom/android/systemui/qs/QSTile;->mState:Lcom/android/systemui/qs/QSTile$State;
+
+    iget-object v3, v3, Lcom/android/systemui/qs/QSTile$State;->tileClassName:Ljava/lang/String;
+
+    invoke-static {v0, v1, v2, v3, v6}, Lcom/android/keyguard/util/GsimLogManager;->sendLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;)V
+
+    :cond_0
+    :goto_0
+    iget-object v0, p0, Lcom/android/systemui/qs/QSTile;->mHandler:Lcom/android/systemui/qs/QSTile$H;
+
+    const/4 v1, 0x3
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/qs/QSTile$H;->sendEmptyMessage(I)Z
+
+    return-void
+
+    :cond_1
     iget-object v0, p0, Lcom/android/systemui/qs/QSTile;->mContext:Landroid/content/Context;
 
     const-string/jumbo v1, "com.android.systemui.statusbar.policy.quicksetting"
@@ -1212,18 +1259,9 @@
 
     move-result-object v3
 
-    const/4 v4, 0x0
+    invoke-static {v0, v1, v2, v3, v6}, Lcom/android/keyguard/util/GsimLogManager;->sendLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;)V
 
-    invoke-static {v0, v1, v2, v3, v4}, Lcom/android/keyguard/util/GsimLogManager;->sendLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;)V
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/qs/QSTile;->mHandler:Lcom/android/systemui/qs/QSTile$H;
-
-    const/4 v1, 0x3
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/qs/QSTile$H;->sendEmptyMessage(I)Z
-
-    return-void
+    goto :goto_0
 .end method
 
 .method public setDetailListening(Z)V

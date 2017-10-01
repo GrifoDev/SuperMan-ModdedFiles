@@ -389,6 +389,7 @@ Wi-Fi ႏွင့္ ဘလူးတုသ္တို႔ကိုလည္း 
     <string name="quick_settings_dual_label_content_description">%s၊ ခလုတ္အမည္၊ သက္ဆိုင္ရာ အျမန္ သတ္မွတ္ခ်က္မ်ားကိုၾကည့္႐ႈရန္ ႏွစ္ခ်က္ႏွိပ္ပါ။</string>
     <string name="accessibility_button">ခလုတ္</string>
     <string name="quick_settings_brightness_auto_brightness">ေအာ္တို ေတာက္ပႏႈန္း</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">ဖန္သားျပင္ေတာက္ပႏႈန္းကို အလင္းေပးအေျခအေနေပၚ မူတည္၍ အလိုအေလ်ာက္ ခ်ိန္ညႇိပါ။</string>
     <string name="quick_settings_brightness_quick_access">ထိန္းခ်ဳပ္ကြက္ကို ထိပ္ပိုင္းတြင္ ျပပါ</string>
     <string name="quick_settings_brightness_quick_access_summary">ေတာက္ပမႈထိန္းခ်ဳပ္ကြက္ကို အသိေပးခ်က္အကန္႔အေပၚတြင္ ျပပါ။</string>
     <string name="quick_settings_brightness_detail_level">အဆင့္</string>
@@ -418,6 +419,7 @@ Wi-Fi ႏွင့္ ဘလူးတုသ္တို႔ကိုလည္း 
     <string name="wifi_ap_wifi_p2p_off_warn">မိုဘိုင္း ေဟာ့စေပါ့ကို ဖြင့္ျခင္းသည္ Wi-Fi Direct မွ တဆင့္ လက္ရွိ ခ်ိတ္ဆက္ ထားေသာ ကိရိယာတိုင္းကို ခ်ိတ္ဆက္ထားျခင္းမွ ျဖတ္ပါလိမ့္မည္။</string>
     <string name="wifi_ap_wifi_p2p_off_warn_china">Enabling Portable WLAN hotspot will disconnect device connected via WLAN Direct.</string>
     <string name="dialog_battery_data_warning">မုိဘုိင္းလ္ေဟာ့စေပါ့ကုိ ဖြင့္လိမ့္မည္။ ထုိသုိ႔ေဆာင္ရြက္ျခင္းသည္ ဘတၳရီသံုးစြဲမႈႏွင့္အခ်က္အလက္သံုးစြဲမႈကုိ တုိးျမွင့္ေစလိမ့္မည္။</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">ဘာသာစကားမ်ားကို ေျပာင္းပါ</string>
     <string name="keyboard_shortcut_group_applications_email">အီးေမးလ္</string>
     <string name="qs_edit">တည္းျဖတ္ပါ</string>
     <string name="sec_qs_edit">တည္းျဖတ္</string>
@@ -544,8 +546,10 @@ Using your tablet in a very hot location."</string>
     <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
     <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
     <string name="battery_low_sec_title">ဘက္ထရီ ပါဝါ %d%%</string>
-    <string name="battery_low_sec_body_in_normal_mode">သင့္ကိရိယာကို အားသြင္းပါ (သို႔) “ပါဝါေခၽြတာ အေနအထား” ကို ဖြင့္ရန္ ဤေနရာတြင္ ႏွိပ္ပါ။</string>
-    <string name="battery_low_sec_body_in_ups_mode">သင့္ကိရိယာကို အားသြင္းကိရိယာ တစ္ခုသို႔ ခ်ိတ္ဆက္ပါ။</string>
+    <string name="battery_low_sec_body_phone">သင့္ဖုန္းကုိ အားသြင္းပါ (သုိ႔) ပါဝါေခြ်တာေရး အေနအထားကုိဖြင့္ရန္ ဤေနရာကုိ ႏွိပ္ပါ။</string>
+    <string name="battery_low_sec_body_tablet">သင့္တက္ဘလက္ကုိ အားသြင္းပါ (သုိ႔) ပါဝါေခြ်တာေရး အေနအထားကုိဖြင့္ရန္ ဤေနရာကုိ ႏွိပ္ပါ။</string>
+    <string name="battery_low_sec_body_phone_psm">သင့္ဖုန္းကုိ အားသြင္းပါ။</string>
+    <string name="battery_low_sec_body_tablet_psm">သင့္တက္ဘလက္ကုိ အားသြင္းပါ။</string>
     <string name="battery_cable_charging_title">ၾကိဳး အားသြင္းျခင္း</string>
     <string name="battery_charging_title">အားသြင္းေနပါသည္</string>
     <string name="battery_fast_charging_title">အျမန္ အားသြင္းေနသည္</string>
@@ -564,7 +568,10 @@ Using your tablet in a very hot location."</string>
     <string name="battery_saver_notification_text_time_extend">ဘက္ထရီသက္တမ္းကို တိုးျမႇင့္ထားပါသည္။</string>
     <string name="button_detail">အေသးစိတ္</string>
     <string name="battery_saver_recommend_notification_title">ဘက္ထရီ ပါဝါ %d%%</string>
-    <string name="battery_saver_recommend_notification_text">သင့္ကိရိယာကို အားသြင္းပါ (သို႔) “ပါဝါေခၽြတာ အေနအထား” ကို ဖြင့္ရန္ ဤေနရာတြင္ ႏွိပ္ပါ။</string>
+    <string name="battery_saver_recommend_notification_text_phone">သင့္ဖုန္းကုိ အားသြင္းပါ (သုိ႔) ပါဝါေခြ်တာေရး အေနအထားကုိဖြင့္ရန္ ဤေနရာကုိ ႏွိပ္ပါ။</string>
+    <string name="battery_saver_recommend_notification_text_tablet">သင့္တက္ဘလက္ကုိ အားသြင္းပါ (သုိ႔) ပါဝါေခြ်တာေရး အေနအထားကုိဖြင့္ရန္ ဤေနရာကုိ ႏွိပ္ပါ။</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">သင့္ဖုန္းကုိ အားသြင္းပါ။</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">သင့္တက္ဘလက္ကုိ အားသြင္းပါ။</string>
     <string name="button_close">ပိတ္ပါ</string>
     <string name="battery_health_interruption_title">အားသြင္း၍ မရပါ</string>
     <string name="battery_health_interruption_by_terminal_open_text">သင့္ကိရိယာ အားသြင္း၍ မရပါ။ ဆမ္ေဆာင္း ကိုက္ညီေသာ ဘက္ထရီတစ္ခုႏွင့္ အားသြင္းစရာ သံုးေနၿပီး သင့္ကိရိယာက အားသြင္းစရာသို႔ ေသခ်ာ ခ်ိတ္ဆက္ထားေၾကာင္း ေသခ်ာေစပါ။</string>
@@ -653,6 +660,7 @@ upscaler"</string>
     <string name="uhq_mode_noti_text">ၾကည္လင္ရွင္းလင္းသည့္ နားဆင္မႈအေတြ႕အႀကဳံတစ္ရပ္ကို ခံစားနားဆင္ရန္ ေတးဂီတႏွင့္ ဗီဒီယိုမ်ား၏ အသံၾကည္လင္ျပတ္သားမႈကို တိုးျမႇင့္ပါ။</string>
     <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
     <string name="assistance_app_setting_item_none">မရွိ</string>
+    <string name="remote_input_send_text">ပုိ႔ပါ</string>
     <string name="remote_input_toast_text_on_sview_cover">S view ကာဗာ ပိတ္ထားစဥ္အတြင္း အျမန္တုံ႔ျပန္မႈလုပ္ေဆာင္ခ်က္ကို သုံး၍မရႏိုင္ပါ။</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -841,7 +849,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_direction_shutdown_instructions">ပါဝါပိတ္ရန္ တြဲဆက္လမ္းေၾကာင္းမ်ား ေရးဆြဲပါ</string>
     <string name="kg_none_multi_pin_restart_instructions">ကိရိယာေသာ့ဖြင့္ရန္ သင့္PIN ကိုသုံးၿပီးေသာ့ဖြင့္ရန္လိုအပ္ၿပီး ျပန္လည္စတင္ပါ။ ေနာက္တစ္ႀကိမ္ သင္၏ကိရိယာေသာ့ဖြင့္မႈတြင္ ဇီဝ႐ုပ္လကၡဏာမ်ားကို သုံးႏိုင္ပါသည္။</string>
     <string name="kg_tablet_multi_pin_restart_instructions">ကိရိယာေသာ့ဖြင့္ရန္ သင့္PIN ကိုသုံးၿပီးေသာ့ဖြင့္ရန္လိုအပ္ၿပီး ျပန္လည္စတင္ပါ။ ေနာက္တစ္ႀကိမ္ သင္၏ကိရိယာေသာ့ဖြင့္မႈတြင္ ဇီဝ႐ုပ္လကၡဏာမ်ားကို သုံးႏိုင္ပါသည္။</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">သင့္ကိရိယာကို ျပန္စတင္ဖြင့္ခဲ့ၿပီး ၎ကို သင့္ PIN သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္လက္ေဗြမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">သင့္ဖုန္းကုိ ပိတ္ၿပီး ျပန္ဖြင့္လုိက္ၿပီျဖစ္ကာ သင့္ PIN ျဖင့္ ေသာ့ဖြင့္ရန္ လိုအပ္ပါသည္။ သင့္ဖုန္းကုိ ေနာက္တႀကိမ္ ေသာ့ဖြင့္သည့္အခါ သင့္ လက္ေဗြရာမ်ားကို သုံးႏိုင္ပါသည္။</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">သင့္ကိရိယာကို ျပန္စတင္ဖြင့္ခဲ့ၿပီး ၎ကို သင့္ PIN သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္လက္ေဗြမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>
     <string name="kg_none_iris_pin_restart_instructions">သင့္ကိရိယာကို ျပန္စတင္ဖြင့္ခဲ့ၿပီး ၎ကို သင့္ PIN သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္မ်က္ဝန္းမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>
     <string name="kg_tablet_iris_pin_restart_instructions">သင့္ကိရိယာကို ျပန္စတင္ဖြင့္ခဲ့ၿပီး ၎ကို သင့္ PIN သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္မ်က္ဝန္းမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>
@@ -871,7 +879,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pattern_deviceadmin_instructions">လုံၿခဳံေရး မူဝါဒရွိသည့္အတြက္ မ်က္ဝန္းမွတ္သားခ်က္ အသုံးျပဳမႈအစား ပုံစံ ေရးဆြဲပါ</string>
     <string name="kg_none_multi_password_restart_instructions">ကိရိယာကို ျပန္လည္စတင္ထားၿပီး စကားဝွက္ျဖင့္ ေသာ့ဖြင့္ရန္ လိုအပ္ပါသည္။ ကိရိယာကို ေနာက္တစ္ႀကိမ္ေသာ့ဖြင့္သည့္အခါ ဇီဝ႐ုပ္လကၡဏာမ်ား သုံးႏိုင္ပါသည္။</string>
     <string name="kg_tablet_multi_password_restart_instructions">ကိရိယာကို ျပန္လည္စတင္ထားၿပီး စကားဝွက္ျဖင့္ ေသာ့ဖြင့္ရန္ လိုအပ္ပါသည္။ ကိရိယာကို ေနာက္တစ္ႀကိမ္ေသာ့ဖြင့္သည့္အခါ ဇီဝ႐ုပ္လကၡဏာမ်ား သုံးႏိုင္ပါသည္။</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">သင့္ကိရိယာကို ျပန္စတင္ခဲ့ၿပီး ၎ကို သင့္စကားဝွက္ သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္လက္ေဗြမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">သင့္ဖုန္းကုိ ပိတ္ၿပီး ျပန္ဖြင့္လုိက္ၿပီျဖစ္ကာ စကားဝွက္ျဖင့္ ေသာ့ဖြင့္ရန္ လိုအပ္ပါသည္။ သင့္ဖုန္းကုိ ေနာက္တႀကိမ္ ေသာ့ဖြင့္သည့္အခါ သင့္ လက္ေဗြရာမ်ားကို သုံးႏိုင္ပါသည္။</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">သင့္ကိရိယာကို ျပန္စတင္ခဲ့ၿပီး ၎ကို သင့္စကားဝွက္ သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္လက္ေဗြမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>
     <string name="kg_none_iris_password_restart_instructions">သင့္ကိရိယာကို ျပန္စတင္ခဲ့ၿပီး ၎ကို သင့္စကားဝွက္ သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္မ်က္ဝန္းမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>
     <string name="kg_tablet_iris_password_restart_instructions">သင့္ကိရိယာကို ျပန္စတင္ခဲ့ၿပီး ၎ကို သင့္စကားဝွက္ သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္မ်က္ဝန္းမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>
@@ -886,7 +894,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_password_deviceadmin_instructions">လုံၿခဳံေရး မူဝါဒရွိသည့္အတြက္ မ်က္ဝန္းမွတ္သားခ်က္ အသုံးျပဳမႈအစား စကားဝွက္ ထည့္သြင္းပါ</string>
     <string name="kg_none_multi_direction_restart_instructions">သင့္လမ္းၫႊန္ခ်က္မ်ားကို သုံးၿပီး ေသာ့ဖြင့္မႈတြင္ လိုအပ္ခ်က္မ်ားၿပီး ကိရိယာကို ျပန္လည္စတင္ထားသည္။ ယခုအခါ ေနာက္တစ္ႀကိမ္ သင္၏ကိရိယာေသာ့ဖြင့္မႈတြင္ ဇီဝ႐ုပ္လကၡဏာမ်ားကို သုံးႏိုင္ပါသည္။</string>
     <string name="kg_tablet_multi_direction_restart_instructions">သင့္လမ္းၫႊန္ခ်က္မ်ားကို သုံးၿပီး ေသာ့ဖြင့္မႈတြင္ လိုအပ္ခ်က္မ်ားၿပီး ကိရိယာကို ျပန္လည္စတင္ထားသည္။ ယခုအခါ ေနာက္တစ္ႀကိမ္ သင္၏ကိရိယာေသာ့ဖြင့္မႈတြင္ ဇီဝ႐ုပ္လကၡဏာမ်ားကို သုံးႏိုင္ပါသည္။</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">သင့္ကိရိယာကို ျပန္စတင္ခဲ့ၿပီး ၎ကို သင့္အညြန္းတြဲ သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္လက္ေဗြမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">သင့္ဖုန္းကုိ ပိတ္ၿပီး ျပန္ဖြင့္လုိက္ၿပီျဖစ္ကာ တြဲဆက္လမ္းေၾကာင္းမ်ားျဖင့္ ေသာ့ဖြင့္ရန္ လိုအပ္ပါသည္။ သင့္ဖုန္းကုိ ေနာက္တႀကိမ္ ေသာ့ဖြင့္သည့္အခါ သင့္ လက္ေဗြရာမ်ားကို သုံးႏိုင္ပါသည္။</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">သင့္ကိရိယာကို ျပန္စတင္ခဲ့ၿပီး ၎ကို သင့္အညြန္းတြဲ သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္လက္ေဗြမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>
     <string name="kg_none_iris_direction_restart_instructions">သင့္ကိရိယာကို ျပန္စတင္ခဲ့ၿပီး ၎ကို သင့္အညြန္းတြဲ သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္မ်က္ဝန္းမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>
     <string name="kg_tablet_iris_direction_restart_instructions">သင့္ကိရိယာကို ျပန္စတင္ခဲ့ၿပီး ၎ကို သင့္အညြန္းတြဲ သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္မ်က္ဝန္းမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>
@@ -1005,6 +1013,9 @@ PIN သည္ ဂဏန္း ၄ လုံးမွ ၈ လုံးထိရ�
     <string name="recents_help_dlg_split_icon_desc">အက္ပ္မ်ားကို အကန႔္လိုက္ျမင္ကြင္းထဲ၌ ဖြင့္ရန္ အက္ပ္ဝင္းဒိုး၏ ေခါင္းစဥ္ဘားရွိ အကန႔္လိုက္ျမင္ကြင္း သေကၤတကို ႏွိပ္ပါ။ အက္ပ္က မာတီဝင္းဒိုးကို ပံ့ပိုးေပးလွ်င္ ဤသေကၤတကို ျပထားသည္။</string>
     <string name="recents_help_dlg_long_click_recents_key_text">ဖန္သားျပင္အျပည့္ျမင္ကြင္းျဖင့္ အက္ပ္ကုိ အသံုးျပဳစဥ္ ခြဲထုတ္ဖန္သားျပင္ျမင္ကြင္းသုိ႔ ေျပာင္းရန္ လတ္တေလာကီးကုိ ဖိ၍ ႏွိပ္ထားပါ။</string>
     <string name="recents_help_dlg_home_key_in_split_text">အကန႔္လိုက္ျမင္ကြင္းကို အသုံးျပဳေနစဥ္အတြင္း ပင္မကီးကို ႏွိပ္လွ်င္ ဖန္သားျပင္အေပၚပိုင္းထက္ဝက္တြင္ ျပထားေသာ အက္ပ္ကို ေဖ်ာက္လိုက္ပါမည္။ အေျခအေနျပဘားကို အျပာေရာင္ ျခယ္ထားစဥ္အတြင္း ပင္မမ်က္ႏွာျပင္မွ အက္ပ္ကို ဖြင့္ပါက အက္ပ္ကို ဖန္သားျပင္ေအာက္ပိုင္းထက္ဝက္တြင္ အကန႔္လိုက္ျမင္ကြင္းျဖင့္ ဖြင့္ပါမည္။</string>
+    <string name="battery_low_sec_body_in_normal_mode">သင့္ကိရိယာကို အားသြင္းပါ (သို႔) “ပါဝါေခၽြတာ အေနအထား” ကို ဖြင့္ရန္ ဤေနရာတြင္ ႏွိပ္ပါ။</string>
+    <string name="battery_low_sec_body_in_ups_mode">သင့္ကိရိယာကို အားသြင္းကိရိယာ တစ္ခုသို႔ ခ်ိတ္ဆက္ပါ။</string>
+    <string name="battery_saver_recommend_notification_text">သင့္ကိရိယာကို အားသြင္းပါ (သို႔) “ပါဝါေခၽြတာ အေနအထား” ကို ဖြင့္ရန္ ဤေနရာတြင္ ႏွိပ္ပါ။</string>
     <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
 
 If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>

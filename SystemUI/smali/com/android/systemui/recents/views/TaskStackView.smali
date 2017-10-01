@@ -46,6 +46,8 @@
     .end annotation
 .end field
 
+.field private mAwaitingInitializeAlgorithm:Z
+
 .field private mAwaitingPrepareAnimation:I
 
 .field private mBlockRelayoutTaskViews:Z
@@ -452,6 +454,8 @@
 
     iput-boolean v4, p0, Lcom/android/systemui/recents/views/TaskStackView;->mBlockRelayoutTaskViews:Z
 
+    iput-boolean v4, p0, Lcom/android/systemui/recents/views/TaskStackView;->mAwaitingInitializeAlgorithm:Z
+
     new-instance v3, Lcom/android/systemui/recents/views/TaskStackView$1;
 
     invoke-direct {v3, p0}, Lcom/android/systemui/recents/views/TaskStackView$1;-><init>(Lcom/android/systemui/recents/views/TaskStackView;)V
@@ -589,7 +593,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f020431
+    const v4, 0x7f020434
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -2399,7 +2403,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/views/TaskStackView;->mInflater:Landroid/view/LayoutInflater;
 
-    const v1, 0x7f040124
+    const v1, 0x7f040125
 
     const/4 v2, 0x0
 
@@ -3365,6 +3369,18 @@
     invoke-direct {v1, v0, v2}, Lcom/android/systemui/recents/views/AnimationProps;-><init>(ILandroid/view/animation/Interpolator;)V
 
     invoke-direct {p0, v4, v1}, Lcom/android/systemui/recents/views/TaskStackView;->animateFreeformWorkspaceBackgroundAlpha(ILcom/android/systemui/recents/views/AnimationProps;)V
+
+    return-void
+.end method
+
+.method public final onBusEvent(Lcom/android/systemui/recents/events/activity/DockedTopTaskFailedEvent;)V
+    .locals 1
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/systemui/recents/views/TaskStackView;->mAwaitingInitializeAlgorithm:Z
+
+    invoke-direct {p0}, Lcom/android/systemui/recents/views/TaskStackView;->updateLayoutToStableBounds()V
 
     return-void
 .end method
@@ -5774,6 +5790,21 @@
     invoke-virtual {v0, v11, v11, v10, v6}, Landroid/graphics/Rect;->set(IIII)V
 
     :cond_0
+    iget-boolean v0, p0, Lcom/android/systemui/recents/views/TaskStackView;->mAwaitingFirstLayout:Z
+
+    if-eqz v0, :cond_1
+
+    iget-boolean v0, p0, Lcom/android/systemui/recents/views/TaskStackView;->mAwaitingInitializeAlgorithm:Z
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/recents/views/TaskStackView;->mLayoutAlgorithm:Lcom/android/systemui/recents/views/TaskStackLayoutAlgorithm;
+
+    invoke-virtual {v0}, Lcom/android/systemui/recents/views/TaskStackLayoutAlgorithm;->resetInitializeInterpolator()V
+
+    iput-boolean v11, p0, Lcom/android/systemui/recents/views/TaskStackView;->mAwaitingInitializeAlgorithm:Z
+
+    :cond_1
     iget-object v0, p0, Lcom/android/systemui/recents/views/TaskStackView;->mStableLayoutAlgorithm:Lcom/android/systemui/recents/views/TaskStackLayoutAlgorithm;
 
     iget-object v1, p0, Lcom/android/systemui/recents/views/TaskStackView;->mDisplayRect:Landroid/graphics/Rect;
@@ -5810,47 +5841,47 @@
 
     iget v0, p0, Lcom/android/systemui/recents/views/TaskStackView;->mLastWidth:I
 
-    if-ne v10, v0, :cond_1
+    if-ne v10, v0, :cond_2
 
     iget v0, p0, Lcom/android/systemui/recents/views/TaskStackView;->mLastHeight:I
 
-    if-eq v6, v0, :cond_6
+    if-eq v6, v0, :cond_7
 
-    :cond_1
+    :cond_2
     iget-boolean v8, p0, Lcom/android/systemui/recents/views/TaskStackView;->mResetToInitialStateWhenResized:Z
 
     :goto_0
     iget-boolean v0, p0, Lcom/android/systemui/recents/views/TaskStackView;->mAwaitingFirstLayout:Z
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_3
 
     iget v0, p0, Lcom/android/systemui/recents/views/TaskStackView;->mInitialState:I
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_8
 
-    :cond_2
+    :cond_3
     :goto_1
     iget v0, p0, Lcom/android/systemui/recents/views/TaskStackView;->mInitialState:I
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_3
+    if-ne v0, v1, :cond_4
 
-    if-eqz v8, :cond_4
+    if-eqz v8, :cond_5
 
-    :cond_3
+    :cond_4
     invoke-virtual {p0}, Lcom/android/systemui/recents/views/TaskStackView;->updateToInitialState()V
 
     iput-boolean v11, p0, Lcom/android/systemui/recents/views/TaskStackView;->mResetToInitialStateWhenResized:Z
 
-    :cond_4
+    :cond_5
     iget-boolean v0, p0, Lcom/android/systemui/recents/views/TaskStackView;->mAwaitingFirstLayout:Z
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_6
 
     iput v11, p0, Lcom/android/systemui/recents/views/TaskStackView;->mInitialState:I
 
-    :cond_5
+    :cond_6
     iget-object v0, p0, Lcom/android/systemui/recents/views/TaskStackView;->mStackScroller:Lcom/android/systemui/recents/views/TaskStackViewScroller;
 
     invoke-virtual {v0}, Lcom/android/systemui/recents/views/TaskStackViewScroller;->getStackScroll()F
@@ -5890,7 +5921,7 @@
     const/4 v7, 0x0
 
     :goto_2
-    if-ge v7, v9, :cond_8
+    if-ge v7, v9, :cond_9
 
     iget-object v0, p0, Lcom/android/systemui/recents/views/TaskStackView;->mTmpTaskViews:Ljava/util/List;
 
@@ -5906,17 +5937,17 @@
 
     goto :goto_2
 
-    :cond_6
+    :cond_7
     const/4 v8, 0x0
 
     goto :goto_0
 
-    :cond_7
-    if-eqz v8, :cond_5
+    :cond_8
+    if-eqz v8, :cond_6
 
     goto :goto_1
 
-    :cond_8
+    :cond_9
     invoke-virtual {p0, v10, v6}, Lcom/android/systemui/recents/views/TaskStackView;->setMeasuredDimension(II)V
 
     iput v10, p0, Lcom/android/systemui/recents/views/TaskStackView;->mLastWidth:I

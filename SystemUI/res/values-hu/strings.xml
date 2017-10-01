@@ -957,6 +957,7 @@ Amikor rendelkezésre áll a szolgáltatás, az értesítési panelen megjelenik
     <string name="quick_settings_dual_label_content_description">%s, gombfelirat, Érintse meg kétszer a releváns gyorsbeállítások megtekintéséhez.</string>
     <string name="accessibility_button">Gomb</string>
     <string name="quick_settings_brightness_auto_brightness">Automatikus fényerő</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">A fényerő automatikus beállítása a fényviszonyoknak megfelelően.</string>
     <string name="quick_settings_brightness_quick_access">Szabályozó megjelenítése felül</string>
     <string name="quick_settings_brightness_quick_access_summary">A fényerő-szabályozó megjelenítése az értesítési panel felett.</string>
     <string name="quick_settings_brightness_detail_level">Szint</string>
@@ -1277,6 +1278,7 @@ További információért forduljon a rendszergazdához."</string>
     <string name="keyboard_shortcut_group_system_notifications">Értesítések</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">Billentyűkódok</string>
     <string name="keyboard_shortcut_group_system_switch_input">Beviteli mód váltása</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">Nyelv váltása</string>
     <string name="keyboard_shortcut_group_applications">Alkalmazások</string>
     <string name="keyboard_shortcut_group_applications_assist">Segédalkalmazás</string>
     <string name="keyboard_shortcut_group_applications_browser">Böngésző</string>
@@ -1480,8 +1482,10 @@ A túlmelegedés lehetséges okai:
     <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
     <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
     <string name="battery_low_sec_title">Töltöttség: %d%%</string>
-    <string name="battery_low_sec_body_in_normal_mode">Töltse fel az eszközt, vagy érintse meg itt az Energiatakarékos mód bekapcsolásához.</string>
-    <string name="battery_low_sec_body_in_ups_mode">Csatlakoztasson töltőt az eszközhöz.</string>
+    <string name="battery_low_sec_body_phone">Töltse fel a telefont, vagy érintse meg itt az Energiatakarékos mód bekapcsolásához.</string>
+    <string name="battery_low_sec_body_tablet">Töltse fel a táblagépet, vagy érintse meg itt az Energiatakarékos mód bekapcsolásához.</string>
+    <string name="battery_low_sec_body_phone_psm">Töltse fel a telefont.</string>
+    <string name="battery_low_sec_body_tablet_psm">Tölt. fel a táblagépet.</string>
     <string name="battery_cable_charging_title">Vezetékes töltés</string>
     <string name="battery_charging_title">Töltés</string>
     <string name="battery_fast_charging_title">Gyorstöltés</string>
@@ -1500,7 +1504,10 @@ A túlmelegedés lehetséges okai:
     <string name="battery_saver_notification_text_time_extend">Meghosszabbította az akkumulátor üzemidejét.</string>
     <string name="button_detail">Adatok</string>
     <string name="battery_saver_recommend_notification_title">Töltöttség: %d%%</string>
-    <string name="battery_saver_recommend_notification_text">Töltse fel az eszközt, vagy érintse meg itt az Energiatakarékos mód bekapcsolásához.</string>
+    <string name="battery_saver_recommend_notification_text_phone">Töltse fel a telefont, vagy érintse meg itt az Energiatakarékos mód bekapcsolásához.</string>
+    <string name="battery_saver_recommend_notification_text_tablet">Töltse fel a táblagépet, vagy érintse meg itt az Energiatakarékos mód bekapcsolásához.</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">Töltse fel a telefont.</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">Tölt. fel a táblagépet.</string>
     <string name="button_close">Bezárás</string>
     <string name="battery_health_interruption_title">Nem lehet tölteni</string>
     <string name="battery_health_interruption_by_terminal_open_text">Nem lehet tölteni az eszközt. Ellenőrizze, hogy Samsung-kompatibilis akkumulátort és töltőt használ-e, és hogy megfelelően csatlakozik-e az eszköz a töltőhöz.</string>
@@ -1589,6 +1596,7 @@ bont.növ."</string>
     <string name="uhq_mode_noti_text">A tisztább hangzás érdekében megnövelheti a zenék és a videók hangfelbontását.</string>
     <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
     <string name="assistance_app_setting_item_none">Nincs</string>
+    <string name="remote_input_send_text">Küldés</string>
     <string name="remote_input_toast_text_on_sview_cover">Csukott S View Cover mellett nem használható a Gyors válasz funkció.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -1844,7 +1852,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_direction_shutdown_instructions">A kikapcsoláshoz rajzolja le az iránysorozatot</string>
     <string name="kg_none_multi_pin_restart_instructions">Az eszköz újraindult, ezért PIN-kóddal kell feloldania. Az eszköz következő feloldásakor használhatja a biometrikus azonosítást.</string>
     <string name="kg_tablet_multi_pin_restart_instructions">Az eszköz újraindult, ezért PIN-kóddal kell feloldania. Az eszköz következő feloldásakor használhatja a biometrikus azonosítást.</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">Az eszköz újraindult, ezért PIN-kóddal kell feloldania. Az eszköz következő feloldásakor használhatja az ujjlenyomatát.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">A telefon újraindult, ezért PIN-kóddal kell feloldania. A következő feloldáskor használhatja ujjlenyomatát.</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">Az eszköz újraindult, ezért PIN-kóddal kell feloldania. Az eszköz következő feloldásakor használhatja az ujjlenyomatát.</string>
     <string name="kg_none_iris_pin_restart_instructions">Az eszköz újraindult, ezért PIN-kóddal kell feloldania. Az eszköz következő feloldásakor használhatja az íriszét.</string>
     <string name="kg_tablet_iris_pin_restart_instructions">Az eszköz újraindult, ezért PIN-kóddal kell feloldania. Az eszköz következő feloldásakor használhatja az íriszét.</string>
@@ -1874,7 +1882,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pattern_deviceadmin_instructions">A biztonsági házirend előírásai miatt az íriszfelismerés használata helyett a mintát kell lerajzolni</string>
     <string name="kg_none_multi_password_restart_instructions">Az eszköz újraindult, ezért jelszóval kell feloldania. Az eszköz következő feloldásakor már használhatja a biometrikus azonosítást.</string>
     <string name="kg_tablet_multi_password_restart_instructions">Az eszköz újraindult, ezért jelszóval kell feloldania. Az eszköz következő feloldásakor már használhatja a biometrikus azonosítást.</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">Az eszköz újraindult, ezért jelszóval kell feloldania. Az eszköz következő feloldásakor használhatja az ujjlenyomatát.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">A telefon újraindult, ezért jelszóval kell feloldania. A következő feloldáskor használhatja ujjlenyomatát.</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">Az eszköz újraindult, ezért jelszóval kell feloldania. Az eszköz következő feloldásakor használhatja az ujjlenyomatát.</string>
     <string name="kg_none_iris_password_restart_instructions">Az eszköz újraindult, ezért jelszóval kell feloldania. Az eszköz következő feloldásakor használhatja az íriszét.</string>
     <string name="kg_tablet_iris_password_restart_instructions">Az eszköz újraindult, ezért jelszóval kell feloldania. Az eszköz következő feloldásakor használhatja az íriszét.</string>
@@ -1889,7 +1897,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_password_deviceadmin_instructions">A biztonsági házirend előírásai miatt az íriszfelismerés használata helyett a jelszót kell megadni</string>
     <string name="kg_none_multi_direction_restart_instructions">Az eszköz újraindult, ezért iránysorozattal kell feloldania. Az eszköz következő feloldásakor használhatja a biometrikus azonosítást.</string>
     <string name="kg_tablet_multi_direction_restart_instructions">Az eszköz újraindult, ezért iránysorozattal kell feloldania. Az eszköz következő feloldásakor használhatja a biometrikus azonosítást.</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">Az eszköz újraindult, ezért iránysorozattal kell feloldania. Az eszköz következő feloldásakor használhatja az ujjlenyomatát.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">A telefon újraindult, ezért iránysorozattal kell feloldania. A következő feloldáskor használhatja ujjlenyomatát.</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">Az eszköz újraindult, ezért iránysorozattal kell feloldania. Az eszköz következő feloldásakor használhatja az ujjlenyomatát.</string>
     <string name="kg_none_iris_direction_restart_instructions">Az eszköz újraindult, ezért iránysorozattal kell feloldania. Az eszköz következő feloldásakor használhatja az íriszét.</string>
     <string name="kg_tablet_iris_direction_restart_instructions">Az eszköz újraindult, ezért iránysorozattal kell feloldania. Az eszköz következő feloldásakor használhatja az íriszét.</string>
@@ -2013,6 +2021,9 @@ Próbálja újra 1 másodperc múlva"</string>
     <string name="recents_help_dlg_split_icon_desc">Ha osztott képernyős nézetben szeretne megnyitni egy alkalmazást, érintse meg az Osztott képernyő ikont az alkalmazásablak címsorában. Az ikon csak akkor jelenik meg, ha az alkalmazás támogatja a Több ablak funkciót.</string>
     <string name="recents_help_dlg_long_click_recents_key_text">Úgy válthat osztott képernyős nézetre, hogy nyomva tartja a Legutóbbi gombot egy alkalmazás teljes képernyős használata közben.</string>
     <string name="recents_help_dlg_home_key_in_split_text">Ha osztott képernyős nézetben megnyomja a Kezdőlap gombot, a képernyő felső felén látható alkalmazás kis méretre kapcsol. Ha kék színű állapotsor mellett alkalmazást nyit meg a kezdőképernyőről, akkor az osztott nézetben jelenik meg, a képernyő alsó felén.</string>
+    <string name="battery_low_sec_body_in_normal_mode">Töltse fel az eszközt, vagy érintse meg itt az Energiatakarékos mód bekapcsolásához.</string>
+    <string name="battery_low_sec_body_in_ups_mode">Csatlakoztasson töltőt az eszközhöz.</string>
+    <string name="battery_saver_recommend_notification_text">Töltse fel az eszközt, vagy érintse meg itt az Energiatakarékos mód bekapcsolásához.</string>
     <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
 
 If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>

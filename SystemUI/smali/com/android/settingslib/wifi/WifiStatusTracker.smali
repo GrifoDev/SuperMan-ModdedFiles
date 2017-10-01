@@ -373,7 +373,7 @@
 
     iput-object p1, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mContext:Landroid/content/Context;
 
-    const/4 v0, 0x1
+    const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mShowConnectedToast:Z
 

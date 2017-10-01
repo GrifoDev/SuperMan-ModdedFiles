@@ -957,6 +957,7 @@ Het pictogram Bellen via Wi-Fi wordt zoals hieronder weergegeven in het meldinge
     <string name="quick_settings_dual_label_content_description">%s, Knoplabel, Tik twee keer om de relevante snelle instellingen weer te geven.</string>
     <string name="accessibility_button">Knop</string>
     <string name="quick_settings_brightness_auto_brightness">Automatische helderheid</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">Pas de schermhelderheid automatisch aan op basis van verlichtingsomstandigheden.</string>
     <string name="quick_settings_brightness_quick_access">Control bovenop weergeven</string>
     <string name="quick_settings_brightness_quick_access_summary">Geef de control voor helderheid weer boven het meldingenvenster.</string>
     <string name="quick_settings_brightness_detail_level">Niveau</string>
@@ -1277,6 +1278,7 @@ Neem contact op met je beheerder voor meer informatie."</string>
     <string name="keyboard_shortcut_group_system_notifications">Meldingen</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">Sneltoetsen</string>
     <string name="keyboard_shortcut_group_system_switch_input">Invoermethode schakelen</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">Talen afwisselen</string>
     <string name="keyboard_shortcut_group_applications">Apps</string>
     <string name="keyboard_shortcut_group_applications_assist">Assistentie</string>
     <string name="keyboard_shortcut_group_applications_browser">Browser</string>
@@ -1480,8 +1482,10 @@ Oververhitting kan veroorzaakt worden door:
     <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
     <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
     <string name="battery_low_sec_title">Batterijvoeding %d%%</string>
-    <string name="battery_low_sec_body_in_normal_mode">Laad uw apparaat op of tik hier om Spaarstand in te schakelen.</string>
-    <string name="battery_low_sec_body_in_ups_mode">Sluit uw apparaat aan op een oplader.</string>
+    <string name="battery_low_sec_body_phone">Laad uw telefoon op of tik hier om Spaarstand in te schakelen.</string>
+    <string name="battery_low_sec_body_tablet">Laad uw tablet op of tik hier om Spaarstand in te schakelen.</string>
+    <string name="battery_low_sec_body_phone_psm">Laad uw telefoon op.</string>
+    <string name="battery_low_sec_body_tablet_psm">Laad uw tablet op.</string>
     <string name="battery_cable_charging_title">Opladen via kabel</string>
     <string name="battery_charging_title">Opladen</string>
     <string name="battery_fast_charging_title">Snel opladen</string>
@@ -1500,7 +1504,10 @@ Oververhitting kan veroorzaakt worden door:
     <string name="battery_saver_notification_text_time_extend">De levensduur van uw batterij is verlengd.</string>
     <string name="button_detail">Details</string>
     <string name="battery_saver_recommend_notification_title">Batterijvoeding %d%%</string>
-    <string name="battery_saver_recommend_notification_text">Laad uw apparaat op of tik hier om Spaarstand in te schakelen.</string>
+    <string name="battery_saver_recommend_notification_text_phone">Laad uw telefoon op of tik hier om Spaarstand in te schakelen.</string>
+    <string name="battery_saver_recommend_notification_text_tablet">Laad uw tablet op of tik hier om Spaarstand in te schakelen.</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">Laad uw telefoon op.</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">Laad uw tablet op.</string>
     <string name="button_close">Sluiten</string>
     <string name="battery_health_interruption_title">Kan niet opladen</string>
     <string name="battery_health_interruption_by_terminal_open_text">Kan uw apparaat niet opladen. Zorg dat u een met Samsung compatibele batterij en lader gebruikt en dat uw apparaat correct is aangesloten op de lader.</string>
@@ -1589,6 +1596,7 @@ upscaler"</string>
     <string name="uhq_mode_noti_text">"Verbeter de geluidsresolutie van muziek en video's voor een betere luisterervaring."</string>
     <string name="assistance_app_setting_alert_dialog_title">Selecteer welke app wordt geopend wanneer u de Starttoets ingedrukt houdt. Als u de geselecteerde app later wilt wijzigen, gaat u naar Apparaatondersteuning in Instellingen.</string>
     <string name="assistance_app_setting_item_none">Geen</string>
+    <string name="remote_input_send_text">Verzenden</string>
     <string name="remote_input_toast_text_on_sview_cover">Kan de functie Snel antwoord niet gebruiken als S View Cover is gesloten.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -1844,7 +1852,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_direction_shutdown_instructions">Teken richtingenreeks om uit te schakelen</string>
     <string name="kg_none_multi_pin_restart_instructions">Uw apparaat is opnieuw gestart en moet worden ontgrendeld met uw pincode. U kunt uw biometrische gegevens gebruiken als u het apparaat de volgende keer ontgrendelt.</string>
     <string name="kg_tablet_multi_pin_restart_instructions">Uw apparaat is opnieuw gestart en moet worden ontgrendeld met uw pincode. U kunt uw biometrische gegevens gebruiken als u het apparaat de volgende keer ontgrendelt.</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">Uw apparaat is opnieuw gestart en moet worden ontgrendeld met uw pincode. U kunt uw vingerafdrukken gebruiken als u het apparaat de volgende keer ontgrendelt.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">Uw telefoon is opnieuw gestart en moet worden ontgrendeld met uw pincode. U kunt uw vingerafdrukken gebruiken als u de telefoon de volgende keer ontgrendelt.</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">Uw apparaat is opnieuw gestart en moet worden ontgrendeld met uw pincode. U kunt uw vingerafdrukken gebruiken als u het apparaat de volgende keer ontgrendelt.</string>
     <string name="kg_none_iris_pin_restart_instructions">Uw apparaat is opnieuw gestart en moet worden ontgrendeld met uw pincode. U kunt uw irissen gebruiken als u het apparaat de volgende keer ontgrendelt.</string>
     <string name="kg_tablet_iris_pin_restart_instructions">Uw apparaat is opnieuw gestart en moet worden ontgrendeld met uw pincode. U kunt uw irissen gebruiken als u het apparaat de volgende keer ontgrendelt.</string>
@@ -1874,7 +1882,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pattern_deviceadmin_instructions">Teken een patroon in plaats van irisherkenning vanwege het beveiligingsbeleid</string>
     <string name="kg_none_multi_password_restart_instructions">Uw apparaat is opnieuw gestart en moet worden ontgrendeld met uw wachtwoord. U kunt uw biometrische gegevens gebruiken als u het apparaat de volgende keer ontgrendelt.</string>
     <string name="kg_tablet_multi_password_restart_instructions">Uw apparaat is opnieuw gestart en moet worden ontgrendeld met uw wachtwoord. U kunt uw biometrische gegevens gebruiken als u het apparaat de volgende keer ontgrendelt.</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">Uw apparaat is opnieuw gestart en moet worden ontgrendeld met uw wachtwoord. U kunt uw vingerafdrukken gebruiken als u het apparaat de volgende keer ontgrendelt.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">Uw telefoon is opnieuw gestart en moet worden ontgrendeld met uw wachtwoord. U kunt uw vingerafdrukken gebruiken als u de telefoon de volgende keer ontgrendelt.</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">Uw apparaat is opnieuw gestart en moet worden ontgrendeld met uw wachtwoord. U kunt uw vingerafdrukken gebruiken als u het apparaat de volgende keer ontgrendelt.</string>
     <string name="kg_none_iris_password_restart_instructions">Uw apparaat is opnieuw gestart en moet worden ontgrendeld met uw wachtwoord. U kunt uw irissen gebruiken als u het apparaat de volgende keer ontgrendelt.</string>
     <string name="kg_tablet_iris_password_restart_instructions">Uw apparaat is opnieuw gestart en moet worden ontgrendeld met uw wachtwoord. U kunt uw irissen gebruiken als u het apparaat de volgende keer ontgrendelt.</string>
@@ -1889,7 +1897,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_password_deviceadmin_instructions">Voer een wachtwoord in in plaats van irisherkenning vanwege het beveiligingsbeleid</string>
     <string name="kg_none_multi_direction_restart_instructions">Uw apparaat is opnieuw gestart en moet worden ontgrendeld met uw richtingenreeks. U kunt uw biometrische gegevens gebruiken als u het apparaat de volgende keer ontgrendelt.</string>
     <string name="kg_tablet_multi_direction_restart_instructions">Uw apparaat is opnieuw gestart en moet worden ontgrendeld met uw richtingenreeks. U kunt uw biometrische gegevens gebruiken als u het apparaat de volgende keer ontgrendelt.</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">Uw apparaat is opnieuw gestart en moet worden ontgrendeld met uw richtingenreeks. U kunt uw vingerafdrukken gebruiken als u het apparaat de volgende keer ontgrendelt.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">Uw telefoon is opnieuw gestart en moet worden ontgrendeld met uw richtingenreeks. U kunt uw vingerafdrukken gebruiken als u de telefoon de volgende keer ontgrendelt.</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">Uw apparaat is opnieuw gestart en moet worden ontgrendeld met uw richtingenreeks. U kunt uw vingerafdrukken gebruiken als u het apparaat de volgende keer ontgrendelt.</string>
     <string name="kg_none_iris_direction_restart_instructions">Uw apparaat is opnieuw gestart en moet worden ontgrendeld met uw richtingenreeks. U kunt uw irissen gebruiken als u het apparaat de volgende keer ontgrendelt.</string>
     <string name="kg_tablet_iris_direction_restart_instructions">Uw apparaat is opnieuw gestart en moet worden ontgrendeld met uw richtingenreeks. U kunt uw irissen gebruiken als u het apparaat de volgende keer ontgrendelt.</string>
@@ -2011,6 +2019,9 @@ Probeer het opnieuw over 1 seconde"</string>
     <string name="recents_help_dlg_split_icon_desc">Tik op het pictogram Gesplitst scherm op de titelbalk van het app-venster om apps in gesplitste schermweergave te openen. Dit pictogram wordt weergegeven wanneer de app Multi window ondersteunt.</string>
     <string name="recents_help_dlg_long_click_recents_key_text">Houd de toets Recent ingedrukt terwijl u een app in volledige schermweergave gebruikt om over te schakelen naar gesplitste schermweergave.</string>
     <string name="recents_help_dlg_home_key_in_split_text">Wanneer u op de Starttoets drukt in de gesplitste schermweergave, wordt de app in de bovenste helft van het scherm geminimaliseerd. Als u een app opent in het startscherm terwijl de statusbalk blauw is, wordt de app in gesplitste schermweergave geopend in de onderste helft van het scherm.</string>
+    <string name="battery_low_sec_body_in_normal_mode">Laad uw apparaat op of tik hier om Spaarstand in te schakelen.</string>
+    <string name="battery_low_sec_body_in_ups_mode">Sluit uw apparaat aan op een oplader.</string>
+    <string name="battery_saver_recommend_notification_text">Laad uw apparaat op of tik hier om Spaarstand in te schakelen.</string>
     <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
 
 If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>

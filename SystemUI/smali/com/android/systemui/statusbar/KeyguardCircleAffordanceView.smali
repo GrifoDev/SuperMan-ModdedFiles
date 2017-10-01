@@ -1128,7 +1128,7 @@
 
     move-result-object v3
 
-    const v5, 0x7f0202ea
+    const v5, 0x7f0202eb
 
     invoke-virtual {v3, v5, v7}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 
@@ -4024,17 +4024,26 @@
 .method public setAlpha(F)V
     .locals 1
 
+    const/4 v0, 0x0
+
+    cmpl-float v0, p1, v0
+
+    if-nez v0, :cond_0
+
+    invoke-static {}, Lcom/android/systemui/statusbar/BottomAreaDebugLogUtil;->addCircleAffordanceViewAlphaDebugLogs()V
+
+    :cond_0
     invoke-super {p0, p1}, Landroid/widget/ImageView;->setAlpha(F)V
 
     sget-boolean v0, Lcom/android/keyguard/KeyguardRune;->SUPPORT_SKIP_SHORTCUT_ARROW_SHOWING_VI:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, v0}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->setImageAlpha(FZ)V
 
-    :cond_0
+    :cond_1
     return-void
 .end method
 
@@ -4546,21 +4555,26 @@
 
     const/4 v2, 0x0
 
+    if-eqz p1, :cond_0
+
+    invoke-static {}, Lcom/android/systemui/statusbar/BottomAreaDebugLogUtil;->addCircleAffordanceViewVisibilityDebugLogs()V
+
+    :cond_0
     invoke-super {p0, p1}, Landroid/widget/ImageView;->setVisibility(I)V
 
     sget-boolean v0, Lcom/android/keyguard/KeyguardRune;->SUPPORT_SKIP_SHORTCUT_ARROW_SHOWING_VI:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mArrow:Landroid/widget/ImageView;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mArrow:Landroid/widget/ImageView;
 
     invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mArrow:Landroid/widget/ImageView;
 
@@ -4572,7 +4586,7 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setImageAlpha(I)V
 
-    :cond_0
+    :cond_1
     return-void
 .end method
 

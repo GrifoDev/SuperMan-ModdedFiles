@@ -957,6 +957,7 @@ Turn on Airplane mode?"</string>
     <string name="quick_settings_dual_label_content_description">%s، برچسب دکمه، برای مشاهده تنظیمات سریع مربوطه، دو بار ضربه بزنید.</string>
     <string name="accessibility_button">دکمه</string>
     <string name="quick_settings_brightness_auto_brightness">روشنایی خودکار</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">روشنایی صفحه به طور خودکار بر اساس شرایط نور محیط تنظیم می‌شود.</string>
     <string name="quick_settings_brightness_quick_access">نمایش کنترل در بالا</string>
     <string name="quick_settings_brightness_quick_access_summary">کنترل روشنایی در بالای پَنل اعلان نمایش داده می‌شود.</string>
     <string name="quick_settings_brightness_detail_level">درجه</string>
@@ -1277,6 +1278,7 @@ Turn on Airplane mode?"</string>
     <string name="keyboard_shortcut_group_system_notifications">اعلان‌ها</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">میان‌برهای صفحه‌کلید</string>
     <string name="keyboard_shortcut_group_system_switch_input">تغییر روش ورودی</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">جابه‌جایی زبان‌ها</string>
     <string name="keyboard_shortcut_group_applications">برنامه‌ها</string>
     <string name="keyboard_shortcut_group_applications_assist">دستیار</string>
     <string name="keyboard_shortcut_group_applications_browser">مرورگر</string>
@@ -1480,8 +1482,10 @@ Using your tablet in a very hot location."</string>
     <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
     <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
     <string name="battery_low_sec_title">نیروی باتری %d درصد</string>
-    <string name="battery_low_sec_body_in_normal_mode">دستگاه خود را شارژ کنید یا اینجا ضربه بزنید و &lt;حالت ذخیره نیرو> را فعال کنید.</string>
-    <string name="battery_low_sec_body_in_ups_mode">دستگاهتان را به یک شارژر متصل کنید.</string>
+    <string name="battery_low_sec_body_phone">تلفن خود را شارژ کنید یا اینجا ضربه بزنید و حالت ذخیره نیرو را روشن کنید.</string>
+    <string name="battery_low_sec_body_tablet">تبلت خود را شارژ کنید یا اینجا ضربه بزنید و حالت ذخیره نیرو را روشن کنید.</string>
+    <string name="battery_low_sec_body_phone_psm">تلفن خود را شارژ کنید.</string>
+    <string name="battery_low_sec_body_tablet_psm">تبلت خود را شارژ کنید.</string>
     <string name="battery_cable_charging_title">شارژ کابلی</string>
     <string name="battery_charging_title">شارژ کردن</string>
     <string name="battery_fast_charging_title">شارژ سریع</string>
@@ -1500,7 +1504,10 @@ Using your tablet in a very hot location."</string>
     <string name="battery_saver_notification_text_time_extend">عمر باتری شما افزایش یافت.</string>
     <string name="button_detail">جزئیات</string>
     <string name="battery_saver_recommend_notification_title">نیروی باتری %d درصد</string>
-    <string name="battery_saver_recommend_notification_text">دستگاه خود را شارژ کنید یا اینجا ضربه بزنید و &lt;حالت ذخیره نیرو> را فعال کنید.</string>
+    <string name="battery_saver_recommend_notification_text_phone">تلفن خود را شارژ کنید یا اینجا ضربه بزنید و حالت ذخیره نیرو را روشن کنید.</string>
+    <string name="battery_saver_recommend_notification_text_tablet">تبلت خود را شارژ کنید یا اینجا ضربه بزنید و حالت ذخیره نیرو را روشن کنید.</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">تلفن خود را شارژ کنید.</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">تبلت خود را شارژ کنید.</string>
     <string name="button_close">بستن</string>
     <string name="battery_health_interruption_title">شارژ ممکن نیست</string>
     <string name="battery_health_interruption_by_terminal_open_text">شارژ دستگاه ممکن نیست. مطمئن شوید از باتری و شارژر سازگار با سامسونگ استفاده می‌کنید و دستگاهتان به درستی به شارژر متصل شده باشد.</string>
@@ -1589,6 +1596,7 @@ upscaler"</string>
     <string name="uhq_mode_noti_text">برای داشتن تجربه بهتر صدا، وضوح صدای موسیقی و ویدیوها را بهتر کنید.</string>
     <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
     <string name="assistance_app_setting_item_none">هيچيک</string>
+    <string name="remote_input_send_text">ارسال</string>
     <string name="remote_input_toast_text_on_sview_cover">هنگامی که S view cover بسته است، استفاده از عملکرد پاسخ سریع ممکن نیست.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -1844,7 +1852,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_direction_shutdown_instructions">ترسیم چند جهت برای خاموش کردن</string>
     <string name="kg_none_multi_pin_restart_instructions">دستگاهتان راه‌اندازی مجدد شده و لازم است با پین خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اطلاعات بیومتریک خود استفاده کنید.</string>
     <string name="kg_tablet_multi_pin_restart_instructions">دستگاهتان راه‌اندازی مجدد شده و لازم است با پین خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اطلاعات بیومتریک خود استفاده کنید.</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">دستگاه شما راه‌اندازی مجدد شده و لازم است با پین خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اثر انگشت‌های خود استفاده کنید.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">تلفن شما راه‌اندازی مجدد شده و لازم است با پین خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل تلفنتان از اثر انگشت‌های خود استفاده کنید.</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">دستگاه شما راه‌اندازی مجدد شده و لازم است با پین خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اثر انگشت‌های خود استفاده کنید.</string>
     <string name="kg_none_iris_pin_restart_instructions">دستگاه شما راه‌اندازی مجدد شده و لازم است با پین خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از چشم‌های خود استفاده کنید.</string>
     <string name="kg_tablet_iris_pin_restart_instructions">دستگاه شما راه‌اندازی مجدد شده و لازم است با پین خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از چشم‌های خود استفاده کنید.</string>
@@ -1874,7 +1882,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pattern_deviceadmin_instructions">به دلیل سیاست امنیتی، به جای استفاده از تشخیص چشم، الگو ترسیم کنید</string>
     <string name="kg_none_multi_password_restart_instructions">دستگاه شما راه‌اندازی مجدد شده و لازم است با رمزعبور خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اطلاعات بیومتریک خود استفاده کنید.</string>
     <string name="kg_tablet_multi_password_restart_instructions">دستگاه شما راه‌اندازی مجدد شده و لازم است با رمزعبور خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اطلاعات بیومتریک خود استفاده کنید.</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">دستگاه شما راه‌اندازی مجدد شده و لازم است با رمزعبور خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اثر انگشت‌های خود استفاده کنید.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">تلفن شما راه‌اندازی مجدد شده و لازم است با رمزعبور خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل تلفنتان از اثر انگشت‌های خود استفاده کنید.</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">دستگاه شما راه‌اندازی مجدد شده و لازم است با رمزعبور خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اثر انگشت‌های خود استفاده کنید.</string>
     <string name="kg_none_iris_password_restart_instructions">دستگاه شما راه‌اندازی مجدد شده و لازم است با رمزعبور خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از چشم‌های خود استفاده کنید.</string>
     <string name="kg_tablet_iris_password_restart_instructions">دستگاه شما راه‌اندازی مجدد شده و لازم است با رمزعبور خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از چشم‌های خود استفاده کنید.</string>
@@ -1889,7 +1897,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_password_deviceadmin_instructions">به دلیل سیاست امنیتی، به جای استفاده از تشخیص چشم، رمزعبور را وارد کنید</string>
     <string name="kg_none_multi_direction_restart_instructions">دستگاهتان راه‌اندازی مجدد شده و لازم است با ترسیم جهت‌های خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اطلاعات بیومتریک خود استفاده کنید.</string>
     <string name="kg_tablet_multi_direction_restart_instructions">دستگاهتان راه‌اندازی مجدد شده و لازم است با ترسیم جهت‌های خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اطلاعات بیومتریک خود استفاده کنید.</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">دستگاه شما راه‌اندازی مجدد شده و لازم است با ترسیم جهت‌های خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اثر انگشت‌های خود استفاده کنید.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">تلفن شما راه‌اندازی مجدد شده و لازم است با ترسیم مجموعه‌ای از جهت‌ها قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل تلفنتان از اثر انگشت‌های خود استفاده کنید.</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">دستگاه شما راه‌اندازی مجدد شده و لازم است با ترسیم جهت‌های خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اثر انگشت‌های خود استفاده کنید.</string>
     <string name="kg_none_iris_direction_restart_instructions">دستگاه شما راه‌اندازی مجدد شده و لازم است با ترسیم جهت‌های خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از چشم‌های خود استفاده کنید.</string>
     <string name="kg_tablet_iris_direction_restart_instructions">دستگاه شما راه‌اندازی مجدد شده و لازم است با ترسیم جهت‌های خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از چشم‌های خود استفاده کنید.</string>
@@ -2008,6 +2016,9 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="recents_help_dlg_split_icon_desc">روی نماد صفحه دوقسمتی در نوار عنوان پنجره برنامه ضربه بزنید تا برنامه‌ها در نمای صفحه دوقسمتی باز شوند. اگر برنامه از حالت چند پنجره‌ای پشتیبانی کند، این نماد نشان داده می‌شود.</string>
     <string name="recents_help_dlg_long_click_recents_key_text">هنگام استفاده از یک برنامه در نمای تمام‌صفحه و برای تغییر به نمای صفحه دوقسمتی، کلید موارد اخیر را فشار داده و نگهدارید.</string>
     <string name="recents_help_dlg_home_key_in_split_text">اگر در نمای صفحه دوقسمتی، کلید صفحه اصلی را فشار دهید، برنامه نمایش داده شده در نیمه بالایی صفحه نمایش، کوچک می‌شود. اگر در حالی که نوار وضعیت به رنگ آبی است، برنامه‌ای را از صفحه اصلی باز کنید، برنامه به صورت نمای صفحه دوقسمتی در نیمه پایین صفحه باز می‌شود.</string>
+    <string name="battery_low_sec_body_in_normal_mode">دستگاه خود را شارژ کنید یا اینجا ضربه بزنید و &lt;حالت ذخیره نیرو> را فعال کنید.</string>
+    <string name="battery_low_sec_body_in_ups_mode">دستگاهتان را به یک شارژر متصل کنید.</string>
+    <string name="battery_saver_recommend_notification_text">دستگاه خود را شارژ کنید یا اینجا ضربه بزنید و &lt;حالت ذخیره نیرو> را فعال کنید.</string>
     <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
 
 If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>

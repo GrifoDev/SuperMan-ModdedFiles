@@ -21,7 +21,7 @@
 .method protected findContentView()Landroid/view/View;
     .locals 1
 
-    const v0, 0x7f1303ce
+    const v0, 0x7f1303cf
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/DismissView;->findViewById(I)Landroid/view/View;
 

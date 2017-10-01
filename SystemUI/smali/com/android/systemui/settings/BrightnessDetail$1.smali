@@ -71,7 +71,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f04010f
+    const v7, 0x7f040110
 
     const/4 v8, 0x0
 
@@ -79,7 +79,7 @@
 
     move-result-object p2
 
-    const v6, 0x7f130301
+    const v6, 0x7f130302
 
     invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -87,7 +87,7 @@
 
     check-cast v4, Landroid/widget/ImageView;
 
-    const v6, 0x7f130375
+    const v6, 0x7f130376
 
     invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -95,7 +95,7 @@
 
     check-cast v3, Lcom/android/systemui/settings/BrightnessDetail;
 
-    const v6, 0x7f1302fc
+    const v6, 0x7f1302fd
 
     invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -103,7 +103,7 @@
 
     check-cast v2, Landroid/widget/TextView;
 
-    const v6, 0x7f130302
+    const v6, 0x7f130303
 
     invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -111,7 +111,7 @@
 
     check-cast v5, Lcom/android/systemui/settings/ToggleSlider;
 
-    const v6, 0x7f130376
+    const v6, 0x7f130377
 
     invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -119,7 +119,7 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    const v6, 0x7f1302fd
+    const v6, 0x7f1302fe
 
     invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -127,7 +127,7 @@
 
     check-cast v1, Landroid/widget/TextView;
 
-    const v6, 0x7f1302fb
+    const v6, 0x7f1302fc
 
     invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -135,7 +135,7 @@
 
     iput-object v6, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->mAutoContainer:Landroid/view/View;
 
-    const v6, 0x7f1302fe
+    const v6, 0x7f1302ff
 
     invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -190,7 +190,7 @@
 
     invoke-virtual {v6, v7}, Landroid/widget/Switch;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v6, 0x7f1302ff
+    const v6, 0x7f130300
 
     invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -198,7 +198,7 @@
 
     iput-object v6, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->mQuickAccessContainer:Landroid/view/View;
 
-    const v6, 0x7f130300
+    const v6, 0x7f130301
 
     invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

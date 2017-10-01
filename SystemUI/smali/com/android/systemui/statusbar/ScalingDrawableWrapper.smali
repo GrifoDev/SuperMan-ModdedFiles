@@ -4,6 +4,8 @@
 
 
 # instance fields
+.field private mCloneDrawable:Landroid/graphics/drawable/Drawable;
+
 .field private mScaleFactor:F
 
 
@@ -20,6 +22,14 @@
 
 
 # virtual methods
+.method public getCloneDrawable()Landroid/graphics/drawable/Drawable;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/ScalingDrawableWrapper;->mCloneDrawable:Landroid/graphics/drawable/Drawable;
+
+    return-object v0
+.end method
+
 .method public getIntrinsicHeight()I
     .locals 2
 
@@ -54,4 +64,12 @@
     float-to-int v0, v0
 
     return v0
+.end method
+
+.method public setCloneDrawable(Landroid/graphics/drawable/Drawable;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/systemui/statusbar/ScalingDrawableWrapper;->mCloneDrawable:Landroid/graphics/drawable/Drawable;
+
+    return-void
 .end method

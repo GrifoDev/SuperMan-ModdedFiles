@@ -37,7 +37,7 @@
 .method public run()V
     .locals 10
 
-    const v9, 0x7f1303e0
+    const v9, 0x7f1303e1
 
     const/4 v8, 0x2
 
@@ -211,7 +211,7 @@
 
     iget-object v2, v2, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
 
-    const v5, 0x7f1303c7
+    const v5, 0x7f1303c8
 
     invoke-virtual {v2, v5}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
 
@@ -275,7 +275,7 @@
 
     iget-object v2, v2, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
 
-    const v5, 0x7f1303e9
+    const v5, 0x7f1303ea
 
     invoke-virtual {v2, v5}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
 
@@ -491,7 +491,7 @@
 
     iget-object v2, v2, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
 
-    const v5, 0x7f1303e9
+    const v5, 0x7f1303ea
 
     invoke-virtual {v2, v5}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
 

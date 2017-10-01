@@ -182,7 +182,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040111
+    const v1, 0x7f040112
 
     const/4 v2, 0x0
 
@@ -198,7 +198,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSFooter;->mRootView:Landroid/view/View;
 
-    const v1, 0x7f130303
+    const v1, 0x7f130304
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -210,7 +210,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSFooter;->mRootView:Landroid/view/View;
 
-    const v1, 0x7f130304
+    const v1, 0x7f130305
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -220,7 +220,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/QSFooter;->mFooterIcon:Landroid/widget/ImageView;
 
-    const v0, 0x7f0201de
+    const v0, 0x7f0201df
 
     iput v0, p0, Lcom/android/systemui/qs/QSFooter;->mFooterIconId:I
 
@@ -613,7 +613,7 @@
 
     if-eqz v1, :cond_3
 
-    const v0, 0x7f0201af
+    const v0, 0x7f0201b0
 
     :goto_2
     iget v2, p0, Lcom/android/systemui/qs/QSFooter;->mFooterIconId:I
@@ -641,7 +641,7 @@
     goto :goto_1
 
     :cond_3
-    const v0, 0x7f0201de
+    const v0, 0x7f0201df
 
     goto :goto_2
 .end method

@@ -1,14 +1,11 @@
 .class Lcom/android/systemui/recents/model/RecentsAppListLoader$5;
-.super Ljava/lang/Object;
+.super Landroid/content/BroadcastReceiver;
 .source "RecentsAppListLoader.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/recents/model/RecentsAppListLoader;->preloadData()V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/systemui/recents/model/RecentsAppListLoader;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,91 +24,111 @@
 
     iput-object p1, p0, Lcom/android/systemui/recents/model/RecentsAppListLoader$5;->this$0:Lcom/android/systemui/recents/model/RecentsAppListLoader;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
-    .locals 6
+.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 2
 
-    invoke-static {}, Lcom/android/systemui/recents/Recents;->getSystemServices()Lcom/android/systemui/recents/misc/SystemServicesProxy;
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    const/4 v0, 0x0
+    const-string/jumbo v1, "android.intent.action.LOCALE_CHANGED"
 
-    :goto_0
-    sget-object v4, Lcom/android/systemui/recents/model/RecentsAppListLoader;->mAppInfoList:Ljava/util/ArrayList;
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
+    move-result v0
 
-    move-result v4
+    if-nez v0, :cond_0
 
-    if-ge v0, v4, :cond_1
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    sget-object v4, Lcom/android/systemui/recents/model/RecentsAppListLoader;->mAppInfoList:Ljava/util/ArrayList;
+    move-result-object v0
 
-    invoke-virtual {v4, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    const-string/jumbo v1, "android.intent.action.DATE_CHANGED"
 
-    move-result-object v1
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    check-cast v1, Lcom/android/systemui/recents/model/RecentsAppListLoader$AppInfo;
+    move-result v0
 
-    iget-object v4, v1, Lcom/android/systemui/recents/model/RecentsAppListLoader$AppInfo;->resolveInfo:Landroid/content/pm/ResolveInfo;
+    if-nez v0, :cond_0
 
-    iget-object v4, v4, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+    move-result-object v0
 
-    move-result v5
+    const-string/jumbo v1, "android.intent.action.TIME_SET"
 
-    invoke-virtual {v2, v4, v5}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->getBadgedActivityLabel(Landroid/content/pm/ActivityInfo;I)Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result-object v3
+    move-result v0
 
-    if-eqz v3, :cond_0
+    if-nez v0, :cond_0
 
-    :goto_1
-    iput-object v3, v1, Lcom/android/systemui/recents/model/RecentsAppListLoader$AppInfo;->title:Ljava/lang/String;
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    iget-object v4, v1, Lcom/android/systemui/recents/model/RecentsAppListLoader$AppInfo;->resolveInfo:Landroid/content/pm/ResolveInfo;
+    move-result-object v0
 
-    iget-object v4, v4, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+    const-string/jumbo v1, "android.intent.action.TIMEZONE_CHANGED"
 
-    invoke-virtual {v2, v4}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->shouldLaunchAsMultiInstance(Landroid/content/pm/ActivityInfo;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v0
 
-    iput-boolean v4, v1, Lcom/android/systemui/recents/model/RecentsAppListLoader$AppInfo;->supportMultiInstance:Z
-
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
+    if-eqz v0, :cond_2
 
     :cond_0
-    const-string/jumbo v3, ""
+    iget-object v0, p0, Lcom/android/systemui/recents/model/RecentsAppListLoader$5;->this$0:Lcom/android/systemui/recents/model/RecentsAppListLoader;
 
-    goto :goto_1
+    invoke-static {v0}, Lcom/android/systemui/recents/model/RecentsAppListLoader;->-get2(Lcom/android/systemui/recents/model/RecentsAppListLoader;)Landroid/util/LruCache;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/util/LruCache;->evictAll()V
+
+    iget-object v0, p0, Lcom/android/systemui/recents/model/RecentsAppListLoader$5;->this$0:Lcom/android/systemui/recents/model/RecentsAppListLoader;
+
+    invoke-virtual {v0}, Lcom/android/systemui/recents/model/RecentsAppListLoader;->preloadData()V
 
     :cond_1
-    iget-object v4, p0, Lcom/android/systemui/recents/model/RecentsAppListLoader$5;->this$0:Lcom/android/systemui/recents/model/RecentsAppListLoader;
+    :goto_0
+    return-void
 
-    const/4 v5, 0x1
+    :cond_2
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    invoke-static {v4, v5}, Lcom/android/systemui/recents/model/RecentsAppListLoader;->-set0(Lcom/android/systemui/recents/model/RecentsAppListLoader;Z)Z
+    move-result-object v0
+
+    const-string/jumbo v1, "com.samsung.android.theme.themecenter.THEME_APPLY"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/recents/model/RecentsAppListLoader$5;->this$0:Lcom/android/systemui/recents/model/RecentsAppListLoader;
+
+    invoke-static {v0}, Lcom/android/systemui/recents/model/RecentsAppListLoader;->-get2(Lcom/android/systemui/recents/model/RecentsAppListLoader;)Landroid/util/LruCache;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/util/LruCache;->evictAll()V
 
     invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
 
-    move-result-object v4
+    move-result-object v0
 
-    new-instance v5, Lcom/android/systemui/recents/events/activity/NotifyDataLoadEvent;
+    new-instance v1, Lcom/android/systemui/recents/events/activity/NotifyDataLoadEvent;
 
-    invoke-direct {v5}, Lcom/android/systemui/recents/events/activity/NotifyDataLoadEvent;-><init>()V
+    invoke-direct {v1}, Lcom/android/systemui/recents/events/activity/NotifyDataLoadEvent;-><init>()V
 
-    invoke-virtual {v4, v5}, Lcom/android/systemui/recents/events/EventBus;->sendOntoMainThread(Lcom/android/systemui/recents/events/EventBus$Event;)V
+    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/events/EventBus;->send(Lcom/android/systemui/recents/events/EventBus$Event;)V
 
-    return-void
+    goto :goto_0
 .end method

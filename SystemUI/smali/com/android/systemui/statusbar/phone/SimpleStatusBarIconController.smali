@@ -158,7 +158,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0c0069
+    const v1, 0x7f0c006b
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -244,7 +244,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/SimpleStatusBarIconController;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f02056c
+    const v5, 0x7f02056f
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

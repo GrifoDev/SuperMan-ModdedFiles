@@ -294,7 +294,7 @@
 
     if-eqz v11, :cond_c
 
-    const v4, 0x7f02060a
+    const v4, 0x7f02060d
 
     :goto_1
     const-string/jumbo v11, "volume"
@@ -320,7 +320,7 @@
 
     if-eqz v11, :cond_d
 
-    const v4, 0x7f0206f5
+    const v4, 0x7f0206f8
 
     :goto_2
     const-string/jumbo v11, "zen"
@@ -346,7 +346,7 @@
 
     if-eqz v11, :cond_f
 
-    const v4, 0x7f020580
+    const v4, 0x7f020583
 
     :goto_3
     const-string/jumbo v11, "bluetooth"
@@ -372,7 +372,7 @@
 
     if-eqz v11, :cond_11
 
-    const v4, 0x7f0205c9
+    const v4, 0x7f0205cc
 
     :goto_4
     const-string/jumbo v11, "location"
@@ -398,7 +398,7 @@
 
     if-eqz v11, :cond_12
 
-    const v4, 0x7f02057a
+    const v4, 0x7f02057d
 
     :goto_5
     const-string/jumbo v11, "alarm_clock"
@@ -424,7 +424,7 @@
 
     if-eqz v11, :cond_13
 
-    const v4, 0x7f0206c4
+    const v4, 0x7f0206c7
 
     :goto_6
     const-string/jumbo v11, "tty"
@@ -502,7 +502,7 @@
 
     if-eqz v11, :cond_16
 
-    const v4, 0x7f02057f
+    const v4, 0x7f020582
 
     :goto_9
     const-string/jumbo v11, "cast"
@@ -528,7 +528,7 @@
 
     if-eqz v11, :cond_17
 
-    const v4, 0x7f0205c8
+    const v4, 0x7f0205cb
 
     :goto_a
     const-string/jumbo v11, "hotspot"
@@ -553,7 +553,7 @@
 
     if-eqz v11, :cond_e
 
-    const v4, 0x7f0206f6
+    const v4, 0x7f0206f9
 
     goto/16 :goto_2
 
@@ -571,7 +571,7 @@
 
     if-eqz v11, :cond_10
 
-    const v4, 0x7f020581
+    const v4, 0x7f020584
 
     goto/16 :goto_3
 

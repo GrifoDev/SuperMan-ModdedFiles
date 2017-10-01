@@ -247,9 +247,9 @@
 .method public constructor <init>(Lcom/android/systemui/qs/QSTile$Host;)V
     .locals 9
 
-    const v6, 0x7f0c007b
+    const v6, 0x7f0c007d
 
-    const v3, 0x7f020375
+    const v3, 0x7f020378
 
     const/4 v0, 0x1
 
@@ -267,9 +267,9 @@
 
     new-instance v0, Lcom/android/systemui/qs/QSTile$AnimationIcon;
 
-    const v2, 0x7f020365
+    const v2, 0x7f020368
 
-    const v7, 0x7f0c007c
+    const v7, 0x7f0c007e
 
     move-object v1, p0
 
@@ -281,11 +281,11 @@
 
     new-instance v0, Lcom/android/systemui/qs/QSTile$AnimationIcon;
 
-    const v2, 0x7f020364
+    const v2, 0x7f020367
 
     const v5, 0x7f0b00fa
 
-    const v7, 0x7f0c007d
+    const v7, 0x7f0c007f
 
     move-object v1, p0
 
@@ -772,7 +772,7 @@
     :cond_0
     iget-object v6, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f040170
+    const v7, 0x7f040171
 
     invoke-static {v6, v7, v8}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -852,7 +852,7 @@
 
     :cond_1
     :goto_2
-    const v6, 0x7f130406
+    const v6, 0x7f130407
 
     invoke-virtual {v0, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -862,7 +862,7 @@
 
     invoke-virtual {v3, v5}, Landroid/widget/TextView;->setText(I)V
 
-    const v6, 0x7f130407
+    const v6, 0x7f130408
 
     invoke-virtual {v0, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1176,7 +1176,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f0308
+    const v1, 0x7f0f02cd
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1187,7 +1187,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f0307
+    const v1, 0x7f0f02ce
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1597,7 +1597,7 @@
 
     iput-boolean v7, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->dim:Z
 
-    const v7, 0x7f020375
+    const v7, 0x7f020378
 
     invoke-static {v7}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 
@@ -1731,7 +1731,7 @@
 
     if-eqz v7, :cond_c
 
-    const v7, 0x7f020375
+    const v7, 0x7f020378
 
     invoke-static {v7}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 

@@ -90,6 +90,8 @@
     <item type="integer" name="recents_layout_behind_view_unfocused_range_max">2.0</item>
     <item type="integer" name="recents_layout_behind_view_unfocused_range_min_landscape">-1.8</item>
     <item type="integer" name="recents_layout_behind_view_unfocused_range_max_landscape">1.8</item>
+    <integer name="recents_app_list_span_count">4</integer>
+    <integer name="recents_app_list_recommend_max_count">8</integer>
     <integer name="keyguard_max_notification_count">5</integer>
     <integer name="doze_pulse_schedule_resets">2</integer>
     <integer name="doze_pickup_vibration_threshold">2000</integer>

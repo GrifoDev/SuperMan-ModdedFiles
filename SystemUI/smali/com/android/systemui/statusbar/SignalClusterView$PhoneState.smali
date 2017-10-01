@@ -308,7 +308,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0400b2
+    const v2, 0x7f0400b3
 
     const/4 v3, 0x0
 
@@ -879,7 +879,7 @@
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;->mMobileGroup:Landroid/view/ViewGroup;
 
-    const v0, 0x7f130272
+    const v0, 0x7f130273
 
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -889,7 +889,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;->mMobile:Landroid/widget/ImageView;
 
-    const v0, 0x7f130273
+    const v0, 0x7f130274
 
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -899,7 +899,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;->mMobileDark:Landroid/widget/ImageView;
 
-    const v0, 0x7f13026f
+    const v0, 0x7f130270
 
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -909,7 +909,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;->mMobileType:Landroid/widget/ImageView;
 
-    const v0, 0x7f13026e
+    const v0, 0x7f13026f
 
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -919,7 +919,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;->mMobileDataGroup:Landroid/view/ViewGroup;
 
-    const v0, 0x7f130270
+    const v0, 0x7f130271
 
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -929,7 +929,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;->mMobileActivity:Landroid/widget/ImageView;
 
-    const v0, 0x7f130274
+    const v0, 0x7f130275
 
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -939,7 +939,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;->mRoaming:Landroid/widget/ImageView;
 
-    const v0, 0x7f130275
+    const v0, 0x7f130276
 
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -953,7 +953,7 @@
 
     if-eqz v0, :cond_3
 
-    const v0, 0x7f02068a
+    const v0, 0x7f02068d
 
     iput v0, p0, Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;->mSlotFocusIconId:I
 
@@ -976,7 +976,7 @@
     if-eqz v0, :cond_2
 
     :cond_1
-    const v0, 0x7f130276
+    const v0, 0x7f130277
 
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -996,7 +996,7 @@
 
     if-ne v0, v1, :cond_0
 
-    const v0, 0x7f020688
+    const v0, 0x7f02068b
 
     iput v0, p0, Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;->mSlotFocusIconId:I
 

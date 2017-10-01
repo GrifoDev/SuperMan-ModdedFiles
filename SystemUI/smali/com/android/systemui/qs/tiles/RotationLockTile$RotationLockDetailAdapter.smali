@@ -43,7 +43,7 @@
 .method private updateRotationLock(Landroid/view/View;)V
     .locals 6
 
-    const v4, 0x7f1302d2
+    const v4, 0x7f1302d3
 
     invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -118,7 +118,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0400f6
+    const v1, 0x7f0400f7
 
     const/4 v2, 0x0
 

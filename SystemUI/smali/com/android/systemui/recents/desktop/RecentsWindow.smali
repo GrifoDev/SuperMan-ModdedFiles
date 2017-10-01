@@ -40,7 +40,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f02044a
+    const v1, 0x7f02044d
 
     invoke-virtual {v0, v1}, Landroid/view/Window;->setBackgroundDrawableResource(I)V
 
@@ -412,7 +412,7 @@
     nop
 
     :pswitch_data_0
-    .packed-switch 0x7f130346
+    .packed-switch 0x7f130347
         :pswitch_1
         :pswitch_0
         :pswitch_2
@@ -431,11 +431,11 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v1, 0x7f04012c
+    const v1, 0x7f04012d
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/recents/desktop/RecentsWindow;->setContentView(I)V
 
-    const v1, 0x7f130344
+    const v1, 0x7f130345
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/recents/desktop/RecentsWindow;->findViewById(I)Landroid/view/View;
 
@@ -449,7 +449,7 @@
 
     invoke-virtual {v1, p0}, Lcom/android/systemui/recents/desktop/views/RecentsWindowView;->setCallback(Lcom/android/systemui/recents/desktop/views/RecentsWindowView$RecentsWindowViewCallbacks;)V
 
-    const v1, 0x7f130346
+    const v1, 0x7f130347
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/recents/desktop/RecentsWindow;->findViewById(I)Landroid/view/View;
 
@@ -461,7 +461,7 @@
 
     invoke-virtual {v1, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v1, 0x7f130348
+    const v1, 0x7f130349
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/recents/desktop/RecentsWindow;->findViewById(I)Landroid/view/View;
 
@@ -473,7 +473,7 @@
 
     invoke-virtual {v1, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v1, 0x7f130349
+    const v1, 0x7f13034a
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/recents/desktop/RecentsWindow;->findViewById(I)Landroid/view/View;
 
@@ -485,7 +485,7 @@
 
     invoke-virtual {v1, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v1, 0x7f130345
+    const v1, 0x7f130346
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/recents/desktop/RecentsWindow;->findViewById(I)Landroid/view/View;
 

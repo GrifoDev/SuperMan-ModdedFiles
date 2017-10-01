@@ -957,6 +957,7 @@ Wi-Fi ਅਤੇ ਬਲੂਟੁੱਥ ਵੀ ਬੰਦ ਹੋ ਜਾਵੇਗਾ
     <string name="quick_settings_dual_label_content_description">%s, ਬਟਨ ਲੇਬਲ, ਸੰਬੰਧਿਤ ਤੁਰੰਤ ਸੈੱਟਿੰਗਸ ਦੇਖਣ ਲਈ ਦੋ ਵਾਰ ਟੈਪ ਕਰੋ।</string>
     <string name="accessibility_button">ਬਟਨ</string>
     <string name="quick_settings_brightness_auto_brightness">ਸਵੈ ਚਮਕ</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">ਰੋਸ਼ਨੀ ਦੀਆਂ ਸਥਿਤੀਆਂ ਦੇ ਅਨੁਸਾਰ ਸਕ੍ਰੀਨ ਦੀ ਚਮਕ ਨੂੰ ਸਵੈਚਲਿਤ ਸਮਾਯੋਜਿਤ ਕਰੋ।</string>
     <string name="quick_settings_brightness_quick_access">ਨਿਯੰਤ੍ਰਣ ਨੂੰ ਸਿਖਰ ਤੇ ਦਿਖਾਉ</string>
     <string name="quick_settings_brightness_quick_access_summary">ਚਮਕ ਨਿਯੰਤ੍ਰਣ ਨੂੰ ਸੂਚਨਾ ਪੈਨਲ ਦੇ ਉੱਪਰ ਦਿਖਾਉ।</string>
     <string name="quick_settings_brightness_detail_level">ਲੈਵਲ</string>
@@ -1276,6 +1277,7 @@ Wi-Fi ਅਤੇ ਬਲੂਟੁੱਥ ਵੀ ਬੰਦ ਹੋ ਜਾਵੇਗਾ
     <string name="keyboard_shortcut_group_system_notifications">ਸੂਚਨਾਵਾਂ</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">ਕੀ-ਬੋਰਡ ਸ਼ਾਰਟਕੱਟ</string>
     <string name="keyboard_shortcut_group_system_switch_input">"ਵਾਪਸ ਇਨਪੁੱਟ ਵਿਧੀ 'ਤੇ ਬਦਲੋ"</string>
+    <string name="keyboard_shortcut_group_system_switch_languages">ਭਾਸ਼ਾਵਾਂ ਸਵਿੱਚ ਕਰੋ</string>
     <string name="keyboard_shortcut_group_applications">ਐਪਲੀਕੇਸ਼ਨਾਂ</string>
     <string name="keyboard_shortcut_group_applications_assist">ਸਹਾਇਕ</string>
     <string name="keyboard_shortcut_group_applications_browser">ਬ੍ਰਾਊਜ਼ਰ</string>
@@ -1479,8 +1481,10 @@ Using your tablet in a very hot location."</string>
     <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
     <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
     <string name="battery_low_sec_title">ਬੈਟਰੀ ਪਾਵਰ %d%%</string>
-    <string name="battery_low_sec_body_in_normal_mode">ਆਪਣੇ ਡਿਵਾਈਸ ਨੂੰ ਚਾਰਜ ਕਰੋ ਜਾਂ “ਪਾਵਰ ਸੇਵਿੰਗ ਮੋਡ” ਨੂੰ ਸਮਰੱਥ ਕਰਨ ਲਈ ਇੱਥੇ ਟੈਪ ਕਰੋ।</string>
-    <string name="battery_low_sec_body_in_ups_mode">ਆਪਣੇ ਡਿਵਾਈਸ ਨੂੰ ਇੱਕ ਚਾਰਜਰ ਨਾਲ ਕਨੈਕਟ ਕਰੋ।</string>
+    <string name="battery_low_sec_body_phone">ਆਪਣੇ ਫ਼ੋਨ ਨੂੰ ਚਾਰਜ ਕਰੋ ਜਾਂ ਪਾਵਰ ਸੇਵਿੰਗ ਮੋਡ ਨੂੰ ਚਾਲੂ ਕਰਨ ਲਈ ਇੱਥੇ ਟੈਪ ਕਰੋ।</string>
+    <string name="battery_low_sec_body_tablet">ਆਪਣੇ ਟੈਬਲੇਟ ਨੂੰ ਚਾਰਜ ਕਰੋ ਜਾਂ ਪਾਵਰ ਸੇਵਿੰਗ ਮੋਡ ਨੂੰ ਚਾਲੂ ਕਰਨ ਲਈ ਇੱਥੇ ਟੈਪ ਕਰੋ।</string>
+    <string name="battery_low_sec_body_phone_psm">ਆਪਣੇ ਫ਼ੋਨ ਨੂੰ ਚਾਰਜ ਕਰੋ।</string>
+    <string name="battery_low_sec_body_tablet_psm">ਆਪਣੇ ਟੈਬਲੇਟ ਨੂੰ ਚਾਰਜ ਕਰੋ।</string>
     <string name="battery_cable_charging_title">ਕੇਬਲ ਚਾਰਜਿੰਗ</string>
     <string name="battery_charging_title">ਚਾਰਜ ਹੋ ਰਿਹਾ ਹੈ</string>
     <string name="battery_fast_charging_title">ਤੇਜ਼ ਚਾਰਜਿੰਗ</string>
@@ -1499,7 +1503,10 @@ Using your tablet in a very hot location."</string>
     <string name="battery_saver_notification_text_time_extend">ਤੁਹਾਡੀ ਬੈਟਰੀ ਦਾ ਜੀਵਨ ਵਧਾ ਦਿੱਤਾ ਹੈ।</string>
     <string name="button_detail">ਵੇਰਵਾ</string>
     <string name="battery_saver_recommend_notification_title">ਬੈਟਰੀ ਪਾਵਰ %d%%</string>
-    <string name="battery_saver_recommend_notification_text">ਆਪਣੇ ਡਿਵਾਈਸ ਨੂੰ ਚਾਰਜ ਕਰੋ ਜਾਂ “ਪਾਵਰ ਸੇਵਿੰਗ ਮੋਡ” ਨੂੰ ਸਮਰੱਥ ਕਰਨ ਲਈ ਇੱਥੇ ਟੈਪ ਕਰੋ।</string>
+    <string name="battery_saver_recommend_notification_text_phone">ਆਪਣੇ ਫ਼ੋਨ ਨੂੰ ਚਾਰਜ ਕਰੋ ਜਾਂ ਪਾਵਰ ਸੇਵਿੰਗ ਮੋਡ ਨੂੰ ਚਾਲੂ ਕਰਨ ਲਈ ਇੱਥੇ ਟੈਪ ਕਰੋ।</string>
+    <string name="battery_saver_recommend_notification_text_tablet">ਆਪਣੇ ਟੈਬਲੇਟ ਨੂੰ ਚਾਰਜ ਕਰੋ ਜਾਂ ਪਾਵਰ ਸੇਵਿੰਗ ਮੋਡ ਨੂੰ ਚਾਲੂ ਕਰਨ ਲਈ ਇੱਥੇ ਟੈਪ ਕਰੋ।</string>
+    <string name="battery_saver_recommend_notification_text_phone_psm">ਆਪਣੇ ਫ਼ੋਨ ਨੂੰ ਚਾਰਜ ਕਰੋ।</string>
+    <string name="battery_saver_recommend_notification_text_tablet_psm">ਆਪਣੇ ਟੈਬਲੇਟ ਨੂੰ ਚਾਰਜ ਕਰੋ।</string>
     <string name="button_close">ਬੰਦ</string>
     <string name="battery_health_interruption_title">ਚਾਰਜ ਕਰਨ ਵਿੱਚ ਅਸਮਰੱਥ</string>
     <string name="battery_health_interruption_by_terminal_open_text">ਤੁਹਾਡਾ ਡਿਵਾਈਸ ਚਾਰਜ ਕਰਨ ਵਿੱਚ ਅਸਮਰੱਥ। ਯਕੀਨੀ ਬਣਾਉ ਕਿ ਤੁਸੀਂ ਸੈਮਸੰਗ ਅਨੁਰੂਪ ਬੈਟਰੀ ਅਤੇ ਚਾਰਜਰ ਦੀ ਵਰਤੋਂ ਕਰ ਰਹੇ ਹੋ ਅਤੇ ਤੁਹਾਡਾ ਡਿਵਾਈਸ ਚਾਰਜਰ ਨਾਲ ਚੰਗੀ ਤਰ੍ਹਾਂ ਕਨੈਕਟ ਕੀਤਾ ਗਿਆ ਹੈ।</string>
@@ -1588,6 +1595,7 @@ upscaler"</string>
     <string name="uhq_mode_noti_text">ਸੁਣਨ ਦੇ ਸਾਫ਼ ਅਨੁਭਵ ਲਈ ਸੰਗੀਤ ਅਤੇ ਵੀਡਿਓਜ਼ ਦੇ ਧੁਨੀ ਰਿਜ਼ੋਲਿਉਸ਼ਨ ਨੂੰ ਵਧਾਉ।</string>
     <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
     <string name="assistance_app_setting_item_none">ਕੋਈ ਨਹੀਂ</string>
+    <string name="remote_input_send_text">ਭੇਜੋ</string>
     <string name="remote_input_toast_text_on_sview_cover">S view ਕਵਰ ਦੇ ਬੰਦ ਹੋਣ ਦੌਰਾਨ ਤੁਰੰਤ ਉੱਤਰ ਫੰਕਸ਼ਨ ਦੀ ਵਰਤੋਂ ਕਰਨ ਵਿੱਚ ਅਸਮਰੱਥ।</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
@@ -1843,7 +1851,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_direction_shutdown_instructions">ਪਾਵਰ ਬੰਦ ਕਰਨ ਲਈ ਦਿਸ਼ਾਵਾਂ ਦੀ ਸੀਰੀਜ਼ ਡ੍ਰਾਅ ਕਰੋ</string>
     <string name="kg_none_multi_pin_restart_instructions">ਤੁਹਾਡਾ ਡਿਵਾਈਸ ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਹੋਇਆ ਹੈ ਅਤੇ ਇਸ ਨੂੰ ਤੁਹਾਡੇ PIN ਦਾ ਉਪਯੋਗ ਕਰਕੇ ਅਨਲੌਕ ਕਰਨ ਦੀ ਲੋੜ ਹੈ। ਅਗਲੀ ਵਾਰ ਆਪਣੇ ਡਿਵਾਈਸ ਨੂੰ ਅਨਲੌਕ ਕਰਨ ਲਈ ਤੁਸੀਂ ਆਪਣੀ ਬਾਇਓਮੀਟ੍ਰਿਕ ਦਾ ਉਪਯੋਗ ਕਰ ਸਕਦੇ ਹੋ।</string>
     <string name="kg_tablet_multi_pin_restart_instructions">ਤੁਹਾਡਾ ਡਿਵਾਈਸ ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਹੋਇਆ ਹੈ ਅਤੇ ਇਸ ਨੂੰ ਤੁਹਾਡੇ PIN ਦਾ ਉਪਯੋਗ ਕਰਕੇ ਅਨਲੌਕ ਕਰਨ ਦੀ ਲੋੜ ਹੈ। ਅਗਲੀ ਵਾਰ ਆਪਣੇ ਡਿਵਾਈਸ ਨੂੰ ਅਨਲੌਕ ਕਰਨ ਲਈ ਤੁਸੀਂ ਆਪਣੀ ਬਾਇਓਮੀਟ੍ਰਿਕ ਦਾ ਉਪਯੋਗ ਕਰ ਸਕਦੇ ਹੋ।</string>
-    <string name="kg_none_fingerprint_pin_restart_instructions">ਤੁਹਾਡਾ ਡਿਵਾਈਸ ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਹੋਇਆ ਹੈ ਅਤੇ ਇਸ ਨੂੰ ਤੁਹਾਡੇ PIN ਦਾ ਉਪਯੋਗ ਕਰਕੇ ਅਨਲੌਕ ਕਰਨ ਦੀ ਲੋੜ ਹੈ। ਅਗਲੀ ਵਾਰ ਆਪਣੇ ਡਿਵਾਈਸ ਨੂੰ ਅਨਲੌਕ ਕਰਨ ਲਈ ਤੁਸੀਂ ਆਪਣੀਆਂ ਫਿੰਗਰਪ੍ਰਿੰਟਸ ਦਾ ਉਪਯੋਗ ਕਰ ਸਕਦੇ ਹੋ।</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">ਤੁਹਾਡੇ ਫ਼ੋਨ ਨੂੰ ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਕੀਤਾ ਗਿਆ ਸੀ ਅਤੇ ਇਸ ਨੂੰ ਤੁਹਾਡੇ PIN ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਅਨਲੌਕ ਕਰਨ ਦੀ ਲੋੜ ਹੈ। ਅਗਲੀ ਵਾਰ ਆਪਣੇ ਫ਼ੋਨ ਨੂੰ ਅਨਲੌਕ ਕਰਨ ਲਈ ਤੁਸੀਂ ਆਪਣੇ ਫਿੰਗਰਪ੍ਰਿੰਟਸ ਦੀ ਵਰਤੋਂ ਕਰ ਸਕਦੇ ਹੋ।</string>
     <string name="kg_tablet_fingerprint_pin_restart_instructions">ਤੁਹਾਡਾ ਡਿਵਾਈਸ ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਹੋਇਆ ਹੈ ਅਤੇ ਇਸ ਨੂੰ ਤੁਹਾਡੇ PIN ਦਾ ਉਪਯੋਗ ਕਰਕੇ ਅਨਲੌਕ ਕਰਨ ਦੀ ਲੋੜ ਹੈ। ਅਗਲੀ ਵਾਰ ਆਪਣੇ ਡਿਵਾਈਸ ਨੂੰ ਅਨਲੌਕ ਕਰਨ ਲਈ ਤੁਸੀਂ ਆਪਣੀਆਂ ਫਿੰਗਰਪ੍ਰਿੰਟਸ ਦਾ ਉਪਯੋਗ ਕਰ ਸਕਦੇ ਹੋ।</string>
     <string name="kg_none_iris_pin_restart_instructions">ਤੁਹਾਡਾ ਡਿਵਾਈਸ ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਹੋਇਆ ਹੈ ਅਤੇ ਇਸ ਨੂੰ ਤੁਹਾਡੇ PIN ਦਾ ਉਪਯੋਗ ਕਰਕੇ ਅਨਲੌਕ ਕਰਨ ਦੀ ਲੋੜ ਹੈ। ਅਗਲੀ ਵਾਰ ਆਪਣੇ ਡਿਵਾਈਸ ਨੂੰ ਅਨਲੌਕ ਕਰਨ ਲਈ ਤੁਸੀਂ ਆਪਣੀਆਂ ਆਈਰਿਸਜ਼ ਦਾ ਉਪਯੋਗ ਕਰ ਸਕਦੇ ਹੋ।</string>
     <string name="kg_tablet_iris_pin_restart_instructions">ਤੁਹਾਡਾ ਡਿਵਾਈਸ ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਹੋਇਆ ਹੈ ਅਤੇ ਇਸ ਨੂੰ ਤੁਹਾਡੇ PIN ਦਾ ਉਪਯੋਗ ਕਰਕੇ ਅਨਲੌਕ ਕਰਨ ਦੀ ਲੋੜ ਹੈ। ਅਗਲੀ ਵਾਰ ਆਪਣੇ ਡਿਵਾਈਸ ਨੂੰ ਅਨਲੌਕ ਕਰਨ ਲਈ ਤੁਸੀਂ ਆਪਣੀਆਂ ਆਈਰਿਸਜ਼ ਦਾ ਉਪਯੋਗ ਕਰ ਸਕਦੇ ਹੋ।</string>
@@ -1873,7 +1881,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pattern_deviceadmin_instructions">ਸੁਰੱਖਿਆ ਨੀਤੀ ਦੇ ਕਾਰਨ ਆਈਰਿਸ ਪਛਾਣ ਦੀ ਵਰਤੋਂ ਕਰਨ ਦੀ ਬਜਾਏ ਸ਼ੈਲੀ ਡ੍ਰਾਅ ਕਰੋ</string>
     <string name="kg_none_multi_password_restart_instructions">ਤੁਹਾਡਾ ਡਿਵਾਈਸ ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਹੋਇਆ ਹੈ ਅਤੇ ਇਸ ਨੂੰ ਤੁਹਾਡੇ ਪਾਸਵਰਡ ਦਾ ਉਪਯੋਗ ਕਰਕੇ ਅਨਲੌਕ ਕਰਨ ਦੀ ਲੋੜ ਹੈ। ਅਗਲੀ ਵਾਰ ਆਪਣੇ ਡਿਵਾਈਸ ਨੂੰ ਅਨਲੌਕ ਕਰਨ ਲਈ ਤੁਸੀਂ ਆਪਣੇ ਬਾਇਓਮੀਟ੍ਰਿਕਸ ਦਾ ਉਪਯੋਗ ਕਰ ਸਕਦੇ ਹੋ।</string>
     <string name="kg_tablet_multi_password_restart_instructions">ਤੁਹਾਡਾ ਡਿਵਾਈਸ ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਹੋਇਆ ਹੈ ਅਤੇ ਇਸ ਨੂੰ ਤੁਹਾਡੇ ਪਾਸਵਰਡ ਦਾ ਉਪਯੋਗ ਕਰਕੇ ਅਨਲੌਕ ਕਰਨ ਦੀ ਲੋੜ ਹੈ। ਅਗਲੀ ਵਾਰ ਆਪਣੇ ਡਿਵਾਈਸ ਨੂੰ ਅਨਲੌਕ ਕਰਨ ਲਈ ਤੁਸੀਂ ਆਪਣੇ ਬਾਇਓਮੀਟ੍ਰਿਕਸ ਦਾ ਉਪਯੋਗ ਕਰ ਸਕਦੇ ਹੋ।</string>
-    <string name="kg_none_fingerprint_password_restart_instructions">ਤੁਹਾਡਾ ਡਿਵਾਈਸ ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਹੋਇਆ ਹੈ ਅਤੇ ਇਸ ਨੂੰ ਤੁਹਾਡੇ ਪਾਸਵਰਡ ਦਾ ਉਪਯੋਗ ਕਰਕੇ ਅਨਲੌਕ ਕਰਨ ਦੀ ਲੋੜ ਹੈ। ਅਗਲੀ ਵਾਰ ਆਪਣੇ ਡਿਵਾਈਸ ਨੂੰ ਅਨਲੌਕ ਕਰਨ ਲਈ ਤੁਸੀਂ ਆਪਣੀਆਂ ਫਿੰਗਰਪ੍ਰਿੰਟਸ ਦਾ ਉਪਯੋਗ ਕਰ ਸਕਦੇ ਹੋ।</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">ਤੁਹਾਡੇ ਫ਼ੋਨ ਨੂੰ ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਕੀਤਾ ਗਿਆ ਸੀ ਅਤੇ ਇਸ ਨੂੰ ਤੁਹਾਡੇ ਪਾਸਵਰਡ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਅਨਲੌਕ ਕਰਨ ਦੀ ਲੋੜ ਹੈ। ਅਗਲੀ ਵਾਰ ਆਪਣੇ ਫ਼ੋਨ ਨੂੰ ਅਨਲੌਕ ਕਰਨ ਲਈ ਤੁਸੀਂ ਆਪਣੇ ਫਿੰਗਰਪ੍ਰਿੰਟਸ ਦੀ ਵਰਤੋਂ ਕਰ ਸਕਦੇ ਹੋ।</string>
     <string name="kg_tablet_fingerprint_password_restart_instructions">ਤੁਹਾਡਾ ਡਿਵਾਈਸ ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਹੋਇਆ ਹੈ ਅਤੇ ਇਸ ਨੂੰ ਤੁਹਾਡੇ ਪਾਸਵਰਡ ਦਾ ਉਪਯੋਗ ਕਰਕੇ ਅਨਲੌਕ ਕਰਨ ਦੀ ਲੋੜ ਹੈ। ਅਗਲੀ ਵਾਰ ਆਪਣੇ ਡਿਵਾਈਸ ਨੂੰ ਅਨਲੌਕ ਕਰਨ ਲਈ ਤੁਸੀਂ ਆਪਣੀਆਂ ਫਿੰਗਰਪ੍ਰਿੰਟਸ ਦਾ ਉਪਯੋਗ ਕਰ ਸਕਦੇ ਹੋ।</string>
     <string name="kg_none_iris_password_restart_instructions">ਤੁਹਾਡਾ ਡਿਵਾਈਸ ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਹੋਇਆ ਹੈ ਅਤੇ ਇਸ ਨੂੰ ਤੁਹਾਡੇ ਪਾਸਵਰਡ ਦਾ ਉਪਯੋਗ ਕਰਕੇ ਅਨਲੌਕ ਕਰਨ ਦੀ ਲੋੜ ਹੈ। ਅਗਲੀ ਵਾਰ ਆਪਣੇ ਡਿਵਾਈਸ ਨੂੰ ਅਨਲੌਕ ਕਰਨ ਲਈ ਤੁਸੀਂ ਆਪਣੀਆਂ ਆਈਰਿਸਜ਼ ਦਾ ਉਪਯੋਗ ਕਰ ਸਕਦੇ ਹੋ।</string>
     <string name="kg_tablet_iris_password_restart_instructions">ਤੁਹਾਡਾ ਡਿਵਾਈਸ ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਹੋਇਆ ਹੈ ਅਤੇ ਇਸ ਨੂੰ ਤੁਹਾਡੇ ਪਾਸਵਰਡ ਦਾ ਉਪਯੋਗ ਕਰਕੇ ਅਨਲੌਕ ਕਰਨ ਦੀ ਲੋੜ ਹੈ। ਅਗਲੀ ਵਾਰ ਆਪਣੇ ਡਿਵਾਈਸ ਨੂੰ ਅਨਲੌਕ ਕਰਨ ਲਈ ਤੁਸੀਂ ਆਪਣੀਆਂ ਆਈਰਿਸਜ਼ ਦਾ ਉਪਯੋਗ ਕਰ ਸਕਦੇ ਹੋ।</string>
@@ -1888,7 +1896,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_password_deviceadmin_instructions">ਸੁਰੱਖਿਆ ਨੀਤੀ ਦੇ ਕਾਰਨ ਆਈਰਿਸ ਪਛਾਣ ਦੀ ਵਰਤੋਂ ਕਰਨ ਦੀ ਬਜਾਏ ਪਾਸਵਰਡ ਦਾਖ਼ਲ ਕਰੋ</string>
     <string name="kg_none_multi_direction_restart_instructions">ਤੁਹਾਡਾ ਡਿਵਾਈਸ ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਹੋਇਆ ਹੈ ਅਤੇ ਇਸ ਨੂੰ ਤੁਹਾਡੀ ਦਿਸ਼ਾਵਾਂ ਦੀ ਸੀਰੀਜ਼ ਦਾ ਉਪਯੋਗ ਕਰਕੇ ਅਨਲੌਕ ਕਰਨ ਦੀ ਲੋੜ ਹੈ। ਅਗਲੀ ਵਾਰ ਆਪਣੇ ਡਿਵਾਈਸ ਨੂੰ ਅਨਲੌਕ ਕਰਨ ਲਈ ਤੁਸੀਂ ਆਪਣੀ ਬਾਇਓਮੀਟ੍ਰਿਕ ਦਾ ਉਪਯੋਗ ਕਰ ਸਕਦੇ ਹੋ।</string>
     <string name="kg_tablet_multi_direction_restart_instructions">ਤੁਹਾਡਾ ਡਿਵਾਈਸ ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਹੋਇਆ ਹੈ ਅਤੇ ਇਸ ਨੂੰ ਤੁਹਾਡੀ ਦਿਸ਼ਾਵਾਂ ਦੀ ਸੀਰੀਜ਼ ਦਾ ਉਪਯੋਗ ਕਰਕੇ ਅਨਲੌਕ ਕਰਨ ਦੀ ਲੋੜ ਹੈ। ਅਗਲੀ ਵਾਰ ਆਪਣੇ ਡਿਵਾਈਸ ਨੂੰ ਅਨਲੌਕ ਕਰਨ ਲਈ ਤੁਸੀਂ ਆਪਣੀ ਬਾਇਓਮੀਟ੍ਰਿਕ ਦਾ ਉਪਯੋਗ ਕਰ ਸਕਦੇ ਹੋ।</string>
-    <string name="kg_none_fingerprint_direction_restart_instructions">ਤੁਹਾਡਾ ਡਿਵਾਈਸ ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਹੋਇਆ ਹੈ ਅਤੇ ਇਸ ਨੂੰ ਤੁਹਾਡੀ ਦਿਸ਼ਾਵਾਂ ਦੀ ਸੀਰੀਜ਼ ਦਾ ਉਪਯੋਗ ਕਰਕੇ ਅਨਲੌਕ ਕਰਨ ਦੀ ਲੋੜ ਹੈ। ਅਗਲੀ ਵਾਰ ਆਪਣੇ ਡਿਵਾਈਸ ਨੂੰ ਅਨਲੌਕ ਕਰਨ ਲਈ ਤੁਸੀਂ ਆਪਣੀਆਂ ਫਿੰਗਰਪ੍ਰਿੰਟਸ ਦਾ ਉਪਯੋਗ ਕਰ ਸਕਦੇ ਹੋ।</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">ਤੁਹਾਡੇ ਫ਼ੋਨ ਨੂੰ ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਕੀਤਾ ਗਿਆ ਸੀ ਅਤੇ ਇਸ ਨੂੰ ਤੁਹਾਡੀ ਦਿਸ਼ਾਵਾਂ ਦੀ ਸੀਰੀਜ਼ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਅਨਲੌਕ ਕਰਨ ਦੀ ਲੋੜ ਹੈ। ਅਗਲੀ ਵਾਰ ਆਪਣੇ ਫ਼ੋਨ ਨੂੰ ਅਨਲੌਕ ਕਰਨ ਲਈ ਤੁਸੀਂ ਆਪਣੇ ਫਿੰਗਰਪ੍ਰਿੰਟਸ ਦੀ ਵਰਤੋਂ ਕਰ ਸਕਦੇ ਹੋ।</string>
     <string name="kg_tablet_fingerprint_direction_restart_instructions">ਤੁਹਾਡਾ ਡਿਵਾਈਸ ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਹੋਇਆ ਹੈ ਅਤੇ ਇਸ ਨੂੰ ਤੁਹਾਡੀ ਦਿਸ਼ਾਵਾਂ ਦੀ ਸੀਰੀਜ਼ ਦਾ ਉਪਯੋਗ ਕਰਕੇ ਅਨਲੌਕ ਕਰਨ ਦੀ ਲੋੜ ਹੈ। ਅਗਲੀ ਵਾਰ ਆਪਣੇ ਡਿਵਾਈਸ ਨੂੰ ਅਨਲੌਕ ਕਰਨ ਲਈ ਤੁਸੀਂ ਆਪਣੀਆਂ ਫਿੰਗਰਪ੍ਰਿੰਟਸ ਦਾ ਉਪਯੋਗ ਕਰ ਸਕਦੇ ਹੋ।</string>
     <string name="kg_none_iris_direction_restart_instructions">ਤੁਹਾਡਾ ਡਿਵਾਈਸ ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਹੋਇਆ ਹੈ ਅਤੇ ਇਸ ਨੂੰ ਤੁਹਾਡੀ ਦਿਸ਼ਾਵਾਂ ਦੀ ਸੀਰੀਜ਼ ਦਾ ਉਪਯੋਗ ਕਰਕੇ ਅਨਲੌਕ ਕਰਨ ਦੀ ਲੋੜ ਹੈ। ਅਗਲੀ ਵਾਰ ਆਪਣੇ ਡਿਵਾਈਸ ਨੂੰ ਅਨਲੌਕ ਕਰਨ ਲਈ ਤੁਸੀਂ ਆਪਣੀਆਂ ਆਈਰਿਸਜ਼ ਦਾ ਉਪਯੋਗ ਕਰ ਸਕਦੇ ਹੋ।</string>
     <string name="kg_tablet_iris_direction_restart_instructions">ਤੁਹਾਡਾ ਡਿਵਾਈਸ ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਹੋਇਆ ਹੈ ਅਤੇ ਇਸ ਨੂੰ ਤੁਹਾਡੀ ਦਿਸ਼ਾਵਾਂ ਦੀ ਸੀਰੀਜ਼ ਦਾ ਉਪਯੋਗ ਕਰਕੇ ਅਨਲੌਕ ਕਰਨ ਦੀ ਲੋੜ ਹੈ। ਅਗਲੀ ਵਾਰ ਆਪਣੇ ਡਿਵਾਈਸ ਨੂੰ ਅਨਲੌਕ ਕਰਨ ਲਈ ਤੁਸੀਂ ਆਪਣੀਆਂ ਆਈਰਿਸਜ਼ ਦਾ ਉਪਯੋਗ ਕਰ ਸਕਦੇ ਹੋ।</string>
@@ -2010,6 +2018,9 @@ PIN 4 ਤੋਂ 8 ਅੰਕ ਲੰਬਾ ਹੋਣਾ ਜ਼ਰੂਰੀ ਹੈ।"
     <string name="recents_help_dlg_split_icon_desc">ਐਪਸ ਨੂੰ ਸਪਲਿਟ ਸਕ੍ਰੀਨ ਦ੍ਰਿਸ਼ ਵਿੱਚ ਖੋਲ੍ਹਣ ਲਈ ਐਪ ਵਿੰਡੋ ਦੀ ਸਿਰਲੇਖ ਬਾਰ ਵਿੱਚ ਦਿੱਤੇ ਸਪਲਿਟ ਸਕ੍ਰੀਨ ਪ੍ਰਤੀਰੂਪ ਤੇ ਟੈਪ ਕਰੋ। ਜਦੋਂ ਕੋਈ ਐਪ ਮਲਟੀ ਵਿੰਡੋ ਦਾ ਸਮਰਥਨ ਕਰਦੀ ਹੈ ਤਾਂ ਇਹ ਪ੍ਰਤੀਰੂਪ ਦਿਖਾਇਆ ਜਾਂਦਾ ਹੈ।</string>
     <string name="recents_help_dlg_long_click_recents_key_text">ਐਪ ਦੀ ਵਰਤੋਂ ਪੂਰਨ ਸਕ੍ਰੀਨ ਦ੍ਰਿਸ਼ ਵਿੱਚ ਕਰਦੇ ਸਮੇਂ ਉਸ ਨੂੰ ਸਪਲਿਟ ਸਕ੍ਰੀਨ ਦ੍ਰਿਸ਼ ਵਿੱਚ ਬਦਲਣ ਲਈ ਹਾਲ ਹੀ ਦੇ ਬਟਨ ਨੂੰ ਦਬਾ ਕੇ ਰੱਖੋ।</string>
     <string name="recents_help_dlg_home_key_in_split_text">ਸਪਲਿਟ ਸਕ੍ਰੀਨ ਦ੍ਰਿਸ਼ ਦੀ ਵਰਤੋਂ ਕਰਦੇ ਸਮੇਂ ਜੇਕਰ ਤੁਸੀਂ ਹੋਮ ਬਟਨ ਨੂੰ ਦਬਾਉਂਦੇ ਹੋ, ਤਾਂ ਸਕ੍ਰੀਨ ਦੇ ਉੱਪਰੀ ਅੱਧ ਵਿੱਚ ਦਿਖਾਈ ਦੇ ਰਹੀ ਐਪ ਛੋਟੀ ਹੋ ਜਾਵੇਗੀ। ਜਦੋਂ ਸਥਿਤੀ ਬਾਰ ਦਾ ਰੰਗ ਨੀਲਾ ਹੁੰਦਾ ਹੈ ਅਤੇ ਤੁਸੀਂ ਉਸ ਸਮੇਂ ਹੋਮ ਸਕ੍ਰੀਨ ਤੋਂ ਕੋਈ ਐਪ ਖੋਲ੍ਹਦੇ ਹੋ, ਤਾਂ ਉਹ ਐਪ ਸਕ੍ਰੀਨ ਹੇਠਲੇ ਅੱਧ ਵਿੱਚ ਸਪਲਿਟ ਸਕ੍ਰੀਨ ਦ੍ਰਿਸ਼ ਵਿੱਚ ਖੁੱਲ੍ਹੇਗੀ।</string>
+    <string name="battery_low_sec_body_in_normal_mode">ਆਪਣੇ ਡਿਵਾਈਸ ਨੂੰ ਚਾਰਜ ਕਰੋ ਜਾਂ “ਪਾਵਰ ਸੇਵਿੰਗ ਮੋਡ” ਨੂੰ ਸਮਰੱਥ ਕਰਨ ਲਈ ਇੱਥੇ ਟੈਪ ਕਰੋ।</string>
+    <string name="battery_low_sec_body_in_ups_mode">ਆਪਣੇ ਡਿਵਾਈਸ ਨੂੰ ਇੱਕ ਚਾਰਜਰ ਨਾਲ ਕਨੈਕਟ ਕਰੋ।</string>
+    <string name="battery_saver_recommend_notification_text">ਆਪਣੇ ਡਿਵਾਈਸ ਨੂੰ ਚਾਰਜ ਕਰੋ ਜਾਂ “ਪਾਵਰ ਸੇਵਿੰਗ ਮੋਡ” ਨੂੰ ਸਮਰੱਥ ਕਰਨ ਲਈ ਇੱਥੇ ਟੈਪ ਕਰੋ।</string>
     <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
 
 If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
