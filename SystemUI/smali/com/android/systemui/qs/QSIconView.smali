@@ -121,13 +121,15 @@
 .end method
 
 .method protected getColor(Lcom/android/systemui/qs/QSTile$State;)I
-    .locals 8
+    .locals 9
+
+    sget-boolean v8, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mAllowQsColorChange:Z
 
     const v7, 0x7f0b00f9
 
     instance-of v4, p1, Lcom/android/systemui/qs/QSTile$BooleanState;
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_7
 
     move-object v0, p1
 
@@ -135,7 +137,7 @@
 
     iget-boolean v4, v0, Lcom/android/systemui/qs/QSTile$BooleanState;->dim:Z
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_3
 
     iget-object v4, p0, Lcom/android/systemui/qs/QSIconView;->mContext:Landroid/content/Context;
 
@@ -143,6 +145,11 @@
 
     move-result v4
 
+    if-eqz v8, :cond_0
+
+    sget v4, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mQsIconOnColor:I
+
+    :cond_0
     ushr-int/lit8 v4, v4, 0x18
 
     int-to-float v4, v4
@@ -179,12 +186,17 @@
 
     move-result v4
 
+    if-eqz v8, :cond_1
+
+    sget v4, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mQsIconOnColor:I
+
+    :cond_1
     and-int v1, v4, v3
 
     :goto_0
     sget-boolean v4, Lcom/android/systemui/qs/QSIconView;->DEBUG:Z
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2
 
     const-string/jumbo v4, "QSIconView"
 
@@ -220,13 +232,13 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_0
+    :cond_2
     return v1
 
-    :cond_1
+    :cond_3
     iget-boolean v4, v0, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_5
 
     iget-object v4, p0, Lcom/android/systemui/qs/QSIconView;->mContext:Landroid/content/Context;
 
@@ -234,9 +246,14 @@
 
     move-result v1
 
+    if-eqz v8, :cond_4
+
+    sget v1, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mQsIconOnColor:I
+
+    :cond_4
     goto :goto_0
 
-    :cond_2
+    :cond_5
     iget-object v4, p0, Lcom/android/systemui/qs/QSIconView;->mContext:Landroid/content/Context;
 
     const v5, 0x7f0b00fa
@@ -245,9 +262,14 @@
 
     move-result v1
 
+    if-eqz v8, :cond_6
+
+    sget v1, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mQsIconOffColor:I
+
+    :cond_6
     goto :goto_0
 
-    :cond_3
+    :cond_7
     const-string/jumbo v4, "QSIconView"
 
     new-instance v5, Ljava/lang/StringBuilder;
