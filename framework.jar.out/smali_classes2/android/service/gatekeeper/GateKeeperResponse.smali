@@ -241,7 +241,7 @@
 
     iget-object v0, p0, Landroid/service/gatekeeper/GateKeeperResponse;->mPayload:[B
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_3
 
     iget-object v0, p0, Landroid/service/gatekeeper/GateKeeperResponse;->mPayload:[B
 
@@ -259,4 +259,9 @@
     move v0, v1
 
     goto :goto_1
+
+    :cond_3
+    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto :goto_0
 .end method

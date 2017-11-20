@@ -176,6 +176,8 @@
 
 .field static final TRANSACTION_sendRawHci:I = 0x3a
 
+.field static final TRANSACTION_setBootState:I = 0x62
+
 .field static final TRANSACTION_setDiscoverableTimeout:I = 0xd
 
 .field static final TRANSACTION_setEdrRxFrequency:I = 0x30
@@ -4372,6 +4374,41 @@
 
     goto :goto_6b
 
+    :sswitch_62
+    const-string/jumbo v4, "android.bluetooth.IBluetooth"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v4
+
+    if-eqz v4, :cond_6c
+
+    const/16 v20, 0x1
+
+    :goto_6c
+    move-object/from16 v0, p0
+
+    move/from16 v1, v20
+
+    invoke-virtual {v0, v1}, Landroid/bluetooth/IBluetooth$Stub;->setBootState(Z)V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :cond_6c
+    const/16 v20, 0x0
+
+    goto :goto_6c
+
+    nop
+
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_1
@@ -4471,6 +4508,7 @@
         0x5f -> :sswitch_5f
         0x60 -> :sswitch_60
         0x61 -> :sswitch_61
+        0x62 -> :sswitch_62
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

@@ -15,6 +15,8 @@
 # static fields
 .field private static final DEBUG:Z = false
 
+.field private static final RESET_BLOCK_SIZE:I = 0x320
+
 .field private static final TAG:Ljava/lang/String; = "AndroidRuntime"
 
 .field private static initialized:Z

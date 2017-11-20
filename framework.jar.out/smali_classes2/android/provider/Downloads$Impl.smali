@@ -30,6 +30,8 @@
 
 .field public static final ALL_DOWNLOADS_CONTENT_URI:Landroid/net/Uri;
 
+.field public static final AUTHORITY:Ljava/lang/String; = "downloads"
+
 .field public static final CD_METHOD_DIRECT:I = 0x0
 
 .field public static final CD_METHOD_DIRECT_ROAP:I = 0x2
