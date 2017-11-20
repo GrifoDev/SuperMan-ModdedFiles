@@ -26,7 +26,7 @@ Name: res/layout/main.xml
 SHA1-Digest: zCuxTVmY206HEsIqrqTFIdUuQ3w=
 
 Name: SEC-INF/buildinfo.xml
-SHA1-Digest: iZdw3QNpKkmF0HcLR/9o5zLyCy0=
+SHA1-Digest: low+G6+Rp8Ksy6Y/plfPXCCyF/I=
 
 Name: resources.arsc
 SHA1-Digest: sEPkytDeUsbyvDb0bSn7qSjW0OY=
