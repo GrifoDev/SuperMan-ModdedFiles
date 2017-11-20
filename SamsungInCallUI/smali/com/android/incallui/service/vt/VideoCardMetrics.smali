@@ -190,92 +190,96 @@
 .end method
 
 .method public update(Lcom/android/incallui/service/vt/VideoCallMetrics;Landroid/content/Context;)V
-    .locals 2
+    .locals 3
 
     if-eqz p1, :cond_1
 
-    const/4 v0, 0x0
+    invoke-virtual {p1}, Lcom/android/incallui/service/vt/VideoCallMetrics;->getVideoUXMode()I
 
-    iput v0, p0, Lcom/android/incallui/service/vt/VideoCardMetrics;->indicator_area:I
+    move-result v0
+
+    const/4 v1, 0x0
+
+    iput v1, p0, Lcom/android/incallui/service/vt/VideoCardMetrics;->indicator_area:I
 
     invoke-virtual {p1}, Lcom/android/incallui/service/vt/VideoCallMetrics;->needToHideIndicatorArea()Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
     invoke-static {p2}, Lcom/android/incallui/util/ScreenControlUtils;->getStatusBarHeight(Landroid/content/Context;)I
 
-    move-result v0
+    move-result v1
 
-    iput v0, p0, Lcom/android/incallui/service/vt/VideoCardMetrics;->indicator_area:I
+    iput v1, p0, Lcom/android/incallui/service/vt/VideoCardMetrics;->indicator_area:I
 
     :cond_0
     invoke-virtual {p2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v0
+    move-result-object v1
 
-    const v1, 0x7f0a062d
+    const v2, 0x7f0a062f
 
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
-    move-result v0
+    move-result v1
 
-    float-to-int v0, v0
+    float-to-int v1, v1
 
-    iput v0, p0, Lcom/android/incallui/service/vt/VideoCardMetrics;->call_state_default_height:I
-
-    invoke-virtual {p2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x7f0a0164
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v0
-
-    float-to-int v0, v0
-
-    iput v0, p0, Lcom/android/incallui/service/vt/VideoCardMetrics;->banner_height:I
+    iput v1, p0, Lcom/android/incallui/service/vt/VideoCardMetrics;->call_state_default_height:I
 
     invoke-virtual {p2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v0
+    move-result-object v1
 
-    const v1, 0x7f0a0062
+    const v2, 0x7f0a0161
 
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
-    move-result v0
+    move-result v1
 
-    float-to-int v0, v0
+    float-to-int v1, v1
 
-    iput v0, p0, Lcom/android/incallui/service/vt/VideoCardMetrics;->caller_info_height:I
+    iput v1, p0, Lcom/android/incallui/service/vt/VideoCardMetrics;->banner_height:I
 
     invoke-virtual {p2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v0
+    move-result-object v1
 
-    const v1, 0x7f0a0176
+    const v2, 0x7f0a005f
 
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
-    move-result v0
+    move-result v1
 
-    float-to-int v0, v0
+    float-to-int v1, v1
 
-    iput v0, p0, Lcom/android/incallui/service/vt/VideoCardMetrics;->camera_effect_height:I
+    iput v1, p0, Lcom/android/incallui/service/vt/VideoCardMetrics;->caller_info_height:I
 
-    const/4 v0, 0x2
+    invoke-virtual {p2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    iput v0, p0, Lcom/android/incallui/service/vt/VideoCardMetrics;->call_state_divider:I
+    move-result-object v1
+
+    const v2, 0x7f0a0173
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v1
+
+    float-to-int v1, v1
+
+    iput v1, p0, Lcom/android/incallui/service/vt/VideoCardMetrics;->camera_effect_height:I
+
+    const/4 v1, 0x2
+
+    iput v1, p0, Lcom/android/incallui/service/vt/VideoCardMetrics;->call_state_divider:I
 
     invoke-virtual {p1}, Lcom/android/incallui/service/vt/VideoCallMetrics;->isPhonePortraitType()Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_2
+    if-eqz v1, :cond_2
 
     iget v0, p1, Lcom/android/incallui/service/vt/VideoCallMetrics;->heightPixels:I
 
@@ -304,6 +308,61 @@
     return-void
 
     :cond_2
+    invoke-virtual {p1, v0}, Lcom/android/incallui/service/vt/VideoCallMetrics;->isTabletType(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    invoke-virtual {p2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x7f0a0624
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v0
+
+    float-to-int v0, v0
+
+    iput v0, p0, Lcom/android/incallui/service/vt/VideoCardMetrics;->call_state_default_height:I
+
+    iget v0, p0, Lcom/android/incallui/service/vt/VideoCardMetrics;->call_state_default_height:I
+
+    iput v0, p0, Lcom/android/incallui/service/vt/VideoCardMetrics;->call_state_primary_height:I
+
+    invoke-virtual {p2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x7f0a0623
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v0
+
+    float-to-int v0, v0
+
+    iput v0, p0, Lcom/android/incallui/service/vt/VideoCardMetrics;->banner_height:I
+
+    invoke-virtual {p2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x7f0a0626
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v0
+
+    float-to-int v0, v0
+
+    iput v0, p0, Lcom/android/incallui/service/vt/VideoCardMetrics;->caller_info_height:I
+
+    goto :goto_0
+
+    :cond_3
     iget v0, p0, Lcom/android/incallui/service/vt/VideoCardMetrics;->call_state_default_height:I
 
     iput v0, p0, Lcom/android/incallui/service/vt/VideoCardMetrics;->call_state_primary_height:I

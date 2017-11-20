@@ -178,7 +178,7 @@
     <string name="account_phone">Dispositivo</string>
     <string name="acs">Llamada de voz</string>
     <string name="active_calls">Llamada activa</string>
-    <string name="add_reminder">Recordatorio</string>
+    <string name="add_reminder">Añadir recordatorio</string>
     <string name="agif_button_close_description">Cerrar</string>
     <string name="agif_decline_message">Lo siento, no puedo hablar ahora mismo.</string>
     <string name="agif_decline_sticker_header">Rechazar con un adhesivo</string>
@@ -867,6 +867,7 @@ El menú IVR de la pantalla de llamada utiliza contenidos proporcionados por un 
     <string name="swipe_right_to_answer_call_with_video">Deslice hacia la derecha para responder la llamada con video.</string>
     <string name="swipe_right_to_answer_call_without_video">Deslice hacia la derecha para responder la llamada sin video.</string>
     <string name="switch_rejected_by_mt">Se ha rechazado la solicitud de cambio a videollamada.</string>
+    <string name="switch_rejected_by_mt_att">Esta llamada no puede usar video. La llamada se ha conectado como llamada de voz.</string>
     <string name="switch_to_video_call_failed">No se pudo cambiar a videollamada.</string>
     <string name="switch_to_video_call_failed_tmo">Se ha rechazado la solicitud de cambio a videollamada.</string>
     <string name="switch_to_voice_call_failed">No se pudo cambiar a llamada de voz.</string>
@@ -894,7 +895,7 @@ El menú IVR de la pantalla de llamada utiliza contenidos proporcionados por un 
     <string name="upload_using_wlan_only">Cargar solo vía WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Cargar vía Wi-Fi o red móvil</string>
     <string name="upload_wlan_and_mobile_nw">Cargar vía WLAN o la red móvil</string>
-    <string name="usa_att_connected_as_voice">Conexión de llamada solo de voz.</string>
+    <string name="usa_att_connected_as_voice">Esta llamada no puede usar video. La llamada se ha conectado como llamada de voz.</string>
     <string name="usa_att_data_usage_charge_alert">Está por alcanzar el límite de Uso de datos que ha definido en el dispositivo. La videollamada usa datos.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">No es posible conectar la llamada mediante la red Wi-Fi; conectando mediante la red celular. Se aplicarán costos por datos y voz.</string>
     <string name="usa_att_modify_receive_to_video">%s está solicitando cambiar a videollamada.</string>

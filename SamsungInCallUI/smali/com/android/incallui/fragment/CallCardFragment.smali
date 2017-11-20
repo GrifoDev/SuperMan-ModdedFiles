@@ -125,6 +125,8 @@
 
 .field protected mJanskyView:Lcom/android/incallui/fragment/view/CallCardJanskyView;
 
+.field protected mLabelColorAnimator:Landroid/animation/ValueAnimator;
+
 .field protected mLastestCallStateLabel:Ljava/lang/CharSequence;
 
 .field protected mLastestCallTime:Ljava/lang/String;
@@ -139,9 +141,13 @@
 
 .field private mMultiTouchDummyView:Landroid/view/View;
 
+.field protected mNameColorAnimator:Landroid/animation/ValueAnimator;
+
 .field protected mNameContainer:Landroid/view/View;
 
 .field protected mNavigationBarArea:Landroid/view/View;
+
+.field protected mNumberAndLabelColorAnimator:Landroid/animation/ValueAnimator;
 
 .field protected mNumberLabel:Landroid/widget/TextView;
 
@@ -491,7 +497,7 @@
 
     aput-object v4, v2, v3
 
-    const v3, 0x7f090364
+    const v3, 0x7f090365
 
     invoke-virtual {p0, v3}, Lcom/android/incallui/fragment/CallCardFragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -513,7 +519,7 @@
 
     aput-object v5, v3, v4
 
-    const v4, 0x7f090366
+    const v4, 0x7f090367
 
     invoke-virtual {p0, v4}, Lcom/android/incallui/fragment/CallCardFragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -537,7 +543,7 @@
 
     aput-object v6, v4, v5
 
-    const v5, 0x7f090363
+    const v5, 0x7f090364
 
     invoke-virtual {p0, v5}, Lcom/android/incallui/fragment/CallCardFragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -814,7 +820,7 @@
 
     check-cast v0, Landroid/view/LayoutInflater;
 
-    const v1, 0x7f040198
+    const v1, 0x7f040199
 
     const/4 v2, 0x0
 
@@ -2111,12 +2117,6 @@
     cmp-long v0, v0, v2
 
     if-lez v0, :cond_3
-
-    invoke-static {}, Lcom/android/incallui/util/CallTypeUtils;->isVideoCall()Z
-
-    move-result v0
-
-    if-nez v0, :cond_3
 
     invoke-virtual {p0}, Lcom/android/incallui/fragment/CallCardFragment;->getPresenter()Lcom/android/incallui/Presenter;
 
@@ -3528,7 +3528,7 @@
     .end packed-switch
 .end method
 
-.method public onReceveShareMessage(Landroid/net/Uri;Lcom/android/incallui/Call;)V
+.method public onReceveShareMessage(Landroid/net/Uri;Ljava/io/File;Lcom/android/incallui/Call;)V
     .locals 3
 
     const-string v0, "CallCardFragment"
@@ -3537,13 +3537,23 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "onReceveShareMessage : "
+    const-string v2, "onReceveShareMessage : uri = "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, ", file ="
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
@@ -3555,7 +3565,7 @@
 
     const/4 v0, 0x0
 
-    invoke-virtual {p0, p1, v0}, Lcom/android/incallui/fragment/CallCardFragment;->onSelectAgifContents(Landroid/net/Uri;Z)V
+    invoke-virtual {p0, p1, p2, v0}, Lcom/android/incallui/fragment/CallCardFragment;->onSelectAgifContents(Landroid/net/Uri;Ljava/io/File;Z)V
 
     invoke-static {}, Lcom/android/incallui/util/VoiceCallAppLogging;->agifScreen_receiveAgif()V
 
@@ -3572,7 +3582,7 @@
     return-void
 .end method
 
-.method public onSelectAgifContents(Landroid/net/Uri;Z)V
+.method public onSelectAgifContents(Landroid/net/Uri;Ljava/io/File;Z)V
     .locals 0
 
     return-void
@@ -5045,6 +5055,219 @@
     goto :goto_0
 .end method
 
+.method protected startTextColorEndCallAnimation(IIIII)V
+    .locals 7
+
+    const/4 v6, 0x2
+
+    const/4 v5, 0x1
+
+    const/4 v4, 0x0
+
+    const-string v0, "CallCardFragment"
+
+    const-string v1, "start text color of end call animation..."
+
+    invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/CallCardFragment;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x7f0f004d
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v0
+
+    new-instance v1, Landroid/animation/ArgbEvaluator;
+
+    invoke-direct {v1}, Landroid/animation/ArgbEvaluator;-><init>()V
+
+    new-array v2, v6, [Ljava/lang/Object;
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    aput-object v3, v2, v4
+
+    invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    aput-object v3, v2, v5
+
+    invoke-static {v1, v2}, Landroid/animation/ValueAnimator;->ofObject(Landroid/animation/TypeEvaluator;[Ljava/lang/Object;)Landroid/animation/ValueAnimator;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/incallui/fragment/CallCardFragment;->mLabelColorAnimator:Landroid/animation/ValueAnimator;
+
+    iget-object v1, p0, Lcom/android/incallui/fragment/CallCardFragment;->mLabelColorAnimator:Landroid/animation/ValueAnimator;
+
+    int-to-long v2, v0
+
+    invoke-virtual {v1, v2, v3}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
+
+    iget-object v1, p0, Lcom/android/incallui/fragment/CallCardFragment;->mLabelColorAnimator:Landroid/animation/ValueAnimator;
+
+    new-instance v2, Lcom/android/incallui/fragment/CallCardFragment$2;
+
+    invoke-direct {v2, p0}, Lcom/android/incallui/fragment/CallCardFragment$2;-><init>(Lcom/android/incallui/fragment/CallCardFragment;)V
+
+    invoke-virtual {v1, v2}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
+
+    iget-object v1, p0, Lcom/android/incallui/fragment/CallCardFragment;->mLabelColorAnimator:Landroid/animation/ValueAnimator;
+
+    invoke-virtual {v1}, Landroid/animation/ValueAnimator;->start()V
+
+    new-instance v1, Landroid/animation/ArgbEvaluator;
+
+    invoke-direct {v1}, Landroid/animation/ArgbEvaluator;-><init>()V
+
+    new-array v2, v6, [Ljava/lang/Object;
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    aput-object v3, v2, v4
+
+    invoke-static {p4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    aput-object v3, v2, v5
+
+    invoke-static {v1, v2}, Landroid/animation/ValueAnimator;->ofObject(Landroid/animation/TypeEvaluator;[Ljava/lang/Object;)Landroid/animation/ValueAnimator;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/incallui/fragment/CallCardFragment;->mNameColorAnimator:Landroid/animation/ValueAnimator;
+
+    iget-object v1, p0, Lcom/android/incallui/fragment/CallCardFragment;->mNameColorAnimator:Landroid/animation/ValueAnimator;
+
+    int-to-long v2, v0
+
+    invoke-virtual {v1, v2, v3}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
+
+    iget-object v1, p0, Lcom/android/incallui/fragment/CallCardFragment;->mNameColorAnimator:Landroid/animation/ValueAnimator;
+
+    new-instance v2, Lcom/android/incallui/fragment/CallCardFragment$3;
+
+    invoke-direct {v2, p0}, Lcom/android/incallui/fragment/CallCardFragment$3;-><init>(Lcom/android/incallui/fragment/CallCardFragment;)V
+
+    invoke-virtual {v1, v2}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
+
+    iget-object v1, p0, Lcom/android/incallui/fragment/CallCardFragment;->mNameColorAnimator:Landroid/animation/ValueAnimator;
+
+    invoke-virtual {v1}, Landroid/animation/ValueAnimator;->start()V
+
+    new-instance v1, Landroid/animation/ArgbEvaluator;
+
+    invoke-direct {v1}, Landroid/animation/ArgbEvaluator;-><init>()V
+
+    new-array v2, v6, [Ljava/lang/Object;
+
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    aput-object v3, v2, v4
+
+    invoke-static {p5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    aput-object v3, v2, v5
+
+    invoke-static {v1, v2}, Landroid/animation/ValueAnimator;->ofObject(Landroid/animation/TypeEvaluator;[Ljava/lang/Object;)Landroid/animation/ValueAnimator;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/incallui/fragment/CallCardFragment;->mNumberAndLabelColorAnimator:Landroid/animation/ValueAnimator;
+
+    iget-object v1, p0, Lcom/android/incallui/fragment/CallCardFragment;->mNumberAndLabelColorAnimator:Landroid/animation/ValueAnimator;
+
+    int-to-long v2, v0
+
+    invoke-virtual {v1, v2, v3}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
+
+    iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mNumberAndLabelColorAnimator:Landroid/animation/ValueAnimator;
+
+    new-instance v1, Lcom/android/incallui/fragment/CallCardFragment$4;
+
+    invoke-direct {v1, p0}, Lcom/android/incallui/fragment/CallCardFragment$4;-><init>(Lcom/android/incallui/fragment/CallCardFragment;)V
+
+    invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
+
+    iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mNumberAndLabelColorAnimator:Landroid/animation/ValueAnimator;
+
+    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->start()V
+
+    return-void
+.end method
+
+.method protected stopTextColorEndCallAnimation()V
+    .locals 3
+
+    const/4 v2, 0x0
+
+    const-string v0, "CallCardFragment"
+
+    const-string v1, "stop text color of end call animation..."
+
+    invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mLabelColorAnimator:Landroid/animation/ValueAnimator;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mLabelColorAnimator:Landroid/animation/ValueAnimator;
+
+    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->end()V
+
+    iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mLabelColorAnimator:Landroid/animation/ValueAnimator;
+
+    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->removeAllUpdateListeners()V
+
+    iput-object v2, p0, Lcom/android/incallui/fragment/CallCardFragment;->mLabelColorAnimator:Landroid/animation/ValueAnimator;
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mNameColorAnimator:Landroid/animation/ValueAnimator;
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mNameColorAnimator:Landroid/animation/ValueAnimator;
+
+    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->end()V
+
+    iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mNameColorAnimator:Landroid/animation/ValueAnimator;
+
+    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->removeAllUpdateListeners()V
+
+    iput-object v2, p0, Lcom/android/incallui/fragment/CallCardFragment;->mNameColorAnimator:Landroid/animation/ValueAnimator;
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mNumberAndLabelColorAnimator:Landroid/animation/ValueAnimator;
+
+    if-eqz v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mNumberAndLabelColorAnimator:Landroid/animation/ValueAnimator;
+
+    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->end()V
+
+    iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mNumberAndLabelColorAnimator:Landroid/animation/ValueAnimator;
+
+    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->removeAllUpdateListeners()V
+
+    iput-object v2, p0, Lcom/android/incallui/fragment/CallCardFragment;->mNumberAndLabelColorAnimator:Landroid/animation/ValueAnimator;
+
+    :cond_2
+    return-void
+.end method
+
 .method public updateAgifContainer(Z)V
     .locals 0
 
@@ -5424,7 +5647,17 @@
 .end method
 
 .method protected updateTextColor(I)V
-    .locals 10
+    .locals 14
+
+    const/16 v13, 0x9
+
+    const v12, 0x3ecccccd    # 0.4f
+
+    const/4 v6, 0x1
+
+    const/high16 v11, 0x3f800000    # 1.0f
+
+    const/4 v7, 0x0
 
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
@@ -5474,7 +5707,7 @@
 
     if-eqz v0, :cond_14
 
-    const/4 v0, 0x1
+    move v0, v6
 
     :goto_1
     invoke-virtual {p0}, Lcom/android/incallui/fragment/CallCardFragment;->getResources()Landroid/content/res/Resources;
@@ -5485,134 +5718,130 @@
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
+    move-result v1
+
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/CallCardFragment;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v3, 0x7f0e0173
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
+
     move-result v2
 
     invoke-virtual {p0}, Lcom/android/incallui/fragment/CallCardFragment;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v1
+    move-result-object v3
 
-    const v3, 0x7f0e0173
+    const v4, 0x7f0e015d
 
-    invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getColor(I)I
+    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getColor(I)I
 
     move-result v3
 
     invoke-virtual {p0}, Lcom/android/incallui/fragment/CallCardFragment;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v1
+    move-result-object v4
 
-    const v4, 0x7f0e015d
+    const v5, 0x7f0e0170
 
-    invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getColor(I)I
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getColor(I)I
 
     move-result v4
 
     invoke-virtual {p0}, Lcom/android/incallui/fragment/CallCardFragment;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v1
+    move-result-object v5
 
-    const v5, 0x7f0e0170
+    const v8, 0x7f0e016f
 
-    invoke-virtual {v1, v5}, Landroid/content/res/Resources;->getColor(I)I
+    invoke-virtual {v5, v8}, Landroid/content/res/Resources;->getColor(I)I
+
+    move-result v9
+
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/CallCardFragment;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v5
+
+    const v8, 0x7f0e016e
+
+    invoke-virtual {v5, v8}, Landroid/content/res/Resources;->getColor(I)I
 
     move-result v5
 
-    invoke-virtual {p0}, Lcom/android/incallui/fragment/CallCardFragment;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    const v6, 0x7f0e016f
-
-    invoke-virtual {v1, v6}, Landroid/content/res/Resources;->getColor(I)I
-
-    move-result v6
-
-    invoke-virtual {p0}, Lcom/android/incallui/fragment/CallCardFragment;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    const v7, 0x7f0e016e
-
-    invoke-virtual {v1, v7}, Landroid/content/res/Resources;->getColor(I)I
-
-    move-result v7
-
-    const/16 v1, 0xa
-
-    if-ne p1, v1, :cond_15
-
-    iget v1, p0, Lcom/android/incallui/fragment/CallCardFragment;->mOldCallState:I
-
     const/16 v8, 0xa
 
-    if-eq v1, v8, :cond_15
+    if-ne p1, v8, :cond_15
 
-    const/4 v1, 0x1
+    iget v8, p0, Lcom/android/incallui/fragment/CallCardFragment;->mOldCallState:I
+
+    const/16 v10, 0xa
+
+    if-eq v8, v10, :cond_15
+
+    move v8, v6
 
     :goto_2
     invoke-virtual {p0}, Lcom/android/incallui/fragment/CallCardFragment;->isVideoState()Z
 
-    move-result v8
+    move-result v10
 
-    if-eqz v8, :cond_3
+    if-eqz v10, :cond_3
 
-    const/16 v0, 0x9
+    if-ne p1, v13, :cond_16
 
-    if-ne p1, v0, :cond_16
-
-    const/4 v0, 0x1
+    move v0, v6
 
     :goto_3
-    or-int/2addr v1, v0
+    or-int/2addr v8, v0
 
     iget v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mOldCallState:I
 
-    const/16 v8, 0x9
+    if-eq v0, v13, :cond_17
 
-    if-eq v0, v8, :cond_17
-
-    const/4 v0, 0x1
+    move v0, v6
 
     :goto_4
-    and-int/2addr v1, v0
+    and-int/2addr v8, v0
 
-    const/4 v0, 0x0
+    move v0, v7
 
     :cond_3
-    iget-object v8, p0, Lcom/android/incallui/fragment/CallCardFragment;->mCallerInfoView:Lcom/android/incallui/fragment/view/CallCardCallerInfoView;
+    iget-object v10, p0, Lcom/android/incallui/fragment/CallCardFragment;->mCallerInfoView:Lcom/android/incallui/fragment/view/CallCardCallerInfoView;
 
-    if-eqz v8, :cond_4
+    if-eqz v10, :cond_4
 
-    iget-object v8, p0, Lcom/android/incallui/fragment/CallCardFragment;->mCallerInfoView:Lcom/android/incallui/fragment/view/CallCardCallerInfoView;
+    iget-object v10, p0, Lcom/android/incallui/fragment/CallCardFragment;->mCallerInfoView:Lcom/android/incallui/fragment/view/CallCardCallerInfoView;
 
-    invoke-virtual {v8, p1, v1}, Lcom/android/incallui/fragment/view/CallCardCallerInfoView;->updateTextColor(IZ)V
+    invoke-virtual {v10, p1, v8}, Lcom/android/incallui/fragment/view/CallCardCallerInfoView;->updateTextColor(IZ)V
 
     :cond_4
-    iget-object v8, p0, Lcom/android/incallui/fragment/CallCardFragment;->mVolteView:Lcom/android/incallui/fragment/view/CallCardVolteView;
+    iget-object v10, p0, Lcom/android/incallui/fragment/CallCardFragment;->mVolteView:Lcom/android/incallui/fragment/view/CallCardVolteView;
 
-    if-eqz v8, :cond_5
+    if-eqz v10, :cond_5
 
-    iget-object v8, p0, Lcom/android/incallui/fragment/CallCardFragment;->mVolteView:Lcom/android/incallui/fragment/view/CallCardVolteView;
+    iget-object v10, p0, Lcom/android/incallui/fragment/CallCardFragment;->mVolteView:Lcom/android/incallui/fragment/view/CallCardVolteView;
 
-    invoke-virtual {v8, p1, v1}, Lcom/android/incallui/fragment/view/CallCardVolteView;->updateIconColor(IZ)V
+    invoke-virtual {v10, p1, v8}, Lcom/android/incallui/fragment/view/CallCardVolteView;->updateIconColor(IZ)V
 
     :cond_5
-    iget-object v8, p0, Lcom/android/incallui/fragment/CallCardFragment;->mJanskyView:Lcom/android/incallui/fragment/view/CallCardJanskyView;
+    iget-object v10, p0, Lcom/android/incallui/fragment/CallCardFragment;->mJanskyView:Lcom/android/incallui/fragment/view/CallCardJanskyView;
 
-    if-eqz v8, :cond_6
+    if-eqz v10, :cond_6
 
-    iget-object v8, p0, Lcom/android/incallui/fragment/CallCardFragment;->mJanskyView:Lcom/android/incallui/fragment/view/CallCardJanskyView;
+    iget-object v10, p0, Lcom/android/incallui/fragment/CallCardFragment;->mJanskyView:Lcom/android/incallui/fragment/view/CallCardJanskyView;
 
-    invoke-virtual {v8, p1, v1}, Lcom/android/incallui/fragment/view/CallCardJanskyView;->updateMultiLineColor(IZ)V
+    invoke-virtual {v10, p1, v8}, Lcom/android/incallui/fragment/view/CallCardJanskyView;->updateMultiLineColor(IZ)V
 
     :cond_6
-    iget-object v8, p0, Lcom/android/incallui/fragment/CallCardFragment;->mMultiSimView:Lcom/android/incallui/fragment/view/CallCardMultiSimView;
+    iget-object v10, p0, Lcom/android/incallui/fragment/CallCardFragment;->mMultiSimView:Lcom/android/incallui/fragment/view/CallCardMultiSimView;
 
-    if-eqz v8, :cond_7
+    if-eqz v10, :cond_7
 
-    iget-object v8, p0, Lcom/android/incallui/fragment/CallCardFragment;->mMultiSimView:Lcom/android/incallui/fragment/view/CallCardMultiSimView;
+    iget-object v10, p0, Lcom/android/incallui/fragment/CallCardFragment;->mMultiSimView:Lcom/android/incallui/fragment/view/CallCardMultiSimView;
 
-    invoke-virtual {v8, p1}, Lcom/android/incallui/fragment/view/CallCardMultiSimView;->updateSubIconColor(I)V
+    invoke-virtual {v10, p1}, Lcom/android/incallui/fragment/view/CallCardMultiSimView;->updateSubIconColor(I)V
 
     :cond_7
     if-eqz v0, :cond_18
@@ -5623,18 +5852,18 @@
 
     if-nez v0, :cond_8
 
-    const/16 v0, 0x9
-
-    if-ne p1, v0, :cond_18
+    if-ne p1, v13, :cond_18
 
     :cond_8
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/CallCardFragment;->stopTextColorEndCallAnimation()V
+
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mCallStateLabel:Landroid/widget/TextView;
 
     if-eqz v0, :cond_9
 
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mCallStateLabel:Landroid/widget/TextView;
 
-    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setTextColor(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V
 
     :cond_9
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mElapsedTime:Landroid/widget/TextView;
@@ -5643,7 +5872,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mElapsedTime:Landroid/widget/TextView;
 
-    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setTextColor(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V
 
     :cond_a
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mPrimaryName:Landroid/widget/TextView;
@@ -5652,7 +5881,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mPrimaryName:Landroid/widget/TextView;
 
-    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setTextColor(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V
 
     :cond_b
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mRecordText:Landroid/widget/TextView;
@@ -5661,7 +5890,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mRecordText:Landroid/widget/TextView;
 
-    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setTextColor(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V
 
     :cond_c
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mRecordTime:Landroid/widget/Chronometer;
@@ -5670,7 +5899,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mRecordTime:Landroid/widget/Chronometer;
 
-    invoke-virtual {v0, v2}, Landroid/widget/Chronometer;->setTextColor(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/Chronometer;->setTextColor(I)V
 
     :cond_d
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mPhoneNumber:Landroid/widget/TextView;
@@ -5679,7 +5908,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mPhoneNumber:Landroid/widget/TextView;
 
-    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setTextColor(I)V
+    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setTextColor(I)V
 
     :cond_e
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mNumberLabel:Landroid/widget/TextView;
@@ -5688,7 +5917,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mNumberLabel:Landroid/widget/TextView;
 
-    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setTextColor(I)V
+    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setTextColor(I)V
 
     :cond_f
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mProfileIcon:Landroid/widget/ImageView;
@@ -5697,7 +5926,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mProfileIcon:Landroid/widget/ImageView;
 
-    invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setColorFilter(I)V
+    invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setColorFilter(I)V
 
     :cond_10
     :goto_5
@@ -5711,9 +5940,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mPrimaryName:Landroid/widget/TextView;
 
-    const v1, 0x3ecccccd    # 0.4f
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setAlpha(F)V
+    invoke-virtual {v0, v12}, Landroid/widget/TextView;->setAlpha(F)V
 
     :cond_11
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mPhoneNumber:Landroid/widget/TextView;
@@ -5722,9 +5949,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mPhoneNumber:Landroid/widget/TextView;
 
-    const v1, 0x3ecccccd    # 0.4f
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setAlpha(F)V
+    invoke-virtual {v0, v12}, Landroid/widget/TextView;->setAlpha(F)V
 
     :cond_12
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mNumberLabel:Landroid/widget/TextView;
@@ -5733,9 +5958,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mNumberLabel:Landroid/widget/TextView;
 
-    const v1, 0x3ecccccd    # 0.4f
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setAlpha(F)V
+    invoke-virtual {v0, v12}, Landroid/widget/TextView;->setAlpha(F)V
 
     :cond_13
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mBizDuring:Landroid/widget/ImageView;
@@ -5756,34 +5979,32 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mBizDuring:Landroid/widget/ImageView;
 
-    const v1, 0x3ecccccd    # 0.4f
-
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setAlpha(F)V
+    invoke-virtual {v0, v12}, Landroid/widget/ImageView;->setAlpha(F)V
 
     goto/16 :goto_0
 
     :cond_14
-    const/4 v0, 0x0
+    move v0, v7
 
     goto/16 :goto_1
 
     :cond_15
-    const/4 v1, 0x0
+    move v8, v7
 
     goto/16 :goto_2
 
     :cond_16
-    const/4 v0, 0x0
+    move v0, v7
 
     goto/16 :goto_3
 
     :cond_17
-    const/4 v0, 0x0
+    move v0, v7
 
     goto/16 :goto_4
 
     :cond_18
-    if-eqz v1, :cond_19
+    if-eqz v8, :cond_19
 
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
@@ -5795,139 +6016,15 @@
 
     if-nez v0, :cond_19
 
-    invoke-virtual {p0}, Lcom/android/incallui/fragment/CallCardFragment;->getResources()Landroid/content/res/Resources;
+    move-object v0, p0
 
-    move-result-object v0
+    invoke-virtual/range {v0 .. v5}, Lcom/android/incallui/fragment/CallCardFragment;->startTextColorEndCallAnimation(IIIII)V
 
-    const v1, 0x7f0f004d
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result v0
-
-    new-instance v1, Landroid/animation/ArgbEvaluator;
-
-    invoke-direct {v1}, Landroid/animation/ArgbEvaluator;-><init>()V
-
-    const/4 v6, 0x2
-
-    new-array v6, v6, [Ljava/lang/Object;
-
-    const/4 v8, 0x0
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v9
-
-    aput-object v9, v6, v8
-
-    const/4 v8, 0x1
-
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v4
-
-    aput-object v4, v6, v8
-
-    invoke-static {v1, v6}, Landroid/animation/ValueAnimator;->ofObject(Landroid/animation/TypeEvaluator;[Ljava/lang/Object;)Landroid/animation/ValueAnimator;
-
-    move-result-object v1
-
-    int-to-long v8, v0
-
-    invoke-virtual {v1, v8, v9}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
-
-    new-instance v4, Lcom/android/incallui/fragment/CallCardFragment$2;
-
-    invoke-direct {v4, p0}, Lcom/android/incallui/fragment/CallCardFragment$2;-><init>(Lcom/android/incallui/fragment/CallCardFragment;)V
-
-    invoke-virtual {v1, v4}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
-
-    invoke-virtual {v1}, Landroid/animation/ValueAnimator;->start()V
-
-    new-instance v1, Landroid/animation/ArgbEvaluator;
-
-    invoke-direct {v1}, Landroid/animation/ArgbEvaluator;-><init>()V
-
-    const/4 v4, 0x2
-
-    new-array v4, v4, [Ljava/lang/Object;
-
-    const/4 v6, 0x0
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    aput-object v2, v4, v6
-
-    const/4 v2, 0x1
-
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v5
-
-    aput-object v5, v4, v2
-
-    invoke-static {v1, v4}, Landroid/animation/ValueAnimator;->ofObject(Landroid/animation/TypeEvaluator;[Ljava/lang/Object;)Landroid/animation/ValueAnimator;
-
-    move-result-object v1
-
-    int-to-long v4, v0
-
-    invoke-virtual {v1, v4, v5}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
-
-    new-instance v2, Lcom/android/incallui/fragment/CallCardFragment$3;
-
-    invoke-direct {v2, p0}, Lcom/android/incallui/fragment/CallCardFragment$3;-><init>(Lcom/android/incallui/fragment/CallCardFragment;)V
-
-    invoke-virtual {v1, v2}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
-
-    invoke-virtual {v1}, Landroid/animation/ValueAnimator;->start()V
-
-    new-instance v1, Landroid/animation/ArgbEvaluator;
-
-    invoke-direct {v1}, Landroid/animation/ArgbEvaluator;-><init>()V
-
-    const/4 v2, 0x2
-
-    new-array v2, v2, [Ljava/lang/Object;
-
-    const/4 v4, 0x0
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    aput-object v3, v2, v4
-
-    const/4 v3, 0x1
-
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v4
-
-    aput-object v4, v2, v3
-
-    invoke-static {v1, v2}, Landroid/animation/ValueAnimator;->ofObject(Landroid/animation/TypeEvaluator;[Ljava/lang/Object;)Landroid/animation/ValueAnimator;
-
-    move-result-object v1
-
-    int-to-long v2, v0
-
-    invoke-virtual {v1, v2, v3}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
-
-    new-instance v0, Lcom/android/incallui/fragment/CallCardFragment$4;
-
-    invoke-direct {v0, p0}, Lcom/android/incallui/fragment/CallCardFragment$4;-><init>(Lcom/android/incallui/fragment/CallCardFragment;)V
-
-    invoke-virtual {v1, v0}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
-
-    invoke-virtual {v1}, Landroid/animation/ValueAnimator;->start()V
-
-    goto/16 :goto_5
+    goto :goto_5
 
     :cond_19
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/CallCardFragment;->stopTextColorEndCallAnimation()V
+
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v0
@@ -5942,7 +6039,7 @@
 
     invoke-static {p0, v0}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    goto/16 :goto_5
+    goto :goto_5
 
     :cond_1a
     const/16 v0, 0xa
@@ -5955,7 +6052,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mCallStateLabel:Landroid/widget/TextView;
 
-    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setTextColor(I)V
+    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setTextColor(I)V
 
     :cond_1b
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mElapsedTime:Landroid/widget/TextView;
@@ -5964,7 +6061,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mElapsedTime:Landroid/widget/TextView;
 
-    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setTextColor(I)V
+    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setTextColor(I)V
 
     :cond_1c
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mRecordText:Landroid/widget/TextView;
@@ -5973,7 +6070,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mRecordText:Landroid/widget/TextView;
 
-    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setTextColor(I)V
+    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setTextColor(I)V
 
     :cond_1d
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mRecordTime:Landroid/widget/Chronometer;
@@ -5982,7 +6079,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mRecordTime:Landroid/widget/Chronometer;
 
-    invoke-virtual {v0, v4}, Landroid/widget/Chronometer;->setTextColor(I)V
+    invoke-virtual {v0, v3}, Landroid/widget/Chronometer;->setTextColor(I)V
 
     :cond_1e
     :goto_6
@@ -5992,7 +6089,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mPrimaryName:Landroid/widget/TextView;
 
-    invoke-virtual {v0, v5}, Landroid/widget/TextView;->setTextColor(I)V
+    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setTextColor(I)V
 
     :cond_1f
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mProfileIcon:Landroid/widget/ImageView;
@@ -6001,7 +6098,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mProfileIcon:Landroid/widget/ImageView;
 
-    invoke-virtual {v0, v6}, Landroid/widget/ImageView;->setColorFilter(I)V
+    invoke-virtual {v0, v9}, Landroid/widget/ImageView;->setColorFilter(I)V
 
     :cond_20
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mPhoneNumber:Landroid/widget/TextView;
@@ -6010,7 +6107,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mPhoneNumber:Landroid/widget/TextView;
 
-    invoke-virtual {v0, v7}, Landroid/widget/TextView;->setTextColor(I)V
+    invoke-virtual {v0, v5}, Landroid/widget/TextView;->setTextColor(I)V
 
     :cond_21
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mNumberLabel:Landroid/widget/TextView;
@@ -6019,7 +6116,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mNumberLabel:Landroid/widget/TextView;
 
-    invoke-virtual {v0, v7}, Landroid/widget/TextView;->setTextColor(I)V
+    invoke-virtual {v0, v5}, Landroid/widget/TextView;->setTextColor(I)V
 
     goto/16 :goto_5
 
@@ -6030,7 +6127,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mCallStateLabel:Landroid/widget/TextView;
 
-    invoke-virtual {v0, v6}, Landroid/widget/TextView;->setTextColor(I)V
+    invoke-virtual {v0, v9}, Landroid/widget/TextView;->setTextColor(I)V
 
     :cond_23
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mElapsedTime:Landroid/widget/TextView;
@@ -6039,7 +6136,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mElapsedTime:Landroid/widget/TextView;
 
-    invoke-virtual {v0, v6}, Landroid/widget/TextView;->setTextColor(I)V
+    invoke-virtual {v0, v9}, Landroid/widget/TextView;->setTextColor(I)V
 
     :cond_24
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mRecordText:Landroid/widget/TextView;
@@ -6048,7 +6145,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mRecordText:Landroid/widget/TextView;
 
-    invoke-virtual {v0, v6}, Landroid/widget/TextView;->setTextColor(I)V
+    invoke-virtual {v0, v9}, Landroid/widget/TextView;->setTextColor(I)V
 
     :cond_25
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mRecordTime:Landroid/widget/Chronometer;
@@ -6057,7 +6154,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mRecordTime:Landroid/widget/Chronometer;
 
-    invoke-virtual {v0, v6}, Landroid/widget/Chronometer;->setTextColor(I)V
+    invoke-virtual {v0, v9}, Landroid/widget/Chronometer;->setTextColor(I)V
 
     goto :goto_6
 
@@ -6084,15 +6181,9 @@
 
     sget-object v2, Landroid/view/View;->ALPHA:Landroid/util/Property;
 
-    const/4 v3, 0x1
+    new-array v3, v6, [F
 
-    new-array v3, v3, [F
-
-    const/4 v4, 0x0
-
-    const/high16 v5, 0x3f800000    # 1.0f
-
-    aput v5, v3, v4
+    aput v11, v3, v7
 
     invoke-static {v1, v2, v3}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;
 
@@ -6109,15 +6200,9 @@
 
     sget-object v2, Landroid/view/View;->ALPHA:Landroid/util/Property;
 
-    const/4 v3, 0x1
+    new-array v3, v6, [F
 
-    new-array v3, v3, [F
-
-    const/4 v4, 0x0
-
-    const/high16 v5, 0x3f800000    # 1.0f
-
-    aput v5, v3, v4
+    aput v11, v3, v7
 
     invoke-static {v1, v2, v3}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;
 
@@ -6134,15 +6219,9 @@
 
     sget-object v2, Landroid/view/View;->ALPHA:Landroid/util/Property;
 
-    const/4 v3, 0x1
+    new-array v3, v6, [F
 
-    new-array v3, v3, [F
-
-    const/4 v4, 0x0
-
-    const/high16 v5, 0x3f800000    # 1.0f
-
-    aput v5, v3, v4
+    aput v11, v3, v7
 
     invoke-static {v1, v2, v3}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;
 
@@ -6171,15 +6250,9 @@
 
     sget-object v2, Landroid/view/View;->ALPHA:Landroid/util/Property;
 
-    const/4 v3, 0x1
+    new-array v3, v6, [F
 
-    new-array v3, v3, [F
-
-    const/4 v4, 0x0
-
-    const/high16 v5, 0x3f800000    # 1.0f
-
-    aput v5, v3, v4
+    aput v11, v3, v7
 
     invoke-static {v1, v2, v3}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;
 
@@ -6213,9 +6286,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mPrimaryName:Landroid/widget/TextView;
 
-    const/high16 v1, 0x3f800000    # 1.0f
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setAlpha(F)V
+    invoke-virtual {v0, v11}, Landroid/widget/TextView;->setAlpha(F)V
 
     :cond_2c
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mPhoneNumber:Landroid/widget/TextView;
@@ -6224,9 +6295,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mPhoneNumber:Landroid/widget/TextView;
 
-    const/high16 v1, 0x3f800000    # 1.0f
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setAlpha(F)V
+    invoke-virtual {v0, v11}, Landroid/widget/TextView;->setAlpha(F)V
 
     :cond_2d
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mNumberLabel:Landroid/widget/TextView;
@@ -6235,9 +6304,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mNumberLabel:Landroid/widget/TextView;
 
-    const/high16 v1, 0x3f800000    # 1.0f
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setAlpha(F)V
+    invoke-virtual {v0, v11}, Landroid/widget/TextView;->setAlpha(F)V
 
     :cond_2e
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mBizDuring:Landroid/widget/ImageView;
@@ -6258,9 +6325,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mBizDuring:Landroid/widget/ImageView;
 
-    const/high16 v1, 0x3f800000    # 1.0f
-
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setAlpha(F)V
+    invoke-virtual {v0, v11}, Landroid/widget/ImageView;->setAlpha(F)V
 
     goto/16 :goto_0
 .end method

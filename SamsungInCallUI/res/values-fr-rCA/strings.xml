@@ -178,7 +178,7 @@
     <string name="account_phone">Appareil</string>
     <string name="acs">Appel vocal</string>
     <string name="active_calls">Appel en cours</string>
-    <string name="add_reminder">Ajouter rappel</string>
+    <string name="add_reminder">Ajouter un rappel</string>
     <string name="agif_button_close_description">Fermer</string>
     <string name="agif_decline_message">Désolé, je suis occupé.</string>
     <string name="agif_decline_sticker_header">Refus avec un symbole</string>
@@ -740,8 +740,8 @@ Le menu d’écran d’appel IVR fait appel aux contenus d’un tiers fournisseu
     <string name="secOnscreenMenuCaptureImageText">Capturer une image</string>
     <string name="secOnscreenMenuDisableExtraVolume">Désac. volume suppl.</string>
     <string name="secOnscreenMenuDisableExtraVolumeTTS">Désactiver Volume supplémentaire</string>
-    <string name="secOnscreenMenuDualCameraOffText">Désactiver le double appareil photo</string>
-    <string name="secOnscreenMenuDualCameraOnText">Activer le double appareil photo</string>
+    <string name="secOnscreenMenuDualCameraOffText">Désactiver le double objectif</string>
+    <string name="secOnscreenMenuDualCameraOnText">Activer le double objectif</string>
     <string name="secOnscreenMenuEnableExtraVolume">Activ. volume suppl.</string>
     <string name="secOnscreenMenuEnableExtraVolumeTTS">Activer Volume supplémentaire</string>
     <string name="secOnscreenMenuHideMeText">Masquer mon image</string>
@@ -868,6 +868,7 @@ sens uniq."</string>
     <string name="swipe_right_to_answer_call_with_video">"Glissez un doigt vers la droite pour répondre à l'appel avec vidéo."</string>
     <string name="swipe_right_to_answer_call_without_video">"Glissez un doigt vers la droite pour répondre à l'appel sans vidéo."</string>
     <string name="switch_rejected_by_mt">Demande de passage en mode appel vidéo rejetée</string>
+    <string name="switch_rejected_by_mt_att">"La fonction Vidéo n'est pas disponible pour cet appel. Celui-ci est basculé en appel vocal."</string>
     <string name="switch_to_video_call_failed">Échec de la demande de passage en mode appel vidéo.</string>
     <string name="switch_to_video_call_failed_tmo">La demande de passage en mode appel vidéo a été refusée.</string>
     <string name="switch_to_voice_call_failed">Échec de la demande de passage en mode appel vocal.</string>
@@ -895,7 +896,7 @@ sens uniq."</string>
     <string name="upload_using_wlan_only">Ne charger que par WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Charger via le wifi ou le réseau mobile</string>
     <string name="upload_wlan_and_mobile_nw">Charger via le WLAN ou le réseau mobile</string>
-    <string name="usa_att_connected_as_voice">Appel connecté en tant que voix uniquement.</string>
+    <string name="usa_att_connected_as_voice">"La fonction Vidéo n'est pas disponible pour cet appel. Celui-ci est basculé en appel vocal."</string>
     <string name="usa_att_data_usage_charge_alert">"Vous avez presque atteint la limite d'utilisation des données que vous avez définie sur votre appareil. Des données sont nécessaires pour votre appel vidéo."</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">"L'appel ne peut pas être passé par Wifi. Il sera passé sur le réseau cellulaire. Des frais de voix et de données seront facturés."</string>
     <string name="usa_att_modify_receive_to_video">%s demande à basculer en mode Appel vidéo.</string>

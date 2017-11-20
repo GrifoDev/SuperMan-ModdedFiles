@@ -111,7 +111,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_9
+    if-eqz v2, :cond_8
 
     invoke-virtual {v0}, Lcom/android/incallui/Call;->getSecCall()Lcom/android/incallui/SecCall;
 
@@ -121,7 +121,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_9
+    if-eqz v2, :cond_8
 
     invoke-static {}, Lcom/android/incallui/InCallApp;->getInstance()Lcom/android/incallui/InCallApp;
 
@@ -210,13 +210,13 @@
 
     iget-boolean v1, p3, Lcom/android/incallui/CallerInfo;->contactExists:Z
 
-    if-nez v1, :cond_d
+    if-nez v1, :cond_c
 
     invoke-virtual {p3}, Lcom/android/incallui/CallerInfo;->isVoiceMailNumber()Z
 
     move-result v1
 
-    if-nez v1, :cond_d
+    if-nez v1, :cond_c
 
     iget-object v1, p3, Lcom/android/incallui/CallerInfo;->cnapName:Ljava/lang/String;
 
@@ -224,31 +224,31 @@
 
     move-result v1
 
-    if-eqz v1, :cond_d
+    if-eqz v1, :cond_c
 
     invoke-static {v0}, Lcom/android/incallui/util/CallTypeUtils;->checkEmergencyCall(Lcom/android/incallui/Call;)Z
 
     move-result v1
 
-    if-nez v1, :cond_d
+    if-nez v1, :cond_c
 
     invoke-static {}, Lcom/android/incallui/util/PhoneModeUtils;->isEmergencyMode()Z
 
     move-result v1
 
-    if-nez v1, :cond_d
+    if-nez v1, :cond_c
 
     invoke-static {}, Lcom/android/incallui/smartcall/SmartCallUtil;->isSpamEnable()Z
 
     move-result v1
 
-    if-eqz v1, :cond_d
+    if-eqz v1, :cond_c
 
     invoke-virtual {v0}, Lcom/android/incallui/Call;->isConferenceCall()Z
 
     move-result v1
 
-    if-nez v1, :cond_d
+    if-nez v1, :cond_c
 
     invoke-static {}, Lcom/android/incallui/operator/chn/SpamCallServiceMgr;->getInstance()Lcom/android/incallui/operator/chn/SpamCallServiceMgr;
 
@@ -266,7 +266,7 @@
     :goto_2
     iget-boolean v1, p0, Lcom/android/incallui/ContactInfoCache$FindInfoCallback;->mReuseCache:Z
 
-    if-nez v1, :cond_e
+    if-nez v1, :cond_d
 
     const-string v1, "geo_description_disable"
 
@@ -274,7 +274,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_e
+    if-nez v1, :cond_d
 
     iget-object v1, p3, Lcom/android/incallui/CallerInfo;->name:Ljava/lang/String;
 
@@ -327,16 +327,6 @@
 
     :cond_6
     :goto_3
-    invoke-static {}, Lcom/android/incallui/coreapps/CoreAppsManager;->getInstance()Lcom/android/incallui/coreapps/CoreAppsManager;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/incallui/coreapps/CoreAppsManager;->isNeedtoCheckGeoDescription()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_7
-
     iget-object v1, p0, Lcom/android/incallui/ContactInfoCache$FindInfoCallback;->this$0:Lcom/android/incallui/ContactInfoCache;
 
     invoke-static {v1}, Lcom/android/incallui/ContactInfoCache;->access$200(Lcom/android/incallui/ContactInfoCache;)Landroid/content/Context;
@@ -353,32 +343,31 @@
 
     invoke-static {v1, v2, v3}, Lcom/android/incallui/coreapps/CoreAppsUtils;->updateGeoDescriptionAsync(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_7
     const-string v1, "callprotect_enable"
 
     invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_7
 
     invoke-virtual {p3}, Lcom/android/incallui/CallerInfo;->isEmergencyNumber()Z
 
     move-result v1
 
-    if-nez v1, :cond_8
+    if-nez v1, :cond_7
 
     invoke-virtual {p3}, Lcom/android/incallui/CallerInfo;->isVoiceMailNumber()Z
 
     move-result v1
 
-    if-nez v1, :cond_8
+    if-nez v1, :cond_7
 
     invoke-static {}, Lcom/whitepages/nameid/f;->b()Z
 
     move-result v1
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_7
 
     invoke-static {}, Lcom/android/incallui/ContactInfoCache;->access$000()Ljava/lang/String;
 
@@ -400,10 +389,10 @@
 
     invoke-virtual {v1, v2, v3, v4}, Lcom/whitepages/nameid/a;->a(JLjava/lang/String;)V
 
-    :cond_8
+    :cond_7
     iget-boolean v1, p3, Lcom/android/incallui/CallerInfo;->contactExists:Z
 
-    if-nez v1, :cond_f
+    if-nez v1, :cond_e
 
     invoke-static {}, Lcom/android/incallui/ContactInfoCache;->access$000()Ljava/lang/String;
 
@@ -494,24 +483,24 @@
 
     goto/16 :goto_0
 
-    :cond_9
+    :cond_8
     const-string v2, "support_smart_call"
 
     invoke-static {v2}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_c
+    if-eqz v2, :cond_b
 
     iget-boolean v2, p3, Lcom/android/incallui/CallerInfo;->contactExists:Z
 
-    if-nez v2, :cond_c
+    if-nez v2, :cond_b
 
     invoke-virtual {p3}, Lcom/android/incallui/CallerInfo;->isVoiceMailNumber()Z
 
     move-result v2
 
-    if-nez v2, :cond_c
+    if-nez v2, :cond_b
 
     iget-object v2, p3, Lcom/android/incallui/CallerInfo;->cnapName:Ljava/lang/String;
 
@@ -519,7 +508,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_c
+    if-eqz v2, :cond_b
 
     iget-object v2, p0, Lcom/android/incallui/ContactInfoCache$FindInfoCallback;->this$0:Lcom/android/incallui/ContactInfoCache;
 
@@ -531,36 +520,36 @@
 
     move-result v2
 
-    if-nez v2, :cond_c
+    if-nez v2, :cond_b
 
     invoke-static {v0}, Lcom/android/incallui/util/CallTypeUtils;->checkEmergencyCall(Lcom/android/incallui/Call;)Z
 
     move-result v2
 
-    if-nez v2, :cond_c
+    if-nez v2, :cond_b
 
     invoke-static {v0}, Lcom/android/incallui/smartcall/SmartCallUtil;->isSmartCallInfoExist(Lcom/android/incallui/Call;)Z
 
     move-result v2
 
-    if-nez v2, :cond_c
+    if-nez v2, :cond_b
 
     invoke-static {}, Lcom/android/incallui/util/PhoneModeUtils;->isEmergencyMode()Z
 
     move-result v2
 
-    if-nez v2, :cond_a
+    if-nez v2, :cond_9
 
     invoke-static {}, Lcom/android/incallui/util/PhoneModeUtils;->isUltraPowerSavingMode()Z
 
     move-result v2
 
-    if-eqz v2, :cond_b
+    if-eqz v2, :cond_a
 
-    :cond_a
+    :cond_9
     move v1, v8
 
-    :cond_b
+    :cond_a
     invoke-static {}, Lcom/android/incallui/ContactInfoCache;->access$000()Ljava/lang/String;
 
     move-result-object v2
@@ -635,7 +624,7 @@
 
     goto/16 :goto_1
 
-    :cond_c
+    :cond_b
     invoke-virtual {v0, v1}, Lcom/android/incallui/Call;->setSmartCallSearching(Z)V
 
     const-string v1, "support_smart_call"
@@ -678,7 +667,7 @@
 
     goto/16 :goto_1
 
-    :cond_d
+    :cond_c
     iget-boolean v1, p3, Lcom/android/incallui/CallerInfo;->contactExists:Z
 
     if-eqz v1, :cond_4
@@ -711,7 +700,7 @@
 
     goto/16 :goto_2
 
-    :cond_e
+    :cond_d
     const-string v1, "phone_number_locator"
 
     invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
@@ -776,7 +765,7 @@
 
     goto/16 :goto_3
 
-    :cond_f
+    :cond_e
     invoke-static {}, Lcom/android/incallui/ContactInfoCache;->access$000()Ljava/lang/String;
 
     move-result-object v1

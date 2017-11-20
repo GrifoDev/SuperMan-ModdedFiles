@@ -2,7 +2,6 @@
     <protected-broadcast android:name="com.android.phone.CALLER_NAME"/>
     <protected-broadcast android:name="com.android.phone.ACTION_HD_VOICE_CALL"/>
     <protected-broadcast android:name="com.sec.android.phone.action.ACTION_CALL_TIME"/>
-    <protected-broadcast android:name="com.samsung.android.communicationservice.ACTION_BACKGROUND_SEND"/>
     <permission android:label="UPDATE_MUTE_STATUS" android:name="com.sec.android.phone.permission.UPDATE_MUTE_STATUS" android:protectionLevel="signatureOrSystem"/>
     <uses-permission android:name="com.sec.android.phone.permission.UPDATE_MUTE_STATUS"/>
     <permission android:description="@string/permission_transporting_caller_name_description" android:label="@string/permission_transporting_caller_name_label" android:name="com.sec.android.phone.permission.TRANSPORTING_CALLER_NAME" android:protectionLevel="signatureOrSystem"/>
@@ -383,7 +382,7 @@
         </receiver>
         <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
         <provider android:authorities="com.samsung.android.incallui.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
-        <meta-data android:name="SPDE.build.signature" android:value="4235599/15165709/release/SamsungInCallUI-216008-2.2.01"/>
-        <meta-data android:name="SPDE.env.version" android:value="2.2.3/L24.3.7/24.3.4"/>
+        <meta-data android:name="SPDE.build.signature" android:value="4623928/17281611/release/SamsungInCallUI-216010-2.2.01"/>
+        <meta-data android:name="SPDE.env.version" android:value="2.2.3/L24.3.7/24.3.5"/>
     </application>
 </manifest>

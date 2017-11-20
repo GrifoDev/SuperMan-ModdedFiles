@@ -100,7 +100,7 @@
     <string name="account_phone">Gléas</string>
     <string name="acs">Glao gutha</string>
     <string name="active_calls">Glao gníomhach</string>
-    <string name="add_reminder">Cuir meabhrú.</string>
+    <string name="add_reminder">Cuir meabhrúchán leis</string>
     <string name="agif_button_close_description">Dún</string>
     <string name="agif_decline_message">Mo leithscéal, ní féidir liom labhairt anois.</string>
     <string name="agif_decline_sticker_header">Diúltaigh dó le greamán</string>
@@ -790,6 +790,7 @@ Aontreoch"</string>
     <string name="swipe_right_to_answer_call_with_video">Svaidhpeáil ar dheis le glao a fhreagairt le físeán.</string>
     <string name="swipe_right_to_answer_call_without_video">Svaidhpeáil ar dheis le glao a fhreagairt gan fhíseán.</string>
     <string name="switch_rejected_by_mt">Diúltaíodh don iarratas ar aistriú go glao físe.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Theip ar an iarratas ar aistriú go glao físe.</string>
     <string name="switch_to_video_call_failed_tmo">Diúltaíodh don iarratas ar aistriú go glao físe.</string>
     <string name="switch_to_voice_call_failed">Theip ar an iarratas ar aistriú go glao gutha.</string>
@@ -817,7 +818,7 @@ Aontreoch"</string>
     <string name="upload_using_wlan_only">Uaslódáil trí WLAN amháin</string>
     <string name="upload_wifi_and_mobile_nw">Uaslódáil trí Wi-Fi nó trí líonra móibíleach</string>
     <string name="upload_wlan_and_mobile_nw">Uaslódáil trí WLAN nó trí líonra móibíleach</string>
-    <string name="usa_att_connected_as_voice">Glao nasctha mar ghlao gutha amháin.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">"Tá d'Úsáid sonraí, a shocraigh tú ar do ghléas, ar tí an teorainn a bhaint amach. Tá sonraí de dhíth ar do Ghlao físe."</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Ní féidir an glao a chur trí Wi-Fi, nascadh tríd an líonra ceallach. Beidh feidhm ag táillí gutha agus sonraí.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

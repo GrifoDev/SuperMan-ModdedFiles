@@ -33,6 +33,8 @@
 
 .field private mContext:Landroid/content/Context;
 
+.field private mFile:Ljava/io/File;
+
 .field private mIsHideAnimationRunning:Z
 
 .field private mPosition:Landroid/graphics/PointF;
@@ -49,12 +51,12 @@
 
 
 # direct methods
-.method public constructor <init>(Landroid/widget/ImageView;Landroid/view/View;Landroid/content/Context;Landroid/net/Uri;)V
+.method public constructor <init>(Landroid/widget/ImageView;Landroid/view/View;Landroid/content/Context;Landroid/net/Uri;Ljava/io/File;)V
     .locals 2
 
-    const/4 v0, 0x0
-
     const/4 v1, 0x0
+
+    const/4 v0, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -77,6 +79,8 @@
     iput-boolean v1, p0, Lcom/android/incallui/agif/AgifImageManager;->bAnimate:Z
 
     iput-object v0, p0, Lcom/android/incallui/agif/AgifImageManager;->mUri:Landroid/net/Uri;
+
+    iput-object v0, p0, Lcom/android/incallui/agif/AgifImageManager;->mFile:Ljava/io/File;
 
     new-instance v0, Landroid/graphics/PointF;
 
@@ -107,6 +111,8 @@
     iput-object p1, p0, Lcom/android/incallui/agif/AgifImageManager;->iv:Landroid/widget/ImageView;
 
     iput-object p4, p0, Lcom/android/incallui/agif/AgifImageManager;->mUri:Landroid/net/Uri;
+
+    iput-object p5, p0, Lcom/android/incallui/agif/AgifImageManager;->mFile:Ljava/io/File;
 
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
@@ -472,6 +478,14 @@
     return-void
 .end method
 
+.method public getFile()Ljava/io/File;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/incallui/agif/AgifImageManager;->mFile:Ljava/io/File;
+
+    return-object v0
+.end method
+
 .method public getHeight()I
     .locals 1
 
@@ -573,7 +587,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a05cf
+    const v1, 0x7f0a05ce
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -600,7 +614,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a05d0
+    const v1, 0x7f0a05cf
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -614,7 +628,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a05cd
+    const v2, 0x7f0a05cc
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -797,7 +811,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a05cc
+    const v2, 0x7f0a05cb
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1282,7 +1296,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a05ca
+    const v1, 0x7f0a05c9
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 

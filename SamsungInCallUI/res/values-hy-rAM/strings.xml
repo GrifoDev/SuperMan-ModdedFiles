@@ -120,7 +120,7 @@
     <string name="account_phone">Սարք</string>
     <string name="acs">Ձայնականչ</string>
     <string name="active_calls">Ակտիվ զանգ</string>
-    <string name="add_reminder">Ավլցնել հշցմ</string>
+    <string name="add_reminder">Ավելացնել հիշեցում</string>
     <string name="agif_button_close_description">Փակել</string>
     <string name="agif_decline_message">Կներեք, այս պահին չեմ կարող խոսել:</string>
     <string name="agif_decline_sticker_header">Մերժել կպչուն պիտակով</string>
@@ -811,6 +811,7 @@ IVR կանչի էկրանի ընտրացանկն օգտագործում է եր�
     <string name="swipe_right_to_answer_call_with_video">Մատը սահեցրեք աջ՝ կանչին տեսանյութով պատասխանելու համար:</string>
     <string name="swipe_right_to_answer_call_without_video">Մատը սահեցրեք աջ՝ կանչին առանց տեսանյութի պատասխանելու համար:</string>
     <string name="switch_rejected_by_mt">Տեսականչի փոխելու խնդրանքը մերժվեց:</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Տեսականչի փոխելու խնդրանքը ձախողվեց:</string>
     <string name="switch_to_video_call_failed_tmo">Տեսականչի փոխելու խնդրանքը մերժվեց:</string>
     <string name="switch_to_voice_call_failed">Ձայնականչի փոխելու խնդրանքը ձախողվեց:</string>
@@ -838,7 +839,7 @@ IVR կանչի էկրանի ընտրացանկն օգտագործում է եր�
     <string name="upload_using_wlan_only">Վերբեռնել միայն WLAN-ով</string>
     <string name="upload_wifi_and_mobile_nw">Վերբեռնել Wi-Fi-ի կամ շարժական կապի ցանցի միջոցով</string>
     <string name="upload_wlan_and_mobile_nw">Վերբեռնել WLAN-ով կամ շարժական կապի ցանցով</string>
-    <string name="usa_att_connected_as_voice">Կանչը միացվեց որպես միայն ձայնականչ:</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Ձեր Տվյալների օգտագործումը, որը նախադրել եք սարքում, մոտենում է իր սահմանաչափին: Ձեր Տեսականչը պահանջում է տվյալներ:</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Հնարավոր չէ կանչ կատարել Wi-Fi-ով, միանում է բջջային ցանցի միջոցով: Վճարներ կգանձվեն ձայնի և տվյալների հաղորդման համար:</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

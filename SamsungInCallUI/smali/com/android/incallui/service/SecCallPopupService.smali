@@ -1200,7 +1200,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a00e5
+    const v2, 0x7f0a00e2
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1220,7 +1220,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0548
+    const v2, 0x7f0a0546
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1850,6 +1850,16 @@
     const-string v0, "During call is not available"
 
     invoke-direct {p0, v0}, Lcom/android/incallui/service/SecCallPopupService;->log(Ljava/lang/String;)V
+
+    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
+
+    move-result-object v0
+
+    invoke-virtual {p1}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1, p0}, Lcom/android/incallui/CallList;->removeCallUpdateListener(Ljava/lang/String;Lcom/android/incallui/CallList$CallUpdateListener;)V
 
     goto :goto_0
 
@@ -3257,7 +3267,7 @@
     return-void
 .end method
 
-.method public onReceveShareMessage(Landroid/net/Uri;Lcom/android/incallui/Call;)V
+.method public onReceveShareMessage(Landroid/net/Uri;Ljava/io/File;Lcom/android/incallui/Call;)V
     .locals 3
 
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
@@ -3274,7 +3284,7 @@
 
     if-eqz v0, :cond_0
 
-    if-nez p2, :cond_1
+    if-nez p3, :cond_1
 
     :cond_0
     :goto_0
@@ -3285,7 +3295,7 @@
 
     invoke-static {p0, v1}, Lcom/android/incallui/Log;->i(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {v0, p2}, Lcom/android/incallui/Call;->areSame(Lcom/android/incallui/Call;Lcom/android/incallui/Call;)Z
+    invoke-static {v0, p3}, Lcom/android/incallui/Call;->areSame(Lcom/android/incallui/Call;Lcom/android/incallui/Call;)Z
 
     move-result v0
 
@@ -3297,7 +3307,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupService;->mSecCallPopupContainer:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    invoke-virtual {v0, p1}, Lcom/android/incallui/service/SecCallPopupContainer;->onSelectAgifContents(Landroid/net/Uri;)V
+    invoke-virtual {v0, p1, p2}, Lcom/android/incallui/service/SecCallPopupContainer;->onSelectAgifContents(Landroid/net/Uri;Ljava/io/File;)V
 
     goto :goto_0
 .end method
@@ -3687,7 +3697,7 @@
 
     move-result-object v0
 
-    const v4, 0x7f090481
+    const v4, 0x7f090482
 
     invoke-static {v4}, Lcom/android/incallui/util/SALogging;->getString(I)Ljava/lang/String;
 
@@ -3714,7 +3724,7 @@
 
     move-result-object v0
 
-    const v4, 0x7f09043d
+    const v4, 0x7f09043e
 
     invoke-static {v4}, Lcom/android/incallui/util/SALogging;->getString(I)Ljava/lang/String;
 

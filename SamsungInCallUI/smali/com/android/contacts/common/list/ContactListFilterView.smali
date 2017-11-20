@@ -149,7 +149,7 @@
 
     iget-object v0, p0, Lcom/android/contacts/common/list/ContactListFilterView;->c:Landroid/widget/TextView;
 
-    const v1, 0x7f090533
+    const v1, 0x7f090534
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -180,7 +180,7 @@
     goto :goto_0
 
     :pswitch_1
-    const v0, 0x7f0905ca
+    const v0, 0x7f0905cb
 
     invoke-direct {p0, v2, v0}, Lcom/android/contacts/common/list/ContactListFilterView;->a(II)V
 
@@ -189,7 +189,7 @@
     :pswitch_2
     const v0, 0x7f020182
 
-    const v1, 0x7f0905cb
+    const v1, 0x7f0905cc
 
     invoke-direct {p0, v0, v1}, Lcom/android/contacts/common/list/ContactListFilterView;->a(II)V
 
@@ -198,21 +198,21 @@
     :pswitch_3
     const v0, 0x7f020181
 
-    const v1, 0x7f0905cc
+    const v1, 0x7f0905cd
 
     invoke-direct {p0, v0, v1}, Lcom/android/contacts/common/list/ContactListFilterView;->a(II)V
 
     goto :goto_1
 
     :pswitch_4
-    const v0, 0x7f0905cd
+    const v0, 0x7f0905ce
 
     invoke-direct {p0, v2, v0}, Lcom/android/contacts/common/list/ContactListFilterView;->a(II)V
 
     goto :goto_1
 
     :pswitch_5
-    const v0, 0x7f0905cf
+    const v0, 0x7f0905d0
 
     invoke-direct {p0, v2, v0}, Lcom/android/contacts/common/list/ContactListFilterView;->a(II)V
 
@@ -381,7 +381,7 @@
 
     if-eqz v0, :cond_3
 
-    const v0, 0x7f0904e9
+    const v0, 0x7f0904ea
 
     :goto_0
     const/4 v3, 0x1
@@ -403,7 +403,7 @@
     return-object v0
 
     :cond_3
-    const v0, 0x7f0904ea
+    const v0, 0x7f0904eb
 
     goto :goto_0
 .end method

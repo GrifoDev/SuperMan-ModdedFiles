@@ -178,7 +178,7 @@
     <string name="account_phone">本体</string>
     <string name="acs">音声通話</string>
     <string name="active_calls">現在の通話</string>
-    <string name="add_reminder">ﾘﾏｲﾝﾀﾞｰ追加</string>
+    <string name="add_reminder">リマインダーを追加</string>
     <string name="agif_button_close_description">閉じる</string>
     <string name="agif_decline_message">ただいま電話に出ることができません。</string>
     <string name="agif_decline_sticker_header">拒否してスタンプ送信</string>
@@ -755,7 +755,7 @@ IVR通話画面メニューには、Dianhuabangという第三者サービスプ
     <string name="secOnscreenMenuStartRecordText">録画</string>
     <string name="secOnscreenMenuStopRecordText">ストップ</string>
     <string name="secOnscreenMenuSwitchCameraText">カメラを切替</string>
-    <string name="secOnscreenMenuSwitchToAudioDeviceText">ｵｰﾃﾞｨｵﾃﾞﾊﾞｲｽに切り替え</string>
+    <string name="secOnscreenMenuSwitchToAudioDeviceText">ｵｰﾃﾞｨｵﾃﾞﾊﾞｲｽに切替</string>
     <string name="secOnscreenMenuSwitchToHeadsetText">ヘッドセットに切替</string>
     <string name="secOnscreenMenuSwitchToHeadsetText_vzw">Bluetoothに切り替え</string>
     <string name="secOnscreenMenuSwitchToPhoneText">本体に切替</string>
@@ -868,6 +868,7 @@ IVR通話画面メニューには、Dianhuabangという第三者サービスプ
     <string name="swipe_right_to_answer_call_with_video">ビデオコールで応答するには、右にスワイプしてください。</string>
     <string name="swipe_right_to_answer_call_without_video">音声通話で応答するには、右にスワイプしてください。</string>
     <string name="switch_rejected_by_mt">ビデオコールへの切り替え要求は拒否されました。</string>
+    <string name="switch_rejected_by_mt_att">この通話ではビデオコールを使用できません。音声通話で接続しました。</string>
     <string name="switch_to_video_call_failed">ビデオコールへの切り替え要求に失敗しました。</string>
     <string name="switch_to_video_call_failed_tmo">ビデオコールへの切り替え要求は拒否されました。</string>
     <string name="switch_to_voice_call_failed">音声通話への切り替え要求に失敗しました。</string>
@@ -895,7 +896,7 @@ IVR通話画面メニューには、Dianhuabangという第三者サービスプ
     <string name="upload_using_wlan_only">WLAN接続時のみアップロード</string>
     <string name="upload_wifi_and_mobile_nw">Wi-Fiおよびモバイルネットワークでアップロード</string>
     <string name="upload_wlan_and_mobile_nw">WLANまたはモバイルネットワークでアップロード</string>
-    <string name="usa_att_connected_as_voice">音声通話で接続します。</string>
+    <string name="usa_att_connected_as_voice">この通話ではビデオコールを使用できません。音声通話で接続しました。</string>
     <string name="usa_att_data_usage_charge_alert">まもなく端末に設定したデータ使用量の上限に達します。このビデオコールにはデータの使用が必要です。</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">セルラーネットワークで接続中に、Wi-Fiで通話することはできません。音声およびデータの料金が適用されます。</string>
     <string name="usa_att_modify_receive_to_video">%sがビデオコールへの切り替えを要求しています。</string>

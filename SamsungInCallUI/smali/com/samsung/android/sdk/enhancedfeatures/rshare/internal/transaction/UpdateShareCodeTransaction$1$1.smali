@@ -80,6 +80,16 @@
 
     iget-object v0, v0, Lcom/samsung/android/sdk/ssf/share/io/UpdateSharedContentsResponse;->share_code:Ljava/util/List;
 
+    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UpdateShareCodeTransaction$1$1;->val$res:Lcom/samsung/android/sdk/ssf/share/io/UpdateSharedContentsResponse;
+
+    iget-object v0, v0, Lcom/samsung/android/sdk/ssf/share/io/UpdateSharedContentsResponse;->share_code:Ljava/util/List;
+
     invoke-interface {v0, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v0
@@ -104,6 +114,7 @@
 
     invoke-virtual {v1, v2, v3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/ShareResponse;->setExpiryTime(J)V
 
+    :cond_0
     iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UpdateShareCodeTransaction$1$1;->val$res:Lcom/samsung/android/sdk/ssf/share/io/UpdateSharedContentsResponse;
 
     iget v0, v0, Lcom/samsung/android/sdk/ssf/share/io/UpdateSharedContentsResponse;->contents_total_to_upload:I

@@ -31,6 +31,8 @@
 
 .field private static mMediaPlayer:Landroid/media/MediaPlayer;
 
+.field private static mPrevInCallVolume:I
+
 .field private static mRingtone:Landroid/media/Ringtone;
 
 
@@ -48,8 +50,6 @@
 .field private mIsPluggedIn:Z
 
 .field private mPlayTwice:Z
-
-.field private mPrevInCallVolume:I
 
 
 # direct methods
@@ -147,10 +147,10 @@
     return-object v0
 .end method
 
-.method static synthetic access$400(Lcom/android/incallui/bike/BikeModeAudioManager;)I
+.method static synthetic access$400()I
     .locals 1
 
-    iget v0, p0, Lcom/android/incallui/bike/BikeModeAudioManager;->mPrevInCallVolume:I
+    sget v0, Lcom/android/incallui/bike/BikeModeAudioManager;->mPrevInCallVolume:I
 
     return v0
 .end method
@@ -663,7 +663,7 @@
 
     invoke-virtual {v0, v4}, Landroid/media/AudioManager;->setSpeakerphoneOn(Z)V
 
-    iget v1, p0, Lcom/android/incallui/bike/BikeModeAudioManager;->mPrevInCallVolume:I
+    sget v1, Lcom/android/incallui/bike/BikeModeAudioManager;->mPrevInCallVolume:I
 
     invoke-virtual {v0, v4, v1, v4}, Landroid/media/AudioManager;->setStreamVolume(III)V
 
@@ -789,7 +789,7 @@
 
     invoke-virtual {v0, v3}, Landroid/media/AudioManager;->setSpeakerphoneOn(Z)V
 
-    iget v1, p0, Lcom/android/incallui/bike/BikeModeAudioManager;->mPrevInCallVolume:I
+    sget v1, Lcom/android/incallui/bike/BikeModeAudioManager;->mPrevInCallVolume:I
 
     invoke-virtual {v0, v3, v1, v3}, Landroid/media/AudioManager;->setStreamVolume(III)V
 
@@ -1227,7 +1227,7 @@
 
     move-result v1
 
-    iput v1, p0, Lcom/android/incallui/bike/BikeModeAudioManager;->mPrevInCallVolume:I
+    sput v1, Lcom/android/incallui/bike/BikeModeAudioManager;->mPrevInCallVolume:I
 
     const-string v1, "callmemo_enabled=false"
 
@@ -1245,7 +1245,7 @@
 
     move-result-object v5
 
-    iget v6, p0, Lcom/android/incallui/bike/BikeModeAudioManager;->mPrevInCallVolume:I
+    sget v6, Lcom/android/incallui/bike/BikeModeAudioManager;->mPrevInCallVolume:I
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -1513,7 +1513,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget v1, p0, Lcom/android/incallui/bike/BikeModeAudioManager;->mPrevInCallVolume:I
+    sget v1, Lcom/android/incallui/bike/BikeModeAudioManager;->mPrevInCallVolume:I
 
     invoke-virtual {v0, v3, v1, v3}, Landroid/media/AudioManager;->setStreamVolume(III)V
 
@@ -1924,6 +1924,12 @@
 
     if-eq v1, v3, :cond_2
 
+    invoke-virtual {v0}, Landroid/media/AudioManager;->semIsSafeMediaVolumeDeviceOn()Z
+
+    move-result v1
+
+    if-nez v1, :cond_2
+
     const/4 v1, 0x3
 
     sget v2, Lcom/android/incallui/bike/BikeModeAudioManager;->defaultMusicVolume:I
@@ -2086,7 +2092,7 @@
 
     move-result-object v4
 
-    iget v5, p0, Lcom/android/incallui/bike/BikeModeAudioManager;->mPrevInCallVolume:I
+    sget v5, Lcom/android/incallui/bike/BikeModeAudioManager;->mPrevInCallVolume:I
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -2098,7 +2104,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget v3, p0, Lcom/android/incallui/bike/BikeModeAudioManager;->mPrevInCallVolume:I
+    sget v3, Lcom/android/incallui/bike/BikeModeAudioManager;->mPrevInCallVolume:I
 
     invoke-virtual {v0, v2, v3, v2}, Landroid/media/AudioManager;->setStreamVolume(III)V
 
@@ -2163,7 +2169,7 @@
 
     move-result-object v4
 
-    iget v5, p0, Lcom/android/incallui/bike/BikeModeAudioManager;->mPrevInCallVolume:I
+    sget v5, Lcom/android/incallui/bike/BikeModeAudioManager;->mPrevInCallVolume:I
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -2175,7 +2181,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget v3, p0, Lcom/android/incallui/bike/BikeModeAudioManager;->mPrevInCallVolume:I
+    sget v3, Lcom/android/incallui/bike/BikeModeAudioManager;->mPrevInCallVolume:I
 
     invoke-virtual {v0, v2, v3, v2}, Landroid/media/AudioManager;->setStreamVolume(III)V
 

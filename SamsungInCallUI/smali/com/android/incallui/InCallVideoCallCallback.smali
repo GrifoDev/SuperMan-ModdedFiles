@@ -251,14 +251,27 @@
 
     move-result v4
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_6
 
     invoke-static {}, Lcom/android/incallui/bike/BikeModeUtils;->isBikeModeOn()Z
 
     move-result v4
 
-    if-eqz v4, :cond_5
+    if-nez v4, :cond_5
 
+    invoke-static {}, Lcom/android/incallui/bike/BikeModeUtils;->isBikeModeOutgoingCall()Z
+
+    move-result v4
+
+    if-nez v4, :cond_5
+
+    invoke-static {}, Lcom/android/incallui/bike/BikeModeUtils;->isBikeCall()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_6
+
+    :cond_5
     if-nez v2, :cond_1
 
     if-eqz v3, :cond_1
@@ -281,7 +294,7 @@
 
     goto :goto_0
 
-    :cond_5
+    :cond_6
     if-nez v2, :cond_1
 
     if-eqz v3, :cond_1

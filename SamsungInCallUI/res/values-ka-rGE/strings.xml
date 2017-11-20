@@ -120,7 +120,7 @@
     <string name="account_phone">მოწყობილობა</string>
     <string name="acs">ხმოვანი ზარი</string>
     <string name="active_calls">აქტიური ზარი</string>
-    <string name="add_reminder">შეხსენ. დამ.</string>
+    <string name="add_reminder">შეხსენების დამატება</string>
     <string name="agif_button_close_description">დახურვა</string>
     <string name="agif_decline_message">უკაცრავად, ახლა ვერ ვილაპარაკებ.</string>
     <string name="agif_decline_sticker_header">უარყოფა სტიკერით</string>
@@ -811,6 +811,7 @@ IVR ზარის ეკრანული მენიუ იყენებ�
     <string name="swipe_right_to_answer_call_with_video">გადაუსვით თითი მარჯვნივ, რომ უპასუხოთ ზარს ვიდეოთი.</string>
     <string name="swipe_right_to_answer_call_without_video">გადაუსვით თითი მარჯვნივ, რომ უპასუხოთ ზარს ვიდეოს გარეშე.</string>
     <string name="switch_rejected_by_mt">ვიდეო ზარზე გადართვის მოთხოვნა უარყოფილია.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">ვიდეო ზარზე გადართვის მოთხოვნა ვერ შესრულდა.</string>
     <string name="switch_to_video_call_failed_tmo">ვიდეო ზარზე გადართვის მოთხოვნა უარყოფილია.</string>
     <string name="switch_to_voice_call_failed">ხმოვან ზარზე გადართვის მოთხოვნა ვერ შესრულდა.</string>
@@ -838,7 +839,7 @@ IVR ზარის ეკრანული მენიუ იყენებ�
     <string name="upload_using_wlan_only">ატვირთეთ მხოლოდ WLAN-ით</string>
     <string name="upload_wifi_and_mobile_nw">ატვირთვა Wi-Fi ან მობილური ქსელით</string>
     <string name="upload_wlan_and_mobile_nw">ატვირთეთ WLAN-ით ან მობილური ქსელით</string>
-    <string name="usa_att_connected_as_voice">ზარი დაუკავშირდა მხოლოდ როგორც ხმოვანი.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">მოწყობილობაზე დაყენებული მონაცემთა გამოყენების ლიმიტი თითქმის მიღწეულია. ვიდეო ზარს ესაჭიროება მონაცემები.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Wi-Fi-ით ზარი ვერ მოხერხდა, უკავშირდება ფიჭური ქსელით. დაგეკისრებათ ხმის და მონაცემთა საფასური.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

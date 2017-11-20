@@ -217,7 +217,7 @@
     <string name="banner_calls_have_been_merged">تم دمج المكالمات.</string>
     <string name="banner_conferenc_call_with">في مكالمة جماعية مع %s</string>
     <string name="bluetooth_popup_title">تحديد جهاز الصوت</string>
-    <string name="button">الزر</string>
+    <string name="button">زر</string>
     <string name="call_accept_reject_tip1">اضغط على أحد طرفي مفتاح مستوى الصوت لكتم نغمة الرنين للمكالمات الواردة.</string>
     <string name="call_drug_up_panel_for_kk">اسحب زر إرسال رسالة إلى الأعلى لإرسال رسالة سريعة ورفض مكالمة واردة.</string>
     <string name="call_drug_up_panel_for_kk_tts">اسحب المكالمة التي تم رفضها مع توجيه لوحة الرسالة للأعلى لإرسال رسالة رفض مكالمات عند رفض مكالمة واردة.</string>
@@ -868,6 +868,7 @@
     <string name="swipe_right_to_answer_call_with_video">اسحب لليمين للرد على المكالمة مع الفيديو.</string>
     <string name="swipe_right_to_answer_call_without_video">اسحب لليمين للرد على المكالمة من دون الفيديو.</string>
     <string name="switch_rejected_by_mt">تم رفض طلب التبديل إلى مكالمة فيديو.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">فشل طلب التبديل إلى مكالمة فيديو.</string>
     <string name="switch_to_video_call_failed_tmo">تم رفض طلب التبديل إلى مكالمة فيديو.</string>
     <string name="switch_to_voice_call_failed">فشل طلب التبديل إلى المكالمة الصوتية.</string>
@@ -895,7 +896,7 @@
     <string name="upload_using_wlan_only">التحميل عبر شبكة WLAN فقط</string>
     <string name="upload_wifi_and_mobile_nw">التحميل عبر شبكة Wi-Fi أو شبكة هاتف محمول</string>
     <string name="upload_wlan_and_mobile_nw">التحميل عبر شبكة WLAN أو شبكة الهاتف المحمول</string>
-    <string name="usa_att_connected_as_voice">تم توصيل المكالمة كمكالمة صوتية فقط.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">يوشك الجهاز على بلوغ حد استخدام البيانات المضبوط. تتطلب مكالمة الفيديو توفر بيانات.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">لا يمكن إجراء المكالمة عبر شبكة Wi-Fi، جارٍ الاتصال عبر شبكة خلوية. سيتم تطبيق رسوم المكالمات الصوتية والبيانات.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

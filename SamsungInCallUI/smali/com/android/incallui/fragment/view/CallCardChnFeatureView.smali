@@ -149,7 +149,7 @@
 
     move-result-object v1
 
-    const v6, 0x7f0a04fe
+    const v6, 0x7f0a04fc
 
     invoke-virtual {v1, v6}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -224,7 +224,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0605
+    const v1, 0x7f0a0604
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -951,7 +951,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0607
+    const v1, 0x7f0a0606
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -988,7 +988,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0608
+    const v1, 0x7f0a0607
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1032,7 +1032,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0606
+    const v1, 0x7f0a0605
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1055,7 +1055,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0605
+    const v1, 0x7f0a0604
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1071,7 +1071,7 @@
 .method private onViewCreated(Lcom/android/incallui/fragment/VoiceCallCardFragment;Landroid/view/View;)V
     .locals 7
 
-    const v6, 0x7f0a0603
+    const v6, 0x7f0a0602
 
     const/4 v5, 0x1
 
@@ -1663,7 +1663,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a01fb
+    const v1, 0x7f0a01f7
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2285,7 +2285,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0603
+    const v2, 0x7f0a0602
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2379,7 +2379,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a008d
+    const v2, 0x7f0a008a
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 

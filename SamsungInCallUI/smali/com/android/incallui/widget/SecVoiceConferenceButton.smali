@@ -84,7 +84,7 @@
 .method private init(Landroid/content/Context;)V
     .locals 3
 
-    const v2, 0x7f0a0416
+    const v2, 0x7f0a0414
 
     const/4 v1, 0x0
 
@@ -116,7 +116,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0150
+    const v1, 0x7f0a014d
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

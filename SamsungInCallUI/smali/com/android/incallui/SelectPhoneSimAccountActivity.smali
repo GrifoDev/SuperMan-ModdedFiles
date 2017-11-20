@@ -5,6 +5,8 @@
 # instance fields
 .field private final mPhoneStateListener:Landroid/telephony/PhoneStateListener;
 
+.field private mStatusBarManager:Lcom/android/incallui/wrapper/StatusBarManagerWrapper;
+
 .field private mWindowManager:Landroid/view/WindowManager;
 
 
@@ -107,6 +109,10 @@
 
     invoke-direct {p0, v0, v1}, Lcom/android/incallui/SelectPhoneSimAccountActivity;->requestSystemKeyEvent(IZ)Z
 
+    const/4 v0, 0x1
+
+    invoke-virtual {p0, v0}, Lcom/android/incallui/SelectPhoneSimAccountActivity;->setStatusBar(Z)V
+
     :cond_0
     invoke-virtual {p0, v1, v1}, Lcom/android/incallui/SelectPhoneSimAccountActivity;->overridePendingTransition(II)V
 
@@ -185,9 +191,9 @@
 
     const/4 v7, 0x3
 
-    const/4 v1, 0x0
-
     const/4 v6, 0x1
+
+    const/4 v1, 0x0
 
     invoke-super {p0}, Landroid/app/Activity;->onResume()V
 
@@ -238,7 +244,7 @@
 
     if-eqz v3, :cond_4
 
-    const-string v1, "android:system_alert_window"
+    const-string v4, "android:system_alert_window"
 
     iget v3, v3, Landroid/content/pm/ApplicationInfo;->uid:I
 
@@ -246,7 +252,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v0, v1, v3, v2}, Landroid/app/AppOpsManager;->noteOpNoThrow(Ljava/lang/String;ILjava/lang/String;)I
+    invoke-virtual {v0, v4, v3, v2}, Landroid/app/AppOpsManager;->noteOpNoThrow(Ljava/lang/String;ILjava/lang/String;)I
 
     move-result v0
 
@@ -285,6 +291,8 @@
 
     invoke-direct {p0, v0, v6}, Lcom/android/incallui/SelectPhoneSimAccountActivity;->requestSystemKeyEvent(IZ)Z
 
+    invoke-virtual {p0, v1}, Lcom/android/incallui/SelectPhoneSimAccountActivity;->setStatusBar(Z)V
+
     :cond_1
     :goto_2
     return-void
@@ -292,10 +300,10 @@
     :cond_2
     const v0, 0x7f090267
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     :try_start_1
-    invoke-static {p0, v0, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+    invoke-static {p0, v0, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
     move-result-object v0
 
@@ -316,17 +324,17 @@
     :catch_0
     move-exception v0
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "Exception: "
+    const-string v3, "Exception: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
@@ -345,6 +353,68 @@
 
     :cond_4
     move v0, v1
+
+    goto :goto_0
+.end method
+
+.method public setStatusBar(Z)V
+    .locals 2
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "setStatusBar = "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const/4 v1, 0x1
+
+    invoke-static {p0, v0, v1}, Lcom/android/incallui/Log;->i(Ljava/lang/Object;Ljava/lang/String;Z)V
+
+    iget-object v0, p0, Lcom/android/incallui/SelectPhoneSimAccountActivity;->mStatusBarManager:Lcom/android/incallui/wrapper/StatusBarManagerWrapper;
+
+    if-nez v0, :cond_0
+
+    invoke-static {p0}, Lcom/android/incallui/wrapper/StatusBarManagerWrapper;->getSystemService(Landroid/content/Context;)Lcom/android/incallui/wrapper/StatusBarManagerWrapper;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/incallui/SelectPhoneSimAccountActivity;->mStatusBarManager:Lcom/android/incallui/wrapper/StatusBarManagerWrapper;
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/incallui/SelectPhoneSimAccountActivity;->mStatusBarManager:Lcom/android/incallui/wrapper/StatusBarManagerWrapper;
+
+    if-eqz v0, :cond_1
+
+    if-eqz p1, :cond_2
+
+    iget-object v0, p0, Lcom/android/incallui/SelectPhoneSimAccountActivity;->mStatusBarManager:Lcom/android/incallui/wrapper/StatusBarManagerWrapper;
+
+    sget v1, Lcom/android/incallui/wrapper/StatusBarManagerWrapper;->DISABLE_NONE:I
+
+    invoke-virtual {v0, v1}, Lcom/android/incallui/wrapper/StatusBarManagerWrapper;->disable(I)V
+
+    :cond_1
+    :goto_0
+    return-void
+
+    :cond_2
+    iget-object v0, p0, Lcom/android/incallui/SelectPhoneSimAccountActivity;->mStatusBarManager:Lcom/android/incallui/wrapper/StatusBarManagerWrapper;
+
+    sget v1, Lcom/android/incallui/wrapper/StatusBarManagerWrapper;->DISABLE_EXPAND:I
+
+    invoke-virtual {v0, v1}, Lcom/android/incallui/wrapper/StatusBarManagerWrapper;->disable(I)V
 
     goto :goto_0
 .end method

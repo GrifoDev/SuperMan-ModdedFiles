@@ -110,7 +110,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0904af
+    const v1, 0x7f0904b0
 
     invoke-static {v1}, Lcom/android/incallui/util/SALogging;->getString(I)Ljava/lang/String;
 

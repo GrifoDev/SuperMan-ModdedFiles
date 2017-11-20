@@ -950,7 +950,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a0553
+    const v4, 0x7f0a0551
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1053,7 +1053,7 @@
 
     const-wide v4, 0x3ff3333333333333L    # 1.2
 
-    const v3, 0x7f0a02fa
+    const v3, 0x7f0a02f6
 
     invoke-static {v2, v4, v5, v3}, Lcom/android/incallui/util/GraphicResourceUtils;->setMaximumTextSP(Landroid/widget/TextView;DI)V
 
@@ -1145,7 +1145,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a030d
+    const v3, 0x7f0a0309
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1183,7 +1183,7 @@
 
     const-wide v4, 0x3ff3333333333333L    # 1.2
 
-    const v3, 0x7f0a0213
+    const v3, 0x7f0a020f
 
     invoke-static {v2, v4, v5, v3}, Lcom/android/incallui/util/GraphicResourceUtils;->setMaximumTextSP(Landroid/widget/TextView;DI)V
 

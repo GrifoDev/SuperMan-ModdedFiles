@@ -123,7 +123,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a01dc
+    const v1, 0x7f0a01d8
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -531,7 +531,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f040145
+    const v0, 0x7f040146
 
     invoke-virtual {p1, v0, p2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -541,7 +541,7 @@
     return-object v0
 
     :cond_0
-    const v0, 0x7f040144
+    const v0, 0x7f040145
 
     invoke-virtual {p1, v0, p2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -699,7 +699,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0440
+    const v1, 0x7f0a043e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -788,7 +788,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a005c
+    const v1, 0x7f0a0059
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -900,7 +900,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0440
+    const v1, 0x7f0a043e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1020,7 +1020,7 @@
 .method protected setHideMeContainerPosition()V
     .locals 4
 
-    const v3, 0x7f0a005c
+    const v3, 0x7f0a0059
 
     const/4 v0, 0x0
 
@@ -1095,7 +1095,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a00d6
+    const v2, 0x7f0a00d3
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1109,7 +1109,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a00d1
+    const v2, 0x7f0a00ce
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1144,7 +1144,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a05b6
+    const v2, 0x7f0a05b5
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1254,7 +1254,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0e01f6
+    const v4, 0x7f0e01f9
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -1334,7 +1334,7 @@
 .method protected setPreviewPosition()V
     .locals 6
 
-    const v4, 0x7f0a05b6
+    const v4, 0x7f0a05b5
 
     const/4 v2, 0x0
 
@@ -1483,7 +1483,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a00d6
+    const v2, 0x7f0a00d3
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1497,7 +1497,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a00d1
+    const v2, 0x7f0a00ce
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1541,7 +1541,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f0a0312
+    const v4, 0x7f0a030e
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1565,7 +1565,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0a005c
+    const v3, 0x7f0a0059
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1643,7 +1643,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0a00f3
+    const v3, 0x7f0a00f0
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1915,7 +1915,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a05b6
+    const v2, 0x7f0a05b5
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1932,7 +1932,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0312
+    const v2, 0x7f0a030e
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1952,7 +1952,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a00f3
+    const v2, 0x7f0a00f0
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 

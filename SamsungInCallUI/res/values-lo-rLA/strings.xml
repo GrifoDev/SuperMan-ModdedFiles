@@ -810,6 +810,7 @@ IVR ເມນູໜ້າຈໍການໂທ ໃຊ້ເນື້ອໃນທ
     <string name="swipe_right_to_answer_call_with_video">ຮູບໄປທາງຂວາເພື່ອຮັບສາຍໂທທີ່ມີວິດີໂອ.</string>
     <string name="swipe_right_to_answer_call_without_video">ຮູບໄປທາງຂວາເພື່ອຮັບສາຍໂທໂດຍບໍ່ມີວິດີໂອ.</string>
     <string name="switch_rejected_by_mt">ການສະເໜີຍ້າຍໄປຫາການໂທດ້ວຍວິດີໂອຖືກປະຕິເສດ.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">ການຂໍຍ້າຍໄປໂທດ້ວຍວິດີໂອບໍ່ສໍາເລັດ.</string>
     <string name="switch_to_video_call_failed_tmo">ຂໍ​ເພື່ອສັບປ່ຽນເປັນໂທວິດີໂອ ຖືກປະຕິເສດແລ້ວ.</string>
     <string name="switch_to_voice_call_failed">ການສະເໜີຂໍປ່ຽນເປັນການໂທດ້ວຍສຽງບໍ່ສໍາເລັດ.</string>
@@ -837,7 +838,7 @@ IVR ເມນູໜ້າຈໍການໂທ ໃຊ້ເນື້ອໃນທ
     <string name="upload_using_wlan_only">ອັບໂຫຼດຜ່ານ WLAN ເທົ່ານັ້ນ</string>
     <string name="upload_wifi_and_mobile_nw">ອັບໂຫຼດຜ່ານ Wi-Fi ຫຼື​ເຄືອ​ຂ່າຍ​ມື​ຖື</string>
     <string name="upload_wlan_and_mobile_nw">ອັບໂຫຼດຜ່ານ WLAN ຫຼື​ ເຄືອ​ຂ່າຍ​ມື​ຖື</string>
-    <string name="usa_att_connected_as_voice">ການໂທຖືກເຊື່ອມຕໍ່ເປັນສຽງເທົ່ານັ້ນ.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">ການນຳໃຊ້ຂໍ້ມູນຂອງທ່ານທີ່ທ່ານໄດ້ຕັ້ງໃນອຸປະກອນຂອງທ່ານກຳລັງຈະຮອດຂີດຈຳກັດຂອງມັນ. ການໂທວິດີໂອຂອງທ່ານຈຳເປັນຕ້ອງມີຂໍ້ມູນ.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">ການໂທບໍ່ສາມາດໃຊ້ໄດ້ຜ່ານ Wi-Fi ໄດ້, ການເຊື່ອມຕໍ່ຜ່ານເຄືອຂ່າຍມືຖື. ອາດ​ຈະ​ມີການເກັບ​ຄ່າບໍລິການສຽງແລະ​ຂໍ້​ມູນ.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

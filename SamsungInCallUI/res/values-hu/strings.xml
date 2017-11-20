@@ -178,7 +178,7 @@
     <string name="account_phone">Eszköz</string>
     <string name="acs">Hanghívás</string>
     <string name="active_calls">Aktív hívás</string>
-    <string name="add_reminder">Emlék. h.ad.</string>
+    <string name="add_reminder">Emlékeztető hozzáadása</string>
     <string name="agif_button_close_description">Bezárás</string>
     <string name="agif_decline_message">Sajnos most nem tudok beszélni.</string>
     <string name="agif_decline_sticker_header">Elutasítás matricával</string>
@@ -868,6 +868,7 @@ kamera"</string>
     <string name="swipe_right_to_answer_call_with_video">A hívás videóval történő fogadásához simítson jobbra.</string>
     <string name="swipe_right_to_answer_call_without_video">A hívás videó nélküli fogadásához simítson jobbra.</string>
     <string name="switch_rejected_by_mt">Videohívásra kapcsolás kérése elutasítva.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">A videohívásra kapcsolás kérése sikertelen volt.</string>
     <string name="switch_to_video_call_failed_tmo">A másik fél elutasította a videohívásra kapcsolásra vonatkozó kérést.</string>
     <string name="switch_to_voice_call_failed">A hanghívásra kapcsolás kérése sikertelen volt.</string>
@@ -895,7 +896,7 @@ kamera"</string>
     <string name="upload_using_wlan_only">Feltöltés csak WLAN-on</string>
     <string name="upload_wifi_and_mobile_nw">Feltöltés Wi-Fi-n vagy mobilhálózaton</string>
     <string name="upload_wlan_and_mobile_nw">Feltöltés WLAN-on vagy mobilhálózaton</string>
-    <string name="usa_att_connected_as_voice">Csak hanghívásként lehetett kapcsolni a hívást.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Hamarosan eléri az eszközön beállított Adathasználat korlátját. A Videohívás adathasználattal jár.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Wi-Fi-n keresztül nem lehet megvalósítani a hívást, a kapcsolása mobilhálózaton keresztül történik. Ez hanghívási és adatforgalmi költségekkel jár.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

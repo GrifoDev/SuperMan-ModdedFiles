@@ -153,7 +153,7 @@
     <string name="DivertToVoice_disable">Cuộc gọi video không có sẵn cho số này. Thay vào đó, thử cuộc gọi thoại bây giờ?</string>
     <string name="DivertToVoice_enable">Cuộc gọi video không có sẵn cho số này. Chuyển sang cuộc gọi thoại…</string>
     <string name="Lunar_anniversary_passedDays1">Lễ kỷ niệm âm lịch hôm qua</string>
-    <string name="Lunar_anniversary_remainedDays0">Lễ kỷ niệm Hôm nay</string>
+    <string name="Lunar_anniversary_remainedDays0">Lễ kỷ niệm âm lịch hôm nay</string>
     <string name="Lunar_anniversary_remainedDays1">Lễ kỷ niệm Ngày mai</string>
     <string name="Lunar_anniversary_remainedDays7">Lễ kỷ niệm âm lịch: 1 tuần</string>
     <string name="Lunar_anniversary_remainedDaysEtc">Lễ kỷ niệm âm lịch: %d ngày</string>
@@ -868,6 +868,7 @@ một chiều"</string>
     <string name="swipe_right_to_answer_call_with_video">Vuốt sang phải để trả lời cuộc gọi có video.</string>
     <string name="swipe_right_to_answer_call_without_video">Vuốt sang phải để trả lời cuộc gọi không có video.</string>
     <string name="switch_rejected_by_mt">Yêu cầu chuyển sang cuộc gọi video bị từ chối.</string>
+    <string name="switch_rejected_by_mt_att">Không có video cho cuộc gọi này. Cuộc gọi được kết nối như cuộc gọi thoại.</string>
     <string name="switch_to_video_call_failed">Yêu cầu chuyển sang cuộc gọi video không thành công.</string>
     <string name="switch_to_video_call_failed_tmo">Yêu cầu chuyển sang cuộc gọi video đã bị từ chối.</string>
     <string name="switch_to_voice_call_failed">Yêu cầu chuyển sang cuộc gọi thoại không thành công.</string>
@@ -895,7 +896,7 @@ một chiều"</string>
     <string name="upload_using_wlan_only">Chỉ tải lên qua WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Tải lên qua mạng Wi-Fi hoặc di động</string>
     <string name="upload_wlan_and_mobile_nw">Tải lên qua WLAN hoặc mạng di động</string>
-    <string name="usa_att_connected_as_voice">Cuộc gọi được kết nối chỉ ở dạng thoại.</string>
+    <string name="usa_att_connected_as_voice">Không có video cho cuộc gọi này. Cuộc gọi được kết nối như cuộc gọi thoại.</string>
     <string name="usa_att_data_usage_charge_alert">Mức sử dụng dữ liệu mà bạn đặt trên thiết bị sắp đạt đến giới hạn. Cuộc gọi video của bạn cần có dữ liệu.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Không thể thực hiện cuộc gọi qua Wi-Fi, đang kết nối qua mạng di động. Phí dữ liệu và cuộc gọi sẽ áp dụng.</string>
     <string name="usa_att_modify_receive_to_video">%s đang yêu cầu chuyển sang cuộc gọi video.</string>

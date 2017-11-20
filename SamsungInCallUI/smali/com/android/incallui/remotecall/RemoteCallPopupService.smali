@@ -168,7 +168,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a052b
+    const v2, 0x7f0a0529
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -437,7 +437,7 @@
 .method private updateCallStateLabel(Lcom/android/incallui/remotecall/remotecall/RemoteCall;)V
     .locals 4
 
-    const v2, 0x7f09062a
+    const v2, 0x7f09062b
 
     const/4 v3, 0x0
 
@@ -522,7 +522,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090628
+    const v2, 0x7f090629
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -562,7 +562,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f09062d
+    const v2, 0x7f09062e
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -591,7 +591,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f09062b
+    const v2, 0x7f09062c
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -846,7 +846,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a00e5
+    const v2, 0x7f0a00e2
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 

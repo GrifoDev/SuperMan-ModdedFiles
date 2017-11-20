@@ -17,5 +17,5 @@
 .method public abstract onEnableStateChanged()V
 .end method
 
-.method public abstract onReceveShareMessage(Landroid/net/Uri;Lcom/android/incallui/Call;)V
+.method public abstract onReceveShareMessage(Landroid/net/Uri;Ljava/io/File;Lcom/android/incallui/Call;)V
 .end method

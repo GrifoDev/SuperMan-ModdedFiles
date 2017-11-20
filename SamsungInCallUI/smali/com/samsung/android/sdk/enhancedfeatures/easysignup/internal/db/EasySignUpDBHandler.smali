@@ -315,58 +315,76 @@
 .end method
 
 .method public static getInstance(Landroid/content/Context;)Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/EasySignUpDBHandler;
-    .locals 3
-
-    sget-object v0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/EasySignUpDBHandler;->sInstance:Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/EasySignUpDBHandler;
-
-    if-nez v0, :cond_2
-
-    const-class v1, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/EasySignUpDBHandler;
-
-    monitor-enter v1
-
-    :try_start_0
-    sget-object v0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/EasySignUpDBHandler;->sInstance:Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/EasySignUpDBHandler;
-
-    if-nez v0, :cond_1
-
-    if-nez p0, :cond_0
+    .locals 4
 
     const/4 v0, 0x0
 
-    monitor-exit v1
+    sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/EasySignUpDBHandler;->sInstance:Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/EasySignUpDBHandler;
+
+    if-nez v1, :cond_2
+
+    const-class v2, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/EasySignUpDBHandler;
+
+    monitor-enter v2
+
+    :try_start_0
+    sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/EasySignUpDBHandler;->sInstance:Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/EasySignUpDBHandler;
+
+    if-nez v1, :cond_1
+
+    if-nez p0, :cond_0
+
+    monitor-exit v2
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :goto_0
     return-object v0
 
     :cond_0
-    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/EasySignUpDBHandler;
+    :try_start_1
+    new-instance v1, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/EasySignUpDBHandler;
 
     invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-direct {v0, v2}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/EasySignUpDBHandler;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, v3}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/EasySignUpDBHandler;-><init>(Landroid/content/Context;)V
 
-    sput-object v0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/EasySignUpDBHandler;->sInstance:Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/EasySignUpDBHandler;
+    sput-object v1, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/EasySignUpDBHandler;->sInstance:Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/EasySignUpDBHandler;
+    :try_end_1
+    .catch Landroid/database/sqlite/SQLiteCantOpenDatabaseException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :cond_1
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_start_2
+    monitor-exit v2
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     :cond_2
     sget-object v0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/EasySignUpDBHandler;->sInstance:Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/EasySignUpDBHandler;
 
     goto :goto_0
 
+    :catch_0
+    move-exception v1
+
+    :try_start_3
+    const-string v3, "EasySignUpDBHandler"
+
+    invoke-static {v1, v3}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/util/ELog;->e(Ljava/lang/Throwable;Ljava/lang/String;)V
+
+    monitor-exit v2
+
+    goto :goto_0
+
     :catchall_0
     move-exception v0
 
-    :try_start_1
-    monitor-exit v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    monitor-exit v2
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     throw v0
 .end method
@@ -426,7 +444,7 @@
 
     move-result v0
 
-    new-array v2, v0, [J
+    new-array v1, v0, [J
 
     iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/EasySignUpDBHandler;->mDb:Landroid/database/sqlite/SQLiteDatabase;
 
@@ -434,7 +452,7 @@
 
     const/4 v0, 0x0
 
-    move v1, v0
+    move v2, v0
 
     :goto_0
     :try_start_0
@@ -442,9 +460,9 @@
 
     move-result v0
 
-    if-ge v1, v0, :cond_0
+    if-ge v2, v0, :cond_0
 
-    invoke-virtual {p1, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {p1, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -456,11 +474,11 @@
 
     move-result-wide v4
 
-    aput-wide v4, v2, v1
+    aput-wide v4, v1, v2
 
-    add-int/lit8 v0, v1, 0x1
+    add-int/lit8 v0, v2, 0x1
 
-    move v1, v0
+    move v2, v0
 
     goto :goto_0
 
@@ -469,13 +487,41 @@
 
     invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabase;->setTransactionSuccessful()V
     :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/EasySignUpDBHandler;->mDb:Landroid/database/sqlite/SQLiteDatabase;
 
     invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabase;->endTransaction()V
 
-    return-object v2
+    const-string v0, "EasySignUpDBHandler"
+
+    const-string v2, "applyBatch end"
+
+    invoke-static {v0, v2}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/util/ELog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    move-object v0, v1
+
+    :goto_1
+    return-object v0
+
+    :catch_0
+    move-exception v0
+
+    :try_start_1
+    const-string v1, "EasySignUpDBHandler"
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/util/ELog;->e(Ljava/lang/Throwable;Ljava/lang/String;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    const/4 v0, 0x0
+
+    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/EasySignUpDBHandler;->mDb:Landroid/database/sqlite/SQLiteDatabase;
+
+    invoke-virtual {v1}, Landroid/database/sqlite/SQLiteDatabase;->endTransaction()V
+
+    goto :goto_1
 
     :catchall_0
     move-exception v0
@@ -992,6 +1038,164 @@
     .end sparse-switch
 .end method
 
+.method public insertServerInfo([Lcom/samsung/android/sdk/ssf/account/io/ServerInfo;)[J
+    .locals 7
+
+    const-string v0, "EasySignUpDBHandler"
+
+    const-string v1, "insertServerInfo start"
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/util/ELog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    new-instance v1, Ljava/util/ArrayList;
+
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+
+    array-length v2, p1
+
+    const/4 v0, 0x0
+
+    :goto_0
+    if-ge v0, v2, :cond_3
+
+    aget-object v3, p1, v0
+
+    invoke-virtual {v3}, Lcom/samsung/android/sdk/ssf/account/io/ServerInfo;->getType()Ljava/lang/String;
+
+    move-result-object v4
+
+    new-instance v5, Landroid/content/ContentValues;
+
+    invoke-direct {v5}, Landroid/content/ContentValues;-><init>()V
+
+    const-string v6, "type"
+
+    invoke-virtual {v5, v6, v4}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string v4, "address"
+
+    invoke-virtual {v3}, Lcom/samsung/android/sdk/ssf/account/io/ServerInfo;->getAddress()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v4, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string v4, "scheme"
+
+    invoke-virtual {v3}, Lcom/samsung/android/sdk/ssf/account/io/ServerInfo;->getScheme()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v4, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string v4, "port"
+
+    invoke-virtual {v3}, Lcom/samsung/android/sdk/ssf/account/io/ServerInfo;->getPort()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v4, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {v3}, Lcom/samsung/android/sdk/ssf/account/io/ServerInfo;->getAddress()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/DeviceUtils;->isShipBinary()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-string v0, "server address is null."
+
+    const-string v1, "EasySignUpDBHandler"
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/util/ELog;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    const/4 v0, 0x0
+
+    :goto_1
+    return-object v0
+
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
+
+    throw v0
+
+    :cond_1
+    sget-boolean v3, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonFeature;->LOCAL_DB_ENCRYPTION:Z
+
+    if-eqz v3, :cond_2
+
+    iget-object v3, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/EasySignUpDBHandler;->mDBCipherManager:Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/DBCipherManager;
+
+    invoke-virtual {v3, v5}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/DBCipherManager;->encryptValues(Landroid/content/ContentValues;)V
+
+    :cond_2
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "GLD Data : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    const-string v4, "EasySignUpDBHandler"
+
+    invoke-static {v3, v4}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/util/ELog;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string v3, "gld"
+
+    invoke-static {v3}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO;->newInsert(Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO$Builder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v5}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO$Builder;->withValues(Landroid/content/ContentValues;)Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO$Builder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO$Builder;->build()Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO;
+
+    move-result-object v3
+
+    invoke-virtual {v1, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_3
+    const-string v0, "EasySignUpDBHandler"
+
+    const-string v2, "insertServerInfo end"
+
+    invoke-static {v0, v2}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/util/ELog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {p0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/EasySignUpDBHandler;->applyBatch(Ljava/util/ArrayList;)[J
+
+    move-result-object v0
+
+    goto :goto_1
+.end method
+
 .method public query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
     .locals 11
 
@@ -1226,7 +1430,7 @@
 
     :cond_3
     :goto_3
-    const-string v1, "insert end"
+    const-string v1, "query end"
 
     const-string v2, "EasySignUpDBHandler"
 

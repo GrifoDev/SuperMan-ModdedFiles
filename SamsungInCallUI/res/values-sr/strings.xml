@@ -178,7 +178,7 @@
     <string name="account_phone">Uređaj</string>
     <string name="acs">Glasovni poziv</string>
     <string name="active_calls">Aktivni poziv</string>
-    <string name="add_reminder">Dodaj podset.</string>
+    <string name="add_reminder">Dodaj podsetnik</string>
     <string name="agif_button_close_description">Zatvori</string>
     <string name="agif_decline_message">Izvinite, ne mogu sada da pričam.</string>
     <string name="agif_decline_sticker_header">Odbijte uz nalepnicu</string>
@@ -868,6 +868,7 @@ kamera"</string>
     <string name="swipe_right_to_answer_call_with_video">Prevucite prstom nadesno da biste prihvatili poziv putem video zapisa.</string>
     <string name="swipe_right_to_answer_call_without_video">Prevucite prstom nadesno da biste prihvatili poziv ne koristeći video zapis.</string>
     <string name="switch_rejected_by_mt">Zahtev za prelazak na video poziv je odbijen.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Neuspešan zahtev za prelazak na video poziv.</string>
     <string name="switch_to_video_call_failed_tmo">Zahtev za prelazak na video poziv je odbijen.</string>
     <string name="switch_to_voice_call_failed">Neuspešan zahtev za prelazak na glasovni poziv.</string>
@@ -895,7 +896,7 @@ kamera"</string>
     <string name="upload_using_wlan_only">Šalji samo putem WLAN mreže</string>
     <string name="upload_wifi_and_mobile_nw">Šalji putem Wi-Fi veze ili mobilne mreže</string>
     <string name="upload_wlan_and_mobile_nw">Šalji putem WLAN mreže ili mobilne mreže</string>
-    <string name="usa_att_connected_as_voice">Poziv je uspostavljen samo kao govor.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Upotreba podataka koju ste podesili na uređaju samo što nije dostigla ograničenje. Video poziv zahteva podatke.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Poziv ne može da se uputi preko Wi-Fi mreže, povezuje se preko mobilne mreže. Primeniće se troškovi za prenos glasa i podataka.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

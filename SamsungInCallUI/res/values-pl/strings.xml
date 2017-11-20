@@ -178,7 +178,7 @@
     <string name="account_phone">Urządzenie</string>
     <string name="acs">Połączenie głosowe</string>
     <string name="active_calls">Aktywne połączenie</string>
-    <string name="add_reminder">Dodaj przyp.</string>
+    <string name="add_reminder">Dodaj przypomnienie</string>
     <string name="agif_button_close_description">Zamknij</string>
     <string name="agif_decline_message">Nie mogę teraz rozmawiać.</string>
     <string name="agif_decline_sticker_header">Odrzucanie z naklejką</string>
@@ -868,6 +868,7 @@ jednokier."</string>
     <string name="swipe_right_to_answer_call_with_video">Przeciągnij w prawo, aby odebrać połączenie z wideo.</string>
     <string name="swipe_right_to_answer_call_without_video">Przeciągnij w prawo, aby odebrać połączenie bez wideo.</string>
     <string name="switch_rejected_by_mt">Żądanie przejścia do połączenia wideo zostało odrzucone.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Żądanie przejścia do połączenia wideo nie powiodło się.</string>
     <string name="switch_to_video_call_failed_tmo">Żądanie przejścia na połączenie wideo zostało odrzucone.</string>
     <string name="switch_to_voice_call_failed">Żądanie przejścia do połączenia głosowego nie powiodło się.</string>
@@ -895,7 +896,7 @@ jednokier."</string>
     <string name="upload_using_wlan_only">Przesyłaj tylko przez sieć WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Przekaż przez Wi-Fi lub sieć komórkową</string>
     <string name="upload_wlan_and_mobile_nw">Przesyłaj przez sieć WLAN lub sieć komórkową</string>
-    <string name="usa_att_connected_as_voice">Połączenie nawiązane w trybie głosowym.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Wkrótce zostanie osiągnięty limit Wykorzystania danych skonfigurowany na urządzeniu. Połączenie wideo wymaga danych.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Nie można nawiązać połączenia przez sieć Wi-Fi. Łączenie przez sieć komórkową. Obowiązują opłaty za połączenie głosowe i dane.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

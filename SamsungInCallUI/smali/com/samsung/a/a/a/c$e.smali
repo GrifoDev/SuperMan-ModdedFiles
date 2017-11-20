@@ -12,6 +12,9 @@
     name = "e"
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # instance fields
 .field private a:Ljava/util/Map;

@@ -36,9 +36,9 @@
 .end method
 
 .method protected needToEnableHideShowMeButton()Z
-    .locals 6
+    .locals 7
 
-    const/4 v5, 0x3
+    const/4 v6, 0x3
 
     const/4 v1, 0x1
 
@@ -54,21 +54,27 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_6
 
     invoke-virtual {v0}, Lcom/android/incallui/Call;->getState()I
 
-    move-result v0
+    move-result v3
 
     invoke-static {}, Lcom/android/incallui/util/VideoCallUtils;->getVideoResolution()I
 
-    move-result v3
+    move-result v4
 
-    const/4 v4, 0x4
+    const/4 v5, 0x4
 
-    if-ne v3, v4, :cond_1
+    if-ne v4, v5, :cond_1
 
-    if-ne v0, v5, :cond_0
+    if-ne v3, v6, :cond_0
+
+    invoke-virtual {v0}, Lcom/android/incallui/Call;->isTheOtherPartyOnHold()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
 
     move v0, v1
 
@@ -77,9 +83,9 @@
 
     move-result v3
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_5
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5
 
     :goto_1
     return v1
@@ -90,28 +96,35 @@
     goto :goto_0
 
     :cond_1
-    if-eq v0, v5, :cond_2
+    if-ne v3, v6, :cond_2
 
-    const/4 v3, 0x6
+    invoke-virtual {v0}, Lcom/android/incallui/Call;->isTheOtherPartyOnHold()Z
 
-    if-ne v0, v3, :cond_3
+    move-result v0
+
+    if-eqz v0, :cond_3
 
     :cond_2
+    const/4 v0, 0x6
+
+    if-ne v3, v0, :cond_4
+
+    :cond_3
     move v0, v1
 
     goto :goto_0
 
-    :cond_3
+    :cond_4
     move v0, v2
 
     goto :goto_0
 
-    :cond_4
+    :cond_5
     move v1, v2
 
     goto :goto_1
 
-    :cond_5
+    :cond_6
     move v0, v2
 
     goto :goto_0

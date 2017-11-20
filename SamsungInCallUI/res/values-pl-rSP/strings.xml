@@ -114,14 +114,14 @@
     <string name="agif_pickers_tab_select_description">Ôbrane</string>
     <string name="agif_pickers_title">Sztart z przilepkōm</string>
     <string name="agif_pickers_title_recommended">Rekōmandŏwane</string>
-    <string name="agif_read_permission_description">Zezwala aplikacji Telefon na odczytywanie zawartości AGIF.</string>
-    <string name="agif_read_permission_label">Odczytuj zawartość AGIF</string>
+    <string name="agif_read_permission_description">Przizwŏlo aplikacyji Mobilniŏk czytać treść AGIF.</string>
+    <string name="agif_read_permission_label">Czytej treść AGIF</string>
     <string name="agif_receive_no_id">Niy idzie pokŏzać abcybildru. Zaktualizuj aplikacyjŏ %s po gŏdce.</string>
     <string name="agif_receive_no_id_upsupport_update">Niy idzie pokŏzać abcybildru. Dŏlsze abcybildry bydōm podŏwane po dŏlszyj aktualizacyji systymu.</string>
     <string name="agif_sent_fail_message">Niy idzie posłać animowanego pliku GIF. Wybadej drugi rŏz niyskorzij.</string>
     <string name="agif_sent_toast">Posłano abcybilder.</string>
-    <string name="agif_write_permission_description">Zezwala aplikacji Telefon na modyfikowanie zawartości AGIF.</string>
-    <string name="agif_write_permission_label">Modyfikuj zawartość AGIF</string>
+    <string name="agif_write_permission_description">Przizwŏlo aplikacyji Mobilniŏk na polepszanie treści AGIF.</string>
+    <string name="agif_write_permission_label">Ôdnowiej treść AGIF</string>
     <string name="agree">Uzdŏwōm</string>
     <string name="am_cover_toggle_string">Ôdymknij deklik coby przij.abo ôdciep.gŏdka.</string>
     <string name="am_device_memory_full_warning">Niy idzie użyć autōmatycznego ôdpedzyniŏ z wiadōmościōm. W pamiyńci masziny je za mało placu na zachowywanie wiadōmości głosowych. Wyciep pŏra dingsōw i nabadej zajś.</string>
@@ -677,7 +677,7 @@ Menu IVR ekranu połączeń korzysta z treści dostarczanych przez zewnętrznego
     <string name="secOnscreenMenuStartRecordText">Nagrej film</string>
     <string name="secOnscreenMenuStopRecordText">Sztop</string>
     <string name="secOnscreenMenuSwitchCameraText">Pomiyń fotoaparat</string>
-    <string name="secOnscreenMenuSwitchToAudioDeviceText">Przełącz na urz. audio</string>
+    <string name="secOnscreenMenuSwitchToAudioDeviceText">Przepnij na masz.audio</string>
     <string name="secOnscreenMenuSwitchToHeadsetText">Przełōncz na słuchawki</string>
     <string name="secOnscreenMenuSwitchToHeadsetText_vzw">Przeciep na Bluetooth</string>
     <string name="secOnscreenMenuSwitchToPhoneText">Przełōncz na mobilniŏk</string>
@@ -790,6 +790,7 @@ jednoker."</string>
     <string name="swipe_right_to_answer_call_with_video">Szibnij na prawo, coby przijōńć gŏdka z wideo.</string>
     <string name="swipe_right_to_answer_call_without_video">Szibnij na prawo, coby przijōńć gŏdka bez wideo.</string>
     <string name="switch_rejected_by_mt">Odciepany przikŏz, coby przelyź do gŏdki video.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Niyudane dopōmniyniy przełōnczyniŏ na gŏdka video.</string>
     <string name="switch_to_video_call_failed_tmo">Dopōminanie sie coby przelyź na videogŏdka ôstało ôdciepniynte.</string>
     <string name="switch_to_voice_call_failed">Żōndaniy przełōnaczeniŏ do gŏdki niy podarziło się.</string>
@@ -817,7 +818,7 @@ jednoker."</string>
     <string name="upload_using_wlan_only">Posyłej ino bez nec WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Poślij bez Wi-Fi abo nec mobilny</string>
     <string name="upload_wlan_and_mobile_nw">Posyłej bez nec WLAN abo mobilny</string>
-    <string name="usa_att_connected_as_voice">Gŏdka napoczyntŏ w trybie głosowym.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Hneda szafniesz limit Użyciŏ danych zrychtowany na maszinie. Wideo gŏdka potrzebuje danych.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Niy idzie napoczōńć pożyniyniŏ bez nec Wi-Fi. Pożyniynie bez nec mobilny. Ôbowiōnzujōm płaty za gŏdki głosowe i dane.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

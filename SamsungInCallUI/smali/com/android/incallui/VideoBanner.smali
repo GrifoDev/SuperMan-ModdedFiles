@@ -140,7 +140,7 @@
     return-object v2
 
     :pswitch_1
-    const v1, 0x7f09038a
+    const v1, 0x7f09038b
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -159,7 +159,7 @@
     goto :goto_0
 
     :pswitch_2
-    const v1, 0x7f09039b
+    const v1, 0x7f09039c
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -178,7 +178,7 @@
     goto :goto_0
 
     :pswitch_3
-    const v1, 0x7f090398
+    const v1, 0x7f090399
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -197,7 +197,7 @@
     goto :goto_0
 
     :pswitch_4
-    const v2, 0x7f09039c
+    const v2, 0x7f09039d
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -206,7 +206,7 @@
     goto :goto_0
 
     :pswitch_5
-    const v2, 0x7f090399
+    const v2, 0x7f09039a
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -249,13 +249,13 @@
 
     const/4 v0, 0x0
 
-    const v7, 0x7f09038b
+    const v7, 0x7f09038c
 
-    const v6, 0x7f09037e
+    const v6, 0x7f09037f
 
-    const v5, 0x7f09037c
+    const v5, 0x7f09037d
 
-    const v4, 0x7f090376
+    const v4, 0x7f090377
 
     invoke-static {}, Lcom/android/incallui/InCallApp;->getInstance()Lcom/android/incallui/InCallApp;
 
@@ -427,7 +427,7 @@
 
     if-eqz v0, :cond_8
 
-    const v0, 0x7f09038c
+    const v0, 0x7f09038d
 
     invoke-virtual {v2, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -448,7 +448,7 @@
 
     if-eqz v0, :cond_9
 
-    const v0, 0x7f090377
+    const v0, 0x7f090378
 
     invoke-virtual {v2, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -463,7 +463,7 @@
     goto/16 :goto_0
 
     :cond_9
-    const v0, 0x7f09037d
+    const v0, 0x7f09037e
 
     invoke-virtual {v2, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -484,7 +484,7 @@
 
     if-eqz v0, :cond_a
 
-    const v0, 0x7f09038e
+    const v0, 0x7f09038f
 
     invoke-virtual {v2, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -527,7 +527,7 @@
 
     if-eqz v0, :cond_c
 
-    const v0, 0x7f09038d
+    const v0, 0x7f09038e
 
     invoke-virtual {v2, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -549,7 +549,7 @@
     goto/16 :goto_0
 
     :pswitch_5
-    const v0, 0x7f09037f
+    const v0, 0x7f090380
 
     invoke-virtual {v2, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -594,7 +594,7 @@
     goto/16 :goto_0
 
     :pswitch_7
-    const v0, 0x7f090386
+    const v0, 0x7f090387
 
     invoke-virtual {v2, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -609,7 +609,7 @@
     goto/16 :goto_0
 
     :pswitch_8
-    const v0, 0x7f09037b
+    const v0, 0x7f09037c
 
     invoke-virtual {v2, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -618,21 +618,6 @@
     goto/16 :goto_0
 
     :pswitch_9
-    const v0, 0x7f090388
-
-    invoke-virtual {v2, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string v2, "%s"
-
-    invoke-virtual {v0, v2, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto/16 :goto_0
-
-    :pswitch_a
     const v0, 0x7f090389
 
     invoke-virtual {v2, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
@@ -647,7 +632,7 @@
 
     goto/16 :goto_0
 
-    :pswitch_b
+    :pswitch_a
     const v0, 0x7f09038a
 
     invoke-virtual {v2, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
@@ -662,8 +647,23 @@
 
     goto/16 :goto_0
 
+    :pswitch_b
+    const v0, 0x7f09038b
+
+    invoke-virtual {v2, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v2, "%s"
+
+    invoke-virtual {v0, v2, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto/16 :goto_0
+
     :pswitch_c
-    const v0, 0x7f09038f
+    const v0, 0x7f090390
 
     invoke-virtual {v2, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -672,7 +672,7 @@
     goto/16 :goto_0
 
     :pswitch_d
-    const v0, 0x7f09039b
+    const v0, 0x7f09039c
 
     invoke-virtual {v2, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -687,7 +687,7 @@
     goto/16 :goto_0
 
     :pswitch_e
-    const v0, 0x7f090398
+    const v0, 0x7f090399
 
     invoke-virtual {v2, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -708,7 +708,7 @@
 
     if-eqz v0, :cond_e
 
-    const v0, 0x7f09039a
+    const v0, 0x7f09039b
 
     invoke-virtual {v2, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -717,7 +717,7 @@
     goto/16 :goto_0
 
     :cond_e
-    const v0, 0x7f090380
+    const v0, 0x7f090381
 
     invoke-virtual {v2, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -726,7 +726,7 @@
     goto/16 :goto_0
 
     :pswitch_10
-    const v0, 0x7f09039d
+    const v0, 0x7f09039e
 
     invoke-virtual {v2, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -741,7 +741,7 @@
     goto/16 :goto_0
 
     :pswitch_11
-    const v0, 0x7f090387
+    const v0, 0x7f090388
 
     invoke-virtual {v2, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -756,7 +756,7 @@
     goto/16 :goto_0
 
     :pswitch_12
-    const v0, 0x7f09039c
+    const v0, 0x7f09039d
 
     invoke-virtual {v2, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -765,7 +765,7 @@
     goto/16 :goto_0
 
     :pswitch_13
-    const v0, 0x7f090399
+    const v0, 0x7f09039a
 
     invoke-virtual {v2, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

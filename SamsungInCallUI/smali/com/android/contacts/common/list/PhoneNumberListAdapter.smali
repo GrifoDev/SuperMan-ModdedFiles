@@ -72,7 +72,7 @@
 
     iput-wide v4, p0, Lcom/android/contacts/common/list/PhoneNumberListAdapter;->d:J
 
-    const v0, 0x7f0905cd
+    const v0, 0x7f0905ce
 
     invoke-virtual {p0, v0}, Lcom/android/contacts/common/list/PhoneNumberListAdapter;->i(I)V
 

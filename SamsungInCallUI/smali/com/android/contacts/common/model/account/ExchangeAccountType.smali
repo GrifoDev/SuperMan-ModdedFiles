@@ -1174,7 +1174,7 @@
 
     const-string v3, "data1"
 
-    const v4, 0x7f0903be
+    const v4, 0x7f0903bf
 
     const/16 v5, 0x11
 

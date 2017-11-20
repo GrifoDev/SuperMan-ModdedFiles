@@ -118,7 +118,7 @@
     <string name="account_phone">Прылада</string>
     <string name="acs">Галасавы выклік</string>
     <string name="active_calls">Актыўны выклік</string>
-    <string name="add_reminder">Дад. напамін</string>
+    <string name="add_reminder">Дадаць напамін</string>
     <string name="agif_button_close_description">Закрыць</string>
     <string name="agif_decline_message">Прабачце, зараз я не магу гаварыць.</string>
     <string name="agif_decline_sticker_header">Адхіліць з дапамогай стыкера</string>
@@ -805,6 +805,7 @@
     <string name="swipe_right_to_answer_call_with_video">Правядзіце ўправа, каб адказаць на выклік з відэа.</string>
     <string name="swipe_right_to_answer_call_without_video">Правядзіце ўправа, каб адказаць на выклік без відэа.</string>
     <string name="switch_rejected_by_mt">Запыт аб пераключэнні на відэавыклік адхілены.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Памылка запыту на пераключэнне ў рэжым відэавыкліку.</string>
     <string name="switch_to_video_call_failed_tmo">Запыт на пераключэнне на відэавыклік быў адхілены.</string>
     <string name="switch_to_voice_call_failed">Памылка запыту на пераключэнне ў рэжым галасавога выкліку.</string>
@@ -832,7 +833,7 @@
     <string name="upload_using_wlan_only">Запампоўванне толькі праз WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Загрузіць праз Wi-Fi або мабільную сетку</string>
     <string name="upload_wlan_and_mobile_nw">Запампоўванне праз WLAN або мабільную сетку</string>
-    <string name="usa_att_connected_as_voice">Выклік прыняты як толькі галасавы.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Ліміт трафіку, які вы задалі на вашай прыладзе, хутка будзе дасягнуты. Ваш відэавыклік патрабуе трафіку.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Нельга здзейсніць выклік праз Wi-Fi, ажыццяўляецца падлучэнне да мабільнай сеткі. Будзе спаганяцца плата за галасавы выклік і трафік.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

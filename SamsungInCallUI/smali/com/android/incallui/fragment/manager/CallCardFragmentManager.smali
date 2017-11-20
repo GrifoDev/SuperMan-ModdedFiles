@@ -125,9 +125,7 @@
 .end method
 
 .method public checkAndSet(Z)Lcom/android/incallui/fragment/CallCardFragment;
-    .locals 11
-
-    const/16 v10, 0xa
+    .locals 10
 
     const/4 v1, 0x0
 
@@ -208,7 +206,7 @@
 
     move-result-object v7
 
-    if-eqz v7, :cond_19
+    if-eqz v7, :cond_18
 
     invoke-virtual {v7}, Lcom/android/incallui/Call;->hasVideoState()Z
 
@@ -218,7 +216,9 @@
 
     move-result v0
 
-    if-eq v0, v10, :cond_5
+    const/16 v4, 0xa
+
+    if-eq v0, v4, :cond_5
 
     invoke-virtual {v7}, Lcom/android/incallui/Call;->getState()I
 
@@ -280,19 +280,8 @@
     goto :goto_3
 
     :cond_8
-    if-eqz v8, :cond_10
+    if-eqz v8, :cond_11
 
-    if-eqz v0, :cond_9
-
-    invoke-static {}, Lcom/android/incallui/InCallUISystemDB;->isTPhoneMode()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_9
-
-    move v0, v1
-
-    :cond_9
     invoke-static {v7}, Lcom/android/incallui/util/VideoCallUtils;->getVideoResolution(Lcom/android/incallui/Call;)I
 
     move-result v1
@@ -305,96 +294,92 @@
 
     move-result v2
 
-    if-eqz v2, :cond_a
+    if-eqz v2, :cond_9
 
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallConfig;->isKorUX()Z
 
     move-result v2
 
-    if-nez v2, :cond_a
+    if-nez v2, :cond_9
 
     sget-object v1, Lcom/android/incallui/fragment/manager/CallCardFragmentManager$FragmentMode;->QCIFPS_VIDEO:Lcom/android/incallui/fragment/manager/CallCardFragmentManager$FragmentMode;
 
+    :cond_9
+    if-eqz v0, :cond_a
+
+    sget-object v1, Lcom/android/incallui/fragment/manager/CallCardFragmentManager$FragmentMode;->VOICE:Lcom/android/incallui/fragment/manager/CallCardFragmentManager$FragmentMode;
+
     :cond_a
-    if-eqz v0, :cond_18
+    iget-object v2, p0, Lcom/android/incallui/fragment/manager/CallCardFragmentManager;->mFragmentType:Ljava/lang/Enum;
 
-    sget-object v0, Lcom/android/incallui/fragment/manager/CallCardFragmentManager$FragmentMode;->VOICE:Lcom/android/incallui/fragment/manager/CallCardFragmentManager$FragmentMode;
-
-    :goto_4
-    iget-object v1, p0, Lcom/android/incallui/fragment/manager/CallCardFragmentManager;->mFragmentType:Ljava/lang/Enum;
-
-    if-eq v0, v1, :cond_b
+    if-eq v1, v2, :cond_b
 
     invoke-virtual {p0}, Lcom/android/incallui/fragment/manager/CallCardFragmentManager;->getFragment()Lcom/android/incallui/fragment/CallCardFragment;
 
-    move-result-object v1
+    move-result-object v2
 
-    if-eqz v1, :cond_b
+    if-eqz v2, :cond_b
 
     invoke-virtual {p0}, Lcom/android/incallui/fragment/manager/CallCardFragmentManager;->removeCurrentFragment()V
 
     :cond_b
-    :goto_5
-    const-string v1, "support_tphone"
+    :goto_4
+    const-string v2, "support_tphone"
 
-    invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+    invoke-static {v2}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_d
+    if-eqz v2, :cond_d
 
     invoke-static {}, Lcom/android/incallui/InCallUISystemDB;->isTPhoneMode()Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_d
+    if-eqz v2, :cond_d
 
     invoke-static {v7}, Lcom/android/incallui/util/CallTypeUtils;->isVoiceCall(Lcom/android/incallui/Call;)Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_c
+    if-nez v2, :cond_c
 
     if-nez v6, :cond_d
 
-    invoke-virtual {v7}, Lcom/android/incallui/Call;->getState()I
-
-    move-result v1
-
-    if-ne v1, v10, :cond_d
+    if-eqz v0, :cond_d
 
     :cond_c
-    sget-object v0, Lcom/android/incallui/fragment/manager/CallCardFragmentManager$FragmentMode;->EMPTY:Lcom/android/incallui/fragment/manager/CallCardFragmentManager$FragmentMode;
+    sget-object v1, Lcom/android/incallui/fragment/manager/CallCardFragmentManager$FragmentMode;->EMPTY:Lcom/android/incallui/fragment/manager/CallCardFragmentManager$FragmentMode;
 
     :cond_d
-    :goto_6
-    iget-object v1, p0, Lcom/android/incallui/fragment/manager/CallCardFragmentManager;->mFragmentType:Ljava/lang/Enum;
+    :goto_5
+    iget-object v0, p0, Lcom/android/incallui/fragment/manager/CallCardFragmentManager;->mFragmentType:Ljava/lang/Enum;
 
     sget-object v2, Lcom/android/incallui/fragment/manager/CallCardFragmentManager$FragmentMode;->MULTIPARTY:Lcom/android/incallui/fragment/manager/CallCardFragmentManager$FragmentMode;
 
-    if-ne v1, v2, :cond_12
+    if-ne v0, v2, :cond_13
 
-    sget-object v1, Lcom/android/incallui/fragment/manager/CallCardFragmentManager$FragmentMode;->VOICE:Lcom/android/incallui/fragment/manager/CallCardFragmentManager$FragmentMode;
+    sget-object v0, Lcom/android/incallui/fragment/manager/CallCardFragmentManager$FragmentMode;->VOICE:Lcom/android/incallui/fragment/manager/CallCardFragmentManager$FragmentMode;
 
-    if-ne v0, v1, :cond_12
+    if-ne v1, v0, :cond_13
 
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Lcom/android/incallui/CallList;->emptyNotUpdatingCall()Z
+    invoke-virtual {v0}, Lcom/android/incallui/CallList;->emptyNotUpdatingCall()Z
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_12
+    if-nez v0, :cond_13
 
     invoke-virtual {v7}, Lcom/android/incallui/Call;->getState()I
 
-    move-result v1
+    move-result v0
 
     const/4 v2, 0x4
 
-    if-eq v1, v2, :cond_12
+    if-eq v0, v2, :cond_13
 
     const-string v0, "CallCardFragmentManager... do not change"
 
@@ -407,72 +392,73 @@
     :cond_e
     sget-object v1, Lcom/android/incallui/fragment/manager/CallCardFragmentManager$FragmentMode;->VGA_VIDEO:Lcom/android/incallui/fragment/manager/CallCardFragmentManager$FragmentMode;
 
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_f
 
-    if-eqz v4, :cond_f
+    if-eqz v4, :cond_10
 
-    sget-object v0, Lcom/android/incallui/fragment/manager/CallCardFragmentManager$FragmentMode;->VGA_END:Lcom/android/incallui/fragment/manager/CallCardFragmentManager$FragmentMode;
+    sget-object v1, Lcom/android/incallui/fragment/manager/CallCardFragmentManager$FragmentMode;->VGA_END:Lcom/android/incallui/fragment/manager/CallCardFragmentManager$FragmentMode;
 
-    :goto_7
-    iget-object v1, p0, Lcom/android/incallui/fragment/manager/CallCardFragmentManager;->mFragmentType:Ljava/lang/Enum;
+    :cond_f
+    :goto_6
+    iget-object v2, p0, Lcom/android/incallui/fragment/manager/CallCardFragmentManager;->mFragmentType:Ljava/lang/Enum;
 
-    if-eq v0, v1, :cond_b
+    if-eq v1, v2, :cond_b
 
     invoke-virtual {p0}, Lcom/android/incallui/fragment/manager/CallCardFragmentManager;->getFragment()Lcom/android/incallui/fragment/CallCardFragment;
 
-    move-result-object v1
+    move-result-object v2
 
-    if-eqz v1, :cond_b
+    if-eqz v2, :cond_b
 
     invoke-virtual {p0}, Lcom/android/incallui/fragment/manager/CallCardFragmentManager;->removeCurrentFragment()V
 
-    goto :goto_5
-
-    :cond_f
-    sget-object v0, Lcom/android/incallui/fragment/manager/CallCardFragmentManager$FragmentMode;->VOICE:Lcom/android/incallui/fragment/manager/CallCardFragmentManager$FragmentMode;
-
-    goto :goto_7
+    goto :goto_4
 
     :cond_10
-    invoke-static {}, Lcom/android/incallui/util/InCallUtils;->needToShowMultiparty()Z
+    sget-object v1, Lcom/android/incallui/fragment/manager/CallCardFragmentManager$FragmentMode;->VOICE:Lcom/android/incallui/fragment/manager/CallCardFragmentManager$FragmentMode;
 
-    move-result v0
-
-    if-eqz v0, :cond_11
-
-    sget-object v0, Lcom/android/incallui/fragment/manager/CallCardFragmentManager$FragmentMode;->MULTIPARTY:Lcom/android/incallui/fragment/manager/CallCardFragmentManager$FragmentMode;
-
-    goto :goto_5
+    goto :goto_6
 
     :cond_11
-    invoke-static {v7}, Lcom/android/incallui/util/InCallUtils;->needToShowRichScreen(Lcom/android/incallui/Call;)Z
+    invoke-static {}, Lcom/android/incallui/util/InCallUtils;->needToShowMultiparty()Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_16
+    if-eqz v1, :cond_12
 
-    sget-object v0, Lcom/android/incallui/fragment/manager/CallCardFragmentManager$FragmentMode;->RICH_SCREEN:Lcom/android/incallui/fragment/manager/CallCardFragmentManager$FragmentMode;
+    sget-object v1, Lcom/android/incallui/fragment/manager/CallCardFragmentManager$FragmentMode;->MULTIPARTY:Lcom/android/incallui/fragment/manager/CallCardFragmentManager$FragmentMode;
 
-    goto :goto_5
+    goto :goto_4
 
     :cond_12
+    invoke-static {v7}, Lcom/android/incallui/util/InCallUtils;->needToShowRichScreen(Lcom/android/incallui/Call;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_17
+
+    sget-object v1, Lcom/android/incallui/fragment/manager/CallCardFragmentManager$FragmentMode;->RICH_SCREEN:Lcom/android/incallui/fragment/manager/CallCardFragmentManager$FragmentMode;
+
+    goto :goto_4
+
+    :cond_13
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Lcom/android/incallui/InCallPresenter;->getInCallState()Lcom/android/incallui/InCallPresenter$InCallState;
+    invoke-virtual {v0}, Lcom/android/incallui/InCallPresenter;->getInCallState()Lcom/android/incallui/InCallPresenter$InCallState;
 
-    move-result-object v1
+    move-result-object v0
 
     sget-object v2, Lcom/android/incallui/InCallPresenter$InCallState;->NO_CALLS:Lcom/android/incallui/InCallPresenter$InCallState;
 
-    if-ne v1, v2, :cond_13
+    if-ne v0, v2, :cond_16
 
     iget-object v0, p0, Lcom/android/incallui/fragment/manager/CallCardFragmentManager;->mFragmentType:Ljava/lang/Enum;
 
     check-cast v0, Lcom/android/incallui/fragment/manager/CallCardFragmentManager$FragmentMode;
 
-    :cond_13
+    :goto_7
     if-nez p1, :cond_14
 
     iget-object v1, p0, Lcom/android/incallui/fragment/manager/CallCardFragmentManager;->mFragmentType:Ljava/lang/Enum;
@@ -490,24 +476,19 @@
     goto/16 :goto_0
 
     :cond_16
-    move-object v0, v3
-
-    goto/16 :goto_5
-
-    :cond_17
     move-object v0, v1
 
     goto :goto_7
 
-    :cond_18
-    move-object v0, v1
+    :cond_17
+    move-object v1, v3
 
     goto/16 :goto_4
 
-    :cond_19
-    move-object v0, v3
+    :cond_18
+    move-object v1, v3
 
-    goto :goto_6
+    goto :goto_5
 .end method
 
 .method protected forceUpdateFragment()Z

@@ -4,9 +4,6 @@
     <dimen name="abc_alert_dialog_button_bar_height">48.0dip</dimen>
     <dimen name="sec_incall_pager_indicator_height">58.0dip</dimen>
     <dimen name="sec_incall_pager_indicator_padding_top">16.0dip</dimen>
-    <dimen name="carrier_matching_dialog_progress_margin_end">30.0dip</dimen>
-    <dimen name="carrier_matching_dialog_progress_margin_top">-15.0dip</dimen>
-    <dimen name="carrier_matching_dialog_progress_size">60.0dip</dimen>
     <dimen name="sec_call_banner_height">272.0dip</dimen>
     <dimen name="sec_dialpad_button_height">68.0dip</dimen>
     <dimen name="sec_dialpad_button_width">120.0dip</dimen>
@@ -418,7 +415,6 @@
     <dimen name="sec_call_buttons_padding_side_right_onehand">87.0dip</dimen>
     <dimen name="sec_incall_layout_height_onehand">295.0dip</dimen>
     <dimen name="sec_video_vga_incall_button_height">160.0dip</dimen>
-    <dimen name="carrier_matching_dialog_progress_stroke">3.0dip</dimen>
     <dimen name="sec_video_dialpad_container_margin_top_onehand">247.0dip</dimen>
     <dimen name="sec_video_incall_button_arrow_left_margin_start_onehand">17.0dip</dimen>
     <dimen name="sec_video_qcif_incall_button_drawable_padding_onehand">0.0dip</dimen>
@@ -1025,6 +1021,8 @@
     <dimen name="carrier_matching_dialog_operator_margin_bottom">5.0dip</dimen>
     <dimen name="carrier_matching_dialog_operator_margin_text">3.0dip</dimen>
     <dimen name="carrier_matching_dialog_padding">24.0dip</dimen>
+    <dimen name="carrier_matching_dialog_progress_size">60.0dip</dimen>
+    <dimen name="carrier_matching_dialog_progress_stroke">3.0dip</dimen>
     <dimen name="carrier_matching_dialog_title_margin_bottom">24.0dip</dimen>
     <dimen name="carrier_matching_dialog_title_text_size">19.0dip</dimen>
     <dimen name="carrier_matching_dialog_width">308.0dip</dimen>
@@ -1443,6 +1441,7 @@
     <dimen name="sec_multiparty_call_eri_info_top_margin">32.0dip</dimen>
     <dimen name="sec_multiparty_call_minimum_height">144.0dip</dimen>
     <dimen name="sec_multiparty_conference_text_size">20.0dip</dimen>
+    <dimen name="sec_multiparty_hide_caller_info_container_height">102.0dip</dimen>
     <dimen name="sec_multiparty_video_call_button_drawable_padding">2.0dip</dimen>
     <dimen name="sec_multiparty_video_call_button_height">36.0dip</dimen>
     <dimen name="sec_multiparty_video_call_button_width">52.0dip</dimen>
@@ -1561,7 +1560,10 @@
     <dimen name="sec_tablet_quick_panel_primary_line_text_size">18.0dip</dimen>
     <dimen name="sec_tablet_quick_panel_record_icon_top_margin">6.0dip</dimen>
     <dimen name="sec_tablet_quick_panel_secondary_line_text_size">15.0dip</dimen>
+    <dimen name="sec_tablet_video_banner_height">32.0dip</dimen>
+    <dimen name="sec_tablet_video_call_state_area_height">56.0dip</dimen>
     <dimen name="sec_tablet_video_hideme_layout_margin">230.0dip</dimen>
+    <dimen name="sec_tablet_video_vga_call_info_area_height">110.0dip</dimen>
     <dimen name="sec_video_call_card_area_height_multiwindow">210.0dip</dimen>
     <dimen name="sec_video_call_card_area_height_split_multiwindow">179.0dip</dimen>
     <dimen name="sec_video_call_card_banner_display_height">330.0dip</dimen>

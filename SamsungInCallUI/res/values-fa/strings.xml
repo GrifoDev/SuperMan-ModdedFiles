@@ -868,6 +868,7 @@
     <string name="swipe_right_to_answer_call_with_video">برای پاسخ به تماس همراه با ویدیو، انگشت را به راست بکشید.</string>
     <string name="swipe_right_to_answer_call_without_video">برای پاسخ به تماس بدون ویدیو، انگشت را به راست بکشید.</string>
     <string name="switch_rejected_by_mt">درخواست برای رفتن به تماس ویدیویی رد شد.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">درخواست برای تماس ویدیویی ناموفق بود.</string>
     <string name="switch_to_video_call_failed_tmo">درخواست برای تغییر وضعیت به تماس ویدیویی رد شد.</string>
     <string name="switch_to_voice_call_failed">درخواست برای تغییر به تماس صوتی ناموفق بود.</string>
@@ -895,7 +896,7 @@
     <string name="upload_using_wlan_only">آپلود فقط از طریق WLAN</string>
     <string name="upload_wifi_and_mobile_nw">آپلود از طریق Wi-Fi یا شبکه تلفن همراه</string>
     <string name="upload_wlan_and_mobile_nw">آپلود از طریق WLAN یا شبکه تلفن همراه</string>
-    <string name="usa_att_connected_as_voice">تماس به‌صورت فقط صوتی وصل شد.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">به زودی به محدودیتی که برای میزان مصرف اینترنت همراه در دستگاهتان تنظیم کرده‌اید می‌رسید. برای تماس ویدیویی به اینترنت نیاز دارید.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">امکان برقراری تماس با Wi-Fi وجود ندارد، اتصال توسط شبکه سلولی برقرار می‌شود. هزینه تماس صوتی و اینترنت همراه اعمال خواهد شد.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

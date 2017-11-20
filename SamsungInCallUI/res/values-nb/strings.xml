@@ -147,7 +147,7 @@
     <string name="account_phone">Enhet</string>
     <string name="acs">Taleanrop</string>
     <string name="active_calls">Aktiv samtale</string>
-    <string name="add_reminder">Legg til påm.</string>
+    <string name="add_reminder">Legg til påminnelse</string>
     <string name="agif_button_close_description">Lukk</string>
     <string name="agif_decline_message">Beklager, jeg kan ikke snakke akkurat nå.</string>
     <string name="agif_decline_sticker_header">Avslå med et klistremerke</string>
@@ -837,6 +837,7 @@ kamera"</string>
     <string name="swipe_right_to_answer_call_with_video">Stryk mot høyre for å besvare anrop med video.</string>
     <string name="swipe_right_to_answer_call_without_video">Stryk mot høyre for å besvare anrop uten video.</string>
     <string name="switch_rejected_by_mt">Forespørsel om å bytte til videosamtale avvist.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Forespørsel om å bytte til videoanrop mislyktes.</string>
     <string name="switch_to_video_call_failed_tmo">Forespørsel om å bytte til videoanrop ble avvist.</string>
     <string name="switch_to_voice_call_failed">Forespørsel om å bytte til taleanrop mislyktes.</string>
@@ -864,7 +865,7 @@ kamera"</string>
     <string name="upload_using_wlan_only">Last opp bare via WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Last opp via Wi-Fi- eller mobilnett</string>
     <string name="upload_wlan_and_mobile_nw">Last opp via WLAN eller mobilnett</string>
-    <string name="usa_att_connected_as_voice">Samtalen ble koblet til som bare tale.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Databruken som du har angitt på enheten, når snart grensen. Videoanropet krever data.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Anrop kan ikke gjøres over Wi-Fi, kobler til over mobilnett. Tale- og datakostnader gjelder.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

@@ -2235,6 +2235,28 @@
     return v0
 .end method
 
+.method public static isVolteGroupCall()Z
+    .locals 3
+
+    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    const/4 v2, 0x0
+
+    invoke-static {v0, v1, v2}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/incallui/util/CallTypeUtils;->isVolteGroupCall(Lcom/android/incallui/Call;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public static isVolteGroupCall(Lcom/android/incallui/Call;)Z
     .locals 3
 
@@ -2243,12 +2265,6 @@
     const/4 v1, 0x0
 
     if-eqz p0, :cond_1
-
-    invoke-static {p0}, Lcom/android/incallui/util/CallTypeUtils;->isVoiceCall(Lcom/android/incallui/Call;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
 
     invoke-static {p0}, Lcom/android/incallui/util/SecCallExtraUtils;->getIsVolteGroupCall(Lcom/android/incallui/Call;)Ljava/lang/String;
 

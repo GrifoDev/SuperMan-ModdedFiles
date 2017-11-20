@@ -83,7 +83,7 @@
 
 .field protected mAgifViewPagerWidth:I
 
-.field protected mButtonContainer:Landroid/view/View;
+.field protected mButtonContainer:Landroid/widget/HorizontalScrollView;
 
 .field protected mCloseButton:Landroid/widget/ImageButton;
 
@@ -172,7 +172,7 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/incallui/agif/AgifFragment;->mButtonContainer:Landroid/view/View;
+    iget-object v0, p0, Lcom/android/incallui/agif/AgifFragment;->mButtonContainer:Landroid/widget/HorizontalScrollView;
 
     if-nez v0, :cond_1
 
@@ -212,9 +212,9 @@
 
     iget-object v0, p0, Lcom/android/incallui/agif/AgifFragment;->mPopupOffAnimator:Landroid/animation/AnimatorSet;
 
-    new-instance v1, Lcom/android/incallui/agif/AgifFragment$4;
+    new-instance v1, Lcom/android/incallui/agif/AgifFragment$5;
 
-    invoke-direct {v1, p0}, Lcom/android/incallui/agif/AgifFragment$4;-><init>(Lcom/android/incallui/agif/AgifFragment;)V
+    invoke-direct {v1, p0}, Lcom/android/incallui/agif/AgifFragment$5;-><init>(Lcom/android/incallui/agif/AgifFragment;)V
 
     invoke-virtual {v0, v1}, Landroid/animation/AnimatorSet;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
@@ -228,7 +228,7 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/incallui/agif/AgifFragment;->mButtonContainer:Landroid/view/View;
+    iget-object v0, p0, Lcom/android/incallui/agif/AgifFragment;->mButtonContainer:Landroid/widget/HorizontalScrollView;
 
     if-nez v0, :cond_1
 
@@ -250,11 +250,11 @@
     invoke-virtual {v0}, Landroid/animation/AnimatorSet;->end()V
 
     :cond_2
-    iget-object v0, p0, Lcom/android/incallui/agif/AgifFragment;->mButtonContainer:Landroid/view/View;
+    iget-object v0, p0, Lcom/android/incallui/agif/AgifFragment;->mButtonContainer:Landroid/widget/HorizontalScrollView;
 
     const/high16 v1, 0x3f800000    # 1.0f
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->setAlpha(F)V
+    invoke-virtual {v0, v1}, Landroid/widget/HorizontalScrollView;->setAlpha(F)V
 
     iget-object v0, p0, Lcom/android/incallui/agif/AgifFragment;->mPopupOnButtonAnimator:Landroid/animation/AnimatorSet;
 
@@ -262,9 +262,9 @@
 
     iget-object v0, p0, Lcom/android/incallui/agif/AgifFragment;->mPopupOnButtonAnimator:Landroid/animation/AnimatorSet;
 
-    new-instance v1, Lcom/android/incallui/agif/AgifFragment$3;
+    new-instance v1, Lcom/android/incallui/agif/AgifFragment$4;
 
-    invoke-direct {v1, p0}, Lcom/android/incallui/agif/AgifFragment$3;-><init>(Lcom/android/incallui/agif/AgifFragment;)V
+    invoke-direct {v1, p0}, Lcom/android/incallui/agif/AgifFragment$4;-><init>(Lcom/android/incallui/agif/AgifFragment;)V
 
     invoke-virtual {v0, v1}, Landroid/animation/AnimatorSet;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
@@ -299,7 +299,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a03bb
+    const v1, 0x7f0a03b7
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -335,7 +335,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a03c8
+    const v3, 0x7f0a03c4
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -403,7 +403,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0377
+    const v2, 0x7f0a0373
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -526,7 +526,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a03ef
+    const v2, 0x7f0a03eb
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -538,7 +538,7 @@
 
     move-result-object v2
 
-    const v4, 0x7f0a03eb
+    const v4, 0x7f0a03e7
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -587,7 +587,7 @@
     move v1, v2
 
     :goto_1
-    iput v1, v0, Landroid/widget/LinearLayout$LayoutParams;->leftMargin:I
+    invoke-virtual {v0, v1}, Landroid/widget/LinearLayout$LayoutParams;->setMarginStart(I)V
 
     iget-object v1, p0, Lcom/android/incallui/agif/AgifFragment;->mAgifSlidingTrayIcons:Lcom/android/incallui/agif/AgifSlidingTrayIcons;
 
@@ -620,7 +620,7 @@
     if-lez v2, :cond_3
 
     :goto_2
-    iput v2, v0, Landroid/widget/LinearLayout$LayoutParams;->rightMargin:I
+    invoke-virtual {v0, v2}, Landroid/widget/LinearLayout$LayoutParams;->setMarginEnd(I)V
 
     iget-object v1, p0, Lcom/android/incallui/agif/AgifFragment;->mAgifSlidingTrayIcons:Lcom/android/incallui/agif/AgifSlidingTrayIcons;
 
@@ -652,7 +652,7 @@
 .end method
 
 .method private createAgifSlidingTrayIcons(I)V
-    .locals 3
+    .locals 4
 
     const-string v0, "AgifFragment"
 
@@ -689,11 +689,41 @@
 
     iget-object v0, p0, Lcom/android/incallui/agif/AgifFragment;->mContentViewSize:Landroid/graphics/Point;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2
 
     iget-object v0, p0, Lcom/android/incallui/agif/AgifFragment;->mContentViewSize:Landroid/graphics/Point;
 
     invoke-direct {p0, v0}, Lcom/android/incallui/agif/AgifFragment;->arrangeAgifSlidingTrayIcons(Landroid/graphics/Point;)V
+
+    :cond_2
+    invoke-virtual {p0}, Lcom/android/incallui/agif/AgifFragment;->getPresenter()Lcom/android/incallui/Presenter;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/incallui/AgifPresenter;
+
+    invoke-virtual {v0}, Lcom/android/incallui/AgifPresenter;->getNeedToOutgoingAnim()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    invoke-virtual {p0}, Lcom/android/incallui/agif/AgifFragment;->startOutgoingCallAnimation()V
+
+    :cond_3
+    iget-object v0, p0, Lcom/android/incallui/agif/AgifFragment;->mButtonContainer:Landroid/widget/HorizontalScrollView;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/incallui/agif/AgifFragment;->mHandler:Landroid/os/Handler;
+
+    new-instance v1, Lcom/android/incallui/agif/AgifFragment$3;
+
+    invoke-direct {v1, p0}, Lcom/android/incallui/agif/AgifFragment$3;-><init>(Lcom/android/incallui/agif/AgifFragment;)V
+
+    const-wide/16 v2, 0x64
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     goto :goto_0
 .end method
@@ -798,7 +828,7 @@
     invoke-virtual {v0, v2}, Landroid/animation/AnimatorSet$Builder;->with(Landroid/animation/Animator;)Landroid/animation/AnimatorSet$Builder;
 
     :cond_0
-    iget-object v0, p0, Lcom/android/incallui/agif/AgifFragment;->mButtonContainer:Landroid/view/View;
+    iget-object v0, p0, Lcom/android/incallui/agif/AgifFragment;->mButtonContainer:Landroid/widget/HorizontalScrollView;
 
     if-eqz v0, :cond_1
 
@@ -810,7 +840,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/agif/AgifFragment;->mPopupOnButtonAnimator:Landroid/animation/AnimatorSet;
 
-    iget-object v1, p0, Lcom/android/incallui/agif/AgifFragment;->mButtonContainer:Landroid/view/View;
+    iget-object v1, p0, Lcom/android/incallui/agif/AgifFragment;->mButtonContainer:Landroid/widget/HorizontalScrollView;
 
     invoke-direct {p0, v1, v4}, Lcom/android/incallui/agif/AgifFragment;->getButtonAlphaAnimator(Landroid/view/View;Z)Landroid/animation/ObjectAnimator;
 
@@ -826,7 +856,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/agif/AgifFragment;->mPopupOffButtonAnimator:Landroid/animation/AnimatorSet;
 
-    iget-object v1, p0, Lcom/android/incallui/agif/AgifFragment;->mButtonContainer:Landroid/view/View;
+    iget-object v1, p0, Lcom/android/incallui/agif/AgifFragment;->mButtonContainer:Landroid/widget/HorizontalScrollView;
 
     invoke-direct {p0, v1, v5}, Lcom/android/incallui/agif/AgifFragment;->getButtonAlphaAnimator(Landroid/view/View;Z)Landroid/animation/ObjectAnimator;
 
@@ -893,13 +923,13 @@
 
     iget v4, v4, Landroid/graphics/Point;->y:I
 
-    const v5, 0x7f0a03e2
+    const v5, 0x7f0a03de
 
     invoke-virtual {v0, v5}, Landroid/content/res/Resources;->getDimension(I)F
 
     move-result v5
 
-    const v6, 0x7f0a03e4
+    const v6, 0x7f0a03e0
 
     invoke-virtual {v0, v6}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -911,7 +941,7 @@
 
     add-float/2addr v5, v6
 
-    const v6, 0x7f0a03e9
+    const v6, 0x7f0a03e5
 
     invoke-virtual {v0, v6}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1329,44 +1359,44 @@
 
     if-gtz v0, :cond_1
 
-    iget-object v0, p0, Lcom/android/incallui/agif/AgifFragment;->mButtonContainer:Landroid/view/View;
+    iget-object v0, p0, Lcom/android/incallui/agif/AgifFragment;->mButtonContainer:Landroid/widget/HorizontalScrollView;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/incallui/agif/AgifFragment;->mButtonContainer:Landroid/view/View;
+    iget-object v0, p0, Lcom/android/incallui/agif/AgifFragment;->mButtonContainer:Landroid/widget/HorizontalScrollView;
 
-    invoke-virtual {v0}, Landroid/view/View;->getVisibility()I
+    invoke-virtual {v0}, Landroid/widget/HorizontalScrollView;->getVisibility()I
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/incallui/agif/AgifFragment;->mButtonContainer:Landroid/view/View;
+    iget-object v0, p0, Lcom/android/incallui/agif/AgifFragment;->mButtonContainer:Landroid/widget/HorizontalScrollView;
 
-    invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v0, v3}, Landroid/widget/HorizontalScrollView;->setVisibility(I)V
 
     :cond_0
     :goto_0
     return-void
 
     :cond_1
-    iget-object v1, p0, Lcom/android/incallui/agif/AgifFragment;->mButtonContainer:Landroid/view/View;
+    iget-object v1, p0, Lcom/android/incallui/agif/AgifFragment;->mButtonContainer:Landroid/widget/HorizontalScrollView;
 
     if-eqz v1, :cond_2
 
-    iget-object v1, p0, Lcom/android/incallui/agif/AgifFragment;->mButtonContainer:Landroid/view/View;
+    iget-object v1, p0, Lcom/android/incallui/agif/AgifFragment;->mButtonContainer:Landroid/widget/HorizontalScrollView;
 
-    invoke-virtual {v1}, Landroid/view/View;->getVisibility()I
+    invoke-virtual {v1}, Landroid/widget/HorizontalScrollView;->getVisibility()I
 
     move-result v1
 
     if-ne v1, v3, :cond_2
 
-    iget-object v1, p0, Lcom/android/incallui/agif/AgifFragment;->mButtonContainer:Landroid/view/View;
+    iget-object v1, p0, Lcom/android/incallui/agif/AgifFragment;->mButtonContainer:Landroid/widget/HorizontalScrollView;
 
     const/4 v2, 0x0
 
-    invoke-virtual {v1, v2}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v1, v2}, Landroid/widget/HorizontalScrollView;->setVisibility(I)V
 
     :cond_2
     int-to-float v0, v0
@@ -1377,7 +1407,7 @@
 
     float-to-int v1, v0
 
-    iget-object v0, p0, Lcom/android/incallui/agif/AgifFragment;->mButtonContainer:Landroid/view/View;
+    iget-object v0, p0, Lcom/android/incallui/agif/AgifFragment;->mButtonContainer:Landroid/widget/HorizontalScrollView;
 
     if-eqz v0, :cond_3
 
@@ -1389,7 +1419,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0a03ea
+    const v2, 0x7f0a03e6
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1397,9 +1427,9 @@
 
     float-to-int v2, v0
 
-    iget-object v0, p0, Lcom/android/incallui/agif/AgifFragment;->mButtonContainer:Landroid/view/View;
+    iget-object v0, p0, Lcom/android/incallui/agif/AgifFragment;->mButtonContainer:Landroid/widget/HorizontalScrollView;
 
-    invoke-virtual {v0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    invoke-virtual {v0}, Landroid/widget/HorizontalScrollView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v0
 
@@ -1409,9 +1439,9 @@
 
     iput v2, v0, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
 
-    iget-object v2, p0, Lcom/android/incallui/agif/AgifFragment;->mButtonContainer:Landroid/view/View;
+    iget-object v2, p0, Lcom/android/incallui/agif/AgifFragment;->mButtonContainer:Landroid/widget/HorizontalScrollView;
 
-    invoke-virtual {v2, v0}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v2, v0}, Landroid/widget/HorizontalScrollView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     :cond_3
     iget-object v0, p0, Lcom/android/incallui/agif/AgifFragment;->mAgifListContainer:Landroid/view/View;
@@ -2053,7 +2083,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2
 
     const/4 v0, 0x0
 
@@ -2065,9 +2095,27 @@
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/agif/AgifFragment;->arrangeAgifLayout(Landroid/graphics/Point;)V
 
-    return-void
+    iget-object v0, p0, Lcom/android/incallui/agif/AgifFragment;->mAgifViewPager:Lcom/android/incallui/agif/AgifViewPager;
+
+    if-eqz v0, :cond_1
+
+    invoke-static {}, Lcom/android/incallui/InCallPresenter;->isRtl()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    iget-object v0, p0, Lcom/android/incallui/agif/AgifFragment;->mAgifViewPager:Lcom/android/incallui/agif/AgifViewPager;
+
+    const/high16 v1, 0x43340000    # 180.0f
+
+    invoke-virtual {v0, v1}, Lcom/android/incallui/agif/AgifViewPager;->setRotationY(F)V
 
     :cond_1
+    :goto_1
+    return-void
+
+    :cond_2
     invoke-virtual {p0}, Lcom/android/incallui/agif/AgifFragment;->isShowAgifList()Z
 
     move-result v0
@@ -2079,6 +2127,15 @@
     invoke-virtual {p0, v0}, Lcom/android/incallui/agif/AgifFragment;->showAgifList(Z)V
 
     goto :goto_0
+
+    :cond_3
+    iget-object v0, p0, Lcom/android/incallui/agif/AgifFragment;->mAgifViewPager:Lcom/android/incallui/agif/AgifViewPager;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/android/incallui/agif/AgifViewPager;->setRotationY(F)V
+
+    goto :goto_1
 .end method
 
 .method public onSelectAgifContents(Landroid/net/Uri;)V
@@ -2209,7 +2266,9 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/android/incallui/agif/AgifFragment;->mButtonContainer:Landroid/view/View;
+    check-cast v0, Landroid/widget/HorizontalScrollView;
+
+    iput-object v0, p0, Lcom/android/incallui/agif/AgifFragment;->mButtonContainer:Landroid/widget/HorizontalScrollView;
 
     const v0, 0x7f100094
 
@@ -2999,19 +3058,19 @@
     goto :goto_0
 
     :cond_5
-    iget-object v0, p0, Lcom/android/incallui/agif/AgifFragment;->mButtonContainer:Landroid/view/View;
+    iget-object v0, p0, Lcom/android/incallui/agif/AgifFragment;->mButtonContainer:Landroid/widget/HorizontalScrollView;
 
     if-eqz v0, :cond_6
 
-    iget-object v0, p0, Lcom/android/incallui/agif/AgifFragment;->mButtonContainer:Landroid/view/View;
+    iget-object v0, p0, Lcom/android/incallui/agif/AgifFragment;->mButtonContainer:Landroid/widget/HorizontalScrollView;
 
     const/high16 v1, 0x3f800000    # 1.0f
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->setAlpha(F)V
+    invoke-virtual {v0, v1}, Landroid/widget/HorizontalScrollView;->setAlpha(F)V
 
-    iget-object v0, p0, Lcom/android/incallui/agif/AgifFragment;->mButtonContainer:Landroid/view/View;
+    iget-object v0, p0, Lcom/android/incallui/agif/AgifFragment;->mButtonContainer:Landroid/widget/HorizontalScrollView;
 
-    invoke-virtual {v0, v4}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v0, v4}, Landroid/widget/HorizontalScrollView;->setVisibility(I)V
 
     :cond_6
     iget-object v0, p0, Lcom/android/incallui/agif/AgifFragment;->mAgifSlidingTrayIcons:Lcom/android/incallui/agif/AgifSlidingTrayIcons;
@@ -3110,6 +3169,16 @@
     iget-object v0, p0, Lcom/android/incallui/agif/AgifFragment;->mAgifSlidingTrayIcons:Lcom/android/incallui/agif/AgifSlidingTrayIcons;
 
     invoke-virtual {v0}, Lcom/android/incallui/agif/AgifSlidingTrayIcons;->startOutgoingCallAnimation()V
+
+    invoke-virtual {p0}, Lcom/android/incallui/agif/AgifFragment;->getPresenter()Lcom/android/incallui/Presenter;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/incallui/AgifPresenter;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/android/incallui/AgifPresenter;->setNeedToOutgoingAnim(Z)V
 
     :cond_0
     return-void

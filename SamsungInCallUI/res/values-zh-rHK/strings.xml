@@ -868,6 +868,7 @@
     <string name="swipe_right_to_answer_call_with_video">向右滑動以接聽視像來電</string>
     <string name="swipe_right_to_answer_call_without_video">向右滑動以接聽非視像來電</string>
     <string name="switch_rejected_by_mt">要求切換至視像通話被拒絕。</string>
+    <string name="switch_rejected_by_mt_att">本次通話無法使用視像。已作為語音通話連接通話。</string>
     <string name="switch_to_video_call_failed">請求切換至視像通話失敗。</string>
     <string name="switch_to_video_call_failed_tmo">切換為視像通話的請求已被拒絕。</string>
     <string name="switch_to_voice_call_failed">請求切換至語音通話失敗。</string>
@@ -879,7 +880,7 @@
     <string name="switching_to_voice_call">正在切換至語音通話…</string>
     <string name="the_verification_has_failed">驗證失敗。請重試。</string>
     <string name="toast_text_max_Length">已超過字元上限。</string>
-    <string name="tts_hours">%d 個小時</string>
+    <string name="tts_hours">%d 小時</string>
     <string name="tts_minutes">%d 分鐘</string>
     <string name="tts_pager">第 %1$d 頁，共 %2$d 頁。</string>
     <string name="tts_seconds">%d 秒</string>
@@ -895,7 +896,7 @@
     <string name="upload_using_wlan_only">僅透過 WLAN 上載</string>
     <string name="upload_wifi_and_mobile_nw">透過 Wi-Fi 或流動網絡上載</string>
     <string name="upload_wlan_and_mobile_nw">透過 WLAN 或流動網絡上載</string>
-    <string name="usa_att_connected_as_voice">通話僅限以語音連接。</string>
+    <string name="usa_att_connected_as_voice">本次通話無法使用視像。已作為語音通話連接通話。</string>
     <string name="usa_att_data_usage_charge_alert">您在裝置上設定的數據使用量將要達到上限。您的視像通話需要使用數據。</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">無法透過 Wi-Fi 通話，正在透過手機網絡連接。將收取語音及數據費用。</string>
     <string name="usa_att_modify_receive_to_video">%s 正在請求切換至視像通話。</string>

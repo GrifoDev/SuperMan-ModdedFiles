@@ -1555,13 +1555,19 @@
 .end method
 
 .method public onPause()V
-    .locals 1
+    .locals 2
+
+    const/4 v1, 0x0
 
     invoke-super {p0}, Lcom/android/incallui/BaseFragment;->onPause()V
 
     const-string v0, "VideoCallFragment - onPause"
 
     invoke-static {v0}, Lcom/android/incallui/service/vt/VideoCallLog;->fragment(Ljava/lang/String;)V
+
+    invoke-virtual {p0, v1}, Lcom/android/incallui/fragment/VideoCallFragment;->setPreviewReady(Z)V
+
+    invoke-virtual {p0, v1}, Lcom/android/incallui/fragment/VideoCallFragment;->setDisplayReady(Z)V
 
     invoke-virtual {p0}, Lcom/android/incallui/fragment/VideoCallFragment;->getPresenter()Lcom/android/incallui/Presenter;
 
@@ -1599,19 +1605,13 @@
 .end method
 
 .method public onStop()V
-    .locals 2
-
-    const/4 v1, 0x0
+    .locals 1
 
     invoke-super {p0}, Lcom/android/incallui/BaseFragment;->onStop()V
 
     const-string v0, "VideoCallFragment - onStop"
 
     invoke-static {v0}, Lcom/android/incallui/service/vt/VideoCallLog;->fragment(Ljava/lang/String;)V
-
-    invoke-virtual {p0, v1}, Lcom/android/incallui/fragment/VideoCallFragment;->setPreviewReady(Z)V
-
-    invoke-virtual {p0, v1}, Lcom/android/incallui/fragment/VideoCallFragment;->setDisplayReady(Z)V
 
     invoke-virtual {p0}, Lcom/android/incallui/fragment/VideoCallFragment;->getPresenter()Lcom/android/incallui/Presenter;
 

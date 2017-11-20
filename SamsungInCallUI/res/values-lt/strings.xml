@@ -178,7 +178,7 @@
     <string name="account_phone">Įrenginys</string>
     <string name="acs">Balso skambutis</string>
     <string name="active_calls">Aktyvus skambutis</string>
-    <string name="add_reminder">Prid. primin.</string>
+    <string name="add_reminder">Pridėti priminimą</string>
     <string name="agif_button_close_description">Uždaryti</string>
     <string name="agif_decline_message">Atsiprašau, negaliu kalbėti.</string>
     <string name="agif_decline_sticker_header">Atmesti lipduku</string>
@@ -869,6 +869,7 @@ fotoap."</string>
     <string name="swipe_right_to_answer_call_with_video">Jei norite skambinti su vaizdu, braukite į dešinę.</string>
     <string name="swipe_right_to_answer_call_without_video">Jei norite skambinti be vaizdo, braukite į dešinę.</string>
     <string name="switch_rejected_by_mt">Prašymas perjungti į vaizdo skambutį atmestas.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Nepavyko pateikti užklausos dėl perjungimo į vaizdo skambutį.</string>
     <string name="switch_to_video_call_failed_tmo">Prašymas perjungti į vaizdo skambutį atmestas.</string>
     <string name="switch_to_voice_call_failed">Nepavyko pateikti užklausos dėl perjungimo į balso skambutį.</string>
@@ -896,7 +897,7 @@ fotoap."</string>
     <string name="upload_using_wlan_only">Įkelti tik per WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Įkelti per „Wi-Fi“ arba mobilųjį tinklą</string>
     <string name="upload_wlan_and_mobile_nw">Įkelt per WLAN arba mobilųjį tinklą</string>
-    <string name="usa_att_connected_as_voice">Sujungta tik kaip balso skambutis.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Netrukus bus pasiektas duomenų naudojimo apribojimas, kurį nustatėte savo įrenginyje. Jūsų vaizdo skambučiui reikalingi duomenys.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Skambinti „Wi-Fi“ ryšiu negalima. Jungiamasi per mobilųjį tinklą. Gali būti taikomi mokesčiai už balso minutes ir duomenis.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

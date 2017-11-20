@@ -178,7 +178,7 @@
     <string name="account_phone">Perangkat</string>
     <string name="acs">Panggilan suara</string>
     <string name="active_calls">Panggilan aktif</string>
-    <string name="add_reminder">Tbh pngingat</string>
+    <string name="add_reminder">Tambah pengingat</string>
     <string name="agif_button_close_description">Tutup</string>
     <string name="agif_decline_message">Maaf, tidak bisa bicara sekarang.</string>
     <string name="agif_decline_sticker_header">Tolak dengan stiker</string>
@@ -868,6 +868,7 @@ Satu Arah"</string>
     <string name="swipe_right_to_answer_call_with_video">Usap ke kanan untuk menjawab panggilan dengan video.</string>
     <string name="swipe_right_to_answer_call_without_video">Usap ke kanan untuk menjawab panggilan tanpa video.</string>
     <string name="switch_rejected_by_mt">Permintaan untuk beralih ke panggilan video ditolak.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Permintaan untuk beralih ke panggilan video gagal.</string>
     <string name="switch_to_video_call_failed_tmo">Permintaan untuk beralih ke panggilan video ditolak.</string>
     <string name="switch_to_voice_call_failed">Permintaan untuk beralih ke panggilan suara gagal.</string>
@@ -895,7 +896,7 @@ Satu Arah"</string>
     <string name="upload_using_wlan_only">Unggah lewat WLAN saja</string>
     <string name="upload_wifi_and_mobile_nw">Unggah lewat Wi-Fi atau jaringan seluler</string>
     <string name="upload_wlan_and_mobile_nw">Unggah lewat WLAN atau jaringan seluler</string>
-    <string name="usa_att_connected_as_voice">Panggilan dihubungkan hanya sebagai suara.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Penggunaan Data yang Anda atur di perangkat hampir mencapai batas. Panggilan video Anda memerlukan data.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Panggilan tidak dapat dilakukan melalui Wi-Fi, menyambung lewat jaringan seluler. Biaya suara dan data akan berlaku.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

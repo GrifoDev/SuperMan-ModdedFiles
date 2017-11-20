@@ -378,13 +378,13 @@
 .end method
 
 .method public updateJanskyInfo()V
-    .locals 7
+    .locals 8
 
     const/4 v0, 0x0
 
-    const/4 v6, 0x0
+    const/4 v7, 0x0
 
-    const/16 v5, 0x8
+    const/16 v6, 0x8
 
     iget-object v1, p0, Lcom/android/incallui/fragment/view/CallCardJanskyView;->mFragment:Lcom/android/incallui/fragment/CallCardFragment;
 
@@ -473,13 +473,13 @@
 
     iget-object v1, p0, Lcom/android/incallui/fragment/view/CallCardJanskyView;->mMultiLineName:Landroid/widget/TextView;
 
-    invoke-virtual {v1, v6}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v1, v7}, Landroid/widget/TextView;->setVisibility(I)V
 
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v1
 
-    invoke-static {v1, v0, v6}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
+    invoke-static {v1, v0, v7}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
 
     move-result-object v1
 
@@ -503,11 +503,15 @@
 
     invoke-virtual {v1}, Lcom/android/incallui/Call;->getAgifUri()Landroid/net/Uri;
 
+    move-result-object v4
+
+    invoke-virtual {v1}, Lcom/android/incallui/Call;->getAgifImageFile()Ljava/io/File;
+
     move-result-object v1
 
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
-    invoke-virtual {v3, v1, v4}, Lcom/android/incallui/fragment/CallCardFragment;->onSelectAgifContents(Landroid/net/Uri;Z)V
+    invoke-virtual {v3, v4, v1, v5}, Lcom/android/incallui/fragment/CallCardFragment;->onSelectAgifContents(Landroid/net/Uri;Ljava/io/File;Z)V
 
     :cond_2
     :goto_1
@@ -540,21 +544,21 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardJanskyView;->mMultiLineIcon:Landroid/widget/ImageView;
 
-    invoke-virtual {v0, v6}, Landroid/widget/ImageView;->setVisibility(I)V
+    invoke-virtual {v0, v7}, Landroid/widget/ImageView;->setVisibility(I)V
 
     goto/16 :goto_0
 
     :cond_3
     iget-object v1, p0, Lcom/android/incallui/fragment/view/CallCardJanskyView;->mMultiLineName:Landroid/widget/TextView;
 
-    invoke-virtual {v1, v5}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v1, v6}, Landroid/widget/TextView;->setVisibility(I)V
 
     goto :goto_1
 
     :cond_4
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardJanskyView;->mMultiLineIcon:Landroid/widget/ImageView;
 
-    invoke-virtual {v0, v5}, Landroid/widget/ImageView;->setVisibility(I)V
+    invoke-virtual {v0, v6}, Landroid/widget/ImageView;->setVisibility(I)V
 
     goto/16 :goto_0
 
@@ -565,7 +569,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardJanskyView;->mMultiLineIcon:Landroid/widget/ImageView;
 
-    invoke-virtual {v0, v5}, Landroid/widget/ImageView;->setVisibility(I)V
+    invoke-virtual {v0, v6}, Landroid/widget/ImageView;->setVisibility(I)V
 
     :cond_6
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardJanskyView;->mMultiLineName:Landroid/widget/TextView;
@@ -574,7 +578,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardJanskyView;->mMultiLineName:Landroid/widget/TextView;
 
-    invoke-virtual {v0, v5}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v0, v6}, Landroid/widget/TextView;->setVisibility(I)V
 
     goto/16 :goto_0
 

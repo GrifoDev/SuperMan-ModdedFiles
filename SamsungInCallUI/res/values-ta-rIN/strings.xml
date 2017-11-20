@@ -147,7 +147,7 @@
     <string name="account_phone">சாதனம்</string>
     <string name="acs">குரல் அழைப்பு</string>
     <string name="active_calls">செயலிலுள்ள அழைப்பு</string>
-    <string name="add_reminder">நினைவூட்டலைச் சேர்க்கவும்</string>
+    <string name="add_reminder">நினைவூட்டலை சேர்க்கவும்</string>
     <string name="agif_button_close_description">மூடுக</string>
     <string name="agif_decline_message">மன்னிக்கவும், என்னால் இப்போது பேச இயலாது.</string>
     <string name="agif_decline_sticker_header">ஸ்டிக்கருடன் தவிர்க்கவும்</string>
@@ -837,6 +837,7 @@ IVR அழைப்புத் திரை மெனு, Dianhuabang என்
     <string name="swipe_right_to_answer_call_with_video">நிகழ்படத்துடன் அழைப்புக்குப் பதிலளிக்க வலது புறமாக ஸ்வைப் செய்யவும்.</string>
     <string name="swipe_right_to_answer_call_without_video">நிகழ்படம் இல்லாமல் அழைப்புக்குப் பதிலளிக்க வலது புறமாக ஸ்வைப் செய்யவும்.</string>
     <string name="switch_rejected_by_mt">தவிர்க்கப்பட்ட நிகழ்பட அழைப்பிற்கு மாறக் கோரவும்.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">நிகழ்பட அழைப்பிற்கு மாறுவதற்கான கோரிக்கை தோல்வியடைந்தது.</string>
     <string name="switch_to_video_call_failed_tmo">நிகழ்பட அழைப்பிற்கு மாறுவதற்கான கோரிக்கை தவிர்க்கப்பட்டது.</string>
     <string name="switch_to_voice_call_failed">குரல் அழைப்பிற்கு மாறுவதற்கான கோரிக்கை தோல்வியுற்றது.</string>
@@ -864,7 +865,7 @@ IVR அழைப்புத் திரை மெனு, Dianhuabang என்
     <string name="upload_using_wlan_only">WLAN வழியே மட்டும் பதிவேற்றவும்</string>
     <string name="upload_wifi_and_mobile_nw">Wi-Fi அல்லது மொபைல் நெட்வொர்க் வழியே பதிவேற்றவும்</string>
     <string name="upload_wlan_and_mobile_nw">WLAN அல்லது மொபைல் நெட்வொர்க் வழியே பதிவேற்றவும்</string>
-    <string name="usa_att_connected_as_voice">குரலாக மட்டும் அழைப்பு இணைக்கப்படும்.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">உங்கள் சாதனத்தில் நீங்கள் அமைத்த உங்கள் தரவு பயன்பாடு அதன் வரம்பை அடையவுள்ளது. உங்கள் நிகழ்பட அழைப்புக்கு தரவு தேவை.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Wi-Fi வழியே அழைப்பை மேற்கொள்ள இயலவில்லை, செல்லுலார் நெட்வொர்க் வழியாக இணைக்கிறது. குரல் மற்றும் தரவுக் கட்டணங்கள் பொருந்தும்.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

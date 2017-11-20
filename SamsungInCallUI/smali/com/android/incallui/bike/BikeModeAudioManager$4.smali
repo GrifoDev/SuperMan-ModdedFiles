@@ -69,6 +69,14 @@
 
     iget-object v0, p0, Lcom/android/incallui/bike/BikeModeAudioManager$4;->val$am:Landroid/media/AudioManager;
 
+    invoke-virtual {v0}, Landroid/media/AudioManager;->semIsSafeMediaVolumeDeviceOn()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/incallui/bike/BikeModeAudioManager$4;->val$am:Landroid/media/AudioManager;
+
     const/4 v1, 0x3
 
     sget v2, Lcom/android/incallui/bike/BikeModeAudioManager;->defaultMusicVolume:I

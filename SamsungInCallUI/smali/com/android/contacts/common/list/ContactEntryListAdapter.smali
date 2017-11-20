@@ -64,7 +64,7 @@
 
     iput-boolean v0, p0, Lcom/android/contacts/common/list/ContactEntryListAdapter;->t:Z
 
-    const v0, 0x7f0905d1
+    const v0, 0x7f0905d2
 
     invoke-virtual {p0, v0}, Lcom/android/contacts/common/list/ContactEntryListAdapter;->i(I)V
 
@@ -622,7 +622,7 @@
 
     iget-object v0, p0, Lcom/android/contacts/common/list/ContactEntryListAdapter;->a:Landroid/content/Context;
 
-    const v8, 0x7f090570
+    const v8, 0x7f090571
 
     invoke-virtual {v0, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -666,7 +666,7 @@
     :cond_3
     iget-object v0, p0, Lcom/android/contacts/common/list/ContactEntryListAdapter;->a:Landroid/content/Context;
 
-    const v8, 0x7f09056f
+    const v8, 0x7f090570
 
     invoke-virtual {v0, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -685,7 +685,7 @@
 
     iget-object v0, p0, Lcom/android/contacts/common/list/ContactEntryListAdapter;->a:Landroid/content/Context;
 
-    const v8, 0x7f0905ce
+    const v8, 0x7f0905cf
 
     invoke-virtual {v0, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -891,7 +891,7 @@
     goto :goto_3
 
     :cond_3
-    const v1, 0x7f0a0464
+    const v1, 0x7f0a0462
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -1390,7 +1390,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090689
+    const v2, 0x7f09068a
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1433,7 +1433,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090533
+    const v2, 0x7f090534
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

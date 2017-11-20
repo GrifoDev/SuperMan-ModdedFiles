@@ -24,7 +24,7 @@
     <string name="audio_mode_speaker">Altifalante</string>
     <string name="audio_mode_wired_headset">Auscultadores com fios</string>
     <string name="calling_via_template">A chamar via %s</string>
-    <string name="card_title_call_ended">Cham. terminada</string>
+    <string name="card_title_call_ended">Chamada terminada</string>
     <string name="card_title_callback_number">"O seu número de retorno de chamadas
  %1$s"</string>
     <string name="card_title_callback_number_emergency">"O seu número de retorno de chamadas de emergência
@@ -178,7 +178,7 @@
     <string name="account_phone">Dispositivo</string>
     <string name="acs">Chamada de voz</string>
     <string name="active_calls">Chamada activa</string>
-    <string name="add_reminder">Adic. lembrete</string>
+    <string name="add_reminder">Adicionar lembrete</string>
     <string name="agif_button_close_description">Fechar</string>
     <string name="agif_decline_message">Lamento, mas não posso falar neste momento.</string>
     <string name="agif_decline_sticker_header">Recusar com um autocolante</string>
@@ -674,7 +674,7 @@ O menu do ecrã de chamadas IVR utiliza conteúdos disponibilizados por um forne
     <string name="rcs_share_toast_lowmemory">Memória insuficiente</string>
     <string name="rcs_share_toast_terminated">Terminou</string>
     <string name="rcs_share_toast_toolarge">Ficheiro demasiado grande</string>
-    <string name="receiver">Destinatário</string>
+    <string name="receiver">Receptor</string>
     <string name="recently_use_sim_for_callback">SIM utilizado recentemente</string>
     <string name="record_notification_button_text_close">Fechar</string>
     <string name="record_notification_button_text_record_list">Gravações</string>
@@ -868,6 +868,7 @@ Unidirec."</string>
     <string name="swipe_right_to_answer_call_with_video">Deslize para a direita, para atender a chamada com vídeo.</string>
     <string name="swipe_right_to_answer_call_without_video">Deslize para a direita, para atender a chamada sem vídeo.</string>
     <string name="switch_rejected_by_mt">Pedido para mudança para chamada de vídeo rejeitado.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Pedido de mudança para chamada de vídeo falhou.</string>
     <string name="switch_to_video_call_failed_tmo">Pedido de mudança para chamada de vídeo recusado.</string>
     <string name="switch_to_voice_call_failed">Pedido de mudança para chamada de voz falhou.</string>
@@ -895,7 +896,7 @@ Unidirec."</string>
     <string name="upload_using_wlan_only">Carregar apenas via WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Carregamento via Wi-Fi ou rede móvel</string>
     <string name="upload_wlan_and_mobile_nw">Carregar via WLAN ou rede móvel</string>
-    <string name="usa_att_connected_as_voice">Chamada ligada apenas como voz.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">A Utilização de Dados definida no seu dispositivo está quase a atingir o limite. A Chamada de vídeo vai precisar de dados.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Chamada não pode ser efectuada via Wi-Fi, ligação estabelecida via rede celular. Vão ser cobradas taxas de voz e de dados.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

@@ -115,7 +115,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f04014a
+    const v1, 0x7f04014b
 
     invoke-virtual {v0, v1, p0, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -245,6 +245,10 @@
     move-result-object v0
 
     invoke-virtual {v0}, Lcom/android/incallui/service/vt/VideoCallManager;->resetFullScreenMode()V
+
+    const/4 v0, 0x0
+
+    sput-boolean v0, Lcom/android/incallui/util/CameraEffect;->mCameraEffectLayoutVisible:Z
 
     :cond_0
     invoke-direct {p0}, Lcom/android/incallui/util/CameraEffect;->updateInviteGroupVideoButtonLayout()V

@@ -14,25 +14,25 @@
 
 
 # static fields
-.field public static final abc_background_cache_hint_selector_material_dark:I = 0x7f0e0254
+.field public static final abc_background_cache_hint_selector_material_dark:I = 0x7f0e0257
 
-.field public static final abc_background_cache_hint_selector_material_light:I = 0x7f0e0255
+.field public static final abc_background_cache_hint_selector_material_light:I = 0x7f0e0258
 
-.field public static final abc_btn_colored_borderless_text_material:I = 0x7f0e0256
+.field public static final abc_btn_colored_borderless_text_material:I = 0x7f0e0259
 
-.field public static final abc_color_highlight_material:I = 0x7f0e0257
+.field public static final abc_color_highlight_material:I = 0x7f0e025a
 
 .field public static final abc_input_method_navigation_guard:I = 0x7f0e0001
 
-.field public static final abc_primary_text_disable_only_material_dark:I = 0x7f0e0258
+.field public static final abc_primary_text_disable_only_material_dark:I = 0x7f0e025b
 
-.field public static final abc_primary_text_disable_only_material_light:I = 0x7f0e0259
+.field public static final abc_primary_text_disable_only_material_light:I = 0x7f0e025c
 
-.field public static final abc_primary_text_material_dark:I = 0x7f0e025a
+.field public static final abc_primary_text_material_dark:I = 0x7f0e025d
 
-.field public static final abc_primary_text_material_light:I = 0x7f0e025b
+.field public static final abc_primary_text_material_light:I = 0x7f0e025e
 
-.field public static final abc_search_url_text:I = 0x7f0e025c
+.field public static final abc_search_url_text:I = 0x7f0e025f
 
 .field public static final abc_search_url_text_normal:I = 0x7f0e0002
 
@@ -40,23 +40,23 @@
 
 .field public static final abc_search_url_text_selected:I = 0x7f0e0004
 
-.field public static final abc_secondary_text_material_dark:I = 0x7f0e025d
+.field public static final abc_secondary_text_material_dark:I = 0x7f0e0260
 
-.field public static final abc_secondary_text_material_light:I = 0x7f0e025e
+.field public static final abc_secondary_text_material_light:I = 0x7f0e0261
 
-.field public static final abc_tint_btn_checkable:I = 0x7f0e025f
+.field public static final abc_tint_btn_checkable:I = 0x7f0e0262
 
-.field public static final abc_tint_default:I = 0x7f0e0260
+.field public static final abc_tint_default:I = 0x7f0e0263
 
-.field public static final abc_tint_edittext:I = 0x7f0e0261
+.field public static final abc_tint_edittext:I = 0x7f0e0264
 
-.field public static final abc_tint_seek_thumb:I = 0x7f0e0262
+.field public static final abc_tint_seek_thumb:I = 0x7f0e0265
 
-.field public static final abc_tint_spinner:I = 0x7f0e0263
+.field public static final abc_tint_spinner:I = 0x7f0e0266
 
-.field public static final abc_tint_switch_thumb:I = 0x7f0e0264
+.field public static final abc_tint_switch_thumb:I = 0x7f0e0267
 
-.field public static final abc_tint_switch_track:I = 0x7f0e0265
+.field public static final abc_tint_switch_track:I = 0x7f0e0268
 
 .field public static final accent_material_dark:I = 0x7f0e0005
 
@@ -74,7 +74,7 @@
 
 .field public static final actionbar_unselected_text_color:I = 0x7f0e000c
 
-.field public static final add_reminder_check_box_background:I = 0x7f0e0266
+.field public static final add_reminder_check_box_background:I = 0x7f0e0269
 
 .field public static final agif_button_anim_bg_color:I = 0x7f0e000d
 
@@ -228,7 +228,7 @@
 
 .field public static final carrier_matching_text_color:I = 0x7f0e0058
 
-.field public static final color_bottom_button:I = 0x7f0e0267
+.field public static final color_bottom_button:I = 0x7f0e026a
 
 .field public static final color_default_background_theme:I = 0x7f0e0059
 
@@ -236,11 +236,11 @@
 
 .field public static final color_default_text:I = 0x7f0e005b
 
-.field public static final color_text_link:I = 0x7f0e0268
+.field public static final color_text_link:I = 0x7f0e026b
 
 .field public static final common_action_bar_splitter:I = 0x7f0e005c
 
-.field public static final common_google_signin_btn_text_dark:I = 0x7f0e0269
+.field public static final common_google_signin_btn_text_dark:I = 0x7f0e026c
 
 .field public static final common_google_signin_btn_text_dark_default:I = 0x7f0e005d
 
@@ -250,7 +250,7 @@
 
 .field public static final common_google_signin_btn_text_dark_pressed:I = 0x7f0e0060
 
-.field public static final common_google_signin_btn_text_light:I = 0x7f0e026a
+.field public static final common_google_signin_btn_text_light:I = 0x7f0e026d
 
 .field public static final common_google_signin_btn_text_light_default:I = 0x7f0e0061
 
@@ -260,7 +260,7 @@
 
 .field public static final common_google_signin_btn_text_light_pressed:I = 0x7f0e0064
 
-.field public static final common_plus_signin_btn_text_dark:I = 0x7f0e026b
+.field public static final common_plus_signin_btn_text_dark:I = 0x7f0e026e
 
 .field public static final common_plus_signin_btn_text_dark_default:I = 0x7f0e0065
 
@@ -270,7 +270,7 @@
 
 .field public static final common_plus_signin_btn_text_dark_pressed:I = 0x7f0e0068
 
-.field public static final common_plus_signin_btn_text_light:I = 0x7f0e026c
+.field public static final common_plus_signin_btn_text_light:I = 0x7f0e026f
 
 .field public static final common_plus_signin_btn_text_light_default:I = 0x7f0e0069
 
@@ -302,7 +302,7 @@
 
 .field public static final desc_text_dot_color:I = 0x7f0e0077
 
-.field public static final device_default_light_list_text:I = 0x7f0e026d
+.field public static final device_default_light_list_text:I = 0x7f0e0270
 
 .field public static final dial_button_ripple_color:I = 0x7f0e0078
 
@@ -336,9 +336,9 @@
 
 .field public static final dim_foreground_material_light:I = 0x7f0e0087
 
-.field public static final ef_color_btn_shape_solid:I = 0x7f0e026e
+.field public static final ef_color_btn_shape_solid:I = 0x7f0e0271
 
-.field public static final ef_color_btn_shape_stroke:I = 0x7f0e026f
+.field public static final ef_color_btn_shape_stroke:I = 0x7f0e0272
 
 .field public static final emergency_mode_vcc_user_agreement_dialog_content_color:I = 0x7f0e0088
 
@@ -352,17 +352,17 @@
 
 .field public static final frequently_contacted_title_color:I = 0x7f0e008d
 
-.field public static final ft_list_01_text_color:I = 0x7f0e0270
+.field public static final ft_list_01_text_color:I = 0x7f0e0273
 
 .field public static final ft_list_28_color:I = 0x7f0e008e
 
-.field public static final ft_listitem_black_text_color:I = 0x7f0e0271
+.field public static final ft_listitem_black_text_color:I = 0x7f0e0274
 
-.field public static final ft_listitem_secondary_black_text_color:I = 0x7f0e0272
+.field public static final ft_listitem_secondary_black_text_color:I = 0x7f0e0275
 
-.field public static final ft_listitem_secondary_white_text_color:I = 0x7f0e0273
+.field public static final ft_listitem_secondary_white_text_color:I = 0x7f0e0276
 
-.field public static final ft_listitem_white_text_color:I = 0x7f0e0274
+.field public static final ft_listitem_white_text_color:I = 0x7f0e0277
 
 .field public static final glowpad_background_color:I = 0x7f0e008f
 
@@ -416,7 +416,7 @@
 
 .field public static final incall_banner_secondary_text_color:I = 0x7f0e00a8
 
-.field public static final incall_button_text:I = 0x7f0e0275
+.field public static final incall_button_text:I = 0x7f0e0278
 
 .field public static final incall_call_banner_active_bg_theme:I = 0x7f0e00a9
 
@@ -594,7 +594,7 @@
 
 .field public static final notification_icon_bg_color:I = 0x7f0e0100
 
-.field public static final ota_title_color:I = 0x7f0e0276
+.field public static final ota_title_color:I = 0x7f0e0279
 
 .field public static final people_app_theme_color:I = 0x7f0e0101
 
@@ -606,7 +606,7 @@
 
 .field public static final person_contact_context_message_text_color:I = 0x7f0e0105
 
-.field public static final popup_menu_color:I = 0x7f0e0277
+.field public static final popup_menu_color:I = 0x7f0e027a
 
 .field public static final primary_color:I = 0x7f0e0106
 
@@ -628,9 +628,9 @@
 
 .field public static final primary_text_disabled_material_light:I = 0x7f0e010f
 
-.field public static final primary_text_material_dark:I = 0x7f0e0278
+.field public static final primary_text_material_dark:I = 0x7f0e027b
 
-.field public static final primary_text_material_light:I = 0x7f0e0279
+.field public static final primary_text_material_light:I = 0x7f0e027c
 
 .field public static final quickcontact_default_photo_tint_color:I = 0x7f0e0110
 
@@ -638,7 +638,7 @@
 
 .field public static final reject_call_with_message_divider_color:I = 0x7f0e0112
 
-.field public static final reject_call_with_message_handler_background:I = 0x7f0e027a
+.field public static final reject_call_with_message_handler_background:I = 0x7f0e027d
 
 .field public static final reject_call_with_message_handler_bg:I = 0x7f0e0113
 
@@ -806,7 +806,7 @@
 
 .field public static final sec_incall_bg_button_text:I = 0x7f0e0164
 
-.field public static final sec_incall_bg_button_text_color:I = 0x7f0e027b
+.field public static final sec_incall_bg_button_text_color:I = 0x7f0e027e
 
 .field public static final sec_incall_bg_button_text_dim:I = 0x7f0e0165
 
@@ -824,7 +824,7 @@
 
 .field public static final sec_incall_button_text:I = 0x7f0e016c
 
-.field public static final sec_incall_button_text_color:I = 0x7f0e027c
+.field public static final sec_incall_button_text_color:I = 0x7f0e027f
 
 .field public static final sec_incall_button_text_dim:I = 0x7f0e016d
 
@@ -1082,7 +1082,7 @@
 
 .field public static final sec_video_hideme_button_text_color:I = 0x7f0e01ec
 
-.field public static final sec_video_incall_camera_button_text_color:I = 0x7f0e027d
+.field public static final sec_video_incall_camera_button_text_color:I = 0x7f0e0280
 
 .field public static final sec_video_incoming_eri_text_color:I = 0x7f0e01ed
 
@@ -1100,201 +1100,207 @@
 
 .field public static final sec_video_qcif_videocall_button_text_shadow:I = 0x7f0e01f4
 
-.field public static final sec_video_switch_camera_animation_color:I = 0x7f0e01f5
+.field public static final sec_video_quality_green:I = 0x7f0e01f5
 
-.field public static final sec_video_transparent:I = 0x7f0e01f6
+.field public static final sec_video_quality_red:I = 0x7f0e01f6
 
-.field public static final sec_video_vga_button_dim_tint:I = 0x7f0e01f7
+.field public static final sec_video_quality_yellow:I = 0x7f0e01f7
 
-.field public static final sec_video_vga_button_off_dim_tint:I = 0x7f0e01f8
+.field public static final sec_video_switch_camera_animation_color:I = 0x7f0e01f8
 
-.field public static final sec_video_vga_button_off_tint:I = 0x7f0e01f9
+.field public static final sec_video_transparent:I = 0x7f0e01f9
 
-.field public static final sec_video_vga_button_on_dim_tint:I = 0x7f0e01fa
+.field public static final sec_video_vga_button_dim_tint:I = 0x7f0e01fa
 
-.field public static final sec_video_vga_button_on_tint:I = 0x7f0e01fb
+.field public static final sec_video_vga_button_off_dim_tint:I = 0x7f0e01fb
 
-.field public static final sec_video_vga_button_ripple_color:I = 0x7f0e01fc
+.field public static final sec_video_vga_button_off_tint:I = 0x7f0e01fc
 
-.field public static final sec_videocall_button_dim_tint:I = 0x7f0e01fd
+.field public static final sec_video_vga_button_on_dim_tint:I = 0x7f0e01fd
 
-.field public static final sec_videocall_button_off_tint:I = 0x7f0e01fe
+.field public static final sec_video_vga_button_on_tint:I = 0x7f0e01fe
 
-.field public static final sec_videocall_button_on_tint:I = 0x7f0e01ff
+.field public static final sec_video_vga_button_ripple_color:I = 0x7f0e01ff
 
-.field public static final sec_videocall_dialpad_digits_text_color:I = 0x7f0e0200
+.field public static final sec_videocall_button_dim_tint:I = 0x7f0e0200
 
-.field public static final sec_videocall_dialpad_primary_text_color:I = 0x7f0e0201
+.field public static final sec_videocall_button_off_tint:I = 0x7f0e0201
 
-.field public static final sec_videocall_dialpad_secondary_text_color:I = 0x7f0e0202
+.field public static final sec_videocall_button_on_tint:I = 0x7f0e0202
 
-.field public static final sec_videocall_screen_background:I = 0x7f0e0203
+.field public static final sec_videocall_dialpad_digits_text_color:I = 0x7f0e0203
 
-.field public static final sec_voice_conference_banner_bg_color:I = 0x7f0e0204
+.field public static final sec_videocall_dialpad_primary_text_color:I = 0x7f0e0204
 
-.field public static final sec_voice_conference_banner_text_color:I = 0x7f0e0205
+.field public static final sec_videocall_dialpad_secondary_text_color:I = 0x7f0e0205
 
-.field public static final sec_voice_epdg_notify_info_banner_bg_color:I = 0x7f0e0206
+.field public static final sec_videocall_screen_background:I = 0x7f0e0206
 
-.field public static final sec_voice_epdg_notify_info_textcolor:I = 0x7f0e0207
+.field public static final sec_voice_conference_banner_bg_color:I = 0x7f0e0207
 
-.field public static final sec_voice_switch_button_bg_color:I = 0x7f0e0208
+.field public static final sec_voice_conference_banner_text_color:I = 0x7f0e0208
 
-.field public static final sec_voice_switch_button_bg_outside_color:I = 0x7f0e0209
+.field public static final sec_voice_epdg_notify_info_banner_bg_color:I = 0x7f0e0209
 
-.field public static final sec_voice_switch_button_bg_shadow:I = 0x7f0e020a
+.field public static final sec_voice_epdg_notify_info_textcolor:I = 0x7f0e020a
 
-.field public static final sec_volume_popup_background_color:I = 0x7f0e020b
+.field public static final sec_voice_switch_button_bg_color:I = 0x7f0e020b
 
-.field public static final secondary_call_info_divider_highlight_color:I = 0x7f0e020c
+.field public static final sec_voice_switch_button_bg_outside_color:I = 0x7f0e020c
 
-.field public static final secondary_header_separator_color:I = 0x7f0e020d
+.field public static final sec_voice_switch_button_bg_shadow:I = 0x7f0e020d
 
-.field public static final secondary_text_color:I = 0x7f0e020e
+.field public static final sec_volume_popup_background_color:I = 0x7f0e020e
 
-.field public static final secondary_text_default_material_dark:I = 0x7f0e020f
+.field public static final secondary_call_info_divider_highlight_color:I = 0x7f0e020f
 
-.field public static final secondary_text_default_material_light:I = 0x7f0e0210
+.field public static final secondary_header_separator_color:I = 0x7f0e0210
 
-.field public static final secondary_text_disabled_material_dark:I = 0x7f0e0211
+.field public static final secondary_text_color:I = 0x7f0e0211
 
-.field public static final secondary_text_disabled_material_light:I = 0x7f0e0212
+.field public static final secondary_text_default_material_dark:I = 0x7f0e0212
 
-.field public static final section_header_text_color:I = 0x7f0e0213
+.field public static final secondary_text_default_material_light:I = 0x7f0e0213
 
-.field public static final selectable_icon_tint:I = 0x7f0e027e
+.field public static final secondary_text_disabled_material_dark:I = 0x7f0e0214
 
-.field public static final shortcut_overlay_text_background:I = 0x7f0e0214
+.field public static final secondary_text_disabled_material_light:I = 0x7f0e0215
 
-.field public static final show_button_background_color:I = 0x7f0e0215
+.field public static final section_header_text_color:I = 0x7f0e0216
 
-.field public static final show_button_background_light_color:I = 0x7f0e0216
+.field public static final selectable_icon_tint:I = 0x7f0e0281
 
-.field public static final show_button_background_light_stroke:I = 0x7f0e0217
+.field public static final shortcut_overlay_text_background:I = 0x7f0e0217
 
-.field public static final show_button_background_stroke:I = 0x7f0e0218
+.field public static final show_button_background_color:I = 0x7f0e0218
 
-.field public static final show_vga_videocall_button_background_color:I = 0x7f0e0219
+.field public static final show_button_background_light_color:I = 0x7f0e0219
 
-.field public static final show_vga_videocall_button_background_stroke:I = 0x7f0e021a
+.field public static final show_button_background_light_stroke:I = 0x7f0e021a
 
-.field public static final smart_call_content_provider_image_tint_theme:I = 0x7f0e021b
+.field public static final show_button_background_stroke:I = 0x7f0e021b
 
-.field public static final smart_call_label_photo_tint_color:I = 0x7f0e021c
+.field public static final show_vga_videocall_button_background_color:I = 0x7f0e021c
 
-.field public static final smart_call_label_photo_tint_color_endcall:I = 0x7f0e021d
+.field public static final show_vga_videocall_button_background_stroke:I = 0x7f0e021d
 
-.field public static final smart_call_mini_photo_background_color_risk:I = 0x7f0e021e
+.field public static final smart_call_content_provider_image_tint_theme:I = 0x7f0e021e
 
-.field public static final smart_call_mini_photo_background_color_safe:I = 0x7f0e021f
+.field public static final smart_call_label_photo_tint_color:I = 0x7f0e021f
 
-.field public static final smart_call_mini_photo_background_color_spam:I = 0x7f0e0220
+.field public static final smart_call_label_photo_tint_color_endcall:I = 0x7f0e0220
 
-.field public static final smart_call_photo_background_color_endcall:I = 0x7f0e0221
+.field public static final smart_call_mini_photo_background_color_risk:I = 0x7f0e0221
 
-.field public static final smart_call_photo_background_color_risk:I = 0x7f0e0222
+.field public static final smart_call_mini_photo_background_color_safe:I = 0x7f0e0222
 
-.field public static final smart_call_photo_background_color_safe:I = 0x7f0e0223
+.field public static final smart_call_mini_photo_background_color_spam:I = 0x7f0e0223
 
-.field public static final smart_call_photo_background_color_spam:I = 0x7f0e0224
+.field public static final smart_call_photo_background_color_endcall:I = 0x7f0e0224
 
-.field public static final smart_call_photo_background_color_transparent:I = 0x7f0e0225
+.field public static final smart_call_photo_background_color_risk:I = 0x7f0e0225
 
-.field public static final spam_color:I = 0x7f0e0226
+.field public static final smart_call_photo_background_color_safe:I = 0x7f0e0226
 
-.field public static final spam_dim_color:I = 0x7f0e0227
+.field public static final smart_call_photo_background_color_spam:I = 0x7f0e0227
 
-.field public static final spam_incall_text_bar_color:I = 0x7f0e0228
+.field public static final smart_call_photo_background_color_transparent:I = 0x7f0e0228
 
-.field public static final spam_incall_text_color:I = 0x7f0e0229
+.field public static final spam_color:I = 0x7f0e0229
 
-.field public static final statusbar_background_color:I = 0x7f0e022a
+.field public static final spam_dim_color:I = 0x7f0e022a
 
-.field public static final switch_thumb_disabled_material_dark:I = 0x7f0e022b
+.field public static final spam_incall_text_bar_color:I = 0x7f0e022b
 
-.field public static final switch_thumb_disabled_material_light:I = 0x7f0e022c
+.field public static final spam_incall_text_color:I = 0x7f0e022c
 
-.field public static final switch_thumb_material_dark:I = 0x7f0e027f
+.field public static final statusbar_background_color:I = 0x7f0e022d
 
-.field public static final switch_thumb_material_light:I = 0x7f0e0280
+.field public static final switch_thumb_disabled_material_dark:I = 0x7f0e022e
 
-.field public static final switch_thumb_normal_material_dark:I = 0x7f0e022d
+.field public static final switch_thumb_disabled_material_light:I = 0x7f0e022f
 
-.field public static final switch_thumb_normal_material_light:I = 0x7f0e022e
+.field public static final switch_thumb_material_dark:I = 0x7f0e0282
 
-.field public static final tab_accent_color:I = 0x7f0e022f
+.field public static final switch_thumb_material_light:I = 0x7f0e0283
 
-.field public static final tab_ripple_color:I = 0x7f0e0230
+.field public static final switch_thumb_normal_material_dark:I = 0x7f0e0230
 
-.field public static final tab_selected_underline_color:I = 0x7f0e0231
+.field public static final switch_thumb_normal_material_light:I = 0x7f0e0231
 
-.field public static final tab_unread_count_background_color:I = 0x7f0e0232
+.field public static final tab_accent_color:I = 0x7f0e0232
 
-.field public static final textColorIconOverlay:I = 0x7f0e0233
+.field public static final tab_ripple_color:I = 0x7f0e0233
 
-.field public static final textColorIconOverlayShadow:I = 0x7f0e0234
+.field public static final tab_selected_underline_color:I = 0x7f0e0234
 
-.field public static final text_foreground_dark:I = 0x7f0e0235
+.field public static final tab_unread_count_background_color:I = 0x7f0e0235
 
-.field public static final text_foreground_light:I = 0x7f0e0236
+.field public static final textColorIconOverlay:I = 0x7f0e0236
 
-.field public static final tipbox_desc_text_color:I = 0x7f0e0237
+.field public static final textColorIconOverlayShadow:I = 0x7f0e0237
 
-.field public static final tipbox_title_text_color:I = 0x7f0e0238
+.field public static final text_foreground_dark:I = 0x7f0e0238
 
-.field public static final tutorial_text_color:I = 0x7f0e0239
+.field public static final text_foreground_light:I = 0x7f0e0239
 
-.field public static final tw_index_scroll_bg_tint_color:I = 0x7f0e023a
+.field public static final tipbox_desc_text_color:I = 0x7f0e023a
 
-.field public static final tw_index_scroll_index_divider_color:I = 0x7f0e023b
+.field public static final tipbox_title_text_color:I = 0x7f0e023b
 
-.field public static final tw_index_scroll_index_divider_color_light:I = 0x7f0e023c
+.field public static final tutorial_text_color:I = 0x7f0e023c
 
-.field public static final tw_index_scroll_index_text_color_dimmed:I = 0x7f0e023d
+.field public static final tw_index_scroll_bg_tint_color:I = 0x7f0e023d
 
-.field public static final tw_index_scroll_index_text_color_dimmed_fluid:I = 0x7f0e023e
+.field public static final tw_index_scroll_index_divider_color:I = 0x7f0e023e
 
-.field public static final tw_index_scroll_index_text_color_dimmed_light:I = 0x7f0e023f
+.field public static final tw_index_scroll_index_divider_color_light:I = 0x7f0e023f
 
-.field public static final tw_index_scroll_index_text_color_pressed:I = 0x7f0e0240
+.field public static final tw_index_scroll_index_text_color_dimmed:I = 0x7f0e0240
 
-.field public static final tw_index_scroll_index_text_color_pressed_2nd_act:I = 0x7f0e0241
+.field public static final tw_index_scroll_index_text_color_dimmed_fluid:I = 0x7f0e0241
 
-.field public static final tw_index_scroll_index_text_color_pressed_2nd_act_light:I = 0x7f0e0242
+.field public static final tw_index_scroll_index_text_color_dimmed_light:I = 0x7f0e0242
 
-.field public static final tw_index_scroll_index_text_color_pressed_light:I = 0x7f0e0243
+.field public static final tw_index_scroll_index_text_color_pressed:I = 0x7f0e0243
 
-.field public static final tw_index_scroll_popup_text_color:I = 0x7f0e0244
+.field public static final tw_index_scroll_index_text_color_pressed_2nd_act:I = 0x7f0e0244
 
-.field public static final tw_index_scroll_popup_text_color_dimmed:I = 0x7f0e0245
+.field public static final tw_index_scroll_index_text_color_pressed_2nd_act_light:I = 0x7f0e0245
 
-.field public static final tw_index_scroll_popup_text_color_dimmed_light:I = 0x7f0e0246
+.field public static final tw_index_scroll_index_text_color_pressed_light:I = 0x7f0e0246
 
-.field public static final tw_index_scroll_popup_text_color_light:I = 0x7f0e0247
+.field public static final tw_index_scroll_popup_text_color:I = 0x7f0e0247
 
-.field public static final tw_progress_color_overlap_activated:I = 0x7f0e0248
+.field public static final tw_index_scroll_popup_text_color_dimmed:I = 0x7f0e0248
 
-.field public static final tw_thumb_color_control_activated:I = 0x7f0e0249
+.field public static final tw_index_scroll_popup_text_color_dimmed_light:I = 0x7f0e0249
 
-.field public static final tw_visual_effect_text_color:I = 0x7f0e024a
+.field public static final tw_index_scroll_popup_text_color_light:I = 0x7f0e024a
 
-.field public static final vodafone_callplus_importance_color_tint:I = 0x7f0e024b
+.field public static final tw_progress_color_overlap_activated:I = 0x7f0e024b
 
-.field public static final voicecall_multiparty_btn_endcall_tint_color_theme:I = 0x7f0e024c
+.field public static final tw_thumb_color_control_activated:I = 0x7f0e024c
 
-.field public static final voicecall_multiparty_btn_heldmerge_tint_color_theme:I = 0x7f0e024d
+.field public static final tw_visual_effect_text_color:I = 0x7f0e024d
 
-.field public static final voicecall_multiparty_btn_hide_tint_color:I = 0x7f0e024e
+.field public static final vodafone_callplus_importance_color_tint:I = 0x7f0e024e
 
-.field public static final voicecall_multiparty_btn_label_color:I = 0x7f0e024f
+.field public static final voicecall_multiparty_btn_endcall_tint_color_theme:I = 0x7f0e024f
 
-.field public static final voicecall_multiparty_btn_manage_tint_color_theme:I = 0x7f0e0250
+.field public static final voicecall_multiparty_btn_heldmerge_tint_color_theme:I = 0x7f0e0250
 
-.field public static final voicecall_multiparty_divide_line_color:I = 0x7f0e0251
+.field public static final voicecall_multiparty_btn_hide_tint_color:I = 0x7f0e0251
 
-.field public static final voicecall_multiparty_secondary_text_color:I = 0x7f0e0252
+.field public static final voicecall_multiparty_btn_label_color:I = 0x7f0e0252
 
-.field public static final white:I = 0x7f0e0253
+.field public static final voicecall_multiparty_btn_manage_tint_color_theme:I = 0x7f0e0253
+
+.field public static final voicecall_multiparty_divide_line_color:I = 0x7f0e0254
+
+.field public static final voicecall_multiparty_secondary_text_color:I = 0x7f0e0255
+
+.field public static final white:I = 0x7f0e0256
 
 
 # direct methods

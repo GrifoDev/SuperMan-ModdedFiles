@@ -5,6 +5,8 @@
 # static fields
 .field public static final PROPERTY_MULTI_SIM_CONFIG:Ljava/lang/String; = "persist.radio.multisim.config"
 
+.field public static PROPERTY_OPERATOR_ISROAMING:Ljava/lang/String;
+
 .field public static PROPERTY_SIM_STATE:Ljava/lang/String;
 
 
@@ -15,6 +17,10 @@
     const-string v0, "gsm.sim.state"
 
     sput-object v0, Lcom/android/incallui/wrapper/TelephonyPropertiesWrapper;->PROPERTY_SIM_STATE:Ljava/lang/String;
+
+    const-string v0, "gsm.operator.isroaming"
+
+    sput-object v0, Lcom/android/incallui/wrapper/TelephonyPropertiesWrapper;->PROPERTY_OPERATOR_ISROAMING:Ljava/lang/String;
 
     return-void
 .end method

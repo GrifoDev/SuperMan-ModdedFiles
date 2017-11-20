@@ -178,7 +178,7 @@
     <string name="account_phone">Apparaat</string>
     <string name="acs">Spraakoproep</string>
     <string name="active_calls">Actieve oproep</string>
-    <string name="add_reminder">Herinn. toev.</string>
+    <string name="add_reminder">Herinnering toevoegen</string>
     <string name="agif_button_close_description">Sluiten</string>
     <string name="agif_decline_message">Sorry, ik kan nu niet praten.</string>
     <string name="agif_decline_sticker_header">Weigeren met een sticker</string>
@@ -868,6 +868,7 @@ Schermmenu IVR-oproep gebruikt inhoud van een externe serviceleverancier, Dianhu
     <string name="swipe_right_to_answer_call_with_video">Veeg naar rechts om oproep met video te beantwoorden.</string>
     <string name="swipe_right_to_answer_call_without_video">Veeg naar rechts om oproep zonder video te beantwoorden.</string>
     <string name="switch_rejected_by_mt">Verzoek voor overschakelen naar video-oproep geweigerd.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Verzoek voor overschakelen naar video-oproep is mislukt.</string>
     <string name="switch_to_video_call_failed_tmo">Verzoek voor overschakelen naar video-oproep is geweigerd.</string>
     <string name="switch_to_voice_call_failed">Verzoek voor overschakelen naar spraakoproep mislukt.</string>
@@ -895,7 +896,7 @@ Schermmenu IVR-oproep gebruikt inhoud van een externe serviceleverancier, Dianhu
     <string name="upload_using_wlan_only">Alleen uploaden via WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Uploaden via Wi-Fi of mobiel netwerk</string>
     <string name="upload_wlan_and_mobile_nw">Uploaden via WLAN of mobiel netwerk</string>
-    <string name="usa_att_connected_as_voice">Oproep alleen verbonden als spraak.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Het gegevensgebruik dat u hebt ingesteld op uw apparaat bereikt bijna de limiet. Voor video-oproep zijn gegevens vereist.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Oproep kan niet via Wi-Fi worden gedaan, verbinding wordt gemaakt via mobiel netwerk. Er zijn spraak- en gegevenskosten van toepassing.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

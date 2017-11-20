@@ -897,12 +897,39 @@
 
     move-result v2
 
-    if-nez v1, :cond_2
+    if-gez v2, :cond_2
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "sim slot id error. slotId = "
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "SimUtil"
+
+    invoke-static {v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/SDKLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_2
+    if-nez v1, :cond_3
 
     move-object v1, v0
 
     :goto_1
-    if-nez v1, :cond_3
+    if-nez v1, :cond_4
 
     const-string v1, "sim operator array null"
 
@@ -915,7 +942,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_5
+    if-nez v1, :cond_6
 
     const-string v1, "CTC carrier case"
 
@@ -948,7 +975,7 @@
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     const-string v3, ","
 
     invoke-static {v1, v3}, Landroid/text/TextUtils;->split(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;
@@ -957,10 +984,10 @@
 
     goto :goto_1
 
-    :cond_3
+    :cond_4
     array-length v3, v1
 
-    if-le v3, v2, :cond_4
+    if-le v3, v2, :cond_5
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -994,7 +1021,7 @@
 
     goto :goto_2
 
-    :cond_4
+    :cond_5
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -1025,7 +1052,7 @@
 
     goto :goto_2
 
-    :cond_5
+    :cond_6
     invoke-static {p0, v2}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/apiInterface/MultiSimManagerRef;->getSimOperator(Landroid/content/Context;I)Ljava/lang/String;
 
     move-result-object v0

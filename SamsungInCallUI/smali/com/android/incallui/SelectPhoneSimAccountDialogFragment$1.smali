@@ -36,6 +36,8 @@
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 3
 
+    const/4 v2, 0x0
+
     iget-object v0, p0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment$1;->this$0:Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;
 
     const/4 v1, 0x1
@@ -58,9 +60,9 @@
 
     move-result-object v1
 
-    const/4 v2, 0x0
-
     invoke-virtual {v1, v0, v2}, Lcom/android/incallui/InCallPresenter;->handleAccountSelection(Landroid/telecom/PhoneAccountHandle;Z)V
+
+    invoke-static {v2}, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->dismissDialog(Z)V
 
     return-void
 .end method

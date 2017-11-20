@@ -178,7 +178,7 @@
     <string name="account_phone">Cihaz</string>
     <string name="acs">Sesli arama</string>
     <string name="active_calls">Etkin arama</string>
-    <string name="add_reminder">Htrltcı ekle</string>
+    <string name="add_reminder">Hatırlatıcı ekle</string>
     <string name="agif_button_close_description">Kapat</string>
     <string name="agif_decline_message">Maalesef şu anda müsait değilim.</string>
     <string name="agif_decline_sticker_header">Etiketle reddet</string>
@@ -868,6 +868,7 @@ Kamera"</string>
     <string name="swipe_right_to_answer_call_with_video">Aramayı videoyla yanıtlamak için sağa kaydırın.</string>
     <string name="swipe_right_to_answer_call_without_video">Aramayı videosuz yanıtlamak için sağa kaydırın.</string>
     <string name="switch_rejected_by_mt">Görüntülü görüşmeye geçme talebi reddedildi.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Görüntülü aramaya geçme talebi başarısız.</string>
     <string name="switch_to_video_call_failed_tmo">Görüntülü aramaya geçme isteği reddedildi.</string>
     <string name="switch_to_voice_call_failed">Sesli aramaya geçme talebi başarısız.</string>
@@ -895,7 +896,7 @@ Kamera"</string>
     <string name="upload_using_wlan_only">Sadece WLAN ile yükle</string>
     <string name="upload_wifi_and_mobile_nw">Wi-Fi veya mobil ağ ile yükle</string>
     <string name="upload_wlan_and_mobile_nw">WLAN veya mobil ağ ile yükle</string>
-    <string name="usa_att_connected_as_voice">Arama sadece sesli olarak bağlandı.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Cihazınızda belirlediğiniz Veri Kullanımı sınıra ulaşmak üzere. Görüntülü aramanız veri gerektirir.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Arama Wi-Fi üzerinden yapılamıyor, hücresel ağa bağlanılıyor. Konuşma ve veri ücretleri uygulanır.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

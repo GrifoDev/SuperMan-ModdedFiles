@@ -178,7 +178,7 @@
     <string name="account_phone">Gerät</string>
     <string name="acs">Sprachanruf</string>
     <string name="active_calls">Aktiver Anruf</string>
-    <string name="add_reminder">Neue Erinnerung</string>
+    <string name="add_reminder">Erinnerung hinzufügen</string>
     <string name="agif_button_close_description">Schließen</string>
     <string name="agif_decline_message">Ich kann leider gerade nicht sprechen.</string>
     <string name="agif_decline_sticker_header">Ablehnen mit einem Sticker</string>
@@ -868,6 +868,7 @@ Kamera"</string>
     <string name="swipe_right_to_answer_call_with_video">Nach rechts streichen, um einen Anruf mit Video anzunehmen.</string>
     <string name="swipe_right_to_answer_call_without_video">Nach rechts streichen, um einen Anruf ohne Video anzunehmen.</string>
     <string name="switch_rejected_by_mt">Anfrage auf Wechsel zu Videoanruf abgelehnt</string>
+    <string name="switch_rejected_by_mt_att">Video ist für diesen Anruf nicht verfügbar. Anruf ist als Sprachanruf verbunden.</string>
     <string name="switch_to_video_call_failed">Anfrage nach Wechsel zu Videoanruf fehlgeschlagen.</string>
     <string name="switch_to_video_call_failed_tmo">Anfrage nach Wechsel zu Videoanruf wurde abgelehnt.</string>
     <string name="switch_to_voice_call_failed">Anfrage nach Wechsel zu Sprachanruf fehlgeschlagen.</string>
@@ -895,7 +896,7 @@ Kamera"</string>
     <string name="upload_using_wlan_only">Nur über WLAN hochladen</string>
     <string name="upload_wifi_and_mobile_nw">Über WLAN oder mobiles Netzwerk hochladen</string>
     <string name="upload_wlan_and_mobile_nw">Über WLAN oder mobiles Netz hochladen</string>
-    <string name="usa_att_connected_as_voice">Anruf als Sprachanruf verbunden.</string>
+    <string name="usa_att_connected_as_voice">Video ist für diesen Anruf nicht verfügbar. Anruf ist als Sprachanruf verbunden.</string>
     <string name="usa_att_data_usage_charge_alert">Die von Ihnen auf Ihrem Gerät festgelegte maximale Datennutzung ist bald erreicht. Der Videoanruf erfordert Datennutzung.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Anruf kann nicht über WLAN getätigt werden. Mobilnetzverbindung wird hergestellt. Es fallen Kosten für Sprache und Daten an.</string>
     <string name="usa_att_modify_receive_to_video">%s möchte zu einem Videoanruf wechseln.</string>

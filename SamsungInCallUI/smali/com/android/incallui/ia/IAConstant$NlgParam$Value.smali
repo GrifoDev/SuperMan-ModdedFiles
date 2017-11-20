@@ -16,6 +16,8 @@
 # static fields
 .field public static final NO:Ljava/lang/String; = "no"
 
+.field public static final OFF:Ljava/lang/String; = "Off"
+
 .field public static final YES:Ljava/lang/String; = "yes"
 
 

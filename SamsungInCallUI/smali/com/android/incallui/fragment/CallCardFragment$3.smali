@@ -7,7 +7,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/incallui/fragment/CallCardFragment;->updateTextColor(I)V
+    value = Lcom/android/incallui/fragment/CallCardFragment;->startTextColorEndCallAnimation(IIIII)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;

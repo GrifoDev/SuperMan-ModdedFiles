@@ -147,7 +147,7 @@
     <string name="account_phone">उपकरण</string>
     <string name="acs">भ्वाइस कल</string>
     <string name="active_calls">सक्रिय कल</string>
-    <string name="add_reminder">रिमाइन्डर थप्नु</string>
+    <string name="add_reminder">रिमाइन्डर थप्नुहोस्</string>
     <string name="agif_button_close_description">बन्द गर्नुहोस्</string>
     <string name="agif_decline_message">माफ गर्नुहोस्, म अहिले कुरा गर्न सक्दिन।</string>
     <string name="agif_decline_sticker_header">स्टिकर मार्फत अस्वीकार गर्नुहोस्</string>
@@ -526,7 +526,7 @@
     <string name="label_sip_address">इन्टरनेट कल</string>
     <string name="legal_popup_content">"समय खर्च गर्ने भ्वाइस प्रतिक्रिया कल सेन्टरहरू प्रयोग गर्दा समस्या भएको छ? IVR(इन्टरएक्टिभ भ्वाइस रेस्पोन्स) कल स्क्रिन मेनुले तपाईंको स्क्रिनमा सेवा मेनु प्रदर्शन गरी कल सेन्टरहरूका लागि प्रयोग गर्न उत्तम वातावरण उपलब्ध गराउँछ।
 
-IVR कल स्क्रिन मेनुले Dianhuabang भनिने तेस्रो-पक्षीय सेवा प्रदायकद्वारा उपलब्ध गराइएको सामग्रीहरू प्रयोग गर्दछ। IVR कल स्क्रिन मेनुको प्रयोग गरी तपाईं Dianhuabang को %1$sनियमहरू र सर्तहरू%2$s मा सहमत हुनुहुन्छ।"</string>
+IVR कल स्क्रीन मेनुले Dianhuabang भनिने तेस्रो-पक्षीय सेवा प्रदायकद्वारा उपलब्ध गराइएको सामग्रीहरू प्रयोग गर्दछ। IVR कल स्क्रिन मेनुको प्रयोग गरी तपाईं Dianhuabang को %1$sनियमहरू र सर्तहरू%2$s मा सहमत हुनुहुन्छ।"</string>
     <string name="legal_popup_terms_conditions">शर्त तथा नियमहरू</string>
     <string name="legal_pupup_title">कानुनी जानकारी</string>
     <string name="lock_screen_during_call_double_tab">अनलक गर्न दुईपटक ट्याप गर्नुहोस्</string>
@@ -834,6 +834,7 @@ IVR कल स्क्रिन मेनुले Dianhuabang भनिने 
     <string name="swipe_right_to_answer_call_with_video">भिडियोको साथ कलको जवाफ दिन दायाँ स्वाइप गर्नुहोस्।</string>
     <string name="swipe_right_to_answer_call_without_video">भिडियो बिना कलको जवाफ दिन दायाँ स्वाइप गर्नुहोस्।</string>
     <string name="switch_rejected_by_mt">भिडियो कलमा जाने अनुरोध अस्वीकार गरियो।</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">भिडियो कलमा स्विच गर्ने अनुरोध असफल भयो।</string>
     <string name="switch_to_video_call_failed_tmo">भिडियो कलमा स्विच गर्ने अनुरोध अस्वीकार गरियो।</string>
     <string name="switch_to_voice_call_failed">भ्वाइस कलमा स्विच गर्ने अनुरोध असफल भयो।</string>
@@ -861,7 +862,7 @@ IVR कल स्क्रिन मेनुले Dianhuabang भनिने 
     <string name="upload_using_wlan_only">WLAN मार्फत मात्र अपलोड गर्नुहोस्</string>
     <string name="upload_wifi_and_mobile_nw">Wi-Fi वा मोबाइल नेटवर्क मार्फत अपलोड गर्नुहोस्</string>
     <string name="upload_wlan_and_mobile_nw">WLAN वा मोबाइल नेटवर्क मार्फत अपलोड गर्नुहोस्</string>
-    <string name="usa_att_connected_as_voice">कल भ्वाइस मात्रको रूपमा जडान गरिएको छ।</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">तपाईले आफ्नो यन्त्रमा सेट गनुभएको डाटा प्रयोग यसको सीमामा पुग्न जादैछ। तपाईको भिडियो कललाई डाटाको आवश्यकता पर्छ।</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Wi-Fi मार्फत कल गर्न सकिँदैन, सेलुलर नेटवर्क मार्फत कल गर्दै। भ्वाइस र डाटा शुल्कहरू लागू हुन सक्छन्।</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

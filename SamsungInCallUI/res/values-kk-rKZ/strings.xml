@@ -120,7 +120,7 @@
     <string name="account_phone">Құрылғы</string>
     <string name="acs">Дауыстық қоңырау</string>
     <string name="active_calls">Белсенді қоңырау</string>
-    <string name="add_reminder">Еске сал.қ-у</string>
+    <string name="add_reminder">Еске салғышты қосу</string>
     <string name="agif_button_close_description">Жабу</string>
     <string name="agif_decline_message">Кешіріңіз, дәл қазір сөйлесе алмаймын.</string>
     <string name="agif_decline_sticker_header">Жапсырма арқылы қабылдамау</string>
@@ -810,6 +810,7 @@ IVR қоңыраулар экранының мәзірі “Dianhuabang” де�
     <string name="swipe_right_to_answer_call_with_video">Қоңырауға бейнемен жауап беру үшін, оңға қарай сипаңыз.</string>
     <string name="swipe_right_to_answer_call_without_video">Қоңырауға бейнесіз жауап беру үшін, оңға қарай сипаңыз.</string>
     <string name="switch_rejected_by_mt">Бейне қоңырауға ауысу сұрауы қабылданбады.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Бейне қоңырауға ауысу сұрауы сәтсіз болды.</string>
     <string name="switch_to_video_call_failed_tmo">Бейне қоңырауға ауысу сұрауынан бас тартылды.</string>
     <string name="switch_to_voice_call_failed">Дауыстық қоңырауға ауысу сұрауы сәтсіз болды.</string>
@@ -837,7 +838,7 @@ IVR қоңыраулар экранының мәзірі “Dianhuabang” де�
     <string name="upload_using_wlan_only">Тек WLAN арқылы кері жүктеу</string>
     <string name="upload_wifi_and_mobile_nw">Wi-Fi не ұялы желі арқылы кері жүктеу</string>
     <string name="upload_wlan_and_mobile_nw">WLAN не ұялы желі арқылы кері жүктеу</string>
-    <string name="usa_att_connected_as_voice">Қоңырау тек дауыстық ретінде қосылды.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Құрылғыңызда орнатылған деректерді пайдалану көлемі өзінің шегіне жетуге жақын қалды. Бейне қоңырау шалу үшін деректер қажет.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Wi-Fi арқылы қоңырау шалу мүмкін емес, ұялы байланыс желісіне қосылуда. Дауыстық және деректік ақы алынады.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

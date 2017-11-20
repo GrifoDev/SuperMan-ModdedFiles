@@ -342,7 +342,9 @@
 .end method
 
 .method public onClick(Landroid/view/View;)V
-    .locals 4
+    .locals 5
+
+    const/4 v4, 0x0
 
     const v3, 0x7f100013
 
@@ -412,11 +414,26 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/android/incallui/CallList;->hasIncomingCall()Z
+    const/4 v2, 0x0
 
-    move-result v1
+    invoke-static {v1, v4, v2}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
 
-    if-eqz v1, :cond_2
+    move-result-object v1
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {v1, v4}, Lcom/android/incallui/Call;->setAgifImageFile(Ljava/io/File;)V
+
+    :cond_1
+    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/incallui/CallList;->hasIncomingCall()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
 
     invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
 
@@ -426,7 +443,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -434,7 +451,7 @@
 
     invoke-interface {v1, v2}, Lcom/android/incallui/AnswerUi;->onSelectAgifContents(Landroid/net/Uri;)V
 
-    :cond_1
+    :cond_2
     invoke-virtual {p1}, Landroid/view/View;->getContentDescription()Ljava/lang/CharSequence;
 
     move-result-object v1
@@ -475,30 +492,18 @@
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     invoke-virtual {p1}, Landroid/view/View;->getContentDescription()Ljava/lang/CharSequence;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-interface {v1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+    invoke-interface {v2}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-static {v1}, Lcom/android/incallui/util/VoiceCallAppLogging;->agifScreen_selectAgif(Ljava/lang/String;)V
+    invoke-static {v2}, Lcom/android/incallui/util/VoiceCallAppLogging;->agifScreen_selectAgif(Ljava/lang/String;)V
 
-    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
-
-    move-result-object v1
-
-    const/4 v2, 0x0
-
-    const/4 v3, 0x0
-
-    invoke-static {v1, v2, v3}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_4
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -506,7 +511,7 @@
 
     invoke-virtual {v1, v2}, Lcom/android/incallui/Call;->setAgifUri(Landroid/net/Uri;)V
 
-    :cond_3
+    :cond_4
     invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
 
     move-result-object v1

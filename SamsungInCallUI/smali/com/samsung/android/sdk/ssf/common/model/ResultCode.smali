@@ -39,6 +39,8 @@
 
 .field public static final SERVER_ERROR:I = 0x2ee0
 
+.field public static final SERVER_EXPIRED_CONTENT_REQUESTED:I = 0x2ee3
+
 .field public static final SERVER_INVALID_RESPONSE:I = 0x2ee2
 
 .field private static final SERVER_START:I = 0x2ee0

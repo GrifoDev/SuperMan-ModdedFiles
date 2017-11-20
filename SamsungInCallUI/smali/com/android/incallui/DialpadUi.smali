@@ -27,6 +27,9 @@
 .method public abstract hideSoftInput()V
 .end method
 
+.method public abstract onCallButtonViewChanged()V
+.end method
+
 .method public abstract onDialerKeyDown(Landroid/view/KeyEvent;)Z
 .end method
 

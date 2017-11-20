@@ -176,7 +176,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0e0221
+    const v2, 0x7f0e0224
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -602,6 +602,14 @@
     :cond_4
     if-nez p1, :cond_5
 
+    const-string v0, "SmartCallPopupUI"
+
+    const-string v1, "setPrimarySpamInfo - spamCallInfo = null"
+
+    const/4 v2, 0x1
+
+    invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
+
     iget-object v0, p0, Lcom/android/incallui/service/ui/SmartCallPopupUI;->mSmartCallName:Landroid/widget/TextView;
 
     const/16 v1, 0x8
@@ -739,7 +747,7 @@
 
     move-result-object v1
 
-    const v5, 0x7f0a052b
+    const v5, 0x7f0a0529
 
     invoke-virtual {v1, v5}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1402,7 +1410,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0a052b
+    const v5, 0x7f0a0529
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1515,38 +1523,6 @@
     move-result-object v0
 
     invoke-virtual {v0, v9}, Landroid/widget/ImageView;->setVisibility(I)V
-
-    invoke-virtual {p0}, Lcom/android/incallui/service/ui/SmartCallPopupUI;->getParentView()Lcom/android/incallui/service/SecCallPopupContainer;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/incallui/service/SecCallPopupContainer;->getNameLayout()Landroid/widget/LinearLayout;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Landroid/widget/LinearLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/RelativeLayout$LayoutParams;
-
-    iget-object v4, p0, Lcom/android/incallui/service/ui/SmartCallPopupUI;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v4
-
-    const v5, 0x7f0a0092
-
-    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v4
-
-    float-to-int v4, v4
-
-    iput v4, v0, Landroid/widget/RelativeLayout$LayoutParams;->width:I
-
-    invoke-virtual {v3, v0}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     :cond_8
     iget-object v0, p0, Lcom/android/incallui/service/ui/SmartCallPopupUI;->mContext:Landroid/content/Context;
@@ -1683,7 +1659,7 @@
 
     move-result-object v0
 
-    const v4, 0x7f0a052b
+    const v4, 0x7f0a0529
 
     invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getDimension(I)F
 

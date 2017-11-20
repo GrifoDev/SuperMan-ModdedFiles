@@ -2,6 +2,10 @@
 .super Lcom/android/incallui/fragment/DialpadFragment;
 
 
+# instance fields
+.field protected mDialContainer:Landroid/view/View;
+
+
 # direct methods
 .method public constructor <init>()V
     .locals 0
@@ -242,6 +246,14 @@
     goto :goto_0
 .end method
 
+.method public onContentViewChanged(Landroid/graphics/Point;)V
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/VideoCallDialpadQCIFFragment;->setupLayout()V
+
+    return-void
+.end method
+
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 2
 
@@ -277,7 +289,7 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f040161
+    const v0, 0x7f040162
 
     invoke-virtual {p1, v0, p2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -286,13 +298,63 @@
     goto :goto_0
 
     :cond_1
-    const v0, 0x7f040151
+    const v0, 0x7f040152
 
     invoke-virtual {p1, v0, p2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object v0
 
     goto :goto_0
+.end method
+
+.method public onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
+    .locals 2
+
+    invoke-super {p0, p1, p2}, Lcom/android/incallui/fragment/DialpadFragment;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
+
+    const-string v0, "support_folder_single_lcd"
+
+    invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/incallui/fragment/VideoCallDialpadQCIFFragment;->mDialpadView:Lcom/android/incallui/widget/DialpadView;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/incallui/fragment/VideoCallDialpadQCIFFragment;->mDialpadView:Lcom/android/incallui/widget/DialpadView;
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lcom/android/incallui/widget/DialpadView;->setFocusable(Z)V
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/incallui/fragment/VideoCallDialpadQCIFFragment;->mDtmfDialerField:Landroid/widget/EditText;
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/incallui/fragment/VideoCallDialpadQCIFFragment;->mDtmfDialerField:Landroid/widget/EditText;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setFocusable(Z)V
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/incallui/fragment/VideoCallDialpadQCIFFragment;->mView:Landroid/view/View;
+
+    const v1, 0x7f10045c
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/incallui/fragment/VideoCallDialpadQCIFFragment;->mDialContainer:Landroid/view/View;
+
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/VideoCallDialpadQCIFFragment;->setupLayout()V
+
+    return-void
 .end method
 
 .method public setPrimaryCallMenuForDialpad(Z)V
@@ -339,7 +401,7 @@
 .method public setupLayout()V
     .locals 7
 
-    const v6, 0x7f0a0276
+    const v6, 0x7f0a0272
 
     const/16 v2, 0x8
 
@@ -456,7 +518,7 @@
 
     move-result-object v1
 
-    const v5, 0x7f0a00e9
+    const v5, 0x7f0a00e6
 
     invoke-virtual {v1, v5}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -612,7 +674,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f0a0373
+    const v4, 0x7f0a036f
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -656,7 +718,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f0a0045
+    const v4, 0x7f0a0042
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getDimension(I)F
 

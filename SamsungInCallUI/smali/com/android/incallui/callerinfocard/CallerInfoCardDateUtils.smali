@@ -419,13 +419,13 @@
 
     invoke-direct {v0, v1}, Ljava/lang/String;-><init>([C)V
 
-    const v1, 0x7f090699
+    const v1, 0x7f09069a
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    const v2, 0x7f09053a
+    const v2, 0x7f09053b
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -477,7 +477,7 @@
 
     if-eqz v1, :cond_0
 
-    const v0, 0x7f09069b
+    const v0, 0x7f09069c
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -495,7 +495,7 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f09053b
+    const v0, 0x7f09053c
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -504,7 +504,7 @@
     goto :goto_0
 
     :cond_1
-    const v0, 0x7f0905f4
+    const v0, 0x7f0905f5
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

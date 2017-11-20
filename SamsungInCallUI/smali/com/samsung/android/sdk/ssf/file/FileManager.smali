@@ -4452,23 +4452,32 @@
 
     invoke-virtual {v0}, Landroid/net/Uri;->buildUpon()Landroid/net/Uri$Builder;
 
+    move-result-object v2
+
+    :try_start_0
+    invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/DeviceUtils;->getImei()Ljava/lang/String;
+
     move-result-object v0
 
-    const-string v2, "ors/v2/binaries/tokens"
+    invoke-static {v0}, Lcom/samsung/android/sdk/ssf/common/util/HashUtils;->generateStrongDeviceIDHash(Ljava/lang/String;)Ljava/lang/String;
+    :try_end_0
+    .catch Ljava/security/spec/InvalidKeySpecException; {:try_start_0 .. :try_end_0} :catch_2
+    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_0} :catch_0
 
-    invoke-virtual {v0, v2}, Landroid/net/Uri$Builder;->appendEncodedPath(Ljava/lang/String;)Landroid/net/Uri$Builder;
+    move-result-object v0
 
-    move-result-object v2
+    :goto_0
+    const-string v3, "ors/v2/binaries/tokens"
 
-    const-string v3, "device_id"
+    invoke-virtual {v2, v3}, Landroid/net/Uri$Builder;->appendEncodedPath(Ljava/lang/String;)Landroid/net/Uri$Builder;
 
-    invoke-virtual {p0}, Lcom/samsung/android/sdk/ssf/SsfClient;->getDeviceId()Ljava/lang/String;
+    move-result-object v3
 
-    move-result-object v4
+    const-string v4, "device_id"
 
-    invoke-virtual {v2, v3, v4}, Landroid/net/Uri$Builder;->appendQueryParameter(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri$Builder;
+    invoke-virtual {v3, v4, v0}, Landroid/net/Uri$Builder;->appendQueryParameter(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri$Builder;
 
-    move-result-object v2
+    move-result-object v0
 
     const-string v3, "uid"
 
@@ -4476,9 +4485,9 @@
 
     move-result-object v4
 
-    invoke-virtual {v2, v3, v4}, Landroid/net/Uri$Builder;->appendQueryParameter(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri$Builder;
+    invoke-virtual {v0, v3, v4}, Landroid/net/Uri$Builder;->appendQueryParameter(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri$Builder;
 
-    move-result-object v2
+    move-result-object v0
 
     const-string v3, "cid"
 
@@ -4486,9 +4495,9 @@
 
     move-result-object v4
 
-    invoke-virtual {v2, v3, v4}, Landroid/net/Uri$Builder;->appendQueryParameter(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri$Builder;
+    invoke-virtual {v0, v3, v4}, Landroid/net/Uri$Builder;->appendQueryParameter(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri$Builder;
 
-    move-result-object v2
+    move-result-object v0
 
     const-string v3, "Duid"
 
@@ -4496,9 +4505,9 @@
 
     move-result-object v4
 
-    invoke-virtual {v2, v3, v4}, Landroid/net/Uri$Builder;->appendQueryParameter(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri$Builder;
+    invoke-virtual {v0, v3, v4}, Landroid/net/Uri$Builder;->appendQueryParameter(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri$Builder;
 
-    move-result-object v2
+    move-result-object v0
 
     const-string v3, "access_token"
 
@@ -4506,9 +4515,9 @@
 
     move-result-object v4
 
-    invoke-virtual {v2, v3, v4}, Landroid/net/Uri$Builder;->appendQueryParameter(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri$Builder;
+    invoke-virtual {v0, v3, v4}, Landroid/net/Uri$Builder;->appendQueryParameter(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri$Builder;
 
-    invoke-virtual {v0}, Landroid/net/Uri$Builder;->build()Landroid/net/Uri;
+    invoke-virtual {v2}, Landroid/net/Uri$Builder;->build()Landroid/net/Uri;
 
     move-result-object v0
 
@@ -4577,16 +4586,16 @@
 
     const/4 v1, 0x0
 
-    :try_start_0
+    :try_start_1
     invoke-virtual {v0}, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;->getBody()[B
 
     move-result-object v2
 
     array-length v1, v2
-    :try_end_0
-    .catch Lcom/android/volley/AuthFailureError; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1
+    .catch Lcom/android/volley/AuthFailureError; {:try_start_1 .. :try_end_1} :catch_1
 
-    :goto_0
+    :goto_1
     const-string v2, "Content-Length"
 
     invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
@@ -4610,6 +4619,16 @@
     return-void
 
     :catch_0
+    move-exception v0
+
+    :goto_2
+    invoke-virtual {p0}, Lcom/samsung/android/sdk/ssf/SsfClient;->getDeviceId()Ljava/lang/String;
+
+    move-result-object v0
+
+    goto/16 :goto_0
+
+    :catch_1
     move-exception v2
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -4644,7 +4663,12 @@
 
     invoke-static {v2, v3}, Lcom/samsung/android/sdk/ssf/common/util/CommonLog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_1
+
+    :catch_2
+    move-exception v0
+
+    goto :goto_2
 .end method
 
 .method public static linkFile(Lcom/samsung/android/sdk/ssf/file/io/LinkFileRequest;)V
@@ -7646,9 +7670,26 @@
 
     invoke-virtual {v1}, Landroid/net/Uri;->buildUpon()Landroid/net/Uri$Builder;
 
+    move-result-object v2
+
+    :try_start_0
+    invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/DeviceUtils;->getImei()Ljava/lang/String;
+
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/net/Uri$Builder;->build()Landroid/net/Uri;
+    invoke-static {v1}, Lcom/samsung/android/sdk/ssf/common/util/HashUtils;->generateStrongDeviceIDHash(Ljava/lang/String;)Ljava/lang/String;
+    :try_end_0
+    .catch Ljava/security/spec/InvalidKeySpecException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    :goto_0
+    const-string v3, "device_id"
+
+    invoke-virtual {v2, v3, v1}, Landroid/net/Uri$Builder;->appendQueryParameter(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri$Builder;
+
+    invoke-virtual {v2}, Landroid/net/Uri$Builder;->build()Landroid/net/Uri;
 
     move-result-object v1
 
@@ -7779,6 +7820,21 @@
     invoke-virtual {v2, v1}, Lcom/android/volley/RequestQueue;->add(Lcom/android/volley/Request;)Lcom/android/volley/Request;
 
     return-void
+
+    :catch_0
+    move-exception v1
+
+    :goto_1
+    invoke-virtual {p0}, Lcom/samsung/android/sdk/ssf/SsfClient;->getDeviceId()Ljava/lang/String;
+
+    move-result-object v1
+
+    goto/16 :goto_0
+
+    :catch_1
+    move-exception v1
+
+    goto :goto_1
 .end method
 
 .method public static uploadMultiPart(Lcom/samsung/android/sdk/ssf/SsfClient;IILjava/lang/Object;Lcom/samsung/android/sdk/ssf/SsfListener;Landroid/os/Bundle;Ljava/io/File;Ljava/lang/String;IIILcom/samsung/android/sdk/ssf/common/ConnectTimeout;Ljava/lang/String;)V

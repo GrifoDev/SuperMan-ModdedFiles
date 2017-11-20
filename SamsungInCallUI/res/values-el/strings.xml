@@ -178,7 +178,7 @@
     <string name="account_phone">Συσκευή</string>
     <string name="acs">Φωνητική κλήση</string>
     <string name="active_calls">Ενεργή κλήση</string>
-    <string name="add_reminder">Προσθ.υπενθ.</string>
+    <string name="add_reminder">Προσθήκη υπενθύμισης</string>
     <string name="agif_button_close_description">Κλείσιμο</string>
     <string name="agif_decline_message">Δυστυχώς, δεν μπορώ να μιλήσω αυτήν τη στιγμή.</string>
     <string name="agif_decline_sticker_header">Απόρριψη με αυτοκόλλητο</string>
@@ -744,12 +744,12 @@
     <string name="secOnscreenMenuDualCameraOnText">Ενεργοποίηση διπλής κάμερας</string>
     <string name="secOnscreenMenuEnableExtraVolume">Ενεργ. επιπλ.έντασης</string>
     <string name="secOnscreenMenuEnableExtraVolumeTTS">Ενεργοποίηση επιπλέον έντασης</string>
-    <string name="secOnscreenMenuHideMeText">Απόκρυψη εικόνας μου</string>
+    <string name="secOnscreenMenuHideMeText">Απόκρυψη</string>
     <string name="secOnscreenMenuImageEffectText">Εφέ εικόνας</string>
     <string name="secOnscreenMenuMuteText">Σίγαση</string>
     <string name="secOnscreenMenuOutgoingImageSettingText">Εξερχόμενη εικόνα</string>
     <string name="secOnscreenMenuOutgoingImageText">Εξερχόμενη εικόνα</string>
-    <string name="secOnscreenMenuShowMeText">Εμφάνιση</string>
+    <string name="secOnscreenMenuShowMeText">Εμφάνισε με</string>
     <string name="secOnscreenMenuSpeakerOffText">Απενεργοπ. ηχείου</string>
     <string name="secOnscreenMenuSpeakerOnText">Ενεργοποίηση ηχείου</string>
     <string name="secOnscreenMenuStartRecordText">Εγγραφή βίντεο</string>
@@ -800,10 +800,10 @@
     <string name="secOnscreenVolumeText">Ένταση</string>
     <string name="secVolteCall">Κλήση</string>
     <string name="secVolteCall_lgt">Κλήση VoLTE</string>
-    <string name="sec_hideme_text">Απόκρυψη εικόνας μου</string>
+    <string name="sec_hideme_text">Απόκρυψη</string>
     <string name="sec_popup_reject_call_with_msg_content_description_close">Πατήστε δύο φορές για κλείσιμο της λίστας.</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">Πατήστε δύο φορές για άνοιγμα της λίστας.</string>
-    <string name="sec_showme_text">Εμφάνιση</string>
+    <string name="sec_showme_text">Εμφάνισε με</string>
     <string name="second_screen_hold_text">%d σε ανα.</string>
     <string name="section_contacts_only_summary">Δημιουργία και διαχείριση επαφών.</string>
     <string name="select_callback_sim_card">Επιλογή κάρτας SIM για επιστροφή κλήσης</string>
@@ -868,6 +868,7 @@
     <string name="swipe_right_to_answer_call_with_video">Κάντε σάρωση δεξιά, για να απαντήσετε στην κλήση με βίντεο.</string>
     <string name="swipe_right_to_answer_call_without_video">Κάντε σάρωση δεξιά, για να απαντήσετε στην κλήση χωρίς βίντεο.</string>
     <string name="switch_rejected_by_mt">Το αίτημα αλλαγής σε κλήση βίντεο απορρίφθηκε.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Το αίτημα αλλαγής σε κλήση βίντεο απέτυχε.</string>
     <string name="switch_to_video_call_failed_tmo">Το αίτημα αλλαγής σε κλήση βίντεο απορρίφθηκε.</string>
     <string name="switch_to_voice_call_failed">Το αίτημα αλλαγής σε φωνητική κλήση απέτυχε.</string>
@@ -895,7 +896,7 @@
     <string name="upload_using_wlan_only">Αποστολή μόνο μέσω WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Αποστολή μέσω Wi-Fi ή δικτύου κινητής τηλεφωνίας</string>
     <string name="upload_wlan_and_mobile_nw">Αποστολή μέσω WLAN ή δικτύων κινητής τηλεφωνίας</string>
-    <string name="usa_att_connected_as_voice">Η κλήση συνδέθηκε μόνο ως φωνητική κλήση.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Πρόκειται να συμπληρώσετε το όριο για τη χρήση δεδομένων που έχετε ορίσει στη συσκευή. Η κλήση βίντεο απαιτεί δεδομένα.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Η κλήση δεν μπορεί να πραγματοποιηθεί μέσω Wi-Fi, γίνεται σύνδεση μέσω δικτύου κινητής τηλεφωνίας. Ισχύουν χρεώσεις φωνής και δεδομένων.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

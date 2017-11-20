@@ -117,9 +117,9 @@
 .method private DisplayWaitingCallDialogWhenDoNotHaveHoldingCall(I)V
     .locals 13
 
-    const v12, 0x7f0903b8
+    const v12, 0x7f0903b9
 
-    const v11, 0x7f0903b7
+    const v11, 0x7f0903b8
 
     const/4 v10, 0x2
 
@@ -201,7 +201,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_7
 
     invoke-virtual {v5}, Lcom/android/incallui/Call;->getChildCallIds()Ljava/util/List;
 
@@ -293,7 +293,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_9
 
     invoke-static {}, Lcom/android/incallui/util/CallTypeUtils;->hasVideoOneway()Z
 
@@ -307,7 +307,7 @@
 
     sget v1, Lcom/android/incallui/service/vt/SecVideoState;->VIDEO_ONEWAY_RX:I
 
-    if-ne p1, v1, :cond_7
+    if-ne p1, v1, :cond_8
 
     :cond_5
     sget-object v1, Lcom/android/incallui/AnswerPresenter;->TAG:Ljava/lang/String;
@@ -318,6 +318,7 @@
 
     move v1, v2
 
+    :cond_6
     :goto_3
     sget-object v5, Lcom/android/incallui/AnswerPresenter;->TAG:Ljava/lang/String;
 
@@ -365,11 +366,11 @@
 
     move-result-object v0
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_b
 
     const/4 v1, 0x5
 
-    if-ge v4, v1, :cond_9
+    if-ge v4, v1, :cond_b
 
     const/4 v1, 0x3
 
@@ -395,7 +396,7 @@
 
     move-result-object v1
 
-    const v5, 0x7f0903b9
+    const v5, 0x7f0903ba
 
     invoke-virtual {v1, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -425,7 +426,7 @@
 
     aput-object v0, v4, v10
 
-    const v0, 0x7f0903bc
+    const v0, 0x7f0903bd
 
     invoke-virtual {v7, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -455,7 +456,7 @@
 
     goto/16 :goto_1
 
-    :cond_6
+    :cond_7
     invoke-virtual {p0, v5}, Lcom/android/incallui/AnswerPresenter;->getCallerName(Lcom/android/incallui/Call;)Ljava/lang/String;
 
     move-result-object v0
@@ -464,21 +465,13 @@
 
     goto/16 :goto_2
 
-    :cond_7
+    :cond_8
     move v1, v3
 
     goto/16 :goto_3
 
-    :cond_8
+    :cond_9
     const-string v1, "support_merge_option_waitingcall_dialog"
-
-    invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_b
-
-    const-string v1, "jansky_info_for_tmo"
 
     invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
@@ -486,17 +479,49 @@
 
     if-eqz v1, :cond_a
 
+    const-string v1, "jansky_info_for_tmo"
+
+    invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_c
+
     invoke-static {v5, v6}, Lcom/android/incallui/util/InCallUtils;->checkIsShowMergeforJansky(Lcom/android/incallui/Call;Lcom/android/incallui/Call;)Z
 
     move-result v1
 
-    if-nez v1, :cond_a
+    if-nez v1, :cond_c
 
+    move v1, v2
+
+    :goto_4
+    const-string v6, "common_volte_in"
+
+    invoke-static {v6}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_6
+
+    invoke-static {v5}, Lcom/android/incallui/util/CallTypeUtils;->isPSDomain(Lcom/android/incallui/Call;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_6
+
+    sget-object v1, Lcom/android/incallui/AnswerPresenter;->TAG:Ljava/lang/String;
+
+    const-string v5, "not support merge option with CS call"
+
+    invoke-static {v1, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_a
     move v1, v2
 
     goto/16 :goto_3
 
-    :cond_9
+    :cond_b
     new-array v1, v10, [Ljava/lang/String;
 
     invoke-virtual {v7}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -531,7 +556,7 @@
 
     aput-object v0, v1, v3
 
-    const v0, 0x7f0903bc
+    const v0, 0x7f0903bd
 
     invoke-virtual {v7, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -557,23 +582,18 @@
 
     goto/16 :goto_1
 
-    :cond_a
+    :cond_c
     move v1, v3
 
-    goto/16 :goto_3
-
-    :cond_b
-    move v1, v2
-
-    goto/16 :goto_3
+    goto :goto_4
 .end method
 
 .method private DisplayWaitingCallDialogWhenHaveHoldingCall(I)V
     .locals 12
 
-    const v11, 0x7f0903bc
+    const v11, 0x7f0903bd
 
-    const v1, 0x7f0903b7
+    const v1, 0x7f0903b8
 
     const/4 v10, 0x2
 

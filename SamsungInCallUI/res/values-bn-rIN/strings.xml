@@ -100,7 +100,7 @@
     <string name="account_phone">ডিভাইস</string>
     <string name="acs">ভয়েস কল</string>
     <string name="active_calls">সক্রিয় কল</string>
-    <string name="add_reminder">রিমাই. যোগ</string>
+    <string name="add_reminder">রিমাইন্ডার যোগ করুন</string>
     <string name="agif_button_close_description">বন্ধ</string>
     <string name="agif_decline_message">দুঃখিত, আমি এখন কথা বলতে পারছি না।</string>
     <string name="agif_decline_sticker_header">একটি স্টিকার দ্বারা অস্বীকার করুন</string>
@@ -790,6 +790,7 @@ IVR কল স্ক্রীণের মেনু Dianhuabang নামক এ
     <string name="swipe_right_to_answer_call_with_video">ভিডিও সহ কলের উত্তর দিতে ডানে সোয়াইপ করুন।</string>
     <string name="swipe_right_to_answer_call_without_video">ভিডিও ছাড়া কলের উত্তর দিতে ডানে সোয়াইপ করুন।</string>
     <string name="switch_rejected_by_mt">ভিডিও কলে স্যুইচ করার অনুরোধ প্রত্যাখান করা হয়েছে।</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">ভিডিও কলে স্যুইচ করার অনুরোধ ব্যর্থ হয়েছে।</string>
     <string name="switch_to_video_call_failed_tmo">ভিডিও কলে স্যুইচ করার অনুরোধ অস্বীকৃত হয়েছে।</string>
     <string name="switch_to_voice_call_failed">ভয়েস কলে স্যুইচ করার অনুরোধ ব্যর্থ হয়েছে।</string>
@@ -817,7 +818,7 @@ IVR কল স্ক্রীণের মেনু Dianhuabang নামক এ
     <string name="upload_using_wlan_only">কেবলমাত্র WLAN-এর মাধ্যমে আপলোড</string>
     <string name="upload_wifi_and_mobile_nw">Wi-Fi বা মোবাইল নেটওয়ার্কের মাধ্যমে আপলোড করুন</string>
     <string name="upload_wlan_and_mobile_nw">WLAN বা মোবাইল নেটওয়ার্কের মাধ্যমে আপলোড করুন</string>
-    <string name="usa_att_connected_as_voice">কল কেবলমাত্র ভয়েস হিসাবে সংযুক্ত হয়েছে।</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">আপনার ডিভাইসে আপনি যে তথ্য ব্যবহার সেট করেছেন তা এর সীমায় পৌঁছাতে চলেছে। আপনার ভিডিও কলের জন্য তথ্য প্রয়োজন।</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Wi-Fi ব্যবহার করে কল করা যাচ্ছে না, সেলুলার নেটওয়ার্ক ব্যবহার করে সংযোগ করা হচ্ছে। ভয়েস এবং তথ্য চার্জগুলি প্রযোজ্য হবে।</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

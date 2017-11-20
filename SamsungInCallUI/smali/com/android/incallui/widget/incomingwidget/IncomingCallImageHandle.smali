@@ -823,7 +823,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a04a4
+    const v2, 0x7f0a04a2
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -885,7 +885,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a04a5
+    const v1, 0x7f0a04a3
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1151,7 +1151,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a04a5
+    const v1, 0x7f0a04a3
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1387,7 +1387,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a04a5
+    const v1, 0x7f0a04a3
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2864,7 +2864,7 @@
 
     iget-boolean v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->mCoverMode:Z
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_6
 
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
@@ -2905,9 +2905,15 @@
 
     const/16 v1, 0xb
 
-    if-ne v0, v1, :cond_5
+    if-ne v0, v1, :cond_6
 
     :cond_2
+    invoke-static {}, Lcom/android/incallui/bike/BikeModeUtils;->isBikeCall()Z
+
+    move-result v0
+
+    if-nez v0, :cond_6
+
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->mArrowContainer:Landroid/view/View;
 
     if-eqz v0, :cond_3
@@ -2956,9 +2962,20 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     invoke-static {}, Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->isAutoAnswered()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_5
+
+    iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->mHandler:Landroid/os/Handler;
+
+    invoke-virtual {v0, v5, v6, v7}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
+
+    :cond_5
+    invoke-static {}, Lcom/android/incallui/bike/BikeModeUtils;->isBikeCall()Z
 
     move-result v0
 
@@ -2970,7 +2987,7 @@
 
     goto :goto_0
 
-    :cond_5
+    :cond_6
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v0, v5, v6, v7}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
@@ -3396,7 +3413,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a01da
+    const v1, 0x7f0a01d6
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 

@@ -257,7 +257,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0905af
+    const v9, 0x7f0905b0
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -398,7 +398,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f040196
+    const v3, 0x7f040197
 
     invoke-static {p1}, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->access$200(Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;)Ljava/util/ArrayList;
 
@@ -509,7 +509,7 @@
     :cond_8
     invoke-virtual {p0, v7}, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;->setView(Landroid/view/View;)V
 
-    const v0, 0x7f0905b0
+    const v0, 0x7f0905b1
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;->setTitle(I)V
 

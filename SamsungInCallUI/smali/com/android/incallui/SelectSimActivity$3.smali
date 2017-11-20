@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnDismissListener;
+.implements Landroid/widget/AdapterView$OnItemClickListener;
 
 
 # annotations
@@ -33,12 +33,41 @@
 
 
 # virtual methods
-.method public onDismiss(Landroid/content/DialogInterface;)V
-    .locals 1
+.method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/widget/AdapterView",
+            "<*>;",
+            "Landroid/view/View;",
+            "IJ)V"
+        }
+    .end annotation
+
+    const/4 v0, 0x1
+
+    invoke-static {v0}, Lcom/android/incallui/SelectSimActivity;->access$102(Z)Z
 
     iget-object v0, p0, Lcom/android/incallui/SelectSimActivity$3;->this$0:Lcom/android/incallui/SelectSimActivity;
 
-    invoke-virtual {v0}, Lcom/android/incallui/SelectSimActivity;->finish()V
+    invoke-static {v0}, Lcom/android/incallui/SelectSimActivity;->access$200(Lcom/android/incallui/SelectSimActivity;)Ljava/util/List;
+
+    move-result-object v0
+
+    invoke-interface {v0, p3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/telecom/PhoneAccountHandle;
+
+    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v0, v2}, Lcom/android/incallui/InCallPresenter;->handleAccountSelection(Landroid/telecom/PhoneAccountHandle;Z)V
 
     return-void
 .end method

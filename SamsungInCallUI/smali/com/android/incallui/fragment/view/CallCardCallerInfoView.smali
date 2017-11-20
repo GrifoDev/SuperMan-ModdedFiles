@@ -261,7 +261,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a00ed
+    const v2, 0x7f0a00ea
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -468,7 +468,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a035a
+    const v2, 0x7f0a0356
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -687,7 +687,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a008d
+    const v2, 0x7f0a008a
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1464,7 +1464,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a008d
+    const v4, 0x7f0a008a
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1636,7 +1636,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a008d
+    const v2, 0x7f0a008a
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1995,7 +1995,7 @@
 
     move-result-object v0
 
-    const v4, 0x7f0a01de
+    const v4, 0x7f0a01da
 
     invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2050,7 +2050,11 @@
 
     move-result-object v0
 
-    invoke-virtual {p1, v0, v1}, Lcom/android/incallui/fragment/CallCardFragment;->onSelectAgifContents(Landroid/net/Uri;Z)V
+    invoke-virtual {v3}, Lcom/android/incallui/Call;->getAgifImageFile()Ljava/io/File;
+
+    move-result-object v2
+
+    invoke-virtual {p1, v0, v2, v1}, Lcom/android/incallui/fragment/CallCardFragment;->onSelectAgifContents(Landroid/net/Uri;Ljava/io/File;Z)V
 
     :cond_2
     :goto_2
@@ -2070,7 +2074,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f09067a
+    const v3, 0x7f09067b
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

@@ -14,25 +14,25 @@
 
 
 # static fields
-.field public static final abc_background_cache_hint_selector_material_dark:I = 0x7f0e0254
+.field public static final abc_background_cache_hint_selector_material_dark:I = 0x7f0e0257
 
-.field public static final abc_background_cache_hint_selector_material_light:I = 0x7f0e0255
+.field public static final abc_background_cache_hint_selector_material_light:I = 0x7f0e0258
 
-.field public static final abc_btn_colored_borderless_text_material:I = 0x7f0e0256
+.field public static final abc_btn_colored_borderless_text_material:I = 0x7f0e0259
 
-.field public static final abc_color_highlight_material:I = 0x7f0e0257
+.field public static final abc_color_highlight_material:I = 0x7f0e025a
 
 .field public static final abc_input_method_navigation_guard:I = 0x7f0e0001
 
-.field public static final abc_primary_text_disable_only_material_dark:I = 0x7f0e0258
+.field public static final abc_primary_text_disable_only_material_dark:I = 0x7f0e025b
 
-.field public static final abc_primary_text_disable_only_material_light:I = 0x7f0e0259
+.field public static final abc_primary_text_disable_only_material_light:I = 0x7f0e025c
 
-.field public static final abc_primary_text_material_dark:I = 0x7f0e025a
+.field public static final abc_primary_text_material_dark:I = 0x7f0e025d
 
-.field public static final abc_primary_text_material_light:I = 0x7f0e025b
+.field public static final abc_primary_text_material_light:I = 0x7f0e025e
 
-.field public static final abc_search_url_text:I = 0x7f0e025c
+.field public static final abc_search_url_text:I = 0x7f0e025f
 
 .field public static final abc_search_url_text_normal:I = 0x7f0e0002
 
@@ -40,23 +40,23 @@
 
 .field public static final abc_search_url_text_selected:I = 0x7f0e0004
 
-.field public static final abc_secondary_text_material_dark:I = 0x7f0e025d
+.field public static final abc_secondary_text_material_dark:I = 0x7f0e0260
 
-.field public static final abc_secondary_text_material_light:I = 0x7f0e025e
+.field public static final abc_secondary_text_material_light:I = 0x7f0e0261
 
-.field public static final abc_tint_btn_checkable:I = 0x7f0e025f
+.field public static final abc_tint_btn_checkable:I = 0x7f0e0262
 
-.field public static final abc_tint_default:I = 0x7f0e0260
+.field public static final abc_tint_default:I = 0x7f0e0263
 
-.field public static final abc_tint_edittext:I = 0x7f0e0261
+.field public static final abc_tint_edittext:I = 0x7f0e0264
 
-.field public static final abc_tint_seek_thumb:I = 0x7f0e0262
+.field public static final abc_tint_seek_thumb:I = 0x7f0e0265
 
-.field public static final abc_tint_spinner:I = 0x7f0e0263
+.field public static final abc_tint_spinner:I = 0x7f0e0266
 
-.field public static final abc_tint_switch_thumb:I = 0x7f0e0264
+.field public static final abc_tint_switch_thumb:I = 0x7f0e0267
 
-.field public static final abc_tint_switch_track:I = 0x7f0e0265
+.field public static final abc_tint_switch_track:I = 0x7f0e0268
 
 .field public static final accent_material_dark:I = 0x7f0e0005
 
@@ -150,22 +150,22 @@
 
 .field public static final ripple_material_light:I = 0x7f0e0124
 
-.field public static final secondary_text_default_material_dark:I = 0x7f0e020f
+.field public static final secondary_text_default_material_dark:I = 0x7f0e0212
 
-.field public static final secondary_text_default_material_light:I = 0x7f0e0210
+.field public static final secondary_text_default_material_light:I = 0x7f0e0213
 
-.field public static final secondary_text_disabled_material_dark:I = 0x7f0e0211
+.field public static final secondary_text_disabled_material_dark:I = 0x7f0e0214
 
-.field public static final secondary_text_disabled_material_light:I = 0x7f0e0212
+.field public static final secondary_text_disabled_material_light:I = 0x7f0e0215
 
-.field public static final switch_thumb_disabled_material_dark:I = 0x7f0e022b
+.field public static final switch_thumb_disabled_material_dark:I = 0x7f0e022e
 
-.field public static final switch_thumb_disabled_material_light:I = 0x7f0e022c
+.field public static final switch_thumb_disabled_material_light:I = 0x7f0e022f
 
-.field public static final switch_thumb_material_dark:I = 0x7f0e027f
+.field public static final switch_thumb_material_dark:I = 0x7f0e0282
 
-.field public static final switch_thumb_material_light:I = 0x7f0e0280
+.field public static final switch_thumb_material_light:I = 0x7f0e0283
 
-.field public static final switch_thumb_normal_material_dark:I = 0x7f0e022d
+.field public static final switch_thumb_normal_material_dark:I = 0x7f0e0230
 
-.field public static final switch_thumb_normal_material_light:I = 0x7f0e022e
+.field public static final switch_thumb_normal_material_light:I = 0x7f0e0231

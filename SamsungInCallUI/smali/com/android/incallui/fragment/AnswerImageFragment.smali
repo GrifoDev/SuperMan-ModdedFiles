@@ -113,7 +113,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a01da
+    const v2, 0x7f0a01d6
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -127,7 +127,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a0118
+    const v3, 0x7f0a0115
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -145,7 +145,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a01e3
+    const v4, 0x7f0a01df
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -576,11 +576,35 @@
 .method public onSystemUiVisibilityChange(I)V
     .locals 3
 
-    invoke-virtual {p0}, Lcom/android/incallui/fragment/AnswerImageFragment;->getContext()Landroid/content/Context;
+    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/android/incallui/util/ScreenControlUtils;->hasNavigationBar(Landroid/content/Context;)Z
+    const/4 v1, 0x0
+
+    const/4 v2, 0x0
+
+    invoke-static {v0, v1, v2}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/AnswerImageFragment;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/incallui/util/ScreenControlUtils;->hasNavigationBar(Landroid/content/Context;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Lcom/android/incallui/Call;->getState()I
+
+    move-result v0
+
+    invoke-static {v0}, Lcom/android/incallui/Call$State;->isIncoming(I)Z
 
     move-result v0
 
@@ -988,7 +1012,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0a0118
+    const v2, 0x7f0a0115
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1004,7 +1028,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f0a01da
+    const v3, 0x7f0a01d6
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1118,7 +1142,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a035b
+    const v2, 0x7f0a0357
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 

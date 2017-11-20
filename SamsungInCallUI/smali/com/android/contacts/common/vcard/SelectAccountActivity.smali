@@ -28,7 +28,7 @@
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 5
 
-    const v4, 0x7f0905a6
+    const v4, 0x7f0905a7
 
     const/4 v2, 0x1
 
@@ -145,7 +145,7 @@
 .method protected onCreateDialog(ILandroid/os/Bundle;)Landroid/app/Dialog;
     .locals 3
 
-    const v0, 0x7f0905a6
+    const v0, 0x7f0905a7
 
     if-ne p1, v0, :cond_1
 

@@ -178,7 +178,7 @@
     <string name="account_phone">Устройство</string>
     <string name="acs">Голосовой вызов</string>
     <string name="active_calls">Активный вызов</string>
-    <string name="add_reminder">Доб. напом.</string>
+    <string name="add_reminder">Добавить напоминание</string>
     <string name="agif_button_close_description">Закрыть</string>
     <string name="agif_decline_message">К сожалению, сейчас я не могу ответить.</string>
     <string name="agif_decline_sticker_header">Отклонение с отправкой стикера</string>
@@ -868,6 +868,7 @@
     <string name="swipe_right_to_answer_call_with_video">Проведите вправо для ответа на вызов с видео.</string>
     <string name="swipe_right_to_answer_call_without_video">Проведите вправо для ответа на вызов без видео.</string>
     <string name="switch_rejected_by_mt">Предложение переключиться на видеовызов отклонено.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Сбой предложения переключиться на видеовызов.</string>
     <string name="switch_to_video_call_failed_tmo">Предложение переключиться на видеовызов отклонено.</string>
     <string name="switch_to_voice_call_failed">Сбой предложения переключиться на голосовой вызов.</string>
@@ -895,7 +896,7 @@
     <string name="upload_using_wlan_only">Отправлять только через WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Загрузить с помощью Wi-Fi или мобильной сети</string>
     <string name="upload_wlan_and_mobile_nw">Отправлять через WLAN или мобильную сеть</string>
-    <string name="usa_att_connected_as_voice">Вызов подключен как голосовой.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">На вашем устройстве почти достигнут установленный лимит использования данных. Для совершения видеовызова требуется передавать данные.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Невозможно осуществить вызов по Wi-Fi, выполняется подключение по сотовой сети. За передачу голоса и данных будет взиматься плата.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

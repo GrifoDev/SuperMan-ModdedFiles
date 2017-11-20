@@ -279,7 +279,7 @@
 
     const/4 v0, 0x0
 
-    invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/DeviceUtils;->getIMEI()Ljava/lang/String;
+    invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/DeviceUtils;->getImei()Ljava/lang/String;
 
     move-result-object v1
 

@@ -102,11 +102,17 @@
 
     invoke-static {v1, v2, v4}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    iget-object v1, p0, Lcom/android/incallui/coreapps/CoreAppsManager$3;->this$0:Lcom/android/incallui/coreapps/CoreAppsManager;
+    new-instance v1, Landroid/view/ContextThemeWrapper;
 
-    invoke-static {v1}, Lcom/android/incallui/coreapps/CoreAppsManager;->access$000(Lcom/android/incallui/coreapps/CoreAppsManager;)Landroid/content/Context;
+    iget-object v2, p0, Lcom/android/incallui/coreapps/CoreAppsManager$3;->this$0:Lcom/android/incallui/coreapps/CoreAppsManager;
 
-    move-result-object v1
+    invoke-static {v2}, Lcom/android/incallui/coreapps/CoreAppsManager;->access$000(Lcom/android/incallui/coreapps/CoreAppsManager;)Landroid/content/Context;
+
+    move-result-object v2
+
+    const v3, 0x103012b
+
+    invoke-direct {v1, v2, v3}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
 
     const/4 v2, 0x0
 
@@ -124,7 +130,7 @@
 
     move-result-object v0
 
-    const-string v1, "agif_call_service"
+    const-string v1, "agif_calling_service"
 
     invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 

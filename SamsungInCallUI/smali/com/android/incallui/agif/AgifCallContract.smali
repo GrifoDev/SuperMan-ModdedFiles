@@ -121,6 +121,8 @@
 
 .field public static final STICKER_CENTER_PACKAGE_NAME:Ljava/lang/String; = "com.samsung.android.stickercenter"
 
+.field public static final TITLE:Ljava/lang/String; = "title"
+
 .field public static final _DATA:Ljava/lang/String; = "_data"
 
 .field public static final _ID:Ljava/lang/String; = "_ID"

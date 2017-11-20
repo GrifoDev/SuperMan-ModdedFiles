@@ -83,13 +83,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/incallui/InCallPresenter;->sendMsgCallListChange()V
-
-    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/incallui/InCallPresenter;->updateForegroundCallDetails()V
+    invoke-virtual {v0}, Lcom/android/incallui/InCallPresenter;->forceUpdateForegroundCall()V
 
     :goto_0
     return-void
@@ -108,13 +102,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/incallui/InCallPresenter;->sendMsgCallListChange()V
-
-    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/incallui/InCallPresenter;->updateForegroundCallDetails()V
+    invoke-virtual {v0}, Lcom/android/incallui/InCallPresenter;->forceUpdateForegroundCall()V
 
     goto :goto_0
 .end method

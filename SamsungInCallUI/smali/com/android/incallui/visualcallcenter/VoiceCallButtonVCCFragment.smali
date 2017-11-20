@@ -1189,7 +1189,7 @@
 
     invoke-direct {v1, v2, v3}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;I)V
 
-    const v2, 0x7f04019b
+    const v2, 0x7f04019c
 
     invoke-virtual {v0, v2, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -1216,7 +1216,7 @@
 
     if-eqz v1, :cond_2
 
-    const v1, 0x7f0905c0
+    const v1, 0x7f0905c1
 
     invoke-virtual {p0, v1}, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->getString(I)Ljava/lang/String;
 
@@ -1390,7 +1390,7 @@
 
     invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f04019a
+    const v2, 0x7f04019b
 
     invoke-virtual {v0, v2, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -1510,7 +1510,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090365
+    const v1, 0x7f090366
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2106,7 +2106,7 @@
 
     const/4 v3, 0x1
 
-    const v0, 0x7f040174
+    const v0, 0x7f040175
 
     invoke-virtual {p1, v0, p2, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -2367,7 +2367,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mPowerByBreeze:Landroid/widget/TextView;
 
-    const v0, 0x7f090614
+    const v0, 0x7f090615
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->getString(I)Ljava/lang/String;
 

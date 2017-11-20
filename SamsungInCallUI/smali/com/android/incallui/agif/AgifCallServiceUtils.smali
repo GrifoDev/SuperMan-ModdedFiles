@@ -294,41 +294,77 @@
 .end method
 
 .method public static isAvailableAgifCallService(Landroid/content/Context;)Z
-    .locals 3
+    .locals 5
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
-    move-result-object v1
+    move-result-object v0
 
     const/4 v2, 0x0
 
-    invoke-static {v1, v2, v0}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
+    invoke-static {v0, v2, v1}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
 
-    move-result-object v1
+    move-result-object v0
 
-    if-nez v1, :cond_1
+    if-nez v0, :cond_0
 
-    :cond_0
+    const/16 v0, 0x5a
+
     :goto_0
+    const-string v2, "AgifCallServiceUtils"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "isAvailableAgifCallService: Not Available cause-"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v2, v0}, Lcom/android/incallui/log/InCallUILog;->out(Ljava/lang/String;Ljava/lang/String;)V
+
+    move v0, v1
+
+    :goto_1
     return v0
 
-    :cond_1
+    :cond_0
     const-string v2, "agif_call_service"
 
     invoke-static {v2}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-nez v2, :cond_1
 
+    const/16 v0, 0x5b
+
+    goto :goto_0
+
+    :cond_1
     invoke-static {}, Lcom/android/incallui/util/PhoneModeUtils;->isEmergencyMode()Z
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-eqz v2, :cond_2
 
+    const/16 v0, 0x5c
+
+    goto :goto_0
+
+    :cond_2
     invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
 
     move-result-object v2
@@ -337,74 +373,103 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_3
 
     invoke-static {}, Lcom/android/incallui/util/InCallUtils;->isMobileKeyboardCovered()Z
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-eqz v2, :cond_4
 
+    :cond_3
+    const/16 v0, 0x5d
+
+    goto :goto_0
+
+    :cond_4
     const-string v2, "support_smart_call"
 
     invoke-static {v2}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_5
 
-    invoke-static {v1}, Lcom/android/incallui/smartcall/SmartCallUtil;->getSmartCallState(Lcom/android/incallui/Call;)I
+    invoke-static {v0}, Lcom/android/incallui/smartcall/SmartCallUtil;->getSmartCallState(Lcom/android/incallui/Call;)I
 
-    move-result v1
+    move-result v0
 
     const/4 v2, 0x2
 
-    if-ge v1, v2, :cond_0
+    if-lt v0, v2, :cond_5
 
-    :cond_2
-    const-string v1, "support_spam_call"
+    const/16 v0, 0x5e
 
-    invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+    goto :goto_0
 
-    move-result v1
+    :cond_5
+    const-string v0, "support_spam_call"
 
-    if-eqz v1, :cond_3
+    invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_6
 
     invoke-static {p0}, Lcom/android/incallui/util/SpamCallUtils;->getisSpam(Landroid/content/Context;)Z
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_0
+    if-eqz v0, :cond_6
 
-    :cond_3
-    invoke-static {}, Lcom/android/incallui/util/DesktopModeManager;->isDesktopMode()Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/incallui/CallList;->hasIncomingCall()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_4
-
-    const-string v1, "agif_reject_service"
-
-    invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    :cond_4
-    const/4 v0, 0x1
+    const/16 v0, 0x5f
 
     goto :goto_0
+
+    :cond_6
+    invoke-static {}, Lcom/android/incallui/util/DesktopModeManager;->isDesktopMode()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_7
+
+    const/16 v0, 0x60
+
+    goto :goto_0
+
+    :cond_7
+    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/incallui/CallList;->hasIncomingCall()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_8
+
+    const-string v0, "agif_reject_service"
+
+    invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_8
+
+    const/16 v0, 0x61
+
+    goto/16 :goto_0
+
+    :cond_8
+    const-string v0, "AgifCallServiceUtils"
+
+    const-string v1, "isAvailableAgifCallService: Available"
+
+    invoke-static {v0, v1}, Lcom/android/incallui/log/InCallUILog;->out(Ljava/lang/String;Ljava/lang/String;)V
+
+    const/4 v0, 0x1
+
+    goto :goto_1
 .end method
 
 .method public static needToShowAgifFragment(Landroid/content/Context;)Z
@@ -430,137 +495,215 @@
 .end method
 
 .method public static needToShowAgifFragment(Landroid/content/Context;Lcom/android/incallui/Call;)Z
-    .locals 5
+    .locals 6
 
-    const/4 v1, 0x1
+    const/16 v2, 0xa
 
-    const/4 v0, 0x0
+    const/16 v0, 0x9
 
-    if-nez p1, :cond_1
+    const/4 v3, 0x1
+
+    const/4 v1, 0x0
+
+    if-nez p1, :cond_0
+
+    :goto_0
+    return v1
 
     :cond_0
-    :goto_0
-    return v0
-
-    :cond_1
-    const-string v2, "AgifCallServiceUtils"
-
-    const-string v3, "needToShowAgifFragment()"
-
-    invoke-static {v2, v3}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
-    move-result-object v2
+    move-result-object v4
 
-    const-string v3, "agif_calling_service"
+    const-string v5, "agif_calling_service"
 
-    invoke-static {v3}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+    invoke-static {v5}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
-    move-result v3
+    move-result v5
 
-    if-eqz v3, :cond_0
-
-    invoke-static {}, Lcom/android/incallui/coreapps/CoreAppsManager;->getInstance()Lcom/android/incallui/coreapps/CoreAppsManager;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p1}, Lcom/android/incallui/coreapps/CoreAppsManager;->isAgifEnabledWithOpponent(Lcom/android/incallui/Call;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/android/incallui/UiAdapter;->isInMultiWindowMode()Z
-
-    move-result v3
-
-    if-nez v3, :cond_0
-
-    invoke-static {p1}, Lcom/android/incallui/util/CallTypeUtils;->hasVideoState(Lcom/android/incallui/Call;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_0
-
-    invoke-virtual {p1}, Lcom/android/incallui/Call;->getState()I
-
-    move-result v3
-
-    const/16 v4, 0x9
-
-    if-eq v3, v4, :cond_0
-
-    invoke-virtual {p1}, Lcom/android/incallui/Call;->getState()I
-
-    move-result v3
-
-    const/16 v4, 0xa
-
-    if-eq v3, v4, :cond_0
-
-    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/android/incallui/CallList;->hasIncomingCall()Z
-
-    move-result v3
-
-    if-nez v3, :cond_0
-
-    invoke-virtual {p1}, Lcom/android/incallui/Call;->getState()I
-
-    move-result v3
-
-    invoke-static {v3}, Lcom/android/incallui/Call$State;->isDialing(I)Z
-
-    move-result v3
-
-    if-nez v3, :cond_2
-
-    invoke-virtual {v2}, Lcom/android/incallui/CallList;->getLiveCallCounts()I
-
-    move-result v2
-
-    if-gt v2, v1, :cond_0
-
-    :cond_2
-    invoke-static {}, Lcom/android/incallui/util/InCallUtils;->needToShowMultiparty()Z
-
-    move-result v2
-
-    if-nez v2, :cond_0
-
-    invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/incallui/UiAdapter;->isShowVZWInfoBanner()Z
-
-    move-result v2
-
-    if-nez v2, :cond_0
-
-    invoke-static {p0}, Lcom/android/incallui/agif/AgifCallServiceUtils;->isAvailableAgifCallService(Landroid/content/Context;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    const-string v0, "AgifCallServiceUtils"
-
-    const-string v2, "needToShowAgifFragment is true."
-
-    invoke-static {v0, v2, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+    if-nez v5, :cond_2
 
     move v0, v1
 
+    :cond_1
+    :goto_1
+    const-string v2, "AgifCallServiceUtils"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "needToShowAgifFragment: Not Available cause-"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v2, v0}, Lcom/android/incallui/log/InCallUILog;->out(Ljava/lang/String;Ljava/lang/String;)V
+
     goto :goto_0
+
+    :cond_2
+    invoke-static {}, Lcom/android/incallui/coreapps/CoreAppsManager;->getInstance()Lcom/android/incallui/coreapps/CoreAppsManager;
+
+    move-result-object v5
+
+    invoke-virtual {v5, p1}, Lcom/android/incallui/coreapps/CoreAppsManager;->isAgifEnabledWithOpponent(Lcom/android/incallui/Call;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_3
+
+    const/4 v0, 0x2
+
+    goto :goto_1
+
+    :cond_3
+    invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Lcom/android/incallui/UiAdapter;->isInMultiWindowMode()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_4
+
+    const/4 v0, 0x3
+
+    goto :goto_1
+
+    :cond_4
+    invoke-static {p1}, Lcom/android/incallui/util/CallTypeUtils;->hasVideoState(Lcom/android/incallui/Call;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_5
+
+    const/4 v0, 0x4
+
+    goto :goto_1
+
+    :cond_5
+    invoke-virtual {p1}, Lcom/android/incallui/Call;->getState()I
+
+    move-result v5
+
+    if-eq v5, v0, :cond_6
+
+    invoke-virtual {p1}, Lcom/android/incallui/Call;->getState()I
+
+    move-result v5
+
+    if-ne v5, v2, :cond_7
+
+    :cond_6
+    const/4 v0, 0x5
+
+    goto :goto_1
+
+    :cond_7
+    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Lcom/android/incallui/CallList;->hasIncomingCall()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_8
+
+    const/4 v0, 0x6
+
+    goto :goto_1
+
+    :cond_8
+    invoke-virtual {p1}, Lcom/android/incallui/Call;->getState()I
+
+    move-result v5
+
+    invoke-static {v5}, Lcom/android/incallui/Call$State;->isDialing(I)Z
+
+    move-result v5
+
+    if-nez v5, :cond_9
+
+    invoke-virtual {v4}, Lcom/android/incallui/CallList;->getLiveCallCounts()I
+
+    move-result v4
+
+    if-gt v4, v3, :cond_a
+
+    :cond_9
+    invoke-static {}, Lcom/android/incallui/util/InCallUtils;->needToShowMultiparty()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_b
+
+    :cond_a
+    const/4 v0, 0x7
+
+    goto :goto_1
+
+    :cond_b
+    invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/android/incallui/UiAdapter;->isShowVZWInfoBanner()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_c
+
+    const/16 v0, 0x8
+
+    goto :goto_1
+
+    :cond_c
+    invoke-static {p0}, Lcom/android/incallui/agif/AgifCallServiceUtils;->isAvailableAgifCallService(Landroid/content/Context;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    const-string v0, "bike_mode"
+
+    invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_d
+
+    invoke-static {}, Lcom/android/incallui/bike/BikeModeUtils;->isBikeModeOn()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_d
+
+    move v0, v2
+
+    goto/16 :goto_1
+
+    :cond_d
+    const-string v0, "AgifCallServiceUtils"
+
+    const-string v1, "needToShowAgifFragment: Available"
+
+    invoke-static {v0, v1}, Lcom/android/incallui/log/InCallUILog;->out(Ljava/lang/String;Ljava/lang/String;)V
+
+    move v1, v3
+
+    goto/16 :goto_0
 .end method
 
 .method public static needToShowAppUpdateDialog()Z
@@ -1315,7 +1458,7 @@
     :cond_2
     const-string v0, "rejected_fullscreen"
 
-    invoke-static {v2, v0}, Lcom/android/incallui/util/InCallUtils;->sendBroadcastReminder(Landroid/content/Context;Ljava/lang/String;)V
+    invoke-static {v2, v0}, Lcom/android/incallui/util/InCallUtils;->startActivitySendToReminder(Landroid/content/Context;Ljava/lang/String;)V
 
     goto :goto_0
 .end method

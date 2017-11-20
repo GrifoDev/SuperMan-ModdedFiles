@@ -313,7 +313,7 @@
     :cond_2
     iget-object v1, v0, Lcom/android/incallui/agif/AgifRecommendImageAdapter$ViewHolder;->contentPrice:Landroid/widget/TextView;
 
-    const v3, 0x7f0904f0
+    const v3, 0x7f0904f1
 
     invoke-virtual {v1, v3}, Landroid/widget/TextView;->setText(I)V
 

@@ -7,7 +7,7 @@
             <TextView android:textSize="17.0dip" android:textColor="#ffe8410e" android:layout_gravity="end" android:id="@id/regi_countdown" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="00:00" />
             <LinearLayout android:orientation="horizontal" android:id="@id/phone_number" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dip">
                 <LinearLayout android:focusable="false" android:clickable="true" android:descendantFocusability="afterDescendants" android:layout_width="0.0dip" android:layout_height="38.0dip" android:layout_weight="1.0">
-                    <EditText android:textSize="17.0dip" android:textStyle="bold" android:layout_gravity="center" android:id="@id/acs_code" android:focusable="true" android:clickable="true" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="0.7" android:inputType="phone" android:fontFamily="sans-serif-light" />
+                    <EditText android:textSize="17.0dip" android:textStyle="bold" android:layout_gravity="center" android:id="@id/acs_code" android:focusable="true" android:clickable="true" android:layout_width="0.0dip" android:layout_height="wrap_content" android:maxLength="16" android:layout_weight="0.7" android:inputType="phone" android:fontFamily="sans-serif-light" />
                 </LinearLayout>
             </LinearLayout>
             <Button android:enabled="false" android:textSize="16.0sp" android:layout_gravity="center" android:id="@id/resend_acs" android:focusable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="@string/resend" android:fontFamily="sec-roboto-light" />

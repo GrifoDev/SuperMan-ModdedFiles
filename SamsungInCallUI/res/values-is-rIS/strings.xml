@@ -120,7 +120,7 @@
     <string name="account_phone">Tæki</string>
     <string name="acs">Símtal</string>
     <string name="active_calls">Símtal í gangi</string>
-    <string name="add_reminder">Ný áminning</string>
+    <string name="add_reminder">Bæta við áminningu</string>
     <string name="agif_button_close_description">Loka</string>
     <string name="agif_decline_message">Því miður get ég ekki talað núna.</string>
     <string name="agif_decline_sticker_header">Hafna með límmiða</string>
@@ -810,6 +810,7 @@ mín megin"</string>
     <string name="swipe_right_to_answer_call_with_video">Strjúktu til hægri til að svara símtali með myndskeiði.</string>
     <string name="swipe_right_to_answer_call_without_video">Strjúktu til hægri til að svara símtali án myndskeiðs.</string>
     <string name="switch_rejected_by_mt">Beiðni um að skipta í myndsímtal hafnað.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Beiðni um að skipta yfir í myndsímtal mistókst.</string>
     <string name="switch_to_video_call_failed_tmo">Beiðni um að skipta yfir í myndsímtal var hafnað.</string>
     <string name="switch_to_voice_call_failed">Beiðni um að skipta yfir í símtal mistókst.</string>
@@ -837,7 +838,7 @@ mín megin"</string>
     <string name="upload_using_wlan_only">Hlaða aðeins upp um WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Hlaða upp um Wi-Fi eða farsímakerfi</string>
     <string name="upload_wlan_and_mobile_nw">Hlaða upp um WLAN eða farsímakerfi</string>
-    <string name="usa_att_connected_as_voice">Símtal tengt sem venjulegt símtal.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Gagnanotkunin sem stillt er í tækinu er að ná hámarki. Myndsímtalið krefst gagna.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Ekki tókst að hringja í gegnum Wi-Fi. Tengist farsímakerfi. Gjöld verða innheimt fyrir símtöl og gagnanotkun.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

@@ -4,27 +4,27 @@
 
 # direct methods
 .method public static a(I)J
-    .locals 4
-
-    new-instance v0, Ljava/util/GregorianCalendar;
-
-    invoke-direct {v0}, Ljava/util/GregorianCalendar;-><init>()V
+    .locals 6
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v2
+    move-result-wide v0
 
-    invoke-virtual {v0, v2, v3}, Ljava/util/GregorianCalendar;->setTimeInMillis(J)V
+    invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    const/4 v1, 0x5
+    move-result-object v0
 
-    mul-int/lit8 v2, p0, -0x1
-
-    invoke-virtual {v0, v1, v2}, Ljava/util/GregorianCalendar;->add(II)V
-
-    invoke-virtual {v0}, Ljava/util/GregorianCalendar;->getTimeInMillis()J
+    invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v0
+
+    int-to-long v2, p0
+
+    const-wide/32 v4, 0x5265c00
+
+    mul-long/2addr v2, v4
+
+    sub-long/2addr v0, v2
 
     return-wide v0
 .end method
@@ -65,29 +65,43 @@
 .end method
 
 .method public static a(ILjava/lang/Long;)Z
-    .locals 4
+    .locals 8
 
-    new-instance v0, Ljava/util/GregorianCalendar;
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    invoke-direct {v0}, Ljava/util/GregorianCalendar;-><init>()V
+    move-result-wide v0
+
+    invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
+
+    move-result-wide v0
 
     invoke-virtual {p1}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v2
 
-    invoke-virtual {v0, v2, v3}, Ljava/util/GregorianCalendar;->setTimeInMillis(J)V
+    int-to-long v4, p0
 
-    const/4 v1, 0x5
+    const-wide/32 v6, 0x5265c00
 
-    invoke-virtual {v0, v1, p0}, Ljava/util/GregorianCalendar;->add(II)V
+    mul-long/2addr v4, v6
 
-    new-instance v1, Ljava/util/GregorianCalendar;
+    add-long/2addr v2, v4
 
-    invoke-direct {v1}, Ljava/util/GregorianCalendar;-><init>()V
+    cmp-long v0, v0, v2
 
-    invoke-virtual {v1, v0}, Ljava/util/GregorianCalendar;->after(Ljava/lang/Object;)Z
+    if-lez v0, :cond_0
 
-    move-result v0
+    const/4 v0, 0x1
 
+    :goto_0
     return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method

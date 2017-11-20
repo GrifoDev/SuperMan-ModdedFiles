@@ -896,6 +896,30 @@
     goto :goto_0
 .end method
 
+.method public isTabletType()Z
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/incallui/service/vt/VideoCallMetrics;->getVideoUXMode()I
+
+    move-result v0
+
+    invoke-static {v0}, Lcom/android/incallui/service/vt/VideoCallMetrics$VideoUXMode;->isTabletType(I)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public isTabletType(I)Z
+    .locals 1
+
+    invoke-static {p1}, Lcom/android/incallui/service/vt/VideoCallMetrics$VideoUXMode;->isTabletType(I)Z
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public needToHideIndicatorArea()Z
     .locals 1
 

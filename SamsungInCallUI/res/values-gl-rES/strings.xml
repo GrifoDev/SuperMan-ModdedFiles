@@ -119,7 +119,7 @@
     <string name="account_phone">Dispositivo</string>
     <string name="acs">Chamada de voz</string>
     <string name="active_calls">Chamada activa</string>
-    <string name="add_reminder">Enga. recordat.</string>
+    <string name="add_reminder">Engadir recordatorio</string>
     <string name="agif_button_close_description">Cerrar</string>
     <string name="agif_decline_message">Non podo falar agora.</string>
     <string name="agif_decline_sticker_header">Rexeitar cun adhesivo</string>
@@ -809,6 +809,7 @@ unidireccional"</string>
     <string name="swipe_right_to_answer_call_with_video">Pasa o dedo á dereita para responder á chamada con vídeo.</string>
     <string name="swipe_right_to_answer_call_without_video">Pasa o dedo á dereita para responder á chamada sen vídeo.</string>
     <string name="switch_rejected_by_mt">Solicitude de cambio a unha videochamada rexeitada</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Produciuse un erro na solicitude de cambio a unha videochamada.</string>
     <string name="switch_to_video_call_failed_tmo">Rexeitouse a solicitude de cambio a videochamada.</string>
     <string name="switch_to_voice_call_failed">Produciuse un erro na solicitude de cambio a unha chamada de voz.</string>
@@ -836,7 +837,7 @@ unidireccional"</string>
     <string name="upload_using_wlan_only">Cargar só por WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Cargar por Wi-Fi ou rede móbil</string>
     <string name="upload_wlan_and_mobile_nw">Cargar por WLAN ou rede móbil</string>
-    <string name="usa_att_connected_as_voice">Chamada conectada como só de voz.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Estás a punto de alcanzar o límite do uso de datos que definiches no dispositivo. A Videochamada require datos.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Non se pode realizar a chamada a través da Wi-Fi. Está a ser conectada a través da rede móbil. Aplicaranse tarifas de voz e datos.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

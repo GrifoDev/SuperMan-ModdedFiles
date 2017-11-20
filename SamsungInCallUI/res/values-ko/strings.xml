@@ -192,14 +192,14 @@
     <string name="agif_pickers_tab_select_description">선택됨</string>
     <string name="agif_pickers_title">스티커 보내기</string>
     <string name="agif_pickers_title_recommended">추천</string>
-    <string name="agif_read_permission_description">전화 앱에서 AGIF 콘텐츠를 읽을 수 있도록 허용합니다.</string>
-    <string name="agif_read_permission_label">AGIF 콘텐츠 읽기</string>
+    <string name="agif_read_permission_description">전화 앱에서 움직이는 GIF 사진 콘텐츠를 읽을 수 있도록 허용합니다.</string>
+    <string name="agif_read_permission_label">움직이는 GIF 사진 콘텐츠 읽기</string>
     <string name="agif_receive_no_id">스티커를 표시할 수 없습니다. 통화를 종료한 후 %s 앱을 업데이트하세요.</string>
     <string name="agif_receive_no_id_upsupport_update">스티커를 표시할 수 없습니다. 다음 시스템 업데이트 후 더 다양한 스티커를 사용할 수 있습니다.</string>
     <string name="agif_sent_fail_message">움직이는 GIF 파일을 보낼 수 없습니다. 나중에 다시 시도하세요.</string>
     <string name="agif_sent_toast">스티커를 보냈습니다.</string>
-    <string name="agif_write_permission_description">전화 앱에서 AGIF 콘텐츠를 수정할 수 있도록 허용합니다.</string>
-    <string name="agif_write_permission_label">AGIF 콘텐츠 수정</string>
+    <string name="agif_write_permission_description">전화 앱에서 움직이는 GIF 사진 콘텐츠를 수정할 수 있도록 허용합니다.</string>
+    <string name="agif_write_permission_label">움직이는 GIF 사진 콘텐츠 수정</string>
     <string name="agree">동의</string>
     <string name="am_cover_toggle_string">전화를 받거나 거절하려면 커버를 여세요.</string>
     <string name="am_device_memory_full_warning">음성 메시지 저장공간이 부족하여 [메시지로 자동 전화받기]를 사용할 수 없습니다. 일부 항목을 삭제하고 다시 시도하세요.</string>
@@ -456,7 +456,7 @@
     <string name="kor_psvt_session_403_cause2065_single">현재 접속이 원활하지 않아 일시적으로 음성 및 영상통화를 사용할 수 없습니다. 전원을 껐다 켠 후에 사용해 보시고 문제가 지속될 경우 고객 서비스 센터(%s)로 문의해 주세요.</string>
     <string name="kor_psvt_session_403_cause2065_vzw">일시적인 오류로 지금은 통화할 수 없습니다. 모바일 데이터 기능을 해제하고 실행한 후 다시 시도하세요.</string>
     <string name="kor_psvt_session_403_cause4021">그룹 통화는 가입해야 이용할 수 있습니다. 가입하려면 고객센터에 문의하세요.</string>
-    <string name="kor_psvt_session_403_cause4021_single">등록이 필요합니다. 전원을 껐다 켠 후에도 문제가 지속되면 고객 서비스 센터(%s)로 문의하세요.</string>
+    <string name="kor_psvt_session_403_cause4021_single">등록이 필요합니다. 전원을 껐다 켠 후에도 문제가 지속될 경우 고객 서비스 센터(%s)로 문의하세요.</string>
     <string name="kor_psvt_session_403_cause4053">(403)일시적으로 고품질 음성통화(HD Voice)를 사용할 수 없거나 발신이 제한된 사용자입니다.</string>
     <string name="kor_psvt_session_403_cause4053_single">일시적으로 통화가 불가능하거나 발신이 금지된 고객입니다. 고객 서비스 센터(%s)로 문의해 주세요.</string>
     <string name="kor_psvt_session_403_divert_auto_lgt_uicc">상대방과의 영상통화 이용이 원활하지 않아 음성통화로 연결을 시도합니다.</string>
@@ -525,7 +525,7 @@
     <string name="kor_volte_session_403_cause2065_single">현재 접속이 원활하지 않아 일시적으로 음성 및 영상통화를 사용할 수 없습니다. 전원을 껐다 켠 후에 사용해 보시고 문제가 지속될 경우 고객 서비스 센터(%s)로 문의해 주세요.</string>
     <string name="kor_volte_session_403_cause2065_vzw">일시적인 오류로 지금은 통화할 수 없습니다. 모바일 데이터 기능을 해제하고 실행한 후 다시 시도하세요.</string>
     <string name="kor_volte_session_403_cause4021">그룹 통화는 가입해야 이용할 수 있습니다. 가입하려면 고객센터에 문의하세요.</string>
-    <string name="kor_volte_session_403_cause4021_single">등록이 필요합니다. 전원을 껐다 켠 후에도 문제가 지속되면 고객 서비스 센터(%s)로 문의하세요.</string>
+    <string name="kor_volte_session_403_cause4021_single">등록이 필요합니다. 전원을 껐다 켠 후에도 문제가 지속될 경우 고객 서비스 센터(%s)로 문의하세요.</string>
     <string name="kor_volte_session_403_cause4053">(403)일시적으로 고품질 음성통화(HD Voice)를 사용할 수 없거나 발신이 제한된 사용자입니다.</string>
     <string name="kor_volte_session_403_cause4053_single">일시적으로 통화가 불가능하거나 발신이 금지된 고객입니다. 고객 서비스 센터(%s)로 문의해 주세요.</string>
     <string name="kor_volte_session_403_ktt">수신인에게 HD 음성통화를 걸 수 없습니다. 일반통화로 전환합니다.</string>
@@ -868,6 +868,7 @@ IVR 통화 화면 메뉴는 제3자 서비스 제공자인 Dianhuabang에서 제
     <string name="swipe_right_to_answer_call_with_video">영상통화로 받으려면 오른쪽으로 미세요.</string>
     <string name="swipe_right_to_answer_call_without_video">음성통화로 받으려면 오른쪽으로 미세요.</string>
     <string name="switch_rejected_by_mt">영상통화 전환 요청을 거절했습니다.</string>
+    <string name="switch_rejected_by_mt_att">영상통화를 사용할 수 없어 음성통화로 연결했습니다.</string>
     <string name="switch_to_video_call_failed">영상통화 전환을 요청하지 못했습니다.</string>
     <string name="switch_to_video_call_failed_tmo">상대방이 영상통화 전환 요청을 거절했습니다.</string>
     <string name="switch_to_voice_call_failed">음성통화 전환을 요청하지 못했습니다.</string>
@@ -895,7 +896,7 @@ IVR 통화 화면 메뉴는 제3자 서비스 제공자인 Dianhuabang에서 제
     <string name="upload_using_wlan_only">WLAN 연결 시 업로드</string>
     <string name="upload_wifi_and_mobile_nw">Wi-Fi 또는 모바일 네트워크로 업로드</string>
     <string name="upload_wlan_and_mobile_nw">WLAN 또는 모바일 네트워크로 업로드</string>
-    <string name="usa_att_connected_as_voice">음성통화로 연결했습니다.</string>
+    <string name="usa_att_connected_as_voice">영상통화를 사용할 수 없어 음성통화로 연결했습니다.</string>
     <string name="usa_att_data_usage_charge_alert">설정된 데이터 사용한도에 거의 도달했습니다. 영상통화를 하려면 데이터를 사용해야 합니다.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Wi-Fi 네트워크에서는 전화를 걸 수 없습니다. 이동통신 네트워크를 이용하세요. 음성 및 데이터 요금이 적용됩니다.</string>
     <string name="usa_att_modify_receive_to_video">%s 님이 영상통화 전환을 요청합니다.</string>

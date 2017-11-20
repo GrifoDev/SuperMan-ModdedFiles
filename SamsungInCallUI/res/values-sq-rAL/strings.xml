@@ -120,7 +120,7 @@
     <string name="account_phone">Pajisja</string>
     <string name="acs">Thirrje zanore</string>
     <string name="active_calls">Telefonatë aktive</string>
-    <string name="add_reminder">Shto përkujt.</string>
+    <string name="add_reminder">Shto përkujtesë</string>
     <string name="agif_button_close_description">Mbyll</string>
     <string name="agif_decline_message">"Më fal, s'flas dot tani."</string>
     <string name="agif_decline_sticker_header">Refuzo me adeziv</string>
@@ -810,6 +810,7 @@ njëkahshe"</string>
     <string name="swipe_right_to_answer_call_with_video">Rrëshqit djathtas për t‘iu përgjigjur thirrjes me video.</string>
     <string name="swipe_right_to_answer_call_without_video">Rrëshqit djathtas për t‘iu përgjigjur thirrjes pa video.</string>
     <string name="switch_rejected_by_mt">Kërkesa për kalim në videotelefonatë u refuzua.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Kërkesa për të kaluar në thirrje video dështoi.</string>
     <string name="switch_to_video_call_failed_tmo">Kërkesa për kalim në thirrje video u refuzua.</string>
     <string name="switch_to_voice_call_failed">Kërkesa për të kaluar në thirrje zanore dështoi.</string>
@@ -837,7 +838,7 @@ njëkahshe"</string>
     <string name="upload_using_wlan_only">Ngarko vetëm me WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Ngarko me Wi-Fi ose rrjetin celular</string>
     <string name="upload_wlan_and_mobile_nw">Ngarko me WLAN ose rrjet celular</string>
-    <string name="usa_att_connected_as_voice">Thirrja u lidh si zanore vetëm.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Përdorimi i të dhënave që ke caktuar për këtë pajisje është duke arritur cakun e lejuar. Thirrja jote video ka nevojë për të dhëna.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Thirrja nuk mund të kryhet përmes Wi-Fi, po lidhem me rrjetin celular. Do të zbatohen tarifa zanore dhe për të dhëna.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

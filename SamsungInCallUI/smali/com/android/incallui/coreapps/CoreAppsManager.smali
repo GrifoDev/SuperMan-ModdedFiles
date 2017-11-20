@@ -21,6 +21,8 @@
 
 
 # instance fields
+.field private final MESSAGE_CHANGE_ENABLE_STATE:I
+
 .field private isDeregisterRunning:Z
 
 .field private isRegisterRunning:Z
@@ -90,6 +92,8 @@
     .end annotation
 .end field
 
+.field private mProfileSharingStatus:I
+
 .field private mRegisterReapeatCount:I
 
 
@@ -97,15 +101,17 @@
 .method constructor <init>()V
     .locals 6
 
-    const/4 v5, 0x1
+    const/4 v5, 0x0
 
-    const/4 v4, 0x0
+    const/4 v4, 0x1
 
     const/4 v3, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object v4, p0, Lcom/android/incallui/coreapps/CoreAppsManager;->mContext:Landroid/content/Context;
+    iput v4, p0, Lcom/android/incallui/coreapps/CoreAppsManager;->MESSAGE_CHANGE_ENABLE_STATE:I
+
+    iput-object v5, p0, Lcom/android/incallui/coreapps/CoreAppsManager;->mContext:Landroid/content/Context;
 
     new-instance v0, Ljava/util/concurrent/ConcurrentHashMap;
 
@@ -113,7 +119,7 @@
 
     const v2, 0x3f666666    # 0.9f
 
-    invoke-direct {v0, v1, v2, v5}, Ljava/util/concurrent/ConcurrentHashMap;-><init>(IFI)V
+    invoke-direct {v0, v1, v2, v4}, Ljava/util/concurrent/ConcurrentHashMap;-><init>(IFI)V
 
     invoke-static {v0}, Ljava/util/Collections;->newSetFromMap(Ljava/util/Map;)Ljava/util/Set;
 
@@ -121,9 +127,9 @@
 
     iput-object v0, p0, Lcom/android/incallui/coreapps/CoreAppsManager;->mListeners:Ljava/util/Set;
 
-    iput-object v4, p0, Lcom/android/incallui/coreapps/CoreAppsManager;->mContactUri:Landroid/net/Uri;
+    iput-object v5, p0, Lcom/android/incallui/coreapps/CoreAppsManager;->mContactUri:Landroid/net/Uri;
 
-    iput-object v4, p0, Lcom/android/incallui/coreapps/CoreAppsManager;->mContactUriforSend:Landroid/net/Uri;
+    iput-object v5, p0, Lcom/android/incallui/coreapps/CoreAppsManager;->mContactUriforSend:Landroid/net/Uri;
 
     iput-boolean v3, p0, Lcom/android/incallui/coreapps/CoreAppsManager;->mIsRegistered:Z
 
@@ -134,6 +140,10 @@
     iput-boolean v3, p0, Lcom/android/incallui/coreapps/CoreAppsManager;->isDeregisterRunning:Z
 
     iput-boolean v3, p0, Lcom/android/incallui/coreapps/CoreAppsManager;->mIsNeedToSendAskMessage:Z
+
+    const/4 v0, -0x1
+
+    iput v0, p0, Lcom/android/incallui/coreapps/CoreAppsManager;->mProfileSharingStatus:I
 
     new-instance v0, Lcom/android/incallui/coreapps/CoreAppsManager$3;
 
@@ -155,7 +165,7 @@
 
     const-string v1, "CoreAppsManager created"
 
-    invoke-static {v0, v1, v5}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v0, v1, v4}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
     return-void
 .end method
@@ -168,15 +178,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$100(Lcom/android/incallui/coreapps/CoreAppsManager;Landroid/net/Uri;Lcom/android/incallui/Call;Ljava/io/File;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/incallui/coreapps/CoreAppsManager;->notifyMessageWithSound(Landroid/net/Uri;Lcom/android/incallui/Call;Ljava/io/File;)V
-
-    return-void
-.end method
-
-.method static synthetic access$200(Lcom/android/incallui/coreapps/CoreAppsManager;Ljava/lang/String;)V
+.method static synthetic access$100(Lcom/android/incallui/coreapps/CoreAppsManager;Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/incallui/coreapps/CoreAppsManager;->changeEnableState(Ljava/lang/String;)V
@@ -184,7 +186,23 @@
     return-void
 .end method
 
-.method static synthetic access$302(Lcom/android/incallui/coreapps/CoreAppsManager;Landroid/media/MediaPlayer;)Landroid/media/MediaPlayer;
+.method static synthetic access$200(Lcom/android/incallui/coreapps/CoreAppsManager;Landroid/net/Uri;Lcom/android/incallui/Call;Ljava/io/File;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/incallui/coreapps/CoreAppsManager;->notifyMessageWithSound(Landroid/net/Uri;Lcom/android/incallui/Call;Ljava/io/File;)V
+
+    return-void
+.end method
+
+.method static synthetic access$300(Lcom/android/incallui/coreapps/CoreAppsManager;Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/incallui/coreapps/CoreAppsManager;->sendChangeEnableStateMessage(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method static synthetic access$402(Lcom/android/incallui/coreapps/CoreAppsManager;Landroid/media/MediaPlayer;)Landroid/media/MediaPlayer;
     .locals 0
 
     iput-object p1, p0, Lcom/android/incallui/coreapps/CoreAppsManager;->mMediaPlayer:Landroid/media/MediaPlayer;
@@ -431,9 +449,9 @@
 
     invoke-virtual {v0, p1}, Lcom/android/incallui/ContactInfoCache;->getInfo(Ljava/lang/String;)Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
     const-string v0, "Agifflow-CoreAppsManager"
 
@@ -446,7 +464,24 @@
     return-void
 
     :cond_1
-    const-string v1, "Agifflow-CoreAppsManager"
+    iget-object v0, v1, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->agifNumber:Ljava/lang/String;
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    const-string v0, "Agifflow-CoreAppsManager"
+
+    const-string v1, "checkProfileAndCapability() - agifNumber is null"
+
+    invoke-static {v0, v1, v4}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    goto :goto_0
+
+    :cond_2
+    const-string v0, "Agifflow-CoreAppsManager"
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -458,7 +493,7 @@
 
     move-result-object v2
 
-    iget-boolean v3, v0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->contactExists:Z
+    iget-boolean v3, v1, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->contactExists:Z
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
@@ -478,40 +513,81 @@
 
     move-result-object v2
 
+    invoke-static {v0, v2, v4}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    iget-boolean v0, v1, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->contactExists:Z
+
+    if-eqz v0, :cond_4
+
+    iget-object v0, v1, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->agifNumber:Ljava/lang/String;
+
+    const-string v2, "+"
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_3
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "+"
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget-object v1, v1, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->agifNumber:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "Agifflow-CoreAppsManager"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "checkProfileAndCapability() - changenum "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-static {v0}, Lcom/android/incallui/coreapps/CoreAppsUtils;->toLogSafePhoneNumberforAgif(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
     invoke-static {v1, v2, v4}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    iget-boolean v1, v0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->contactExists:Z
-
-    if-eqz v1, :cond_2
-
-    iget-object v0, v0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->agifNumber:Ljava/lang/String;
-
+    :cond_3
     invoke-static {v0}, Lcom/samsung/android/provider/agifcallprovider/a/a;->a(Ljava/lang/String;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Lcom/android/incallui/CallList;->getCallById(Ljava/lang/String;)Lcom/android/incallui/Call;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {p0, v0}, Lcom/android/incallui/coreapps/CoreAppsManager;->changeEnableState(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Lcom/android/incallui/coreapps/CoreAppsManager;->sendChangeEnableStateMessage(Ljava/lang/String;)V
 
     goto :goto_0
 
-    :cond_2
-    iget-object v0, v0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->agifNumber:Ljava/lang/String;
+    :cond_4
+    iget-object v0, v1, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->agifNumber:Ljava/lang/String;
 
     new-instance v1, Lcom/android/incallui/coreapps/CoreAppsManager$ProfileCapabilityListener;
 
@@ -519,7 +595,7 @@
 
     invoke-static {v0, v1}, Lcom/android/incallui/coreapps/CoreAppsUtils;->getProfileAndCapabilityfromEFServer(Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/contact/apis/listener/GetProfileAndCapabilityListener;)V
 
-    goto :goto_0
+    goto/16 :goto_0
 .end method
 
 .method public static declared-synchronized getInstance()Lcom/android/incallui/coreapps/CoreAppsManager;
@@ -564,7 +640,7 @@
 .method private isAgifFeatureEnabled()Z
     .locals 1
 
-    const-string v0, "agif_call_service"
+    const-string v0, "agif_calling_service"
 
     invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
@@ -769,6 +845,10 @@
 
     invoke-virtual {p2, p1}, Lcom/android/incallui/Call;->setAgifUri(Landroid/net/Uri;)V
 
+    const/4 v0, 0x0
+
+    invoke-virtual {p2, v0}, Lcom/android/incallui/Call;->setAgifImageFile(Ljava/io/File;)V
+
     :goto_0
     invoke-static {}, Lcom/android/incallui/util/SystemServiceUtils;->isScreenOn()Z
 
@@ -798,7 +878,7 @@
     invoke-static {v0}, Lcom/android/incallui/util/SystemServiceUtils;->forceWakeUpScreen(Landroid/content/Context;)V
 
     :cond_1
-    invoke-direct {p0, p1, p2}, Lcom/android/incallui/coreapps/CoreAppsManager;->notifyReceivedMessage(Landroid/net/Uri;Lcom/android/incallui/Call;)V
+    invoke-direct {p0, p1, p3, p2}, Lcom/android/incallui/coreapps/CoreAppsManager;->notifyReceivedMessage(Landroid/net/Uri;Ljava/io/File;Lcom/android/incallui/Call;)V
 
     :cond_2
     return-void
@@ -813,7 +893,7 @@
     goto :goto_0
 .end method
 
-.method private notifyReceivedMessage(Landroid/net/Uri;Lcom/android/incallui/Call;)V
+.method private notifyReceivedMessage(Landroid/net/Uri;Ljava/io/File;Lcom/android/incallui/Call;)V
     .locals 3
 
     const-string v0, "Agifflow-CoreAppsManager"
@@ -843,11 +923,31 @@
 
     check-cast v0, Lcom/android/incallui/coreapps/CoreAppsManager$Listener;
 
-    invoke-interface {v0, p1, p2}, Lcom/android/incallui/coreapps/CoreAppsManager$Listener;->onReceveShareMessage(Landroid/net/Uri;Lcom/android/incallui/Call;)V
+    invoke-interface {v0, p1, p2, p3}, Lcom/android/incallui/coreapps/CoreAppsManager$Listener;->onReceveShareMessage(Landroid/net/Uri;Ljava/io/File;Lcom/android/incallui/Call;)V
 
     goto :goto_0
 
     :cond_0
+    return-void
+.end method
+
+.method private sendChangeEnableStateMessage(Ljava/lang/String;)V
+    .locals 2
+
+    invoke-static {}, Landroid/os/Message;->obtain()Landroid/os/Message;
+
+    move-result-object v0
+
+    const/4 v1, 0x1
+
+    iput v1, v0, Landroid/os/Message;->what:I
+
+    iput-object p1, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    iget-object v1, p0, Lcom/android/incallui/coreapps/CoreAppsManager;->mHandler:Landroid/os/Handler;
+
+    invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+
     return-void
 .end method
 
@@ -1359,6 +1459,8 @@
     goto :goto_0
 
     :cond_2
+    invoke-virtual {p0}, Lcom/android/incallui/coreapps/CoreAppsManager;->syncAgifEnableState()V
+
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
@@ -1591,6 +1693,8 @@
 
     iput-boolean v0, p0, Lcom/android/incallui/coreapps/CoreAppsManager;->mIsRegistered:Z
 
+    invoke-virtual {p0}, Lcom/android/incallui/coreapps/CoreAppsManager;->resetProfileSharingStatus()V
+
     invoke-static {}, Lcom/android/incallui/coreapps/CoreAppsUtils;->getEnhancedAccount()Lcom/samsung/android/sdk/enhancedfeatures/easysignup/apis/EnhancedAccount;
 
     move-result-object v0
@@ -1787,7 +1891,7 @@
 
     const/4 v0, 0x0
 
-    invoke-static {}, Lcom/android/incallui/coreapps/CoreAppsUtils;->isProfilSharingServiceOn()Z
+    invoke-virtual {p0}, Lcom/android/incallui/coreapps/CoreAppsManager;->isProfileSharingServiceOn()Z
 
     move-result v1
 
@@ -1810,6 +1914,37 @@
 
     :cond_2
     const/4 v0, 0x1
+
+    goto :goto_0
+.end method
+
+.method public isProfileSharingServiceOn()Z
+    .locals 3
+
+    const/4 v0, 0x1
+
+    iget v1, p0, Lcom/android/incallui/coreapps/CoreAppsManager;->mProfileSharingStatus:I
+
+    const/4 v2, -0x1
+
+    if-ne v1, v2, :cond_0
+
+    invoke-static {}, Lcom/android/incallui/coreapps/CoreAppsUtils;->getProfilSharingServiceStatus()I
+
+    move-result v1
+
+    iput v1, p0, Lcom/android/incallui/coreapps/CoreAppsManager;->mProfileSharingStatus:I
+
+    :cond_0
+    iget v1, p0, Lcom/android/incallui/coreapps/CoreAppsManager;->mProfileSharingStatus:I
+
+    if-ne v1, v0, :cond_1
+
+    :goto_0
+    return v0
+
+    :cond_1
+    const/4 v0, 0x0
 
     goto :goto_0
 .end method
@@ -1840,7 +1975,7 @@
     return-void
 .end method
 
-.method public onFailRegister()V
+.method public onFailRegister(Z)V
     .locals 3
 
     const-string v0, "Agifflow-CoreAppsManager"
@@ -1854,6 +1989,8 @@
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/incallui/coreapps/CoreAppsManager;->isRegisterRunning:Z
+
+    if-eqz p1, :cond_0
 
     iget v0, p0, Lcom/android/incallui/coreapps/CoreAppsManager;->mRegisterReapeatCount:I
 
@@ -2111,17 +2248,6 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    invoke-virtual {p0}, Lcom/android/incallui/coreapps/CoreAppsManager;->isNeedtoCheckGeoDescription()Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    :cond_0
-    :goto_0
-    return-void
-
-    :cond_1
     if-eqz p1, :cond_0
 
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
@@ -2146,7 +2272,8 @@
 
     iput-object v0, p0, Lcom/android/incallui/coreapps/CoreAppsManager;->mContactUriforSend:Landroid/net/Uri;
 
-    goto :goto_0
+    :cond_0
+    return-void
 .end method
 
 .method public receiveMessage(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/SharePushResponse;)V
@@ -2247,27 +2374,17 @@
 
     invoke-static {v1, v2, v5}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/incallui/CallList;->hasAllLiveCall()Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    invoke-virtual {v0}, Lcom/android/incallui/coreapps/AgifShareMessage;->isAskType()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
     invoke-virtual {v0}, Lcom/android/incallui/coreapps/AgifShareMessage;->getImgUrl()Ljava/lang/String;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
+
+    const-string v0, "Agifflow-CoreAppsManager"
+
+    const-string v1, "receiveMessage - mIsNeedToSendAskMessage = true"
+
+    invoke-static {v0, v1, v5}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
     iput-boolean v5, p0, Lcom/android/incallui/coreapps/CoreAppsManager;->mIsNeedToSendAskMessage:Z
 
@@ -2392,6 +2509,16 @@
     return-void
 .end method
 
+.method public resetProfileSharingStatus()V
+    .locals 1
+
+    const/4 v0, -0x1
+
+    iput v0, p0, Lcom/android/incallui/coreapps/CoreAppsManager;->mProfileSharingStatus:I
+
+    return-void
+.end method
+
 .method public sendMessage(Lcom/android/incallui/Call;Ljava/lang/String;)V
     .locals 7
 
@@ -2504,6 +2631,10 @@
     goto :goto_0
 
     :cond_5
+    const/4 v1, 0x0
+
+    invoke-virtual {p1, v1}, Lcom/android/incallui/Call;->setAgifImageFile(Ljava/io/File;)V
+
     new-instance v1, Lcom/android/incallui/coreapps/AgifShareMessage;
 
     const/4 v2, 0x0
@@ -2657,6 +2788,67 @@
     return-void
 .end method
 
+.method public syncAgifEnableState()V
+    .locals 5
+
+    const/4 v4, 0x1
+
+    iget-object v0, p0, Lcom/android/incallui/coreapps/CoreAppsManager;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/incallui/coreapps/CoreAppsUtils;->getAgifEnableState(Landroid/content/Context;)I
+
+    move-result v0
+
+    const-string v1, "Agifflow-CoreAppsManager"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "syncAgifEnableState() - enableState : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2, v4}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    invoke-virtual {p0}, Lcom/android/incallui/coreapps/CoreAppsManager;->isRegistered()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/incallui/coreapps/CoreAppsManager;->mContext:Landroid/content/Context;
+
+    invoke-static {v0, v4}, Lcom/android/incallui/coreapps/CoreAppsUtils;->setAgifEnableState(Landroid/content/Context;I)V
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    if-ne v0, v4, :cond_0
+
+    iget-object v0, p0, Lcom/android/incallui/coreapps/CoreAppsManager;->mContext:Landroid/content/Context;
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/android/incallui/coreapps/CoreAppsUtils;->setAgifEnableState(Landroid/content/Context;I)V
+
+    goto :goto_0
+.end method
+
 .method public tryDeregister()V
     .locals 3
 
@@ -2741,7 +2933,7 @@
     goto :goto_0
 
     :cond_2
-    invoke-static {}, Lcom/android/incallui/coreapps/CoreAppsUtils;->isProfilSharingServiceOn()Z
+    invoke-virtual {p0}, Lcom/android/incallui/coreapps/CoreAppsManager;->isProfileSharingServiceOn()Z
 
     move-result v0
 
@@ -2769,6 +2961,16 @@
     goto :goto_0
 
     :cond_4
+    invoke-static {}, Lcom/android/incallui/coreapps/CoreAppsUtils;->getEnhancedAccount()Lcom/samsung/android/sdk/enhancedfeatures/easysignup/apis/EnhancedAccount;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/apis/EnhancedAccount;->isRegistered()Z
+
+    move-result v0
+
+    invoke-virtual {p0, v0}, Lcom/android/incallui/coreapps/CoreAppsManager;->setIsRegistered(Z)V
+
     invoke-virtual {p0}, Lcom/android/incallui/coreapps/CoreAppsManager;->isAgifEnabled()Z
 
     move-result v0

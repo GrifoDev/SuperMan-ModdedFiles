@@ -284,7 +284,7 @@
 
     invoke-static {v1, v2}, Lcom/samsung/android/sdk/ssf/shop/util/ShopLog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-static {p0, p5, v0}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/utils/ZipUtils;->UNZIP(Landroid/content/Context;Ljava/io/File;Ljava/io/File;)Ljava/io/File;
+    invoke-static {p0, p5, v0}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/utils/ZipUtils;->unzip(Landroid/content/Context;Ljava/io/File;Ljava/io/File;)Ljava/io/File;
 
     move-object v1, v0
 

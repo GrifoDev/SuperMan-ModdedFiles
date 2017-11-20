@@ -50,6 +50,14 @@
 
 
 # virtual methods
+.method public getNeedToOutgoingAnim()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/incallui/AgifPresenter;->mIsNeedToOutgoingAnim:Z
+
+    return v0
+.end method
+
 .method public getUi()Lcom/android/incallui/AgifPresenter$AgifUi;
     .locals 1
 
@@ -79,9 +87,9 @@
 .end method
 
 .method public onEnableStateChanged()V
-    .locals 5
+    .locals 4
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
     invoke-virtual {p0}, Lcom/android/incallui/AgifPresenter;->getUi()Lcom/android/incallui/AgifPresenter$AgifUi;
 
@@ -106,7 +114,7 @@
 
     const/4 v2, 0x0
 
-    invoke-static {v1, v2, v4}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
+    invoke-static {v1, v2, v3}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
 
     move-result-object v1
 
@@ -122,7 +130,7 @@
 
     if-nez v1, :cond_2
 
-    invoke-interface {v0, v4}, Lcom/android/incallui/AgifPresenter$AgifUi;->showAgifList(Z)V
+    invoke-interface {v0, v3}, Lcom/android/incallui/AgifPresenter$AgifUi;->showAgifList(Z)V
 
     :cond_2
     iget-boolean v2, p0, Lcom/android/incallui/AgifPresenter;->mIsNeedToOutgoingAnim:Z
@@ -157,8 +165,6 @@
 
     invoke-interface {v0}, Lcom/android/incallui/AgifPresenter$AgifUi;->startOutgoingCallAnimation()V
 
-    iput-boolean v4, p0, Lcom/android/incallui/AgifPresenter;->mIsNeedToOutgoingAnim:Z
-
     goto :goto_0
 .end method
 
@@ -184,7 +190,7 @@
     goto :goto_0
 .end method
 
-.method public onReceveShareMessage(Landroid/net/Uri;Lcom/android/incallui/Call;)V
+.method public onReceveShareMessage(Landroid/net/Uri;Ljava/io/File;Lcom/android/incallui/Call;)V
     .locals 0
 
     return-void
@@ -349,8 +355,6 @@
     if-eqz v4, :cond_5
 
     invoke-interface {v3}, Lcom/android/incallui/AgifPresenter$AgifUi;->startOutgoingCallAnimation()V
-
-    iput-boolean v2, p0, Lcom/android/incallui/AgifPresenter;->mIsNeedToOutgoingAnim:Z
 
     :cond_5
     if-eqz v0, :cond_0
@@ -549,6 +553,14 @@
     check-cast p1, Lcom/android/incallui/AgifPresenter$AgifUi;
 
     invoke-virtual {p0, p1}, Lcom/android/incallui/AgifPresenter;->onUiUnready(Lcom/android/incallui/AgifPresenter$AgifUi;)V
+
+    return-void
+.end method
+
+.method public setNeedToOutgoingAnim(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/incallui/AgifPresenter;->mIsNeedToOutgoingAnim:Z
 
     return-void
 .end method

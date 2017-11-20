@@ -210,7 +210,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/VolumeSeekBar;->mAudioManager:Landroid/media/AudioManager;
 
-    const v0, 0x7f040134
+    const v0, 0x7f040135
 
     invoke-virtual {v1, v0, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -228,7 +228,7 @@
 
     if-eqz v2, :cond_1
 
-    const v0, 0x7f040135
+    const v0, 0x7f040136
 
     invoke-virtual {v1, v0, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -324,7 +324,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0e0249
+    const v1, 0x7f0e024c
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -342,7 +342,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0e0248
+    const v1, 0x7f0e024b
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -754,7 +754,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a0194
+    const v3, 0x7f0a0191
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -770,7 +770,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a0193
+    const v3, 0x7f0a0190
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 

@@ -178,7 +178,7 @@
     <string name="account_phone">Ierīce</string>
     <string name="acs">Balss zvans</string>
     <string name="active_calls">Aktīva saruna</string>
-    <string name="add_reminder">Piev. atgād.</string>
+    <string name="add_reminder">Pievienot atgādinājumu</string>
     <string name="agif_button_close_description">Aizvērt</string>
     <string name="agif_decline_message">Diemžēl šobrīd nevaru runāt.</string>
     <string name="agif_decline_sticker_header">Noraidīt ar uzlīmi</string>
@@ -869,6 +869,7 @@ kamera"</string>
     <string name="swipe_right_to_answer_call_with_video">Pavelciet pa labi, lai atbildētu uz zvanu ar video.</string>
     <string name="swipe_right_to_answer_call_without_video">Pavelciet pa labi, lai atbildētu uz zvanu bez video.</string>
     <string name="switch_rejected_by_mt">Pieprasījums pārslēgties uz video zvanu tika atteikts.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Pieprasījums pārslēgties uz video zvanu neizdevās.</string>
     <string name="switch_to_video_call_failed_tmo">Pieprasījums pārslēgties uz videozvanu tika noraidīts.</string>
     <string name="switch_to_voice_call_failed">Pieprasījums pārslēgties uz balss zvanu neizdevās.</string>
@@ -896,7 +897,7 @@ kamera"</string>
     <string name="upload_using_wlan_only">Augšupielādēt, izmantojot tikai WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Augšupielādēt, izmantojot Wi-Fi vai mobilo tīklu</string>
     <string name="upload_wlan_and_mobile_nw">Augšupielādēt, izmantojot WLAN vai mobilo tīklu</string>
-    <string name="usa_att_connected_as_voice">Zvans savienots tikai kā balss zvans.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Datu lietojums, ko iestatījāt ierīcē, drīz sasniegs ierobežojumu. Lai veiktu videozvanu, nepieciešams datu savienojums.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Zvanu nevar veikt Wi-Fi tīklā; notiek savienojuma izveide mobilajā tīklā. Tiks aprēķināta maksa par balss zvanu un datu savienojumu.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

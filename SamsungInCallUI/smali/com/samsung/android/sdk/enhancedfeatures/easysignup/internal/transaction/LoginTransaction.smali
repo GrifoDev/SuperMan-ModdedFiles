@@ -40,6 +40,26 @@
     return-void
 .end method
 
+.method private deactivateUser()V
+    .locals 3
+
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/ActivateUserTransaction;
+
+    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/LoginTransaction;->mContext:Landroid/content/Context;
+
+    invoke-direct {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/ActivateUserTransaction;-><init>(Landroid/content/Context;)V
+
+    const/4 v1, 0x1
+
+    new-instance v2, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/LoginTransaction$1;
+
+    invoke-direct {v2, p0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/LoginTransaction$1;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/LoginTransaction;)V
+
+    invoke-virtual {v0, v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/ActivateUserTransaction;->setDeactiveUser(ZLcom/samsung/android/sdk/enhancedfeatures/easysignup/apis/listener/EnhancedAccountActivateUserListener;)V
+
+    return-void
+.end method
+
 .method private notifyLoginResult(II)V
     .locals 4
 
@@ -777,13 +797,13 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_5
 
     iget v1, v0, Lcom/samsung/android/sdk/ssf/account/io/JoinResponse;->httpStatusCode:I
 
     const/16 v2, 0xc8
 
-    if-ne v1, v2, :cond_3
+    if-ne v1, v2, :cond_5
 
     iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/LoginTransaction;->mImsi:Ljava/lang/String;
 
@@ -830,21 +850,37 @@
 
     invoke-virtual {v0}, Lcom/samsung/android/sdk/ssf/account/io/JoinResponse;->getServerUrls()[Lcom/samsung/android/sdk/ssf/account/io/ServerInfo;
 
+    move-result-object v2
+
+    invoke-static {v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/GldDBMgr;->setGldData(Landroid/content/Context;[Lcom/samsung/android/sdk/ssf/account/io/ServerInfo;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_4
+
+    invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/DeviceUtils;->isShipBinary()Z
+
+    move-result v1
+
+    if-nez v1, :cond_3
+
+    invoke-virtual {v0}, Lcom/samsung/android/sdk/ssf/account/io/JoinResponse;->toString()Ljava/lang/String;
+
     move-result-object v0
 
-    invoke-static {v1, v0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/GldDBMgr;->setGldData(Landroid/content/Context;[Lcom/samsung/android/sdk/ssf/account/io/ServerInfo;)V
+    const-string v1, "LoginTransaction"
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/util/ELog;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    new-instance v0, Ljava/lang/IllegalStateException;
+
+    const-string v1, "invalid server url"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v0
     :try_end_0
     .catch Lcom/samsung/android/sdk/ssf/contact/server/ContactException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move v0, v7
-
-    :goto_0
-    return v0
-
-    :cond_3
-    move v0, v8
-
-    goto :goto_0
 
     :catch_0
     move-exception v0
@@ -859,7 +895,7 @@
 
     const/16 v1, 0x4e21
 
-    if-ne v0, v1, :cond_4
+    if-ne v0, v1, :cond_6
 
     const-string v0, "Device was not authenticated."
 
@@ -879,9 +915,40 @@
 
     const/16 v0, 0x64
 
+    :goto_0
+    return v0
+
+    :cond_3
+    :try_start_1
+    invoke-direct {p0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/LoginTransaction;->deactivateUser()V
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/LoginTransaction;->mImsi:Ljava/lang/String;
+
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/AccountDBMgr;->removeAccount(Ljava/lang/String;)V
+
+    invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->getEnhancedFeaturesInstance()Lcom/samsung/android/sdk/enhancedfeatures/EnhancedFeatures;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/EnhancedFeatures;->notifyDeregister()V
+    :try_end_1
+    .catch Lcom/samsung/android/sdk/ssf/contact/server/ContactException; {:try_start_1 .. :try_end_1} :catch_0
+
+    const/16 v0, 0x2ee3
+
     goto :goto_0
 
     :cond_4
+    move v0, v7
+
+    goto :goto_0
+
+    :cond_5
+    move v0, v8
+
+    goto :goto_0
+
+    :cond_6
     move v0, v8
 
     goto :goto_0

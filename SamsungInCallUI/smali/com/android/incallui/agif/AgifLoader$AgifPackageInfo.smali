@@ -14,7 +14,7 @@
 
 
 # instance fields
-.field public artist:Ljava/lang/String;
+.field public contentName:Ljava/lang/String;
 
 .field public packageName:Ljava/lang/String;
 
@@ -59,7 +59,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/agif/AgifLoader$AgifPackageInfo;->trayIconOff:Landroid/graphics/Bitmap;
 
-    iput-object p5, p0, Lcom/android/incallui/agif/AgifLoader$AgifPackageInfo;->artist:Ljava/lang/String;
+    iput-object p5, p0, Lcom/android/incallui/agif/AgifLoader$AgifPackageInfo;->contentName:Ljava/lang/String;
 
     return-void
 .end method

@@ -75,7 +75,7 @@
 
     if-eqz v1, :cond_0
 
-    const v1, 0x7f0905a5
+    const v1, 0x7f0905a6
 
     new-array v2, v4, [Ljava/lang/Object;
 
@@ -89,7 +89,7 @@
     return-object v0
 
     :cond_0
-    const v1, 0x7f0905a4
+    const v1, 0x7f0905a5
 
     invoke-virtual {p0, v1}, Lcom/android/contacts/common/interactions/ImportExportDialogFragment;->getString(I)Ljava/lang/String;
 
@@ -167,7 +167,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090550
+    const v3, 0x7f090551
 
     sget-object v4, Lcom/android/contacts/common/util/AccountsListAdapter$AccountListFilter;->b:Lcom/android/contacts/common/util/AccountsListAdapter$AccountListFilter;
 
@@ -275,7 +275,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0905f9
+    const v2, 0x7f0905fa
 
     const/4 v3, 0x0
 
@@ -462,15 +462,15 @@
 .method public onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
     .locals 12
 
-    const v7, 0x7f0905a6
+    const v7, 0x7f0905a7
 
-    const v11, 0x7f090584
+    const v11, 0x7f090585
 
     const/4 v10, -0x1
 
-    const v9, 0x7f090644
+    const v9, 0x7f090645
 
-    const v8, 0x7f0905a3
+    const v8, 0x7f0905a4
 
     invoke-virtual {p0}, Lcom/android/contacts/common/interactions/ImportExportDialogFragment;->getActivity()Landroid/app/Activity;
 
@@ -518,7 +518,7 @@
 
     move-result-object v1
 
-    const v6, 0x7f040189
+    const v6, 0x7f04018a
 
     invoke-direct {v5, p0, v1, v6, v0}, Lcom/android/contacts/common/interactions/ImportExportDialogFragment$1;-><init>(Lcom/android/contacts/common/interactions/ImportExportDialogFragment;Landroid/content/Context;ILandroid/view/LayoutInflater;)V
 
@@ -662,7 +662,7 @@
 
     new-instance v0, Lcom/android/contacts/common/interactions/ImportExportDialogFragment$AdapterEntry;
 
-    const v1, 0x7f090647
+    const v1, 0x7f090648
 
     invoke-virtual {p0, v1}, Lcom/android/contacts/common/interactions/ImportExportDialogFragment;->getString(I)Ljava/lang/String;
 
@@ -688,7 +688,7 @@
 
     if-eqz v3, :cond_7
 
-    const v0, 0x7f09054f
+    const v0, 0x7f090550
 
     :goto_3
     invoke-virtual {v2, v0}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
@@ -795,7 +795,7 @@
     goto :goto_2
 
     :cond_7
-    const v0, 0x7f09054e
+    const v0, 0x7f09054f
 
     goto :goto_3
 .end method

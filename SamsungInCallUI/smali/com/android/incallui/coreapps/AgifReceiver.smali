@@ -92,6 +92,12 @@
 
     invoke-static {v1, v2, v4}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
+    invoke-static {}, Lcom/android/incallui/coreapps/CoreAppsManager;->getInstance()Lcom/android/incallui/coreapps/CoreAppsManager;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/incallui/coreapps/CoreAppsManager;->resetProfileSharingStatus()V
+
     if-ne v0, v4, :cond_1
 
     invoke-static {}, Lcom/android/incallui/coreapps/CoreAppsManager;->getInstance()Lcom/android/incallui/coreapps/CoreAppsManager;

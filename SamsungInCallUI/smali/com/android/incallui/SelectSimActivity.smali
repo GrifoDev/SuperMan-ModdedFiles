@@ -19,7 +19,13 @@
 
 .field public static instance:Lcom/android/incallui/SelectSimActivity;
 
+.field private static mIsDisplayCallbackDialog:Z
+
 .field private static mIsSelected:Z
+
+.field private static mPreferredSim:I
+
+.field private static mRecentlyUsedSim:I
 
 
 # instance fields
@@ -110,6 +116,30 @@
     iget-object v0, p0, Lcom/android/incallui/SelectSimActivity;->mTelecomManager:Landroid/telecom/TelecomManager;
 
     return-object v0
+.end method
+
+.method static synthetic access$500()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/incallui/SelectSimActivity;->mIsDisplayCallbackDialog:Z
+
+    return v0
+.end method
+
+.method static synthetic access$600()I
+    .locals 1
+
+    sget v0, Lcom/android/incallui/SelectSimActivity;->mRecentlyUsedSim:I
+
+    return v0
+.end method
+
+.method static synthetic access$700()I
+    .locals 1
+
+    sget v0, Lcom/android/incallui/SelectSimActivity;->mPreferredSim:I
+
+    return v0
 .end method
 
 .method public static dismissDialog()V
@@ -319,19 +349,23 @@
 .end method
 
 .method protected onResume()V
-    .locals 6
+    .locals 9
+
+    const v8, 0x7f09031d
+
+    const/4 v1, 0x0
+
+    const/4 v2, 0x1
 
     invoke-super {p0}, Landroid/app/Activity;->onResume()V
 
     sget-object v0, Lcom/android/incallui/SelectSimActivity;->TAG:Ljava/lang/String;
 
-    const-string v1, "onResume..."
+    const-string v3, "onResume..."
 
-    invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, v3}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/4 v0, 0x0
-
-    sput-boolean v0, Lcom/android/incallui/SelectSimActivity;->mIsSelected:Z
+    sput-boolean v1, Lcom/android/incallui/SelectSimActivity;->mIsSelected:Z
 
     const-string v0, "telecom"
 
@@ -357,52 +391,52 @@
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object v3
 
     :cond_0
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/telecom/PhoneAccountHandle;
 
-    iget-object v2, p0, Lcom/android/incallui/SelectSimActivity;->mTelecomManager:Landroid/telecom/TelecomManager;
+    iget-object v4, p0, Lcom/android/incallui/SelectSimActivity;->mTelecomManager:Landroid/telecom/TelecomManager;
 
-    invoke-virtual {v2, v0}, Landroid/telecom/TelecomManager;->getPhoneAccount(Landroid/telecom/PhoneAccountHandle;)Landroid/telecom/PhoneAccount;
+    invoke-virtual {v4, v0}, Landroid/telecom/TelecomManager;->getPhoneAccount(Landroid/telecom/PhoneAccountHandle;)Landroid/telecom/PhoneAccount;
 
-    move-result-object v2
+    move-result-object v4
 
-    if-eqz v2, :cond_0
+    if-eqz v4, :cond_0
 
-    const-string v3, "tel"
+    const-string v5, "tel"
 
-    invoke-virtual {v2, v3}, Landroid/telecom/PhoneAccount;->supportsUriScheme(Ljava/lang/String;)Z
+    invoke-virtual {v4, v5}, Landroid/telecom/PhoneAccount;->supportsUriScheme(Ljava/lang/String;)Z
 
-    move-result v2
+    move-result v4
 
-    if-eqz v2, :cond_0
+    if-eqz v4, :cond_0
 
-    iget-object v2, p0, Lcom/android/incallui/SelectSimActivity;->mAccountHandles:Ljava/util/List;
+    iget-object v4, p0, Lcom/android/incallui/SelectSimActivity;->mAccountHandles:Ljava/util/List;
 
-    invoke-interface {v2, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v4, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
     :cond_1
-    new-instance v0, Lcom/android/incallui/SelectSimActivity$2;
+    new-instance v3, Lcom/android/incallui/SelectSimActivity$2;
 
-    invoke-direct {v0, p0}, Lcom/android/incallui/SelectSimActivity$2;-><init>(Lcom/android/incallui/SelectSimActivity;)V
+    invoke-direct {v3, p0}, Lcom/android/incallui/SelectSimActivity$2;-><init>(Lcom/android/incallui/SelectSimActivity;)V
 
-    sget-object v1, Lcom/android/incallui/SelectSimActivity;->alertDialog:Landroid/app/AlertDialog;
+    sget-object v0, Lcom/android/incallui/SelectSimActivity;->alertDialog:Landroid/app/AlertDialog;
 
-    if-eqz v1, :cond_2
+    if-eqz v0, :cond_2
 
     sget-object v0, Lcom/android/incallui/SelectSimActivity;->alertDialog:Landroid/app/AlertDialog;
 
@@ -412,29 +446,121 @@
     return-void
 
     :cond_2
-    new-instance v1, Landroid/app/AlertDialog$Builder;
+    sput-boolean v1, Lcom/android/incallui/SelectSimActivity;->mIsDisplayCallbackDialog:Z
 
-    invoke-direct {v1, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    new-instance v4, Landroid/app/AlertDialog$Builder;
 
-    new-instance v2, Lcom/android/incallui/SelectSimActivity$SelectAccountListAdapter;
+    invoke-direct {v4, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    invoke-virtual {v1}, Landroid/app/AlertDialog$Builder;->getContext()Landroid/content/Context;
+    new-instance v5, Lcom/android/incallui/SelectSimActivity$SelectAccountListAdapter;
 
-    move-result-object v3
+    invoke-virtual {v4}, Landroid/app/AlertDialog$Builder;->getContext()Landroid/content/Context;
 
-    const v4, 0x7f04018e
+    move-result-object v0
 
-    iget-object v5, p0, Lcom/android/incallui/SelectSimActivity;->mAccountHandles:Ljava/util/List;
+    const v6, 0x7f04018f
 
-    invoke-direct {v2, p0, v3, v4, v5}, Lcom/android/incallui/SelectSimActivity$SelectAccountListAdapter;-><init>(Lcom/android/incallui/SelectSimActivity;Landroid/content/Context;ILjava/util/List;)V
+    iget-object v7, p0, Lcom/android/incallui/SelectSimActivity;->mAccountHandles:Ljava/util/List;
 
-    const v3, 0x7f09031d
+    invoke-direct {v5, p0, v0, v6, v7}, Lcom/android/incallui/SelectSimActivity$SelectAccountListAdapter;-><init>(Lcom/android/incallui/SelectSimActivity;Landroid/content/Context;ILjava/util/List;)V
 
-    invoke-virtual {v1, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
+    const-string v0, "feature_multisim_adaptive_callback"
+
+    invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_8
+
+    invoke-static {}, Lcom/android/incallui/InCallApp;->getInstance()Lcom/android/incallui/InCallApp;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/incallui/InCallApp;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v6, "prefered_voice_call"
+
+    invoke-static {v0, v6, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    const-string v6, "feature_chn"
+
+    invoke-static {v6}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_5
+
+    sput-boolean v2, Lcom/android/incallui/SelectSimActivity;->mIsDisplayCallbackDialog:Z
+
+    sput v0, Lcom/android/incallui/SelectSimActivity;->mPreferredSim:I
+
+    :cond_3
+    :goto_2
+    invoke-static {}, Lcom/android/incallui/util/InCallUtils;->getSimReceiveId()I
+
+    move-result v0
+
+    sput v0, Lcom/android/incallui/SelectSimActivity;->mRecentlyUsedSim:I
+
+    sget v0, Lcom/android/incallui/SelectSimActivity;->mRecentlyUsedSim:I
+
+    const/4 v6, -0x1
+
+    if-ne v0, v6, :cond_4
+
+    sget v0, Lcom/android/incallui/SelectSimActivity;->mPreferredSim:I
+
+    if-ne v0, v2, :cond_6
+
+    move v0, v1
+
+    :goto_3
+    sput v0, Lcom/android/incallui/SelectSimActivity;->mRecentlyUsedSim:I
+
+    :cond_4
+    sget-boolean v0, Lcom/android/incallui/SelectSimActivity;->mIsDisplayCallbackDialog:Z
+
+    if-eqz v0, :cond_7
+
+    invoke-static {p0}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+
+    move-result-object v0
+
+    const v1, 0x7f04018e
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v1
 
-    invoke-virtual {v1, v2, v0}, Landroid/app/AlertDialog$Builder;->setAdapter(Landroid/widget/ListAdapter;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    const v0, 0x7f10008b
+
+    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/ListView;
+
+    invoke-virtual {v0, v5}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
+
+    new-instance v2, Lcom/android/incallui/SelectSimActivity$3;
+
+    invoke-direct {v2, p0}, Lcom/android/incallui/SelectSimActivity$3;-><init>(Lcom/android/incallui/SelectSimActivity;)V
+
+    invoke-virtual {v0, v2}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
+
+    const v0, 0x7f09031a
+
+    invoke-virtual {v4, v0}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
@@ -444,6 +570,7 @@
 
     sput-object v0, Lcom/android/incallui/SelectSimActivity;->alertDialog:Landroid/app/AlertDialog;
 
+    :goto_4
     sget-object v0, Lcom/android/incallui/SelectSimActivity;->alertDialog:Landroid/app/AlertDialog;
 
     invoke-virtual {v0}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
@@ -482,9 +609,9 @@
 
     sget-object v0, Lcom/android/incallui/SelectSimActivity;->alertDialog:Landroid/app/AlertDialog;
 
-    new-instance v1, Lcom/android/incallui/SelectSimActivity$3;
+    new-instance v1, Lcom/android/incallui/SelectSimActivity$4;
 
-    invoke-direct {v1, p0}, Lcom/android/incallui/SelectSimActivity$3;-><init>(Lcom/android/incallui/SelectSimActivity;)V
+    invoke-direct {v1, p0}, Lcom/android/incallui/SelectSimActivity$4;-><init>(Lcom/android/incallui/SelectSimActivity;)V
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
@@ -492,7 +619,57 @@
 
     invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
 
-    goto :goto_1
+    goto/16 :goto_1
+
+    :cond_5
+    if-eqz v0, :cond_3
+
+    sput-boolean v2, Lcom/android/incallui/SelectSimActivity;->mIsDisplayCallbackDialog:Z
+
+    add-int/lit8 v0, v0, -0x1
+
+    sput v0, Lcom/android/incallui/SelectSimActivity;->mPreferredSim:I
+
+    goto/16 :goto_2
+
+    :cond_6
+    move v0, v2
+
+    goto :goto_3
+
+    :cond_7
+    invoke-virtual {v4, v8}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v5, v3}, Landroid/app/AlertDialog$Builder;->setAdapter(Landroid/widget/ListAdapter;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/android/incallui/SelectSimActivity;->alertDialog:Landroid/app/AlertDialog;
+
+    goto :goto_4
+
+    :cond_8
+    invoke-virtual {v4, v8}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v5, v3}, Landroid/app/AlertDialog$Builder;->setAdapter(Landroid/widget/ListAdapter;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/android/incallui/SelectSimActivity;->alertDialog:Landroid/app/AlertDialog;
+
+    goto :goto_4
 .end method
 
 .method public onUserLeaveHint()V

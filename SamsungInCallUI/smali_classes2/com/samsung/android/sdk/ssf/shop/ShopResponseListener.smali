@@ -90,30 +90,31 @@
 .end method
 
 .method private updateSsfResult(Lcom/android/volley/VolleyError;Lcom/samsung/android/sdk/ssf/SsfResult;)V
-    .locals 8
+    .locals 6
 
     const/4 v1, 0x0
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_1
 
     const-string v0, "onError. Invalid error."
 
-    sget-object v2, Lcom/samsung/android/sdk/ssf/shop/ShopResponseListener;->TAG:Ljava/lang/String;
+    sget-object v1, Lcom/samsung/android/sdk/ssf/shop/ShopResponseListener;->TAG:Ljava/lang/String;
 
-    invoke-static {v0, v2}, Lcom/samsung/android/sdk/ssf/shop/util/ShopLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/ssf/shop/util/ShopLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
+    :cond_0
     :goto_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "onError. result: "
+    const-string v1, "onError. result: "
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
@@ -127,7 +128,7 @@
 
     return-void
 
-    :cond_0
+    :cond_1
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -154,67 +155,57 @@
 
     invoke-static {v0, v2}, Lcom/samsung/android/sdk/ssf/shop/util/ShopLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    new-instance v2, Lcom/samsung/android/sdk/ssf/SsfResult;
-
-    invoke-direct {v2}, Lcom/samsung/android/sdk/ssf/SsfResult;-><init>()V
-
     instance-of v0, p1, Lcom/samsung/android/sdk/ssf/common/model/CancelError;
-
-    if-eqz v0, :cond_1
-
-    const/16 v0, 0x2716
-
-    iput v0, v2, Lcom/samsung/android/sdk/ssf/SsfResult;->resultCode:I
-
-    move-object v1, v2
-
-    goto :goto_0
-
-    :cond_1
-    instance-of v0, p1, Lcom/android/volley/TimeoutError;
 
     if-eqz v0, :cond_2
 
-    const/16 v0, 0x2af9
+    const/16 v0, 0x2716
 
-    iput v0, v2, Lcom/samsung/android/sdk/ssf/SsfResult;->resultCode:I
-
-    move-object v1, v2
+    iput v0, p2, Lcom/samsung/android/sdk/ssf/SsfResult;->resultCode:I
 
     goto :goto_0
 
     :cond_2
-    instance-of v0, p1, Lcom/android/volley/NoConnectionError;
+    instance-of v0, p1, Lcom/android/volley/TimeoutError;
 
-    if-nez v0, :cond_3
+    if-eqz v0, :cond_3
 
-    instance-of v0, p1, Lcom/samsung/android/sdk/ssf/common/model/SocketError;
+    const/16 v0, 0x2af9
 
-    if-eqz v0, :cond_4
-
-    :cond_3
-    const/16 v0, 0x2afa
-
-    iput v0, v2, Lcom/samsung/android/sdk/ssf/SsfResult;->resultCode:I
-
-    move-object v1, v2
+    iput v0, p2, Lcom/samsung/android/sdk/ssf/SsfResult;->resultCode:I
 
     goto :goto_0
 
+    :cond_3
+    instance-of v0, p1, Lcom/android/volley/NoConnectionError;
+
+    if-nez v0, :cond_4
+
+    instance-of v0, p1, Lcom/samsung/android/sdk/ssf/common/model/SocketError;
+
+    if-eqz v0, :cond_5
+
     :cond_4
+    const/16 v0, 0x2afa
+
+    iput v0, p2, Lcom/samsung/android/sdk/ssf/SsfResult;->resultCode:I
+
+    goto :goto_0
+
+    :cond_5
     instance-of v0, p1, Lcom/android/volley/NetworkError;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_7
 
     const/16 v0, 0x2af8
 
-    iput v0, v2, Lcom/samsung/android/sdk/ssf/SsfResult;->resultCode:I
+    iput v0, p2, Lcom/samsung/android/sdk/ssf/SsfResult;->resultCode:I
 
-    :cond_5
+    :cond_6
     :goto_1
-    iget-object v3, p1, Lcom/android/volley/VolleyError;->networkResponse:Lcom/android/volley/NetworkResponse;
+    iget-object v2, p1, Lcom/android/volley/VolleyError;->networkResponse:Lcom/android/volley/NetworkResponse;
 
-    if-nez v3, :cond_7
+    if-nez v2, :cond_8
 
     const-string v0, "onError. Invalid networkResponse."
 
@@ -222,73 +213,71 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/ssf/shop/util/ShopLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    move-object v1, v2
-
     goto :goto_0
 
-    :cond_6
+    :cond_7
     instance-of v0, p1, Lcom/android/volley/ServerError;
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_6
 
     const/16 v0, 0x2ee0
 
-    iput v0, v2, Lcom/samsung/android/sdk/ssf/SsfResult;->resultCode:I
+    iput v0, p2, Lcom/samsung/android/sdk/ssf/SsfResult;->resultCode:I
 
     goto :goto_1
 
-    :cond_7
-    iget v0, v3, Lcom/android/volley/NetworkResponse;->statusCode:I
+    :cond_8
+    iget v0, v2, Lcom/android/volley/NetworkResponse;->statusCode:I
 
-    iput v0, v2, Lcom/samsung/android/sdk/ssf/SsfResult;->httpStatusCode:I
+    iput v0, p2, Lcom/samsung/android/sdk/ssf/SsfResult;->httpStatusCode:I
 
-    iget-object v0, v3, Lcom/android/volley/NetworkResponse;->data:[B
+    iget-object v0, v2, Lcom/android/volley/NetworkResponse;->data:[B
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_d
 
     new-instance v0, Ljava/lang/String;
 
-    iget-object v3, v3, Lcom/android/volley/NetworkResponse;->data:[B
+    iget-object v2, v2, Lcom/android/volley/NetworkResponse;->data:[B
 
-    invoke-direct {v0, v3}, Ljava/lang/String;-><init>([B)V
+    invoke-direct {v0, v2}, Ljava/lang/String;-><init>([B)V
 
     :goto_2
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "onError. responseData: "
+    const-string v3, "onError. responseData: "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    sget-object v4, Lcom/samsung/android/sdk/ssf/shop/ShopResponseListener;->TAG:Ljava/lang/String;
+    sget-object v3, Lcom/samsung/android/sdk/ssf/shop/ShopResponseListener;->TAG:Ljava/lang/String;
 
-    invoke-static {v3, v4}, Lcom/samsung/android/sdk/ssf/shop/util/ShopLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v2, v3}, Lcom/samsung/android/sdk/ssf/shop/util/ShopLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    new-instance v3, Lcom/google/gson/Gson;
+    new-instance v2, Lcom/google/gson/Gson;
 
-    invoke-direct {v3}, Lcom/google/gson/Gson;-><init>()V
+    invoke-direct {v2}, Lcom/google/gson/Gson;-><init>()V
 
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v4
+    move-result v3
 
-    if-nez v4, :cond_8
+    if-nez v3, :cond_9
 
     :try_start_0
-    const-class v4, Lcom/samsung/android/sdk/ssf/shop/io/ShopErrorResponse;
+    const-class v3, Lcom/samsung/android/sdk/ssf/shop/io/ShopErrorResponse;
 
-    invoke-virtual {v3, v0, v4}, Lcom/google/gson/Gson;->fromJson(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {v2, v0, v3}, Lcom/google/gson/Gson;->fromJson(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -298,65 +287,97 @@
 
     move-object v1, v0
 
-    :cond_8
+    :cond_9
     :goto_3
-    iget v0, v2, Lcom/samsung/android/sdk/ssf/SsfResult;->httpStatusCode:I
+    iget v0, p2, Lcom/samsung/android/sdk/ssf/SsfResult;->httpStatusCode:I
 
     packed-switch v0, :pswitch_data_0
-
-    :cond_9
-    move-object v1, v2
 
     goto/16 :goto_0
 
     :pswitch_0
-    if-nez v1, :cond_a
+    if-eqz v1, :cond_0
 
-    move-object v1, v2
-
-    goto/16 :goto_0
-
-    :cond_a
     invoke-virtual {v1}, Lcom/samsung/android/sdk/ssf/shop/io/ShopErrorResponse;->getRcode()J
 
-    move-result-wide v4
+    move-result-wide v2
 
-    const-wide v6, 0xee7142f0L
+    const-wide v4, 0xee7142f0L
 
-    cmp-long v0, v4, v6
+    cmp-long v0, v2, v4
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_a
 
     invoke-virtual {v1}, Lcom/samsung/android/sdk/ssf/shop/io/ShopErrorResponse;->getRmsg()Ljava/lang/String;
 
     move-result-object v0
 
-    const-string v3, "Invalid access_token."
+    const-string v2, "Invalid access_token."
 
-    invoke-static {v0, v3}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+    invoke-static {v0, v2}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_b
 
-    :cond_b
+    :cond_a
     const/16 v0, 0x2ee1
 
-    iput v0, v2, Lcom/samsung/android/sdk/ssf/SsfResult;->resultCode:I
+    iput v0, p2, Lcom/samsung/android/sdk/ssf/SsfResult;->resultCode:I
 
     invoke-virtual {v1}, Lcom/samsung/android/sdk/ssf/shop/io/ShopErrorResponse;->getRcode()J
 
-    move-result-wide v4
+    move-result-wide v2
 
-    iput-wide v4, v2, Lcom/samsung/android/sdk/ssf/SsfResult;->serverErrorCode:J
+    iput-wide v2, p2, Lcom/samsung/android/sdk/ssf/SsfResult;->serverErrorCode:J
 
     invoke-virtual {v1}, Lcom/samsung/android/sdk/ssf/shop/io/ShopErrorResponse;->getRmsg()Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, v2, Lcom/samsung/android/sdk/ssf/SsfResult;->serverErrorMsg:Ljava/lang/String;
+    iput-object v0, p2, Lcom/samsung/android/sdk/ssf/SsfResult;->serverErrorMsg:Ljava/lang/String;
 
-    move-object v1, v2
+    goto/16 :goto_0
+
+    :cond_b
+    invoke-virtual {v1}, Lcom/samsung/android/sdk/ssf/shop/io/ShopErrorResponse;->getRcode()J
+
+    move-result-wide v2
+
+    const-wide v4, 0xee6fbfcdL
+
+    cmp-long v0, v2, v4
+
+    if-eqz v0, :cond_c
+
+    invoke-virtual {v1}, Lcom/samsung/android/sdk/ssf/shop/io/ShopErrorResponse;->getRmsg()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v2, "Expired content is requested."
+
+    invoke-static {v0, v2}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    :cond_c
+    const/16 v0, 0x2ee3
+
+    iput v0, p2, Lcom/samsung/android/sdk/ssf/SsfResult;->resultCode:I
+
+    invoke-virtual {v1}, Lcom/samsung/android/sdk/ssf/shop/io/ShopErrorResponse;->getRcode()J
+
+    move-result-wide v2
+
+    iput-wide v2, p2, Lcom/samsung/android/sdk/ssf/SsfResult;->serverErrorCode:J
+
+    invoke-virtual {v1}, Lcom/samsung/android/sdk/ssf/shop/io/ShopErrorResponse;->getRmsg()Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p2, Lcom/samsung/android/sdk/ssf/SsfResult;->serverErrorMsg:Ljava/lang/String;
 
     goto/16 :goto_0
 
@@ -365,10 +386,10 @@
 
     goto :goto_3
 
-    :cond_c
+    :cond_d
     move-object v0, v1
 
-    goto :goto_2
+    goto/16 :goto_2
 
     :pswitch_data_0
     .packed-switch 0x190

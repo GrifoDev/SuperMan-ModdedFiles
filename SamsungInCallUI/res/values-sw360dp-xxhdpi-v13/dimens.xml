@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="carrier_matching_dialog_progress_margin_end">30.0dip</dimen>
-    <dimen name="carrier_matching_dialog_progress_margin_top">-15.0dip</dimen>
-    <dimen name="carrier_matching_dialog_progress_size">60.0dip</dimen>
     <dimen name="sec_call_popup_primary_name_max_width_with_agif">205.0dip</dimen>
 </resources>

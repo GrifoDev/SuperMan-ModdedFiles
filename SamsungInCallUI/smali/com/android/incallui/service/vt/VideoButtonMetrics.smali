@@ -185,7 +185,7 @@
 
     float-to-int v3, v2
 
-    const v2, 0x7f0a0351
+    const v2, 0x7f0a034d
 
     invoke-virtual {p1, v2}, Lcom/android/incallui/service/vt/VideoCallMetrics;->getDimension(I)I
 
@@ -196,7 +196,7 @@
     :goto_4
     iput v2, p0, Lcom/android/incallui/service/vt/VideoButtonMetrics;->width:I
 
-    const v3, 0x7f0a02d6
+    const v3, 0x7f0a02d2
 
     invoke-virtual {p1, v3}, Lcom/android/incallui/service/vt/VideoCallMetrics;->getDimension(I)I
 
@@ -299,13 +299,13 @@
     iput v2, p0, Lcom/android/incallui/service/vt/VideoButtonMetrics;->answer_incoming_area_width:I
 
     :goto_6
-    const v2, 0x7f0a01da
+    const v2, 0x7f0a01d6
 
     invoke-virtual {p1, v2}, Lcom/android/incallui/service/vt/VideoCallMetrics;->getDimension(I)I
 
     move-result v2
 
-    const v3, 0x7f0a01e3
+    const v3, 0x7f0a01df
 
     invoke-virtual {p1, v3}, Lcom/android/incallui/service/vt/VideoCallMetrics;->getDimension(I)I
 
@@ -351,7 +351,7 @@
 
     add-int/2addr v3, v11
 
-    const v10, 0x7f0a0597
+    const v10, 0x7f0a0595
 
     invoke-virtual {p1, v10}, Lcom/android/incallui/service/vt/VideoCallMetrics;->getDimension(I)I
 
@@ -450,7 +450,7 @@
 
     iget v0, p0, Lcom/android/incallui/service/vt/VideoButtonMetrics;->answer_floating_button_bottom_offset:I
 
-    const v1, 0x7f0a0596
+    const v1, 0x7f0a0594
 
     invoke-virtual {p1, v1}, Lcom/android/incallui/service/vt/VideoCallMetrics;->getDimension(I)I
 

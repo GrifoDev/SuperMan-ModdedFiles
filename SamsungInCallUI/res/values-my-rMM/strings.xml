@@ -810,6 +810,7 @@ IVR ဖုန်းခေါ်ဆို ဖန်သားပြင် မီ�
     <string name="swipe_right_to_answer_call_with_video">ခေါ်ဆိုမှုကို ဗီဒီယိုဖြင့် ဖြေကြားရန် ညာဘက်သို့ ပွတ်ဆွဲပါ။</string>
     <string name="swipe_right_to_answer_call_without_video">ခေါ်ဆိုမှုကို ဗီဒီယိုမပါဘဲဖြေကြားရန် ညာဘက်သို့ ပွတ်ဆွဲပါ။</string>
     <string name="switch_rejected_by_mt">ဗွီဒီယိုခေါ်ဆိုမှု အဖြစ်ပြောင်းလဲရန် တောင်းဆိုမှု ငြင်းပယ်သည်။</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">ဗီဒီယို ခေါ်ဆိုမှုသို့ ပြောင်းရန် တောင်းခံမှု မအောင်မြင်ပါ။</string>
     <string name="switch_to_video_call_failed_tmo">ဗီဒီယိုဖုန်းသို့ ကူးပြောင်းရန်အတွက် တောင်းဆိုချက်ကို ပယ်ချခဲ့သည်။</string>
     <string name="switch_to_voice_call_failed">အသံ ခေါ်ဆိုမှုသို့ ပြောင်းရန် တောင်းခံမှု မအောင်မြင်ပါ။</string>
@@ -837,7 +838,7 @@ IVR ဖုန်းခေါ်ဆို ဖန်သားပြင် မီ�
     <string name="upload_using_wlan_only">WLAN မှ သာလျှင် အပ်လုဒ်လုပ်ပါ</string>
     <string name="upload_wifi_and_mobile_nw">Wi-Fi (သို့) မိုဘိုင်း ကွန်ယက်မှတဆင့် အပ်လုဒ်လုပ်ပါ</string>
     <string name="upload_wlan_and_mobile_nw">WLAN (သို့) မိုဘိုင်း ကွန်ရက်မှတဆင့် အပ်လုဒ်လုပ်ပါ</string>
-    <string name="usa_att_connected_as_voice">ခေါ်ဖုန်းက အသံဖြင့်သာပုံစံအနေနှင့် ချိတ်ဆက်နေသည်။</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">သင့်ကိရိယာတွင် သတ်မှတ်ခဲ့သည့် ဒေတာအသုံးပြုမှုသည် ၎င်း၏ကန့်သတ်ပမာဏကို ရောက်ခါနီးပါပြီ။ ဗီဒီယိုဖုန်းအတွက် ဒေတာ လိုအပ်သည်။</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">ခေါ်ဖုန်းကို ဆယ်လူလာကွန်ရက်ဖြင့် ချိတ်ဆက်နေသာ Wi-Fi ပေါ်တွင် ထား၍မရပါ။ အသံခနှင့် ဒေတာခအတွက် တောင်းခံပါမည်။</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

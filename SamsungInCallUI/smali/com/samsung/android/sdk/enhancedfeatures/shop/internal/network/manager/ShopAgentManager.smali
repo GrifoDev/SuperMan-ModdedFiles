@@ -587,11 +587,13 @@
 .method private onDownloadFileResponse(Lcom/samsung/android/sdk/ssf/SsfResult;Lcom/samsung/android/sdk/ssf/shop/io/DownloadItemEntry;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/listener/DownloadListener;)V
     .locals 8
 
-    iget v0, p1, Lcom/samsung/android/sdk/ssf/SsfResult;->httpStatusCode:I
+    const/4 v0, 0x0
 
-    const/16 v1, 0xc8
+    iget v1, p1, Lcom/samsung/android/sdk/ssf/SsfResult;->httpStatusCode:I
 
-    if-ne v0, v1, :cond_1
+    const/16 v2, 0xc8
+
+    if-ne v1, v2, :cond_1
 
     if-eqz p2, :cond_1
 
@@ -648,13 +650,17 @@
     return-void
 
     :cond_1
-    const/4 v0, 0x0
+    iget v1, p1, Lcom/samsung/android/sdk/ssf/SsfResult;->resultCode:I
+
+    const/16 v2, 0x2ee3
+
+    if-ne v1, v2, :cond_3
 
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "DownloadPackage: Result Code["
+    const-string v2, "Expired content is requested: Result Code["
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -727,11 +733,95 @@
     move-result-object v0
 
     :cond_2
-    const/4 v1, 0x5
+    const/16 v1, 0x8
 
     invoke-interface {p5, v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/listener/DownloadListener;->updateStatus(Ljava/lang/String;I)V
 
     goto :goto_0
+
+    :cond_3
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "DownloadPackage: Result Code["
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget v2, p1, Lcom/samsung/android/sdk/ssf/SsfResult;->httpStatusCode:I
+
+    invoke-static {v2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, "], Server Error Code["
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-wide v2, p1, Lcom/samsung/android/sdk/ssf/SsfResult;->serverErrorCode:J
+
+    invoke-static {v2, v3}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, "], Server Error Message["
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p1, Lcom/samsung/android/sdk/ssf/SsfResult;->serverErrorMsg:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, "]"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    sget-object v2, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager;->TAG:Ljava/lang/String;
+
+    invoke-static {v1, v2}, Lcom/samsung/android/sdk/ssf/shop/util/ShopLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    if-eqz p2, :cond_4
+
+    iget-object v1, p2, Lcom/samsung/android/sdk/ssf/shop/io/DownloadItemEntry;->item:Lcom/samsung/android/sdk/ssf/shop/io/Item;
+
+    if-eqz v1, :cond_4
+
+    iget-object v0, p2, Lcom/samsung/android/sdk/ssf/shop/io/DownloadItemEntry;->item:Lcom/samsung/android/sdk/ssf/shop/io/Item;
+
+    iget-wide v0, v0, Lcom/samsung/android/sdk/ssf/shop/io/Item;->itemid:J
+
+    invoke-static {v0, v1}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+
+    move-result-object v0
+
+    :cond_4
+    const/4 v1, 0x5
+
+    invoke-interface {p5, v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/listener/DownloadListener;->updateStatus(Ljava/lang/String;I)V
+
+    goto/16 :goto_0
 .end method
 
 .method private onDownloadPackageResponse(Lcom/samsung/android/sdk/ssf/SsfResult;Lcom/samsung/android/sdk/ssf/shop/io/DownloadItemEntry;ZLcom/samsung/android/sdk/enhancedfeatures/shop/apis/listener/DownloadListener;)V

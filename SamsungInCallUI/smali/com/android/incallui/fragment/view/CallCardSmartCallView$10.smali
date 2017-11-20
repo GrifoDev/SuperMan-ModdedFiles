@@ -7,7 +7,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/incallui/fragment/view/CallCardSmartCallView;->setSmartCallPhotoFilter(Lcom/android/incallui/fragment/VoiceCallCardFragment;IZ)V
+    value = Lcom/android/incallui/fragment/view/CallCardSmartCallView;->startPhotoFilterEndCallAnimation(Lcom/android/incallui/fragment/VoiceCallCardFragment;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;

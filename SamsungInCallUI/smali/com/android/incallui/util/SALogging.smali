@@ -165,6 +165,8 @@
 
     move-result-object v1
 
+    if-eqz v1, :cond_1
+
     invoke-virtual {v1}, Lcom/android/incallui/remotecall/remotecall/RemoteCall;->getState()I
 
     move-result v0

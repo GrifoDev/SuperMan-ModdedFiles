@@ -94,12 +94,16 @@
     return v0
 .end method
 
-.method public static dismissDialog()V
+.method public static dismissDialog(Z)V
     .locals 1
 
     sget-object v0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->fragment:Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
+
+    const/4 v0, 0x1
+
+    if-ne p0, v0, :cond_0
 
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
@@ -107,13 +111,14 @@
 
     invoke-virtual {v0}, Lcom/android/incallui/InCallPresenter;->cancelAccountSelection()V
 
+    :cond_0
     sget-object v0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->fragment:Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;
 
     invoke-virtual {v0}, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     sget-object v0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->fragment:Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;
 
@@ -123,10 +128,10 @@
 
     invoke-virtual {v0}, Landroid/app/Activity;->finish()V
 
-    :cond_0
+    :cond_1
     sget-object v0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->fragment:Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     sget-object v0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->fragment:Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;
 
@@ -134,18 +139,18 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     sget-object v0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->fragment:Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;
 
     invoke-virtual {v0}, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->dismiss()V
 
-    :cond_1
+    :cond_2
     const/4 v0, 0x0
 
     sput-object v0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->fragment:Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;
 
-    :cond_2
+    :cond_3
     return-void
 .end method
 
@@ -265,7 +270,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f04018e
+    const v4, 0x7f04018f
 
     iget-object v5, p0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->mAccountHandles:Ljava/util/List;
 
@@ -327,7 +332,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f04018d
+    const v3, 0x7f04018e
 
     const/4 v4, 0x0
 
@@ -427,17 +432,17 @@
 .end method
 
 .method public onPause()V
-    .locals 1
+    .locals 2
+
+    const/4 v1, 0x1
 
     iget-boolean v0, p0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->mIsSelected:Z
 
     if-nez v0, :cond_0
 
-    invoke-static {}, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->dismissDialog()V
+    invoke-static {v1}, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->dismissDialog(Z)V
 
-    const/4 v0, 0x1
-
-    invoke-static {v0}, Lcom/android/incallui/bike/BikeModeUtils;->setIsBMOutCallHandled(I)V
+    invoke-static {v1}, Lcom/android/incallui/bike/BikeModeUtils;->setIsBMOutCallHandled(I)V
 
     :cond_0
     invoke-super {p0}, Landroid/app/DialogFragment;->onPause()V

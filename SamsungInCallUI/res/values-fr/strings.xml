@@ -178,7 +178,7 @@
     <string name="account_phone">Appareil</string>
     <string name="acs">Appel vocal</string>
     <string name="active_calls">Appel en cours</string>
-    <string name="add_reminder">Ajouter rappel</string>
+    <string name="add_reminder">Ajouter un rappel</string>
     <string name="agif_button_close_description">Fermer</string>
     <string name="agif_decline_message">Désolé, je suis occupé.</string>
     <string name="agif_decline_sticker_header">Refus avec un symbole</string>
@@ -644,7 +644,7 @@ Le menu de l'écran des appels SVI utilise le contenu fourni par un fournisseur 
     <string name="postal_city">Ville</string>
     <string name="postal_country">Pays</string>
     <string name="postal_postcode">Code postal</string>
-    <string name="postal_region">Etat</string>
+    <string name="postal_region">État</string>
     <string name="postal_street">Rue</string>
     <string name="pre_img_during_call">Image préenregistrée</string>
     <string name="preferred_sim_for_callback">SIM préférée pour appels</string>
@@ -790,7 +790,7 @@ sens uniq."</string>
     <string name="secOnscreenSwisText">See what I see</string>
     <string name="secOnscreenSwitchCameraText">Changer Objectif</string>
     <string name="secOnscreenSwitchText">Permuter</string>
-    <string name="secOnscreenUpdateContactText">MAJ cont. exist.</string>
+    <string name="secOnscreenUpdateContactText">MÀJ cont. exist.</string>
     <string name="secOnscreenUpdateContactText_tts">Mettre à jour les contacts existants</string>
     <string name="secOnscreenVideoCallText">Appel visio</string>
     <string name="secOnscreenVideoStopText">Arrêter</string>
@@ -868,6 +868,7 @@ sens uniq."</string>
     <string name="swipe_right_to_answer_call_with_video">"Faites glisser un doigt vers la droite pour répondre à l'appel avec vidéo."</string>
     <string name="swipe_right_to_answer_call_without_video">"Faites glisser un doigt vers la droite pour répondre à l'appel sans vidéo."</string>
     <string name="switch_rejected_by_mt">Demande de passage en mode appel visio rejetée</string>
+    <string name="switch_rejected_by_mt_att">"La fonction Vidéo n'est pas disponible pour cet appel. Celui-ci est basculé en appel vocal."</string>
     <string name="switch_to_video_call_failed">Échec de la demande de passage en mode appel visio.</string>
     <string name="switch_to_video_call_failed_tmo">La demande de passage en mode appel visio a été refusée.</string>
     <string name="switch_to_voice_call_failed">Échec de la demande de passage en mode appel vocal.</string>
@@ -895,7 +896,7 @@ sens uniq."</string>
     <string name="upload_using_wlan_only">Ne charger que par WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Charger via le Wi-Fi ou le réseau mobile</string>
     <string name="upload_wlan_and_mobile_nw">Charger via le WLAN ou le réseau mobile</string>
-    <string name="usa_att_connected_as_voice">Appel connecté en tant que voix uniquement.</string>
+    <string name="usa_att_connected_as_voice">"La fonction Vidéo n'est pas disponible pour cet appel. Celui-ci est basculé en appel vocal."</string>
     <string name="usa_att_data_usage_charge_alert">"Vous avez presque atteint la limite d'utilisation des données que vous avez définie sur votre appareil. Des données sont nécessaires pour votre appel visio."</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">"L'appel ne peut pas être passé par Wi-Fi. Il sera passé sur le réseau cellulaire. Des frais de voix et de données seront facturés."</string>
     <string name="usa_att_modify_receive_to_video">%s demande à basculer en mode Appel visio.</string>

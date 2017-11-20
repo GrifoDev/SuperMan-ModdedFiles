@@ -120,7 +120,7 @@
     <string name="account_phone">Түзмөк</string>
     <string name="acs">Үн чалуу</string>
     <string name="active_calls">Активдүү чалуу</string>
-    <string name="add_reminder">Эскер. кошуу</string>
+    <string name="add_reminder">Эскертүүнү кошуу</string>
     <string name="agif_button_close_description">Жабуу</string>
     <string name="agif_decline_message">Кечириңиз, мен азыр сүйлөй албайм.</string>
     <string name="agif_decline_sticker_header">Стикер менен четке кагуу</string>
@@ -810,6 +810,7 @@ IVR чалуу экран менюсу Dianhuabang деп аталган үчү�
     <string name="swipe_right_to_answer_call_with_video">Чалууга видео менен жооп берүү үчүн, оңго жылдырыңыз.</string>
     <string name="swipe_right_to_answer_call_without_video">Чалууга видеосуз жооп берүү үчүн, оңго жылдырыңыз.</string>
     <string name="switch_rejected_by_mt">Видео чалууга которуу суроосу четке кагылды</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Видео чалууга которуу суроосу кыйрады.</string>
     <string name="switch_to_video_call_failed_tmo">Видео чалууга которуу суроосу четке кагылды.</string>
     <string name="switch_to_voice_call_failed">Үн чалууга которуу суроосу кыйрады.</string>
@@ -837,7 +838,7 @@ IVR чалуу экран менюсу Dianhuabang деп аталган үчү�
     <string name="upload_using_wlan_only">WLAN аркылуу гана жүктөп киргизүү</string>
     <string name="upload_wifi_and_mobile_nw">Wi-Fi же мобилдик тармак аркылуу жүктөп киргизүү</string>
     <string name="upload_wlan_and_mobile_nw">WLAN же мобилдик тармак аркылуу жүктөп киргизүү</string>
-    <string name="usa_att_connected_as_voice">Чалуу үн гана катары туташылды.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Түзмөгүңүздөн орноткон Маалымат Керектөөңүз чегине жетээрине аз калды. Видео чалууңуз маалыматтарды талап кылат.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Чалууну Wi-Fi аркылуу жасоого болбойт, уюлдук тармак аркылуу туташууда. Үн жана берилмелер үчүн төлөмдөр алынышы мүмкүн.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

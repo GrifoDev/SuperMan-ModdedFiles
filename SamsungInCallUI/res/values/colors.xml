@@ -501,6 +501,9 @@
     <color name="sec_video_preparing_text_color">#fffafafa</color>
     <color name="sec_video_preparing_text_color_qcif">#ff000000</color>
     <color name="sec_video_qcif_videocall_button_text_shadow">#bf000000</color>
+    <color name="sec_video_quality_green">#ff6ebd52</color>
+    <color name="sec_video_quality_red">#ffe96056</color>
+    <color name="sec_video_quality_yellow">#ffe9cc56</color>
     <color name="sec_video_switch_camera_animation_color">#ff000000</color>
     <color name="sec_video_transparent">#00000000</color>
     <color name="sec_video_vga_button_dim_tint">#66fafafa</color>

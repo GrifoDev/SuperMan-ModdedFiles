@@ -178,7 +178,7 @@
     <string name="account_phone">Enhed</string>
     <string name="acs">Stemmeopkald</string>
     <string name="active_calls">Aktivt opkald</string>
-    <string name="add_reminder">Tilføj påmi.</string>
+    <string name="add_reminder">Tilføj påmindelse</string>
     <string name="agif_button_close_description">Luk</string>
     <string name="agif_decline_message">Beklager, jeg kan ikke tale lige nu.</string>
     <string name="agif_decline_sticker_header">Afslå med en sticker</string>
@@ -212,7 +212,7 @@
     <string name="app_update_dialog_negative">Senere</string>
     <string name="app_update_dialog_positive">Opdater</string>
     <string name="app_update_dialog_title">Vil du opdatere %s?</string>
-    <string name="application_not_found">Program ikke fundet.</string>
+    <string name="application_not_found">Applikation ikke fundet.</string>
     <string name="auto_update_database_via_wlan">Opdater database automatisk via WLAN</string>
     <string name="banner_calls_have_been_merged">Opkald er flettet.</string>
     <string name="banner_conferenc_call_with">I konferenceopkald med %s</string>
@@ -353,7 +353,7 @@ Dette videoopkald bruger nu data, og Mobile data vil blive deaktiveret, når opk
     <string name="downloading_via_wi_fi">Download filer via Wi-Fi</string>
     <string name="downloading_via_wlan">Download filer via WLAN</string>
     <string name="effect_beauty">Smukt ans.</string>
-    <string name="effect_mono">Gråskala</string>
+    <string name="effect_mono">Gråtoner</string>
     <string name="effect_negative">Negativ</string>
     <string name="effect_none">Ingen</string>
     <string name="effect_sepia">Sepia</string>
@@ -613,7 +613,7 @@ IVR-opkaldsskærmmenuen bruger indhold, som er leveret af tredjepartsserviceudby
     <string name="onscreenBluetoothTextOn_att">Skift til telefon</string>
     <string name="onscreenBluetoothTextOn_tmo">Skift til telefon</string>
     <string name="onscreenWebexText">WebEx</string>
-    <string name="open_folder_for_speakeroff">Åbn flip-telefonen for at slå højttalertelefonen fra.</string>
+    <string name="open_folder_for_speakeroff">Åbn fliptelefonen for at slå højttalertelefonen fra.</string>
     <string name="open_the_cover">Åbn coveret.</string>
     <string name="open_the_cover_incoming">Åbn omslaget for at besvare eller afvise videoopkaldet.</string>
     <string name="open_the_cover_modify_call">Den kaldte part ønsker at skifte til videoopkald. Åbn omslaget for at acceptere/afvise anmodningen.</string>
@@ -869,6 +869,7 @@ stillinger"</string>
     <string name="swipe_right_to_answer_call_with_video">Stryg til højre for at besvare opkald med video.</string>
     <string name="swipe_right_to_answer_call_without_video">Stryg til højre for at besvare opkald uden video.</string>
     <string name="switch_rejected_by_mt">Anmodning om at skifte til videoopkald er afvist.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Anmodning om at skifte til videoopkald mislykkedes.</string>
     <string name="switch_to_video_call_failed_tmo">Anmodning om at skifte til videoopkald blev afslået.</string>
     <string name="switch_to_voice_call_failed">Anmodning om at skifte til stemmeopkald mislykkedes.</string>
@@ -896,7 +897,7 @@ stillinger"</string>
     <string name="upload_using_wlan_only">Upload ved hjælp af Kun via WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Upload via Wi-Fi eller mobilt netværk</string>
     <string name="upload_wlan_and_mobile_nw">Upload via WLAN eller mobilt netværk</string>
-    <string name="usa_att_connected_as_voice">Opkald tilsluttet som kun stemme.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Databrug, som du har indstillet på denne enhed, er ved at nå grænsen. Videoopkald kræver data.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Opkald kan ikke foretages via Wi-Fi. Der oprettes forbindelse via mobilt netværk. Dette medfører gebyrer for taletid og data.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

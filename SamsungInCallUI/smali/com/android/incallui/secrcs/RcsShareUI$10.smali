@@ -34,15 +34,7 @@
 
 # virtual methods
 .method public onConnected()V
-    .locals 7
-
-    const/16 v6, 0x68
-
-    const/16 v5, 0x67
-
-    const/16 v4, 0x65
-
-    const/16 v3, 0x64
+    .locals 3
 
     const/4 v2, 0x1
 
@@ -54,56 +46,11 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    sget-boolean v0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsActiveCall:Z
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/incallui/secrcs/RcsShareUI$10;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
-
-    iget-object v1, p0, Lcom/android/incallui/secrcs/RcsShareUI$10;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
-
-    invoke-static {v1}, Lcom/android/incallui/secrcs/RcsShareUI;->access$2700(Lcom/android/incallui/secrcs/RcsShareUI;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v5, v3, v1}, Lcom/android/incallui/secrcs/RcsShareUI;->getCraneCap(IILjava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/incallui/secrcs/RcsShareUI$10;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
-
-    iget-object v1, p0, Lcom/android/incallui/secrcs/RcsShareUI$10;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
-
-    invoke-static {v1}, Lcom/android/incallui/secrcs/RcsShareUI;->access$2700(Lcom/android/incallui/secrcs/RcsShareUI;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v6, v3, v1}, Lcom/android/incallui/secrcs/RcsShareUI;->getCraneCap(IILjava/lang/String;)V
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/incallui/secrcs/RcsShareUI$10;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
-
-    iget-object v1, p0, Lcom/android/incallui/secrcs/RcsShareUI$10;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
-
-    invoke-static {v1}, Lcom/android/incallui/secrcs/RcsShareUI;->access$2700(Lcom/android/incallui/secrcs/RcsShareUI;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v5, v4, v1}, Lcom/android/incallui/secrcs/RcsShareUI;->getCraneCap(IILjava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/incallui/secrcs/RcsShareUI$10;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
-
-    iget-object v1, p0, Lcom/android/incallui/secrcs/RcsShareUI$10;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
-
-    invoke-static {v1}, Lcom/android/incallui/secrcs/RcsShareUI;->access$2700(Lcom/android/incallui/secrcs/RcsShareUI;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v6, v4, v1}, Lcom/android/incallui/secrcs/RcsShareUI;->getCraneCap(IILjava/lang/String;)V
-
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
@@ -113,7 +60,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
@@ -127,7 +74,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
@@ -147,19 +94,19 @@
 
     invoke-interface {v0, v1}, Lcom/android/incallui/CallButtonUi;->updateCallButtons(Lcom/android/incallui/Call;)V
 
-    :cond_1
+    :cond_0
     :try_start_0
     iget-object v0, p0, Lcom/android/incallui/secrcs/RcsShareUI$10;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
 
-    invoke-static {v0}, Lcom/android/incallui/secrcs/RcsShareUI;->access$2600(Lcom/android/incallui/secrcs/RcsShareUI;)Lcom/sec/ims/options/CapabilityManager;
+    invoke-static {v0}, Lcom/android/incallui/secrcs/RcsShareUI;->access$2700(Lcom/android/incallui/secrcs/RcsShareUI;)Lcom/sec/ims/options/CapabilityManager;
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/android/incallui/secrcs/RcsShareUI$10;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
 
-    invoke-static {v0}, Lcom/android/incallui/secrcs/RcsShareUI;->access$2600(Lcom/android/incallui/secrcs/RcsShareUI;)Lcom/sec/ims/options/CapabilityManager;
+    invoke-static {v0}, Lcom/android/incallui/secrcs/RcsShareUI;->access$2700(Lcom/android/incallui/secrcs/RcsShareUI;)Lcom/sec/ims/options/CapabilityManager;
 
     move-result-object v0
 
@@ -173,7 +120,7 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_2
+    :cond_1
     :goto_0
     return-void
 

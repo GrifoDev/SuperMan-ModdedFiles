@@ -810,6 +810,7 @@
     <string name="swipe_right_to_answer_call_with_video">អូស​ទៅ​ស្ដាំ​ដើម្បី​ឆ្លើយ​ការហៅ​ជាមួយ​វីដេអូ។</string>
     <string name="swipe_right_to_answer_call_without_video">អូស​ទៅ​ស្ដាំ​ដើម្បី​ឆ្លើយ​ការហៅ​ដោយ​គ្មាន​វីដេអូ។</string>
     <string name="switch_rejected_by_mt">បាន​ច្រានចោល​សំណើ​ឲ្យ​ប្ដូរ​ទៅ​ការហៅ​វីដេអូ។</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">សំណើ​សុំ​ប្ដូរ​ទៅ​ការហៅ​វីដេអូ​ត្រូវ​បាន​បរាជ័យ។</string>
     <string name="switch_to_video_call_failed_tmo">សំណើ​សុំ​ប្ដូរ​ទៅ​ការហៅ​វីដេអូ​ត្រូវ​បាន​បដិសេធ។</string>
     <string name="switch_to_voice_call_failed">សំណើ​សុំ​ប្ដូរ​ទៅ​ការហៅ​សំឡេង​បាន​បរាជ័យ។</string>
@@ -837,7 +838,7 @@
     <string name="upload_using_wlan_only">បញ្ជូន​តាម WLAN ប៉ុណ្ណោះ</string>
     <string name="upload_wifi_and_mobile_nw">បញ្ជូន​តាម Wi-Fi ឬ បណ្ដាញ​ចល័ត</string>
     <string name="upload_wlan_and_mobile_nw">បញ្ជូន​តាម WLAN ឬ បណ្ដាញ​ចល័ត</string>
-    <string name="usa_att_connected_as_voice">ការហៅ​ត្រូវ​បាន​ភ្ជាប់​ជា​សំឡេង​ប៉ុណ្ណោះ។</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">ការប្រើប្រាស់​ទិន្នន័យ​របស់​អ្នក​ដែល​អ្នក​កំណត់​លើ​ឧបករណ៍​របស់​អ្នក​ជិត​ដល់​ដែនកំណត់​របស់​វា។ ការហៅ​វីដេអូ​របស់​អ្នក​ត្រូវការ​ទិន្នន័យ។</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">ការហៅ​មិន​អាច​ធ្វើ​តាម Wi-Fi, កំពុង​ភ្ជាប់​តាម​បណ្ដាញ​ចល័ត។ នឹង​គិត​ថ្លៃ​សំឡេង​និង​ទិន្នន័យ។</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

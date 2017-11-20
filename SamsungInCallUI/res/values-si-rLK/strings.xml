@@ -119,7 +119,7 @@
     <string name="BirthDay_remainedDays1">හෙ‍ට උපන්දිනය</string>
     <string name="BirthDay_remainedDays7">සති 1 කින් උපන්දිනය</string>
     <string name="BirthDay_remainedDaysEtc">දින %d කින් උපන්දිනය</string>
-    <string name="DivertToVoice_disable">මෙම අංකයට විඩියෝ ඇමතුම් භාවිතයට නැත. ඒ වෙනුවට හඬ ඇමතුම උත්සාහ කරන්නද?</string>
+    <string name="DivertToVoice_disable">මෙම අංකය සඳහා විඩියෝ ඇමතුම් නොමැත. ඒ වෙනුවට හඬ ඇමතුම උත්සාහ කරන්නද?</string>
     <string name="DivertToVoice_enable">මෙම අංකයට විඩියෝ ඇමතුම් භාවිතයට නැත. හඬ ඇමතුම් වෙත මාරු වෙමින්…</string>
     <string name="Lunar_anniversary_passedDays1">චන්ද්‍ර සං. ඊයේ</string>
     <string name="Lunar_anniversary_remainedDays0">චන්ද්‍ර සංවත්. අද</string>
@@ -147,7 +147,7 @@
     <string name="account_phone">උපාංගය</string>
     <string name="acs">හඬ ඇමතුම</string>
     <string name="active_calls">සක්‍රිය ඇමතුම</string>
-    <string name="add_reminder">සිහික. එ. ක.</string>
+    <string name="add_reminder">සිහිකැඳවීම එක් කරන්න</string>
     <string name="agif_button_close_description">වසන්න</string>
     <string name="agif_decline_message">සමාවන්න, මට දැන් කතා කළ නොහැක.</string>
     <string name="agif_decline_sticker_header">ස්ටිකරයක් සමග ප්‍රතික්ෂේපය</string>
@@ -180,7 +180,7 @@
     <string name="app_update_dialog_message">%s හි නව අනුවාදයක් ලද හැක.</string>
     <string name="app_update_dialog_negative">පසුව</string>
     <string name="app_update_dialog_positive">යාවත්කාලය</string>
-    <string name="app_update_dialog_title">%s යාවත්කාල කරන්න ද?</string>
+    <string name="app_update_dialog_title">%s යාවත්කාල කරන්නද?</string>
     <string name="application_not_found">යෙදුම හමු නොවිණි.</string>
     <string name="auto_update_database_via_wlan">Auto update database via WLAN</string>
     <string name="banner_calls_have_been_merged">ඇමතුම් ඒකාබද්ධ කර ඇත.</string>
@@ -834,6 +834,7 @@ IVR ඇමතුම් තිර මෙනුව විසින් Dianhuabang 
     <string name="swipe_right_to_answer_call_with_video">වීඩියෝව සමග ඇමතුමට පිළිතුරු දීමට දකුණට ස්වයිප් කරන්න.</string>
     <string name="swipe_right_to_answer_call_without_video">වීඩියෝවෙන් තොරව ඇමතුමට පිළිතුරු දීමට දකුණට ස්වයිප් කරන්න.</string>
     <string name="switch_rejected_by_mt">වීඩියෝ ඇමතුමට සම්බන්ධ වීම සඳහා ඉල්ලුම ප්‍රතික්ෂේප කෙරිණි.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">වීඩියෝ ඇමතුමට මාරු වීමට ඉල්ලීම අසාර්ථක විය.</string>
     <string name="switch_to_video_call_failed_tmo">වීඩියෝ ඇමතුම වෙත මාරු වීමට ඉල්ලුම ප්‍රතික්ෂේප කරන ලදී.</string>
     <string name="switch_to_voice_call_failed">හඬ ඇමතුමට මාරු වීම සඳහා ඉල්ලීම අසාර්ථක විය.</string>
@@ -861,7 +862,7 @@ IVR ඇමතුම් තිර මෙනුව විසින් Dianhuabang 
     <string name="upload_using_wlan_only">WLAN ඔස්සේ පමණක් උඩුගත කරන්න</string>
     <string name="upload_wifi_and_mobile_nw">Wi-Fi හෝ ජංගම ජාලය ඔස්සේ උඩුගත කරන්න</string>
     <string name="upload_wlan_and_mobile_nw">WLAN හෝ ජංගම ජාලය ඔස්සේ උඩුගත කරන්න</string>
-    <string name="usa_att_connected_as_voice">ඇමතුම හඬ පමණක් ලෙස සම්බන්ධ කරන ලදී.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">ඔබ ඔබේ උපාංගය මත තැබූ ඔබේ දත්ත භාවිතය එහි සීමාව කරා ළඟා වීමට ආසන්නයි. ඔබේ වීඩියෝ ඇමතුමට දත්ත අවශ්‍ය වේ.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">ඇමතුම Wi-Fi හරහා ගත නොහැක, සෙලියුලර් ජාලයක් හරහා සම්බන්ධ වෙමින්. හඬ සහ දත්ත ගාස්තු අදාළ වනු ඇත.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

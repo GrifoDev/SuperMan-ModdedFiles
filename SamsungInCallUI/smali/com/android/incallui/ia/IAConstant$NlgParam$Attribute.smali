@@ -14,7 +14,13 @@
 
 
 # static fields
+.field public static final ALREADYSET:Ljava/lang/String; = "AlreadySet"
+
 .field public static final EXIST:Ljava/lang/String; = "Exist"
+
+.field public static final VALID:Ljava/lang/String; = "Valid"
+
+.field public static final VALUE:Ljava/lang/String; = "Value"
 
 
 # direct methods

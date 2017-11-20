@@ -2446,6 +2446,8 @@
 .method public downloadFilesByFileName(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/listener/DownloadListener;)V
     .locals 3
 
+    const/16 v1, 0x2e
+
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
@@ -2476,22 +2478,7 @@
     throw v0
 
     :cond_1
-    invoke-static {p3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    new-instance v0, Ljava/lang/IllegalArgumentException;
-
-    const-string v1, "FileType is empty"
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_2
-    if-nez p4, :cond_3
+    if-nez p4, :cond_2
 
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -2501,7 +2488,45 @@
 
     throw v0
 
+    :cond_2
+    invoke-virtual {p1, v1}, Ljava/lang/String;->lastIndexOf(I)I
+
+    move-result v0
+
+    if-gez v0, :cond_3
+
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string v1, "fileName must include a file extension"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
     :cond_3
+    invoke-virtual {p1, v1}, Ljava/lang/String;->lastIndexOf(I)I
+
+    move-result v0
+
+    add-int/lit8 v0, v0, 0x1
+
+    invoke-virtual {p1}, Ljava/lang/String;->length()I
+
+    move-result v1
+
+    invoke-virtual {p1, v0, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {p3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_5
+
+    move-object p3, v0
+
+    :cond_4
     const/4 v0, 0x0
 
     iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/EnhancedShop;->mEnhancedFeatures:Lcom/samsung/android/sdk/enhancedfeatures/EnhancedFeatures;
@@ -2519,6 +2544,21 @@
     invoke-virtual {v0, p1, p2, p3, p4}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager;->downloadFilesByFileName(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/listener/DownloadListener;)V
 
     return-void
+
+    :cond_5
+    invoke-virtual {v0, p3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_4
+
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string v1, "FileType is wrong"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 .end method
 
 .method public downloadStickers(Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/listener/DownloadListener;)V

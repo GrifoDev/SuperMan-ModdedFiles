@@ -790,6 +790,7 @@ IVR কল চেণ্টাৰ মেনুয়ে Dianhuabang নামৰ এ
     <string name="swipe_right_to_answer_call_with_video">"ভিডিঅ'ৰ সৈতে কলৰ উত্তৰ দিবলৈ সোঁফালে ঘহাঁওক।"</string>
     <string name="swipe_right_to_answer_call_without_video">"ভিডিঅ' নোহোৱাকৈ কলৰ উত্তৰ দিবলৈ সোঁফালে ঘহাঁওক।"</string>
     <string name="switch_rejected_by_mt">"ভিডিঅ' কললৈ সলনি কৰিবলৈ কৰা অনুৰোধক নাকচ কৰা হৈছে৷"</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">"ভিডিঅ' কললৈ চুইচ কৰিবলৈ কৰা অনুৰোধ বিফল হৈছে৷"</string>
     <string name="switch_to_video_call_failed_tmo">"ভিডিঅ' কললৈ সলনি কৰাৰ অনুৰোধ অস্বীকাৰ কৰিছে।"</string>
     <string name="switch_to_voice_call_failed">মাত কললৈ সলনি কৰিবলৈ কৰা অনুৰোধ বিফল হৈছে৷</string>
@@ -817,7 +818,7 @@ IVR কল চেণ্টাৰ মেনুয়ে Dianhuabang নামৰ এ
     <string name="upload_using_wlan_only">কেৱল WLAN হৈ আপলোড কৰক</string>
     <string name="upload_wifi_and_mobile_nw">"Wi-Fi বা ম'বাইল নেটৱৰ্কৰ মাধ্যমেদি আপলোড কৰক"</string>
     <string name="upload_wlan_and_mobile_nw">"WLAN বা ম'বাইল নেটৱৰ্ক হৈ আপলোড কৰক"</string>
-    <string name="usa_att_connected_as_voice">কল কেৱল মাতৰ ৰূপত সংযোগ হৈছে।</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">"আপুনি আপোনাৰ ডিভাইচত প্ৰেৰণ কৰা আপোনাৰ ডাটাৰ ব্যৱহাৰ ইয়াৰ সীমাত প্ৰায় পাইছেহি। আপোনাৰ ভিডিঅ' কলক ডাটাৰ আৱশ্যক।"</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">"চেলুলাৰ নেটৱৰ্কৰ যোগেদি সংযোগ কৰি Wi-Fi হৈ কল কৰিব নোৱাৰি। মাত আৰু ডাটা মাছুল প্ৰয়োগ হ'ব।"</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

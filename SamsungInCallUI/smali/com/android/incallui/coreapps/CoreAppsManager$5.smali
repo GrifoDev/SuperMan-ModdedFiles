@@ -51,7 +51,7 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/incallui/coreapps/CoreAppsManager;->access$302(Lcom/android/incallui/coreapps/CoreAppsManager;Landroid/media/MediaPlayer;)Landroid/media/MediaPlayer;
+    invoke-static {v0, v1}, Lcom/android/incallui/coreapps/CoreAppsManager;->access$402(Lcom/android/incallui/coreapps/CoreAppsManager;Landroid/media/MediaPlayer;)Landroid/media/MediaPlayer;
 
     return-void
 .end method

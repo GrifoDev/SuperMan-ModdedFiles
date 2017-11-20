@@ -272,7 +272,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0278
+    const v2, 0x7f0a0274
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -458,7 +458,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/fragment/VideoCallVGAUsaFragment;->mEpdgNotifyInfoText:Landroid/widget/TextView;
 
-    const v2, 0x7f09039e
+    const v2, 0x7f09039f
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

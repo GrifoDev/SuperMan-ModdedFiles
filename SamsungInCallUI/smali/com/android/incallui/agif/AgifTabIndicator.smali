@@ -300,7 +300,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f0a03c6
+    const v3, 0x7f0a03c2
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -314,7 +314,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f0a03c0
+    const v3, 0x7f0a03bc
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -328,7 +328,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f0a03c3
+    const v3, 0x7f0a03bf
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -342,7 +342,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f0a03c4
+    const v3, 0x7f0a03c0
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -356,7 +356,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f0a03c2
+    const v3, 0x7f0a03be
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -512,7 +512,7 @@
 
     check-cast v0, Lcom/android/incallui/agif/AgifLoader$AgifPackageInfo;
 
-    iget-object v0, v0, Lcom/android/incallui/agif/AgifLoader$AgifPackageInfo;->packageName:Ljava/lang/String;
+    iget-object v0, v0, Lcom/android/incallui/agif/AgifLoader$AgifPackageInfo;->contentName:Ljava/lang/String;
 
     invoke-virtual {v9, v0}, Lcom/android/incallui/agif/AgifTabIndicator$AgifTabImageView;->setContentDescription(Ljava/lang/CharSequence;)V
 
@@ -654,7 +654,7 @@
 
     check-cast v0, Lcom/android/incallui/agif/AgifLoader$AgifPackageInfo;
 
-    iget-object v0, v0, Lcom/android/incallui/agif/AgifLoader$AgifPackageInfo;->packageName:Ljava/lang/String;
+    iget-object v0, v0, Lcom/android/incallui/agif/AgifLoader$AgifPackageInfo;->contentName:Ljava/lang/String;
 
     invoke-static {v0}, Lcom/android/incallui/util/VoiceCallAppLogging;->agifScreen_selectAgifSet(Ljava/lang/String;)V
 

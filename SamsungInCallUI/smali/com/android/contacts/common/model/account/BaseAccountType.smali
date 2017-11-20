@@ -1871,7 +1871,7 @@
 .method protected n(Landroid/content/Context;)Lcom/android/contacts/common/model/dataitem/DataKind;
     .locals 6
 
-    const v5, 0x7f0903be
+    const v5, 0x7f0903bf
 
     new-instance v0, Lcom/android/contacts/common/model/dataitem/DataKind;
 

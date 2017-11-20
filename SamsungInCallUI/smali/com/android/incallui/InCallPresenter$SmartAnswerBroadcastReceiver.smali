@@ -70,7 +70,17 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "BroadcastReceiver.onReceive() smart answer Broadcast, controller ="
+    const-string v4, "SmartAnswerBroadcastReceivern: onReceive-"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string v4, " controller-"
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -80,7 +90,7 @@
 
     move-result-object v3
 
-    const-string v4, ",filePath="
+    const-string v4, " filePath-"
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -94,9 +104,17 @@
 
     move-result-object v3
 
-    invoke-static {p0, v3}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p0, v3}, Lcom/android/incallui/Log;->i(Ljava/lang/Object;Ljava/lang/String;)V
 
     const-string v3, "com.shhphone.autoanswer.AUTOANSWER_ACTION"
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_2
+
+    const-string v3, "shhLGUAA"
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -104,9 +122,10 @@
 
     if-eqz v0, :cond_0
 
+    :cond_2
     const/4 v0, 0x1
 
-    if-ne v1, v0, :cond_2
+    if-ne v1, v0, :cond_3
 
     invoke-static {v2}, Lcom/android/incallui/operator/kor/SmartAnswerUtils;->setSoundPath(Ljava/lang/String;)V
 
@@ -114,7 +133,7 @@
 
     invoke-virtual {v0, p1}, Lcom/android/incallui/InCallPresenter;->smartAnsweringMode(Landroid/content/Context;)V
 
-    :cond_2
+    :cond_3
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v0

@@ -58,9 +58,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/bike/BikeModeAudioManager$8;->val$am:Landroid/media/AudioManager;
 
-    iget-object v1, p0, Lcom/android/incallui/bike/BikeModeAudioManager$8;->this$0:Lcom/android/incallui/bike/BikeModeAudioManager;
-
-    invoke-static {v1}, Lcom/android/incallui/bike/BikeModeAudioManager;->access$400(Lcom/android/incallui/bike/BikeModeAudioManager;)I
+    invoke-static {}, Lcom/android/incallui/bike/BikeModeAudioManager;->access$400()I
 
     move-result v1
 

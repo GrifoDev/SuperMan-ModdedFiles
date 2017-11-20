@@ -107,9 +107,9 @@
 .method public instantiateItem(Landroid/view/View;I)Ljava/lang/Object;
     .locals 9
 
-    const v8, 0x7f0a046d
+    const v8, 0x7f0a046b
 
-    const v7, 0x7f0a0468
+    const v7, 0x7f0a0466
 
     const/4 v6, 0x0
 
@@ -177,11 +177,7 @@
 
     if-eqz v1, :cond_2
 
-    const-string v1, "ims_rcs_bb"
-
-    invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
-
-    move-result v1
+    sget-boolean v1, Lcom/android/incallui/secrcs/RcsShareUI;->isBB:Z
 
     if-nez v1, :cond_2
 
@@ -199,7 +195,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$OutgoingPagerAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v2, 0x7f040179
+    const v2, 0x7f04017a
 
     invoke-virtual {v1, v2, v0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -246,7 +242,7 @@
     :cond_2
     iget-object v1, p0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$OutgoingPagerAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v2, 0x7f040178
+    const v2, 0x7f040179
 
     invoke-virtual {v1, v2, v0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -291,11 +287,7 @@
 
     if-eqz v1, :cond_5
 
-    const-string v1, "ims_rcs_bb"
-
-    invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
-
-    move-result v1
+    sget-boolean v1, Lcom/android/incallui/secrcs/RcsShareUI;->isBB:Z
 
     if-nez v1, :cond_5
 
@@ -317,7 +309,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$OutgoingPagerAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v2, 0x7f040173
+    const v2, 0x7f040174
 
     invoke-virtual {v1, v2, v0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -387,7 +379,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a046e
+    const v1, 0x7f0a046c
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -401,7 +393,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f0a0469
+    const v3, 0x7f0a0467
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -453,7 +445,7 @@
     :cond_5
     iget-object v1, p0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$OutgoingPagerAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v2, 0x7f040175
+    const v2, 0x7f040176
 
     invoke-virtual {v1, v2, v0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 

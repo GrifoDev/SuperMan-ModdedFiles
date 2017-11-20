@@ -1343,9 +1343,9 @@
     goto :goto_0
 
     :pswitch_2
-    new-instance v0, Lcom/android/incallui/fragment/DialpadFragment;
+    new-instance v0, Lcom/android/incallui/fragment/VoiceCallDialpadFragment;
 
-    invoke-direct {v0}, Lcom/android/incallui/fragment/DialpadFragment;-><init>()V
+    invoke-direct {v0}, Lcom/android/incallui/fragment/VoiceCallDialpadFragment;-><init>()V
 
     goto :goto_0
 

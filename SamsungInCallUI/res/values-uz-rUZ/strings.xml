@@ -120,7 +120,7 @@
     <string name="account_phone">Qurilma</string>
     <string name="acs">Ovozli qo‘ng‘iroq</string>
     <string name="active_calls">Faol qo‘ng‘iroq</string>
-    <string name="add_reminder">Eslat. qo‘sh</string>
+    <string name="add_reminder">Eslatma qo‘shish</string>
     <string name="agif_button_close_description">Yopish</string>
     <string name="agif_decline_message">Kechirasiz, hozir gaplasha olmayman.</string>
     <string name="agif_decline_sticker_header">Stiker bilan rad etish</string>
@@ -811,6 +811,7 @@ Kamera"</string>
     <string name="swipe_right_to_answer_call_with_video">Qo‘ng‘iroqqa video bilan javob berish uchun o‘ngga suring.</string>
     <string name="swipe_right_to_answer_call_without_video">Qo‘ng‘iroqqa videosiz javob berish uchun o‘ngga suring.</string>
     <string name="switch_rejected_by_mt">Video qo‘ng‘iroqqa o‘tish so‘rovi rad etildi.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Video qo‘ng‘iroqqa o‘tish so‘rovi yuborilmadi.</string>
     <string name="switch_to_video_call_failed_tmo">Vide qo‘ng‘iroqqa o‘tish haqida so‘rov rad etildi.</string>
     <string name="switch_to_voice_call_failed">Ovozli qo‘ng‘iroqqa o‘tish so‘rovi yuborilmadi.</string>
@@ -838,7 +839,7 @@ Kamera"</string>
     <string name="upload_using_wlan_only">Faqat WLAN orqali yuklash</string>
     <string name="upload_wifi_and_mobile_nw">Wi-Fi yoki mobil tarmoq orqali yuklash</string>
     <string name="upload_wlan_and_mobile_nw">WLAN yoki mobil tarmoq orqali yuklab olish</string>
-    <string name="usa_att_connected_as_voice">Qo‘ng‘iroq faqat ovoz bilan ulangan.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Qurilmaga o‘rnatilgan internetdan foydalanish chekloviga yaqin qoldi. Video qo‘ng‘iroq uchun internet talab etiladi.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Wi-Fi orqali qon‘giroqni davom ettirib bo‘lmaydi, uyali tarmoqda ulanish. Ovoz va internet uchun to‘lovlar olinadi.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

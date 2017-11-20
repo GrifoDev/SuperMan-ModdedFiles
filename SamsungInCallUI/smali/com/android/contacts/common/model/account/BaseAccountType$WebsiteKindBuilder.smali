@@ -60,7 +60,7 @@
 
     const/4 v4, 0x0
 
-    const v7, 0x7f0903be
+    const v7, 0x7f0903bf
 
     const-string v5, "vnd.android.cursor.item/website"
 

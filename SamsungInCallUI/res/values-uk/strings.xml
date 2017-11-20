@@ -178,7 +178,7 @@
     <string name="account_phone">Пристрій</string>
     <string name="acs">Голосовий виклик</string>
     <string name="active_calls">Активний виклик</string>
-    <string name="add_reminder">Дод. нагад.</string>
+    <string name="add_reminder">Додати нагадування</string>
     <string name="agif_button_close_description">Закрити</string>
     <string name="agif_decline_message">Вибачте, зараз я не можу розмовляти.</string>
     <string name="agif_decline_sticker_header">Відхилення з надсиланням стікеру</string>
@@ -869,6 +869,7 @@
     <string name="swipe_right_to_answer_call_with_video">Проведіть вправо, щоб відповісти на виклик з відео.</string>
     <string name="swipe_right_to_answer_call_without_video">Проведіть вправо, щоб відповісти на виклик без відео.</string>
     <string name="switch_rejected_by_mt">Запит на переключення в режим відеовиклику відхилено.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Не вдалося надіслати запит на переключення в режим відеовиклику.</string>
     <string name="switch_to_video_call_failed_tmo">Запит на переключення до режиму відеовиклику відхилено.</string>
     <string name="switch_to_voice_call_failed">Не вдалося надіслати запит на переключення в режим голосового виклику.</string>
@@ -883,7 +884,7 @@
     <string name="tts_hours">%d годин</string>
     <string name="tts_minutes">%d хвилин</string>
     <string name="tts_pager">Сторінка %1$d з %2$d</string>
-    <string name="tts_seconds">%d секунд</string>
+    <string name="tts_seconds">%d секунди</string>
     <string name="tty_mode_option_title">Режим TTY</string>
     <string name="tutorial_incoming_call_app_answer">Натисніть, щоб відповісти на виклик.</string>
     <string name="tutorial_incoming_call_app_reject">Торкніться, щоб відхилити виклик.</string>
@@ -896,7 +897,7 @@
     <string name="upload_using_wlan_only">Завантажувати лише через WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Завантаження через мережу Wi-Fi або мобільну мережу</string>
     <string name="upload_wlan_and_mobile_nw">Завантажувати через мережу WLAN або мобільну мережу</string>
-    <string name="usa_att_connected_as_voice">Підключено тільки голосовий виклик.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">На вашому пристрої майже досягнуто ліміт використання даних. Для здійснення відеовиклику потрібно передавати та отримувати дані.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Неможливо перенести виклик до Wi-Fi, виконується підключення до мережі стільникового зв’язку. За передачу голосу і даних буде стягуватися плата.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

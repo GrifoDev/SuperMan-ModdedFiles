@@ -178,7 +178,7 @@
     <string name="account_phone">Laite</string>
     <string name="acs">Äänipuhelu</string>
     <string name="active_calls">Käynnissä oleva puhelu</string>
-    <string name="add_reminder">Lisää muist.</string>
+    <string name="add_reminder">Lisää muistutus</string>
     <string name="agif_button_close_description">Sulje</string>
     <string name="agif_decline_message">En valitettavasti voi puhua nyt.</string>
     <string name="agif_decline_sticker_header">Hylkää tarralla</string>
@@ -869,6 +869,7 @@ kamera"</string>
     <string name="swipe_right_to_answer_call_with_video">Pyyhkäise oikealle, jos haluat vastata puheluun kuvan kanssa.</string>
     <string name="swipe_right_to_answer_call_without_video">Pyyhkäise oikealle, jos haluat vastata puheluun ilman kuvaa.</string>
     <string name="switch_rejected_by_mt">Pyyntö vaihtaa videopuheluun on hylätty.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Pyyntö vaihtaa videopuheluun epäonnistui.</string>
     <string name="switch_to_video_call_failed_tmo">Pyyntö vaihtaa videopuheluun on hylätty.</string>
     <string name="switch_to_voice_call_failed">Pyyntö vaihtaa äänipuheluun epäonnistui.</string>
@@ -896,7 +897,7 @@ kamera"</string>
     <string name="upload_using_wlan_only">Lähetä vain WLAN-verkon kautta</string>
     <string name="upload_wifi_and_mobile_nw">Lähetä Wi-Fi- tai matkapuhelinverkon kautta</string>
     <string name="upload_wlan_and_mobile_nw">Lähetä WLAN- tai matkapuhelinverkon kautta</string>
-    <string name="usa_att_connected_as_voice">Puhelu yhdistetty vain äänipuheluna.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Laitteessa asettamasi datankäyttökiintiö on melkein saavutettu. Videopuheluun vaaditaan dataa.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Puhelua ei voi soittaa Wi-Fi-toiminnolla matkapuhelinverkon kautta. Tästä peritään äänipuhelu- ja datamaksuja.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

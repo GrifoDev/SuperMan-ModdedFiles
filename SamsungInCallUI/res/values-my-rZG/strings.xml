@@ -790,6 +790,7 @@ IVR ဖုန္းေခၚဆို ဖန္သားျပင္ မီႏ�
     <string name="swipe_right_to_answer_call_with_video">ေခၚဆိုမႈကို ဗီဒီယိုျဖင့္ ေျဖၾကားရန္ ညာဘက္သို႔ ပြတ္ဆြဲပါ။</string>
     <string name="swipe_right_to_answer_call_without_video">ေခၚဆိုမႈကို ဗီဒီယိုမပါဘဲေျဖၾကားရန္ ညာဘက္သို႔ ပြတ္ဆြဲပါ။</string>
     <string name="switch_rejected_by_mt">ဗြီဒီယုိေခၚဆိုမႈ အျဖစ္ေျပာင္းလဲရန္ ေတာင္းဆိုမႈ ျငင္းပယ္သည္။</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">ဗီဒီယို ေခၚဆိုမႈသို႔ ေျပာင္းရန္ ေတာင္းခံမႈ မေအာင္ျမင္ပါ။</string>
     <string name="switch_to_video_call_failed_tmo">ဗီဒီယိုဖုန္းသို႔ ကူးေျပာင္းရန္အတြက္ ေတာင္းဆိုခ်က္ကို ပယ္ခ်ခဲ့သည္။</string>
     <string name="switch_to_voice_call_failed">အသံ ေခၚဆိုမႈသို႔ ေျပာင္းရန္ ေတာင္းခံမႈ မေအာင္ျမင္ပါ။</string>
@@ -817,7 +818,7 @@ IVR ဖုန္းေခၚဆို ဖန္သားျပင္ မီႏ�
     <string name="upload_using_wlan_only">WLAN မွ သာလွ်င္ အပ္လုဒ္လုပ္ပါ</string>
     <string name="upload_wifi_and_mobile_nw">Wi-Fi (သို႔) မိုဘိုင္း ကြန္ယက္မွတဆင့္ အပ္လုဒ္လုပ္ပါ</string>
     <string name="upload_wlan_and_mobile_nw">WLAN (သို႔) မိုဘိုင္း ကြန္ရက္မွတဆင့္ အပ္လုဒ္လုပ္ပါ</string>
-    <string name="usa_att_connected_as_voice">ေခၚဖုန္းက အသံျဖင့္သာပုံစံအေနႏွင့္ ခ်ိတ္ဆက္ေနသည္။</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">သင့္ကိရိယာတြင္ သတ္မွတ္ခဲ့သည့္ ေဒတာအသုံးျပဳမႈသည္ ၎၏ကန္႔သတ္ပမာဏကို ေရာက္ခါနီးပါၿပီ။ ဗီဒီယိုဖုန္းအတြက္ ေဒတာ လိုအပ္သည္။</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">ေခၚဖုန္းကို ဆယ္လူလာကြန္ရက္ျဖင့္ ခ်ိတ္ဆက္ေနသာ Wi-Fi ေပၚတြင္ ထား၍မရပါ။ အသံခႏွင့္ ေဒတာခအတြက္ ေတာင္းခံပါမည္။</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

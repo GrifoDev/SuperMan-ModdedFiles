@@ -200,7 +200,7 @@
 
     move-result-object v2
 
-    const v4, 0x7f0a03b6
+    const v4, 0x7f0a03b2
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -278,7 +278,7 @@
 
     move-result-object v2
 
-    const v4, 0x7f0a0083
+    const v4, 0x7f0a0080
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -300,7 +300,7 @@
 
     move-result-object v2
 
-    const v6, 0x7f0a0084
+    const v6, 0x7f0a0081
 
     invoke-virtual {v2, v6}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -370,7 +370,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0a01dc
+    const v7, 0x7f0a01d8
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -389,7 +389,7 @@
 
     move-result-object v2
 
-    const v8, 0x7f0a031e
+    const v8, 0x7f0a031a
 
     invoke-virtual {v2, v8}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -447,7 +447,7 @@
 
     move-result-object v2
 
-    const v8, 0x7f0a054c
+    const v8, 0x7f0a054a
 
     invoke-virtual {v2, v8}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -470,7 +470,7 @@
 
     move-result-object v10
 
-    const v12, 0x7f0a01dc
+    const v12, 0x7f0a01d8
 
     invoke-virtual {v10, v12}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1029,7 +1029,7 @@
 
     move-result-object v2
 
-    const v8, 0x7f0a054c
+    const v8, 0x7f0a054a
 
     invoke-virtual {v2, v8}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1072,7 +1072,7 @@
 
     move-result-object v2
 
-    const v8, 0x7f0a054c
+    const v8, 0x7f0a054a
 
     invoke-virtual {v2, v8}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1115,7 +1115,7 @@
 
     move-result-object v2
 
-    const v8, 0x7f0a054c
+    const v8, 0x7f0a054a
 
     invoke-virtual {v2, v8}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1146,7 +1146,7 @@
 
     move-result-object v10
 
-    const v12, 0x7f0a04a6
+    const v12, 0x7f0a04a4
 
     invoke-virtual {v10, v12}, Landroid/content/res/Resources;->getDimension(I)F
 

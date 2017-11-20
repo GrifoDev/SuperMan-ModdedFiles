@@ -1832,27 +1832,18 @@
 
     iput-boolean v1, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->mTracking:Z
 
-    invoke-virtual {p0}, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->isOpened()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    invoke-direct {p0, v1}, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->updateHandlerAlphaAndTextColor(Z)V
-
-    :cond_0
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->mOnDrawerScrollListener:Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer$OnDrawerScrollListener;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->mOnDrawerScrollListener:Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer$OnDrawerScrollListener;
 
     invoke-interface {v0}, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer$OnDrawerScrollListener;->onScrollEnded()V
 
-    :cond_1
+    :cond_0
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->mVelocityTracker:Landroid/view/VelocityTracker;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->mVelocityTracker:Landroid/view/VelocityTracker;
 
@@ -1862,7 +1853,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->mVelocityTracker:Landroid/view/VelocityTracker;
 
-    :cond_2
+    :cond_1
     return-void
 .end method
 

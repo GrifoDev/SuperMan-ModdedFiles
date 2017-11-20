@@ -837,6 +837,7 @@ Camera"</string>
     <string name="swipe_right_to_answer_call_with_video">Mag-swipe pakanan para sagutin ang tawag nang may video.</string>
     <string name="swipe_right_to_answer_call_without_video">Mag-swipe pakanan para sagutin ang tawag nang walang video.</string>
     <string name="switch_rejected_by_mt">Tinanggihan ang kahilingan na lumipat sa video call.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Nabigo ang kahilingang lumipat sa video call.</string>
     <string name="switch_to_video_call_failed_tmo">Tinanggihan ang hiling na lumipat sa video call.</string>
     <string name="switch_to_voice_call_failed">Hindi pinayagan ang hiling na lumipat sa voice call.</string>
@@ -864,7 +865,7 @@ Camera"</string>
     <string name="upload_using_wlan_only">I-upload sa pamamagitan lang ng WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Mag-upload sa pamamagitan ng Wi-Fi o mobile network</string>
     <string name="upload_wlan_and_mobile_nw">Mag-upload sa pamamagitan ng WLAN o mobile network</string>
-    <string name="usa_att_connected_as_voice">Nakakonekta ang tawag bilang voice lang.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Malapit nang maabot ang limit ng Data Usage na nai-set mo sa device mo. Kailangan ng Video call mo ng data.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Hindi maidadaan ang tawag sa Wi-Fi, kumokonekta sa cellular network. May ilalapat na mga singil sa voice at data.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

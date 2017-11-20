@@ -993,25 +993,19 @@
 .method private checkExtraVolumeMenu()Z
     .locals 7
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    const/4 v1, 0x1
-
-    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/incallui/CallList;->getActiveCall()Lcom/android/incallui/Call;
-
-    move-result-object v0
+    const/4 v0, 0x1
 
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
-    move-result-object v3
+    move-result-object v2
 
-    const/4 v4, 0x0
+    invoke-virtual {v2}, Lcom/android/incallui/CallList;->getActiveCall()Lcom/android/incallui/Call;
 
-    invoke-static {v3, v4, v1}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
+    move-result-object v2
+
+    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
 
     move-result-object v3
 
@@ -1021,15 +1015,49 @@
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, " checkBluetoothMenu crane  :"
+    const-string v6, "isCrane: "
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
-    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
-
     sget-boolean v6, Lcom/android/incallui/secrcs/RcsShareUI;->isCrane:Z
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string v6, ", activeCall: "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5, v0}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    const-string v4, "InCallMenu"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v6, "isExtraVolumeAvailable: "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v3}, Lcom/android/incallui/secrcs/RcsShareUI;->isExtraVolumeAvailable()Z
+
+    move-result v6
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
@@ -1039,145 +1067,126 @@
 
     move-result-object v5
 
-    invoke-static {v4, v5, v1}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v4, v5, v0}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
+    const-string v4, "InCallMenu"
 
-    sget-boolean v4, Lcom/android/incallui/secrcs/RcsShareUI;->isCrane:Z
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    if-eqz v4, :cond_1
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    const-string v6, "isISHButtonAvailable: "
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v5, "checkExtraVolumeMenu  crane :"
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
-    invoke-virtual {v5}, Lcom/android/incallui/secrcs/RcsShareUI;->isExtraVolumeAvailable()Z
+    invoke-virtual {v3}, Lcom/android/incallui/secrcs/RcsShareUI;->isISHButtonAvailable()Z
 
-    move-result v5
+    move-result v6
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v5
 
-    const-string v5, ", activeCall : "
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v5
 
-    move-result-object v4
+    invoke-static {v4, v5, v0}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {p0, v4, v1}, Lcom/android/incallui/Log;->i(Ljava/lang/Object;Ljava/lang/String;Z)V
-
-    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Lcom/android/incallui/secrcs/RcsShareUI;->isISHButtonAvailable()Z
-
-    move-result v4
-
-    if-nez v4, :cond_2
-
-    if-eqz v0, :cond_2
-
-    :cond_0
-    :goto_0
-    return v1
-
-    :cond_1
     const-string v4, "ims_rcs"
 
     invoke-static {v4}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_3
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    if-eqz v2, :cond_3
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    sget-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->mHasRcsServices:Z
 
-    const-string v5, "isISHButtonAvailable :"
+    if-eqz v2, :cond_3
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {}, Lcom/android/incallui/util/ImsCommonUtils;->isAvailablePSVT()Z
 
-    move-result-object v4
+    move-result v2
 
-    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
+    if-nez v2, :cond_3
 
-    move-result-object v5
+    sget-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->isCrane:Z
 
-    invoke-virtual {v5}, Lcom/android/incallui/secrcs/RcsShareUI;->isISHButtonAvailable()Z
+    if-eqz v2, :cond_2
 
-    move-result v5
+    invoke-virtual {v3}, Lcom/android/incallui/secrcs/RcsShareUI;->isExtraVolumeAvailable()Z
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    move-result v2
 
-    move-result-object v4
+    if-nez v2, :cond_1
 
-    const-string v5, ", activeCall : "
+    :cond_0
+    :goto_0
+    return v0
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {p0, v4, v1}, Lcom/android/incallui/Log;->i(Ljava/lang/Object;Ljava/lang/String;Z)V
-
-    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Lcom/android/incallui/secrcs/RcsShareUI;->isISHButtonAvailable()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_2
-
-    if-nez v0, :cond_0
-
-    :cond_2
-    invoke-static {}, Lcom/android/incallui/util/PhoneModeUtils;->isEmergencyMode()Z
-
-    move-result v0
-
-    if-nez v0, :cond_3
-
-    if-nez v3, :cond_4
-
-    :cond_3
-    move v1, v2
+    :cond_1
+    move v0, v1
 
     goto :goto_0
 
+    :cond_2
+    invoke-virtual {v3}, Lcom/android/incallui/secrcs/RcsShareUI;->isISHButtonAvailable()Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    :cond_3
+    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
+
+    move-result-object v2
+
+    const/4 v3, 0x0
+
+    invoke-static {v2, v3, v0}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
+
+    move-result-object v2
+
+    invoke-static {}, Lcom/android/incallui/util/PhoneModeUtils;->isEmergencyMode()Z
+
+    move-result v3
+
+    if-nez v3, :cond_4
+
+    if-nez v2, :cond_5
+
     :cond_4
+    move v0, v1
+
+    goto :goto_0
+
+    :cond_5
+    invoke-static {}, Lcom/android/incallui/bike/BikeModeUtils;->isBikeModeOn()Z
+
+    move-result v2
+
+    if-nez v2, :cond_6
+
+    invoke-static {}, Lcom/android/incallui/bike/BikeModeUtils;->isBikeModeOutgoingCall()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_7
+
+    :cond_6
+    move v0, v1
+
+    goto :goto_0
+
+    :cond_7
     invoke-static {}, Lcom/android/incallui/util/ImsCommonUtils;->isAvailablePSVT()Z
 
-    move-result v0
+    move-result v2
 
     const-string v3, "usa_gsm_volte_ui"
 
@@ -1185,11 +1194,15 @@
 
     move-result v3
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_a
 
-    move v0, v1
+    const-string v2, "mmtel-video"
 
-    :cond_5
+    invoke-static {v2}, Lcom/android/incallui/util/ImsCommonUtils;->isServiceAvailable(Ljava/lang/String;)Z
+
+    move-result v2
+
+    :cond_8
     :goto_1
     const-string v3, "show_switch_icon_in_button"
 
@@ -1197,45 +1210,45 @@
 
     move-result v3
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_9
 
-    if-eqz v0, :cond_6
+    if-eqz v2, :cond_9
 
     invoke-static {}, Lcom/android/incallui/util/DesktopModeManager;->getInstance()Lcom/android/incallui/util/DesktopModeManager;
 
     invoke-static {}, Lcom/android/incallui/util/DesktopModeManager;->isDesktopDockConnected()Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_0
+    if-eqz v2, :cond_0
 
-    :cond_6
+    :cond_9
     invoke-static {}, Lcom/android/incallui/util/InCallUtils;->isShowVZWVoLTEUI()Z
 
-    move-result v0
+    move-result v2
 
-    if-nez v0, :cond_0
+    if-nez v2, :cond_0
 
-    move v1, v2
+    move v0, v1
 
     goto :goto_0
 
-    :cond_7
+    :cond_a
     const-string v3, "feature_multisim"
 
     invoke-static {v3}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_8
 
     invoke-static {}, Lcom/android/incallui/util/InCallUtilsMultiSIM;->getDefaultVoiceSubscriptionId()I
 
-    move-result v0
+    move-result v2
 
-    invoke-static {v0}, Lcom/android/incallui/util/ImsCommonUtils;->isAvailablePSVT(I)Z
+    invoke-static {v2}, Lcom/android/incallui/util/ImsCommonUtils;->isAvailablePSVT(I)Z
 
-    move-result v0
+    move-result v2
 
     goto :goto_1
 .end method
@@ -1987,7 +2000,7 @@
 
     if-eqz v1, :cond_0
 
-    const v2, 0x7f090640
+    const v2, 0x7f090641
 
     const/4 v3, 0x1
 

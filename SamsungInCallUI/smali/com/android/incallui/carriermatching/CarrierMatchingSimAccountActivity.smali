@@ -22,27 +22,29 @@
 # instance fields
 .field private TAG:Ljava/lang/String;
 
-.field private alertDialog:Landroid/app/AlertDialog;
-
-.field private broadcastReceiver:Landroid/content/BroadcastReceiver;
-
-.field private callingSim:Landroid/widget/TextView;
-
-.field private imageSim1:Landroid/widget/ImageView;
-
-.field private imageSim2:Landroid/widget/ImageView;
-
 .field private isNeedShowDialingInfo:Z
 
 .field private isProcessCalling:Z
 
-.field private keyguardManager:Landroid/app/KeyguardManager;
+.field private mAlertDialog:Landroid/app/AlertDialog;
+
+.field private mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
 .field private mCarrierMatchingUtils:Lcom/android/incallui/carriermatching/CarrierMatchingUtils;
 
 .field private mContext:Landroid/content/Context;
 
+.field private mImageSim1:Landroid/widget/ImageView;
+
+.field private mImageSim2:Landroid/widget/ImageView;
+
+.field private mKeyguardManager:Landroid/app/KeyguardManager;
+
 .field private mPhoneStateListener:Landroid/telephony/PhoneStateListener;
+
+.field private mProgressBarSim1:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
+
+.field private mProgressBarSim2:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
 
 .field private mResources:Landroid/content/res/Resources;
 
@@ -50,21 +52,19 @@
 
 .field private mTelephony:Landroid/telephony/TelephonyManager;
 
+.field private mTextCallingSim:Landroid/widget/TextView;
+
+.field private mTextOperatorSim1:Landroid/widget/TextView;
+
+.field private mTextOperatorSim2:Landroid/widget/TextView;
+
+.field private mTextSuggestSim:Landroid/widget/TextView;
+
 .field private mWindowManager:Landroid/view/WindowManager;
-
-.field private operatorSim1:Landroid/widget/TextView;
-
-.field private operatorSim2:Landroid/widget/TextView;
-
-.field private progressBarSim1:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
-
-.field private progressBarSim2:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
 
 .field private removeSuggestSimText:Z
 
 .field private slotIdCarrierMatching:I
-
-.field private suggestSim:Landroid/widget/TextView;
 
 
 # direct methods
@@ -95,7 +95,7 @@
 
     invoke-direct {v0, p0}, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity$1;-><init>(Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;)V
 
-    iput-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->broadcastReceiver:Landroid/content/BroadcastReceiver;
+    iput-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
     new-instance v0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity$6;
 
@@ -117,7 +117,7 @@
 .method static synthetic access$100(Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;)Landroid/app/AlertDialog;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->alertDialog:Landroid/app/AlertDialog;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mAlertDialog:Landroid/app/AlertDialog;
 
     return-object v0
 .end method
@@ -298,7 +298,7 @@
 
     const/4 v1, -0x1
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->alertDialog:Landroid/app/AlertDialog;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mAlertDialog:Landroid/app/AlertDialog;
 
     if-eqz v0, :cond_1
 
@@ -306,7 +306,7 @@
 
     if-ne v0, v1, :cond_0
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->alertDialog:Landroid/app/AlertDialog;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mAlertDialog:Landroid/app/AlertDialog;
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
 
@@ -314,7 +314,7 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->alertDialog:Landroid/app/AlertDialog;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mAlertDialog:Landroid/app/AlertDialog;
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
 
@@ -337,7 +337,7 @@
 
     move-result v0
 
-    iget-object v1, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->alertDialog:Landroid/app/AlertDialog;
+    iget-object v1, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mAlertDialog:Landroid/app/AlertDialog;
 
     invoke-virtual {v1, v0}, Landroid/app/AlertDialog;->findViewById(I)Landroid/view/View;
 
@@ -351,23 +351,217 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->callingSim:Landroid/widget/TextView;
+    iget-object v1, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mTextCallingSim:Landroid/widget/TextView;
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setTextColor(Landroid/content/res/ColorStateList;)V
 
-    iget-object v1, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->suggestSim:Landroid/widget/TextView;
+    iget-object v1, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mTextSuggestSim:Landroid/widget/TextView;
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setTextColor(Landroid/content/res/ColorStateList;)V
 
-    iget-object v1, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->operatorSim1:Landroid/widget/TextView;
+    iget-object v1, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mTextOperatorSim1:Landroid/widget/TextView;
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setTextColor(Landroid/content/res/ColorStateList;)V
 
-    iget-object v1, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->operatorSim2:Landroid/widget/TextView;
+    iget-object v1, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mTextOperatorSim2:Landroid/widget/TextView;
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setTextColor(Landroid/content/res/ColorStateList;)V
 
     :cond_1
+    return-void
+.end method
+
+.method private configProgressBar()V
+    .locals 7
+
+    const/4 v6, 0x0
+
+    invoke-virtual {p0}, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x7f0a0403
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v1
+
+    invoke-virtual {p0}, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v2, 0x7f0a0409
+
+    invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v2
+
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->TAG:Ljava/lang/String;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "imageWidth = "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v0, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    div-int/lit8 v3, v1, 0x2
+
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->TAG:Ljava/lang/String;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "progressSize = "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v0, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mImageSim1:Landroid/widget/ImageView;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mImageSim1:Landroid/widget/ImageView;
+
+    invoke-virtual {v0}, Landroid/widget/ImageView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/RelativeLayout$LayoutParams;
+
+    div-int/lit8 v4, v3, 0x2
+
+    sub-int/2addr v4, v2
+
+    invoke-virtual {v0, v6, v4, v6, v6}, Landroid/widget/RelativeLayout$LayoutParams;->setMargins(IIII)V
+
+    iget-object v4, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mImageSim1:Landroid/widget/ImageView;
+
+    invoke-virtual {v4, v0}, Landroid/widget/ImageView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mImageSim1:Landroid/widget/ImageView;
+
+    invoke-virtual {v0}, Landroid/widget/ImageView;->requestLayout()V
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mImageSim2:Landroid/widget/ImageView;
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mImageSim2:Landroid/widget/ImageView;
+
+    invoke-virtual {v0}, Landroid/widget/ImageView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/RelativeLayout$LayoutParams;
+
+    div-int/lit8 v4, v3, 0x2
+
+    sub-int/2addr v4, v2
+
+    invoke-virtual {v0, v6, v4, v6, v6}, Landroid/widget/RelativeLayout$LayoutParams;->setMargins(IIII)V
+
+    iget-object v4, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mImageSim2:Landroid/widget/ImageView;
+
+    invoke-virtual {v4, v0}, Landroid/widget/ImageView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mImageSim2:Landroid/widget/ImageView;
+
+    invoke-virtual {v0}, Landroid/widget/ImageView;->requestLayout()V
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mProgressBarSim1:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
+
+    if-eqz v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mProgressBarSim1:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
+
+    invoke-virtual {v0}, Lcom/android/incallui/carriermatching/CircularCountDownProgress;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/RelativeLayout$LayoutParams;
+
+    iput v3, v0, Landroid/widget/RelativeLayout$LayoutParams;->width:I
+
+    iput v3, v0, Landroid/widget/RelativeLayout$LayoutParams;->height:I
+
+    div-int/lit8 v4, v3, 0x2
+
+    sub-int v4, v1, v4
+
+    sub-int/2addr v4, v2
+
+    invoke-virtual {v0, v4}, Landroid/widget/RelativeLayout$LayoutParams;->setMarginEnd(I)V
+
+    iget-object v4, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mProgressBarSim1:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
+
+    invoke-virtual {v4, v0}, Lcom/android/incallui/carriermatching/CircularCountDownProgress;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mProgressBarSim1:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
+
+    invoke-virtual {v0}, Lcom/android/incallui/carriermatching/CircularCountDownProgress;->requestLayout()V
+
+    :cond_2
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mProgressBarSim2:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
+
+    if-eqz v0, :cond_3
+
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mProgressBarSim2:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
+
+    invoke-virtual {v0}, Lcom/android/incallui/carriermatching/CircularCountDownProgress;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/RelativeLayout$LayoutParams;
+
+    iput v3, v0, Landroid/widget/RelativeLayout$LayoutParams;->width:I
+
+    iput v3, v0, Landroid/widget/RelativeLayout$LayoutParams;->height:I
+
+    div-int/lit8 v3, v3, 0x2
+
+    sub-int/2addr v1, v3
+
+    sub-int/2addr v1, v2
+
+    invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout$LayoutParams;->setMarginEnd(I)V
+
+    iget-object v1, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mProgressBarSim2:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
+
+    invoke-virtual {v1, v0}, Lcom/android/incallui/carriermatching/CircularCountDownProgress;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mProgressBarSim2:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
+
+    invoke-virtual {v0}, Lcom/android/incallui/carriermatching/CircularCountDownProgress;->requestLayout()V
+
+    :cond_3
     return-void
 .end method
 
@@ -394,20 +588,20 @@
     invoke-virtual {v0, v1, v2}, Landroid/telephony/TelephonyManager;->listen(Landroid/telephony/PhoneStateListener;I)V
 
     :cond_0
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->broadcastReceiver:Landroid/content/BroadcastReceiver;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->broadcastReceiver:Landroid/content/BroadcastReceiver;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
     :cond_1
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->alertDialog:Landroid/app/AlertDialog;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mAlertDialog:Landroid/app/AlertDialog;
 
     if-eqz v0, :cond_2
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->alertDialog:Landroid/app/AlertDialog;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mAlertDialog:Landroid/app/AlertDialog;
 
     invoke-virtual {v0}, Landroid/app/AlertDialog;->isShowing()Z
 
@@ -415,7 +609,7 @@
 
     if-eqz v0, :cond_2
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->alertDialog:Landroid/app/AlertDialog;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mAlertDialog:Landroid/app/AlertDialog;
 
     invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
 
@@ -536,15 +730,15 @@
 .method private setOperatorSimCardName()V
     .locals 3
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->operatorSim1:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mTextOperatorSim1:Landroid/widget/TextView;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->operatorSim2:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mTextOperatorSim2:Landroid/widget/TextView;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->operatorSim1:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mTextOperatorSim1:Landroid/widget/TextView;
 
     iget-object v1, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mCarrierMatchingUtils:Lcom/android/incallui/carriermatching/CarrierMatchingUtils;
 
@@ -556,7 +750,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->operatorSim2:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mTextOperatorSim2:Landroid/widget/TextView;
 
     iget-object v1, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mCarrierMatchingUtils:Lcom/android/incallui/carriermatching/CarrierMatchingUtils;
 
@@ -591,11 +785,11 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->alertDialog:Landroid/app/AlertDialog;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mAlertDialog:Landroid/app/AlertDialog;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->alertDialog:Landroid/app/AlertDialog;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mAlertDialog:Landroid/app/AlertDialog;
 
     invoke-virtual {v0}, Landroid/app/AlertDialog;->isShowing()Z
 
@@ -665,7 +859,7 @@
 
     check-cast v2, Landroid/widget/TextView;
 
-    iput-object v2, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->callingSim:Landroid/widget/TextView;
+    iput-object v2, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mTextCallingSim:Landroid/widget/TextView;
 
     const v2, 0x7f1000e6
 
@@ -675,7 +869,7 @@
 
     check-cast v2, Landroid/widget/TextView;
 
-    iput-object v2, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->suggestSim:Landroid/widget/TextView;
+    iput-object v2, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mTextSuggestSim:Landroid/widget/TextView;
 
     const v2, 0x7f1000e8
 
@@ -685,7 +879,7 @@
 
     check-cast v2, Landroid/widget/ImageView;
 
-    iput-object v2, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->imageSim1:Landroid/widget/ImageView;
+    iput-object v2, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mImageSim1:Landroid/widget/ImageView;
 
     const v2, 0x7f1000ec
 
@@ -695,7 +889,7 @@
 
     check-cast v2, Landroid/widget/ImageView;
 
-    iput-object v2, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->imageSim2:Landroid/widget/ImageView;
+    iput-object v2, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mImageSim2:Landroid/widget/ImageView;
 
     const v2, 0x7f1000ea
 
@@ -705,7 +899,7 @@
 
     check-cast v2, Landroid/widget/TextView;
 
-    iput-object v2, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->operatorSim1:Landroid/widget/TextView;
+    iput-object v2, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mTextOperatorSim1:Landroid/widget/TextView;
 
     const v2, 0x7f1000ee
 
@@ -715,7 +909,7 @@
 
     check-cast v2, Landroid/widget/TextView;
 
-    iput-object v2, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->operatorSim2:Landroid/widget/TextView;
+    iput-object v2, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mTextOperatorSim2:Landroid/widget/TextView;
 
     const v2, 0x7f1000e9
 
@@ -725,7 +919,7 @@
 
     check-cast v2, Lcom/android/incallui/carriermatching/CircularCountDownProgress;
 
-    iput-object v2, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->progressBarSim1:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
+    iput-object v2, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mProgressBarSim1:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
 
     const v2, 0x7f1000ed
 
@@ -735,17 +929,19 @@
 
     check-cast v2, Lcom/android/incallui/carriermatching/CircularCountDownProgress;
 
-    iput-object v2, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->progressBarSim2:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
+    iput-object v2, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mProgressBarSim2:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
+
+    invoke-direct {p0}, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->configProgressBar()V
 
     invoke-virtual {v0, p0}, Landroid/widget/RelativeLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     invoke-virtual {v1, p0}, Landroid/widget/RelativeLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->progressBarSim1:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mProgressBarSim1:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
 
     invoke-virtual {v0, p0}, Lcom/android/incallui/carriermatching/CircularCountDownProgress;->setOnFinishListener(Lcom/android/incallui/carriermatching/CircularCountDownProgress$OnFinishListener;)V
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->progressBarSim2:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mProgressBarSim2:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
 
     invoke-virtual {v0, p0}, Lcom/android/incallui/carriermatching/CircularCountDownProgress;->setOnFinishListener(Lcom/android/incallui/carriermatching/CircularCountDownProgress$OnFinishListener;)V
 
@@ -753,7 +949,7 @@
 
     move-result v0
 
-    iget-object v1, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->imageSim1:Landroid/widget/ImageView;
+    iget-object v1, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mImageSim1:Landroid/widget/ImageView;
 
     iget-object v2, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mResources:Landroid/content/res/Resources;
 
@@ -773,7 +969,7 @@
 
     move-result v0
 
-    iget-object v1, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->imageSim2:Landroid/widget/ImageView;
+    iget-object v1, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mImageSim2:Landroid/widget/ImageView;
 
     iget-object v2, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mResources:Landroid/content/res/Resources;
 
@@ -861,7 +1057,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "callingSim ... = "
+    const-string v5, "mTextCallingSim ... = "
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -883,7 +1079,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "suggestSim ... = "
+    const-string v5, "mTextSuggestSim ... = "
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -899,11 +1095,11 @@
 
     invoke-static {v2, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v2, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->callingSim:Landroid/widget/TextView;
+    iget-object v2, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mTextCallingSim:Landroid/widget/TextView;
 
     invoke-virtual {v2, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    iget-object v1, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->suggestSim:Landroid/widget/TextView;
+    iget-object v1, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mTextSuggestSim:Landroid/widget/TextView;
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
@@ -978,13 +1174,13 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->alertDialog:Landroid/app/AlertDialog;
+    iput-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mAlertDialog:Landroid/app/AlertDialog;
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->alertDialog:Landroid/app/AlertDialog;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mAlertDialog:Landroid/app/AlertDialog;
 
     invoke-virtual {v0, v6}, Landroid/app/AlertDialog;->setCanceledOnTouchOutside(Z)V
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->alertDialog:Landroid/app/AlertDialog;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mAlertDialog:Landroid/app/AlertDialog;
 
     invoke-virtual {v0}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
 
@@ -996,11 +1192,11 @@
 
     const/4 v0, 0x2
 
-    iget-object v1, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->keyguardManager:Landroid/app/KeyguardManager;
+    iget-object v1, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mKeyguardManager:Landroid/app/KeyguardManager;
 
     if-eqz v1, :cond_2
 
-    iget-object v1, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->keyguardManager:Landroid/app/KeyguardManager;
+    iget-object v1, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mKeyguardManager:Landroid/app/KeyguardManager;
 
     invoke-virtual {v1}, Landroid/app/KeyguardManager;->isKeyguardLocked()Z
 
@@ -1010,13 +1206,13 @@
 
     iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->TAG:Ljava/lang/String;
 
-    const-string v1, "alertDialog TYPE_KEYGUARD_DIALOG"
+    const-string v1, "mAlertDialog TYPE_KEYGUARD_DIALOG"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     const v0, 0x80002
 
-    iget-object v1, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->alertDialog:Landroid/app/AlertDialog;
+    iget-object v1, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mAlertDialog:Landroid/app/AlertDialog;
 
     invoke-virtual {v1}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
 
@@ -1027,7 +1223,7 @@
     invoke-virtual {v1, v2}, Landroid/view/Window;->setType(I)V
 
     :cond_2
-    iget-object v1, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->alertDialog:Landroid/app/AlertDialog;
+    iget-object v1, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mAlertDialog:Landroid/app/AlertDialog;
 
     invoke-virtual {v1}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
 
@@ -1035,7 +1231,7 @@
 
     invoke-virtual {v1, v0}, Landroid/view/Window;->addFlags(I)V
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->alertDialog:Landroid/app/AlertDialog;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mAlertDialog:Landroid/app/AlertDialog;
 
     new-instance v1, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity$4;
 
@@ -1043,7 +1239,7 @@
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog;->setOnShowListener(Landroid/content/DialogInterface$OnShowListener;)V
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->alertDialog:Landroid/app/AlertDialog;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mAlertDialog:Landroid/app/AlertDialog;
 
     new-instance v1, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity$5;
 
@@ -1051,7 +1247,7 @@
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)V
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->alertDialog:Landroid/app/AlertDialog;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mAlertDialog:Landroid/app/AlertDialog;
 
     invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
 
@@ -1253,11 +1449,11 @@
     :pswitch_7
     invoke-direct {p0, v7, v8, v9}, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->zoomOutAnimation(IJ)V
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->progressBarSim1:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mProgressBarSim1:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
 
     invoke-virtual {v0, v6}, Lcom/android/incallui/carriermatching/CircularCountDownProgress;->setVisibility(I)V
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->progressBarSim1:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mProgressBarSim1:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
 
     invoke-virtual {v0, v10}, Lcom/android/incallui/carriermatching/CircularCountDownProgress;->startCountDown(I)V
 
@@ -1266,15 +1462,17 @@
     :pswitch_8
     invoke-direct {p0, v6, v8, v9}, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->zoomOutAnimation(IJ)V
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->progressBarSim2:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mProgressBarSim2:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
 
     invoke-virtual {v0, v6}, Lcom/android/incallui/carriermatching/CircularCountDownProgress;->setVisibility(I)V
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->progressBarSim2:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mProgressBarSim2:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
 
     invoke-virtual {v0, v10}, Lcom/android/incallui/carriermatching/CircularCountDownProgress;->startCountDown(I)V
 
     goto/16 :goto_3
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x0
@@ -1298,20 +1496,20 @@
 .method private stopCountDown()V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->progressBarSim1:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mProgressBarSim1:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->progressBarSim1:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mProgressBarSim1:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
 
     invoke-virtual {v0}, Lcom/android/incallui/carriermatching/CircularCountDownProgress;->stopCountDown()V
 
     :cond_0
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->progressBarSim2:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mProgressBarSim2:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->progressBarSim2:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mProgressBarSim2:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
 
     invoke-virtual {v0}, Lcom/android/incallui/carriermatching/CircularCountDownProgress;->stopCountDown()V
 
@@ -1354,7 +1552,7 @@
     return-void
 
     :pswitch_0
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->imageSim1:Landroid/widget/ImageView;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mImageSim1:Landroid/widget/ImageView;
 
     invoke-virtual {v0}, Landroid/widget/ImageView;->animate()Landroid/view/ViewPropertyAnimator;
 
@@ -1370,7 +1568,7 @@
 
     invoke-virtual {v0}, Landroid/view/ViewPropertyAnimator;->start()V
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->imageSim1:Landroid/widget/ImageView;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mImageSim1:Landroid/widget/ImageView;
 
     invoke-virtual {v0}, Landroid/widget/ImageView;->animate()Landroid/view/ViewPropertyAnimator;
 
@@ -1386,9 +1584,9 @@
 
     invoke-virtual {v0}, Landroid/view/ViewPropertyAnimator;->start()V
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->operatorSim1:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mTextOperatorSim1:Landroid/widget/TextView;
 
-    iget-object v1, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->operatorSim1:Landroid/widget/TextView;
+    iget-object v1, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mTextOperatorSim1:Landroid/widget/TextView;
 
     invoke-virtual {v1}, Landroid/widget/TextView;->getTextColors()Landroid/content/res/ColorStateList;
 
@@ -1403,7 +1601,7 @@
     goto :goto_0
 
     :pswitch_1
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->imageSim2:Landroid/widget/ImageView;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mImageSim2:Landroid/widget/ImageView;
 
     invoke-virtual {v0}, Landroid/widget/ImageView;->animate()Landroid/view/ViewPropertyAnimator;
 
@@ -1419,7 +1617,7 @@
 
     invoke-virtual {v0}, Landroid/view/ViewPropertyAnimator;->start()V
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->imageSim2:Landroid/widget/ImageView;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mImageSim2:Landroid/widget/ImageView;
 
     invoke-virtual {v0}, Landroid/widget/ImageView;->animate()Landroid/view/ViewPropertyAnimator;
 
@@ -1435,9 +1633,9 @@
 
     invoke-virtual {v0}, Landroid/view/ViewPropertyAnimator;->start()V
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->operatorSim2:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mTextOperatorSim2:Landroid/widget/TextView;
 
-    iget-object v1, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->operatorSim2:Landroid/widget/TextView;
+    iget-object v1, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mTextOperatorSim2:Landroid/widget/TextView;
 
     invoke-virtual {v1}, Landroid/widget/TextView;->getTextColors()Landroid/content/res/ColorStateList;
 
@@ -1493,7 +1691,7 @@
     return-void
 
     :pswitch_0
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->imageSim1:Landroid/widget/ImageView;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mImageSim1:Landroid/widget/ImageView;
 
     invoke-virtual {v0}, Landroid/widget/ImageView;->animate()Landroid/view/ViewPropertyAnimator;
 
@@ -1509,7 +1707,7 @@
 
     invoke-virtual {v0}, Landroid/view/ViewPropertyAnimator;->start()V
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->imageSim1:Landroid/widget/ImageView;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mImageSim1:Landroid/widget/ImageView;
 
     invoke-virtual {v0}, Landroid/widget/ImageView;->animate()Landroid/view/ViewPropertyAnimator;
 
@@ -1525,9 +1723,9 @@
 
     invoke-virtual {v0}, Landroid/view/ViewPropertyAnimator;->start()V
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->operatorSim1:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mTextOperatorSim1:Landroid/widget/TextView;
 
-    iget-object v1, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->operatorSim1:Landroid/widget/TextView;
+    iget-object v1, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mTextOperatorSim1:Landroid/widget/TextView;
 
     invoke-virtual {v1}, Landroid/widget/TextView;->getTextColors()Landroid/content/res/ColorStateList;
 
@@ -1542,7 +1740,7 @@
     goto :goto_0
 
     :pswitch_1
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->imageSim2:Landroid/widget/ImageView;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mImageSim2:Landroid/widget/ImageView;
 
     invoke-virtual {v0}, Landroid/widget/ImageView;->animate()Landroid/view/ViewPropertyAnimator;
 
@@ -1558,7 +1756,7 @@
 
     invoke-virtual {v0}, Landroid/view/ViewPropertyAnimator;->start()V
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->imageSim2:Landroid/widget/ImageView;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mImageSim2:Landroid/widget/ImageView;
 
     invoke-virtual {v0}, Landroid/widget/ImageView;->animate()Landroid/view/ViewPropertyAnimator;
 
@@ -1574,9 +1772,9 @@
 
     invoke-virtual {v0}, Landroid/view/ViewPropertyAnimator;->start()V
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->operatorSim2:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mTextOperatorSim2:Landroid/widget/TextView;
 
-    iget-object v1, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->operatorSim2:Landroid/widget/TextView;
+    iget-object v1, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mTextOperatorSim2:Landroid/widget/TextView;
 
     invoke-virtual {v1}, Landroid/widget/TextView;->getTextColors()Landroid/content/res/ColorStateList;
 
@@ -1671,19 +1869,19 @@
 
     if-eqz p1, :cond_1
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->progressBarSim1:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mProgressBarSim1:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/carriermatching/CircularCountDownProgress;->setVisibility(I)V
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->progressBarSim2:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mProgressBarSim2:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/carriermatching/CircularCountDownProgress;->setVisibility(I)V
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->progressBarSim1:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mProgressBarSim1:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
 
     invoke-virtual {v0}, Lcom/android/incallui/carriermatching/CircularCountDownProgress;->stopCountDown()V
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->progressBarSim2:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mProgressBarSim2:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
 
     invoke-virtual {v0}, Lcom/android/incallui/carriermatching/CircularCountDownProgress;->stopCountDown()V
 
@@ -1691,7 +1889,7 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->suggestSim:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mTextSuggestSim:Landroid/widget/TextView;
 
     const/4 v1, 0x4
 
@@ -1705,7 +1903,7 @@
     sparse-switch v0, :sswitch_data_0
 
     :goto_0
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->alertDialog:Landroid/app/AlertDialog;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mAlertDialog:Landroid/app/AlertDialog;
 
     if-eqz v0, :cond_1
 
@@ -1713,7 +1911,7 @@
 
     if-eq v0, v3, :cond_1
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->alertDialog:Landroid/app/AlertDialog;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mAlertDialog:Landroid/app/AlertDialog;
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
 
@@ -1721,7 +1919,7 @@
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->alertDialog:Landroid/app/AlertDialog;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mAlertDialog:Landroid/app/AlertDialog;
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
 
@@ -1729,7 +1927,7 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/Button;->setEnabled(Z)V
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->alertDialog:Landroid/app/AlertDialog;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mAlertDialog:Landroid/app/AlertDialog;
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
 
@@ -1806,7 +2004,7 @@
 
     check-cast v0, Landroid/app/KeyguardManager;
 
-    iput-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->keyguardManager:Landroid/app/KeyguardManager;
+    iput-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mKeyguardManager:Landroid/app/KeyguardManager;
 
     const-string v0, "bike_mode"
 
@@ -1857,7 +2055,7 @@
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    iget-object v1, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->broadcastReceiver:Landroid/content/BroadcastReceiver;
+    iget-object v1, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {p0, v1, v0}, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
@@ -1941,11 +2139,11 @@
 
     if-nez v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->keyguardManager:Landroid/app/KeyguardManager;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mKeyguardManager:Landroid/app/KeyguardManager;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->keyguardManager:Landroid/app/KeyguardManager;
+    iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mKeyguardManager:Landroid/app/KeyguardManager;
 
     invoke-virtual {v0}, Landroid/app/KeyguardManager;->isKeyguardLocked()Z
 

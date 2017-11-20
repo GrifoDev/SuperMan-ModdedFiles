@@ -3,6 +3,14 @@
 
 
 # static fields
+.field private static final DEVICEID_HASH_ALGORITHM:Ljava/lang/String; = "PBKDF2WithHmacSHA1"
+
+.field private static final DEVICEID_HASH_ITERATION_COUNT:I = 0x1e
+
+.field private static final DEVICEID_HASH_KEY_LENGTH:I = 0x80
+
+.field private static final DEVICEID_HASH_SALT:Ljava/lang/String; = "LINDOR"
+
 .field private static DIGITS:[C = null
 
 .field private static final SHA256:Ljava/lang/String; = "SHA-256"
@@ -205,26 +213,26 @@
     return-object v3
 .end method
 
-.method private static generateStorngDeviceIDHash(Ljava/lang/String;)Ljava/lang/String;
+.method public static generateStrongDeviceIDHash(Ljava/lang/String;)Ljava/lang/String;
     .locals 5
-
-    const/16 v0, 0x1e
 
     invoke-virtual {p0}, Ljava/lang/String;->toCharArray()[C
 
+    move-result-object v0
+
+    const-string v1, "LINDOR"
+
+    invoke-virtual {v1}, Ljava/lang/String;->getBytes()[B
+
     move-result-object v1
 
-    const-string v2, "LINDOR"
+    new-instance v2, Ljavax/crypto/spec/PBEKeySpec;
 
-    invoke-virtual {v2}, Ljava/lang/String;->getBytes()[B
-
-    move-result-object v2
-
-    new-instance v3, Ljavax/crypto/spec/PBEKeySpec;
+    const/16 v3, 0x1e
 
     const/16 v4, 0x80
 
-    invoke-direct {v3, v1, v2, v0, v4}, Ljavax/crypto/spec/PBEKeySpec;-><init>([C[BII)V
+    invoke-direct {v2, v0, v1, v3, v4}, Ljavax/crypto/spec/PBEKeySpec;-><init>([C[BII)V
 
     const-string v0, "PBKDF2WithHmacSHA1"
 
@@ -232,7 +240,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v3}, Ljavax/crypto/SecretKeyFactory;->generateSecret(Ljava/security/spec/KeySpec;)Ljavax/crypto/SecretKey;
+    invoke-virtual {v0, v2}, Ljavax/crypto/SecretKeyFactory;->generateSecret(Ljava/security/spec/KeySpec;)Ljavax/crypto/SecretKey;
 
     move-result-object v0
 

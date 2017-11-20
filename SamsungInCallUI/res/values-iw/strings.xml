@@ -187,10 +187,10 @@
     <string name="agif_pickers_add_tab_description">הוספה</string>
     <string name="agif_pickers_find_more">אתר עוד</string>
     <string name="agif_pickers_item_usage_hints_description">הקש הקשה כפולה כדי לבחור</string>
-    <string name="agif_pickers_sub_title">הצהל את השיחה שלך בעזרת מדבקה. המדבקה תוצג במסך השיחה של %s.</string>
+    <string name="agif_pickers_sub_title">שמח את שיחתך בעזרת מדבקה. המדבקה תוצג במסך השיחה של %s.</string>
     <string name="agif_pickers_tab_not_select_description">לא נבחר</string>
     <string name="agif_pickers_tab_select_description">נבחר</string>
-    <string name="agif_pickers_title">התחל במדבקה</string>
+    <string name="agif_pickers_title">התחלה עם מדבקה</string>
     <string name="agif_pickers_title_recommended">מומלצים</string>
     <string name="agif_read_permission_description">הרשאה המאפשרת לטלפון לקרוא תוכן AGIF.</string>
     <string name="agif_read_permission_label">קרא תוכן AGIF</string>
@@ -868,6 +868,7 @@
     <string name="swipe_right_to_answer_call_with_video">החלק לימין כדי לקבל שיחה עם וידאו.</string>
     <string name="swipe_right_to_answer_call_without_video">החלק לימין כדי לקבל שיחה ללא וידאו.</string>
     <string name="switch_rejected_by_mt">הבקשה לעבור לשיחת וידאו נדחתה.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">הבקשה לעבור לשיחת וידאו נדחתה.</string>
     <string name="switch_to_video_call_failed_tmo">נדחתה הבקשה לעבור לשיחת וידאו.</string>
     <string name="switch_to_voice_call_failed">הבקשה לעבור לשיחה קולית נדחתה.</string>
@@ -895,7 +896,7 @@
     <string name="upload_using_wlan_only">העלה באמצעות ’WLAN בלבד‘</string>
     <string name="upload_wifi_and_mobile_nw">העלה באמצעות Wi-Fi או רשת סלולרית</string>
     <string name="upload_wlan_and_mobile_nw">העלה באמצעות ’WLAN או רשת סלולרית‘</string>
-    <string name="usa_att_connected_as_voice">השיחה בוצעה כשיחת קול בלבד.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">אתה קרוב למגבלת השימוש בנתונים שהגדרת במכשיר שלך. שיחת וידאו כרוכה בהעברת נתונים.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">לא ניתן לבצע דרך Wi-Fi, מתחבר דרך רשת סלולרית. השירות כרוך בחיוב על קול ונתונים.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

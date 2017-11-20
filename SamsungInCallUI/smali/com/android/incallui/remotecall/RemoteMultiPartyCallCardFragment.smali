@@ -213,7 +213,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a01dc
+    const v4, 0x7f0a01d8
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -225,7 +225,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0a032d
+    const v5, 0x7f0a0329
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -237,7 +237,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0a0400
+    const v6, 0x7f0a03fc
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -249,7 +249,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0a04d3
+    const v7, 0x7f0a04d1
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -261,7 +261,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0a05ac
+    const v8, 0x7f0a05aa
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -401,7 +401,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a030d
+    const v1, 0x7f0a0309
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -742,7 +742,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/remotecall/RemoteMultiPartyCallCardFragment;->mCallStateLabel:Landroid/widget/TextView;
 
-    const v1, 0x7f09062a
+    const v1, 0x7f09062b
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -877,7 +877,7 @@
 
     invoke-super {p0, p1, p2, p3}, Landroid/app/Fragment;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
 
-    const v0, 0x7f040124
+    const v0, 0x7f040125
 
     const/4 v1, 0x0
 
@@ -1520,7 +1520,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0a05fb
+    const v2, 0x7f0a05fa
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1641,7 +1641,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a05fb
+    const v2, 0x7f0a05fa
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1997,7 +1997,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0a05fb
+    const v2, 0x7f0a05fa
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2118,7 +2118,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a05fb
+    const v2, 0x7f0a05fa
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2390,7 +2390,7 @@
 
     move-result-object v2
 
-    const v4, 0x7f0a01de
+    const v4, 0x7f0a01da
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getDimension(I)F
 

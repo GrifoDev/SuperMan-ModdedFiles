@@ -58,15 +58,7 @@
 
     iput-object p1, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/transaction/GetProfileAndCapabilityTransaction;->ccc:Ljava/lang/String;
 
-    invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    invoke-static {v0, p2}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/NumberUtils;->convertMsisdn(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/transaction/GetProfileAndCapabilityTransaction;->msisdn:Ljava/lang/String;
+    iput-object p2, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/transaction/GetProfileAndCapabilityTransaction;->msisdn:Ljava/lang/String;
 
     iput-object p3, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/transaction/GetProfileAndCapabilityTransaction;->listener:Lcom/samsung/android/sdk/enhancedfeatures/contact/apis/listener/GetProfileAndCapabilityListener;
 
@@ -116,9 +108,10 @@
 .method public start()V
     .locals 6
 
-    const/4 v5, 0x0
+    const/4 v0, 0x0
 
-    invoke-static {v5}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->getSsfClient(Ljava/lang/String;)Lcom/samsung/android/sdk/ssf/SsfClient;
+    :try_start_0
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->getSsfClient(Ljava/lang/String;)Lcom/samsung/android/sdk/ssf/SsfClient;
 
     move-result-object v0
 
@@ -130,7 +123,31 @@
 
     iget-object v4, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/transaction/GetProfileAndCapabilityTransaction;->ssfListener:Lcom/samsung/android/sdk/ssf/SsfListener;
 
-    invoke-static/range {v0 .. v5}, Lcom/samsung/android/sdk/ssf/contact/ProfileManager;->getProfileAndCapability(Lcom/samsung/android/sdk/ssf/SsfClient;Ljava/lang/String;Ljava/lang/String;ILcom/samsung/android/sdk/ssf/SsfListener;Lcom/samsung/android/sdk/ssf/common/ConnectTimeout;)Z
+    const/4 v5, 0x0
 
+    invoke-static/range {v0 .. v5}, Lcom/samsung/android/sdk/ssf/contact/ProfileManager;->getProfileAndCapability(Lcom/samsung/android/sdk/ssf/SsfClient;Ljava/lang/String;Ljava/lang/String;ILcom/samsung/android/sdk/ssf/SsfListener;Lcom/samsung/android/sdk/ssf/common/ConnectTimeout;)Z
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
     return-void
+
+    :catch_0
+    move-exception v0
+
+    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/transaction/GetProfileAndCapabilityTransaction;->listener:Lcom/samsung/android/sdk/enhancedfeatures/contact/apis/listener/GetProfileAndCapabilityListener;
+
+    new-instance v2, Lcom/samsung/android/sdk/enhancedfeatures/contact/apis/response/ProfileErrorResponse;
+
+    const/16 v3, 0x753c
+
+    invoke-virtual {v0}, Ljava/lang/IllegalArgumentException;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {v2, v3, v0}, Lcom/samsung/android/sdk/enhancedfeatures/contact/apis/response/ProfileErrorResponse;-><init>(ILjava/lang/String;)V
+
+    invoke-interface {v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/contact/apis/listener/GetProfileAndCapabilityListener;->onError(Lcom/samsung/android/sdk/enhancedfeatures/contact/apis/response/ProfileErrorResponse;)V
+
+    goto :goto_0
 .end method

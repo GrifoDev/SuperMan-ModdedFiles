@@ -810,6 +810,7 @@ kamera"</string>
     <string name="swipe_right_to_answer_call_with_video">Deiari bideoarekin erantzuteko, irristatu eskuinera.</string>
     <string name="swipe_right_to_answer_call_without_video">Deiari bideorik gabe erantzuteko, irristatu eskuinera.</string>
     <string name="switch_rejected_by_mt">Bideo deira aldatzeko eskera ukatuta</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Bideo deira aldatzeko eskaerak huts egin du.</string>
     <string name="switch_to_video_call_failed_tmo">Bideo deira aldatzeko eskaera ukatu da.</string>
     <string name="switch_to_voice_call_failed">Ahots deira aldatzeko eskaerak huts egin du.</string>
@@ -837,7 +838,7 @@ kamera"</string>
     <string name="upload_using_wlan_only">Kargatu WLAN bidez soilik</string>
     <string name="upload_wifi_and_mobile_nw">Kargatu Wi-Fi edo sare mugikorraren bidez</string>
     <string name="upload_wlan_and_mobile_nw">Kargatu WLAN edo sare mugikorraren bidez</string>
-    <string name="usa_att_connected_as_voice">Ahots gisa soilik konektatu da deia.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Gailuan ezarri duzun Datu erabilera mugara iristear da. Bideo deiak egiteko, datuak behar dituzu.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Ezin da Wi-Fi bidez deitu; hori dela eta, sare mugikorren bidez konektatuko da. Ahots eta datuengatiko gastuak aplikatuko dira.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

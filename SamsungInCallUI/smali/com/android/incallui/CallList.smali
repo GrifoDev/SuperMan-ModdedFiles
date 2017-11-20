@@ -3837,25 +3837,67 @@
 .end method
 
 .method public hasLiveCallToDisplay()Z
-    .locals 2
+    .locals 5
 
     const/4 v0, 0x1
 
     const/4 v1, 0x0
 
-    invoke-static {p0, v1, v0}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
+    const/4 v2, 0x0
 
-    move-result-object v1
+    invoke-static {p0, v2, v0}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
 
-    if-eqz v1, :cond_0
+    move-result-object v2
+
+    const-string v3, "china_cdma_call"
+
+    invoke-static {v3}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    if-eqz v2, :cond_0
+
+    invoke-virtual {v2}, Lcom/android/incallui/Call;->getPhoneType()I
+
+    move-result v3
+
+    const/4 v4, 0x2
+
+    if-ne v3, v4, :cond_0
+
+    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v2}, Lcom/android/incallui/CallList;->isLiveCall(Lcom/android/incallui/Call;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    const-string v0, "CallList"
+
+    const-string v2, "Cdma non - hasLiveCallToDisplay"
+
+    invoke-static {v0, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     :goto_0
-    return v0
+    return v1
 
     :cond_0
-    const/4 v0, 0x0
+    if-eqz v2, :cond_1
+
+    :goto_1
+    move v1, v0
 
     goto :goto_0
+
+    :cond_1
+    move v0, v1
+
+    goto :goto_1
 .end method
 
 .method public hasOutgoingCall()Z

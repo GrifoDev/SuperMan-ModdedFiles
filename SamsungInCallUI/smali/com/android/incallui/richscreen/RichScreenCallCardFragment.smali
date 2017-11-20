@@ -47,9 +47,9 @@
 .method private arrangeRichScreenInfoView(Landroid/view/View;)V
     .locals 9
 
-    const v8, 0x7f0a0126
+    const v8, 0x7f0a0123
 
-    const v7, 0x7f0a060b
+    const v7, 0x7f0a060a
 
     const/4 v2, 0x0
 
@@ -67,7 +67,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a01dc
+    const v1, 0x7f0a01d8
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -127,7 +127,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0a04eb
+    const v3, 0x7f0a04e9
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -141,7 +141,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0a04ec
+    const v3, 0x7f0a04ea
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -182,7 +182,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0609
+    const v1, 0x7f0a0608
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -210,7 +210,7 @@
 
     move-result-object v1
 
-    const v5, 0x7f0a04ed
+    const v5, 0x7f0a04eb
 
     invoke-virtual {v1, v5}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -336,7 +336,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0604
+    const v1, 0x7f0a0603
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -858,7 +858,7 @@
 
     invoke-super {p0, p1, p2, p3}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
 
-    const v0, 0x7f040127
+    const v0, 0x7f040128
 
     const/4 v1, 0x0
 

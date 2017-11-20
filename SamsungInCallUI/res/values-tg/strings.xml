@@ -100,7 +100,7 @@
     <string name="account_phone">Дастгоҳ</string>
     <string name="acs">Занги овозӣ</string>
     <string name="active_calls">Занги фаъол</string>
-    <string name="add_reminder">Ёдрас илов к</string>
+    <string name="add_reminder">Иловаи ёдрас</string>
     <string name="agif_button_close_description">Пӯшидан</string>
     <string name="agif_decline_message">Бубахшед, ман ҳозир гап зада наметавонам.</string>
     <string name="agif_decline_sticker_header">Бо стикер рад кардан</string>
@@ -791,6 +791,7 @@
     <string name="swipe_right_to_answer_call_with_video">Ба рост молида, ба занг бо видео ҷавоб диҳед.</string>
     <string name="swipe_right_to_answer_call_without_video">Ба рост молида, ба занг бе видео ҷавоб диҳед.</string>
     <string name="switch_rejected_by_mt">Дархост оид ба гузаштан ба занги видеоӣ рад шуд.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Дархост оид ба гузаштан ба занги видеоӣ иҷро нашуд.</string>
     <string name="switch_to_video_call_failed_tmo">Дархост оид ба гузаштан ба занги видеоӣ рад шуд.</string>
     <string name="switch_to_voice_call_failed">Дархост оид ба гузаштан ба занги овозӣ иҷро нашуд.</string>
@@ -818,7 +819,7 @@
     <string name="upload_using_wlan_only">Боркунӣ танҳо бо WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Боркунӣ тавассути шабакаи Wi-Fi ё мобилӣ</string>
     <string name="upload_wlan_and_mobile_nw">Боркунӣ бо шабакаи WLAN ё мобилӣ</string>
-    <string name="usa_att_connected_as_voice">Занг ҳамчун занги овозӣ пайваст карда шуд.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Истифодаи иттилооте, ки шумо дар дастгоҳи худ танзим кардед, ба маҳдудият рафта мерасад. Занги видеоии шумо иттилоотро талаб мекунад.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Ҳангоми пайвастшавӣ ба шабакаи мобилӣ, занг тавассути Wi-Fi иҷро карда намешавад. Барои овоз ва иттилоот маблағ ситонида мешавад.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

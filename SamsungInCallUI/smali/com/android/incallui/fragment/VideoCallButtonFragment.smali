@@ -176,6 +176,17 @@
     :cond_0
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallControl;->toogglePreview()V
 
+    invoke-static {}, Lcom/android/incallui/util/CameraEffect;->isCameraEffectLayoutVisible()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Lcom/android/incallui/fragment/VideoCallButtonFragment;->showCameraEffectLayout(Z)V
+
+    :cond_1
     invoke-virtual {p0}, Lcom/android/incallui/fragment/VideoCallButtonFragment;->updateOutgoingHideShowButton()V
 
     goto :goto_0

@@ -178,7 +178,7 @@
     <string name="account_phone">Dispositivo</string>
     <string name="acs">Chiamata vocale</string>
     <string name="active_calls">Chiamata attiva</string>
-    <string name="add_reminder">Agg. promem.</string>
+    <string name="add_reminder">Aggiungi promemoria</string>
     <string name="agif_button_close_description">Chiudi</string>
     <string name="agif_decline_message">Scusa, ora non posso parlare.</string>
     <string name="agif_decline_sticker_header">Rifiuta con adesivo</string>
@@ -734,7 +734,7 @@ Il menu a schermo della chiamata IVR utilizza contenuti forniti da un fornitore 
     <string name="secOnscreenKeypadText">Tastiera</string>
     <string name="secOnscreenManageText">Gestisci</string>
     <string name="secOnscreenManageText_sbm">Membri</string>
-    <string name="secOnscreenMemoText">Memo</string>
+    <string name="secOnscreenMemoText">Promemoria</string>
     <string name="secOnscreenMenuAddCallText">Aggiungi chiamata</string>
     <string name="secOnscreenMenuCallTransfer">Trasferisci</string>
     <string name="secOnscreenMenuCaptureImageText">Cattura immagine</string>
@@ -868,6 +868,7 @@ a 1 via"</string>
     <string name="swipe_right_to_answer_call_with_video">Trascinate lo schermo verso destra per rispondere alla chiamata con il video.</string>
     <string name="swipe_right_to_answer_call_without_video">Trascinate lo schermo verso destra per rispondere alla chiamata senza il video.</string>
     <string name="switch_rejected_by_mt">Richiesta di passaggio a videochiamata rifiutata.</string>
+    <string name="switch_rejected_by_mt_att">Il video non è disponibile per questa chiamata. La chiamata è stata connessa come chiamata vocale.</string>
     <string name="switch_to_video_call_failed">Richiesta di passaggio alla videochiamata non riuscita.</string>
     <string name="switch_to_video_call_failed_tmo">La richiesta di passaggio alla videochiamata è stata rifiutata.</string>
     <string name="switch_to_voice_call_failed">Richiesta di passaggio alla chiamata vocale non riuscita.</string>
@@ -895,7 +896,7 @@ a 1 via"</string>
     <string name="upload_using_wlan_only">Carica solo con rete WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Carica con Wi-Fi o rete mobile</string>
     <string name="upload_wlan_and_mobile_nw">Carica con WLAN o rete mobile</string>
-    <string name="usa_att_connected_as_voice">Chiamata connessa soltanto come chiamata vocale.</string>
+    <string name="usa_att_connected_as_voice">Il video non è disponibile per questa chiamata. La chiamata è stata connessa come chiamata vocale.</string>
     <string name="usa_att_data_usage_charge_alert">"L'utilizzo dei dati impostato sul dispositivo sta per raggiungere il limite. La videochiamata richiede i dati."</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Non è possibile effettuare la chiamata sulla rete Wi-Fi; connessione alla rete cellulare in corso. Verranno applicati i costi relativi a voce e dati.</string>
     <string name="usa_att_modify_receive_to_video">%s chiede passare alla videochiamata.</string>

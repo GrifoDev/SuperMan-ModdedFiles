@@ -87,7 +87,7 @@
 
     iget-object v1, p0, Lcom/android/contacts/common/preference/AboutPreferenceFragment$1;->c:Lcom/android/contacts/common/preference/AboutPreferenceFragment;
 
-    const v2, 0x7f09067b
+    const v2, 0x7f09067c
 
     invoke-virtual {v1, v2}, Lcom/android/contacts/common/preference/AboutPreferenceFragment;->getString(I)Ljava/lang/String;
 

@@ -119,7 +119,7 @@
     <string name="account_phone">Cihaz</string>
     <string name="acs">Səsli zəng</string>
     <string name="active_calls">Aktiv zəng</string>
-    <string name="add_reminder">Xatır əlv et</string>
+    <string name="add_reminder">Xatırladıcı əlavə et</string>
     <string name="agif_button_close_description">Bağla</string>
     <string name="agif_decline_message">Üzr istəyirəm, indi danışa bilmirəm.</string>
     <string name="agif_decline_sticker_header">Yapışqanla rədd et</string>
@@ -810,6 +810,7 @@ Kamera"</string>
     <string name="swipe_right_to_answer_call_with_video">Zəngə video ilə cavab vermək üçün sağa sürüşdür.</string>
     <string name="swipe_right_to_answer_call_without_video">Zəngə videosuz cavab vermək üçün sağa sürüşdür.</string>
     <string name="switch_rejected_by_mt">Video zəngə keçid sorğusu rədd edildi.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Video zəngə keçid sorğusu baş tutmadı.</string>
     <string name="switch_to_video_call_failed_tmo">Video zəngə keçirmə sorğusundan imtina edildi.</string>
     <string name="switch_to_voice_call_failed">Səsli zəngə keçid sorğusu verildi.</string>
@@ -837,7 +838,7 @@ Kamera"</string>
     <string name="upload_using_wlan_only">Yalnız WLAN ilə yüklə</string>
     <string name="upload_wifi_and_mobile_nw">Wi-Fi və ya mobil şəbəkə ilə yüklə</string>
     <string name="upload_wlan_and_mobile_nw">WLAN və ya mobil şəbəkə ilə yüklə</string>
-    <string name="usa_att_connected_as_voice">Zəng yalnız səs kimi qoşulub.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Cihazınızda təyin etdiyiniz Məlumatların İstifadəsi limitinə çatmaq üzərədir. Video zənginiz məlumatlar tələb edir.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Zəngi Wi-Fi vasitəsilə etmək mümkün deyil, mobil şəbəkə ilə qoşulur. Səs və məlumatlar xərci tətbiq ediləcək.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

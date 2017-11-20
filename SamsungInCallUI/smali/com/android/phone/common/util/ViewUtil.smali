@@ -30,7 +30,7 @@
 .method public static addBottomPaddingToListViewForFab(Landroid/widget/ListView;Landroid/content/res/Resources;)V
     .locals 5
 
-    const v0, 0x7f0a047c
+    const v0, 0x7f0a047a
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -176,7 +176,7 @@
 
     invoke-virtual {p0, v0}, Landroid/view/View;->setOutlineProvider(Landroid/view/ViewOutlineProvider;)V
 
-    const v0, 0x7f0a0480
+    const v0, 0x7f0a047e
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

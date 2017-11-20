@@ -178,7 +178,7 @@
     <string name="account_phone">Dispositiu</string>
     <string name="acs">Trucada de veu</string>
     <string name="active_calls">Trucada activa</string>
-    <string name="add_reminder">Afeg record</string>
+    <string name="add_reminder">Afegir recordatori</string>
     <string name="agif_button_close_description">Tancar</string>
     <string name="agif_decline_message">Ho sento, ara no puc parlar.</string>
     <string name="agif_decline_sticker_header">Rebutjar amb un adhesiu</string>
@@ -868,6 +868,7 @@ unidirecc"</string>
     <string name="swipe_right_to_answer_call_with_video">"Desplaci's cap a la dreta per respondre la trucada amb vídeo."</string>
     <string name="swipe_right_to_answer_call_without_video">"Desplaci's cap a la dreta per respondre la trucada sense vídeo."</string>
     <string name="switch_rejected_by_mt">Sol·licitud de canvi a videotrucada rebutjada</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Ha fallat la sol·licitud de canvi a videotrucada.</string>
     <string name="switch_to_video_call_failed_tmo">"S'ha rebutjat la sol·licitud de canvi a videotrucada."</string>
     <string name="switch_to_voice_call_failed">Ha fallat la sol·licitud de canvi a trucada de veu.</string>
@@ -895,7 +896,7 @@ unidirecc"</string>
     <string name="upload_using_wlan_only">Carregar només mitjançant WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Carregar mitjançant Wi-Fi o xarxa mòbil</string>
     <string name="upload_wlan_and_mobile_nw">Carregar mitjançant WLAN o xarxa mòbil</string>
-    <string name="usa_att_connected_as_voice">Trucada connectada com a només veu.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">"Està a punt d'assolir el límit de l'Ús de dades que va establir al dispositiu. La seva Videotrucada requereix dades."</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">"La trucada no es pot fer amb Wi-Fi, es connecta mitjançant una xarxa mòbil. S'aplicaran càrrecs de veu i dades."</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

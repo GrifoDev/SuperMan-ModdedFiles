@@ -810,6 +810,7 @@ IVR کال اسکرین مینیو ایک تیسرے فریق خدمت فراہ�
     <string name="swipe_right_to_answer_call_with_video">ویڈیو کال کا جواب دینے کے لیے دائیں سوائپ کریں۔</string>
     <string name="swipe_right_to_answer_call_without_video">ویڈیو کے بغیر کال کا جواب دینے کے لیے دائیں سوائپ کریں۔</string>
     <string name="switch_rejected_by_mt">ویڈیو کال پر منتقل ہونے کی درخواست مسترد۔</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">ویڈیو کال میں سوئچ کرنے کی درخواست ناکام ہوگئی۔</string>
     <string name="switch_to_video_call_failed_tmo">ویڈیو کال میں سوئچ کرنے کی درخواست مسترد ہوگئی ہے۔</string>
     <string name="switch_to_voice_call_failed">صوتی کال میں تبدیلی کی درخواست ناکام ہوگئی۔</string>
@@ -837,7 +838,7 @@ IVR کال اسکرین مینیو ایک تیسرے فریق خدمت فراہ�
     <string name="upload_using_wlan_only">صرف WLAN کے ذریعے اپ لوڈ کریں</string>
     <string name="upload_wifi_and_mobile_nw">‏Wi-Fi یا موبائل نیٹ ورک کے ذریعے اپ لوڈ کریں</string>
     <string name="upload_wlan_and_mobile_nw">‏WLAN یا موبائل نیٹ ورک کے ذریعے اپ لوڈ کریں</string>
-    <string name="usa_att_connected_as_voice">صرف وائس کے طورپر کال مربوط ہوا ہے۔</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">آپ کا ڈیٹا استعمال ہے جسے آپ اپنے آلہ پر تقریبا اس کی حد پوری ہونے کے لیے سیٹ کیا ہے۔ آپ کے ویڈیو کال کو ڈیٹا کی ضرورت ہے۔</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">سیلولر نیٹ ورک پر جوڑ کر، Wi-Fi پر کال نہیں رکھا جاسکتا۔ وائس اور ڈیٹا کے اخراجات عائد ہوسکتے ہیں۔</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

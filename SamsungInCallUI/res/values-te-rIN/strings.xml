@@ -327,7 +327,7 @@
     <string name="ghostData_title">ఉద్యోగ శీర్షిక</string>
     <string name="group_voice_call">సమూహ కాల్</string>
     <string name="groupsLabel">గుంపులు</string>
-    <string name="held_calls">హెల్డ్ కాల్స్</string>
+    <string name="held_calls">హెల్డ్ కాల్</string>
     <string name="help_text_more_info">మరింత సమాచారం</string>
     <string name="high_quality_sound">HD</string>
     <string name="if_your_registered_for_dnd_service">మీరు DND సేవ కోసం నమోదు చేస్తే, వాయిస్ ధృవీకరణని ఉపయోగించండి.</string>
@@ -810,6 +810,7 @@ Dianhuabang అనే మూడవ పక్ష సేవా ప్రదాత 
     <string name="swipe_right_to_answer_call_with_video">వీడియోతో కాల్‌కు సమాధానం ఇవ్వడానికి కుడివైపుకి స్వైప్ చేయండి.</string>
     <string name="swipe_right_to_answer_call_without_video">వీడియో లేకుండా కాల్‌కు సమాధానం ఇవ్వడానికి కుడివైపుకి స్వైప్ చేయండి.</string>
     <string name="switch_rejected_by_mt">వీడియో కాల్‌కు మారే అభ్యర్థన తిరస్కరించబడింది.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">వీడియో కాల్‌కు మారేందుకు చేసిన విజ్ఞప్తి విఫలమైంది.</string>
     <string name="switch_to_video_call_failed_tmo">వీడియో కాల్‌కు మారడానికి అభ్యర్థన తిరస్కరించబడింది.</string>
     <string name="switch_to_voice_call_failed">వాయిస్ కాల్‌ను మార్చేందుకు చేసిన విజ్ఞప్తి విఫలమైంది.</string>
@@ -837,7 +838,7 @@ Dianhuabang అనే మూడవ పక్ష సేవా ప్రదాత 
     <string name="upload_using_wlan_only">WLAN ద్వారా మాత్రమే అప్‌లోడ్ చేయండి</string>
     <string name="upload_wifi_and_mobile_nw">Wi-Fi లేదా మొబైల్ నెట్‌వర్క్ ద్వారా అప్‌లోడ్ చేయండి</string>
     <string name="upload_wlan_and_mobile_nw">WLAN లేదా మొబైల్ నెట్‌వర్క్‌తో అప్‌లోడ్ చేయి</string>
-    <string name="usa_att_connected_as_voice">కాల్ వాయిస్‌గా మాత్రమే కనెక్ట్ చేయబడింది.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">మీ పరికరంలో సెట్ చేసిన మీ డేటా వినియోగం దాని పరిమితిని చేరుకుంది. మీ వీడియో కాల్‌కు డేటా అవసరం.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Wi-Fi ద్వారా కాల్ చేయలేరు, కాబట్టి సెల్యులార్ నెట్‌వర్క్ ద్వారా కనెక్ట్ చేయబడుతోంది. వాయిస్ మరియు డేటా ఛార్జీలు వర్తించవచ్చు.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

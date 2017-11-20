@@ -15,7 +15,8 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/android/incallui/ia/IAConstant$NlgParam$Value;,
-        Lcom/android/incallui/ia/IAConstant$NlgParam$Attribute;
+        Lcom/android/incallui/ia/IAConstant$NlgParam$Attribute;,
+        Lcom/android/incallui/ia/IAConstant$NlgParam$Name;
     }
 .end annotation
 

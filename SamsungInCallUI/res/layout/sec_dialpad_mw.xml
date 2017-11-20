@@ -39,7 +39,7 @@
             <include android:id="@id/star" layout="@layout/sec_multiwindow_dialpad_star_key" />
         </RelativeLayout>
         <RelativeLayout android:id="@id/container_zero" android:layout_below="@id/container_eight" android:layout_alignBottom="@id/container_star" android:splitMotionEvents="false" android:layout_toEndOf="@id/container_star" style="@style/SecDialpadButtonStyle">
-            <include android:id="@id/zero" layout="@layout/sec_multiwindow_dialpad_key" />
+            <include android:id="@id/zero" layout="@layout/sec_multiwindow_dialpad_zero_key" />
         </RelativeLayout>
         <RelativeLayout android:id="@id/container_pound" android:layout_below="@id/container_nine" android:layout_alignBottom="@id/container_zero" android:splitMotionEvents="false" android:layout_toEndOf="@id/container_zero" style="@style/SecDialpadButtonStyle">
             <include android:id="@id/pound" layout="@layout/sec_multiwindow_dialpad_star_key" />

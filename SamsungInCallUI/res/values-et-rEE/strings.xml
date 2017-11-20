@@ -120,7 +120,7 @@
     <string name="account_phone">Seade</string>
     <string name="acs">Häälkõne</string>
     <string name="active_calls">Aktiivne kõne</string>
-    <string name="add_reminder">Lisa meeld.</string>
+    <string name="add_reminder">Lisa meeldetuletus</string>
     <string name="agif_button_close_description">Sulge</string>
     <string name="agif_decline_message">Vabandust, ma ei saa praegu rääkida.</string>
     <string name="agif_decline_sticker_header">Kleebisega keeldumine</string>
@@ -810,6 +810,7 @@ kaamera"</string>
     <string name="swipe_right_to_answer_call_with_video">Libistage paremale, et vastata kõnele koos videoga.</string>
     <string name="swipe_right_to_answer_call_without_video">Libistage paremale, et vastata kõnele ilma videota.</string>
     <string name="switch_rejected_by_mt">Taotlusest lülituda videokõnele on keeldutud.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Taotlus lülituda videokõnele nurjus.</string>
     <string name="switch_to_video_call_failed_tmo">Taotlus lülituda videokõnele lükati tagasi.</string>
     <string name="switch_to_voice_call_failed">Taotlus lülituda häälkõnele nurjus.</string>
@@ -837,7 +838,7 @@ kaamera"</string>
     <string name="upload_using_wlan_only">Üleslaadimine ainult WLAN-võrgu kaudu</string>
     <string name="upload_wifi_and_mobile_nw">Laadi üles Wi-Fi või mobiilsidevõrgu kaudu</string>
     <string name="upload_wlan_and_mobile_nw">Laadi üles WLANi/mobiilside kaudu</string>
-    <string name="usa_att_connected_as_voice">Kõne ühendatud ainult tavakõnena.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Teie seadmes määratud andmekasutuse limiit hakkab otsa saama. Teie videokõne nõuab andmeid.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Wi-Fi võrgu kaudu ei saa helistada, loome ühenduse mobiilsidevõrgu kaudu. Rakendatakse tavakõne- ja andmesidetasusid.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

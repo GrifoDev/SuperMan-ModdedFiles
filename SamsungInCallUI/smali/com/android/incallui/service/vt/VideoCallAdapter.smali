@@ -1360,7 +1360,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_9
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -1392,15 +1392,59 @@
 
     invoke-direct {v0, p1}, Landroid/telecom/VideoProfile;-><init>(I)V
 
+    iget-object v1, p0, Lcom/android/incallui/service/vt/VideoCallAdapter;->mCall:Lcom/android/incallui/Call;
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/incallui/service/vt/VideoCallAdapter;->mCall:Lcom/android/incallui/Call;
+
+    invoke-virtual {v1}, Lcom/android/incallui/Call;->getSessionModificationState()I
+
+    move-result v1
+
+    if-ne v1, v3, :cond_2
+
+    iget-object v1, p0, Lcom/android/incallui/service/vt/VideoCallAdapter;->mCall:Lcom/android/incallui/Call;
+
+    invoke-virtual {v1}, Lcom/android/incallui/Call;->getRequestingVideoState()I
+
+    move-result v1
+
+    if-ne v1, p1, :cond_2
+
+    :cond_0
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v1, p0, Lcom/android/incallui/service/vt/VideoCallAdapter;->mCallId:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v1, " : sendSessionModifyRequest  The request for duplication"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/incallui/service/vt/VideoCallLog;->provider(Ljava/lang/String;)V
+
+    :cond_1
+    :goto_0
+    return-void
+
+    :cond_2
     invoke-virtual {p0}, Lcom/android/incallui/service/vt/VideoCallAdapter;->getVideoCall()Landroid/telecom/InCallService$VideoCall;
 
     move-result-object v1
 
     invoke-virtual {v1, v0}, Landroid/telecom/InCallService$VideoCall;->sendSessionModifyRequest(Landroid/telecom/VideoProfile;)V
-
-    iget-object v0, p0, Lcom/android/incallui/service/vt/VideoCallAdapter;->mCall:Lcom/android/incallui/Call;
-
-    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/incallui/service/vt/VideoCallAdapter;->mCall:Lcom/android/incallui/Call;
 
@@ -1410,7 +1454,6 @@
 
     invoke-virtual {v0, p1}, Lcom/android/incallui/Call;->setRequestingVideoState(I)V
 
-    :cond_0
     invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
 
     move-result-object v0
@@ -1419,7 +1462,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3
 
     invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
 
@@ -1427,7 +1470,7 @@
 
     invoke-virtual {v0}, Lcom/android/incallui/UiAdapter;->hideDialpadForModifyCall()V
 
-    :cond_1
+    :cond_3
     invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
 
     move-result-object v0
@@ -1440,15 +1483,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_5
 
     const/4 v0, 0x3
 
-    if-eq p1, v0, :cond_2
+    if-eq p1, v0, :cond_4
 
-    if-ne p1, v3, :cond_3
+    if-ne p1, v3, :cond_5
 
-    :cond_2
+    :cond_4
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
     move-result-object v0
@@ -1457,8 +1500,8 @@
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/InCallPresenter;->handoverFailNotification(Lcom/android/incallui/Call;)V
 
-    :cond_3
-    if-nez p1, :cond_4
+    :cond_5
+    if-nez p1, :cond_1
 
     const-string v0, "vzw_volte_ui"
 
@@ -1466,7 +1509,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_7
 
     iget-object v0, p0, Lcom/android/incallui/service/vt/VideoCallAdapter;->mCall:Lcom/android/incallui/Call;
 
@@ -1474,13 +1517,13 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_6
 
     invoke-virtual {v0}, Lcom/android/incallui/SecCall;->isChangedToTwoWayVideo()Z
 
     move-result v0
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_6
 
     iget-object v0, p0, Lcom/android/incallui/service/vt/VideoCallAdapter;->mCall:Lcom/android/incallui/Call;
 
@@ -1488,25 +1531,23 @@
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/Call;->setMessageVoiceFromVideo(I)V
 
-    :cond_4
-    :goto_0
-    return-void
+    goto :goto_0
 
-    :cond_5
+    :cond_6
     iget-object v0, p0, Lcom/android/incallui/service/vt/VideoCallAdapter;->mCall:Lcom/android/incallui/Call;
 
     invoke-virtual {v0, v2}, Lcom/android/incallui/Call;->setMessageVoiceFromVideo(I)V
 
     goto :goto_0
 
-    :cond_6
+    :cond_7
     const-string v0, "feature_kor"
 
     invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_8
 
     const-string v0, "feature_chn"
 
@@ -1514,7 +1555,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_8
 
     const-string v0, "feature_hktw"
 
@@ -1522,7 +1563,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_8
 
     const-string v0, "feature_dcm"
 
@@ -1530,14 +1571,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_1
 
-    :cond_7
+    :cond_8
     invoke-static {}, Lcom/android/incallui/InCallApp;->getInstance()Lcom/android/incallui/InCallApp;
 
     move-result-object v0
 
-    const v1, 0x7f09035b
+    const v1, 0x7f09035c
 
     invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -1545,9 +1586,9 @@
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    goto :goto_0
+    goto/16 :goto_0
 
-    :cond_8
+    :cond_9
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1570,7 +1611,7 @@
 
     invoke-static {v0}, Lcom/android/incallui/service/vt/VideoCallLog;->provider(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto/16 :goto_0
 .end method
 
 .method public sendSessionModifyResponse(I)V

@@ -8,6 +8,8 @@
 # static fields
 .field public static final EXTRA_ACS_CODE:Ljava/lang/String; = "acs_code"
 
+.field private static final KEY_REMAINING_TIME:Ljava/lang/String; = "remaining_time"
+
 .field protected static final TAG:Ljava/lang/String;
 
 
@@ -21,6 +23,8 @@
 .field private mContext:Landroid/content/Context;
 
 .field private mEditTextAuthCode:Landroid/widget/EditText;
+
+.field private mRemainingTime:I
 
 .field private mTextTimeCount:Landroid/widget/TextView;
 
@@ -58,7 +62,15 @@
     return-void
 .end method
 
-.method static synthetic access$100(Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/AcsAuthenticatorActivity;)Landroid/widget/TextView;
+.method static synthetic access$102(Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/AcsAuthenticatorActivity;I)I
+    .locals 0
+
+    iput p1, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/AcsAuthenticatorActivity;->mRemainingTime:I
+
+    return p1
+.end method
+
+.method static synthetic access$200(Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/AcsAuthenticatorActivity;)Landroid/widget/TextView;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/AcsAuthenticatorActivity;->mTextTimeCount:Landroid/widget/TextView;
@@ -66,7 +78,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$200(Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/AcsAuthenticatorActivity;)Landroid/widget/Button;
+.method static synthetic access$300(Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/AcsAuthenticatorActivity;)Landroid/widget/Button;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/AcsAuthenticatorActivity;->mButtonReSend:Landroid/widget/Button;
@@ -434,6 +446,13 @@
 
     invoke-direct {p0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/AcsAuthenticatorActivity;->checkIsReady()V
 
+    if-nez p1, :cond_1
+
+    const v0, 0xea60
+
+    iput v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/AcsAuthenticatorActivity;->mRemainingTime:I
+
+    :goto_0
     sget v0, Lcom/samsung/android/sdk/enhancedfeatures/R$id;->regi_countdown:I
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/AcsAuthenticatorActivity;->findViewById(I)Landroid/view/View;
@@ -445,6 +464,33 @@
     iput-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/AcsAuthenticatorActivity;->mTextTimeCount:Landroid/widget/TextView;
 
     invoke-virtual {p0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/AcsAuthenticatorActivity;->runCountDown()V
+
+    return-void
+
+    :cond_1
+    const-string v0, "remaining_time"
+
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/AcsAuthenticatorActivity;->mRemainingTime:I
+
+    goto :goto_0
+.end method
+
+.method protected onDestroy()V
+    .locals 2
+
+    const-string v0, "onDestroy"
+
+    sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/AcsAuthenticatorActivity;->TAG:Ljava/lang/String;
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/util/ELog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {p0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/AcsAuthenticatorActivity;->cancelTimer()V
+
+    invoke-super {p0}, Landroid/app/Activity;->onDestroy()V
 
     return-void
 .end method
@@ -475,21 +521,26 @@
     goto :goto_0
 .end method
 
+.method protected onSaveInstanceState(Landroid/os/Bundle;)V
+    .locals 2
+
+    const-string v0, "remaining_time"
+
+    iget v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/AcsAuthenticatorActivity;->mRemainingTime:I
+
+    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+
+    return-void
+.end method
+
 .method public runCountDown()V
     .locals 6
 
-    const-wide/32 v2, 0xea60
-
-    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/AcsAuthenticatorActivity;->mTimer:Landroid/os/CountDownTimer;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/AcsAuthenticatorActivity;->mTimer:Landroid/os/CountDownTimer;
-
-    invoke-virtual {v0}, Landroid/os/CountDownTimer;->cancel()V
-
-    :cond_0
     new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/AcsAuthenticatorActivity$3;
+
+    iget v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/AcsAuthenticatorActivity;->mRemainingTime:I
+
+    int-to-long v2, v1
 
     const-wide/16 v4, 0x3e8
 

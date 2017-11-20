@@ -207,7 +207,7 @@
 
     move-result-object v2
 
-    const v4, 0x7f0a02ac
+    const v4, 0x7f0a02a8
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -227,7 +227,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0a02aa
+    const v5, 0x7f0a02a6
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -425,7 +425,7 @@
 
     const v6, 0x7f02042d
 
-    const/16 v2, 0x8
+    const/16 v3, 0x8
 
     const/4 v1, 0x0
 
@@ -443,15 +443,15 @@
 
     invoke-virtual {v0}, Lcom/android/incallui/CallList;->isMultipartyCall()Z
 
-    move-result v3
+    move-result v4
 
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v0
 
-    const/4 v4, 0x0
+    const/4 v2, 0x0
 
-    invoke-static {v0, v4, v1}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
+    invoke-static {v0, v2, v1}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
 
     move-result-object v0
 
@@ -459,49 +459,55 @@
 
     invoke-virtual {v0}, Lcom/android/incallui/Call;->isConferenceCall()Z
 
+    move-result v2
+
+    invoke-static {v0}, Lcom/android/incallui/util/CallTypeUtils;->isVideoCall(Lcom/android/incallui/Call;)Z
+
     move-result v0
 
     :goto_0
     invoke-static {}, Lcom/android/incallui/InCallUISystemDB;->isTwoPhoneRegisteredForCall()Z
 
-    move-result v4
+    move-result v5
 
-    if-eqz v4, :cond_14
+    if-eqz v5, :cond_14
+
+    if-nez v0, :cond_14
 
     invoke-virtual {p1}, Lcom/android/incallui/fragment/CallCardFragment;->getContext()Landroid/content/Context;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-static {v4}, Lcom/android/incallui/util/InCallUtils;->getCurrentUserId(Landroid/content/Context;)I
+    invoke-static {v0}, Lcom/android/incallui/util/InCallUtils;->getCurrentUserId(Landroid/content/Context;)I
 
-    move-result v4
+    move-result v0
 
-    if-nez v4, :cond_9
+    if-nez v0, :cond_9
 
     invoke-static {}, Lcom/android/incallui/util/InCallUtils;->isActiveTwoPhone()Z
 
-    move-result v4
+    move-result v0
 
-    if-eqz v4, :cond_6
+    if-eqz v0, :cond_6
 
-    iget-object v4, p0, Lcom/android/incallui/fragment/view/CallCardTwoPhoneView;->mKTtwophoneStub:Landroid/view/ViewStub;
+    iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardTwoPhoneView;->mKTtwophoneStub:Landroid/view/ViewStub;
 
-    if-eqz v4, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v4, p0, Lcom/android/incallui/fragment/view/CallCardTwoPhoneView;->mKTtwophoneStub:Landroid/view/ViewStub;
+    iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardTwoPhoneView;->mKTtwophoneStub:Landroid/view/ViewStub;
 
-    invoke-virtual {v4, v1}, Landroid/view/ViewStub;->setVisibility(I)V
+    invoke-virtual {v0, v1}, Landroid/view/ViewStub;->setVisibility(I)V
 
     :cond_0
-    iget-object v4, p0, Lcom/android/incallui/fragment/view/CallCardTwoPhoneView;->mTwophoneIcon:Landroid/widget/ImageView;
+    iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardTwoPhoneView;->mTwophoneIcon:Landroid/widget/ImageView;
 
-    if-eqz v4, :cond_1
+    if-eqz v0, :cond_1
 
-    iget-object v4, p0, Lcom/android/incallui/fragment/view/CallCardTwoPhoneView;->mTwophoneIcon:Landroid/widget/ImageView;
+    iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardTwoPhoneView;->mTwophoneIcon:Landroid/widget/ImageView;
 
-    invoke-virtual {v4, v1}, Landroid/widget/ImageView;->setVisibility(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    iget-object v4, p0, Lcom/android/incallui/fragment/view/CallCardTwoPhoneView;->mTwophoneIcon:Landroid/widget/ImageView;
+    iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardTwoPhoneView;->mTwophoneIcon:Landroid/widget/ImageView;
 
     invoke-virtual {p1}, Lcom/android/incallui/fragment/CallCardFragment;->getResources()Landroid/content/res/Resources;
 
@@ -511,24 +517,24 @@
 
     move-result-object v5
 
-    invoke-virtual {v4, v5}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v0, v5}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
     :cond_1
-    iget-object v4, p0, Lcom/android/incallui/fragment/view/CallCardTwoPhoneView;->mTwophoneText:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardTwoPhoneView;->mTwophoneText:Landroid/widget/TextView;
 
-    if-eqz v4, :cond_4
+    if-eqz v0, :cond_4
 
-    iget-object v4, p0, Lcom/android/incallui/fragment/view/CallCardTwoPhoneView;->mTwophoneText:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardTwoPhoneView;->mTwophoneText:Landroid/widget/TextView;
 
-    if-nez v3, :cond_2
+    if-nez v4, :cond_2
 
-    if-eqz v0, :cond_3
+    if-eqz v2, :cond_3
 
     :cond_2
-    move v1, v2
+    move v1, v3
 
     :cond_3
-    invoke-virtual {v4, v1}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardTwoPhoneView;->mTwophoneText:Landroid/widget/TextView;
 
@@ -560,7 +566,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardTwoPhoneView;->mTwophoneIcon:Landroid/widget/ImageView;
 
-    invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setVisibility(I)V
+    invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setVisibility(I)V
 
     :cond_7
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardTwoPhoneView;->mTwophoneText:Landroid/widget/TextView;
@@ -569,7 +575,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardTwoPhoneView;->mTwophoneText:Landroid/widget/TextView;
 
-    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setVisibility(I)V
 
     :cond_8
     const-string v0, "CallCardTwoPhoneView"
@@ -581,39 +587,39 @@
     goto :goto_1
 
     :cond_9
-    iget-object v4, p0, Lcom/android/incallui/fragment/view/CallCardTwoPhoneView;->mKTtwophoneStub:Landroid/view/ViewStub;
+    iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardTwoPhoneView;->mKTtwophoneStub:Landroid/view/ViewStub;
 
-    if-eqz v4, :cond_a
+    if-eqz v0, :cond_a
 
-    iget-object v4, p0, Lcom/android/incallui/fragment/view/CallCardTwoPhoneView;->mKTtwophoneStub:Landroid/view/ViewStub;
+    iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardTwoPhoneView;->mKTtwophoneStub:Landroid/view/ViewStub;
 
-    invoke-virtual {v4, v1}, Landroid/view/ViewStub;->setVisibility(I)V
+    invoke-virtual {v0, v1}, Landroid/view/ViewStub;->setVisibility(I)V
 
     :cond_a
-    iget-object v4, p0, Lcom/android/incallui/fragment/view/CallCardTwoPhoneView;->mTwophoneIcon:Landroid/widget/ImageView;
+    iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardTwoPhoneView;->mTwophoneIcon:Landroid/widget/ImageView;
 
-    if-eqz v4, :cond_b
+    if-eqz v0, :cond_b
 
-    iget-object v4, p0, Lcom/android/incallui/fragment/view/CallCardTwoPhoneView;->mTwophoneIcon:Landroid/widget/ImageView;
+    iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardTwoPhoneView;->mTwophoneIcon:Landroid/widget/ImageView;
 
-    invoke-virtual {v4, v1}, Landroid/widget/ImageView;->setVisibility(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
 
     :cond_b
-    iget-object v4, p0, Lcom/android/incallui/fragment/view/CallCardTwoPhoneView;->mTwophoneText:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardTwoPhoneView;->mTwophoneText:Landroid/widget/TextView;
 
-    if-eqz v4, :cond_e
+    if-eqz v0, :cond_e
 
-    iget-object v4, p0, Lcom/android/incallui/fragment/view/CallCardTwoPhoneView;->mTwophoneText:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardTwoPhoneView;->mTwophoneText:Landroid/widget/TextView;
 
-    if-nez v3, :cond_c
+    if-nez v4, :cond_c
 
-    if-eqz v0, :cond_d
+    if-eqz v2, :cond_d
 
     :cond_c
-    move v1, v2
+    move v1, v3
 
     :cond_d
-    invoke-virtual {v4, v1}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
     :cond_e
     invoke-static {}, Lcom/android/incallui/util/InCallUtils;->isActiveTwoPhone()Z
@@ -718,7 +724,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardTwoPhoneView;->mTwophoneIcon:Landroid/widget/ImageView;
 
-    invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setVisibility(I)V
+    invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setVisibility(I)V
 
     :cond_15
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardTwoPhoneView;->mTwophoneText:Landroid/widget/TextView;
@@ -727,12 +733,14 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardTwoPhoneView;->mTwophoneText:Landroid/widget/TextView;
 
-    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setVisibility(I)V
 
     goto/16 :goto_1
 
     :cond_16
     move v0, v1
+
+    move v2, v1
 
     goto/16 :goto_0
 .end method

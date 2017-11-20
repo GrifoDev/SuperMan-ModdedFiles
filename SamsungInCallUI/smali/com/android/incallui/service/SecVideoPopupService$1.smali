@@ -95,6 +95,25 @@
     goto :goto_0
 
     :cond_1
+    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/incallui/InCallPresenter;->isShowingInCallUi()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    const-string v0, "SecVideoPopupService"
+
+    const-string v1, "isShowingInCallUi"
+
+    invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_2
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v0
@@ -111,7 +130,7 @@
 
     const/16 v1, 0x8
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_3
 
     iget-object v0, p0, Lcom/android/incallui/service/SecVideoPopupService$1;->this$0:Lcom/android/incallui/service/SecVideoPopupService;
 
@@ -137,7 +156,7 @@
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     iget-object v0, p0, Lcom/android/incallui/service/SecVideoPopupService$1;->this$0:Lcom/android/incallui/service/SecVideoPopupService;
 
     invoke-static {v0}, Lcom/android/incallui/service/SecVideoPopupService;->access$100(Lcom/android/incallui/service/SecVideoPopupService;)Landroid/app/SemStatusBarManager;

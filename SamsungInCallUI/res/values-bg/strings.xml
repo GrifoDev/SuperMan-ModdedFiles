@@ -178,7 +178,7 @@
     <string name="account_phone">Устройство</string>
     <string name="acs">Гласово повикване</string>
     <string name="active_calls">Активно повикване</string>
-    <string name="add_reminder">Доб. напом.</string>
+    <string name="add_reminder">Добавяне на напомняне</string>
     <string name="agif_button_close_description">Затвори</string>
     <string name="agif_decline_message">Съжалявам, не мога да говоря в момента.</string>
     <string name="agif_decline_sticker_header">Отказ със стикер</string>
@@ -868,6 +868,7 @@
     <string name="swipe_right_to_answer_call_with_video">Плъзнете надясно, за да отговаряте на повиквания с видео.</string>
     <string name="swipe_right_to_answer_call_without_video">Плъзнете надясно, за да отговаряте на повиквания без видео.</string>
     <string name="switch_rejected_by_mt">Заявката за превключване на видео разговор е отхвърлена.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Заявката за превключване на видео разговор е неуспешна.</string>
     <string name="switch_to_video_call_failed_tmo">Заявката за превключване на видеоразговор е отхвърлена.</string>
     <string name="switch_to_voice_call_failed">Заявката за превключване към гласов разговор е неуспешна.</string>
@@ -895,7 +896,7 @@
     <string name="upload_using_wlan_only">Качване само по WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Качване през Wi-Fi или мобилна мрежа</string>
     <string name="upload_wlan_and_mobile_nw">Качване по WLAN или мобилна мрежа</string>
-    <string name="usa_att_connected_as_voice">Повикването е свързано само като глас.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Използването на данни, което сте задали на устройството, скоро ще достигне ограничението. Вашето видеоповикване изисква данни.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Повикването не може да се извърши чрез Wi-Fi, свързване към мобилна мрежа. Ще се начислят такси за глас и данни.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

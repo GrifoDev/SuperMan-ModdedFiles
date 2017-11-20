@@ -18,7 +18,7 @@
 
     sput-object v0, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/SDKLog;->mShipBuild:Ljava/lang/String;
 
-    const-string v0, "EFSDK_1.3.2"
+    const-string v0, "EFSDK_1.3.4"
 
     invoke-static {v0}, Lcom/samsung/android/sdk/ssf/common/util/CommonLog;->init(Ljava/lang/String;)V
 

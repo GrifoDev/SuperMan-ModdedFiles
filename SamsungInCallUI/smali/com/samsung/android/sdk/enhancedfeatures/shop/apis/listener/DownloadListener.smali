@@ -11,6 +11,8 @@
 
 .field public static final STATUS_DOWNLOADING:I = 0x1
 
+.field public static final STATUS_EXPIRED:I = 0x8
+
 .field public static final STATUS_FAILED:I = 0x5
 
 .field public static final STATUS_FINISHED:I = 0x4

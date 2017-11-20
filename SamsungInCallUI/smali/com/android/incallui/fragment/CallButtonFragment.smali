@@ -92,6 +92,8 @@
 
 .field private mButtonMaxVisible:I
 
+.field private mCallButtonGlobalLayoutListener:Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
+
 .field protected mDeviceList:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -196,6 +198,12 @@
 
     iput v3, p0, Lcom/android/incallui/fragment/CallButtonFragment;->ENDCALL_HORIZONTAL_TABLET_SIDE_MARGIN:F
 
+    new-instance v0, Lcom/android/incallui/fragment/CallButtonFragment$5;
+
+    invoke-direct {v0, p0}, Lcom/android/incallui/fragment/CallButtonFragment$5;-><init>(Lcom/android/incallui/fragment/CallButtonFragment;)V
+
+    iput-object v0, p0, Lcom/android/incallui/fragment/CallButtonFragment;->mCallButtonGlobalLayoutListener:Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
+
     return-void
 .end method
 
@@ -204,6 +212,39 @@
 
     invoke-direct {p0}, Lcom/android/incallui/fragment/CallButtonFragment;->resetBluetoothDeviceList()V
 
+    return-void
+.end method
+
+.method static synthetic access$200(Lcom/android/incallui/fragment/CallButtonFragment;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/incallui/fragment/CallButtonFragment;->removeCallButtonGlobalLayout()V
+
+    return-void
+.end method
+
+.method private addCallButtonGlobalLayout()V
+    .locals 2
+
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/CallButtonFragment;->getView()Landroid/view/View;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/CallButtonFragment;->getView()Landroid/view/View;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/incallui/fragment/CallButtonFragment;->mCallButtonGlobalLayoutListener:Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
+
+    invoke-virtual {v0, v1}, Landroid/view/ViewTreeObserver;->addOnGlobalLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
+
+    :cond_0
     return-void
 .end method
 
@@ -295,7 +336,9 @@
 .end method
 
 .method private manageBluetoothClicked()V
-    .locals 3
+    .locals 4
+
+    const/16 v3, 0x8
 
     const/4 v2, 0x5
 
@@ -305,7 +348,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     const/4 v0, 0x4
 
@@ -349,21 +392,55 @@
     return-void
 
     :cond_0
-    const/16 v0, 0x8
-
-    invoke-virtual {p0, v0}, Lcom/android/incallui/fragment/CallButtonFragment;->setAudioMode(I)V
+    invoke-virtual {p0, v3}, Lcom/android/incallui/fragment/CallButtonFragment;->setAudioMode(I)V
 
     goto :goto_0
 
     :cond_1
-    invoke-virtual {p0, v2}, Lcom/android/incallui/fragment/CallButtonFragment;->setAudioMode(I)V
+    invoke-static {}, Lcom/android/incallui/util/DesktopModeManager;->isDesktopDockConnected()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    invoke-virtual {p0, v3}, Lcom/android/incallui/fragment/CallButtonFragment;->setAudioMode(I)V
 
     goto :goto_0
 
     :cond_2
+    invoke-virtual {p0, v2}, Lcom/android/incallui/fragment/CallButtonFragment;->setAudioMode(I)V
+
+    goto :goto_0
+
+    :cond_3
     invoke-virtual {p0, v1}, Lcom/android/incallui/fragment/CallButtonFragment;->setAudioMode(I)V
 
     goto :goto_0
+.end method
+
+.method private removeCallButtonGlobalLayout()V
+    .locals 2
+
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/CallButtonFragment;->getView()Landroid/view/View;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/CallButtonFragment;->getView()Landroid/view/View;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/incallui/fragment/CallButtonFragment;->mCallButtonGlobalLayoutListener:Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
+
+    invoke-virtual {v0, v1}, Landroid/view/ViewTreeObserver;->removeOnGlobalLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
+
+    :cond_0
+    return-void
 .end method
 
 .method private resetBluetoothDeviceList()V
@@ -870,7 +947,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a024b
+    const v2, 0x7f0a0247
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1266,6 +1343,8 @@
 
     invoke-super {p0}, Lcom/android/incallui/BaseFragment;->onPause()V
 
+    invoke-direct {p0}, Lcom/android/incallui/fragment/CallButtonFragment;->removeCallButtonGlobalLayout()V
+
     iget-object v0, p0, Lcom/android/incallui/fragment/CallButtonFragment;->mBluetoothListPopup:Landroid/app/Dialog;
 
     if-eqz v0, :cond_0
@@ -1286,6 +1365,8 @@
     .locals 0
 
     invoke-super {p0}, Lcom/android/incallui/BaseFragment;->onResume()V
+
+    invoke-direct {p0}, Lcom/android/incallui/fragment/CallButtonFragment;->addCallButtonGlobalLayout()V
 
     invoke-virtual {p0}, Lcom/android/incallui/fragment/CallButtonFragment;->updateNavigationBar()V
 
@@ -1906,7 +1987,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f0a0587
+    const v3, 0x7f0a0585
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2352,7 +2433,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a024b
+    const v3, 0x7f0a0247
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2368,7 +2449,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a0342
+    const v3, 0x7f0a033e
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2384,7 +2465,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a01e3
+    const v3, 0x7f0a01df
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 

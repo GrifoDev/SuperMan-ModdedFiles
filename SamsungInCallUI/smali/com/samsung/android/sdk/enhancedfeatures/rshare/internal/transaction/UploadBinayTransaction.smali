@@ -7,6 +7,8 @@
 
 .field private static final UPLOAD_BINARY_REQUEST_ID:I = 0x1
 
+.field private static final UPLOAD_BINARY_USERDATA_KEY_CONTENT_SIZE:Ljava/lang/String; = "content_total_size"
+
 
 # instance fields
 .field private mConnectionTimeout:Lcom/samsung/android/sdk/ssf/common/ConnectTimeout;
@@ -104,7 +106,7 @@
 .end method
 
 .method private initTransaction(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadBinaryRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadBinaryListener;J)V
-    .locals 3
+    .locals 5
 
     iput-object p2, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadBinayTransaction;->mListener:Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadBinaryListener;
 
@@ -122,6 +124,35 @@
 
     :cond_0
     iput-wide p3, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadBinayTransaction;->mTransactionId:J
+
+    invoke-virtual {p1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadBinaryRequest;->getUserData()Landroid/os/Bundle;
+
+    move-result-object v0
+
+    if-nez v0, :cond_1
+
+    new-instance v0, Landroid/os/Bundle;
+
+    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
+
+    :cond_1
+    const-string v1, "content_total_size"
+
+    invoke-virtual {p1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadBinaryRequest;->getOffset()I
+
+    move-result v2
+
+    invoke-virtual {p1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadBinaryRequest;->getLength()I
+
+    move-result v3
+
+    add-int/2addr v2, v3
+
+    int-to-long v2, v2
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Bundle;->putLong(Ljava/lang/String;J)V
+
+    invoke-virtual {p1, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadBinaryRequest;->setUserData(Landroid/os/Bundle;)V
 
     return-void
 .end method

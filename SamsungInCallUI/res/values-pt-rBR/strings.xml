@@ -30,7 +30,7 @@
     <string name="card_title_incoming_call">Chamada recebida</string>
     <string name="card_title_my_phone_number">Meu número é %s.</string>
     <string name="card_title_on_hold">Espera</string>
-    <string name="card_title_video_call">Videocham.</string>
+    <string name="card_title_video_call">Videochamada</string>
     <string name="common_google_play_services_api_unavailable_text">%1$s exige um ou mais serviços do Google Play que não estão disponíveis no momento. Entre em contato com o desenvolvedor para receber ajuda.</string>
     <string name="common_google_play_services_enable_button">Ativar o Google Play Services</string>
     <string name="common_google_play_services_enable_text">%1$s só funciona com o Google Play Services ativado.</string>
@@ -93,7 +93,7 @@
     <string name="onscreenShowDialpadText">Teclado</string>
     <string name="onscreenSwapCallsText">Trocar</string>
     <string name="onscreenSwitchCameraText">Alternar câmera</string>
-    <string name="onscreenVideoCallText">Videocham.</string>
+    <string name="onscreenVideoCallText">Videochamada</string>
     <string name="overflowAddMenuItemText">Adicionar chamada</string>
     <string name="overflowHoldMenuItemText">Espera</string>
     <string name="overflowMergeMenuItemText">Conferência</string>
@@ -151,7 +151,7 @@
     <string name="account_phone">Dispositivo</string>
     <string name="acs">Chamada de voz</string>
     <string name="active_calls">Chamada ativa</string>
-    <string name="add_reminder">Ad. lembrete</string>
+    <string name="add_reminder">Adicionar lembrete</string>
     <string name="agif_button_close_description">Fechar</string>
     <string name="agif_decline_message">Não posso falar agora.</string>
     <string name="agif_decline_sticker_header">Recusar com um adesivo</string>
@@ -765,7 +765,7 @@ unidirec."</string>
     <string name="secOnscreenSwitchText">Altern.</string>
     <string name="secOnscreenUpdateContactText">Atualiz. exist.</string>
     <string name="secOnscreenUpdateContactText_tts">Atualizar existente</string>
-    <string name="secOnscreenVideoCallText">Videocham.</string>
+    <string name="secOnscreenVideoCallText">Videochamada</string>
     <string name="secOnscreenVideoStopText">Parar</string>
     <string name="secOnscreenViewContactText">Exibir contato</string>
     <string name="secOnscreenVoiceCallText">Chamar</string>
@@ -841,6 +841,7 @@ unidirec."</string>
     <string name="swipe_right_to_answer_call_with_video">Deslize para a direita para atender a chamada com vídeo.</string>
     <string name="swipe_right_to_answer_call_without_video">Deslize para a direita para atender a chamada sem vídeo.</string>
     <string name="switch_rejected_by_mt">Solicitação de mudança para videochamada rejeitada.</string>
+    <string name="switch_rejected_by_mt_att">Vídeo indisponível para esta chamada. Chamada conectada como chamada de voz.</string>
     <string name="switch_to_video_call_failed">Falha na solicitação de mudança para chamada de vídeo.</string>
     <string name="switch_to_video_call_failed_tmo">A solicitação para alternar para videochamada foi recusada.</string>
     <string name="switch_to_voice_call_failed">Falha na solicitação de mudança para chamada com voz.</string>
@@ -868,7 +869,7 @@ unidirec."</string>
     <string name="upload_using_wlan_only">Carregar apenas via WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Carregar por Wi-Fi ou rede móvel</string>
     <string name="upload_wlan_and_mobile_nw">Carregar via WLAN ou rede móvel</string>
-    <string name="usa_att_connected_as_voice">Chamada conectada como voz apenas.</string>
+    <string name="usa_att_connected_as_voice">Vídeo indisponível para esta chamada. Chamada conectada como chamada de voz.</string>
     <string name="usa_att_data_usage_charge_alert">O seu Uso de dados definido no aparelho está prestes a atingir o limite. Sua videochamada requer dados.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">A chamada não pode ser colocada em Wi-Fi. Conectando à rede celular. As cobranças de voz e dados serão aplicadas.</string>
     <string name="usa_att_modify_receive_to_video">%s está solicitando alternar para videochamada.</string>

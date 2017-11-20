@@ -64,7 +64,7 @@
 
     iget-object v1, p0, Lcom/android/contacts/common/dialog/ClearFrequentsDialog$1;->c:Lcom/android/contacts/common/dialog/ClearFrequentsDialog;
 
-    const v2, 0x7f09051e
+    const v2, 0x7f09051f
 
     invoke-virtual {v1, v2}, Lcom/android/contacts/common/dialog/ClearFrequentsDialog;->getString(I)Ljava/lang/String;
 

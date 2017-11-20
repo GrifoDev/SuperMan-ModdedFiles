@@ -142,25 +142,11 @@
 
     invoke-static {v0, v2, v3}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
-
-    move-result-object v0
+    iget-object v0, p0, Lcom/android/incallui/coreapps/CoreAppsManager$ProfileCapabilityListener;->this$0:Lcom/android/incallui/coreapps/CoreAppsManager;
 
     iget-object v2, p0, Lcom/android/incallui/coreapps/CoreAppsManager$ProfileCapabilityListener;->mCallId:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Lcom/android/incallui/CallList;->getCallById(Ljava/lang/String;)Lcom/android/incallui/Call;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_2
-
-    iget-object v2, p0, Lcom/android/incallui/coreapps/CoreAppsManager$ProfileCapabilityListener;->this$0:Lcom/android/incallui/coreapps/CoreAppsManager;
-
-    invoke-virtual {v0}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v2, v0}, Lcom/android/incallui/coreapps/CoreAppsManager;->access$200(Lcom/android/incallui/coreapps/CoreAppsManager;Ljava/lang/String;)V
+    invoke-static {v0, v2}, Lcom/android/incallui/coreapps/CoreAppsManager;->access$300(Lcom/android/incallui/coreapps/CoreAppsManager;Ljava/lang/String;)V
 
     goto :goto_0
 .end method

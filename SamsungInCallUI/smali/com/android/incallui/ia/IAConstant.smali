@@ -5,7 +5,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/incallui/ia/IAConstant$NlgParam;
+        Lcom/android/incallui/ia/IAConstant$NlgParam;,
+        Lcom/android/incallui/ia/IAConstant$StateId;
     }
 .end annotation
 
@@ -19,7 +20,11 @@
 
 .field public static final IA_STATE_ID_ACCEPT_VOICE_CALL:Ljava/lang/String; = "VoiceCallAccept"
 
+.field public static final IA_STATE_ID_BLOCK_SMART_CALL:Ljava/lang/String; = "BlockSmartCall"
+
 .field public static final IA_STATE_ID_CROSS_MESSAGE_CONVERSATION_VIEW_SHARE:Ljava/lang/String; = "CrossMessagesConversationViewShare"
+
+.field public static final IA_STATE_ID_DECLINE_CALL_WITH_RECENT_AGIF:Ljava/lang/String; = "DeclinceCallWithRecentAGIF"
 
 .field public static final IA_STATE_ID_INCOMING_CALL:Ljava/lang/String; = "IncomingCall"
 
@@ -36,6 +41,10 @@
 .field public static final IA_STATE_ID_REMINDER_OFF:Ljava/lang/String; = "ReminderOff"
 
 .field public static final IA_STATE_ID_REMINDER_ON:Ljava/lang/String; = "ReminderOn"
+
+.field public static final IA_STATE_ID_REPORT_SMART_CALL:Ljava/lang/String; = "ReportSmartCall"
+
+.field public static final IA_STATE_ID_SHOW_AGIF:Ljava/lang/String; = "ShowAGIF"
 
 .field public static final IA_STATE_ID_SHOW_REMINDER:Ljava/lang/String; = "ShowReminder"
 

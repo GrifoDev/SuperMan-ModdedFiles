@@ -554,301 +554,303 @@
 
 .field public static final sec_multiwindow_dialpad_star_key:I = 0x7f04010d
 
-.field public static final sec_nsri_secure_call_layout:I = 0x7f04010e
+.field public static final sec_multiwindow_dialpad_zero_key:I = 0x7f04010e
 
-.field public static final sec_one_way_camera_button_layout:I = 0x7f04010f
+.field public static final sec_nsri_secure_call_layout:I = 0x7f04010f
 
-.field public static final sec_one_way_camera_button_mw_layout:I = 0x7f040110
+.field public static final sec_one_way_camera_button_layout:I = 0x7f040110
 
-.field public static final sec_onhold_stub_layout:I = 0x7f040111
+.field public static final sec_one_way_camera_button_mw_layout:I = 0x7f040111
 
-.field public static final sec_pager_indicator_callplus_layout:I = 0x7f040112
+.field public static final sec_onhold_stub_layout:I = 0x7f040112
 
-.field public static final sec_period_mark_layout:I = 0x7f040113
+.field public static final sec_pager_indicator_callplus_layout:I = 0x7f040113
 
-.field public static final sec_popup_card_subscriber_layout:I = 0x7f040114
+.field public static final sec_period_mark_layout:I = 0x7f040114
 
-.field public static final sec_primary_call_info:I = 0x7f040115
+.field public static final sec_popup_card_subscriber_layout:I = 0x7f040115
 
-.field public static final sec_primary_call_info_rich_screen:I = 0x7f040116
+.field public static final sec_primary_call_info:I = 0x7f040116
 
-.field public static final sec_primary_call_info_video_qcif:I = 0x7f040117
+.field public static final sec_primary_call_info_rich_screen:I = 0x7f040117
 
-.field public static final sec_primary_call_info_video_vga:I = 0x7f040118
+.field public static final sec_primary_call_info_video_qcif:I = 0x7f040118
 
-.field public static final sec_primary_call_info_video_vga_end:I = 0x7f040119
+.field public static final sec_primary_call_info_video_vga:I = 0x7f040119
 
-.field public static final sec_primary_line_info_layout:I = 0x7f04011a
+.field public static final sec_primary_call_info_video_vga_end:I = 0x7f04011a
 
-.field public static final sec_record_button_layout:I = 0x7f04011b
+.field public static final sec_primary_line_info_layout:I = 0x7f04011b
 
-.field public static final sec_record_button_mkeyboard_layout:I = 0x7f04011c
+.field public static final sec_record_button_layout:I = 0x7f04011c
 
-.field public static final sec_record_info_cover_layout:I = 0x7f04011d
+.field public static final sec_record_button_mkeyboard_layout:I = 0x7f04011d
 
-.field public static final sec_record_info_layout:I = 0x7f04011e
+.field public static final sec_record_info_cover_layout:I = 0x7f04011e
 
-.field public static final sec_record_info_popup_layout:I = 0x7f04011f
+.field public static final sec_record_info_layout:I = 0x7f04011f
 
-.field public static final sec_reject_call_with_message_agif:I = 0x7f040120
+.field public static final sec_record_info_popup_layout:I = 0x7f040120
 
-.field public static final sec_reject_call_with_message_create:I = 0x7f040121
+.field public static final sec_reject_call_with_message_agif:I = 0x7f040121
 
-.field public static final sec_reject_call_with_message_create_popup:I = 0x7f040122
+.field public static final sec_reject_call_with_message_create:I = 0x7f040122
 
-.field public static final sec_remote_multi_line_info_layout:I = 0x7f040123
+.field public static final sec_reject_call_with_message_create_popup:I = 0x7f040123
 
-.field public static final sec_remote_multiparty_call_card_fragment:I = 0x7f040124
+.field public static final sec_remote_multi_line_info_layout:I = 0x7f040124
 
-.field public static final sec_remote_multiparty_call_info:I = 0x7f040125
+.field public static final sec_remote_multiparty_call_card_fragment:I = 0x7f040125
 
-.field public static final sec_remote_primary_call_info:I = 0x7f040126
+.field public static final sec_remote_multiparty_call_info:I = 0x7f040126
 
-.field public static final sec_rich_screen_call_card_fragment:I = 0x7f040127
+.field public static final sec_remote_primary_call_info:I = 0x7f040127
 
-.field public static final sec_richscreen_video_stub:I = 0x7f040128
+.field public static final sec_rich_screen_call_card_fragment:I = 0x7f040128
 
-.field public static final sec_secondary_line_info_layout:I = 0x7f040129
+.field public static final sec_richscreen_video_stub:I = 0x7f040129
 
-.field public static final sec_shared_line_layout:I = 0x7f04012a
+.field public static final sec_secondary_line_info_layout:I = 0x7f04012a
 
-.field public static final sec_smartcall_icon_layout:I = 0x7f04012b
+.field public static final sec_shared_line_layout:I = 0x7f04012b
 
-.field public static final sec_smartcall_small_icon_layout:I = 0x7f04012c
+.field public static final sec_smartcall_icon_layout:I = 0x7f04012c
 
-.field public static final sec_softphone_dialog_devicelist:I = 0x7f04012d
+.field public static final sec_smartcall_small_icon_layout:I = 0x7f04012d
 
-.field public static final sec_spam_call_popup_layout:I = 0x7f04012e
+.field public static final sec_softphone_dialog_devicelist:I = 0x7f04012e
 
-.field public static final sec_suguden_guide_view:I = 0x7f04012f
+.field public static final sec_spam_call_popup_layout:I = 0x7f04012f
 
-.field public static final sec_switch_to_video_button_layout:I = 0x7f040130
+.field public static final sec_suguden_guide_view:I = 0x7f040130
 
-.field public static final sec_switch_to_video_button_mw_layout:I = 0x7f040131
+.field public static final sec_switch_to_video_button_layout:I = 0x7f040131
 
-.field public static final sec_switch_to_video_button_onehand_layout:I = 0x7f040132
+.field public static final sec_switch_to_video_button_mw_layout:I = 0x7f040132
 
-.field public static final sec_tablet_video_call_qcif_fragment:I = 0x7f040133
+.field public static final sec_switch_to_video_button_onehand_layout:I = 0x7f040133
 
-.field public static final sec_tablet_volume_seek_bar:I = 0x7f040134
+.field public static final sec_tablet_video_call_qcif_fragment:I = 0x7f040134
 
-.field public static final sec_tablet_volume_seek_bar_mw:I = 0x7f040135
+.field public static final sec_tablet_volume_seek_bar:I = 0x7f040135
 
-.field public static final sec_transfer_dialog:I = 0x7f040136
+.field public static final sec_tablet_volume_seek_bar_mw:I = 0x7f040136
 
-.field public static final sec_video_banner_layout:I = 0x7f040137
+.field public static final sec_transfer_dialog:I = 0x7f040137
 
-.field public static final sec_video_call_button_qcif_fragment:I = 0x7f040138
+.field public static final sec_video_banner_layout:I = 0x7f040138
 
-.field public static final sec_video_call_button_vga_fragment:I = 0x7f040139
+.field public static final sec_video_call_button_qcif_fragment:I = 0x7f040139
 
-.field public static final sec_video_call_card_qcif_fragment:I = 0x7f04013a
+.field public static final sec_video_call_button_vga_fragment:I = 0x7f04013a
 
-.field public static final sec_video_call_card_vga_end_fragment:I = 0x7f04013b
+.field public static final sec_video_call_card_qcif_fragment:I = 0x7f04013b
 
-.field public static final sec_video_call_card_vga_fragment:I = 0x7f04013c
+.field public static final sec_video_call_card_vga_end_fragment:I = 0x7f04013c
 
-.field public static final sec_video_call_card_vga_mkeyboard_fragment:I = 0x7f04013d
+.field public static final sec_video_call_card_vga_fragment:I = 0x7f04013d
 
-.field public static final sec_video_call_cdnip_number_layout:I = 0x7f04013e
+.field public static final sec_video_call_card_vga_mkeyboard_fragment:I = 0x7f04013e
 
-.field public static final sec_video_call_cnap_name_layout:I = 0x7f04013f
+.field public static final sec_video_call_cdnip_number_layout:I = 0x7f04013f
 
-.field public static final sec_video_call_endcall_button_layout:I = 0x7f040140
+.field public static final sec_video_call_cnap_name_layout:I = 0x7f040140
 
-.field public static final sec_video_call_endcall_button_layout_qcif:I = 0x7f040141
+.field public static final sec_video_call_endcall_button_layout:I = 0x7f040141
 
-.field public static final sec_video_call_incoming_hide_show_layout:I = 0x7f040142
+.field public static final sec_video_call_endcall_button_layout_qcif:I = 0x7f040142
 
-.field public static final sec_video_call_popup:I = 0x7f040143
+.field public static final sec_video_call_incoming_hide_show_layout:I = 0x7f040143
 
-.field public static final sec_video_call_qcif_fragment:I = 0x7f040144
+.field public static final sec_video_call_popup:I = 0x7f040144
 
-.field public static final sec_video_call_qcif_mkeyboard_fragment:I = 0x7f040145
+.field public static final sec_video_call_qcif_fragment:I = 0x7f040145
 
-.field public static final sec_video_call_vga_fragment:I = 0x7f040146
+.field public static final sec_video_call_qcif_mkeyboard_fragment:I = 0x7f040146
 
-.field public static final sec_video_camera_button_mkeyboard_viewstub:I = 0x7f040147
+.field public static final sec_video_call_vga_fragment:I = 0x7f040147
 
-.field public static final sec_video_camera_button_multiwindow_viewstub:I = 0x7f040148
+.field public static final sec_video_camera_button_mkeyboard_viewstub:I = 0x7f040148
 
-.field public static final sec_video_camera_button_viewstub:I = 0x7f040149
+.field public static final sec_video_camera_button_multiwindow_viewstub:I = 0x7f040149
 
-.field public static final sec_video_camera_effect_layout:I = 0x7f04014a
+.field public static final sec_video_camera_button_viewstub:I = 0x7f04014a
 
-.field public static final sec_video_camera_effect_viewstub:I = 0x7f04014b
+.field public static final sec_video_camera_effect_layout:I = 0x7f04014b
 
-.field public static final sec_video_dialpad:I = 0x7f04014c
+.field public static final sec_video_camera_effect_viewstub:I = 0x7f04014c
 
-.field public static final sec_video_dialpad_key:I = 0x7f04014d
+.field public static final sec_video_dialpad:I = 0x7f04014d
 
-.field public static final sec_video_dialpad_star_key:I = 0x7f04014e
+.field public static final sec_video_dialpad_key:I = 0x7f04014e
 
-.field public static final sec_video_dialpad_view:I = 0x7f04014f
+.field public static final sec_video_dialpad_star_key:I = 0x7f04014f
 
-.field public static final sec_video_dialpad_zero_key:I = 0x7f040150
+.field public static final sec_video_dialpad_view:I = 0x7f040150
 
-.field public static final sec_video_dtmf_twelve_key_dialer_view:I = 0x7f040151
+.field public static final sec_video_dialpad_zero_key:I = 0x7f040151
 
-.field public static final sec_video_epdg_notify_banner_viewstub:I = 0x7f040152
+.field public static final sec_video_dtmf_twelve_key_dialer_view:I = 0x7f040152
 
-.field public static final sec_video_hide_show_me_button_viewstub:I = 0x7f040153
+.field public static final sec_video_epdg_notify_banner_viewstub:I = 0x7f040153
 
-.field public static final sec_video_holdcall_banner_viewstub:I = 0x7f040154
+.field public static final sec_video_hide_show_me_button_viewstub:I = 0x7f040154
 
-.field public static final sec_video_modify_button_att_viewstub:I = 0x7f040155
+.field public static final sec_video_holdcall_banner_viewstub:I = 0x7f040155
 
-.field public static final sec_video_modify_button_cdma_onehand_viewstub:I = 0x7f040156
+.field public static final sec_video_modify_button_att_viewstub:I = 0x7f040156
 
-.field public static final sec_video_modify_button_cdma_viewstub:I = 0x7f040157
+.field public static final sec_video_modify_button_cdma_onehand_viewstub:I = 0x7f040157
 
-.field public static final sec_video_modify_button_gsm_viewstub:I = 0x7f040158
+.field public static final sec_video_modify_button_cdma_viewstub:I = 0x7f040158
 
-.field public static final sec_video_modify_button_receive_mkeyboard_viewstub:I = 0x7f040159
+.field public static final sec_video_modify_button_gsm_viewstub:I = 0x7f040159
 
-.field public static final sec_video_modify_button_receive_onehand_viewstub:I = 0x7f04015a
+.field public static final sec_video_modify_button_receive_mkeyboard_viewstub:I = 0x7f04015a
 
-.field public static final sec_video_modify_button_receive_viewstub:I = 0x7f04015b
+.field public static final sec_video_modify_button_receive_onehand_viewstub:I = 0x7f04015b
 
-.field public static final sec_video_modify_call_type_button_viewstub:I = 0x7f04015c
+.field public static final sec_video_modify_button_receive_viewstub:I = 0x7f04015c
 
-.field public static final sec_video_multiwindow_dialpad:I = 0x7f04015d
+.field public static final sec_video_modify_call_type_button_viewstub:I = 0x7f04015d
 
-.field public static final sec_video_multiwindow_dialpad_key:I = 0x7f04015e
+.field public static final sec_video_multiwindow_dialpad:I = 0x7f04015e
 
-.field public static final sec_video_multiwindow_dialpad_view:I = 0x7f04015f
+.field public static final sec_video_multiwindow_dialpad_key:I = 0x7f04015f
 
-.field public static final sec_video_multiwindow_dialpad_zero_key:I = 0x7f040160
+.field public static final sec_video_multiwindow_dialpad_view:I = 0x7f040160
 
-.field public static final sec_video_multiwindow_dtmf_twelve_key_dialer_view:I = 0x7f040161
+.field public static final sec_video_multiwindow_dialpad_zero_key:I = 0x7f040161
 
-.field public static final sec_video_type_icon_layout:I = 0x7f040162
+.field public static final sec_video_multiwindow_dtmf_twelve_key_dialer_view:I = 0x7f040162
 
-.field public static final sec_video_vga_dialpad:I = 0x7f040163
+.field public static final sec_video_type_icon_layout:I = 0x7f040163
 
-.field public static final sec_video_vga_dialpad_key:I = 0x7f040164
+.field public static final sec_video_vga_dialpad:I = 0x7f040164
 
-.field public static final sec_video_vga_dialpad_star_key:I = 0x7f040165
+.field public static final sec_video_vga_dialpad_key:I = 0x7f040165
 
-.field public static final sec_video_vga_dialpad_view:I = 0x7f040166
+.field public static final sec_video_vga_dialpad_star_key:I = 0x7f040166
 
-.field public static final sec_video_vga_dialpad_zero_key:I = 0x7f040167
+.field public static final sec_video_vga_dialpad_view:I = 0x7f040167
 
-.field public static final sec_video_vga_dtmf_twelve_key_dialer_view:I = 0x7f040168
+.field public static final sec_video_vga_dialpad_zero_key:I = 0x7f040168
 
-.field public static final sec_video_vga_invite_group_video_button_viewstub:I = 0x7f040169
+.field public static final sec_video_vga_dtmf_twelve_key_dialer_view:I = 0x7f040169
 
-.field public static final sec_video_vga_multiwindow_dialpad:I = 0x7f04016a
+.field public static final sec_video_vga_invite_group_video_button_viewstub:I = 0x7f04016a
 
-.field public static final sec_video_vga_multiwindow_dialpad_key:I = 0x7f04016b
+.field public static final sec_video_vga_multiwindow_dialpad:I = 0x7f04016b
 
-.field public static final sec_video_vga_multiwindow_dialpad_view:I = 0x7f04016c
+.field public static final sec_video_vga_multiwindow_dialpad_key:I = 0x7f04016c
 
-.field public static final sec_video_vga_multiwindow_dialpad_zero_key:I = 0x7f04016d
+.field public static final sec_video_vga_multiwindow_dialpad_view:I = 0x7f04016d
 
-.field public static final sec_video_vga_multiwindow_dtmf_twelve_key_dialer_view:I = 0x7f04016e
+.field public static final sec_video_vga_multiwindow_dialpad_zero_key:I = 0x7f04016e
 
-.field public static final sec_voice_call_button_callplus_fragment:I = 0x7f04016f
+.field public static final sec_video_vga_multiwindow_dtmf_twelve_key_dialer_view:I = 0x7f04016f
 
-.field public static final sec_voice_call_button_callplus_mw_fragment:I = 0x7f040170
+.field public static final sec_voice_call_button_callplus_fragment:I = 0x7f040170
 
-.field public static final sec_voice_call_button_fragment:I = 0x7f040171
+.field public static final sec_voice_call_button_callplus_mw_fragment:I = 0x7f040171
 
-.field public static final sec_voice_call_button_mw_fragment:I = 0x7f040172
+.field public static final sec_voice_call_button_fragment:I = 0x7f040172
 
-.field public static final sec_voice_call_button_mw_view_page:I = 0x7f040173
+.field public static final sec_voice_call_button_mw_fragment:I = 0x7f040173
 
-.field public static final sec_voice_call_button_vcc_fragment:I = 0x7f040174
+.field public static final sec_voice_call_button_mw_view_page:I = 0x7f040174
 
-.field public static final sec_voice_call_button_view_page:I = 0x7f040175
+.field public static final sec_voice_call_button_vcc_fragment:I = 0x7f040175
 
-.field public static final sec_voice_call_button_view_page_callplus:I = 0x7f040176
+.field public static final sec_voice_call_button_view_page:I = 0x7f040176
 
-.field public static final sec_voice_call_button_view_page_callplus_mw:I = 0x7f040177
+.field public static final sec_voice_call_button_view_page_callplus:I = 0x7f040177
 
-.field public static final sec_voice_call_button_view_page_callplus_outgoing:I = 0x7f040178
+.field public static final sec_voice_call_button_view_page_callplus_mw:I = 0x7f040178
 
-.field public static final sec_voice_call_button_view_page_callplus_outgoing_mw:I = 0x7f040179
+.field public static final sec_voice_call_button_view_page_callplus_outgoing:I = 0x7f040179
 
-.field public static final sec_voice_call_button_view_page_extra:I = 0x7f04017a
+.field public static final sec_voice_call_button_view_page_callplus_outgoing_mw:I = 0x7f04017a
 
-.field public static final sec_voice_call_callplus_image_popup:I = 0x7f04017b
+.field public static final sec_voice_call_button_view_page_extra:I = 0x7f04017b
 
-.field public static final sec_voice_call_callplus_map_popup:I = 0x7f04017c
+.field public static final sec_voice_call_callplus_image_popup:I = 0x7f04017c
 
-.field public static final sec_voice_call_card_fragment:I = 0x7f04017d
+.field public static final sec_voice_call_callplus_map_popup:I = 0x7f04017d
 
-.field public static final sec_voicecall_switch_button_layout:I = 0x7f04017e
+.field public static final sec_voice_call_card_fragment:I = 0x7f04017e
 
-.field public static final sec_volte_addcall_layout:I = 0x7f04017f
+.field public static final sec_voicecall_switch_button_layout:I = 0x7f04017f
 
-.field public static final sec_volte_camera_layout:I = 0x7f040180
+.field public static final sec_volte_addcall_layout:I = 0x7f040180
 
-.field public static final sec_volte_videocall_layout:I = 0x7f040181
+.field public static final sec_volte_camera_layout:I = 0x7f040181
 
-.field public static final sec_volume_button_layout:I = 0x7f040182
+.field public static final sec_volte_videocall_layout:I = 0x7f040182
 
-.field public static final sec_volume_button_layout_videocall_qcif:I = 0x7f040183
+.field public static final sec_volume_button_layout:I = 0x7f040183
 
-.field public static final sec_volume_button_layout_videocall_vga:I = 0x7f040184
+.field public static final sec_volume_button_layout_videocall_qcif:I = 0x7f040184
 
-.field public static final secondary_call_info:I = 0x7f040185
+.field public static final sec_volume_button_layout_videocall_vga:I = 0x7f040185
 
-.field public static final secondary_elapsed_time_layout:I = 0x7f040186
+.field public static final secondary_call_info:I = 0x7f040186
 
-.field public static final secondary_elapsed_time_video_layout:I = 0x7f040187
+.field public static final secondary_elapsed_time_layout:I = 0x7f040187
 
-.field public static final select_account_list_item:I = 0x7f040188
+.field public static final secondary_elapsed_time_video_layout:I = 0x7f040188
 
-.field public static final select_dialog_item:I = 0x7f040189
+.field public static final select_account_list_item:I = 0x7f040189
 
-.field public static final select_dialog_item_material:I = 0x7f04018a
+.field public static final select_dialog_item:I = 0x7f04018a
 
-.field public static final select_dialog_multichoice_material:I = 0x7f04018b
+.field public static final select_dialog_item_material:I = 0x7f04018b
 
-.field public static final select_dialog_singlechoice_material:I = 0x7f04018c
+.field public static final select_dialog_multichoice_material:I = 0x7f04018c
 
-.field public static final select_sim_account_list:I = 0x7f04018d
+.field public static final select_dialog_singlechoice_material:I = 0x7f04018d
 
-.field public static final select_sim_account_list_item:I = 0x7f04018e
+.field public static final select_sim_account_list:I = 0x7f04018e
 
-.field public static final simiconlabel_layout:I = 0x7f04018f
+.field public static final select_sim_account_list_item:I = 0x7f04018f
 
-.field public static final simiconlabellarge_layout:I = 0x7f040190
+.field public static final simiconlabel_layout:I = 0x7f040190
 
-.field public static final smart_call_info_stub_layout:I = 0x7f040191
+.field public static final simiconlabellarge_layout:I = 0x7f040191
 
-.field public static final smart_call_spam_safe_layout:I = 0x7f040192
+.field public static final smart_call_info_stub_layout:I = 0x7f040192
 
-.field public static final smart_call_status_message_layout:I = 0x7f040193
+.field public static final smart_call_spam_safe_layout:I = 0x7f040193
 
-.field public static final spam_call_report_times_layout:I = 0x7f040194
+.field public static final smart_call_status_message_layout:I = 0x7f040194
 
-.field public static final support_simple_spinner_dropdown_item:I = 0x7f040195
+.field public static final spam_call_report_times_layout:I = 0x7f040195
 
-.field public static final transfer_list:I = 0x7f040196
+.field public static final support_simple_spinner_dropdown_item:I = 0x7f040196
 
-.field public static final tw_country_search_bar:I = 0x7f040197
+.field public static final transfer_list:I = 0x7f040197
 
-.field public static final tw_transient_notification_actionbar:I = 0x7f040198
+.field public static final tw_country_search_bar:I = 0x7f040198
 
-.field public static final unread_count_tab:I = 0x7f040199
+.field public static final tw_transient_notification_actionbar:I = 0x7f040199
 
-.field public static final vcc_user_agreement_dialog:I = 0x7f04019a
+.field public static final unread_count_tab:I = 0x7f04019a
 
-.field public static final vcc_user_agreement_dialog_emergencymode:I = 0x7f04019b
+.field public static final vcc_user_agreement_dialog:I = 0x7f04019b
 
-.field public static final video_call_fragment:I = 0x7f04019c
+.field public static final vcc_user_agreement_dialog_emergencymode:I = 0x7f04019c
 
-.field public static final video_call_pip_layout:I = 0x7f04019d
+.field public static final video_call_fragment:I = 0x7f04019d
 
-.field public static final video_call_simulation:I = 0x7f04019e
+.field public static final video_call_pip_layout:I = 0x7f04019e
 
-.field public static final video_call_views:I = 0x7f04019f
+.field public static final video_call_simulation:I = 0x7f04019f
 
-.field public static final video_hide_show_floating_button_layout:I = 0x7f0401a0
+.field public static final video_call_views:I = 0x7f0401a0
 
-.field public static final volte_videocall_enable_dialog:I = 0x7f0401a1
+.field public static final video_hide_show_floating_button_layout:I = 0x7f0401a1
+
+.field public static final volte_videocall_enable_dialog:I = 0x7f0401a2
 
 
 # direct methods

@@ -36,7 +36,7 @@
 
 .field public static final sdk_sms_bottom_button:I = 0x7f0400a9
 
-.field public static final tw_country_search_bar:I = 0x7f040197
+.field public static final tw_country_search_bar:I = 0x7f040198
 
 
 # direct methods

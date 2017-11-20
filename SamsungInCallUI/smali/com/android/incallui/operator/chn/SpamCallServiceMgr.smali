@@ -3,6 +3,8 @@
 
 
 # static fields
+.field private static final InCallUIMark:I = 0x271a
+
 .field private static final TAG:Ljava/lang/String;
 
 .field private static mContext:Landroid/content/Context;
@@ -364,45 +366,35 @@
     :cond_1
     sget-object v1, Lcom/android/incallui/operator/chn/SpamCallServiceMgr;->myService:Lcom/bst/spamcall/numbermark/b;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_2
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_2
 
     iget-boolean v0, p0, Lcom/android/incallui/operator/chn/SpamCallServiceMgr;->mIsSearching:Z
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_2
 
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/incallui/operator/chn/SpamCallServiceMgr;->mIsSearching:Z
 
     :try_start_0
-    sget-object v1, Lcom/android/incallui/operator/chn/SpamCallServiceMgr;->myService:Lcom/bst/spamcall/numbermark/b;
+    sget-object v0, Lcom/android/incallui/operator/chn/SpamCallServiceMgr;->myService:Lcom/bst/spamcall/numbermark/b;
 
-    iget-object v2, p0, Lcom/android/incallui/operator/chn/SpamCallServiceMgr;->mNum:Ljava/lang/String;
+    iget-object v1, p0, Lcom/android/incallui/operator/chn/SpamCallServiceMgr;->mNum:Ljava/lang/String;
 
-    iget-boolean v0, p0, Lcom/android/incallui/operator/chn/SpamCallServiceMgr;->mIsincoming:Z
+    const/16 v2, 0x271a
 
-    if-eqz v0, :cond_2
-
-    const/16 v0, 0x12
-
-    :goto_0
     iget-object v3, p0, Lcom/android/incallui/operator/chn/SpamCallServiceMgr;->mBinderGetNumMarkListener:Lcom/bst/spamcall/numbermark/a;
 
-    invoke-interface {v1, v2, v0, v3}, Lcom/bst/spamcall/numbermark/b;->a(Ljava/lang/String;ILcom/bst/spamcall/numbermark/a;)V
+    invoke-interface {v0, v1, v2, v3}, Lcom/bst/spamcall/numbermark/b;->a(Ljava/lang/String;ILcom/bst/spamcall/numbermark/a;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_2
 
-    :goto_1
+    :goto_0
     return-void
-
-    :cond_2
-    const/16 v0, 0x11
-
-    goto :goto_0
 
     :catch_0
     move-exception v0
@@ -411,7 +403,7 @@
 
     invoke-static {v0}, Lcom/android/incallui/operator/chn/SpamCallServiceMgr;->log(Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_0
 
     :catch_1
     move-exception v0
@@ -420,7 +412,7 @@
 
     invoke-static {v0}, Lcom/android/incallui/operator/chn/SpamCallServiceMgr;->log(Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_0
 
     :catch_2
     move-exception v0
@@ -429,14 +421,14 @@
 
     invoke-static {v0}, Lcom/android/incallui/operator/chn/SpamCallServiceMgr;->log(Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_3
+    :cond_2
     const-string v0, "doCheck - myService is null or Emergency call: "
 
     invoke-static {v0}, Lcom/android/incallui/operator/chn/SpamCallServiceMgr;->log(Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_0
 .end method
 
 .method public isServiceConnected()Z

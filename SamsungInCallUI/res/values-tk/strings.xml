@@ -100,7 +100,7 @@
     <string name="account_phone">Enjamda</string>
     <string name="acs">Sesli jaň</string>
     <string name="active_calls">Işjeň jaň</string>
-    <string name="add_reminder">Ýatladj. goş</string>
+    <string name="add_reminder">Ýatladyjy goş</string>
     <string name="agif_button_close_description">Ýap</string>
     <string name="agif_decline_message">Bagyşlaň, şu wagt bolmaz.</string>
     <string name="agif_decline_sticker_header">Stikerli ret et</string>
@@ -790,6 +790,7 @@ Kamera"</string>
     <string name="swipe_right_to_answer_call_with_video">Jaňy wideoly almak üçin, saga syryň.</string>
     <string name="swipe_right_to_answer_call_without_video">Jaňy wideosyz almak üçin, saga syryň.</string>
     <string name="switch_rejected_by_mt">Wideo jaňa geçmek talaby ret edildi</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Wideo jaňy geçirmek talaby ýerine ýetirmek başartmady.</string>
     <string name="switch_to_video_call_failed_tmo">Wideo jaňa geçmek haýyşy ret edildi.</string>
     <string name="switch_to_voice_call_failed">Sesli jaňa geçirmek haýyşy şowsuz boldy.</string>
@@ -817,7 +818,7 @@ Kamera"</string>
     <string name="upload_using_wlan_only">Diňe WLAN arkaly ýükle</string>
     <string name="upload_wifi_and_mobile_nw">Wi-Fi ýa-da mobil tor arkaly ýükle</string>
     <string name="upload_wlan_and_mobile_nw">WLAN ýa-da mobil tor arkaly ýükle</string>
-    <string name="usa_att_connected_as_voice">Jaň diňe sesli bolup birikdi.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Enjamyňyzda bellän maglumat ulanyşyňyz öz çägine ýetip barýar. Wideo jaňyňyz maglumat talap edýär.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Öýjükli toruň üsti bilen birigen Wi-Fi arkaly jaň edip bolmaýar. Ses we maglumat tölegleri bolar.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

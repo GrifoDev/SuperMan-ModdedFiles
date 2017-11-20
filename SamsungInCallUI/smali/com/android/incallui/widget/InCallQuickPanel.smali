@@ -355,7 +355,7 @@
 
     iget-object v4, p0, Lcom/android/incallui/widget/InCallQuickPanel;->mContext:Landroid/content/Context;
 
-    const v8, 0x7f090364
+    const v8, 0x7f090365
 
     invoke-virtual {v4, v8}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -375,7 +375,7 @@
 
     iget-object v5, p0, Lcom/android/incallui/widget/InCallQuickPanel;->mContext:Landroid/content/Context;
 
-    const v8, 0x7f090366
+    const v8, 0x7f090367
 
     invoke-virtual {v5, v8}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -401,7 +401,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/widget/InCallQuickPanel;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f090363
+    const v2, 0x7f090364
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

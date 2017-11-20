@@ -868,6 +868,7 @@ kamera"</string>
     <string name="swipe_right_to_answer_call_with_video">Podrsajte v desno za sprejem klica z videom.</string>
     <string name="swipe_right_to_answer_call_without_video">Podrsajte v desno za sprejem klica brez videa.</string>
     <string name="switch_rejected_by_mt">Zahteva za preklop na video klic zavrnjena.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Zahteva za preklop na video klic ni bila uspešna.</string>
     <string name="switch_to_video_call_failed_tmo">Zahteva za preklop na video klic je bila zavrnjena.</string>
     <string name="switch_to_voice_call_failed">Zahteva za preklop na glasovni klic ni uspela.</string>
@@ -895,7 +896,7 @@ kamera"</string>
     <string name="upload_using_wlan_only">Prenos samo prek WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Naloži prek omrežja Wi-Fi ali mobilnega omrežja</string>
     <string name="upload_wlan_and_mobile_nw">Naloži prek WLAN ali mobilnega omrežja</string>
-    <string name="usa_att_connected_as_voice">Vzpostavljen je samo glasovni klic.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Poraba podatkov, ki ste jo nastavili v napravi, bo kmalu dosegla omejitev. Video klic zahteva podatke.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Klicanje prek omrežja Wi-Fi ni mogoče, povezovanje z mobilnim omrežjem. Zaračunani bodo stroški za glasovne storitve in prenos podatkov.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

@@ -482,13 +482,13 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/incallui/util/AppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
-    const v0, 0x7f09048d
+    const v0, 0x7f09048e
 
     invoke-static {v0}, Lcom/android/incallui/util/SALogging;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const v1, 0x7f09048e
+    const v1, 0x7f09048f
 
     invoke-static {v1}, Lcom/android/incallui/util/SALogging;->getString(I)Ljava/lang/String;
 
@@ -945,7 +945,7 @@
 .end method
 
 .method public onIncomingCall(Lcom/android/incallui/Call;)V
-    .locals 3
+    .locals 1
 
     const-string v0, "onIncomingCall"
 
@@ -974,22 +974,6 @@
     if-eqz v0, :cond_1
 
     invoke-direct {p0}, Lcom/android/incallui/edge/CallEdgeManager;->isEnableTurnOverLighting()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/incallui/edge/CallEdgeManager;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    sget-object v1, Lcom/android/incallui/edge/CallEdgeManager;->GLANCE_REPLY_STATE:Ljava/lang/String;
-
-    const/4 v2, 0x1
-
-    invoke-static {v0, v1, v2}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v0
 

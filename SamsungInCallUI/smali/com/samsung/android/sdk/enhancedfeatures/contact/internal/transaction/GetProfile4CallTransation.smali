@@ -138,6 +138,7 @@
 
     const/4 v0, 0x0
 
+    :try_start_0
     invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->getSsfClient(Ljava/lang/String;)Lcom/samsung/android/sdk/ssf/SsfClient;
 
     move-result-object v0
@@ -151,6 +152,33 @@
     iget-object v4, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/transaction/GetProfile4CallTransation;->listner:Lcom/samsung/android/sdk/ssf/SsfListener;
 
     invoke-static {v0, v1, v2, v3, v4}, Lcom/samsung/android/sdk/ssf/contact/ProfileManager;->getProfileForCall(Lcom/samsung/android/sdk/ssf/SsfClient;Ljava/lang/String;Ljava/lang/String;ILcom/samsung/android/sdk/ssf/SsfListener;)Z
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
+    :cond_0
+    :goto_0
     return-void
+
+    :catch_0
+    move-exception v0
+
+    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/transaction/GetProfile4CallTransation;->listener:Lcom/samsung/android/sdk/enhancedfeatures/contact/apis/listener/DownloadImageListener;
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/transaction/GetProfile4CallTransation;->listener:Lcom/samsung/android/sdk/enhancedfeatures/contact/apis/listener/DownloadImageListener;
+
+    new-instance v2, Lcom/samsung/android/sdk/enhancedfeatures/contact/apis/response/ProfileErrorResponse;
+
+    const/16 v3, 0x753c
+
+    invoke-virtual {v0}, Ljava/lang/IllegalArgumentException;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {v2, v3, v0}, Lcom/samsung/android/sdk/enhancedfeatures/contact/apis/response/ProfileErrorResponse;-><init>(ILjava/lang/String;)V
+
+    invoke-interface {v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/contact/apis/listener/DownloadImageListener;->onError(Lcom/samsung/android/sdk/enhancedfeatures/contact/apis/response/ProfileErrorResponse;)V
+
+    goto :goto_0
 .end method

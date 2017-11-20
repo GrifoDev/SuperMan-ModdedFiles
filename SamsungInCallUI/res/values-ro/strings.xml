@@ -178,7 +178,7 @@
     <string name="account_phone">Dispozitiv</string>
     <string name="acs">Apel vocal</string>
     <string name="active_calls">Apel activ</string>
-    <string name="add_reminder">Ad. memento</string>
+    <string name="add_reminder">Adăugare memento</string>
     <string name="agif_button_close_description">Închide</string>
     <string name="agif_decline_message">Îmi pare rău, nu pot vorbi acum.</string>
     <string name="agif_decline_sticker_header">Refuz cu abțibild</string>
@@ -868,6 +868,7 @@ Cameră foto"</string>
     <string name="swipe_right_to_answer_call_with_video">Glisați spre dreapta pentru a prelua apelul cu video.</string>
     <string name="swipe_right_to_answer_call_without_video">Glisați spre dreapta pentru a prelua apelul fără video.</string>
     <string name="switch_rejected_by_mt">Solicitare de comutare la apel video respinsă</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Solicitarea de comutare la apel video nu a reușit.</string>
     <string name="switch_to_video_call_failed_tmo">Solicitarea de comutare la apel video a fost refuzată.</string>
     <string name="switch_to_voice_call_failed">Solicitarea de comutare la apelul vocal nu a reușit.</string>
@@ -888,14 +889,14 @@ Cameră foto"</string>
     <string name="tutorial_incoming_call_app_reject">Atingeți pentru a respinge apelul.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">Nu se poate stabili conexiunea la reţea. Verificaţi setările conexiunii şi încercaţi din nou.</string>
-    <string name="units_kb">KO</string>
-    <string name="units_mb">MO</string>
+    <string name="units_kb">KB</string>
+    <string name="units_mb">MB</string>
     <string name="unknown_cdma">Indisponibil</string>
     <string name="upload_using_wifi_only">Încărcare doar prin Wi-Fi</string>
     <string name="upload_using_wlan_only">Încărcare doar prin WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Încărcați prin Wi-Fi sau prin rețeaua mobilă</string>
     <string name="upload_wlan_and_mobile_nw">Încărcați prin WLAN sau prin rețele mobile</string>
-    <string name="usa_att_connected_as_voice">Apel conectat doar vocal.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Valoarea setată pentru Utilizare date pe dispozitiv este pe punctul de a-și atinge limita. Aplicația Apel video necesită date.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Nu se poate efectua apelul prin Wi-Fi, se realizează conectarea prin rețeaua celulară. Pot fi aplicate costuri pentru date.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

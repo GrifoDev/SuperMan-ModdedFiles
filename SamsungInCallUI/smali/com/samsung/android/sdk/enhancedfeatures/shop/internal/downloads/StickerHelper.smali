@@ -451,7 +451,7 @@
 
     invoke-static {v1, v2}, Lcom/samsung/android/sdk/ssf/shop/util/ShopLog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-static {p0, p2, v0}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/utils/ZipUtils;->UNZIP(Landroid/content/Context;Ljava/io/File;Ljava/io/File;)Ljava/io/File;
+    invoke-static {p0, p2, v0}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/utils/ZipUtils;->unzip(Landroid/content/Context;Ljava/io/File;Ljava/io/File;)Ljava/io/File;
 
     new-instance v8, Ljava/util/ArrayList;
 
@@ -638,7 +638,7 @@
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     :try_start_3
-    invoke-static {p0, p2, v2}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/utils/ZipUtils;->UNZIP(Landroid/content/Context;Ljava/io/File;Ljava/io/File;)Ljava/io/File;
+    invoke-static {p0, p2, v2}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/utils/ZipUtils;->unzip(Landroid/content/Context;Ljava/io/File;Ljava/io/File;)Ljava/io/File;
 
     invoke-static {p0, p1}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/StickerHelper;->getStickerDirectory(Landroid/content/Context;Ljava/lang/String;)Ljava/io/File;
     :try_end_3

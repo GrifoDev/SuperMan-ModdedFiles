@@ -85,7 +85,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090615
+    const v1, 0x7f090616
 
     invoke-virtual {p0, v1}, Lcom/android/contacts/common/preference/AboutPreferenceFragment;->getString(I)Ljava/lang/String;
 
@@ -102,7 +102,7 @@
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
     :goto_0
-    const v0, 0x7f090616
+    const v0, 0x7f090617
 
     invoke-virtual {p0, v0}, Lcom/android/contacts/common/preference/AboutPreferenceFragment;->getString(I)Ljava/lang/String;
 

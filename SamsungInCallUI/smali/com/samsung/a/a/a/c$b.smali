@@ -95,6 +95,12 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/samsung/a/a/a/c$b;->a(Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/a/a/a/c$c;
 
+    const-string v0, "ext"
+
+    const-string v1, "ex"
+
+    invoke-virtual {p0, v0, v1}, Lcom/samsung/a/a/a/c$b;->a(Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/a/a/a/c$c;
+
     invoke-super {p0}, Lcom/samsung/a/a/a/c$c;->b()Ljava/util/Map;
 
     move-result-object v0

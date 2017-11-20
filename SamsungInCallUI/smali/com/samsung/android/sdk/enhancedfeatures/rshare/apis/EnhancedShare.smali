@@ -4038,6 +4038,14 @@
 
     invoke-virtual {v0, v2, v3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/data/QuotaInfo;->setTotalQuota(J)V
 
+    const-string v2, "timestamp"
+
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
+
+    move-result-wide v2
+
+    invoke-virtual {v0, v2, v3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/data/QuotaInfo;->setTimeStamp(J)V
+
     goto :goto_0
 .end method
 

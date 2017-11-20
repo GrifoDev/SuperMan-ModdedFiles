@@ -1,10 +1,13 @@
 .class Lcom/android/incallui/fragment/MultiPartyCallCardFragment$3;
-.super Landroid/animation/AnimatorListenerAdapter;
+.super Ljava/lang/Object;
+
+# interfaces
+.implements Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/incallui/fragment/MultiPartyCallCardFragment;->animateForMerge()V
+    value = Lcom/android/incallui/fragment/MultiPartyCallCardFragment;->setCallState(IIILandroid/telecom/DisconnectCause;Ljava/lang/String;Landroid/graphics/drawable/Drawable;Ljava/lang/String;ZZZ)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -23,74 +26,80 @@
 
     iput-object p1, p0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment$3;->this$0:Lcom/android/incallui/fragment/MultiPartyCallCardFragment;
 
-    invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 5
-
-    const/16 v4, 0x66
-
-    const-string v0, "MultiPartyCallCardFragment"
-
-    const-string v1, "merge animation end..."
-
-    const/4 v2, 0x1
-
-    invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+.method public onGlobalLayout()V
+    .locals 3
 
     iget-object v0, p0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment$3;->this$0:Lcom/android/incallui/fragment/MultiPartyCallCardFragment;
 
-    iget-object v0, v0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment;->mPrimaryCallInfoContainer:Landroid/view/View;
+    invoke-virtual {v0}, Lcom/android/incallui/fragment/MultiPartyCallCardFragment;->getView()Landroid/view/View;
 
-    if-eqz v0, :cond_0
+    move-result-object v0
 
-    iget-object v0, p0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment$3;->this$0:Lcom/android/incallui/fragment/MultiPartyCallCardFragment;
-
-    iget-object v0, v0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment;->mPrimaryCallInfoContainer:Landroid/view/View;
-
-    const/high16 v1, 0x3f800000    # 1.0f
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setAlpha(F)V
+    if-nez v0, :cond_1
 
     :cond_0
-    const-string v0, "vzw_volte_ui"
-
-    invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment$3;->this$0:Lcom/android/incallui/fragment/MultiPartyCallCardFragment;
-
-    iget-object v0, v0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment;->mHandler:Landroid/os/Handler;
-
-    const-wide/16 v2, 0x1b58
-
-    invoke-virtual {v0, v4, v2, v3}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
-
     :goto_0
-    iget-object v0, p0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment$3;->this$0:Lcom/android/incallui/fragment/MultiPartyCallCardFragment;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Lcom/android/incallui/fragment/MultiPartyCallCardFragment;->showSecondaryContainer(Z)V
-
     return-void
 
     :cond_1
     iget-object v0, p0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment$3;->this$0:Lcom/android/incallui/fragment/MultiPartyCallCardFragment;
 
-    iget-object v0, v0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment;->mHandler:Landroid/os/Handler;
+    invoke-virtual {v0}, Lcom/android/incallui/fragment/MultiPartyCallCardFragment;->getView()Landroid/view/View;
 
-    const-wide/16 v2, 0x1388
+    move-result-object v0
 
-    invoke-virtual {v0, v4, v2, v3}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
+    invoke-virtual {v0}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/view/ViewTreeObserver;->isAlive()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {v0, p0}, Landroid/view/ViewTreeObserver;->removeOnGlobalLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
+
+    iget-object v0, p0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment$3;->this$0:Lcom/android/incallui/fragment/MultiPartyCallCardFragment;
+
+    invoke-static {v0}, Lcom/android/incallui/fragment/MultiPartyCallCardFragment;->access$000(Lcom/android/incallui/fragment/MultiPartyCallCardFragment;)V
+
+    const-string v0, "no_receiver_in_call"
+
+    invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    const/4 v2, 0x0
+
+    invoke-static {v0, v1, v2}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v1, p0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment$3;->this$0:Lcom/android/incallui/fragment/MultiPartyCallCardFragment;
+
+    invoke-virtual {v0}, Lcom/android/incallui/Call;->getState()I
+
+    move-result v0
+
+    invoke-static {v1, v0}, Lcom/android/incallui/fragment/MultiPartyCallCardFragment;->access$100(Lcom/android/incallui/fragment/MultiPartyCallCardFragment;I)V
 
     goto :goto_0
 .end method

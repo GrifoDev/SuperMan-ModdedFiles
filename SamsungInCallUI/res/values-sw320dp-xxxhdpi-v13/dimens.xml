@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="carrier_matching_dialog_progress_margin_end">30.0dip</dimen>
-    <dimen name="carrier_matching_dialog_progress_margin_top">-15.0dip</dimen>
-    <dimen name="carrier_matching_dialog_progress_size">60.0dip</dimen>
     <dimen name="sec_below_btn_hold_margin_bottom">1.0dip</dimen>
     <dimen name="sec_video_qcif_video_height">260.5dip</dimen>
     <dimen name="sec_video_qcif_video_width">320.0dip</dimen>

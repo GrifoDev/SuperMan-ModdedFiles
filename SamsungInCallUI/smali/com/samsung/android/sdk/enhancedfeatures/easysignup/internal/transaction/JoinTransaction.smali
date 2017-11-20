@@ -115,6 +115,26 @@
     return-void
 .end method
 
+.method private deactivateUser()V
+    .locals 3
+
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/ActivateUserTransaction;
+
+    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/JoinTransaction;->mContext:Landroid/content/Context;
+
+    invoke-direct {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/ActivateUserTransaction;-><init>(Landroid/content/Context;)V
+
+    const/4 v1, 0x1
+
+    new-instance v2, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/JoinTransaction$1;
+
+    invoke-direct {v2, p0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/JoinTransaction$1;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/JoinTransaction;)V
+
+    invoke-virtual {v0, v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/ActivateUserTransaction;->setDeactiveUser(ZLcom/samsung/android/sdk/enhancedfeatures/easysignup/apis/listener/EnhancedAccountActivateUserListener;)V
+
+    return-void
+.end method
+
 .method private initValues()V
     .locals 1
 
@@ -987,9 +1007,9 @@
 .method public static unregisterGcm(Landroid/content/Context;)V
     .locals 3
 
-    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/JoinTransaction$1;
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/JoinTransaction$2;
 
-    invoke-direct {v0, p0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/JoinTransaction$1;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, p0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/JoinTransaction$2;-><init>(Landroid/content/Context;)V
 
     invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CommonPref;->getGcmRegId()Ljava/lang/String;
 
@@ -1226,7 +1246,7 @@
 
     iget v1, p3, Lcom/samsung/android/sdk/ssf/SsfResult;->httpStatusCode:I
 
-    if-ne v0, v1, :cond_6
+    if-ne v0, v1, :cond_8
 
     sparse-switch p1, :sswitch_data_0
 
@@ -1256,11 +1276,11 @@
     return-void
 
     :sswitch_0
-    if-eqz p2, :cond_4
+    if-eqz p2, :cond_6
 
     instance-of v0, p2, Lcom/samsung/android/sdk/ssf/account/io/JoinResponse;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_6
 
     check-cast p2, Lcom/samsung/android/sdk/ssf/account/io/JoinResponse;
 
@@ -1284,12 +1304,6 @@
     :cond_1
     iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/JoinTransaction;->mImsi:Ljava/lang/String;
 
-    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/JoinTransaction;->mServiceIdList:Ljava/util/ArrayList;
-
-    invoke-static {v0, p2, v1}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/AccountDBMgr;->addAccount(Ljava/lang/String;Lcom/samsung/android/sdk/ssf/account/io/JoinResponse;Ljava/util/ArrayList;)V
-
-    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/JoinTransaction;->mImsi:Ljava/lang/String;
-
     invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->getSsfClient(Ljava/lang/String;)Lcom/samsung/android/sdk/ssf/SsfClient;
 
     move-result-object v0
@@ -1306,21 +1320,15 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/sdk/ssf/SsfClient;->setSAServer(Ljava/lang/String;)V
 
-    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/JoinTransaction;->mImsi:Ljava/lang/String;
-
-    invoke-static {v1}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/AccountDBMgr;->getDuid(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p2}, Lcom/samsung/android/sdk/ssf/account/io/JoinResponse;->getDeviceUniqueId()Ljava/lang/String;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/JoinTransaction;->mImsi:Ljava/lang/String;
-
-    invoke-static {v2}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/AccountDBMgr;->getAccessToken(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p2}, Lcom/samsung/android/sdk/ssf/account/io/JoinResponse;->getAccessToken()Ljava/lang/String;
 
     move-result-object v2
 
-    iget-object v3, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/JoinTransaction;->mImsi:Ljava/lang/String;
-
-    invoke-static {v3}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/AccountDBMgr;->getRefreshToken(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p2}, Lcom/samsung/android/sdk/ssf/account/io/JoinResponse;->getRefreshToken()Ljava/lang/String;
 
     move-result-object v3
 
@@ -1351,13 +1359,57 @@
 
     move-result-object v2
 
-    invoke-static {v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/GldDBMgr;->setGldData(Landroid/content/Context;[Lcom/samsung/android/sdk/ssf/account/io/ServerInfo;)V
+    invoke-static {v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/GldDBMgr;->setGldData(Landroid/content/Context;[Lcom/samsung/android/sdk/ssf/account/io/ServerInfo;)Z
 
+    move-result v1
+
+    if-nez v1, :cond_4
+
+    invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/DeviceUtils;->isShipBinary()Z
+
+    move-result v0
+
+    if-nez v0, :cond_3
+
+    invoke-virtual {p2}, Lcom/samsung/android/sdk/ssf/account/io/JoinResponse;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "JoinTransaction"
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/util/ELog;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    new-instance v0, Ljava/lang/IllegalStateException;
+
+    const-string v1, "invalid server url"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_3
+    invoke-direct {p0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/JoinTransaction;->deactivateUser()V
+
+    const/16 v0, 0x2ee3
+
+    iput v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/JoinTransaction;->mErrorCode:I
+
+    invoke-direct {p0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/JoinTransaction;->notifyResult()V
+
+    goto :goto_0
+
+    :cond_4
     invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CommonPref;->getDeviceId()Ljava/lang/String;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/sdk/ssf/SsfClient;->setDeviceId(Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/JoinTransaction;->mImsi:Ljava/lang/String;
+
+    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/JoinTransaction;->mServiceIdList:Ljava/util/ArrayList;
+
+    invoke-static {v0, p2, v1}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/AccountDBMgr;->addAccount(Ljava/lang/String;Lcom/samsung/android/sdk/ssf/account/io/JoinResponse;Ljava/util/ArrayList;)V
 
     const-string v0, "updated_app_version"
 
@@ -1391,11 +1443,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_5
 
     iget-boolean v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/JoinTransaction;->mIsAnonymous:Z
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_5
 
     iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/JoinTransaction;->mContext:Landroid/content/Context;
 
@@ -1403,17 +1455,17 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_5
 
     invoke-direct {p0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/JoinTransaction;->requestGetUser()V
 
-    :cond_3
+    :cond_5
     :goto_1
     invoke-direct {p0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/JoinTransaction;->notifyResult()V
 
     goto/16 :goto_0
 
-    :cond_4
+    :cond_6
     const-string v0, "get OK but no response, JOIN"
 
     const-string v1, "JoinTransaction"
@@ -1425,11 +1477,11 @@
     goto :goto_1
 
     :sswitch_1
-    if-eqz p2, :cond_5
+    if-eqz p2, :cond_7
 
     instance-of v0, p2, Lcom/samsung/android/sdk/ssf/account/io/GetUserResponse;
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_7
 
     check-cast p2, Lcom/samsung/android/sdk/ssf/account/io/GetUserResponse;
 
@@ -1474,7 +1526,7 @@
 
     goto/16 :goto_0
 
-    :cond_5
+    :cond_7
     const-string v0, "get OK but no response, GET_USER"
 
     const-string v1, "JoinTransaction"
@@ -1485,14 +1537,14 @@
 
     goto :goto_2
 
-    :cond_6
+    :cond_8
     const-string v0, "JoinTransaction"
 
     invoke-static {p3, v0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/util/ELog;->logErrorResponse(Lcom/samsung/android/sdk/ssf/SsfResult;Ljava/lang/String;)V
 
     const/16 v0, 0x78
 
-    if-ne v0, p1, :cond_8
+    if-ne v0, p1, :cond_a
 
     const-string v0, "JOIN"
 
@@ -1507,7 +1559,7 @@
 
     const/16 v1, 0x4e21
 
-    if-ne v0, v1, :cond_7
+    if-ne v0, v1, :cond_9
 
     iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/JoinTransaction;->mImsi:Ljava/lang/String;
 
@@ -1525,15 +1577,17 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/util/ELog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_7
+    :cond_9
     invoke-direct {p0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/JoinTransaction;->notifyResult()V
 
     goto/16 :goto_0
 
-    :cond_8
+    :cond_a
     const-string v0, "GET USER"
 
     goto :goto_3
+
+    nop
 
     :sswitch_data_0
     .sparse-switch

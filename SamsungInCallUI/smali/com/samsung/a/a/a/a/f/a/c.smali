@@ -82,7 +82,7 @@
 
     const-string v8, ""
 
-    const-string v9, "1.8.30"
+    const-string v9, "1.8.33"
 
     iget-object v0, p0, Lcom/samsung/a/a/a/a/f/a/c;->c:Lcom/samsung/a/a/a/a/f/d;
 

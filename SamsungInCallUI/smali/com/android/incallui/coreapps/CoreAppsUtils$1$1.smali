@@ -34,7 +34,9 @@
 
 # virtual methods
 .method public onError(Lcom/samsung/android/sdk/enhancedfeatures/easysignup/apis/response/EnhancedAccountErrorResponse;)V
-    .locals 3
+    .locals 4
+
+    const/4 v3, 0x1
 
     const-string v0, "Agifflow-Agifflow-CoreAppsUtils"
 
@@ -74,17 +76,35 @@
 
     move-result-object v1
 
-    const/4 v2, 0x1
+    invoke-static {v0, v1, v3}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-virtual {p1}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/apis/response/EnhancedAccountErrorResponse;->getErrorCode()I
+
+    move-result v0
+
+    const/16 v1, 0x67
+
+    if-ne v0, v1, :cond_0
 
     invoke-static {}, Lcom/android/incallui/coreapps/CoreAppsManager;->getInstance()Lcom/android/incallui/coreapps/CoreAppsManager;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/incallui/coreapps/CoreAppsManager;->onFailRegister()V
+    const/4 v1, 0x0
 
+    invoke-virtual {v0, v1}, Lcom/android/incallui/coreapps/CoreAppsManager;->onFailRegister(Z)V
+
+    :goto_0
     return-void
+
+    :cond_0
+    invoke-static {}, Lcom/android/incallui/coreapps/CoreAppsManager;->getInstance()Lcom/android/incallui/coreapps/CoreAppsManager;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v3}, Lcom/android/incallui/coreapps/CoreAppsManager;->onFailRegister(Z)V
+
+    goto :goto_0
 .end method
 
 .method public onSuccess(Lcom/samsung/android/sdk/enhancedfeatures/easysignup/apis/response/EnhancedAccountResponseInfo;)V

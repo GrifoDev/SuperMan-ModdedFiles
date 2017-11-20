@@ -6077,6 +6077,12 @@
 
     if-eqz v2, :cond_4
 
+    invoke-static {}, Lcom/android/incallui/util/CallTypeUtils;->isVolteGroupCall()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_4
+
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v2
@@ -6588,7 +6594,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f09051b
+    const v2, 0x7f09051c
 
     new-array v5, v4, [Ljava/lang/Object;
 

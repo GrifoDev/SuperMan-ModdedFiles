@@ -18,6 +18,8 @@
 
 .field public static final CHN_CDMA_NETWORK_ON_ALL_RAT:Ljava/lang/String; = "chn_cdma_network_on_all_rat"
 
+.field public static final FEATURE_4G_4G_SOLUTION:Ljava/lang/String; = "feature_4g_4g_solution"
+
 .field public static final GLOBAL_NETWORK_CDMA_GSM_ENABLE:Ljava/lang/String; = "global_network_cdma_gsm_enable"
 
 .field public static final SUPPORT_ALL_RAT:Ljava/lang/String; = "support_all_rat"

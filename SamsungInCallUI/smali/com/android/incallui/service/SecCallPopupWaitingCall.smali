@@ -145,9 +145,9 @@
 .method public DisplayWaitingCallDialogWhenDoNotHaveHoldingCall()V
     .locals 13
 
-    const v12, 0x7f0903b8
+    const v12, 0x7f0903b9
 
-    const v11, 0x7f0903b7
+    const v11, 0x7f0903b8
 
     const/4 v10, 0x2
 
@@ -402,7 +402,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0903b9
+    const v5, 0x7f0903ba
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -436,7 +436,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupWaitingCall;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0903bc
+    const v4, 0x7f0903bd
 
     invoke-virtual {v0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -559,7 +559,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupWaitingCall;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0903bc
+    const v4, 0x7f0903bd
 
     invoke-virtual {v0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -587,9 +587,9 @@
 .method public DisplayWaitingCallDialogWhenHaveHoldingCall()V
     .locals 11
 
-    const v10, 0x7f0903bc
+    const v10, 0x7f0903bd
 
-    const v1, 0x7f0903b7
+    const v1, 0x7f0903b8
 
     const/4 v9, 0x2
 

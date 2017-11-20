@@ -98,7 +98,7 @@
     <string name="account_phone">Device</string>
     <string name="acs">Voice call</string>
     <string name="active_calls">Active call</string>
-    <string name="add_reminder">Add reminder</string>
+    <string name="add_reminder">Add a reminder</string>
     <string name="agif_button_close_description">Close</string>
     <string name="agif_decline_message">"Sorry, I can't talk right now."</string>
     <string name="agif_decline_sticker_header">Decline with a sticker</string>
@@ -785,6 +785,7 @@ Camera"</string>
     <string name="swipe_right_to_answer_call_with_video">Swipe right to answer call with video.</string>
     <string name="swipe_right_to_answer_call_without_video">Swipe right to answer call without video.</string>
     <string name="switch_rejected_by_mt">Request to switch to video call rejected.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Request to switch to video call failed.</string>
     <string name="switch_to_video_call_failed_tmo">Request to switch to video call was declined.</string>
     <string name="switch_to_voice_call_failed">Request to switch to voice call failed.</string>
@@ -812,7 +813,7 @@ Camera"</string>
     <string name="upload_using_wlan_only">Upload via WLAN only</string>
     <string name="upload_wifi_and_mobile_nw">Upload via Wi-Fi or mobile network</string>
     <string name="upload_wlan_and_mobile_nw">Upload via WLAN or mobile network</string>
-    <string name="usa_att_connected_as_voice">Call connected as voice only.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Your Data Usage that you set on your device is about to reach its limit. Your Video call requires data.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Call cannot be placed over Wi-Fi, connecting over cellular network. Voice and data charges will apply.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

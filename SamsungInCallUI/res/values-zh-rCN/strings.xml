@@ -868,6 +868,7 @@
     <string name="swipe_right_to_answer_call_with_video">向右滑动可接听视频来电</string>
     <string name="swipe_right_to_answer_call_without_video">向右滑动可接听非视频来电</string>
     <string name="switch_rejected_by_mt">请求切换至视频通话被拒绝。</string>
+    <string name="switch_rejected_by_mt_att">已连接语音通话，此通话不能使用视频。</string>
     <string name="switch_to_video_call_failed">请求切换至视频通话失败</string>
     <string name="switch_to_video_call_failed_tmo">切换为视频通话的请求被拒绝</string>
     <string name="switch_to_voice_call_failed">请求切换至语音通话失败</string>
@@ -895,7 +896,7 @@
     <string name="upload_using_wlan_only">只通过 WLAN 上传</string>
     <string name="upload_wifi_and_mobile_nw">通过 <cst>Wi-Fi</cst> 或移动网络上传</string>
     <string name="upload_wlan_and_mobile_nw">通过 WLAN 或移动网络上传</string>
-    <string name="usa_att_connected_as_voice">通话仅以语音连接</string>
+    <string name="usa_att_connected_as_voice">已连接语音通话，此通话不能使用视频。</string>
     <string name="usa_att_data_usage_charge_alert">您在手机上设置的数据使用量即将达到限制。您的视频通话需要使用数据。</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">无法通过 <cst>Wi-Fi</cst> 拨打电话，正在通过手机网络连接。本次通话将产生语音和流量费用。</string>
     <string name="usa_att_modify_receive_to_video">%s 正在请求切换至视频通话</string>

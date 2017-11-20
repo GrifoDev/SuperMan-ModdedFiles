@@ -178,7 +178,7 @@
     <string name="account_phone">Zariadenie</string>
     <string name="acs">Hlasový hovor</string>
     <string name="active_calls">Aktívny hovor</string>
-    <string name="add_reminder">Prid. pripom.</string>
+    <string name="add_reminder">Pridať pripomienku</string>
     <string name="agif_button_close_description">Zavrieť</string>
     <string name="agif_decline_message">Ľutujem, teraz nemôžem telefonovať.</string>
     <string name="agif_decline_sticker_header">Odmietnutie s nálepkou</string>
@@ -868,6 +868,7 @@ kamera"</string>
     <string name="swipe_right_to_answer_call_with_video">Potiahnutím doprava môžete prijať hovor s videom.</string>
     <string name="swipe_right_to_answer_call_without_video">Potiahnutím doprava môžete prijať hovor bez videa.</string>
     <string name="switch_rejected_by_mt">Žiadosť o prepnutie na videohovor bola odmietnutá.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Žiadosť o prepnutie na videohovor zlyhala.</string>
     <string name="switch_to_video_call_failed_tmo">Žiadosť o prepnutie na videohovor bola odmietnutá.</string>
     <string name="switch_to_voice_call_failed">Žiadosť o prepnutie na hlasový hovor zlyhala.</string>
@@ -895,7 +896,7 @@ kamera"</string>
     <string name="upload_using_wlan_only">Odosielať iba cez sieť WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Odosielať cez sieť Wi-Fi alebo mobilnú sieť</string>
     <string name="upload_wlan_and_mobile_nw">Odosielať cez sieť WLAN alebo mobilnú sieť</string>
-    <string name="usa_att_connected_as_voice">Hovor sa prepojil ako iba hlasový.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Blíži sa dosiahnutie limitu spotreby dát nastaveného v zariadení. Videohovor vyžaduje dáta.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Hovor sa nedá uskutočniť cez Wi-Fi, pripája sa cez mobilnú sieť. Budú sa účtovať poplatky za hlasový hovor a dáta.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

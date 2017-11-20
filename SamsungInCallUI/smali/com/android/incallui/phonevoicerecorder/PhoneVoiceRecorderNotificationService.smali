@@ -35,6 +35,8 @@
 
 .field public static final SMALL_ICON_DRAWABLE_ID:I = 0x7f02032b
 
+.field private static final TAG:Ljava/lang/String; = "RecorderNotificationService"
+
 .field private static mIsShowing:Z
 
 .field private static sInstance:Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService;
@@ -614,7 +616,7 @@
 
     sput-boolean v0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService;->mIsShowing:Z
 
-    const-string v0, "RecorderStorageManager"
+    const-string v0, "RecorderNotificationService"
 
     const-string v1, "animateForHidetoremoveHeadUpNotification"
 
@@ -628,7 +630,7 @@
 .method public cancelQuickPanelNotification()V
     .locals 2
 
-    const-string v0, "RecorderStorageManager"
+    const-string v0, "RecorderNotificationService"
 
     const-string v1, "cancelQuickPanelNotification"
 
@@ -753,7 +755,7 @@
 
     const v3, 0x7f090299
 
-    const-string v0, "RecorderStorageManager"
+    const-string v0, "RecorderNotificationService"
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1089,7 +1091,7 @@
 
     iput v0, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService;->mNotificationType:I
 
-    const-string v0, "RecorderStorageManager"
+    const-string v0, "RecorderNotificationService"
 
     new-instance v1, Ljava/lang/StringBuilder;
 

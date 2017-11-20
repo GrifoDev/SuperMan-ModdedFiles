@@ -120,7 +120,7 @@
     <string name="account_phone">Төхөөрөмж</string>
     <string name="acs">Дуут дуудлга</string>
     <string name="active_calls">Идэвхтэй дуудлага</string>
-    <string name="add_reminder">Сануулга нэм</string>
+    <string name="add_reminder">Сануулга нэмэх</string>
     <string name="agif_button_close_description">Хаах</string>
     <string name="agif_decline_message">Уучлаарай. Би одоо ярих боломжгүй.</string>
     <string name="agif_decline_sticker_header">Наалт ашиглан татгалзах</string>
@@ -810,6 +810,7 @@ IVR дуудлагын дэлгэцийн цэс “Dianhuabang” хэмээх 
     <string name="swipe_right_to_answer_call_with_video">Баруун тийш шудраад дуудлагад видеогоор хариул.</string>
     <string name="swipe_right_to_answer_call_without_video">Баруун тийш шудраад дуудлагад видеогүйгээр хариул.</string>
     <string name="switch_rejected_by_mt">Видео дуудлага руу шилжих хүсэлтийг татгалзсан</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Видео дуудлага руу шилжих хүсэлт амжилтгүй болсон.</string>
     <string name="switch_to_video_call_failed_tmo">Видео дуудлага руу шилжих хүсэлтээс татгалзлаа.</string>
     <string name="switch_to_voice_call_failed">Дуут дуудлага руу шилжих хүсэлт амжилтгүй болсон.</string>
@@ -837,7 +838,7 @@ IVR дуудлагын дэлгэцийн цэс “Dianhuabang” хэмээх 
     <string name="upload_using_wlan_only">Зөвхөн WLAN-р байршуул</string>
     <string name="upload_wifi_and_mobile_nw">Wi-Fi эсвэл мобайл сүлжээгээр байршуул</string>
     <string name="upload_wlan_and_mobile_nw">WLAN эсвэл мобайл сүлжээгээр байршуул</string>
-    <string name="usa_att_connected_as_voice">Зөвхөн яриан дуудлагаар холбогдсон.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Таны Дата ашиглалт төхөөрөмж дээрээ тохируулсан хязгаарт хүрлээ. Видео дуудлага дата ашигладаг.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Wi-Fi-гаар дуудлага хийх боломжгүй тул үүрэн холбооны сүлжээгээр холбогдож байна. Яриа ба дата төлбөр тооцогдоно.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

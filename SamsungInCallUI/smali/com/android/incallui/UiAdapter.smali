@@ -1221,51 +1221,83 @@
     return v0
 .end method
 
-.method public onSelectAgifContents(Landroid/net/Uri;)V
-    .locals 2
+.method public onCallButtonViewChanged()V
+    .locals 1
 
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "onSelectAgifContents = "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    const/4 v1, 0x1
-
-    invoke-static {p0, v0, v1}, Lcom/android/incallui/Log;->i(Ljava/lang/Object;Ljava/lang/String;Z)V
-
-    invoke-virtual {p0}, Lcom/android/incallui/UiAdapter;->getCallCardUi()Lcom/android/incallui/CallCardUi;
+    invoke-virtual {p0}, Lcom/android/incallui/UiAdapter;->getDialpadUi()Lcom/android/incallui/DialpadUi;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    const/4 v1, 0x0
-
-    invoke-interface {v0, p1, v1}, Lcom/android/incallui/CallCardUi;->onSelectAgifContents(Landroid/net/Uri;Z)V
+    invoke-interface {v0}, Lcom/android/incallui/DialpadUi;->onCallButtonViewChanged()V
 
     :cond_0
+    return-void
+.end method
+
+.method public onSelectAgifContents(Landroid/net/Uri;)V
+    .locals 4
+
+    const/4 v0, 0x0
+
+    const/4 v3, 0x0
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "onSelectAgifContents = "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    const/4 v2, 0x1
+
+    invoke-static {p0, v1, v2}, Lcom/android/incallui/Log;->i(Ljava/lang/Object;Ljava/lang/String;Z)V
+
+    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
+
+    move-result-object v1
+
+    invoke-static {v1, v0, v3}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {v1}, Lcom/android/incallui/Call;->getAgifImageFile()Ljava/io/File;
+
+    move-result-object v0
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/incallui/UiAdapter;->getCallCardUi()Lcom/android/incallui/CallCardUi;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_1
+
+    invoke-interface {v1, p1, v0, v3}, Lcom/android/incallui/CallCardUi;->onSelectAgifContents(Landroid/net/Uri;Ljava/io/File;Z)V
+
+    :cond_1
     invoke-virtual {p0}, Lcom/android/incallui/UiAdapter;->getAgifUi()Lcom/android/incallui/AgifPresenter$AgifUi;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     invoke-interface {v0, p1}, Lcom/android/incallui/AgifPresenter$AgifUi;->onSelectAgifContents(Landroid/net/Uri;)V
 
-    :cond_1
+    :cond_2
     return-void
 .end method
 

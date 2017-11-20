@@ -970,6 +970,12 @@
 
     if-lt v2, v3, :cond_3
 
+    invoke-virtual {p0}, Lcom/samsung/android/sdk/enhancedfeatures/EnhancedFeatures;->isAnonymous()Z
+
+    move-result v2
+
+    if-nez v2, :cond_3
+
     invoke-virtual {p0}, Lcom/samsung/android/sdk/enhancedfeatures/EnhancedFeatures;->getContext()Landroid/content/Context;
 
     move-result-object v2

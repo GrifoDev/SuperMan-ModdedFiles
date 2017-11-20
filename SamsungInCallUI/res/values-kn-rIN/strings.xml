@@ -810,6 +810,7 @@ IVR ಕರೆಯ ಸ್ಕ್ರೀನ್ ಮೆನು Dianhuabang ಎಂದು 
     <string name="swipe_right_to_answer_call_with_video">ವೀಡಿಯೊ ಸಹಿತ ಕರೆಗೆ ಉತ್ತರಿಸಲು ಬಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ.</string>
     <string name="swipe_right_to_answer_call_without_video">ವೀಡಿಯೊ ರಹಿತ ಕರೆಗೆ ಉತ್ತರಿಸಲು ಬಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ.</string>
     <string name="switch_rejected_by_mt">ವೀಡಿಯೊ ಕರೆಗೆ ಸ್ವಿಚ್ ಮಾಡುವ ಕೋರಿಕೆಯನ್ನು ನಿರಾಕರಿಸಿದೆ.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">ವೀಡಿಯೊ ಕರೆಗೆ ಬದಲಾಯಿಸುವ ವಿನಂತಿ ವಿಫಲಗೊಂಡಿದೆ.</string>
     <string name="switch_to_video_call_failed_tmo">ವೀಡಿಯೊ ಕರೆಗೆ ಬದಲಿಸುವ ವಿನಂತಿಯನ್ನು ನಿರಾಕರಿಸಲಾಗಿದೆ.</string>
     <string name="switch_to_voice_call_failed">ಧ್ವನಿ ಕರೆಗೆ ಬದಲಿಸುವ ಕೋರಿಕೆಯು ವಿಫಲವಾಗಿದೆ.</string>
@@ -837,7 +838,7 @@ IVR ಕರೆಯ ಸ್ಕ್ರೀನ್ ಮೆನು Dianhuabang ಎಂದು 
     <string name="upload_using_wlan_only">WLAN ಮೂಲಕ ಮಾತ್ರ ಅಪ್‌ಲೋಡ್ ಮಾಡಿ</string>
     <string name="upload_wifi_and_mobile_nw">Wi-Fi ಅಥವಾ ಮೊಬೈಲ್ ನೆಟ್‌ವರ್ಕ್ ಮೂಲಕ ಅಪ್‌ಲೋಡ್ ಮಾಡಿ</string>
     <string name="upload_wlan_and_mobile_nw">WLAN ಅಥವಾ ಮೊಬೈಲ್ ನೆಟ್‌ವರ್ಕ್ ಮೂಲಕ ಅಪ್‌ಲೋಡ್ ಮಾಡಿ</string>
-    <string name="usa_att_connected_as_voice">ದ್ವನಿ ಮಾತ್ರ ಎಂಬಂತೆ ಕರೆ ಸಂಪರ್ಕಗೊಂಡಿದೆ.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">ನೀವು ನಿಮ್ಮ ಸಾಧನದಲ್ಲಿ ನಿಗದಿಪಡಿಸಿರುವ ನಿಮ್ಮ ಡೇಟಾ ಬಳಕೆಯ ಮಿತಿಯು ತನ್ನ ಮಿತಿಯನ್ನು ತಲುಪಲಿದೆ. ನಿಮ್ಮ ವೀಡಿಯೊ ಕರೆಗೆ ಡೇಟಾ ಅಗತ್ಯವಿದೆ.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Wi-Fi ಮೂಲಕ ಕರೆ ಸಂಪರ್ಕಿಸಲಾಗುತ್ತಿಲ್ಲ, ಸೆಲ್ಯುಲಾರ್ ನೆಟ್‌ವರ್ಕ್ ಮೂಲಕ ಸಂಪರ್ಕಿಸಲಾಗುತ್ತಿದೆ. ಧ್ವನಿ ಹಾಗೂ ಡೇಟ್ ಶುಲ್ಕಗಳು ಅನ್ವಯವಾಗುತ್ತವೆ.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

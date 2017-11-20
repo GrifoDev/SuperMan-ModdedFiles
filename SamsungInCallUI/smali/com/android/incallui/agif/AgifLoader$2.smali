@@ -99,7 +99,11 @@
 
     move-result-object v4
 
-    const/4 v0, 0x6
+    const-string v0, "artist"
+
+    invoke-interface {p3, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+
+    move-result v0
 
     invoke-interface {p3, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 

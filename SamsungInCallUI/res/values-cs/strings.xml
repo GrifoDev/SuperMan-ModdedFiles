@@ -178,7 +178,7 @@
     <string name="account_phone">Zařízení</string>
     <string name="acs">Hlasový hovor</string>
     <string name="active_calls">Aktivní hovor</string>
-    <string name="add_reminder">Přidat přip.</string>
+    <string name="add_reminder">Přidat připomenutí</string>
     <string name="agif_button_close_description">Zavřít</string>
     <string name="agif_decline_message">Omlouvám se, teď nemohu mluvit.</string>
     <string name="agif_decline_sticker_header">Odmítnout s nálepkou</string>
@@ -868,6 +868,7 @@ fotoaparát"</string>
     <string name="swipe_right_to_answer_call_with_video">Přejetím doprava přijmete hovor s videem.</string>
     <string name="swipe_right_to_answer_call_without_video">Přejetím doprava přijmete hovor bez videa.</string>
     <string name="switch_rejected_by_mt">Požadavek na přepnutí na videohovor byl odmítnut.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Požadavek na přepnutí na videohovor se nezdařil.</string>
     <string name="switch_to_video_call_failed_tmo">Požadavek na přepnutí na videohovor byl odmítnut.</string>
     <string name="switch_to_voice_call_failed">Požadavek na přepnutí na hlasový hovor se nezdařil.</string>
@@ -895,7 +896,7 @@ fotoaparát"</string>
     <string name="upload_using_wlan_only">Ukládat pouze přes WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Uložit přes Wi-Fi nebo mobilní síť</string>
     <string name="upload_wlan_and_mobile_nw">Uložit přes WLAN nebo mobilní síť</string>
-    <string name="usa_att_connected_as_voice">Hovor byl spojen pouze jako hlasový.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Využití dat nastavené v zařízení brzy dosáhne svého limitu. Videohovor vyžaduje data.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Hovor nelze uskutečnit pomocí Wi-Fi, probíhá připojení přes mobilní síť. Budou účtovány poplatky za hlasové a datové služby.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

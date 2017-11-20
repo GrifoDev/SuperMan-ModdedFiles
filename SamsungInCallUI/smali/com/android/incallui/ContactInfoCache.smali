@@ -1968,7 +1968,7 @@
 
     iput-boolean v6, v0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->isYellowPage:Z
 
-    const v6, 0x7f0903bf
+    const v6, 0x7f0903c0
 
     invoke-virtual {p0, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2001,7 +2001,7 @@
 
     if-ne v8, v11, :cond_17
 
-    const v6, 0x7f0903bf
+    const v6, 0x7f0903c0
 
     invoke-virtual {p0, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2357,6 +2357,12 @@
 
     if-eqz v9, :cond_1e
 
+    invoke-static {}, Lcom/android/incallui/util/CallTypeUtils;->isVolteGroupCall()Z
+
+    move-result v9
+
+    if-eqz v9, :cond_1e
+
     invoke-static {}, Lcom/android/incallui/util/ImsCommonUtils;->getNameForIMSConference()Ljava/lang/String;
 
     move-result-object v5
@@ -2685,6 +2691,222 @@
     return-void
 .end method
 
+.method private startContactInfoSearchForRedialCall(Lcom/android/incallui/Call;ZLcom/android/incallui/ContactInfoCache$ContactInfoCacheCallback;)Z
+    .locals 8
+
+    const/4 v0, 0x0
+
+    const/4 v1, 0x1
+
+    if-nez p1, :cond_1
+
+    :cond_0
+    :goto_0
+    return v0
+
+    :cond_1
+    sget-object v2, Lcom/android/incallui/ContactInfoCache;->TAG:Ljava/lang/String;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "perf - startContactInfoSearchForRedialCall "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    invoke-virtual {p1}, Lcom/android/incallui/Call;->isQueryStarted()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    sget-object v2, Lcom/android/incallui/ContactInfoCache;->TAG:Ljava/lang/String;
+
+    const-string v3, "skip startContactInfoSearchForRedialCall - querystarted"
+
+    invoke-static {v2, v3, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    goto :goto_0
+
+    :cond_2
+    invoke-virtual {p1}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {p0, v2}, Lcom/android/incallui/ContactInfoCache;->getInfo(Ljava/lang/String;)Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_3
+
+    iget-boolean v2, v2, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->queryCompleted:Z
+
+    if-eqz v2, :cond_3
+
+    sget-object v2, Lcom/android/incallui/ContactInfoCache;->TAG:Ljava/lang/String;
+
+    const-string v3, "skip startContactInfoSearchForRedialCall - query completed"
+
+    invoke-static {v2, v3, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    goto :goto_0
+
+    :cond_3
+    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/incallui/CallList;->getRedialCall()Lcom/android/incallui/Call;
+
+    move-result-object v2
+
+    if-eqz p1, :cond_0
+
+    if-eqz v2, :cond_0
+
+    invoke-virtual {v2}, Lcom/android/incallui/Call;->getNumber()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3}, Landroid/telephony/PhoneNumberUtils;->normalizeNumber(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {p1}, Lcom/android/incallui/Call;->getNumber()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v4}, Landroid/telephony/PhoneNumberUtils;->normalizeNumber(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    sget-object v5, Lcom/android/incallui/ContactInfoCache;->TAG:Ljava/lang/String;
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v7, "startContactInfoSearchForRedialCall "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string v7, " "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-static {v3, v4}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    sget-object v0, Lcom/android/incallui/ContactInfoCache;->TAG:Ljava/lang/String;
+
+    const-string v3, "skip startContactInfoSearchForRedialCall - number is same with previous call"
+
+    invoke-static {v0, v3, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    invoke-virtual {v2}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Lcom/android/incallui/ContactInfoCache;->getInfo(Ljava/lang/String;)Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
+
+    move-result-object v0
+
+    sget-object v2, Lcom/android/incallui/ContactInfoCache;->TAG:Ljava/lang/String;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "skip startContactInfoSearchForRedialCall previousEntry   "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    invoke-virtual {p1}, Lcom/android/incallui/Call;->queryStarted()V
+
+    invoke-virtual {p1}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {p0, v2, v0}, Lcom/android/incallui/ContactInfoCache;->putContactInfoCache(Ljava/lang/String;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;)V
+
+    const-string v2, "agif_call_service"
+
+    invoke-static {v2}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_4
+
+    if-eqz v0, :cond_4
+
+    invoke-static {}, Lcom/android/incallui/coreapps/CoreAppsManager;->getInstance()Lcom/android/incallui/coreapps/CoreAppsManager;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Lcom/android/incallui/coreapps/CoreAppsManager;->resetEnableState(Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;)V
+
+    :cond_4
+    invoke-virtual {p0, p1, p2, p3}, Lcom/android/incallui/ContactInfoCache;->findInfoWithCache(Lcom/android/incallui/Call;ZLcom/android/incallui/ContactInfoCache$ContactInfoCacheCallback;)V
+
+    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
+
+    move-result-object v0
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v2}, Lcom/android/incallui/CallList;->setRedialCall(Lcom/android/incallui/Call;)V
+
+    move v0, v1
+
+    goto/16 :goto_0
+.end method
+
 
 # virtual methods
 .method public clearCache()V
@@ -2751,7 +2973,7 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1
 
     move v0, v3
 
@@ -2763,63 +2985,23 @@
     .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
 
     :goto_1
-    invoke-virtual {p1}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/incallui/ContactInfoCache;->startContactInfoSearchForRedialCall(Lcom/android/incallui/Call;ZLcom/android/incallui/ContactInfoCache$ContactInfoCacheCallback;)Z
 
-    move-result-object v5
-
-    iget-object v0, p0, Lcom/android/incallui/ContactInfoCache;->mInfoMap:Ljava/util/HashMap;
-
-    invoke-virtual {v0, v5}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
-
-    iget-object v1, p0, Lcom/android/incallui/ContactInfoCache;->mCallBacks:Ljava/util/HashMap;
-
-    invoke-virtual {v1, v5}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/util/Set;
+    move-result v0
 
     if-eqz v0, :cond_2
 
-    sget-object v6, Lcom/android/incallui/ContactInfoCache;->TAG:Ljava/lang/String;
+    sget-object v0, Lcom/android/incallui/ContactInfoCache;->TAG:Ljava/lang/String;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    const-string v1, "Contact lookup. skip findInfo for redialCall."
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v7, "Contact lookup. In memory cache hit; lookup "
-
-    invoke-virtual {v2, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    if-nez v1, :cond_1
-
-    const-string v2, "complete"
-
-    :goto_2
-    invoke-virtual {v7, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v6, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    invoke-interface {p3, v5, v0}, Lcom/android/incallui/ContactInfoCache$ContactInfoCacheCallback;->onContactInfoComplete(Ljava/lang/String;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;)V
-
-    if-nez v1, :cond_2
-
-    :goto_3
-    return-void
+    invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
+    :goto_2
+    return-void
+
+    :cond_1
     move v0, v4
 
     goto :goto_0
@@ -2851,19 +3033,73 @@
 
     goto :goto_1
 
-    :cond_1
-    const-string v2, "still running"
-
-    goto :goto_2
-
     :cond_2
-    if-eqz v1, :cond_3
+    invoke-virtual {p1}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
+
+    move-result-object v5
+
+    iget-object v0, p0, Lcom/android/incallui/ContactInfoCache;->mInfoMap:Ljava/util/HashMap;
+
+    invoke-virtual {v0, v5}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
+
+    iget-object v1, p0, Lcom/android/incallui/ContactInfoCache;->mCallBacks:Ljava/util/HashMap;
+
+    invoke-virtual {v1, v5}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/util/Set;
+
+    if-eqz v0, :cond_3
+
+    sget-object v6, Lcom/android/incallui/ContactInfoCache;->TAG:Ljava/lang/String;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v7, "Contact lookup. In memory cache hit; lookup "
+
+    invoke-virtual {v2, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    if-nez v1, :cond_4
+
+    const-string v2, "complete"
+
+    :goto_3
+    invoke-virtual {v7, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v6, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-interface {p3, v5, v0}, Lcom/android/incallui/ContactInfoCache$ContactInfoCacheCallback;->onContactInfoComplete(Ljava/lang/String;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;)V
+
+    if-eqz v1, :cond_0
+
+    :cond_3
+    if-eqz v1, :cond_5
 
     invoke-interface {v1, p3}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
+    goto :goto_2
+
+    :cond_4
+    const-string v2, "still running"
+
     goto :goto_3
 
-    :cond_3
+    :cond_5
     sget-object v0, Lcom/android/incallui/ContactInfoCache;->TAG:Ljava/lang/String;
 
     const-string v1, "Contact lookup. In memory cache miss; searching provider."
@@ -2890,30 +3126,30 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_6
 
     invoke-static {}, Lcom/whitepages/nameid/f;->c()Z
 
     move-result v0
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_7
 
-    :cond_4
+    :cond_6
     const-string v0, "callprotect_enable"
 
     invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_8
 
     invoke-static {}, Lcom/whitepages/nameid/f;->d()Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_8
 
-    :cond_5
+    :cond_7
     sget-object v0, Lcom/android/incallui/ContactInfoCache;->TAG:Ljava/lang/String;
 
     const-string v1, "Whitepages Enabled, NameId Info lookup. "
@@ -2939,9 +3175,9 @@
     :goto_4
     invoke-direct {p0, p1, v0, p2, v4}, Lcom/android/incallui/ContactInfoCache;->findInfoQueryComplete(Lcom/android/incallui/Call;Lcom/android/incallui/CallerInfo;ZZ)V
 
-    goto :goto_3
+    goto/16 :goto_2
 
-    :cond_6
+    :cond_8
     iget-object v0, p0, Lcom/android/incallui/ContactInfoCache;->mContext:Landroid/content/Context;
 
     new-instance v1, Lcom/android/incallui/ContactInfoCache$FindInfoCallback;

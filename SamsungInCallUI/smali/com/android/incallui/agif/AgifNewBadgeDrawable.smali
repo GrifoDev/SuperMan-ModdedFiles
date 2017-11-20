@@ -78,7 +78,7 @@
 
     iget-object v2, p0, Lcom/android/incallui/agif/AgifNewBadgeDrawable;->mTextPaint:Landroid/graphics/Paint;
 
-    const v3, 0x7f0a03bf
+    const v3, 0x7f0a03bb
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -120,7 +120,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a03be
+    const v2, 0x7f0a03ba
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -134,7 +134,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a03bd
+    const v2, 0x7f0a03b9
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 

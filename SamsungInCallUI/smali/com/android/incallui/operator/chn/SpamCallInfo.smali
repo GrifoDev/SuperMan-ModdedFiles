@@ -2,6 +2,10 @@
 .super Ljava/lang/Object;
 
 
+# static fields
+.field private static LOG_TAG:Ljava/lang/String;
+
+
 # instance fields
 .field public isSpam:Z
 
@@ -15,6 +19,16 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    const-string v0, "SpamCallInfo"
+
+    sput-object v0, Lcom/android/incallui/operator/chn/SpamCallInfo;->LOG_TAG:Ljava/lang/String;
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 0
 
@@ -24,7 +38,7 @@
 .end method
 
 .method public static setSpamCallInfo(Lcom/android/incallui/Call;Lcom/bst/spamcall/numbermark/BinderGetNumMarkResult;)V
-    .locals 3
+    .locals 4
 
     if-nez p1, :cond_1
 
@@ -56,6 +70,54 @@
     iget v1, p1, Lcom/bst/spamcall/numbermark/BinderGetNumMarkResult;->d:I
 
     iput v1, v0, Lcom/android/incallui/operator/chn/SpamCallInfo;->spamTagType:I
+
+    sget-object v1, Lcom/android/incallui/operator/chn/SpamCallInfo;->LOG_TAG:Ljava/lang/String;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "setSpamCallInfo - spamTagName : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget-object v3, v0, Lcom/android/incallui/operator/chn/SpamCallInfo;->spamTagName:Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v3, ", isSpam : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget-boolean v3, v0, Lcom/android/incallui/operator/chn/SpamCallInfo;->isSpam:Z
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v3, ", spamTagType : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget v3, v0, Lcom/android/incallui/operator/chn/SpamCallInfo;->spamTagType:I
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     if-eqz p0, :cond_0
 

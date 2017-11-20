@@ -70,7 +70,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/contacts/common/interactions/ImportExportDialogFragment$1;->a:Landroid/view/LayoutInflater;
 
-    const v1, 0x7f040189
+    const v1, 0x7f04018a
 
     const/4 v2, 0x0
 

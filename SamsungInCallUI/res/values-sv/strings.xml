@@ -178,7 +178,7 @@
     <string name="account_phone">Enhet</string>
     <string name="acs">Röstsamtal</string>
     <string name="active_calls">Aktivt samtal</string>
-    <string name="add_reminder">L. t. påmin.</string>
+    <string name="add_reminder">Lägg till påminnelse</string>
     <string name="agif_button_close_description">Stäng</string>
     <string name="agif_decline_message">Jag kan inte prata just nu.</string>
     <string name="agif_decline_sticker_header">Avböj med ett klistermärke</string>
@@ -868,6 +868,7 @@ kamera"</string>
     <string name="swipe_right_to_answer_call_with_video">Svep åt höger om du vill svara på samtal med video.</string>
     <string name="swipe_right_to_answer_call_without_video">Svep åt höger om du vill svara på samtal utan video.</string>
     <string name="switch_rejected_by_mt">Begäran om växling till videosamtal avvisad.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Begäran om växling till videosamtal misslyckades.</string>
     <string name="switch_to_video_call_failed_tmo">Begäran om att växla till videosamtal avvisades.</string>
     <string name="switch_to_voice_call_failed">Begäran om växling till röstsamtal misslyckades.</string>
@@ -895,7 +896,7 @@ kamera"</string>
     <string name="upload_using_wlan_only">Överför endast via WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Överför via Wi-Fi eller mobilnät</string>
     <string name="upload_wlan_and_mobile_nw">Överför via WLAN eller mobilnät</string>
-    <string name="usa_att_connected_as_voice">Samtalet kopplades upp som ett röstsamtal.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Dataanvändningen som du har ställt in på enheten når snart upp till gränsen. Videosamtalet kräver data.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Samtalet går inte att koppla upp via Wi-Fi. Anslutningen sker via mobilnätet. Röst- och dataavgifter tillkommer.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>

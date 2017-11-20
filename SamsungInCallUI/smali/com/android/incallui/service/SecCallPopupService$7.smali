@@ -157,7 +157,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_3
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
@@ -171,7 +171,7 @@
 
     const/4 v1, 0x2
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_3
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
@@ -195,7 +195,7 @@
 
     move-result v0
 
-    if-ne v0, v5, :cond_0
+    if-ne v0, v5, :cond_3
 
     :cond_2
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
@@ -204,7 +204,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_3
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
@@ -219,6 +219,23 @@
     move-result-object v1
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/service/SecCallPopupContainer;->updateRejectMsgContent(Lcom/android/incallui/Call;)V
+
+    :cond_3
+    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/incallui/InCallPresenter;->getInCallState()Lcom/android/incallui/InCallPresenter$InCallState;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
+
+    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v0, v0, v2}, Lcom/android/incallui/service/SecCallPopupService;->onStateChange(Lcom/android/incallui/InCallPresenter$InCallState;Lcom/android/incallui/InCallPresenter$InCallState;Lcom/android/incallui/CallList;)V
 
     goto/16 :goto_0
 
@@ -261,22 +278,22 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_4
 
     invoke-virtual {v0}, Lcom/android/incallui/Call;->getState()I
 
     move-result v1
 
-    if-eq v1, v4, :cond_4
-
-    :cond_3
-    invoke-virtual {v0}, Lcom/android/incallui/Call;->getState()I
-
-    move-result v1
-
-    if-ne v1, v5, :cond_5
+    if-eq v1, v4, :cond_5
 
     :cond_4
+    invoke-virtual {v0}, Lcom/android/incallui/Call;->getState()I
+
+    move-result v1
+
+    if-ne v1, v5, :cond_6
+
+    :cond_5
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
     invoke-static {v1}, Lcom/android/incallui/service/SecCallPopupService;->access$300(Lcom/android/incallui/service/SecCallPopupService;)Lcom/android/incallui/service/SecCallPopupContainer;
@@ -285,7 +302,7 @@
 
     invoke-virtual {v1, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->updateRejectMsgContent(Lcom/android/incallui/Call;)V
 
-    :cond_5
+    :cond_6
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
     invoke-static {v1}, Lcom/android/incallui/service/SecCallPopupService;->access$300(Lcom/android/incallui/service/SecCallPopupService;)Lcom/android/incallui/service/SecCallPopupContainer;
@@ -296,7 +313,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_7
 
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
@@ -316,7 +333,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
@@ -337,6 +354,23 @@
     iget-boolean v0, v0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->isVoiceMail:Z
 
     invoke-virtual {v1, v2, v3, v4, v0}, Lcom/android/incallui/service/ui/SmartCallPopupUI;->setPrimarySpamInfo(Lcom/android/incallui/operator/chn/SpamCallInfo;ZZZ)V
+
+    :cond_7
+    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/incallui/InCallPresenter;->getInCallState()Lcom/android/incallui/InCallPresenter$InCallState;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
+
+    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v0, v0, v2}, Lcom/android/incallui/service/SecCallPopupService;->onStateChange(Lcom/android/incallui/InCallPresenter$InCallState;Lcom/android/incallui/InCallPresenter$InCallState;Lcom/android/incallui/CallList;)V
 
     goto/16 :goto_0
 
