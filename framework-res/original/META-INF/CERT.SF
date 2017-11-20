@@ -1,5 +1,6 @@
 Signature-Version: 1.0
-SHA-256-Digest-Manifest: hGe9xKAmBqheAEQtgrNQY6kz3M6F/vX8lP79TcoMDmk=
+X-Android-APK-Signed: 2
+SHA-256-Digest-Manifest: W16z1YM/6zvrR29o9WOdFg4Bo+BcnzfBJL6k89x442I=
 Created-By: 1.0 (Android SignApk)
 
 Name: res/drawable-xxhdpi-v4/btn_radio_on_holo.png
@@ -4972,7 +4973,7 @@ Name: res/drawable-mdpi-v4/tw_btn_radio_to_on_mtrl_011.png
 SHA-256-Digest: 0gJT9cNz+r71VJFm1zpggBuWRGB9K0fOKjsJUi28sXY=
 
 Name: SEC-INF/buildinfo.xml
-SHA-256-Digest: XILZN/x/0wiaTlOtFsselS+EnoZchagtswMhlybWfr8=
+SHA-256-Digest: M7z0xFWyszcUTKFS8u7Iw3T7W9exbLUkP4Sd1Mwf/QE=
 
 Name: res/drawable-xxhdpi-v4/rate_star_med_off_holo_dark.png
 SHA-256-Digest: iSgH0YilDyWilLB+ihq83xPOoDG63dnHSP2ef9035vs=
