@@ -313,7 +313,7 @@ Name: res/animator/bottom_bar_show.xml
 SHA-256-Digest: f9BCrEdYlFe03QM7VyZ0LlYPVioXdlCojHG1toJ48/E=
 
 Name: SEC-INF/buildinfo.xml
-SHA-256-Digest: Nk97YlBX/sNScrCz8UkFvM0HIb8X0OqzlLrCf5aLmLE=
+SHA-256-Digest: vyd8Nv7Usab8/iuzBHOADOT8p3nOfJJhr3hW9luVly4=
 
 Name: res/xml/crystal_info.xml
 SHA-256-Digest: hmYT4EKow02s/Zu34AaH8RERGlyz9kIq+elQBd7uvwU=
