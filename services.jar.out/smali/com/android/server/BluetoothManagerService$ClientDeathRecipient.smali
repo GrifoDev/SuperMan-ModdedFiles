@@ -66,7 +66,7 @@
 
     move-result v1
 
-    invoke-static {}, Lcom/android/server/BluetoothManagerService;->-get23()I
+    invoke-static {}, Lcom/android/server/BluetoothManagerService;->-get24()I
 
     move-result v2
 
@@ -146,19 +146,19 @@
     invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_4
-    invoke-static {}, Lcom/android/server/BluetoothManagerService;->-get23()I
+    invoke-static {}, Lcom/android/server/BluetoothManagerService;->-get24()I
 
     move-result v3
 
     if-lez v3, :cond_5
 
-    invoke-static {}, Lcom/android/server/BluetoothManagerService;->-get23()I
+    invoke-static {}, Lcom/android/server/BluetoothManagerService;->-get24()I
 
     move-result v3
 
     add-int/lit8 v3, v3, -0x1
 
-    invoke-static {v3}, Lcom/android/server/BluetoothManagerService;->-set14(I)I
+    invoke-static {v3}, Lcom/android/server/BluetoothManagerService;->-set15(I)I
 
     :cond_5
     iget-object v3, p0, Lcom/android/server/BluetoothManagerService$ClientDeathRecipient;->mToken:Landroid/os/IBinder;
@@ -225,7 +225,7 @@
 
     move-result v3
 
-    invoke-static {}, Lcom/android/server/BluetoothManagerService;->-get23()I
+    invoke-static {}, Lcom/android/server/BluetoothManagerService;->-get24()I
 
     move-result v4
 

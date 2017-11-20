@@ -18062,7 +18062,46 @@
 
     move-result v4
 
-    if-nez v4, :cond_5
+    if-eqz v4, :cond_3
+
+    if-eqz p1, :cond_2
+
+    iget-object v4, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->mInjector:Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;
+
+    invoke-virtual {v4}, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;->userHandleGetCallingUserId()I
+
+    move-result v4
+
+    iget-object v5, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->mOwners:Lcom/android/server/devicepolicy/Owners;
+
+    invoke-virtual {v5}, Lcom/android/server/devicepolicy/Owners;->getDeviceOwnerUserId()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v5
+
+    if-eq v4, v5, :cond_2
+
+    monitor-exit p0
+
+    return-object v9
+
+    :cond_2
+    :try_start_1
+    iget-object v4, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->mOwners:Lcom/android/server/devicepolicy/Owners;
+
+    invoke-virtual {v4}, Lcom/android/server/devicepolicy/Owners;->getDeviceOwnerComponent()Landroid/content/ComponentName;
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    move-result-object v4
+
+    monitor-exit p0
+
+    return-object v4
+
+    :cond_3
+    monitor-exit p0
 
     const/16 v4, 0x10e
 
@@ -18070,7 +18109,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_6
 
     iget-object v4, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->mContext:Landroid/content/Context;
 
@@ -18087,22 +18126,22 @@
     const-string/jumbo v8, "getProfileOwner"
 
     invoke-static {v4, v5, v6, v7, v8}, Lcom/android/server/ServiceKeeper;->isAuthorized(Landroid/content/Context;IILjava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v4
 
-    if-eqz v4, :cond_2
-
-    monitor-exit p0
+    if-eqz v4, :cond_4
 
     return-object v9
 
-    :cond_2
-    :try_start_1
+    :catchall_0
+    move-exception v4
+
+    monitor-exit p0
+
+    throw v4
+
+    :cond_4
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-result-wide v0
 
@@ -18113,7 +18152,7 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_5
 
     const-string/jumbo v4, "DevicePolicyManagerService"
 
@@ -18140,31 +18179,21 @@
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    :try_start_3
     invoke-static {v0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->restoreCallingIdentity(J)V
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
-
-    monitor-exit p0
 
     return-object v3
 
-    :cond_3
-    :try_start_4
+    :cond_5
     invoke-static {v0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->restoreCallingIdentity(J)V
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    :cond_4
+    :cond_6
     :goto_0
-    monitor-exit p0
-
     return-object v9
 
     :catch_0
     move-exception v2
 
-    :try_start_5
+    :try_start_3
     invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
 
     const-string/jumbo v4, "DevicePolicyManagerService"
@@ -18192,67 +18221,19 @@
     move-result-object v5
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_1
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    :try_start_6
     invoke-static {v0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->restoreCallingIdentity(J)V
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
     goto :goto_0
-
-    :catchall_0
-    move-exception v4
-
-    monitor-exit p0
-
-    throw v4
 
     :catchall_1
     move-exception v4
 
-    :try_start_7
     invoke-static {v0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->restoreCallingIdentity(J)V
 
     throw v4
-
-    :cond_5
-    if-eqz p1, :cond_6
-
-    iget-object v4, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->mInjector:Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;
-
-    invoke-virtual {v4}, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;->userHandleGetCallingUserId()I
-
-    move-result v4
-
-    iget-object v5, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->mOwners:Lcom/android/server/devicepolicy/Owners;
-
-    invoke-virtual {v5}, Lcom/android/server/devicepolicy/Owners;->getDeviceOwnerUserId()I
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_0
-
-    move-result v5
-
-    if-eq v4, v5, :cond_6
-
-    monitor-exit p0
-
-    return-object v9
-
-    :cond_6
-    :try_start_8
-    iget-object v4, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->mOwners:Lcom/android/server/devicepolicy/Owners;
-
-    invoke-virtual {v4}, Lcom/android/server/devicepolicy/Owners;->getDeviceOwnerComponent()Landroid/content/ComponentName;
-    :try_end_8
-    .catchall {:try_start_8 .. :try_end_8} :catchall_0
-
-    move-result-object v4
-
-    monitor-exit p0
-
-    return-object v4
 .end method
 
 .method public getDeviceOwnerLockScreenInfo()Ljava/lang/CharSequence;
@@ -25918,6 +25899,43 @@
     monitor-exit p0
 
     throw v1
+.end method
+
+.method public isRuntimePermission(Ljava/lang/String;)Z
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/content/pm/PackageManager$NameNotFoundException;
+        }
+    .end annotation
+
+    const/4 v2, 0x1
+
+    const/4 v3, 0x0
+
+    iget-object v4, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v4}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1, v3}, Landroid/content/pm/PackageManager;->getPermissionInfo(Ljava/lang/String;I)Landroid/content/pm/PermissionInfo;
+
+    move-result-object v1
+
+    iget v4, v1, Landroid/content/pm/PermissionInfo;->protectionLevel:I
+
+    and-int/lit8 v4, v4, 0xf
+
+    if-ne v4, v2, :cond_0
+
+    :goto_0
+    return v2
+
+    :cond_0
+    move v2, v3
+
+    goto :goto_0
 .end method
 
 .method public isSecurityLoggingEnabled(Landroid/content/ComponentName;)Z
@@ -42816,8 +42834,6 @@
         }
     .end annotation
 
-    const/4 v9, 0x0
-
     iget-object v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->mInjector:Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;
 
     invoke-virtual {v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;->binderGetCallingUserHandle()Landroid/os/UserHandle;
@@ -42837,7 +42853,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    move-result-wide v6
+    move-result-wide v8
 
     :try_start_1
     invoke-virtual {v5}, Landroid/os/UserHandle;->getIdentifier()I
@@ -42847,6 +42863,7 @@
     invoke-direct {p0, p2, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->getTargetSdk(Ljava/lang/String;I)I
     :try_end_1
     .catch Ljava/lang/SecurityException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-result v1
@@ -42858,34 +42875,94 @@
     :try_start_2
     iget-object v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->mInjector:Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;
 
-    invoke-virtual {v1, v6, v7}, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;->binderRestoreCallingIdentity(J)V
+    invoke-virtual {v1, v8, v9}, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;->binderRestoreCallingIdentity(J)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
+    const/4 v1, 0x0
+
     monitor-exit p0
 
-    return v9
+    return v1
 
     :cond_0
     :try_start_3
+    invoke-virtual {p0, p3}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->isRuntimePermission(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    const/4 v1, 0x3
+
+    new-array v1, v1, [Ljava/lang/Object;
+
+    const-string/jumbo v2, "62623498"
+
+    const/4 v3, 0x0
+
+    aput-object v2, v1, v3
+
+    invoke-virtual {v5}, Landroid/os/UserHandle;->getIdentifier()I
+
+    move-result v2
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    const/4 v3, 0x1
+
+    aput-object v2, v1, v3
+
+    const-string/jumbo v2, ""
+
+    const/4 v3, 0x2
+
+    aput-object v2, v1, v3
+
+    const v2, 0x534e4554
+
+    invoke-static {v2, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
+    :try_end_3
+    .catch Ljava/lang/SecurityException; {:try_start_3 .. :try_end_3} :catch_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_3 .. :try_end_3} :catch_1
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    :try_start_4
+    iget-object v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->mInjector:Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;
+
+    invoke-virtual {v1, v8, v9}, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;->binderRestoreCallingIdentity(J)V
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+
+    const/4 v1, 0x0
+
+    monitor-exit p0
+
+    return v1
+
+    :cond_1
+    :try_start_5
     iget-object v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-    :try_end_3
-    .catch Ljava/lang/SecurityException; {:try_start_3 .. :try_end_3} :catch_0
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_5
+    .catch Ljava/lang/SecurityException; {:try_start_5 .. :try_end_5} :catch_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_5 .. :try_end_5} :catch_1
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
     move-result-object v0
 
     packed-switch p4, :pswitch_data_0
 
     :goto_0
-    :try_start_4
+    :try_start_6
     iget-object v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->mInjector:Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;
 
-    invoke-virtual {v1, v6, v7}, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;->binderRestoreCallingIdentity(J)V
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+    invoke-virtual {v1, v8, v9}, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;->binderRestoreCallingIdentity(J)V
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_1
 
     const/4 v1, 0x1
 
@@ -42894,41 +42971,8 @@
     return v1
 
     :pswitch_0
-    :try_start_5
-    invoke-virtual {v0, p2, p3, v5}, Landroid/content/pm/PackageManager;->grantRuntimePermission(Ljava/lang/String;Ljava/lang/String;Landroid/os/UserHandle;)V
-
-    const/4 v3, 0x4
-
-    const/4 v4, 0x4
-
-    move-object v1, p3
-
-    move-object v2, p2
-
-    invoke-virtual/range {v0 .. v5}, Landroid/content/pm/PackageManager;->updatePermissionFlags(Ljava/lang/String;Ljava/lang/String;IILandroid/os/UserHandle;)V
-    :try_end_5
-    .catch Ljava/lang/SecurityException; {:try_start_5 .. :try_end_5} :catch_0
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v8
-
-    :try_start_6
-    iget-object v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->mInjector:Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;
-
-    invoke-virtual {v1, v6, v7}, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;->binderRestoreCallingIdentity(J)V
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_1
-
-    monitor-exit p0
-
-    return v9
-
-    :pswitch_1
     :try_start_7
-    invoke-virtual {v0, p2, p3, v5}, Landroid/content/pm/PackageManager;->revokeRuntimePermission(Ljava/lang/String;Ljava/lang/String;Landroid/os/UserHandle;)V
+    invoke-virtual {v0, p2, p3, v5}, Landroid/content/pm/PackageManager;->grantRuntimePermission(Ljava/lang/String;Ljava/lang/String;Landroid/os/UserHandle;)V
 
     const/4 v3, 0x4
 
@@ -42941,28 +42985,62 @@
     invoke-virtual/range {v0 .. v5}, Landroid/content/pm/PackageManager;->updatePermissionFlags(Ljava/lang/String;Ljava/lang/String;IILandroid/os/UserHandle;)V
     :try_end_7
     .catch Ljava/lang/SecurityException; {:try_start_7 .. :try_end_7} :catch_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_7 .. :try_end_7} :catch_1
     .catchall {:try_start_7 .. :try_end_7} :catchall_0
 
     goto :goto_0
 
-    :catchall_0
-    move-exception v1
+    :catch_0
+    move-exception v7
 
     :try_start_8
-    iget-object v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->mInjector:Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;
+    iget-object v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->mInjector:Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;
 
-    invoke-virtual {v2, v6, v7}, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;->binderRestoreCallingIdentity(J)V
-
-    throw v1
+    invoke-virtual {v1, v8, v9}, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;->binderRestoreCallingIdentity(J)V
     :try_end_8
     .catchall {:try_start_8 .. :try_end_8} :catchall_1
 
-    :catchall_1
-    move-exception v1
+    const/4 v1, 0x0
 
     monitor-exit p0
 
-    throw v1
+    return v1
+
+    :pswitch_1
+    :try_start_9
+    invoke-virtual {v0, p2, p3, v5}, Landroid/content/pm/PackageManager;->revokeRuntimePermission(Ljava/lang/String;Ljava/lang/String;Landroid/os/UserHandle;)V
+
+    const/4 v3, 0x4
+
+    const/4 v4, 0x4
+
+    move-object v1, p3
+
+    move-object v2, p2
+
+    invoke-virtual/range {v0 .. v5}, Landroid/content/pm/PackageManager;->updatePermissionFlags(Ljava/lang/String;Ljava/lang/String;IILandroid/os/UserHandle;)V
+    :try_end_9
+    .catch Ljava/lang/SecurityException; {:try_start_9 .. :try_end_9} :catch_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_9 .. :try_end_9} :catch_1
+    .catchall {:try_start_9 .. :try_end_9} :catchall_0
+
+    goto :goto_0
+
+    :catch_1
+    move-exception v6
+
+    :try_start_a
+    iget-object v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->mInjector:Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;
+
+    invoke-virtual {v1, v8, v9}, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;->binderRestoreCallingIdentity(J)V
+    :try_end_a
+    .catchall {:try_start_a .. :try_end_a} :catchall_1
+
+    const/4 v1, 0x0
+
+    monitor-exit p0
+
+    return v1
 
     :pswitch_2
     const/4 v3, 0x4
@@ -42973,13 +43051,33 @@
 
     move-object v2, p2
 
-    :try_start_9
+    :try_start_b
     invoke-virtual/range {v0 .. v5}, Landroid/content/pm/PackageManager;->updatePermissionFlags(Ljava/lang/String;Ljava/lang/String;IILandroid/os/UserHandle;)V
-    :try_end_9
-    .catch Ljava/lang/SecurityException; {:try_start_9 .. :try_end_9} :catch_0
-    .catchall {:try_start_9 .. :try_end_9} :catchall_0
+    :try_end_b
+    .catch Ljava/lang/SecurityException; {:try_start_b .. :try_end_b} :catch_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_b .. :try_end_b} :catch_1
+    .catchall {:try_start_b .. :try_end_b} :catchall_0
 
     goto :goto_0
+
+    :catchall_0
+    move-exception v1
+
+    :try_start_c
+    iget-object v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->mInjector:Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;
+
+    invoke-virtual {v2, v8, v9}, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;->binderRestoreCallingIdentity(J)V
+
+    throw v1
+    :try_end_c
+    .catchall {:try_start_c .. :try_end_c} :catchall_1
+
+    :catchall_1
+    move-exception v1
+
+    monitor-exit p0
+
+    throw v1
 
     :pswitch_data_0
     .packed-switch 0x0

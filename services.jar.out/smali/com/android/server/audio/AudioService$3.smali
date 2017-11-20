@@ -48,7 +48,7 @@
 
     iget-object v1, v0, Lcom/android/server/audio/AudioService$3;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get26(Lcom/android/server/audio/AudioService;)Landroid/util/ArrayMap;
+    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get25(Lcom/android/server/audio/AudioService;)Landroid/util/ArrayMap;
 
     move-result-object v8
 
@@ -59,7 +59,7 @@
 
     iget-object v1, v0, Lcom/android/server/audio/AudioService$3;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get10(Lcom/android/server/audio/AudioService;)Ljava/lang/Object;
+    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get9(Lcom/android/server/audio/AudioService;)Ljava/lang/Object;
 
     move-result-object v9
 
@@ -82,7 +82,7 @@
 
     iget-object v1, v0, Lcom/android/server/audio/AudioService$3;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get9(Lcom/android/server/audio/AudioService;)Landroid/bluetooth/BluetoothA2dp;
+    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get8(Lcom/android/server/audio/AudioService;)Landroid/bluetooth/BluetoothA2dp;
 
     move-result-object v1
 
@@ -110,7 +110,7 @@
 
     iget-object v1, v0, Lcom/android/server/audio/AudioService$3;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get9(Lcom/android/server/audio/AudioService;)Landroid/bluetooth/BluetoothA2dp;
+    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get8(Lcom/android/server/audio/AudioService;)Landroid/bluetooth/BluetoothA2dp;
 
     move-result-object v1
 
@@ -143,7 +143,7 @@
 
     iget-object v2, v0, Lcom/android/server/audio/AudioService$3;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v2}, Lcom/android/server/audio/AudioService;->-get15(Lcom/android/server/audio/AudioService;)Lcom/android/server/audio/AudioService$AudioHandler;
+    invoke-static {v2}, Lcom/android/server/audio/AudioService;->-get14(Lcom/android/server/audio/AudioService;)Lcom/android/server/audio/AudioService$AudioHandler;
 
     move-result-object v2
 
@@ -212,7 +212,7 @@
 
     iget-object v1, v0, Lcom/android/server/audio/AudioService$3;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get26(Lcom/android/server/audio/AudioService;)Landroid/util/ArrayMap;
+    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get25(Lcom/android/server/audio/AudioService;)Landroid/util/ArrayMap;
 
     move-result-object v2
 
@@ -233,7 +233,7 @@
 
     iget-object v1, v0, Lcom/android/server/audio/AudioService$3;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get15(Lcom/android/server/audio/AudioService;)Lcom/android/server/audio/AudioService$AudioHandler;
+    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get14(Lcom/android/server/audio/AudioService;)Lcom/android/server/audio/AudioService$AudioHandler;
 
     move-result-object v9
 
@@ -267,7 +267,7 @@
 
     iget-object v1, v0, Lcom/android/server/audio/AudioService$3;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get57(Lcom/android/server/audio/AudioService;)Ljava/util/ArrayList;
+    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get56(Lcom/android/server/audio/AudioService;)Ljava/util/ArrayList;
 
     move-result-object v2
 
@@ -278,7 +278,7 @@
 
     iget-object v1, v0, Lcom/android/server/audio/AudioService$3;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get15(Lcom/android/server/audio/AudioService;)Lcom/android/server/audio/AudioService$AudioHandler;
+    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get14(Lcom/android/server/audio/AudioService;)Lcom/android/server/audio/AudioService$AudioHandler;
 
     move-result-object v1
 
@@ -300,7 +300,7 @@
 
     iget-object v1, v0, Lcom/android/server/audio/AudioService$3;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get19(Lcom/android/server/audio/AudioService;)Landroid/bluetooth/BluetoothHeadset;
+    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get18(Lcom/android/server/audio/AudioService;)Landroid/bluetooth/BluetoothHeadset;
 
     move-result-object v1
 
@@ -341,7 +341,7 @@
 
     iget-object v1, v0, Lcom/android/server/audio/AudioService$3;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get56(Lcom/android/server/audio/AudioService;)I
+    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get55(Lcom/android/server/audio/AudioService;)I
 
     move-result v1
 
@@ -353,7 +353,7 @@
 
     iget-object v1, v0, Lcom/android/server/audio/AudioService$3;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get56(Lcom/android/server/audio/AudioService;)I
+    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get55(Lcom/android/server/audio/AudioService;)I
 
     move-result v1
 
@@ -369,7 +369,7 @@
 
     iget-object v1, v0, Lcom/android/server/audio/AudioService$3;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get20(Lcom/android/server/audio/AudioService;)Landroid/bluetooth/BluetoothDevice;
+    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get19(Lcom/android/server/audio/AudioService;)Landroid/bluetooth/BluetoothDevice;
 
     move-result-object v1
 
@@ -379,7 +379,7 @@
 
     iget-object v1, v0, Lcom/android/server/audio/AudioService$3;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get56(Lcom/android/server/audio/AudioService;)I
+    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get55(Lcom/android/server/audio/AudioService;)I
 
     move-result v1
 
@@ -394,7 +394,7 @@
 
     iget-object v1, v0, Lcom/android/server/audio/AudioService$3;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get15(Lcom/android/server/audio/AudioService;)Lcom/android/server/audio/AudioService$AudioHandler;
+    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get14(Lcom/android/server/audio/AudioService;)Lcom/android/server/audio/AudioService$AudioHandler;
 
     move-result-object v8
 
@@ -446,7 +446,7 @@
 
     iget-object v1, v0, Lcom/android/server/audio/AudioService$3;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get56(Lcom/android/server/audio/AudioService;)I
+    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get55(Lcom/android/server/audio/AudioService;)I
 
     move-result v1
 
@@ -469,7 +469,7 @@
 
     iget-object v1, v0, Lcom/android/server/audio/AudioService$3;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get55(Lcom/android/server/audio/AudioService;)I
+    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get54(Lcom/android/server/audio/AudioService;)I
 
     move-result v1
 
@@ -481,7 +481,7 @@
 
     iget-object v1, v0, Lcom/android/server/audio/AudioService$3;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get19(Lcom/android/server/audio/AudioService;)Landroid/bluetooth/BluetoothHeadset;
+    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get18(Lcom/android/server/audio/AudioService;)Landroid/bluetooth/BluetoothHeadset;
 
     move-result-object v1
 
@@ -496,7 +496,7 @@
 
     iget-object v1, v0, Lcom/android/server/audio/AudioService$3;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get55(Lcom/android/server/audio/AudioService;)I
+    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get54(Lcom/android/server/audio/AudioService;)I
 
     move-result v1
 
@@ -506,7 +506,7 @@
 
     iget-object v1, v0, Lcom/android/server/audio/AudioService$3;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get19(Lcom/android/server/audio/AudioService;)Landroid/bluetooth/BluetoothHeadset;
+    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get18(Lcom/android/server/audio/AudioService;)Landroid/bluetooth/BluetoothHeadset;
 
     move-result-object v1
 
@@ -514,7 +514,7 @@
 
     iget-object v3, v0, Lcom/android/server/audio/AudioService$3;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v3}, Lcom/android/server/audio/AudioService;->-get20(Lcom/android/server/audio/AudioService;)Landroid/bluetooth/BluetoothDevice;
+    invoke-static {v3}, Lcom/android/server/audio/AudioService;->-get19(Lcom/android/server/audio/AudioService;)Landroid/bluetooth/BluetoothDevice;
 
     move-result-object v3
 
@@ -529,7 +529,7 @@
 
     iget-object v1, v0, Lcom/android/server/audio/AudioService$3;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get55(Lcom/android/server/audio/AudioService;)I
+    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get54(Lcom/android/server/audio/AudioService;)I
 
     move-result v1
 
@@ -541,7 +541,7 @@
 
     iget-object v1, v0, Lcom/android/server/audio/AudioService$3;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get19(Lcom/android/server/audio/AudioService;)Landroid/bluetooth/BluetoothHeadset;
+    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get18(Lcom/android/server/audio/AudioService;)Landroid/bluetooth/BluetoothHeadset;
 
     move-result-object v1
 
@@ -549,7 +549,7 @@
 
     iget-object v3, v0, Lcom/android/server/audio/AudioService$3;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v3}, Lcom/android/server/audio/AudioService;->-get20(Lcom/android/server/audio/AudioService;)Landroid/bluetooth/BluetoothDevice;
+    invoke-static {v3}, Lcom/android/server/audio/AudioService;->-get19(Lcom/android/server/audio/AudioService;)Landroid/bluetooth/BluetoothDevice;
 
     move-result-object v3
 
@@ -564,7 +564,7 @@
 
     iget-object v1, v0, Lcom/android/server/audio/AudioService$3;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get55(Lcom/android/server/audio/AudioService;)I
+    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get54(Lcom/android/server/audio/AudioService;)I
 
     move-result v1
 
@@ -576,7 +576,7 @@
 
     iget-object v1, v0, Lcom/android/server/audio/AudioService$3;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get19(Lcom/android/server/audio/AudioService;)Landroid/bluetooth/BluetoothHeadset;
+    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get18(Lcom/android/server/audio/AudioService;)Landroid/bluetooth/BluetoothHeadset;
 
     move-result-object v1
 
@@ -591,7 +591,7 @@
 
     iget-object v1, v0, Lcom/android/server/audio/AudioService$3;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get55(Lcom/android/server/audio/AudioService;)I
+    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get54(Lcom/android/server/audio/AudioService;)I
 
     move-result v1
 
@@ -601,7 +601,7 @@
 
     iget-object v1, v0, Lcom/android/server/audio/AudioService$3;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get19(Lcom/android/server/audio/AudioService;)Landroid/bluetooth/BluetoothHeadset;
+    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get18(Lcom/android/server/audio/AudioService;)Landroid/bluetooth/BluetoothHeadset;
 
     move-result-object v1
 
@@ -609,7 +609,7 @@
 
     iget-object v3, v0, Lcom/android/server/audio/AudioService$3;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v3}, Lcom/android/server/audio/AudioService;->-get20(Lcom/android/server/audio/AudioService;)Landroid/bluetooth/BluetoothDevice;
+    invoke-static {v3}, Lcom/android/server/audio/AudioService;->-get19(Lcom/android/server/audio/AudioService;)Landroid/bluetooth/BluetoothDevice;
 
     move-result-object v3
 
@@ -624,7 +624,7 @@
 
     iget-object v1, v0, Lcom/android/server/audio/AudioService$3;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get55(Lcom/android/server/audio/AudioService;)I
+    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get54(Lcom/android/server/audio/AudioService;)I
 
     move-result v1
 
@@ -636,7 +636,7 @@
 
     iget-object v1, v0, Lcom/android/server/audio/AudioService$3;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get19(Lcom/android/server/audio/AudioService;)Landroid/bluetooth/BluetoothHeadset;
+    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get18(Lcom/android/server/audio/AudioService;)Landroid/bluetooth/BluetoothHeadset;
 
     move-result-object v1
 
@@ -644,7 +644,7 @@
 
     iget-object v3, v0, Lcom/android/server/audio/AudioService$3;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v3}, Lcom/android/server/audio/AudioService;->-get20(Lcom/android/server/audio/AudioService;)Landroid/bluetooth/BluetoothDevice;
+    invoke-static {v3}, Lcom/android/server/audio/AudioService;->-get19(Lcom/android/server/audio/AudioService;)Landroid/bluetooth/BluetoothDevice;
 
     move-result-object v3
 
@@ -659,7 +659,7 @@
 
     iget-object v1, v0, Lcom/android/server/audio/AudioService$3;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get19(Lcom/android/server/audio/AudioService;)Landroid/bluetooth/BluetoothHeadset;
+    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get18(Lcom/android/server/audio/AudioService;)Landroid/bluetooth/BluetoothHeadset;
 
     move-result-object v1
 
@@ -667,7 +667,7 @@
 
     iget-object v3, v0, Lcom/android/server/audio/AudioService$3;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v3}, Lcom/android/server/audio/AudioService;->-get20(Lcom/android/server/audio/AudioService;)Landroid/bluetooth/BluetoothDevice;
+    invoke-static {v3}, Lcom/android/server/audio/AudioService;->-get19(Lcom/android/server/audio/AudioService;)Landroid/bluetooth/BluetoothDevice;
 
     move-result-object v3
 

@@ -63,7 +63,7 @@
 
     move-result-object v1
 
-    invoke-static {p1}, Lcom/android/server/audio/AudioService;->-get17(Lcom/android/server/audio/AudioService;)I
+    invoke-static {p1}, Lcom/android/server/audio/AudioService;->-get16(Lcom/android/server/audio/AudioService;)I
 
     move-result v2
 
@@ -91,7 +91,7 @@
 
     if-eqz v0, :cond_0
 
-    invoke-static {p1}, Lcom/android/server/audio/AudioService;->-get43(Lcom/android/server/audio/AudioService;)Lcom/android/server/audio/MediaFocusControl;
+    invoke-static {p1}, Lcom/android/server/audio/AudioService;->-get42(Lcom/android/server/audio/AudioService;)Lcom/android/server/audio/MediaFocusControl;
 
     move-result-object v0
 
@@ -112,7 +112,7 @@
 
     iget-object v0, p0, Lcom/android/server/audio/AudioService$AudioPolicyProxy;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v0}, Lcom/android/server/audio/AudioService;->-get16(Lcom/android/server/audio/AudioService;)Ljava/util/HashMap;
+    invoke-static {v0}, Lcom/android/server/audio/AudioService;->-get15(Lcom/android/server/audio/AudioService;)Ljava/util/HashMap;
 
     move-result-object v1
 
@@ -153,7 +153,7 @@
 
     iget-object v0, p0, Lcom/android/server/audio/AudioService$AudioPolicyProxy;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v0}, Lcom/android/server/audio/AudioService;->-get16(Lcom/android/server/audio/AudioService;)Ljava/util/HashMap;
+    invoke-static {v0}, Lcom/android/server/audio/AudioService;->-get15(Lcom/android/server/audio/AudioService;)Ljava/util/HashMap;
 
     move-result-object v0
 
@@ -214,7 +214,7 @@
 
     iget-object v0, p0, Lcom/android/server/audio/AudioService$AudioPolicyProxy;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v0}, Lcom/android/server/audio/AudioService;->-get43(Lcom/android/server/audio/AudioService;)Lcom/android/server/audio/MediaFocusControl;
+    invoke-static {v0}, Lcom/android/server/audio/AudioService;->-get42(Lcom/android/server/audio/AudioService;)Lcom/android/server/audio/MediaFocusControl;
 
     move-result-object v0
 
@@ -227,7 +227,7 @@
 
     iget-object v0, p0, Lcom/android/server/audio/AudioService$AudioPolicyProxy;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v0}, Lcom/android/server/audio/AudioService;->-get43(Lcom/android/server/audio/AudioService;)Lcom/android/server/audio/MediaFocusControl;
+    invoke-static {v0}, Lcom/android/server/audio/AudioService;->-get42(Lcom/android/server/audio/AudioService;)Lcom/android/server/audio/MediaFocusControl;
 
     move-result-object v0
 

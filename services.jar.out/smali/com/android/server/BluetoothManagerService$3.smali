@@ -60,7 +60,7 @@
 
     move-result-object v7
 
-    invoke-static {}, Lcom/android/server/BluetoothManagerService;->-get23()I
+    invoke-static {}, Lcom/android/server/BluetoothManagerService;->-get24()I
 
     move-result v8
 
@@ -82,7 +82,7 @@
 
     if-nez v6, :cond_3
 
-    invoke-static {}, Lcom/android/server/BluetoothManagerService;->-get23()I
+    invoke-static {}, Lcom/android/server/BluetoothManagerService;->-get24()I
 
     move-result v6
 
@@ -182,7 +182,7 @@
 
     move-result-object v7
 
-    invoke-static {}, Lcom/android/server/BluetoothManagerService;->-get23()I
+    invoke-static {}, Lcom/android/server/BluetoothManagerService;->-get24()I
 
     move-result v8
 
@@ -247,7 +247,7 @@
 
     move-result v6
 
-    invoke-static {}, Lcom/android/server/BluetoothManagerService;->-get23()I
+    invoke-static {}, Lcom/android/server/BluetoothManagerService;->-get24()I
 
     move-result v7
 
@@ -272,7 +272,7 @@
 
     invoke-interface {v6}, Ljava/util/Map;->clear()V
 
-    invoke-static {}, Lcom/android/server/BluetoothManagerService;->-get23()I
+    invoke-static {}, Lcom/android/server/BluetoothManagerService;->-get24()I
 
     move-result v6
 

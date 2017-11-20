@@ -2691,26 +2691,35 @@
 
     invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->p([Ljava/lang/Object;)V
 
+    invoke-direct {p0, p2}, Lcom/android/server/LockSettingsService;->isKnoxUser(I)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/LockSettingsService;->notifyActivePasswordMetricsAvailable(Ljava/lang/String;I)V
+
+    :cond_0
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2
 
     const-string/jumbo v2, "Enroll : Empty credential..."
 
     invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
 
-    :cond_0
+    :cond_1
     :goto_0
     return-void
 
-    :cond_1
+    :cond_2
     invoke-direct {p0}, Lcom/android/server/LockSettingsService;->isSdpSupported()Z
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_6
 
     const-string/jumbo v2, "Enroll : SDP supported..."
 
@@ -2720,7 +2729,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_5
 
     const/4 v0, 0x0
 
@@ -2728,16 +2737,16 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
-    if-ne p3, v5, :cond_2
+    if-ne p3, v5, :cond_3
 
     invoke-virtual {v1, p2, p1}, Lcom/android/server/pm/PersonaManagerService;->onPatternChange(ILjava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     :goto_1
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     iget-object v2, p0, Lcom/android/server/LockSettingsService;->mKeystoreUtil:Lcom/android/server/LockSettingsService$KeystoreUtil;
 
@@ -2745,8 +2754,8 @@
 
     goto :goto_0
 
-    :cond_2
-    if-ne p3, v6, :cond_3
+    :cond_3
+    if-ne p3, v6, :cond_4
 
     invoke-virtual {v1, p2, p1}, Lcom/android/server/pm/PersonaManagerService;->onPasswordChange(ILjava/lang/String;)Ljava/lang/String;
 
@@ -2754,7 +2763,7 @@
 
     goto :goto_1
 
-    :cond_3
+    :cond_4
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -2777,14 +2786,14 @@
 
     goto :goto_1
 
-    :cond_4
+    :cond_5
     const-string/jumbo v2, "Enroll : CMK not found... Unexpected condition..."
 
     invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
 
     goto :goto_0
 
-    :cond_5
+    :cond_6
     const-string/jumbo v2, "Enroll : SDP not supported..."
 
     invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
@@ -2793,7 +2802,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     const-string/jumbo v2, "Enroll : Stored hashed credential..."
 
@@ -2805,7 +2814,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_7
 
     const-string/jumbo v2, "Enroll : Keystore is locked... Reset keystore due to no choice"
 
@@ -2817,7 +2826,7 @@
 
     invoke-virtual {v2, p2}, Landroid/security/KeyStore;->onUserRemoved(I)V
 
-    :cond_6
+    :cond_7
     iget-object v2, p0, Lcom/android/server/LockSettingsService;->mKeystoreUtil:Lcom/android/server/LockSettingsService$KeystoreUtil;
 
     invoke-static {v2, p1, p2}, Lcom/android/server/LockSettingsService$KeystoreUtil;->-wrap1(Lcom/android/server/LockSettingsService$KeystoreUtil;Ljava/lang/String;I)Z

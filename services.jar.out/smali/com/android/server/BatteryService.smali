@@ -67,6 +67,8 @@
 
 .field private static final DUMPSYS_DATA_PATH:Ljava/lang/String; = "/data/system/"
 
+.field private static final ENG_MODE:Z
+
 .field private static final FEATURE_SAVE_BATTERY_CYCLE:Z
 
 .field private static final FEATURE_WIRELESS_FAST_CHARGER_CONTROL:Z
@@ -114,6 +116,8 @@
 .field private static final SETTING_SHOW_WIRELESS_CHARGER_MENU:Ljava/lang/String; = "show_wireless_charger_menu"
 
 .field private static final SETTING_WIRELESS_FAST_CHARGING:Ljava/lang/String; = "wireless_fast_charging"
+
+.field private static final SHIP_BUILD:Z
 
 .field private static final SMART_SWITCH_PACKAGE_NAME:Ljava/lang/String; = "com.sec.android.easyMover"
 
@@ -863,6 +867,46 @@
     aput-object v1, v0, v2
 
     sput-object v0, Lcom/android/server/BatteryService;->DUMPSYS_ARGS:[Ljava/lang/String;
+
+    const-string/jumbo v0, "true"
+
+    const-string/jumbo v1, "ro.product_ship"
+
+    const-string/jumbo v2, "true"
+
+    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/server/BatteryService;->SHIP_BUILD:Z
+
+    const-string/jumbo v0, "eng"
+
+    const-string/jumbo v1, "ro.build.type"
+
+    const-string/jumbo v2, "Default"
+
+    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/server/BatteryService;->ENG_MODE:Z
 
     sput v3, Lcom/android/server/BatteryService;->mWeakChgSocCheckStarted:I
 
@@ -7379,6 +7423,84 @@
 
 
 # virtual methods
+.method public dumpServiceList()V
+    .locals 9
+
+    sget-object v6, Lcom/android/server/BatteryService;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v7, "!@ dumpServiceList"
+
+    invoke-static {v6, v7}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
+
+    move-result-object v5
+
+    :try_start_0
+    const-string/jumbo v1, "service list"
+
+    invoke-virtual {v5, v1}, Ljava/lang/Runtime;->exec(Ljava/lang/String;)Ljava/lang/Process;
+
+    move-result-object v4
+
+    new-instance v0, Ljava/io/BufferedReader;
+
+    new-instance v6, Ljava/io/InputStreamReader;
+
+    invoke-virtual {v4}, Ljava/lang/Process;->getInputStream()Ljava/io/InputStream;
+
+    move-result-object v7
+
+    invoke-direct {v6, v7}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;)V
+
+    invoke-direct {v0, v6}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
+
+    :goto_0
+    invoke-virtual {v0}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_0
+
+    sget-object v6, Lcom/android/server/BatteryService;->TAG:Ljava/lang/String;
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "!@ "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v2
+
+    sget-object v6, Lcom/android/server/BatteryService;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v7, "Failure exec: adb shell service list"
+
+    invoke-static {v6, v7, v2}, Lcom/android/server/power/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :cond_0
+    return-void
+.end method
+
 .method public onBootPhase(I)V
     .locals 6
 
@@ -7891,13 +8013,13 @@
 .end method
 
 .method public onStart()V
-    .locals 6
+    .locals 8
 
-    const/4 v5, 0x0
+    const/4 v7, 0x0
 
-    const-string/jumbo v3, "batteryproperties"
+    const-string/jumbo v4, "batteryproperties"
 
-    invoke-static {v3}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    invoke-static {v4}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
@@ -7906,46 +8028,98 @@
     move-result-object v1
 
     :try_start_0
-    new-instance v3, Lcom/android/server/BatteryService$BatteryListener;
+    new-instance v4, Lcom/android/server/BatteryService$BatteryListener;
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
-    invoke-direct {v3, p0, v4}, Lcom/android/server/BatteryService$BatteryListener;-><init>(Lcom/android/server/BatteryService;Lcom/android/server/BatteryService$BatteryListener;)V
+    invoke-direct {v4, p0, v5}, Lcom/android/server/BatteryService$BatteryListener;-><init>(Lcom/android/server/BatteryService;Lcom/android/server/BatteryService$BatteryListener;)V
 
-    invoke-interface {v1, v3}, Landroid/os/IBatteryPropertiesRegistrar;->registerListener(Landroid/os/IBatteryPropertiesListener;)V
+    invoke-interface {v1, v4}, Landroid/os/IBatteryPropertiesRegistrar;->registerListener(Landroid/os/IBatteryPropertiesListener;)V
     :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
 
     :goto_0
-    new-instance v3, Lcom/android/server/BatteryService$NativeDeathRecipient;
+    new-instance v4, Lcom/android/server/BatteryService$NativeDeathRecipient;
 
-    invoke-direct {v3, p0, v0}, Lcom/android/server/BatteryService$NativeDeathRecipient;-><init>(Lcom/android/server/BatteryService;Landroid/os/IBinder;)V
+    invoke-direct {v4, p0, v0}, Lcom/android/server/BatteryService$NativeDeathRecipient;-><init>(Lcom/android/server/BatteryService;Landroid/os/IBinder;)V
 
-    iput-object v3, p0, Lcom/android/server/BatteryService;->mNativeDeathRecipient:Lcom/android/server/BatteryService$NativeDeathRecipient;
+    iput-object v4, p0, Lcom/android/server/BatteryService;->mNativeDeathRecipient:Lcom/android/server/BatteryService$NativeDeathRecipient;
 
-    new-instance v3, Lcom/android/server/BatteryService$BinderService;
+    new-instance v4, Lcom/android/server/BatteryService$BinderService;
 
-    invoke-direct {v3, p0, v5}, Lcom/android/server/BatteryService$BinderService;-><init>(Lcom/android/server/BatteryService;Lcom/android/server/BatteryService$BinderService;)V
+    invoke-direct {v4, p0, v7}, Lcom/android/server/BatteryService$BinderService;-><init>(Lcom/android/server/BatteryService;Lcom/android/server/BatteryService$BinderService;)V
 
-    iput-object v3, p0, Lcom/android/server/BatteryService;->mBinderService:Lcom/android/server/BatteryService$BinderService;
+    iput-object v4, p0, Lcom/android/server/BatteryService;->mBinderService:Lcom/android/server/BatteryService$BinderService;
 
-    const-string/jumbo v3, "battery"
+    const-string/jumbo v4, "battery"
 
-    iget-object v4, p0, Lcom/android/server/BatteryService;->mBinderService:Lcom/android/server/BatteryService$BinderService;
+    iget-object v5, p0, Lcom/android/server/BatteryService;->mBinderService:Lcom/android/server/BatteryService$BinderService;
 
-    invoke-virtual {p0, v3, v4}, Lcom/android/server/BatteryService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
+    invoke-virtual {p0, v4, v5}, Lcom/android/server/BatteryService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
 
-    const-class v3, Landroid/os/BatteryManagerInternal;
+    const-class v4, Landroid/os/BatteryManagerInternal;
 
-    new-instance v4, Lcom/android/server/BatteryService$LocalService;
+    new-instance v5, Lcom/android/server/BatteryService$LocalService;
 
-    invoke-direct {v4, p0, v5}, Lcom/android/server/BatteryService$LocalService;-><init>(Lcom/android/server/BatteryService;Lcom/android/server/BatteryService$LocalService;)V
+    invoke-direct {v5, p0, v7}, Lcom/android/server/BatteryService$LocalService;-><init>(Lcom/android/server/BatteryService;Lcom/android/server/BatteryService$LocalService;)V
 
-    invoke-virtual {p0, v3, v4}, Lcom/android/server/BatteryService;->publishLocalService(Ljava/lang/Class;Ljava/lang/Object;)V
+    invoke-virtual {p0, v4, v5}, Lcom/android/server/BatteryService;->publishLocalService(Ljava/lang/Class;Ljava/lang/Object;)V
 
     return-void
 
     :catch_0
+    move-exception v3
+
+    sget-object v4, Lcom/android/server/BatteryService;->TAG:Ljava/lang/String;
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "!@ batteryPropertiesRegistrar.registerListener error "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    sget-boolean v4, Lcom/android/server/BatteryService;->SHIP_BUILD:Z
+
+    if-eqz v4, :cond_0
+
+    sget-boolean v4, Lcom/android/server/BatteryService;->ENG_MODE:Z
+
+    if-eqz v4, :cond_1
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/server/BatteryService;->dumpServiceList()V
+
+    goto :goto_0
+
+    :cond_1
+    sget-object v4, Lcom/android/server/BatteryService;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v5, "!@ (Ship or user) binary will reboot for recover"
+
+    invoke-static {v4, v5}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v4, "batteryPropertiesRegistrar.registerListener NullPointerException !!!"
+
+    invoke-static {v4}, Lcom/android/server/power/PowerManagerService;->lowLevelReboot(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :catch_1
     move-exception v2
 
     goto :goto_0

@@ -26235,7 +26235,7 @@
     const/4 v1, 0x0
 
     :goto_0
-    if-ge v1, v0, :cond_7
+    if-ge v1, v0, :cond_8
 
     iget-object v7, p0, Lcom/android/server/am/ActivityManagerService;->mGrantedUriPermissions:Landroid/util/SparseArray;
 
@@ -26257,7 +26257,7 @@
 
     move-result v7
 
-    if-ne p2, v7, :cond_6
+    if-ne p2, v7, :cond_7
 
     :cond_1
     invoke-virtual {v4}, Landroid/util/ArrayMap;->values()Ljava/util/Collection;
@@ -26274,7 +26274,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_6
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -26301,7 +26301,26 @@
     if-eqz v7, :cond_2
 
     :cond_3
-    if-eqz p3, :cond_4
+    const-string/jumbo v7, "downloads"
+
+    iget-object v9, v3, Lcom/android/server/am/UriPermission;->uri:Lcom/android/server/am/ActivityManagerService$GrantUri;
+
+    iget-object v9, v9, Lcom/android/server/am/ActivityManagerService$GrantUri;->uri:Landroid/net/Uri;
+
+    invoke-virtual {v9}, Landroid/net/Uri;->getAuthority()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v7, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_4
+
+    if-eqz p3, :cond_2
+
+    :cond_4
+    if-eqz p3, :cond_5
 
     move v7, v8
 
@@ -26322,17 +26341,17 @@
 
     goto :goto_1
 
-    :cond_4
+    :cond_5
     const/16 v7, -0x41
 
     goto :goto_2
 
-    :cond_5
+    :cond_6
     invoke-virtual {v4}, Landroid/util/ArrayMap;->isEmpty()Z
 
     move-result v7
 
-    if-eqz v7, :cond_6
+    if-eqz v7, :cond_7
 
     iget-object v7, p0, Lcom/android/server/am/ActivityManagerService;->mGrantedUriPermissions:Landroid/util/SparseArray;
 
@@ -26342,17 +26361,17 @@
 
     add-int/lit8 v1, v1, -0x1
 
-    :cond_6
+    :cond_7
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    :cond_7
-    if-eqz v5, :cond_8
+    :cond_8
+    if-eqz v5, :cond_9
 
     invoke-direct {p0}, Lcom/android/server/am/ActivityManagerService;->schedulePersistUriGrants()V
 
-    :cond_8
+    :cond_9
     return-void
 .end method
 
