@@ -1373,13 +1373,13 @@
 .end method
 
 .method private generateActionButton(Landroid/app/Notification$Action;)Landroid/widget/RemoteViews;
-    .locals 6
+    .locals 10
 
     const v5, 0x1020424
 
     iget-object v3, p1, Landroid/app/Notification$Action;->actionIntent:Landroid/app/PendingIntent;
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_5
 
     const/4 v2, 0x1
 
@@ -1392,7 +1392,7 @@
 
     move-result-object v4
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_6
 
     invoke-direct {p0}, Landroid/app/Notification$Builder;->getActionTombstoneLayoutResource()I
 
@@ -1437,11 +1437,34 @@
     invoke-virtual {v1, v5, v3}, Landroid/widget/RemoteViews;->setRemoteInputs(I[Landroid/app/RemoteInput;)V
 
     :cond_1
+    sget v9, Landroid/app/Notification$Builder;->mAllowNotificationColorChange:I
+
+    if-eqz v9, :cond_2
+
+    iget-object v3, p0, Landroid/app/Notification$Builder;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v3
+
+    const-string/jumbo v6, "notification_screenshot_text_color"
+
+    const v7, -0xa38b80
+
+    invoke-static {v3, v6, v7}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v3
+
+    invoke-virtual {v1, v5, v3}, Landroid/widget/RemoteViews;->setTextColor(II)V
+
+    :cond_2
+    goto :goto_2
+
     iget-object v3, p0, Landroid/app/Notification$Builder;->mN:Landroid/app/Notification;
 
     iget v3, v3, Landroid/app/Notification;->color:I
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_3
 
     invoke-virtual {p0}, Landroid/app/Notification$Builder;->resolveContrastColor()I
 
@@ -1449,10 +1472,11 @@
 
     invoke-virtual {v1, v5, v3}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
-    :cond_2
+    :cond_3
+    :goto_2
     sget-boolean v3, Landroid/app/Notification$Builder;->mShowActionBg:Z
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_4
 
     const-string/jumbo v3, "setBackgroundResource"
 
@@ -1460,15 +1484,15 @@
 
     invoke-virtual {v1, v5, v3, v4}, Landroid/widget/RemoteViews;->setInt(ILjava/lang/String;I)V
 
-    :cond_3
+    :cond_4
     return-object v1
 
-    :cond_4
+    :cond_5
     const/4 v2, 0x0
 
     goto :goto_0
 
-    :cond_5
+    :cond_6
     invoke-direct {p0}, Landroid/app/Notification$Builder;->getActionLayoutResource()I
 
     move-result v3
