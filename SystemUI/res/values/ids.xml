@@ -1096,4 +1096,5 @@
     <item type="id" name="attrName">false</item>
     <item type="id" name="killer_mem_info">false</item>
     <item type="id" name="killer_clean_button">false</item>
+    <item type="id" name="CustomBg">false</item>
 </resources>

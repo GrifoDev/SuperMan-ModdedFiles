@@ -2,13 +2,13 @@
 <com.android.systemui.statusbar.phone.NotificationPanelView android:id="@id/notification_panel" android:background="@android:color/transparent" android:layout_width="fill_parent" android:layout_height="fill_parent"
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:systemui="http://schemas.android.com/apk/res/com.android.systemui">
+    <com.android.wubydax.CustomBg android:id="@id/CustomBg" android:layout_width="fill_parent" android:layout_height="fill_parent" />
     <com.android.systemui.statusbar.phone.PhoneStatusBarBlurImageView android:id="@id/backgroundImageView" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="centerCrop" />
     <FrameLayout android:id="@id/cover_holder_for_notification" android:background="@android:color/black" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:statusBarColor="@android:color/transparent" />
     <ViewStub android:id="@id/keyguard_status_view_stub" android:layout_width="fill_parent" android:layout_height="wrap_content" />
     <ViewStub android:id="@id/keyguard_iris_text_preview_stub" android:layout_width="fill_parent" android:layout_height="wrap_content" />
     <FrameLayout android:id="@id/notification_contents_root" android:layout_width="fill_parent" android:layout_height="fill_parent">
         <FrameLayout android:id="@id/gear_bottom_layout" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
-            <com.android.wubydax.CustomBg android:layout_width="fill_parent" android:layout_height="fill_parent" />
             <LinearLayout android:layout_gravity="bottom" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
                 <com.android.wubydax.GearDeviceInfo android:focusable="false" android:layout_width="fill_parent" android:layout_height="wrap_content" />
                 <TextView android:textAppearance="@style/TextAppearance.StatusBar.Expanded.CarrierLabel" android:gravity="center" android:layout_gravity="bottom" android:id="@id/notification_panel_carrier_label" android:focusable="false" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/notification_panel_carrier_label_height" />
