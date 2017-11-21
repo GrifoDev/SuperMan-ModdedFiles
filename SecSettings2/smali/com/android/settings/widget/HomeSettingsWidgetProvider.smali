@@ -129,7 +129,7 @@
 .method private init(Landroid/content/Context;)V
     .locals 7
 
-    const v6, 0x7f04012c
+    const v6, 0x7f04012d
 
     const-string/jumbo v3, "HomeSettingsWidget"
 
@@ -231,7 +231,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f04012f
+    const v5, 0x7f040130
 
     invoke-direct {v3, v4, v5}, Landroid/widget/RemoteViews;-><init>(Ljava/lang/String;I)V
 
@@ -286,7 +286,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f04012d
+    const v5, 0x7f04012e
 
     invoke-direct {v3, v4, v5}, Landroid/widget/RemoteViews;-><init>(Ljava/lang/String;I)V
 
@@ -309,7 +309,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f04012e
+    const v5, 0x7f04012f
 
     invoke-direct {v3, v4, v5}, Landroid/widget/RemoteViews;-><init>(Ljava/lang/String;I)V
 

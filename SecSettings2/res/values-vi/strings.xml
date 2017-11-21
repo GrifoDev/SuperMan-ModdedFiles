@@ -892,6 +892,7 @@ Bạn có thể thay đổi điều này bằng cách đến Cài đặt Bluetoo
     <string name="bluetooth_control_app_disable_summary">Đã tắt Bluetooth: %s</string>
     <string name="bluetooth_enter_pin_msg">Nhập mã PIN để ghép đôi với %s (thử 0000 hoặc 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">Đã đạt số ký tự tối đa.</string>
+    <string name="bluetooth_frp_permission_message">Không thể sử dụng thiết bị Bluetooth cho cuộc gọi này.</string>
     <string name="settings_menu_done">Hoàn tất</string>
     <string name="usb_tethering_unavailable_subtext_tmo">Chưa kết nối USB</string>
     <string name="usb_tethering_available_subtext_tmo">Đã kết nối USB, hãy chọn để chia sẻ kết nối internet</string>
@@ -2971,7 +2972,7 @@ Tải về qua mạng di động có thể phát sinh thêm phí tùy vào gói 
     <string name="wifi_enable_warning_spr">Bật Wi-Fi sẽ tắt Điểm truy cập.</string>
     <string name="wifi_enable_warning_mtr">Bật Wi-Fi sẽ tắt Điểm truy cập di động. Tiếp tục?</string>
     <string name="wifi_enable_warning_usc">Bật Wi-Fi sẽ tắt Điểm truy cập Wi-Fi di động. Tiếp tục?</string>
-    <string name="wifi_enable_warning">Bật Wi-Fi sẽ tắt Điểm truy cập di động.</string>
+    <string name="wifi_enable_warning">Wi-Fi bị tắt khi Điểm truy cập di động đang hoạt động. Để bật Wi-Fi, hãy tắt Điểm truy cập di động.</string>
     <string name="wifi_control_history_title">Nhật ký điều khiển Wi-Fi</string>
     <string name="wifi_control_history_description">Các ứng dụng bên dưới đã bật hoặc tắt Wi-Fi gần đây nhất.</string>
     <string name="wifi_control_history_sub_title">Ứng dụng gần đây</string>
@@ -3048,11 +3049,11 @@ Sau khi bật bộ định tuyến Điểm truy cập di động Wi-Fi, ha
 Bạn có thể tạo cấu hình thiết bị được cho phép và đặt chế độ kết nối cho nó.
 
 Sử dụng Điểm truy cập Wi-Fi di động tiêu thụ nhiều pin hơn và tăng mức sử dụng dữ liệu."</string>
-    <string name="wifi_ap_instruction_changeable_maxclient">"Bạn có thể sử dụng thiết bị của mình làm điểm truy cập Internet bằng Điểm truy cập di động. Cách này cho phép tối đa %d thiết bị khác kết nối với nó qua Wi-Fi. Các thiết bị được kết nối sẽ có thể truy cập Internet thông qua mạng di động của bạn.
+    <string name="wifi_ap_instruction_changeable_maxclient">"Bạn có thể sử dụng thiết bị của bạn làm điểm truy cập internet thông qua Điểm truy cập di động. Tính năng này cho phép tối đa %d thiết bị khác kết nối với nó qua Wi-Fi. Các thiết bị được kết nối sẽ có thể truy cập internet thông qua mạng di động của bạn.
 
-Bạn có thể tạo cấu hình thiết bị được cho phép và đặt chế độ kết nối cho nó.
+Bạn có thể tạo một hồ sơ thiết bị được phép và đặt chế độ kết nối cho nó.
 
-Sử dụng Điểm truy cập di động sẽ tốn pin hơn và sử dụng nhiều dữ liệu hơn."</string>
+Sử dụng Điểm truy cập di động sẽ làm tăng mức tiêu thụ pin và sử dụng dữ liệu."</string>
     <string name="wifi_ap_instruction_mtr">"Biến điện thoại thành Điểm truy cập Wi-Fi di động để bạn có thể chia sẻ kết nối dữ liệu di động với các thiết bị khác.
 
 Để sử dụng khả năng Điểm truy cập của điện thoại, gói cước của bạn phải có dịch vụ Điểm truy cập di động cho điện thoại thông minh.
@@ -3076,7 +3077,7 @@ Bạn có thể tạo danh sách thiết bị được phép và đặt chế đ
     <string name="wifi_ap_wifi_off_warn_chn">Bật Điểm truy cập di động sẽ tắt WLAN.</string>
     <string name="wifi_ap_wifi_off_warn_att">Bật điểm truy cập Wi-Fi di động sẽ tắt Wi-Fi.</string>
     <string name="wifi_ap_wifi_off_warn_mtr">Wi-Fi tắt khi USB internet hoặc Điểm truy cập di động hoạt động. Để bật Wi-Fi, hãy tắt Kết nối USB internet hoặc Điểm truy cập di động.</string>
-    <string name="wifi_ap_wifi_off_warn">Bật Điểm truy cập di động sẽ tắt Wi-Fi.</string>
+    <string name="wifi_ap_wifi_off_warn">Để sử dụng Điểm truy cập di động, bạn cần tắt Wi-Fi.</string>
     <string name="wifi_ap_wifi_off_warn_title_vzw">Điểm truy cập di động và Wi-Fi</string>
     <string name="wifi_ap_wifi_off_warn_title">Chú ý</string>
     <string name="wifi_ap_smartview_off_warn_vzw">Không thể bật Điểm truy cập di động và Smart View cùng lúc. Smart View sẽ bị tắt.</string>
@@ -3174,13 +3175,13 @@ Wi-Fi hiện đã bật."</string>
     <string name="wifi_tether_dialog_nosim_warning_title_tmo">Điểm truy cập di động</string>
     <string name="wifi_tether_dialog_nosim_warning_title_spr">Điểm truy cập</string>
     <string name="wifi_tether_dialog_nosim_warning_title_att">Điểm truy cập di động</string>
-    <string name="wifi_tether_dialog_nosim_warning_title">Đ.truy cập di động</string>
+    <string name="wifi_tether_dialog_nosim_warning_title">Không có thẻ SIM</string>
     <string name="wifi_tether_dialog_nosim_warning_chn">Gắn thẻ SIM để sử dụng Điểm truy cập di động và các chức năng chia sẻ kết nối internet khác.</string>
     <string name="wifi_tether_dialog_nosim_warning_vzw">Gắn thẻ SIM để sử dụng Điểm truy cập di động và các tùy chọn chia sẻ Internet khác.</string>
     <string name="wifi_tether_dialog_nosim_warning_tmo">Hãy gắn thẻ SIM để chia sẻ kết nối dữ liệu của điện thoại với các thiết bị khác bằng Điểm truy cập Wi-Fi di động hoặc kết nối USB internet để truy cập Internet.</string>
     <string name="wifi_tether_dialog_nosim_warning_spr">Gắn SIM để sử dụng Điểm truy cập bao gồm tethering</string>
     <string name="wifi_tether_dialog_nosim_warning_usc">Gắn thẻ SIM để sử dụng Điểm truy cập di động và các chức năng chia sẻ internet khác.</string>
-    <string name="wifi_tether_dialog_nosim_warning">Gắn thẻ SIM để sử dụng Điểm truy cập di động và các chức năng chia sẻ internet khác.</string>
+    <string name="wifi_tether_dialog_nosim_warning">Gắn thẻ SIM để sử dụng Điểm truy cập di động và các tùy chọn chia sẻ internet khác.</string>
     <string name="mobileap_tmo">Điểm truy cập di động</string>
     <string name="mobileap_spr">Điểm truy cập</string>
     <string name="mobileap_att">Điểm truy cập di động</string>
@@ -3247,16 +3248,16 @@ Wi-Fi hiện đã bật."</string>
     <string name="wifi_ap_instruction_activate_color_hidden3_tmo">Kết nối với &lt;font color=\"%1$s\">%2$s&lt;/font> bằng cách nhập &lt;font color=\"%1$s\">%3$s&lt;/font> làm mật mã.</string>
     <string name="wifi_ap_instruction_activate_color_hidden3">Kết nối vào &lt;font color=\"%1$s\">%2$s&lt;/font> bằng cách nhập mật mã &lt;font color=\"%1$s\">%3$s&lt;/font>.</string>
     <string name="wifi_ap_instruction_activate_color_hidden4_tmo">Tận hưởng internet bằng cách sử dụng Điểm truy cập di động cá nhân của bạn.</string>
-    <string name="wifi_ap_instruction_no_maxclient">"Bạn có thể dùng thiết bị làm điểm truy cập internet bằng cách sử dụng Điểm truy cập di động. Tính năng này cho phép các thiết bị khác kết nối với nó qua Wi-Fi. Thiết bị được kết nối của bạn sẽ có thể truy cập internet qua mạng di động.
+    <string name="wifi_ap_instruction_no_maxclient">"Bạn có thể sử dụng thiết bị làm điểm truy cập internet thông qua Điểm truy cập di động. Tính năng này cho phép các thiết bị khác kết nối với nó qua Wi-Fi. Các thiết bị được kết nối sẽ có thể truy cập internet thông qua mạng di động của bạn.
 
-Bạn có thể tạo cấu hình thiết bị được phép và đặt chế độ kết nối cho nó.
+Bạn có thể tạo một hồ sơ thiết bị được phép và đặt chế độ kết nối cho nó.
 
-Sử dụng Điểm truy cập di động sẽ làm tăng mức tiêu thụ pin và mức sử dụng dữ liệu."</string>
+Sử dụng Điểm truy cập di động sẽ làm tăng mức tiêu thụ pin và sử dụng dữ liệu."</string>
     <string name="wifi_ap_instruction_configure_vzw">Để thay đổi cấu hình Điểm truy cập di động, hãy đi đến Cài đặt > Chia sẻ kết nối internet > Điểm truy cập di động > NHIỀU HƠN, rồi chọn Cấu hình Điểm truy cập di động.</string>
     <string name="wifi_ap_instruction_configure_tmo">Để thay đổi cấu hình Điểm truy cập di động, hãy chạm phím Tùy chọn khác, rồi chọn Cấu hình Điểm truy cập di động.</string>
     <string name="wifi_ap_instruction_configure">Để thay đổi cấu hình Điểm truy cập di động, hãy chạm phím Tùy chọn khác, rồi chọn Cấu hình Điểm truy cập di động.</string>
     <string name="wifi_ap_instruction_configure_non_grace_tmo">Để thay đổi cấu hình Điểm truy cập di động, hãy chạm NHIỀU HƠN, rồi chọn Cấu hình Điểm truy cập di động.</string>
-    <string name="wifi_ap_instruction_configure_non_grace">Để thay đổi cấu hình điểm truy cập di động, hãy chạm NHIỀU HƠN và chọn Cấu hình điểm truy cập di động.</string>
+    <string name="wifi_ap_instruction_configure_non_grace">Để thay đổi cấu hình Điểm truy cập di động, hãy chạm NHIỀU HƠN và chọn Cấu hình Điểm truy cập di động.</string>
     <string name="wifi_ap_change_security">Đổi bảo mật</string>
     <string name="wifi_ap_maxclient">Số kết nối tối đa</string>
     <string name="wifi_ap_no_hotspot_mode_warning">Điểm truy cập di động hiện đang được điều khiển bởi một ứng dụng khác. Để cấu hình nó, kết nối Điểm truy cập di động hiện tại sẽ bị ngắt.</string>
@@ -3489,6 +3490,7 @@ Nhận tin nhắn SMS"</string>
     <string name="no">Không</string>
     <string name="create">Tạo mới</string>
     <string name="allow">Cho phép</string>
+    <string name="dlg_close">Đóng</string>
     <string name="device_info_default">Không rõ</string>
     <string name="show_dev_on">Đã bật chế độ nhà phát triển.</string>
     <string name="show_dev_already">Không cần thiết, đã bật chế độ nhà phát triển</string>

@@ -69,7 +69,7 @@
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/nearby/AcceptListPreference;->setPositiveButtonText(I)V
 
-    const v0, 0x7f0b0423
+    const v0, 0x7f0b0424
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/nearby/AcceptListPreference;->setNegativeButtonText(I)V
 
@@ -293,7 +293,7 @@
 
     invoke-direct {v4, p0}, Lcom/samsung/android/settings/nearby/AcceptListPreference$3;-><init>(Lcom/samsung/android/settings/nearby/AcceptListPreference;)V
 
-    const v5, 0x7f0b042c
+    const v5, 0x7f0b042d
 
     invoke-virtual {v3, v5, v4}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

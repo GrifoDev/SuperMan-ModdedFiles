@@ -76,7 +76,7 @@
 
     iget-object v1, v1, Lcom/android/settings/fingerprint/RegisterFingerprint$21;->this$0:Lcom/android/settings/fingerprint/RegisterFingerprint;
 
-    const v2, 0x7f0b0700
+    const v2, 0x7f0b0701
 
     invoke-virtual {v1, v2}, Lcom/android/settings/fingerprint/RegisterFingerprint;->getString(I)Ljava/lang/String;
 
@@ -106,7 +106,7 @@
 
     iget-object v1, v1, Lcom/android/settings/fingerprint/RegisterFingerprint$21;->this$0:Lcom/android/settings/fingerprint/RegisterFingerprint;
 
-    const v2, 0x7f0b0710
+    const v2, 0x7f0b0711
 
     invoke-virtual {v1, v2}, Lcom/android/settings/fingerprint/RegisterFingerprint;->getString(I)Ljava/lang/String;
 

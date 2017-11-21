@@ -42,7 +42,7 @@
 
     iput-object p1, p0, Lcom/android/settings/PointerSpeedPreference;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0401bb
+    const v0, 0x7f0401bc
 
     invoke-virtual {p0, v0}, Lcom/android/settings/PointerSpeedPreference;->setLayoutResource(I)V
 
@@ -74,7 +74,7 @@
 
     iput-object p1, p0, Lcom/android/settings/PointerSpeedPreference;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0401bb
+    const v0, 0x7f0401bc
 
     invoke-virtual {p0, v0}, Lcom/android/settings/PointerSpeedPreference;->setLayoutResource(I)V
 

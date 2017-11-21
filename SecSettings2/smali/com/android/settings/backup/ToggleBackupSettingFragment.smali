@@ -100,7 +100,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b1737
+    const v2, 0x7f0b1738
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -123,7 +123,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b1735
+    const v2, 0x7f0b1736
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -158,7 +158,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b1736
+    const v2, 0x7f0b1737
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -285,7 +285,7 @@
 
     iget-object v1, p0, Lcom/android/settings/backup/ToggleBackupSettingFragment;->mSummaryPreference:Landroid/support/v7/preference/Preference;
 
-    const v2, 0x7f0402e6
+    const v2, 0x7f0402e7
 
     invoke-virtual {v1, v2}, Landroid/support/v7/preference/Preference;->setLayoutResource(I)V
 
@@ -427,7 +427,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b172d
+    const v4, 0x7f0b172e
 
     invoke-virtual {v3, v4}, Landroid/app/Activity;->setTitle(I)V
 
@@ -436,7 +436,7 @@
     :cond_0
     iget-object v3, p0, Lcom/android/settings/backup/ToggleBackupSettingFragment;->mSummaryPreference:Landroid/support/v7/preference/Preference;
 
-    const v4, 0x7f0b172e
+    const v4, 0x7f0b172f
 
     invoke-virtual {v3, v4}, Landroid/support/v7/preference/Preference;->setSummary(I)V
 

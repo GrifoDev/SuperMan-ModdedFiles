@@ -3483,7 +3483,7 @@
     <style name="Theme.Bluetooth.ActionBarStyle" parent="@style/Theme.ActionBar">
         <item name="android:titleTextStyle">@style/BluetoothActionBarStyle</item>
     </style>
-    <style name="FallbackHome" parent="@android:style/Theme.DeviceDefault.Light.NoActionBar">
+    <style name="FallbackHome" parent="@android:style/Theme.DeviceDefault.NoActionBar">
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowShowWallpaper">true</item>
@@ -3493,6 +3493,17 @@
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:statusBarColor">#00000000</item>
         <item name="android:navigationBarColor">#00000000</item>
+    </style>
+    <style name="FallbackHome.SetupWizard" parent="@android:style/Theme.Material.NoActionBar.Fullscreen">
+        <item name="android:windowBackground">@drawable/fallback_home_unprovisioned_background</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">#00000000</item>
+        <item name="android:navigationBarColor">#00000000</item>
+    </style>
+    <style name="FallbackHomeProgressBar" parent="@style/FallbackHome">
+        <item name="android:colorControlActivated">?android:textColorPrimary</item>
     </style>
     <style name="NfcTabWidgetTheme" parent="@style/Theme.Settings">
         <item name="android:tabWidgetStyle">@style/NfcTabWidgetStyle</item>

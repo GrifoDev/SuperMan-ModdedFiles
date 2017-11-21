@@ -314,7 +314,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/nfc/OtherSettings;->mInflater:Landroid/view/LayoutInflater;
 
-    const v2, 0x7f040192
+    const v2, 0x7f040193
 
     const/4 v3, 0x0
 
@@ -448,7 +448,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b187d
+    const v3, 0x7f0b187e
 
     const/4 v5, 0x0
 
@@ -599,7 +599,7 @@
 
     invoke-direct {v2, v3, v4}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;I)V
 
-    const v3, 0x7f0b1ba9
+    const v3, 0x7f0b1baa
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/nfc/OtherSettings;->getString(I)Ljava/lang/String;
 

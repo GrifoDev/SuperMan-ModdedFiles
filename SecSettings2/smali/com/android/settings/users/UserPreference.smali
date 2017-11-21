@@ -75,7 +75,7 @@
     if-eqz p4, :cond_1
 
     :cond_0
-    const v0, 0x7f040240
+    const v0, 0x7f040241
 
     invoke-virtual {p0, v0}, Lcom/android/settings/users/UserPreference;->setWidgetLayoutResource(I)V
 

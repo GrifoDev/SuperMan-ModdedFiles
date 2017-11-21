@@ -1406,7 +1406,7 @@
 
     const/4 v0, 0x1
 
-    const v1, 0x7f0b07eb
+    const v1, 0x7f0b07ec
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1443,7 +1443,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f040166
+    const v3, 0x7f040167
 
     const/4 v4, 0x0
 
@@ -1527,7 +1527,7 @@
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    const v3, 0x7f0b07ec
+    const v3, 0x7f0b07ed
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 

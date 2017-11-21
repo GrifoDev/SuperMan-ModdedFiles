@@ -2703,7 +2703,7 @@
 .method public onCreateOptionsMenu(Landroid/view/Menu;)Z
     .locals 4
 
-    const v3, 0x7f020506
+    const v3, 0x7f020507
 
     invoke-super {p0, p1}, Lcom/android/settings/InstrumentedActivity;->onCreateOptionsMenu(Landroid/view/Menu;)Z
 
@@ -2755,7 +2755,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/display/DisplayScalingActivity;->mSaveButton:Landroid/widget/Button;
 
-    const v2, 0x7f0b183c
+    const v2, 0x7f0b183d
 
     invoke-virtual {v1, v2}, Landroid/widget/Button;->setText(I)V
 

@@ -94,7 +94,7 @@
 
     invoke-virtual {v0, p1}, Landroid/telephony/SubscriptionManager;->setDefaultDataSubId(I)V
 
-    const v1, 0x7f0b18e8
+    const v1, 0x7f0b18e9
 
     const/4 v2, 0x1
 

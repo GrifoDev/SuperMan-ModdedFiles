@@ -342,7 +342,7 @@
 
     invoke-direct {v3, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v4, 0x7f0b15bd
+    const v4, 0x7f0b15be
 
     invoke-virtual {v3, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -352,7 +352,7 @@
 
     invoke-direct {v4, p0}, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment$1;-><init>(Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;)V
 
-    const v5, 0x7f0b15be
+    const v5, 0x7f0b15bf
 
     invoke-virtual {v3, v5, v4}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -370,7 +370,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f04014a
+    const v4, 0x7f04014b
 
     const/4 v5, 0x0
 

@@ -46,7 +46,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0400ee
+    const v1, 0x7f0400ef
 
     invoke-direct {p0, v0, v1}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;I)V
 

@@ -91,7 +91,7 @@
 
     invoke-direct {v6, v9}, Landroid/support/v7/preference/Preference;-><init>(Landroid/content/Context;)V
 
-    const v9, 0x7f040210
+    const v9, 0x7f040211
 
     invoke-virtual {v6, v9}, Landroid/support/v7/preference/Preference;->setLayoutResource(I)V
 
@@ -147,7 +147,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b1897
+    const v0, 0x7f0b1898
 
     return v0
 .end method

@@ -132,7 +132,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/ModePreviewAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v2, 0x7f0402f1
+    const v2, 0x7f0402f2
 
     invoke-virtual {v1, v2, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -183,7 +183,7 @@
     :cond_0
     iget-object v1, p0, Lcom/samsung/android/settings/ModePreviewAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v2, 0x7f04015f
+    const v2, 0x7f040160
 
     invoke-virtual {v1, v2, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 

@@ -108,7 +108,7 @@
 
     move-result-object v10
 
-    const v13, 0x7f0b1700
+    const v13, 0x7f0b1701
 
     invoke-virtual {v10, v13}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -151,7 +151,7 @@
 
     move-result-object v11
 
-    const v12, 0x7f0b1110
+    const v12, 0x7f0b1111
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -181,7 +181,7 @@
 
     move-result-object v10
 
-    const v13, 0x7f0b11de
+    const v13, 0x7f0b11df
 
     invoke-virtual {v10, v13}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -566,7 +566,7 @@
 
     invoke-direct {v1, v2, p0}, Lcom/android/settings/ChooseLockSettingsHelper;-><init>(Landroid/app/Activity;Landroid/app/Fragment;)V
 
-    const v2, 0x7f0b0b93
+    const v2, 0x7f0b0b94
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -637,7 +637,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b0b93
+    const v3, 0x7f0b0b94
 
     move-object v5, v4
 
@@ -735,7 +735,7 @@
     if-eqz v3, :cond_1
 
     :cond_0
-    const v3, 0x7f04018c
+    const v3, 0x7f04018d
 
     invoke-virtual {p1, v3, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -763,7 +763,7 @@
     return-object v2
 
     :cond_2
-    const v3, 0x7f040238
+    const v3, 0x7f040239
 
     invoke-virtual {p1, v3, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 

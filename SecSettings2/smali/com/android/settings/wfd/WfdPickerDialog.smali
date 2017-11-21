@@ -337,7 +337,7 @@
 
     invoke-direct {v1, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v5, 0x7f040318
+    const v5, 0x7f040319
 
     const/4 v6, 0x0
 
@@ -375,7 +375,7 @@
 
     iget-object v5, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mWfdTitle:Landroid/widget/TextView;
 
-    const v6, 0x7f0b0e3c
+    const v6, 0x7f0b0e3d
 
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(I)V
 
@@ -388,7 +388,7 @@
 
     invoke-direct {v5, p0}, Lcom/android/settings/wfd/WfdPickerDialog$1;-><init>(Lcom/android/settings/wfd/WfdPickerDialog;)V
 
-    const v6, 0x7f0b1105
+    const v6, 0x7f0b1106
 
     invoke-virtual {v1, v6, v5}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -398,7 +398,7 @@
 
     check-cast v5, Landroid/view/ViewGroup;
 
-    const v6, 0x7f040317
+    const v6, 0x7f040318
 
     invoke-virtual {v3, v6, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -453,7 +453,7 @@
     :cond_0
     iget-object v5, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mWfdTitle:Landroid/widget/TextView;
 
-    const v6, 0x7f0b0e3b
+    const v6, 0x7f0b0e3c
 
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(I)V
 

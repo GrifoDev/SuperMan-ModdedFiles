@@ -1054,7 +1054,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b18a5
+    const v0, 0x7f0b18a6
 
     return v0
 .end method
@@ -1418,7 +1418,7 @@
 
     move-object/from16 v32, v0
 
-    const v33, 0x7f0b19dc
+    const v33, 0x7f0b19dd
 
     invoke-virtual/range {v32 .. v33}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -1428,7 +1428,7 @@
 
     move-object/from16 v32, v0
 
-    const v33, 0x7f0b19dc
+    const v33, 0x7f0b19dd
 
     invoke-virtual/range {v32 .. v33}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -2092,7 +2092,7 @@
 
     move-object/from16 v32, v0
 
-    const v33, 0x7f0b0b5e
+    const v33, 0x7f0b0b5f
 
     invoke-virtual/range {v32 .. v33}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -3360,7 +3360,7 @@
 
     check-cast v17, Landroid/preference/PreferenceScreen;
 
-    const v32, 0x7f0b0ba6
+    const v32, 0x7f0b0ba7
 
     move-object/from16 v0, v17
 
@@ -3914,7 +3914,7 @@
 
     iget-object v15, v0, Lcom/samsung/android/settings/WirelessSettings;->mWifiApSettings:Landroid/preference/PreferenceScreen;
 
-    const v16, 0x7f0b0e1e
+    const v16, 0x7f0b0e1f
 
     invoke-virtual/range {v15 .. v16}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -4165,7 +4165,7 @@
 
     iget-object v15, v0, Lcom/samsung/android/settings/WirelessSettings;->mScreenSharingReady:Landroid/preference/PreferenceScreen;
 
-    const v16, 0x7f0b19dc
+    const v16, 0x7f0b19dd
 
     invoke-virtual/range {v15 .. v16}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -4203,7 +4203,7 @@
 
     if-eqz v15, :cond_17
 
-    const v15, 0x7f0b19db
+    const v15, 0x7f0b19dc
 
     :goto_6
     invoke-virtual {v10, v15}, Landroid/preference/PreferenceScreen;->setSummary(I)V
@@ -4278,7 +4278,7 @@
 
     iget-object v15, v0, Lcom/samsung/android/settings/WirelessSettings;->mWifiApSettings:Landroid/preference/PreferenceScreen;
 
-    const v16, 0x7f0b0e1f
+    const v16, 0x7f0b0e20
 
     invoke-virtual/range {v15 .. v16}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -4366,7 +4366,7 @@
     goto :goto_7
 
     :cond_17
-    const v15, 0x7f0b19dc
+    const v15, 0x7f0b19dd
 
     goto/16 :goto_6
 

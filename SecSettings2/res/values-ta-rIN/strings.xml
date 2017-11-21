@@ -892,6 +892,7 @@ Wi-Fi மற்றும் ப்ளூடூத் ஆகியவையும
     <string name="bluetooth_control_app_disable_summary">ப்ளூடூத் ஆஃப்பில்: %s</string>
     <string name="bluetooth_enter_pin_msg">%s உடன் இணைப்பதற்கு PIN உள்ளிடுக (0000 அல்லது 1234 முயற்சிக்கவும்).</string>
     <string name="bluetooth_pin_maximum_number_message">எழுத்துகளின் அதிகபட்ச எண்ணிக்கை அடையப்பட்டது.</string>
+    <string name="bluetooth_frp_permission_message">இந்த அழைப்பிற்காக ப்ளூடூத் சாதனத்தை பயன்படுத்த இயலாது.</string>
     <string name="settings_menu_done">முடிந்தது</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>
@@ -2971,7 +2972,7 @@ Downloading via mobile networks uses your data plan."</string>
     <string name="wifi_enable_warning_spr">Turning on Wi-Fi will disable Hotspot.</string>
     <string name="wifi_enable_warning_mtr">Turning on Wi-Fi will turn off Mobile Hotspot. Continue?</string>
     <string name="wifi_enable_warning_usc">Turning on Wi-Fi will turn off Portable Wi-Fi hotspot. Continue?</string>
-    <string name="wifi_enable_warning">Wi-Fi ஆன் செய்தால் மொபைல் ஹாட்ஸ்பாட் செயல்நீக்கப்படும்.</string>
+    <string name="wifi_enable_warning">மொபைல் ஹாட்ஸ்பாட் செயலில் இருக்கும் போது, Wi-Fi ஆஃப் செய்யப்படும். Wi-Fi-ஐ ஆன் செய்ய, மொபைல் ஹாட்ஸ்பாட்டை ஆஃப் செய்யவும்.</string>
     <string name="wifi_control_history_title">Wi-Fi கட்டுப்பாட்டு வரலாறு</string>
     <string name="wifi_control_history_description">மிகவும் சமீபத்தில் இந்தப் பயன்பாடுகள் Wi-Fi-ஐ ஆன் அல்லது ஆஃப் செய்துள்ளன.</string>
     <string name="wifi_control_history_sub_title">சமீபத்திய பயன்பாடுகள்</string>
@@ -2997,7 +2998,7 @@ Downloading via mobile networks uses your data plan."</string>
     <string name="wifi_ap_help_enable_msg_summary_vzw">Mobile Hotspot is turned on. Tap Configure to change your Mobile Hotspot settings.</string>
     <string name="wifi_ap_help_enable_msg_summary">Mobile Hotspot is enabled. To change the Mobile Hotspot configuration, tap MORE and select Configure Mobile Hotspot.</string>
     <string name="wifi_ap_turning_on">மொபைல் ஹாட்ஸ்பாட்டை செயல்படுத்துகிறது…</string>
-    <string name="wifi_ap_turning_off">மொபைல் ஹாட்ஸ்பாட்டை செயல்நீக்குகிறது…</string>
+    <string name="wifi_ap_turning_off">மொபைல் ஹாட்ஸ்பாட்டை அணைக்கிறது…</string>
     <string name="wifi_ap_password_dialog_title">கடவுச்சொல் மாற்றுக</string>
     <string name="wifi_ap_wifi_sharing_text">உங்கள் Wi-Fi நெட்வொர்க் பிற சாதனங்களுடன் பகிரப்படலாம். உங்கள் சாதனம் நீங்கள் சேமித்த Wi-Fi நெட்வொர்க்குகளுக்கு இடையே அறிவிப்பு ஏதுமின்றி மாறலாம். உங்கள் Wi-Fi வழங்குநரின் எல்லா விதிகள் மற்றும் நிபந்தனைகளுடனும் இணங்குவது உங்கள் பொறுப்பு.</string>
     <string name="wifi_ap__wifi_sharing_vzw">Wi-Fi Sharing</string>
@@ -3048,11 +3049,11 @@ After you start the Mobile Hotspot Wi-Fi router, connect using the controls on y
 You can create an allowed device profile and set the connection mode for it.
 
 Using Portable Wi-Fi hotspot consumes more battery power and increases your data usage."</string>
-    <string name="wifi_ap_instruction_changeable_maxclient">"மொபைல் ஹாட்ஸ்பாட் உபயோகித்து இணைய அணுகல் புள்ளியாக உங்கள் சாதனத்தை உபயோகிக்கலாம். இது, Wi-Fi வழியாக இணைப்பதற்கு %d பிற சாதனங்கள் வரை அனுமதிக்கிறது. இணைத்துள்ள சாதனங்கள், உங்கள் மொபைல் நெட்வொர்க் வழியாக இணையத்திற்க்கான அணுகலைக் கொண்டிருக்கும்.
+    <string name="wifi_ap_instruction_changeable_maxclient">"மொபைல் ஹாட்ஸ்பாட்டை பயன்படுத்தி இணைய அணுகல் புள்ளியாக உங்கள் சாதனத்தைப் பயன்படுத்தலாம். இது, Wi-Fi வழியாக இணைப்பதற்கு %d பிற சாதனங்கள் வரை அனுமதிக்கிறது. இணைத்துள்ள சாதனங்கள், உங்கள் மொபைல் நெட்வொர்க் வழியாக இணையத்திற்க்கான அணுகலைக் கொண்டிருக்கும்.
 
-அனுமதிக்கப்படுகிற சாதன ப்ரொஃபைலை உருவாக்கி அதற்கான இணைப்பு முறைமையை அமைக்கலாம்.
+அனுமதிக்கப்படுகிற சாதன ப்ரொஃபைலை உருவாக்கி அதற்கான இணைப்பு முறையை அமைக்கலாம்.
 
-மொபைல் ஹாட்ஸ்பாட் உபயோகிப்பதானது, பேட்டரி நுகர்வையும் தரவு உபயோகத்தையும் அதிகரிக்கிறது."</string>
+மொபைல் ஹாட்ஸ்பாட்டை பயன்படுத்துவது, மின்கல உபயோகத்தையும் தரவு உபயோகத்தையும் அதிகரிக்கும்."</string>
     <string name="wifi_ap_instruction_mtr">"Turn your phone into Portable Wi-Fi Hotspot so you can share your mobile data connection with other devices.
 
 To use your phone's Hotspot capability, you must have the Smartphone Mobile Hotspot service added to your rate plan.
@@ -3076,7 +3077,7 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_ap_wifi_off_warn_chn">Enabling Mobile hotspot will turn off WLAN.</string>
     <string name="wifi_ap_wifi_off_warn_att">Turning on portable Wi-Fi hotspot will turn off Wi-Fi.</string>
     <string name="wifi_ap_wifi_off_warn_mtr">Wi-Fi is turned off when USB tethering or Mobile Hotspot is active. To turn on Wi-Fi, please turn off USB tethering or Mobile Hotspot.</string>
-    <string name="wifi_ap_wifi_off_warn">மொபைல் ஹாட்ஸ்பாட்டை செயல்படுத்தினால் Wi-Fi அணைக்கப்படும்.</string>
+    <string name="wifi_ap_wifi_off_warn">மொபைல் ஹாட்ஸ்பாட்டைப் பயன்படுத்த, Wi-Fi அணைக்கப்பட வேண்டும்.</string>
     <string name="wifi_ap_wifi_off_warn_title_vzw">Mobile Hotspot and Wi-Fi</string>
     <string name="wifi_ap_wifi_off_warn_title">கவனம்</string>
     <string name="wifi_ap_smartview_off_warn_vzw">Mobile Hotspot and Smart View cannot be turned on at the same time. Smart View will be turned off.</string>
@@ -3101,7 +3102,7 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_ap_menu_configure_hotspot_spr">Configure Hotspot</string>
     <string name="wifi_ap_menu_configure_hotspot_tmo">மொபைல் ஹாட்ஸ்பாட் கட்டமைக்கவும்</string>
     <string name="wifi_ap_menu_configure_hotspot_att">மொபைல் ஹாட்ஸ்பாட் கட்டமைக்கவும்</string>
-    <string name="wifi_ap_menu_configure_hotspot">மொபைல் ஹாட்ஸ்பாட்டை உள்ளமை</string>
+    <string name="wifi_ap_menu_configure_hotspot">மொபைல் ஹாட்ஸ்பாட்டை கட்டமைக்கவும்</string>
     <string name="wifi_ap_menu_timeout">நேரமுடிவு அமைவுகள்</string>
     <string name="wifi_ap_menu_allow_devices">அனுமதிக்கப்பட்ட சாதனங்கள்</string>
     <string name="wifi_ap_timeout_message_vzw">Disable Mobile Hotspot if there is no connection for</string>
@@ -3174,13 +3175,13 @@ Wi-Fi is now on."</string>
     <string name="wifi_tether_dialog_nosim_warning_title_tmo">மொபைல் ஹாட்ஸ்பாட்</string>
     <string name="wifi_tether_dialog_nosim_warning_title_spr">Hotspot</string>
     <string name="wifi_tether_dialog_nosim_warning_title_att">மொபைல் ஹாட்ஸ்பாட்</string>
-    <string name="wifi_tether_dialog_nosim_warning_title">மொபைல் ஹாட்ஸ்பாட்</string>
+    <string name="wifi_tether_dialog_nosim_warning_title">SIM இல்லை</string>
     <string name="wifi_tether_dialog_nosim_warning_chn">Insert a SIM card to use Mobile hotspot and other tethering functions.</string>
     <string name="wifi_tether_dialog_nosim_warning_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
     <string name="wifi_tether_dialog_nosim_warning_tmo">"Please install SIM card in order to share your phone's data connection with other devices using Mobile Wi-Fi HotSpot or USB tethering for Internet access."</string>
     <string name="wifi_tether_dialog_nosim_warning_spr">Insert SIM for using Hotspot include tethering</string>
     <string name="wifi_tether_dialog_nosim_warning_usc">மொபைல் ஹாட்ஸ்பாட்டைப் பயன்படுத்தவும், பிற டித்தரிங் அம்சங்களைப் பயன்படுத்தவும் SIM அட்டை உள்ளிடவும்.</string>
-    <string name="wifi_tether_dialog_nosim_warning">மொபைல் ஹாட்ஸ்பாட்டைப் பயன்படுத்தவும், பிற டித்தரிங் அம்சங்களைப் பயன்படுத்தவும் SIM அட்டை உள்ளிடவும்.</string>
+    <string name="wifi_tether_dialog_nosim_warning">மொபைல் ஹாட்ஸ்பாட் மற்றும் பிற டித்தரிங் தெரிவுகளைப் பயன்படுத்த, SIM அட்டையை நுழைக்கவும்.</string>
     <string name="mobileap_tmo">மொபைல் ஹாட்ஸ்பாட்</string>
     <string name="mobileap_spr">Hotspot</string>
     <string name="mobileap_att">மொபைல் ஹாட்ஸ்பாட்</string>
@@ -3247,16 +3248,16 @@ Wi-Fi is now on."</string>
     <string name="wifi_ap_instruction_activate_color_hidden3_tmo">Connect to &lt;font color=\"%1$s\">%2$s&lt;/font> by entering &lt;font color=\"%1$s\">%3$s&lt;/font> as the password.</string>
     <string name="wifi_ap_instruction_activate_color_hidden3">கடவுச்சொல்லாக &lt;font color=\"%1$s\">%3$s&lt;/font> என்பதை உள்ளிடுவதன் மூலம் &lt;font color=\"%1$s\">%2$s&lt;/font> உடன் இணைக்கவும்.</string>
     <string name="wifi_ap_instruction_activate_color_hidden4_tmo">Enjoy the internet using your personal Mobile HotSpot.</string>
-    <string name="wifi_ap_instruction_no_maxclient">"மொபைல் ஹாட்ஸ்பாட் உபயோகித்து இணைய அணுகல் புள்ளியாக உங்கள் சாதனத்தை உபயோகிக்கலாம். இது, Wi-Fi வழியாக இணைப்பதற்கு பிற சாதனங்கள் வரை அனுமதிக்கிறது. இணைத்துள்ள சாதனங்கள், உங்கள் மொபைல் நெட்வொர்க் வழியாக இணையத்திற்க்கான அணுகலைக் கொண்டிருக்கும்.
+    <string name="wifi_ap_instruction_no_maxclient">"மொபைல் ஹாட்ஸ்பாட்டை பயன்படுத்தி இணைய அணுகல் புள்ளியாக உங்கள் சாதனத்தைப் பயன்படுத்தலாம். இது, Wi-Fi வழியாக இணைப்பதற்கு பிற சாதனங்களை அனுமதிக்கிறது. இணைத்துள்ள சாதனங்கள், உங்கள் மொபைல் நெட்வொர்க் வழியாக இணையத்திற்க்கான அணுகலைக் கொண்டிருக்கும்.
 
-அனுமதிக்கப்படுகிற சாதன ப்ரொஃபைலை உருவாக்கி அதற்கான இணைப்பு முறைமையை அமைக்கலாம்.
+அனுமதிக்கப்படுகிற சாதன ப்ரொஃபைலை உருவாக்கி அதற்கான இணைப்பு முறையை அமைக்கலாம்.
 
-மொபைல் ஹாட்ஸ்பாட் உபயோகிப்பதானது, மின்கல நுகர்வையும் தரவு உபயோகத்தையும் அதிகரிக்கிறது."</string>
+மொபைல் ஹாட்ஸ்பாட்டை பயன்படுத்துவது, மின்கல உபயோகத்தையும் தரவு உபயோகத்தையும் அதிகரிக்கும்."</string>
     <string name="wifi_ap_instruction_configure_vzw">To change the Mobile Hotspot configuration, go to Settings > Mobile Hotspot and tethering > Mobile Hotspot > MORE, then select Configure Mobile Hotspot.</string>
     <string name="wifi_ap_instruction_configure_tmo">To change the Mobile HotSpot configuration, tap the More options button, then select Configure Mobile HotSpot.</string>
-    <string name="wifi_ap_instruction_configure">மொபைல் ஹாட்ஸ்பாட் கட்டமைப்பை மாற்ற, மேலும் தெரிவுகள் பொத்தானை டேப் செய்து மொபைல் ஹாட்ஸ்பாட்டை கட்டமைக்கவும் என்பதைத் தேர்வுசெய்யவும்.</string>
+    <string name="wifi_ap_instruction_configure">மொபைல் ஹாட்ஸ்பாட் கட்டமைப்பை மாற்ற, மேலும் தெரிவுகள் பொத்தானை டேப் செய்து, மொபைல் ஹாட்ஸ்பாட்டை கட்டமைக்கவும் என்பதைத் தேர்வுசெய்யவும்.</string>
     <string name="wifi_ap_instruction_configure_non_grace_tmo">To change the Mobile HotSpot configuration, tap MORE, then select Configure Mobile HotSpot.</string>
-    <string name="wifi_ap_instruction_configure_non_grace">மொபைல் ஹாட்ஸ்பாட் கட்டமைப்பை மாற்ற, “மேலும்” என்பதை டேப் செய்து, மொபைல் ஹாட்ஸ்பாட் உள்ளமை என்பதை தேர்வுசெய்யவும்.</string>
+    <string name="wifi_ap_instruction_configure_non_grace">மொபைல் ஹாட்ஸ்பாட் கட்டமைப்பை மாற்ற, “மேலும்” என்பதை டேப் செய்து, “மொபைல் ஹாட்ஸ்பாட்டை கட்டமைக்கவும்” என்பதைத் தேர்வுசெய்யவும்.</string>
     <string name="wifi_ap_change_security">Change Security</string>
     <string name="wifi_ap_maxclient">அதிகபட்ச இணைப்புகள்</string>
     <string name="wifi_ap_no_hotspot_mode_warning">மொபைல் ஹாட்ஸ்பாட் தற்போது மற்றொரு பயன்பாட்டால் கட்டுப்படுத்தப்படுகிறது. அதை உள்ளமைக்க, தற்போதைய மொபைல் ஹாட்ஸ்பாட் இணைப்பு முடிக்கப்படும்.</string>
@@ -3489,6 +3490,7 @@ Receiving SMS"</string>
     <string name="no">இல்லை</string>
     <string name="create">உரு.</string>
     <string name="allow">அனுமதி</string>
+    <string name="dlg_close">மூடவும்</string>
     <string name="device_info_default">தெரியாத</string>
     <string name="show_dev_on">டெவலப்பர் முறை செயல்படுத்தப்பட்டுள்ளது.</string>
     <string name="show_dev_already">வேண்டாம், டெவலப்பர் முறைமை ஏற்கனவே செயல்படுத்தப்பட்டுள்ளது.</string>

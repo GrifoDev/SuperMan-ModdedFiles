@@ -89,7 +89,7 @@
     <string name="tether_settings_title_wifi">Prenosný prístupový bod</string>
     <string name="tether_settings_title_bluetooth">Zdieľanie pripojenia Bluetooth</string>
     <string name="tether_settings_title_usb_bluetooth">Zdieľanie pripojenia</string>
-    <string name="tether_settings_title_all">Zdieľanie pripojenia</string>
+    <string name="tether_settings_title_all">Mobilný bod a zdieľanie pripoj.</string>
     <string name="managed_user_title">Všetky pracovné aplikácie</string>
     <string name="user_guest">Hosť</string>
     <string name="unknown">Neznáme</string>
@@ -892,6 +892,7 @@ Môžete to neskôr zmeniť v menu Nastavenia rozhrania Bluetooth."</string>
     <string name="bluetooth_control_app_disable_summary">Vypnutý Bluetooth: %s</string>
     <string name="bluetooth_enter_pin_msg">Zadajte PIN na spárovanie so zariadením %s (skúste 0000 alebo 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">Dosiahol sa maximálny počet znakov.</string>
+    <string name="bluetooth_frp_permission_message">Pre tento hovor nemôže použiť zariadenie Bluetooth.</string>
     <string name="settings_menu_done">Hotovo</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>
@@ -2971,7 +2972,7 @@ Sťahovanie cez mobilné siete môže mať za následok ďalšie poplatky v záv
     <string name="wifi_enable_warning_spr">Turning on Wi-Fi will disable Hotspot.</string>
     <string name="wifi_enable_warning_mtr">Turning on Wi-Fi will turn off Mobile Hotspot. Continue?</string>
     <string name="wifi_enable_warning_usc">Turning on Wi-Fi will turn off Portable Wi-Fi hotspot. Continue?</string>
-    <string name="wifi_enable_warning">Zapnutím pripojenia Wi-Fi sa vypne mobilný prístupový bod.</string>
+    <string name="wifi_enable_warning">Keď sa aktivuje funkcia Mobilný prístupový bod, funkcia Wi-Fi sa vypne. Ak chcete zapnúť funkciu Wi-Fi, vypnite funkciu Mobilný prístupový bod.</string>
     <string name="wifi_control_history_title">História ovládania pripojenia Wi-Fi</string>
     <string name="wifi_control_history_description">Aplikácie uvedené nižšie nedávno zapli alebo vypli Wi-Fi.</string>
     <string name="wifi_control_history_sub_title">Nedávne aplikácie</string>
@@ -3048,7 +3049,7 @@ After you start the Mobile Hotspot Wi-Fi router, connect using the controls on y
 You can create an allowed device profile and set the connection mode for it.
 
 Using Portable Wi-Fi hotspot consumes more battery power and increases your data usage."</string>
-    <string name="wifi_ap_instruction_changeable_maxclient">"Použitím funkcie mobilného prístupového bodu môžete zariadenie použiť ako internetový prístupový bod. To umožňuje až %d zariadeniam pripojiť sa k nemu cez sieť Wi-Fi. Pripojené zariadenia budú mať prístup na internet cez vašu mobilnú sieť.
+    <string name="wifi_ap_instruction_changeable_maxclient">"Použitím mobilného prístupového bodu môžete zariadenie použiť ako internetový prístupový bod. To umožňuje až %d zariadeniam pripojiť sa k nemu cez sieť Wi-Fi. Pripojené zariadenia budú mať prístup na internet cez vašu mobilnú sieť.
 
 Môžete vytvoriť profil povolených zariadení a nastaviť preň režim pripojenia.
 
@@ -3076,7 +3077,7 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_ap_wifi_off_warn_chn">Enabling Mobile hotspot will turn off WLAN.</string>
     <string name="wifi_ap_wifi_off_warn_att">Turning on portable Wi-Fi hotspot will turn off Wi-Fi.</string>
     <string name="wifi_ap_wifi_off_warn_mtr">Wi-Fi is turned off when USB tethering or Mobile Hotspot is active. To turn on Wi-Fi, please turn off USB tethering or Mobile Hotspot.</string>
-    <string name="wifi_ap_wifi_off_warn">Zapnutím mobilného prístupového bodu sa vypne Wi-Fi.</string>
+    <string name="wifi_ap_wifi_off_warn">Pred použitím funkcie Mobilný prístupový bod sa musí vypnúť funkcia Wi-Fi.</string>
     <string name="wifi_ap_wifi_off_warn_title_vzw">Mobile Hotspot and Wi-Fi</string>
     <string name="wifi_ap_wifi_off_warn_title">Pozor</string>
     <string name="wifi_ap_smartview_off_warn_vzw">Mobile Hotspot and Smart View cannot be turned on at the same time. Smart View will be turned off.</string>
@@ -3101,7 +3102,7 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_ap_menu_configure_hotspot_spr">Configure Hotspot</string>
     <string name="wifi_ap_menu_configure_hotspot_tmo">Konfig. mobilný prístupový bod</string>
     <string name="wifi_ap_menu_configure_hotspot_att">Konfig. mobilný prístupový bod</string>
-    <string name="wifi_ap_menu_configure_hotspot">Konfigurovať APN</string>
+    <string name="wifi_ap_menu_configure_hotspot">Mobilný prístupový bod – konfigurácia</string>
     <string name="wifi_ap_menu_timeout">Časový limit</string>
     <string name="wifi_ap_menu_allow_devices">﻿Povolené zariadenia</string>
     <string name="wifi_ap_timeout_message_vzw">Disable Mobile Hotspot if there is no connection for</string>
@@ -3174,13 +3175,13 @@ Wi-Fi is now on."</string>
     <string name="wifi_tether_dialog_nosim_warning_title_tmo">Mobile Hotspot</string>
     <string name="wifi_tether_dialog_nosim_warning_title_spr">Hotspot</string>
     <string name="wifi_tether_dialog_nosim_warning_title_att">Mobile Hotspot</string>
-    <string name="wifi_tether_dialog_nosim_warning_title">Mobilný prístupový bod</string>
+    <string name="wifi_tether_dialog_nosim_warning_title">Žiadna karta SIM</string>
     <string name="wifi_tether_dialog_nosim_warning_chn">Insert a SIM card to use Mobile hotspot and other tethering functions.</string>
     <string name="wifi_tether_dialog_nosim_warning_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
     <string name="wifi_tether_dialog_nosim_warning_tmo">"Please install SIM card in order to share your phone's data connection with other devices using Mobile Wi-Fi HotSpot or USB tethering for Internet access."</string>
     <string name="wifi_tether_dialog_nosim_warning_spr">Insert SIM for using Hotspot include tethering</string>
     <string name="wifi_tether_dialog_nosim_warning_usc">Vložte kartu SIM na používanie funkcie Mobilného prístupového bodu a ďalších funkcií zdieľania pripojenia.</string>
-    <string name="wifi_tether_dialog_nosim_warning">Vložte kartu SIM na používanie funkcie Mobilného prístupového bodu a ďalších funkcií zdieľania pripojenia.</string>
+    <string name="wifi_tether_dialog_nosim_warning">Pred použitím funkcie Mobilný prístupový bod a ďalších možností zdieľania pripojenia musíte vložiť kartu SIM.</string>
     <string name="mobileap_tmo">Mobile Hotspot</string>
     <string name="mobileap_spr">Hotspot</string>
     <string name="mobileap_att">Mobile Hotspot</string>
@@ -3247,11 +3248,11 @@ Wi-Fi is now on."</string>
     <string name="wifi_ap_instruction_activate_color_hidden3_tmo">Connect to &lt;font color=\"%1$s\">%2$s&lt;/font> by entering &lt;font color=\"%1$s\">%3$s&lt;/font> as the password.</string>
     <string name="wifi_ap_instruction_activate_color_hidden3">Pripojte sa k sieti &lt;font color=\"%1$s\">%2$s&lt;/font> zadaním hesla &lt;font color=\"%1$s\">%3$s&lt;/font>.</string>
     <string name="wifi_ap_instruction_activate_color_hidden4_tmo">Enjoy the internet using your personal Mobile HotSpot.</string>
-    <string name="wifi_ap_instruction_no_maxclient">"Použitím funkcie Mobilný prístupový bod môžete zariadenie použiť ako internetový prístupový bod. To umožňuje ostatným zariadeniam pripojiť sa k nemu cez sieť Wi-Fi. Pripojené zariadenia budú mať prístup na internet cez vašu mobilnú sieť.
+    <string name="wifi_ap_instruction_no_maxclient">"Použitím mobilného prístupového bodu môžete zariadenie použiť ako internetový prístupový bod. To umožňuje ostatným zariadeniam pripojiť sa k nemu cez sieť Wi-Fi. Pripojené zariadenia budú mať prístup na internet cez vašu mobilnú sieť.
 
 Môžete vytvoriť profil povolených zariadení a nastaviť preň režim pripojenia.
 
-Používanie funkcie Mobilný prístupový bod zvyšuje vybíjanie batérie a spotrebu dát."</string>
+Používanie mobilného prístupového bodu zvyšuje vybíjanie batérie a spotrebu dát."</string>
     <string name="wifi_ap_instruction_configure_vzw">To change the Mobile Hotspot configuration, go to Settings > Mobile Hotspot and tethering > Mobile Hotspot > MORE, then select Configure Mobile Hotspot.</string>
     <string name="wifi_ap_instruction_configure_tmo">To change the Mobile HotSpot configuration, tap the More options button, then select Configure Mobile HotSpot.</string>
     <string name="wifi_ap_instruction_configure">Ak chcete zmeniť konfiguráciu mobilného prístupového bodu, ťuknite na tlačidlo Ďalšie možnosti a potom vyberte položku Konfigurovať mobilný prístupový bod.</string>
@@ -3489,6 +3490,7 @@ Receiving SMS"</string>
     <string name="no">Nie</string>
     <string name="create">Vytv.</string>
     <string name="allow">Povoliť</string>
+    <string name="dlg_close">Zavrieť</string>
     <string name="device_info_default">Neznáme</string>
     <string name="show_dev_on">Vývojársky režim bol zapnutý.</string>
     <string name="show_dev_already">Netreba, vývojársky režim už bol zapnutý</string>

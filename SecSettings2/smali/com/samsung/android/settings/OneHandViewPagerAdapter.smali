@@ -80,11 +80,11 @@
 
     iput-object v2, v0, Lcom/samsung/android/settings/OneHandViewPagerAdapter$Description;->key:Ljava/lang/String;
 
-    const v2, 0x7f02037a
+    const v2, 0x7f02037b
 
     iput v2, v0, Lcom/samsung/android/settings/OneHandViewPagerAdapter$Description;->animation:I
 
-    const v2, 0x7f0b0b67
+    const v2, 0x7f0b0b68
 
     iput v2, v0, Lcom/samsung/android/settings/OneHandViewPagerAdapter$Description;->summary:I
 
@@ -100,13 +100,13 @@
 
     iput-object v2, v0, Lcom/samsung/android/settings/OneHandViewPagerAdapter$Description;->key:Ljava/lang/String;
 
-    const v2, 0x7f020379
+    const v2, 0x7f02037a
 
     iput v2, v0, Lcom/samsung/android/settings/OneHandViewPagerAdapter$Description;->animation:I
 
     if-eqz v1, :cond_0
 
-    const v2, 0x7f0b0b68
+    const v2, 0x7f0b0b69
 
     iput v2, v0, Lcom/samsung/android/settings/OneHandViewPagerAdapter$Description;->summary:I
 
@@ -118,7 +118,7 @@
     return-void
 
     :cond_0
-    const v2, 0x7f0b0b69
+    const v2, 0x7f0b0b6a
 
     iput v2, v0, Lcom/samsung/android/settings/OneHandViewPagerAdapter$Description;->summary:I
 
@@ -235,7 +235,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/OneHandViewPagerAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v6, 0x7f0401b1
+    const v6, 0x7f0401b2
 
     invoke-virtual {v5, v6, v9}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 

@@ -305,7 +305,7 @@
     :cond_7
     iget-object v8, p0, Lcom/samsung/android/settings/spen/DirectPenInputSettings$2;->this$0:Lcom/samsung/android/settings/spen/DirectPenInputSettings;
 
-    const v9, 0x7f0b0bfa
+    const v9, 0x7f0b0bfb
 
     invoke-virtual {v8, v9}, Lcom/samsung/android/settings/spen/DirectPenInputSettings;->getString(I)Ljava/lang/String;
 
@@ -435,7 +435,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b1603
+    const v10, 0x7f0b1604
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

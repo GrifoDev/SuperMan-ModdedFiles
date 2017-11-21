@@ -576,7 +576,7 @@
 
     aput-object v1, v3, v4
 
-    const v4, 0x7f0b19e1
+    const v4, 0x7f0b19e2
 
     invoke-virtual {p0, v4, v3}, Lcom/android/settings/accounts/AccountSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -633,15 +633,15 @@
 
     invoke-direct {v0, v1}, Lcom/android/settings/DimmableIconPreference;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0b1775
+    const v1, 0x7f0b1776
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DimmableIconPreference;->setTitle(I)V
 
-    const v1, 0x7f0204ea
+    const v1, 0x7f0204eb
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DimmableIconPreference;->setIcon(I)V
 
-    const v1, 0x7f0402f0
+    const v1, 0x7f0402f1
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DimmableIconPreference;->setLayoutResource(I)V
 
@@ -665,7 +665,7 @@
 
     invoke-direct {v1, v2}, Landroid/preference/Preference;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0b1b56
+    const v2, 0x7f0b1b57
 
     invoke-virtual {v1, v2}, Landroid/preference/Preference;->setTitle(I)V
 
@@ -673,7 +673,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f02047f
+    const v3, 0x7f020480
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -695,7 +695,7 @@
 
     invoke-virtual {v1, v0}, Landroid/preference/Preference;->setIcon(Landroid/graphics/drawable/Drawable;)V
 
-    const v2, 0x7f0402f0
+    const v2, 0x7f0402f1
 
     invoke-virtual {v1, v2}, Landroid/preference/Preference;->setLayoutResource(I)V
 
@@ -719,15 +719,15 @@
 
     invoke-direct {v0, v1}, Landroid/preference/Preference;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0b1779
+    const v1, 0x7f0b177a
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setTitle(I)V
 
-    const v1, 0x7f0204ed
+    const v1, 0x7f0204ee
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setIcon(I)V
 
-    const v1, 0x7f0402f0
+    const v1, 0x7f0402f1
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setLayoutResource(I)V
 
@@ -885,7 +885,7 @@
 
     iget-object v3, p0, Lcom/android/settings/accounts/AccountSettings;->mProfileNotAvailablePreference:Landroid/preference/Preference;
 
-    const v4, 0x7f0b1776
+    const v4, 0x7f0b1777
 
     invoke-virtual {v3, v4}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -935,7 +935,7 @@
 
     iget-object v3, v1, Lcom/android/settings/accounts/AccountSettings$ProfileData;->preferenceGroup:Landroid/preference/PreferenceGroup;
 
-    const v4, 0x7f040371
+    const v4, 0x7f040372
 
     invoke-virtual {v3, v4}, Landroid/preference/PreferenceGroup;->setLayoutResource(I)V
 
@@ -963,7 +963,7 @@
 
     aput-object v2, v4, v5
 
-    const v5, 0x7f0b1339
+    const v5, 0x7f0b133a
 
     invoke-virtual {p0, v5, v4}, Lcom/android/settings/accounts/AccountSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1079,7 +1079,7 @@
 
     check-cast v3, Lcom/android/settings/AccessiblePreferenceCategory;
 
-    const v4, 0x7f0b133a
+    const v4, 0x7f0b133b
 
     invoke-virtual {p0, v4}, Lcom/android/settings/accounts/AccountSettings;->getString(I)Ljava/lang/String;
 
@@ -1457,7 +1457,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b1b56
+    const v3, 0x7f0b1b57
 
     move-object v5, v4
 
@@ -1595,7 +1595,7 @@
 
     if-eqz v4, :cond_1
 
-    const v4, 0x7f0b17dc
+    const v4, 0x7f0b17dd
 
     :goto_3
     invoke-interface {v2, v4}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
@@ -1609,7 +1609,7 @@
     goto :goto_0
 
     :cond_1
-    const v4, 0x7f0b17da
+    const v4, 0x7f0b17db
 
     goto :goto_3
 

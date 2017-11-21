@@ -346,7 +346,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b0675
+    const v7, 0x7f0b0676
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -365,7 +365,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b0754
+    const v7, 0x7f0b0755
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1069,7 +1069,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b11a0
+    const v4, 0x7f0b11a1
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1085,7 +1085,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b11a1
+    const v4, 0x7f0b11a2
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1160,7 +1160,7 @@
     goto :goto_2
 
     :sswitch_1
-    const v3, 0x7f0b0839
+    const v3, 0x7f0b083a
 
     invoke-direct {p0, v3, v0, v1}, Lcom/samsung/android/settings/accessibility/directionlock/DirectionLockSettingsHelper;->getBiometricsSummary(IZZ)Ljava/lang/String;
 
@@ -1169,7 +1169,7 @@
     goto :goto_0
 
     :sswitch_2
-    const v3, 0x7f0b1194
+    const v3, 0x7f0b1195
 
     invoke-direct {p0, v3, v0, v1}, Lcom/samsung/android/settings/accessibility/directionlock/DirectionLockSettingsHelper;->getBiometricsSummary(IZZ)Ljava/lang/String;
 
@@ -1178,7 +1178,7 @@
     goto :goto_0
 
     :sswitch_3
-    const v3, 0x7f0b1196
+    const v3, 0x7f0b1197
 
     invoke-direct {p0, v3, v0, v1}, Lcom/samsung/android/settings/accessibility/directionlock/DirectionLockSettingsHelper;->getBiometricsSummary(IZZ)Ljava/lang/String;
 
@@ -1187,7 +1187,7 @@
     goto :goto_0
 
     :sswitch_4
-    const v3, 0x7f0b1198
+    const v3, 0x7f0b1199
 
     invoke-direct {p0, v3, v0, v1}, Lcom/samsung/android/settings/accessibility/directionlock/DirectionLockSettingsHelper;->getBiometricsSummary(IZZ)Ljava/lang/String;
 
@@ -1196,7 +1196,7 @@
     goto :goto_0
 
     :sswitch_5
-    const v3, 0x7f0b082c
+    const v3, 0x7f0b082d
 
     invoke-direct {p0, v3, v0, v1}, Lcom/samsung/android/settings/accessibility/directionlock/DirectionLockSettingsHelper;->getBiometricsSummary(IZZ)Ljava/lang/String;
 

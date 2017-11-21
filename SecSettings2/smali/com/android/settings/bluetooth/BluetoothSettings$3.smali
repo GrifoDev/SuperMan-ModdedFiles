@@ -37,7 +37,7 @@
 .method public onClick(Landroid/view/View;)V
     .locals 8
 
-    const v3, 0x7f0b1210
+    const v3, 0x7f0b1211
 
     const/4 v6, 0x0
 

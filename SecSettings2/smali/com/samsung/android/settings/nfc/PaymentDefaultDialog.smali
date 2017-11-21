@@ -266,7 +266,7 @@
 
     if-nez v1, :cond_8
 
-    const v9, 0x7f0b188c
+    const v9, 0x7f0b188d
 
     invoke-virtual {p0, v9}, Lcom/samsung/android/settings/nfc/PaymentDefaultDialog;->getString(I)Ljava/lang/String;
 
@@ -292,7 +292,7 @@
 
     iput-object v3, v4, Lcom/android/internal/app/AlertController$AlertParams;->mMessage:Ljava/lang/CharSequence;
 
-    const v9, 0x7f0b188b
+    const v9, 0x7f0b188c
 
     invoke-virtual {p0, v9}, Lcom/samsung/android/settings/nfc/PaymentDefaultDialog;->getString(I)Ljava/lang/String;
 
@@ -300,7 +300,7 @@
 
     iput-object v9, v4, Lcom/android/internal/app/AlertController$AlertParams;->mTitle:Ljava/lang/CharSequence;
 
-    const v9, 0x7f0b042c
+    const v9, 0x7f0b042d
 
     invoke-virtual {p0, v9}, Lcom/samsung/android/settings/nfc/PaymentDefaultDialog;->getString(I)Ljava/lang/String;
 
@@ -309,7 +309,7 @@
     iput-object v9, v4, Lcom/android/internal/app/AlertController$AlertParams;->mPositiveButtonText:Ljava/lang/CharSequence;
 
     :goto_1
-    const v9, 0x7f0b102d
+    const v9, 0x7f0b102e
 
     invoke-virtual {p0, v9}, Lcom/samsung/android/settings/nfc/PaymentDefaultDialog;->getString(I)Ljava/lang/String;
 
@@ -326,7 +326,7 @@
     return v11
 
     :cond_8
-    const v9, 0x7f0b188d
+    const v9, 0x7f0b188e
 
     invoke-virtual {p0, v9}, Lcom/samsung/android/settings/nfc/PaymentDefaultDialog;->getString(I)Ljava/lang/String;
 
@@ -366,7 +366,7 @@
 
     iput-object v3, v4, Lcom/android/internal/app/AlertController$AlertParams;->mMessage:Ljava/lang/CharSequence;
 
-    const v9, 0x7f0b0956
+    const v9, 0x7f0b0957
 
     invoke-virtual {p0, v9}, Lcom/samsung/android/settings/nfc/PaymentDefaultDialog;->getString(I)Ljava/lang/String;
 
@@ -374,7 +374,7 @@
 
     iput-object v9, v4, Lcom/android/internal/app/AlertController$AlertParams;->mTitle:Ljava/lang/CharSequence;
 
-    const v9, 0x7f0b0957
+    const v9, 0x7f0b0958
 
     invoke-virtual {p0, v9}, Lcom/samsung/android/settings/nfc/PaymentDefaultDialog;->getString(I)Ljava/lang/String;
 

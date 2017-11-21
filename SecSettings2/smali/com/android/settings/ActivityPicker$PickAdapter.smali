@@ -109,7 +109,7 @@
 
     iget-object v2, p0, Lcom/android/settings/ActivityPicker$PickAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v3, 0x7f0401ba
+    const v3, 0x7f0401bb
 
     const/4 v4, 0x0
 

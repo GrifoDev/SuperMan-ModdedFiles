@@ -89,7 +89,7 @@
 
     aput-object v3, v2, v4
 
-    const v3, 0x7f0b043d
+    const v3, 0x7f0b043e
 
     invoke-virtual {v1, v3, v2}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -111,7 +111,7 @@
 
     invoke-direct {v2, p0}, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler$1;-><init>(Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler;)V
 
-    const v3, 0x7f0b151b
+    const v3, 0x7f0b151c
 
     invoke-virtual {v1, v3, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

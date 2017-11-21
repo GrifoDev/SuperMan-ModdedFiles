@@ -787,7 +787,7 @@
 
     const v4, 0x7f11062f
 
-    const v3, 0x7f020353
+    const v3, 0x7f020354
 
     const/4 v2, -0x1
 
@@ -2792,7 +2792,7 @@
 .method private InitUI()V
     .locals 4
 
-    const v3, 0x7f04027a
+    const v3, 0x7f04027b
 
     invoke-direct {p0}, Lcom/samsung/android/settings/accessibility/assistantmenu/SettingsMenuEditorFragment;->GetWindowSize()V
 
@@ -5408,7 +5408,7 @@
 .method public onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
     .locals 2
 
-    const v0, 0x7f0b0427
+    const v0, 0x7f0b0428
 
     invoke-interface {p1, v0}, Landroid/view/Menu;->add(I)Landroid/view/MenuItem;
 
@@ -5434,7 +5434,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/accessibility/assistantmenu/SettingsMenuEditorFragment;->frag_Act:Landroid/app/Activity;
 
-    const v0, 0x7f040279
+    const v0, 0x7f04027a
 
     const/4 v1, 0x0
 

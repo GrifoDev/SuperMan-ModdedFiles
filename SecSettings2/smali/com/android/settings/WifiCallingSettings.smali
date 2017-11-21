@@ -296,7 +296,7 @@
 
     iget-object v1, p0, Lcom/android/settings/WifiCallingSettings;->mEmptyView:Landroid/widget/TextView;
 
-    const v2, 0x7f0b130c
+    const v2, 0x7f0b130d
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 

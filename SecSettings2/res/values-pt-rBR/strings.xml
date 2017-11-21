@@ -89,7 +89,7 @@
     <string name="tether_settings_title_wifi">Roteador Wi-Fi</string>
     <string name="tether_settings_title_bluetooth">Ancoragem Bluetooth</string>
     <string name="tether_settings_title_usb_bluetooth">Ancoragem</string>
-    <string name="tether_settings_title_all">Ancoragem e Roteador Wi-Fi</string>
+    <string name="tether_settings_title_all">Roteador Wi-Fi e Ancoragem</string>
     <string name="managed_user_title">Todos os apps de trabalho</string>
     <string name="user_guest">Convidado</string>
     <string name="unknown">Desconhecido</string>
@@ -892,6 +892,7 @@ Os dados de aplicativos podem incluir informações pessoais, como contatos, men
     <string name="bluetooth_control_app_disable_summary">Bluetooth desativado: %s</string>
     <string name="bluetooth_enter_pin_msg">Insira o PIN para parear com %s (tente 0000 ou 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">Número máximo de caracteres atingido.</string>
+    <string name="bluetooth_frp_permission_message">Não é possível usar um aparelho Bluetooth para esta chamada.</string>
     <string name="settings_menu_done">Concluído</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB não conectado</string>
     <string name="usb_tethering_available_subtext_tmo">USB conectado, verifique para ancorar</string>
@@ -2973,7 +2974,7 @@ Fazer o download por rede móveis pode resultar em cobranças adicionais depende
     <string name="wifi_enable_warning_spr">Ativar o Wi-Fi desativará o Roteador.</string>
     <string name="wifi_enable_warning_mtr">A ativação do Wi-Fi desativará o Roteador Wi-Fi. Continuar?</string>
     <string name="wifi_enable_warning_usc">A ativação do Wi-Fi desativará o Roteador Wi-Fi. Continuar?</string>
-    <string name="wifi_enable_warning">A ativação do Wi-Fi desativará o Roteador Wi-Fi.</string>
+    <string name="wifi_enable_warning">O Wi-Fi é desativado quando o Roteador Wi-Fi está ativo. Para ativar o Wi-Fi, desative o Roteador Wi-Fi.</string>
     <string name="wifi_control_history_title">Histórico de controle de Wi-Fi</string>
     <string name="wifi_control_history_description">Os aplicativos abaixo ativaram ou desativaram o Wi-Fi mais recentemente.</string>
     <string name="wifi_control_history_sub_title">Aplicativos recentes</string>
@@ -2998,8 +2999,8 @@ Fazer o download por rede móveis pode resultar em cobranças adicionais depende
     <string name="wifi_wapi_user_certificate">Certificados de usuário</string>
     <string name="wifi_ap_help_enable_msg_summary_vzw">O Mobile Hotspot está ativado. Toque em Configurar para alterar as configurações do Mobile Hotspot.</string>
     <string name="wifi_ap_help_enable_msg_summary">O Mobile Hotspot está ativado. Para alterar a configuração do Mobile Hotspot, toque em MAIS e selecione Configurar Mobile Hotspot.</string>
-    <string name="wifi_ap_turning_on">Ativando Roteador Wi-Fi…</string>
-    <string name="wifi_ap_turning_off">Desativando Roteador Wi-Fi…</string>
+    <string name="wifi_ap_turning_on">Ativando o Roteador Wi-Fi…</string>
+    <string name="wifi_ap_turning_off">Desativando o Roteador Wi-Fi…</string>
     <string name="wifi_ap_password_dialog_title">Alterar senha</string>
     <string name="wifi_ap_wifi_sharing_text">A rede Wi-Fi pode ser compartilhada com outros aparelhos. Esteja ciente de que o aparelho pode alternar entre as redes Wi-Fi salvas sem aviso. Você é responsável por cumprir todos os termos e condições do provedor de Wi-Fi.</string>
     <string name="wifi_ap__wifi_sharing_vzw">Compartilhamento de Wi-Fi</string>
@@ -3012,11 +3013,11 @@ Fazer o download por rede móveis pode resultar em cobranças adicionais depende
     <string name="wifi_ap_starting_chn">Enabling Portable WLAN hotspot…</string>
     <string name="wifi_ap_starting_tmo">Ativando o Roteador Wi-Fi…</string>
     <string name="wifi_ap_starting_att">Ativando o Roteador Wi-Fi…</string>
-    <string name="wifi_ap_starting">Ativando Roteador Wi-Fi…</string>
+    <string name="wifi_ap_starting">Ativando o Roteador Wi-Fi…</string>
     <string name="wifi_ap_stopping_chn">Disabling Portable WLAN hotspot…</string>
     <string name="wifi_ap_stopping_tmo">Desativando o Roteador Wi-Fi…</string>
     <string name="wifi_ap_stopping_att">Desativando o Roteador Wi-Fi…</string>
-    <string name="wifi_ap_stopping">Desativando Roteador Wi-Fi…</string>
+    <string name="wifi_ap_stopping">Desativando o Roteador Wi-Fi…</string>
     <string name="wifi_ap_add_whitelist">Adicionar à lista branca</string>
     <string name="wifi_ap_remove_from_whitelist">Remover da lista branca</string>
     <string name="wifi_ap_allow_device_added">%s adicionado aos dispositivos permitidos.</string>
@@ -3050,11 +3051,11 @@ Após iniciar o Roteador Wi-Fi, conecte usando os controles no aparelho ativado 
 Você pode criar um perfil de aparelho permitido e definir o modo de conexão para ele.
 
 O uso do Roteador Wi-Fi consome mais energia da bateria e aumenta o uso de dados."</string>
-    <string name="wifi_ap_instruction_changeable_maxclient">"É possível usar o dispositivo como um ponto de acesso à Internet usando o Roteador Wi-Fi. Isto permite que até %d outros dispositivos se conectem a ele através do Wi-Fi. Os dispositivos conectados terão acesso à Internet pela sua rede móvel.
+    <string name="wifi_ap_instruction_changeable_maxclient">"É possível usar o aparelho como um ponto de acesso à Internet usando o Roteador Wi-Fi. Isso permite que até %d outros aparelhos se conectem a ele por Wi-Fi. Os aparelhos conectados terão acesso à Internet pela sua rede móvel.
 
-Você pode criar um perfil de dispositivo permitido e definir o modo de conexão para ele.
+Você pode criar um perfil de aparelho permitido e definir o modo de conexão para ele.
 
-O Roteador Wi-Fi aumenta o consumo de bateria e de uso de dados."</string>
+O Roteador Wi-Fi aumenta o consumo da bateria e o uso de dados."</string>
     <string name="wifi_ap_instruction_mtr">"Transforme seu telefone em um Roteador Wi-Fi para poder compartilhar sua conexão de dados móveis com outros aparelhos.
 
 Para usar o recurso de Roteador do seu telefone, você deve ter o serviço Roteador Wi-Fi do Smartphone adicionado ao seu plano de tarifas.
@@ -3078,7 +3079,7 @@ Para configurar o Roteador Wi-Fi do Smartphone, toque no ícone de menu e, em se
     <string name="wifi_ap_wifi_off_warn_chn">Enabling Mobile hotspot will turn off WLAN.</string>
     <string name="wifi_ap_wifi_off_warn_att">A ativação do Roteador Wi-Fi desativará o Wi-Fi.</string>
     <string name="wifi_ap_wifi_off_warn_mtr">O Wi-Fi é desativado quando a Ancoragem USB ou o Roteador Wi-Fi está ativo. Para ativar o Wi-Fi, desative a Ancoragem USB ou o Roteador Wi-Fi.</string>
-    <string name="wifi_ap_wifi_off_warn">A ativação do Roteador Wi-Fi desligará o Wi-Fi.</string>
+    <string name="wifi_ap_wifi_off_warn">Para usar o Roteador Wi-Fi, o Wi-Fi precisa ser desativado.</string>
     <string name="wifi_ap_wifi_off_warn_title_vzw">Mobile Hotspot e Wi-Fi</string>
     <string name="wifi_ap_wifi_off_warn_title">Atenção</string>
     <string name="wifi_ap_smartview_off_warn_vzw">O Mobile Hotspot e o Smart View não podem estar ativados ao mesmo tempo. O Smart View será desativado.</string>
@@ -3103,7 +3104,7 @@ Para configurar o Roteador Wi-Fi do Smartphone, toque no ícone de menu e, em se
     <string name="wifi_ap_menu_configure_hotspot_spr">Configurar Roteador</string>
     <string name="wifi_ap_menu_configure_hotspot_tmo">Configurar o Mobile Hotspot</string>
     <string name="wifi_ap_menu_configure_hotspot_att">Configurar o Mobile ponto de acesso</string>
-    <string name="wifi_ap_menu_configure_hotspot">Configurar Roteador Wi-Fi</string>
+    <string name="wifi_ap_menu_configure_hotspot">Configurar o Roteador Wi-Fi</string>
     <string name="wifi_ap_menu_timeout">Config. limite de tempo</string>
     <string name="wifi_ap_menu_allow_devices">Dispositivos permitidos</string>
     <string name="wifi_ap_timeout_message_vzw">Desativar o Mobile Hotspot se não houver conexão</string>
@@ -3176,13 +3177,13 @@ Agora o Wi-Fi está ativado."</string>
     <string name="wifi_tether_dialog_nosim_warning_title_tmo">Mobile Hotspot</string>
     <string name="wifi_tether_dialog_nosim_warning_title_spr">Roteador</string>
     <string name="wifi_tether_dialog_nosim_warning_title_att">Roteador Wi-Fi</string>
-    <string name="wifi_tether_dialog_nosim_warning_title">Roteador Wi-Fi</string>
+    <string name="wifi_tether_dialog_nosim_warning_title">Sem chip</string>
     <string name="wifi_tether_dialog_nosim_warning_chn">Insert a SIM card to use Mobile hotspot and other tethering functions.</string>
     <string name="wifi_tether_dialog_nosim_warning_vzw">Insira um chip para usar o Mobile Hotspot e outras opções de ancoragem.</string>
     <string name="wifi_tether_dialog_nosim_warning_tmo">Instale um chip para compartilhar os dados de conexão do seu telefone com outros aparelhos usando o Roteador Wi-Fi ou a Ancoragem USB para acessar a Internet.</string>
     <string name="wifi_tether_dialog_nosim_warning_spr">Insira o chip para usar o Roteador incluindo ancoragem</string>
     <string name="wifi_tether_dialog_nosim_warning_usc">Insira um chip para usar o Roteador Wi-Fi e outras funções de ancoragem.</string>
-    <string name="wifi_tether_dialog_nosim_warning">Insira um chip para usar o Roteador Wi-Fi e outras funções de ancoragem.</string>
+    <string name="wifi_tether_dialog_nosim_warning">Insira um chip para usar o Roteador Wi-Fi e outras opções de ancoragem.</string>
     <string name="mobileap_tmo">Mobile Hotspot</string>
     <string name="mobileap_spr">Roteador</string>
     <string name="mobileap_att">Roteador Wi-Fi</string>
@@ -3249,16 +3250,16 @@ Agora o Wi-Fi está ativado."</string>
     <string name="wifi_ap_instruction_activate_color_hidden3_tmo">Conecte-se a &lt;font color=\"%1$s\">%2$s&lt;/font> inserindo &lt;font color=\"%1$s\">%3$s&lt;/font> como a senha.</string>
     <string name="wifi_ap_instruction_activate_color_hidden3">Conecte-se a &lt;font color=\"%1$s\">%2$s&lt;/font> inserindo &lt;font color=\"%1$s\">%3$s&lt;/font> como a senha.</string>
     <string name="wifi_ap_instruction_activate_color_hidden4_tmo">Aproveite a Internet usando seu Roteador Wi-Fi pessoal.</string>
-    <string name="wifi_ap_instruction_no_maxclient">"É possível usar o aparelho como um ponto de acesso à Internet usando o Roteador Wi-Fi. Isto permite que outros aparelhos se conectem a ele através do Wi-Fi. Os aparelhos conectados terão acesso à Internet pela sua rede móvel.
+    <string name="wifi_ap_instruction_no_maxclient">"É possível usar o aparelho como um ponto de acesso à Internet usando o Roteador Wi-Fi. Isso permite que outros aparelhos se conectem a ele pelo Wi-Fi. Os aparelhos conectados terão acesso à Internet pela sua rede móvel.
 
 Você pode criar um perfil de aparelho permitido e definir o modo de conexão para ele.
 
-O Roteador Wi-Fi aumenta o consumo de bateria e de uso de dados."</string>
+O Roteador Wi-Fi aumenta o consumo da bateria e o uso de dados."</string>
     <string name="wifi_ap_instruction_configure_vzw">Para alterar a configuração do Mobile Hotspot, vá para Configurações > Mobile Hotspot e ancoragem > Mobile Hotspot > MAIS e selecione Configurar Mobile Hotspot.</string>
     <string name="wifi_ap_instruction_configure_tmo">Para alterar a configuração do Roteador Wi-Fi, toque no botão Mais opções e selecione Configurar Roteador Wi-Fi.</string>
-    <string name="wifi_ap_instruction_configure">Para alterar a configuração do Roteador Wi-Fi, toque no botão Mais opções e selecione Configurar Roteador Wi-Fi.</string>
+    <string name="wifi_ap_instruction_configure">Para alterar a configuração do Roteador Wi-Fi, toque no botão Mais opções e selecione Configurar o Roteador Wi-Fi.</string>
     <string name="wifi_ap_instruction_configure_non_grace_tmo">Para alterar a configuração do Roteador Wi-Fi, toque em MAIS e selecione Configurar Roteador Wi-Fi.</string>
-    <string name="wifi_ap_instruction_configure_non_grace">Para alterar a configuração do Roteador Wi-Fi, toque em MAIS e selecione Configurar Roteador Wi-Fi.</string>
+    <string name="wifi_ap_instruction_configure_non_grace">Para alterar a configuração do Roteador Wi-Fi, toque em MAIS e selecione Configurar o Roteador Wi-Fi.</string>
     <string name="wifi_ap_change_security">Alterar a Segurança</string>
     <string name="wifi_ap_maxclient">Máximo de conexões</string>
     <string name="wifi_ap_no_hotspot_mode_warning">O Roteador Wi-FI está sendo controlado no momento por outro aplicativo. Para configurá-lo, a conexão atual do Roteador Wi-Fi será encerrada.</string>
@@ -3491,6 +3492,7 @@ Receiving SMS"</string>
     <string name="no">Não</string>
     <string name="create">Criar</string>
     <string name="allow">Permitir</string>
+    <string name="dlg_close">Fechar</string>
     <string name="device_info_default">Desconhecido</string>
     <string name="show_dev_on">O modo de desenvolvedor foi ativado.</string>
     <string name="show_dev_already">Não é necessário, o modo de desenvolvedor já foi ativado</string>

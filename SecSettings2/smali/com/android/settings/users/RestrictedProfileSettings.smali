@@ -66,7 +66,7 @@
 
     const/4 v2, 0x0
 
-    const v1, 0x7f040308
+    const v1, 0x7f040309
 
     invoke-virtual {p0, v1}, Lcom/android/settings/users/RestrictedProfileSettings;->setPinnedHeaderView(I)Landroid/view/View;
 
@@ -331,7 +331,7 @@
 
     iget-object v6, p0, Lcom/android/settings/users/RestrictedProfileSettings;->mUser:Landroid/os/UserHandle;
 
-    const v4, 0x7f0b1141
+    const v4, 0x7f0b1142
 
     move-object v1, p0
 
@@ -367,7 +367,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0c2f
+    const v1, 0x7f0b0c30
 
     invoke-static {v0, v1, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

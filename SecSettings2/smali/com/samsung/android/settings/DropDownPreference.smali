@@ -111,7 +111,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/DropDownPreference;->mAdapter:Landroid/widget/ArrayAdapter;
 
-    const v0, 0x7f0401e5
+    const v0, 0x7f0401e6
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/DropDownPreference;->setLayoutResource(I)V
 

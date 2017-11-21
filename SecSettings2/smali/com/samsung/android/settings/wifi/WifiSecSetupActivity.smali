@@ -2019,7 +2019,7 @@
 .method private updateLayoutComponent(Landroid/content/res/Configuration;)V
     .locals 14
 
-    const v9, 0x7f040364
+    const v9, 0x7f040365
 
     invoke-virtual {p0, v9}, Lcom/samsung/android/settings/wifi/WifiSecSetupActivity;->setContentView(I)V
 
@@ -2272,7 +2272,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b0c8f
+    const v11, 0x7f0b0c90
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2316,7 +2316,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b0437
+    const v11, 0x7f0b0438
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2360,7 +2360,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b0437
+    const v11, 0x7f0b0438
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2456,7 +2456,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b0c8f
+    const v11, 0x7f0b0c90
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2522,7 +2522,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f020507
+    const v11, 0x7f020508
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -2543,7 +2543,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f020507
+    const v11, 0x7f020508
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -2727,7 +2727,7 @@
 
     const/4 v12, 0x0
 
-    const v13, 0x7f0b1254
+    const v13, 0x7f0b1255
 
     invoke-interface {v9, v10, v11, v12, v13}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2743,7 +2743,7 @@
 
     const/4 v12, 0x0
 
-    const v13, 0x7f0b1257
+    const v13, 0x7f0b1258
 
     invoke-interface {v9, v10, v11, v12, v13}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2769,7 +2769,7 @@
 
     const/4 v12, 0x0
 
-    const v13, 0x7f0b1259
+    const v13, 0x7f0b125a
 
     invoke-interface {v9, v10, v11, v12, v13}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2786,7 +2786,7 @@
 
     const/4 v12, 0x0
 
-    const v13, 0x7f0b0ca1
+    const v13, 0x7f0b0ca2
 
     invoke-interface {v9, v10, v11, v12, v13}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2802,7 +2802,7 @@
 
     const/4 v12, 0x0
 
-    const v13, 0x7f0b124c
+    const v13, 0x7f0b124d
 
     invoke-interface {v9, v10, v11, v12, v13}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2856,7 +2856,7 @@
 
     const/4 v12, 0x0
 
-    const v13, 0x7f0b1892
+    const v13, 0x7f0b1893
 
     invoke-interface {v9, v10, v11, v12, v13}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
     :try_end_0
@@ -2913,7 +2913,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f020532
+    const v11, 0x7f020533
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -2930,7 +2930,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f020530
+    const v11, 0x7f020531
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -3181,7 +3181,7 @@
 
     const/4 v3, 0x0
 
-    const v5, 0x7f0b125d
+    const v5, 0x7f0b125e
 
     move-object v0, p0
 
@@ -3299,9 +3299,9 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v1, 0x7f0b12ac
+    const v1, 0x7f0b12ad
 
-    const v2, 0x7f0b12ac
+    const v2, 0x7f0b12ad
 
     invoke-static {v2}, Lcom/samsung/android/settings/wifi/WifiSecSetupActivity$WifiSkipDialog;->newInstance(I)Lcom/samsung/android/settings/wifi/WifiSecSetupActivity$WifiSkipDialog;
 
@@ -3700,9 +3700,9 @@
     goto :goto_1
 
     :cond_7
-    const v1, 0x7f0b0c7d
+    const v1, 0x7f0b0c7e
 
-    const v2, 0x7f0b0c7d
+    const v2, 0x7f0b0c7e
 
     invoke-static {v2}, Lcom/samsung/android/settings/wifi/WifiSecSetupActivity$FrpWarningDialog;->newInstance(I)Lcom/samsung/android/settings/wifi/WifiSecSetupActivity$FrpWarningDialog;
 

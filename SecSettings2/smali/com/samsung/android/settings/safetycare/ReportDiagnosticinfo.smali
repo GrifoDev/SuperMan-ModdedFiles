@@ -159,7 +159,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/safetycare/ReportDiagnosticinfo;->mLearnMoreImage:Landroid/widget/ImageView;
 
-    const v2, 0x7f0203ad
+    const v2, 0x7f0203ae
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -172,7 +172,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/safetycare/ReportDiagnosticinfo;->mLearnMoreImage:Landroid/widget/ImageView;
 
-    const v2, 0x7f0203ae
+    const v2, 0x7f0203af
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -203,7 +203,7 @@
 
     iget-object v7, p0, Lcom/samsung/android/settings/safetycare/ReportDiagnosticinfo;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
-    const v11, 0x7f0b04e0
+    const v11, 0x7f0b04e1
 
     invoke-virtual {p0, v11}, Lcom/samsung/android/settings/safetycare/ReportDiagnosticinfo;->getText(I)Ljava/lang/CharSequence;
 
@@ -213,7 +213,7 @@
 
     iget-object v11, p0, Lcom/samsung/android/settings/safetycare/ReportDiagnosticinfo;->mInflater:Landroid/view/LayoutInflater;
 
-    const v12, 0x7f040236
+    const v12, 0x7f040237
 
     const/4 v13, 0x0
 
@@ -277,7 +277,7 @@
 
     new-instance v2, Landroid/text/SpannableString;
 
-    const v11, 0x7f0b042e
+    const v11, 0x7f0b042f
 
     invoke-virtual {p0, v11}, Lcom/samsung/android/settings/safetycare/ReportDiagnosticinfo;->getString(I)Ljava/lang/String;
 
@@ -317,7 +317,7 @@
 
     iget-object v11, p0, Lcom/samsung/android/settings/safetycare/ReportDiagnosticinfo;->mLearnMoreImage:Landroid/widget/ImageView;
 
-    const v12, 0x7f0203ae
+    const v12, 0x7f0203af
 
     invoke-virtual {v11, v12}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -419,7 +419,7 @@
 
     invoke-virtual {v11, v12}, Landroid/widget/ScrollView;->setVisibility(I)V
 
-    const v11, 0x7f0b042c
+    const v11, 0x7f0b042d
 
     invoke-virtual {p0, v11}, Lcom/samsung/android/settings/safetycare/ReportDiagnosticinfo;->getText(I)Ljava/lang/CharSequence;
 
@@ -427,7 +427,7 @@
 
     iput-object v11, v7, Lcom/android/internal/app/AlertController$AlertParams;->mPositiveButtonText:Ljava/lang/CharSequence;
 
-    const v11, 0x7f0b0453
+    const v11, 0x7f0b0454
 
     invoke-virtual {p0, v11}, Lcom/samsung/android/settings/safetycare/ReportDiagnosticinfo;->getText(I)Ljava/lang/CharSequence;
 

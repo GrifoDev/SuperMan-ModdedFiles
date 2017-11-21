@@ -409,7 +409,7 @@
 .method private showSensorErrorDialog()V
     .locals 5
 
-    const v1, 0x7f0b067c
+    const v1, 0x7f0b067d
 
     const-string/jumbo v2, "VZW"
 
@@ -423,14 +423,14 @@
 
     if-eqz v2, :cond_0
 
-    const v1, 0x7f0b067d
+    const v1, 0x7f0b067e
 
     :cond_0
     new-instance v2, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v2, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f0b067a
+    const v3, 0x7f0b067b
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -729,7 +729,7 @@
 
     new-array v1, v2, [Ljava/lang/Object;
 
-    const v2, 0x7f0b0675
+    const v2, 0x7f0b0676
 
     invoke-virtual {p0, v2}, Lcom/android/settings/fingerprint/FingerprintSetupWizard;->getString(I)Ljava/lang/String;
 
@@ -737,7 +737,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f0b0709
+    const v2, 0x7f0b070a
 
     invoke-virtual {p0, v2, v1}, Lcom/android/settings/fingerprint/FingerprintSetupWizard;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -846,7 +846,7 @@
 
     const v7, 0x7f0b0228
 
-    const v6, 0x7f020507
+    const v6, 0x7f020508
 
     const/4 v5, 0x0
 
@@ -873,7 +873,7 @@
     :cond_0
     iput-object p0, p0, Lcom/android/settings/fingerprint/FingerprintSetupWizard;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f04010c
+    const v2, 0x7f04010d
 
     invoke-virtual {p0, v2}, Lcom/android/settings/fingerprint/FingerprintSetupWizard;->setContentView(I)V
 
@@ -960,7 +960,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v4, 0x7f0b06c5
+    const v4, 0x7f0b06c6
 
     invoke-virtual {p0, v4}, Lcom/android/settings/fingerprint/FingerprintSetupWizard;->getString(I)Ljava/lang/String;
 
@@ -1006,7 +1006,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v4, 0x7f0b0429
+    const v4, 0x7f0b042a
 
     invoke-virtual {p0, v4}, Lcom/android/settings/fingerprint/FingerprintSetupWizard;->getString(I)Ljava/lang/String;
 
@@ -1101,7 +1101,7 @@
 
     check-cast v1, Landroid/widget/ImageView;
 
-    const v2, 0x7f020406
+    const v2, 0x7f020407
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 

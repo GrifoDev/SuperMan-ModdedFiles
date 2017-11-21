@@ -349,7 +349,7 @@
     goto :goto_1
 
     :cond_9
-    const v4, 0x7f0b113b
+    const v4, 0x7f0b113c
 
     invoke-static {v4, v1}, Lcom/samsung/android/settings/lockscreen/OwnerInfo;->newInstance(ILjava/lang/String;)Lcom/samsung/android/settings/lockscreen/OwnerInfo;
 

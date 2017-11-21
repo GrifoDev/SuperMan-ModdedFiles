@@ -473,7 +473,7 @@
 
     if-nez v2, :cond_4
 
-    const v2, 0x7f0203d8
+    const v2, 0x7f0203d9
 
     invoke-virtual {v9, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -594,7 +594,7 @@
 
     invoke-virtual {v0, v2}, Landroid/preference/Preference;->setSummary(I)V
 
-    const v2, 0x7f02025a
+    const v2, 0x7f02025b
 
     move-object/from16 v0, v20
 
@@ -627,7 +627,7 @@
 
     iget-object v2, v0, Lcom/android/settings/deviceinfo/StorageSettings;->mInternalSummary:Lcom/android/settings/deviceinfo/StorageSummaryPreference;
 
-    const v3, 0x7f0b13de
+    const v3, 0x7f0b13df
 
     move-object/from16 v0, p0
 
@@ -679,7 +679,7 @@
 
     aput-object v4, v3, v5
 
-    const v4, 0x7f0b13e0
+    const v4, 0x7f0b13e1
 
     move-object/from16 v0, p0
 
@@ -867,7 +867,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b189c
+    const v0, 0x7f0b189d
 
     return v0
 .end method
@@ -1060,7 +1060,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b13ea
+    const v1, 0x7f0b13eb
 
     invoke-static {p0, v1, v0}, Lcom/android/settings/deviceinfo/StorageSettings$DiskInitFragment;->show(Landroid/app/Fragment;ILjava/lang/String;)V
 
@@ -1169,7 +1169,7 @@
 
     if-eqz v0, :cond_b
 
-    const v0, 0x7f0b13eb
+    const v0, 0x7f0b13ec
 
     invoke-static {p0, v0, v7}, Lcom/android/settings/deviceinfo/StorageSettings$DiskInitFragment;->show(Landroid/app/Fragment;ILjava/lang/String;)V
 
@@ -1190,7 +1190,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b13cf
+    const v3, 0x7f0b13d0
 
     move-object v0, p0
 

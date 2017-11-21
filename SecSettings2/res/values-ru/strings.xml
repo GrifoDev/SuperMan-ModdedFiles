@@ -89,7 +89,7 @@
     <string name="tether_settings_title_wifi">Переносная точка доступа</string>
     <string name="tether_settings_title_bluetooth">Bluetooth-модем</string>
     <string name="tether_settings_title_usb_bluetooth">Модем</string>
-    <string name="tether_settings_title_all">Точка доступа и модем</string>
+    <string name="tether_settings_title_all">Мобильная точка доступа и модем</string>
     <string name="managed_user_title">Корпоративные приложения</string>
     <string name="user_guest">Гость</string>
     <string name="unknown">Неизвестно</string>
@@ -894,6 +894,7 @@ Wi-Fi и Bluetooth также будут отключены, но их можн�
     <string name="bluetooth_control_app_disable_summary">Bluetooth выключен: %s</string>
     <string name="bluetooth_enter_pin_msg">Введите PIN-код для соединения с %s (попробуйте ввести 0000 или 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">Достигнуто максимальное число символов.</string>
+    <string name="bluetooth_frp_permission_message">Невозможно использовать устройство Bluetooth для этого звонка.</string>
     <string name="settings_menu_done">Готово</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>
@@ -2973,7 +2974,7 @@ Downloading via mobile networks uses your data plan."</string>
     <string name="wifi_enable_warning_spr">Turning on Wi-Fi will disable Hotspot.</string>
     <string name="wifi_enable_warning_mtr">Turning on Wi-Fi will turn off Mobile Hotspot. Continue?</string>
     <string name="wifi_enable_warning_usc">Turning on Wi-Fi will turn off Portable Wi-Fi hotspot. Continue?</string>
-    <string name="wifi_enable_warning">При включении Wi-Fi мобильная точка доступа будет отключена.</string>
+    <string name="wifi_enable_warning">После включения мобильной точки доступа Wi-Fi отключается. Чтобы включить Wi-Fi, выключите мобильную точку доступа.</string>
     <string name="wifi_control_history_title">Журнал управления Wi-Fi</string>
     <string name="wifi_control_history_description">Последние программы, которые включали или выключали Wi-Fi.</string>
     <string name="wifi_control_history_sub_title">Последние приложения</string>
@@ -3078,7 +3079,7 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_ap_wifi_off_warn_chn">При включении мобильной точки доступа будет отключена функция WLAN.</string>
     <string name="wifi_ap_wifi_off_warn_att">Turning on portable Wi-Fi hotspot will turn off Wi-Fi.</string>
     <string name="wifi_ap_wifi_off_warn_mtr">Wi-Fi is turned off when USB tethering or Mobile Hotspot is active. To turn on Wi-Fi, please turn off USB tethering or Mobile Hotspot.</string>
-    <string name="wifi_ap_wifi_off_warn">При включении мобильной точки доступа будет отключена функция Wi-Fi.</string>
+    <string name="wifi_ap_wifi_off_warn">Для использования мобильной точки доступа необходимо отключить Wi-Fi.</string>
     <string name="wifi_ap_wifi_off_warn_title_vzw">Mobile Hotspot and Wi-Fi</string>
     <string name="wifi_ap_wifi_off_warn_title">Внимание</string>
     <string name="wifi_ap_smartview_off_warn_vzw">Mobile Hotspot and Smart View cannot be turned on at the same time. Smart View will be turned off.</string>
@@ -3103,7 +3104,7 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_ap_menu_configure_hotspot_spr">Configure Hotspot</string>
     <string name="wifi_ap_menu_configure_hotspot_tmo">Настройка мобил. точки доступа</string>
     <string name="wifi_ap_menu_configure_hotspot_att">Настройка мобил. точки доступа</string>
-    <string name="wifi_ap_menu_configure_hotspot">Настройка мобил. точки доступа</string>
+    <string name="wifi_ap_menu_configure_hotspot">Настройка мобильной точки доступа</string>
     <string name="wifi_ap_menu_timeout">Параметры тайм-аута</string>
     <string name="wifi_ap_menu_allow_devices">Разрешенные устройства</string>
     <string name="wifi_ap_timeout_message_vzw">Disable Mobile Hotspot if there is no connection for</string>
@@ -3176,7 +3177,7 @@ Wi-Fi is now on."</string>
     <string name="wifi_tether_dialog_nosim_warning_title_tmo">Мобильная точка доступа</string>
     <string name="wifi_tether_dialog_nosim_warning_title_spr">Hotspot</string>
     <string name="wifi_tether_dialog_nosim_warning_title_att">Мобильная точка доступа</string>
-    <string name="wifi_tether_dialog_nosim_warning_title">Мобильная точка доступа</string>
+    <string name="wifi_tether_dialog_nosim_warning_title">Нет SIM-карты</string>
     <string name="wifi_tether_dialog_nosim_warning_chn">Для использования мобильной точки доступа и других функций модема вставьте SIM-карту.</string>
     <string name="wifi_tether_dialog_nosim_warning_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
     <string name="wifi_tether_dialog_nosim_warning_tmo">"Please install SIM card in order to share your phone's data connection with other devices using Mobile Wi-Fi HotSpot or USB tethering for Internet access."</string>
@@ -3491,6 +3492,7 @@ Wi-Fi is now on."</string>
     <string name="no">Нет</string>
     <string name="create">Создать</string>
     <string name="allow">Разрешить</string>
+    <string name="dlg_close">Закрыть</string>
     <string name="device_info_default">Неизвестно</string>
     <string name="show_dev_on">Режим разработчика включен.</string>
     <string name="show_dev_already">Не требуется, режим разработчика уже включен.</string>

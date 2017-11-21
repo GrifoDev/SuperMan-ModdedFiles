@@ -1021,7 +1021,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b06b9
+    const v4, 0x7f0b06ba
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1039,7 +1039,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b06a9
+    const v8, 0x7f0b06aa
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1051,7 +1051,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b170a
+    const v8, 0x7f0b170b
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1077,7 +1077,7 @@
 
     invoke-direct {v3, v4}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v4, 0x7f0b06ac
+    const v4, 0x7f0b06ad
 
     invoke-virtual {p0, v4}, Lcom/android/settings/fingerprint/FingerprintSettings_MultiSelect;->getString(I)Ljava/lang/String;
 
@@ -1142,7 +1142,7 @@
     goto :goto_0
 
     :cond_1
-    const v3, 0x7f0b06ab
+    const v3, 0x7f0b06ac
 
     invoke-virtual {p0, v3}, Lcom/android/settings/fingerprint/FingerprintSettings_MultiSelect;->getString(I)Ljava/lang/String;
 
@@ -1156,7 +1156,7 @@
 
     invoke-direct {v3, v5}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v5, 0x7f0b06ac
+    const v5, 0x7f0b06ad
 
     invoke-virtual {p0, v5}, Lcom/android/settings/fingerprint/FingerprintSettings_MultiSelect;->getString(I)Ljava/lang/String;
 
@@ -1606,9 +1606,9 @@
 .method private deleteAllFingerPrint()V
     .locals 12
 
-    const v11, 0x7f0b06aa
+    const v11, 0x7f0b06ab
 
-    const v10, 0x7f0b042a
+    const v10, 0x7f0b042b
 
     const/high16 v9, 0x1040000
 
@@ -1710,7 +1710,7 @@
 
     if-ne v2, v7, :cond_2
 
-    const v4, 0x7f0b06a5
+    const v4, 0x7f0b06a6
 
     invoke-virtual {p0, v4}, Lcom/android/settings/fingerprint/FingerprintSettings_MultiSelect;->getString(I)Ljava/lang/String;
 
@@ -1776,7 +1776,7 @@
     return-void
 
     :sswitch_0
-    const v4, 0x7f0b1196
+    const v4, 0x7f0b1197
 
     invoke-virtual {p0, v4}, Lcom/android/settings/fingerprint/FingerprintSettings_MultiSelect;->getString(I)Ljava/lang/String;
 
@@ -1785,7 +1785,7 @@
     goto :goto_0
 
     :sswitch_1
-    const v4, 0x7f0b1198
+    const v4, 0x7f0b1199
 
     invoke-virtual {p0, v4}, Lcom/android/settings/fingerprint/FingerprintSettings_MultiSelect;->getString(I)Ljava/lang/String;
 
@@ -1794,7 +1794,7 @@
     goto :goto_0
 
     :sswitch_2
-    const v4, 0x7f0b1194
+    const v4, 0x7f0b1195
 
     invoke-virtual {p0, v4}, Lcom/android/settings/fingerprint/FingerprintSettings_MultiSelect;->getString(I)Ljava/lang/String;
 
@@ -1820,7 +1820,7 @@
 
     aput-object v5, v4, v8
 
-    const v5, 0x7f0b06a6
+    const v5, 0x7f0b06a7
 
     invoke-virtual {p0, v5, v4}, Lcom/android/settings/fingerprint/FingerprintSettings_MultiSelect;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1847,7 +1847,7 @@
 
     aput-object v0, v4, v8
 
-    const v5, 0x7f0b06a1
+    const v5, 0x7f0b06a2
 
     invoke-virtual {p0, v5, v4}, Lcom/android/settings/fingerprint/FingerprintSettings_MultiSelect;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1874,7 +1874,7 @@
 
     aput-object v0, v4, v7
 
-    const v5, 0x7f0b06a2
+    const v5, 0x7f0b06a3
 
     invoke-virtual {p0, v5, v4}, Lcom/android/settings/fingerprint/FingerprintSettings_MultiSelect;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1895,7 +1895,7 @@
 
     aput-object v0, v4, v8
 
-    const v5, 0x7f0b06a3
+    const v5, 0x7f0b06a4
 
     invoke-virtual {p0, v5, v4}, Lcom/android/settings/fingerprint/FingerprintSettings_MultiSelect;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1922,7 +1922,7 @@
 
     aput-object v0, v4, v7
 
-    const v5, 0x7f0b06a4
+    const v5, 0x7f0b06a5
 
     invoke-virtual {p0, v5, v4}, Lcom/android/settings/fingerprint/FingerprintSettings_MultiSelect;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1951,7 +1951,7 @@
 
     if-ne v2, v7, :cond_9
 
-    const v4, 0x7f0b0697
+    const v4, 0x7f0b0698
 
     invoke-virtual {p0, v4}, Lcom/android/settings/fingerprint/FingerprintSettings_MultiSelect;->getString(I)Ljava/lang/String;
 
@@ -2024,7 +2024,7 @@
 
     aput-object v5, v4, v8
 
-    const v5, 0x7f0b0698
+    const v5, 0x7f0b0699
 
     invoke-virtual {p0, v5, v4}, Lcom/android/settings/fingerprint/FingerprintSettings_MultiSelect;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2035,7 +2035,7 @@
     :cond_a
     if-ne v2, v7, :cond_c
 
-    const v4, 0x7f0b0695
+    const v4, 0x7f0b0696
 
     invoke-virtual {p0, v4}, Lcom/android/settings/fingerprint/FingerprintSettings_MultiSelect;->getString(I)Ljava/lang/String;
 
@@ -2108,7 +2108,7 @@
 
     aput-object v5, v4, v8
 
-    const v5, 0x7f0b0696
+    const v5, 0x7f0b0697
 
     invoke-virtual {p0, v5, v4}, Lcom/android/settings/fingerprint/FingerprintSettings_MultiSelect;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2980,7 +2980,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0b067c
+    const v2, 0x7f0b067d
 
     const-string/jumbo v3, "VZW"
 
@@ -2994,7 +2994,7 @@
 
     if-eqz v3, :cond_0
 
-    const v2, 0x7f0b067d
+    const v2, 0x7f0b067e
 
     :cond_0
     if-eqz v0, :cond_1
@@ -3003,7 +3003,7 @@
 
     invoke-direct {v3, v0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v4, 0x7f0b067a
+    const v4, 0x7f0b067b
 
     invoke-virtual {v3, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -3262,14 +3262,14 @@
 
     if-eqz v3, :cond_6
 
-    const v3, 0x7f0b06aa
+    const v3, 0x7f0b06ab
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     :cond_6
     if-ne v1, v6, :cond_7
 
-    const v3, 0x7f0b0695
+    const v3, 0x7f0b0696
 
     invoke-virtual {p0, v3}, Lcom/android/settings/fingerprint/FingerprintSettings_MultiSelect;->getString(I)Ljava/lang/String;
 
@@ -3282,7 +3282,7 @@
 
     invoke-direct {v3, p0}, Lcom/android/settings/fingerprint/FingerprintSettings_MultiSelect$10;-><init>(Lcom/android/settings/fingerprint/FingerprintSettings_MultiSelect;)V
 
-    const v4, 0x7f0b042a
+    const v4, 0x7f0b042b
 
     invoke-virtual {v0, v4, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -3321,7 +3321,7 @@
 
     aput-object v4, v3, v7
 
-    const v4, 0x7f0b0696
+    const v4, 0x7f0b0697
 
     invoke-virtual {p0, v4, v3}, Lcom/android/settings/fingerprint/FingerprintSettings_MultiSelect;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -3408,7 +3408,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b18b3
+    const v0, 0x7f0b18b4
 
     return v0
 .end method
@@ -3779,7 +3779,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f040109
+    const v9, 0x7f04010a
 
     const/4 v10, 0x0
 
@@ -4053,7 +4053,7 @@
 
     const/4 v10, 0x0
 
-    const v11, 0x7f0b1079
+    const v11, 0x7f0b107a
 
     invoke-interface {p1, v8, v9, v10, v11}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -4069,7 +4069,7 @@
 
     const/4 v10, 0x0
 
-    const v11, 0x7f0b042a
+    const v11, 0x7f0b042b
 
     invoke-interface {p1, v8, v9, v10, v11}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -4739,7 +4739,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b06fc
+    const v3, 0x7f0b06fd
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4806,7 +4806,7 @@
     :cond_1
     iget-object v1, p0, Lcom/android/settings/fingerprint/FingerprintSettings_MultiSelect;->mSelectedFingerprintTextView:Landroid/widget/TextView;
 
-    const v2, 0x7f0b06e4
+    const v2, 0x7f0b06e5
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 

@@ -228,7 +228,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mSoftwareUpdatePref:Landroid/preference/Preference;
 
-    const v1, 0x7f040205
+    const v1, 0x7f040206
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setWidgetLayoutResource(I)V
 
@@ -522,7 +522,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b137e
+    const v11, 0x7f0b137f
 
     invoke-virtual {v10, v11}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -1254,7 +1254,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b04cb
+    const v10, 0x7f0b04cc
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
     :try_end_0
@@ -1355,7 +1355,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b04ca
+    const v10, 0x7f0b04cb
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1374,7 +1374,7 @@
 
     move-result-object v11
 
-    const v12, 0x7f0b04cd
+    const v12, 0x7f0b04ce
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1427,7 +1427,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b04cb
+    const v10, 0x7f0b04cc
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1440,7 +1440,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b04ca
+    const v10, 0x7f0b04cb
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1483,7 +1483,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b04cc
+    const v10, 0x7f0b04cd
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1721,13 +1721,13 @@
 
     const/4 v4, 0x1
 
-    const v5, 0x7f0b0430
+    const v5, 0x7f0b0431
 
     invoke-interface {p1, v2, v3, v4, v5}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object v2
 
-    const v3, 0x7f0201b0
+    const v3, 0x7f0201b1
 
     invoke-interface {v2, v3}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 

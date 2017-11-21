@@ -1408,7 +1408,7 @@
 
     invoke-direct {v2, p0}, Lcom/samsung/android/settings/nearby/NearbyEnabler$10;-><init>(Lcom/samsung/android/settings/nearby/NearbyEnabler;)V
 
-    const v3, 0x7f0b042b
+    const v3, 0x7f0b042c
 
     invoke-virtual {v1, v3, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -1418,7 +1418,7 @@
 
     invoke-direct {v2, p0}, Lcom/samsung/android/settings/nearby/NearbyEnabler$11;-><init>(Lcom/samsung/android/settings/nearby/NearbyEnabler;)V
 
-    const v3, 0x7f0b0423
+    const v3, 0x7f0b0424
 
     invoke-virtual {v1, v3, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -1531,7 +1531,7 @@
 
     invoke-direct {v1, v7}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v7, 0x7f0b0c55
+    const v7, 0x7f0b0c56
 
     invoke-virtual {v1, v7}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -1541,7 +1541,7 @@
 
     invoke-direct {v7, p0}, Lcom/samsung/android/settings/nearby/NearbyEnabler$7;-><init>(Lcom/samsung/android/settings/nearby/NearbyEnabler;)V
 
-    const v8, 0x7f0b042c
+    const v8, 0x7f0b042d
 
     invoke-virtual {v1, v8, v7}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -1549,7 +1549,7 @@
 
     invoke-direct {v7, p0}, Lcom/samsung/android/settings/nearby/NearbyEnabler$8;-><init>(Lcom/samsung/android/settings/nearby/NearbyEnabler;)V
 
-    const v8, 0x7f0b0423
+    const v8, 0x7f0b0424
 
     invoke-virtual {v1, v8, v7}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -1652,7 +1652,7 @@
 
     invoke-direct {v2, p0}, Lcom/samsung/android/settings/nearby/NearbyEnabler$5;-><init>(Lcom/samsung/android/settings/nearby/NearbyEnabler;)V
 
-    const v3, 0x7f0b042c
+    const v3, 0x7f0b042d
 
     invoke-virtual {v1, v3, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

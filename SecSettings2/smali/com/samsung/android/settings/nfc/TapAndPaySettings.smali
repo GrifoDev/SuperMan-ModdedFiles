@@ -277,7 +277,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/nfc/TapAndPaySettings;->mInflater:Landroid/view/LayoutInflater;
 
-    const v6, 0x7f04019b
+    const v6, 0x7f04019c
 
     invoke-virtual {v5, v6, p2, v9}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -347,7 +347,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b094e
+    const v7, 0x7f0b094f
 
     invoke-virtual {p0, v7}, Lcom/samsung/android/settings/nfc/TapAndPaySettings;->getString(I)Ljava/lang/String;
 
@@ -373,7 +373,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b094f
+    const v7, 0x7f0b0950
 
     invoke-virtual {p0, v7}, Lcom/samsung/android/settings/nfc/TapAndPaySettings;->getString(I)Ljava/lang/String;
 
@@ -477,7 +477,7 @@
 
     aput-object v7, v6, v8
 
-    const v7, 0x7f0b0955
+    const v7, 0x7f0b0956
 
     invoke-virtual {p0, v7, v6}, Lcom/samsung/android/settings/nfc/TapAndPaySettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

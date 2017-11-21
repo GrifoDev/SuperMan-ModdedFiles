@@ -77,7 +77,7 @@
 
     iput-object v5, p0, Lcom/android/settings/inputmethod/InputMethodPreference;->mDialog:Landroid/app/AlertDialog;
 
-    const v3, 0x7f0402f0
+    const v3, 0x7f0402f1
 
     invoke-virtual {p0, v3}, Lcom/android/settings/inputmethod/InputMethodPreference;->setLayoutResource(I)V
 
@@ -321,7 +321,7 @@
 
     invoke-virtual {v0, v5}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
 
-    const v3, 0x7f0b047c
+    const v3, 0x7f0b047d
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -345,7 +345,7 @@
 
     aput-object v2, v3, v4
 
-    const v4, 0x7f0b15a7
+    const v4, 0x7f0b15a8
 
     invoke-virtual {v1, v4, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -579,7 +579,7 @@
 
     aput-object v5, v4, v6
 
-    const v5, 0x7f0b15ab
+    const v5, 0x7f0b15ac
 
     invoke-virtual {v0, v5, v4}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

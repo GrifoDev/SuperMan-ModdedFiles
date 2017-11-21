@@ -89,7 +89,7 @@
     <string name="tether_settings_title_wifi">Mobilna pristupna točka</string>
     <string name="tether_settings_title_bluetooth">Bluetooth dijeljenje</string>
     <string name="tether_settings_title_usb_bluetooth">Dijeljenje veze</string>
-    <string name="tether_settings_title_all">Mobilna pristupna točka i dijeljenje</string>
+    <string name="tether_settings_title_all">Mob. prist. točka i Dijeljenje</string>
     <string name="managed_user_title">Sve radne aplikacije</string>
     <string name="user_guest">Gost</string>
     <string name="unknown">Nepoznato</string>
@@ -892,6 +892,7 @@ Možete to kasnije promijeniti odlaskom na postavke Bluetootha."</string>
     <string name="bluetooth_control_app_disable_summary">Bluetooth isključen: %s</string>
     <string name="bluetooth_enter_pin_msg">Unesite PIN za spajanje sa %s (pokušajte 0000 ili 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">Dosegnut maksimalan broj znakova.</string>
+    <string name="bluetooth_frp_permission_message">Nije moguće upotrijebiti uređaj Bluetooth za ovaj poziv.</string>
     <string name="settings_menu_done">OK</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>
@@ -2971,7 +2972,7 @@ Preuzimanje putem mobilnih mreža može uzrokovati dodatne troškove ovisno o va
     <string name="wifi_enable_warning_spr">Turning on Wi-Fi will disable Hotspot.</string>
     <string name="wifi_enable_warning_mtr">Turning on Wi-Fi will turn off Mobile Hotspot. Continue?</string>
     <string name="wifi_enable_warning_usc">Turning on Wi-Fi will turn off Portable Wi-Fi hotspot. Continue?</string>
-    <string name="wifi_enable_warning">Ako uključite Wi-Fi, isključit će se mobilna pristupna točka.</string>
+    <string name="wifi_enable_warning">Wi-Fi je isključen kada je Mobile Hotspot aktivan. Da biste uključili Wi-Fi, isključite Mobile Hotspot.</string>
     <string name="wifi_control_history_title">Povijest Wi-Fi kontrole</string>
     <string name="wifi_control_history_description">Aplikacije u nastavku nedavno su uključile ili isključile Wi-Fi mrežu.</string>
     <string name="wifi_control_history_sub_title">Nedavne aplikacije</string>
@@ -2996,8 +2997,8 @@ Preuzimanje putem mobilnih mreža može uzrokovati dodatne troškove ovisno o va
     <string name="wifi_wapi_user_certificate">Korisnička potvrda</string>
     <string name="wifi_ap_help_enable_msg_summary_vzw">Mobile Hotspot is turned on. Tap Configure to change your Mobile Hotspot settings.</string>
     <string name="wifi_ap_help_enable_msg_summary">Mobile Hotspot is enabled. To change the Mobile Hotspot configuration, tap MORE and select Configure Mobile Hotspot.</string>
-    <string name="wifi_ap_turning_on">Uključivanje mobilne pristupne točke…</string>
-    <string name="wifi_ap_turning_off">Isključivanje mobilne pristupne točke…</string>
+    <string name="wifi_ap_turning_on">Uključivanje Mobilne pristupne točke…</string>
+    <string name="wifi_ap_turning_off">Isključivanje Mobilne pristupne točke…</string>
     <string name="wifi_ap_password_dialog_title">Promjena šifre</string>
     <string name="wifi_ap_wifi_sharing_text">Vaša se Wi-Fi mreža može dijeliti s drugim uređajima. Imajte na umu da se uređaj bez upozorenja može prebacivati između spremljenih Wi-Fi mreža. Vi ste odgovorni za pridržavanje uvjeta i odredbi vašeg davatelja Wi-Fi mreže.</string>
     <string name="wifi_ap__wifi_sharing_vzw">Wi-Fi Sharing</string>
@@ -3010,11 +3011,11 @@ Preuzimanje putem mobilnih mreža može uzrokovati dodatne troškove ovisno o va
     <string name="wifi_ap_starting_chn">Enabling Portable WLAN hotspot…</string>
     <string name="wifi_ap_starting_tmo">Turning Mobile HotSpot on…</string>
     <string name="wifi_ap_starting_att">Turning on portable Wi-Fi hotspot…</string>
-    <string name="wifi_ap_starting">Uključivanje mobilne pristupne točke…</string>
+    <string name="wifi_ap_starting">Uključivanje Mobilne pristupne točke…</string>
     <string name="wifi_ap_stopping_chn">Disabling Portable WLAN hotspot…</string>
     <string name="wifi_ap_stopping_tmo">Turning Mobile HotSpot off…</string>
     <string name="wifi_ap_stopping_att">Turning off portable Wi-Fi hotspot…</string>
-    <string name="wifi_ap_stopping">Isključivanje mobilne pristupne točke…</string>
+    <string name="wifi_ap_stopping">Isključivanje Mobilne pristupne točke…</string>
     <string name="wifi_ap_add_whitelist">Dodaj na bijelu listu</string>
     <string name="wifi_ap_remove_from_whitelist">Obriši s bijele liste</string>
     <string name="wifi_ap_allow_device_added">%s dodan dopuštenim uređajima.</string>
@@ -3048,11 +3049,11 @@ After you start the Mobile Hotspot Wi-Fi router, connect using the controls on y
 You can create an allowed device profile and set the connection mode for it.
 
 Using Portable Wi-Fi hotspot consumes more battery power and increases your data usage."</string>
-    <string name="wifi_ap_instruction_changeable_maxclient">"Pomoću mobilne pristupne točke uređaj možete koristiti kao internet pristupnu točku. To omogućuje drugim uređajima (maksimalno %d) spajanje preko Wi-Fi mreže. Na spojenim uređajima internet će biti dostupan preko vaše mobilne mreže.
+    <string name="wifi_ap_instruction_changeable_maxclient">"S pomoću Mobilne pristupne točke uređajem se možete koristiti kao internetskom pristupnom točkom. To omogućuje drugim uređajima (maksimalno %d) spajanje preko Wi-Fi mreže. Na povezanim uređajima internet će biti dostupan putem vaše mobilne mreže.
 
-Možete kreirati profil dozvoljenih uređaja i podesiti za njega način spajanja.
+Možete stvoriti profil dozvoljenih uređaja i postaviti način povezivanja za njega.
 
-Korištenje mobilne pristupne točke ubrzava trošenje baterije i povećava prijenos podataka."</string>
+Upotreba Mobilne pristupne točke ubrzava trošenje baterije i povećava prijenos podataka."</string>
     <string name="wifi_ap_instruction_mtr">"Turn your phone into Portable Wi-Fi Hotspot so you can share your mobile data connection with other devices.
 
 To use your phone's Hotspot capability, you must have the Smartphone Mobile Hotspot service added to your rate plan.
@@ -3076,7 +3077,7 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_ap_wifi_off_warn_chn">Enabling Mobile hotspot will turn off WLAN.</string>
     <string name="wifi_ap_wifi_off_warn_att">Turning on portable Wi-Fi hotspot will turn off Wi-Fi.</string>
     <string name="wifi_ap_wifi_off_warn_mtr">Wi-Fi is turned off when USB tethering or Mobile Hotspot is active. To turn on Wi-Fi, please turn off USB tethering or Mobile Hotspot.</string>
-    <string name="wifi_ap_wifi_off_warn">Ako uključite mobilnu pristupnu točku, isključit će se Wi-Fi.</string>
+    <string name="wifi_ap_wifi_off_warn">Da biste upotrebljavali Mobilnu pristupnu točku, potrebno je isključiti Wi-Fi.</string>
     <string name="wifi_ap_wifi_off_warn_title_vzw">Mobile Hotspot and Wi-Fi</string>
     <string name="wifi_ap_wifi_off_warn_title">Pozor</string>
     <string name="wifi_ap_smartview_off_warn_vzw">Mobile Hotspot and Smart View cannot be turned on at the same time. Smart View will be turned off.</string>
@@ -3101,7 +3102,7 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_ap_menu_configure_hotspot_spr">Configure Hotspot</string>
     <string name="wifi_ap_menu_configure_hotspot_tmo">Konf. mobilnu pristupnu točku</string>
     <string name="wifi_ap_menu_configure_hotspot_att">Konf. mobilnu pristupnu točku</string>
-    <string name="wifi_ap_menu_configure_hotspot">Konf. mobilnu pristupnu točku</string>
+    <string name="wifi_ap_menu_configure_hotspot">Konfiguracija Mobilne pristupne točke</string>
     <string name="wifi_ap_menu_timeout">Postavke isteka</string>
     <string name="wifi_ap_menu_allow_devices">Dopušteni uređaji</string>
     <string name="wifi_ap_timeout_message_vzw">Disable Mobile Hotspot if there is no connection for</string>
@@ -3174,13 +3175,13 @@ Wi-Fi is now on."</string>
     <string name="wifi_tether_dialog_nosim_warning_title_tmo">Mobilna pristupna točka</string>
     <string name="wifi_tether_dialog_nosim_warning_title_spr">Hotspot</string>
     <string name="wifi_tether_dialog_nosim_warning_title_att">Mobilna pristupna točka</string>
-    <string name="wifi_tether_dialog_nosim_warning_title">Mobilna pristupna točka</string>
+    <string name="wifi_tether_dialog_nosim_warning_title">Nema SIM kartice</string>
     <string name="wifi_tether_dialog_nosim_warning_chn">Insert a SIM card to use Mobile hotspot and other tethering functions.</string>
     <string name="wifi_tether_dialog_nosim_warning_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
     <string name="wifi_tether_dialog_nosim_warning_tmo">"Please install SIM card in order to share your phone's data connection with other devices using Mobile Wi-Fi HotSpot or USB tethering for Internet access."</string>
     <string name="wifi_tether_dialog_nosim_warning_spr">Insert SIM for using Hotspot include tethering</string>
     <string name="wifi_tether_dialog_nosim_warning_usc">Umetnite SIM karticu da biste koristili Mobilnu pristupnu točku i druge funkcije dijeljenja.</string>
-    <string name="wifi_tether_dialog_nosim_warning">Umetnite SIM karticu da biste koristili Mobilnu pristupnu točku i druge funkcije dijeljenja.</string>
+    <string name="wifi_tether_dialog_nosim_warning">Umetnite SIM karticu da biste upotrebljavali Mobilnu pristupnu točku i druge opcije dijeljenja.</string>
     <string name="mobileap_tmo">Mobilna pristupna točka</string>
     <string name="mobileap_spr">Hotspot</string>
     <string name="mobileap_att">Mobilna pristupna točka</string>
@@ -3489,6 +3490,7 @@ Receiving SMS"</string>
     <string name="no">Ne</string>
     <string name="create">Novi</string>
     <string name="allow">Dopusti</string>
+    <string name="dlg_close">Zatvori</string>
     <string name="device_info_default">Nepoznato</string>
     <string name="show_dev_on">Način programera je uključen.</string>
     <string name="show_dev_already">Nema potrebe, način programera je već uključen.</string>

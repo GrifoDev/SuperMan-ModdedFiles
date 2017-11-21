@@ -215,7 +215,7 @@
 .method public onCreate(Landroid/os/Bundle;)V
     .locals 8
 
-    const v7, 0x7f0b186e
+    const v7, 0x7f0b186f
 
     const/4 v4, 0x1
 
@@ -580,7 +580,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0c2f
+    const v1, 0x7f0b0c30
 
     invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

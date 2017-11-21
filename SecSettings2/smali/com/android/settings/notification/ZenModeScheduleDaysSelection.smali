@@ -248,7 +248,7 @@
 
     move v9, v4
 
-    const v10, 0x7f040377
+    const v10, 0x7f040378
 
     const/4 v11, 0x0
 
@@ -343,7 +343,7 @@
     goto :goto_1
 
     :cond_4
-    const v10, 0x7f0b0b39
+    const v10, 0x7f0b0b3a
 
     invoke-virtual {v1, v10}, Landroid/widget/CheckBox;->setText(I)V
 

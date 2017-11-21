@@ -100,7 +100,7 @@
 .method public static getErrorMessage(Landroid/content/Context;I)Ljava/lang/String;
     .locals 8
 
-    const v7, 0x7f0b0b0e
+    const v7, 0x7f0b0b0f
 
     const/4 v6, 0x1
 
@@ -229,7 +229,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0b0c
+    const v3, 0x7f0b0b0d
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -258,7 +258,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0b0d
+    const v3, 0x7f0b0b0e
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -314,7 +314,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0b0f
+    const v3, 0x7f0b0b10
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

@@ -575,7 +575,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0b88
+    const v4, 0x7f0b0b89
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -762,7 +762,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0425
+    const v4, 0x7f0b0426
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -780,7 +780,7 @@
 
     invoke-direct {v3, p0}, Lcom/samsung/android/settings/AssistantMenuEnabler$2;-><init>(Lcom/samsung/android/settings/AssistantMenuEnabler;)V
 
-    const v4, 0x7f0b1540
+    const v4, 0x7f0b1541
 
     invoke-virtual {v2, v4, v3}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

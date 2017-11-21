@@ -45,7 +45,7 @@
     <string name="tether_settings_title_wifi">Portable hotspot</string>
     <string name="tether_settings_title_bluetooth">Bluetooth tethering</string>
     <string name="tether_settings_title_usb_bluetooth">Tethering</string>
-    <string name="tether_settings_title_all"><cst>Mobile hotspot and tethering</cst></string>
+    <string name="tether_settings_title_all">Mobile Hotspot and Tethering</string>
     <string name="user_guest">Guest</string>
     <string name="unknown">Unknown</string>
     <string name="running_process_item_user_label">User: %s</string>
@@ -750,6 +750,7 @@ You can change this later by going to Bluetooth settings."</string>
     <string name="bluetooth_control_app_disable_summary">Turned off Bluetooth: %s</string>
     <string name="bluetooth_enter_pin_msg">Enter PIN to pair with %s (Try 0000 or 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">Maximum number of characters reached.</string>
+    <string name="bluetooth_frp_permission_message">"Can't use Bluetooth device for this call."</string>
     <string name="settings_menu_done">Done</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>
@@ -2827,7 +2828,7 @@ Downloading via mobile networks may result in additional charges depending on yo
     <string name="wifi_enable_warning_spr">Turning on Wi-Fi will disable Hotspot.</string>
     <string name="wifi_enable_warning_mtr">Turning on Wi-Fi will turn off <cst>Mobile Hotspot</cst>. Continue?</string>
     <string name="wifi_enable_warning_usc">Turning on Wi-Fi will turn off Portable Wi-Fi hotspot. Continue?</string>
-    <string name="wifi_enable_warning">Turning on Wi-Fi will turn off <cst>Mobile hotspot</cst>.</string>
+    <string name="wifi_enable_warning"><cst>Wi-Fi</cst> is turned off when Mobile Hotspot is active. To turn on <cst>Wi-Fi</cst>, turn off Mobile Hotspot.</string>
     <string name="wifi_control_history_title">Wi-Fi control history</string>
     <string name="wifi_control_history_description">The apps below have turned Wi-Fi on or off most recently.</string>
     <string name="wifi_control_history_sub_title">Recent apps</string>
@@ -2852,8 +2853,8 @@ Downloading via mobile networks may result in additional charges depending on yo
     <string name="wifi_wapi_user_certificate">User certificate</string>
     <string name="wifi_ap_help_enable_msg_summary_vzw">Mobile Hotspot is turned on. Tap Configure to change your Mobile Hotspot settings.</string>
     <string name="wifi_ap_help_enable_msg_summary">Mobile Hotspot is enabled. To change the Mobile Hotspot configuration, tap MORE and select Configure Mobile Hotspot.</string>
-    <string name="wifi_ap_turning_on">Turning on <cst>Mobile hotspot</cst>…</string>
-    <string name="wifi_ap_turning_off">Turning off <cst>Mobile hotspot</cst>…</string>
+    <string name="wifi_ap_turning_on">Turning on Mobile Hotspot…</string>
+    <string name="wifi_ap_turning_off">Turning off Mobile Hotspot…</string>
     <string name="wifi_ap_password_dialog_title">Change password</string>
     <string name="wifi_ap_wifi_sharing_text">Your Wi-Fi network may be shared with other devices. Be aware that your <cst>device</cst>" may switch between your saved Wi-Fi networks without notice. You are responsible for complying with all of your Wi-Fi provider's terms and conditions."</string>
     <string name="wifi_ap__wifi_sharing_vzw">Wi-Fi Sharing</string>
@@ -2866,11 +2867,11 @@ Downloading via mobile networks may result in additional charges depending on yo
     <string name="wifi_ap_starting_chn">Turning on portable WLAN hotspot…</string>
     <string name="wifi_ap_starting_tmo">Turning Mobile HotSpot on…</string>
     <string name="wifi_ap_starting_att">Turning on Portable Wi-Fi hotspot…</string>
-    <string name="wifi_ap_starting">Turning on <cst>Mobile hotspot</cst>…</string>
+    <string name="wifi_ap_starting">Turning on Mobile Hotspot…</string>
     <string name="wifi_ap_stopping_chn">Turning off portable WLAN hotspot…</string>
     <string name="wifi_ap_stopping_tmo">Turning Mobile HotSpot off…</string>
     <string name="wifi_ap_stopping_att">Turning off Portable Wi-Fi hotspot…</string>
-    <string name="wifi_ap_stopping">Turning off <cst>Mobile hotspot</cst>…</string>
+    <string name="wifi_ap_stopping">Turning off Mobile Hotspot…</string>
     <string name="wifi_ap_add_whitelist">Add to white list</string>
     <string name="wifi_ap_remove_from_whitelist">Remove from white list</string>
     <string name="wifi_ap_allow_device_added">%s added to allowed devices.</string>
@@ -2904,11 +2905,11 @@ Start the Mobile Hotspot Wi-Fi router and use the controls on your Wi-Fi enabled
 You can create an allowed device profile and set the connection mode for it.
 
 Using Portable Wi-Fi hotspot consumes more battery power and increases your data usage."</string>
-    <string name="wifi_ap_instruction_changeable_maxclient">You can use your <cst>device</cst> as an Internet access point using <cst>Mobile hotspot</cst>". This allows up to %d other devices to connect to it via Wi-Fi. The connected devices will have access to the Internet via your mobile network.
+    <string name="wifi_ap_instruction_changeable_maxclient">You can use your device as an Internet access point using Mobile Hotspot. This allows up to %d other devices to connect to it via <cst>Wi-Fi</cst>". The connected devices will have access to the Internet via your mobile network.
 
 You can create an allowed device profile and set the connection mode for it.
 
-Using "<cst>Mobile hotspot</cst> increases battery consumption and data usage.</string>
+Using Mobile Hotspot increases battery consumption and data usage."</string>
     <string name="wifi_ap_instruction_mtr">"Turn your phone into a Portable Wi-Fi Hotspot so you can share your mobile data connection with other phones.
 
 To use your phone's Hotspot capability, you must have the Smartphone Mobile Hotspot service added to your plan.
@@ -2932,7 +2933,7 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, then tap “Config
     <string name="wifi_ap_wifi_off_warn_chn">Turning on Mobile hotspot will turn off WLAN.</string>
     <string name="wifi_ap_wifi_off_warn_att">Turning on Portable Wi-Fi hotspot will turn off Wi-Fi.</string>
     <string name="wifi_ap_wifi_off_warn_mtr">Wi-Fi is turned off when USB tethering or <cst>Mobile Hotspot</cst> is active. To turn on Wi-Fi, please turn off USB <cst>tethering or Mobile Hotspot</cst>.</string>
-    <string name="wifi_ap_wifi_off_warn">Turning on <cst>Mobile hotspot</cst> will turn off Wi-Fi.</string>
+    <string name="wifi_ap_wifi_off_warn">To use Mobile Hotspot, <cst>Wi-Fi</cst> needs to be turned off.</string>
     <string name="wifi_ap_wifi_off_warn_title_vzw">Mobile Hotspot and Wi-Fi</string>
     <string name="wifi_ap_wifi_off_warn_title">Attention</string>
     <string name="wifi_ap_smartview_off_warn_vzw">Mobile Hotspot and Smart View cannot be turned on at the same time. Smart View will be turned off.</string>
@@ -2957,7 +2958,7 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, then tap “Config
     <string name="wifi_ap_menu_configure_hotspot_spr">Configure Hotspot</string>
     <string name="wifi_ap_menu_configure_hotspot_tmo">Configure Mobile HotSpot</string>
     <string name="wifi_ap_menu_configure_hotspot_att">Configure Mobile Hotspot</string>
-    <string name="wifi_ap_menu_configure_hotspot">Configure <cst>Mobile hotspot</cst></string>
+    <string name="wifi_ap_menu_configure_hotspot">Configure Mobile Hotspot</string>
     <string name="wifi_ap_menu_timeout">Timeout settings</string>
     <string name="wifi_ap_menu_allow_devices">Allowed devices</string>
     <string name="wifi_ap_timeout_message_vzw">Turn off Mobile Hotspot if there is no connection for</string>
@@ -3030,17 +3031,17 @@ Wi-Fi is now on."</string>
     <string name="wifi_tether_dialog_nosim_warning_title_tmo">Mobile HotSpot</string>
     <string name="wifi_tether_dialog_nosim_warning_title_spr">Hotspot</string>
     <string name="wifi_tether_dialog_nosim_warning_title_att"><cst>Mobile Hotspot</cst></string>
-    <string name="wifi_tether_dialog_nosim_warning_title"><cst>Mobile hotspot</cst></string>
+    <string name="wifi_tether_dialog_nosim_warning_title">No SIM card</string>
     <string name="wifi_tether_dialog_nosim_warning_chn">Insert a SIM card to use Mobile hotspot and other tethering functions.</string>
     <string name="wifi_tether_dialog_nosim_warning_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
     <string name="wifi_tether_dialog_nosim_warning_tmo">"Please install SIM card in order to share your phone's data connection with other devices using Mobile Wi-Fi HotSpot or USB tethering for Internet access."</string>
     <string name="wifi_tether_dialog_nosim_warning_spr">Insert SIM for using Hotspot include tethering</string>
     <string name="wifi_tether_dialog_nosim_warning_usc">Insert a SIM card to use <cst>Mobile hotspot</cst> and other tethering functions.</string>
-    <string name="wifi_tether_dialog_nosim_warning">Insert a SIM card to use <cst>Mobile hotspot</cst> and other tethering functions.</string>
+    <string name="wifi_tether_dialog_nosim_warning">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
     <string name="mobileap_tmo">Mobile HotSpot</string>
     <string name="mobileap_spr">Hotspot</string>
     <string name="mobileap_att"><cst>Mobile Hotspot</cst></string>
-    <string name="mobileap"><cst>Mobile hotspot</cst></string>
+    <string name="mobileap">Mobile Hotspot</string>
     <string name="wifi_ap_no_mobile_data">Not allowed to use mobile data</string>
     <string name="wifi_ap_data_limit_text">Touch and hold here to set a mobile data usage limit for this <cst>device</cst>.</string>
     <string name="wifi_ap_remaining_mobile_data">Data usage remaining</string>
@@ -3103,16 +3104,16 @@ Wi-Fi is now on."</string>
     <string name="wifi_ap_instruction_activate_color_hidden3_tmo">Connect to &lt;font color=\"%1$s\">%2$s&lt;/font> by entering &lt;font color=\"%1$s\">%3$s&lt;/font> as the password.</string>
     <string name="wifi_ap_instruction_activate_color_hidden3">Connect to &lt;font color=\"%1$s\">%2$s&lt;/font> by entering &lt;font color=\"%1$s\">%3$s&lt;/font> as the password.</string>
     <string name="wifi_ap_instruction_activate_color_hidden4_tmo">Enjoy the internet using your personal Mobile HotSpot.</string>
-    <string name="wifi_ap_instruction_no_maxclient">You can use your <cst>device</cst> as an Internet access point using <cst>Mobile hotspot</cst>". This allows other devices to connect to it via Wi-Fi. The connected devices will have access to the Internet via your mobile network.
+    <string name="wifi_ap_instruction_no_maxclient">You can use your device as an Internet access point using Mobile Hotspot. This allows other devices to connect to it via <cst>Wi-Fi</cst>". The connected devices will have access to the Internet via your mobile network.
 
 You can create an allowed device profile and set the connection mode for it.
 
-Using "<cst>Mobile hotspot</cst> increases battery consumption and data usage.</string>
+Using Mobile Hotspot increases battery consumption and data usage."</string>
     <string name="wifi_ap_instruction_configure_vzw">To change the Mobile Hotspot configuration, go to Settings > Mobile Hotspot and Tethering > Mobile Hotspot > MORE, then select Configure Mobile Hotspot.</string>
     <string name="wifi_ap_instruction_configure_tmo">To change the Mobile HotSpot configuration, tap the More options button, then select Configure Mobile HotSpot.</string>
-    <string name="wifi_ap_instruction_configure">To change the <cst>Mobile hotspot</cst> configuration, tap the More options button, then select Configure <cst>Mobile hotspot</cst>.</string>
+    <string name="wifi_ap_instruction_configure">To change the Mobile Hotspot configuration, tap the More options button, then select Configure Mobile Hotspot.</string>
     <string name="wifi_ap_instruction_configure_non_grace_tmo">To change the Mobile HotSpot configuration, tap MORE, then select Configure Mobile HotSpot.</string>
-    <string name="wifi_ap_instruction_configure_non_grace">To change the <cst>Mobile hotspot</cst> configuration, tap MORE and select Configure <cst>Mobile hotspot</cst>.</string>
+    <string name="wifi_ap_instruction_configure_non_grace">To change the Mobile Hotspot configuration, tap MORE and select Configure Mobile Hotspot.</string>
     <string name="wifi_ap_change_security">Change Security</string>
     <string name="wifi_ap_maxclient">Maximum connections</string>
     <string name="wifi_ap_no_hotspot_mode_warning"><cst>Mobile hotspot</cst> is currently being controlled by another application. To configure it, the current <cst>Mobile hotspot</cst> connection will end.</string>
@@ -3126,7 +3127,7 @@ Using "<cst>Mobile hotspot</cst> increases battery consumption and data usage.</
     <string name="wifi_tether_configure_ap_text_tmo">Configure Mobile HotSpot</string>
     <string name="wifi_tether_configure_ap_text_spr">Configure Hotspot</string>
     <string name="wifi_tether_configure_ap_text_usc">Configure Wi-Fi hotspot</string>
-    <string name="wifi_tether_configure_ap_text">Configure <cst>Mobile hotspot</cst></string>
+    <string name="wifi_tether_configure_ap_text">Configure Mobile Hotspot</string>
     <string name="wifi_ap_hidessid_warning">Your phone will be visible to other devices</string>
     <string name="wifi_ap_first_time_configuration">First time HotSpot configuration</string>
     <string name="title_wifi_notify_mobileap_is_on">Wi-Fi and Mobile Hotspot</string>
@@ -3345,6 +3346,7 @@ Receiving SMS"</string>
     <string name="no">No</string>
     <string name="create">Create</string>
     <string name="allow">Allow</string>
+    <string name="dlg_close">Close</string>
     <string name="device_info_default">Unknown</string>
     <string name="show_dev_on">Developer mode has been turned on.</string>
     <string name="show_dev_already">Developer mode has already been turned on</string>
@@ -3681,7 +3683,7 @@ Tap CONNECT to stay connected to %2$s now and whenever you connect to it in futu
     <string name="wifi_p2p_settings_title">Wi-Fi Direct</string>
     <string name="wifi_p2p_menu_rename">Rename device</string>
     <string name="wifi_p2p_cancel_connect_title">Cancel invitation?</string>
-    <string name="wifi_tether_checkbox_text"><cst>Mobile hotspot</cst></string>
+    <string name="wifi_tether_checkbox_text">Mobile Hotspot</string>
     <string name="home_settings">Home screen</string>
     <string name="display_settings_title">Display</string>
     <string name="sound_settings">Sound</string>

@@ -89,7 +89,7 @@
     <string name="tether_settings_title_wifi">Portatif nokta</string>
     <string name="tether_settings_title_bluetooth">Bluetooth bağlantısı</string>
     <string name="tether_settings_title_usb_bluetooth">Bağlantı</string>
-    <string name="tether_settings_title_all">Mobil erişim noktası ve İnternet paylaşımı</string>
+    <string name="tether_settings_title_all">Mobl Erşm Nktsı ve İntrnt Pylşm</string>
     <string name="managed_user_title">Tüm iş uygulamaları</string>
     <string name="user_guest">Konuk</string>
     <string name="unknown">Bilinmeyen</string>
@@ -892,6 +892,7 @@ Bunu daha sonra Bluetooth ayarlarına giderek değiştirebilirsiniz."</string>
     <string name="bluetooth_control_app_disable_summary">Bluetooth kapatıldı: %s</string>
     <string name="bluetooth_enter_pin_msg">%s ile eşleşme için PIN girin (0000 veya 1234’ü deneyin).</string>
     <string name="bluetooth_pin_maximum_number_message">Maksimum karakter sayısına ulaşıldı.</string>
+    <string name="bluetooth_frp_permission_message">Bu arama için Bluetooth cihazı kullanılamaz.</string>
     <string name="settings_menu_done">Tamamlandı</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>
@@ -2971,7 +2972,7 @@ Mobil ağlar üzerinden indirme işlemi yapmak ödeme planınıza bağlı olarak
     <string name="wifi_enable_warning_spr">Turning on Wi-Fi will disable Hotspot.</string>
     <string name="wifi_enable_warning_mtr">Turning on Wi-Fi will turn off Mobile Hotspot. Continue?</string>
     <string name="wifi_enable_warning_usc">Turning on Wi-Fi will turn off Portable Wi-Fi hotspot. Continue?</string>
-    <string name="wifi_enable_warning">Wi-Fi’ın açılması, Mobil erişim noktasını devre dışı bırakır.</string>
+    <string name="wifi_enable_warning">"Mobil Erişim Noktası etkinken Wi-Fi kapatılır. Wi-Fi'ı açmak için Mobil Erişim Noktası'nı kapatın."</string>
     <string name="wifi_control_history_title">Wi-Fi kontrol geçmişi</string>
     <string name="wifi_control_history_description">"Aşağıdaki uygulamalar kısa süre önce Wi-Fi'ı açtı veya kapattı."</string>
     <string name="wifi_control_history_sub_title">Son uygulamalar</string>
@@ -2996,8 +2997,8 @@ Mobil ağlar üzerinden indirme işlemi yapmak ödeme planınıza bağlı olarak
     <string name="wifi_wapi_user_certificate">Kullanıcı sertifikası</string>
     <string name="wifi_ap_help_enable_msg_summary_vzw">Mobile Hotspot is turned on. Tap Configure to change your Mobile Hotspot settings.</string>
     <string name="wifi_ap_help_enable_msg_summary">Mobile Hotspot is enabled. To change the Mobile Hotspot configuration, tap MORE and select Configure Mobile Hotspot.</string>
-    <string name="wifi_ap_turning_on">Mobil erişim noktası etkinleştiriliyor…</string>
-    <string name="wifi_ap_turning_off">Mobil erişim noktası devre dışı bırakılıyor…</string>
+    <string name="wifi_ap_turning_on">Mobil Erişim Noktası etkinleştiriliyor…</string>
+    <string name="wifi_ap_turning_off">Mobil Erişim Noktası kapatılıyor…</string>
     <string name="wifi_ap_password_dialog_title">Şifre değiştir</string>
     <string name="wifi_ap_wifi_sharing_text">Wi-Fi ağınız diğer cihazlarla paylaşılabilir. Cihazınızın bildirim olmaksızın, kayıtlı Wi-Fi ağlarınız arasında geçiş yapabileceğini unutmayın. Tüm Wi-Fi sağlayıcılarınızın hüküm ve koşullarına uyulmasından siz sorumlu olursunuz.</string>
     <string name="wifi_ap__wifi_sharing_vzw">Wi-Fi Sharing</string>
@@ -3010,11 +3011,11 @@ Mobil ağlar üzerinden indirme işlemi yapmak ödeme planınıza bağlı olarak
     <string name="wifi_ap_starting_chn">Enabling Portable WLAN hotspot…</string>
     <string name="wifi_ap_starting_tmo">Turning Mobile HotSpot on…</string>
     <string name="wifi_ap_starting_att">Turning on portable Wi-Fi hotspot…</string>
-    <string name="wifi_ap_starting">Mobil erişim noktası etkinleştiriliyor…</string>
+    <string name="wifi_ap_starting">Mobil Erişim Noktası etkinleştiriliyor…</string>
     <string name="wifi_ap_stopping_chn">Disabling Portable WLAN hotspot…</string>
     <string name="wifi_ap_stopping_tmo">Turning Mobile HotSpot off…</string>
     <string name="wifi_ap_stopping_att">Turning off portable Wi-Fi hotspot…</string>
-    <string name="wifi_ap_stopping">Mobil erişim noktası devre dışı bırakılıyor…</string>
+    <string name="wifi_ap_stopping">Mobil Erişim Noktası devre dışı bırakılıyor…</string>
     <string name="wifi_ap_add_whitelist">Beyaz listeye ekle</string>
     <string name="wifi_ap_remove_from_whitelist">Beyaz listeden kaldır</string>
     <string name="wifi_ap_allow_device_added">%s izin verilen cihazlara eklendi.</string>
@@ -3048,11 +3049,11 @@ After you start the Mobile Hotspot Wi-Fi router, connect using the controls on y
 You can create an allowed device profile and set the connection mode for it.
 
 Using Portable Wi-Fi hotspot consumes more battery power and increases your data usage."</string>
-    <string name="wifi_ap_instruction_changeable_maxclient">"Mobil erişim noktasını kullanarak cihazınızı bir İnternet erişim noktasına dönüştürebilirsiniz. Bu sayede %d adede kadar cihaz Wi-Fi yoluyla cihazınıza bağlanabilir. Bağlı cihazlar mobil ağınız yoluyla İnternete erişir.
+    <string name="wifi_ap_instruction_changeable_maxclient">"Mobil Erişim Noktasını kullanarak cihazınızı bir İnternet erişim noktasına dönüştürebilirsiniz. Bu sayede %d adede kadar cihaz Wi-Fi yoluyla cihazınıza bağlanabilir. Bağlı cihazlar mobil ağınız yoluyla İnternete erişir.
 
 Bir izin verilen cihaz profili oluşturarak bağlantı modunu ayarlayabilirsiniz.
 
-Mobil erişim noktasının kullanılması, pil tüketimini ve veri kullanımını artırır."</string>
+Mobil Erişim Noktasının kullanılması, pil tüketimini ve veri kullanımını artırır."</string>
     <string name="wifi_ap_instruction_mtr">"Turn your phone into Portable Wi-Fi Hotspot so you can share your mobile data connection with other devices.
 
 To use your phone's Hotspot capability, you must have the Smartphone Mobile Hotspot service added to your rate plan.
@@ -3076,7 +3077,7 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_ap_wifi_off_warn_chn">Enabling Mobile hotspot will turn off WLAN.</string>
     <string name="wifi_ap_wifi_off_warn_att">Turning on portable Wi-Fi hotspot will turn off Wi-Fi.</string>
     <string name="wifi_ap_wifi_off_warn_mtr">Wi-Fi is turned off when USB tethering or Mobile Hotspot is active. To turn on Wi-Fi, please turn off USB tethering or Mobile Hotspot.</string>
-    <string name="wifi_ap_wifi_off_warn">Mobil erişim noktasının etkinleştirilmesi, Wi-Fi’ı kapatır.</string>
+    <string name="wifi_ap_wifi_off_warn">Mobil Erişim Noktasını kullanmak için Wi-Fi kapatılmalıdır.</string>
     <string name="wifi_ap_wifi_off_warn_title_vzw">Mobile Hotspot and Wi-Fi</string>
     <string name="wifi_ap_wifi_off_warn_title">Dikkat</string>
     <string name="wifi_ap_smartview_off_warn_vzw">Mobile Hotspot and Smart View cannot be turned on at the same time. Smart View will be turned off.</string>
@@ -3101,7 +3102,7 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_ap_menu_configure_hotspot_spr">Configure Hotspot</string>
     <string name="wifi_ap_menu_configure_hotspot_tmo">Taşınabilir Wi-Fi alanını yapılandır</string>
     <string name="wifi_ap_menu_configure_hotspot_att">"Mobile Hotspot'u yapılandır"</string>
-    <string name="wifi_ap_menu_configure_hotspot">Mobil erişm noktasnı yapılandr</string>
+    <string name="wifi_ap_menu_configure_hotspot">Mobil Erişim Noktasını yapılandır</string>
     <string name="wifi_ap_menu_timeout">Zaman aşımı ayarları</string>
     <string name="wifi_ap_menu_allow_devices">İzin verilen cihazlar</string>
     <string name="wifi_ap_timeout_message_vzw">Disable Mobile Hotspot if there is no connection for</string>
@@ -3174,17 +3175,17 @@ Wi-Fi is now on."</string>
     <string name="wifi_tether_dialog_nosim_warning_title_tmo">Taşınabilir Wi-Fi alanı</string>
     <string name="wifi_tether_dialog_nosim_warning_title_spr">Hotspot</string>
     <string name="wifi_tether_dialog_nosim_warning_title_att">Mobile Hotspot</string>
-    <string name="wifi_tether_dialog_nosim_warning_title">Mobil erişim noktası</string>
+    <string name="wifi_tether_dialog_nosim_warning_title">SIM kart yok</string>
     <string name="wifi_tether_dialog_nosim_warning_chn">Insert a SIM card to use Mobile hotspot and other tethering functions.</string>
     <string name="wifi_tether_dialog_nosim_warning_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
     <string name="wifi_tether_dialog_nosim_warning_tmo">"Please install SIM card in order to share your phone's data connection with other devices using Mobile Wi-Fi HotSpot or USB tethering for Internet access."</string>
     <string name="wifi_tether_dialog_nosim_warning_spr">Insert SIM for using Hotspot include tethering</string>
     <string name="wifi_tether_dialog_nosim_warning_usc">Mobil erişim noktasını ve diğer internet paylaşımı işlevlerini kullanmak için bir SIM kart takın.</string>
-    <string name="wifi_tether_dialog_nosim_warning">Mobil erişim noktasını ve diğer internet paylaşımı işlevlerini kullanmak için bir SIM kart takın.</string>
+    <string name="wifi_tether_dialog_nosim_warning">Mobil Erişim Noktası ve diğer İnternet paylaşımı seçeneklerini kullanmak için bir SIM kart takın.</string>
     <string name="mobileap_tmo">Taşınabilir Wi-Fi alanı</string>
     <string name="mobileap_spr">Hotspot</string>
     <string name="mobileap_att">Mobile Hotspot</string>
-    <string name="mobileap">Mobil erişim noktası</string>
+    <string name="mobileap">Mobil Erişim Noktası</string>
     <string name="wifi_ap_no_mobile_data">Mobil veri kullanımına izin verilmez</string>
     <string name="wifi_ap_data_limit_text">Bu cihaza bir mobil veri kullanım sınırı ayarlamak için buraya dokunup tutun.</string>
     <string name="wifi_ap_remaining_mobile_data">Kalan veri kullanımı</string>
@@ -3247,16 +3248,16 @@ Wi-Fi is now on."</string>
     <string name="wifi_ap_instruction_activate_color_hidden3_tmo">Connect to &lt;font color=\"%1$s\">%2$s&lt;/font> by entering &lt;font color=\"%1$s\">%3$s&lt;/font> as the password.</string>
     <string name="wifi_ap_instruction_activate_color_hidden3">&lt;font color=\"%1$s\">%2$s&lt;/font> ağına şu şifreyi girerek bağlanın: &lt;font color=\"%1$s\">%3$s&lt;/font>.</string>
     <string name="wifi_ap_instruction_activate_color_hidden4_tmo">Enjoy the internet using your personal Mobile HotSpot.</string>
-    <string name="wifi_ap_instruction_no_maxclient">"Mobil erişim noktasını kullanarak cihazınızı bir İnternet erişim noktasına dönüştürebilirsiniz. Böylece diğer cihazlar Wi-Fi yoluyla cihazınıza bağlanabilir. Bağlı cihazlar mobil ağınız yoluyla İnternete erişir.
+    <string name="wifi_ap_instruction_no_maxclient">"Mobil Erişim Noktasını kullanarak cihazınızı bir İnternet erişim noktasına dönüştürebilirsiniz. Böylece diğer cihazlar Wi-Fi yoluyla cihazınıza bağlanabilir. Bağlı cihazlar mobil ağınız yoluyla İnternete erişir.
 
 İzin verilen bir cihaz profili oluşturup ilgili bağlantı modunu ayarlayabilirsiniz.
 
-Mobil erişim noktasının kullanılması pil tüketimini ve veri kullanımını artırır."</string>
+Mobil Erişim Noktasının kullanılması pil tüketimini ve veri kullanımını artırır."</string>
     <string name="wifi_ap_instruction_configure_vzw">To change the Mobile Hotspot configuration, go to Settings > Mobile Hotspot and tethering > Mobile Hotspot > MORE, then select Configure Mobile Hotspot.</string>
     <string name="wifi_ap_instruction_configure_tmo">To change the Mobile HotSpot configuration, tap the More options button, then select Configure Mobile HotSpot.</string>
-    <string name="wifi_ap_instruction_configure">Mobil erişim noktası yapılandırmasını değiştirmek için Daha fazla seçenek tuşuna dokunun, ardından Mobil erişim noktasını yapılandır öğesini seçin.</string>
+    <string name="wifi_ap_instruction_configure">Mobil Erişim Noktası yapılandırmasını değiştirmek için Daha fazla seçenek tuşuna dokunun, ardından Mobil Erişim Noktasını yapılandır ögesini seçin.</string>
     <string name="wifi_ap_instruction_configure_non_grace_tmo">To change the Mobile HotSpot configuration, tap MORE, then select Configure Mobile HotSpot.</string>
-    <string name="wifi_ap_instruction_configure_non_grace">Mobil erişim noktası yapılandırmasını değiştirmek için DAHA FAZLA öğesine dokunup Mobil erişim noktasını yapılandır öğesini seçin.</string>
+    <string name="wifi_ap_instruction_configure_non_grace">Mobil Erişim Noktası yapılandırmasını değiştirmek için DAHA FAZLA ögesine dokunup Mobil Erişim Noktasını yapılandır ögesini seçin.</string>
     <string name="wifi_ap_change_security">Change Security</string>
     <string name="wifi_ap_maxclient">Maksimum bağlantı</string>
     <string name="wifi_ap_no_hotspot_mode_warning">Mobil erişim noktası şu anda başka bir uygulama tarafından kontrol ediliyor. Yapılandırmak için geçerli Mobil erişim noktası bağlantısı sonlandırılacak.</string>
@@ -3489,6 +3490,7 @@ Receiving SMS"</string>
     <string name="no">Hayır</string>
     <string name="create">Oluştur</string>
     <string name="allow">İzin ver</string>
+    <string name="dlg_close">Kapat</string>
     <string name="device_info_default">Bilinmeyen</string>
     <string name="show_dev_on">Geliştirici modu etkinleştirildi.</string>
     <string name="show_dev_already">Gerek yok, geliştirici modu zaten etkinleştirilmiş</string>

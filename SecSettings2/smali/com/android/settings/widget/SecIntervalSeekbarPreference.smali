@@ -172,7 +172,7 @@
 
     iput-object v0, p0, Lcom/android/settings/widget/SecIntervalSeekbarPreference;->mHandler:Landroid/os/Handler;
 
-    const v0, 0x7f0401c6
+    const v0, 0x7f0401c7
 
     invoke-virtual {p0, v0}, Lcom/android/settings/widget/SecIntervalSeekbarPreference;->setLayoutResource(I)V
 

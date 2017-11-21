@@ -92,7 +92,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b18a5
+    const v0, 0x7f0b18a6
 
     return v0
 .end method
@@ -301,7 +301,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f0b047e
+    const v19, 0x7f0b047f
 
     invoke-virtual/range {v18 .. v19}, Landroid/support/v7/preference/PreferenceScreen;->setTitle(I)V
 
@@ -1036,7 +1036,7 @@
 .method public onManageMobilePlanClick()V
     .locals 13
 
-    const v12, 0x7f0b147b
+    const v12, 0x7f0b147c
 
     const/4 v9, 0x0
 
@@ -1244,7 +1244,7 @@
 
     if-eqz v8, :cond_5
 
-    const v8, 0x7f0b147a
+    const v8, 0x7f0b147b
 
     invoke-virtual {v6, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1289,7 +1289,7 @@
 
     if-nez v8, :cond_8
 
-    const v8, 0x7f0b147c
+    const v8, 0x7f0b147d
 
     invoke-virtual {v6, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1300,7 +1300,7 @@
     goto/16 :goto_0
 
     :cond_8
-    const v8, 0x7f0b147d
+    const v8, 0x7f0b147e
 
     invoke-virtual {v6, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

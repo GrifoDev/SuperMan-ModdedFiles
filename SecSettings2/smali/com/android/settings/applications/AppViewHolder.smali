@@ -35,7 +35,7 @@
 
     if-nez p1, :cond_0
 
-    const v1, 0x7f0401cb
+    const v1, 0x7f0401cc
 
     invoke-virtual {p0, v1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -49,7 +49,7 @@
 
     check-cast v1, Landroid/view/ViewGroup;
 
-    const v2, 0x7f04031d
+    const v2, 0x7f04031e
 
     invoke-virtual {p0, v2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 

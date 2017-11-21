@@ -1065,7 +1065,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0aa4
+    const v2, 0x7f0b0aa5
 
     invoke-virtual {v1, v2}, Landroid/app/ActionBar;->setTitle(I)V
 
@@ -1191,7 +1191,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0ac3
+    const v2, 0x7f0b0ac4
 
     invoke-virtual {v1, v2}, Landroid/app/ActionBar;->setTitle(I)V
 
@@ -1842,11 +1842,11 @@
 
     invoke-direct {v0, v6}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v6, 0x7f0b0ac4
+    const v6, 0x7f0b0ac5
 
     invoke-virtual {v0, v6}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    const v6, 0x7f0b0ac5
+    const v6, 0x7f0b0ac6
 
     invoke-virtual {v0, v6}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -1854,7 +1854,7 @@
 
     invoke-direct {v6, p0}, Lcom/samsung/android/settings/TRoamingSettings$8;-><init>(Lcom/samsung/android/settings/TRoamingSettings;)V
 
-    const v7, 0x7f0b0451
+    const v7, 0x7f0b0452
 
     invoke-virtual {v0, v7, v6}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -2069,13 +2069,13 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/TRoamingSettings;->mMobileTRoaming:Landroid/preference/Preference;
 
-    const v3, 0x7f0b1ab7
+    const v3, 0x7f0b1ab8
 
     invoke-virtual {v2, v3}, Landroid/preference/Preference;->setSummary(I)V
 
     iget-object v2, p0, Lcom/samsung/android/settings/TRoamingSettings;->mUseDataRoaming:Landroid/preference/SwitchPreference;
 
-    const v3, 0x7f0b0e90
+    const v3, 0x7f0b0e91
 
     invoke-virtual {v2, v3}, Landroid/preference/SwitchPreference;->setTitle(I)V
 

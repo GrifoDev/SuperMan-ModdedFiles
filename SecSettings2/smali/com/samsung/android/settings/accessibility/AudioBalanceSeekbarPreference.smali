@@ -87,7 +87,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/accessibility/AudioBalanceSeekbarPreference;->mAudioFocusListener:Landroid/media/AudioManager$OnAudioFocusChangeListener;
 
-    const v0, 0x7f0401fe
+    const v0, 0x7f0401ff
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/accessibility/AudioBalanceSeekbarPreference;->setLayoutResource(I)V
 

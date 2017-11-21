@@ -1275,7 +1275,7 @@
 
     const/4 v5, 0x0
 
-    const v2, 0x7f040265
+    const v2, 0x7f040266
 
     invoke-virtual {p1, v2, p2, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -1464,7 +1464,7 @@
 
     iget-object v3, p0, Lcom/android/settings/dashboard/SecSearchResultsSummary;->mSuggestionsListView:Landroid/widget/ListView;
 
-    const v4, 0x7f040267
+    const v4, 0x7f040268
 
     invoke-virtual {v2, v4, v3, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 

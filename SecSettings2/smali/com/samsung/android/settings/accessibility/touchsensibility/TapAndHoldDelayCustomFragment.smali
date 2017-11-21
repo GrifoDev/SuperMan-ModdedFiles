@@ -663,7 +663,7 @@
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/accessibility/touchsensibility/TapAndHoldDelayCustomFragment;->removeDialog(I)V
 
     :cond_0
-    const v4, 0x7f0402e4
+    const v4, 0x7f0402e5
 
     invoke-virtual {v1, v4, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -895,7 +895,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b1439
+    const v3, 0x7f0b143a
 
     invoke-virtual {v2, v3, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -907,7 +907,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b143a
+    const v3, 0x7f0b143b
 
     invoke-virtual {v2, v3, p0}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -942,7 +942,7 @@
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/accessibility/touchsensibility/TapAndHoldDelayCustomFragment;->initDP()V
 
-    const v2, 0x7f0402e4
+    const v2, 0x7f0402e5
 
     const/4 v3, 0x0
 
@@ -1211,7 +1211,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b1612
+    const v2, 0x7f0b1613
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

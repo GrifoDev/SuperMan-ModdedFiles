@@ -138,6 +138,43 @@
     goto :goto_0
 .end method
 
+.method public getRawDataToIndex(Landroid/content/Context;Z)Ljava/util/List;
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Context;",
+            "Z)",
+            "Ljava/util/List",
+            "<",
+            "Lcom/android/settings/search/SearchIndexableRaw;",
+            ">;"
+        }
+    .end annotation
+
+    new-instance v1, Ljava/util/ArrayList;
+
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+
+    const/4 v0, 0x0
+
+    new-instance v0, Lcom/android/settings/search/SearchIndexableRaw;
+
+    invoke-direct {v0, p1}, Lcom/android/settings/search/SearchIndexableRaw;-><init>(Landroid/content/Context;)V
+
+    const-string/jumbo v2, "improve_location"
+
+    iput-object v2, v0, Lcom/android/settings/search/SearchIndexableRaw;->key:Ljava/lang/String;
+
+    const/4 v2, 0x3
+
+    iput v2, v0, Lcom/android/settings/search/SearchIndexableRaw;->menu_type:I
+
+    invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    return-object v1
+.end method
+
 .method public getXmlResourcesToIndex(Landroid/content/Context;Z)Ljava/util/List;
     .locals 3
     .annotation system Ldalvik/annotation/Signature;

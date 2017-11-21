@@ -893,6 +893,7 @@ Potrete modificare in seguito questa impostazione andando in Impostazioni Blueto
     <string name="bluetooth_control_app_disable_summary">Disattivaz. Bluetooth: %s</string>
     <string name="bluetooth_enter_pin_msg">"Inserire PIN per l'associazione con %s (Provare 0000 o 1234)."</string>
     <string name="bluetooth_pin_maximum_number_message">Il numero massimo di caratteri è stato raggiunto.</string>
+    <string name="bluetooth_frp_permission_message">Impossibile utilizzare il dispositivo Bluetooth per questa chiamata.</string>
     <string name="settings_menu_done">Fatto</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB non connesso</string>
     <string name="usb_tethering_available_subtext_tmo">USB connesso, selezionate per eseguire il tethering</string>
@@ -2971,7 +2972,7 @@ Il download con reti mobili può comportare costi aggiuntivi a seconda del piano
     <string name="wifi_enable_warning_spr">"L'attivazione del Wi-Fi, comporterà la disattivazione di Hotspot."</string>
     <string name="wifi_enable_warning_mtr">Se attivate il Wi-Fi, Router Wi-Fi verrà disattivato. Continuare?</string>
     <string name="wifi_enable_warning_usc">Se attivate il Wi-Fi, Router Wi-Fi verrà disattivato. Continuare?</string>
-    <string name="wifi_enable_warning">"L'attivazione del Wi-Fi comporterà la disattivazione di Router Wi-Fi."</string>
+    <string name="wifi_enable_warning">Quando Router Wi-Fi è attivo, il Wi-Fi viene disattivato. Per attivare il Wi-Fi, disattivate Router Wi-Fi.</string>
     <string name="wifi_control_history_title">Cronologia controllo Wi-Fi</string>
     <string name="wifi_control_history_description">Le applicazioni riportate di seguito hanno attivato o disattivato il Wi-Fi più di recente.</string>
     <string name="wifi_control_history_sub_title">App recenti</string>
@@ -2997,7 +2998,7 @@ Il download con reti mobili può comportare costi aggiuntivi a seconda del piano
     <string name="wifi_ap_help_enable_msg_summary_vzw">Router Wi-Fi è attivato. Toccate Configura per modificarne le impostazioni.</string>
     <string name="wifi_ap_help_enable_msg_summary">Router Wi-Fi attivato. Per modificare la configurazione di Router Wi-Fi, toccate ALTRO e selezionate Configura Router Wi-Fi.</string>
     <string name="wifi_ap_turning_on">Attivazione Router Wi-Fi in corso…</string>
-    <string name="wifi_ap_turning_off">Disattivazione Router Wi-Fi in corso…</string>
+    <string name="wifi_ap_turning_off">Disattivazione del Router Wi-Fi in corso…</string>
     <string name="wifi_ap_password_dialog_title">Cambia password</string>
     <string name="wifi_ap_wifi_sharing_text">"La rete Wi-Fi può essere condivisa con altri dispositivi. Tenete presente che il dispositivo può passare automaticamente da una rete Wi-Fi salvata all'altra. L'utente si assume la responsabilità del rispetto di tutti i Termini e condizioni del fornitore della rete Wi-Fi."</string>
     <string name="wifi_ap__wifi_sharing_vzw">Condivisione Wi-Fi</string>
@@ -3048,11 +3049,11 @@ Dopo aver avviato il Router Wi-Fi di Mobile Hotspot, connettetevi utilizzando i 
 Potete creare un profilo per i dispositivi consentiti e impostare la relativa modalità di connessione.
 
 L'attivazione di Router Wi-Fi comporta l'aumento del consumo della batteria e dell'utilizzo dei dati."</string>
-    <string name="wifi_ap_instruction_changeable_maxclient">"Potete utilizzare il dispositivo come punto di accesso ad internet utilizzando Router Wi-Fi. Ciò consente ad un massimo di %d altri dispositivi di collegarsi al punto di accesso tramite Wi-Fi. I dispositivi connessi potranno accedere ad internet grazie alla vostra connessione dati.
+    <string name="wifi_ap_instruction_changeable_maxclient">"Potete usare il dispositivo come punto di accesso a Internet utilizzando il Router Wi-Fi. Ciò consente a un massimo di %d altri dispositivi di collegarsi al punto di accesso tramite Wi-Fi. I dispositivi connessi potranno accedere a Internet grazie alla vostra connessione dati.
 
-Potete creare un profilo per i dispositivi consentiti ed impostare la relativa modalità di connessione.
+Potete creare un profilo per i dispositivi consentiti e impostare la relativa modalità di connessione.
 
-L'utilizzo di Router Wi-Fi comporta l'aumento del consumo della batteria e dell'utilizzo dei dati."</string>
+L'utilizzo del Router Wi-Fi comporta l'aumento del consumo della batteria e dell'uso dei dati."</string>
     <string name="wifi_ap_instruction_mtr">"Convertite il telefono in un Router Wi-Fi per condividere la connessione dati mobile con altri dispositivi.
 
 Per sfruttare le capacità di router del telefono, dovete aggiungere il servizio Router Wi-Fi smartphone al piano tariffario.
@@ -3076,7 +3077,7 @@ Per configurare Router Wi-Fi smartphone, toccate l'icona del menu, quindi toccat
     <string name="wifi_ap_wifi_off_warn_chn">"L'attivazione di Router WLAN disattiverà la rete WLAN."</string>
     <string name="wifi_ap_wifi_off_warn_att">Se si attiva Router Wi-Fi, il Wi-Fi verrà disattivato.</string>
     <string name="wifi_ap_wifi_off_warn_mtr">Il Wi-Fi è disattivo se il tethering USB o Router Wi-Fi sono attivi. Per attivare il Wi-Fi, disattivate il tethering USB o Router Wi-Fi.</string>
-    <string name="wifi_ap_wifi_off_warn">Se si attiva Router Wi-Fi, il Wi-Fi verrà disattivato.</string>
+    <string name="wifi_ap_wifi_off_warn">Per utilizzare il Router Wi-Fi, occorre disattivare il Wi-Fi.</string>
     <string name="wifi_ap_wifi_off_warn_title_vzw">Router Wi-Fi e Wi-Fi</string>
     <string name="wifi_ap_wifi_off_warn_title">Attenzione</string>
     <string name="wifi_ap_smartview_off_warn_vzw">Router Wi-Fi e Smart View non possono essere attivati contemporaneamente. Smart View verrà disattivato.</string>
@@ -3174,13 +3175,13 @@ Il Wi-Fi è adesso attivo."</string>
     <string name="wifi_tether_dialog_nosim_warning_title_tmo">Router Wi-Fi</string>
     <string name="wifi_tether_dialog_nosim_warning_title_spr">Router</string>
     <string name="wifi_tether_dialog_nosim_warning_title_att">Router Wi-Fi</string>
-    <string name="wifi_tether_dialog_nosim_warning_title">Router Wi-Fi</string>
+    <string name="wifi_tether_dialog_nosim_warning_title">Nessuna scheda SIM</string>
     <string name="wifi_tether_dialog_nosim_warning_chn">Inserite una scheda SIM per utilizzare Router WLAN e altre funzioni di tethering.</string>
     <string name="wifi_tether_dialog_nosim_warning_vzw">Inserite una scheda SIM per utilizzare Router Wi-Fi e altre opzioni di tethering.</string>
     <string name="wifi_tether_dialog_nosim_warning_tmo">"Inserite la scheda SIM per condividere la connessione dati del telefono con altri dispositivi utilizzando Router Wi-Fi o il tethering USB per l'accesso a Internet."</string>
     <string name="wifi_tether_dialog_nosim_warning_spr">Inserire la carta SIM per utilizzare Hotspot e il tethering</string>
     <string name="wifi_tether_dialog_nosim_warning_usc">Inserite una scheda SIM per utilizzare Router Wi-Fi e altre funzioni di tethering.</string>
-    <string name="wifi_tether_dialog_nosim_warning">Inserite una scheda SIM per utilizzare Router Wi-Fi e altre funzioni di tethering.</string>
+    <string name="wifi_tether_dialog_nosim_warning">Inserite una scheda SIM per utilizzare il Router Wi-Fi e altre opzioni di tethering.</string>
     <string name="mobileap_tmo">Router Wi-Fi</string>
     <string name="mobileap_spr">Router</string>
     <string name="mobileap_att">Router Wi-Fi</string>
@@ -3247,16 +3248,16 @@ Il Wi-Fi è adesso attivo."</string>
     <string name="wifi_ap_instruction_activate_color_hidden3_tmo">Connettetevi a &lt;font color=\"%1$s\">%2$s&lt;/font> inserendo &lt;font color=\"%1$s\">%3$s&lt;/font> come password.</string>
     <string name="wifi_ap_instruction_activate_color_hidden3">Connettetevi a &lt;font color=\"%1$s\">%2$s&lt;/font> inserendo &lt;font color=\"%1$s\">%3$s&lt;/font> come password.</string>
     <string name="wifi_ap_instruction_activate_color_hidden4_tmo">Navigate in Internet utilizzando il Router Wi-Fi personale.</string>
-    <string name="wifi_ap_instruction_no_maxclient">"Potete utilizzare il dispositivo come punto di accesso a Internet utilizzando Router Wi-Fi. In questo modo, gli altri dispositivi potranno collegarsi al punto di accesso con il Wi-Fi. I dispositivi connessi potranno accedere a Internet con la vostra rete mobile.
+    <string name="wifi_ap_instruction_no_maxclient">"Potete usare il dispositivo come punto di accesso a Internet utilizzando il Router Wi-Fi. In questo modo, gli altri dispositivi potranno collegarsi al punto di accesso con il Wi-Fi. I dispositivi connessi potranno accedere a Internet grazie alla vostra connessione dati.
 
 Potete creare un profilo per i dispositivi consentiti e impostare la relativa modalità di connessione.
 
-L'utilizzo di Router Wi-Fi comporta l'aumento del consumo della batteria e dell'utilizzo dei dati."</string>
+L'utilizzo del Router Wi-Fi comporta l'aumento del consumo della batteria e dell'uso dei dati."</string>
     <string name="wifi_ap_instruction_configure_vzw">Per modificare la configurazione di Router Wi-Fi, andate in Impostazioni > Router Wi-Fi e tethering > Router Wi-Fi > ALTRO e selezionate Configura Router Wi-Fi.</string>
     <string name="wifi_ap_instruction_configure_tmo">Per modificare la configurazione di Router Wi-Fi, toccate il pulsante Altre opzioni, quindi selezionate Configura Router Wi-Fi.</string>
-    <string name="wifi_ap_instruction_configure">Per modificare la configurazione di Router Wi-Fi, toccate il pulsante Altre opzioni, quindi selezionate Configura Router Wi-Fi.</string>
+    <string name="wifi_ap_instruction_configure">Per modificare la configurazione del Router Wi-Fi, toccate il pulsante Altre opzioni, quindi selezionate Configura Router Wi-Fi.</string>
     <string name="wifi_ap_instruction_configure_non_grace_tmo">Per modificare la configurazione di Router Wi-Fi, toccate ALTRO e selezionate Configura Router Wi-Fi.</string>
-    <string name="wifi_ap_instruction_configure_non_grace">Per modificare la configurazione di Router Wi-Fi, toccate ALTRO e selezionate Configura Router Wi-Fi.</string>
+    <string name="wifi_ap_instruction_configure_non_grace">Per modificare la configurazione del Router Wi-Fi, toccate ALTRO e selezionate Configura Router Wi-Fi.</string>
     <string name="wifi_ap_change_security">Modifica protezione</string>
     <string name="wifi_ap_maxclient">Connessioni massime</string>
     <string name="wifi_ap_no_hotspot_mode_warning">"Router Wi-Fi è attualmente controllato da un'altra applicazione. Per consentire la configurazione, la connessione di Router Wi-Fi attuale verrà interrotta."</string>
@@ -3489,6 +3490,7 @@ Ricezione di SMS"</string>
     <string name="no">No</string>
     <string name="create">Crea</string>
     <string name="allow">Consenti</string>
+    <string name="dlg_close">Chiudi</string>
     <string name="device_info_default">Sconosciuto</string>
     <string name="show_dev_on">La modalità sviluppatore è già stata attivata.</string>
     <string name="show_dev_already">Non necessario: modalità sviluppatore è già stata attivata</string>

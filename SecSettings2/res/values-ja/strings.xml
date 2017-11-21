@@ -891,6 +891,7 @@ Bluetooth設定に移動すると、後からこの設定を変更すること�
     <string name="bluetooth_control_app_disable_summary">BluetoothをOFFで実行: %s</string>
     <string name="bluetooth_enter_pin_msg">%sとペアリングするためのPIN（0000または1234）を入力してください。</string>
     <string name="bluetooth_pin_maximum_number_message">最大文字数に達しました。</string>
+    <string name="bluetooth_frp_permission_message">この通話でBluetoothデバイスを使用することはできません。</string>
     <string name="settings_menu_done">完了</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB未接続</string>
     <string name="usb_tethering_available_subtext_tmo">USB接続中、テザリング可能</string>
@@ -2969,7 +2970,7 @@ Downloading via mobile networks uses your data plan."</string>
     <string name="wifi_enable_warning_spr">Wi-FiをONにすると、ホットスポットが無効になります。</string>
     <string name="wifi_enable_warning_mtr">Wi-FiをONにすると、Wi-FiテザリングがOFFになります。続行しますか？</string>
     <string name="wifi_enable_warning_usc">Wi-Fi をONにすると、ポータブルWi-FiテザリングがOFFになります。続行しますか？</string>
-    <string name="wifi_enable_warning">Wi-FiをONにすると、Wi-Fiテザリングが無効になります。</string>
+    <string name="wifi_enable_warning">Wi-Fiテザリングが有効な場合、Wi-FiはOFFになります。Wi-FiをONにするには、Wi-FiテザリングをOFFにしてください。</string>
     <string name="wifi_control_history_title">Wi-Fi制御履歴</string>
     <string name="wifi_control_history_description">最近Wi-FiをONまたはOFFにしたアプリを以下に表示します。</string>
     <string name="wifi_control_history_sub_title">最近使用したアプリ</string>
@@ -2995,7 +2996,7 @@ Downloading via mobile networks uses your data plan."</string>
     <string name="wifi_ap_help_enable_msg_summary_vzw">Wi-FiテザリングがONになりました。Wi-Fiテザリング設定を変更するには、[設定]をタップしてください。</string>
     <string name="wifi_ap_help_enable_msg_summary">Wi-Fiテザリングが有効になりました。Wi-Fiテザリングの設定を変更するには、[その他]をタップし、[Wi-Fiテザリングを設定]を選択します。</string>
     <string name="wifi_ap_turning_on">Wi-Fiテザリングを有効にしています…</string>
-    <string name="wifi_ap_turning_off">Wi-Fiテザリングを無効にしています…</string>
+    <string name="wifi_ap_turning_off">Wi-FiテザリングをOFFにしています…</string>
     <string name="wifi_ap_password_dialog_title">パスワードを変更</string>
     <string name="wifi_ap_wifi_sharing_text">Wi-Fiネットワークを他のデバイスと共有できます。保存済みのWi-Fiネットワークに切り替わる場合がありますが、通知は表示されないためご注意ください。また、接続する全てのWi-Fiプロバイダの利用規約を遵守する責任があります。</string>
     <string name="wifi_ap__wifi_sharing_vzw">Wi-Fi共有</string>
@@ -3074,7 +3075,7 @@ Wi-Fiテザリングを設定するには、メニューアイコンをタップ
     <string name="wifi_ap_wifi_off_warn_chn">WLANテザリングを有効にすると、WLANがOFFになります。</string>
     <string name="wifi_ap_wifi_off_warn_att">ポータブルWi-FiテザリングをONにすると、Wi-FiがOFFになります。</string>
     <string name="wifi_ap_wifi_off_warn_mtr">USBテザリングまたはWi-Fiテザリングが有効な場合、Wi-FiはOFFになります。Wi-FiをONにするには、USBテザリングまたはWi-FiテザリングをOFFにしてください。</string>
-    <string name="wifi_ap_wifi_off_warn">Wi-Fiテザリングを有効にすると、Wi-FiがOFFになります。</string>
+    <string name="wifi_ap_wifi_off_warn">Wi-Fiテザリングを使用するには、Wi-FiをOFFにする必要があります。</string>
     <string name="wifi_ap_wifi_off_warn_title_vzw">Mobile Hotspot and Wi-Fi</string>
     <string name="wifi_ap_wifi_off_warn_title">注意</string>
     <string name="wifi_ap_smartview_off_warn_vzw">[Wi-Fiテザリング]と[Smart View]の両方を同時にONにすることはできません。[Smart View]はOFFになります。</string>
@@ -3172,13 +3173,13 @@ Wi-FiをONにします。"</string>
     <string name="wifi_tether_dialog_nosim_warning_title_tmo">Wi-Fiテザリング</string>
     <string name="wifi_tether_dialog_nosim_warning_title_spr">ホットスポット</string>
     <string name="wifi_tether_dialog_nosim_warning_title_att">Wi-Fiテザリング</string>
-    <string name="wifi_tether_dialog_nosim_warning_title">Wi-Fiテザリング</string>
+    <string name="wifi_tether_dialog_nosim_warning_title">SIMカードなし</string>
     <string name="wifi_tether_dialog_nosim_warning_chn">WLANテザリングと他のテザリング機能を使用するには、SIMカードを挿入してください。</string>
     <string name="wifi_tether_dialog_nosim_warning_vzw">Wi-Fiテザリングや他のテザリングオプションを使用するには、SIMカードを挿入してください。</string>
     <string name="wifi_tether_dialog_nosim_warning_tmo">"Please install SIM card in order to share your phone's data connection with other devices using Mobile Wi-Fi HotSpot or USB tethering for Internet access."</string>
     <string name="wifi_tether_dialog_nosim_warning_spr">SIMを挿入して、テザリングを含むホットスポットを使用します。</string>
     <string name="wifi_tether_dialog_nosim_warning_usc">Wi-Fiテザリングと他のテザリング機能を使用するには、SIMカードを挿入してください。</string>
-    <string name="wifi_tether_dialog_nosim_warning">Wi-Fiテザリングと他のテザリング機能を使用するには、SIMカードを挿入してください。</string>
+    <string name="wifi_tether_dialog_nosim_warning">Wi-Fiテザリングや、その他のテザリングオプションを使用するには、SIMカードを挿入してください。</string>
     <string name="mobileap_tmo">Wi-Fiテザリング</string>
     <string name="mobileap_spr">ホットスポット</string>
     <string name="mobileap_att">Wi-Fiテザリング</string>
@@ -3249,12 +3250,12 @@ Wi-FiをONにします。"</string>
 
 許可デバイスリストを作成し、許可デバイスの接続モードを設定できます。
 
-テザリングを使用すると、バッテリー消費量とデータ使用量が増加します。"</string>
+Wi-Fiテザリングを使用すると、バッテリー消費量とデータ使用量が増加します。"</string>
     <string name="wifi_ap_instruction_configure_vzw">Wi-Fiテザリングの設定を変更するには、[設定] > [テザリング] > [Wi-Fiテザリング] > [その他]に移動し、[Wi-Fiテザリングを設定]を選択します。</string>
     <string name="wifi_ap_instruction_configure_tmo">Wi-Fiテザリングの設定を変更するには、他のオプションボタンをタップし、[Wi-Fiテザリングを設定]を選択してください。</string>
     <string name="wifi_ap_instruction_configure">Wi-Fiテザリングの設定を変更するには、他のオプションボタンをタップし、[Wi-Fiテザリングを設定]を選択してください。</string>
     <string name="wifi_ap_instruction_configure_non_grace_tmo">Wi-Fiテザリングの設定を変更するには、[その他]をタップし、[Wi-Fiテザリングを設定]を選択してください。</string>
-    <string name="wifi_ap_instruction_configure_non_grace">Wi-Fiテザリングの設定を変更するには、[その他]をタップし、[Wi-Fiテザリングを設定]を選択します。</string>
+    <string name="wifi_ap_instruction_configure_non_grace">Wi-Fiテザリングの設定を変更するには、[その他]をタップし、[Wi-Fiテザリングを設定]を選択してください。</string>
     <string name="wifi_ap_change_security">セキュリティを変更</string>
     <string name="wifi_ap_maxclient">最大接続数</string>
     <string name="wifi_ap_no_hotspot_mode_warning">Wi-Fiテザリングは現在他のアプリケーションによってコントロールされています。この機能を設定するために、現在のWi-Fiテザリング接続を終了します。</string>
@@ -3487,6 +3488,7 @@ SMS受信"</string>
     <string name="no">いいえ</string>
     <string name="create">作成</string>
     <string name="allow">許可</string>
+    <string name="dlg_close">閉じる</string>
     <string name="device_info_default">不明</string>
     <string name="show_dev_on">デベロッパーモードが有効になりました。</string>
     <string name="show_dev_already">デベロッパーモードは既に有効です。</string>

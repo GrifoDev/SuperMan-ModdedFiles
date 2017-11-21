@@ -86,7 +86,7 @@
 .method private getSyncContentDescription(I)Ljava/lang/String;
     .locals 4
 
-    const v3, 0x7f0b1770
+    const v3, 0x7f0b1771
 
     packed-switch p1, :pswitch_data_0
 
@@ -127,7 +127,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b176d
+    const v1, 0x7f0b176e
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -140,7 +140,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b176e
+    const v1, 0x7f0b176f
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -164,7 +164,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b176f
+    const v1, 0x7f0b1770
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -186,7 +186,7 @@
 
     packed-switch p1, :pswitch_data_0
 
-    const v0, 0x7f020265
+    const v0, 0x7f020266
 
     const-string/jumbo v1, "AccountPreference"
 
@@ -214,17 +214,17 @@
     return v0
 
     :pswitch_0
-    const v0, 0x7f02024e
+    const v0, 0x7f02024f
 
     goto :goto_0
 
     :pswitch_1
-    const v0, 0x7f020263
+    const v0, 0x7f020264
 
     goto :goto_0
 
     :pswitch_2
-    const v0, 0x7f020265
+    const v0, 0x7f020266
 
     goto :goto_0
 
@@ -244,7 +244,7 @@
 
     packed-switch p1, :pswitch_data_0
 
-    const v0, 0x7f0b1781
+    const v0, 0x7f0b1782
 
     const-string/jumbo v1, "AccountPreference"
 
@@ -272,22 +272,22 @@
     return v0
 
     :pswitch_0
-    const v0, 0x7f0b177f
-
-    goto :goto_0
-
-    :pswitch_1
     const v0, 0x7f0b1780
 
     goto :goto_0
 
-    :pswitch_2
+    :pswitch_1
     const v0, 0x7f0b1781
 
     goto :goto_0
 
+    :pswitch_2
+    const v0, 0x7f0b1782
+
+    goto :goto_0
+
     :pswitch_3
-    const v0, 0x7f0b1783
+    const v0, 0x7f0b1784
 
     goto :goto_0
 

@@ -301,7 +301,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f020521
+    const v4, 0x7f020522
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -427,7 +427,7 @@
 
     if-eqz v3, :cond_0
 
-    const v3, 0x7f040361
+    const v3, 0x7f040362
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/wifi/WifiPickerDialog;->setContentView(I)V
 
@@ -436,7 +436,7 @@
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     :goto_0
-    const v3, 0x7f0b1236
+    const v3, 0x7f0b1237
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/wifi/WifiPickerDialog;->setTitle(I)V
 
@@ -475,7 +475,7 @@
     return-void
 
     :cond_0
-    const v3, 0x7f040360
+    const v3, 0x7f040361
 
     :try_start_1
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/wifi/WifiPickerDialog;->setContentView(I)V

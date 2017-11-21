@@ -135,7 +135,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/PreviewSeekBarPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v5, 0x7f040110
+    const v5, 0x7f040111
 
     iput v5, p0, Lcom/android/settings/accessibility/ToggleFontSizePreferenceFragment;->mActivityLayoutResId:I
 
@@ -143,7 +143,7 @@
 
     new-array v5, v5, [I
 
-    const v6, 0x7f040111
+    const v6, 0x7f040112
 
     const/4 v7, 0x0
 

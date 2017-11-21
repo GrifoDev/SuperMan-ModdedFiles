@@ -72,7 +72,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f0402ab
+    const v0, 0x7f0402ac
 
     invoke-virtual {p0, v0}, Lcom/android/settings/deviceinfo/StorageWizardMigrate;->setContentView(I)V
 
@@ -88,13 +88,13 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f0b1406
+    const v1, 0x7f0b1407
 
     invoke-virtual {p0, v1, v0}, Lcom/android/settings/deviceinfo/StorageWizardMigrate;->setHeaderText(I[Ljava/lang/String;)V
 
     new-array v0, v2, [Ljava/lang/String;
 
-    const v1, 0x7f0b13ad
+    const v1, 0x7f0b13ae
 
     invoke-virtual {p0, v1, v0}, Lcom/android/settings/deviceinfo/StorageWizardMigrate;->setBodyText(I[Ljava/lang/String;)V
 

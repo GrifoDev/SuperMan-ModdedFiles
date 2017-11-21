@@ -89,7 +89,7 @@
     <string name="tether_settings_title_wifi">Ташымал урунттуу чекити</string>
     <string name="tether_settings_title_bluetooth">Bluetooth таратуусу</string>
     <string name="tether_settings_title_usb_bluetooth">Таратуу</string>
-    <string name="tether_settings_title_all">Мобилдик кошулуу чекити жана таратуу</string>
+    <string name="tether_settings_title_all">Моб. Кошулуу чекити ж-а Таратуу</string>
     <string name="managed_user_title">Жумуш профилинин колднмлр</string>
     <string name="user_guest">Конок</string>
     <string name="unknown">Белгисиз</string>
@@ -892,6 +892,7 @@ Wi-Fi жана Bluetooth да өчүрүлөт, бирок кайра алард
     <string name="bluetooth_control_app_disable_summary">Өчүрүлгөн Bluetooth: %s</string>
     <string name="bluetooth_enter_pin_msg">%s менен кошоктотууга PIN киргизиңиз (0000 же 1234 колдонуп көрүңүз).</string>
     <string name="bluetooth_pin_maximum_number_message">Белгилер саны нары четине жетти.</string>
+    <string name="bluetooth_frp_permission_message">Бул чалуу үчүн Bluetooth түзмөгү колдонулбайт.</string>
     <string name="settings_menu_done">Даяр</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>
@@ -2970,7 +2971,7 @@ Downloading via mobile networks uses your data plan."</string>
     <string name="wifi_enable_warning_spr">Turning on Wi-Fi will disable Hotspot.</string>
     <string name="wifi_enable_warning_mtr">Turning on Wi-Fi will turn off Mobile Hotspot. Continue?</string>
     <string name="wifi_enable_warning_usc">Turning on Wi-Fi will turn off Portable Wi-Fi hotspot. Continue?</string>
-    <string name="wifi_enable_warning">Wi-Fi күйгүзүүсү Мобилдик урунттуу чекитти иштен чыгарат.</string>
+    <string name="wifi_enable_warning">"Мобилдик Кошулуу чекити активдүү болгондо Wi-Fi өчүрүлөт. Wi-Fi'ды күйгүзүү үчүн, Мобилдик Кошулуу чекитин өчүрүңүз."</string>
     <string name="wifi_control_history_title">Wi-Fi көзомолдөө тарыхы</string>
     <string name="wifi_control_history_description">"Төмөндөгү колдонмолор жакын арада эң көп Wi-Fi'ды күйгүзүштү же өчүрүштү."</string>
     <string name="wifi_control_history_sub_title">Акыркы колдонолор</string>
@@ -2995,8 +2996,8 @@ Downloading via mobile networks uses your data plan."</string>
     <string name="wifi_wapi_user_certificate">Колдонуучу тастыктамасы</string>
     <string name="wifi_ap_help_enable_msg_summary_vzw">Mobile Hotspot is turned on. Tap Configure to change your Mobile Hotspot settings.</string>
     <string name="wifi_ap_help_enable_msg_summary">Mobile Hotspot is enabled. To change the Mobile Hotspot configuration, tap MORE and select Configure Mobile Hotspot.</string>
-    <string name="wifi_ap_turning_on">Мобилдик урунттуу чекит иштетүүдө…</string>
-    <string name="wifi_ap_turning_off">Мобилдик урунттуу чекитти иштен чыгарууда…</string>
+    <string name="wifi_ap_turning_on">Мобилдик Кошулуу чекитин иштетүүдө…</string>
+    <string name="wifi_ap_turning_off">Мобилдик Кошулуу чекитин өчүрүүдө…</string>
     <string name="wifi_ap_password_dialog_title">Сырсөздү өзгөртүү</string>
     <string name="wifi_ap_wifi_sharing_text">Wi-Fi тармагыңыз башка түзмөктөр менен бөлүшүлөт. Түзмөгүңүз сакталган Wi-Fi кошулуу чекиттеринин ортосунда эскертүүсүз эле которуу мүмкүн экендиги эсиңизде болсун. Сиз Wi-Fi камсыздоочуңуздун бардык шарттар жана жагдайларына баш ийүүгө жооптуусуз.</string>
     <string name="wifi_ap__wifi_sharing_vzw">Wi-Fi Sharing</string>
@@ -3009,11 +3010,11 @@ Downloading via mobile networks uses your data plan."</string>
     <string name="wifi_ap_starting_chn">Enabling Portable WLAN hotspot…</string>
     <string name="wifi_ap_starting_tmo">Turning Mobile HotSpot on…</string>
     <string name="wifi_ap_starting_att">Turning on portable Wi-Fi hotspot…</string>
-    <string name="wifi_ap_starting">Мобилдик урунттуу чекит иштетүүдө…</string>
+    <string name="wifi_ap_starting">Мобилдик Кошулуу чекитин иштетүүдө…</string>
     <string name="wifi_ap_stopping_chn">Disabling Portable WLAN hotspot…</string>
     <string name="wifi_ap_stopping_tmo">Turning Mobile HotSpot off…</string>
     <string name="wifi_ap_stopping_att">Turning off portable Wi-Fi hotspot…</string>
-    <string name="wifi_ap_stopping">Мобилдик урунттуу чекитти иштен чыгарууда…</string>
+    <string name="wifi_ap_stopping">Мобилдик Кошулуу чекитин иштен чыгарууда…</string>
     <string name="wifi_ap_add_whitelist">Ак тизмеге кошуу</string>
     <string name="wifi_ap_remove_from_whitelist">Ак тизмеден алып салуу</string>
     <string name="wifi_ap_allow_device_added">%s уруксаты бар түзмөктөргө кошулду.</string>
@@ -3047,11 +3048,11 @@ After you start the Mobile Hotspot Wi-Fi router, connect using the controls on y
 You can create an allowed device profile and set the connection mode for it.
 
 Using Portable Wi-Fi hotspot consumes more battery power and increases your data usage."</string>
-    <string name="wifi_ap_instruction_changeable_maxclient">"Мобилдик Кошулуу чекити аркылуу сиз түзмөгүңүздү Интернет тармагына кирүү чекити катары орното аласыз. Сизге %d го чейин башка түзмөктөр Wi-Fi аркылуу кошула алат да, сиздин мобилдик тармагыңыз менен Интернетке кире алышат.
+    <string name="wifi_ap_instruction_changeable_maxclient">"Сиз түзмөгүңүздү Мобилдик Кошулуу чекитин колдонуу менен Интернет кошулуу чекити катары колдоно аласыз. Бул %d чейин башка түзмөктөргө аны Wi-Fi аркылуу туташууга уруксат берет. Туташылган түзмөктөрдө Интернетке мобилдик тармагыңыз аркылуу кошулуусу болот.
 
-Сиз уруксат этилген түзмөк профилин жаратып, жана ал үчүн байланыш режимин кое аласыз.
+Сиз уруксат берилген түзмөк профилин түзүп, жана ага туташуу режимин койсоңуз болот.
 
-Мобилдик Кошулуу чекитин пайдалануу батареянын сарптоосун жана маалыматтар керектөөсүн жогорулатат."</string>
+Мобилдик Кошулуу чекитин колдонуу батарея менен маалыматтар керектөөсүн көбөйтөт."</string>
     <string name="wifi_ap_instruction_mtr">"Turn your phone into Portable Wi-Fi Hotspot so you can share your mobile data connection with other devices.
 
 To use your phone's Hotspot capability, you must have the Smartphone Mobile Hotspot service added to your rate plan.
@@ -3075,7 +3076,7 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_ap_wifi_off_warn_chn">Enabling Mobile hotspot will turn off WLAN.</string>
     <string name="wifi_ap_wifi_off_warn_att">Turning on portable Wi-Fi hotspot will turn off Wi-Fi.</string>
     <string name="wifi_ap_wifi_off_warn_mtr">Wi-Fi is turned off when USB tethering or Mobile Hotspot is active. To turn on Wi-Fi, please turn off USB tethering or Mobile Hotspot.</string>
-    <string name="wifi_ap_wifi_off_warn">Мобилдик кошулуу чекити иштетилгенде, Wi-Fi өчүрүлөт.</string>
+    <string name="wifi_ap_wifi_off_warn">Мобилдик Кошулуу чекитин колдонуу үчүн, Wi-Fi өчүрүлүш керек.</string>
     <string name="wifi_ap_wifi_off_warn_title_vzw">Mobile Hotspot and Wi-Fi</string>
     <string name="wifi_ap_wifi_off_warn_title">Көңүл буруңуз</string>
     <string name="wifi_ap_smartview_off_warn_vzw">Mobile Hotspot and Smart View cannot be turned on at the same time. Smart View will be turned off.</string>
@@ -3100,7 +3101,7 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_ap_menu_configure_hotspot_spr">Configure Hotspot</string>
     <string name="wifi_ap_menu_configure_hotspot_tmo">Configure Mobile HotSpot</string>
     <string name="wifi_ap_menu_configure_hotspot_att">Configure Mobile Hotspot</string>
-    <string name="wifi_ap_menu_configure_hotspot">Мобил. кошулуу чекит орнотуу</string>
+    <string name="wifi_ap_menu_configure_hotspot">Мобилдик Кошулуу чекитин конфигурациялоо</string>
     <string name="wifi_ap_menu_timeout">Өчүү убагын орнотуу</string>
     <string name="wifi_ap_menu_allow_devices">Уруксат берилген түзмөктөр</string>
     <string name="wifi_ap_timeout_message_vzw">Disable Mobile Hotspot if there is no connection for</string>
@@ -3173,13 +3174,13 @@ Wi-Fi is now on."</string>
     <string name="wifi_tether_dialog_nosim_warning_title_tmo">Mobile HotSpot</string>
     <string name="wifi_tether_dialog_nosim_warning_title_spr">Hotspot</string>
     <string name="wifi_tether_dialog_nosim_warning_title_att">Mobile Hotspot</string>
-    <string name="wifi_tether_dialog_nosim_warning_title">Мобилдик кошулуу чекити</string>
+    <string name="wifi_tether_dialog_nosim_warning_title">SIM карта жок</string>
     <string name="wifi_tether_dialog_nosim_warning_chn">Insert a SIM card to use Mobile hotspot and other tethering functions.</string>
     <string name="wifi_tether_dialog_nosim_warning_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
     <string name="wifi_tether_dialog_nosim_warning_tmo">"Please install SIM card in order to share your phone's data connection with other devices using Mobile Wi-Fi HotSpot or USB tethering for Internet access."</string>
     <string name="wifi_tether_dialog_nosim_warning_spr">Insert SIM for using Hotspot include tethering</string>
     <string name="wifi_tether_dialog_nosim_warning_usc">SIM картаны, Мобилдик урунттуу чекит жана башка тушатуу иш-милдеттерин пайдаланууга кыстарыңыз.</string>
-    <string name="wifi_tether_dialog_nosim_warning">SIM картаны, Мобилдик урунттуу чекит жана башка тушатуу иш-милдеттерин пайдаланууга кыстарыңыз.</string>
+    <string name="wifi_tether_dialog_nosim_warning">Мобилдик Кошулуу чекитин жана башка таратуу тандоолорун колдонуу үчүн SIM карта салыңыз.</string>
     <string name="mobileap_tmo">Mobile HotSpot</string>
     <string name="mobileap_spr">Hotspot</string>
     <string name="mobileap_att">Mobile Hotspot</string>
@@ -3246,16 +3247,16 @@ Wi-Fi is now on."</string>
     <string name="wifi_ap_instruction_activate_color_hidden3_tmo">Connect to &lt;font color=\"%1$s\">%2$s&lt;/font> by entering &lt;font color=\"%1$s\">%3$s&lt;/font> as the password.</string>
     <string name="wifi_ap_instruction_activate_color_hidden3">&lt;font color=\"%1$s\">%2$s&lt;/font> ’га туташууга, &lt;font color=\"%1$s\">%3$s&lt;/font>сырсөз катары киргизиңиз.</string>
     <string name="wifi_ap_instruction_activate_color_hidden4_tmo">Enjoy the internet using your personal Mobile HotSpot.</string>
-    <string name="wifi_ap_instruction_no_maxclient">"Мобилдик кошулуу чекити аркылуу сиз түзмөгүңүздү Интернет тармагына кирүү чекити катары колдоно аласыз. Бул башка түзмөктөргө буга Wi-Fi аркылуу туташууга уруксат берет. Туташкан түзмөктөр, сиздин мобилдик тармагыңыз аркылуу Интернетке кошула алышат.
+    <string name="wifi_ap_instruction_no_maxclient">"Сиз түзмөгүңүздү Мобилдик Кошулуу чекитин колдонуу менен Интернет кошулуу чекити катары колдоно аласыз. Бул башка түзмөктөргө аны Wi-Fi аркылуу туташууга уруксат берет. Туташылган түзмөктөрдө Интернетке мобилдик тармагыңыз аркылуу кошулуусу болот.
 
-Сиз уруксаты бар түзмөк профилин түзүп жана ага туташуу режимин коё аласыз.
+Сиз уруксат берилген түзмөк профилин түзүп, жана ага туташуу режимин койсоңуз болот.
 
-Мобилдик кошулуу чекитин колдонуу көбүрөөк батарея кубатын керектейт жана маалымат колдонууңузду жогорулатат."</string>
+Мобилдик Кошулуу чекитин колдонуу батарея менен маалыматтар керектөөсүн көбөйтөт."</string>
     <string name="wifi_ap_instruction_configure_vzw">To change the Mobile Hotspot configuration, go to Settings > Mobile Hotspot and tethering > Mobile Hotspot > MORE, then select Configure Mobile Hotspot.</string>
     <string name="wifi_ap_instruction_configure_tmo">To change the Mobile HotSpot configuration, tap the More options button, then select Configure Mobile HotSpot.</string>
-    <string name="wifi_ap_instruction_configure">Мобилдик кошулуу чекитинин конфигурациясын өзгөртүү үчүн, Дагы тандоолор баскычын басып, андан соң Мобилдик кошулуу чекитин Конфигурациялоону тандаңыз.</string>
+    <string name="wifi_ap_instruction_configure">Мобилдик Кошулуу чекитинин конфигурациялоосун өзгөртүү үчүн, Дагы тандоолор баскычын басып, андан соң Мобилдик Кошулуу чекитин конфигурациялоону тандаңыз.</string>
     <string name="wifi_ap_instruction_configure_non_grace_tmo">To change the Mobile HotSpot configuration, tap MORE, then select Configure Mobile HotSpot.</string>
-    <string name="wifi_ap_instruction_configure_non_grace">Мобилдик Кошулуу Чекитин конфигурациялоону өзгөртүү үчүн, ДАГЫНЫ басыңыз жана Мобилдик Кошулуу Чекитин конфигурациялоону тандаңыз.</string>
+    <string name="wifi_ap_instruction_configure_non_grace">Мобилдик Кошулуу чекитин конфигурациялоосун өзгөртүү үчүн, ДАГЫНЫ басыңыз жана Мобилдик Кошулуу чекитин конфигурациялоону тандаңыз.</string>
     <string name="wifi_ap_change_security">Change Security</string>
     <string name="wifi_ap_maxclient">Эң көп боло турган байланыштар</string>
     <string name="wifi_ap_no_hotspot_mode_warning">Мобилдик урунттуу чекити учурда башка сунуучу тарабынан башкарылууда. Аны тарамдоого, учурдагы Мобилдик урунттуу чекити менен байланышты аяктоо керек.</string>
@@ -3488,6 +3489,7 @@ Receiving SMS"</string>
     <string name="no">Жок</string>
     <string name="create">Түзүү</string>
     <string name="allow">Уруксат бер</string>
+    <string name="dlg_close">Жабуу</string>
     <string name="device_info_default">Белгисиз</string>
     <string name="show_dev_on">Иштеп чыгаруучу режими иштетилди</string>
     <string name="show_dev_already">Кереги жок, иштетүүчү режими эчак иштетилген.</string>

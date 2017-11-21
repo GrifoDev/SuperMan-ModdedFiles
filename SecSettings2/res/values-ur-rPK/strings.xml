@@ -892,6 +892,7 @@ Wi-Fi اور بلیوٹوتھ کو بھی آف کر دیا جائے گا لیک�
     <string name="bluetooth_control_app_disable_summary">بلیوٹوتھ بند کریں: %s</string>
     <string name="bluetooth_enter_pin_msg">‏%s کے ساتھ جوڑی بنانے کے لئے پن درج کریں (آزمائیں 0000 یا 1234)</string>
     <string name="bluetooth_pin_maximum_number_message">حروف کی زیادہ سے زیادہ تعداد پہنچ گئی۔</string>
+    <string name="bluetooth_frp_permission_message">اس کال کے لیے بلیوٹوتھ آلہ کا استعمال نہیں کیا جاسکتا۔</string>
     <string name="settings_menu_done">مکمل</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>
@@ -2970,7 +2971,7 @@ Downloading via mobile networks uses your data plan."</string>
     <string name="wifi_enable_warning_spr">Turning on Wi-Fi will disable Hotspot.</string>
     <string name="wifi_enable_warning_mtr">Turning on Wi-Fi will turn off Mobile Hotspot. Continue?</string>
     <string name="wifi_enable_warning_usc">Turning on Wi-Fi will turn off Portable Wi-Fi hotspot. Continue?</string>
-    <string name="wifi_enable_warning">‏Wi-Fi چالو کرنا موبائل ہاٹ اسپاٹ کو غیر فعال کردے گا۔</string>
+    <string name="wifi_enable_warning">‏Wi-Fi موبائل ہاٹ اسپاٹ کے فعال ہونے پر آف کردیا جاتا ہے۔ Wi-Fi آن کرنے کے لیے، موبائل ہاٹ اسپاٹ آف کریں۔</string>
     <string name="wifi_control_history_title">‏Wi-Fi کنٹرول ہسٹری</string>
     <string name="wifi_control_history_description">یہ مندرجہ ذیل ایپلیکیشنز فی الحال زیادہ تر Wi-Fi کو آف یا آن کردیا ہے۔</string>
     <string name="wifi_control_history_sub_title">حالیہ ایپلیکیشنز</string>
@@ -2995,8 +2996,8 @@ Downloading via mobile networks uses your data plan."</string>
     <string name="wifi_wapi_user_certificate">صارف کی سند</string>
     <string name="wifi_ap_help_enable_msg_summary_vzw">Mobile Hotspot is turned on. Tap Configure to change your Mobile Hotspot settings.</string>
     <string name="wifi_ap_help_enable_msg_summary">Mobile Hotspot is enabled. To change the Mobile Hotspot configuration, tap MORE and select Configure Mobile Hotspot.</string>
-    <string name="wifi_ap_turning_on">موبائل ہاٹ اسپاٹ کو فعال کررہا ہے…</string>
-    <string name="wifi_ap_turning_off">موبائل ہاٹ اسپاٹ کو غیر فعال کررہا ہے…</string>
+    <string name="wifi_ap_turning_on">موبائل ہاٹ اسپاٹ اہل کیا جارہا ہے…</string>
+    <string name="wifi_ap_turning_off">موبائل ہاٹ اسپاٹ آف کیا جارہا ہے…</string>
     <string name="wifi_ap_password_dialog_title">پاس ورڈ میں تبدیلی</string>
     <string name="wifi_ap_wifi_sharing_text">آپ کا Wi-Fi نیٹ ورک دیگر آلات کے ساتھ شیئر کیا جاسکتا ہیں۔ اس سے آگاہ رہیں کہ آپ کا آلہ آپ کے محفوظ کردہ Wi-Fi نیٹ ورکس کے درمیان بغیر نوٹس کے سوئچ ہو سکتا ہیں۔ آپ اپنے Wi-Fi فراہم کنندہ کے تمام شرائط و ضوابط کے ساتھ تعمیل کے لیے ذمہ دار ہیں۔</string>
     <string name="wifi_ap__wifi_sharing_vzw">Wi-Fi Sharing</string>
@@ -3009,11 +3010,11 @@ Downloading via mobile networks uses your data plan."</string>
     <string name="wifi_ap_starting_chn">Enabling Portable WLAN hotspot…</string>
     <string name="wifi_ap_starting_tmo">Turning Mobile HotSpot on…</string>
     <string name="wifi_ap_starting_att">Turning on portable Wi-Fi hotspot…</string>
-    <string name="wifi_ap_starting">موبائل ہاٹ اسپاٹ کو فعال کررہا ہے…</string>
+    <string name="wifi_ap_starting">موبائل ہاٹ اسپاٹ اہل کیا جارہا ہے…</string>
     <string name="wifi_ap_stopping_chn">Disabling Portable WLAN hotspot…</string>
     <string name="wifi_ap_stopping_tmo">Turning Mobile HotSpot off…</string>
     <string name="wifi_ap_stopping_att">Turning off portable Wi-Fi hotspot…</string>
-    <string name="wifi_ap_stopping">موبائل ہاٹ اسپاٹ کو غیر فعال کررہا ہے…</string>
+    <string name="wifi_ap_stopping">موبائل ہاٹ اسپاٹ نااہل کیا جارہا ہے…</string>
     <string name="wifi_ap_add_whitelist">سفید لسٹ میں اضافہ کریں</string>
     <string name="wifi_ap_remove_from_whitelist">قابل اعتبارلسٹ سےہٹائیں</string>
     <string name="wifi_ap_allow_device_added">%s کو اجازت یافتہ آلات میں شامل کردیا گیا۔</string>
@@ -3047,11 +3048,11 @@ After you start the Mobile Hotspot Wi-Fi router, connect using the controls on y
 You can create an allowed device profile and set the connection mode for it.
 
 Using Portable Wi-Fi hotspot consumes more battery power and increases your data usage."</string>
-    <string name="wifi_ap_instruction_changeable_maxclient">"موبائل ہاٹ اسپاٹ استعمال کرکے آپ اپنے آلے کو بطور انٹرنیٹ رسائی پوائنٹ استعمال کرسکتے ہیں۔ یہ Wi-Fi کے ذریعہ اس سے %d تک آلات کو جڑنے کی اجازت دیتا ہے۔ مربوط آلات کو آپ کے موبائل نیٹ ورک کے ذریعے انٹرنیٹ تک رسائی حاصل ہوگی۔
+    <string name="wifi_ap_instruction_changeable_maxclient">"موبائل ہاٹ اسپاٹ استعمال کرکے آپ اپنا آلہ بطور انٹرنیٹ رسائی پوائنٹ استعمال کرسکتے ہیں۔ یہ Wi-Fi کے ذریعہ %d تک ديگر آلات کو مربوط ہونے کی اجازت دیتا ہے۔ مربوط آلات کو آپ کے موبائل نیٹ ورک کے ذریعے انٹرنیٹ تک رسائی حاصل ہوگی۔
 
-آپ ایک مجاز آلہ کا پروفائل بنا سکتے ہیں اور اس کیلئے کنکشن وضع سیٹ کر سکتے ہیں۔
+آپ ایک مجاز آلہ کا پروفائل بنا سکتے ہیں اور اس کے لیے کنیکشن موڈ سیٹ کر سکتے ہیں۔
 
-موبائل ہاٹ اسپاٹ استعمال کرنے سے بیٹری کی کھپت اور ڈیٹا کے استعمال میں اضافہ ہو جاتا ہے۔"</string>
+موبائل ہاٹ اسپاٹ استعمال کرنے سے بیٹری استعمال اور ڈیٹا کے استعمال میں اضافہ ہوتا ہے۔"</string>
     <string name="wifi_ap_instruction_mtr">"Turn your phone into Portable Wi-Fi Hotspot so you can share your mobile data connection with other devices.
 
 To use your phone's Hotspot capability, you must have the Smartphone Mobile Hotspot service added to your rate plan.
@@ -3075,7 +3076,7 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_ap_wifi_off_warn_chn">Enabling Mobile hotspot will turn off WLAN.</string>
     <string name="wifi_ap_wifi_off_warn_att">Turning on portable Wi-Fi hotspot will turn off Wi-Fi.</string>
     <string name="wifi_ap_wifi_off_warn_mtr">Wi-Fi is turned off when USB tethering or Mobile Hotspot is active. To turn on Wi-Fi, please turn off USB tethering or Mobile Hotspot.</string>
-    <string name="wifi_ap_wifi_off_warn">موبائل ہاٹ اسپاٹ کو فعال کرنا Wi-Fi کو بند کردے گا۔</string>
+    <string name="wifi_ap_wifi_off_warn">موبائل ہاٹ اسپاٹ استعمال کرنے کے لیے، Wi-Fi کو آ‌ف کیے جانے کی ضرورت ہے۔</string>
     <string name="wifi_ap_wifi_off_warn_title_vzw">Mobile Hotspot and Wi-Fi</string>
     <string name="wifi_ap_wifi_off_warn_title">توجہ</string>
     <string name="wifi_ap_smartview_off_warn_vzw">Mobile Hotspot and Smart View cannot be turned on at the same time. Smart View will be turned off.</string>
@@ -3100,7 +3101,7 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_ap_menu_configure_hotspot_spr">Configure Hotspot</string>
     <string name="wifi_ap_menu_configure_hotspot_tmo">‏Mobile Hotspot تشکیل کریں</string>
     <string name="wifi_ap_menu_configure_hotspot_att">‏Mobile Hotspot تشکیل کریں</string>
-    <string name="wifi_ap_menu_configure_hotspot">موبائل ہاٹ اسپاٹ کو ترتیب دیں</string>
+    <string name="wifi_ap_menu_configure_hotspot">موبائل ہاٹ اسپاٹ ترتیب دیں</string>
     <string name="wifi_ap_menu_timeout">ٹائم آؤٹ سیٹنگز</string>
     <string name="wifi_ap_menu_allow_devices">مجاز آلات</string>
     <string name="wifi_ap_timeout_message_vzw">Disable Mobile Hotspot if there is no connection for</string>
@@ -3173,13 +3174,13 @@ Wi-Fi is now on."</string>
     <string name="wifi_tether_dialog_nosim_warning_title_tmo">موبائل ہاٹ سپاٹ</string>
     <string name="wifi_tether_dialog_nosim_warning_title_spr">Hotspot</string>
     <string name="wifi_tether_dialog_nosim_warning_title_att">موبائل ہاٹ سپاٹ</string>
-    <string name="wifi_tether_dialog_nosim_warning_title">موبائل ہاٹ اسپاٹ</string>
+    <string name="wifi_tether_dialog_nosim_warning_title">کوئی SIM کارڈ نہیں</string>
     <string name="wifi_tether_dialog_nosim_warning_chn">Insert a SIM card to use Mobile hotspot and other tethering functions.</string>
     <string name="wifi_tether_dialog_nosim_warning_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
     <string name="wifi_tether_dialog_nosim_warning_tmo">"Please install SIM card in order to share your phone's data connection with other devices using Mobile Wi-Fi HotSpot or USB tethering for Internet access."</string>
     <string name="wifi_tether_dialog_nosim_warning_spr">Insert SIM for using Hotspot include tethering</string>
     <string name="wifi_tether_dialog_nosim_warning_usc">موبائل ہاٹ اسپاٹ اور دیگر ٹیتھرنگ فنکشنز استعمال کرنے کیلئے SIM کارڈ داخل کریں۔</string>
-    <string name="wifi_tether_dialog_nosim_warning">موبائل ہاٹ اسپاٹ اور دیگر ٹیتھرنگ فنکشنز استعمال کرنے کیلئے SIM کارڈ داخل کریں۔</string>
+    <string name="wifi_tether_dialog_nosim_warning">موبائل ہاٹ اسپاٹ اور دیگر ٹیتھرنگ اختیارات استعمال کرنے کے لیے کوئی SIM کارڈ داخل کریں۔</string>
     <string name="mobileap_tmo">موبائل ہاٹ سپاٹ</string>
     <string name="mobileap_spr">Hotspot</string>
     <string name="mobileap_att">موبائل ہاٹ سپاٹ</string>
@@ -3246,16 +3247,16 @@ Wi-Fi is now on."</string>
     <string name="wifi_ap_instruction_activate_color_hidden3_tmo">Connect to &lt;font color=\"%1$s\">%2$s&lt;/font> by entering &lt;font color=\"%1$s\">%3$s&lt;/font> as the password.</string>
     <string name="wifi_ap_instruction_activate_color_hidden3">‏&lt;font color=\"%1$s\">%2$s&lt;/font> سے جڑیں &lt;font color=\"%1$s\">%3$s&lt;/font> کو پاسورڈ کے طور پر داخل کرکے۔</string>
     <string name="wifi_ap_instruction_activate_color_hidden4_tmo">Enjoy the internet using your personal Mobile HotSpot.</string>
-    <string name="wifi_ap_instruction_no_maxclient">"موبائل ہاٹ اسپاٹ استعمال کرکے آپ اپنے آلہ کو بطور انٹرنیٹ رسائی پوائنٹ استعمال کرسکتے ہیں۔ یہ دیگر آلات کو بذریعہ Wi-Fi اس سے جڑنے کی اجازت دیتا ہے۔ مربوط آلات کو آپ کے موبائل نیٹ ورک کے ذریعے انٹرنیٹ تک رسائی حاصل ہوگی۔
+    <string name="wifi_ap_instruction_no_maxclient">"موبائل ہاٹ اسپاٹ استعمال کرکے آپ اپنا آلہ بطور انٹرنیٹ رسائی پوائنٹ استعمال کرسکتے ہیں۔ یہ بذریعہ Wi-Fi دیگر آلات کو اس سے مربوط ہونے کی اجازت دیتا ہے۔ مربوط آلات کو آپ کے موبائل نیٹ ورک کے ذریعے انٹرنیٹ تک رسائی حاصل ہوگی۔
 
-آپ ایک مجاز آلہ کا پروفائل بنا سکتے ہیں اور اس کے لیے کنکشن موڈ سیٹ کر سکتے ہیں۔
+آپ ایک مجاز آلہ کا پروفائل بنا سکتے ہیں اور اس کے لیے کنیکشن موڈ سیٹ کر سکتے ہیں۔
 
-موبائل ہاٹ اسپاٹ استعمال کرنے سے بیٹری کی کھپت اور ڈیٹا کے استعمال میں اضافہ ہو جاتا ہے۔"</string>
+موبائل ہاٹ اسپاٹ استعمال کرنے سے بیٹری استعمال اور ڈیٹا کے استعمال میں اضافہ ہوتا ہے۔"</string>
     <string name="wifi_ap_instruction_configure_vzw">To change the Mobile Hotspot configuration, go to Settings > Mobile Hotspot and tethering > Mobile Hotspot > MORE, then select Configure Mobile Hotspot.</string>
     <string name="wifi_ap_instruction_configure_tmo">To change the Mobile HotSpot configuration, tap the More options button, then select Configure Mobile HotSpot.</string>
     <string name="wifi_ap_instruction_configure">موبائل ہاٹ اسپاٹ کی ترتیب تبدیل کرنے کے لیے، مزید اختیارات بٹن پر تھپکی دیں،پھر [موبائل ہاٹ اسپاٹ ترتیب دیں] کو منتخب کریں۔</string>
     <string name="wifi_ap_instruction_configure_non_grace_tmo">To change the Mobile HotSpot configuration, tap MORE, then select Configure Mobile HotSpot.</string>
-    <string name="wifi_ap_instruction_configure_non_grace">موبائل ہاٹ اسپاٹ کی ترتیب تبدیل کرنے کے لیے، [مزید] پر تھپکی دیں اور موبائل ہاٹ اسپاٹ ترتیب دیں کو منتخب کریں۔</string>
+    <string name="wifi_ap_instruction_configure_non_grace">موبائل ہاٹ اسپاٹ کی ترتیب تبدیل کرنے کے لیے، [مزید] پر تھپکی دیں اور [موبائل ہاٹ اسپاٹ ترتیب دیں] کو منتخب کریں۔</string>
     <string name="wifi_ap_change_security">Change Security</string>
     <string name="wifi_ap_maxclient">کنکشنزکی انتہا</string>
     <string name="wifi_ap_no_hotspot_mode_warning">موبائل ہاٹ اسپاٹ کو فی الحال دوسرے ایپلیکیشن کے ذریعہ کنٹرول کیا جارہا ہے۔ اسے ترتیب دینے کے لئے، موجودہ موبائل ہاٹ اسپاٹ کنیکشن ختم ہوجائے گا۔</string>
@@ -3488,6 +3489,7 @@ Receiving SMS"</string>
     <string name="no">نہیں</string>
     <string name="create">تخلیق</string>
     <string name="allow">اجازت دیں</string>
+    <string name="dlg_close">بند کریں</string>
     <string name="device_info_default">نامعلوم</string>
     <string name="show_dev_on">ڈویلپر موڈ اہل بنایا جاچکا ہے</string>
     <string name="show_dev_already">کوئی ضرورت نہیں ہے، ڈویلپر موڈ پہلے ہی اہل بنایا جاچکا ہے</string>

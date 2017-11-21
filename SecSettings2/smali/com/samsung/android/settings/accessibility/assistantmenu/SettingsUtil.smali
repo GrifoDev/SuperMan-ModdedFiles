@@ -343,7 +343,7 @@
 
     sget-object v1, Lcom/samsung/android/settings/accessibility/assistantmenu/AssistantMenuUIAct$Act;->None:Lcom/samsung/android/settings/accessibility/assistantmenu/AssistantMenuUIAct$Act;
 
-    const v2, 0x7f0b043f
+    const v2, 0x7f0b0440
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -355,7 +355,7 @@
 
     sget-object v1, Lcom/samsung/android/settings/accessibility/assistantmenu/AssistantMenuUIAct$Act;->BrightnessControl:Lcom/samsung/android/settings/accessibility/assistantmenu/AssistantMenuUIAct$Act;
 
-    const v2, 0x7f0b1342
+    const v2, 0x7f0b1343
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -487,7 +487,7 @@
 
     sget-object v1, Lcom/samsung/android/settings/accessibility/assistantmenu/AssistantMenuUIAct$Act;->Restart:Lcom/samsung/android/settings/accessibility/assistantmenu/AssistantMenuUIAct$Act;
 
-    const v2, 0x7f0b0450
+    const v2, 0x7f0b0451
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 

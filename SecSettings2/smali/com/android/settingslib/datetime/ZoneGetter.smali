@@ -12,6 +12,66 @@
     return-void
 .end method
 
+.method private static convertToArabic(Ljava/lang/String;)Ljava/lang/String;
+    .locals 3
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const/4 v1, 0x0
+
+    :goto_0
+    invoke-virtual {p0}, Ljava/lang/String;->length()I
+
+    move-result v2
+
+    if-ge v1, v2, :cond_1
+
+    invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
+
+    move-result v2
+
+    invoke-static {v2}, Ljava/lang/Character;->isDigit(C)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
+
+    move-result v2
+
+    add-int/lit8 v2, v2, -0x30
+
+    add-int/lit16 v2, v2, 0x660
+
+    int-to-char v2, v2
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    :goto_1
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
+
+    move-result v2
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    goto :goto_1
+
+    :cond_1
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    return-object v2
+.end method
+
 .method private static createDisplayEntry(Ljava/util/TimeZone;Ljava/lang/String;Ljava/lang/String;I)Ljava/util/Map;
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
@@ -61,15 +121,15 @@
 .end method
 
 .method private static getGmtOffsetString(Ljava/util/Locale;Ljava/util/TimeZone;Ljava/util/Date;)Ljava/lang/String;
-    .locals 5
+    .locals 6
 
     const/4 v3, 0x1
 
     new-instance v1, Ljava/text/SimpleDateFormat;
 
-    const-string/jumbo v4, "ZZZZ"
+    const-string/jumbo v5, "ZZZZ"
 
-    invoke-direct {v1, v4}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v5}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, p1}, Ljava/text/SimpleDateFormat;->setTimeZone(Ljava/util/TimeZone;)V
 
@@ -83,29 +143,48 @@
 
     invoke-static {p0}, Landroid/text/TextUtils;->getLayoutDirectionFromLocale(Ljava/util/Locale;)I
 
-    move-result v4
+    move-result v5
 
-    if-ne v4, v3, :cond_0
+    if-ne v5, v3, :cond_1
 
     :goto_0
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2
 
-    sget-object v4, Landroid/text/TextDirectionHeuristics;->RTL:Landroid/text/TextDirectionHeuristic;
+    sget-object v5, Landroid/text/TextDirectionHeuristics;->RTL:Landroid/text/TextDirectionHeuristic;
 
     :goto_1
-    invoke-virtual {v0, v2, v4}, Landroid/text/BidiFormatter;->unicodeWrap(Ljava/lang/String;Landroid/text/TextDirectionHeuristic;)Ljava/lang/String;
+    invoke-virtual {v0, v2, v5}, Landroid/text/BidiFormatter;->unicodeWrap(Ljava/lang/String;Landroid/text/TextDirectionHeuristic;)Ljava/lang/String;
 
     move-result-object v2
 
-    return-object v2
+    invoke-virtual {p0}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
+
+    move-result-object v4
+
+    if-eqz v3, :cond_0
+
+    const-string/jumbo v5, "ar"
+
+    invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    invoke-static {v2}, Lcom/android/settingslib/datetime/ZoneGetter;->convertToArabic(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
 
     :cond_0
+    return-object v2
+
+    :cond_1
     const/4 v3, 0x0
 
     goto :goto_0
 
-    :cond_1
-    sget-object v4, Landroid/text/TextDirectionHeuristics;->LTR:Landroid/text/TextDirectionHeuristic;
+    :cond_2
+    sget-object v5, Landroid/text/TextDirectionHeuristics;->LTR:Landroid/text/TextDirectionHeuristic;
 
     goto :goto_1
 .end method

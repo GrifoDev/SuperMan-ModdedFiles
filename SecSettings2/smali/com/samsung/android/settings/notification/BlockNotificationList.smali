@@ -690,7 +690,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b196b
+    const v3, 0x7f0b196c
 
     move-object v5, v4
 
@@ -706,7 +706,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b098d
+    const v3, 0x7f0b098e
 
     move-object v5, v4
 
@@ -1346,7 +1346,7 @@
 
     invoke-direct {v3}, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;-><init>()V
 
-    const v8, 0x7f0b09bc
+    const v8, 0x7f0b09bd
 
     iput v8, v3, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->titleRes:I
 
@@ -1378,7 +1378,7 @@
 
     invoke-direct {v4}, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;-><init>()V
 
-    const v8, 0x7f0b0547
+    const v8, 0x7f0b0548
 
     iput v8, v4, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->titleRes:I
 
@@ -1514,7 +1514,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b1315
+    const v1, 0x7f0b1316
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->setTitle(I)V
 
@@ -1686,7 +1686,7 @@
 
     const/4 v1, 0x2
 
-    const v2, 0x7f0b1715
+    const v2, 0x7f0b1716
 
     invoke-interface {p1, v3, v1, v3, v2}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 

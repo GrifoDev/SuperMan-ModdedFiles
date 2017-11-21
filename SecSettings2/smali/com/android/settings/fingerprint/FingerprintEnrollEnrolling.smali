@@ -640,7 +640,7 @@
 
     if-ne v0, v1, :cond_0
 
-    const v0, 0x7f0b1162
+    const v0, 0x7f0b1163
 
     invoke-virtual {p0, v0}, Lcom/android/settings/fingerprint/FingerprintEnrollEnrolling;->setHeaderText(I)V
 
@@ -656,7 +656,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f0b1164
+    const v0, 0x7f0b1165
 
     const/4 v1, 0x1
 
@@ -775,11 +775,11 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/fingerprint/FingerprintEnrollBase;->onCreate(Landroid/os/Bundle;)V
 
-    const v0, 0x7f0400f7
+    const v0, 0x7f0400f8
 
     invoke-virtual {p0, v0}, Lcom/android/settings/fingerprint/FingerprintEnrollEnrolling;->setContentView(I)V
 
-    const v0, 0x7f0b1162
+    const v0, 0x7f0b1163
 
     invoke-virtual {p0, v0}, Lcom/android/settings/fingerprint/FingerprintEnrollEnrolling;->setHeaderText(I)V
 
@@ -917,7 +917,7 @@
 
     packed-switch p1, :pswitch_data_0
 
-    const v0, 0x7f0b1172
+    const v0, 0x7f0b1173
 
     :goto_0
     invoke-virtual {p0, v0}, Lcom/android/settings/fingerprint/FingerprintEnrollEnrolling;->getText(I)Ljava/lang/CharSequence;
@@ -937,7 +937,7 @@
     return-void
 
     :pswitch_0
-    const v0, 0x7f0b1171
+    const v0, 0x7f0b1172
 
     goto :goto_0
 

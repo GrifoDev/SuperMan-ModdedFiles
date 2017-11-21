@@ -291,7 +291,7 @@
 
     iput-object p0, p0, Lcom/samsung/android/settings/wifi/WifiOffloadDialog;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f040352
+    const v1, 0x7f040353
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/wifi/WifiOffloadDialog;->setContentView(I)V
 

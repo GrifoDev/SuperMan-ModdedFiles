@@ -45,7 +45,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings$SummaryProvider;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0b0563
+    const v2, 0x7f0b0564
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -79,7 +79,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings$SummaryProvider;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b0675
+    const v3, 0x7f0b0676
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -158,7 +158,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings$SummaryProvider;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b0754
+    const v3, 0x7f0b0755
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -195,7 +195,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings$SummaryProvider;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b072a
+    const v3, 0x7f0b072b
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

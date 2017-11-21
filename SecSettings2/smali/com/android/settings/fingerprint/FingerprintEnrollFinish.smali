@@ -56,11 +56,11 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/fingerprint/FingerprintEnrollBase;->onCreate(Landroid/os/Bundle;)V
 
-    const v4, 0x7f0400fd
+    const v4, 0x7f0400fe
 
     invoke-virtual {p0, v4}, Lcom/android/settings/fingerprint/FingerprintEnrollFinish;->setContentView(I)V
 
-    const v4, 0x7f0b1166
+    const v4, 0x7f0b1167
 
     invoke-virtual {p0, v4}, Lcom/android/settings/fingerprint/FingerprintEnrollFinish;->setHeaderText(I)V
 

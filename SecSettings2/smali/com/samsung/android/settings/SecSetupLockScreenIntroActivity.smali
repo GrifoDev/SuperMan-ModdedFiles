@@ -135,7 +135,7 @@
 
     check-cast v1, Landroid/widget/TextView;
 
-    const v8, 0x7f0b08a7
+    const v8, 0x7f0b08a8
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/SecSetupLockScreenIntroActivity;->getString(I)Ljava/lang/String;
 
@@ -191,7 +191,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b0c95
+    const v9, 0x7f0b0c96
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -290,7 +290,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b0437
+    const v9, 0x7f0b0438
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -456,7 +456,7 @@
 
     invoke-static {v0}, Lcom/android/setupwizardlib/util/SystemBarHelper;->hideSystemBars(Landroid/view/Window;)V
 
-    const v1, 0x7f040288
+    const v1, 0x7f040289
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/SecSetupLockScreenIntroActivity;->setContentView(I)V
 

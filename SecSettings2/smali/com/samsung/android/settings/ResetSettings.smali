@@ -121,7 +121,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b0b4a
+    const v3, 0x7f0b0b4b
 
     const/4 v6, 0x0
 
@@ -212,7 +212,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 4
 
-    const v1, 0x7f04023a
+    const v1, 0x7f04023b
 
     const/4 v2, 0x0
 
@@ -240,26 +240,6 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0b4c
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "\n\n"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/ResetSettings;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
     const v3, 0x7f0b0b4d
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
@@ -281,6 +261,26 @@
     move-result-object v2
 
     const v3, 0x7f0b0b4e
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "\n\n"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/ResetSettings;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v3, 0x7f0b0b4f
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

@@ -138,7 +138,7 @@
 
     invoke-direct {v0, p1}, Lcom/android/settings/wifi/WifiSNSExcludedAPPreference;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f04029d
+    const v1, 0x7f04029e
 
     invoke-virtual {v0, v1}, Lcom/android/settings/wifi/WifiSNSExcludedAPPreference;->setLayoutResource(I)V
 
@@ -336,7 +336,7 @@
     :cond_2
     iget-object v5, p0, Lcom/android/settings/wifi/SmartNetworkSwitchSettings;->mNoDevicesPreference:Landroid/preference/Preference;
 
-    const v6, 0x7f040367
+    const v6, 0x7f040368
 
     invoke-virtual {v5, v6}, Landroid/preference/Preference;->setLayoutResource(I)V
 
@@ -346,7 +346,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b12ce
+    const v7, 0x7f0b12cf
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -623,7 +623,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0b0ca1
+    const v2, 0x7f0b0ca2
 
     invoke-virtual {v0, v2}, Landroid/app/ActionBar;->setTitle(I)V
 

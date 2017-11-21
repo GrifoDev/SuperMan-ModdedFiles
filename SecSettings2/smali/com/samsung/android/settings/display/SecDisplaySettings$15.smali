@@ -77,7 +77,7 @@
 
     if-eqz v0, :cond_2
 
-    const v1, 0x7f0b19db
+    const v1, 0x7f0b19dc
 
     :goto_1
     invoke-virtual {v2, v1}, Lcom/samsung/android/settings/SettingsSwitchPreference;->setSummary(I)V
@@ -99,7 +99,7 @@
     goto :goto_0
 
     :cond_2
-    const v1, 0x7f0b0419
+    const v1, 0x7f0b041a
 
     goto :goto_1
 .end method

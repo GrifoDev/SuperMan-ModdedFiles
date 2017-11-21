@@ -583,7 +583,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b06bd
+    const v5, 0x7f0b06be
 
     invoke-virtual {p0, v5}, Lcom/android/settings/fingerprint/FingerprintPassword$FingerprintPasswordFragment;->getString(I)Ljava/lang/String;
 
@@ -803,9 +803,9 @@
 .method private updateUi()V
     .locals 11
 
-    const v10, 0x7f0b070e
+    const v10, 0x7f0b070f
 
-    const v9, 0x7f0b0690
+    const v9, 0x7f0b0691
 
     const/4 v4, 0x1
 
@@ -848,7 +848,7 @@
 
     iget-object v6, p0, Lcom/android/settings/fingerprint/FingerprintPassword$FingerprintPasswordFragment;->mCancelButton:Landroid/widget/Button;
 
-    const v7, 0x7f0b11d2
+    const v7, 0x7f0b11d3
 
     invoke-virtual {v6, v7}, Landroid/widget/Button;->setText(I)V
 
@@ -920,7 +920,7 @@
     :cond_2
     iget-object v6, p0, Lcom/android/settings/fingerprint/FingerprintPassword$FingerprintPasswordFragment;->mCancelButton:Landroid/widget/Button;
 
-    const v7, 0x7f0b0705
+    const v7, 0x7f0b0706
 
     invoke-virtual {v6, v7}, Landroid/widget/Button;->setText(I)V
 
@@ -946,7 +946,7 @@
     :cond_4
     iget-object v5, p0, Lcom/android/settings/fingerprint/FingerprintPassword$FingerprintPasswordFragment;->mHeaderText:Landroid/widget/TextView;
 
-    const v6, 0x7f0b0845
+    const v6, 0x7f0b0846
 
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(I)V
 
@@ -1093,7 +1093,7 @@
 
     if-eqz v28, :cond_0
 
-    const v28, 0x7f0b06f9
+    const v28, 0x7f0b06fa
 
     move-object/from16 v0, p0
 
@@ -1112,7 +1112,7 @@
 
     if-eqz v28, :cond_1
 
-    const v28, 0x7f0b0714
+    const v28, 0x7f0b0715
 
     move-object/from16 v0, p0
 
@@ -1163,7 +1163,7 @@
 
     aput-object v29, v28, v30
 
-    const v29, 0x7f0b11c4
+    const v29, 0x7f0b11c5
 
     move-object/from16 v0, p0
 
@@ -1216,7 +1216,7 @@
 
     aput-object v29, v28, v30
 
-    const v29, 0x7f0b11c7
+    const v29, 0x7f0b11c8
 
     move-object/from16 v0, p0
 
@@ -1277,7 +1277,7 @@
     if-le v6, v0, :cond_5
 
     :cond_4
-    const v28, 0x7f0b11cb
+    const v28, 0x7f0b11cc
 
     move-object/from16 v0, p0
 
@@ -1376,7 +1376,7 @@
     if-lez v26, :cond_b
 
     :cond_a
-    const v28, 0x7f0b11c9
+    const v28, 0x7f0b11ca
 
     move-object/from16 v0, p0
 
@@ -1822,7 +1822,7 @@
     :cond_12
     if-nez v19, :cond_15
 
-    const v28, 0x7f0b11cc
+    const v28, 0x7f0b11cd
 
     move-object/from16 v0, p0
 
@@ -1849,7 +1849,7 @@
 
     if-nez v22, :cond_16
 
-    const v28, 0x7f0b11cd
+    const v28, 0x7f0b11ce
 
     move-object/from16 v0, p0
 
@@ -2135,7 +2135,7 @@
 
     aput-object v29, v28, v30
 
-    const v29, 0x7f0b0887
+    const v29, 0x7f0b0888
 
     move-object/from16 v0, p0
 
@@ -2186,7 +2186,7 @@
 
     aput-object v29, v28, v30
 
-    const v29, 0x7f0b0886
+    const v29, 0x7f0b0887
 
     move-object/from16 v0, p0
 
@@ -2223,7 +2223,7 @@
 
     aput-object v29, v28, v30
 
-    const v29, 0x7f0b0889
+    const v29, 0x7f0b088a
 
     move-object/from16 v0, p0
 
@@ -2244,7 +2244,7 @@
 
     if-ne v13, v0, :cond_1d
 
-    const v28, 0x7f0b0888
+    const v28, 0x7f0b0889
 
     move-object/from16 v0, p0
 
@@ -2281,7 +2281,7 @@
 
     aput-object v29, v28, v30
 
-    const v29, 0x7f0b088a
+    const v29, 0x7f0b088b
 
     move-object/from16 v0, p0
 
@@ -2298,7 +2298,7 @@
     :cond_1e
     if-nez v18, :cond_19
 
-    const v28, 0x7f0b088b
+    const v28, 0x7f0b088c
 
     move-object/from16 v0, p0
 
@@ -3139,7 +3139,7 @@
 
     :cond_0
     :goto_0
-    const v12, 0x7f0400f2
+    const v12, 0x7f0400f3
 
     const/4 v13, 0x0
 
@@ -3183,7 +3183,7 @@
 
     iget-object v12, v0, Lcom/android/settings/fingerprint/FingerprintPassword$FingerprintPasswordFragment;->mPasswordDesc:Landroid/widget/TextView;
 
-    const v13, 0x7f0b06f8
+    const v13, 0x7f0b06f9
 
     invoke-virtual {v12, v13}, Landroid/widget/TextView;->setText(I)V
 
@@ -3269,7 +3269,7 @@
 
     iget-object v12, v0, Lcom/android/settings/fingerprint/FingerprintPassword$FingerprintPasswordFragment;->mCancelButton:Landroid/widget/Button;
 
-    const v13, 0x7f02033b
+    const v13, 0x7f02033c
 
     invoke-virtual {v12, v13}, Landroid/widget/Button;->setBackgroundResource(I)V
 
@@ -3277,7 +3277,7 @@
 
     iget-object v12, v0, Lcom/android/settings/fingerprint/FingerprintPassword$FingerprintPasswordFragment;->mNextButton:Landroid/widget/Button;
 
-    const v13, 0x7f02033b
+    const v13, 0x7f02033c
 
     invoke-virtual {v12, v13}, Landroid/widget/Button;->setBackgroundResource(I)V
 
@@ -3506,7 +3506,7 @@
 
     if-eqz v12, :cond_c
 
-    const v9, 0x7f0b06bc
+    const v9, 0x7f0b06bd
 
     :goto_4
     move-object/from16 v0, p0
@@ -3669,7 +3669,7 @@
     goto/16 :goto_3
 
     :cond_c
-    const v9, 0x7f0b068f
+    const v9, 0x7f0b0690
 
     goto/16 :goto_4
 .end method

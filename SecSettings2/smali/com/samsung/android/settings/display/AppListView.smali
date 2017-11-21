@@ -146,7 +146,7 @@
 
     new-instance v0, Lcom/samsung/android/settings/display/AppListView$AppsAdapter;
 
-    const v1, 0x7f04016b
+    const v1, 0x7f04016c
 
     const v2, 0x1020014
 

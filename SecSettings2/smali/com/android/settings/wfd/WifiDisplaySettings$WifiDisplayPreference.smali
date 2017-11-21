@@ -43,7 +43,7 @@
 
     const/16 v10, 0xb
 
-    const v9, 0x7f0b0e4f
+    const v9, 0x7f0b0e50
 
     const/4 v4, 0x1
 
@@ -73,7 +73,7 @@
 
     invoke-virtual {p0, v6}, Lcom/android/settings/wfd/WifiDisplaySettings$WifiDisplayPreference;->setTitle(Ljava/lang/CharSequence;)V
 
-    const v6, 0x7f040315
+    const v6, 0x7f040316
 
     invoke-virtual {p0, v6}, Lcom/android/settings/wfd/WifiDisplaySettings$WifiDisplayPreference;->setLayoutResource(I)V
 
@@ -111,7 +111,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b0e4e
+    const v7, 0x7f0b0e4f
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -351,22 +351,22 @@
 
     :array_0
     .array-data 4
-        0x7f020548
-        0x7f020540
-        0x7f02054a
-        0x7f02053c
-        0x7f020554
-        0x7f020546
-        0x7f020557
-        0x7f020552
-        0x7f02053f
-        0x7f020543
+        0x7f020549
         0x7f020541
-        0x7f02027f
-        0x7f020278
+        0x7f02054b
+        0x7f02053d
+        0x7f020555
+        0x7f020547
+        0x7f020558
+        0x7f020553
+        0x7f020540
+        0x7f020544
+        0x7f020542
         0x7f020280
-        0x7f020274
+        0x7f020279
+        0x7f020281
         0x7f020275
+        0x7f020276
     .end array-data
 .end method
 
@@ -418,7 +418,7 @@
 
     if-eqz v2, :cond_1
 
-    const v3, 0x7f0202ab
+    const v3, 0x7f0202ac
 
     invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 

@@ -236,7 +236,7 @@
     :pswitch_0
     iget-object v0, p0, Lcom/android/settings/ConfirmLockPassword$ConfirmLockPasswordFragment$5;->this$1:Lcom/android/settings/ConfirmLockPassword$ConfirmLockPasswordFragment;
 
-    const v1, 0x7f0b08d9
+    const v1, 0x7f0b08da
 
     invoke-static {v0, v1}, Lcom/android/settings/ConfirmLockPassword$ConfirmLockPasswordFragment;->-wrap5(Lcom/android/settings/ConfirmLockPassword$ConfirmLockPasswordFragment;I)V
 
@@ -310,7 +310,7 @@
 
     iget-object v0, p0, Lcom/android/settings/ConfirmLockPassword$ConfirmLockPasswordFragment$5;->this$1:Lcom/android/settings/ConfirmLockPassword$ConfirmLockPasswordFragment;
 
-    const v1, 0x7f0b08dc
+    const v1, 0x7f0b08dd
 
     invoke-static {v0, v1}, Lcom/android/settings/ConfirmLockPassword$ConfirmLockPasswordFragment;->-wrap5(Lcom/android/settings/ConfirmLockPassword$ConfirmLockPasswordFragment;I)V
 
@@ -325,7 +325,7 @@
 
     iget-object v0, p0, Lcom/android/settings/ConfirmLockPassword$ConfirmLockPasswordFragment$5;->this$1:Lcom/android/settings/ConfirmLockPassword$ConfirmLockPasswordFragment;
 
-    const v1, 0x7f0b08dd
+    const v1, 0x7f0b08de
 
     invoke-static {v0, v1}, Lcom/android/settings/ConfirmLockPassword$ConfirmLockPasswordFragment;->-wrap5(Lcom/android/settings/ConfirmLockPassword$ConfirmLockPasswordFragment;I)V
 
@@ -340,7 +340,7 @@
 
     iget-object v0, p0, Lcom/android/settings/ConfirmLockPassword$ConfirmLockPasswordFragment$5;->this$1:Lcom/android/settings/ConfirmLockPassword$ConfirmLockPasswordFragment;
 
-    const v1, 0x7f0b08df
+    const v1, 0x7f0b08e0
 
     invoke-static {v0, v1}, Lcom/android/settings/ConfirmLockPassword$ConfirmLockPasswordFragment;->-wrap5(Lcom/android/settings/ConfirmLockPassword$ConfirmLockPasswordFragment;I)V
 
@@ -355,7 +355,7 @@
 
     iget-object v0, p0, Lcom/android/settings/ConfirmLockPassword$ConfirmLockPasswordFragment$5;->this$1:Lcom/android/settings/ConfirmLockPassword$ConfirmLockPasswordFragment;
 
-    const v1, 0x7f0b08db
+    const v1, 0x7f0b08dc
 
     invoke-static {v0, v1}, Lcom/android/settings/ConfirmLockPassword$ConfirmLockPasswordFragment;->-wrap5(Lcom/android/settings/ConfirmLockPassword$ConfirmLockPasswordFragment;I)V
 
@@ -370,7 +370,7 @@
 
     iget-object v0, p0, Lcom/android/settings/ConfirmLockPassword$ConfirmLockPasswordFragment$5;->this$1:Lcom/android/settings/ConfirmLockPassword$ConfirmLockPasswordFragment;
 
-    const v1, 0x7f0b08da
+    const v1, 0x7f0b08db
 
     invoke-static {v0, v1}, Lcom/android/settings/ConfirmLockPassword$ConfirmLockPasswordFragment;->-wrap5(Lcom/android/settings/ConfirmLockPassword$ConfirmLockPasswordFragment;I)V
 
@@ -385,7 +385,7 @@
 
     iget-object v0, p0, Lcom/android/settings/ConfirmLockPassword$ConfirmLockPasswordFragment$5;->this$1:Lcom/android/settings/ConfirmLockPassword$ConfirmLockPasswordFragment;
 
-    const v1, 0x7f0b08de
+    const v1, 0x7f0b08df
 
     invoke-static {v0, v1}, Lcom/android/settings/ConfirmLockPassword$ConfirmLockPasswordFragment;->-wrap5(Lcom/android/settings/ConfirmLockPassword$ConfirmLockPasswordFragment;I)V
     :try_end_1
@@ -480,7 +480,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b08d7
+    const v2, 0x7f0b08d8
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -500,7 +500,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b08d8
+    const v2, 0x7f0b08d9
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

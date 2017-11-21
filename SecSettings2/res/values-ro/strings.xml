@@ -89,7 +89,7 @@
     <string name="tether_settings_title_wifi">Hotspot portabil</string>
     <string name="tether_settings_title_bluetooth">Tethering prin Bluetooth</string>
     <string name="tether_settings_title_usb_bluetooth">Tethering</string>
-    <string name="tether_settings_title_all">Hotspot mobil și tethering</string>
+    <string name="tether_settings_title_all">Hotspot mobil și Tethering</string>
     <string name="managed_user_title">Toate aplicațiile de serviciu</string>
     <string name="user_guest">Invitat</string>
     <string name="unknown">Necunoscut</string>
@@ -892,6 +892,7 @@ Puteți schimba această permisiune ulterior, accesând setările Bluetooth."</s
     <string name="bluetooth_control_app_disable_summary">Bluetooth oprit: %s</string>
     <string name="bluetooth_enter_pin_msg">Introduceți codul PIN pentru asocierea cu %s (încercați 0000 sau 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">A fost atins numărul maxim de caractere.</string>
+    <string name="bluetooth_frp_permission_message">Nu se poate utiliza dispozitivul Bluetooth pentru acest apel.</string>
     <string name="settings_menu_done">Efectuat</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>
@@ -2971,7 +2972,7 @@ Descărcarea prin rețele mobile poate genera costuri suplimentare, în funcție
     <string name="wifi_enable_warning_spr">Turning on Wi-Fi will disable Hotspot.</string>
     <string name="wifi_enable_warning_mtr">Turning on Wi-Fi will turn off Mobile Hotspot. Continue?</string>
     <string name="wifi_enable_warning_usc">Turning on Wi-Fi will turn off Portable Wi-Fi hotspot. Continue?</string>
-    <string name="wifi_enable_warning">Activarea Wi-Fi va dezactiva Mobile hotspot.</string>
+    <string name="wifi_enable_warning">Conexiunea Wi-Fi este oprită când funcția Mobile Hotspot este activă. Pentru a porni conexiunea Wi-Fi, opriți funcția Mobile Hotspot.</string>
     <string name="wifi_control_history_title">Istoric control Wi-Fi</string>
     <string name="wifi_control_history_description">Aplicațiile de mai jos au pornit sau oprit conexiunea Wi-Fi cel mai recent.</string>
     <string name="wifi_control_history_sub_title">Aplicații recente</string>
@@ -2996,8 +2997,8 @@ Descărcarea prin rețele mobile poate genera costuri suplimentare, în funcție
     <string name="wifi_wapi_user_certificate">Certificat utilizator</string>
     <string name="wifi_ap_help_enable_msg_summary_vzw">Mobile Hotspot is turned on. Tap Configure to change your Mobile Hotspot settings.</string>
     <string name="wifi_ap_help_enable_msg_summary">Mobile Hotspot is enabled. To change the Mobile Hotspot configuration, tap MORE and select Configure Mobile Hotspot.</string>
-    <string name="wifi_ap_turning_on">Se activează Mobile hotspot…</string>
-    <string name="wifi_ap_turning_off">Se dezactivează Mobile hotspot…</string>
+    <string name="wifi_ap_turning_on">Se dezactivează funcția Hotspot mobil…</string>
+    <string name="wifi_ap_turning_off">Se oprește funcția Hotspot mobil…</string>
     <string name="wifi_ap_password_dialog_title">Schimbare parolă</string>
     <string name="wifi_ap_wifi_sharing_text">Este posibil ca rețeaua dvs. Wi-Fi să fie partajată cu alte dispozitive. Rețineți că dispozitivul poate comuta între rețelele Wi-Fi salvate fără notificare prealabilă. Sunteți răspunzător pentru respectarea tuturor termenilor și condițiilor furnizorului de rețea Wi-Fi.</string>
     <string name="wifi_ap__wifi_sharing_vzw">Wi-Fi Sharing</string>
@@ -3010,11 +3011,11 @@ Descărcarea prin rețele mobile poate genera costuri suplimentare, în funcție
     <string name="wifi_ap_starting_chn">Enabling Portable WLAN hotspot…</string>
     <string name="wifi_ap_starting_tmo">Turning Mobile HotSpot on…</string>
     <string name="wifi_ap_starting_att">Turning on portable Wi-Fi hotspot…</string>
-    <string name="wifi_ap_starting">Se activează Mobile hotspot…</string>
+    <string name="wifi_ap_starting">Se dezactivează funcția Hotspot mobil…</string>
     <string name="wifi_ap_stopping_chn">Disabling Portable WLAN hotspot…</string>
     <string name="wifi_ap_stopping_tmo">Turning Mobile HotSpot off…</string>
     <string name="wifi_ap_stopping_att">Turning off portable Wi-Fi hotspot…</string>
-    <string name="wifi_ap_stopping">Se dezactivează Mobile hotspot…</string>
+    <string name="wifi_ap_stopping">Se dezactivează funcția Hotspot mobil…</string>
     <string name="wifi_ap_add_whitelist">Adăugare la lista albă</string>
     <string name="wifi_ap_remove_from_whitelist">Eliminare din lista albă</string>
     <string name="wifi_ap_allow_device_added">%s a fost adăugat la dispozitivele permise.</string>
@@ -3048,11 +3049,11 @@ After you start the Mobile Hotspot Wi-Fi router, connect using the controls on y
 You can create an allowed device profile and set the connection mode for it.
 
 Using Portable Wi-Fi hotspot consumes more battery power and increases your data usage."</string>
-    <string name="wifi_ap_instruction_changeable_maxclient">"Puteți utiliza dispozitivul ca punct de acces la internet utilizând Mobile hotspot. Aceasta permite unui număr de maximum %d alte dispozitive să se conecteze la acesta prin Wi-Fi. Dispozitivele conectate vor avea acces la internet prin rețeaua dvs. mobilă.
+    <string name="wifi_ap_instruction_changeable_maxclient">"Puteți utiliza dispozitivul ca punct de acces la internet utilizând funcția Hotspot mobil. Aceasta permite unui număr de maximum %d alte dispozitive să se conecteze la acesta prin Wi-Fi. Dispozitivele conectate vor avea acces la internet prin rețeaua dvs. mobilă.
 
 Puteți crea un profil pentru dispozitivele permise și puteți seta un mod de conectare pentru acesta.
 
-Utilizarea Mobile hotspot crește consumul bateriei și utilizarea datelor."</string>
+Utilizarea funcției Hotspot mobil crește consumul bateriei și utilizarea datelor."</string>
     <string name="wifi_ap_instruction_mtr">"Turn your phone into Portable Wi-Fi Hotspot so you can share your mobile data connection with other devices.
 
 To use your phone's Hotspot capability, you must have the Smartphone Mobile Hotspot service added to your rate plan.
@@ -3076,7 +3077,7 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_ap_wifi_off_warn_chn">Enabling Mobile hotspot will turn off WLAN.</string>
     <string name="wifi_ap_wifi_off_warn_att">Turning on portable Wi-Fi hotspot will turn off Wi-Fi.</string>
     <string name="wifi_ap_wifi_off_warn_mtr">Wi-Fi is turned off when USB tethering or Mobile Hotspot is active. To turn on Wi-Fi, please turn off USB tethering or Mobile Hotspot.</string>
-    <string name="wifi_ap_wifi_off_warn">Activarea Mobile hotspot va dezactiva Wi-Fi.</string>
+    <string name="wifi_ap_wifi_off_warn">Pentru a utiliza funcția Hotspot mobil, conexiunea Wi-Fi trebuie să fie oprită.</string>
     <string name="wifi_ap_wifi_off_warn_title_vzw">Mobile Hotspot and Wi-Fi</string>
     <string name="wifi_ap_wifi_off_warn_title">Atenție</string>
     <string name="wifi_ap_smartview_off_warn_vzw">Mobile Hotspot and Smart View cannot be turned on at the same time. Smart View will be turned off.</string>
@@ -3101,7 +3102,7 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_ap_menu_configure_hotspot_spr">Configure Hotspot</string>
     <string name="wifi_ap_menu_configure_hotspot_tmo">Configurare Hotspot Mobil</string>
     <string name="wifi_ap_menu_configure_hotspot_att">Configurare Hotspot Mobil</string>
-    <string name="wifi_ap_menu_configure_hotspot">Configurare Hotspot Mobil</string>
+    <string name="wifi_ap_menu_configure_hotspot">Configurare Hotspot mobil</string>
     <string name="wifi_ap_menu_timeout">Setări de expirare</string>
     <string name="wifi_ap_menu_allow_devices">Dispozitive permise</string>
     <string name="wifi_ap_timeout_message_vzw">Disable Mobile Hotspot if there is no connection for</string>
@@ -3174,13 +3175,13 @@ Wi-Fi is now on."</string>
     <string name="wifi_tether_dialog_nosim_warning_title_tmo">Mobile Hotspot</string>
     <string name="wifi_tether_dialog_nosim_warning_title_spr">Hotspot</string>
     <string name="wifi_tether_dialog_nosim_warning_title_att">Mobile Hotspot</string>
-    <string name="wifi_tether_dialog_nosim_warning_title">Mobile hotspot</string>
+    <string name="wifi_tether_dialog_nosim_warning_title">Nicio cartelă SIM</string>
     <string name="wifi_tether_dialog_nosim_warning_chn">Insert a SIM card to use Mobile hotspot and other tethering functions.</string>
     <string name="wifi_tether_dialog_nosim_warning_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
     <string name="wifi_tether_dialog_nosim_warning_tmo">"Please install SIM card in order to share your phone's data connection with other devices using Mobile Wi-Fi HotSpot or USB tethering for Internet access."</string>
     <string name="wifi_tether_dialog_nosim_warning_spr">Insert SIM for using Hotspot include tethering</string>
     <string name="wifi_tether_dialog_nosim_warning_usc">Introduceți o cartelă SIM pentru a utiliza Mobile hotspot și alte funcții de tethering.</string>
-    <string name="wifi_tether_dialog_nosim_warning">Introduceți o cartelă SIM pentru a utiliza Mobile hotspot și alte funcții de tethering.</string>
+    <string name="wifi_tether_dialog_nosim_warning">Introduceți o cartelă SIM pentru a utiliza funcția Hotspot mobil și alte opțiuni de tethering.</string>
     <string name="mobileap_tmo">Mobile Hotspot</string>
     <string name="mobileap_spr">Hotspot</string>
     <string name="mobileap_att">Mobile Hotspot</string>
@@ -3247,16 +3248,16 @@ Wi-Fi is now on."</string>
     <string name="wifi_ap_instruction_activate_color_hidden3_tmo">Connect to &lt;font color=\"%1$s\">%2$s&lt;/font> by entering &lt;font color=\"%1$s\">%3$s&lt;/font> as the password.</string>
     <string name="wifi_ap_instruction_activate_color_hidden3">Conectaţi-vă la &lt;font color=\"%1$s\">%2$s&lt;/font> introducând &lt;font color=\"%1$s\">%3$s&lt;/font> drept parolă.</string>
     <string name="wifi_ap_instruction_activate_color_hidden4_tmo">Enjoy the internet using your personal Mobile HotSpot.</string>
-    <string name="wifi_ap_instruction_no_maxclient">"Puteți utiliza dispozitivul ca punct de acces la internet utilizând Hotspotul mobil. Acest lucru permite celorlalte dispozitive să se conecteze la dispozitiv prin Wi-Fi. Dispozitivele conectate vor avea acces la internet prin rețeaua dvs. mobilă.
+    <string name="wifi_ap_instruction_no_maxclient">"Puteți utiliza dispozitivul ca punct de acces la internet utilizând funcția Hotspot mobil. Acest lucru permite celorlalte dispozitive să se conecteze la dispozitiv prin Wi-Fi. Dispozitivele conectate vor avea acces la internet prin rețeaua dvs. mobilă.
 
 Puteți crea un profil pentru dispozitivele permise și puteți seta un mod de conectare pentru acesta.
 
 Utilizarea funcției Hotspot mobil crește consumul bateriei și utilizarea datelor."</string>
     <string name="wifi_ap_instruction_configure_vzw">To change the Mobile Hotspot configuration, go to Settings > Mobile Hotspot and tethering > Mobile Hotspot > MORE, then select Configure Mobile Hotspot.</string>
     <string name="wifi_ap_instruction_configure_tmo">To change the Mobile HotSpot configuration, tap the More options button, then select Configure Mobile HotSpot.</string>
-    <string name="wifi_ap_instruction_configure">Pentru a schimba configurația funcției Hotspotul mobil, atingeți butonul Mai multe opțiuni, apoi selectați Configurare Hotspot mobil.</string>
+    <string name="wifi_ap_instruction_configure">Pentru a schimba configurația funcției Hotspot mobil, atingeți butonul Mai multe opțiuni, apoi selectați Configurare Hotspot mobil.</string>
     <string name="wifi_ap_instruction_configure_non_grace_tmo">To change the Mobile HotSpot configuration, tap MORE, then select Configure Mobile HotSpot.</string>
-    <string name="wifi_ap_instruction_configure_non_grace">Pentru a schimba configurația Hotspotului mobil, atingeți MAI MULTE și selectați Configurare Hotspot mobil.</string>
+    <string name="wifi_ap_instruction_configure_non_grace">Pentru a schimba configurația funcției Hotspot mobil, atingeți MAI MULTE și selectați Configurare Hotspot mobil.</string>
     <string name="wifi_ap_change_security">Change Security</string>
     <string name="wifi_ap_maxclient">Număr maxim de conexiuni</string>
     <string name="wifi_ap_no_hotspot_mode_warning">Mobile hotspot este controlat în prezent de altă aplicație. Pentru configurare, conexiunea actuală la Mobile hotspot se va încheia.</string>
@@ -3489,6 +3490,7 @@ Receiving SMS"</string>
     <string name="no">Nu</string>
     <string name="create">Creare</string>
     <string name="allow">Se permite</string>
+    <string name="dlg_close">Închidere</string>
     <string name="device_info_default">Necunoscut</string>
     <string name="show_dev_on">Modul dezvoltator a fost activat.</string>
     <string name="show_dev_already">Nu este necesar, modul dezvoltator a fost deja activat</string>

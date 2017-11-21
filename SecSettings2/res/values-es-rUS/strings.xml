@@ -89,7 +89,7 @@
     <string name="tether_settings_title_wifi">Zona portátil</string>
     <string name="tether_settings_title_bluetooth">Anclaje a red Bluetooth</string>
     <string name="tether_settings_title_usb_bluetooth">Anclaje a red</string>
-    <string name="tether_settings_title_all">Anclaje a red y Zona portátil</string>
+    <string name="tether_settings_title_all">Mobile Hotspot y Anclaje a red</string>
     <string name="managed_user_title">Todas las apps de trabajo</string>
     <string name="user_guest">Invitado</string>
     <string name="unknown">Desconocido</string>
@@ -892,6 +892,7 @@ Puede cambiar esta opción más tarde desde los ajustes de Bluetooth."</string>
     <string name="bluetooth_control_app_disable_summary">Bluetooth desactivado: %s</string>
     <string name="bluetooth_enter_pin_msg">Introducir PIN para vincular con %s (intente 0000 o 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">Se alcanzó el número máximo de caracteres.</string>
+    <string name="bluetooth_frp_permission_message">No es posible usar un dispositivo Bluetooth para esta llamada.</string>
     <string name="settings_menu_done">Realizado</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB no conectado</string>
     <string name="usb_tethering_available_subtext_tmo">USB conectado, verificar para anclar a red</string>
@@ -2973,7 +2974,7 @@ La descarga vía redes móviles puede generar costos adicionales según el plan 
     <string name="wifi_enable_warning_spr">Activar Wi-Fi desactivará la Zona portátil.</string>
     <string name="wifi_enable_warning_mtr">La activación de Wi-Fi desactivará Mobile hotspot. ¿Desea continuar?</string>
     <string name="wifi_enable_warning_usc">Activar la conexión Wi-Fi desactivará la Zona Wi-Fi portátil. ¿Continuar?</string>
-    <string name="wifi_enable_warning">Activar Wi-Fi desactivará Zona portátil.</string>
+    <string name="wifi_enable_warning">La red Wi-Fi se desactiva cuando Mobile Hotspot está activada. Para activar la red Wi-Fi, desactive Mobile Hotspot.</string>
     <string name="wifi_control_history_title">Historial de control de Wi-Fi</string>
     <string name="wifi_control_history_description">Las aplicaciones siguientes activaron o desactivaron Wi-Fi más recientemente.</string>
     <string name="wifi_control_history_sub_title">Aplicaciones recientes</string>
@@ -2998,8 +2999,8 @@ La descarga vía redes móviles puede generar costos adicionales según el plan 
     <string name="wifi_wapi_user_certificate">Certificado de usuario</string>
     <string name="wifi_ap_help_enable_msg_summary_vzw">Se activó Mobile Hotspot. Pulse Configurar para cambiar la configuración de Mobile Hotspot.</string>
     <string name="wifi_ap_help_enable_msg_summary">La función Mobile Hotspot está activada. Para cambiar la configuración de Mobile Hotspot, pulse MÁS y seleccione Configurar Mobile Hotspot.</string>
-    <string name="wifi_ap_turning_on">Activando Zona portátil…</string>
-    <string name="wifi_ap_turning_off">Desactivando Zona portátil…</string>
+    <string name="wifi_ap_turning_on">Activando Mobile Hotspot…</string>
+    <string name="wifi_ap_turning_off">Desactivando Mobile Hotspot…</string>
     <string name="wifi_ap_password_dialog_title">Cambiar contraseña</string>
     <string name="wifi_ap_wifi_sharing_text">Puede compartir su red Wi-Fi con otros dispositivos. Tenga en cuenta que su dispositivo puede cambiar de una red Wi-Fi guardada a otra sin aviso. Usted es responsable de cumplir con los términos y condiciones de todos sus proveedores de Wi-Fi.</string>
     <string name="wifi_ap__wifi_sharing_vzw">Wi-Fi compartido</string>
@@ -3012,11 +3013,11 @@ La descarga vía redes móviles puede generar costos adicionales según el plan 
     <string name="wifi_ap_starting_chn">Enabling Portable WLAN hotspot…</string>
     <string name="wifi_ap_starting_tmo">Activando Mobile hotspot…</string>
     <string name="wifi_ap_starting_att">Activando Zona Wi-Fi portátil…</string>
-    <string name="wifi_ap_starting">Activando Zona portátil…</string>
+    <string name="wifi_ap_starting">Activando Mobile Hotspot…</string>
     <string name="wifi_ap_stopping_chn">Disabling Portable WLAN hotspot…</string>
     <string name="wifi_ap_stopping_tmo">Desactivando Zona Wi-Fi portátil…</string>
     <string name="wifi_ap_stopping_att">Desactivando Zona Wi-Fi portátil…</string>
-    <string name="wifi_ap_stopping">Desactivando Zona portátil…</string>
+    <string name="wifi_ap_stopping">Desactivando Mobile Hotspot…</string>
     <string name="wifi_ap_add_whitelist">Añadir a lista blanca</string>
     <string name="wifi_ap_remove_from_whitelist">Eliminar de lista blanca</string>
     <string name="wifi_ap_allow_device_added">%s añadido a los dispositivos permitidos.</string>
@@ -3050,11 +3051,11 @@ Después de iniciar el router Wi-Fi de Mobile hotspot, conéctese usando los con
 Puede crear un perfil de dispositivos admitidos y configurar su modo de conexión.
 
 Usar la Zona Wi-Fi portátil consume más batería y aumenta el uso de datos."</string>
-    <string name="wifi_ap_instruction_changeable_maxclient">"Puede usar su dispositivo como Punto de Acceso a Internet mediante Zona portátil. Esto permite la conexión de hasta %d dispositivos mediante Wi-Fi. Los dispositivos conectados accederán a Internet mediante su red móvil.
+    <string name="wifi_ap_instruction_changeable_maxclient">"Puede usar su dispositivo como Punto de Acceso a Internet usando Mobile Hotspot. Esto permite la conexión de hasta %d dispositivos vía Wi-Fi. Los dispositivos conectados accederán a Internet vía su red móvil.
 
 Puede crear un perfil de dispositivos permitidos y configurar su modo de conexión.
 
-Zona portátil consume más batería y aumenta el uso de datos."</string>
+Mobile Hotspot consume más batería y aumenta el uso de datos."</string>
     <string name="wifi_ap_instruction_mtr">"Convierta su dispositivo en una Zona Wi-Fi portátil para compartir su conexión de datos móviles con otros dispositivos.
 
 Para usar la capacidad de Mobile hotspot de sus dispositivos, debe tener el servicio Smartphone Mobile hotspot incluido en su plan de datos.
@@ -3078,7 +3079,7 @@ Para configurar Smartphone Mobile hotspot, pulse el ícono de menú y luego puls
     <string name="wifi_ap_wifi_off_warn_chn">Enabling Mobile hotspot will turn off WLAN.</string>
     <string name="wifi_ap_wifi_off_warn_att">Activar Zona Wi-Fi portátil desactivará la conexión Wi-Fi.</string>
     <string name="wifi_ap_wifi_off_warn_mtr">La red Wi-Fi se desactiva cuando Anclaje a red USB o Mobile hotspot están activados. Para activar la red Wi-Fi, desactive Anclaje a red USB o Mobile hotspot.</string>
-    <string name="wifi_ap_wifi_off_warn">Al activar Zona portátil se desactivará Wi-Fi.</string>
+    <string name="wifi_ap_wifi_off_warn">Para usar Mobile Hotspot, se debe desactivar Wi-Fi.</string>
     <string name="wifi_ap_wifi_off_warn_title_vzw">Mobile Hotspot y Wi-Fi</string>
     <string name="wifi_ap_wifi_off_warn_title">Atención</string>
     <string name="wifi_ap_smartview_off_warn_vzw">Mobile Hotspot y Smart View no pueden estar activados al mismo tiempo. Se desactivará Smart View.</string>
@@ -3103,7 +3104,7 @@ Para configurar Smartphone Mobile hotspot, pulse el ícono de menú y luego puls
     <string name="wifi_ap_menu_configure_hotspot_spr">Configurar zona Wi-Fi portátil</string>
     <string name="wifi_ap_menu_configure_hotspot_tmo">Configurar Mobile HotSpot</string>
     <string name="wifi_ap_menu_configure_hotspot_att">Configurar Zona móvil</string>
-    <string name="wifi_ap_menu_configure_hotspot">Configurar Zona portátil</string>
+    <string name="wifi_ap_menu_configure_hotspot">Configurar Mobile Hotspot</string>
     <string name="wifi_ap_menu_timeout">Inactividad</string>
     <string name="wifi_ap_menu_allow_devices">Dispositivos permitidos</string>
     <string name="wifi_ap_timeout_message_vzw">Desactivar Zona móvil si no hay una conexión para</string>
@@ -3176,17 +3177,17 @@ Wi-Fi está activado."</string>
     <string name="wifi_tether_dialog_nosim_warning_title_tmo">Mobile HotSpot</string>
     <string name="wifi_tether_dialog_nosim_warning_title_spr">Zona portátil</string>
     <string name="wifi_tether_dialog_nosim_warning_title_att">Mobile Hotspot</string>
-    <string name="wifi_tether_dialog_nosim_warning_title">Zona portátil</string>
+    <string name="wifi_tether_dialog_nosim_warning_title">No hay tarjeta SIM</string>
     <string name="wifi_tether_dialog_nosim_warning_chn">Insert a SIM card to use Mobile hotspot and other tethering functions.</string>
     <string name="wifi_tether_dialog_nosim_warning_vzw">Inserte una tarjeta SIM para usar Zona móvil y otras opciones de anclaje a red.</string>
     <string name="wifi_tether_dialog_nosim_warning_tmo">Instale la tarjeta SIM para compartir la conexión de datos de su teléfono con otros dispositivos que usen Zona Wi-Fi portátil móvil o anclaje a red USB para acceder a Internet.</string>
     <string name="wifi_tether_dialog_nosim_warning_spr">Inserte tarjeta SIM para usar Zona Wi-Fi portátil y anclaje a red</string>
     <string name="wifi_tether_dialog_nosim_warning_usc">Inserte una tarjeta SIM para usar Zona portátil y otras funciones de anclaje a red.</string>
-    <string name="wifi_tether_dialog_nosim_warning">Inserte una tarjeta SIM para usar Zona portátil y otras funciones de anclaje a red.</string>
+    <string name="wifi_tether_dialog_nosim_warning">Inserte una tarjeta SIM para usar Mobile Hotspot y otras opciones de anclaje a red.</string>
     <string name="mobileap_tmo">Mobile HotSpot</string>
     <string name="mobileap_spr">Zona portátil</string>
     <string name="mobileap_att">Mobile Hotspot</string>
-    <string name="mobileap">Zona portátil</string>
+    <string name="mobileap">Mobile Hotspot</string>
     <string name="wifi_ap_no_mobile_data">No tiene permitido usar datos móviles</string>
     <string name="wifi_ap_data_limit_text">Mantenga pulsado aquí para definir un límite de uso de datos móviles en este dispositivo.</string>
     <string name="wifi_ap_remaining_mobile_data">Uso de datos restante</string>
@@ -3249,16 +3250,16 @@ Wi-Fi está activado."</string>
     <string name="wifi_ap_instruction_activate_color_hidden3_tmo">Conectarse a &lt;font color=%1$s>%2$s&lt;/font> al introducir &lt;font color=%1$s>%3$s&lt;/font> como la contraseña.</string>
     <string name="wifi_ap_instruction_activate_color_hidden3">Conéctese con &lt;font color=\"%1$s\">%2$s&lt;/font> al introducir &lt;font color=\"%1$s\">%3$s&lt;/font> como la contraseña.</string>
     <string name="wifi_ap_instruction_activate_color_hidden4_tmo">Disfrute de internet con su Zona portátil personal.</string>
-    <string name="wifi_ap_instruction_no_maxclient">"Puede usar su dispositivo como Punto de Acceso a Internet usando Zona portátil. Esto permite la conexión de otros dispositivos vía Wi-Fi. Los dispositivos conectados accederán a Internet vía su red móvil.
+    <string name="wifi_ap_instruction_no_maxclient">"Puede usar su dispositivo como Punto de Acceso a Internet usando Mobile Hotspot. Esto permite la conexión de otros dispositivos vía Wi-Fi. Los dispositivos conectados accederán a Internet vía su red móvil.
 
 Puede crear un perfil de dispositivos permitidos y configurar su modo de conexión.
 
-Usar la Zona portátil consume más batería y aumenta el uso de datos."</string>
+Mobile Hotspot consume más batería y aumenta el uso de datos."</string>
     <string name="wifi_ap_instruction_configure_vzw">Para activar la configuración de Mobile Hotspot, vaya a Ajustes > Anclaje a red y Mobile Hotspot > Mobile Hotspot > MÁS y luego seleccione Configurar Mobile Hotspot.</string>
     <string name="wifi_ap_instruction_configure_tmo">Para cambiar la configuración de Zona portátil, pulse el botón Más opciones y seleccione Configurar zona portátil.</string>
-    <string name="wifi_ap_instruction_configure">Para cambiar la configuración de Zona portátil, pulse el botón Más opciones y seleccione Configurar Zona portátil.</string>
+    <string name="wifi_ap_instruction_configure">Para cambiar la configuración de Mobile Hotspot, pulse el botón Más opciones y seleccione Configurar Mobile Hotspot.</string>
     <string name="wifi_ap_instruction_configure_non_grace_tmo">Para cambiar la configuración de Zona portátil, pulse MÁS y seleccione Configurar zona portátil.</string>
-    <string name="wifi_ap_instruction_configure_non_grace">Para cambiar la configuración de Zona portátil, pulse MÁS y seleccione Configurar Zona portátil.</string>
+    <string name="wifi_ap_instruction_configure_non_grace">Para cambiar la configuración de Mobile Hotspot, pulse MÁS y seleccione Configurar Mobile Hotspot.</string>
     <string name="wifi_ap_change_security">Cambiar seguridad</string>
     <string name="wifi_ap_maxclient">Máximo número de conexiones</string>
     <string name="wifi_ap_no_hotspot_mode_warning">Otra aplicación está actualmente controlando Mobile hotspot. La conexión de Mobile hotspot actual finalizará para poder configurarla.</string>
@@ -3272,7 +3273,7 @@ Usar la Zona portátil consume más batería y aumenta el uso de datos."</string
     <string name="wifi_tether_configure_ap_text_tmo">Configurar Mobile HotSpot</string>
     <string name="wifi_tether_configure_ap_text_spr">Configurar zona Wi-Fi portátil</string>
     <string name="wifi_tether_configure_ap_text_usc">Configurar Zona Wi-Fi portátil</string>
-    <string name="wifi_tether_configure_ap_text">Configurar Zona portátil</string>
+    <string name="wifi_tether_configure_ap_text">Configurar Mobile Hotspot</string>
     <string name="wifi_ap_hidessid_warning">Su dispositivo estará visible para otros dispositivos</string>
     <string name="wifi_ap_first_time_configuration">Configuración inicial de HotSpot</string>
     <string name="title_wifi_notify_mobileap_is_on">Wi-Fi y Mobile Hotspot</string>
@@ -3491,6 +3492,7 @@ Receiving SMS"</string>
     <string name="no">No</string>
     <string name="create">Crear</string>
     <string name="allow">Permitir</string>
+    <string name="dlg_close">Cerrar</string>
     <string name="device_info_default">Desconocido</string>
     <string name="show_dev_on">Se activó el modo de desarrollador.</string>
     <string name="show_dev_already">No es necesario, el modo de desarrollador ya está activado</string>
@@ -3828,7 +3830,7 @@ Pulse CONECTAR para seguir conectado a %2$s ahora y siempre que se conecte en el
     <string name="wifi_p2p_settings_title">Wi-Fi Directo</string>
     <string name="wifi_p2p_menu_rename">Renombrar dispositivo</string>
     <string name="wifi_p2p_cancel_connect_title">¿Cancelar invitación?</string>
-    <string name="wifi_tether_checkbox_text">Zona portátil</string>
+    <string name="wifi_tether_checkbox_text">Mobile Hotspot</string>
     <string name="home_settings">Pantalla de inicio</string>
     <string name="display_settings_title">Pantalla</string>
     <string name="sound_settings">Sonido</string>

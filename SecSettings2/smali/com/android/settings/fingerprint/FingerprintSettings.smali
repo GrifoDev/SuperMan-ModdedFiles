@@ -865,7 +865,7 @@
 
     invoke-virtual {v3, v1}, Lcom/android/settings/fingerprint/FingerprintSettings$FingerprintPreference;->setFingerprint(Landroid/hardware/fingerprint/Fingerprint;)V
 
-    const v4, 0x7f040101
+    const v4, 0x7f040102
 
     invoke-virtual {v3, v4}, Lcom/android/settings/fingerprint/FingerprintSettings$FingerprintPreference;->setLayoutResource(I)V
 
@@ -1809,7 +1809,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b06f0
+    const v4, 0x7f0b06f1
 
     invoke-virtual {p0, v4}, Lcom/android/settings/fingerprint/FingerprintSettings;->getString(I)Ljava/lang/String;
 
@@ -2465,7 +2465,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b06e0
+    const v8, 0x7f0b06e1
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2477,7 +2477,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b06df
+    const v10, 0x7f0b06e0
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2778,7 +2778,7 @@
 .method private showHuntipForFingerprintIdentification()V
     .locals 14
 
-    const v13, 0x7f02010b
+    const v13, 0x7f02010c
 
     const/4 v12, 0x1
 
@@ -2892,7 +2892,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0400f4
+    const v8, 0x7f0400f5
 
     invoke-direct {v1, v7, v8}, Landroid/widget/RemoteViews;-><init>(Ljava/lang/String;I)V
 
@@ -2924,7 +2924,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b06e7
+    const v8, 0x7f0b06e8
 
     invoke-virtual {p0, v8}, Lcom/android/settings/fingerprint/FingerprintSettings;->getString(I)Ljava/lang/String;
 
@@ -2934,7 +2934,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b06e8
+    const v8, 0x7f0b06e9
 
     invoke-virtual {p0, v8}, Lcom/android/settings/fingerprint/FingerprintSettings;->getString(I)Ljava/lang/String;
 
@@ -3011,7 +3011,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f040100
+    const v8, 0x7f040101
 
     invoke-virtual {v7, v8, v11}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -3074,7 +3074,7 @@
 
     new-array v2, v2, [Ljava/lang/Object;
 
-    const v3, 0x7f0b0675
+    const v3, 0x7f0b0676
 
     invoke-virtual {p0, v3}, Lcom/android/settings/fingerprint/FingerprintSettings;->getString(I)Ljava/lang/String;
 
@@ -3082,7 +3082,7 @@
 
     aput-object v3, v2, v4
 
-    const v3, 0x7f0b0709
+    const v3, 0x7f0b070a
 
     invoke-virtual {p0, v3, v2}, Lcom/android/settings/fingerprint/FingerprintSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -3399,7 +3399,7 @@
 
     const-string/jumbo v1, "com.android.settings.fingerprint.FingerprintSettings_MultiSelect"
 
-    const v3, 0x7f0b0675
+    const v3, 0x7f0b0676
 
     const/4 v4, 0x0
 
@@ -3421,7 +3421,7 @@
 
     const/16 v4, 0x3ef
 
-    const v5, 0x7f0b0675
+    const v5, 0x7f0b0676
 
     const/4 v6, 0x0
 
@@ -3530,15 +3530,15 @@
 
     invoke-virtual {v3, v5}, Landroid/preference/Preference;->setKey(Ljava/lang/String;)V
 
-    const v5, 0x7f0b06c1
+    const v5, 0x7f0b06c2
 
     invoke-virtual {v3, v5}, Landroid/preference/Preference;->setTitle(I)V
 
-    const v5, 0x7f040102
+    const v5, 0x7f040103
 
     invoke-virtual {v3, v5}, Landroid/preference/Preference;->setLayoutResource(I)V
 
-    const v5, 0x7f040106
+    const v5, 0x7f040107
 
     invoke-virtual {v3, v5}, Landroid/preference/Preference;->setWidgetLayoutResource(I)V
 
@@ -3727,7 +3727,7 @@
 
     invoke-virtual {v4, v5}, Landroid/preference/Preference;->setKey(Ljava/lang/String;)V
 
-    const v5, 0x7f0b06bc
+    const v5, 0x7f0b06bd
 
     invoke-virtual {v4, v5}, Landroid/preference/Preference;->setTitle(I)V
 
@@ -3921,7 +3921,7 @@
 
     iget-object v1, p0, Lcom/android/settings/fingerprint/FingerprintSettings;->mRegisterCategory:Landroid/preference/PreferenceCategory;
 
-    const v2, 0x7f0400f5
+    const v2, 0x7f0400f6
 
     invoke-virtual {v1, v2}, Landroid/preference/PreferenceCategory;->setLayoutResource(I)V
 
@@ -4207,11 +4207,11 @@
 .method private updateOptionsMenu(Landroid/view/Menu;)V
     .locals 9
 
-    const v8, 0x7f0b0430
+    const v8, 0x7f0b0431
 
     const/4 v7, 0x2
 
-    const v6, 0x7f0b0422
+    const v6, 0x7f0b0423
 
     const/4 v5, 0x1
 
@@ -4525,7 +4525,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b18b3
+    const v0, 0x7f0b18b4
 
     return v0
 .end method

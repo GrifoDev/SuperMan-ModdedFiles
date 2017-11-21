@@ -89,7 +89,7 @@
     <string name="tether_settings_title_wifi">Փոխադրովի թեժ կետ</string>
     <string name="tether_settings_title_bluetooth">Bluetooth տեղակապում</string>
     <string name="tether_settings_title_usb_bluetooth">Տեղակապում</string>
-    <string name="tether_settings_title_all">Շարժական թեժ կետ և տեղակապում</string>
+    <string name="tether_settings_title_all">Շարժական թեժ կետ և Տեղակապում</string>
     <string name="managed_user_title">Բոլոր աշխատանքային հավելվածները</string>
     <string name="user_guest">Հյուր</string>
     <string name="unknown">Անհայտ</string>
@@ -892,6 +892,7 @@ Wi-Fi-ն ու Bluetooth-ը նույնպես կանջատվեն, բայց կար�
     <string name="bluetooth_control_app_disable_summary">Անջատված Bluetooth՝ %s</string>
     <string name="bluetooth_enter_pin_msg">%s-ի հետ զուգտակելու համար մուտքագրեք PIN (փորձեք 0000 կամ 1234):</string>
     <string name="bluetooth_pin_maximum_number_message">Հասել է նիշերի առավելագույն քանակին:</string>
+    <string name="bluetooth_frp_permission_message">Հնարավոր չէ Bluetooth սարք օգտագործել այս կանչի համար:</string>
     <string name="settings_menu_done">Կատարված է</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>
@@ -2971,7 +2972,7 @@ Downloading via mobile networks uses your data plan."</string>
     <string name="wifi_enable_warning_spr">Turning on Wi-Fi will disable Hotspot.</string>
     <string name="wifi_enable_warning_mtr">Turning on Wi-Fi will turn off Mobile Hotspot. Continue?</string>
     <string name="wifi_enable_warning_usc">Turning on Wi-Fi will turn off Portable Wi-Fi hotspot. Continue?</string>
-    <string name="wifi_enable_warning">Wi-Fi միացնելը կկասեցնի Շարժական թեժ կետը:</string>
+    <string name="wifi_enable_warning">Wi-Fi-ն անջատված է, երբ Շարժական թեժ կետն ակտիվ է: Wi-Fi-ը միացնելու համար անջատեք Շարժական թեժ կետը:</string>
     <string name="wifi_control_history_title">Wi-Fi-ի կառավարման պատմություն</string>
     <string name="wifi_control_history_description">Ստորև նշված ծրագրերը վերջերս միացրել կամ անջատել են Wi-Fi-ը:</string>
     <string name="wifi_control_history_sub_title">Վերջին ծրագրեր</string>
@@ -2997,7 +2998,7 @@ Downloading via mobile networks uses your data plan."</string>
     <string name="wifi_ap_help_enable_msg_summary_vzw">Mobile Hotspot is turned on. Tap Configure to change your Mobile Hotspot settings.</string>
     <string name="wifi_ap_help_enable_msg_summary">Mobile Hotspot is enabled. To change the Mobile Hotspot configuration, tap MORE and select Configure Mobile Hotspot.</string>
     <string name="wifi_ap_turning_on">Շարժական թեժ կետն ընձեռվում է…</string>
-    <string name="wifi_ap_turning_off">Շարժական թեժ կետը կասեցվում է…</string>
+    <string name="wifi_ap_turning_off">Շարժական թեժ կետն անջատվում է…</string>
     <string name="wifi_ap_password_dialog_title">Փոխել գաղտնաբառը</string>
     <string name="wifi_ap_wifi_sharing_text">Ձեր Wi-Fi ցանցը կարող է համօգտագործվել այլ սարքերի հետ: Նկատի ունեցեք, որ Ձեր սարքը կարող է առանց ծանուցման փոխարկվել պահպանված Wi-Fi ցանցերի միջև: Դուք պատասխանատու եք Ձեր Wi-Fi մատակարարների բոլոր դրույթները և պայմանները կատարելու համար:</string>
     <string name="wifi_ap__wifi_sharing_vzw">Wi-Fi Sharing</string>
@@ -3014,7 +3015,7 @@ Downloading via mobile networks uses your data plan."</string>
     <string name="wifi_ap_stopping_chn">Disabling Portable WLAN hotspot…</string>
     <string name="wifi_ap_stopping_tmo">Turning Mobile HotSpot off…</string>
     <string name="wifi_ap_stopping_att">Turning off portable Wi-Fi hotspot…</string>
-    <string name="wifi_ap_stopping">Շարժական թեժ կետը կասեցվում է…</string>
+    <string name="wifi_ap_stopping">Mobile թեժ կետը կասեցվում է…</string>
     <string name="wifi_ap_add_whitelist">Ավելացնել վստահելիության ցուցակին</string>
     <string name="wifi_ap_remove_from_whitelist">Հեռացնել վստահելիության ցուցակից</string>
     <string name="wifi_ap_allow_device_added">%s-ն ավելացվել է թույլատրված սարքերին:</string>
@@ -3076,7 +3077,7 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_ap_wifi_off_warn_chn">Enabling Mobile hotspot will turn off WLAN.</string>
     <string name="wifi_ap_wifi_off_warn_att">Turning on portable Wi-Fi hotspot will turn off Wi-Fi.</string>
     <string name="wifi_ap_wifi_off_warn_mtr">Wi-Fi is turned off when USB tethering or Mobile Hotspot is active. To turn on Wi-Fi, please turn off USB tethering or Mobile Hotspot.</string>
-    <string name="wifi_ap_wifi_off_warn">Շարժական թեժ կետի ընձեռումը կանջատի Wi-Fi-ը:</string>
+    <string name="wifi_ap_wifi_off_warn">Շարժական թեժ կետ օգտագործելու համար պետք է Wi-Fi-ն անջատված լինի:</string>
     <string name="wifi_ap_wifi_off_warn_title_vzw">Mobile Hotspot and Wi-Fi</string>
     <string name="wifi_ap_wifi_off_warn_title">Ուշադրություն</string>
     <string name="wifi_ap_smartview_off_warn_vzw">Mobile Hotspot and Smart View cannot be turned on at the same time. Smart View will be turned off.</string>
@@ -3174,13 +3175,13 @@ Wi-Fi is now on."</string>
     <string name="wifi_tether_dialog_nosim_warning_title_tmo">Շարժական թեժ կետ</string>
     <string name="wifi_tether_dialog_nosim_warning_title_spr">Hotspot</string>
     <string name="wifi_tether_dialog_nosim_warning_title_att">Շարժական թեժ կետ</string>
-    <string name="wifi_tether_dialog_nosim_warning_title">Շարժական թեժ կետ</string>
+    <string name="wifi_tether_dialog_nosim_warning_title">SIM քարտ չկա</string>
     <string name="wifi_tether_dialog_nosim_warning_chn">Insert a SIM card to use Mobile hotspot and other tethering functions.</string>
     <string name="wifi_tether_dialog_nosim_warning_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
     <string name="wifi_tether_dialog_nosim_warning_tmo">"Please install SIM card in order to share your phone's data connection with other devices using Mobile Wi-Fi HotSpot or USB tethering for Internet access."</string>
     <string name="wifi_tether_dialog_nosim_warning_spr">Insert SIM for using Hotspot include tethering</string>
     <string name="wifi_tether_dialog_nosim_warning_usc">Մտցրեք SIM քարտ, որպեսզի օգտագործեք Շարժական թեժ կետ և տեղակապման այլ գործառույթներ:</string>
-    <string name="wifi_tether_dialog_nosim_warning">Մտցրեք SIM քարտ, որպեսզի օգտագործեք Շարժական թեժ կետ և տեղակապման այլ գործառույթներ:</string>
+    <string name="wifi_tether_dialog_nosim_warning">Մտցրեք SIM քարտ, որպեսզի օգտագործեք Շարժական թեժ կետ և տեղակապման այլ ընտրանքներ:</string>
     <string name="mobileap_tmo">Շարժական թեժ կետ</string>
     <string name="mobileap_spr">Hotspot</string>
     <string name="mobileap_att">Շարժական թեժ կետ</string>
@@ -3249,7 +3250,7 @@ Wi-Fi is now on."</string>
     <string name="wifi_ap_instruction_activate_color_hidden4_tmo">Enjoy the internet using your personal Mobile HotSpot.</string>
     <string name="wifi_ap_instruction_no_maxclient">"Ձեր սարքը կարող եք օգտագործել որպես Ինտերնետի մուտքի կետ՝ օգտվելով Շարժական թեժ կետից: Սա թույլ է տալիս, որ այլ սարքեր դրան միանան Wi-Fi-ի միջոցով: Կապակցված սարքերն ինտերնետի մուտք կունենան Ձեր շարժական ցանցի միջոցով:
 
-Կարող եք ստեղծել թույլատրված սարքերի պրոֆիլ և դրա համար նախադրել միացման ռեժիմը:
+Կարող եք ստեղծել թույլատրված սարքի պրոֆիլ և դրա համար նախադրել միացման ռեժիմը:
 
 Շարժական թեժ կետից օգտվելը մեծացնում է մարտկոցի սպառումն ու տվյալների օգտագործումը:"</string>
     <string name="wifi_ap_instruction_configure_vzw">To change the Mobile Hotspot configuration, go to Settings > Mobile Hotspot and tethering > Mobile Hotspot > MORE, then select Configure Mobile Hotspot.</string>
@@ -3489,6 +3490,7 @@ Receiving SMS"</string>
     <string name="no">Ոչ</string>
     <string name="create">Ստղծլ</string>
     <string name="allow">Թույլատրել</string>
+    <string name="dlg_close">Փակել</string>
     <string name="device_info_default">Անհայտ</string>
     <string name="show_dev_on">Մշակողի ռեժիմն ընձեռվել է:</string>
     <string name="show_dev_already">Կարիք չկա. մշակողի ռեժիմն արդեն ընձեռվել է</string>

@@ -89,7 +89,7 @@
     <string name="tether_settings_title_wifi">Mobilioji saitvietė</string>
     <string name="tether_settings_title_bluetooth">„Bluetooth“ siejimas</string>
     <string name="tether_settings_title_usb_bluetooth">Siejama</string>
-    <string name="tether_settings_title_all">Mobilioji saitvietė ir siejimas</string>
+    <string name="tether_settings_title_all">Mob. saitvietė ir siejimas</string>
     <string name="managed_user_title">Visos darbo programos</string>
     <string name="user_guest">Svečias</string>
     <string name="unknown">Nežinomas</string>
@@ -892,6 +892,7 @@ Pakeisti galėsite ir vėliau nuėję į „Bluetooth“ nustatymus."</string>
     <string name="bluetooth_control_app_disable_summary">Išjungė „Bluetooth“: %s</string>
     <string name="bluetooth_enter_pin_msg">Įveskite PIN norėdami susieti su %s (bandykite 0000 arba 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">Pasiektas didžiausias simbolių skaičius.</string>
+    <string name="bluetooth_frp_permission_message">Šiam skambučiui negalima naudoti „Bluetooth“.</string>
     <string name="settings_menu_done">Atlikta</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>
@@ -2972,7 +2973,7 @@ Atsisiunčiant per mobiliuosius tinklus gali būti taikomi papildomi mokesčiai 
     <string name="wifi_enable_warning_spr">Turning on Wi-Fi will disable Hotspot.</string>
     <string name="wifi_enable_warning_mtr">Turning on Wi-Fi will turn off Mobile Hotspot. Continue?</string>
     <string name="wifi_enable_warning_usc">Turning on Wi-Fi will turn off Portable Wi-Fi hotspot. Continue?</string>
-    <string name="wifi_enable_warning">Įjungus „Wi-Fi“ bus išjungta mobilioji saitvietė.</string>
+    <string name="wifi_enable_warning">Kai mobilioji saitvietė įjungta, „Wi-Fi“ yra išjungtas. Jei norite įjungti „Wi-Fi“, išjunkite mobiliąją saitvietę.</string>
     <string name="wifi_control_history_title">„Wi-Fi“ valdymo istorija</string>
     <string name="wifi_control_history_description">Toliau pateikiamos programos neseniai įjungė arba išjungė „Wi-Fi“.</string>
     <string name="wifi_control_history_sub_title">Naujausios programos</string>
@@ -3077,7 +3078,7 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_ap_wifi_off_warn_chn">Enabling Mobile hotspot will turn off WLAN.</string>
     <string name="wifi_ap_wifi_off_warn_att">Turning on portable Wi-Fi hotspot will turn off Wi-Fi.</string>
     <string name="wifi_ap_wifi_off_warn_mtr">Wi-Fi is turned off when USB tethering or Mobile Hotspot is active. To turn on Wi-Fi, please turn off USB tethering or Mobile Hotspot.</string>
-    <string name="wifi_ap_wifi_off_warn">Įjungus mobiliąją saitvietę bus išjungtas „Wi-Fi“.</string>
+    <string name="wifi_ap_wifi_off_warn">Jei norite naudoti mobiliąją saitvietę, reikia išjungti „Wi-Fi“.</string>
     <string name="wifi_ap_wifi_off_warn_title_vzw">Mobile Hotspot and Wi-Fi</string>
     <string name="wifi_ap_wifi_off_warn_title">Dėmesio</string>
     <string name="wifi_ap_smartview_off_warn_vzw">Mobile Hotspot and Smart View cannot be turned on at the same time. Smart View will be turned off.</string>
@@ -3102,7 +3103,7 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_ap_menu_configure_hotspot_spr">Configure Hotspot</string>
     <string name="wifi_ap_menu_configure_hotspot_tmo">Konfigūruoti mobil. saitvietę</string>
     <string name="wifi_ap_menu_configure_hotspot_att">Konfigūruoti mobil. saitvietę</string>
-    <string name="wifi_ap_menu_configure_hotspot">Konfigūruoti mobil. saitvietę</string>
+    <string name="wifi_ap_menu_configure_hotspot">Konfigūruoti mobiliąją saitvietę</string>
     <string name="wifi_ap_menu_timeout">Pertraukų nustatymai</string>
     <string name="wifi_ap_menu_allow_devices">Leidžiami įrenginiai</string>
     <string name="wifi_ap_timeout_message_vzw">Disable Mobile Hotspot if there is no connection for</string>
@@ -3175,13 +3176,13 @@ Wi-Fi is now on."</string>
     <string name="wifi_tether_dialog_nosim_warning_title_tmo">Mobilioji saitvietė</string>
     <string name="wifi_tether_dialog_nosim_warning_title_spr">Hotspot</string>
     <string name="wifi_tether_dialog_nosim_warning_title_att">Mobilioji saitvietė</string>
-    <string name="wifi_tether_dialog_nosim_warning_title">Mobilioji saitvietė</string>
+    <string name="wifi_tether_dialog_nosim_warning_title">Nėra SIM kortelės</string>
     <string name="wifi_tether_dialog_nosim_warning_chn">Insert a SIM card to use Mobile hotspot and other tethering functions.</string>
     <string name="wifi_tether_dialog_nosim_warning_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
     <string name="wifi_tether_dialog_nosim_warning_tmo">"Please install SIM card in order to share your phone's data connection with other devices using Mobile Wi-Fi HotSpot or USB tethering for Internet access."</string>
     <string name="wifi_tether_dialog_nosim_warning_spr">Insert SIM for using Hotspot include tethering</string>
     <string name="wifi_tether_dialog_nosim_warning_usc">Norėdami naudoti mobiliąją saitvietę ir kitas siejimo funkcijas įdėkite SIM kortelę.</string>
-    <string name="wifi_tether_dialog_nosim_warning">Norėdami naudoti mobiliąją saitvietę ir kitas siejimo funkcijas įdėkite SIM kortelę.</string>
+    <string name="wifi_tether_dialog_nosim_warning">Norėdami naudoti mobiliąją saitvietę ir kitas siejimo parinktis, įdėkite SIM kortelę.</string>
     <string name="mobileap_tmo">Mobilioji saitvietė</string>
     <string name="mobileap_spr">Hotspot</string>
     <string name="mobileap_att">Mobilioji saitvietė</string>
@@ -3490,6 +3491,7 @@ Receiving SMS"</string>
     <string name="no">Ne</string>
     <string name="create">Sukurti</string>
     <string name="allow">Leisti</string>
+    <string name="dlg_close">Uždaryti</string>
     <string name="device_info_default">Nežinomas</string>
     <string name="show_dev_on">Įjungtas kūrėjo režimas.</string>
     <string name="show_dev_already">Nebereikia, kūrėjo režimas jau įjungtas</string>

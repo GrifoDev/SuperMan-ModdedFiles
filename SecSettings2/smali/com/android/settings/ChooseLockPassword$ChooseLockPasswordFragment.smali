@@ -1100,7 +1100,7 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f0b11c5
+    const v1, 0x7f0b11c6
 
     invoke-virtual {p0, v1, v0}, Lcom/android/settings/ChooseLockPassword$ChooseLockPasswordFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1135,7 +1135,7 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f0b08d5
+    const v1, 0x7f0b08d6
 
     invoke-virtual {p0, v1, v0}, Lcom/android/settings/ChooseLockPassword$ChooseLockPasswordFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1154,7 +1154,7 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f0b11c4
+    const v1, 0x7f0b11c5
 
     invoke-virtual {p0, v1, v0}, Lcom/android/settings/ChooseLockPassword$ChooseLockPasswordFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1173,7 +1173,7 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f0b08d4
+    const v1, 0x7f0b08d5
 
     invoke-virtual {p0, v1, v0}, Lcom/android/settings/ChooseLockPassword$ChooseLockPasswordFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1382,7 +1382,7 @@
 
     if-eqz v6, :cond_b
 
-    const v6, 0x7f0b11c4
+    const v6, 0x7f0b11c5
 
     :goto_4
     new-array v7, v7, [Ljava/lang/Object;
@@ -1408,7 +1408,7 @@
     goto :goto_3
 
     :cond_b
-    const v6, 0x7f0b11c5
+    const v6, 0x7f0b11c6
 
     goto :goto_4
 
@@ -1419,7 +1419,7 @@
 
     iget-object v6, p0, Lcom/android/settings/ChooseLockPassword$ChooseLockPasswordFragment;->mHeaderText:Landroid/widget/TextView;
 
-    const v8, 0x7f0b0845
+    const v8, 0x7f0b0846
 
     invoke-virtual {v6, v8}, Landroid/widget/TextView;->setText(I)V
 
@@ -1841,7 +1841,7 @@
 
     aput-object v30, v29, v31
 
-    const v30, 0x7f0b0887
+    const v30, 0x7f0b0888
 
     move-object/from16 v0, p0
 
@@ -1880,7 +1880,7 @@
 
     aput-object v30, v29, v31
 
-    const v30, 0x7f0b0886
+    const v30, 0x7f0b0887
 
     move-object/from16 v0, p0
 
@@ -1917,7 +1917,7 @@
 
     aput-object v30, v29, v31
 
-    const v30, 0x7f0b0889
+    const v30, 0x7f0b088a
 
     move-object/from16 v0, p0
 
@@ -1971,7 +1971,7 @@
 
     aput-object v30, v29, v31
 
-    const v30, 0x7f0b088a
+    const v30, 0x7f0b088b
 
     move-object/from16 v0, p0
 
@@ -2024,7 +2024,7 @@
 
     if-eqz v29, :cond_9
 
-    const v29, 0x7f0b06f9
+    const v29, 0x7f0b06fa
 
     :goto_1
     move-object/from16 v0, p0
@@ -2038,7 +2038,7 @@
     return-object v29
 
     :cond_9
-    const v29, 0x7f0b08cc
+    const v29, 0x7f0b08cd
 
     goto :goto_1
 
@@ -2057,7 +2057,7 @@
 
     if-eqz v29, :cond_b
 
-    const v29, 0x7f0b0714
+    const v29, 0x7f0b0715
 
     :goto_2
     move-object/from16 v0, p0
@@ -2071,7 +2071,7 @@
     return-object v29
 
     :cond_b
-    const v29, 0x7f0b08cb
+    const v29, 0x7f0b08cc
 
     goto :goto_2
 
@@ -2122,7 +2122,7 @@
     if-le v6, v0, :cond_e
 
     :cond_d
-    const v29, 0x7f0b11cb
+    const v29, 0x7f0b11cc
 
     move-object/from16 v0, p0
 
@@ -2244,7 +2244,7 @@
 
     if-gtz v29, :cond_15
 
-    const v29, 0x7f0b11c9
+    const v29, 0x7f0b11ca
 
     move-object/from16 v0, p0
 
@@ -2283,7 +2283,7 @@
 
     if-le v0, v1, :cond_24
 
-    const v29, 0x7f0b11d0
+    const v29, 0x7f0b11d1
 
     move-object/from16 v0, p0
 
@@ -2719,7 +2719,7 @@
     if-lez v27, :cond_1e
 
     :cond_1d
-    const v29, 0x7f0b087f
+    const v29, 0x7f0b0880
 
     move-object/from16 v0, p0
 
@@ -2778,7 +2778,7 @@
     :cond_20
     if-nez v19, :cond_23
 
-    const v29, 0x7f0b11cc
+    const v29, 0x7f0b11cd
 
     move-object/from16 v0, p0
 
@@ -2805,7 +2805,7 @@
 
     if-nez v22, :cond_24
 
-    const v29, 0x7f0b11cd
+    const v29, 0x7f0b11ce
 
     move-object/from16 v0, p0
 
@@ -2865,7 +2865,7 @@
 
     if-eqz v29, :cond_26
 
-    const v29, 0x7f0b11c7
+    const v29, 0x7f0b11c8
 
     :goto_7
     const/16 v30, 0x1
@@ -2903,7 +2903,7 @@
     return-object v29
 
     :cond_26
-    const v29, 0x7f0b11c8
+    const v29, 0x7f0b11c9
 
     goto :goto_7
 
@@ -2940,7 +2940,7 @@
 
     if-eqz v29, :cond_28
 
-    const v29, 0x7f0b11cf
+    const v29, 0x7f0b11d0
 
     :goto_8
     move-object/from16 v0, p0
@@ -2954,7 +2954,7 @@
     return-object v29
 
     :cond_28
-    const v29, 0x7f0b11ca
+    const v29, 0x7f0b11cb
 
     goto :goto_8
 
@@ -3236,7 +3236,7 @@
 
     aput-object v30, v29, v31
 
-    const v30, 0x7f0b0887
+    const v30, 0x7f0b0888
 
     move-object/from16 v0, p0
 
@@ -3287,7 +3287,7 @@
 
     aput-object v30, v29, v31
 
-    const v30, 0x7f0b0886
+    const v30, 0x7f0b0887
 
     move-object/from16 v0, p0
 
@@ -3324,7 +3324,7 @@
 
     aput-object v30, v29, v31
 
-    const v30, 0x7f0b0889
+    const v30, 0x7f0b088a
 
     move-object/from16 v0, p0
 
@@ -3378,7 +3378,7 @@
 
     aput-object v30, v29, v31
 
-    const v30, 0x7f0b088a
+    const v30, 0x7f0b088b
 
     move-object/from16 v0, p0
 
@@ -5118,7 +5118,7 @@
 
     iput-object v3, v0, Lcom/android/settings/ChooseLockPassword$ChooseLockPasswordFragment;->mOldPassword:Ljava/lang/String;
 
-    const v3, 0x7f0b0888
+    const v3, 0x7f0b0889
 
     move-object/from16 v0, p0
 
@@ -5130,7 +5130,7 @@
 
     iput-object v3, v0, Lcom/android/settings/ChooseLockPassword$ChooseLockPasswordFragment;->mHeaderPasswordMustNotContainBannedWords:Ljava/lang/String;
 
-    const v3, 0x7f0b088b
+    const v3, 0x7f0b088c
 
     move-object/from16 v0, p0
 
@@ -5142,7 +5142,7 @@
 
     iput-object v3, v0, Lcom/android/settings/ChooseLockPassword$ChooseLockPasswordFragment;->mHeaderLockpasswordPasswordExpired:Ljava/lang/String;
 
-    const v3, 0x7f0b08ca
+    const v3, 0x7f0b08cb
 
     move-object/from16 v0, p0
 
@@ -6390,7 +6390,7 @@
 
     if-eqz v2, :cond_2
 
-    const v2, 0x7f0b08c8
+    const v2, 0x7f0b08c9
 
     invoke-virtual {p0, v2}, Lcom/android/settings/ChooseLockPassword$ChooseLockPasswordFragment;->getString(I)Ljava/lang/String;
 
@@ -6464,7 +6464,7 @@
     return-void
 
     :cond_2
-    const v2, 0x7f0b08c7
+    const v2, 0x7f0b08c8
 
     invoke-virtual {p0, v2}, Lcom/android/settings/ChooseLockPassword$ChooseLockPasswordFragment;->getString(I)Ljava/lang/String;
 
@@ -6522,7 +6522,7 @@
 
     iget-object v2, p0, Lcom/android/settings/ChooseLockPassword$ChooseLockPasswordFragment;->mHeaderText:Landroid/widget/TextView;
 
-    const v3, 0x7f0b08c4
+    const v3, 0x7f0b08c5
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
 
@@ -6546,7 +6546,7 @@
     :cond_8
     iget-object v2, p0, Lcom/android/settings/ChooseLockPassword$ChooseLockPasswordFragment;->mHeaderText:Landroid/widget/TextView;
 
-    const v3, 0x7f0b08c5
+    const v3, 0x7f0b08c6
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
 
@@ -6794,7 +6794,7 @@
 
     iget-object v13, v0, Lcom/android/settings/ChooseLockPassword$ChooseLockPasswordFragment;->mCancelButton:Landroid/widget/Button;
 
-    const v14, 0x7f02033b
+    const v14, 0x7f02033c
 
     invoke-virtual {v13, v14}, Landroid/widget/Button;->setBackgroundResource(I)V
 
@@ -6802,7 +6802,7 @@
 
     iget-object v13, v0, Lcom/android/settings/ChooseLockPassword$ChooseLockPasswordFragment;->mNextButton:Landroid/widget/Button;
 
-    const v14, 0x7f02033b
+    const v14, 0x7f02033c
 
     invoke-virtual {v13, v14}, Landroid/widget/Button;->setBackgroundResource(I)V
 
@@ -7175,7 +7175,7 @@
 
     move-result-object v14
 
-    const v15, 0x7f0b07b8
+    const v15, 0x7f0b07b9
 
     invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -7289,7 +7289,7 @@
 
     iget-object v13, v0, Lcom/android/settings/ChooseLockPassword$ChooseLockPasswordFragment;->mChooseLockSettingsHelper:Lcom/android/settings/ChooseLockSettingsHelper;
 
-    const v14, 0x7f0b118b
+    const v14, 0x7f0b118c    # 1.848538E38f
 
     move-object/from16 v0, p0
 
@@ -7339,11 +7339,11 @@
 
     iget-object v13, v0, Lcom/android/settings/ChooseLockPassword$ChooseLockPasswordFragment;->mHeaderText:Landroid/widget/TextView;
 
-    const v14, 0x7f0b08e0
+    const v14, 0x7f0b08e1
 
     invoke-virtual {v13, v14}, Landroid/widget/TextView;->setText(I)V
 
-    const v7, 0x7f0b08e0
+    const v7, 0x7f0b08e1
 
     :goto_7
     move-object/from16 v0, p0
@@ -7352,7 +7352,7 @@
 
     if-eqz v13, :cond_1e
 
-    const v7, 0x7f0b14b8
+    const v7, 0x7f0b14b9
 
     :goto_8
     invoke-static {}, Lcom/android/settings/ChooseLockPassword;->-get8()Z
@@ -7374,7 +7374,7 @@
 
     if-eqz v13, :cond_1f
 
-    const v7, 0x7f0b0a03
+    const v7, 0x7f0b0a04
 
     :cond_b
     :goto_9
@@ -7572,7 +7572,7 @@
 
     move-result-object v13
 
-    const v15, 0x7f0b08c9
+    const v15, 0x7f0b08ca
 
     invoke-virtual {v13, v15}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -7590,7 +7590,7 @@
 
     if-eqz v13, :cond_17
 
-    const v13, 0x7f0b1198
+    const v13, 0x7f0b1199
 
     move-object/from16 v0, p0
 
@@ -7620,7 +7620,7 @@
     goto/16 :goto_4
 
     :cond_17
-    const v13, 0x7f0b1196
+    const v13, 0x7f0b1197
 
     move-object/from16 v0, p0
 
@@ -7719,22 +7719,22 @@
 
     if-eqz v13, :cond_1d
 
-    const v7, 0x7f0b14b8
+    const v7, 0x7f0b14b9
 
     goto/16 :goto_7
 
     :cond_1d
-    const v7, 0x7f0b14ba
+    const v7, 0x7f0b14bb
 
     goto/16 :goto_7
 
     :cond_1e
-    const v7, 0x7f0b14ba
+    const v7, 0x7f0b14bb
 
     goto/16 :goto_8
 
     :cond_1f
-    const v7, 0x7f0b0a05
+    const v7, 0x7f0b0a06
 
     goto/16 :goto_9
 
@@ -7761,7 +7761,7 @@
 
     aput-object v14, v13, v15
 
-    const v14, 0x7f0b07b9
+    const v14, 0x7f0b07ba
 
     move-object/from16 v0, p0
 
@@ -7792,7 +7792,7 @@
 
     aput-object v14, v13, v15
 
-    const v14, 0x7f0b07bb
+    const v14, 0x7f0b07bc
 
     move-object/from16 v0, p0
 

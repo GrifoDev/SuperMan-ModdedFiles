@@ -39,7 +39,7 @@
 
     iput p2, p0, Lcom/samsung/android/settings/bluetooth/BluetoothNoItemPreference;->mDividerHeight:I
 
-    const v0, 0x7f0401cf
+    const v0, 0x7f0401d0
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/bluetooth/BluetoothNoItemPreference;->setLayoutResource(I)V
 
@@ -84,7 +84,7 @@
 
     check-cast v4, Landroid/view/LayoutInflater;
 
-    const v10, 0x7f0401cf
+    const v10, 0x7f0401d0
 
     const/4 v11, 0x0
 

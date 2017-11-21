@@ -241,7 +241,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/safetycare/SafetyCareSettings;->mAppLock:Landroid/preference/PreferenceScreen;
 
-    const v2, 0x7f0b19db
+    const v2, 0x7f0b19dc
 
     invoke-virtual {v1, v2}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -251,7 +251,7 @@
     :cond_0
     iget-object v1, p0, Lcom/samsung/android/settings/safetycare/SafetyCareSettings;->mAppLock:Landroid/preference/PreferenceScreen;
 
-    const v2, 0x7f0b19dc
+    const v2, 0x7f0b19dd
 
     invoke-virtual {v1, v2}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -691,7 +691,7 @@
 
     iget-object v2, v0, Lcom/samsung/android/settings/safetycare/SafetyCareSettings;->mToggleAppInstallation:Landroid/preference/SwitchPreference;
 
-    const v4, 0x7f0b082b
+    const v4, 0x7f0b082c
 
     invoke-virtual {v2, v4}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -834,7 +834,7 @@
 
     move-result-object v2
 
-    const v4, 0x7f0b0a8e
+    const v4, 0x7f0b0a8f
 
     invoke-virtual {v2, v4}, Landroid/preference/Preference;->setTitle(I)V
 
@@ -1361,13 +1361,13 @@
 
     invoke-virtual {v0, v2}, Landroid/preference/Preference;->setKey(Ljava/lang/String;)V
 
-    const v2, 0x7f0b0843
+    const v2, 0x7f0b0844
 
     move-object/from16 v0, v25
 
     invoke-virtual {v0, v2}, Landroid/preference/Preference;->setTitle(I)V
 
-    const v2, 0x7f0b0844
+    const v2, 0x7f0b0845
 
     move-object/from16 v0, v25
 
@@ -1906,7 +1906,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0b19db
+    const v0, 0x7f0b19dc
 
     :goto_0
     invoke-virtual {v1, v0}, Landroid/preference/PreferenceScreen;->setSummary(I)V
@@ -1914,7 +1914,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f0b19dc
+    const v0, 0x7f0b19dd
 
     goto :goto_0
 .end method
@@ -1940,7 +1940,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/safetycare/SafetyCareSettings;->mPrivateMode:Landroid/preference/PreferenceScreen;
 
-    const v2, 0x7f0b19db
+    const v2, 0x7f0b19dc
 
     invoke-virtual {v1, v2}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -1950,7 +1950,7 @@
     :cond_0
     iget-object v1, p0, Lcom/samsung/android/settings/safetycare/SafetyCareSettings;->mPrivateMode:Landroid/preference/PreferenceScreen;
 
-    const v2, 0x7f0b19dc
+    const v2, 0x7f0b19dd
 
     invoke-virtual {v1, v2}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -2088,7 +2088,7 @@
 
     const/4 v4, 0x0
 
-    const v0, 0x7f0b1502
+    const v0, 0x7f0b1503
 
     const v1, 0x104000a
 
@@ -2098,9 +2098,9 @@
 
     if-eqz v2, :cond_0
 
-    const v0, 0x7f0b1503
+    const v0, 0x7f0b1504
 
-    const v1, 0x7f0b07c1
+    const v1, 0x7f0b07c2
 
     :cond_0
     iget-object v2, p0, Lcom/samsung/android/settings/safetycare/SafetyCareSettings;->mWarnInstallApps:Landroid/content/DialogInterface;
@@ -2136,7 +2136,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b14fe
+    const v3, 0x7f0b14ff
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -2221,11 +2221,11 @@
 
     if-eqz v5, :cond_0
 
-    const v5, 0x7f0b1503
+    const v5, 0x7f0b1504
 
     invoke-virtual {v3, v5}, Landroid/widget/TextView;->setText(I)V
 
-    const v4, 0x7f0b07c1
+    const v4, 0x7f0b07c2
 
     :cond_0
     new-instance v5, Landroid/app/AlertDialog$Builder;
@@ -2236,7 +2236,7 @@
 
     invoke-direct {v5, v6}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v6, 0x7f0b14fe
+    const v6, 0x7f0b14ff
 
     invoke-virtual {v5, v6}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -2367,7 +2367,7 @@
 
     invoke-direct {v2}, Landroid/os/Bundle;-><init>()V
 
-    const v3, 0x7f0b072a
+    const v3, 0x7f0b072b
 
     const/4 v6, 0x0
 
@@ -2409,7 +2409,7 @@
 
     invoke-direct {v2}, Landroid/os/Bundle;-><init>()V
 
-    const v3, 0x7f0b072a
+    const v3, 0x7f0b072b
 
     const/4 v6, 0x0
 
@@ -2791,7 +2791,7 @@
 
     iget-object v9, p0, Lcom/samsung/android/settings/safetycare/SafetyCareSettings;->mPrivateBox:Landroid/preference/PreferenceScreen;
 
-    const v10, 0x7f0b19db
+    const v10, 0x7f0b19dc
 
     invoke-virtual {v9, v10}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -2878,7 +2878,7 @@
 
     iget-object v9, p0, Lcom/samsung/android/settings/safetycare/SafetyCareSettings;->mAssistance:Landroid/preference/PreferenceScreen;
 
-    const v10, 0x7f0b0a88
+    const v10, 0x7f0b0a89
 
     invoke-virtual {v9, v10}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -3158,7 +3158,7 @@
     :cond_a
     iget-object v9, p0, Lcom/samsung/android/settings/safetycare/SafetyCareSettings;->mPrivateBox:Landroid/preference/PreferenceScreen;
 
-    const v10, 0x7f0b19dc
+    const v10, 0x7f0b19dd
 
     invoke-virtual {v9, v10}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -3179,7 +3179,7 @@
 
     if-eqz v2, :cond_e
 
-    const v9, 0x7f0b19db
+    const v9, 0x7f0b19dc
 
     :goto_9
     invoke-virtual {v10, v9}, Landroid/preference/PreferenceScreen;->setSummary(I)V
@@ -3187,7 +3187,7 @@
     goto/16 :goto_3
 
     :cond_e
-    const v9, 0x7f0b19dc
+    const v9, 0x7f0b19dd
 
     goto :goto_9
 
@@ -3219,7 +3219,7 @@
 
     iget-object v9, p0, Lcom/samsung/android/settings/safetycare/SafetyCareSettings;->mToggleAppInstallation:Landroid/preference/SwitchPreference;
 
-    const v10, 0x7f0b082b
+    const v10, 0x7f0b082c
 
     invoke-virtual {v9, v10}, Landroid/preference/SwitchPreference;->setSummaryOff(I)V
 

@@ -199,7 +199,7 @@
 
     iget-object v1, p1, Lcom/android/settingslib/users/AppRestrictionsHelper$SelectableAppInfo;->packageName:Ljava/lang/String;
 
-    const v3, 0x7f020236
+    const v3, 0x7f020237
 
     invoke-virtual {p2, v3}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->setIcon(I)V
 
@@ -494,7 +494,7 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f0b18ce
+    const v1, 0x7f0b18cf
 
     invoke-virtual {p0, v1, v0}, Lcom/android/settings/users/AppRestrictionsFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -511,7 +511,7 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f0b18cc
+    const v1, 0x7f0b18cd
 
     invoke-virtual {p0, v1, v0}, Lcom/android/settings/users/AppRestrictionsFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -524,7 +524,7 @@
 
     if-eqz v0, :cond_2
 
-    const v0, 0x7f0b18cd
+    const v0, 0x7f0b18ce
 
     invoke-virtual {p0, v0}, Lcom/android/settings/users/AppRestrictionsFragment;->getString(I)Ljava/lang/String;
 
@@ -1616,7 +1616,7 @@
 
     aput-object v2, v6, v8
 
-    const v7, 0x7f0b0c2b
+    const v7, 0x7f0b0c2c
 
     invoke-virtual {v5, v7, v6}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1634,7 +1634,7 @@
 
     aput-object v2, v6, v8
 
-    const v7, 0x7f0b0c2c
+    const v7, 0x7f0b0c2d
 
     invoke-virtual {v5, v7, v6}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1743,7 +1743,7 @@
 
     aput-object v4, v7, v9
 
-    const v8, 0x7f0b0c29
+    const v8, 0x7f0b0c2a
 
     invoke-virtual {v6, v8, v7}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1765,7 +1765,7 @@
 
     aput-object v1, v7, v11
 
-    const v8, 0x7f0b0c2a
+    const v8, 0x7f0b0c2b
 
     invoke-virtual {v6, v8, v7}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

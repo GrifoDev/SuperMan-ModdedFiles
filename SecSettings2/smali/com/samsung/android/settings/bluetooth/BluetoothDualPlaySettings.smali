@@ -107,7 +107,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/bluetooth/BluetoothDualPlaySettings;->mContent:Landroid/preference/Preference;
 
-    const v1, 0x7f0401d0
+    const v1, 0x7f0401d1
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setLayoutResource(I)V
 
@@ -180,7 +180,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/bluetooth/BluetoothDualPlaySettings;->mContent:Landroid/preference/Preference;
 
-    const v1, 0x7f0401d0
+    const v1, 0x7f0401d1
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setLayoutResource(I)V
 

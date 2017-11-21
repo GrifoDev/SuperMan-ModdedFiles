@@ -89,7 +89,7 @@
     <string name="tether_settings_title_wifi">نقاط قابل حمل</string>
     <string name="tether_settings_title_bluetooth">اشتراک گذاری اینترنت با بلوتوث</string>
     <string name="tether_settings_title_usb_bluetooth">تنظیم محدوده</string>
-    <string name="tether_settings_title_all">نقطه اتصال تلفن همراه و اتصال اینترنت</string>
+    <string name="tether_settings_title_all">اینترنت و نقطه اتصال همراه</string>
     <string name="managed_user_title">همه برنامه‌های کاری</string>
     <string name="user_guest">مهمان</string>
     <string name="unknown">ناشناس</string>
@@ -892,6 +892,7 @@ Enter the code you get from Verizon:"</string>
     <string name="bluetooth_control_app_disable_summary">خاموش شدن بلوتوث: %s</string>
     <string name="bluetooth_enter_pin_msg">وارد کردن پین جهت مرتبط سازی با %s (0000 یا 1234 را امتحان کنید).</string>
     <string name="bluetooth_pin_maximum_number_message">تعداد نویسه‌ها به حداکثر رسیده است.</string>
+    <string name="bluetooth_frp_permission_message">استفاده از دستگاه بلوتوث برای این تماس ممکن نیست.</string>
     <string name="settings_menu_done">انجام</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>
@@ -2970,7 +2971,7 @@ Downloading via mobile networks uses your data plan."</string>
     <string name="wifi_enable_warning_spr">Turning on Wi-Fi will disable Hotspot.</string>
     <string name="wifi_enable_warning_mtr">Turning on Wi-Fi will turn off Mobile Hotspot. Continue?</string>
     <string name="wifi_enable_warning_usc">Turning on Wi-Fi will turn off Portable Wi-Fi hotspot. Continue?</string>
-    <string name="wifi_enable_warning">با روشن کردن Wi-Fi، نقطه اتصال تلفن همراه غیرفعال می‌شود.</string>
+    <string name="wifi_enable_warning">هنگامی که نقطه اتصال همراه فعال است Wi-Fi خاموش می‌شود. برای روشن کردن Wi-Fi، نقطه اتصال همراه را خاموش کنید.</string>
     <string name="wifi_control_history_title">سابقه کنترل Wi-Fi</string>
     <string name="wifi_control_history_description">اخیراً برنامه‌های زیر، Wi-Fi را بیشتر از همه روشن یا خاموش کرده‌اند.</string>
     <string name="wifi_control_history_sub_title">برنامه‌های اخیر</string>
@@ -2995,8 +2996,8 @@ Downloading via mobile networks uses your data plan."</string>
     <string name="wifi_wapi_user_certificate">گواهی کاربر</string>
     <string name="wifi_ap_help_enable_msg_summary_vzw">Mobile Hotspot is turned on. Tap Configure to change your Mobile Hotspot settings.</string>
     <string name="wifi_ap_help_enable_msg_summary">Mobile Hotspot is enabled. To change the Mobile Hotspot configuration, tap MORE and select Configure Mobile Hotspot.</string>
-    <string name="wifi_ap_turning_on">فعال کردن نقطه اتصال تلفن همراه…</string>
-    <string name="wifi_ap_turning_off">غیرفعال کردن نقطه اتصال تلفن همراه…</string>
+    <string name="wifi_ap_turning_on">درحال فعال کردن نقطه اتصال همراه…</string>
+    <string name="wifi_ap_turning_off">درحال خاموش کردن نقطه اتصال همراه…</string>
     <string name="wifi_ap_password_dialog_title">تعويض رمز</string>
     <string name="wifi_ap_wifi_sharing_text">ممکن است شبکه Wi-Fi شما با دستگاه‌های دیگر اشتراک‌گذاری شود. در نظر داشته باشید ممکن است دستگاه شما بدون اطلاع قبلی، بین شبکه‌های Wi-Fi ذخیره شده تغییر وضعیت دهد. شما در قبال رعایت کلیه شرایط و ضوابط ارائه دهنده Wi-Fi خود مسئول هستید.</string>
     <string name="wifi_ap__wifi_sharing_vzw">Wi-Fi Sharing</string>
@@ -3009,11 +3010,11 @@ Downloading via mobile networks uses your data plan."</string>
     <string name="wifi_ap_starting_chn">Enabling Portable WLAN hotspot…</string>
     <string name="wifi_ap_starting_tmo">Turning Mobile HotSpot on…</string>
     <string name="wifi_ap_starting_att">Turning on portable Wi-Fi hotspot…</string>
-    <string name="wifi_ap_starting">فعال کردن نقطه اتصال تلفن همراه…</string>
+    <string name="wifi_ap_starting">درحال فعال کردن نقطه اتصال همراه…</string>
     <string name="wifi_ap_stopping_chn">Disabling Portable WLAN hotspot…</string>
     <string name="wifi_ap_stopping_tmo">Turning Mobile HotSpot off…</string>
     <string name="wifi_ap_stopping_att">Turning off portable Wi-Fi hotspot…</string>
-    <string name="wifi_ap_stopping">غیرفعال کردن نقطه اتصال تلفن همراه…</string>
+    <string name="wifi_ap_stopping">درحال غیرفعال کردن نقطه اتصال همراه…</string>
     <string name="wifi_ap_add_whitelist">افزودن به لیست سفید</string>
     <string name="wifi_ap_remove_from_whitelist">حذف از ليست سفيد</string>
     <string name="wifi_ap_allow_device_added">‎%s به دستگاه‌های مجاز اضافه شد.</string>
@@ -3047,11 +3048,11 @@ After you start the Mobile Hotspot Wi-Fi router, connect using the controls on y
 You can create an allowed device profile and set the connection mode for it.
 
 Using Portable Wi-Fi hotspot consumes more battery power and increases your data usage."</string>
-    <string name="wifi_ap_instruction_changeable_maxclient">"می‌توانید با عملکرد نقطه اتصال تلفن همراه، از دستگاهتان به عنوان یک نقطه دسترسی به اینترنت استفاده کنید. این به ‎%d دستگاه دیگر امکان می‌دهد از طریق Wi-Fi به آن متصل شوند. دستگاههای متصل از طریق شبکه تلفن همراه به اینترنت دسترسی خواهند داشت.‎
+    <string name="wifi_ap_instruction_changeable_maxclient">"می‌توانید با عملکرد نقطه اتصال همراه، از دستگاهتان به عنوان نقطه دسترسی به اینترنت استفاده کنید. این ویژگی به حداکثر %d دستگاه دیگر امکان می‌دهد از طریق Wi-Fi به آن متصل شوند. دستگاه‌های متصل از طریق شبکه تلفن همراه شما به اینترنت دسترسی خواهند داشت.
 
-می‌توانید یک نمایه دستگاه مجاز ایجاد کرده و حالت اتصال را برای آن تنظیم کنید.‎
+می‌توانید یک نمایه دستگاه مجاز ایجاد کرده و حالت اتصال را برای آن تنظیم کنید.
 
-استفاده از نقطه اتصال تلفن همراه نیروی باتری بیشتری مصرف کرده و مصرف داده‌هایتان را افزایش می‌دهد."</string>
+استفاده از نقطه اتصال همراه نیروی باتری بیشتری مصرف کرده و مصرف اینترنت تلفن همراه شما را افزایش می‌دهد."</string>
     <string name="wifi_ap_instruction_mtr">"Turn your phone into Portable Wi-Fi Hotspot so you can share your mobile data connection with other devices.
 
 To use your phone's Hotspot capability, you must have the Smartphone Mobile Hotspot service added to your rate plan.
@@ -3075,7 +3076,7 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_ap_wifi_off_warn_chn">Enabling Mobile hotspot will turn off WLAN.</string>
     <string name="wifi_ap_wifi_off_warn_att">Turning on portable Wi-Fi hotspot will turn off Wi-Fi.</string>
     <string name="wifi_ap_wifi_off_warn_mtr">Wi-Fi is turned off when USB tethering or Mobile Hotspot is active. To turn on Wi-Fi, please turn off USB tethering or Mobile Hotspot.</string>
-    <string name="wifi_ap_wifi_off_warn">با فعال کردن نقطه اتصال تلفن همراه، Wi-Fi خاموش می‌شود.</string>
+    <string name="wifi_ap_wifi_off_warn">برای استفاده از نقطه اتصال همراه، باید Wi-Fi را خاموش کنید.</string>
     <string name="wifi_ap_wifi_off_warn_title_vzw">Mobile Hotspot and Wi-Fi</string>
     <string name="wifi_ap_wifi_off_warn_title">توجه</string>
     <string name="wifi_ap_smartview_off_warn_vzw">Mobile Hotspot and Smart View cannot be turned on at the same time. Smart View will be turned off.</string>
@@ -3100,7 +3101,7 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_ap_menu_configure_hotspot_spr">Configure Hotspot</string>
     <string name="wifi_ap_menu_configure_hotspot_tmo">پیکربندی Mobile Hotspot</string>
     <string name="wifi_ap_menu_configure_hotspot_att">پیکربندی Mobile Hotspot</string>
-    <string name="wifi_ap_menu_configure_hotspot">پیکربندی نقطه اتصال تلفن همراه</string>
+    <string name="wifi_ap_menu_configure_hotspot">پیکربندی نقطه اتصال همراه</string>
     <string name="wifi_ap_menu_timeout">تنظیمات معوق</string>
     <string name="wifi_ap_menu_allow_devices">دستگاههای مجاز</string>
     <string name="wifi_ap_timeout_message_vzw">Disable Mobile Hotspot if there is no connection for</string>
@@ -3173,17 +3174,17 @@ Wi-Fi is now on."</string>
     <string name="wifi_tether_dialog_nosim_warning_title_tmo">Mobile Hotspot</string>
     <string name="wifi_tether_dialog_nosim_warning_title_spr">Hotspot</string>
     <string name="wifi_tether_dialog_nosim_warning_title_att">Mobile Hotspot</string>
-    <string name="wifi_tether_dialog_nosim_warning_title">نقطه اتصال Mobile</string>
+    <string name="wifi_tether_dialog_nosim_warning_title">سیم‌کارت وجود ندارد</string>
     <string name="wifi_tether_dialog_nosim_warning_chn">Insert a SIM card to use Mobile hotspot and other tethering functions.</string>
     <string name="wifi_tether_dialog_nosim_warning_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
     <string name="wifi_tether_dialog_nosim_warning_tmo">"Please install SIM card in order to share your phone's data connection with other devices using Mobile Wi-Fi HotSpot or USB tethering for Internet access."</string>
     <string name="wifi_tether_dialog_nosim_warning_spr">Insert SIM for using Hotspot include tethering</string>
     <string name="wifi_tether_dialog_nosim_warning_usc">برای استفاده از نقطه اتصال تلفن همراه و سایر عملکردهای اینترنت با واسطه، یک سیم‌کارت وارد کنید.</string>
-    <string name="wifi_tether_dialog_nosim_warning">برای استفاده از نقطه اتصال تلفن همراه و سایر عملکردهای اینترنت با واسطه، یک سیم‌کارت وارد کنید.</string>
+    <string name="wifi_tether_dialog_nosim_warning">برای استفاده از نقطه اتصال همراه و سایر گزینه‌های اینترنت باواسطه، یک سیم‌کارت وارد کنید.</string>
     <string name="mobileap_tmo">Mobile Hotspot</string>
     <string name="mobileap_spr">Hotspot</string>
     <string name="mobileap_att">Mobile Hotspot</string>
-    <string name="mobileap">نقطه اتصال تلفن همراه</string>
+    <string name="mobileap">نقطه اتصال همراه</string>
     <string name="wifi_ap_no_mobile_data">استفاده از داده تلفن همراه مجاز نیست</string>
     <string name="wifi_ap_data_limit_text">برای تنظیم محدوده مصرف داده تلفن همراه در این دستگاه، اینجا ضربه بزنید و نگهدارید.</string>
     <string name="wifi_ap_remaining_mobile_data">باقیمانده مصرف داده‌ها</string>
@@ -3246,16 +3247,16 @@ Wi-Fi is now on."</string>
     <string name="wifi_ap_instruction_activate_color_hidden3_tmo">Connect to &lt;font color=\"%1$s\">%2$s&lt;/font> by entering &lt;font color=\"%1$s\">%3$s&lt;/font> as the password.</string>
     <string name="wifi_ap_instruction_activate_color_hidden3">با وارد کردن ‎&lt;font color=\"%1$s\">%3$s&lt;/font>‎ به عنوان رمز ورود، به ‎&lt;font color=\"%1$s\">%2$s&lt;/font>‎ متصل شوید.</string>
     <string name="wifi_ap_instruction_activate_color_hidden4_tmo">Enjoy the internet using your personal Mobile HotSpot.</string>
-    <string name="wifi_ap_instruction_no_maxclient">"می‌توانید با عملکرد نقطه اتصال تلفن همراه، از دستگاهتان به عنوان یک نقطه دسترسی به اینترنت استفاده کنید. این به دستگاه‌های دیگر امکان می‌دهد از طریق Wi-Fi به آن متصل شوند. دستگاه‌های متصل از طریق شبکه تلفن همراه به اینترنت دسترسی خواهند داشت.‎
+    <string name="wifi_ap_instruction_no_maxclient">"می‌توانید با عملکرد نقطه اتصال همراه، از دستگاهتان به عنوان نقطه دسترسی به اینترنت استفاده کنید. این ویژگی به دستگاه‌های دیگر امکان می‌دهد از طریق Wi-Fi به آن متصل شوند. دستگاه‌های متصل از طریق شبکه تلفن همراه شما به اینترنت دسترسی خواهند داشت.
 
-می‌توانید یک نمایه دستگاه مجاز ایجاد کرده و حالت اتصال را برای آن تنظیم کنید.‎
+می‌توانید یک نمایه دستگاه مجاز ایجاد کرده و حالت اتصال را برای آن تنظیم کنید.
 
-استفاده از نقطه اتصال تلفن همراه نیروی باتری بیشتری مصرف کرده و مصرف داده‌هایتان را افزایش می‌دهد."</string>
+استفاده از نقطه اتصال همراه نیروی باتری بیشتری مصرف کرده و مصرف اینترنت تلفن همراه شما را افزایش می‌دهد."</string>
     <string name="wifi_ap_instruction_configure_vzw">To change the Mobile Hotspot configuration, go to Settings > Mobile Hotspot and tethering > Mobile Hotspot > MORE, then select Configure Mobile Hotspot.</string>
     <string name="wifi_ap_instruction_configure_tmo">To change the Mobile HotSpot configuration, tap the More options button, then select Configure Mobile HotSpot.</string>
-    <string name="wifi_ap_instruction_configure">برای تغییر پیکربندی نقطه اتصال تلفن همراه، روی دکمه &lt;گزینه‌های بیشتر> ضربه زده و &lt;پیکربندی نقطه اتصال تلفن همراه> را انتخاب کنید.</string>
+    <string name="wifi_ap_instruction_configure">برای تغییر پیکربندی نقطه اتصال همراه، روی دکمه گزینه‌های بیشتر ضربه زده و &lt;پیکربندی نقطه اتصال همراه> را انتخاب کنید.</string>
     <string name="wifi_ap_instruction_configure_non_grace_tmo">To change the Mobile HotSpot configuration, tap MORE, then select Configure Mobile HotSpot.</string>
-    <string name="wifi_ap_instruction_configure_non_grace">برای تغییر پیکربندی نقطه اتصال تلفن همراه، روی &lt;بیشتر> ضربه زده و &lt;پیکربندی نقطه اتصال تلفن همراه> را انتخاب کنید.</string>
+    <string name="wifi_ap_instruction_configure_non_grace">برای تغییر پیکربندی نقطه اتصال همراه، روی &lt;بیشتر> ضربه زده و &lt;پیکربندی نقطه اتصال همراه> را انتخاب کنید.</string>
     <string name="wifi_ap_change_security">Change Security</string>
     <string name="wifi_ap_maxclient">حداکثر اتصالات</string>
     <string name="wifi_ap_no_hotspot_mode_warning">در حال حاضر نقطه اتصال تلفن همراه توسط برنامه دیگری کنترل می‌شود. نقطه اتصال تلفن همراه فعلی برای پیکربندی قطع می‌شود.</string>
@@ -3488,6 +3489,7 @@ Receiving SMS"</string>
     <string name="no">خیر</string>
     <string name="create">ايجاد</string>
     <string name="allow">اجازه</string>
+    <string name="dlg_close">بستن</string>
     <string name="device_info_default">ناشناس</string>
     <string name="show_dev_on">حالت برنامه نویس فعال شده است.</string>
     <string name="show_dev_already">نیازی نیست، حالت برنامه نویس از قبل فعال شده است</string>

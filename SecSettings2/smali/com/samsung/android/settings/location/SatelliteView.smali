@@ -801,7 +801,7 @@
 
     aput-object v4, v3, v5
 
-    const v4, 0x7f0b0b24
+    const v4, 0x7f0b0b25
 
     invoke-virtual {p0, v4, v3}, Lcom/samsung/android/settings/location/SatelliteView;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -975,7 +975,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/location/SatelliteView;->mHandler:Lcom/samsung/android/settings/location/SatelliteView$SetHandler;
 
-    const v1, 0x7f04024e
+    const v1, 0x7f04024f
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/location/SatelliteView;->setContentView(I)V
 

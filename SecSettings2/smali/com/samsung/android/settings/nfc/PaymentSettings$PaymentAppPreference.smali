@@ -30,7 +30,7 @@
 
     invoke-direct {p0, p1}, Landroid/preference/Preference;-><init>(Landroid/content/Context;)V
 
-    const v0, 0x7f040198
+    const v0, 0x7f040199
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/nfc/PaymentSettings$PaymentAppPreference;->setLayoutResource(I)V
 

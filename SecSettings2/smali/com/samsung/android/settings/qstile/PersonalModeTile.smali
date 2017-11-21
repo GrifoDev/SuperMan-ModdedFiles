@@ -223,7 +223,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/qstile/PersonalModeTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0b0a1b
+    const v1, 0x7f0b0a1c
 
     invoke-static {v0, v1, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -268,7 +268,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/qstile/PersonalModeTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0b0a12
+    const v1, 0x7f0b0a13
 
     invoke-static {v0, v1, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -374,7 +374,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0203ab
+    const v2, 0x7f0203ac
 
     invoke-static {p0, v2}, Landroid/graphics/drawable/Icon;->createWithResource(Landroid/content/Context;I)Landroid/graphics/drawable/Icon;
 
@@ -386,7 +386,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b09fc
+    const v2, 0x7f0b09fd
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/qstile/PersonalModeTile;->getString(I)Ljava/lang/String;
 
@@ -435,7 +435,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f04022b
+    const v2, 0x7f04022c
 
     invoke-direct {v0, v1, v2}, Landroid/widget/RemoteViews;-><init>(Ljava/lang/String;I)V
 
@@ -467,7 +467,7 @@
 .method public semGetDetailViewTitle()Ljava/lang/CharSequence;
     .locals 1
 
-    const v0, 0x7f0b09fb
+    const v0, 0x7f0b09fc
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/qstile/PersonalModeTile;->getString(I)Ljava/lang/String;
 
@@ -535,7 +535,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/qstile/PersonalModeTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0b0a1b
+    const v1, 0x7f0b0a1c
 
     invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -554,7 +554,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/qstile/PersonalModeTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0b0a12
+    const v1, 0x7f0b0a13
 
     invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

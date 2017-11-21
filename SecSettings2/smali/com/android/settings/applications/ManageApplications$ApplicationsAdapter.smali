@@ -1064,7 +1064,7 @@
 
     if-eqz v2, :cond_2
 
-    const v2, 0x7f0b19db
+    const v2, 0x7f0b19dc
 
     :goto_1
     invoke-virtual {v3, v2}, Landroid/widget/TextView;->setText(I)V
@@ -1072,7 +1072,7 @@
     goto :goto_0
 
     :cond_2
-    const v2, 0x7f0b19dc
+    const v2, 0x7f0b19dd
 
     goto :goto_1
 
@@ -1875,7 +1875,7 @@
 
     iget-object v2, v1, Lcom/android/settings/applications/AppViewHolder;->disabled:Landroid/widget/TextView;
 
-    const v3, 0x7f0b1537
+    const v3, 0x7f0b1538
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
     :try_end_0
@@ -1916,7 +1916,7 @@
 
     iget-object v2, v1, Lcom/android/settings/applications/AppViewHolder;->disabled:Landroid/widget/TextView;
 
-    const v3, 0x7f0b1536
+    const v3, 0x7f0b1537
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
     :try_end_1

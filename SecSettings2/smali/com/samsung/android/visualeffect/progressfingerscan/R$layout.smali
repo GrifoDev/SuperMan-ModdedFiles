@@ -4,7 +4,7 @@
 
 
 # static fields
-.field public static final layout_finger_print_alert_view:I = 0x7f040154
+.field public static final layout_finger_print_alert_view:I = 0x7f040155
 
 
 # direct methods

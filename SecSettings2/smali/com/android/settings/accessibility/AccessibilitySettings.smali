@@ -209,7 +209,7 @@
 
     const-string/jumbo v3, "title"
 
-    const v4, 0x7f0b1603
+    const v4, 0x7f0b1604
 
     invoke-virtual {p0, v4}, Lcom/android/settings/accessibility/AccessibilitySettings;->getString(I)Ljava/lang/String;
 
@@ -227,7 +227,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b1605
+    const v5, 0x7f0b1606
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -337,7 +337,7 @@
 
     const-string/jumbo v3, "title"
 
-    const v4, 0x7f0b1606
+    const v4, 0x7f0b1607
 
     invoke-virtual {p0, v4}, Lcom/android/settings/accessibility/AccessibilitySettings;->getString(I)Ljava/lang/String;
 
@@ -347,7 +347,7 @@
 
     const-string/jumbo v3, "summary"
 
-    const v4, 0x7f0b1609
+    const v4, 0x7f0b160a
 
     invoke-virtual {p0, v4}, Lcom/android/settings/accessibility/AccessibilitySettings;->getString(I)Ljava/lang/String;
 
@@ -903,7 +903,7 @@
     :goto_0
     if-nez v1, :cond_1
 
-    const v2, 0x7f0b161b
+    const v2, 0x7f0b161c
 
     invoke-virtual {p1, v2}, Landroid/support/v7/preference/Preference;->setSummary(I)V
 
@@ -960,7 +960,7 @@
     :goto_0
     if-eqz v0, :cond_1
 
-    const v1, 0x7f0b161a
+    const v1, 0x7f0b161b
 
     :goto_1
     invoke-virtual {p2, v1}, Landroid/support/v7/preference/Preference;->setSummary(I)V
@@ -973,7 +973,7 @@
     goto :goto_0
 
     :cond_1
-    const v1, 0x7f0b161b
+    const v1, 0x7f0b161c
 
     goto :goto_1
 .end method
@@ -1261,7 +1261,7 @@
     :goto_2
     if-eqz v18, :cond_5
 
-    const v23, 0x7f0b161a
+    const v23, 0x7f0b161b
 
     move-object/from16 v0, p0
 
@@ -1375,7 +1375,7 @@
 
     if-eqz v23, :cond_1
 
-    const v23, 0x7f0b1648
+    const v23, 0x7f0b1649
 
     move-object/from16 v0, p0
 
@@ -1404,7 +1404,7 @@
 
     const-string/jumbo v23, "settings_title"
 
-    const v24, 0x7f0b1619
+    const v24, 0x7f0b161a
 
     move-object/from16 v0, p0
 
@@ -1492,7 +1492,7 @@
     goto/16 :goto_2
 
     :cond_5
-    const v23, 0x7f0b161b
+    const v23, 0x7f0b161c
 
     move-object/from16 v0, p0
 
@@ -1598,7 +1598,7 @@
 
     move-object/from16 v23, v0
 
-    const v24, 0x7f0402e6
+    const v24, 0x7f0402e7
 
     invoke-virtual/range {v23 .. v24}, Landroid/support/v7/preference/Preference;->setLayoutResource(I)V
 
@@ -1618,7 +1618,7 @@
 
     move-object/from16 v23, v0
 
-    const v24, 0x7f0b1647
+    const v24, 0x7f0b1648
 
     move-object/from16 v0, p0
 
@@ -1853,7 +1853,7 @@
 
     iget-object v6, p0, Lcom/android/settings/accessibility/AccessibilitySettings;->mGlobalGesturePreferenceScreen:Landroid/support/v7/preference/PreferenceScreen;
 
-    const v7, 0x7f0b1607
+    const v7, 0x7f0b1608
 
     invoke-virtual {v6, v7}, Landroid/support/v7/preference/PreferenceScreen;->setSummary(I)V
 
@@ -1893,7 +1893,7 @@
     :cond_7
     iget-object v6, p0, Lcom/android/settings/accessibility/AccessibilitySettings;->mGlobalGesturePreferenceScreen:Landroid/support/v7/preference/PreferenceScreen;
 
-    const v7, 0x7f0b1608
+    const v7, 0x7f0b1609
 
     invoke-virtual {v6, v7}, Landroid/support/v7/preference/PreferenceScreen;->setSummary(I)V
 
@@ -1905,7 +1905,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b189d
+    const v0, 0x7f0b189e
 
     return v0
 .end method

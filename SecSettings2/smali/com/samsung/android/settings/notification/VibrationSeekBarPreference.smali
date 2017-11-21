@@ -64,9 +64,9 @@
 
     iput-boolean v1, p0, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->mInitFinish:Z
 
-    const v0, 0x7f04030c
+    const v0, 0x7f04030d
 
-    const v1, 0x7f04030c
+    const v1, 0x7f04030d
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->setLayoutResource(I)V
 

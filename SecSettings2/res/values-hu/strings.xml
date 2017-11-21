@@ -89,7 +89,7 @@
     <string name="tether_settings_title_wifi">Mobil hotspot</string>
     <string name="tether_settings_title_bluetooth">Bluetooth internetmegosztás</string>
     <string name="tether_settings_title_usb_bluetooth">Internetmegosztás</string>
-    <string name="tether_settings_title_all">Mobil hotspot és internetmegosztás</string>
+    <string name="tether_settings_title_all">Mobil hotspot és Int.megosztás</string>
     <string name="managed_user_title">Összes munkaalkalmazás</string>
     <string name="user_guest">Vendég</string>
     <string name="unknown">Ismeretlen</string>
@@ -892,6 +892,7 @@ Ezt később módosíthatja a Bluetooth-beállításokban."</string>
     <string name="bluetooth_control_app_disable_summary">Kikapcsolta a BT-t: %s</string>
     <string name="bluetooth_enter_pin_msg">Adja meg a PIN-t a(z) %s eszköz párosításához. (Próbálkozzon a 0000 vagy az 1234 kóddal.)</string>
     <string name="bluetooth_pin_maximum_number_message">Elérte a karakterek maximális számát.</string>
+    <string name="bluetooth_frp_permission_message">Ehhez a híváshoz nem használható Bluetooth-eszköz.</string>
     <string name="settings_menu_done">Kész</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>
@@ -2971,7 +2972,7 @@ A mobilhálózaton keresztül végzett letöltés az előfizetési csomagtól f�
     <string name="wifi_enable_warning_spr">Turning on Wi-Fi will disable Hotspot.</string>
     <string name="wifi_enable_warning_mtr">Turning on Wi-Fi will turn off Mobile Hotspot. Continue?</string>
     <string name="wifi_enable_warning_usc">Turning on Wi-Fi will turn off Portable Wi-Fi hotspot. Continue?</string>
-    <string name="wifi_enable_warning">A Wi-Fi bekapcsolása esetén le lesz tiltva a Mobil hotspot.</string>
+    <string name="wifi_enable_warning">Aktív Mobil hotspot mellett a Wi-Fi kikapcsol. A Wi-Fi bekapcsolásához kapcsolja ki a Mobil hotspotot.</string>
     <string name="wifi_control_history_title">Wi-Fi-vezérlési előzmények</string>
     <string name="wifi_control_history_description">Legutóbb az alábbi alkalmazások kapcsolták be és ki a Wi-Fi-t.</string>
     <string name="wifi_control_history_sub_title">Legutóbbi alkalmazások</string>
@@ -2997,7 +2998,7 @@ A mobilhálózaton keresztül végzett letöltés az előfizetési csomagtól f�
     <string name="wifi_ap_help_enable_msg_summary_vzw">Mobile Hotspot is turned on. Tap Configure to change your Mobile Hotspot settings.</string>
     <string name="wifi_ap_help_enable_msg_summary">Mobile Hotspot is enabled. To change the Mobile Hotspot configuration, tap MORE and select Configure Mobile Hotspot.</string>
     <string name="wifi_ap_turning_on">Mobil hotspot engedélyezése…</string>
-    <string name="wifi_ap_turning_off">Mobil hotspot letiltása…</string>
+    <string name="wifi_ap_turning_off">Mobil hotspot kikapcsolása…</string>
     <string name="wifi_ap_password_dialog_title">Jelszómódosítás</string>
     <string name="wifi_ap_wifi_sharing_text">Lehetséges, hogy a Wi-Fi-hálózatot más eszközökkel is megosztja. Vigyázzon, mert az eszköz a mentett Wi-Fi-hálózatok között értesítés nélkül válthat. A Wi-Fi-szolgáltató által megszabott használati feltételek betartásáért ön felelős.</string>
     <string name="wifi_ap__wifi_sharing_vzw">Wi-Fi Sharing</string>
@@ -3076,7 +3077,7 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_ap_wifi_off_warn_chn">Enabling Mobile hotspot will turn off WLAN.</string>
     <string name="wifi_ap_wifi_off_warn_att">Turning on portable Wi-Fi hotspot will turn off Wi-Fi.</string>
     <string name="wifi_ap_wifi_off_warn_mtr">Wi-Fi is turned off when USB tethering or Mobile Hotspot is active. To turn on Wi-Fi, please turn off USB tethering or Mobile Hotspot.</string>
-    <string name="wifi_ap_wifi_off_warn">A Mobil hotspot engedélyezése esetén kikapcsol a Wi-Fi.</string>
+    <string name="wifi_ap_wifi_off_warn">A Mobil hotspot csak a Wi-Fi kikapcsolása után használható.</string>
     <string name="wifi_ap_wifi_off_warn_title_vzw">Mobile Hotspot and Wi-Fi</string>
     <string name="wifi_ap_wifi_off_warn_title">Figyelem</string>
     <string name="wifi_ap_smartview_off_warn_vzw">Mobile Hotspot and Smart View cannot be turned on at the same time. Smart View will be turned off.</string>
@@ -3101,7 +3102,7 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_ap_menu_configure_hotspot_spr">Configure Hotspot</string>
     <string name="wifi_ap_menu_configure_hotspot_tmo">Mobile Hotspot konfigurálása</string>
     <string name="wifi_ap_menu_configure_hotspot_att">Mobile Hotspot konfigurálása</string>
-    <string name="wifi_ap_menu_configure_hotspot">Mobil hotspot konfigurálása</string>
+    <string name="wifi_ap_menu_configure_hotspot">Mobil hotspot beállítása</string>
     <string name="wifi_ap_menu_timeout">Időkorl.-beállítások</string>
     <string name="wifi_ap_menu_allow_devices">Engedélyezett eszközök</string>
     <string name="wifi_ap_timeout_message_vzw">Disable Mobile Hotspot if there is no connection for</string>
@@ -3174,13 +3175,13 @@ Wi-Fi is now on."</string>
     <string name="wifi_tether_dialog_nosim_warning_title_tmo">Mobile Hotspot</string>
     <string name="wifi_tether_dialog_nosim_warning_title_spr">Hotspot</string>
     <string name="wifi_tether_dialog_nosim_warning_title_att">Mobile Hotspot</string>
-    <string name="wifi_tether_dialog_nosim_warning_title">Mobil hotspot</string>
+    <string name="wifi_tether_dialog_nosim_warning_title">Nincs SIM-kártya</string>
     <string name="wifi_tether_dialog_nosim_warning_chn">Insert a SIM card to use Mobile hotspot and other tethering functions.</string>
     <string name="wifi_tether_dialog_nosim_warning_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
     <string name="wifi_tether_dialog_nosim_warning_tmo">"Please install SIM card in order to share your phone's data connection with other devices using Mobile Wi-Fi HotSpot or USB tethering for Internet access."</string>
     <string name="wifi_tether_dialog_nosim_warning_spr">Insert SIM for using Hotspot include tethering</string>
     <string name="wifi_tether_dialog_nosim_warning_usc">Helyezzen be SIM-kártyát a Mobil hotspot és egyéb internetmegosztási funkciók használatához.</string>
-    <string name="wifi_tether_dialog_nosim_warning">Helyezzen be SIM-kártyát a Mobil hotspot és egyéb internetmegosztási funkciók használatához.</string>
+    <string name="wifi_tether_dialog_nosim_warning">A Mobil hotspot és egyéb internetmegosztási lehetőségek használatához helyezzen be SIM-kártyát.</string>
     <string name="mobileap_tmo">Mobile Hotspot</string>
     <string name="mobileap_spr">Hotspot</string>
     <string name="mobileap_att">Mobile Hotspot</string>
@@ -3254,9 +3255,9 @@ Létrehozhat egy profilt az engedélyezett eszközök számára, és beállítha
 A Mobil hotspot használata esetén gyorsabban merül az akkumulátor, és megnövekszik az adatforgalom."</string>
     <string name="wifi_ap_instruction_configure_vzw">To change the Mobile Hotspot configuration, go to Settings > Mobile Hotspot and tethering > Mobile Hotspot > MORE, then select Configure Mobile Hotspot.</string>
     <string name="wifi_ap_instruction_configure_tmo">To change the Mobile HotSpot configuration, tap the More options button, then select Configure Mobile HotSpot.</string>
-    <string name="wifi_ap_instruction_configure">A mobil hotspot konfigurációjának módosításához érintse meg az Egyéb opciók gombot, és válassza a Mobil hotspot konfigurálása lehetőséget.</string>
+    <string name="wifi_ap_instruction_configure">A Mobil hotspot konfigurációjának módosításához érintse meg az Egyéb opciók gombot, és válassza a Mobil hotspot konfigurálása lehetőséget.</string>
     <string name="wifi_ap_instruction_configure_non_grace_tmo">To change the Mobile HotSpot configuration, tap MORE, then select Configure Mobile HotSpot.</string>
-    <string name="wifi_ap_instruction_configure_non_grace">A mobil hotspot konfigurációjának módosításához érintse meg az EGYEBEK gombot, és válassza a Mobil hotspot konfigurálása lehetőséget.</string>
+    <string name="wifi_ap_instruction_configure_non_grace">A Mobil hotspot konfigurációjának módosításához érintse meg az EGYEBEK gombot, és válassza a Mobil hotspot konfigurálása lehetőséget.</string>
     <string name="wifi_ap_change_security">Change Security</string>
     <string name="wifi_ap_maxclient">Kapcsolatok maximális száma</string>
     <string name="wifi_ap_no_hotspot_mode_warning">A Mobil hotspotot jelenleg egy másik alkalmazás vezérli. Ha konfigurálni fogja, azzal bontja a jelenlegi Mobil hotspot-kapcsolatot.</string>
@@ -3489,6 +3490,7 @@ Receiving SMS"</string>
     <string name="no">Nem</string>
     <string name="create">Új</string>
     <string name="allow">Engedélyezés</string>
+    <string name="dlg_close">Bezárás</string>
     <string name="device_info_default">Ismeretlen</string>
     <string name="show_dev_on">Fejlesztői üzemmód engedélyezve.</string>
     <string name="show_dev_already">Nem szükséges, már engedélyezve van a fejlesztői üzemmód</string>

@@ -275,7 +275,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/wifi/WifiConfigControllerBase$5;->val$group:Landroid/view/ViewGroup;
 
-    const v4, 0x7f040353
+    const v4, 0x7f040354
 
     invoke-virtual {v2, v4, v3, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 

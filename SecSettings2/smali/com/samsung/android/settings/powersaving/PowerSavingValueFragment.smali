@@ -798,7 +798,7 @@
 
     aput-object v1, v5, v3
 
-    const v1, 0x7f0b0a44
+    const v1, 0x7f0b0a45
 
     invoke-virtual {p0, v1, v5}, Lcom/samsung/android/settings/powersaving/PowerSavingValueFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -983,7 +983,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/powersaving/PowerSavingValueFragment;->mAlwaysOnDisplay:Landroid/preference/SwitchPreference;
 
-    const v2, 0x7f0b0a4c
+    const v2, 0x7f0b0a4d
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/powersaving/PowerSavingValueFragment;->getString(I)Ljava/lang/String;
 
@@ -1722,7 +1722,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/powersaving/PowerSavingValueFragment;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0b0a34
+    const v4, 0x7f0b0a35
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2039,7 +2039,7 @@
 
     move-object/from16 v22, v0
 
-    const v23, 0x7f0b0854
+    const v23, 0x7f0b0855
 
     invoke-virtual/range {v22 .. v23}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2425,7 +2425,7 @@
 
     move-result-object v22
 
-    const v23, 0x7f0b0596
+    const v23, 0x7f0b0597
 
     invoke-virtual/range {v22 .. v23}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2435,7 +2435,7 @@
 
     move-result-object v22
 
-    const v23, 0x7f0b0599
+    const v23, 0x7f0b059a
 
     invoke-virtual/range {v22 .. v23}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2445,7 +2445,7 @@
 
     move-result-object v22
 
-    const v23, 0x7f0b0597
+    const v23, 0x7f0b0598
 
     invoke-virtual/range {v22 .. v23}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2455,7 +2455,7 @@
 
     move-result-object v22
 
-    const v23, 0x7f0b059a
+    const v23, 0x7f0b059b
 
     invoke-virtual/range {v22 .. v23}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2465,7 +2465,7 @@
 
     move-result-object v22
 
-    const v23, 0x7f0b0598
+    const v23, 0x7f0b0599
 
     invoke-virtual/range {v22 .. v23}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2475,7 +2475,7 @@
 
     move-result-object v22
 
-    const v23, 0x7f0b059b
+    const v23, 0x7f0b059c
 
     invoke-virtual/range {v22 .. v23}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2684,7 +2684,7 @@
 
     move-object/from16 v22, v0
 
-    const v23, 0x7f0b0a3d
+    const v23, 0x7f0b0a3e
 
     invoke-virtual/range {v22 .. v23}, Lcom/android/settings/widget/SecIntervalSeekbarPreference;->setSummary(I)V
 
@@ -2950,7 +2950,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/powersaving/PowerSavingValueFragment;->mSaveButton:Landroid/widget/Button;
 
-    const v4, 0x7f0b042b
+    const v4, 0x7f0b042c
 
     invoke-virtual {v3, v4}, Landroid/widget/Button;->setText(I)V
 
@@ -2977,7 +2977,7 @@
 .method public onConfigurationChanged(Landroid/content/res/Configuration;)V
     .locals 2
 
-    const v1, 0x7f020506
+    const v1, 0x7f020507
 
     iget-object v0, p0, Lcom/samsung/android/settings/powersaving/PowerSavingValueFragment;->mContext:Landroid/content/Context;
 
@@ -2997,7 +2997,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/powersaving/PowerSavingValueFragment;->mResetButton:Landroid/widget/TextView;
 
-    const v1, 0x7f020509
+    const v1, 0x7f02050a
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setBackgroundResource(I)V
 
@@ -3170,7 +3170,7 @@
 .method public onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
     .locals 6
 
-    const v5, 0x7f020506
+    const v5, 0x7f020507
 
     const/4 v4, 0x0
 
@@ -3293,7 +3293,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0401c8
+    const v5, 0x7f0401c9
 
     invoke-virtual {v4, v5, v10, v9}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -3408,7 +3408,7 @@
 
     if-ne v4, v8, :cond_3
 
-    const v4, 0x7f0b0a50
+    const v4, 0x7f0b0a51
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/powersaving/PowerSavingValueFragment;->getString(I)Ljava/lang/String;
 
@@ -3457,7 +3457,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/powersaving/PowerSavingValueFragment;->mResetButton:Landroid/widget/TextView;
 
-    const v5, 0x7f020509
+    const v5, 0x7f02050a
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setBackgroundResource(I)V
 
@@ -3510,7 +3510,7 @@
     return-object v2
 
     :cond_3
-    const v4, 0x7f0b0a51
+    const v4, 0x7f0b0a52
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/powersaving/PowerSavingValueFragment;->getString(I)Ljava/lang/String;
 

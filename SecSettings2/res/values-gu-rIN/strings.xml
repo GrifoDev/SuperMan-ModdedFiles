@@ -892,6 +892,7 @@ Wi-Fi અને બ્લ્યુટુથ પણ બંધ થશે, પર�
     <string name="bluetooth_control_app_disable_summary">બંધ કરેલ બ્લ્યુટુથ: %s</string>
     <string name="bluetooth_enter_pin_msg">%s સાથે જોડી બનાવવા માટે PIN દાખલ કરો (0000 અથવા 1234 નો પ્રયત્ન કરો).</string>
     <string name="bluetooth_pin_maximum_number_message">વર્ણોની મહત્તમ સંખ્યા પર પહોંચી ગયા.</string>
+    <string name="bluetooth_frp_permission_message">આ કૉલ માટે બ્લ્યુટુથ ઉપકરણનો ઉપયોગ કરી શકતા નથી.</string>
     <string name="settings_menu_done">થઇ ગયું</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>
@@ -2971,7 +2972,7 @@ Downloading via mobile networks uses your data plan."</string>
     <string name="wifi_enable_warning_spr">Turning on Wi-Fi will disable Hotspot.</string>
     <string name="wifi_enable_warning_mtr">Turning on Wi-Fi will turn off Mobile Hotspot. Continue?</string>
     <string name="wifi_enable_warning_usc">Turning on Wi-Fi will turn off Portable Wi-Fi hotspot. Continue?</string>
-    <string name="wifi_enable_warning">Wi-Fi ને ચાલુ રાખવું એ મોબાઇલ હોટસ્પોટને અક્ષમ કરશે.</string>
+    <string name="wifi_enable_warning">જ્યારે મોબાઇલ હોટસ્પોટ સક્રિય કરેલ હોય ત્યારે Wi-Fi બંધ થાય છે. Wi-Fi ચાલુ કરવા માટે, મોબાઇલ હોટસ્પોટ બંધ કરો.</string>
     <string name="wifi_control_history_title">Wi-Fi નિયંત્રિત ઇતિહાસ</string>
     <string name="wifi_control_history_description">આ નીચેની એપ્સએ સૌથી તાજેતરમાં Wi-Fi ચાલુ અથવા બંધ કર્યુ છે.</string>
     <string name="wifi_control_history_sub_title">તાજેતરેની એપ્સ</string>
@@ -2997,7 +2998,7 @@ Downloading via mobile networks uses your data plan."</string>
     <string name="wifi_ap_help_enable_msg_summary_vzw">Mobile Hotspot is turned on. Tap Configure to change your Mobile Hotspot settings.</string>
     <string name="wifi_ap_help_enable_msg_summary">Mobile Hotspot is enabled. To change the Mobile Hotspot configuration, tap MORE and select Configure Mobile Hotspot.</string>
     <string name="wifi_ap_turning_on">મોબાઇલ હોટસ્પોટને સક્ષમ કરી રહ્યાં છે…</string>
-    <string name="wifi_ap_turning_off">મોબાઇલ હોટસ્પોટને અક્ષમ કરી રહ્યું છે…</string>
+    <string name="wifi_ap_turning_off">મોબાઇલ હોટસ્પોટ બંધ કરી રહ્યાં છે…</string>
     <string name="wifi_ap_password_dialog_title">પાસવર્ડ બદલવો</string>
     <string name="wifi_ap_wifi_sharing_text">તમારું Wi-Fi નેટવર્ક અન્ય ઉપકરણો સાથે શેર કરવામાં આવી શકે છે. તમારું ઉપકરણ તમારા સાચવેલ Wi-Fi નેટવર્ક્સ વચ્ચે તમારી જાણ વિના સ્વિચ કરી શકે છે તેનાથી સાવધ રહેશો. તમારા Wi-Fi પ્રદાતાના બધા નિયમો અને શરતોનું પાલન કરવા તમે જવાબદાર છો.</string>
     <string name="wifi_ap__wifi_sharing_vzw">Wi-Fi Sharing</string>
@@ -3048,7 +3049,7 @@ After you start the Mobile Hotspot Wi-Fi router, connect using the controls on y
 You can create an allowed device profile and set the connection mode for it.
 
 Using Portable Wi-Fi hotspot consumes more battery power and increases your data usage."</string>
-    <string name="wifi_ap_instruction_changeable_maxclient">"તમે મોબાઇલ હોટસ્પોટનો ઉપયોગ કરીને એક ઇન્ટરનેટ ઍક્સેસ બિંદુ તરીકે તમારા ઉપકરણનો ઉપયોગ કરી શકો છો. આ %d સુધીના અન્ય ઉપકરણોને તેની સાથે Wi-Fi મારફતે જોડાવા દે છે. જોડાયેલો ઉપકરણો તમારા મોબાઇલ નેટવર્ક મારફતે ઇન્ટરનેટ પર ઍક્સેસ ધરાવશે.
+    <string name="wifi_ap_instruction_changeable_maxclient">"તમે મોબાઇલ હોટસ્પોટનો ઉપયોગ કરીને એક ઇન્ટરનેટ ઍક્સેસ પોઇન્ટ તરીકે તમારા ઉપકરણનો ઉપયોગ કરી શકો છો. આ %d સુધીના અન્ય ઉપકરણોને તેની સાથે Wi-Fi મારફતે જોડાવા દે છે. જોડાયેલો ઉપકરણો તમારા મોબાઇલ નેટવર્ક મારફતે ઇન્ટરનેટ પર ઍક્સેસ ધરાવશે.
 
 તમે એક માન્ય ઉપકરણ પ્રોફાઇલ બનાવી શકો છો અને તેના માટે જોડાણ મોડ ગોઠવી શકો છો.
 
@@ -3076,7 +3077,7 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_ap_wifi_off_warn_chn">Enabling Mobile hotspot will turn off WLAN.</string>
     <string name="wifi_ap_wifi_off_warn_att">Turning on portable Wi-Fi hotspot will turn off Wi-Fi.</string>
     <string name="wifi_ap_wifi_off_warn_mtr">Wi-Fi is turned off when USB tethering or Mobile Hotspot is active. To turn on Wi-Fi, please turn off USB tethering or Mobile Hotspot.</string>
-    <string name="wifi_ap_wifi_off_warn">મોબાઇલ હોટસ્પોટને સક્ષમ કરવાથી Wi-Fi બંધ થશે.</string>
+    <string name="wifi_ap_wifi_off_warn">મોબાઇલ હોટસ્પોટનો ઉપયોગ કરવા માટે, Wi-Fi બંધ હોવું જરૂરી છે.</string>
     <string name="wifi_ap_wifi_off_warn_title_vzw">Mobile Hotspot and Wi-Fi</string>
     <string name="wifi_ap_wifi_off_warn_title">સાવધાન</string>
     <string name="wifi_ap_smartview_off_warn_vzw">Mobile Hotspot and Smart View cannot be turned on at the same time. Smart View will be turned off.</string>
@@ -3101,7 +3102,7 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_ap_menu_configure_hotspot_spr">Configure Hotspot</string>
     <string name="wifi_ap_menu_configure_hotspot_tmo">મોબાઇલ હોટસ્પોટને કન્ફિગર કરો</string>
     <string name="wifi_ap_menu_configure_hotspot_att">મોબાઇલ હોટસ્પોટને કન્ફિગર કરો</string>
-    <string name="wifi_ap_menu_configure_hotspot">મોબાઇલ હોટસ્પોટ સેટ કરો</string>
+    <string name="wifi_ap_menu_configure_hotspot">મોબાઇલ હોટસ્પોટ કન્ફિગર કરો</string>
     <string name="wifi_ap_menu_timeout">સમયસમાપ્ત સેટિંગ્સ</string>
     <string name="wifi_ap_menu_allow_devices">મંજૂર ઉપકરણો</string>
     <string name="wifi_ap_timeout_message_vzw">Disable Mobile Hotspot if there is no connection for</string>
@@ -3174,13 +3175,13 @@ Wi-Fi is now on."</string>
     <string name="wifi_tether_dialog_nosim_warning_title_tmo">મોબાઇલ હોટસ્પોટ</string>
     <string name="wifi_tether_dialog_nosim_warning_title_spr">Hotspot</string>
     <string name="wifi_tether_dialog_nosim_warning_title_att">મોબાઇલ હોટસ્પોટ</string>
-    <string name="wifi_tether_dialog_nosim_warning_title">મોબાઇલ હોટસ્પોટ</string>
+    <string name="wifi_tether_dialog_nosim_warning_title">કોઈ SIM કાર્ડ નથી</string>
     <string name="wifi_tether_dialog_nosim_warning_chn">Insert a SIM card to use Mobile hotspot and other tethering functions.</string>
     <string name="wifi_tether_dialog_nosim_warning_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
     <string name="wifi_tether_dialog_nosim_warning_tmo">"Please install SIM card in order to share your phone's data connection with other devices using Mobile Wi-Fi HotSpot or USB tethering for Internet access."</string>
     <string name="wifi_tether_dialog_nosim_warning_spr">Insert SIM for using Hotspot include tethering</string>
     <string name="wifi_tether_dialog_nosim_warning_usc">મોબાઇલ હોટસ્પોટ અને અન્ય ટેથરિંગ ફંક્શંસનો ઉપયોગ કરવા માટે એક SIM કાર્ડ નાખો.</string>
-    <string name="wifi_tether_dialog_nosim_warning">મોબાઇલ હોટસ્પોટ અને અન્ય ટેથરિંગ ફંક્શંસનો ઉપયોગ કરવા માટે એક SIM કાર્ડ નાખો.</string>
+    <string name="wifi_tether_dialog_nosim_warning">મોબાઇલ હોટસ્પોટ અને અન્ય ટેથરિંગ વિકલ્પોનો ઉપયોગ કરવા માટે એક SIM કાર્ડ દાખલ કરો.</string>
     <string name="mobileap_tmo">મોબાઇલ હોટસ્પોટ</string>
     <string name="mobileap_spr">Hotspot</string>
     <string name="mobileap_att">મોબાઇલ હોટસ્પોટ</string>
@@ -3489,6 +3490,7 @@ Receiving SMS"</string>
     <string name="no">ના</string>
     <string name="create">બનાવો</string>
     <string name="allow">છૂટ આપો</string>
+    <string name="dlg_close">બંધ કરો</string>
     <string name="device_info_default">અજ્ઞાત</string>
     <string name="show_dev_on">વિકાસક મોડને સક્ષમ કરેલ છે.</string>
     <string name="show_dev_already">કોઈ જરૂર નથી, વિકાસક મોડને અગાઉથી સક્ષમ કરેલ છે.</string>

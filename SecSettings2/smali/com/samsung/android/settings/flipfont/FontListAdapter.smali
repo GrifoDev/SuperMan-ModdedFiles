@@ -152,7 +152,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b05d8
+    const v7, 0x7f0b05d9
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -166,7 +166,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b0540
+    const v7, 0x7f0b0541
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1144,7 +1144,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0b05c5
+    const v2, 0x7f0b05c6
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1253,11 +1253,11 @@
 .method public getFontName(I)Ljava/lang/String;
     .locals 5
 
-    const v4, 0x7f0b05ad
+    const v4, 0x7f0b05ae
 
-    const v3, 0x7f0b05ac
+    const v3, 0x7f0b05ad
 
-    const v2, 0x7f0b05ab
+    const v2, 0x7f0b05ac
 
     iget-object v1, p0, Lcom/samsung/android/settings/flipfont/FontListAdapter;->mFontNames:Ljava/util/Vector;
 
@@ -1443,7 +1443,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b05ae
+    const v2, 0x7f0b05af
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1468,7 +1468,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b05af
+    const v2, 0x7f0b05b0
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1493,7 +1493,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b05b3
+    const v2, 0x7f0b05b4
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1518,7 +1518,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b05b4
+    const v2, 0x7f0b05b5
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1543,7 +1543,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b05b5
+    const v2, 0x7f0b05b6
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1568,7 +1568,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b05b0
+    const v2, 0x7f0b05b1
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1593,7 +1593,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b05b1
+    const v2, 0x7f0b05b2
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1618,7 +1618,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b05b2
+    const v2, 0x7f0b05b3
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1643,7 +1643,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0540
+    const v2, 0x7f0b0541
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1668,7 +1668,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b05b6
+    const v2, 0x7f0b05b7
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1810,7 +1810,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/flipfont/FontListAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v4, 0x7f0402f1
+    const v4, 0x7f0402f2
 
     invoke-virtual {v3, v4, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -1877,7 +1877,7 @@
     :cond_1
     iget-object v3, p0, Lcom/samsung/android/settings/flipfont/FontListAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v4, 0x7f04015f
+    const v4, 0x7f040160
 
     invoke-virtual {v3, v4, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -1916,7 +1916,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b05be
+    const v10, 0x7f0b05bf
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1942,7 +1942,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b05bd
+    const v10, 0x7f0b05be
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 

@@ -47,7 +47,7 @@
 
     move-result-object v4
 
-    const v9, 0x7f0b1146
+    const v9, 0x7f0b1147
 
     invoke-virtual {v4, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -100,7 +100,7 @@
 
     invoke-direct {v0, p1}, Lcom/android/settings/search/SearchIndexableRaw;-><init>(Landroid/content/Context;)V
 
-    const v9, 0x7f0b1775
+    const v9, 0x7f0b1776
 
     invoke-virtual {v4, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -123,7 +123,7 @@
 
     invoke-direct {v0, p1}, Lcom/android/settings/search/SearchIndexableRaw;-><init>(Landroid/content/Context;)V
 
-    const v9, 0x7f0b1779
+    const v9, 0x7f0b177a
 
     invoke-virtual {v4, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -139,7 +139,7 @@
 
     invoke-direct {v0, p1}, Lcom/android/settings/search/SearchIndexableRaw;-><init>(Landroid/content/Context;)V
 
-    const v9, 0x7f0b1b56
+    const v9, 0x7f0b1b57
 
     invoke-virtual {v4, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

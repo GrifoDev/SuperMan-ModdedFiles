@@ -43,7 +43,7 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f0401f5
+    const v0, 0x7f0401f6
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/mirrorlink/MirrorLinkApplicationsPreference;->setLayoutResource(I)V
 
@@ -87,7 +87,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/mirrorlink/MirrorLinkApplicationsPreference;->mValidCheck:Landroid/widget/TextView;
 
-    const v1, 0x7f0b08fd
+    const v1, 0x7f0b08fe
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -108,7 +108,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/mirrorlink/MirrorLinkApplicationsPreference;->mValidCheck:Landroid/widget/TextView;
 
-    const v1, 0x7f0b08ff
+    const v1, 0x7f0b0900
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -127,7 +127,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/mirrorlink/MirrorLinkApplicationsPreference;->mValidCheck:Landroid/widget/TextView;
 
-    const v1, 0x7f0b08fe
+    const v1, 0x7f0b08ff
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 

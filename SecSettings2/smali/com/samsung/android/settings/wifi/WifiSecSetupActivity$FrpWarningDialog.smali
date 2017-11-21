@@ -80,7 +80,7 @@
 
     invoke-direct {v2, p0}, Lcom/samsung/android/settings/wifi/WifiSecSetupActivity$FrpWarningDialog$1;-><init>(Lcom/samsung/android/settings/wifi/WifiSecSetupActivity$FrpWarningDialog;)V
 
-    const v3, 0x7f0b042c
+    const v3, 0x7f0b042d
 
     invoke-virtual {v1, v3, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

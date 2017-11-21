@@ -89,7 +89,7 @@
     <string name="tether_settings_title_wifi">Bærbart hotspot</string>
     <string name="tether_settings_title_bluetooth">Bluetooth-internetdeling</string>
     <string name="tether_settings_title_usb_bluetooth">Internetdeling</string>
-    <string name="tether_settings_title_all">Mobilt hotspot og internetdeling</string>
+    <string name="tether_settings_title_all">Mobilt hotspot og internetdel.</string>
     <string name="managed_user_title">Alle arbejdsapps</string>
     <string name="user_guest">Gæst</string>
     <string name="unknown">Ukendt</string>
@@ -893,6 +893,7 @@ Du kan ændre dette senere ved at gå til Bluetooth-indstillinger."</string>
     <string name="bluetooth_control_app_disable_summary">Deaktiv. Bluetooth: %s</string>
     <string name="bluetooth_enter_pin_msg">Angiv PIN-kode for at parre med %s (Prøv 0000 eller 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">Det maksimale antal tegn er nået.</string>
+    <string name="bluetooth_frp_permission_message">Det er ikke muligt at bruge Bluetooth-enheden til dette opkald.</string>
     <string name="settings_menu_done">Udført</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>
@@ -2972,7 +2973,7 @@ Download via mobile netværk kan medføre yderligere gebyrer afhængigt af dit a
     <string name="wifi_enable_warning_spr">Turning on Wi-Fi will disable Hotspot.</string>
     <string name="wifi_enable_warning_mtr">Turning on Wi-Fi will turn off Mobile Hotspot. Continue?</string>
     <string name="wifi_enable_warning_usc">Turning on Wi-Fi will turn off Portable Wi-Fi hotspot. Continue?</string>
-    <string name="wifi_enable_warning">Aktivering af Wi-Fi deaktiverer Mobilt hotspot.</string>
+    <string name="wifi_enable_warning">Wi-Fi er deaktiveret, når Mobilt hotspot er aktivt. Aktiver Wi-Fi, og deaktiver Mobilt hotspot.</string>
     <string name="wifi_control_history_title">Oversigt over Wi-Fi-styring</string>
     <string name="wifi_control_history_description">Nedenstående apps har senest aktiveret eller deaktiveret Wi-Fi.</string>
     <string name="wifi_control_history_sub_title">Seneste apps</string>
@@ -3051,9 +3052,9 @@ You can create an allowed device profile and set the connection mode for it.
 Using Portable Wi-Fi hotspot consumes more battery power and increases your data usage."</string>
     <string name="wifi_ap_instruction_changeable_maxclient">"Du kan bruge din enhed som internetadgangspunkt ved hjælp af Mobilt hotspot. Dette muliggør, at %d andre enheder kan oprette forbindelse til den via Wi-Fi. De tilsluttede enheder vil have adgang til internettet via dit mobile netværk.
 
-Du kan oprette en profil for tilladt enhed og indstille forbindelsestilstanden for den.
+Du kan oprette en profil for en tilladt enhed og indstille forbindelsestilstanden for den.
 
-Brug af bærbart Mobilt hotspot øger batteriforbrug og dataforbrug."</string>
+Brug af Mobilt hotspot øger batteriforbrug og dataforbrug."</string>
     <string name="wifi_ap_instruction_mtr">"Turn your phone into Portable Wi-Fi Hotspot so you can share your mobile data connection with other devices.
 
 To use your phone's Hotspot capability, you must have the Smartphone Mobile Hotspot service added to your rate plan.
@@ -3077,7 +3078,7 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_ap_wifi_off_warn_chn">Aktivering af Mobilt hotspot vil slå WLAN fra.</string>
     <string name="wifi_ap_wifi_off_warn_att">Turning on portable Wi-Fi hotspot will turn off Wi-Fi.</string>
     <string name="wifi_ap_wifi_off_warn_mtr">Wi-Fi is turned off when USB tethering or Mobile Hotspot is active. To turn on Wi-Fi, please turn off USB tethering or Mobile Hotspot.</string>
-    <string name="wifi_ap_wifi_off_warn">Aktivering af Mobilt hotspot vil deaktivere Wi-Fi.</string>
+    <string name="wifi_ap_wifi_off_warn">Hvis du vil bruge Mobilt hotspot, skal Wi-Fi deaktiveres.</string>
     <string name="wifi_ap_wifi_off_warn_title_vzw">Mobile Hotspot and Wi-Fi</string>
     <string name="wifi_ap_wifi_off_warn_title">Bemærk!</string>
     <string name="wifi_ap_smartview_off_warn_vzw">Mobile Hotspot and Smart View cannot be turned on at the same time. Smart View will be turned off.</string>
@@ -3175,7 +3176,7 @@ Wi-Fi is now on."</string>
     <string name="wifi_tether_dialog_nosim_warning_title_tmo">Mobile HotSpot</string>
     <string name="wifi_tether_dialog_nosim_warning_title_spr">Hotspot</string>
     <string name="wifi_tether_dialog_nosim_warning_title_att">Mobilt hotspot</string>
-    <string name="wifi_tether_dialog_nosim_warning_title">Mobilt hotspot</string>
+    <string name="wifi_tether_dialog_nosim_warning_title">Intet SIM-kort</string>
     <string name="wifi_tether_dialog_nosim_warning_chn">Isæt et SIM-kort for at bruge Mobilt hotspot og andre funktioner til internetdeling.</string>
     <string name="wifi_tether_dialog_nosim_warning_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
     <string name="wifi_tether_dialog_nosim_warning_tmo">"Please install SIM card in order to share your phone's data connection with other devices using Mobile Wi-Fi HotSpot or USB tethering for Internet access."</string>
@@ -3248,11 +3249,11 @@ Wi-Fi is now on."</string>
     <string name="wifi_ap_instruction_activate_color_hidden3_tmo">Connect to &lt;font color=\"%1$s\">%2$s&lt;/font> by entering &lt;font color=\"%1$s\">%3$s&lt;/font> as the password.</string>
     <string name="wifi_ap_instruction_activate_color_hidden3">Opret forbindelse til &lt;font color=\"%1$s\">%2$s&lt;/font> ved at angive &lt;font color=\"%1$s\">%3$s&lt;/font> som adgangskode.</string>
     <string name="wifi_ap_instruction_activate_color_hidden4_tmo">Enjoy the internet using your personal Mobile HotSpot.</string>
-    <string name="wifi_ap_instruction_no_maxclient">"Du kan bruge din enhed som internetadgangspunkt ved hjælp af Mobilt hotspot. Dette muliggør, at andre enheder kan oprette forbindelse til den via Wi-Fi. De forbundne enheder vil have adgang til internettet via dit mobile netværk.
+    <string name="wifi_ap_instruction_no_maxclient">"Du kan bruge din enhed som internetadgangspunkt ved hjælp af Mobilt hotspot. Dette muliggør, at andre enheder kan oprette forbindelse til den via Wi-Fi. De tilsluttede enheder vil have adgang til internettet via dit mobile netværk.
 
-Du kan oprette en profil for en tilladt enhed og indstille forbindelsestilstanden for den
+Du kan oprette en profil for en tilladt enhed og indstille forbindelsestilstanden for den.
 
-Brug af bærbart Mobilt hotspot øger batteri- og dataforbruget."</string>
+Brug af Mobilt hotspot øger batteriforbrug og dataforbrug."</string>
     <string name="wifi_ap_instruction_configure_vzw">To change the Mobile Hotspot configuration, go to Settings > Mobile Hotspot and tethering > Mobile Hotspot > MORE, then select Configure Mobile Hotspot.</string>
     <string name="wifi_ap_instruction_configure_tmo">To change the Mobile HotSpot configuration, tap the More options button, then select Configure Mobile HotSpot.</string>
     <string name="wifi_ap_instruction_configure">Tryk på knappen Flere indstillinger, og vælg Konfigurer Mobilt hotspot for at ændre konfigurationen af Mobilt hotspot.</string>
@@ -3490,6 +3491,7 @@ Modtager sms"</string>
     <string name="no">Nej</string>
     <string name="create">Opret</string>
     <string name="allow">Tillad</string>
+    <string name="dlg_close">Luk</string>
     <string name="device_info_default">Ukendt</string>
     <string name="show_dev_on">Udviklertilstand er blevet aktiveret.</string>
     <string name="show_dev_already">Ikke nødvendigt, udviklertilstand er allerede blevet aktiveret.</string>

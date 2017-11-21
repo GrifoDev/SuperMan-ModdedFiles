@@ -178,7 +178,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b10b6
+    const v5, 0x7f0b10b7
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -212,7 +212,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/SettingsReceiverActivity;->mInflater:Landroid/view/LayoutInflater;
 
-    const v5, 0x7f0401e2
+    const v5, 0x7f0401e3
 
     const/4 v6, 0x0
 
@@ -272,7 +272,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v4, 0x7f0b0e63
+    const v4, 0x7f0b0e64
 
     invoke-virtual {v2, v4}, Landroid/widget/TextView;->setText(I)V
 
@@ -284,7 +284,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b09d8
+    const v5, 0x7f0b09d9
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -292,7 +292,7 @@
 
     iput-object v4, v0, Lcom/android/internal/app/AlertController$AlertParams;->mTitle:Ljava/lang/CharSequence;
 
-    const v4, 0x7f0b09d9
+    const v4, 0x7f0b09da
 
     invoke-virtual {v2, v4}, Landroid/widget/TextView;->setText(I)V
 

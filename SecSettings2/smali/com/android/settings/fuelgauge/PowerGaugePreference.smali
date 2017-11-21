@@ -26,7 +26,7 @@
     :goto_0
     invoke-virtual {p0, p2}, Lcom/android/settings/fuelgauge/PowerGaugePreference;->setIcon(Landroid/graphics/drawable/Drawable;)V
 
-    const v0, 0x7f040216
+    const v0, 0x7f040217
 
     invoke-virtual {p0, v0}, Lcom/android/settings/fuelgauge/PowerGaugePreference;->setWidgetLayoutResource(I)V
 

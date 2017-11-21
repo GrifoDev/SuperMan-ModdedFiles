@@ -13,11 +13,11 @@
 
     invoke-direct {p0, p1, p2}, Lcom/android/settings/TintablePreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    const v0, 0x7f0401cb
+    const v0, 0x7f0401cc
 
     invoke-virtual {p0, v0}, Lcom/android/settings/AppProgressPreference;->setLayoutResource(I)V
 
-    const v0, 0x7f04031c
+    const v0, 0x7f04031d
 
     invoke-virtual {p0, v0}, Lcom/android/settings/AppProgressPreference;->setWidgetLayoutResource(I)V
 

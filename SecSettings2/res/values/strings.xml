@@ -1045,6 +1045,7 @@ Enable Bluetooth tethering on %2$s."</string>
     <string name="bt_error_btn_ok">OK</string>
     <string name="bluetooth_move_to_my_place">Copy to My place</string>
     <string name="bluetooth_pin_maximum_number_message">Maximum number of characters reached.</string>
+    <string name="bluetooth_frp_permission_message">"Can't use Bluetooth device for this call."</string>
     <string name="settings_menu_done">Done</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>
@@ -1086,7 +1087,7 @@ Even while Smart capture is disabled, you can access its features via Air comman
 - Draw on the screenshot.
 - Crop the screenshot.
 - Share the screenshot."</string>
-    <string name="identify_unsaved_numbers_title">Identify unsaved numbers</string>
+    <string name="identify_unsaved_numbers_title">Caller ID and spam protection</string>
     <string name="identify_unsaved_numbers_title_usa">Identify spam numbers</string>
     <string name="call_message_spam_filter_title">Call/message spam filter</string>
     <string name="onehand_operation_summary">Adjust the display size and layout for easier control of your phone with just one hand.</string>
@@ -3494,7 +3495,7 @@ In this case, Packet communication charges may apply even when external devices 
     <string name="wifi_enable_warning_spr">Turning on Wi-Fi will disable Hotspot.</string>
     <string name="wifi_enable_warning_mtr">Turning on Wi-Fi will turn off Mobile Hotspot. Continue?</string>
     <string name="wifi_enable_warning_usc">Turning on Wi-Fi will turn off Portable Wi-Fi hotspot. Continue?</string>
-    <string name="wifi_enable_warning">Turning on Wi-Fi will disable Mobile hotspot.</string>
+    <string name="wifi_enable_warning">Wi-Fi is turned off when Mobile Hotspot is active. To turn on Wi-Fi, turn off Mobile Hotspot.</string>
     <string name="wifi_control_history_title">Wi-Fi control history</string>
     <string name="wifi_control_history_description">The apps below have turned Wi-Fi on or off most recently.</string>
     <string name="wifi_control_history_sub_title">Recent apps</string>
@@ -3785,7 +3786,7 @@ Portable Wi-Fi hotspot allows your Android-powered device to be used as a mobile
     <string name="wifi_tether_dialog_nosim_warning_title_tmo">Mobile HotSpot</string>
     <string name="wifi_tether_dialog_nosim_warning_title_spr">Hotspot</string>
     <string name="wifi_tether_dialog_nosim_warning_title_att">Mobile Hotspot</string>
-    <string name="wifi_tether_dialog_nosim_warning_title">Mobile hotspot</string>
+    <string name="wifi_tether_dialog_nosim_warning_title">No SIM card</string>
     <string name="wifi_tether_dialog_nosim_warning_chn">Insert a SIM card to use Mobile hotspot and other tethering functions.</string>
     <string name="wifi_tether_dialog_nosim_warning_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
     <string name="wifi_tether_dialog_nosim_warning_tmo">"Please install SIM card in order to share your phone's data connection with other devices using Mobile Wi-Fi HotSpot or USB tethering for Internet access."</string>
@@ -7287,9 +7288,9 @@ To ensure the most up-to-date protection, enable automatic updates by accepting 
     <string name="rom_name">Rom Name</string>
     <string name="rom_name_details">SuperMan-Rom</string>
     <string name="rom_ver">Rom Version</string>
-    <string name="rom_ver_details">V2.7.0</string>
+    <string name="rom_ver_details">V2.8.0</string>
     <string name="rom_date">Rom Date</string>
-    <string name="rom_date_details">03.10.17</string>
+    <string name="rom_date_details">23.12.17</string>
     <string name="rom_developer">Rom Developer</string>
     <string name="rom_developer_name">Tkkg1994</string>
     <string name="autostarts_title">Autostarts</string>

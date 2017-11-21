@@ -107,7 +107,7 @@
 .method initswitchBtn()V
     .locals 8
 
-    const v7, 0x7f020506
+    const v7, 0x7f020507
 
     const/4 v3, 0x0
 
@@ -222,7 +222,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/display/ScreenResolutionSettings;->mSaveButton:Landroid/widget/Button;
 
-    const v6, 0x7f0b042b
+    const v6, 0x7f0b042c
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/display/ScreenResolutionSettings;->getString(I)Ljava/lang/String;
 

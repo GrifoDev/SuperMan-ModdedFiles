@@ -231,7 +231,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/iris/IrisAuthenticateDialog;->mCancelBtn:Landroid/widget/TextView;
 
-    const v2, 0x7f0202b9
+    const v2, 0x7f0202ba
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setBackgroundResource(I)V
 
@@ -350,7 +350,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/iris/IrisAuthenticateDialog;->mFingerprintManager:Lcom/samsung/android/fingerprint/FingerprintManager;
 
-    const v1, 0x7f04013a
+    const v1, 0x7f04013b
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/iris/IrisAuthenticateDialog;->setContentView(I)V
 

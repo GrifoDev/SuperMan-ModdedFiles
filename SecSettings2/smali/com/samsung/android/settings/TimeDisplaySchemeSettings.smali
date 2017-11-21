@@ -253,7 +253,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0402e7
+    const v1, 0x7f0402e8
 
     invoke-static {v0, v1, v3}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -303,13 +303,13 @@
 
     invoke-direct {v1, p0}, Lcom/samsung/android/settings/TimeDisplaySchemeSettings$1;-><init>(Lcom/samsung/android/settings/TimeDisplaySchemeSettings;)V
 
-    const v2, 0x7f0b153f
+    const v2, 0x7f0b1540
 
     invoke-virtual {v0, v2, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f0b1540
+    const v1, 0x7f0b1541
 
     invoke-virtual {v0, v1, v3}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

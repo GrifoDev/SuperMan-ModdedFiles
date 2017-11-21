@@ -125,7 +125,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0402de
+    const v7, 0x7f0402df
 
     invoke-virtual {v6, v7, p0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -199,7 +199,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b19dc
+    const v7, 0x7f0b19dd
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -931,7 +931,7 @@
 
     if-eqz p1, :cond_0
 
-    const v0, 0x7f0b19db
+    const v0, 0x7f0b19dc
 
     :goto_0
     invoke-virtual {v1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
@@ -945,7 +945,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f0b19dc
+    const v0, 0x7f0b19dd
 
     goto :goto_0
 .end method

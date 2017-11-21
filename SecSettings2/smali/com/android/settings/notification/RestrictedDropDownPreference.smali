@@ -139,7 +139,7 @@
 
     iput-object v0, p0, Lcom/android/settings/notification/RestrictedDropDownPreference;->mItemSelectedListener:Landroid/widget/AdapterView$OnItemSelectedListener;
 
-    const v0, 0x7f04023d
+    const v0, 0x7f04023e
 
     invoke-virtual {p0, v0}, Lcom/android/settings/notification/RestrictedDropDownPreference;->setWidgetLayoutResource(I)V
 

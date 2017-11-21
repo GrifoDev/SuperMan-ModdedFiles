@@ -119,13 +119,13 @@
 
     if-eqz v0, :cond_0
 
-    const v1, 0x7f0b0b2a
+    const v1, 0x7f0b0b2b
 
     invoke-virtual {p0, v1}, Lcom/android/settings/MasterClearConfirm;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    const v2, 0x7f0b0b2c
+    const v2, 0x7f0b0b2d
 
     invoke-virtual {p0, v2}, Lcom/android/settings/MasterClearConfirm;->getString(I)Ljava/lang/String;
 
@@ -1515,7 +1515,7 @@
 
     if-eqz v2, :cond_0
 
-    const v2, 0x7f04017e
+    const v2, 0x7f04017f
 
     invoke-virtual {p1, v2, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -1543,7 +1543,7 @@
     return-object v1
 
     :cond_1
-    const v2, 0x7f04017d
+    const v2, 0x7f04017e
 
     invoke-virtual {p1, v2, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 

@@ -892,6 +892,7 @@ Wi-Fi, ബ്ലൂടൂത്ത് എന്നിവ കൂടി ഓഫ് 
     <string name="bluetooth_control_app_disable_summary">ബ്ലൂടൂത്ത് ഓഫ് ചെയ്യുക: %s</string>
     <string name="bluetooth_enter_pin_msg">%s-മായി പെയര്‍ ചെയ്യുന്നതിന് PIN നല്‍കുക. (0000 അഥവാ 1234 ശ്രമിക്കുക).</string>
     <string name="bluetooth_pin_maximum_number_message">പരമാവധി എണ്ണം അക്ഷരങ്ങളിലെത്തി.</string>
+    <string name="bluetooth_frp_permission_message">ഈ കോളിന് ബ്ലൂടൂത്ത് ഉപകരണം ഉപയോഗിക്കാനാവില്ല.</string>
     <string name="settings_menu_done">ചെയ്‌തു</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>
@@ -2971,7 +2972,7 @@ Downloading via mobile networks uses your data plan."</string>
     <string name="wifi_enable_warning_spr">Turning on Wi-Fi will disable Hotspot.</string>
     <string name="wifi_enable_warning_mtr">Turning on Wi-Fi will turn off Mobile Hotspot. Continue?</string>
     <string name="wifi_enable_warning_usc">Turning on Wi-Fi will turn off Portable Wi-Fi hotspot. Continue?</string>
-    <string name="wifi_enable_warning">Wi-Fi ഓൺ ചെയ്യുന്നത് മൊബൈൽ ഹോട്ട്‌സ്പോട്ടിനെ അപ്രാപ്തമാക്കും.</string>
+    <string name="wifi_enable_warning">മൊബൈൽ ഹോട്ട്‌സ്പോട്ട് സജീവമായിരിക്കുമ്പോൾ Wi-Fi ഓഫ് ചെയ്യപ്പെടുന്നു. Wi-Fi ഓൺ ചെയ്യുന്നതിന്, മൊബൈൽ ഹോട്ട്‌സ്പോട്ട് ഓഫ് ചെയ്യക.</string>
     <string name="wifi_control_history_title">Wi-Fi നിയന്ത്രണ ചരിത്രം</string>
     <string name="wifi_control_history_description">താഴെയുള്ള ആപ്ലിക്കേഷനുകൾ ഏറ്റവും അടുത്തിടെ Wi-Fi ഓൺ അല്ലെങ്കിൽ ഓഫ് ചെയ്തിട്ടുണ്ട്.</string>
     <string name="wifi_control_history_sub_title">സമീപകാല ആപ്ലിക്കേഷനുകള്‍</string>
@@ -2997,7 +2998,7 @@ Downloading via mobile networks uses your data plan."</string>
     <string name="wifi_ap_help_enable_msg_summary_vzw">Mobile Hotspot is turned on. Tap Configure to change your Mobile Hotspot settings.</string>
     <string name="wifi_ap_help_enable_msg_summary">Mobile Hotspot is enabled. To change the Mobile Hotspot configuration, tap MORE and select Configure Mobile Hotspot.</string>
     <string name="wifi_ap_turning_on">മൊബൈൽ ഹോട്ട്സ്പോട്ട് പ്രാപ്തമാക്കുന്നു…</string>
-    <string name="wifi_ap_turning_off">മൊബൈൽ ഹോട്ട്സ്പോട്ട് അപ്രാപ്തമാക്കുന്നു…</string>
+    <string name="wifi_ap_turning_off">മൊബൈൽ ഹോട്ട്‌സ്പോട്ട് ഓഫാക്കുന്നു…</string>
     <string name="wifi_ap_password_dialog_title">പാസ്‌വേഡ് മാറ്റുക</string>
     <string name="wifi_ap_wifi_sharing_text">നിങ്ങളുടെ Wi-Fi നെറ്റ്‌വർക്ക് മറ്റ് ഉപകരണങ്ങളുമായി പങ്കുവയ്ക്കപ്പെട്ടുവെന്ന് വരാം. നിങ്ങളുടെ ഉപകരണം സംരക്ഷിച്ച നിങ്ങളുടെ Wi-Fi നെറ്റ്‌വർക്കുകൾ പരസ്പരം സ്വിച്ചുചെയ്തേക്കാമെന്ന് അറിയുക. നിങ്ങളുടെ Wi-Fi ദാതാക്കളുടെയെല്ലാം വ്യവസ്ഥകളും നിബന്ധനകളും പാലിക്കുന്നതിനുള്ള ഉത്തരവാദിത്വം നിങ്ങളുടെയാണ്.</string>
     <string name="wifi_ap__wifi_sharing_vzw">Wi-Fi Sharing</string>
@@ -3048,11 +3049,11 @@ After you start the Mobile Hotspot Wi-Fi router, connect using the controls on y
 You can create an allowed device profile and set the connection mode for it.
 
 Using Portable Wi-Fi hotspot consumes more battery power and increases your data usage."</string>
-    <string name="wifi_ap_instruction_changeable_maxclient">"മൊബൈൽ ഹോട്ട്‌സ്പോട്ട് ഉപയോഗിച്ച്, ഒരു ഇന്‍റർനെറ്റ് ആക്സസ് പോയിന്‍റായി നിങ്ങളുടെ ഉപകരണം ഉപയോഗിക്കാൻ കഴിയും. Wi-Fi വഴിയായി ഇതിലേക്ക് %d വരെ മറ്റ് ഉപകരണങ്ങളെ ബന്ധിപ്പിക്കാൻ ഇത് അനുവദിക്കുന്നു. ബന്ധിപ്പിച്ചിട്ടുള്ള ഉപകരണങ്ങള്‍ക്ക് നിങ്ങളുടെ മൊബൈൽ നെറ്റ്‌വർക്കിലൂടെ ഇന്‍റർനെറ്റിലേക്ക് ആക്സസ് ഉണ്ടായിരിക്കും.
+    <string name="wifi_ap_instruction_changeable_maxclient">"മൊബൈൽ ഹോട്ട്‌സ്പോട്ട് ഉപയോഗിച്ച് നിങ്ങളുടെ ഉപകരണത്തെ ഒരു ഇന്‍റർനെറ്റ് ആക്സസ് പോയിന്‍റ്‌ ആയി ഉപയോഗിക്കാവുന്നതാണ്. Wi-Fi വഴി ഇതിലേക്ക് ബന്ധിപ്പിക്കുന്നതിന് %d മറ്റ് ഉപകരണങ്ങളെ വരെ ഇത് അനുവദിക്കുന്നു. ബന്ധിപ്പിക്കപ്പെടുന്ന ഉപകരണങ്ങൾക്ക് നിങ്ങളുടെ മൊബൈൽ നെറ്റ്‌വർക്ക് വഴി ഇന്‍റർനെറ്റിലേക്ക് ആക്സസ് ലഭിക്കും.
 
-നിങ്ങൾക്കൊരു അനുവദനീയ ഉപകരണ പ്രൊഫൈൽ സൃഷ്ടിക്കുകയും അതിനായി കണക്ഷൻ മോഡ് ക്രമീകരിക്കുകയും ചെയ്യാം.
+ഒരു അനുവദനീയ ഉപകരണ പ്രൊഫൈൽ സൃഷ്ടിക്കാനും അതിനായി കണക്ഷൻ മോഡ് ക്രമീകരിക്കാനും നിങ്ങൾക്കാവും.
 
-മൊബൈൽ ഹോട്ട്‌സ്പോട്ട് ഉപയോഗിക്കുന്നത് ബാറ്ററി ഉപയോഗവും ഡാറ്റാ ഉപയോഗവും വർദ്ധിപ്പിക്കും."</string>
+മൊബൈൽ ഹോട്ട്സ്പോട്ടിന്‍റെ ഉപയോഗം ബാറ്ററി ഉപഭോഗത്തെയും ഡാറ്റ ഉപയോഗത്തെയും വർദ്ധിപ്പിക്കുന്നു."</string>
     <string name="wifi_ap_instruction_mtr">"Turn your phone into Portable Wi-Fi Hotspot so you can share your mobile data connection with other devices.
 
 To use your phone's Hotspot capability, you must have the Smartphone Mobile Hotspot service added to your rate plan.
@@ -3076,7 +3077,7 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_ap_wifi_off_warn_chn">Enabling Mobile hotspot will turn off WLAN.</string>
     <string name="wifi_ap_wifi_off_warn_att">Turning on portable Wi-Fi hotspot will turn off Wi-Fi.</string>
     <string name="wifi_ap_wifi_off_warn_mtr">Wi-Fi is turned off when USB tethering or Mobile Hotspot is active. To turn on Wi-Fi, please turn off USB tethering or Mobile Hotspot.</string>
-    <string name="wifi_ap_wifi_off_warn">മൊബൈൽ ഹോട്ട്സ്പോട്ട് പ്രാപ്തമാക്കുന്നത് Wi-Fi-യെ ഓഫ് ചെയ്യും.</string>
+    <string name="wifi_ap_wifi_off_warn">മൊബൈൽ ഹോട്ട്സ്പോട്ട് ഉപയോഗിക്കുന്നതിന്, Wi-Fi ഓഫ് ചെയ്യേണ്ടതാവശ്യമാണ്.</string>
     <string name="wifi_ap_wifi_off_warn_title_vzw">Mobile Hotspot and Wi-Fi</string>
     <string name="wifi_ap_wifi_off_warn_title">ശ്രദ്ധിക്കുക</string>
     <string name="wifi_ap_smartview_off_warn_vzw">Mobile Hotspot and Smart View cannot be turned on at the same time. Smart View will be turned off.</string>
@@ -3101,7 +3102,7 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_ap_menu_configure_hotspot_spr">Configure Hotspot</string>
     <string name="wifi_ap_menu_configure_hotspot_tmo">മൊബൈല്‍ ഹോട്ട്‌സ്പോട്ട് കോണ്‍‌ഫിഗര്‍ ചെയ്യുക</string>
     <string name="wifi_ap_menu_configure_hotspot_att">മൊബൈല്‍ ഹോട്ട്‌സ്പോട്ട് കോണ്‍‌ഫിഗര്‍ ചെയ്യുന്നു</string>
-    <string name="wifi_ap_menu_configure_hotspot">മൊബൈൽ ഹോട്ട്‌സ്പോട്ട് കോൺ‌ഫിഗർ ചെയ്യുക</string>
+    <string name="wifi_ap_menu_configure_hotspot">മൊബൈൽ ഹോട്ട്സ്പോട്ട് കോൺഫിഗർ ചെയ്യുക</string>
     <string name="wifi_ap_menu_timeout">ടൈംഔട്ട് ക്രമീകരണങ്ങള്‍</string>
     <string name="wifi_ap_menu_allow_devices">അനുവദിക്കപ്പെട്ട ഉപകരണങ്ങള്‍</string>
     <string name="wifi_ap_timeout_message_vzw">Disable Mobile Hotspot if there is no connection for</string>
@@ -3174,13 +3175,13 @@ Wi-Fi is now on."</string>
     <string name="wifi_tether_dialog_nosim_warning_title_tmo">മൊബൈല്‍ ഹോട്ട്‌സ്പോട്ട്</string>
     <string name="wifi_tether_dialog_nosim_warning_title_spr">Hotspot</string>
     <string name="wifi_tether_dialog_nosim_warning_title_att">മൊബൈല്‍ ഹോട്സ്പോട്ട്</string>
-    <string name="wifi_tether_dialog_nosim_warning_title">മൊബൈൽ ഹോട്ട്സ്പോട്ട്</string>
+    <string name="wifi_tether_dialog_nosim_warning_title">SIM കാര്‍ഡ് ഇല്ല</string>
     <string name="wifi_tether_dialog_nosim_warning_chn">Insert a SIM card to use Mobile hotspot and other tethering functions.</string>
     <string name="wifi_tether_dialog_nosim_warning_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
     <string name="wifi_tether_dialog_nosim_warning_tmo">"Please install SIM card in order to share your phone's data connection with other devices using Mobile Wi-Fi HotSpot or USB tethering for Internet access."</string>
     <string name="wifi_tether_dialog_nosim_warning_spr">Insert SIM for using Hotspot include tethering</string>
     <string name="wifi_tether_dialog_nosim_warning_usc">മൊബൈൽ ഹോട്ട്‌സ്പോട്ടും മറ്റ് ടെതറിംഗ് ഫംഗ്ഷനുകളും ഉപയോഗിക്കുന്നതിന് SIM കാർഡ് ഇടുക.</string>
-    <string name="wifi_tether_dialog_nosim_warning">മൊബൈൽ ഹോട്ട്‌സ്പോട്ടും മറ്റ് ടെതറിംഗ് ഫംഗ്ഷനുകളും ഉപയോഗിക്കുന്നതിന് SIM കാർഡ് ഇടുക.</string>
+    <string name="wifi_tether_dialog_nosim_warning">മൊബൈൽ ഹോട്ട്‌സ്പോട്ടും മറ്റ് ടെതറിംഗ് ഐച്ഛികങ്ങളും ഉപയോഗിക്കുന്നതിന് ഒരു SIM കാർഡ് ഇടുക.</string>
     <string name="mobileap_tmo">മൊബൈല്‍ ഹോട്ട്‌സ്പോട്ട്</string>
     <string name="mobileap_spr">Hotspot</string>
     <string name="mobileap_att">മൊബൈല്‍ ഹോട്സ്പോട്ട്</string>
@@ -3247,14 +3248,14 @@ Wi-Fi is now on."</string>
     <string name="wifi_ap_instruction_activate_color_hidden3_tmo">Connect to &lt;font color=\"%1$s\">%2$s&lt;/font> by entering &lt;font color=\"%1$s\">%3$s&lt;/font> as the password.</string>
     <string name="wifi_ap_instruction_activate_color_hidden3">&lt;font color=\"%1$s\">%3$s&lt;/font> പാസ്‌വേഡായി നൽകി &lt;font color=\"%1$s\">%2$s&lt;/font>-ലേക്ക് ബന്ധിപ്പിക്കുക.</string>
     <string name="wifi_ap_instruction_activate_color_hidden4_tmo">Enjoy the internet using your personal Mobile HotSpot.</string>
-    <string name="wifi_ap_instruction_no_maxclient">"മൊബൈൽ ഹോട്ട്‌സ്പോട്ട് ഉപയോഗിച്ച് നിങ്ങളുടെ ഉപകരണത്തെ ഒരു ഇന്‍റർനെറ്റ് ആക്സസ് പോയിന്‍റായി നിങ്ങൾക്ക് ഉപയോഗിക്കാവുന്നതാണ്. മറ്റ് ഉപകരണങ്ങളെ Wi-Fi വഴി ഇതിലേക്ക് ബന്ധിപ്പിക്കുന്നതിന് ഇത് അനുവദിക്കുന്നു. ബന്ധിപ്പിക്കപ്പെടുന്ന ഉപകരണങ്ങൾക്ക് നിങ്ങളുടെ മൊബൈൽ നെറ്റ്‌വർക്ക് വഴി ഇന്‍റർനെറ്റിലേക്ക് ആക്സസ് ലഭിക്കും.
+    <string name="wifi_ap_instruction_no_maxclient">"മൊബൈൽ ഹോട്ട്‌സ്പോട്ട് ഉപയോഗിച്ച് നിങ്ങളുടെ ഉപകരണത്തെ ഒരു ഇന്‍റർനെറ്റ് ആക്സസ് പോയിന്‍റായി ഉപയോഗിക്കാവുന്നതാണ്. മറ്റ് ഉപകരണങ്ങളെ Wi-Fi വഴി ഇതിലേക്ക് ബന്ധിപ്പിക്കുന്നതിന് ഇത് അനുവദിക്കുന്നു. ബന്ധിപ്പിക്കപ്പെടുന്ന ഉപകരണങ്ങൾക്ക് നിങ്ങളുടെ മൊബൈൽ നെറ്റ്‌വർക്ക് വഴി ഇന്‍റർനെറ്റിലേക്ക് ആക്സസ് ലഭിക്കും.
 
 ഒരു അനുവദനീയ ഉപകരണ പ്രൊഫൈൽ സൃഷ്ടിക്കാനും അതിനായി കണക്ഷൻ മോഡ് ക്രമീകരിക്കാനും നിങ്ങൾക്കാവും.
 
 മൊബൈൽ ഹോട്ട്സ്പോട്ടിന്‍റെ ഉപയോഗം ബാറ്ററി ഉപഭോഗത്തെയും ഡാറ്റ ഉപയോഗത്തെയും വർദ്ധിപ്പിക്കുന്നു."</string>
     <string name="wifi_ap_instruction_configure_vzw">To change the Mobile Hotspot configuration, go to Settings > Mobile Hotspot and tethering > Mobile Hotspot > MORE, then select Configure Mobile Hotspot.</string>
     <string name="wifi_ap_instruction_configure_tmo">To change the Mobile HotSpot configuration, tap the More options button, then select Configure Mobile HotSpot.</string>
-    <string name="wifi_ap_instruction_configure">മൊബൈൽ ഹോട്ട്‌സ്പോട്ട് കോൺഫിഗറേഷൻ മാറ്റാൻ, കൂടുതൽ ഓപ്‌ഷനുകൾ ബട്ടണിൽ സ്പർശിക്കുക, തുടർന്ന് “മൊബൈൽ ഹോട്ട്‌സ്പോട്ട് കോൺഫിഗർ ചെയ്യുക” തിരഞ്ഞെടുക്കുക.</string>
+    <string name="wifi_ap_instruction_configure">മൊബൈൽ ഹോട്ട്സ്പോട്ട് കോണ്‍‌ഫിഗറേഷൻ മാറ്റുന്നതിന്, കൂടുതൽ ഐച്ഛികങ്ങൾ എന്ന ബട്ടണിൽ സ്പർശിക്കുക, തുടർന്ന് “മൊബൈൽ ഹോട്ട്സ്പോട്ട് കോണ്‍‌ഫിഗർ‌ ചെയ്യുക” എന്നത് തിരഞ്ഞെടുക്കുക.</string>
     <string name="wifi_ap_instruction_configure_non_grace_tmo">To change the Mobile HotSpot configuration, tap MORE, then select Configure Mobile HotSpot.</string>
     <string name="wifi_ap_instruction_configure_non_grace">മൊബൈൽ ഹോട്ട്സ്പോട്ട് കോണ്‍‌ഫിഗറേഷൻ മാറ്റുന്നതിന്, “കൂടുതൽ” എന്നതിൽ സ്പർശിച്ച ശേഷം “മൊബൈൽ ഹോട്ട്സ്പോട്ട് കോണ്‍‌ഫിഗർ‌ ചെയ്യുക” എന്നത് തിരഞ്ഞെടുക്കുക.</string>
     <string name="wifi_ap_change_security">Change Security</string>
@@ -3489,6 +3490,7 @@ Receiving SMS"</string>
     <string name="no">ഇല്ല</string>
     <string name="create">സൃ..</string>
     <string name="allow">അനുവദിക്കൂ</string>
+    <string name="dlg_close">അടയ്ക്കുക</string>
     <string name="device_info_default">അജ്ഞാതം</string>
     <string name="show_dev_on">ഡവലപ്പര്‍ മോഡ് പ്രാപ്തമാക്കിയിട്ടുണ്ട്.</string>
     <string name="show_dev_already">ആവശ്യമില്ല, ഡവലപ്പര്‍ മോഡ് ഇതിനകം തന്നെ പ്രാപ്തമാക്കിയിട്ടുണ്ട്.</string>

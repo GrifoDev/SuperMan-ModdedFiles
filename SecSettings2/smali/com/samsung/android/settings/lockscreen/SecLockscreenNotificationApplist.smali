@@ -788,7 +788,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b0890
+    const v10, 0x7f0b0891
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1572,7 +1572,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 3
 
-    const v1, 0x7f04016e
+    const v1, 0x7f04016f
 
     const/4 v2, 0x0
 

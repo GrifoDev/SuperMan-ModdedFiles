@@ -309,7 +309,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f02010e
+    const v3, 0x7f02010f
 
     invoke-virtual {v1, v3, v2}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 
@@ -363,11 +363,11 @@
 
     const v8, -0xff2d5d
 
-    const v10, 0x7f02010e
+    const v10, 0x7f02010f
 
-    const v11, 0x7f020107
+    const v11, 0x7f020108
 
-    const v12, 0x7f020108
+    const v12, 0x7f020109
 
     invoke-direct/range {v1 .. v12}, Lcom/samsung/android/visualeffect/progressfingerscan/ProgressFingerScanEffect;-><init>(Landroid/content/Context;IIIIIIIIII)V
 

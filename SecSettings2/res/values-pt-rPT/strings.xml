@@ -89,7 +89,7 @@
     <string name="tether_settings_title_wifi">PA Móvel</string>
     <string name="tether_settings_title_bluetooth">Ancoragem Bluetooth</string>
     <string name="tether_settings_title_usb_bluetooth">Partilha de Internet</string>
-    <string name="tether_settings_title_all">PA móvel e ancoragem</string>
+    <string name="tether_settings_title_all">PA Móvel e Ancoragem</string>
     <string name="managed_user_title">Todas as apl. de trabalho</string>
     <string name="user_guest">Convidado</string>
     <string name="unknown">Desconhecido</string>
@@ -892,6 +892,7 @@ Pode alterar este parâmetros mais tarde nas Definições de Bluetooth."</string
     <string name="bluetooth_control_app_disable_summary">Bluetooth desligado: %s</string>
     <string name="bluetooth_enter_pin_msg">Introduza o PIN para emparelhar com %s (tente 0000 ou 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">Número máximo de caracteres atingido.</string>
+    <string name="bluetooth_frp_permission_message">Impossível utilizar dispositivo Bluetooth nesta chamada.</string>
     <string name="settings_menu_done">Concluído</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>
@@ -2971,7 +2972,7 @@ A transferência através das redes móveis pode implicar a cobrança de taxas a
     <string name="wifi_enable_warning_spr">Turning on Wi-Fi will disable Hotspot.</string>
     <string name="wifi_enable_warning_mtr">Turning on Wi-Fi will turn off Mobile Hotspot. Continue?</string>
     <string name="wifi_enable_warning_usc">Turning on Wi-Fi will turn off Portable Wi-Fi hotspot. Continue?</string>
-    <string name="wifi_enable_warning">Ligar o Wi-Fi irá desactivar o Hotspot portátil.</string>
+    <string name="wifi_enable_warning">O Wi-Fi está desligado quando o PA Móvel está activo. Para ligar o Wi-Fi, desligue o PA Móvel.</string>
     <string name="wifi_control_history_title">Histórico de controlo Wi-Fi</string>
     <string name="wifi_control_history_description">As aplicações abaixo ligaram ou desligaram a rede Wi-Fi mais recentemente.</string>
     <string name="wifi_control_history_sub_title">Aplicações recentes</string>
@@ -2996,8 +2997,8 @@ A transferência através das redes móveis pode implicar a cobrança de taxas a
     <string name="wifi_wapi_user_certificate">Certificados de utilizador</string>
     <string name="wifi_ap_help_enable_msg_summary_vzw">Mobile Hotspot is turned on. Tap Configure to change your Mobile Hotspot settings.</string>
     <string name="wifi_ap_help_enable_msg_summary">Mobile Hotspot is enabled. To change the Mobile Hotspot configuration, tap MORE and select Configure Mobile Hotspot.</string>
-    <string name="wifi_ap_turning_on">Activar o Hotspot portátil…</string>
-    <string name="wifi_ap_turning_off">A desactivar o Hotspot portátil…</string>
+    <string name="wifi_ap_turning_on">A activar PA Móvel…</string>
+    <string name="wifi_ap_turning_off">A desligar PA Móvel…</string>
     <string name="wifi_ap_password_dialog_title">Alterar palavra-passe</string>
     <string name="wifi_ap_wifi_sharing_text">A sua rede Wi-Fi pode ser partilhada com outros dispositivos. Note que o seu dispositivo pode alternar entre as suas redes Wi-Fi guardadas sem avisar. O utilizador será responsável pelo cumprimento de todos os termos e condições do seu fornecedor de Wi-Fi.</string>
     <string name="wifi_ap__wifi_sharing_vzw">Wi-Fi Sharing</string>
@@ -3010,11 +3011,11 @@ A transferência através das redes móveis pode implicar a cobrança de taxas a
     <string name="wifi_ap_starting_chn">A activar PA Móvel de WLAN…</string>
     <string name="wifi_ap_starting_tmo">Turning Mobile HotSpot on…</string>
     <string name="wifi_ap_starting_att">Turning on portable Wi-Fi hotspot…</string>
-    <string name="wifi_ap_starting">Activar o Hotspot portátil…</string>
+    <string name="wifi_ap_starting">A activar PA Móvel…</string>
     <string name="wifi_ap_stopping_chn">A desactivar PA Móvel de WLAN…</string>
     <string name="wifi_ap_stopping_tmo">Turning Mobile HotSpot off…</string>
     <string name="wifi_ap_stopping_att">Turning off portable Wi-Fi hotspot…</string>
-    <string name="wifi_ap_stopping">A desactivar o Hotspot portátil…</string>
+    <string name="wifi_ap_stopping">A desactivar PA Móvel…</string>
     <string name="wifi_ap_add_whitelist">Adicionar à lista branca</string>
     <string name="wifi_ap_remove_from_whitelist">Remover da lista branca</string>
     <string name="wifi_ap_allow_device_added">%s adicionado aos dispositivos autorizados.</string>
@@ -3048,11 +3049,11 @@ After you start the Mobile Hotspot Wi-Fi router, connect using the controls on y
 You can create an allowed device profile and set the connection mode for it.
 
 Using Portable Wi-Fi hotspot consumes more battery power and increases your data usage."</string>
-    <string name="wifi_ap_instruction_changeable_maxclient">"Pode utilizar o seu dispositivo como um ponto de acesso à Internet utilizando o Hotspot portátil. Isto permite que até %d outros dispositivos estabeleçam ligação com este através de Wi-Fi. Os dispositivos ligados terão acesso à Internet através da sua rede móvel.
+    <string name="wifi_ap_instruction_changeable_maxclient">"Pode utilizar o seu dispositivo como um ponto de acesso à Internet utilizando o PA Móvel. Isto permite que até %d outros dispositivos estabeleçam ligação com este via Wi-Fi. Os dispositivos ligados terão acesso à Internet através da sua rede móvel.
 
 Pode criar um perfil de dispositivo autorizado e definir o modo de ligação do dispositivo.
 
-A utilização do Hotspot portátil aumenta o consumo de bateria e a utilização dos dados móveis."</string>
+A utilização do PA Móvel aumenta o consumo de bateria e a utilização de dados."</string>
     <string name="wifi_ap_instruction_mtr">"Turn your phone into Portable Wi-Fi Hotspot so you can share your mobile data connection with other devices.
 
 To use your phone's Hotspot capability, you must have the Smartphone Mobile Hotspot service added to your rate plan.
@@ -3076,7 +3077,7 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_ap_wifi_off_warn_chn">A activação do PA móvel irá desligar a WLAN.</string>
     <string name="wifi_ap_wifi_off_warn_att">Turning on portable Wi-Fi hotspot will turn off Wi-Fi.</string>
     <string name="wifi_ap_wifi_off_warn_mtr">Wi-Fi is turned off when USB tethering or Mobile Hotspot is active. To turn on Wi-Fi, please turn off USB tethering or Mobile Hotspot.</string>
-    <string name="wifi_ap_wifi_off_warn">A activação do Hotspot portátil irá desligar o Wi-Fi.</string>
+    <string name="wifi_ap_wifi_off_warn">Para utilizar o PA Móvel, é necessário desligar o Wi-Fi.</string>
     <string name="wifi_ap_wifi_off_warn_title_vzw">Mobile Hotspot and Wi-Fi</string>
     <string name="wifi_ap_wifi_off_warn_title">Atenção</string>
     <string name="wifi_ap_smartview_off_warn_vzw">Mobile Hotspot and Smart View cannot be turned on at the same time. Smart View will be turned off.</string>
@@ -3101,7 +3102,7 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_ap_menu_configure_hotspot_spr">Configure Hotspot</string>
     <string name="wifi_ap_menu_configure_hotspot_tmo">Configurar PA Móvel</string>
     <string name="wifi_ap_menu_configure_hotspot_att">Configurar PA Móvel</string>
-    <string name="wifi_ap_menu_configure_hotspot">Configurar Hotspot portátil</string>
+    <string name="wifi_ap_menu_configure_hotspot">Configurar PA Móvel</string>
     <string name="wifi_ap_menu_timeout">Tempo limite</string>
     <string name="wifi_ap_menu_allow_devices">Dispositivos autorizados</string>
     <string name="wifi_ap_timeout_message_vzw">Disable Mobile Hotspot if there is no connection for</string>
@@ -3174,17 +3175,17 @@ Wi-Fi is now on."</string>
     <string name="wifi_tether_dialog_nosim_warning_title_tmo">Mobile Hotspot</string>
     <string name="wifi_tether_dialog_nosim_warning_title_spr">Hotspot</string>
     <string name="wifi_tether_dialog_nosim_warning_title_att">Mobile Hotspot</string>
-    <string name="wifi_tether_dialog_nosim_warning_title">Hotspot portátil</string>
+    <string name="wifi_tether_dialog_nosim_warning_title">Sem cartão SIM</string>
     <string name="wifi_tether_dialog_nosim_warning_chn">Insira um cartão SIM para utilizar o PA móvel e outras funções de ancoragem.</string>
     <string name="wifi_tether_dialog_nosim_warning_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
     <string name="wifi_tether_dialog_nosim_warning_tmo">"Please install SIM card in order to share your phone's data connection with other devices using Mobile Wi-Fi HotSpot or USB tethering for Internet access."</string>
     <string name="wifi_tether_dialog_nosim_warning_spr">Insert SIM for using Hotspot include tethering</string>
     <string name="wifi_tether_dialog_nosim_warning_usc">Insira um cartão SIM para utilizar o Hotspot portátil e outras funções de ancoragem.</string>
-    <string name="wifi_tether_dialog_nosim_warning">Insira um cartão SIM para utilizar o Hotspot portátil e outras funções de ancoragem.</string>
+    <string name="wifi_tether_dialog_nosim_warning">Insira um cartão SIM para utilizar o PA Móvel e outras opções de ancoragem.</string>
     <string name="mobileap_tmo">Mobile Hotspot</string>
     <string name="mobileap_spr">Hotspot</string>
     <string name="mobileap_att">Mobile Hotspot</string>
-    <string name="mobileap">PA móvel</string>
+    <string name="mobileap">PA Móvel</string>
     <string name="wifi_ap_no_mobile_data">Sem permissão para utilizar dados móveis</string>
     <string name="wifi_ap_data_limit_text">Toque aqui sem soltar, para definir um limite de utilização de dados móveis para este dispositivo.</string>
     <string name="wifi_ap_remaining_mobile_data">Utilização de dados restante</string>
@@ -3247,16 +3248,16 @@ Wi-Fi is now on."</string>
     <string name="wifi_ap_instruction_activate_color_hidden3_tmo">Connect to &lt;font color=\"%1$s\">%2$s&lt;/font> by entering &lt;font color=\"%1$s\">%3$s&lt;/font> as the password.</string>
     <string name="wifi_ap_instruction_activate_color_hidden3">Ligue a &lt;font color=\"%1$s\">%2$s&lt;/font> introduzindo &lt;font color=\"%1$s\">%3$s&lt;/font> como palavra-passe.</string>
     <string name="wifi_ap_instruction_activate_color_hidden4_tmo">Enjoy the internet using your personal Mobile HotSpot.</string>
-    <string name="wifi_ap_instruction_no_maxclient">"Pode utilizar o seu dispositivo como um ponto de acesso à Internet utilizando o PA móvel. Isto permite que outros dispositivos estabeleçam ligação com este através de Wi-Fi. Os dispositivos ligados terão acesso à Internet através da sua rede móvel.
+    <string name="wifi_ap_instruction_no_maxclient">"Pode utilizar o seu dispositivo como um ponto de acesso à Internet utilizando o PA Móvel. Isto permite que outros dispositivos estabeleçam ligação com este via Wi-Fi. Os dispositivos ligados terão acesso à Internet através da sua rede móvel.
 
 Pode criar um perfil de dispositivo autorizado e definir o modo de ligação do dispositivo.
 
-A utilização do PA móvel aumenta o consumo da bateria e a utilização dos dados móveis."</string>
+A utilização do PA Móvel aumenta o consumo da bateria e a utilização de dados."</string>
     <string name="wifi_ap_instruction_configure_vzw">To change the Mobile Hotspot configuration, go to Settings > Mobile Hotspot and tethering > Mobile Hotspot > MORE, then select Configure Mobile Hotspot.</string>
     <string name="wifi_ap_instruction_configure_tmo">To change the Mobile HotSpot configuration, tap the More options button, then select Configure Mobile HotSpot.</string>
-    <string name="wifi_ap_instruction_configure">Para alterar a configuração do PA móvel, toque no botão Mais opções e seleccione Configurar PA móvel.</string>
+    <string name="wifi_ap_instruction_configure">Para alterar a configuração do PA Móvel, toque no botão Mais opções e seleccione Configurar PA Móvel.</string>
     <string name="wifi_ap_instruction_configure_non_grace_tmo">To change the Mobile HotSpot configuration, tap MORE, then select Configure Mobile HotSpot.</string>
-    <string name="wifi_ap_instruction_configure_non_grace">Para alterar a configuração do PA móvel, toque em MAIS e seleccione Configurar PA móvel.</string>
+    <string name="wifi_ap_instruction_configure_non_grace">Para alterar a configuração do PA Móvel, toque em MAIS e seleccione Configurar PA Móvel.</string>
     <string name="wifi_ap_change_security">Change Security</string>
     <string name="wifi_ap_maxclient">Máximo de ligações</string>
     <string name="wifi_ap_no_hotspot_mode_warning">O Hotspot portátil está a ser controlado actualmente por outra aplicação. Para o configurar, a ligação do Hotspot portátil actual será terminada.</string>
@@ -3270,7 +3271,7 @@ A utilização do PA móvel aumenta o consumo da bateria e a utilização dos da
     <string name="wifi_tether_configure_ap_text_tmo">Configurar PA Móvel</string>
     <string name="wifi_tether_configure_ap_text_spr">Configure Hotspot</string>
     <string name="wifi_tether_configure_ap_text_usc">Configure Wi-Fi hotspot</string>
-    <string name="wifi_tether_configure_ap_text">Configurar Hotspot portátil</string>
+    <string name="wifi_tether_configure_ap_text">Configurar PA móvel</string>
     <string name="wifi_ap_hidessid_warning">Your phone will be visible to other devices</string>
     <string name="wifi_ap_first_time_configuration">First time HotSpot configuration</string>
     <string name="title_wifi_notify_mobileap_is_on">Wi-Fi and Mobile Hotspot</string>
@@ -3489,6 +3490,7 @@ Recepção de SMS"</string>
     <string name="no">Não</string>
     <string name="create">Criar</string>
     <string name="allow">Permitir</string>
+    <string name="dlg_close">Fechar</string>
     <string name="device_info_default">Desconhecido</string>
     <string name="show_dev_on">O modo de programador foi activado.</string>
     <string name="show_dev_already">Não é necessário, o modo de programador já foi activado</string>

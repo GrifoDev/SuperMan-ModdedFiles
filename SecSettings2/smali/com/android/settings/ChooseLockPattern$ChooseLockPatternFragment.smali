@@ -1993,7 +1993,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f0b08c6
+    const v4, 0x7f0b08c7
 
     invoke-virtual {p0, v4}, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;->getString(I)Ljava/lang/String;
 
@@ -2324,13 +2324,13 @@
 
     iget-object v8, p0, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;->mFooterLeftButton:Landroid/widget/TextView;
 
-    const v9, 0x7f02033b
+    const v9, 0x7f02033c
 
     invoke-virtual {v8, v9}, Landroid/widget/TextView;->setBackgroundResource(I)V
 
     iget-object v8, p0, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;->mFooterRightButton:Landroid/widget/TextView;
 
-    const v9, 0x7f02033b
+    const v9, 0x7f02033c
 
     invoke-virtual {v8, v9}, Landroid/widget/TextView;->setBackgroundResource(I)V
 
@@ -2505,7 +2505,7 @@
 
     iget-object v8, p0, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;->mChooseLockSettingsHelper:Lcom/android/settings/ChooseLockSettingsHelper;
 
-    const v9, 0x7f0b118b
+    const v9, 0x7f0b118c    # 1.848538E38f
 
     invoke-virtual {p0, v9}, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;->getString(I)Ljava/lang/String;
 
@@ -2582,7 +2582,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b08c9
+    const v10, 0x7f0b08ca
 
     invoke-virtual {v9, v10}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -2592,7 +2592,7 @@
 
     new-array v10, v10, [Ljava/lang/Object;
 
-    const v11, 0x7f0b1194
+    const v11, 0x7f0b1195
 
     invoke-virtual {p0, v11}, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;->getString(I)Ljava/lang/String;
 
@@ -2880,7 +2880,7 @@
 
     iget-object v2, p0, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;->mHeaderText:Landroid/widget/TextView;
 
-    const v3, 0x7f0b14d7
+    const v3, 0x7f0b14d8
 
     invoke-virtual {p0, v3}, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;->getString(I)Ljava/lang/String;
 

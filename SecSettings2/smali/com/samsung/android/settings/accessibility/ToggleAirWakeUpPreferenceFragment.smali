@@ -188,7 +188,7 @@
 
     invoke-virtual {v5}, Landroid/view/ViewGroup;->removeAllViewsInLayout()V
 
-    const v6, 0x7f0401cc
+    const v6, 0x7f0401cd
 
     invoke-virtual {v2, v6, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -262,7 +262,7 @@
 
     const/4 v4, 0x0
 
-    const v3, 0x7f0401cc
+    const v3, 0x7f0401cd
 
     invoke-virtual {p1, v3, p2, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 

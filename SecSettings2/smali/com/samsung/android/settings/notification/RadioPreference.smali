@@ -70,7 +70,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/notification/RadioPreference;->mOnKeyListener:Landroid/view/View$OnKeyListener;
 
-    const v0, 0x7f040209
+    const v0, 0x7f04020a
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/notification/RadioPreference;->setLayoutResource(I)V
 

@@ -284,7 +284,7 @@
 
     new-instance v2, Lcom/samsung/android/settings/navigationbar/NavigationBarAppList$AppListAdapter;
 
-    const v5, 0x7f04016b
+    const v5, 0x7f04016c
 
     const/4 v6, 0x0
 

@@ -200,7 +200,7 @@
 
     check-cast v2, Landroid/widget/ImageView;
 
-    const v4, 0x7f0b0921
+    const v4, 0x7f0b0922
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/spen/PenAirViewSettingsMenu;->getString(I)Ljava/lang/String;
 
@@ -422,7 +422,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b1603
+    const v7, 0x7f0b1604
 
     invoke-virtual {p0, v7}, Lcom/samsung/android/settings/spen/PenAirViewSettingsMenu;->getString(I)Ljava/lang/String;
 
@@ -523,7 +523,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b0923
+    const v7, 0x7f0b0924
 
     invoke-virtual {v6, v7}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -547,7 +547,7 @@
 
     invoke-direct {v7, p0}, Lcom/samsung/android/settings/spen/PenAirViewSettingsMenu$4;-><init>(Lcom/samsung/android/settings/spen/PenAirViewSettingsMenu;)V
 
-    const v8, 0x7f0b0c1a
+    const v8, 0x7f0b0c1b
 
     invoke-virtual {v6, v8, v7}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

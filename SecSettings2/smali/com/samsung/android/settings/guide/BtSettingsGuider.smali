@@ -592,7 +592,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f04011a
+    const v0, 0x7f04011b
 
     invoke-direct {p0, p1}, Lcom/samsung/android/settings/guide/BtSettingsGuider;->setFocus(Lcom/samsung/android/settings/guide/BtSettingsGuider$GuideStates;)V
 
@@ -639,7 +639,7 @@
 
     if-eqz v2, :cond_2
 
-    const v0, 0x7f040116
+    const v0, 0x7f040117
 
     :goto_1
     invoke-static {}, Lcom/samsung/android/settings/guide/GuideModeHelper;->isTablet()Z
@@ -681,14 +681,14 @@
     goto :goto_0
 
     :cond_2
-    const v0, 0x7f040115
+    const v0, 0x7f040116
 
     goto :goto_1
 
     :pswitch_5
     const v1, 0x7f0b03bc
 
-    const v0, 0x7f04011a
+    const v0, 0x7f04011b
 
     goto :goto_0
 
@@ -1840,7 +1840,7 @@
 
     const v4, 0x7f0b03bc
 
-    const v3, 0x7f04011a
+    const v3, 0x7f04011b
 
     invoke-direct {p0, p1}, Lcom/samsung/android/settings/guide/BtSettingsGuider;->setFocus(Lcom/samsung/android/settings/guide/BtSettingsGuider$GuideStates;)V
 
@@ -1913,7 +1913,7 @@
 
     if-eqz v1, :cond_2
 
-    const v1, 0x7f040116
+    const v1, 0x7f040117
 
     invoke-direct {p0, v5, v1, p1}, Lcom/samsung/android/settings/guide/BtSettingsGuider;->showHelpDialog(IILcom/samsung/android/settings/guide/BtSettingsGuider$GuideStates;)V
 
@@ -1957,7 +1957,7 @@
     goto :goto_0
 
     :cond_2
-    const v1, 0x7f040115
+    const v1, 0x7f040116
 
     invoke-direct {p0, v5, v1, p1}, Lcom/samsung/android/settings/guide/BtSettingsGuider;->showHelpDialog(IILcom/samsung/android/settings/guide/BtSettingsGuider$GuideStates;)V
 

@@ -90,7 +90,7 @@
 
     check-cast v7, Landroid/view/LayoutInflater;
 
-    const v0, 0x7f040188
+    const v0, 0x7f040189
 
     const/4 v1, 0x0
 
@@ -184,7 +184,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f020373
+    const v1, 0x7f020374
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -223,7 +223,7 @@
 
     if-ne p1, v0, :cond_0
 
-    const v0, 0x7f0204f4
+    const v0, 0x7f0204f5
 
     invoke-virtual {v6, v0}, Landroid/widget/ImageView;->setImageResource(I)V
 

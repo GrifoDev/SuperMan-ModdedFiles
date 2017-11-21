@@ -27,7 +27,7 @@
 
     sput-object p1, Lcom/android/settings/deviceinfo/StorageItemPreference;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0402a6
+    const v0, 0x7f0402a7
 
     invoke-virtual {p0, v0}, Lcom/android/settings/deviceinfo/StorageItemPreference;->setLayoutResource(I)V
 
@@ -61,7 +61,7 @@
 
     sget-object v2, Lcom/android/settings/deviceinfo/StorageItemPreference;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b13ac
+    const v3, 0x7f0b13ad
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -75,7 +75,7 @@
 
     sget-object v2, Lcom/android/settings/deviceinfo/StorageItemPreference;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b13aa
+    const v3, 0x7f0b13ab
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -89,7 +89,7 @@
 
     sget-object v2, Lcom/android/settings/deviceinfo/StorageItemPreference;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b04eb
+    const v3, 0x7f0b04ec
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

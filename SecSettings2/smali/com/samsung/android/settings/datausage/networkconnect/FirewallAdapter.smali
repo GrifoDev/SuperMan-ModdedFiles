@@ -295,7 +295,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/datausage/networkconnect/FirewallAdapter;->mLayoutInflater:Landroid/view/LayoutInflater;
 
-    const v6, 0x7f04018a
+    const v6, 0x7f04018b
 
     invoke-virtual {v5, v6, p3, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -458,7 +458,7 @@
 
     iget-object v7, p0, Lcom/samsung/android/settings/datausage/networkconnect/FirewallAdapter;->mContext:Landroid/content/Context;
 
-    const v8, 0x7f0b0c59
+    const v8, 0x7f0b0c5a
 
     invoke-virtual {v7, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -521,7 +521,7 @@
 
     iget-object v7, p0, Lcom/samsung/android/settings/datausage/networkconnect/FirewallAdapter;->mContext:Landroid/content/Context;
 
-    const v8, 0x7f0b0c5a
+    const v8, 0x7f0b0c5b
 
     invoke-virtual {v7, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -636,7 +636,7 @@
 
     iget-object v7, p0, Lcom/samsung/android/settings/datausage/networkconnect/FirewallAdapter;->mContext:Landroid/content/Context;
 
-    const v8, 0x7f0b0c59
+    const v8, 0x7f0b0c5a
 
     invoke-virtual {v7, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -685,7 +685,7 @@
 
     iget-object v7, p0, Lcom/samsung/android/settings/datausage/networkconnect/FirewallAdapter;->mContext:Landroid/content/Context;
 
-    const v8, 0x7f0b0c5a
+    const v8, 0x7f0b0c5b
 
     invoke-virtual {v7, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

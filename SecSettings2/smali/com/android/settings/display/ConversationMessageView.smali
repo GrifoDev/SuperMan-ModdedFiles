@@ -299,7 +299,7 @@
 
     if-eqz v17, :cond_2
 
-    const v5, 0x7f020354
+    const v5, 0x7f020355
 
     :goto_2
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/display/ConversationMessageView;->getContext()Landroid/content/Context;
@@ -388,7 +388,7 @@
     goto :goto_1
 
     :cond_2
-    const v5, 0x7f020355
+    const v5, 0x7f020356
 
     goto :goto_2
 

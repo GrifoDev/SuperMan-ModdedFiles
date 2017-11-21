@@ -478,11 +478,11 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0b17ce
+    const v1, 0x7f0b17cf
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    const v1, 0x7f0b0ac2
+    const v1, 0x7f0b0ac3
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -494,7 +494,7 @@
 
     invoke-direct {v1, p0}, Lcom/samsung/android/settings/DataSlotChoice$3;-><init>(Lcom/samsung/android/settings/DataSlotChoice;)V
 
-    const v2, 0x7f0b0ac1
+    const v2, 0x7f0b0ac2
 
     invoke-virtual {v0, v2, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -954,7 +954,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0abe
+    const v4, 0x7f0b0abf
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -970,7 +970,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0abf
+    const v4, 0x7f0b0ac0
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1068,7 +1068,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/DataSlotChoice;->flag:[Z
 
-    const v10, 0x7f04015f
+    const v10, 0x7f040160
 
     invoke-direct {v1, v3, v10, v4, v5}, Lcom/samsung/android/settings/DataSlotChoice$RadioAdapter;-><init>(Landroid/content/Context;I[Ljava/lang/String;[Z)V
 
@@ -1215,7 +1215,7 @@
 
     sget-object v5, Lcom/samsung/android/settings/DataSlotChoice;->toastAlert:Landroid/widget/Toast;
 
-    const v6, 0x7f0b0ac0
+    const v6, 0x7f0b0ac1
 
     invoke-virtual {v5, v6}, Landroid/widget/Toast;->setText(I)V
 
@@ -1729,7 +1729,7 @@
 
     invoke-direct {v2, v7}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v7, 0x7f0b0ab1
+    const v7, 0x7f0b0ab2
 
     invoke-virtual {p0, v7}, Lcom/samsung/android/settings/DataSlotChoice;->getString(I)Ljava/lang/String;
 
@@ -1743,7 +1743,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b0ab2
+    const v8, 0x7f0b0ab3
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/DataSlotChoice;->getString(I)Ljava/lang/String;
 

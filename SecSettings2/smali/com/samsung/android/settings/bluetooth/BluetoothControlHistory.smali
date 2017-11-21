@@ -552,7 +552,7 @@
 
     invoke-direct {v3, v6}, Landroid/preference/Preference;-><init>(Landroid/content/Context;)V
 
-    const v6, 0x7f0401ce
+    const v6, 0x7f0401cf
 
     invoke-virtual {v3, v6}, Landroid/preference/Preference;->setLayoutResource(I)V
 
@@ -982,7 +982,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b1506
+    const v3, 0x7f0b1507
 
     move-object v5, v4
 

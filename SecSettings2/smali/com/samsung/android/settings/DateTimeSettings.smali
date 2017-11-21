@@ -688,7 +688,7 @@
 .end method
 
 .method public static getTimeZoneText(Ljava/util/TimeZone;Z)Ljava/lang/String;
-    .locals 12
+    .locals 13
 
     const/4 v3, 0x1
 
@@ -698,9 +698,9 @@
 
     new-instance v1, Ljava/text/SimpleDateFormat;
 
-    const-string/jumbo v9, "ZZZZ"
+    const-string/jumbo v10, "ZZZZ"
 
-    invoke-direct {v1, v9}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v10}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, p0}, Ljava/text/SimpleDateFormat;->setTimeZone(Ljava/util/TimeZone;)V
 
@@ -718,17 +718,17 @@
 
     invoke-static {v4}, Landroid/text/TextUtils;->getLayoutDirectionFromLocale(Ljava/util/Locale;)I
 
-    move-result v9
+    move-result v10
 
-    if-ne v9, v3, :cond_0
+    if-ne v10, v3, :cond_0
 
     :goto_0
     if-eqz v3, :cond_1
 
-    sget-object v9, Landroid/text/TextDirectionHeuristics;->RTL:Landroid/text/TextDirectionHeuristic;
+    sget-object v10, Landroid/text/TextDirectionHeuristics;->RTL:Landroid/text/TextDirectionHeuristic;
 
     :goto_1
-    invoke-virtual {v0, v2, v9}, Landroid/text/BidiFormatter;->unicodeWrap(Ljava/lang/String;Landroid/text/TextDirectionHeuristic;)Ljava/lang/String;
+    invoke-virtual {v0, v2, v10}, Landroid/text/BidiFormatter;->unicodeWrap(Ljava/lang/String;Landroid/text/TextDirectionHeuristic;)Ljava/lang/String;
 
     move-result-object v2
 
@@ -742,7 +742,7 @@
     goto :goto_0
 
     :cond_1
-    sget-object v9, Landroid/text/TextDirectionHeuristics;->LTR:Landroid/text/TextDirectionHeuristic;
+    sget-object v10, Landroid/text/TextDirectionHeuristics;->LTR:Landroid/text/TextDirectionHeuristic;
 
     goto :goto_1
 
@@ -753,165 +753,177 @@
 
     invoke-static {v5}, Landroid/icu/text/TimeZoneNames;->getInstance(Ljava/util/Locale;)Landroid/icu/text/TimeZoneNames;
 
-    move-result-object v7
+    move-result-object v8
 
     invoke-virtual {p0}, Ljava/util/TimeZone;->getID()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v10
 
-    const-string/jumbo v10, "Asia/Jerusalem"
+    const-string/jumbo v11, "Asia/Jerusalem"
 
-    invoke-virtual {v9, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v10, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v9
+    move-result v10
 
-    if-eqz v9, :cond_7
+    if-eqz v10, :cond_7
 
     invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
 
-    move-result-object v9
-
-    const-string/jumbo v10, "CscFeature_Setting_DisableIsraelCountry"
-
-    invoke-virtual {v9, v10}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;)Z
-
-    move-result v9
-
-    if-eqz v9, :cond_7
-
-    const-string/jumbo v9, "DateTimeSettings"
-
-    new-instance v10, Ljava/lang/StringBuilder;
-
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v11, "for MEA timeZoneId = "
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
     move-result-object v10
 
-    invoke-virtual {p0}, Ljava/util/TimeZone;->getID()Ljava/lang/String;
+    const-string/jumbo v11, "CscFeature_Setting_DisableIsraelCountry"
+
+    invoke-virtual {v10, v11}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;)Z
+
+    move-result v10
+
+    if-eqz v10, :cond_7
+
+    const-string/jumbo v10, "DateTimeSettings"
+
+    new-instance v11, Ljava/lang/StringBuilder;
+
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v12, "for MEA timeZoneId = "
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v11
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0}, Ljava/util/TimeZone;->getID()Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v12
 
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v11
 
-    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {p0}, Ljava/util/TimeZone;->getID()Ljava/lang/String;
 
+    move-result-object v10
+
+    invoke-virtual {v8, v10}, Landroid/icu/text/TimeZoneNames;->getExemplarLocationName(Ljava/lang/String;)Ljava/lang/String;
+
     move-result-object v9
 
-    invoke-virtual {v7, v9}, Landroid/icu/text/TimeZoneNames;->getExemplarLocationName(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v9}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result-object v8
+    move-result v10
 
-    invoke-static {v8}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    if-nez v10, :cond_3
 
-    move-result v9
+    const-string/jumbo v10, "DateTimeSettings"
 
-    if-nez v9, :cond_3
+    new-instance v11, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v9, "DateTimeSettings"
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
 
-    new-instance v10, Ljava/lang/StringBuilder;
+    const-string/jumbo v12, "for MEA zoneNameString = "
 
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v11, "for MEA zoneNameString = "
+    move-result-object v11
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v11, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v11
 
-    invoke-virtual {v10, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v11
 
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_3
     :goto_2
-    if-nez v8, :cond_4
+    if-nez v9, :cond_4
 
     invoke-virtual {p0}, Ljava/util/TimeZone;->getID()Ljava/lang/String;
 
+    move-result-object v10
+
+    invoke-static {v10}, Landroid/icu/util/TimeZone;->getTimeZone(Ljava/lang/String;)Landroid/icu/util/TimeZone;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Landroid/icu/util/TimeZone;->getDisplayName()Ljava/lang/String;
+
     move-result-object v9
-
-    invoke-static {v9}, Landroid/icu/util/TimeZone;->getTimeZone(Ljava/lang/String;)Landroid/icu/util/TimeZone;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Landroid/icu/util/TimeZone;->getDisplayName()Ljava/lang/String;
-
-    move-result-object v8
 
     :cond_4
-    const-string/jumbo v9, "GMT"
+    const-string/jumbo v10, "GMT"
 
-    invoke-virtual {v8, v9}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {v9, v10}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v9
+    move-result v10
 
-    if-eqz v9, :cond_5
+    if-eqz v10, :cond_5
 
     invoke-virtual {p0}, Ljava/util/TimeZone;->getID()Ljava/lang/String;
 
+    move-result-object v10
+
+    sget-object v11, Lcom/samsung/android/settings/DateTimeSettings;->resources:Landroid/content/res/Resources;
+
+    invoke-static {v10, v11}, Lcom/samsung/android/settings/DateTimeSettings;->getTimeZoneName(Ljava/lang/String;Landroid/content/res/Resources;)Ljava/lang/String;
+
     move-result-object v9
 
-    sget-object v10, Lcom/samsung/android/settings/DateTimeSettings;->resources:Landroid/content/res/Resources;
-
-    invoke-static {v9, v10}, Lcom/samsung/android/settings/DateTimeSettings;->getTimeZoneName(Ljava/lang/String;Landroid/content/res/Resources;)Ljava/lang/String;
-
-    move-result-object v8
-
     :cond_5
+    invoke-virtual {v5}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
+
+    move-result-object v7
+
     if-eqz v3, :cond_6
+
+    const-string/jumbo v10, "ar"
+
+    invoke-virtual {v7, v10}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v10
+
+    if-eqz v10, :cond_6
 
     invoke-static {v2}, Lcom/samsung/android/settings/DateTimeSettings;->convertToArabic(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
     :cond_6
-    new-instance v9, Ljava/lang/StringBuilder;
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v9, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v10
 
-    const-string/jumbo v10, " "
+    const-string/jumbo v11, " "
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-virtual {v9, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v10
 
-    return-object v9
+    return-object v10
 
     :cond_7
-    invoke-static {v7, p0, v6}, Lcom/samsung/android/settings/DateTimeSettings;->getZoneLongName(Landroid/icu/text/TimeZoneNames;Ljava/util/TimeZone;Ljava/util/Date;)Ljava/lang/String;
+    invoke-static {v8, p0, v6}, Lcom/samsung/android/settings/DateTimeSettings;->getZoneLongName(Landroid/icu/text/TimeZoneNames;Ljava/util/TimeZone;Ljava/util/Date;)Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v9
 
     goto :goto_2
 .end method
@@ -951,7 +963,7 @@
 .method private initUI()V
     .locals 14
 
-    const v13, 0x7f0b0871
+    const v13, 0x7f0b0872
 
     const/4 v9, 0x1
 
@@ -1097,7 +1109,7 @@
 
     iget-object v8, p0, Lcom/samsung/android/settings/DateTimeSettings;->mAutoTimePref:Lcom/android/settingslib/SecRestrictedSwitchPreference;
 
-    const v11, 0x7f0b1125
+    const v11, 0x7f0b1126
 
     invoke-virtual {v8, v11}, Lcom/android/settingslib/SecRestrictedSwitchPreference;->setSummary(I)V
 
@@ -1249,7 +1261,7 @@
 
     move-result-object v11
 
-    const v12, 0x7f0b0af2
+    const v12, 0x7f0b0af3
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3057,7 +3069,7 @@
 .method showTimeDisplaySchemeDialog()V
     .locals 3
 
-    const v1, 0x7f0b0ab9
+    const v1, 0x7f0b0aba
 
     invoke-static {v1}, Lcom/samsung/android/settings/TimeDisplaySchemeSettings;->newInstance(I)Lcom/samsung/android/settings/TimeDisplaySchemeSettings;
 

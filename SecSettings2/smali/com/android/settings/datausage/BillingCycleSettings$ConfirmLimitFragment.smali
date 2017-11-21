@@ -69,7 +69,7 @@
 
     float-to-long v6, v9
 
-    const v9, 0x7f0b049e
+    const v9, 0x7f0b049f
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -179,7 +179,7 @@
 
     invoke-direct {v2, v0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f0b049d
+    const v3, 0x7f0b049e
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 

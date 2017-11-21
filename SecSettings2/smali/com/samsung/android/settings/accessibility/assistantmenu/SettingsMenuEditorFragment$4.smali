@@ -37,7 +37,7 @@
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
     .locals 3
 
-    const v2, 0x7f020349
+    const v2, 0x7f02034a
 
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getActionMasked()I
 
@@ -63,7 +63,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f02034a
+    const v1, 0x7f02034b
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 

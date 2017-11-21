@@ -331,7 +331,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b180f
+    const v7, 0x7f0b1810
 
     invoke-virtual {v6, v7}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -345,7 +345,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b1807
+    const v7, 0x7f0b1808
 
     invoke-virtual {v6, v7}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -363,7 +363,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b1810
+    const v6, 0x7f0b1811
 
     invoke-virtual {v5, v6}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 

@@ -128,13 +128,13 @@
 
     invoke-static {v8, v9}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v8, 0x7f040233
+    const v8, 0x7f040234
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/deviceinfo/ShowRegulatoryInformationActivity;->setContentView(I)V
 
     iput-object p0, p0, Lcom/samsung/android/settings/deviceinfo/ShowRegulatoryInformationActivity;->mContext:Landroid/content/Context;
 
-    const v8, 0x7f0b14a8
+    const v8, 0x7f0b14a9
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/deviceinfo/ShowRegulatoryInformationActivity;->setTitle(I)V
 

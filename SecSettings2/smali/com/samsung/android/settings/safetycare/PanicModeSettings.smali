@@ -154,7 +154,7 @@
 
     if-eqz v0, :cond_2
 
-    const v1, 0x7f0b19db
+    const v1, 0x7f0b19dc
 
     :goto_1
     invoke-virtual {v2, v1}, Landroid/preference/PreferenceScreen;->setSummary(I)V
@@ -168,7 +168,7 @@
     goto :goto_0
 
     :cond_2
-    const v1, 0x7f0b19dc
+    const v1, 0x7f0b19dd
 
     goto :goto_1
 .end method
@@ -208,7 +208,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0401b1
+    const v2, 0x7f0401b2
 
     invoke-virtual {v1, v2, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -285,7 +285,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0401b1
+    const v3, 0x7f0401b2
 
     invoke-static {v2, v3, v4}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -453,12 +453,12 @@
 
     if-nez v4, :cond_1
 
-    const v4, 0x7f0b0483
+    const v4, 0x7f0b0484
 
     invoke-virtual {v2, v4}, Landroid/widget/TextView;->setText(I)V
 
     :goto_0
-    const v4, 0x7f02038d
+    const v4, 0x7f02038e
 
     invoke-virtual {v1, v4}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -476,7 +476,7 @@
     return-void
 
     :cond_1
-    const v4, 0x7f0b0482
+    const v4, 0x7f0b0483
 
     invoke-virtual {v2, v4}, Landroid/widget/TextView;->setText(I)V
 

@@ -76,7 +76,7 @@
 
     if-nez p2, :cond_1
 
-    const v2, 0x7f04015a
+    const v2, 0x7f04015b
 
     invoke-virtual {v1, v2, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 

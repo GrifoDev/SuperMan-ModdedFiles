@@ -820,7 +820,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b1033
+    const v6, 0x7f0b1034
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1474,7 +1474,7 @@
 
     const/4 v8, 0x1
 
-    const v7, 0x7f0b1033
+    const v7, 0x7f0b1034
 
     const/4 v6, 0x0
 
@@ -1688,7 +1688,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/nfc/PaymentDropDownPreference;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0b095c
+    const v6, 0x7f0b095d
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

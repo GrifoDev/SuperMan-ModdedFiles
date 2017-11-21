@@ -891,6 +891,7 @@ Wi-Fi 與藍牙也將關閉，但是可於 [設定] 或快速設定面板中再�
     <string name="bluetooth_control_app_disable_summary">已關閉藍牙：%s</string>
     <string name="bluetooth_enter_pin_msg">輸入與%s密碼配對（試用 0000 或 1234）。</string>
     <string name="bluetooth_pin_maximum_number_message">已達字元數量上限。</string>
+    <string name="bluetooth_frp_permission_message">無法對此通話使用藍牙裝置。</string>
     <string name="settings_menu_done">完成</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB 未連接</string>
     <string name="usb_tethering_available_subtext_tmo">已連接 USB，檢查以共享</string>
@@ -2968,7 +2969,7 @@ Wi-Fi 與藍牙也將關閉，但是可於 [設定] 或快速設定面板中再�
     <string name="wifi_enable_warning_spr">開啟 Wi-Fi 將停用無線基地台。</string>
     <string name="wifi_enable_warning_mtr">開啟 Wi-Fi 將停用行動無線基地台。繼續嗎？</string>
     <string name="wifi_enable_warning_usc">開啟 Wi-Fi 將停用可攜式 Wi-Fi 無線基地台。繼續嗎？</string>
-    <string name="wifi_enable_warning">開啟 Wi-Fi 將停用行動無線基地台。</string>
+    <string name="wifi_enable_warning">啟用行動無線基地台時，Wi-Fi 為關閉狀態。若要開啟 Wi-Fi，請關閉行動無線基地台。</string>
     <string name="wifi_control_history_title">Wi-Fi 控制歷程記錄</string>
     <string name="wifi_control_history_description">最近開啟或關閉 Wi-Fi 的應用程式如下。</string>
     <string name="wifi_control_history_sub_title">最近使用的應用程式</string>
@@ -2994,7 +2995,7 @@ Wi-Fi 與藍牙也將關閉，但是可於 [設定] 或快速設定面板中再�
     <string name="wifi_ap_help_enable_msg_summary_vzw">[行動無線基地台] 已開啟。輕觸 [設定] 來變更您的 [行動無線基地台] 設定。</string>
     <string name="wifi_ap_help_enable_msg_summary">行動無線基地台已啟用。若要變更行動無線基地台，請輕觸 [更多] 並選擇 [設定行動無線基地台]。</string>
     <string name="wifi_ap_turning_on">正在啟用行動無線基地台…</string>
-    <string name="wifi_ap_turning_off">正在停用行動無線基地台…</string>
+    <string name="wifi_ap_turning_off">正在關閉行動無線基地台…</string>
     <string name="wifi_ap_password_dialog_title">更改密碼</string>
     <string name="wifi_ap_wifi_sharing_text">您的 Wi-Fi 網路可能會與其他裝置分享。請注意，您的裝置可能在已儲存的 Wi-Fi 網路間切換，而不另行通知。您必須遵守 Wi-Fi 供應商的所有條款與條件。</string>
     <string name="wifi_ap__wifi_sharing_vzw">Wi-Fi 共享</string>
@@ -3073,7 +3074,7 @@ Wi-Fi 與藍牙也將關閉，但是可於 [設定] 或快速設定面板中再�
     <string name="wifi_ap_wifi_off_warn_chn">啟用行動無線基地台將關閉 WLAN。</string>
     <string name="wifi_ap_wifi_off_warn_att">開啟可攜式 Wi-Fi 無線基地台將關閉 Wi-Fi。</string>
     <string name="wifi_ap_wifi_off_warn_mtr">[USB 網路分享] 或 [行動無線基地台] 啟動時將關閉 Wi-Fi。若要開啟 Wi-Fi，請關閉 [USB 網路分享] 或 [行動無線基地台]。</string>
-    <string name="wifi_ap_wifi_off_warn">啟用行動無線基地台將關閉 Wi-Fi。</string>
+    <string name="wifi_ap_wifi_off_warn">若要使用行動無線基地台，需關閉 Wi-Fi。</string>
     <string name="wifi_ap_wifi_off_warn_title_vzw">行動無線基地台與 Wi-Fi</string>
     <string name="wifi_ap_wifi_off_warn_title">注意</string>
     <string name="wifi_ap_smartview_off_warn_vzw">[行動無線基地台] 與 Smart View 無法同時開啟。將關閉 Smart View。</string>
@@ -3171,13 +3172,13 @@ Wi-Fi 已開啟。"</string>
     <string name="wifi_tether_dialog_nosim_warning_title_tmo">行動無線基地台</string>
     <string name="wifi_tether_dialog_nosim_warning_title_spr">無線基地台</string>
     <string name="wifi_tether_dialog_nosim_warning_title_att">行動熱點</string>
-    <string name="wifi_tether_dialog_nosim_warning_title">行動無線基地台</string>
+    <string name="wifi_tether_dialog_nosim_warning_title">無 SIM 卡</string>
     <string name="wifi_tether_dialog_nosim_warning_chn">插入 SIM 卡以使用行動無線基地台及其他網路共享功能。</string>
     <string name="wifi_tether_dialog_nosim_warning_vzw">插入 SIM 卡以使用行動無線基地台及其他網路共享選項。</string>
     <string name="wifi_tether_dialog_nosim_warning_tmo">請安裝 SIM 卡以針對網際網路存取使用行動 Wi-Fi 無線基地台或 USB 網路共享，將您的手機資料與其他裝置分享。</string>
     <string name="wifi_tether_dialog_nosim_warning_spr">插入 SIM 卡來使用無線基地台，包含網路共享</string>
     <string name="wifi_tether_dialog_nosim_warning_usc">插入 SIM 卡以使用行動無線基地台及其他網路共享功能。</string>
-    <string name="wifi_tether_dialog_nosim_warning">插入 SIM 卡以使用行動無線基地台及其他網路共享功能。</string>
+    <string name="wifi_tether_dialog_nosim_warning">請插入 SIM 卡以使用行動無線基地台及其他網路共享選項。</string>
     <string name="mobileap_tmo">行動無線基地台</string>
     <string name="mobileap_spr">無線基地台</string>
     <string name="mobileap_att">行動熱點</string>
@@ -3486,6 +3487,7 @@ Wi-Fi 已開啟。"</string>
     <string name="no">否</string>
     <string name="create">建立</string>
     <string name="allow">允許</string>
+    <string name="dlg_close">關閉</string>
     <string name="device_info_default">未知</string>
     <string name="show_dev_on">開發者模式已啟用。</string>
     <string name="show_dev_already">不需要，開發者模式已啟用</string>

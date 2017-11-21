@@ -768,7 +768,7 @@
 .method public handleRingtonePicked(Landroid/net/Uri;I)V
     .locals 8
 
-    const v7, 0x7f0b09f4
+    const v7, 0x7f0b09f5
 
     const/4 v6, 0x0
 

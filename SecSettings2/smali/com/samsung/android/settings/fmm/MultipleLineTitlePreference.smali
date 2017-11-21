@@ -73,7 +73,7 @@
 
     sput-object p1, Lcom/samsung/android/settings/fmm/MultipleLineTitlePreference;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f04020a
+    const v0, 0x7f04020b
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/fmm/MultipleLineTitlePreference;->setLayoutResource(I)V
 
@@ -122,7 +122,7 @@
 
     aput-object v8, v7, v9
 
-    const v8, 0x7f0b0745
+    const v8, 0x7f0b0746
 
     invoke-virtual {v6, v8, v7}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

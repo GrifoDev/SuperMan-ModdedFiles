@@ -75,7 +75,7 @@
     goto :goto_0
 
     :pswitch_data_0
-    .packed-switch 0x7f0b03fa
+    .packed-switch 0x7f0b03fb
         :pswitch_1
         :pswitch_0
     .end packed-switch

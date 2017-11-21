@@ -753,7 +753,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0b0430
+    const v0, 0x7f0b0431
 
     invoke-interface {p1, v1, v1, v1, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -948,7 +948,7 @@
 .method public showEnableDialog(Ljava/lang/String;Ljava/lang/String;Z)V
     .locals 10
 
-    const v9, 0x7f0b0c1a
+    const v9, 0x7f0b0c1b
 
     new-instance v0, Landroid/view/ContextThemeWrapper;
 
@@ -1023,7 +1023,7 @@
 
     invoke-direct {v7, p0}, Lcom/samsung/android/settings/spen/DirectPenInputSettings$9;-><init>(Lcom/samsung/android/settings/spen/DirectPenInputSettings;)V
 
-    const v8, 0x7f0b0bfc
+    const v8, 0x7f0b0bfd
 
     invoke-virtual {v6, v8, v7}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

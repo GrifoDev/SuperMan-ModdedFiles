@@ -428,7 +428,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f020398
+    const v1, 0x7f020399
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1213,7 +1213,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b1893
+    const v0, 0x7f0b1894
 
     return v0
 .end method

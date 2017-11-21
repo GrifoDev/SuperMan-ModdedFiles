@@ -148,7 +148,7 @@
     return v5
 
     :cond_1
-    const v2, 0x7f0b0635
+    const v2, 0x7f0b0636
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -317,7 +317,7 @@
 
     iget-object v0, p0, Lcom/android/settings/CryptDecryptSettings;->mInitiateButton:Landroid/widget/Button;
 
-    const v1, 0x7f0b05f3
+    const v1, 0x7f0b05f4
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(I)V
 

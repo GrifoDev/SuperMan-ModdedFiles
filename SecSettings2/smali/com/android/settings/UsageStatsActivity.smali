@@ -68,7 +68,7 @@
 
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    const v2, 0x7f0402fb
+    const v2, 0x7f0402fc
 
     invoke-virtual {p0, v2}, Lcom/android/settings/UsageStatsActivity;->setContentView(I)V
 

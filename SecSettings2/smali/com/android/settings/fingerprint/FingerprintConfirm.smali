@@ -73,13 +73,13 @@
 
     invoke-direct {v1, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0b067a
+    const v2, 0x7f0b067b
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v1
 
-    const v2, 0x7f0b06b0
+    const v2, 0x7f0b06b1
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -113,7 +113,7 @@
 .method private showSensorErrorDialog(I)V
     .locals 4
 
-    const v1, 0x7f0b067c
+    const v1, 0x7f0b067d
 
     if-ne p1, v1, :cond_0
 
@@ -129,14 +129,14 @@
 
     if-eqz v1, :cond_0
 
-    const p1, 0x7f0b067d
+    const p1, 0x7f0b067e
 
     :cond_0
     new-instance v1, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v1, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0b067a
+    const v2, 0x7f0b067b
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -212,7 +212,7 @@
 
     invoke-static {v5, v6}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v5, 0x7f0b067c
+    const v5, 0x7f0b067d
 
     invoke-direct {p0, v5}, Lcom/android/settings/fingerprint/FingerprintConfirm;->showSensorErrorDialog(I)V
 

@@ -572,7 +572,7 @@
 
     if-ne v1, v3, :cond_0
 
-    const v1, 0x7f0b0969
+    const v1, 0x7f0b096a
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -589,7 +589,7 @@
 
     aput-object v3, v2, v4
 
-    const v3, 0x7f0b096a
+    const v3, 0x7f0b096b
 
     invoke-virtual {v1, v3, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -622,7 +622,7 @@
     return-void
 
     :cond_0
-    const v1, 0x7f0b0a89
+    const v1, 0x7f0b0a8a
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -767,7 +767,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0b0947
+    const v2, 0x7f0b0948
 
     invoke-virtual {v0, v2}, Landroid/app/ActionBar;->setTitle(I)V
 
@@ -1028,7 +1028,7 @@
     :cond_3
     const/4 v0, 0x1
 
-    const v1, 0x7f0b0960
+    const v1, 0x7f0b0961
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1046,13 +1046,13 @@
 
     const/4 v0, 0x2
 
-    const v1, 0x7f0b1892
+    const v1, 0x7f0b1893
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    const v1, 0x7f020146
+    const v1, 0x7f020147
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 

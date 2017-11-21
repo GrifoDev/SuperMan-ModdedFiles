@@ -892,6 +892,7 @@ Voit muuttaa tätä asetusta myöhemmin Bluetooth-asetukset-kohdassa."</string>
     <string name="bluetooth_control_app_disable_summary">Bluetooth ei käytössä: %s</string>
     <string name="bluetooth_enter_pin_msg">Muodosta pariliitos laitteen %s kanssa antamalla PIN-koodi (esim. 0000 tai 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">Merkkien enimmäismäärä on saavutettu.</string>
+    <string name="bluetooth_frp_permission_message">Tähän puheluun ei voi käyttää Bluetooth-laitetta.</string>
     <string name="settings_menu_done">Valmis</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>
@@ -2971,7 +2972,7 @@ Lataamisesta matkapuhelinverkkojen kautta voidaan periä lisämaksuja tilauksesi
     <string name="wifi_enable_warning_spr">Turning on Wi-Fi will disable Hotspot.</string>
     <string name="wifi_enable_warning_mtr">Turning on Wi-Fi will turn off Mobile Hotspot. Continue?</string>
     <string name="wifi_enable_warning_usc">Turning on Wi-Fi will turn off Portable Wi-Fi hotspot. Continue?</string>
-    <string name="wifi_enable_warning">Jos otat Wi-Fi-toiminnon käyttöön, mobiilitukiasema poistetaan käytöstä.</string>
+    <string name="wifi_enable_warning">Wi-Fi poistetaan käytöstä, kun Mobile Hotspot on käytössä. Jos haluat ottaa Wi-Fin käyttöön, poista Mobile Hotspot käytöstä.</string>
     <string name="wifi_control_history_title">Wi-Fi-ohjaushistoria</string>
     <string name="wifi_control_history_description">Alla olevissa sovelluksissa Wi-Fi on hiljattain otettu käyttöön tai poistettu käytöstä.</string>
     <string name="wifi_control_history_sub_title">Viimeksi käytetyt sovellukset</string>
@@ -3076,7 +3077,7 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_ap_wifi_off_warn_chn">Jos otat mobiilitukiaseman käyttöön, WLAN-toiminto poistetaan käytöstä.</string>
     <string name="wifi_ap_wifi_off_warn_att">Turning on portable Wi-Fi hotspot will turn off Wi-Fi.</string>
     <string name="wifi_ap_wifi_off_warn_mtr">Wi-Fi is turned off when USB tethering or Mobile Hotspot is active. To turn on Wi-Fi, please turn off USB tethering or Mobile Hotspot.</string>
-    <string name="wifi_ap_wifi_off_warn">Mobiilitukiaseman käyttöönotto poistaa Wi-Fin käytöstä.</string>
+    <string name="wifi_ap_wifi_off_warn">Jos haluat käyttää Mobiilitukiasema-toimintoa, Wi-Fi-yhteys on poistettava käytöstä.</string>
     <string name="wifi_ap_wifi_off_warn_title_vzw">Mobile Hotspot and Wi-Fi</string>
     <string name="wifi_ap_wifi_off_warn_title">Huomio</string>
     <string name="wifi_ap_smartview_off_warn_vzw">Mobile Hotspot and Smart View cannot be turned on at the same time. Smart View will be turned off.</string>
@@ -3174,13 +3175,13 @@ Wi-Fi is now on."</string>
     <string name="wifi_tether_dialog_nosim_warning_title_tmo">Mobile Hotspot</string>
     <string name="wifi_tether_dialog_nosim_warning_title_spr">Hotspot</string>
     <string name="wifi_tether_dialog_nosim_warning_title_att">Mobile Hotspot</string>
-    <string name="wifi_tether_dialog_nosim_warning_title">Mobiilitukiasema</string>
+    <string name="wifi_tether_dialog_nosim_warning_title">SIM-korttia ei ole</string>
     <string name="wifi_tether_dialog_nosim_warning_chn">Aseta SIM-kortti mobiilitukiaseman ja muiden jaettujen yhteystoimintojen käyttöä varten.</string>
     <string name="wifi_tether_dialog_nosim_warning_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
     <string name="wifi_tether_dialog_nosim_warning_tmo">"Please install SIM card in order to share your phone's data connection with other devices using Mobile Wi-Fi HotSpot or USB tethering for Internet access."</string>
     <string name="wifi_tether_dialog_nosim_warning_spr">Insert SIM for using Hotspot include tethering</string>
     <string name="wifi_tether_dialog_nosim_warning_usc">Aseta SIM-kortti mobiilitukiaseman ja muiden jaettujen yhteystoimintojen käyttöä varten.</string>
-    <string name="wifi_tether_dialog_nosim_warning">Aseta SIM-kortti mobiilitukiaseman ja muiden jaettujen yhteystoimintojen käyttöä varten.</string>
+    <string name="wifi_tether_dialog_nosim_warning">Aseta SIM-kortti mobiilitukiaseman ja muiden jaettujen yhteysvaihtoehtojen käyttöä varten.</string>
     <string name="mobileap_tmo">Mobile Hotspot</string>
     <string name="mobileap_spr">Hotspot</string>
     <string name="mobileap_att">Mobile Hotspot</string>
@@ -3489,6 +3490,7 @@ Tekstiviestin vastaanottaminen"</string>
     <string name="no">Ei</string>
     <string name="create">Luo</string>
     <string name="allow">Salli</string>
+    <string name="dlg_close">Sulje</string>
     <string name="device_info_default">Tuntematon</string>
     <string name="show_dev_on">Kehittäjätila on otettu käyttöön.</string>
     <string name="show_dev_already">Ei tarvetta, kehittäjätila on jo otettu käyttöön.</string>

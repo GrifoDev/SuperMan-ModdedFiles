@@ -892,6 +892,7 @@ Wi-Fi і Bluetooth таксама будуць выключаны, але іх �
     <string name="bluetooth_control_app_disable_summary">Bluetooth выключаны: %s</string>
     <string name="bluetooth_enter_pin_msg">Увядзіце PIN-код для спалучэння з «%s» (паспрабуйце ўвесці 0000 або 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">Дасягнута максімальная колькасць сімвалаў.</string>
+    <string name="bluetooth_frp_permission_message">Немагчыма выкарыстоўваць Bluetooth для гэтага выкліку.</string>
     <string name="settings_menu_done">Гатова</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>
@@ -2972,7 +2973,7 @@ Downloading via mobile networks uses your data plan."</string>
     <string name="wifi_enable_warning_spr">Turning on Wi-Fi will disable Hotspot.</string>
     <string name="wifi_enable_warning_mtr">Turning on Wi-Fi will turn off Mobile Hotspot. Continue?</string>
     <string name="wifi_enable_warning_usc">Turning on Wi-Fi will turn off Portable Wi-Fi hotspot. Continue?</string>
-    <string name="wifi_enable_warning">Пры ўключэнні Wi-Fi адключыцца мабільны хот-спот.</string>
+    <string name="wifi_enable_warning">Wi-Fi выключаецца, калі мабільны хот-спот актыўны. Каб уключыць Wi-Fi, выключыце мабільны хот-спот.</string>
     <string name="wifi_control_history_title">Гісторыя кіравання Wi-Fi</string>
     <string name="wifi_control_history_description">Праграмы ніжэй нядаўна ўключалі або выключалі Wi-Fi.</string>
     <string name="wifi_control_history_sub_title">Апошнія праграмы</string>
@@ -2998,7 +2999,7 @@ Downloading via mobile networks uses your data plan."</string>
     <string name="wifi_ap_help_enable_msg_summary_vzw">Mobile Hotspot is turned on. Tap Configure to change your Mobile Hotspot settings.</string>
     <string name="wifi_ap_help_enable_msg_summary">Mobile Hotspot is enabled. To change the Mobile Hotspot configuration, tap MORE and select Configure Mobile Hotspot.</string>
     <string name="wifi_ap_turning_on">Уключаецца Мабільны хот-спот…</string>
-    <string name="wifi_ap_turning_off">Адключэнне мабільнага хот-спота…</string>
+    <string name="wifi_ap_turning_off">Выключэнне мабільнага хот-спота…</string>
     <string name="wifi_ap_password_dialog_title">Змяніць пароль</string>
     <string name="wifi_ap_wifi_sharing_text">Ваша сетка Wi-Fi можа быць абагулена з іншымі прыладамі. Майце на ўвазе, што ваша прылада можа пераключацца паміж захаванымі вамі сеткамі Wi-Fi без папярэджання. Вы адказваеце за адпаведнасць умовам выкарыстання сетак Wi-Fi вашага пастаўшчыка паслуг.</string>
     <string name="wifi_ap__wifi_sharing_vzw">Wi-Fi Sharing</string>
@@ -3077,7 +3078,7 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_ap_wifi_off_warn_chn">Enabling Mobile hotspot will turn off WLAN.</string>
     <string name="wifi_ap_wifi_off_warn_att">Turning on portable Wi-Fi hotspot will turn off Wi-Fi.</string>
     <string name="wifi_ap_wifi_off_warn_mtr">Wi-Fi is turned off when USB tethering or Mobile Hotspot is active. To turn on Wi-Fi, please turn off USB tethering or Mobile Hotspot.</string>
-    <string name="wifi_ap_wifi_off_warn">Пры ўключэнні Мабільнага хот-спота выключыцца Wi-Fi.</string>
+    <string name="wifi_ap_wifi_off_warn">Для выкарыстання мабільнага хот-спота трэба выключыць Wi-Fi.</string>
     <string name="wifi_ap_wifi_off_warn_title_vzw">Mobile Hotspot and Wi-Fi</string>
     <string name="wifi_ap_wifi_off_warn_title">Увага</string>
     <string name="wifi_ap_smartview_off_warn_vzw">Mobile Hotspot and Smart View cannot be turned on at the same time. Smart View will be turned off.</string>
@@ -3102,7 +3103,7 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_ap_menu_configure_hotspot_spr">Configure Hotspot</string>
     <string name="wifi_ap_menu_configure_hotspot_tmo">Configure Mobile HotSpot</string>
     <string name="wifi_ap_menu_configure_hotspot_att">Configure Mobile Hotspot</string>
-    <string name="wifi_ap_menu_configure_hotspot">Наладзіць Мабільны хот-спот</string>
+    <string name="wifi_ap_menu_configure_hotspot">Наладзіць мабільны хот-спот</string>
     <string name="wifi_ap_menu_timeout">Нал. пратэрмінавання</string>
     <string name="wifi_ap_menu_allow_devices">Дазволеныя прылады</string>
     <string name="wifi_ap_timeout_message_vzw">Disable Mobile Hotspot if there is no connection for</string>
@@ -3175,13 +3176,13 @@ Wi-Fi is now on."</string>
     <string name="wifi_tether_dialog_nosim_warning_title_tmo">Mobile HotSpot</string>
     <string name="wifi_tether_dialog_nosim_warning_title_spr">Hotspot</string>
     <string name="wifi_tether_dialog_nosim_warning_title_att">Mobile Hotspot</string>
-    <string name="wifi_tether_dialog_nosim_warning_title">Мабільны хот-спот</string>
+    <string name="wifi_tether_dialog_nosim_warning_title">Няма SIM-карты</string>
     <string name="wifi_tether_dialog_nosim_warning_chn">Insert a SIM card to use Mobile hotspot and other tethering functions.</string>
     <string name="wifi_tether_dialog_nosim_warning_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
     <string name="wifi_tether_dialog_nosim_warning_tmo">"Please install SIM card in order to share your phone's data connection with other devices using Mobile Wi-Fi HotSpot or USB tethering for Internet access."</string>
     <string name="wifi_tether_dialog_nosim_warning_spr">Insert SIM for using Hotspot include tethering</string>
     <string name="wifi_tether_dialog_nosim_warning_usc">Устаўце SIM-карту, каб карыстацца мабільным хот-спотам і іншымі функцыямі мадэма.</string>
-    <string name="wifi_tether_dialog_nosim_warning">Устаўце SIM-карту, каб карыстацца мабільным хот-спотам і іншымі функцыямі мадэма.</string>
+    <string name="wifi_tether_dialog_nosim_warning">Каб карыстацца мабільным хот-спотам і іншымі параметрамі мадэма, устаўце SIM-карту.</string>
     <string name="mobileap_tmo">Mobile HotSpot</string>
     <string name="mobileap_spr">Hotspot</string>
     <string name="mobileap_att">Mobile Hotspot</string>
@@ -3490,6 +3491,7 @@ Receiving SMS"</string>
     <string name="no">Не</string>
     <string name="create">Стварыць</string>
     <string name="allow">Дазволіць</string>
+    <string name="dlg_close">Закрыць</string>
     <string name="device_info_default">Невядома</string>
     <string name="show_dev_on">Быў уключаны рэжым распрацоўшчыка.</string>
     <string name="show_dev_already">Няма патрэбы, ужо ўключаны рэжым распрацоўшчыка.</string>

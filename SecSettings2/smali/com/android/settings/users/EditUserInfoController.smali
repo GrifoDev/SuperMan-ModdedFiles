@@ -340,7 +340,7 @@
 
     invoke-direct {v2, v14}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f0b1141
+    const v3, 0x7f0b1142
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -425,7 +425,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f02036c
+    const v3, 0x7f02036d
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

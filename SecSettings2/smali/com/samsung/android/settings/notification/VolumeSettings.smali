@@ -1165,7 +1165,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/notification/VolumeSettings;->mRingOrNotificationPreference:Lcom/android/settings/notification/SecVolumeSeekBarPreference;
 
-    const v4, 0x7f0b1316
+    const v4, 0x7f0b1317
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/notification/VolumeSettings;->getString(I)Ljava/lang/String;
 
@@ -1262,7 +1262,7 @@
 
     const/4 v0, 0x1
 
-    const v1, 0x7f0b09da
+    const v1, 0x7f0b09db
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1299,7 +1299,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b09da
+    const v3, 0x7f0b09db
 
     move-object v4, v2
 

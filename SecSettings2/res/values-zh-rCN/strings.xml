@@ -891,6 +891,7 @@ Wi-Fi 和蓝牙也将关闭，但可以在【设置】或快捷设置面板中�
     <string name="bluetooth_control_app_disable_summary">已关闭蓝牙：%s</string>
     <string name="bluetooth_enter_pin_msg">输入蓝牙密码与%s配对(尝试 0000 或 1234)。</string>
     <string name="bluetooth_pin_maximum_number_message">已达到最大字符数</string>
+    <string name="bluetooth_frp_permission_message">此通话无法使用蓝牙设备</string>
     <string name="settings_menu_done">完成</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB 未连接</string>
     <string name="usb_tethering_available_subtext_tmo">已连接 USB，选择即可进行网络共享。</string>
@@ -2969,7 +2970,7 @@ Wi-Fi 和蓝牙也将关闭，但可以在【设置】或快捷设置面板中�
     <string name="wifi_enable_warning_spr">打开 Wi-Fi 将禁用热点。</string>
     <string name="wifi_enable_warning_mtr">打开 Wi-Fi 将关闭移动热点。继续？</string>
     <string name="wifi_enable_warning_usc">打开 Wi-Fi 将关闭便携式 Wi-Fi 热点。是否继续？</string>
-    <string name="wifi_enable_warning">打开 Wi-Fi 将禁用移动热点。</string>
+    <string name="wifi_enable_warning">当移动热点激活时，<cst>Wi-Fi</cst> 将被关闭。若要开启 <cst>Wi-Fi</cst>，请关闭移动热点。</string>
     <string name="wifi_control_history_title">Wi-Fi 控制历史记录</string>
     <string name="wifi_control_history_description">下列应用程序最近曾开启或关闭 Wi-Fi。</string>
     <string name="wifi_control_history_sub_title">最近应用程序</string>
@@ -2995,7 +2996,7 @@ Wi-Fi 和蓝牙也将关闭，但可以在【设置】或快捷设置面板中�
     <string name="wifi_ap_help_enable_msg_summary_vzw">已打开【移动热点】。点击【设置】可更改移动热点设置。</string>
     <string name="wifi_ap_help_enable_msg_summary">已启用移动热点。若要更改移动热点配置，请点击【更多】并选择【配置移动热点】。</string>
     <string name="wifi_ap_turning_on">正在启用移动热点…</string>
-    <string name="wifi_ap_turning_off">正在禁用移动热点…</string>
+    <string name="wifi_ap_turning_off">正在关闭移动热点…</string>
     <string name="wifi_ap_password_dialog_title">更改密码</string>
     <string name="wifi_ap_wifi_sharing_text">您的 Wi-Fi 网络可能会与其他设备分享。请注意，您的设备可能在不通知您的情况下在已保存的 Wi-Fi 网络之间切换。您必须遵守 Wi-Fi 提供商的全部条款和条件。</string>
     <string name="wifi_ap__wifi_sharing_vzw">Wi-Fi 共享</string>
@@ -3046,7 +3047,7 @@ Wi-Fi 和蓝牙也将关闭，但可以在【设置】或快捷设置面板中�
 您可创建允许连接的设备的配置文件，并为其设置连接模式。
 
 使用便携式 Wi-Fi 热点会增加电量和数据使用量。"</string>
-    <string name="wifi_ap_instruction_changeable_maxclient">"您可以使用移动热点将设备用作互联网接入点。这将允许最多 %d 个其他设备通过 Wi-Fi 连接到您的设备。连接的设备可以通过您的移动网络访问互联网。
+    <string name="wifi_ap_instruction_changeable_maxclient">您可以使用移动热点来将设备用作互联网接入点。这将允许最多 %d 个其他设备通过 <cst>Wi-Fi</cst>" 连接至您的设备。连接的设备可以通过您的移动网络访问互联网。
 
 您也可以创建允许的设备列表并为其设置连接模式。
 
@@ -3074,7 +3075,7 @@ Wi-Fi 和蓝牙也将关闭，但可以在【设置】或快捷设置面板中�
     <string name="wifi_ap_wifi_off_warn_chn">启用移动热点将关闭 WLAN。</string>
     <string name="wifi_ap_wifi_off_warn_att">打开便携式 Wi-Fi 热点将关闭 Wi-Fi。</string>
     <string name="wifi_ap_wifi_off_warn_mtr">Wi-Fi 在【USB 网络共享】或【移动热点】启动时关闭。若要开启 Wi-Fi，请关闭【USB 网络共享】或【移动热点】。</string>
-    <string name="wifi_ap_wifi_off_warn">启用移动热点将关闭 Wi-Fi。</string>
+    <string name="wifi_ap_wifi_off_warn">需要关闭 <cst>Wi-Fi</cst> 才能使用移动热点。</string>
     <string name="wifi_ap_wifi_off_warn_title_vzw">移动热点和 Wi-Fi</string>
     <string name="wifi_ap_wifi_off_warn_title">注意</string>
     <string name="wifi_ap_smartview_off_warn_vzw">无法同时打开【移动热点】和 Smart View。将关闭 Smart View。</string>
@@ -3172,13 +3173,13 @@ Wi-Fi 已开启。"</string>
     <string name="wifi_tether_dialog_nosim_warning_title_tmo">移动热点</string>
     <string name="wifi_tether_dialog_nosim_warning_title_spr">热点</string>
     <string name="wifi_tether_dialog_nosim_warning_title_att">移动热点</string>
-    <string name="wifi_tether_dialog_nosim_warning_title">移动热点</string>
+    <string name="wifi_tether_dialog_nosim_warning_title">没有 SIM 卡</string>
     <string name="wifi_tether_dialog_nosim_warning_chn">插入一张 SIM 卡以使用移动热点及其他网络共享功能。</string>
     <string name="wifi_tether_dialog_nosim_warning_vzw">插入一张 SIM 卡以使用移动热点及其他网络共享选项。</string>
     <string name="wifi_tether_dialog_nosim_warning_tmo">请安装 SIM 卡以便通过移动 Wi-Fi 热点或 USB 网络分享接入互联网来与其他设备分享您手机的数据连接。</string>
     <string name="wifi_tether_dialog_nosim_warning_spr">插入 SIM 卡用于使用热点，包括网络共享</string>
     <string name="wifi_tether_dialog_nosim_warning_usc">插入一张 SIM 卡以使用移动热点及其他网络共享功能。</string>
-    <string name="wifi_tether_dialog_nosim_warning">插入一张 SIM 卡以使用移动热点及其他网络共享功能。</string>
+    <string name="wifi_tether_dialog_nosim_warning">插入一张 SIM 卡以使用移动热点及其他网络共享选项。</string>
     <string name="mobileap_tmo">移动热点</string>
     <string name="mobileap_spr">热点</string>
     <string name="mobileap_att">移动热点</string>
@@ -3245,14 +3246,14 @@ Wi-Fi 已开启。"</string>
     <string name="wifi_ap_instruction_activate_color_hidden3_tmo">通过输入 &lt;font color=%1$s>%3$s&lt;/font> 作为密码连接至 &lt;font color=%1$s>%2$s&lt;/font>。</string>
     <string name="wifi_ap_instruction_activate_color_hidden3">通过输入 &lt;font color=%1$s>%3$s&lt;/font> 作为密码连接至 &lt;font color=%1$s>%2$s&lt;/font>。</string>
     <string name="wifi_ap_instruction_activate_color_hidden4_tmo">使用您的个人移动热点享受互联网的乐趣。</string>
-    <string name="wifi_ap_instruction_no_maxclient">"您可使用移动热点来将设备用作互联网接入点。这可允许其他设备通过 Wi-Fi 连接至您的设备。连接的设备通过您的移动网络，可以访问互联网。
+    <string name="wifi_ap_instruction_no_maxclient">您可以使用移动热点来将设备用作互联网接入点。这将允许其他设备通过 <cst>Wi-Fi</cst>" 连接至您的设备。连接的设备可以通过您的移动网络访问互联网。
 
-您可创建允许连接的设备的配置文件，并为其设置连接模式。
+您也可以创建允许的设备列表并为其设置连接模式。
 
-使用移动热点会增加电量和数据使用量。"</string>
+使用移动热点会增加电量和流量的使用量。"</string>
     <string name="wifi_ap_instruction_configure_vzw">若要更改移动热点配置，请进入【设置】>【移动热点和网络共享】>【移动热点】>【更多】，然后选择【配置移动热点】。</string>
     <string name="wifi_ap_instruction_configure_tmo">若要更改移动热点配置，请点击【更多】选项按钮，然后选择【配置移动热点】。</string>
-    <string name="wifi_ap_instruction_configure">若要更改移动热点配置，请点击【更多】选项按钮，然后选择【配置移动热点】。</string>
+    <string name="wifi_ap_instruction_configure">若要更改移动热点设置，请点击【更多选项】按钮，然后选择【配置移动热点】。</string>
     <string name="wifi_ap_instruction_configure_non_grace_tmo">若要更改移动热点配置，请点击【更多】，然后选择【配置移动热点】。</string>
     <string name="wifi_ap_instruction_configure_non_grace">若要更改移动热点设置，请点击【更多】并选择【配置移动热点】。</string>
     <string name="wifi_ap_change_security">更改安全性</string>
@@ -3487,6 +3488,7 @@ Wi-Fi 已开启。"</string>
     <string name="no">否</string>
     <string name="create">创建</string>
     <string name="allow">允许</string>
+    <string name="dlg_close">关闭</string>
     <string name="device_info_default">未知</string>
     <string name="show_dev_on">开发者模式已启用。</string>
     <string name="show_dev_already">不需要，开发者模式已启用</string>

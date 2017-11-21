@@ -93,7 +93,7 @@
 
     aput-object v3, v2, v4
 
-    const v3, 0x7f0b11c8
+    const v3, 0x7f0b11c9
 
     invoke-virtual {v1, v3, v2}, Lcom/samsung/android/settings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

@@ -502,7 +502,7 @@
 
     const/4 v0, 0x1
 
-    const v1, 0x7f0b1132
+    const v1, 0x7f0b1133
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -514,13 +514,13 @@
 
     const/4 v0, 0x2
 
-    const v1, 0x7f0b1133
+    const v1, 0x7f0b1134
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    const v1, 0x7f0201a6
+    const v1, 0x7f0201a7
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 

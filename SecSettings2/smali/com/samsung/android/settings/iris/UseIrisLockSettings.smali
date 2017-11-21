@@ -54,7 +54,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b1196
+    const v3, 0x7f0b1197
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -67,7 +67,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b1198
+    const v3, 0x7f0b1199
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -80,7 +80,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b1194
+    const v3, 0x7f0b1195
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -105,7 +105,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b1190
+    const v3, 0x7f0b1191
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -118,7 +118,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b1192
+    const v3, 0x7f0b1193
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -147,7 +147,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0772
+    const v4, 0x7f0b0773
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -157,7 +157,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0773
+    const v4, 0x7f0b0774
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -254,7 +254,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/iris/UseIrisLockSettings;->mIrisManager:Lcom/samsung/android/camera/iris/SemIrisManager;
 
-    const v0, 0x7f040300
+    const v0, 0x7f040301
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/iris/UseIrisLockSettings;->setContentView(I)V
 
@@ -276,7 +276,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v0, 0x7f0b0771
+    const v0, 0x7f0b0772
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/iris/UseIrisLockSettings;->setTitle(I)V
 

@@ -892,6 +892,7 @@ Vous pouvez modifier cette option ultérieurement dans les paramètres Bluetooth
     <string name="bluetooth_control_app_disable_summary">Bluetooth désactivé : %s</string>
     <string name="bluetooth_enter_pin_msg">Saisissez le NIP pour le jumelage à %s (Essayez 0000 ou 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">Nombre maximal de caractères atteint.</string>
+    <string name="bluetooth_frp_permission_message">"Impossible d'utiliser un appareil Bluetooth pour cet appel."</string>
     <string name="settings_menu_done">OK</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB non connecté</string>
     <string name="usb_tethering_available_subtext_tmo">USB connecté. Cochez pour activer le modem</string>
@@ -2970,7 +2971,7 @@ Le téléchargement via des réseaux mobiles peut entrainer des frais supplémen
     <string name="wifi_enable_warning_spr">"L'activation du Wifi va désactiver le point d'accès."</string>
     <string name="wifi_enable_warning_mtr">"L'activation du Wifi entraine la désactivation du point d'accès mobile. Continuer ?"</string>
     <string name="wifi_enable_warning_usc">"L'activation du Wi-Fi entraînera la désactivation du point d'accès Wi-Fi mobile. Continuer ?"</string>
-    <string name="wifi_enable_warning">"L'activation du Wifi va désactiver le point d'accès mobile."</string>
+    <string name="wifi_enable_warning">"Le Wifi est désactivé lorsque la fonction Point d'accès mobile est activée. Pour activer le Wifi, désactivez la fonction Point d'accès mobile."</string>
     <string name="wifi_control_history_title">Historique de contrôle du Wifi</string>
     <string name="wifi_control_history_description">Les applications ci-dessous ont activé ou désactivé le Wifi récemment.</string>
     <string name="wifi_control_history_sub_title">Applications récentes</string>
@@ -2995,8 +2996,8 @@ Le téléchargement via des réseaux mobiles peut entrainer des frais supplémen
     <string name="wifi_wapi_user_certificate">Certificat utilisateur</string>
     <string name="wifi_ap_help_enable_msg_summary_vzw">"Point d'accès mobile est activé. Touchez Configurer pour modifier vos paramètres Point d'accès mobile."</string>
     <string name="wifi_ap_help_enable_msg_summary">La fonction Mobile Hotspot est activée. Pour modifier sa configuration, touchez PLUS, puis sélectionnez Configurer Mobile Hotspot.</string>
-    <string name="wifi_ap_turning_on">"Activation du point d'accès mobile…"</string>
-    <string name="wifi_ap_turning_off">"Désactivation du point d'accès mobile…"</string>
+    <string name="wifi_ap_turning_on">"Activation de la fonction Point d'accès mobile…"</string>
+    <string name="wifi_ap_turning_off">"Désactivation de la fonction Point d'accès mobile…"</string>
     <string name="wifi_ap_password_dialog_title">Modifier le mot de passe</string>
     <string name="wifi_ap_wifi_sharing_text">"Votre réseau Wifi peut être partagé avec d'autres appareils. Veuillez par ailleurs noter que votre appareil peut passer d'un réseau Wifi enregistré à un autre sans vous avertir. Vous devez donc être en conformité avec l'ensemble des conditions d'utilisation de vos fournisseurs d'accès Wifi."</string>
     <string name="wifi_ap__wifi_sharing_vzw">Partage Wifi</string>
@@ -3009,11 +3010,11 @@ Le téléchargement via des réseaux mobiles peut entrainer des frais supplémen
     <string name="wifi_ap_starting_chn">"Activation du point d'accès WLAN mobile…"</string>
     <string name="wifi_ap_starting_tmo">"Activation de Point d'accès mobile …"</string>
     <string name="wifi_ap_starting_att">"Activation du point d'accès Wi-Fi mobile…"</string>
-    <string name="wifi_ap_starting">"Activation du point d'accès mobile…"</string>
+    <string name="wifi_ap_starting">"Activation de la fonction Point d'accès mobile…"</string>
     <string name="wifi_ap_stopping_chn">"Désactivation du point d'accès WLAN mobile…"</string>
     <string name="wifi_ap_stopping_tmo">"Désactivation de Point d'accès mobile …"</string>
     <string name="wifi_ap_stopping_att">"Désactivation du point d'accès Wi-Fi mobile…"</string>
-    <string name="wifi_ap_stopping">"Désactivation du point d'accès mobile…"</string>
+    <string name="wifi_ap_stopping">"Désactivation de la fonction Point d'accès mobile…"</string>
     <string name="wifi_ap_add_whitelist">Ajouter à la liste blanche</string>
     <string name="wifi_ap_remove_from_whitelist">Supprimer de la liste blanche</string>
     <string name="wifi_ap_allow_device_added">%s ajouté aux appareils autorisés.</string>
@@ -3047,11 +3048,11 @@ Après avoir démarré le routeur Wifi, connectez-vous à l'aide des commandes d
 Vous pouvez créer un profil d'appareil autorisé et en définir son mode de connexion.
 
 L'utilisation du point d'accès Wi-Fi mobile consomme davantage de batterie et augmente votre utilisation des données."</string>
-    <string name="wifi_ap_instruction_changeable_maxclient">"Vous pouvez utiliser votre appareil comme point d'accès Internet à l'aide du point d'accès mobile. Cela permet à %d autres appareils de se connecter via Wifi. Les appareils connectés auront accès à Internet via votre réseau mobile.
+    <string name="wifi_ap_instruction_changeable_maxclient">"Vous pouvez utiliser votre appareil comme point d'accès Internet à l'aide de la fonction Point d'accès mobile. Cela permet à %d autres appareils de se connecter par Wifi. Les appareils connectés auront accès à Internet par votre réseau mobile.
 
 Vous pouvez créer un profil d'appareil autorisé et en définir son mode de connexion.
 
-L'utilisation du point d'accès mobile augmente la consommation de la batterie, ainsi que l'utilisation des données."</string>
+L'utilisation de la fonction Point d'accès mobile augmente la consommation de la pile, ainsi que l'utilisation des données."</string>
     <string name="wifi_ap_instruction_mtr">"Transformez votre téléphone en point d'accès Wifi mobile pour que vous puissiez partager votre connexion de données mobiles avec d'autres appareils.
 
 Pour utiliser les fonctions de point d'accès de vos téléphones, vous devez ajouter le service Point d'accès mobile pour téléphone intelligent à votre forfait.
@@ -3075,7 +3076,7 @@ Pour configurer Point d'accès mobile pour téléphone intelligent, touchez l'ic
     <string name="wifi_ap_wifi_off_warn_chn">"L'activation du point d'accès mobile va désactiver le WLAN."</string>
     <string name="wifi_ap_wifi_off_warn_att">"L'activation du point d'accès Wi-Fi mobile entraîne la désactivation du Wi-Fi."</string>
     <string name="wifi_ap_wifi_off_warn_mtr">"Le Wifi est désactivé en cas d'activation du modem USB ou du point d'accès mobile. Pour activer le Wifi, désactivez le modem USB ou le point d'accès mobile."</string>
-    <string name="wifi_ap_wifi_off_warn">"L'activation du point d'accès mobile va désactiver le Wifi."</string>
+    <string name="wifi_ap_wifi_off_warn">"Pour utiliser la fonction Point d'accès mobile, vous devez désactiver le Wifi."</string>
     <string name="wifi_ap_wifi_off_warn_title_vzw">Mobile Hotspot et wifi</string>
     <string name="wifi_ap_wifi_off_warn_title">Attention</string>
     <string name="wifi_ap_smartview_off_warn_vzw">"La fonction Mobile Hotspot et l'application Smart View ne peuvent pas être activées en même temps. Smart View va être désactivée."</string>
@@ -3100,7 +3101,7 @@ Pour configurer Point d'accès mobile pour téléphone intelligent, touchez l'ic
     <string name="wifi_ap_menu_configure_hotspot_spr">"Configurer le Point d'accès"</string>
     <string name="wifi_ap_menu_configure_hotspot_tmo">"Configurer Point d'accès mobile"</string>
     <string name="wifi_ap_menu_configure_hotspot_att">"Configurer Point d'accès mobile"</string>
-    <string name="wifi_ap_menu_configure_hotspot">"Config. point d'accès mobile"</string>
+    <string name="wifi_ap_menu_configure_hotspot">"Configurez la fonction Point d'accès mobile"</string>
     <string name="wifi_ap_menu_timeout">Param. Désactivation</string>
     <string name="wifi_ap_menu_allow_devices">Appareils autorisés</string>
     <string name="wifi_ap_timeout_message_vzw">"Désactiver le point d'accès mobile s'il n'y a aucune connexion pour"</string>
@@ -3173,13 +3174,13 @@ Le Wifi est maintenant activé."</string>
     <string name="wifi_tether_dialog_nosim_warning_title_tmo">"Point d'accès mobile"</string>
     <string name="wifi_tether_dialog_nosim_warning_title_spr">"Point d'accès"</string>
     <string name="wifi_tether_dialog_nosim_warning_title_att">"Point d'accès mobile"</string>
-    <string name="wifi_tether_dialog_nosim_warning_title">"Point d'accès mobile"</string>
+    <string name="wifi_tether_dialog_nosim_warning_title">Aucune carte SIM</string>
     <string name="wifi_tether_dialog_nosim_warning_chn">"Insérez une carte SIM pour utiliser la fonction Point d'accès mobile et les autres fonctions du modem."</string>
     <string name="wifi_tether_dialog_nosim_warning_vzw">"Insérez une carte SIM pour utiliser oint d'accès mobile et les autres options du modem."</string>
     <string name="wifi_tether_dialog_nosim_warning_tmo">"Insérez la carte SIM pour partager la connexion des données de votre téléphone avec d'autres appareils qui utilisent un point d'accès Wifi mobile ou un modem USB pour accéder à Internet."</string>
     <string name="wifi_tether_dialog_nosim_warning_spr">"Insérez une carte SIM pour utiliser le Point d'accès, y compris le modem"</string>
     <string name="wifi_tether_dialog_nosim_warning_usc">"Insérez une carte SIM pour utiliser Point d'accès mobile et les autres fonctions du modem."</string>
-    <string name="wifi_tether_dialog_nosim_warning">"Insérez une carte SIM pour utiliser Point d'accès mobile et les autres fonctions du modem."</string>
+    <string name="wifi_tether_dialog_nosim_warning">"Insérez une carte SIM pour utiliser la fonction Point d'accès mobile et les autres options de modem."</string>
     <string name="mobileap_tmo">"Point d'accès mobile"</string>
     <string name="mobileap_spr">"Point d'accès"</string>
     <string name="mobileap_att">"Point d'accès mobile"</string>
@@ -3246,14 +3247,14 @@ Le Wifi est maintenant activé."</string>
     <string name="wifi_ap_instruction_activate_color_hidden3_tmo">Connectez-vous à &lt;font color=\"%1$s\">%2$s&lt;/font> en saisissant &lt;font color=\"%1$s\">%3$s&lt;/font> comme mot de passe.</string>
     <string name="wifi_ap_instruction_activate_color_hidden3">Connectez-vous à &lt;font color=\"%1$s\">%2$s&lt;/font> en saisissant &lt;font color=\"%1$s\">%3$s&lt;/font> comme mot de passe.</string>
     <string name="wifi_ap_instruction_activate_color_hidden4_tmo">"Utilisez Internet avec votre point d'accès mobile personnel."</string>
-    <string name="wifi_ap_instruction_no_maxclient">"Vous pouvez utiliser votre appareil comme point d'accès Internet à l'aide de la fonction Point d'accès mobile. Cela permet à d'autres appareils de se connecter via Wifi. Les appareils connectés auront accès à Internet via votre réseau mobile.
+    <string name="wifi_ap_instruction_no_maxclient">"Vous pouvez utiliser votre appareil comme point d'accès Internet à l'aide de la fonction Point d'accès mobile. Cela permet à d'autres appareils de se connecter par Wifi. Les appareils connectés auront accès à Internet par votre réseau mobile.
 
 Vous pouvez créer un profil d'appareil autorisé et en définir son mode de connexion.
 
 L'utilisation de la fonction Point d'accès mobile augmente la consommation de la pile, ainsi que l'utilisation des données."</string>
     <string name="wifi_ap_instruction_configure_vzw">Pour modifier la configuration du Mobile Hotspot, accédez à Paramètres > Mobile Hotspot et modem > Mobile Hotspot > PLUS, puis sélectionnez Configurer le Mobile Hotspot.</string>
     <string name="wifi_ap_instruction_configure_tmo">"Pour modifier la configuration de la fonction Point d'accès mobile, touchez la touche Options supplémentaires, puis sélectionnez Configurer Point d'accès mobile."</string>
-    <string name="wifi_ap_instruction_configure">"Pour modifier la configuration de la fonction Mobile Hotspot, touchez le bouton Options supplémentaires, puis sélectionnez Configurer Point d'accès mobile."</string>
+    <string name="wifi_ap_instruction_configure">"Pour modifier la configuration de la fonction Point d'accès mobile, touchez Options supplémentaires, puis sélectionnez Configurer Point d'accès mobile."</string>
     <string name="wifi_ap_instruction_configure_non_grace_tmo">"Pour modifier la configuration de la fonction Point d'accès mobile, touchez PLUS, puis sélectionnez Configurer Point d'accès mobile."</string>
     <string name="wifi_ap_instruction_configure_non_grace">"Pour modifier la configuration de la fonction Point d'accès mobile, touchez PLUS, puis sélectionnez Configurer Point d'accès mobile."</string>
     <string name="wifi_ap_change_security">Modifier la sécurité</string>
@@ -3488,6 +3489,7 @@ Receiving SMS"</string>
     <string name="no">Non</string>
     <string name="create">Créer</string>
     <string name="allow">Autoriser</string>
+    <string name="dlg_close">Fermer</string>
     <string name="device_info_default">Inconnu</string>
     <string name="show_dev_on">Le mode développeur a été activé.</string>
     <string name="show_dev_already">Inutile, le mode développeur a déjà été activé</string>

@@ -50,7 +50,7 @@
     <string name="tether_settings_title_wifi">Conexión compartida</string>
     <string name="tether_settings_title_bluetooth">Módem Bluetooth</string>
     <string name="tether_settings_title_usb_bluetooth">Módem USB</string>
-    <string name="tether_settings_title_all">Conexión compartida</string>
+    <string name="tether_settings_title_all">Conexión compartida y Módem</string>
     <string name="user_guest">Invitado</string>
     <string name="unknown">Desconocido</string>
     <string name="running_process_item_user_label">Usuario: %s</string>
@@ -756,6 +756,7 @@ Puede cambiar esto más tarde en Ajustes de Bluetooth."</string>
     <string name="bluetooth_control_app_disable_summary">Bluetooth desactivado: %s</string>
     <string name="bluetooth_enter_pin_msg">Introduzca el PIN para vincular con %s (intente 0000 o 1234)</string>
     <string name="bluetooth_pin_maximum_number_message">Número máximo de caracteres alcanzado.</string>
+    <string name="bluetooth_frp_permission_message">No se puede usar el dispositivo Bluetooth para esta llamada.</string>
     <string name="settings_menu_done">Hecho</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>
@@ -2835,7 +2836,7 @@ La descarga mediante redes móviles puede suponer costes adicionales en función
     <string name="wifi_enable_warning_spr">Turning on Wi-Fi will disable Hotspot.</string>
     <string name="wifi_enable_warning_mtr">Turning on Wi-Fi will turn off Mobile Hotspot. Continue?</string>
     <string name="wifi_enable_warning_usc">Turning on Wi-Fi will turn off Portable Wi-Fi hotspot. Continue?</string>
-    <string name="wifi_enable_warning">Si activa el Wi-Fi, se desactivará Conexión compartida.</string>
+    <string name="wifi_enable_warning">La Wi-Fi está desactivada cuando Conexión compartida está activada. Para activar la Wi-Fi, desactiva Conexión compartida.</string>
     <string name="wifi_control_history_title">Historial de control de Wi-Fi</string>
     <string name="wifi_control_history_description">Las siguientes aplicaciones han activado o desactivado la conexión Wi-Fi más recientemente.</string>
     <string name="wifi_control_history_sub_title">Aplicaciones recientes</string>
@@ -2912,11 +2913,11 @@ After you start the Mobile Hotspot Wi-Fi router, connect using the controls on y
 You can create an allowed device profile and set the connection mode for it.
 
 Using Portable Wi-Fi hotspot consumes more battery power and increases your data usage."</string>
-    <string name="wifi_ap_instruction_changeable_maxclient">"Puede usar su dispositivo como punto de acceso a Internet usando Conexión compartida. Esto permite la conexión de hasta %d dispositivos mediante Wi-Fi. Los dispositivos conectados accederán a Internet a través de su red móvil.
+    <string name="wifi_ap_instruction_changeable_maxclient">"Puedes usar tu dispositivo como punto de acceso a Internet usando Conexión compartida. Esto permite la conexión de hasta %d dispositivos mediante Wi-Fi. Los dispositivos conectados accederán a Internet a través de tu red móvil.
 
-Puede crear un perfil de dispositivos admitidos y configurar su modo de conexión.
+Puedes crear un perfil de dispositivos admitidos y configurar tu modo de conexión.
 
-Usar la Conexión compartida consume más batería y aumenta el uso de datos."</string>
+Usar Conexión compartida consume más batería y aumenta el uso de datos."</string>
     <string name="wifi_ap_instruction_mtr">"Turn your phone into Portable Wi-Fi Hotspot so you can share your mobile data connection with other devices.
 
 To use your phone's Hotspot capability, you must have the Smartphone Mobile Hotspot service added to your rate plan.
@@ -2940,7 +2941,7 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_ap_wifi_off_warn_chn">Al activar Conexión compartida, se desactivará la WLAN.</string>
     <string name="wifi_ap_wifi_off_warn_att">Turning on portable Wi-Fi hotspot will turn off Wi-Fi.</string>
     <string name="wifi_ap_wifi_off_warn_mtr">Wi-Fi is turned off when USB tethering or Mobile Hotspot is active. To turn on Wi-Fi, please turn off USB tethering or Mobile Hotspot.</string>
-    <string name="wifi_ap_wifi_off_warn">Al activar Conexión compartida, se desactivará la Wi-Fi.</string>
+    <string name="wifi_ap_wifi_off_warn">Para usar Conexión compartida, debes desactivar la Wi-Fi.</string>
     <string name="wifi_ap_wifi_off_warn_title_vzw">Mobile Hotspot and Wi-Fi</string>
     <string name="wifi_ap_wifi_off_warn_title">Atención</string>
     <string name="wifi_ap_smartview_off_warn_vzw">Mobile Hotspot and Smart View cannot be turned on at the same time. Smart View will be turned off.</string>
@@ -3038,13 +3039,13 @@ Wi-Fi is now on."</string>
     <string name="wifi_tether_dialog_nosim_warning_title_tmo">Conexión compartida</string>
     <string name="wifi_tether_dialog_nosim_warning_title_spr">Hotspot</string>
     <string name="wifi_tether_dialog_nosim_warning_title_att">Conexión compartida</string>
-    <string name="wifi_tether_dialog_nosim_warning_title">Conexión compartida</string>
+    <string name="wifi_tether_dialog_nosim_warning_title">No hay tarjeta SIM</string>
     <string name="wifi_tether_dialog_nosim_warning_chn">Introduzca una tarjeta SIM para utilizar Conexión compartida y otras funciones de módem USB/Bluetooth.</string>
     <string name="wifi_tether_dialog_nosim_warning_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
     <string name="wifi_tether_dialog_nosim_warning_tmo">"Please install SIM card in order to share your phone's data connection with other devices using Mobile Wi-Fi HotSpot or USB tethering for Internet access."</string>
     <string name="wifi_tether_dialog_nosim_warning_spr">Insert SIM for using Hotspot include tethering</string>
     <string name="wifi_tether_dialog_nosim_warning_usc">Introduzca una tarjeta SIM para utilizar Conexión compartida y otras funciones de módem USB/Bluetooth.</string>
-    <string name="wifi_tether_dialog_nosim_warning">Introduzca una tarjeta SIM para utilizar Conexión compartida y otras funciones de módem USB/Bluetooth.</string>
+    <string name="wifi_tether_dialog_nosim_warning">Inserta una tarjeta SIM para usar Conexión compartida y otras opciones de módem USB/Bluetooth.</string>
     <string name="mobileap_tmo">Conexión compartida</string>
     <string name="mobileap_spr">Hotspot</string>
     <string name="mobileap_att">Conexión compartida</string>
@@ -3111,16 +3112,16 @@ Wi-Fi is now on."</string>
     <string name="wifi_ap_instruction_activate_color_hidden3_tmo">Connect to &lt;font color=\"%1$s\">%2$s&lt;/font> by entering &lt;font color=\"%1$s\">%3$s&lt;/font> as the password.</string>
     <string name="wifi_ap_instruction_activate_color_hidden3">Conectar a &lt;font color=\"%1$s\">%2$s&lt;/font> introduciendo &lt;font color=\"%1$s\">%3$s&lt;/font> como la contraseña.</string>
     <string name="wifi_ap_instruction_activate_color_hidden4_tmo">Enjoy the internet using your personal Mobile HotSpot.</string>
-    <string name="wifi_ap_instruction_no_maxclient">"Puede usar su dispositivo como punto de acceso a Internet usando Conexión compartida. Esto permite la conexión de otros dispositivos mediante Wi-Fi. Los dispositivos conectados accederán a Internet a través de su red móvil.
+    <string name="wifi_ap_instruction_no_maxclient">"Puedes usar tu dispositivo como punto de acceso a Internet usando Conexión compartida. Esto permite la conexión de otros dispositivos mediante Wi-Fi. Los dispositivos conectados accederán a Internet a través de tu red móvil.
 
-Puede crear un perfil de dispositivos admitidos y configurar su modo de conexión.
+Puedes crear un perfil de dispositivos admitidos y configurar tu modo de conexión.
 
-Usar Compartir conexión consume más batería y aumenta el uso de datos."</string>
+Usar Conexión compartida consume más batería y aumenta el uso de datos."</string>
     <string name="wifi_ap_instruction_configure_vzw">To change the Mobile Hotspot configuration, go to Settings > Mobile Hotspot and tethering > Mobile Hotspot > MORE, then select Configure Mobile Hotspot.</string>
     <string name="wifi_ap_instruction_configure_tmo">To change the Mobile HotSpot configuration, tap the More options button, then select Configure Mobile HotSpot.</string>
-    <string name="wifi_ap_instruction_configure">Para cambiar la configuración de la Conexión compartida, pulse el botón Más opciones y, a continuación, seleccione Configurar Conexión compartida.</string>
+    <string name="wifi_ap_instruction_configure">Para cambiar la configuración de la Conexión compartida, pulsa el botón Más opciones y, a continuación, selecciona Configurar Conexión compartida.</string>
     <string name="wifi_ap_instruction_configure_non_grace_tmo">To change the Mobile HotSpot configuration, tap MORE, then select Configure Mobile HotSpot.</string>
-    <string name="wifi_ap_instruction_configure_non_grace">Para cambiar la configuración de la Conexión compartida, pulse MÁS y seleccione Configurar Conexión compartida.</string>
+    <string name="wifi_ap_instruction_configure_non_grace">Para cambiar la configuración de Conexión compartida, pulsa MÁS y selecciona Configurar Conexión compartida.</string>
     <string name="wifi_ap_change_security">Change Security</string>
     <string name="wifi_ap_maxclient">Conexiones máximas</string>
     <string name="wifi_ap_no_hotspot_mode_warning">Actualmente otra aplicación controla Conexión compartida. La conexión de Conexión compartida actual finalizará para que pueda configurarla.</string>
@@ -3353,6 +3354,7 @@ Recepción de SMS"</string>
     <string name="no">No</string>
     <string name="create">Crear</string>
     <string name="allow">Permitir</string>
+    <string name="dlg_close">Cerrar</string>
     <string name="device_info_default">Desconocido</string>
     <string name="show_dev_on">Se ha activado el modo de desarrollador</string>
     <string name="show_dev_already">No es necesario, ya se ha activado el modo de desarrollador</string>

@@ -35,7 +35,7 @@
 
     iput-object p1, p0, Lcom/samsung/android/settings/RestrictedListPreference$RestrictedArrayAdapter;->this$0:Lcom/samsung/android/settings/RestrictedListPreference;
 
-    const v0, 0x7f04023c
+    const v0, 0x7f04023d
 
     const v1, 0x7f1105e0
 

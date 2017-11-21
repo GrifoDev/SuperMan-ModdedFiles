@@ -82,7 +82,7 @@
 
     if-ne p1, v2, :cond_1
 
-    const v0, 0x7f0b1bb0
+    const v0, 0x7f0b1bb1
 
     :goto_0
     if-eqz v0, :cond_0
@@ -93,7 +93,7 @@
     return-void
 
     :cond_1
-    const v0, 0x7f0b1bb1
+    const v0, 0x7f0b1bb2
 
     goto :goto_0
 .end method
@@ -245,7 +245,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 2
 
-    const v0, 0x7f040191
+    const v0, 0x7f040192
 
     const/4 v1, 0x0
 

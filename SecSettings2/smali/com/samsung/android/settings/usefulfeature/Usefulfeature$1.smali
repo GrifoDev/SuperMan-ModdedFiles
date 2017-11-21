@@ -34,7 +34,7 @@
 .method public onChange(Z)V
     .locals 5
 
-    const v1, 0x7f0b19db
+    const v1, 0x7f0b19dc
 
     iget-object v2, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature$1;->this$0:Lcom/samsung/android/settings/usefulfeature/Usefulfeature;
 
@@ -106,7 +106,7 @@
     goto :goto_0
 
     :cond_2
-    const v1, 0x7f0b0402
+    const v1, 0x7f0b0403
 
     goto :goto_1
 
@@ -125,7 +125,7 @@
     goto :goto_2
 
     :cond_4
-    const v1, 0x7f0b19dc
+    const v1, 0x7f0b19dd
 
     goto :goto_3
 .end method

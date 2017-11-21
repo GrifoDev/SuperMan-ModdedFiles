@@ -728,9 +728,9 @@
 .method private handleWriteNfcEvent(Landroid/nfc/Tag;)V
     .locals 7
 
-    const v5, 0x7f0b1938
+    const v5, 0x7f0b1939
 
-    const v6, 0x7f0b1937
+    const v6, 0x7f0b1938
 
     invoke-static {p1}, Landroid/nfc/tech/Ndef;->get(Landroid/nfc/Tag;)Landroid/nfc/tech/Ndef;
 
@@ -781,7 +781,7 @@
 
     iget-object v4, p0, Lcom/android/settings/wifi/WriteWifiConfigToNfcDialog;->mLabelView:Landroid/widget/TextView;
 
-    const v5, 0x7f0b1936
+    const v5, 0x7f0b1937
 
     invoke-direct {p0, v4, v5}, Lcom/android/settings/wifi/WriteWifiConfigToNfcDialog;->setViewText(Landroid/widget/TextView;I)V
 
@@ -975,7 +975,7 @@
 
     iget-object v3, p0, Lcom/android/settings/wifi/WriteWifiConfigToNfcDialog;->mLabelView:Landroid/widget/TextView;
 
-    const v4, 0x7f0b1934
+    const v4, 0x7f0b1935
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(I)V
 
@@ -1394,7 +1394,7 @@
     :cond_2
     iget-object v5, p0, Lcom/android/settings/wifi/WriteWifiConfigToNfcDialog;->mPasswordErrorView:Landroid/widget/TextView;
 
-    const v6, 0x7f0b0c4d
+    const v6, 0x7f0b0c4e
 
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(I)V
 
@@ -1438,7 +1438,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f040372
+    const v2, 0x7f040373
 
     invoke-virtual {v0, v2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -1458,7 +1458,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0b1932
+    const v2, 0x7f0b1933
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1496,7 +1496,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0b1933
+    const v2, 0x7f0b1934
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1514,7 +1514,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0b1933
+    const v2, 0x7f0b1934
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1690,7 +1690,7 @@
 
     iget-object v2, p0, Lcom/android/settings/wifi/WriteWifiConfigToNfcDialog;->mPasswordErrorView:Landroid/widget/TextView;
 
-    const v3, 0x7f0b0c88
+    const v3, 0x7f0b0c89
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
 

@@ -892,6 +892,7 @@ Saate seda seadet hiljem muuta Bluetoothi seadetes."</string>
     <string name="bluetooth_control_app_disable_summary">Bluetooth välja lül.: %s</string>
     <string name="bluetooth_enter_pin_msg">Sisestage PIN-kood, et siduda seadmega %s (proovige 0000 voi 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">Tähemärkide maksimaalne arv on saavutatud.</string>
+    <string name="bluetooth_frp_permission_message">Bluetooth-seadet ei saa selle kõne jaoks kasutada.</string>
     <string name="settings_menu_done">Valmis</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>
@@ -2971,7 +2972,7 @@ Mobiilsidevõrkude kaudu allalaadimisega võivad olenevalt teie paketist rakendu
     <string name="wifi_enable_warning_spr">Turning on Wi-Fi will disable Hotspot.</string>
     <string name="wifi_enable_warning_mtr">Turning on Wi-Fi will turn off Mobile Hotspot. Continue?</string>
     <string name="wifi_enable_warning_usc">Turning on Wi-Fi will turn off Portable Wi-Fi hotspot. Continue?</string>
-    <string name="wifi_enable_warning">Wi-Fi sisselülitamine desaktiveerib mobiilse kuumkoha.</string>
+    <string name="wifi_enable_warning">Wi-Fi on lülitatud välja, kui mobiilne kuumkoht on aktiivne. Wi-Fi sisselülitamiseks lülitage mobiilne kuumkoht välja.</string>
     <string name="wifi_control_history_title">Wi-Fi juhtimise ajalugu</string>
     <string name="wifi_control_history_description">Allpool olevad rakendused on Wi-Fi hiljuti sisse või välja lülitanud.</string>
     <string name="wifi_control_history_sub_title">Hiljutised rakendused</string>
@@ -2997,7 +2998,7 @@ Mobiilsidevõrkude kaudu allalaadimisega võivad olenevalt teie paketist rakendu
     <string name="wifi_ap_help_enable_msg_summary_vzw">Mobile Hotspot is turned on. Tap Configure to change your Mobile Hotspot settings.</string>
     <string name="wifi_ap_help_enable_msg_summary">Mobile Hotspot is enabled. To change the Mobile Hotspot configuration, tap MORE and select Configure Mobile Hotspot.</string>
     <string name="wifi_ap_turning_on">Mobiilse kuumkoha aktiveerimine…</string>
-    <string name="wifi_ap_turning_off">Mobiilse kuumkoha desaktiveerimine…</string>
+    <string name="wifi_ap_turning_off">Mobiilse kuumkoha väljalülitamine…</string>
     <string name="wifi_ap_password_dialog_title">Muuda parool</string>
     <string name="wifi_ap_wifi_sharing_text">Teie Wi-Fi võrku võidakse jagada teiste seadmetega. Pange tähele, et teie seade võib ümber lülituda teie salvestatud Wi-Fi võrkude vahel ilma ette hoiatamata. Teie vastutate kõigi oma Wi-Fi pakkuja tingimuste täitmise eest.</string>
     <string name="wifi_ap__wifi_sharing_vzw">Wi-Fi Sharing</string>
@@ -3014,7 +3015,7 @@ Mobiilsidevõrkude kaudu allalaadimisega võivad olenevalt teie paketist rakendu
     <string name="wifi_ap_stopping_chn">Disabling Portable WLAN hotspot…</string>
     <string name="wifi_ap_stopping_tmo">Turning Mobile HotSpot off…</string>
     <string name="wifi_ap_stopping_att">Turning off portable Wi-Fi hotspot…</string>
-    <string name="wifi_ap_stopping">Mobiilse kuumkoha desaktiveerimine…</string>
+    <string name="wifi_ap_stopping">Mobiilse kuumkoha inaktiveerimine…</string>
     <string name="wifi_ap_add_whitelist">Lisa valgesse nimekirja</string>
     <string name="wifi_ap_remove_from_whitelist">Eemalda valgest nimekirjast</string>
     <string name="wifi_ap_allow_device_added">%s on lisatud lubatud seadmetesse.</string>
@@ -3076,7 +3077,7 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_ap_wifi_off_warn_chn">Enabling Mobile hotspot will turn off WLAN.</string>
     <string name="wifi_ap_wifi_off_warn_att">Turning on portable Wi-Fi hotspot will turn off Wi-Fi.</string>
     <string name="wifi_ap_wifi_off_warn_mtr">Wi-Fi is turned off when USB tethering or Mobile Hotspot is active. To turn on Wi-Fi, please turn off USB tethering or Mobile Hotspot.</string>
-    <string name="wifi_ap_wifi_off_warn">Mobiilse kuumkoha aktiveerimisel lülitatakse Wi-Fi välja.</string>
+    <string name="wifi_ap_wifi_off_warn">Mobiilse kuumkoha kasutamiseks tuleb Wi-Fi välja lülitada.</string>
     <string name="wifi_ap_wifi_off_warn_title_vzw">Mobile Hotspot and Wi-Fi</string>
     <string name="wifi_ap_wifi_off_warn_title">Tähelepanu!</string>
     <string name="wifi_ap_smartview_off_warn_vzw">Mobile Hotspot and Smart View cannot be turned on at the same time. Smart View will be turned off.</string>
@@ -3101,7 +3102,7 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_ap_menu_configure_hotspot_spr">Configure Hotspot</string>
     <string name="wifi_ap_menu_configure_hotspot_tmo">Konfigureeri mob. kuumkohta</string>
     <string name="wifi_ap_menu_configure_hotspot_att">Konfigureeri mob. kuumkohta</string>
-    <string name="wifi_ap_menu_configure_hotspot">Konfigureeri mob. kuumkohta</string>
+    <string name="wifi_ap_menu_configure_hotspot">Mobiilse kuumkoha konfigureerimine</string>
     <string name="wifi_ap_menu_timeout">Ajalõpu seaded</string>
     <string name="wifi_ap_menu_allow_devices">Lubatud seadmed</string>
     <string name="wifi_ap_timeout_message_vzw">Disable Mobile Hotspot if there is no connection for</string>
@@ -3174,13 +3175,13 @@ Wi-Fi is now on."</string>
     <string name="wifi_tether_dialog_nosim_warning_title_tmo">Mobiilne kuumkoht</string>
     <string name="wifi_tether_dialog_nosim_warning_title_spr">Hotspot</string>
     <string name="wifi_tether_dialog_nosim_warning_title_att">Mobiilne kuumkoht</string>
-    <string name="wifi_tether_dialog_nosim_warning_title">Mobiilne kuumkoht</string>
+    <string name="wifi_tether_dialog_nosim_warning_title">SIM-kaarti pole</string>
     <string name="wifi_tether_dialog_nosim_warning_chn">Insert a SIM card to use Mobile hotspot and other tethering functions.</string>
     <string name="wifi_tether_dialog_nosim_warning_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
     <string name="wifi_tether_dialog_nosim_warning_tmo">"Please install SIM card in order to share your phone's data connection with other devices using Mobile Wi-Fi HotSpot or USB tethering for Internet access."</string>
     <string name="wifi_tether_dialog_nosim_warning_spr">Insert SIM for using Hotspot include tethering</string>
     <string name="wifi_tether_dialog_nosim_warning_usc">Paigaldage SIM-kaart, et kasutada mobiilset kuumkohta ja teisi modemifunktsioone.</string>
-    <string name="wifi_tether_dialog_nosim_warning">Paigaldage SIM-kaart, et kasutada mobiilset kuumkohta ja teisi modemifunktsioone.</string>
+    <string name="wifi_tether_dialog_nosim_warning">Sisestage SIM-kaart, et kasutada mobiilset kuumkohta ja teisi modemivalikuid.</string>
     <string name="mobileap_tmo">Mobiilne kuumkoht</string>
     <string name="mobileap_spr">Hotspot</string>
     <string name="mobileap_att">Mobiilne kuumkoht</string>
@@ -3251,7 +3252,7 @@ Wi-Fi is now on."</string>
 
 Saate luua lubatud seadme profiili ja määrata selle jaoks ühendusrežiimi.
 
-Mobiilse kuumkoha kasutamisel suureneb aku tarbimine ja andmekasutus."</string>
+Mobiilse kuumkoha kasutamine suurendab akutarbimist ja andmekasutust."</string>
     <string name="wifi_ap_instruction_configure_vzw">To change the Mobile Hotspot configuration, go to Settings > Mobile Hotspot and tethering > Mobile Hotspot > MORE, then select Configure Mobile Hotspot.</string>
     <string name="wifi_ap_instruction_configure_tmo">To change the Mobile HotSpot configuration, tap the More options button, then select Configure Mobile HotSpot.</string>
     <string name="wifi_ap_instruction_configure">Mobiilse kuumkoha konfiguratsiooni muutmiseks toksake nuppu Veel valikuid ning valige käsk Konfigureeri mobiilset kuumkohta.</string>
@@ -3489,6 +3490,7 @@ Receiving SMS"</string>
     <string name="no">Ei</string>
     <string name="create">Loo</string>
     <string name="allow">Luba</string>
+    <string name="dlg_close">Sulge</string>
     <string name="device_info_default">Tundmatu</string>
     <string name="show_dev_on">Arendaja režiim on aktiveeritud.</string>
     <string name="show_dev_already">Pole vaja, arendaja režiim on juba aktiveeritud</string>

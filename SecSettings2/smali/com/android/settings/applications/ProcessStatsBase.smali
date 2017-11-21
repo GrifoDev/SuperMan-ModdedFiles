@@ -99,13 +99,13 @@
 
     sput-object v0, Lcom/android/settings/applications/ProcessStatsBase;->sDurations:[J
 
-    const v0, 0x7f0b16df
+    const v0, 0x7f0b16e0
 
-    const v1, 0x7f0b16e0
+    const v1, 0x7f0b16e1
 
-    const v2, 0x7f0b16e1
+    const v2, 0x7f0b16e2
 
-    const v3, 0x7f0b16e2
+    const v3, 0x7f0b16e3
 
     filled-new-array {v0, v1, v2, v3}, [I
 
@@ -182,7 +182,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b1a80
+    const v3, 0x7f0b1a81
 
     move-object v0, p0
 
@@ -460,7 +460,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0400ef
+    const v3, 0x7f0400f0
 
     invoke-direct {v1, v2, v3}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;I)V
 

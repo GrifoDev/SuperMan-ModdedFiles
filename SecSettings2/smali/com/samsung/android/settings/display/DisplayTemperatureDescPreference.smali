@@ -27,7 +27,7 @@
 .method private init()V
     .locals 1
 
-    const v0, 0x7f04020a
+    const v0, 0x7f04020b
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/display/DisplayTemperatureDescPreference;->setLayoutResource(I)V
 

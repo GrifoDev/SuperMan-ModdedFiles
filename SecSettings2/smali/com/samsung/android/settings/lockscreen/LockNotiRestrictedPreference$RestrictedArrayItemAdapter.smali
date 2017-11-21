@@ -33,7 +33,7 @@
 
     iput-object p1, p0, Lcom/samsung/android/settings/lockscreen/LockNotiRestrictedPreference$RestrictedArrayItemAdapter;->this$0:Lcom/samsung/android/settings/lockscreen/LockNotiRestrictedPreference;
 
-    const v0, 0x7f040167
+    const v0, 0x7f040168
 
     const v1, 0x1020014
 

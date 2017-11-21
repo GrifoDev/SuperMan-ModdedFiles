@@ -81,7 +81,7 @@
     nop
 
     :pswitch_data_0
-    .packed-switch 0x7f0b03fb
+    .packed-switch 0x7f0b03fc
         :pswitch_0
     .end packed-switch
 .end method

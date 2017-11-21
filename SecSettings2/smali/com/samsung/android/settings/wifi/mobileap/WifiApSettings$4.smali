@@ -165,13 +165,13 @@
 
     invoke-direct {v0, v5}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v5, 0x7f0b126a
+    const v5, 0x7f0b126b
 
     invoke-virtual {v0, v5}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     iget-object v5, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings$4;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings;
 
-    const v6, 0x7f0b0e33
+    const v6, 0x7f0b0e34
 
     invoke-virtual {v5, v6}, Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings;->getString(I)Ljava/lang/String;
 

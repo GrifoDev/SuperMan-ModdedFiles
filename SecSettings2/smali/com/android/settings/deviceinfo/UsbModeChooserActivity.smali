@@ -511,37 +511,37 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0b04f2
+    const v0, 0x7f0b04f3
 
     return v0
 
     :cond_0
-    const v0, 0x7f0b04f4
+    const v0, 0x7f0b04f5
 
     return v0
 
     :pswitch_2
-    const v0, 0x7f0b1a6a
+    const v0, 0x7f0b1a6b
 
     return v0
 
     :pswitch_3
-    const v0, 0x7f0b04f6
+    const v0, 0x7f0b04f7
 
     return v0
 
     :pswitch_4
-    const v0, 0x7f0b1a72    # 1.849E38f
+    const v0, 0x7f0b1a73    # 1.8490002E38f
 
     return v0
 
     :pswitch_5
-    const v0, 0x7f0b04f8
+    const v0, 0x7f0b04f9
 
     return v0
 
     :pswitch_6
-    const v0, 0x7f0b04fa
+    const v0, 0x7f0b04fb
 
     return v0
 
@@ -578,37 +578,37 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0b04f2
-
-    return v0
-
-    :cond_0
     const v0, 0x7f0b04f3
 
     return v0
 
+    :cond_0
+    const v0, 0x7f0b04f4
+
+    return v0
+
     :pswitch_2
-    const v0, 0x7f0b1a6a
+    const v0, 0x7f0b1a6b
 
     return v0
 
     :pswitch_3
-    const v0, 0x7f0b04f5
+    const v0, 0x7f0b04f6
 
     return v0
 
     :pswitch_4
-    const v0, 0x7f0b1a71    # 1.8489998E38f
+    const v0, 0x7f0b1a72    # 1.849E38f
 
     return v0
 
     :pswitch_5
-    const v0, 0x7f0b04f7
+    const v0, 0x7f0b04f8
 
     return v0
 
     :pswitch_6
-    const v0, 0x7f0b04fa
+    const v0, 0x7f0b04fb
 
     return v0
 
@@ -645,37 +645,37 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0b1a37
+    const v0, 0x7f0b1a38
 
     return v0
 
     :cond_0
-    const v0, 0x7f0b1a67
+    const v0, 0x7f0b1a68
 
     return v0
 
     :pswitch_2
-    const v0, 0x7f0b1a69
+    const v0, 0x7f0b1a6a
 
     return v0
 
     :pswitch_3
-    const v0, 0x7f0b1a6c
+    const v0, 0x7f0b1a6d    # 1.848999E38f
 
     return v0
 
     :pswitch_4
-    const v0, 0x7f0b1a6f    # 1.8489994E38f
+    const v0, 0x7f0b1a70    # 1.8489996E38f
 
     return v0
 
     :pswitch_5
-    const v0, 0x7f0b1a74    # 1.8490004E38f
+    const v0, 0x7f0b1a75    # 1.8490006E38f
 
     return v0
 
     :pswitch_6
-    const v0, 0x7f0b04f9
+    const v0, 0x7f0b04fa
 
     return v0
 
@@ -712,37 +712,37 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0b1a37
+    const v0, 0x7f0b1a38
 
     return v0
 
     :cond_0
-    const v0, 0x7f0b1a67
+    const v0, 0x7f0b1a68
 
     return v0
 
     :pswitch_2
-    const v0, 0x7f0b1a69
+    const v0, 0x7f0b1a6a
 
     return v0
 
     :pswitch_3
-    const v0, 0x7f0b1a6b
+    const v0, 0x7f0b1a6c
 
     return v0
 
     :pswitch_4
-    const v0, 0x7f0b1a6e    # 1.8489992E38f
+    const v0, 0x7f0b1a6f    # 1.8489994E38f
 
     return v0
 
     :pswitch_5
-    const v0, 0x7f0b1a73    # 1.8490002E38f
+    const v0, 0x7f0b1a74    # 1.8490004E38f
 
     return v0
 
     :pswitch_6
-    const v0, 0x7f0b04f9
+    const v0, 0x7f0b04fa
 
     return v0
 
@@ -767,7 +767,7 @@
 
     iget-object v3, p0, Lcom/android/settings/deviceinfo/UsbModeChooserActivity;->mLayoutInflater:Landroid/view/LayoutInflater;
 
-    const v4, 0x7f040241
+    const v4, 0x7f040242
 
     const/4 v5, 0x0
 
@@ -1057,13 +1057,13 @@
 
     invoke-direct {v1, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v4, 0x7f0b1a76    # 1.8490008E38f
+    const v4, 0x7f0b1a77
 
     invoke-virtual {v1, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v1
 
-    const v4, 0x7f0402fe
+    const v4, 0x7f0402ff
 
     invoke-virtual {v1, v4}, Landroid/app/AlertDialog$Builder;->setView(I)Landroid/app/AlertDialog$Builder;
 
@@ -1081,7 +1081,7 @@
 
     invoke-direct {v4, p0}, Lcom/android/settings/deviceinfo/UsbModeChooserActivity$6;-><init>(Lcom/android/settings/deviceinfo/UsbModeChooserActivity;)V
 
-    const v5, 0x7f0b1105
+    const v5, 0x7f0b1106
 
     invoke-virtual {v1, v5, v4}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -1325,7 +1325,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b042e
+    const v3, 0x7f0b042f
 
     invoke-virtual {p0, v3}, Lcom/android/settings/deviceinfo/UsbModeChooserActivity;->getString(I)Ljava/lang/String;
 

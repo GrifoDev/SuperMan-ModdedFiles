@@ -534,7 +534,7 @@
 
     if-eqz v3, :cond_1
 
-    const v3, 0x7f0202fb
+    const v3, 0x7f0202fc
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -2205,7 +2205,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b1214
+    const v5, 0x7f0b1215
 
     invoke-virtual {v4, v5}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -2217,7 +2217,7 @@
 
     iget-object v4, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mDialogClickListener:Landroid/content/DialogInterface$OnClickListener;
 
-    const v5, 0x7f0b1079
+    const v5, 0x7f0b107a
 
     invoke-virtual {v3, v5, v4}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

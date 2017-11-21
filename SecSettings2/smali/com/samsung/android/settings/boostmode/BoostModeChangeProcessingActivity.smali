@@ -274,7 +274,7 @@
 
     aput-object v2, v1, v4
 
-    const v2, 0x7f0b0a74
+    const v2, 0x7f0b0a75
 
     invoke-virtual {p0, v2, v1}, Lcom/samsung/android/settings/boostmode/BoostModeChangeProcessingActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -299,7 +299,7 @@
 
     aput-object v2, v1, v4
 
-    const v2, 0x7f0b0a76
+    const v2, 0x7f0b0a77
 
     invoke-virtual {p0, v2, v1}, Lcom/samsung/android/settings/boostmode/BoostModeChangeProcessingActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -437,7 +437,7 @@
 
     iput-object p0, p0, Lcom/samsung/android/settings/boostmode/BoostModeChangeProcessingActivity;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0401c2
+    const v0, 0x7f0401c3
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/boostmode/BoostModeChangeProcessingActivity;->setContentView(I)V
 

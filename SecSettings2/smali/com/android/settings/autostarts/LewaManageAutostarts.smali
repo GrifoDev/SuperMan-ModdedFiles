@@ -157,7 +157,7 @@
 
     const/4 v1, 0x0
 
-    const v2, 0x7f0b1bc6
+    const v2, 0x7f0b1bc7
 
     invoke-virtual {p0, v2}, Lcom/android/settings/autostarts/LewaManageAutostarts;->getString(I)Ljava/lang/String;
 
@@ -472,7 +472,7 @@
 
     if-eqz v1, :cond_0
 
-    const v0, 0x7f0b1bc7
+    const v0, 0x7f0b1bc8
 
     :goto_0
     invoke-interface {p1, v2, v3, v2, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
@@ -494,7 +494,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f0b1bc7
+    const v0, 0x7f0b1bc8
 
     goto :goto_0
 .end method
@@ -508,7 +508,7 @@
 
     iget-object v0, p0, Lcom/android/settings/autostarts/LewaManageAutostarts;->mLayoutInflater:Landroid/view/LayoutInflater;
 
-    const v1, 0x7f04038a
+    const v1, 0x7f04038b
 
     invoke-virtual {v0, v1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -558,7 +558,7 @@
 
     iget-object v0, p0, Lcom/android/settings/autostarts/LewaManageAutostarts;->emptyView:Landroid/widget/TextView;
 
-    const v1, 0x7f0b1a9a
+    const v1, 0x7f0b1a9b
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -623,13 +623,13 @@
 
     iget-object v1, p0, Lcom/android/settings/autostarts/LewaManageAutostarts;->menuItem:Landroid/view/MenuItem;
 
-    const v2, 0x7f0b1bc7
+    const v2, 0x7f0b1bc8
 
     invoke-interface {v1, v2}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
 
     iget-object v1, p0, Lcom/android/settings/autostarts/LewaManageAutostarts;->emptyView:Landroid/widget/TextView;
 
-    const v2, 0x7f0b1a9a
+    const v2, 0x7f0b1a9b
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 
@@ -646,13 +646,13 @@
 
     iget-object v1, p0, Lcom/android/settings/autostarts/LewaManageAutostarts;->menuItem:Landroid/view/MenuItem;
 
-    const v2, 0x7f0b1bc7
+    const v2, 0x7f0b1bc8
 
     invoke-interface {v1, v2}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
 
     iget-object v1, p0, Lcom/android/settings/autostarts/LewaManageAutostarts;->emptyView:Landroid/widget/TextView;
 
-    const v2, 0x7f0b1a9a
+    const v2, 0x7f0b1a9b
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 
@@ -872,7 +872,7 @@
 
     const/4 v1, 0x0
 
-    const v2, 0x7f0b1bc6
+    const v2, 0x7f0b1bc7
 
     invoke-virtual {p0, v2}, Lcom/android/settings/autostarts/LewaManageAutostarts;->getString(I)Ljava/lang/String;
 

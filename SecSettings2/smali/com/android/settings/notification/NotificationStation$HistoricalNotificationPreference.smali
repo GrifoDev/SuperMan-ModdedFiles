@@ -24,7 +24,7 @@
 
     invoke-direct {p0, p1}, Lcom/android/settings/CopyablePreference;-><init>(Landroid/content/Context;)V
 
-    const v0, 0x7f0401a2
+    const v0, 0x7f0401a3
 
     invoke-virtual {p0, v0}, Lcom/android/settings/notification/NotificationStation$HistoricalNotificationPreference;->setLayoutResource(I)V
 

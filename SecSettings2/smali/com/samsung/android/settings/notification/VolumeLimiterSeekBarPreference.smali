@@ -72,7 +72,7 @@
 
     invoke-direct {p0, p1, p2, p3, p4}, Landroid/preference/SeekBarPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
-    const v0, 0x7f04020d
+    const v0, 0x7f04020e
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/notification/VolumeLimiterSeekBarPreference;->setLayoutResource(I)V
 

@@ -64,7 +64,7 @@
 .method public onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
     .locals 6
 
-    const v5, 0x7f0b0ad7
+    const v5, 0x7f0b0ad8
 
     const v4, 0x104000a
 
@@ -92,7 +92,7 @@
 
     invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0b143b
+    const v2, 0x7f0b143c
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -110,7 +110,7 @@
 
     invoke-direct {v2, p0}, Lcom/android/settings/ApnEditor$ErrorDialog$1;-><init>(Lcom/android/settings/ApnEditor$ErrorDialog;)V
 
-    const v3, 0x7f0b087d
+    const v3, 0x7f0b087e
 
     invoke-virtual {v1, v3, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -137,7 +137,7 @@
 
     invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0b123e
+    const v2, 0x7f0b123f
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 

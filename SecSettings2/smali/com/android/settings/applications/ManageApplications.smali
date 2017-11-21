@@ -420,22 +420,22 @@
 
     :array_0
     .array-data 4
-        0x7f0b1a54
-        0x7f0b1a19
-        0x7f0b1a19
+        0x7f0b1a55
         0x7f0b1a1a
-        0x7f0b1532
+        0x7f0b1a1a
+        0x7f0b1a1b
+        0x7f0b1533
+        0x7f0b1a23
+        0x7f0b1a1e
+        0x7f0b1a20
         0x7f0b1a22
+        0x7f0b1a21
+        0x7f0b1a1c
         0x7f0b1a1d
         0x7f0b1a1f
-        0x7f0b1a21
-        0x7f0b1a20
-        0x7f0b1a1b
-        0x7f0b1a1c
-        0x7f0b1a1e
-        0x7f0b1a19
-        0x7f0b1aa8
-        0x7f0b1aae
+        0x7f0b1a1a
+        0x7f0b1aa9
+        0x7f0b1aaf
     .end array-data
 .end method
 
@@ -533,7 +533,7 @@
     iput-object v6, v3, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->intent:Landroid/content/Intent;
 
     :goto_1
-    const v7, 0x7f0b138c
+    const v7, 0x7f0b138d
 
     iput v7, v3, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->titleRes:I
 
@@ -560,7 +560,7 @@
     :goto_2
     iput-object v0, v4, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->intent:Landroid/content/Intent;
 
-    const v7, 0x7f0b1663
+    const v7, 0x7f0b1664
 
     iput v7, v4, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->titleRes:I
 
@@ -576,7 +576,7 @@
 
     iput-object v1, v5, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->intent:Landroid/content/Intent;
 
-    const v7, 0x7f0b083c
+    const v7, 0x7f0b083d
 
     iput v7, v5, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->titleRes:I
 
@@ -1519,7 +1519,7 @@
 
     const-class v4, Lcom/android/settings/applications/InstalledAppDetails;
 
-    const v5, 0x7f0b1506
+    const v5, 0x7f0b1507
 
     sget-object v1, Lcom/android/settings/applications/ManageApplications;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
 
@@ -1537,7 +1537,7 @@
 
     const-class v4, Lcom/android/settings/notification/AppNotificationSettings;
 
-    const v5, 0x7f0b196b
+    const v5, 0x7f0b196c
 
     :cond_7
     const/4 v1, 0x0
@@ -1630,7 +1630,7 @@
 
     const-class v0, Lcom/android/settings/applications/InstalledAppDetails;
 
-    const v1, 0x7f0b1506
+    const v1, 0x7f0b1507
 
     invoke-direct {p0, v0, v1}, Lcom/android/settings/applications/ManageApplications;->startAppInfoFragment(Ljava/lang/Class;I)V
 
@@ -1640,7 +1640,7 @@
     :pswitch_0
     const-class v0, Lcom/android/settings/notification/AppNotificationSettings;
 
-    const v1, 0x7f0b196b
+    const v1, 0x7f0b196c
 
     invoke-direct {p0, v0, v1}, Lcom/android/settings/applications/ManageApplications;->startAppInfoFragment(Ljava/lang/Class;I)V
 
@@ -1658,7 +1658,7 @@
     :pswitch_2
     const-class v0, Lcom/android/settings/applications/UsageAccessDetails;
 
-    const v1, 0x7f0b1a44
+    const v1, 0x7f0b1a45
 
     invoke-direct {p0, v0, v1}, Lcom/android/settings/applications/ManageApplications;->startAppInfoFragment(Ljava/lang/Class;I)V
 
@@ -1667,7 +1667,7 @@
     :pswitch_3
     const-class v0, Lcom/android/settings/applications/AppStorageSettings;
 
-    const v1, 0x7f0b138c
+    const v1, 0x7f0b138d
 
     invoke-direct {p0, v0, v1}, Lcom/android/settings/applications/ManageApplications;->startAppInfoFragment(Ljava/lang/Class;I)V
 
@@ -2608,7 +2608,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b1550
+    const v4, 0x7f0b1551
 
     invoke-virtual {v3, v4}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 
@@ -2900,7 +2900,7 @@
 
     if-nez v0, :cond_1
 
-    const v0, 0x7f0b189b
+    const v0, 0x7f0b189c
 
     :goto_0
     invoke-virtual {p0}, Lcom/android/settings/applications/ManageApplications;->getClass()Ljava/lang/Class;
@@ -2924,7 +2924,7 @@
     return-void
 
     :cond_1
-    const v0, 0x7f0b189a
+    const v0, 0x7f0b189b
 
     goto :goto_0
 .end method
@@ -2934,7 +2934,7 @@
 
     iput-object p1, p0, Lcom/android/settings/applications/ManageApplications;->mInflater:Landroid/view/LayoutInflater;
 
-    const v2, 0x7f040177
+    const v2, 0x7f040178
 
     const/4 v3, 0x0
 
@@ -3159,7 +3159,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f040261
+    const v3, 0x7f040262
 
     const/4 v4, 0x0
 
@@ -3189,7 +3189,7 @@
 
     iget-object v2, p0, Lcom/android/settings/applications/ManageApplications;->mFuncDesc:Landroid/widget/TextView;
 
-    const v3, 0x7f0b1aa3
+    const v3, 0x7f0b1aa4
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
 
@@ -3290,7 +3290,7 @@
 
     iget-object v2, p0, Lcom/android/settings/applications/ManageApplications;->mFuncDesc:Landroid/widget/TextView;
 
-    const v3, 0x7f0b1ab3
+    const v3, 0x7f0b1ab4
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
 
@@ -3305,7 +3305,7 @@
 
     iget-object v2, p0, Lcom/android/settings/applications/ManageApplications;->mFuncDesc:Landroid/widget/TextView;
 
-    const v3, 0x7f0b0748
+    const v3, 0x7f0b0749
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
 
@@ -3697,7 +3697,7 @@
 
     const/4 v4, 0x0
 
-    const v5, 0x7f0b1a48
+    const v5, 0x7f0b1a49
 
     const/4 v6, 0x0
 
@@ -3867,7 +3867,7 @@
 
     const/4 v10, 0x0
 
-    const v11, 0x7f0b1b47
+    const v11, 0x7f0b1b48
 
     const/4 v12, 0x0
 
@@ -4308,7 +4308,7 @@
     if-eqz v0, :cond_10
 
     :cond_a
-    const v0, 0x7f0b1a1d
+    const v0, 0x7f0b1a1e
 
     invoke-virtual {p0, v0}, Lcom/android/settings/applications/ManageApplications;->getString(I)Ljava/lang/String;
 
@@ -4322,7 +4322,7 @@
 
     if-eqz v0, :cond_c
 
-    const v0, 0x7f0b1a1f
+    const v0, 0x7f0b1a20
 
     invoke-virtual {p0, v0}, Lcom/android/settings/applications/ManageApplications;->getString(I)Ljava/lang/String;
 
@@ -4382,7 +4382,7 @@
 
     if-eqz v0, :cond_d
 
-    const v0, 0x7f0b1a21
+    const v0, 0x7f0b1a22
 
     invoke-virtual {p0, v0}, Lcom/android/settings/applications/ManageApplications;->getString(I)Ljava/lang/String;
 
@@ -4399,7 +4399,7 @@
 
     if-eqz v0, :cond_b
 
-    const v0, 0x7f0b1a20
+    const v0, 0x7f0b1a21
 
     invoke-virtual {p0, v0}, Lcom/android/settings/applications/ManageApplications;->getString(I)Ljava/lang/String;
 

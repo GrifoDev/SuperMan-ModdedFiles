@@ -275,7 +275,7 @@
 
     move-result-object v17
 
-    const v18, 0x7f040225
+    const v18, 0x7f040226
 
     const/16 v19, 0x0
 

@@ -891,6 +891,7 @@ Wi-Fi 및 블루투스 기능도 자동으로 해제되지만 [설정] 또는 �
     <string name="bluetooth_control_app_disable_summary">블루투스 해제됨: %s</string>
     <string name="bluetooth_enter_pin_msg">%s 디바이스를 등록하려면 비밀번호(0000 또는 1234)를 입력하세요.</string>
     <string name="bluetooth_pin_maximum_number_message">최대 글자 수에 도달했습니다.</string>
+    <string name="bluetooth_frp_permission_message">이 통화에 블루투스 디바이스를 사용할 수 없습니다.</string>
     <string name="settings_menu_done">완료</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB 연결 안 됨</string>
     <string name="usb_tethering_available_subtext_tmo">USB 연결됨, 테더링 가능</string>
@@ -2972,7 +2973,7 @@ PIN으로 디바이스를 다시 시작하기 전에는 전화, 메시지, 알�
     <string name="wifi_enable_warning_spr">Wi-Fi를 실행하면 [핫스팟]이 해제됩니다.</string>
     <string name="wifi_enable_warning_mtr">Wi-Fi를 실행하면 모바일 핫스팟 기능이 해제됩니다. 계속할까요?</string>
     <string name="wifi_enable_warning_usc">Wi-Fi를 실행하면 [휴대용 Wi-Fi 핫스팟]을 해제합니다. 계속할까요?</string>
-    <string name="wifi_enable_warning">Wi-Fi를 실행하면 모바일 핫스팟 기능이 해제됩니다.</string>
+    <string name="wifi_enable_warning">모바일 핫스팟 기능을 실행하면 Wi-Fi 기능이 해제됩니다. Wi-Fi 기능을 실행하려면 모바일 핫스팟 기능을 해제하세요.</string>
     <string name="wifi_control_history_title">Wi-Fi 실행 기록</string>
     <string name="wifi_control_history_description">최근에 Wi-Fi 기능을 실행하거나 해제한 앱이 아래에 나타납니다.</string>
     <string name="wifi_control_history_sub_title">최근 앱</string>
@@ -2997,7 +2998,7 @@ PIN으로 디바이스를 다시 시작하기 전에는 전화, 메시지, 알�
     <string name="wifi_wapi_user_certificate">사용자 인증서</string>
     <string name="wifi_ap_help_enable_msg_summary_vzw">모바일 핫스팟 기능을 실행합니다. 모바일 핫스팟 설정을 변경하려면 [구성]을 누르세요.</string>
     <string name="wifi_ap_help_enable_msg_summary">모바일 핫스팟 기능이 실행된 상태입니다. 모바일 핫스팟 설정을 변경하려면 더보기 버튼을 눌러 [모바일 핫스팟 설정]을 선택하세요.</string>
-    <string name="wifi_ap_turning_on">모바일 핫스팟 실행 중…</string>
+    <string name="wifi_ap_turning_on">모바일 핫스팟 기능 실행 중…</string>
     <string name="wifi_ap_turning_off">모바일 핫스팟 기능 해제 중…</string>
     <string name="wifi_ap_password_dialog_title">비밀번호 변경</string>
     <string name="wifi_ap_wifi_sharing_text">내 Wi-Fi 네트워크를 다른 디바이스와 공유합니다. Wi-Fi 네트워크로 전환 시 별도의 알림을 제공하지 않으며, 연결된 Wi-Fi 공급자의 이용약관을 준수할 책임이 있습니다.</string>
@@ -3011,7 +3012,7 @@ PIN으로 디바이스를 다시 시작하기 전에는 전화, 메시지, 알�
     <string name="wifi_ap_starting_chn">휴대용 WLAN 핫스팟 실행 중…</string>
     <string name="wifi_ap_starting_tmo">모바일 핫스팟 실행 중…</string>
     <string name="wifi_ap_starting_att">휴대용 Wi-Fi 핫스팟 실행 중…</string>
-    <string name="wifi_ap_starting">모바일 핫스팟 실행 중…</string>
+    <string name="wifi_ap_starting">모바일 핫스팟 기능 실행 중…</string>
     <string name="wifi_ap_stopping_chn">휴대용 WLAN 핫스팟 해제 중…</string>
     <string name="wifi_ap_stopping_tmo">모바일 핫스팟 해제 중…</string>
     <string name="wifi_ap_stopping_att">휴대용 Wi-Fi 핫스팟 해제 중…</string>
@@ -3049,7 +3050,7 @@ PIN으로 디바이스를 다시 시작하기 전에는 전화, 메시지, 알�
 허용된 디바이스 프로필을 추가하고 해당 프로필에 대한 연결 모드를 설정할 수 있습니다.
 
 휴대용 Wi-Fi 핫스팟을 사용하면 배터리와 데이터 사용량이 많아집니다."</string>
-    <string name="wifi_ap_instruction_changeable_maxclient">"모바일 핫스팟을 사용하여 내 디바이스를 인터넷 액세스 포인트로 설정할 수 있습니다. 이 설정은 다른 디바이스 최대 %d개까지 Wi-Fi로 내 디바이스에 연결하는 것을 허용합니다. 연결된 디바이스는 내 모바일 네트워크로 인터넷에 접속할 수 있습니다.
+    <string name="wifi_ap_instruction_changeable_maxclient">"모바일 핫스팟을 사용하여 내 디바이스를 인터넷 액세스 포인트로 설정할 수 있습니다. 이 설정은 다른 디바이스를 최대 %d개까지 Wi-Fi로 내 디바이스에 연결하는 것을 허용합니다. 연결된 디바이스는 내 모바일 네트워크로 인터넷에 접속할 수 있습니다.
 
 새 디바이스 프로필을 추가하고 해당 프로필에 대한 연결 모드를 설정할 수 있습니다.
 
@@ -3077,7 +3078,7 @@ PIN으로 디바이스를 다시 시작하기 전에는 전화, 메시지, 알�
     <string name="wifi_ap_wifi_off_warn_chn">모바일 핫스팟 기능을 실행하면 WLAN이 해제됩니다.</string>
     <string name="wifi_ap_wifi_off_warn_att">[휴대용 Wi-Fi 핫스팟]을 실행하면 Wi-Fi가 해제됩니다.</string>
     <string name="wifi_ap_wifi_off_warn_mtr">USB 테더링 또는 모바일 핫스팟 기능을 실행하면 Wi-Fi가 해제됩니다. Wi-Fi를 실행하려면 USB 테더링 또는 모바일 핫스팟 기능을 해제하세요.</string>
-    <string name="wifi_ap_wifi_off_warn">모바일 핫스팟 기능을 실행하면 Wi-Fi가 해제됩니다.</string>
+    <string name="wifi_ap_wifi_off_warn">모바일 핫스팟을 사용하려면 Wi-Fi 기능을 해제하세요.</string>
     <string name="wifi_ap_wifi_off_warn_title_vzw">모바일 핫스팟 및 Wi-Fi</string>
     <string name="wifi_ap_wifi_off_warn_title">주의</string>
     <string name="wifi_ap_smartview_off_warn_vzw">모바일 핫스팟과 Smart View 기능은 동시에 실행할 수 없습니다. Smart View를 해제합니다.</string>
@@ -3175,13 +3176,13 @@ Wi-Fi를 실행합니다."</string>
     <string name="wifi_tether_dialog_nosim_warning_title_tmo">모바일 핫스팟</string>
     <string name="wifi_tether_dialog_nosim_warning_title_spr">핫스팟</string>
     <string name="wifi_tether_dialog_nosim_warning_title_att">모바일 핫스팟</string>
-    <string name="wifi_tether_dialog_nosim_warning_title">모바일 핫스팟</string>
+    <string name="wifi_tether_dialog_nosim_warning_title">SIM 카드 없음</string>
     <string name="wifi_tether_dialog_nosim_warning_chn">모바일 핫스팟 및 다른 테더링 기능을 사용하려면 SIM 카드를 삽입하세요.</string>
     <string name="wifi_tether_dialog_nosim_warning_vzw">모바일 핫스팟 및 다른 테더링 기능을 사용하려면 SIM 카드를 삽입하세요.</string>
     <string name="wifi_tether_dialog_nosim_warning_tmo">모바일 Wi-Fi 핫스팟 또는 USB 테더링으로 내 휴대전화의 데이터 연결을 다른 디바이스와 공유하여 인터넷에 접속할 수 있게 하려면 SIM 카드를 삽입하세요.</string>
     <string name="wifi_tether_dialog_nosim_warning_spr">테더링을 포함한 핫스팟을 사용하려면 SIM 카드를 삽입하세요</string>
     <string name="wifi_tether_dialog_nosim_warning_usc">모바일 핫스팟 및 다른 테더링 기능을 사용하려면 SIM 카드를 삽입하세요.</string>
-    <string name="wifi_tether_dialog_nosim_warning">모바일 핫스팟 및 다른 테더링 기능을 사용하려면 SIM 카드를 삽입하세요.</string>
+    <string name="wifi_tether_dialog_nosim_warning">모바일 핫스팟 및 다른 테더링 옵션을 사용하려면 SIM 카드를 삽입하세요.</string>
     <string name="mobileap_tmo">모바일 핫스팟</string>
     <string name="mobileap_spr">핫스팟</string>
     <string name="mobileap_att">모바일 핫스팟</string>
@@ -3491,6 +3492,7 @@ SMS 수신"</string>
     <string name="no">아니요</string>
     <string name="create">추가</string>
     <string name="allow">허용</string>
+    <string name="dlg_close">닫기</string>
     <string name="device_info_default">알 수 없음</string>
     <string name="show_dev_on">개발자 모드를 실행했습니다.</string>
     <string name="show_dev_already">개발자 모드를 이미 실행하여 필요하지 않습니다.</string>

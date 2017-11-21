@@ -82,7 +82,7 @@
 
     if-nez p2, :cond_1
 
-    const v3, 0x7f040158
+    const v3, 0x7f040159
 
     invoke-virtual {v2, v3, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -177,7 +177,7 @@
 
     iget-object v3, v0, Lcom/samsung/android/settings/accessories/LedCoverCallerIDList$ViewHolder;->icon:Landroid/widget/ImageView;
 
-    const v4, 0x7f02023c
+    const v4, 0x7f02023d
 
     invoke-virtual {v3, v4}, Landroid/widget/ImageView;->setImageResource(I)V
 

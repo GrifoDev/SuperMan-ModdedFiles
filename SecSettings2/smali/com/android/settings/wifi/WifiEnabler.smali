@@ -312,7 +312,7 @@
 
     iget-object v1, p0, Lcom/android/settings/wifi/WifiEnabler;->mSwitchPreference:Landroid/preference/SwitchPreference;
 
-    const v2, 0x7f0b19db
+    const v2, 0x7f0b19dc
 
     invoke-virtual {v1, v2}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -613,7 +613,7 @@
     :cond_3
     iget-object v1, p0, Lcom/android/settings/wifi/WifiEnabler;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b1240
+    const v3, 0x7f0b1241
 
     invoke-static {v1, v3, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -741,7 +741,7 @@
 
     if-eqz p1, :cond_3
 
-    const v0, 0x7f0b19db
+    const v0, 0x7f0b19dc
 
     :goto_1
     invoke-virtual {v2, v0}, Landroid/preference/SwitchPreference;->setSummary(I)V
@@ -757,7 +757,7 @@
     goto :goto_0
 
     :cond_3
-    const v0, 0x7f0b0c3a
+    const v0, 0x7f0b0c3b
 
     goto :goto_1
 .end method

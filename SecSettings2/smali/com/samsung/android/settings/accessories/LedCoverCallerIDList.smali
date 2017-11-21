@@ -336,7 +336,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/accessories/LedCoverCallerIDList;->mContactInfoList:Ljava/util/List;
 
-    const v3, 0x7f040158
+    const v3, 0x7f040159
 
     const/4 v4, 0x0
 
@@ -591,7 +591,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040159
+    const v1, 0x7f04015a
 
     invoke-virtual {v0, v1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -2572,7 +2572,7 @@
 
     invoke-interface {v0}, Landroid/view/Menu;->clear()V
 
-    const v0, 0x7f0b0429
+    const v0, 0x7f0b042a
 
     invoke-interface {p1, v2, v3, v2, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2582,7 +2582,7 @@
 
     const/4 v0, 0x2
 
-    const v1, 0x7f0b0422
+    const v1, 0x7f0b0423
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2592,7 +2592,7 @@
 
     const/4 v0, 0x3
 
-    const v1, 0x7f0b1a0c
+    const v1, 0x7f0b1a0d
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2602,7 +2602,7 @@
 
     const/4 v0, 0x4
 
-    const v1, 0x7f0b042a
+    const v1, 0x7f0b042b
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2618,7 +2618,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 3
 
-    const v1, 0x7f040157
+    const v1, 0x7f040158
 
     const/4 v2, 0x0
 

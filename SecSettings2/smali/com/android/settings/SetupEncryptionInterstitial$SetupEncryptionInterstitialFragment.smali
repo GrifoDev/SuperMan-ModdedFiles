@@ -39,7 +39,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040285
+    const v2, 0x7f040286
 
     const/4 v3, 0x0
 
@@ -102,9 +102,9 @@
 
     invoke-virtual {v1, v4}, Lcom/android/setupwizardlib/SetupWizardPreferenceLayout;->setDividerInset(I)V
 
-    const v4, 0x7f0203f8
+    const v4, 0x7f0203f9
 
-    const v5, 0x7f0203f7
+    const v5, 0x7f0203f8
 
     invoke-virtual {v1, v4, v5}, Lcom/android/setupwizardlib/SetupWizardPreferenceLayout;->setIllustration(II)V
 
@@ -124,7 +124,7 @@
 
     invoke-virtual {v3, v4}, Landroid/widget/Button;->setEnabled(Z)V
 
-    const v4, 0x7f0b19e9
+    const v4, 0x7f0b19ea
 
     invoke-virtual {v1, v4}, Lcom/android/setupwizardlib/SetupWizardPreferenceLayout;->setHeaderText(I)V
 

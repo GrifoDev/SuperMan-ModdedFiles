@@ -348,7 +348,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/multisim/MultiSimTabHandler;->activity:Landroid/app/Activity;
 
-    const v4, 0x7f040186
+    const v4, 0x7f040187
 
     invoke-virtual {v3, v4}, Landroid/app/Activity;->setContentView(I)V
 

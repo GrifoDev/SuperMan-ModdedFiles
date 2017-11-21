@@ -30,7 +30,7 @@
 
     iput v0, p0, Lcom/samsung/android/settings/SecGearPreference;->misVisible:I
 
-    const v0, 0x7f040214
+    const v0, 0x7f040215
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/SecGearPreference;->setWidgetLayoutResource(I)V
 

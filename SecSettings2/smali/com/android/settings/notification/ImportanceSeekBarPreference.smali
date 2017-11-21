@@ -105,7 +105,7 @@
 
     iput-object v1, p0, Lcom/android/settings/notification/ImportanceSeekBarPreference;->mNotifyChanged:Ljava/lang/Runnable;
 
-    const v1, 0x7f0401eb
+    const v1, 0x7f0401ec
 
     invoke-virtual {p0, v1}, Lcom/android/settings/notification/ImportanceSeekBarPreference;->setLayoutResource(I)V
 
@@ -300,7 +300,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b1974
+    const v1, 0x7f0b1975
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -313,7 +313,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b196e
+    const v1, 0x7f0b196f
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -326,7 +326,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b196f
+    const v1, 0x7f0b1970
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -339,7 +339,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b1970
+    const v1, 0x7f0b1971
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -352,7 +352,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b1971
+    const v1, 0x7f0b1972
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -365,7 +365,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b1972
+    const v1, 0x7f0b1973
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -378,7 +378,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b1973
+    const v1, 0x7f0b1974
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

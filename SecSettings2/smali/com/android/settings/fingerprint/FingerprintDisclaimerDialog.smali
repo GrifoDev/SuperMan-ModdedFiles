@@ -136,7 +136,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0691
+    const v4, 0x7f0b0692
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -177,7 +177,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b06b1
+    const v4, 0x7f0b06b2
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -214,7 +214,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b06b7
+    const v4, 0x7f0b06b8
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -254,7 +254,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b070d
+    const v4, 0x7f0b070e
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -301,7 +301,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b06dd
+    const v4, 0x7f0b06de
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -397,7 +397,7 @@
     return-object v10
 
     :cond_0
-    const v8, 0x7f0400f3
+    const v8, 0x7f0400f4
 
     invoke-virtual {v1, v8, v10}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -465,7 +465,7 @@
 
     if-nez v8, :cond_1
 
-    const v8, 0x7f0b0711
+    const v8, 0x7f0b0712
 
     invoke-virtual {v6, v8}, Landroid/widget/TextView;->setText(I)V
 
@@ -477,7 +477,7 @@
 
     check-cast v7, Landroid/widget/TextView;
 
-    const v8, 0x7f0b070f
+    const v8, 0x7f0b0710
 
     invoke-virtual {p0, v8}, Lcom/android/settings/fingerprint/FingerprintDisclaimerDialog;->getString(I)Ljava/lang/String;
 
@@ -499,7 +499,7 @@
 
     invoke-direct {v0, v8}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v8, 0x7f0b0678
+    const v8, 0x7f0b0679
 
     invoke-virtual {v0, v8}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -509,7 +509,7 @@
 
     invoke-direct {v8, p0}, Lcom/android/settings/fingerprint/FingerprintDisclaimerDialog$2;-><init>(Lcom/android/settings/fingerprint/FingerprintDisclaimerDialog;)V
 
-    const v9, 0x7f0b0704
+    const v9, 0x7f0b0705
 
     invoke-virtual {v0, v9, v8}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

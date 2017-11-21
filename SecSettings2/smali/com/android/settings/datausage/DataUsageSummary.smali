@@ -1232,7 +1232,7 @@
 
     aput-object v7, v6, v5
 
-    const v7, 0x7f0b0f22
+    const v7, 0x7f0b0f23
 
     invoke-virtual {p0, v7, v6}, Lcom/android/settings/datausage/DataUsageSummary;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1531,7 +1531,7 @@
 
     if-gtz v11, :cond_7
 
-    const v11, 0x7f0b1b05
+    const v11, 0x7f0b1b06
 
     :goto_1
     const/4 v13, 0x2
@@ -1643,7 +1643,7 @@
     goto/16 :goto_0
 
     :cond_7
-    const v11, 0x7f0b1b06
+    const v11, 0x7f0b1b07
 
     goto :goto_1
 
@@ -1668,7 +1668,7 @@
 
     aput-object v8, v12, v13
 
-    const v13, 0x7f0b04b3
+    const v13, 0x7f0b04b4
 
     move-object/from16 v0, p0
 
@@ -2391,7 +2391,7 @@
     :cond_d
     if-eqz v1, :cond_21
 
-    const v8, 0x7f0b1b02
+    const v8, 0x7f0b1b03
 
     :goto_9
     iput v8, p0, Lcom/android/settings/datausage/DataUsageSummary;->mDataUsageTemplate:I
@@ -2628,12 +2628,12 @@
     :cond_21
     if-eqz v2, :cond_22
 
-    const v8, 0x7f0b1b03
+    const v8, 0x7f0b1b04
 
     goto/16 :goto_9
 
     :cond_22
-    const v8, 0x7f0b1b04
+    const v8, 0x7f0b1b05
 
     goto/16 :goto_9
 .end method
@@ -2682,7 +2682,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0401f1
+    const v0, 0x7f0401f2
 
     const/4 v1, 0x0
 
@@ -2974,7 +2974,7 @@
 
     invoke-direct {v4, v5}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v5, 0x7f0b04b1
+    const v5, 0x7f0b04b2
 
     invoke-virtual {v4, v5}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -3193,7 +3193,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0f18
+    const v2, 0x7f0b0f19
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3262,7 +3262,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b0f15
+    const v3, 0x7f0b0f16
 
     move-object v4, v2
 

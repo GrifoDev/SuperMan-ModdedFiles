@@ -45,9 +45,9 @@
 
     invoke-direct {p0, p2}, Landroid/preference/Preference;-><init>(Landroid/content/Context;)V
 
-    const v5, 0x7f0202fe
+    const v5, 0x7f0202ff
 
-    const v6, 0x7f020557
+    const v6, 0x7f020558
 
     filled-new-array {v5, v6}, [I
 
@@ -147,7 +147,7 @@
 
     :cond_0
     :goto_0
-    const v5, 0x7f040315
+    const v5, 0x7f040316
 
     invoke-virtual {p0, v5}, Lcom/android/settings/wfd/WifiDisplaySettings$DlnaPreference;->setLayoutResource(I)V
 
@@ -163,7 +163,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b0e4d
+    const v6, 0x7f0b0e4e
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -252,7 +252,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b0e4f
+    const v6, 0x7f0b0e50
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

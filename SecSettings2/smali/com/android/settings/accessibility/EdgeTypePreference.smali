@@ -35,11 +35,11 @@
 
     invoke-virtual {p0, v1}, Lcom/android/settings/accessibility/EdgeTypePreference;->setTitles([Ljava/lang/CharSequence;)V
 
-    const v1, 0x7f040113
+    const v1, 0x7f040114
 
     invoke-virtual {p0, v1}, Lcom/android/settings/accessibility/EdgeTypePreference;->setDialogLayoutResource(I)V
 
-    const v1, 0x7f040222
+    const v1, 0x7f040223
 
     invoke-virtual {p0, v1}, Lcom/android/settings/accessibility/EdgeTypePreference;->setListItemLayoutResource(I)V
 

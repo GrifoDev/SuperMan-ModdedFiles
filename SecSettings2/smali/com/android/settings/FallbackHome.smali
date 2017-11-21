@@ -6,6 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/android/settings/FallbackHome$-void__init___LambdaImpl0;,
         Lcom/android/settings/FallbackHome$1;,
         Lcom/android/settings/FallbackHome$2;
     }
@@ -14,6 +15,10 @@
 
 # instance fields
 .field private mHandler:Landroid/os/Handler;
+
+.field private final mProgressTimeoutRunnable:Ljava/lang/Runnable;
+
+.field private mProvisioned:Z
 
 .field private mReceiver:Landroid/content/BroadcastReceiver;
 
@@ -31,6 +36,12 @@
     .locals 1
 
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
+
+    new-instance v0, Lcom/android/settings/FallbackHome$-void__init___LambdaImpl0;
+
+    invoke-direct {v0, p0}, Lcom/android/settings/FallbackHome$-void__init___LambdaImpl0;-><init>(Lcom/android/settings/FallbackHome;)V
+
+    iput-object v0, p0, Lcom/android/settings/FallbackHome;->mProgressTimeoutRunnable:Ljava/lang/Runnable;
 
     new-instance v0, Lcom/android/settings/FallbackHome$1;
 
@@ -117,6 +128,20 @@
     return-void
 
     :cond_1
+    const-class v2, Landroid/os/PowerManager;
+
+    invoke-virtual {p0, v2}, Lcom/android/settings/FallbackHome;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/os/PowerManager;
+
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+
+    move-result-wide v4
+
+    invoke-virtual {v2, v4, v5, v6}, Landroid/os/PowerManager;->userActivity(JZ)V
+
     const-string/jumbo v2, "FallbackHome"
 
     const-string/jumbo v3, "User unlocked and real home found; let\'s go!"
@@ -130,30 +155,111 @@
 
 
 # virtual methods
+.method synthetic -com_android_settings_FallbackHome_lambda$1()V
+    .locals 4
+
+    invoke-virtual {p0}, Lcom/android/settings/FallbackHome;->getLayoutInflater()Landroid/view/LayoutInflater;
+
+    move-result-object v1
+
+    const v2, 0x7f0400ec
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v1, v2, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Lcom/android/settings/FallbackHome;->setContentView(Landroid/view/View;)V
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setAlpha(F)V
+
+    invoke-virtual {v0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v1
+
+    const/high16 v2, 0x3f800000    # 1.0f
+
+    invoke-virtual {v1, v2}, Landroid/view/ViewPropertyAnimator;->alpha(F)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v1
+
+    const-wide/16 v2, 0x1f4
+
+    invoke-virtual {v1, v2, v3}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v1
+
+    const v2, 0x10c000d
+
+    invoke-static {p0, v2}, Landroid/view/animation/AnimationUtils;->loadInterpolator(Landroid/content/Context;I)Landroid/view/animation/Interpolator;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/view/ViewPropertyAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/view/ViewPropertyAnimator;->start()V
+
+    invoke-virtual {p0}, Lcom/android/settings/FallbackHome;->getWindow()Landroid/view/Window;
+
+    move-result-object v1
+
+    const/16 v2, 0x80
+
+    invoke-virtual {v1, v2}, Landroid/view/Window;->addFlags(I)V
+
+    return-void
+.end method
+
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 3
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     invoke-virtual {p0}, Lcom/android/settings/FallbackHome;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v0
+    move-result-object v1
 
-    const-string/jumbo v1, "device_provisioned"
+    const-string/jumbo v2, "device_provisioned"
 
-    invoke-static {v0, v1, v2}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v1, v2, v0}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_0
+    if-eqz v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :cond_0
+    iput-boolean v0, p0, Lcom/android/settings/FallbackHome;->mProvisioned:Z
+
+    iget-boolean v0, p0, Lcom/android/settings/FallbackHome;->mProvisioned:Z
+
+    if-nez v0, :cond_1
 
     const v0, 0x103000a
 
     invoke-virtual {p0, v0}, Lcom/android/settings/FallbackHome;->setTheme(I)V
 
-    :cond_0
+    invoke-virtual {p0}, Lcom/android/settings/FallbackHome;->getWindow()Landroid/view/Window;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/view/Window;->getDecorView()Landroid/view/View;
+
+    move-result-object v0
+
+    const/16 v1, 0x1006
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setSystemUiVisibility(I)V
+
+    :goto_0
     iget-object v0, p0, Lcom/android/settings/FallbackHome;->mReceiver:Landroid/content/BroadcastReceiver;
 
     new-instance v1, Landroid/content/IntentFilter;
@@ -167,6 +273,21 @@
     invoke-direct {p0}, Lcom/android/settings/FallbackHome;->maybeFinish()V
 
     return-void
+
+    :cond_1
+    invoke-virtual {p0}, Lcom/android/settings/FallbackHome;->getWindow()Landroid/view/Window;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/view/Window;->getDecorView()Landroid/view/View;
+
+    move-result-object v0
+
+    const/16 v1, 0x600
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setSystemUiVisibility(I)V
+
+    goto :goto_0
 .end method
 
 .method protected onDestroy()V
@@ -177,6 +298,36 @@
     iget-object v0, p0, Lcom/android/settings/FallbackHome;->mReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {p0, v0}, Lcom/android/settings/FallbackHome;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+
+    return-void
+.end method
+
+.method protected onPause()V
+    .locals 2
+
+    invoke-super {p0}, Landroid/app/Activity;->onPause()V
+
+    iget-object v0, p0, Lcom/android/settings/FallbackHome;->mHandler:Landroid/os/Handler;
+
+    iget-object v1, p0, Lcom/android/settings/FallbackHome;->mProgressTimeoutRunnable:Ljava/lang/Runnable;
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+
+    return-void
+.end method
+
+.method protected onResume()V
+    .locals 4
+
+    invoke-super {p0}, Landroid/app/Activity;->onResume()V
+
+    iget-object v0, p0, Lcom/android/settings/FallbackHome;->mHandler:Landroid/os/Handler;
+
+    iget-object v1, p0, Lcom/android/settings/FallbackHome;->mProgressTimeoutRunnable:Ljava/lang/Runnable;
+
+    const-wide/16 v2, 0x1f4
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     return-void
 .end method

@@ -212,7 +212,7 @@
 
     check-cast v3, Landroid/view/LayoutInflater;
 
-    const v6, 0x7f040114
+    const v6, 0x7f040115
 
     invoke-virtual {v3, v6, v11}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -293,7 +293,7 @@
 
     check-cast v4, Landroid/widget/ImageView;
 
-    const v6, 0x7f0b0921
+    const v6, 0x7f0b0922
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/usefulfeature/MultiWindowSettings;->getString(I)Ljava/lang/String;
 
@@ -548,7 +548,7 @@
 
     const/4 v1, 0x1
 
-    const v2, 0x7f0b0430
+    const v2, 0x7f0b0431
 
     invoke-interface {p1, v3, v1, v3, v2}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -641,9 +641,9 @@
 .method public onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
     .locals 10
 
-    const v6, 0x7f0b19dc
+    const v6, 0x7f0b19dd
 
-    const v5, 0x7f0b19db
+    const v5, 0x7f0b19dc
 
     const/4 v4, 0x1
 
@@ -826,13 +826,13 @@
 .method public onResume()V
     .locals 10
 
-    const v4, 0x7f0b19db
+    const v4, 0x7f0b19dc
 
     const/4 v9, 0x1
 
     const/4 v8, 0x0
 
-    const v5, 0x7f0b19dc
+    const v5, 0x7f0b19dd
 
     const/4 v7, 0x0
 

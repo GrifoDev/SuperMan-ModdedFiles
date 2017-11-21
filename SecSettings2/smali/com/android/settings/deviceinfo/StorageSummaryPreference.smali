@@ -19,7 +19,7 @@
 
     iput v0, p0, Lcom/android/settings/deviceinfo/StorageSummaryPreference;->mPercent:I
 
-    const v0, 0x7f0402a7
+    const v0, 0x7f0402a8
 
     invoke-virtual {p0, v0}, Lcom/android/settings/deviceinfo/StorageSummaryPreference;->setLayoutResource(I)V
 

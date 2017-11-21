@@ -266,7 +266,7 @@
 
     iget-object v13, v0, Lcom/android/settings/sfinderconnect/SFinderConnectProvider;->mContext:Landroid/content/Context;
 
-    const v14, 0x7f0b1109
+    const v14, 0x7f0b110a
 
     invoke-virtual {v13, v14}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -283,7 +283,7 @@
 
     const-string/jumbo v10, "com.android.settings"
 
-    const v5, 0x7f02045d
+    const v5, 0x7f02045e
 
     :cond_1
     move-object/from16 v0, p0
@@ -393,7 +393,7 @@
 
     iget-object v14, v0, Lcom/android/settings/sfinderconnect/SFinderConnectProvider;->mContext:Landroid/content/Context;
 
-    const v15, 0x7f0b1109
+    const v15, 0x7f0b110a
 
     invoke-virtual {v14, v15}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

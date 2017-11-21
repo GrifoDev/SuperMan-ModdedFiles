@@ -739,7 +739,7 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    const v3, 0x7f0b0840
+    const v3, 0x7f0b0841
 
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setText(I)V
 
@@ -823,7 +823,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 2
 
-    const v0, 0x7f040169
+    const v0, 0x7f04016a
 
     const/4 v1, 0x0
 

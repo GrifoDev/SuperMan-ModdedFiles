@@ -52,7 +52,7 @@
 
     check-cast v1, Landroid/view/LayoutInflater;
 
-    const v3, 0x7f0402f5
+    const v3, 0x7f0402f6
 
     invoke-virtual {v1, v3, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -67,7 +67,7 @@
 
     check-cast v0, Landroid/widget/Button;
 
-    const v3, 0x7f0b122c
+    const v3, 0x7f0b122d
 
     invoke-virtual {v0, v3}, Landroid/widget/Button;->setText(I)V
 
@@ -85,7 +85,7 @@
 
     check-cast v0, Landroid/widget/Button;
 
-    const v3, 0x7f0b122d
+    const v3, 0x7f0b122e
 
     invoke-virtual {v0, v3}, Landroid/widget/Button;->setText(I)V
 

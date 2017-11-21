@@ -972,7 +972,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b05e9
+    const v5, 0x7f0b05ea
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -980,7 +980,7 @@
 
     aput-object v4, v3, v7
 
-    const v4, 0x7f0b059f
+    const v4, 0x7f0b05a0
 
     invoke-virtual {v2, v4, v3}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1906,7 +1906,7 @@
 .method public onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
     .locals 6
 
-    const v5, 0x7f020508
+    const v5, 0x7f020509
 
     const/4 v4, 0x0
 
@@ -1932,7 +1932,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/easymode/EasyModeApp;->mSaveButton:Landroid/widget/Button;
 
-    const v3, 0x7f0b0424
+    const v3, 0x7f0b0425
 
     invoke-virtual {v2, v3}, Landroid/widget/Button;->setText(I)V
 

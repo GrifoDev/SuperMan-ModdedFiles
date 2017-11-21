@@ -290,11 +290,11 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/fingerprint/FingerprintEnrollBase;->onCreate(Landroid/os/Bundle;)V
 
-    const v4, 0x7f0400ff
+    const v4, 0x7f040100
 
     invoke-virtual {p0, v4}, Lcom/android/settings/fingerprint/FingerprintEnrollIntroduction;->setContentView(I)V
 
-    const v4, 0x7f0b1152
+    const v4, 0x7f0b1153
 
     invoke-virtual {p0, v4}, Lcom/android/settings/fingerprint/FingerprintEnrollIntroduction;->setHeaderText(I)V
 
@@ -328,7 +328,7 @@
 
     check-cast v1, Lcom/android/setupwizardlib/items/Item;
 
-    const v4, 0x7f0b18b3
+    const v4, 0x7f0b18b4
 
     invoke-virtual {p0, v4}, Lcom/android/settings/fingerprint/FingerprintEnrollIntroduction;->getString(I)Ljava/lang/String;
 
@@ -349,7 +349,7 @@
     const-string/jumbo v3, ""
 
     :cond_0
-    const v4, 0x7f0b1153
+    const v4, 0x7f0b1154
 
     invoke-virtual {p0, v4}, Lcom/android/settings/fingerprint/FingerprintEnrollIntroduction;->getText(I)Ljava/lang/CharSequence;
 

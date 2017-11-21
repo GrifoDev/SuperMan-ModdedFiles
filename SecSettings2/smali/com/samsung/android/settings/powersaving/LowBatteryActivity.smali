@@ -363,7 +363,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f020393
+    const v4, 0x7f020394
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -390,7 +390,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f020392
+    const v4, 0x7f020393
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -417,7 +417,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f020394
+    const v4, 0x7f020395
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -444,7 +444,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f020391
+    const v4, 0x7f020392
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -774,7 +774,7 @@
 
     iget-object v8, p0, Lcom/samsung/android/settings/powersaving/LowBatteryActivity;->mOffTextMain:Landroid/widget/TextView;
 
-    const v5, 0x7f0b0a36
+    const v5, 0x7f0b0a37
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -807,7 +807,7 @@
     :goto_4
     iget-object v8, p0, Lcom/samsung/android/settings/powersaving/LowBatteryActivity;->mMidTextMain:Landroid/widget/TextView;
 
-    const v5, 0x7f0b0a38
+    const v5, 0x7f0b0a39
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -840,7 +840,7 @@
     :goto_5
     iget-object v8, p0, Lcom/samsung/android/settings/powersaving/LowBatteryActivity;->mMaxTextMain:Landroid/widget/TextView;
 
-    const v5, 0x7f0b0a37
+    const v5, 0x7f0b0a38
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1325,7 +1325,7 @@
 
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    const v0, 0x7f040171
+    const v0, 0x7f040172
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/powersaving/LowBatteryActivity;->setContentView(I)V
 
@@ -1495,7 +1495,21 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0a36
+    const v2, 0x7f0b0a37
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    iget-object v0, p0, Lcom/samsung/android/settings/powersaving/LowBatteryActivity;->mMidTextMain:Landroid/widget/TextView;
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/powersaving/LowBatteryActivity;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x7f0b0a39
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1510,20 +1524,6 @@
     move-result-object v1
 
     const v2, 0x7f0b0a38
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    iget-object v0, p0, Lcom/samsung/android/settings/powersaving/LowBatteryActivity;->mMidTextMain:Landroid/widget/TextView;
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/powersaving/LowBatteryActivity;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    const v2, 0x7f0b0a37
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 

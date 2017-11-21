@@ -40,15 +40,15 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/iris/IrisPreveiwStyleFragment;->mCheckViews:Ljava/util/ArrayList;
 
-    const v0, 0x7f0202bb
+    const v0, 0x7f0202bc
 
-    const v1, 0x7f0202bc
+    const v1, 0x7f0202bd
 
-    const v2, 0x7f0202bd
+    const v2, 0x7f0202be
 
-    const v3, 0x7f0202be
+    const v3, 0x7f0202bf
 
-    const v4, 0x7f0202bf
+    const v4, 0x7f0202c0
 
     filled-new-array {v0, v1, v2, v3, v4}, [I
 
@@ -72,7 +72,7 @@
 
     check-cast v12, Landroid/view/LayoutInflater;
 
-    const v0, 0x7f040138
+    const v0, 0x7f040139
 
     const/4 v1, 0x0
 
@@ -272,7 +272,7 @@
 
     if-gt v2, v6, :cond_2
 
-    const v6, 0x7f04013f
+    const v6, 0x7f040140
 
     const/4 v7, 0x0
 
@@ -443,7 +443,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 2
 
-    const v0, 0x7f040140
+    const v0, 0x7f040141
 
     const/4 v1, 0x0
 

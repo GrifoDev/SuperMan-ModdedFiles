@@ -45,9 +45,9 @@
 .method static constructor <clinit>()V
     .locals 12
 
-    const v11, 0x7f0b0708
+    const v11, 0x7f0b0709
 
-    const v6, 0x7f0b0707
+    const v6, 0x7f0b0708
 
     const/4 v10, 0x2
 
@@ -59,11 +59,11 @@
 
     const-string/jumbo v1, "Introduction"
 
-    const v3, 0x7f0b0690
+    const v3, 0x7f0b0691
 
-    const v4, 0x7f0b11c6
+    const v4, 0x7f0b11c7
 
-    const v5, 0x7f0b070e
+    const v5, 0x7f0b070f
 
     invoke-direct/range {v0 .. v5}, Lcom/android/settings/fingerprint/FingerprintPassword$FingerprintPasswordFragment$Stage;-><init>(Ljava/lang/String;IIII)V
 
@@ -73,7 +73,7 @@
 
     const-string/jumbo v4, "NeedToConfirm"
 
-    const v7, 0x7f0b11d1
+    const v7, 0x7f0b11d2
 
     move v5, v9
 
@@ -87,7 +87,7 @@
 
     const-string/jumbo v4, "ConfirmWrong"
 
-    const v7, 0x7f0b11c6
+    const v7, 0x7f0b11c7
 
     move v5, v10
 

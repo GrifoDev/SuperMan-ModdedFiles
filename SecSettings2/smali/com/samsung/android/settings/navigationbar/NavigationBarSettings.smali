@@ -183,7 +183,7 @@
 
     check-cast v4, Landroid/view/LayoutInflater;
 
-    const v6, 0x7f040187
+    const v6, 0x7f040188
 
     invoke-virtual {v4, v6, v9}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -481,7 +481,7 @@
 
     new-array v1, v5, [Ljava/lang/CharSequence;
 
-    const v2, 0x7f0b056e
+    const v2, 0x7f0b056f
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->getString(I)Ljava/lang/String;
 
@@ -489,7 +489,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f0b056f
+    const v2, 0x7f0b0570
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->getString(I)Ljava/lang/String;
 
@@ -521,7 +521,7 @@
 
     new-array v1, v5, [Ljava/lang/CharSequence;
 
-    const v2, 0x7f0b05c5
+    const v2, 0x7f0b05c6
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->getString(I)Ljava/lang/String;
 
@@ -529,7 +529,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f0b0571
+    const v2, 0x7f0b0572
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->getString(I)Ljava/lang/String;
 

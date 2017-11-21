@@ -141,7 +141,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0eae
+    const v2, 0x7f0b0eaf
 
     invoke-virtual {v1, v2}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -156,7 +156,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0ead
+    const v2, 0x7f0b0eae
 
     invoke-virtual {v1, v2}, Landroid/preference/SwitchPreference;->setSummary(I)V
 

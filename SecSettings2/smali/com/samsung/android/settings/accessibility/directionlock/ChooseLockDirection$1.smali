@@ -37,7 +37,7 @@
 .method public onDirectionDetected(Ljava/lang/String;Z)V
     .locals 8
 
-    const v7, 0x7f0b0845
+    const v7, 0x7f0b0846
 
     const v6, 0x7f0b0289
 

@@ -46,7 +46,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b180d
+    const v1, 0x7f0b180e
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -56,7 +56,7 @@
 
     invoke-virtual {p0, v2, v1, p0}, Lcom/android/settings/vpn2/AppDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
 
-    const v1, 0x7f0b1808
+    const v1, 0x7f0b1809
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -109,7 +109,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f0b1811
+    const v2, 0x7f0b1812
 
     invoke-virtual {v0, v2, v1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

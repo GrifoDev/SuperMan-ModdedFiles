@@ -135,7 +135,7 @@
 
     new-array v2, v6, [Ljava/lang/CharSequence;
 
-    const v3, 0x7f0b0cbd
+    const v3, 0x7f0b0cbe
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/SecurityPolicySettings;->getString(I)Ljava/lang/String;
 
@@ -143,7 +143,7 @@
 
     aput-object v3, v2, v4
 
-    const v3, 0x7f0b0ac8
+    const v3, 0x7f0b0ac9
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/SecurityPolicySettings;->getString(I)Ljava/lang/String;
 
@@ -197,7 +197,7 @@
 .method private updateLastCheckedDate()V
     .locals 9
 
-    const v8, 0x7f0b04ca
+    const v8, 0x7f0b04cb
 
     iget-object v4, p0, Lcom/samsung/android/settings/SecurityPolicySettings;->mManualUpdatePolicy:Landroid/preference/PreferenceScreen;
 
@@ -238,7 +238,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b04ca
+    const v5, 0x7f0b04cb
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
     :try_end_0
@@ -265,7 +265,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b04cd
+    const v7, 0x7f0b04ce
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -684,7 +684,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0cbd
+    const v4, 0x7f0b0cbe
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -778,7 +778,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0ac8
+    const v4, 0x7f0b0ac9
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

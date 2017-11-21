@@ -57,7 +57,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040370
+    const v2, 0x7f040371
 
     const/4 v3, 0x0
 
@@ -81,13 +81,13 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v1, 0x7f0b126a
+    const v1, 0x7f0b126b
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/wifi/mobileap/PinDialog;->setTitle(I)V
 
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/mobileap/PinDialog;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0b042c
+    const v2, 0x7f0b042d
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -101,7 +101,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/mobileap/PinDialog;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0b1105
+    const v2, 0x7f0b1106
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

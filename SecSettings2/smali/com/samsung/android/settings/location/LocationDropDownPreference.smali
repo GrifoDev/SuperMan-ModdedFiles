@@ -117,7 +117,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/location/LocationDropDownPreference;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f040260
+    const v6, 0x7f040261
 
     invoke-direct {v4, v5, v6}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;I)V
 
