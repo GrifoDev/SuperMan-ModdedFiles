@@ -138,7 +138,7 @@
     <string name="tether_settings_title_wifi">ရွေ့လျားနိုင်သောဟော့စပေါ့</string>
     <string name="tether_settings_title_bluetooth">ဘလူးတုသ်တဆင့်ပြန်ချိတ်ဆက်</string>
     <string name="tether_settings_title_usb_bluetooth">တဆင့်ပြန်လည်ချိတ်ဆက်ခြင်း</string>
-    <string name="tether_settings_title_all">မိုဘိုင်း ဟော့စပေါ့ နှင့် မျှဝေအသုံးပြုခြင်း</string>
+    <string name="tether_settings_title_all">မိုဘိုင်း ဟော့စပေါ့နှင့် မျှဝေအသုံးပြုခြင်း</string>
     <string name="managed_user_title">အလုပ်သုံးအက်ပ်များအားလုံး</string>
     <string name="user_guest">ဧည့်သည်</string>
     <string name="unknown">အကြောင်းအရာ မသိရှိ</string>
@@ -817,7 +817,7 @@ Mirroring"</string>
     <string name="agree">သဘောတူညီ</string>
     <string name="disagree">သဘောမတူ</string>
     <string name="quick_settings_it_policy_prevents">လုံခြုံရေးမူဝါဒသည် %s အသုံးပြုမှုကို ဟန့်တားထားသည်။</string>
-    <string name="mobile_hotspot_dialog_nosim_warning_message">မိုဘိုင်း ဟော့စပေါ့နှင့် အခြား မျှဝေခြင်း လုပ်ဆောင်ချက်များ သုံးရန် SIM ကတ်တစ်ခု ထည့်သွင်းပါ။</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message">မိုဘိုင်း ဟော့စပေါ့နှင့် အခြား ကွန်ရက်မျှဝေ လုပ်ဆောင်ချက်များကို သုံးရန် SIM ကတ် တစ်ခု ထည့်သွင်းပါ။</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title">မိုဘိုင်း ဟော့စပေါ့</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title_jpn">Unable to enable Wi-Fi tethering</string>
     <string name="mobile_hotspot_dialog_nosim_warning_message_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
@@ -1139,7 +1139,7 @@ Wi-Fi နှင့် ဘလူးတုသ်တို့ကိုလည်း 
     <string name="add_tile">လေးထောင့်ကွက် ထည့်ရန်</string>
     <string name="broadcast_tile">လေးထောင့်ကွက် ထုတ်လွှင့်ရန်</string>
     <string name="mobileap">မိုဘိုင်း ဟော့စပေါ့</string>
-    <string name="mobile_hotspot_wifi_off_warning">မိုဘိုင်း ဟော့စပေါ့ လုပ်စေခြင်းဖြင့် Wi-Fi ကို ပိတ်မည်။</string>
+    <string name="mobile_hotspot_wifi_off_warning">မိုဘိုင်း ဟော့စပေါ့ကို ဖွင့်လျှင် Wi-Fi ကို ပိတ်မည်။</string>
     <string name="mobile_hotspot_wifi_off_warning_vzw">Mobile Hotspot uses your mobile data connection. Your Wi-Fi connection will be turned off.</string>
     <string name="mobile_hotspot_wifi_off_warning_china">Enabling Mobile hotspot will turn off WLAN.</string>
     <string name="mobile_hotspot_wifi_off_warning_jpn">Enabling Wi-Fi tethering will turn off Wi-Fi.</string>

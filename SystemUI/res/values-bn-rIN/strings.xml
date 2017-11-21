@@ -249,7 +249,7 @@ Mirroring"</string>
     <string name="agree">সম্মত</string>
     <string name="disagree">অসম্মত</string>
     <string name="quick_settings_it_policy_prevents">নিরাপত্তা নীতি %s-এর ব্যবহারকে প্রতিরোধ করে।</string>
-    <string name="mobile_hotspot_dialog_nosim_warning_message">মোবাইল হটস্পট এবং অন্যান্য টেথারিং কার্যকারিতা ব্যবহার করতে SIM কার্ড প্রবেশ করান।</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message">মোবাইল হটস্পট এবং অন্যান্য টেথারিং কার্যকারিতা ব্যবহার করতে একটি SIM কার্ড প্রবেশ করান।</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title">মোবাইল হটস্পট</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title_jpn">Unable to enable Wi-Fi tethering</string>
     <string name="mobile_hotspot_dialog_nosim_warning_message_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
@@ -410,7 +410,7 @@ Wi-Fi এবং ব্লুটুথও বন্ধ হবে কিন্ত�
     <string name="volume_limiter_open_cover_toast">অবিরত রাখতে কভার খুলুন।</string>
     <string name="quick_settings_settings">সেটিংস</string>
     <string name="mobileap">মোবাইল হটস্পট</string>
-    <string name="mobile_hotspot_wifi_off_warning">মোবাইল হটস্পট সক্ষম করা Wi-Fi বন্ধ করবে।</string>
+    <string name="mobile_hotspot_wifi_off_warning">মোবাইল হটস্পট সক্ষম করলে Wi-Fi বন্ধ হবে।</string>
     <string name="mobile_hotspot_wifi_off_warning_vzw">Mobile Hotspot uses your mobile data connection. Your Wi-Fi connection will be turned off.</string>
     <string name="mobile_hotspot_wifi_off_warning_china">Enabling Mobile hotspot will turn off WLAN.</string>
     <string name="mobile_hotspot_wifi_off_warning_jpn">Enabling Wi-Fi tethering will turn off Wi-Fi.</string>

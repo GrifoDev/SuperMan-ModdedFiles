@@ -138,7 +138,7 @@
     <string name="tether_settings_title_wifi">Ташыма кошулуу чекити</string>
     <string name="tether_settings_title_bluetooth">Bluetooth жалгаштыруу</string>
     <string name="tether_settings_title_usb_bluetooth">Жалгаштыруу</string>
-    <string name="tether_settings_title_all">Мобилдик кошулуу чекити жана таратуу</string>
+    <string name="tether_settings_title_all">Моб. Кошулуу чекити ж-а Таратуу</string>
     <string name="managed_user_title">Жумуш профилинин колднмлр</string>
     <string name="user_guest">Конок</string>
     <string name="unknown">Белгисиз</string>
@@ -817,7 +817,7 @@ Mirroring"</string>
     <string name="agree">Макул</string>
     <string name="disagree">Макул эмес</string>
     <string name="quick_settings_it_policy_prevents">Коопсуздук саясаты, %s колдонулушун алдын алат.</string>
-    <string name="mobile_hotspot_dialog_nosim_warning_message">SIM картаны, Мобилдик урунттуу чекит жана башка тушатуу иш-милдеттерин пайдаланууга кыстарыңыз.</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message">Мобилдик Кошулуу чекит жана башка таратуучу функцияларды колдонуу үчүн SIM картаны салыңыз.</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title">Мобилдик кошулуу чекити</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title_jpn">Unable to enable Wi-Fi tethering</string>
     <string name="mobile_hotspot_dialog_nosim_warning_message_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
@@ -1139,7 +1139,7 @@ Wi-Fi чалуу сүрөтчөсү, төмөндө көрсөтүлгөндөй
     <string name="add_tile">Тайл кошуу</string>
     <string name="broadcast_tile">Тайлды жайылтуу</string>
     <string name="mobileap">Мобилдик Кошулуу чекити</string>
-    <string name="mobile_hotspot_wifi_off_warning">Мобилдик кошулуу чекити иштетилгенде, Wi-Fi өчүрүлөт.</string>
+    <string name="mobile_hotspot_wifi_off_warning">Мобилдик Кошулуу чекити иштетилгенде, Wi-Fi өчүрүлөт.</string>
     <string name="mobile_hotspot_wifi_off_warning_vzw">Mobile Hotspot uses your mobile data connection. Your Wi-Fi connection will be turned off.</string>
     <string name="mobile_hotspot_wifi_off_warning_china">Enabling Mobile hotspot will turn off WLAN.</string>
     <string name="mobile_hotspot_wifi_off_warning_jpn">Enabling Wi-Fi tethering will turn off Wi-Fi.</string>

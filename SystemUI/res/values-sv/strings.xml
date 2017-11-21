@@ -138,7 +138,7 @@
     <string name="tether_settings_title_wifi">Mobil surfpunkt</string>
     <string name="tether_settings_title_bluetooth">Delning via Bluetooth</string>
     <string name="tether_settings_title_usb_bluetooth">Internetdelning</string>
-    <string name="tether_settings_title_all">Mobil hotspot och internetdelning</string>
+    <string name="tether_settings_title_all">Mobil hotspot och Internetdeln.</string>
     <string name="managed_user_title">Alla jobbappar</string>
     <string name="user_guest">Gäst</string>
     <string name="unknown">Okänd</string>
@@ -1139,7 +1139,7 @@ Kontakta administratören för mer information."</string>
     <string name="add_tile">Lägg till en ruta</string>
     <string name="broadcast_tile">Skicka ruta</string>
     <string name="mobileap">Mobil hotspot</string>
-    <string name="mobile_hotspot_wifi_off_warning">Om du aktiverar mobil hotspot stängs Wi-Fi av.</string>
+    <string name="mobile_hotspot_wifi_off_warning">Om du aktiverar Mobil hotspot stängs Wi-Fi av.</string>
     <string name="mobile_hotspot_wifi_off_warning_vzw">Mobile Hotspot uses your mobile data connection. Your Wi-Fi connection will be turned off.</string>
     <string name="mobile_hotspot_wifi_off_warning_china">Enabling Mobile hotspot will turn off WLAN.</string>
     <string name="mobile_hotspot_wifi_off_warning_jpn">Enabling Wi-Fi tethering will turn off Wi-Fi.</string>

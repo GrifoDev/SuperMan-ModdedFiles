@@ -138,7 +138,7 @@
     <string name="tether_settings_title_wifi">Φορητό σημείο πρόσβασης</string>
     <string name="tether_settings_title_bluetooth">Πρόσδεση Bluetooth</string>
     <string name="tether_settings_title_usb_bluetooth">Πρόσδεση</string>
-    <string name="tether_settings_title_all">Mobile hotspot και tethering</string>
+    <string name="tether_settings_title_all">Mobile Hotspot και Tethering</string>
     <string name="managed_user_title">Όλες οι εφαρμ. εργασίας</string>
     <string name="user_guest">Επισκέπτης</string>
     <string name="unknown">Άγνωστο</string>
@@ -818,7 +818,7 @@ S bike"</string>
     <string name="agree">Αποδοχή</string>
     <string name="disagree">Δεν συμφωνώ</string>
     <string name="quick_settings_it_policy_prevents">Η πολιτική ασφάλειας δεν επιτρέπει τη χρήση της εφαρμογής %s.</string>
-    <string name="mobile_hotspot_dialog_nosim_warning_message">Εισαγάγετε μια κάρτα SIM για τη χρήση του Mobile hotspot και άλλων λειτουργιών tethering.</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message">Εισαγάγετε μια κάρτα SIM για τη χρήση του Mobile Hotspot και άλλων λειτουργιών tethering.</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title">Mobile hotspot</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title_jpn">Unable to enable Wi-Fi tethering</string>
     <string name="mobile_hotspot_dialog_nosim_warning_message_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
@@ -1140,7 +1140,7 @@ Turn on Airplane mode?"</string>
     <string name="add_tile">Προσθήκη πλακιδίου</string>
     <string name="broadcast_tile">Μετάδοση πλακιδίου</string>
     <string name="mobileap">Φορητό σημείο πρόσβασης</string>
-    <string name="mobile_hotspot_wifi_off_warning">Η ενεργοποίηση του Mobile hotspot θα απενεργοποιήσει το Wi-Fi.</string>
+    <string name="mobile_hotspot_wifi_off_warning">Η ενεργοποίηση του Mobile Hotspot θα απενεργοποιήσει το Wi-Fi.</string>
     <string name="mobile_hotspot_wifi_off_warning_vzw">Mobile Hotspot uses your mobile data connection. Your Wi-Fi connection will be turned off.</string>
     <string name="mobile_hotspot_wifi_off_warning_china">Enabling Mobile hotspot will turn off WLAN.</string>
     <string name="mobile_hotspot_wifi_off_warning_jpn">Enabling Wi-Fi tethering will turn off Wi-Fi.</string>

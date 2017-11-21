@@ -138,7 +138,7 @@
     <string name="tether_settings_title_wifi">Sare publiko eramangarria</string>
     <string name="tether_settings_title_bluetooth">Konexioa partekatzea (Bluetooth)</string>
     <string name="tether_settings_title_usb_bluetooth">Konexioa partekatzea</string>
-    <string name="tether_settings_title_all">Partekatutako konexioa eta konexioa kable bidez partekatzea</string>
+    <string name="tether_settings_title_all">Kon. partekatzea eta kable bid.</string>
     <string name="managed_user_title">Laneko aplikazio guztiak</string>
     <string name="user_guest">Gonbidatua</string>
     <string name="unknown">Ezezaguna</string>
@@ -816,7 +816,7 @@ modua"</string>
     <string name="agree">Ados</string>
     <string name="disagree">Ez nago ados</string>
     <string name="quick_settings_it_policy_prevents">Segurtasun politikak %s erabiltzea galarazten du.</string>
-    <string name="mobile_hotspot_dialog_nosim_warning_message">Sartu SIM txartel bat, Partekatutako konexioa eta kable bidez konektatzeko beste funtzio batzuk erabiltzeko.</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message">Konexioa partekatzea eta kable bidez konektatzeko beste funtzio batzuk erabiltzeko, sartu SIM txartel bat.</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title">Partekatutako konexioa</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title_jpn">Unable to enable Wi-Fi tethering</string>
     <string name="mobile_hotspot_dialog_nosim_warning_message_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
@@ -1139,7 +1139,7 @@ Informazio gehiago lortzeko, jarri administratzailearekin harremanetan."</string
     <string name="add_tile">Gehitu lauza</string>
     <string name="broadcast_tile">Igorpen-lauza</string>
     <string name="mobileap">Partekatutako konexioa</string>
-    <string name="mobile_hotspot_wifi_off_warning">Partekatutako konexioa gaitzeak Wi-Fi itzaliko du.</string>
+    <string name="mobile_hotspot_wifi_off_warning">Konexioa partekatzea gaituz gero, Wi-Fi eginbidea desaktibatuko da.</string>
     <string name="mobile_hotspot_wifi_off_warning_vzw">Mobile Hotspot uses your mobile data connection. Your Wi-Fi connection will be turned off.</string>
     <string name="mobile_hotspot_wifi_off_warning_china">Enabling Mobile hotspot will turn off WLAN.</string>
     <string name="mobile_hotspot_wifi_off_warning_jpn">Enabling Wi-Fi tethering will turn off Wi-Fi.</string>

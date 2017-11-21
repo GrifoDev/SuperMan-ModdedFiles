@@ -87,7 +87,7 @@
     <string name="bluetooth_pairing_error_message">Ní féidir dul i mbun cumarsáide le %1$s.</string>
     <string name="bluetooth_pairing_pin_error_message">Péireáil le %1$s dodhéanta. Cinntigh go bhfuil %2$s réidh le péireáil.</string>
     <string name="bluetooth_pairing_rejected_error_message">Dhiúltaigh %s don phéireáil.</string>
-    <string name="tether_settings_title_all">Ball te móibíleach agus nascaireacht</string>
+    <string name="tether_settings_title_all">Ball Te Móibíl. &amp; Nascaireacht</string>
     <string name="tts_settings_title">Téacs-go-teanga</string>
     <string name="tts_default_rate_title">Ráta labhartha</string>
     <string name="tts_default_rate_summary">Luas le téasc a rá.</string>
@@ -410,7 +410,7 @@ Taispeánfar an t-íocón Glaoch Wi-Fi sa phainéal fógraí de réir mar a thai
     <string name="volume_limiter_open_cover_toast">Oscail an clúdach le leanúint ar aghaidh.</string>
     <string name="quick_settings_settings">SOCRUITHE</string>
     <string name="mobileap">Ball te móibíleach</string>
-    <string name="mobile_hotspot_wifi_off_warning">Casfar as Wi-Fi má chumasaítear Ball te móibíleach.</string>
+    <string name="mobile_hotspot_wifi_off_warning">Casfar as Wi-Fi má chumasaítear Ball Te Móibíleach.</string>
     <string name="mobile_hotspot_wifi_off_warning_vzw">Mobile Hotspot uses your mobile data connection. Your Wi-Fi connection will be turned off.</string>
     <string name="mobile_hotspot_wifi_off_warning_china">Enabling Mobile hotspot will turn off WLAN.</string>
     <string name="mobile_hotspot_wifi_off_warning_jpn">Enabling Wi-Fi tethering will turn off Wi-Fi.</string>

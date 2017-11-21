@@ -249,7 +249,7 @@ Mirroring"</string>
     <string name="agree">သေဘာတူညီ</string>
     <string name="disagree">သေဘာမတူ</string>
     <string name="quick_settings_it_policy_prevents">လုံၿခဳံေရးမူဝါဒသည္ %s အသုံးျပဳမႈကို ဟန္႔တားထားသည္။</string>
-    <string name="mobile_hotspot_dialog_nosim_warning_message">မိုဘိုင္း ေဟာ့စေပါ့ႏွင့္ အျခား လံထားျခင္း လုပ္ေဆာင္ခ်က္မ်ား သံုးရန္ SIM ကတ္ တစ္ခု ထည့္သြင္းပါ။</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message">မိုဘိုင္း ေဟာ့စေပါ့ႏွင့္ အျခား ကြန္ရက္မွ်ေဝ လုပ္ေဆာင္ခ်က္မ်ားကုိ သံုးရန္ SIM ကတ္ တစ္ခု ထည့္သြင္းပါ။</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title">မိုဘိုင္း ေဟာ့စေပါ့</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title_jpn">Unable to enable Wi-Fi tethering</string>
     <string name="mobile_hotspot_dialog_nosim_warning_message_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
@@ -410,7 +410,7 @@ Wi-Fi ႏွင့္ ဘလူးတုသ္တို႔ကိုလည္း 
     <string name="volume_limiter_open_cover_toast">ဆက္လုပ္ရန္ အဖံုးကုိဖြင့္ပါ။</string>
     <string name="quick_settings_settings">သတ္မွတ္ခ်က္မ်ား</string>
     <string name="mobileap">မိုဘိုင္း ေဟာ့စေပါ့</string>
-    <string name="mobile_hotspot_wifi_off_warning">မိုဘိုင္း ေဟာ့စေပါ့ လုပ္ေစျခင္းျဖင့္ Wi-Fi ကို ပိတ္မည္။</string>
+    <string name="mobile_hotspot_wifi_off_warning">မိုဘိုင္း ေဟာ့စေပါ့ကုိ ဖြင့္လွ်င္ Wi-Fi ကုိ ပိတ္မည္။</string>
     <string name="mobile_hotspot_wifi_off_warning_vzw">Mobile Hotspot uses your mobile data connection. Your Wi-Fi connection will be turned off.</string>
     <string name="mobile_hotspot_wifi_off_warning_china">Enabling Mobile hotspot will turn off WLAN.</string>
     <string name="mobile_hotspot_wifi_off_warning_jpn">Enabling Wi-Fi tethering will turn off Wi-Fi.</string>

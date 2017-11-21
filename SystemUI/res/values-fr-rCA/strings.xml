@@ -816,7 +816,7 @@ S Bike"</string>
     <string name="agree">Accepter</string>
     <string name="disagree">Refuser</string>
     <string name="quick_settings_it_policy_prevents">"La politique de sécurité empêche l'utilisation de l'application %s."</string>
-    <string name="mobile_hotspot_dialog_nosim_warning_message">"Insérez une carte SIM pour utiliser Point d'accès mobile et les autres fonctions du modem."</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message">"Insérez une carte SIM pour utiliser la fonction Point d'accès mobile et les autres fonctions du modem."</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title">"Point d'accès mobile"</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title_jpn">Unable to enable Wi-Fi tethering</string>
     <string name="mobile_hotspot_dialog_nosim_warning_message_vzw">"Insérez une carte SIM pour utiliser oint d'accès mobile et les autres options du modem."</string>
@@ -1138,7 +1138,7 @@ Pour en savoir plus, communiquez avec votre administrateur."</string>
     <string name="add_tile">Ajouter la tuile</string>
     <string name="broadcast_tile">Diffuser la tuile</string>
     <string name="mobileap">"Point d'accès mobile"</string>
-    <string name="mobile_hotspot_wifi_off_warning">"L'activation du point d'accès mobile va désactiver le Wifi."</string>
+    <string name="mobile_hotspot_wifi_off_warning">"L'activation de la fonction Point d'accès mobile va désactiver le Wifi."</string>
     <string name="mobile_hotspot_wifi_off_warning_vzw">La fonction Mobile Hotspot utilise votre connexion de données mobiles. Votre connexion wifi va être désactivée.</string>
     <string name="mobile_hotspot_wifi_off_warning_china">"L'activation du point d'accès mobile va désactiver le WLAN."</string>
     <string name="mobile_hotspot_wifi_off_warning_jpn">Enabling Wi-Fi tethering will turn off Wi-Fi.</string>

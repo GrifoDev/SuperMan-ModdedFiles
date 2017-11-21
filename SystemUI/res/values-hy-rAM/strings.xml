@@ -138,7 +138,7 @@
     <string name="tether_settings_title_wifi">Դյուրակիր թեժ կետ</string>
     <string name="tether_settings_title_bluetooth">Bluetooth-ը կապվում է</string>
     <string name="tether_settings_title_usb_bluetooth">Միացում</string>
-    <string name="tether_settings_title_all">Շարժական թեժ կետ և տեղակապում</string>
+    <string name="tether_settings_title_all">Շարժական թեժ կետ և Տեղակապում</string>
     <string name="managed_user_title">Բոլոր աշխատանքային հավելվածները</string>
     <string name="user_guest">Հյուր</string>
     <string name="unknown">Անհայտ</string>

@@ -138,7 +138,7 @@
     <string name="tether_settings_title_wifi">Portable na hotspot</string>
     <string name="tether_settings_title_bluetooth">Pag-tether ng Bluetooth</string>
     <string name="tether_settings_title_usb_bluetooth">Nagte-tether</string>
-    <string name="tether_settings_title_all">Mobile hotspot at pag-tether</string>
+    <string name="tether_settings_title_all">Mobile Hotspot at Tethering</string>
     <string name="managed_user_title">Lahat ng app sa trabaho</string>
     <string name="user_guest">Bisita</string>
     <string name="unknown">Hindi Kilala</string>
@@ -817,7 +817,7 @@ mode"</string>
     <string name="agree">Sang-ayon</string>
     <string name="disagree">Tumanggi</string>
     <string name="quick_settings_it_policy_prevents">Pinipigilan ng patakaran sa seguridad ang paggamit ng %s.</string>
-    <string name="mobile_hotspot_dialog_nosim_warning_message">Maglagay ng SIM card para magamit ang Mobile hotspot at iba pang mga function sa pag-tether.</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message">Magkabit ng SIM card para magamit ang Mobile Hotspot at iba pang mga function sa pag-tether.</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title">Mobile hotspot</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title_jpn">Unable to enable Wi-Fi tethering</string>
     <string name="mobile_hotspot_dialog_nosim_warning_message_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
@@ -1139,7 +1139,7 @@ Para sa higit pang impormasyon, makipag-ugnayan sa iyong administrator."</string
     <string name="add_tile">Magdagdag ng tile</string>
     <string name="broadcast_tile">Broadcast na Tile</string>
     <string name="mobileap">Mobile hotspot</string>
-    <string name="mobile_hotspot_wifi_off_warning">I-o-off ng pagpapagana ng Mobile hotspot ang Wi-Fi.</string>
+    <string name="mobile_hotspot_wifi_off_warning">I-o-off ng pagpagana sa Mobile Hotspot ang Wi-Fi.</string>
     <string name="mobile_hotspot_wifi_off_warning_vzw">Mobile Hotspot uses your mobile data connection. Your Wi-Fi connection will be turned off.</string>
     <string name="mobile_hotspot_wifi_off_warning_china">Enabling Mobile hotspot will turn off WLAN.</string>
     <string name="mobile_hotspot_wifi_off_warning_jpn">Enabling Wi-Fi tethering will turn off Wi-Fi.</string>

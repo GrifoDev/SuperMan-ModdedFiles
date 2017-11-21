@@ -138,7 +138,7 @@
     <string name="tether_settings_title_wifi">Hotspot portátil</string>
     <string name="tether_settings_title_bluetooth">Ligação Bluetooth</string>
     <string name="tether_settings_title_usb_bluetooth">Ligação ponto a ponto</string>
-    <string name="tether_settings_title_all">PA móvel e ancoragem</string>
+    <string name="tether_settings_title_all">PA Móvel e Ancoragem</string>
     <string name="managed_user_title">Todas as apl. de trabalho</string>
     <string name="user_guest">Convidado</string>
     <string name="unknown">Desconhecido</string>
@@ -817,15 +817,15 @@ S moto"</string>
     <string name="agree">Concordo</string>
     <string name="disagree">Discordo</string>
     <string name="quick_settings_it_policy_prevents">A política de segurança impede a utilização do %s.</string>
-    <string name="mobile_hotspot_dialog_nosim_warning_message">Insira um cartão SIM para utilizar o Hotspot portátil e outras funções de ancoragem.</string>
-    <string name="mobile_hotspot_dialog_nosim_warning_title">Hotspot portátil</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message">Insira um cartão SIM para utilizar o PA Móvel e outras funções de ancoragem.</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_title">PA móvel</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title_jpn">Impossível activar Ancoragem Wi-Fi</string>
     <string name="mobile_hotspot_dialog_nosim_warning_message_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
     <string name="mobile_hotspot_dialog_nosim_warning_message_jpn">Introduza um cartão SIM para utilizar a Ancoragem Wi-Fi.</string>
     <string name="mobile_hotspot_dialog_nousim_or_nosim_warning">Insira um cartão UIM/SIM para utilizar o PA móvel e outras funções de ancoragem.</string>
     <string name="mobile_hotspot_toast_disable_airplne_mode">Impossível ligar às redes móveis enquanto o modo de Voo estiver activado. Desactive o modo de Voo e tente novamente.</string>
     <string name="mobile_hotspot_toast_internet_sharing">Partilha de Internet</string>
-    <string name="mobile_hotspot_detail_title">Hotspot portátil</string>
+    <string name="mobile_hotspot_detail_title">PA móvel</string>
     <string name="mobile_hotspot_detail_title_vzw">Mobile Hotspot</string>
     <string name="mobile_hotspot_detail_title_jpn">Ancoragem Wi-Fi</string>
     <string name="mobile_hotspot_detail_connection_mode_allowed_device">Só dispositivos permitidos</string>
@@ -1139,7 +1139,7 @@ Para obter mais informações, contacte o administrador."</string>
     <string name="add_tile">Adicionar mosaico</string>
     <string name="broadcast_tile">Mosaico de transmissão</string>
     <string name="mobileap">PA móvel</string>
-    <string name="mobile_hotspot_wifi_off_warning">A activação do Hotspot portátil irá desligar o Wi-Fi.</string>
+    <string name="mobile_hotspot_wifi_off_warning">A activação do PA Móvel irá desligar o Wi-Fi.</string>
     <string name="mobile_hotspot_wifi_off_warning_vzw">Mobile Hotspot uses your mobile data connection. Your Wi-Fi connection will be turned off.</string>
     <string name="mobile_hotspot_wifi_off_warning_china">A activação do PA móvel irá desligar a WLAN.</string>
     <string name="mobile_hotspot_wifi_off_warning_jpn">A activação da Ancoragem Wi-Fi irá desligar o Wi-Fi.</string>

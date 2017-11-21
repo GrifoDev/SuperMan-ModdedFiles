@@ -138,7 +138,7 @@
     <string name="tether_settings_title_wifi">Hotspot</string>
     <string name="tether_settings_title_bluetooth">Netdeling via Bluetooth</string>
     <string name="tether_settings_title_usb_bluetooth">Netdeling</string>
-    <string name="tether_settings_title_all">Mobilt hotspot og internetdeling</string>
+    <string name="tether_settings_title_all">Mobilt hotspot og internetdel.</string>
     <string name="managed_user_title">Alle arbejdsapps</string>
     <string name="user_guest">Gæst</string>
     <string name="unknown">Ukendt</string>

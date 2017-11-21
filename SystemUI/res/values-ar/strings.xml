@@ -815,7 +815,7 @@ Display"</string>
     <string name="agree">موافق</string>
     <string name="disagree">غير موافق</string>
     <string name="quick_settings_it_policy_prevents">تمنع سياسة الحماية استخدام %s.</string>
-    <string name="mobile_hotspot_dialog_nosim_warning_message">أدخل بطاقة SIM لاستخدام نقطة اتصال الهواتف المحمولة ووظائف تقييد أخرى.</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message">أدخل بطاقة SIM لاستخدام نقطة اتصال الهواتف المحمولة ووظائف التقييد الأخرى.</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title">نقطة اتصال المحمول</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title_jpn">Unable to enable Wi-Fi tethering</string>
     <string name="mobile_hotspot_dialog_nosim_warning_message_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>

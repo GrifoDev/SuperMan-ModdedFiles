@@ -817,7 +817,7 @@ Mirroring"</string>
     <string name="agree">ஏற்பு</string>
     <string name="disagree">மறுப்பு</string>
     <string name="quick_settings_it_policy_prevents">%s உபயோகிப்பதை பாதுகாப்புக் கொள்கை தடுக்கிறது.</string>
-    <string name="mobile_hotspot_dialog_nosim_warning_message">மொபைல் ஹாட்ஸ்பாட்டைப் பயன்படுத்தவும், பிற டித்தரிங் அம்சங்களைப் பயன்படுத்தவும் SIM அட்டை உள்ளிடவும்.</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message">மொபைல் ஹாட்ஸ்பாட்டைப் பயன்படுத்தவும், பிற டித்தரிங் செயல்பாடுகளைப் பயன்படுத்தவும் SIM அட்டையை நுழைக்கவும்.</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title">மொபைல் ஹாட்ஸ்பாட்</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title_jpn">Unable to enable Wi-Fi tethering</string>
     <string name="mobile_hotspot_dialog_nosim_warning_message_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
@@ -1139,7 +1139,7 @@ VPN இல் இணைக்கப்பட்டுள்ளதால், ம�
     <string name="add_tile">டைலைச் சேர்க்கும்</string>
     <string name="broadcast_tile">வலைபரப்பு டைல்</string>
     <string name="mobileap">மொபைல் ஹாட்ஸ்பாட்</string>
-    <string name="mobile_hotspot_wifi_off_warning">மொபைல் ஹாட்ஸ்பாட்டை செயல்படுத்தினால் Wi-Fi அணைக்கப்படும்.</string>
+    <string name="mobile_hotspot_wifi_off_warning">மொபைல் ஹாட்ஸ்பாட்டை செயல்படுத்துவது Wi-Fi-ஐ ஆஃப் செய்யும்.</string>
     <string name="mobile_hotspot_wifi_off_warning_vzw">Mobile Hotspot uses your mobile data connection. Your Wi-Fi connection will be turned off.</string>
     <string name="mobile_hotspot_wifi_off_warning_china">Enabling Mobile hotspot will turn off WLAN.</string>
     <string name="mobile_hotspot_wifi_off_warning_jpn">Enabling Wi-Fi tethering will turn off Wi-Fi.</string>

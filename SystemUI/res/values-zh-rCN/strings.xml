@@ -782,8 +782,7 @@ P2P"</string>
 共享"</string>
     <string name="quick_settings_power_saving_label">省电模式</string>
     <string name="quick_settings_sec_dnd_label">免打扰</string>
-    <string name="quick_settings_mobile_hotspot_label">"移动
-热点"</string>
+    <string name="quick_settings_mobile_hotspot_label">移动热点</string>
     <string name="quick_settings_airplane_mode_label">飞行模式</string>
     <string name="quick_settings_bluelightfilter_label">蓝光过滤</string>
     <string name="quick_settings_mobile_data_label">移动数据</string>
@@ -1135,7 +1134,7 @@ Wi-Fi 和蓝牙也将关闭，但可以在【设置】或快捷设置面板中�
     <string name="add_tile">添加图块</string>
     <string name="broadcast_tile">播送图块</string>
     <string name="mobileap">移动热点</string>
-    <string name="mobile_hotspot_wifi_off_warning">启用移动热点将关闭 Wi-Fi。</string>
+    <string name="mobile_hotspot_wifi_off_warning">启用移动热点将关闭 <cst>Wi-Fi</cst>。</string>
     <string name="mobile_hotspot_wifi_off_warning_vzw">移动热点将使用您的移动数据连接。Wi-Fi 连接将关闭。</string>
     <string name="mobile_hotspot_wifi_off_warning_china">启用移动热点将关闭 WLAN。</string>
     <string name="mobile_hotspot_wifi_off_warning_jpn">启用 Wi-Fi 网络共享将关闭 Wi-Fi。</string>

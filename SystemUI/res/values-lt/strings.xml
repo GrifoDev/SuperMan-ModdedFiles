@@ -138,7 +138,7 @@
     <string name="tether_settings_title_wifi">Perkeliama aktyvioji sritis</string>
     <string name="tether_settings_title_bluetooth">„Bluetooth“ susiejimas</string>
     <string name="tether_settings_title_usb_bluetooth">Susiejimas</string>
-    <string name="tether_settings_title_all">Mobilioji saitvietė ir siejimas</string>
+    <string name="tether_settings_title_all">Mob. saitvietė ir siejimas</string>
     <string name="managed_user_title">Visos darbo programos</string>
     <string name="user_guest">Svečias</string>
     <string name="unknown">Nežinomas</string>

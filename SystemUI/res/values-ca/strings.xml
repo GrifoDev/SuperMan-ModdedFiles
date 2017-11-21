@@ -138,7 +138,7 @@
     <string name="tether_settings_title_wifi">Zona Wi-Fi portàtil</string>
     <string name="tether_settings_title_bluetooth">Ancoratge de Bluetooth</string>
     <string name="tether_settings_title_usb_bluetooth">Ancoratge a xarxa</string>
-    <string name="tether_settings_title_all">Connexió compartida i mòdem USB/Bluetooth</string>
+    <string name="tether_settings_title_all">Connex comp i Mòd Bluetooth/USB</string>
     <string name="managed_user_title">Totes les aplic. de feina</string>
     <string name="user_guest">Convidat</string>
     <string name="unknown">Desconegut</string>
@@ -817,7 +817,7 @@ S Moto"</string>
     <string name="agree">Aceptar</string>
     <string name="disagree">No acceptar</string>
     <string name="quick_settings_it_policy_prevents">"La política de seguretat impedeix l'ús de %s."</string>
-    <string name="mobile_hotspot_dialog_nosim_warning_message">Insereixi una targeta SIM per utilitzar Mobile hotspot i altres funcions de tethering.</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message">Insereix una targeta SIM per utilitzar la Connexió compartida i altres funcions de Mòdem Bluetooth/USB.</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title">Connexió compartida</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title_jpn">Unable to enable Wi-Fi tethering</string>
     <string name="mobile_hotspot_dialog_nosim_warning_message_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
@@ -1139,7 +1139,7 @@ Per obtenir més informació, contacta amb l'administrador."</string>
     <string name="add_tile">Afegeix un mosaic</string>
     <string name="broadcast_tile">"Mosaic d'emissió"</string>
     <string name="mobileap">Connexió compartida</string>
-    <string name="mobile_hotspot_wifi_off_warning">Si habilita Mobile hotspot, es desactivarà el Wi-Fi.</string>
+    <string name="mobile_hotspot_wifi_off_warning">Si habilites la Connexió compartida, es desactivarà el Wi-Fi.</string>
     <string name="mobile_hotspot_wifi_off_warning_vzw">Mobile Hotspot uses your mobile data connection. Your Wi-Fi connection will be turned off.</string>
     <string name="mobile_hotspot_wifi_off_warning_china">Enabling Mobile hotspot will turn off WLAN.</string>
     <string name="mobile_hotspot_wifi_off_warning_jpn">Enabling Wi-Fi tethering will turn off Wi-Fi.</string>

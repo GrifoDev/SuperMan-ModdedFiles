@@ -87,7 +87,7 @@
     <string name="bluetooth_pairing_error_message">Алоқа бо %1$s ғайриимкон аст.</string>
     <string name="bluetooth_pairing_pin_error_message">Бо %1$s ҷуфт шуда наметавонад. Боварӣ ҳосил кунед, ки %2$s барои ҷуфт шудан омода аст.</string>
     <string name="bluetooth_pairing_rejected_error_message">%s ҳамроҳкуниро рад кард.</string>
-    <string name="tether_settings_title_all">Нуқтаи гарми мобилӣ ва буриш</string>
+    <string name="tether_settings_title_all">Нуқтаи дастрасии мобилӣ ва модем</string>
     <string name="tts_settings_title">Матн-ба-нутқ</string>
     <string name="tts_default_rate_title">Суръати нутқ</string>
     <string name="tts_default_rate_summary">Суръати талаффузи матн</string>
@@ -250,7 +250,7 @@ S bike"</string>
     <string name="agree">Розиам</string>
     <string name="disagree">Розӣ нестам</string>
     <string name="quick_settings_it_policy_prevents">Сиёсати амният истифодаи %s-ро пешгирӣ мекунад.</string>
-    <string name="mobile_hotspot_dialog_nosim_warning_message">Ягон SIM-кортро гузошта, Нуқтаи гарми мобилӣ ва дигар функсияҳои бастанро истифода баред</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message">Барои Нуқтаи дастрасии мобилӣ ва функсияҳои дигари модемро истифода бурдан, SIM-корт дохил кунед.</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title">Нуқтаи дастрасии мобилӣ</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title_jpn">Unable to enable Wi-Fi tethering</string>
     <string name="mobile_hotspot_dialog_nosim_warning_message_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>

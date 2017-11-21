@@ -138,7 +138,7 @@
     <string name="tether_settings_title_wifi">Zona interactiva portátil</string>
     <string name="tether_settings_title_bluetooth">Ancoraxe de Bluetooth</string>
     <string name="tether_settings_title_usb_bluetooth">Ancoraxe á rede</string>
-    <string name="tether_settings_title_all">Conexión compartida e ancoraxe á rede</string>
+    <string name="tether_settings_title_all">Conex. comp. e módem Bluetooth/USB</string>
     <string name="managed_user_title">Aplicacións de traballo</string>
     <string name="user_guest">Convidado</string>
     <string name="unknown">Descoñecida</string>
@@ -816,7 +816,7 @@ S Moto"</string>
     <string name="agree">Acepto</string>
     <string name="disagree">Non acepto</string>
     <string name="quick_settings_it_policy_prevents">A política de seguridade impide o uso de %s.</string>
-    <string name="mobile_hotspot_dialog_nosim_warning_message">Insire unha tarxeta SIM para utilizar Conexión compartida e outras funcións de ancoraxe á rede.</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message">Insire unha tarxeta SIM para utilizar Conexión compartida e outras funcións de Módem Bluetooth/USB.</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title">Mobile hotspot</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title_jpn">Unable to enable Wi-Fi tethering</string>
     <string name="mobile_hotspot_dialog_nosim_warning_message_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>

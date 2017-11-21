@@ -138,7 +138,7 @@
     <string name="tether_settings_title_wifi">Hordozható hotspot</string>
     <string name="tether_settings_title_bluetooth">Bluetooth megosztása</string>
     <string name="tether_settings_title_usb_bluetooth">Megosztás</string>
-    <string name="tether_settings_title_all">Mobil hotspot és internetmegosztás</string>
+    <string name="tether_settings_title_all">Mobil hotspot és Int.megosztás</string>
     <string name="managed_user_title">Összes munkaalkalmazás</string>
     <string name="user_guest">Vendég</string>
     <string name="unknown">Ismeretlen</string>

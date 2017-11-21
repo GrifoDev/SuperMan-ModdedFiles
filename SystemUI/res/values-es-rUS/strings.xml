@@ -138,7 +138,7 @@
     <string name="tether_settings_title_wifi">Zona Wi-Fi portátil</string>
     <string name="tether_settings_title_bluetooth">Anclaje a red Bluetooth</string>
     <string name="tether_settings_title_usb_bluetooth">Anclaje a red</string>
-    <string name="tether_settings_title_all">Anclaje a red y Zona portátil</string>
+    <string name="tether_settings_title_all">Mobile Hotspot y Anclaje a red</string>
     <string name="managed_user_title">Todas las apps de trabajo</string>
     <string name="user_guest">Invitado</string>
     <string name="unknown">Desconocido</string>
@@ -782,8 +782,8 @@ mirroring"</string>
 energía"</string>
     <string name="quick_settings_sec_dnd_label">"No
 molestar"</string>
-    <string name="quick_settings_mobile_hotspot_label">"Zona
-portátil"</string>
+    <string name="quick_settings_mobile_hotspot_label">"Mobile
+hotspot"</string>
     <string name="quick_settings_airplane_mode_label">"Fuera de
 línea"</string>
     <string name="quick_settings_bluelightfilter_label">"Filtro de
@@ -816,15 +816,15 @@ S bike"</string>
     <string name="agree">Acepto</string>
     <string name="disagree">No acepto</string>
     <string name="quick_settings_it_policy_prevents">La política de seguridad impide usar %s.</string>
-    <string name="mobile_hotspot_dialog_nosim_warning_message">Inserte una tarjeta SIM para usar Zona portátil y otras funciones de anclaje a red.</string>
-    <string name="mobile_hotspot_dialog_nosim_warning_title">Zona portátil</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message">Inserte una tarjeta SIM para usar Mobile Hotspot y otras funciones de anclaje a red.</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_title">Mobile Hotspot</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title_jpn">Unable to enable Wi-Fi tethering</string>
     <string name="mobile_hotspot_dialog_nosim_warning_message_vzw">Inserte una tarjeta SIM para usar Zona móvil y otras opciones de anclaje a red.</string>
     <string name="mobile_hotspot_dialog_nosim_warning_message_jpn">Insert a SIM card to use Wi-Fi tethering.</string>
     <string name="mobile_hotspot_dialog_nousim_or_nosim_warning">Insert a UIM/SIM card to use Mobile hotspot and other tethering functions.</string>
     <string name="mobile_hotspot_toast_disable_airplne_mode">No es posible conectar a las redes móviles mientras que el perfil Fuera de línea está activado. Desactive el perfil Fuera de línea e inténtelo de nuevo.</string>
     <string name="mobile_hotspot_toast_internet_sharing">Internet PC</string>
-    <string name="mobile_hotspot_detail_title">Zona portátil</string>
+    <string name="mobile_hotspot_detail_title">Mobile Hotspot</string>
     <string name="mobile_hotspot_detail_title_vzw">Mobile Hotspot</string>
     <string name="mobile_hotspot_detail_title_jpn">Anclaje a red de Wi-Fi</string>
     <string name="mobile_hotspot_detail_connection_mode_allowed_device">Sólo dispositivos permitidos</string>
@@ -1137,8 +1137,8 @@ Para obtener más información, comunícate con el administrador."</string>
     <string name="status_bar_airplane">Modo de avión</string>
     <string name="add_tile">Agregar mosaico</string>
     <string name="broadcast_tile">Mosaico de transmisión</string>
-    <string name="mobileap">Zona portátil</string>
-    <string name="mobile_hotspot_wifi_off_warning">Al activar Zona portátil se desactivará Wi-Fi.</string>
+    <string name="mobileap">Mobile Hotspot</string>
+    <string name="mobile_hotspot_wifi_off_warning">Al activar Mobile Hotspot, se desactivará Wi-Fi.</string>
     <string name="mobile_hotspot_wifi_off_warning_vzw">Mobile Hotspot utiliza la conexión de datos móviles. La conexión Wi-Fi se desactivará.</string>
     <string name="mobile_hotspot_wifi_off_warning_china">Enabling Mobile hotspot will turn off WLAN.</string>
     <string name="mobile_hotspot_wifi_off_warning_jpn">Enabling Wi-Fi tethering will turn off Wi-Fi.</string>

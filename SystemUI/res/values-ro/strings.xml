@@ -138,7 +138,7 @@
     <string name="tether_settings_title_wifi">Hotspot portabil</string>
     <string name="tether_settings_title_bluetooth">Tethering prin Bluetooth</string>
     <string name="tether_settings_title_usb_bluetooth">Tethering</string>
-    <string name="tether_settings_title_all">Hotspot mobil și tethering</string>
+    <string name="tether_settings_title_all">Hotspot mobil și Tethering</string>
     <string name="managed_user_title">Toate aplicațiile de serviciu</string>
     <string name="user_guest">Invitat</string>
     <string name="unknown">Necunoscut</string>
@@ -816,7 +816,7 @@ cicletă S"</string>
     <string name="agree">De acord</string>
     <string name="disagree">Refuzare</string>
     <string name="quick_settings_it_policy_prevents">Politica de securitate nu permite utilizarea aplicației %s.</string>
-    <string name="mobile_hotspot_dialog_nosim_warning_message">Introduceți o cartelă SIM pentru a utiliza Mobile hotspot și alte funcții de tethering.</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message">Introduceți o cartelă SIM pentru a utiliza Hotspot mobil și alte funcții de tethering.</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title">Mobile hotspot</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title_jpn">Unable to enable Wi-Fi tethering</string>
     <string name="mobile_hotspot_dialog_nosim_warning_message_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
@@ -1138,7 +1138,7 @@ Pentru mai multe informații, contactați administratorul."</string>
     <string name="add_tile">Adăugați o casetă</string>
     <string name="broadcast_tile">Caseta mesajului difuzat</string>
     <string name="mobileap">Hotspot mobil</string>
-    <string name="mobile_hotspot_wifi_off_warning">Activarea Mobile hotspot va dezactiva Wi-Fi.</string>
+    <string name="mobile_hotspot_wifi_off_warning">Activarea funcției Hotspot mobil va dezactiva Wi-Fi.</string>
     <string name="mobile_hotspot_wifi_off_warning_vzw">Mobile Hotspot uses your mobile data connection. Your Wi-Fi connection will be turned off.</string>
     <string name="mobile_hotspot_wifi_off_warning_china">Enabling Mobile hotspot will turn off WLAN.</string>
     <string name="mobile_hotspot_wifi_off_warning_jpn">Enabling Wi-Fi tethering will turn off Wi-Fi.</string>

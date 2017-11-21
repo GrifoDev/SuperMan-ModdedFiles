@@ -138,7 +138,7 @@
     <string name="tether_settings_title_wifi">نقطه اتصال قابل حمل</string>
     <string name="tether_settings_title_bluetooth">اتصال اینترنت با تلفن همراه بلوتوث</string>
     <string name="tether_settings_title_usb_bluetooth">اتصال به اینترنت با تلفن همراه</string>
-    <string name="tether_settings_title_all">نقطه اتصال تلفن همراه و اتصال اینترنت</string>
+    <string name="tether_settings_title_all">اینترنت و نقطه اتصال همراه</string>
     <string name="managed_user_title">همه برنامه‌های کاری</string>
     <string name="user_guest">مهمان</string>
     <string name="unknown">ناشناس</string>
@@ -817,15 +817,15 @@ mirroring"</string>
     <string name="agree">موافقم</string>
     <string name="disagree">ناموافق</string>
     <string name="quick_settings_it_policy_prevents">سیاست امنیتی از استفاده از %s جلوگیری می‌کند.</string>
-    <string name="mobile_hotspot_dialog_nosim_warning_message">برای استفاده از نقطه اتصال تلفن همراه و سایر عملکردهای اینترنت با واسطه، یک سیم‌کارت وارد کنید.</string>
-    <string name="mobile_hotspot_dialog_nosim_warning_title">نقطه اتصال Mobile</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message">برای استفاده از نقطه اتصال همراه و سایر عملکردهای اینترنت با واسطه، یک سیم‌کارت وارد کنید.</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_title">نقطه اتصال تلفن همراه</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title_jpn">Unable to enable Wi-Fi tethering</string>
     <string name="mobile_hotspot_dialog_nosim_warning_message_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
     <string name="mobile_hotspot_dialog_nosim_warning_message_jpn">Insert a SIM card to use Wi-Fi tethering.</string>
     <string name="mobile_hotspot_dialog_nousim_or_nosim_warning">Insert a UIM/SIM card to use Mobile hotspot and other tethering functions.</string>
     <string name="mobile_hotspot_toast_disable_airplne_mode">هنگامی که حالت پرواز فعال است اتصال به شبکه های تلفن همراه ممکن نیست. حالت پرواز را غیرفعال کرده و دوباره امتحان کنید.</string>
     <string name="mobile_hotspot_toast_internet_sharing">به اشتراک گذاری اینترنت</string>
-    <string name="mobile_hotspot_detail_title">نقطه اتصال Mobile</string>
+    <string name="mobile_hotspot_detail_title">نقطه اتصال تلفن همراه</string>
     <string name="mobile_hotspot_detail_title_vzw">Mobile Hotspot</string>
     <string name="mobile_hotspot_detail_title_jpn">اتصال Wi-Fi</string>
     <string name="mobile_hotspot_detail_connection_mode_allowed_device">فقط دستگاه های مجاز</string>
@@ -1139,7 +1139,7 @@ Turn on Airplane mode?"</string>
     <string name="add_tile">افزودن کاشی</string>
     <string name="broadcast_tile">کاشی پخش عمومی</string>
     <string name="mobileap">نقطه اتصال تلفن همراه</string>
-    <string name="mobile_hotspot_wifi_off_warning">با فعال کردن نقطه اتصال تلفن همراه، Wi-Fi خاموش می‌شود.</string>
+    <string name="mobile_hotspot_wifi_off_warning">با فعال کردن نقطه اتصال همراه، Wi-Fi خاموش می‌شود.</string>
     <string name="mobile_hotspot_wifi_off_warning_vzw">Mobile Hotspot uses your mobile data connection. Your Wi-Fi connection will be turned off.</string>
     <string name="mobile_hotspot_wifi_off_warning_china">Enabling Mobile hotspot will turn off WLAN.</string>
     <string name="mobile_hotspot_wifi_off_warning_jpn">Enabling Wi-Fi tethering will turn off Wi-Fi.</string>

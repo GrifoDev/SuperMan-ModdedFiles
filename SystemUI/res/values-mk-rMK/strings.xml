@@ -138,7 +138,7 @@
     <string name="tether_settings_title_wifi">Преносл. точка на пристап</string>
     <string name="tether_settings_title_bluetooth">Поврзување со Bluetooth</string>
     <string name="tether_settings_title_usb_bluetooth">Поврзување</string>
-    <string name="tether_settings_title_all">Мобилен хотспот и споделување врска</string>
+    <string name="tether_settings_title_all">Моб. хотсп. и споделување врска</string>
     <string name="managed_user_title">Сите апликации за работа</string>
     <string name="user_guest">Гостин</string>
     <string name="unknown">Непознато</string>
@@ -815,7 +815,7 @@ S мотор"</string>
     <string name="agree">Добро</string>
     <string name="disagree">Не се согласувам</string>
     <string name="quick_settings_it_policy_prevents">Политиката за безбедност спречува користење %s.</string>
-    <string name="mobile_hotspot_dialog_nosim_warning_message">Вметнете SIM-картичка за да користите Mobile hotspot и други функции за поврзување.</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message">Вметнете SIM-картичка за да користите Мобилен хотспот и други функции за поврзување.</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title">Mobile hotspot</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title_jpn">Unable to enable Wi-Fi tethering</string>
     <string name="mobile_hotspot_dialog_nosim_warning_message_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>

@@ -138,7 +138,7 @@
     <string name="tether_settings_title_wifi">Zona e qasjes e lëvizshme</string>
     <string name="tether_settings_title_bluetooth">Ndarje interneti përmes Bluetooth-it</string>
     <string name="tether_settings_title_usb_bluetooth">Ndarja e internetit</string>
-    <string name="tether_settings_title_all">Shpërndarësja celulare dhe tetherimi</string>
+    <string name="tether_settings_title_all">Shpërndarësja dhe Tetherimi</string>
     <string name="managed_user_title">Të gjitha aplikacionet e punës</string>
     <string name="user_guest">I ftuar</string>
     <string name="unknown">I panjohur</string>
@@ -816,7 +816,7 @@ S bike"</string>
     <string name="agree">Pranoj</string>
     <string name="disagree">Nuk pranoj</string>
     <string name="quick_settings_it_policy_prevents">Politika e sigurisë nuk lejon përdorimin e %s.</string>
-    <string name="mobile_hotspot_dialog_nosim_warning_message">Fut një kartë SIM për të përdorur Shpërndarësen celulare dhe funksione të tjera tetherimi.</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message">Fut një kartë SIM për të përdorur shpërndarësen celulare dhe funksione të tjera tetherimi.</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title">Shpërndarëse për celularët</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title_jpn">Unable to enable Wi-Fi tethering</string>
     <string name="mobile_hotspot_dialog_nosim_warning_message_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>

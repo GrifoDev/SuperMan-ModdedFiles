@@ -107,7 +107,7 @@
     <string name="tether_settings_title_wifi">ජංගම හොට්ස්පොට්</string>
     <string name="tether_settings_title_bluetooth">බ්ලූටූත් ටෙදරින්</string>
     <string name="tether_settings_title_usb_bluetooth">ටෙදරින්</string>
-    <string name="tether_settings_title_all">ජංගම හොට්ස්පොට් හා ටෙදරින්</string>
+    <string name="tether_settings_title_all">ජංගම හොට්ස්පොට් සහ ටෙදරින්</string>
     <string name="managed_user_title">සියලු කාර්යාල යෙදුම්</string>
     <string name="user_guest">අමුත්තා</string>
     <string name="unknown">නොදනී</string>

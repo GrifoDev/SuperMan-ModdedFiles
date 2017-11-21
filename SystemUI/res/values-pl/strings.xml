@@ -138,7 +138,7 @@
     <string name="tether_settings_title_wifi">Przenośny punkt dostępu</string>
     <string name="tether_settings_title_bluetooth">Tethering przez Bluetooth</string>
     <string name="tether_settings_title_usb_bluetooth">Tethering</string>
-    <string name="tether_settings_title_all">Udostępnianie internetu</string>
+    <string name="tether_settings_title_all">Router Wi-Fi i udost. internetu</string>
     <string name="managed_user_title">Wszystkie aplikacje do pracy</string>
     <string name="user_guest">Gość</string>
     <string name="unknown">Nieznana</string>

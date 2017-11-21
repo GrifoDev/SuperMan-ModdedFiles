@@ -816,7 +816,7 @@ S Bike"</string>
     <string name="agree">Accetto</string>
     <string name="disagree">Rifiuto</string>
     <string name="quick_settings_it_policy_prevents">"I criteri di protezione non consentono l'uso di %s."</string>
-    <string name="mobile_hotspot_dialog_nosim_warning_message">Inserite una scheda SIM per utilizzare Router Wi-Fi e altre funzioni di tethering.</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message">Inserite una scheda SIM per utilizzare il Router Wi-Fi e altre funzioni di tethering.</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title">Router Wi-Fi</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title_jpn">Unable to enable Wi-Fi tethering</string>
     <string name="mobile_hotspot_dialog_nosim_warning_message_vzw">Inserite una scheda SIM per utilizzare Router Wi-Fi e altre opzioni di tethering.</string>
@@ -1138,7 +1138,7 @@ Per ulteriori informazioni, contatta l'amministratore."</string>
     <string name="add_tile">Aggiungi riquadro</string>
     <string name="broadcast_tile">Riquadro di trasmissione</string>
     <string name="mobileap">Router Wi-Fi</string>
-    <string name="mobile_hotspot_wifi_off_warning">Se si attiva Router Wi-Fi, il Wi-Fi verrà disattivato.</string>
+    <string name="mobile_hotspot_wifi_off_warning">Se si attiva il Router Wi-Fi, il Wi-Fi verrà disattivato.</string>
     <string name="mobile_hotspot_wifi_off_warning_vzw">Router Wi-Fi utilizza la connessione dati. La connessione Wi-Fi verrà disattivata.</string>
     <string name="mobile_hotspot_wifi_off_warning_china">"L'attivazione di Router WLAN disattiverà la rete WLAN."</string>
     <string name="mobile_hotspot_wifi_off_warning_jpn">Enabling Wi-Fi tethering will turn off Wi-Fi.</string>

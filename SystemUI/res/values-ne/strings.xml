@@ -246,7 +246,7 @@ Mirroring"</string>
     <string name="agree">स्वीकार्नु</string>
     <string name="disagree">असहमत</string>
     <string name="quick_settings_it_policy_prevents">सुरक्षा नीतिले %s को प्रयोग गर्न रोक्दछ।</string>
-    <string name="mobile_hotspot_dialog_nosim_warning_message">मोबाइल हटस्पट तथा अन्य टेथरिङ फंक्शनहरू प्रयोग गर्न SIM कार्ड घुसाउनुहोस्।</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message">मोबाइल हटस्पट र टेथरिङका अन्य फंक्शनहरू प्रयोग गर्न कुनै SIM कार्ड हाल्नुहोस्।</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title">मोबाइल हटस्पट</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title_jpn">Unable to enable Wi-Fi tethering</string>
     <string name="mobile_hotspot_dialog_nosim_warning_message_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
@@ -407,7 +407,7 @@ Wi-Fi र ब्लुटूथ पनि अफ हुनेछ, तर से�
     <string name="volume_limiter_open_cover_toast">जारी राख्न कभर खोल्नुहोस्।</string>
     <string name="quick_settings_settings">सेटिङहरू</string>
     <string name="mobileap">मोबाइल हटस्पट</string>
-    <string name="mobile_hotspot_wifi_off_warning">मोबाइल हटस्पट सक्षम गराउनाले Wi-Fi बन्द गर्नेछ।</string>
+    <string name="mobile_hotspot_wifi_off_warning">मोबाइल हटस्पटलाई सक्षम गर्नाले Wi-Fi अफ हुनेछ।</string>
     <string name="mobile_hotspot_wifi_off_warning_vzw">Mobile Hotspot uses your mobile data connection. Your Wi-Fi connection will be turned off.</string>
     <string name="mobile_hotspot_wifi_off_warning_china">Enabling Mobile hotspot will turn off WLAN.</string>
     <string name="mobile_hotspot_wifi_off_warning_jpn">Enabling Wi-Fi tethering will turn off Wi-Fi.</string>

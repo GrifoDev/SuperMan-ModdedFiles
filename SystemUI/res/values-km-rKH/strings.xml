@@ -138,7 +138,7 @@
     <string name="tether_settings_title_wifi">ហតស្ពត​ចល័ត</string>
     <string name="tether_settings_title_bluetooth">ការ​ភ្ជាប់ប៊្លូធូស</string>
     <string name="tether_settings_title_usb_bluetooth">ការ​ភ្ជាប់</string>
-    <string name="tether_settings_title_all">ហត់ស្ពត់​ចល័ត និង ចំណង</string>
+    <string name="tether_settings_title_all">ហត់ស្ប៉ត់​ចល័ត និង ចំណង</string>
     <string name="managed_user_title">កម្មវិធីការងារទាំងអស់</string>
     <string name="user_guest">ភ្ញៀវ</string>
     <string name="unknown">មិន​ស្គាល់</string>
@@ -783,7 +783,7 @@ Mirroring"</string>
 ថាមពល"</string>
     <string name="quick_settings_sec_dnd_label">"កុំ​
 រំខាន"</string>
-    <string name="quick_settings_mobile_hotspot_label">"ហត់ស្ពត់
+    <string name="quick_settings_mobile_hotspot_label">"ហត់ស្ប៉ត់
 ចល័ត"</string>
     <string name="quick_settings_airplane_mode_label">"ទម្រង់
 យន្តហោះ"</string>
@@ -817,15 +817,15 @@ S Bike"</string>
     <string name="agree">យល់​ព្រម</string>
     <string name="disagree">មិន​យល់​ស្រប</string>
     <string name="quick_settings_it_policy_prevents">គោលការណ៍​សន្តិសុខ​រារាំង​ការប្រើ %s។</string>
-    <string name="mobile_hotspot_dialog_nosim_warning_message">បញ្ចូល​កាត SIM ដើម្បី​ប្រើ​ហត់ស្ពត់​ចល័ត និង មុខងារ​ចំណង​ផ្សេងទៀត។</string>
-    <string name="mobile_hotspot_dialog_nosim_warning_title">ហត់ស្ពត់​ចល័ត</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message">បញ្ចូល​កាត SIM ដើម្បី​ប្រើ​ហត់ស្ប៉ត់​ចល័ត និង មុខងារ​ចំណង​ផ្សេងទៀត។</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_title">ហត់ស្ប៉ត់​ចល័ត</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title_jpn">Unable to enable Wi-Fi tethering</string>
     <string name="mobile_hotspot_dialog_nosim_warning_message_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
     <string name="mobile_hotspot_dialog_nosim_warning_message_jpn">Insert a SIM card to use Wi-Fi tethering.</string>
     <string name="mobile_hotspot_dialog_nousim_or_nosim_warning">Insert a UIM/SIM card to use Mobile hotspot and other tethering functions.</string>
     <string name="mobile_hotspot_toast_disable_airplne_mode">មិន​អាច​ភ្ជាប់​ទៅ​បណ្ដាញ​ចល័ត​ទេ ខណៈពេល​បាន​បើកប្រើ​ទម្រង់​យន្តហោះ។ បិទ​ទម្រង់​យន្តហោះ ហើយ​សាកល្បង​ម្ដងទៀត។</string>
     <string name="mobile_hotspot_toast_internet_sharing">ការចែក​រំលែក​អ៊ីនធឺណិត</string>
-    <string name="mobile_hotspot_detail_title">ហត់ស្ពត់​ចល័ត</string>
+    <string name="mobile_hotspot_detail_title">ហត់ស្ប៉ត់​ចល័ត</string>
     <string name="mobile_hotspot_detail_title_vzw">ហត់ស្ពត់​ចល័ត</string>
     <string name="mobile_hotspot_detail_title_jpn">ចំណង Wi-Fi</string>
     <string name="mobile_hotspot_detail_connection_mode_allowed_device">ឧបករណ៍​ដែល​បាន​អនុញ្ញាត​ប៉ុណ្ណោះ</string>
@@ -1138,8 +1138,8 @@ Wi-Fi និង Bluetooth ក៏​នឹង​ត្រូវ​បាន​ប
     <string name="status_bar_airplane">របៀបក្នុងយន្តហោះ</string>
     <string name="add_tile">បន្ថែមក្រឡាល្អិត</string>
     <string name="broadcast_tile">ការផ្សាយជាក្រឡាល្អិត</string>
-    <string name="mobileap">ហត់ស្ពត់​ចល័ត</string>
-    <string name="mobile_hotspot_wifi_off_warning">ការបើកប្រើ​ហត់ស្ពត់​ចល័ត​នឹង​បិទ Wi-Fi។</string>
+    <string name="mobileap">ហត់ស្ប៉ត់​ចល័ត</string>
+    <string name="mobile_hotspot_wifi_off_warning">ការបើកប្រើ​ហត់ស្ប៉ត់​ចល័ត​នឹង​បិទ Wi-Fi។</string>
     <string name="mobile_hotspot_wifi_off_warning_vzw">Mobile Hotspot uses your mobile data connection. Your Wi-Fi connection will be turned off.</string>
     <string name="mobile_hotspot_wifi_off_warning_china">Enabling Mobile hotspot will turn off WLAN.</string>
     <string name="mobile_hotspot_wifi_off_warning_jpn">Enabling Wi-Fi tethering will turn off Wi-Fi.</string>

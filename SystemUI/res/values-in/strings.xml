@@ -138,7 +138,7 @@
     <string name="tether_settings_title_wifi">Hotspot portabel</string>
     <string name="tether_settings_title_bluetooth">Penambatan bluetooth</string>
     <string name="tether_settings_title_usb_bluetooth">Menambatkan</string>
-    <string name="tether_settings_title_all">Hotspot seluler dan penambatan</string>
+    <string name="tether_settings_title_all">Hotspot Seluler dan Penambatan</string>
     <string name="managed_user_title">Semua aplikasi kerja</string>
     <string name="user_guest">Tamu</string>
     <string name="unknown">Tidak diketahui</string>
@@ -817,7 +817,7 @@ S bike"</string>
     <string name="agree">Setuju</string>
     <string name="disagree">Tdk setuju</string>
     <string name="quick_settings_it_policy_prevents">Kebijakan keamanan membatasi penggunaan %s.</string>
-    <string name="mobile_hotspot_dialog_nosim_warning_message">Masukkan kartu SIM untuk menggunakan Hotspot seluler dan fungsi penambatan lainnya.</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message">Masukkan kartu SIM untuk menggunakan Hotspot Seluler dan fungsi penambatan lainnya.</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title">Hotspot seluler</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title_jpn">Unable to enable Wi-Fi tethering</string>
     <string name="mobile_hotspot_dialog_nosim_warning_message_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
@@ -1139,7 +1139,7 @@ Untuk informasi selengkapnya, hubungi administrator."</string>
     <string name="add_tile">Tambahkan ubin</string>
     <string name="broadcast_tile">Ubin Siaran</string>
     <string name="mobileap">Hotspot seluler</string>
-    <string name="mobile_hotspot_wifi_off_warning">Mengaktifkan Hotspot seluler akan mematikan Wi-Fi.</string>
+    <string name="mobile_hotspot_wifi_off_warning">Mengaktifkan Hotspot Seluler akan menonaktifkan Wi-Fi.</string>
     <string name="mobile_hotspot_wifi_off_warning_vzw">Mobile Hotspot uses your mobile data connection. Your Wi-Fi connection will be turned off.</string>
     <string name="mobile_hotspot_wifi_off_warning_china">Mengaktifkan Hotspot seluler akan mematikan WLAN.</string>
     <string name="mobile_hotspot_wifi_off_warning_jpn">Enabling Wi-Fi tethering will turn off Wi-Fi.</string>

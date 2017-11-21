@@ -138,7 +138,7 @@
     <string name="tether_settings_title_wifi">პორტატული უსადენო ქსელი</string>
     <string name="tether_settings_title_bluetooth">Bluetooth-მოდემი</string>
     <string name="tether_settings_title_usb_bluetooth">მოდემის რეჟიმი</string>
-    <string name="tether_settings_title_all">მობილური ცხელი წერტილი და მობილური ინტერნეტის გაზიარება</string>
+    <string name="tether_settings_title_all">მობილური ინტერნეტის გაზიარება</string>
     <string name="managed_user_title">სამსახურის ყველა აპი</string>
     <string name="user_guest">სტუმარი</string>
     <string name="unknown">უცნობი</string>

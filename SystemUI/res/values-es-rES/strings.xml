@@ -87,7 +87,7 @@
     <string name="bluetooth_pairing_error_message">No se puede establecer comunicación con %1$s</string>
     <string name="bluetooth_pairing_pin_error_message">No se puede vincular con %1$s. Asegúrese de que %2$s está preparado para vincularse.</string>
     <string name="bluetooth_pairing_rejected_error_message">%s ha rechazado la vinculación</string>
-    <string name="tether_settings_title_all">Conexión compartida</string>
+    <string name="tether_settings_title_all">Conexión compartida y Módem</string>
     <string name="tts_settings_title">Texto para pronunciar</string>
     <string name="tts_default_rate_title">Índice de velocidad</string>
     <string name="tts_default_rate_summary">Velocidad de pronunciación de texto</string>
@@ -248,7 +248,7 @@ S Moto"</string>
     <string name="agree">Acepto</string>
     <string name="disagree">No acepto</string>
     <string name="quick_settings_it_policy_prevents">La política de seguridad impide el uso de %s.</string>
-    <string name="mobile_hotspot_dialog_nosim_warning_message">Introduzca una tarjeta SIM para utilizar Conexión compartida y otras funciones de módem USB/Bluetooth.</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message">Introduce una tarjeta SIM para utilizar Conexión compartida y otras funciones de módem USB/Bluetooth.</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title">Conexión compartida</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title_jpn">Unable to enable Wi-Fi tethering</string>
     <string name="mobile_hotspot_dialog_nosim_warning_message_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>

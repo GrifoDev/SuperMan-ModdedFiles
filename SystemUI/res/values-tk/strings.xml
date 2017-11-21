@@ -87,7 +87,7 @@
     <string name="bluetooth_pairing_error_message">%1$s bilen habarlaşmak mümkin däl</string>
     <string name="bluetooth_pairing_pin_error_message">%1$s bilen jübütläp bolmaýar. %2$s jübütlemäge taýýar bolsun.</string>
     <string name="bluetooth_pairing_rejected_error_message">%s tarapyndan yzyna gaýtarylan jübütlenýär</string>
-    <string name="tether_settings_title_all">Mobil giriş nokady we modem</string>
+    <string name="tether_settings_title_all">Mobil hotspot we baglanma</string>
     <string name="tts_settings_title">Tekstden-söze</string>
     <string name="tts_default_rate_title">Gepleýiş tizligi</string>
     <string name="tts_default_rate_summary">Tekstiň geplenýän tizligi</string>
@@ -249,7 +249,7 @@ tertibi"</string>
     <string name="agree">Ylalaşýaryn</string>
     <string name="disagree">Ylalaşmaýaryn</string>
     <string name="quick_settings_it_policy_prevents">Howpsuzlyk syýasaty %s ulanmagy bökdeýär.</string>
-    <string name="mobile_hotspot_dialog_nosim_warning_message">Mobil giriş nokadyny we beýleki modem funksiýalaryny ulanmak üçin SIM kartany dakyň.</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message">Mobil hotspoty we beýleki baglama funksiýalaryny ulanmak üçin SIM karty dakyň.</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title">Mobil gyzgyn nokady</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title_jpn">Unable to enable Wi-Fi tethering</string>
     <string name="mobile_hotspot_dialog_nosim_warning_message_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
@@ -410,7 +410,7 @@ Hyzmat elýeterli wagty, aşakda görkezilişi ýaly, Wi-Fi jaň şekiljigi haba
     <string name="volume_limiter_open_cover_toast">Dowam etmek üçin, gapagy açyň.</string>
     <string name="quick_settings_settings">SAZLAMALAR</string>
     <string name="mobileap">Mobil giriş nokady</string>
-    <string name="mobile_hotspot_wifi_off_warning">Mobil giriş nokadynyň işledilmegi Wi-Fi-y öçürer.</string>
+    <string name="mobile_hotspot_wifi_off_warning">Mobil hotspoty işletseňiz, Wi-Fi ýapylar.</string>
     <string name="mobile_hotspot_wifi_off_warning_vzw">Mobile Hotspot uses your mobile data connection. Your Wi-Fi connection will be turned off.</string>
     <string name="mobile_hotspot_wifi_off_warning_china">Enabling Mobile hotspot will turn off WLAN.</string>
     <string name="mobile_hotspot_wifi_off_warning_jpn">Enabling Wi-Fi tethering will turn off Wi-Fi.</string>

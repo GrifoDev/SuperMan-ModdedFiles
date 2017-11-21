@@ -138,7 +138,7 @@
     <string name="tether_settings_title_wifi">ຮັອດສະປອດເຄື່ອນທີ່</string>
     <string name="tether_settings_title_bluetooth">ປ່ອຍສັນຍານຜ່ານ Bluetooth</string>
     <string name="tether_settings_title_usb_bluetooth">ການປ່ອຍສັນຍານ</string>
-    <string name="tether_settings_title_all">ຮັອດສະປັອດມືຖື ແລະການ​ເຊື່ອມ​ໂຍງ</string>
+    <string name="tether_settings_title_all">ຮັອດສະປັອດມືຖື ແລະ ການ​ເຊື່ອມ​ໂຍງ</string>
     <string name="managed_user_title">ແອັບເຮັດວຽກທັງໝົດ</string>
     <string name="user_guest">ແຂກ</string>
     <string name="unknown">ບໍ່ຮູ້ຈັກ</string>

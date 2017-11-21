@@ -249,7 +249,7 @@ Mirroring"</string>
     <string name="agree">একমত</string>
     <string name="disagree">মতানৈক্য</string>
     <string name="quick_settings_it_policy_prevents">নিৰাপত্তা নীতিয়ে %s-ৰ ব্যৱহাৰ প্ৰতিৰোধ কৰে।</string>
-    <string name="mobile_hotspot_dialog_nosim_warning_message">"ম'বাইল হ'টস্প'ট আৰু অন্যান্য টিথাৰিং ফাংচনসমূহ ব্যৱহাৰ কৰিবলৈ এখন SIM কাৰ্ড প্ৰৱিষ্ট কৰক৷"</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message">"ম'বাইল হ'টস্প'ট আৰু অন্যান্য টিথাৰিং ফাংচনসমূহ ব্যৱহাৰ কৰিবলৈ এখন SIM কাৰ্ড প্ৰৱিষ্ট কৰক।"</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title">"ম'বাইল হ'টস্প'ট"</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title_jpn">Unable to enable Wi-Fi tethering</string>
     <string name="mobile_hotspot_dialog_nosim_warning_message_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
@@ -410,7 +410,7 @@ Wi-Fi আৰু ব্লুটুথও বন্ধ হ'ব, ছেটিং�
     <string name="volume_limiter_open_cover_toast">"অব্যাহত ৰাখিবলৈ ক'ভাৰ খোলক।"</string>
     <string name="quick_settings_settings">ছেটিংছ</string>
     <string name="mobileap">"ম'বাইল হ'টস্প'ট"</string>
-    <string name="mobile_hotspot_wifi_off_warning">"ম'বাইল হ'টস্প'ট সক্ষম কৰিলে Wi-Fi অফ হ’ব৷"</string>
+    <string name="mobile_hotspot_wifi_off_warning">"ম'বাইল হ'টস্প'ট সক্ষম কৰিলে Wi-Fi অফ হ'ব।"</string>
     <string name="mobile_hotspot_wifi_off_warning_vzw">Mobile Hotspot uses your mobile data connection. Your Wi-Fi connection will be turned off.</string>
     <string name="mobile_hotspot_wifi_off_warning_china">Enabling Mobile hotspot will turn off WLAN.</string>
     <string name="mobile_hotspot_wifi_off_warning_jpn">Enabling Wi-Fi tethering will turn off Wi-Fi.</string>

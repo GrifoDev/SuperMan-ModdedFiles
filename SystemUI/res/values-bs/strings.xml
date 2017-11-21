@@ -68,7 +68,7 @@
     <string name="bluetooth_pairing_error_message">Nije moguća komunikacija sa %1$s.</string>
     <string name="bluetooth_pairing_pin_error_message">Uparivanje sa uređajem %1$s nije moguće. Provjerite da li je uređaj %2$s spreman za uparivanje.</string>
     <string name="bluetooth_pairing_rejected_error_message">Sparivanje je odbacio %s.</string>
-    <string name="tether_settings_title_all">Mobilna pristupna tačka i dijeljenje</string>
+    <string name="tether_settings_title_all">Mob. pristu. tačka i Dijeljenje</string>
     <string name="tts_settings_title">Čitanje teksta</string>
     <string name="tts_default_rate_title">Brzina govora</string>
     <string name="tts_default_rate_summary">Brzina izgovaranja teksta.</string>

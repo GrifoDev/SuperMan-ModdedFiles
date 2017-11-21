@@ -1,5 +1,6 @@
 Signature-Version: 1.0
-SHA-256-Digest-Manifest: yejfBqMDD/sqNTEtyeg/YCTauyKdagTDVbPKNSb7j0U=
+X-Android-APK-Signed: 2
+SHA-256-Digest-Manifest: CFbQpoojLZ0nDsRD4ALGiMcEMlAK7GHC+XCfDMF4/WQ=
 Created-By: 1.0 (Android SignApk)
 
 Name: res/layout/lb_picker.xml
@@ -6264,7 +6265,7 @@ Name: res/drawable/ic_add_circle_qs.xml
 SHA-256-Digest: TMFL62P4t5cHMFqq7R2+4evYVL4gUsOX3KzbPqv4Fn0=
 
 Name: resources.arsc
-SHA-256-Digest: 68GjdBZZQC0MbngHrMGrHRB3hB29sli6MIyedKrlhJw=
+SHA-256-Digest: GlsOjw6r2ewMMzGl7n/vdPGjbkJfN9JkDamI2vrLnGU=
 
 Name: res/drawable/list_ic_tv.spr
 SHA-256-Digest: xL+Fjyu3OXQimRFwao9sfI1AuemZH7os0QxpVJrwCQk=
@@ -6481,7 +6482,7 @@ Name: res/drawable/recents_lock_to_task_button_bg.xml
 SHA-256-Digest: 8DEE/sCKoDTo83LEUQMELDSX0VRkaz1yTzekS9ziR9w=
 
 Name: SEC-INF/buildinfo.xml
-SHA-256-Digest: tbebwF1IrYfarXFAZJ/+oGy+sBN+rTE2ASyUrqrWxqY=
+SHA-256-Digest: JMPC+94hfgeTe4vtboZwKvUB5OGz7zyjXGV/bmvAPDE=
 
 Name: res/drawable-xxhdpi-v4/stat_sys_signal_ctc_two_line_4_3.pio
 SHA-256-Digest: oWGjN8qQCqNWu7kXN8r+aKt/IxSCFEbo5QFSDOueRtQ=

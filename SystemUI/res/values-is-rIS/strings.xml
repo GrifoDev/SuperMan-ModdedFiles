@@ -826,7 +826,7 @@ still."</string>
     <string name="agree">Samþykkt</string>
     <string name="disagree">Hafna</string>
     <string name="quick_settings_it_policy_prevents">Öryggisstefna kemur í veg fyrir notkun á „%s“.</string>
-    <string name="mobile_hotspot_dialog_nosim_warning_message">Settu inn SIM-kort til að nota Mobile hotspot og aðra tjóðrunareiginleika.</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message">Settu inn SIM-kort til að nota farsímaaðgangsstað og aðra tjóðrunareiginleika.</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title">Farsímaaðgangsstaður</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title_jpn">Unable to enable Wi-Fi tethering</string>
     <string name="mobile_hotspot_dialog_nosim_warning_message_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>

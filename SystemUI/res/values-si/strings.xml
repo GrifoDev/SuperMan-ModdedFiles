@@ -84,7 +84,7 @@
     <string name="bluetooth_pairing_error_message">%1$s හා සන්නිවේදනය කළ නොහැක.</string>
     <string name="bluetooth_pairing_pin_error_message">%1$s සමග යුගලනය කිරීමට නොහැකි විය. %2$s යුගලනය කිරීමට සූදානම් බවට වග බලා ගන්න.</string>
     <string name="bluetooth_pairing_rejected_error_message">යුගල් කිරීම %s මඟින් ප්‍රතික්ෂේප කෙරිණි.</string>
-    <string name="tether_settings_title_all">ජංගම හොට්ස්පොට් හා ටෙදරින්</string>
+    <string name="tether_settings_title_all">ජංගම හොට්ස්පොට් සහ ටෙදරින්</string>
     <string name="tts_settings_title">පෙළ-කියවීමට</string>
     <string name="tts_default_rate_title">උච්චාරණ අනුපාතය</string>
     <string name="tts_default_rate_summary">පෙළ කියවන වේගය.</string>

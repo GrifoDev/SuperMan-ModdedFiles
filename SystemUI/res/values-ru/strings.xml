@@ -138,7 +138,7 @@
     <string name="tether_settings_title_wifi">Точка доступа Wi-Fi</string>
     <string name="tether_settings_title_bluetooth">Bluetooth-модем</string>
     <string name="tether_settings_title_usb_bluetooth">Режим модема</string>
-    <string name="tether_settings_title_all">Точка доступа и модем</string>
+    <string name="tether_settings_title_all">Мобильная точка доступа и модем</string>
     <string name="managed_user_title">Корпоративные приложения</string>
     <string name="user_guest">Гость</string>
     <string name="unknown">Неизвестно</string>

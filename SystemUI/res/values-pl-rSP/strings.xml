@@ -87,7 +87,7 @@
     <string name="bluetooth_pairing_error_message">Niy idzie skōmunikować sie z maszinōm %1$s</string>
     <string name="bluetooth_pairing_pin_error_message">Niy idzie pożynić z maszinōm %1$s. Bydź zicher co maszina %2$s je fertich do pożyniyniŏ.</string>
     <string name="bluetooth_pairing_rejected_error_message">Powiōnzanie ôdciepane bez %s.</string>
-    <string name="tether_settings_title_all">Mobilny hotspot i router</string>
+    <string name="tether_settings_title_all">Router Wi-Fi i podŏw. interneca</string>
     <string name="tts_settings_title">Syntezator mowy</string>
     <string name="tts_default_rate_title">Gibkość gŏdaniŏ</string>
     <string name="tts_default_rate_summary">Gibkość czytania tekstu.</string>

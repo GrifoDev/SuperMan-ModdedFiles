@@ -1172,7 +1172,7 @@
 
     iget-boolean v0, v0, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->mContext:Landroid/content/Context;
 

@@ -138,7 +138,7 @@
     <string name="tether_settings_title_wifi">Преносни хотспот</string>
     <string name="tether_settings_title_bluetooth">Bluetooth привезивање</string>
     <string name="tether_settings_title_usb_bluetooth">Повезивање са интернетом</string>
-    <string name="tether_settings_title_all">Mobilna pristupna tačka i vezivanje</string>
+    <string name="tether_settings_title_all">Mobil. pristupna tačka i vezivanje</string>
     <string name="managed_user_title">Све радне апликације</string>
     <string name="user_guest">Гост</string>
     <string name="unknown">Непознато</string>
@@ -817,7 +817,7 @@ motocikla"</string>
     <string name="agree">Slažem se</string>
     <string name="disagree">Ne slažem se</string>
     <string name="quick_settings_it_policy_prevents">Politika bezbednosti sprečava korišćenje aplikacije %s.</string>
-    <string name="mobile_hotspot_dialog_nosim_warning_message">Ubaci SIM karticu da bi koristio/la Mobilnu pristupnu tačku kao i druge funkcije vezivanja.</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message">Ubacite SIM karticu da biste koristili Mobilnu pristupnu tačku i druge funkcije vezivanja.</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title">Mobilna pristupna tačka</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title_jpn">Unable to enable Wi-Fi tethering</string>
     <string name="mobile_hotspot_dialog_nosim_warning_message_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>

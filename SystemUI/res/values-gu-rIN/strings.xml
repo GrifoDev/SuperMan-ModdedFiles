@@ -817,7 +817,7 @@ Mirroring"</string>
     <string name="agree">સંમત છે</string>
     <string name="disagree">અસંમત છે</string>
     <string name="quick_settings_it_policy_prevents">સુરક્ષા નીતિ %s ના ઉપયોગને અટકાવે છે.</string>
-    <string name="mobile_hotspot_dialog_nosim_warning_message">મોબાઇલ હોટસ્પોટ અને અન્ય ટેથરિંગ ફંક્શંસનો ઉપયોગ કરવા માટે એક SIM કાર્ડ નાખો.</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message">મોબાઇલ હોટસ્પોટ અને અન્ય ટેથરિંગ ફંક્શંસનો ઉપયોગ કરવા માટે એક SIM કાર્ડ દાખલ કરો.</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title">મોબાઇલ હોટસ્પોટ</string>
     <string name="mobile_hotspot_dialog_nosim_warning_title_jpn">Unable to enable Wi-Fi tethering</string>
     <string name="mobile_hotspot_dialog_nosim_warning_message_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
