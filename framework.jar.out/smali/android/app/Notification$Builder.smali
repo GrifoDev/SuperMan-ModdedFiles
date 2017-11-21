@@ -578,6 +578,8 @@
 
     const v5, 0x1020016
 
+    sget v7, Landroid/app/Notification$Builder;->mAllowNotificationColorChange:I
+
     new-instance v0, Landroid/app/Notification$BuilderRemoteViews;
 
     iget-object v4, p0, Landroid/app/Notification$Builder;->mContext:Landroid/content/Context;
@@ -608,8 +610,6 @@
 
     invoke-virtual {v0, v5, p3}, Landroid/widget/RemoteViews;->setTextViewText(ILjava/lang/CharSequence;)V
 
-    sget v7, Landroid/app/Notification$Builder;->mAllowNotificationColorChange:I
-
     if-eqz v7, :cond_0
 
     sget v7, Landroid/app/Notification$Builder;->mNotifTitleTextColor:I
@@ -617,7 +617,7 @@
     invoke-virtual {v0, v5, v7}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
     :cond_0
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_5
 
     const/4 v4, -0x2
 
@@ -625,32 +625,33 @@
     invoke-virtual {v0, v5, v4}, Landroid/widget/RemoteViews;->setViewLayoutWidth(II)V
 
     :cond_1
-    if-eqz p4, :cond_3
+    if-eqz p4, :cond_4
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_6
 
     const v3, 0x1020445
 
     :goto_1
+    if-eqz v7, :cond_2
+
     invoke-interface {p4}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object p4
 
+    :cond_2
     invoke-virtual {v0, v3, p4}, Landroid/widget/RemoteViews;->setTextViewText(ILjava/lang/CharSequence;)V
 
-    sget v7, Landroid/app/Notification$Builder;->mAllowNotificationColorChange:I
-
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_3
 
     sget v7, Landroid/app/Notification$Builder;->mNotifSummaryTextColor:I
 
     invoke-virtual {v0, v3, v7}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
-    :cond_2
+    :cond_3
     invoke-virtual {v0, v3, v6}, Landroid/widget/RemoteViews;->setViewVisibility(II)V
 
-    :cond_3
-    if-nez v2, :cond_6
+    :cond_4
+    if-nez v2, :cond_7
 
     iget-object v4, p0, Landroid/app/Notification$Builder;->mN:Landroid/app/Notification;
 
@@ -663,17 +664,17 @@
 
     return-object v0
 
-    :cond_4
+    :cond_5
     const/4 v4, -0x1
 
     goto :goto_0
 
-    :cond_5
+    :cond_6
     const v3, 0x1020090
 
     goto :goto_1
 
-    :cond_6
+    :cond_7
     const/4 v4, 0x1
 
     goto :goto_2
@@ -943,7 +944,7 @@
 .end method
 
 .method private bindHeaderAppName(Landroid/widget/RemoteViews;)V
-    .locals 2
+    .locals 3
 
     const v1, 0x102042e
 
@@ -953,20 +954,17 @@
 
     invoke-virtual {p1, v1, v0}, Landroid/widget/RemoteViews;->setTextViewText(ILjava/lang/CharSequence;)V
 
-    sget v0, Landroid/app/Notification$Builder;->mAllowNotificationColorChange:I
-
-    if-eqz v0, :cond_0
-
-    sget v0, Landroid/app/Notification$Builder;->mNotifTitleTextColor:I
-
-    goto :goto_0
-
-    :cond_0
     invoke-virtual {p0}, Landroid/app/Notification$Builder;->resolveContrastColor()I
 
     move-result v0
 
-    :goto_0
+    sget v2, Landroid/app/Notification$Builder;->mAllowNotificationColorChange:I
+
+    if-eqz v2, :cond_0
+
+    sget v0, Landroid/app/Notification$Builder;->mNotifTitleTextColor:I
+
+    :cond_0
     invoke-virtual {p1, v1, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
     return-void
@@ -3963,7 +3961,7 @@
 
     const-string/jumbo v2, "ongoing_notifications"
 
-    const/4 v3, 0x1
+    const/4 v3, 0x0
 
     invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
