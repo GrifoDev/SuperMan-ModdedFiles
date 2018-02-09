@@ -20,7 +20,7 @@
             </intent-filter>
         </service>
         <provider android:authorities="com.verizon.security" android:name="com.sec.android.app.sysscope.service.DataProvider"/>
-        <meta-data android:name="SPDE.build.signature" android:value="3340174/10292816/flavor1_a-release/SysScope-100200-1.4.17"/>
+        <meta-data android:name="SPDE.build.signature" android:value="4374477/15828141/flavor1_a-release/SysScope-100200-1.4.25"/>
         <meta-data android:name="SPDE.env.version" android:value="1.3.1/23.2.20/23.2.5"/>
     </application>
 </manifest>

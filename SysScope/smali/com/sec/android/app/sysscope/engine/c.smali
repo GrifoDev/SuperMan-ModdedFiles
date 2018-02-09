@@ -22,101 +22,104 @@
 .end method
 
 .method private a(Ljava/lang/String;)Lcom/sec/android/app/sysscope/service/g;
-    .locals 6
+    .locals 7
 
-    new-instance v2, Ljava/io/File;
+    new-instance v3, Ljava/io/File;
 
-    invoke-direct {v2, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2}, Ljava/io/File;->list()[Ljava/lang/String;
-
-    move-result-object v3
-
-    if-nez v3, :cond_0
-
-    sget-object v0, Lcom/sec/android/app/sysscope/service/g;->a:Lcom/sec/android/app/sysscope/service/g;
-
-    :goto_0
-    return-object v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_1
-    array-length v1, v3
-
-    if-ge v0, v1, :cond_3
-
-    new-instance v4, Ljava/io/File;
-
-    aget-object v1, v3, v0
-
-    invoke-direct {v4, v2, v1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
-
-    invoke-virtual {v4}, Ljava/io/File;->isDirectory()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    invoke-virtual {v4}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {p0, v1}, Lcom/sec/android/app/sysscope/engine/c;->a(Ljava/lang/String;)Lcom/sec/android/app/sysscope/service/g;
-
-    move-result-object v1
-
-    sget-object v5, Lcom/sec/android/app/sysscope/service/g;->a:Lcom/sec/android/app/sysscope/service/g;
-
-    if-eq v1, v5, :cond_1
-
-    move-object v0, v1
-
-    goto :goto_0
-
-    :cond_1
-    invoke-virtual {v4}, Ljava/io/File;->isFile()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2
-
-    new-instance v1, Landroid/os/Bundle;
-
-    invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
-
-    const-string v5, "filepath"
-
-    invoke-virtual {v4}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/io/File;->list()[Ljava/lang/String;
 
     move-result-object v4
 
-    invoke-virtual {v1, v5, v4}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    if-nez v4, :cond_1
 
-    iget-object v4, p0, Lcom/sec/android/app/sysscope/engine/c;->b:Lcom/sec/android/app/sysscope/engine/d;
+    sget-object v1, Lcom/sec/android/app/sysscope/service/g;->a:Lcom/sec/android/app/sysscope/service/g;
 
-    invoke-interface {v4, v1}, Lcom/sec/android/app/sysscope/engine/d;->a(Landroid/os/Bundle;)Lcom/sec/android/app/sysscope/service/g;
+    :cond_0
+    return-object v1
 
-    move-result-object v1
+    :cond_1
+    sget-object v1, Lcom/sec/android/app/sysscope/service/g;->a:Lcom/sec/android/app/sysscope/service/g;
 
-    sget-object v4, Lcom/sec/android/app/sysscope/service/g;->a:Lcom/sec/android/app/sysscope/service/g;
-
-    if-eq v1, v4, :cond_2
-
-    move-object v0, v1
-
-    goto :goto_0
-
-    :cond_2
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_1
-
-    :cond_3
     sget-object v0, Lcom/sec/android/app/sysscope/service/g;->a:Lcom/sec/android/app/sysscope/service/g;
 
+    const/4 v0, 0x0
+
+    move v2, v0
+
+    :goto_0
+    array-length v0, v4
+
+    if-ge v2, v0, :cond_0
+
+    new-instance v5, Ljava/io/File;
+
+    aget-object v0, v4, v2
+
+    invoke-direct {v5, v3, v0}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    invoke-virtual {v5}, Ljava/io/File;->isDirectory()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    invoke-virtual {v5}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0}, Lcom/sec/android/app/sysscope/engine/c;->a(Ljava/lang/String;)Lcom/sec/android/app/sysscope/service/g;
+
+    move-result-object v0
+
+    sget-object v6, Lcom/sec/android/app/sysscope/service/g;->a:Lcom/sec/android/app/sysscope/service/g;
+
+    if-eq v0, v6, :cond_3
+
+    :cond_2
+    :goto_1
+    add-int/lit8 v1, v2, 0x1
+
+    move v2, v1
+
+    move-object v1, v0
+
     goto :goto_0
+
+    :cond_3
+    invoke-virtual {v5}, Ljava/io/File;->isFile()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    new-instance v0, Landroid/os/Bundle;
+
+    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
+
+    const-string v6, "filepath"
+
+    invoke-virtual {v5}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v0, v6, v5}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v5, p0, Lcom/sec/android/app/sysscope/engine/c;->b:Lcom/sec/android/app/sysscope/engine/d;
+
+    invoke-interface {v5, v0}, Lcom/sec/android/app/sysscope/engine/d;->a(Landroid/os/Bundle;)Lcom/sec/android/app/sysscope/service/g;
+
+    move-result-object v0
+
+    sget-object v5, Lcom/sec/android/app/sysscope/service/g;->a:Lcom/sec/android/app/sysscope/service/g;
+
+    if-ne v0, v5, :cond_2
+
+    :cond_4
+    move-object v0, v1
+
+    goto :goto_1
 .end method
 
 .method private b(Ljava/lang/String;)V
