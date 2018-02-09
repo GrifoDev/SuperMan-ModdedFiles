@@ -4,6 +4,9 @@
 
 
 # virtual methods
+.method public abstract cancelJobsForPackageAndUid(Ljava/lang/String;I)V
+.end method
+
 .method public abstract getSystemScheduledPendingJobs()Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {

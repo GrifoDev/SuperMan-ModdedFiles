@@ -18779,7 +18779,7 @@
 .end method
 
 .method public setWifiProfile(Lcom/samsung/android/knox/ContextInfo;Lcom/samsung/android/knox/net/wifi/WifiAdminProfile;)Z
-    .locals 30
+    .locals 32
 
     invoke-direct/range {p0 .. p1}, Lcom/android/server/enterprise/wifi/WifiPolicy;->enforceOwnerOnlyAndWifiPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
@@ -18819,10 +18819,10 @@
 
     if-ne v2, v3, :cond_4
 
-    const/16 v17, 0x1
+    const/16 v18, 0x1
 
     :goto_0
-    if-eqz v17, :cond_2
+    if-eqz v18, :cond_2
 
     :try_start_0
     const-string/jumbo v2, "WifiPolicyService"
@@ -18839,15 +18839,15 @@
 
     invoke-static {v2}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/knox/keystore/IClientCertificateManager;
 
-    move-result-object v16
+    move-result-object v17
 
-    if-eqz v16, :cond_5
+    if-eqz v17, :cond_5
 
     move-object/from16 v0, p1
 
     iget v2, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v17
 
     invoke-interface {v0, v2}, Lcom/samsung/android/knox/keystore/IClientCertificateManager;->isCCMPolicyEnabledByAdmin(I)Z
     :try_end_0
@@ -18866,10 +18866,10 @@
 
     if-ne v2, v3, :cond_6
 
-    const/16 v19, 0x1
+    const/16 v20, 0x1
 
     :goto_1
-    if-eqz v19, :cond_3
+    if-eqz v20, :cond_3
 
     invoke-virtual/range {p2 .. p2}, Lcom/samsung/android/knox/net/wifi/WifiAdminProfile;->getStorageName()Ljava/lang/String;
 
@@ -18938,7 +18938,7 @@
     return v2
 
     :cond_4
-    const/16 v17, 0x0
+    const/16 v18, 0x0
 
     goto :goto_0
 
@@ -18957,7 +18957,7 @@
     return v2
 
     :catch_0
-    move-exception v15
+    move-exception v16
 
     const-string/jumbo v2, "WifiPolicyService"
 
@@ -18971,7 +18971,9 @@
 
     move-result-object v3
 
-    invoke-virtual {v3, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v16
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
@@ -18986,7 +18988,7 @@
     return v2
 
     :cond_6
-    const/16 v19, 0x0
+    const/16 v20, 0x0
 
     goto :goto_1
 
@@ -19043,7 +19045,7 @@
 
     invoke-virtual {v0, v2}, Lcom/android/server/enterprise/wifi/WifiPolicy;->isEnterpriseNetwork(Ljava/lang/String;)Z
 
-    move-result v18
+    move-result v19
 
     move-object/from16 v0, p1
 
@@ -19059,7 +19061,7 @@
 
     move-result-object v14
 
-    if-eqz v18, :cond_a
+    if-eqz v19, :cond_a
 
     iget-object v2, v14, Landroid/net/wifi/WifiConfiguration;->SSID:Ljava/lang/String;
 
@@ -19080,9 +19082,9 @@
     return v2
 
     :cond_a
-    const/16 v26, 0x0
+    const/16 v28, 0x0
 
-    const/16 v27, 0x0
+    const/16 v29, 0x0
 
     iget-object v2, v14, Landroid/net/wifi/WifiConfiguration;->SSID:Ljava/lang/String;
 
@@ -19092,7 +19094,7 @@
 
     if-nez v2, :cond_b
 
-    const/16 v26, 0x1
+    const/16 v28, 0x1
 
     :cond_b
     move-object/from16 v0, p2
@@ -19105,20 +19107,20 @@
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v17
+    move/from16 v1, v18
 
     invoke-direct {v0, v10, v2, v1, v3}, Lcom/android/server/enterprise/wifi/WifiPolicy;->createNetworkSSID(ILjava/lang/String;ZLjava/lang/String;)Landroid/net/wifi/WifiConfiguration;
 
-    move-result-object v27
+    move-result-object v29
 
-    if-nez v27, :cond_c
+    if-nez v29, :cond_c
 
     const/4 v2, 0x0
 
     return v2
 
     :cond_c
-    if-eqz v27, :cond_d
+    if-eqz v29, :cond_d
 
     move-object/from16 v0, p2
 
@@ -19144,14 +19146,14 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v29
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/enterprise/wifi/WifiPolicy;->updateNetworkWEPKey(Landroid/net/wifi/WifiConfiguration;ILjava/lang/String;)Landroid/net/wifi/WifiConfiguration;
 
-    move-result-object v27
+    move-result-object v29
 
     :cond_d
-    if-eqz v27, :cond_e
+    if-eqz v29, :cond_e
 
     move-object/from16 v0, p2
 
@@ -19177,14 +19179,14 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v29
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/enterprise/wifi/WifiPolicy;->updateNetworkWEPKey(Landroid/net/wifi/WifiConfiguration;ILjava/lang/String;)Landroid/net/wifi/WifiConfiguration;
 
-    move-result-object v27
+    move-result-object v29
 
     :cond_e
-    if-eqz v27, :cond_f
+    if-eqz v29, :cond_f
 
     move-object/from16 v0, p2
 
@@ -19210,14 +19212,14 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v29
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/enterprise/wifi/WifiPolicy;->updateNetworkWEPKey(Landroid/net/wifi/WifiConfiguration;ILjava/lang/String;)Landroid/net/wifi/WifiConfiguration;
 
-    move-result-object v27
+    move-result-object v29
 
     :cond_f
-    if-eqz v27, :cond_10
+    if-eqz v29, :cond_10
 
     move-object/from16 v0, p2
 
@@ -19243,14 +19245,14 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v29
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/enterprise/wifi/WifiPolicy;->updateNetworkWEPKey(Landroid/net/wifi/WifiConfiguration;ILjava/lang/String;)Landroid/net/wifi/WifiConfiguration;
 
-    move-result-object v27
+    move-result-object v29
 
     :cond_10
-    if-eqz v27, :cond_11
+    if-eqz v29, :cond_11
 
     move-object/from16 v0, p2
 
@@ -19266,14 +19268,14 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v29
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/enterprise/wifi/WifiPolicy;->updateNetworkWEPKeyId(Landroid/net/wifi/WifiConfiguration;I)Landroid/net/wifi/WifiConfiguration;
 
-    move-result-object v27
+    move-result-object v29
 
     :cond_11
-    if-eqz v27, :cond_12
+    if-eqz v29, :cond_12
 
     move-object/from16 v0, p2
 
@@ -19295,14 +19297,14 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v29
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/enterprise/wifi/WifiPolicy;->updateEnterpriseFieldValue(Landroid/net/wifi/WifiConfiguration;Ljava/lang/String;Ljava/lang/String;)Landroid/net/wifi/WifiConfiguration;
 
-    move-result-object v27
+    move-result-object v29
 
     :cond_12
-    if-eqz v27, :cond_13
+    if-eqz v29, :cond_13
 
     move-object/from16 v0, p2
 
@@ -19322,14 +19324,14 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v29
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/enterprise/wifi/WifiPolicy;->updateNetworkPSK(Landroid/net/wifi/WifiConfiguration;Ljava/lang/String;)Landroid/net/wifi/WifiConfiguration;
 
-    move-result-object v27
+    move-result-object v29
 
     :cond_13
-    if-eqz v27, :cond_14
+    if-eqz v29, :cond_14
 
     move-object/from16 v0, p2
 
@@ -19349,14 +19351,14 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v29
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/enterprise/wifi/WifiPolicy;->updateWifiConfigLinkSecurity(Landroid/net/wifi/WifiConfiguration;Ljava/lang/String;)Landroid/net/wifi/WifiConfiguration;
 
-    move-result-object v27
+    move-result-object v29
 
     :cond_14
-    if-eqz v27, :cond_15
+    if-eqz v29, :cond_15
 
     move-object/from16 v0, p2
 
@@ -19378,14 +19380,14 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v29
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/enterprise/wifi/WifiPolicy;->updateEnterpriseFieldValue(Landroid/net/wifi/WifiConfiguration;Ljava/lang/String;Ljava/lang/String;)Landroid/net/wifi/WifiConfiguration;
 
-    move-result-object v27
+    move-result-object v29
 
     :cond_15
-    if-eqz v27, :cond_30
+    if-eqz v29, :cond_31
 
     move-object/from16 v0, p2
 
@@ -19397,7 +19399,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_30
+    if-eqz v2, :cond_31
 
     const-string/jumbo v2, "client_cert"
 
@@ -19407,15 +19409,15 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v29
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/enterprise/wifi/WifiPolicy;->updateEnterpriseFieldValue(Landroid/net/wifi/WifiConfiguration;Ljava/lang/String;Ljava/lang/String;)Landroid/net/wifi/WifiConfiguration;
 
-    move-result-object v27
+    move-result-object v29
 
     :cond_16
     :goto_3
-    if-eqz v27, :cond_17
+    if-eqz v29, :cond_17
 
     move-object/from16 v0, p2
 
@@ -19437,14 +19439,14 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v29
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/enterprise/wifi/WifiPolicy;->updateEnterpriseFieldValue(Landroid/net/wifi/WifiConfiguration;Ljava/lang/String;Ljava/lang/String;)Landroid/net/wifi/WifiConfiguration;
 
-    move-result-object v27
+    move-result-object v29
 
     :cond_17
-    if-eqz v27, :cond_18
+    if-eqz v29, :cond_18
 
     move-object/from16 v0, p2
 
@@ -19466,14 +19468,14 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v29
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/enterprise/wifi/WifiPolicy;->updateEnterpriseFieldValue(Landroid/net/wifi/WifiConfiguration;Ljava/lang/String;Ljava/lang/String;)Landroid/net/wifi/WifiConfiguration;
 
-    move-result-object v27
+    move-result-object v29
 
     :cond_18
-    if-eqz v27, :cond_19
+    if-eqz v29, :cond_19
 
     move-object/from16 v0, p2
 
@@ -19495,14 +19497,14 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v29
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/enterprise/wifi/WifiPolicy;->updateEnterpriseFieldValue(Landroid/net/wifi/WifiConfiguration;Ljava/lang/String;Ljava/lang/String;)Landroid/net/wifi/WifiConfiguration;
 
-    move-result-object v27
+    move-result-object v29
 
     :cond_19
-    if-eqz v27, :cond_1a
+    if-eqz v29, :cond_1a
 
     move-object/from16 v0, p2
 
@@ -19524,34 +19526,34 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v29
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/enterprise/wifi/WifiPolicy;->updateEnterpriseFieldValue(Landroid/net/wifi/WifiConfiguration;Ljava/lang/String;Ljava/lang/String;)Landroid/net/wifi/WifiConfiguration;
 
-    move-result-object v27
+    move-result-object v29
 
     :cond_1a
-    if-eqz v27, :cond_1b
+    if-eqz v29, :cond_1b
 
     move-object/from16 v0, p2
 
     iget-boolean v2, v0, Lcom/samsung/android/knox/net/wifi/WifiAdminProfile;->staticIpEnabled:Z
 
-    if-eqz v2, :cond_31
+    if-eqz v2, :cond_32
 
     const/4 v2, 0x0
 
     :goto_4
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v29
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/enterprise/wifi/WifiPolicy;->updateNetworkDHCPEnabled(Landroid/net/wifi/WifiConfiguration;Z)Landroid/net/wifi/WifiConfiguration;
 
-    move-result-object v27
+    move-result-object v29
 
     :cond_1b
-    if-eqz v27, :cond_1c
+    if-eqz v29, :cond_1c
 
     move-object/from16 v0, p2
 
@@ -19573,14 +19575,14 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v29
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/enterprise/wifi/WifiPolicy;->updateNetworkAddress(Landroid/net/wifi/WifiConfiguration;Ljava/lang/String;Ljava/lang/String;)Landroid/net/wifi/WifiConfiguration;
 
-    move-result-object v27
+    move-result-object v29
 
     :cond_1c
-    if-eqz v27, :cond_1d
+    if-eqz v29, :cond_1d
 
     move-object/from16 v0, p2
 
@@ -19602,14 +19604,14 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v29
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/enterprise/wifi/WifiPolicy;->updateNetworkAddress(Landroid/net/wifi/WifiConfiguration;Ljava/lang/String;Ljava/lang/String;)Landroid/net/wifi/WifiConfiguration;
 
-    move-result-object v27
+    move-result-object v29
 
     :cond_1d
-    if-eqz v27, :cond_1e
+    if-eqz v29, :cond_1e
 
     move-object/from16 v0, p2
 
@@ -19631,14 +19633,14 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v29
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/enterprise/wifi/WifiPolicy;->updateNetworkAddress(Landroid/net/wifi/WifiConfiguration;Ljava/lang/String;Ljava/lang/String;)Landroid/net/wifi/WifiConfiguration;
 
-    move-result-object v27
+    move-result-object v29
 
     :cond_1e
-    if-eqz v27, :cond_1f
+    if-eqz v29, :cond_1f
 
     move-object/from16 v0, p2
 
@@ -19660,14 +19662,14 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v29
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/enterprise/wifi/WifiPolicy;->updateNetworkAddress(Landroid/net/wifi/WifiConfiguration;Ljava/lang/String;Ljava/lang/String;)Landroid/net/wifi/WifiConfiguration;
 
-    move-result-object v27
+    move-result-object v29
 
     :cond_1f
-    if-eqz v27, :cond_20
+    if-eqz v29, :cond_20
 
     move-object/from16 v0, p2
 
@@ -19689,14 +19691,14 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v29
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/enterprise/wifi/WifiPolicy;->updateNetworkAddress(Landroid/net/wifi/WifiConfiguration;Ljava/lang/String;Ljava/lang/String;)Landroid/net/wifi/WifiConfiguration;
 
-    move-result-object v27
+    move-result-object v29
 
     :cond_20
-    if-eqz v27, :cond_21
+    if-eqz v29, :cond_21
 
     move-object/from16 v0, p2
 
@@ -19704,14 +19706,14 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v29
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/enterprise/wifi/WifiPolicy;->updateNetworkProxyState(Landroid/net/wifi/WifiConfiguration;I)Landroid/net/wifi/WifiConfiguration;
 
-    move-result-object v27
+    move-result-object v29
 
     :cond_21
-    if-eqz v27, :cond_22
+    if-eqz v29, :cond_22
 
     move-object/from16 v0, p2
 
@@ -19731,16 +19733,16 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v29
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/enterprise/wifi/WifiPolicy;->updateNetworkProxyHostName(Landroid/net/wifi/WifiConfiguration;Ljava/lang/String;)Landroid/net/wifi/WifiConfiguration;
 
-    move-result-object v27
+    move-result-object v29
 
     :cond_22
-    if-eqz v27, :cond_23
+    if-eqz v29, :cond_23
 
-    invoke-virtual/range {v27 .. v27}, Landroid/net/wifi/WifiConfiguration;->getProxySettings()Landroid/net/IpConfiguration$ProxySettings;
+    invoke-virtual/range {v29 .. v29}, Landroid/net/wifi/WifiConfiguration;->getProxySettings()Landroid/net/IpConfiguration$ProxySettings;
 
     move-result-object v2
 
@@ -19754,14 +19756,14 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v29
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/enterprise/wifi/WifiPolicy;->updateNetworkProxyPort(Landroid/net/wifi/WifiConfiguration;I)Landroid/net/wifi/WifiConfiguration;
 
-    move-result-object v27
+    move-result-object v29
 
     :cond_23
-    if-eqz v27, :cond_24
+    if-eqz v29, :cond_24
 
     move-object/from16 v0, p2
 
@@ -19777,11 +19779,11 @@
 
     move-result v2
 
-    if-eqz v2, :cond_32
+    if-eqz v2, :cond_33
 
     :cond_24
     :goto_5
-    if-eqz v27, :cond_25
+    if-eqz v29, :cond_25
 
     move-object/from16 v0, p2
 
@@ -19801,14 +19803,14 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v29
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/enterprise/wifi/WifiPolicy;->updateNetworkProxyUsername(Landroid/net/wifi/WifiConfiguration;Ljava/lang/String;)Landroid/net/wifi/WifiConfiguration;
 
-    move-result-object v27
+    move-result-object v29
 
     :cond_25
-    if-eqz v27, :cond_26
+    if-eqz v29, :cond_26
 
     move-object/from16 v0, p2
 
@@ -19828,14 +19830,14 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v29
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/enterprise/wifi/WifiPolicy;->updateNetworkProxyPassword(Landroid/net/wifi/WifiConfiguration;Ljava/lang/String;)Landroid/net/wifi/WifiConfiguration;
 
-    move-result-object v27
+    move-result-object v29
 
     :cond_26
-    if-eqz v27, :cond_27
+    if-eqz v29, :cond_27
 
     move-object/from16 v0, p2
 
@@ -19851,12 +19853,12 @@
 
     move-result v2
 
-    if-eqz v2, :cond_33
+    if-eqz v2, :cond_34
 
     :cond_27
-    if-eqz v27, :cond_28
+    if-eqz v29, :cond_28
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, v29
 
     iget-object v2, v0, Landroid/net/wifi/WifiConfiguration;->SSID:Ljava/lang/String;
 
@@ -19869,7 +19871,7 @@
     invoke-direct {v0, v2}, Lcom/android/server/enterprise/wifi/WifiPolicy;->clearAuthConfigFromDb(Ljava/lang/String;)V
 
     :cond_28
-    if-eqz v27, :cond_29
+    if-eqz v29, :cond_29
 
     move-object/from16 v0, p2
 
@@ -19889,20 +19891,20 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v29
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/enterprise/wifi/WifiPolicy;->updateNetworkProxyPacFileUrl(Landroid/net/wifi/WifiConfiguration;Ljava/lang/String;)Landroid/net/wifi/WifiConfiguration;
 
-    move-result-object v27
+    move-result-object v29
 
     :cond_29
-    const/16 v23, 0x1
+    const/16 v25, 0x1
 
-    if-eqz v27, :cond_38
+    if-eqz v29, :cond_39
 
-    if-eqz v26, :cond_2a
+    if-eqz v28, :cond_2a
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, v29
 
     iget-object v2, v0, Landroid/net/wifi/WifiConfiguration;->SSID:Ljava/lang/String;
 
@@ -19914,16 +19916,16 @@
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/enterprise/wifi/WifiPolicy;->removeNetworkConfigurationInternal(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;Z)Z
 
-    move-result v23
+    move-result v25
 
     :cond_2a
-    invoke-virtual/range {v27 .. v27}, Landroid/net/wifi/WifiConfiguration;->getHttpProxy()Landroid/net/ProxyInfo;
+    invoke-virtual/range {v29 .. v29}, Landroid/net/wifi/WifiConfiguration;->getHttpProxy()Landroid/net/ProxyInfo;
 
     move-result-object v2
 
     if-eqz v2, :cond_2b
 
-    invoke-virtual/range {v27 .. v27}, Landroid/net/wifi/WifiConfiguration;->getHttpProxy()Landroid/net/ProxyInfo;
+    invoke-virtual/range {v29 .. v29}, Landroid/net/wifi/WifiConfiguration;->getHttpProxy()Landroid/net/ProxyInfo;
 
     move-result-object v2
 
@@ -19934,17 +19936,17 @@
     :cond_2b
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v29
 
     invoke-direct {v0, v10, v1}, Lcom/android/server/enterprise/wifi/WifiPolicy;->setNetworkConfiguration(ILandroid/net/wifi/WifiConfiguration;)Z
 
     move-result v2
 
-    and-int v23, v23, v2
+    and-int v25, v25, v2
 
-    const/16 v21, -0x1
+    const/16 v23, -0x1
 
-    if-eqz v23, :cond_2e
+    if-eqz v25, :cond_2e
 
     move-object/from16 v0, p0
 
@@ -19958,11 +19960,11 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v29
 
     invoke-direct {v0, v1}, Lcom/android/server/enterprise/wifi/WifiPolicy;->createEntepriseProfile(Landroid/net/wifi/WifiConfiguration;)I
 
-    move-result v21
+    move-result v23
 
     const-string/jumbo v2, "ENTERPRISE_SSIDS"
 
@@ -19974,7 +19976,7 @@
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    move-result-wide v24
+    move-result-wide v26
 
     :try_start_2
     const-string/jumbo v9, ""
@@ -20127,44 +20129,77 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    invoke-static/range {v24 .. v25}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static/range {v26 .. v27}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     :cond_2e
     const/4 v2, -0x1
 
-    move/from16 v0, v21
+    move/from16 v0, v23
 
-    if-eq v0, v2, :cond_2f
+    if-eq v0, v2, :cond_30
 
     invoke-direct/range {p0 .. p0}, Lcom/android/server/enterprise/wifi/WifiPolicy;->isWifiStateEnabled()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2f
+    if-eqz v2, :cond_30
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    move-result-wide v28
+    move-result-wide v30
 
     const/4 v2, 0x0
 
     :try_start_3
     move-object/from16 v0, p0
 
-    move/from16 v1, v21
+    move/from16 v1, v23
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/enterprise/wifi/WifiPolicy;->asyncEnableNetwork(IZ)V
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/enterprise/wifi/WifiPolicy;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v3, "connectivity"
+
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v15
+
+    check-cast v15, Landroid/net/ConnectivityManager;
+
+    const/4 v2, 0x1
+
+    invoke-virtual {v15, v2}, Landroid/net/ConnectivityManager;->getNetworkInfo(I)Landroid/net/NetworkInfo;
+
+    move-result-object v22
+
+    invoke-virtual/range {v22 .. v22}, Landroid/net/NetworkInfo;->isConnected()Z
+
+    move-result v2
+
+    if-nez v2, :cond_2f
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/enterprise/wifi/WifiPolicy;->mWifiAdapter:Lcom/android/server/enterprise/adapterlayer/WifiManagerAdapter;
+
+    move/from16 v0, v23
+
+    invoke-virtual {v2, v0}, Lcom/android/server/enterprise/adapterlayer/WifiManagerAdapter;->connect(I)V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    invoke-static/range {v28 .. v29}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
     :cond_2f
-    :goto_6
-    return v23
+    invoke-static/range {v30 .. v31}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     :cond_30
-    if-eqz v27, :cond_16
+    :goto_6
+    return v25
+
+    :cond_31
+    if-eqz v29, :cond_16
 
     move-object/from16 v0, p2
 
@@ -20186,20 +20221,20 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v29
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/enterprise/wifi/WifiPolicy;->updateEnterpriseFieldValue(Landroid/net/wifi/WifiConfiguration;Ljava/lang/String;Ljava/lang/String;)Landroid/net/wifi/WifiConfiguration;
 
-    move-result-object v27
+    move-result-object v29
 
     goto/16 :goto_3
 
-    :cond_31
+    :cond_32
     const/4 v2, 0x1
 
     goto/16 :goto_4
 
-    :cond_32
+    :cond_33
     move-object/from16 v0, p2
 
     iget-object v2, v0, Lcom/samsung/android/knox/net/wifi/WifiAdminProfile;->proxyBypassList:Ljava/util/List;
@@ -20210,23 +20245,23 @@
 
     new-array v0, v2, [Ljava/lang/String;
 
-    move-object/from16 v22, v0
+    move-object/from16 v24, v0
 
     move-object/from16 v0, p2
 
     iget-object v2, v0, Lcom/samsung/android/knox/net/wifi/WifiAdminProfile;->proxyBypassList:Ljava/util/List;
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v24
 
     invoke-interface {v2, v0}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object v22
+    move-result-object v24
 
-    check-cast v22, [Ljava/lang/String;
+    check-cast v24, [Ljava/lang/String;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v22
+    move-object/from16 v1, v24
 
     invoke-direct {v0, v1}, Lcom/android/server/enterprise/wifi/WifiPolicy;->convertArrayToString([Ljava/lang/String;)Ljava/lang/String;
 
@@ -20234,16 +20269,16 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v29
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/enterprise/wifi/WifiPolicy;->updateUrlForNetworkProxyBypassList(Landroid/net/wifi/WifiConfiguration;Ljava/lang/String;)Landroid/net/wifi/WifiConfiguration;
 
-    move-result-object v27
+    move-result-object v29
 
     goto/16 :goto_5
 
-    :cond_33
-    const/16 v20, 0x1
+    :cond_34
+    const/16 v21, 0x1
 
     move-object/from16 v0, p2
 
@@ -20253,12 +20288,12 @@
 
     move-result-object v13
 
-    :cond_34
+    :cond_35
     invoke-interface {v13}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_36
+    if-eqz v2, :cond_37
 
     invoke-interface {v13}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -20266,21 +20301,21 @@
 
     check-cast v12, Lcom/samsung/android/knox/net/AuthConfig;
 
-    if-eqz v12, :cond_35
+    if-eqz v12, :cond_36
 
     invoke-virtual {v12}, Lcom/samsung/android/knox/net/AuthConfig;->isValid()Z
 
     move-result v2
 
-    if-nez v2, :cond_34
-
-    :cond_35
-    const/16 v20, 0x0
+    if-nez v2, :cond_35
 
     :cond_36
-    if-eqz v20, :cond_37
+    const/16 v21, 0x0
 
-    move-object/from16 v0, v27
+    :cond_37
+    if-eqz v21, :cond_38
+
+    move-object/from16 v0, v29
 
     iget-object v2, v0, Landroid/net/wifi/WifiConfiguration;->SSID:Ljava/lang/String;
 
@@ -20292,7 +20327,7 @@
 
     invoke-direct {v0, v2}, Lcom/android/server/enterprise/wifi/WifiPolicy;->clearAuthConfigFromDb(Ljava/lang/String;)V
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, v29
 
     iget-object v2, v0, Landroid/net/wifi/WifiConfiguration;->SSID:Ljava/lang/String;
 
@@ -20316,7 +20351,7 @@
 
     return v2
 
-    :cond_37
+    :cond_38
     const/4 v2, 0x0
 
     return v2
@@ -20324,19 +20359,19 @@
     :catchall_0
     move-exception v2
 
-    invoke-static/range {v24 .. v25}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static/range {v26 .. v27}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     throw v2
 
     :catchall_1
     move-exception v2
 
-    invoke-static/range {v28 .. v29}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static/range {v30 .. v31}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     throw v2
 
-    :cond_38
-    const/16 v23, 0x0
+    :cond_39
+    const/16 v25, 0x0
 
     goto/16 :goto_6
 .end method

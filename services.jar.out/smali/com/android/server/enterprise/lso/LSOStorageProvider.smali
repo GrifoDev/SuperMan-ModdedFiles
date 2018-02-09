@@ -911,69 +911,69 @@
 .end method
 
 .method private loadContainerData(Lcom/samsung/android/knox/lockscreen/LSOItemContainer;Landroid/database/Cursor;)V
-    .locals 12
+    .locals 13
+
+    const/4 v12, 0x0
 
     const/4 v11, 0x0
 
-    const/4 v10, 0x0
+    const/16 v8, 0x9
 
-    const/16 v7, 0x9
-
-    invoke-interface {p2, v7}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    invoke-interface {p2, v8}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    const/16 v7, 0xd
+    const/16 v8, 0xd
 
-    invoke-interface {p2, v7}, Landroid/database/Cursor;->getInt(I)I
+    invoke-interface {p2, v8}, Landroid/database/Cursor;->getInt(I)I
 
-    move-result v6
+    move-result v7
 
     if-eqz v2, :cond_0
 
     invoke-virtual {v2}, Ljava/lang/String;->length()I
 
-    move-result v7
+    move-result v8
 
-    if-eqz v7, :cond_0
+    if-eqz v8, :cond_0
 
     invoke-virtual {p1, v2}, Lcom/samsung/android/knox/lockscreen/LSOItemContainer;->setBGImage(Ljava/lang/String;)V
 
     :cond_0
-    if-eqz v6, :cond_1
+    if-eqz v7, :cond_1
 
-    sget-object v7, Lcom/samsung/android/knox/lockscreen/LSOItemContainer$ORIENTATION;->HORIZONTAL:Lcom/samsung/android/knox/lockscreen/LSOItemContainer$ORIENTATION;
+    sget-object v8, Lcom/samsung/android/knox/lockscreen/LSOItemContainer$ORIENTATION;->HORIZONTAL:Lcom/samsung/android/knox/lockscreen/LSOItemContainer$ORIENTATION;
 
-    invoke-virtual {p1, v7}, Lcom/samsung/android/knox/lockscreen/LSOItemContainer;->setOrientation(Lcom/samsung/android/knox/lockscreen/LSOItemContainer$ORIENTATION;)V
+    invoke-virtual {p1, v8}, Lcom/samsung/android/knox/lockscreen/LSOItemContainer;->setOrientation(Lcom/samsung/android/knox/lockscreen/LSOItemContainer$ORIENTATION;)V
 
     :cond_1
-    const-string/jumbo v7, "LSOStorageProvider"
+    const-string/jumbo v8, "LSOStorageProvider"
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v9, "LoadContainerData -- "
+    const-string/jumbo v10, "LoadContainerData -- "
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {p1}, Lcom/samsung/android/knox/lockscreen/LSOItemContainer;->toString()Ljava/lang/String;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v9
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1}, Lcom/samsung/android/knox/lockscreen/LSOItemContainer;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v10
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-static {v7, v8}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-interface {p2, v10}, Landroid/database/Cursor;->getInt(I)I
+    move-result-object v9
+
+    invoke-static {v8, v9}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-interface {p2, v12}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v1
 
@@ -981,19 +981,19 @@
 
     invoke-direct {v4}, Landroid/content/ContentValues;-><init>()V
 
-    const-string/jumbo v7, "Item_ParentId"
+    const-string/jumbo v8, "Item_ParentId"
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v4, v7, v8}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+    invoke-virtual {v4, v8, v9}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    const-string/jumbo v7, "LOCKSCREEN_OVERLAY"
+    const-string/jumbo v8, "LOCKSCREEN_OVERLAY"
 
-    sget-object v8, Lcom/android/server/enterprise/lso/LSOStorageProvider;->tblColumns:[Ljava/lang/String;
+    sget-object v9, Lcom/android/server/enterprise/lso/LSOStorageProvider;->tblColumns:[Ljava/lang/String;
 
-    invoke-virtual {p0, v7, v8, v4, v11}, Lcom/android/server/enterprise/lso/LSOStorageProvider;->getCursor(Ljava/lang/String;[Ljava/lang/String;Landroid/content/ContentValues;Ljava/lang/String;)Landroid/database/Cursor;
+    invoke-virtual {p0, v8, v9, v4, v11}, Lcom/android/server/enterprise/lso/LSOStorageProvider;->getCursor(Ljava/lang/String;[Ljava/lang/String;Landroid/content/ContentValues;Ljava/lang/String;)Landroid/database/Cursor;
 
     move-result-object v0
 
@@ -1002,51 +1002,114 @@
     return-void
 
     :cond_2
+    :try_start_0
     invoke-interface {v0}, Landroid/database/Cursor;->getCount()I
+    :try_end_0
+    .catch Landroid/database/SQLException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result v7
+    move-result v8
 
-    if-nez v7, :cond_3
+    if-nez v8, :cond_4
+
+    if-eqz v0, :cond_3
 
     invoke-interface {v0}, Landroid/database/Cursor;->close()V
 
+    :cond_3
     return-void
 
-    :cond_3
-    const/4 v5, 0x0
-
     :cond_4
+    const/4 v6, 0x0
+
+    :cond_5
     :goto_0
+    :try_start_1
     invoke-interface {v0}, Landroid/database/Cursor;->moveToNext()Z
 
-    move-result v7
+    move-result v8
 
-    if-eqz v7, :cond_5
+    if-eqz v8, :cond_7
 
-    const/4 v7, 0x1
+    const/4 v8, 0x1
 
-    invoke-interface {v0, v7}, Landroid/database/Cursor;->getInt(I)I
+    invoke-interface {v0, v8}, Landroid/database/Cursor;->getInt(I)I
 
-    move-result v7
+    move-result v8
 
-    int-to-byte v5, v7
+    int-to-byte v6, v8
 
-    invoke-static {v5}, Lcom/samsung/android/knox/lockscreen/LSOItemCreator;->createItem(B)Lcom/samsung/android/knox/lockscreen/LSOItemData;
+    invoke-static {v6}, Lcom/samsung/android/knox/lockscreen/LSOItemCreator;->createItem(B)Lcom/samsung/android/knox/lockscreen/LSOItemData;
 
     move-result-object v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_5
 
     invoke-direct {p0, v3, v0}, Lcom/android/server/enterprise/lso/LSOStorageProvider;->loadItemData(Lcom/samsung/android/knox/lockscreen/LSOItemData;Landroid/database/Cursor;)V
 
     invoke-virtual {p1, v3}, Lcom/samsung/android/knox/lockscreen/LSOItemContainer;->addItem(Lcom/samsung/android/knox/lockscreen/LSOItemData;)Z
+    :try_end_1
+    .catch Landroid/database/SQLException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
 
-    :cond_5
+    :catch_0
+    move-exception v5
+
+    :try_start_2
+    const-string/jumbo v8, "LSOStorageProvider"
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v10, "Exception occurred accessing Enterprise db "
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v5}, Landroid/database/SQLException;->getMessage()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v8, v9}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    if-eqz v0, :cond_6
+
     invoke-interface {v0}, Landroid/database/Cursor;->close()V
 
+    :cond_6
+    :goto_1
     return-void
+
+    :cond_7
+    if-eqz v0, :cond_6
+
+    invoke-interface {v0}, Landroid/database/Cursor;->close()V
+
+    goto :goto_1
+
+    :catchall_0
+    move-exception v8
+
+    if-eqz v0, :cond_8
+
+    invoke-interface {v0}, Landroid/database/Cursor;->close()V
+
+    :cond_8
+    throw v8
 .end method
 
 .method private loadImageData(Lcom/samsung/android/knox/lockscreen/LSOItemImage;Landroid/database/Cursor;)V
@@ -1855,55 +1918,56 @@
 .end method
 
 .method public getOverlay(I)Lcom/samsung/android/knox/lockscreen/LSOItemData;
-    .locals 9
+    .locals 10
 
-    const/4 v6, 0x0
+    const/4 v7, 0x0
 
-    const/4 v8, 0x0
+    const/4 v9, 0x0
 
     new-instance v3, Landroid/content/ContentValues;
 
     invoke-direct {v3}, Landroid/content/ContentValues;-><init>()V
 
-    const-string/jumbo v5, "Item_ParentId"
+    const-string/jumbo v6, "Item_ParentId"
 
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v3, v5, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+    invoke-virtual {v3, v6, v7}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    const-string/jumbo v5, "Item_Layer"
+    const-string/jumbo v6, "Item_Layer"
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v3, v5, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+    invoke-virtual {v3, v6, v7}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
     const/4 v0, 0x0
 
     const/4 v2, 0x0
 
     :try_start_0
-    const-string/jumbo v5, "LOCKSCREEN_OVERLAY"
+    const-string/jumbo v6, "LOCKSCREEN_OVERLAY"
 
-    sget-object v6, Lcom/android/server/enterprise/lso/LSOStorageProvider;->tblColumns:[Ljava/lang/String;
+    sget-object v7, Lcom/android/server/enterprise/lso/LSOStorageProvider;->tblColumns:[Ljava/lang/String;
 
-    const/4 v7, 0x0
+    const/4 v8, 0x0
 
-    invoke-virtual {p0, v5, v6, v3, v7}, Lcom/android/server/enterprise/lso/LSOStorageProvider;->getCursor(Ljava/lang/String;[Ljava/lang/String;Landroid/content/ContentValues;Ljava/lang/String;)Landroid/database/Cursor;
+    invoke-virtual {p0, v6, v7, v3, v8}, Lcom/android/server/enterprise/lso/LSOStorageProvider;->getCursor(Ljava/lang/String;[Ljava/lang/String;Landroid/content/ContentValues;Ljava/lang/String;)Landroid/database/Cursor;
 
     move-result-object v0
 
     if-nez v0, :cond_1
 
-    const-string/jumbo v5, "LSOStorageProvider"
+    const-string/jumbo v6, "LSOStorageProvider"
 
-    const-string/jumbo v6, "No record found in LOCKSCREEN_OVERLAY"
+    const-string/jumbo v7, "No record found in LOCKSCREEN_OVERLAY"
 
-    invoke-static {v5, v6}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v6, v7}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_0
+    .catch Landroid/database/SQLException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -1912,22 +1976,23 @@
     invoke-interface {v0}, Landroid/database/Cursor;->close()V
 
     :cond_0
-    return-object v8
+    return-object v9
 
     :cond_1
     :try_start_1
     invoke-interface {v0}, Landroid/database/Cursor;->getCount()I
 
-    move-result v5
+    move-result v6
 
-    if-nez v5, :cond_3
+    if-nez v6, :cond_3
 
-    const-string/jumbo v5, "LSOStorageProvider"
+    const-string/jumbo v6, "LSOStorageProvider"
 
-    const-string/jumbo v6, "No record found in LOCKSCREEN_OVERLAY"
+    const-string/jumbo v7, "No record found in LOCKSCREEN_OVERLAY"
 
-    invoke-static {v5, v6}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v6, v7}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_1
+    .catch Landroid/database/SQLException; {:try_start_1 .. :try_end_1} :catch_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -1936,32 +2001,33 @@
     invoke-interface {v0}, Landroid/database/Cursor;->close()V
 
     :cond_2
-    return-object v8
+    return-object v9
 
     :cond_3
     :try_start_2
     invoke-interface {v0}, Landroid/database/Cursor;->moveToNext()Z
 
-    const/4 v5, 0x1
+    const/4 v6, 0x1
 
-    invoke-interface {v0, v5}, Landroid/database/Cursor;->getInt(I)I
+    invoke-interface {v0, v6}, Landroid/database/Cursor;->getInt(I)I
 
-    move-result v5
+    move-result v6
 
-    int-to-byte v4, v5
+    int-to-byte v5, v6
 
-    invoke-static {v4}, Lcom/samsung/android/knox/lockscreen/LSOItemCreator;->createItem(B)Lcom/samsung/android/knox/lockscreen/LSOItemData;
+    invoke-static {v5}, Lcom/samsung/android/knox/lockscreen/LSOItemCreator;->createItem(B)Lcom/samsung/android/knox/lockscreen/LSOItemData;
 
     move-result-object v2
 
     if-nez v2, :cond_5
 
-    const-string/jumbo v5, "LSOStorageProvider"
+    const-string/jumbo v6, "LSOStorageProvider"
 
-    const-string/jumbo v6, "Invalid Item type"
+    const-string/jumbo v7, "Invalid Item type"
 
-    invoke-static {v5, v6}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v6, v7}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_2
+    .catch Landroid/database/SQLException; {:try_start_2 .. :try_end_2} :catch_1
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
@@ -1970,12 +2036,13 @@
     invoke-interface {v0}, Landroid/database/Cursor;->close()V
 
     :cond_4
-    return-object v8
+    return-object v9
 
     :cond_5
     :try_start_3
     invoke-direct {p0, v2, v0}, Lcom/android/server/enterprise/lso/LSOStorageProvider;->loadItemData(Lcom/samsung/android/knox/lockscreen/LSOItemData;Landroid/database/Cursor;)V
     :try_end_3
+    .catch Landroid/database/SQLException; {:try_start_3 .. :try_end_3} :catch_1
     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
@@ -1991,11 +2058,11 @@
     move-exception v1
 
     :try_start_4
-    const-string/jumbo v5, "LSOStorageProvider"
+    const-string/jumbo v6, "LSOStorageProvider"
 
-    const-string/jumbo v6, "getOverlay() falied"
+    const-string/jumbo v7, "getOverlay() falied "
 
-    invoke-static {v5, v6}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v6, v7}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
@@ -2005,15 +2072,53 @@
 
     goto :goto_0
 
+    :catch_1
+    move-exception v4
+
+    :try_start_5
+    const-string/jumbo v6, "LSOStorageProvider"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "Exception occurred accessing Enterprise db "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v4}, Landroid/database/SQLException;->getMessage()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+
+    if-eqz v0, :cond_6
+
+    invoke-interface {v0}, Landroid/database/Cursor;->close()V
+
+    goto :goto_0
+
     :catchall_0
-    move-exception v5
+    move-exception v6
 
     if-eqz v0, :cond_7
 
     invoke-interface {v0}, Landroid/database/Cursor;->close()V
 
     :cond_7
-    throw v5
+    throw v6
 .end method
 
 .method public getOverlayAdminUid()I

@@ -6557,7 +6557,15 @@
 
     move-result v8
 
-    if-ge v3, v8, :cond_2
+    if-ge v3, v8, :cond_3
+
+    if-eqz v5, :cond_2
+
+    invoke-virtual {v5}, Lcom/sec/enterprise/knox/container/KnoxContainerManager;->getApplicationPolicy()Landroid/app/enterprise/ApplicationPolicy;
+
+    move-result-object v8
+
+    if-eqz v8, :cond_2
 
     invoke-virtual {v5}, Lcom/sec/enterprise/knox/container/KnoxContainerManager;->getApplicationPolicy()Landroid/app/enterprise/ApplicationPolicy;
 
@@ -6571,11 +6579,12 @@
 
     invoke-virtual {v9, v8}, Landroid/app/enterprise/ApplicationPolicy;->addAppPackageNameToBlackList(Ljava/lang/String;)Z
 
+    :cond_2
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_2
 
-    :cond_2
+    :cond_3
     return-void
 .end method
 

@@ -17545,6 +17545,48 @@
     return-object v0
 .end method
 
+.method public getTopFullscreenOpaquePackage()Ljava/lang/String;
+    .locals 3
+
+    const/4 v2, 0x0
+
+    iget-object v1, p0, Lcom/android/server/policy/PhoneWindowManager;->mTopFullscreenOpaqueWindowState:Landroid/view/WindowManagerPolicy$WindowState;
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/server/policy/PhoneWindowManager;->mTopFullscreenOpaqueWindowState:Landroid/view/WindowManagerPolicy$WindowState;
+
+    invoke-interface {v1}, Landroid/view/WindowManagerPolicy$WindowState;->getOwningPackage()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+
+    :cond_0
+    return-object v2
+.end method
+
+.method public getTopFullscreenOpaqueUid()I
+    .locals 2
+
+    iget-object v1, p0, Lcom/android/server/policy/PhoneWindowManager;->mTopFullscreenOpaqueWindowState:Landroid/view/WindowManagerPolicy$WindowState;
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/server/policy/PhoneWindowManager;->mTopFullscreenOpaqueWindowState:Landroid/view/WindowManagerPolicy$WindowState;
+
+    invoke-interface {v1}, Landroid/view/WindowManagerPolicy$WindowState;->getOwningUid()I
+
+    move-result v0
+
+    return v0
+
+    :cond_0
+    const/4 v1, -0x1
+
+    return v1
+.end method
+
 .method public getUserRotationMode()I
     .locals 4
 
@@ -17594,6 +17636,27 @@
 
     :cond_0
     return-object v2
+.end method
+
+.method public getWinDissmissKeyguardUid()I
+    .locals 2
+
+    iget-object v1, p0, Lcom/android/server/policy/PhoneWindowManager;->mWinDismissingKeyguard:Landroid/view/WindowManagerPolicy$WindowState;
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/server/policy/PhoneWindowManager;->mWinDismissingKeyguard:Landroid/view/WindowManagerPolicy$WindowState;
+
+    invoke-interface {v1}, Landroid/view/WindowManagerPolicy$WindowState;->getOwningUid()I
+
+    move-result v0
+
+    return v0
+
+    :cond_0
+    const/4 v1, -0x1
+
+    return v1
 .end method
 
 .method public getWinShowWhenLockedLw()Landroid/view/WindowManagerPolicy$WindowState;

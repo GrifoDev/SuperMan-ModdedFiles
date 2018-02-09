@@ -10,6 +10,7 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/android/server/enterprise/ccm/ClientCertificateManager$1;,
+        Lcom/android/server/enterprise/ccm/ClientCertificateManager$InternalHandler;,
         Lcom/android/server/enterprise/ccm/ClientCertificateManager$PersonaObserver;,
         Lcom/android/server/enterprise/ccm/ClientCertificateManager$SystemPersonaObserver;
     }
@@ -24,6 +25,8 @@
 .field private static final CCM_SAVED_BUILD_FINGERPRINT:Ljava/lang/String; = "persist.sys.ccm.date"
 
 .field private static final DBG:Z
+
+.field private static final DKS_TIMEOUT_MILLIS:I = 0x14
 
 .field public static final KEYSTORE_KEYCHAIN_CCM_MARKER:Ljava/lang/String; = "keystorekeychain"
 
@@ -43,6 +46,8 @@
         }
     .end annotation
 .end field
+
+.field private static mInternalHandler:Landroid/os/Handler;
 
 
 # instance fields
@@ -86,6 +91,8 @@
 
 .field private final mTimaService:Landroid/service/tima/ITimaService;
 
+.field private thread:Landroid/os/HandlerThread;
+
 
 # direct methods
 .method static synthetic -get0()Z
@@ -104,7 +111,15 @@
     return-object v0
 .end method
 
-.method static synthetic -get2(Lcom/android/server/enterprise/ccm/ClientCertificateManager;)Lcom/samsung/android/knox/SemPersonaManager;
+.method static synthetic -get2()Landroid/os/Handler;
+    .locals 1
+
+    sget-object v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mInternalHandler:Landroid/os/Handler;
+
+    return-object v0
+.end method
+
+.method static synthetic -get3(Lcom/android/server/enterprise/ccm/ClientCertificateManager;)Lcom/samsung/android/knox/SemPersonaManager;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mPersonaMgr:Lcom/samsung/android/knox/SemPersonaManager;
@@ -135,6 +150,14 @@
 .method static synthetic -wrap10(Lcom/android/server/enterprise/ccm/ClientCertificateManager;I)V
     .locals 0
 
+    invoke-direct {p0, p1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->registerPersonaObserver(I)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap11(Lcom/android/server/enterprise/ccm/ClientCertificateManager;I)V
+    .locals 0
+
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->unregisterPersonaObserver(I)V
 
     return-void
@@ -160,7 +183,17 @@
     return v0
 .end method
 
-.method static synthetic -wrap4(Lcom/android/server/enterprise/ccm/ClientCertificateManager;I)Z
+.method static synthetic -wrap4(Lcom/android/server/enterprise/ccm/ClientCertificateManager;)Z
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->existCCMprofile()Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic -wrap5(Lcom/android/server/enterprise/ccm/ClientCertificateManager;I)Z
     .locals 1
 
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->isCCMDefaultCertStore(I)Z
@@ -170,7 +203,7 @@
     return v0
 .end method
 
-.method static synthetic -wrap5(Lcom/android/server/enterprise/ccm/ClientCertificateManager;IZ)Z
+.method static synthetic -wrap6(Lcom/android/server/enterprise/ccm/ClientCertificateManager;IZ)Z
     .locals 1
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->setCCMAsDefaultCertStore(IZ)Z
@@ -180,7 +213,7 @@
     return v0
 .end method
 
-.method static synthetic -wrap6(Lcom/android/server/enterprise/ccm/ClientCertificateManager;I)Z
+.method static synthetic -wrap7(Lcom/android/server/enterprise/ccm/ClientCertificateManager;I)Z
     .locals 1
 
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->setCCMProfileDefaultForContainer(I)Z
@@ -190,7 +223,7 @@
     return v0
 .end method
 
-.method static synthetic -wrap7(Lcom/android/server/enterprise/ccm/ClientCertificateManager;IZZZ)Z
+.method static synthetic -wrap8(Lcom/android/server/enterprise/ccm/ClientCertificateManager;IZZZ)Z
     .locals 1
 
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->updateLockStatus(IZZZ)Z
@@ -200,18 +233,10 @@
     return v0
 .end method
 
-.method static synthetic -wrap8(Lcom/android/server/enterprise/ccm/ClientCertificateManager;ILcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;)V
+.method static synthetic -wrap9(Lcom/android/server/enterprise/ccm/ClientCertificateManager;ILcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->provisionUser(ILcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap9(Lcom/android/server/enterprise/ccm/ClientCertificateManager;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->registerPersonaObserver(I)V
 
     return-void
 .end method
@@ -3257,6 +3282,75 @@
 
     :cond_2
     return-void
+.end method
+
+.method private existCCMprofile()Z
+    .locals 7
+
+    const/4 v6, 0x0
+
+    const/4 v2, 0x0
+
+    new-instance v0, Landroid/content/ContentValues;
+
+    invoke-direct {v0}, Landroid/content/ContentValues;-><init>()V
+
+    :try_start_0
+    iget-object v3, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+
+    const-string/jumbo v4, "ClientCertificateManagerTable"
+
+    invoke-virtual {v3, v4, v0}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getCount(Ljava/lang/String;Landroid/content/ContentValues;)I
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v2
+
+    :cond_0
+    :goto_0
+    if-lez v2, :cond_1
+
+    const/4 v3, 0x1
+
+    return v3
+
+    :catch_0
+    move-exception v1
+
+    sget-boolean v3, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v3, :cond_0
+
+    sget-object v3, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "existCCMprofile- Exception "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v1}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :cond_1
+    return v6
 .end method
 
 .method private existDefaultProfile(J)Z
@@ -18535,11 +18629,43 @@
 .end method
 
 .method public systemReady()V
-    .locals 0
+    .locals 3
 
     invoke-direct {p0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->handleCCMBuildUpdate()V
 
     invoke-direct {p0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->checkMPforCCM()V
+
+    new-instance v0, Landroid/os/HandlerThread;
+
+    const-string/jumbo v1, "CCM InternalHandlerThread"
+
+    const/16 v2, 0xa
+
+    invoke-direct {v0, v1, v2}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;I)V
+
+    iput-object v0, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->thread:Landroid/os/HandlerThread;
+
+    iget-object v0, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->thread:Landroid/os/HandlerThread;
+
+    invoke-virtual {v0}, Landroid/os/HandlerThread;->start()V
+
+    sget-object v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v1, "Initialize mInternalHandler & start the thread"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager$InternalHandler;
+
+    iget-object v1, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->thread:Landroid/os/HandlerThread;
+
+    invoke-virtual {v1}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
+
+    move-result-object v1
+
+    invoke-direct {v0, p0, v1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager$InternalHandler;-><init>(Lcom/android/server/enterprise/ccm/ClientCertificateManager;Landroid/os/Looper;)V
+
+    sput-object v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mInternalHandler:Landroid/os/Handler;
 
     return-void
 .end method

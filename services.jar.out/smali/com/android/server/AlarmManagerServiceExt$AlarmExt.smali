@@ -319,6 +319,16 @@
     return v0
 .end method
 
+.method public bridge synthetic matches(Ljava/lang/String;I)Z
+    .locals 1
+
+    invoke-super {p0, p1, p2}, Lcom/android/server/AlarmManagerService$Alarm;->matches(Ljava/lang/String;I)Z
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public bridge synthetic toString()Ljava/lang/String;
     .locals 1
 

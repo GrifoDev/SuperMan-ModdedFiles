@@ -49,6 +49,9 @@
 .method public abstract notifyRemoveAlarmAction(Ljava/lang/String;Ljava/lang/String;)V
 .end method
 
+.method public abstract notifyRemoveAlarmActionFromMARs(Ljava/lang/String;Ljava/lang/String;I)V
+.end method
+
 .method public abstract notifyRemoveCancelAlarmAction(Ljava/lang/String;Ljava/lang/String;)V
 .end method
 

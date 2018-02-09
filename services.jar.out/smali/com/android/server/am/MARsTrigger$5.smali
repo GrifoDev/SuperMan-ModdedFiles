@@ -102,9 +102,17 @@
 
     iget-object v1, v1, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
 
-    const/4 v2, 0x0
+    iget-object v2, p0, Lcom/android/server/am/MARsTrigger$5;->this$0:Lcom/android/server/am/MARsTrigger;
 
-    invoke-virtual {v1, v2, v4}, Lcom/android/server/am/MARsPolicyManager;->cancelPolicy(Ljava/lang/String;I)V
+    iget-object v2, v2, Lcom/android/server/am/MARsTrigger;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getUserId()I
+
+    move-result v2
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v1, v3, v4, v2}, Lcom/android/server/am/MARsPolicyManager;->cancelPolicy(Ljava/lang/String;II)V
 
     goto :goto_0
 .end method

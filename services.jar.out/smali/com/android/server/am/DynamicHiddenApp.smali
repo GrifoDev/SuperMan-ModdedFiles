@@ -13,7 +13,7 @@
 
 
 # static fields
-.field static final AREs_EMERGENCY_TRIGGER_COOLTIME:I = 0xdbba0
+.field static AREs_EMERGENCY_TRIGGER_COOLTIME:I = 0x0
 
 .field static final BG_COUNT_CACHED:I = 0x1
 
@@ -150,8 +150,6 @@
 
 # instance fields
 .field private DHA_HOTNESS_MAX_VALUE:I
-
-.field private SLUGGISH_AGING_TIME:J
 
 .field hotnessCached:I
 
@@ -659,6 +657,10 @@
 
     sput-wide v0, Lcom/android/server/am/DynamicHiddenApp;->DHA_INCREASE_THRESHOLD:J
 
+    const v0, 0xdbba0
+
+    sput v0, Lcom/android/server/am/DynamicHiddenApp;->AREs_EMERGENCY_TRIGGER_COOLTIME:I
+
     const-string/jumbo v0, "ro.config.hotness_LRU_Min"
 
     const-string/jumbo v1, "6"
@@ -954,10 +956,6 @@
     iput-boolean v2, p0, Lcom/android/server/am/DynamicHiddenApp;->mDynamicLMKFlag:Z
 
     iput-wide v4, p0, Lcom/android/server/am/DynamicHiddenApp;->mLastTimeTriggerAREs:J
-
-    const-wide/16 v0, -0x1
-
-    iput-wide v0, p0, Lcom/android/server/am/DynamicHiddenApp;->SLUGGISH_AGING_TIME:J
 
     iput-boolean v2, p0, Lcom/android/server/am/DynamicHiddenApp;->mDidStepUp:Z
 
@@ -6701,6 +6699,16 @@
     return-void
 .end method
 
+.method getAREsCoolTimeForSluggishAging()J
+    .locals 2
+
+    sget v0, Lcom/android/server/am/DynamicHiddenApp;->AREs_EMERGENCY_TRIGGER_COOLTIME:I
+
+    int-to-long v0, v0
+
+    return-wide v0
+.end method
+
 .method protected getBgProcCount(I)I
     .locals 1
 
@@ -7085,14 +7093,6 @@
     move-result-object v1
 
     return-object v1
-.end method
-
-.method public getSluggishAgingTime()J
-    .locals 2
-
-    iget-wide v0, p0, Lcom/android/server/am/DynamicHiddenApp;->SLUGGISH_AGING_TIME:J
-
-    return-wide v0
 .end method
 
 .method incrementEmptyAppCount()I
@@ -7620,6 +7620,18 @@
     return-void
 .end method
 
+.method setAREsCoolTimeForSluggishAging(I)V
+    .locals 1
+
+    mul-int/lit8 v0, p1, 0x3c
+
+    mul-int/lit16 v0, v0, 0x3e8
+
+    sput v0, Lcom/android/server/am/DynamicHiddenApp;->AREs_EMERGENCY_TRIGGER_COOLTIME:I
+
+    return-void
+.end method
+
 .method setCallerHotnessAdj(Lcom/android/server/am/ProcessRecord;Lcom/android/server/am/ProcessRecord;)V
     .locals 5
 
@@ -8054,7 +8066,7 @@
 
     move-result v11
 
-    if-eqz v11, :cond_25
+    if-eqz v11, :cond_26
 
     sget-object v11, Lcom/android/server/am/DynamicHiddenApp;->TAG:Ljava/lang/String;
 
@@ -8076,7 +8088,7 @@
 
     move-result-object v9
 
-    if-eqz v9, :cond_22
+    if-eqz v9, :cond_23
 
     invoke-virtual {v9}, Ljava/lang/String;->isEmpty()Z
 
@@ -8781,7 +8793,7 @@
     goto/16 :goto_0
 
     :cond_20
-    const-string/jumbo v11, "ro.config.sluggish_aging_time"
+    const-string/jumbo v11, "ro.config.mars_ares_cool_time"
 
     invoke-virtual {v11, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -8789,15 +8801,100 @@
 
     if-eqz v11, :cond_21
 
-    invoke-static {v10}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+    sget-boolean v11, Lcom/android/server/am/MARsPolicyManager;->MARs_ENABLE:Z
 
-    move-result-wide v12
+    if-eqz v11, :cond_0
 
-    iput-wide v12, p0, Lcom/android/server/am/DynamicHiddenApp;->SLUGGISH_AGING_TIME:J
+    iget-object v11, p0, Lcom/android/server/am/DynamicHiddenApp;->mAm:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v11, v11, Lcom/android/server/am/ActivityManagerService;->mMARsPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+
+    if-eqz v11, :cond_0
+
+    iget-object v11, p0, Lcom/android/server/am/DynamicHiddenApp;->mAm:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v11, v11, Lcom/android/server/am/ActivityManagerService;->mMARsPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+
+    const/4 v12, 0x3
+
+    invoke-virtual {v11, v12}, Lcom/android/server/am/MARsPolicyManager;->isPolicyEnabled(I)Z
+
+    move-result v11
+
+    if-eqz v11, :cond_0
+
+    iget-object v11, p0, Lcom/android/server/am/DynamicHiddenApp;->mAm:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v11, v11, Lcom/android/server/am/ActivityManagerService;->mMARsPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+
+    invoke-virtual {v11}, Lcom/android/server/am/MARsPolicyManager;->getEmergencyKillEnabled()Z
+
+    move-result v11
+
+    if-eqz v11, :cond_0
+
+    invoke-static {v10}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v11
+
+    invoke-virtual {p0, v11}, Lcom/android/server/am/DynamicHiddenApp;->setAREsCoolTimeForSluggishAging(I)V
 
     goto/16 :goto_0
 
     :cond_21
+    const-string/jumbo v11, "ro.config.mars_ares_unused_time"
+
+    invoke-virtual {v11, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v11
+
+    if-eqz v11, :cond_22
+
+    sget-boolean v11, Lcom/android/server/am/MARsPolicyManager;->MARs_ENABLE:Z
+
+    if-eqz v11, :cond_0
+
+    iget-object v11, p0, Lcom/android/server/am/DynamicHiddenApp;->mAm:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v11, v11, Lcom/android/server/am/ActivityManagerService;->mMARsPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+
+    if-eqz v11, :cond_0
+
+    iget-object v11, p0, Lcom/android/server/am/DynamicHiddenApp;->mAm:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v11, v11, Lcom/android/server/am/ActivityManagerService;->mMARsPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+
+    const/4 v12, 0x3
+
+    invoke-virtual {v11, v12}, Lcom/android/server/am/MARsPolicyManager;->isPolicyEnabled(I)Z
+
+    move-result v11
+
+    if-eqz v11, :cond_0
+
+    iget-object v11, p0, Lcom/android/server/am/DynamicHiddenApp;->mAm:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v11, v11, Lcom/android/server/am/ActivityManagerService;->mMARsPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+
+    invoke-virtual {v11}, Lcom/android/server/am/MARsPolicyManager;->getEmergencyKillEnabled()Z
+
+    move-result v11
+
+    if-eqz v11, :cond_0
+
+    iget-object v11, p0, Lcom/android/server/am/DynamicHiddenApp;->mAm:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v11, v11, Lcom/android/server/am/ActivityManagerService;->mMARsPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+
+    invoke-static {v10}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v12
+
+    invoke-virtual {v11, v12}, Lcom/android/server/am/MARsPolicyManager;->setUnusedAREsTimeForSluggishAging(I)V
+
+    goto/16 :goto_0
+
+    :cond_22
     sget-object v11, Lcom/android/server/am/DynamicHiddenApp;->TAG:Ljava/lang/String;
 
     const-string/jumbo v12, "not matched parameter"
@@ -8806,17 +8903,17 @@
 
     goto/16 :goto_0
 
-    :cond_22
+    :cond_23
     invoke-virtual {v1}, Ljava/io/BufferedReader;->close()V
 
-    if-eqz v8, :cond_23
+    if-eqz v8, :cond_24
 
     const/4 v11, 0x0
 
     invoke-virtual {p0, v11}, Lcom/android/server/am/DynamicHiddenApp;->makeLists(Z)V
 
-    :cond_23
-    if-eqz v7, :cond_24
+    :cond_24
+    if-eqz v7, :cond_25
 
     iget-object v11, p0, Lcom/android/server/am/DynamicHiddenApp;->mProcessList:Lcom/android/server/am/ProcessList;
 
@@ -8846,7 +8943,7 @@
 
     iput-wide v12, p0, Lcom/android/server/am/DynamicHiddenApp;->mSzDHAThreshold:J
 
-    :cond_24
+    :cond_25
     sget-object v11, Lcom/android/server/am/DynamicHiddenApp;->TAG:Ljava/lang/String;
 
     const-string/jumbo v12, "complete parameter"
@@ -8855,7 +8952,7 @@
 
     goto/16 :goto_1
 
-    :cond_25
+    :cond_26
     sget-object v11, Lcom/android/server/am/DynamicHiddenApp;->TAG:Ljava/lang/String;
 
     const-string/jumbo v12, "file does not exist"
@@ -9336,7 +9433,11 @@
 
     sub-long v20, v10, v20
 
-    const-wide/32 v22, 0xdbba0
+    sget v13, Lcom/android/server/am/DynamicHiddenApp;->AREs_EMERGENCY_TRIGGER_COOLTIME:I
+
+    int-to-long v0, v13
+
+    move-wide/from16 v22, v0
 
     cmp-long v13, v20, v22
 

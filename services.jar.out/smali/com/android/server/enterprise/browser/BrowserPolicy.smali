@@ -791,7 +791,7 @@
 .end method
 
 .method private getUrlBlackList(Lcom/samsung/android/knox/ContextInfo;Z)Ljava/util/List;
-    .locals 13
+    .locals 14
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -804,179 +804,217 @@
         }
     .end annotation
 
-    iget v7, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+    iget v8, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
     iget v1, p1, Lcom/samsung/android/knox/ContextInfo;->mContainerId:I
 
-    const/4 v10, 0x1
+    const/4 v11, 0x1
 
-    new-array v0, v10, [Ljava/lang/String;
+    new-array v0, v11, [Ljava/lang/String;
 
-    const-string/jumbo v10, "url"
+    const-string/jumbo v11, "url"
 
-    const/4 v11, 0x0
+    const/4 v12, 0x0
 
-    aput-object v10, v0, v11
+    aput-object v11, v0, v12
 
-    new-instance v8, Ljava/util/ArrayList;
+    new-instance v9, Ljava/util/ArrayList;
 
-    invoke-direct {v8}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v9}, Ljava/util/ArrayList;-><init>()V
 
-    const-string/jumbo v10, "BrowserPolicy"
+    const-string/jumbo v11, "BrowserPolicy"
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    new-instance v12, Ljava/lang/StringBuilder;
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v12, "getUrlBlackList - uid "
+    const-string/jumbo v13, "getUrlBlackList - uid "
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v12
 
-    invoke-virtual {v11, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v12, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v12
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v11
+    move-result-object v12
 
-    invoke-static {v10, v11}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v11, v12}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     if-nez p2, :cond_4
 
-    iget-object v10, p0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    iget-object v11, p0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    const-string/jumbo v11, "WebFilterTable"
+    const-string/jumbo v12, "WebFilterTable"
 
-    invoke-virtual {v10, v11, v7, v1, v0}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getCursorByAdmin(Ljava/lang/String;II[Ljava/lang/String;)Landroid/database/Cursor;
+    invoke-virtual {v11, v12, v8, v1, v0}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getCursorByAdmin(Ljava/lang/String;II[Ljava/lang/String;)Landroid/database/Cursor;
 
     move-result-object v2
 
     if-nez v2, :cond_0
 
-    const-string/jumbo v10, "BrowserPolicy"
+    const-string/jumbo v11, "BrowserPolicy"
 
-    const-string/jumbo v11, "getUrlBlackList - Cursor is null"
+    const-string/jumbo v12, "getUrlBlackList - Cursor is null"
 
-    invoke-static {v10, v11}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v11, v12}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/4 v10, 0x0
+    const/4 v11, 0x0
 
-    return-object v10
+    return-object v11
 
     :cond_0
     :try_start_0
     invoke-interface {v2}, Landroid/database/Cursor;->moveToFirst()Z
 
-    move-result v10
+    move-result v11
 
-    if-eqz v10, :cond_2
+    if-eqz v11, :cond_2
 
     :cond_1
-    const-string/jumbo v10, "url"
+    const-string/jumbo v11, "url"
 
-    invoke-interface {v2, v10}, Landroid/database/Cursor;->getColumnIndexOrThrow(Ljava/lang/String;)I
+    invoke-interface {v2, v11}, Landroid/database/Cursor;->getColumnIndexOrThrow(Ljava/lang/String;)I
 
-    move-result v10
+    move-result v11
 
-    invoke-interface {v2, v10}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    invoke-interface {v2, v11}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v11
 
-    invoke-interface {v8, v10}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v9, v11}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     invoke-interface {v2}, Landroid/database/Cursor;->moveToNext()Z
     :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Landroid/database/SQLException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result v10
+    move-result v11
 
-    if-nez v10, :cond_1
+    if-nez v11, :cond_1
 
     :cond_2
     invoke-interface {v2}, Landroid/database/Cursor;->close()V
 
     :cond_3
-    return-object v8
+    :goto_0
+    return-object v9
 
     :catch_0
-    move-exception v5
+    move-exception v7
 
     :try_start_1
-    const-string/jumbo v10, "BrowserPolicy"
+    const-string/jumbo v11, "BrowserPolicy"
 
-    const-string/jumbo v11, "getUrlBlackList - IllegalArgumentException"
+    new-instance v12, Ljava/lang/StringBuilder;
 
-    invoke-static {v10, v11}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v13, "Exception occurred accessing Enterprise db "
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    invoke-virtual {v7}, Landroid/database/SQLException;->getMessage()Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-static {v11, v12}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    const/4 v10, 0x0
+    invoke-interface {v2}, Landroid/database/Cursor;->close()V
+
+    goto :goto_0
+
+    :catch_1
+    move-exception v5
+
+    :try_start_2
+    const-string/jumbo v11, "BrowserPolicy"
+
+    const-string/jumbo v12, "getUrlBlackList - IllegalArgumentException"
+
+    invoke-static {v11, v12}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    const/4 v11, 0x0
 
     invoke-interface {v2}, Landroid/database/Cursor;->close()V
 
-    return-object v10
+    return-object v11
 
     :catchall_0
-    move-exception v10
+    move-exception v11
 
     invoke-interface {v2}, Landroid/database/Cursor;->close()V
 
-    throw v10
+    throw v11
 
     :cond_4
     invoke-static {p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
 
-    move-result v9
+    move-result v10
 
-    const-string/jumbo v10, "BrowserPolicy"
+    const-string/jumbo v11, "BrowserPolicy"
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    new-instance v12, Ljava/lang/StringBuilder;
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v12, "Getting URLList called by server for user "
+    const-string/jumbo v13, "Getting URLList called by server for user "
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v12
 
-    invoke-virtual {v11, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v12, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v12
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v11
+    move-result-object v12
 
-    invoke-static {v10, v11}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v11, v12}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     new-instance v4, Ljava/util/ArrayList;
 
     invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
 
-    iget-object v10, p0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    iget-object v11, p0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    const-string/jumbo v11, "WebFilterTable"
+    const-string/jumbo v12, "WebFilterTable"
 
-    invoke-virtual {v10, v1, v11, v0, v9}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getValuesListAsUser(ILjava/lang/String;[Ljava/lang/String;I)Ljava/util/List;
+    invoke-virtual {v11, v1, v12, v0, v10}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getValuesListAsUser(ILjava/lang/String;[Ljava/lang/String;I)Ljava/util/List;
 
     move-result-object v4
 
     if-nez v4, :cond_5
 
-    const-string/jumbo v10, "BrowserPolicy"
+    const-string/jumbo v11, "BrowserPolicy"
 
-    const-string/jumbo v11, "getUrlBlackList - cv is null"
+    const-string/jumbo v12, "getUrlBlackList - cv is null"
 
-    invoke-static {v10, v11}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v11, v12}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/4 v10, 0x0
+    const/4 v11, 0x0
 
-    return-object v10
+    return-object v11
 
     :cond_5
     const/4 v3, 0x0
@@ -985,12 +1023,12 @@
 
     move-result-object v6
 
-    :goto_0
+    :goto_1
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v10
+    move-result v11
 
-    if-eqz v10, :cond_3
+    if-eqz v11, :cond_3
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -998,15 +1036,15 @@
 
     check-cast v3, Landroid/content/ContentValues;
 
-    const-string/jumbo v10, "url"
+    const-string/jumbo v11, "url"
 
-    invoke-virtual {v3, v10}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v3, v11}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v11
 
-    invoke-interface {v8, v10}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v9, v11}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method private getUrlFilterState(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Z

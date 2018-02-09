@@ -3200,21 +3200,21 @@
 .end method
 
 .method private loadRestrictionCache(I)V
-    .locals 28
+    .locals 30
 
-    const-wide v24, 0x1ffffffc3b9fffefL
+    const-wide v26, 0x1ffffffc3b9fffefL
 
-    invoke-static/range {v24 .. v25}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-static/range {v26 .. v27}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v14
 
     const/16 v16, 0x0
 
-    const/16 v24, -0x1
+    const/16 v25, -0x1
 
     move/from16 v0, p1
 
-    move/from16 v1, v24
+    move/from16 v1, v25
 
     if-eq v0, v1, :cond_2
 
@@ -3222,23 +3222,23 @@
 
     invoke-direct/range {v16 .. v16}, Landroid/content/ContentValues;-><init>()V
 
-    const/16 v24, 0x0
+    const/16 v25, 0x0
 
-    move/from16 v0, v24
+    move/from16 v0, v25
 
     move/from16 v1, p1
 
     invoke-static {v0, v1}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getAdminLUIDWhereIn(II)Ljava/lang/String;
 
-    move-result-object v24
+    move-result-object v25
 
-    const-string/jumbo v25, "#SelectClause#"
+    const-string/jumbo v26, "#SelectClause#"
 
     move-object/from16 v0, v16
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
 
-    move-object/from16 v2, v25
+    move-object/from16 v2, v26
 
     invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -3246,28 +3246,28 @@
 
     iget-object v0, v0, Lcom/android/server/enterprise/restriction/RestrictionPolicy;->mRestrictionCacheLock:Ljava/util/concurrent/locks/ReentrantReadWriteLock;
 
-    move-object/from16 v24, v0
+    move-object/from16 v25, v0
 
-    invoke-virtual/range {v24 .. v24}, Ljava/util/concurrent/locks/ReentrantReadWriteLock;->writeLock()Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;
+    invoke-virtual/range {v25 .. v25}, Ljava/util/concurrent/locks/ReentrantReadWriteLock;->writeLock()Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;
 
-    move-result-object v24
+    move-result-object v25
 
-    invoke-virtual/range {v24 .. v24}, Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;->lock()V
+    invoke-virtual/range {v25 .. v25}, Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;->lock()V
 
     :try_start_0
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/restriction/RestrictionPolicy;->mRestrictionCache:Ljava/util/HashMap;
 
-    move-object/from16 v24, v0
+    move-object/from16 v25, v0
 
     invoke-static/range {p1 .. p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v25
+    move-result-object v26
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v25
 
-    move-object/from16 v1, v25
+    move-object/from16 v1, v26
 
     invoke-virtual {v0, v1, v14}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
@@ -3277,34 +3277,34 @@
 
     iget-object v0, v0, Lcom/android/server/enterprise/restriction/RestrictionPolicy;->mRestrictionCacheLock:Ljava/util/concurrent/locks/ReentrantReadWriteLock;
 
-    move-object/from16 v24, v0
+    move-object/from16 v25, v0
 
-    invoke-virtual/range {v24 .. v24}, Ljava/util/concurrent/locks/ReentrantReadWriteLock;->writeLock()Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;
+    invoke-virtual/range {v25 .. v25}, Ljava/util/concurrent/locks/ReentrantReadWriteLock;->writeLock()Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;
 
-    move-result-object v24
+    move-result-object v25
 
-    invoke-virtual/range {v24 .. v24}, Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;->unlock()V
+    invoke-virtual/range {v25 .. v25}, Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;->unlock()V
 
     :goto_0
-    sget-object v24, Lcom/android/server/enterprise/restriction/RestrictionPolicy;->MASK_AND_COLUMN_NAME:Ljava/util/Map;
+    sget-object v25, Lcom/android/server/enterprise/restriction/RestrictionPolicy;->MASK_AND_COLUMN_NAME:Ljava/util/Map;
 
-    invoke-interface/range {v24 .. v24}, Ljava/util/Map;->values()Ljava/util/Collection;
+    invoke-interface/range {v25 .. v25}, Ljava/util/Map;->values()Ljava/util/Collection;
 
     move-result-object v11
 
     invoke-interface {v11}, Ljava/util/Collection;->size()I
 
-    move-result v24
+    move-result v25
 
-    add-int/lit8 v24, v24, 0x1
+    add-int/lit8 v25, v25, 0x1
 
-    move/from16 v0, v24
+    move/from16 v0, v25
 
     new-array v0, v0, [Ljava/lang/String;
 
-    move-object/from16 v24, v0
+    move-object/from16 v25, v0
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v25
 
     invoke-interface {v11, v0}, Ljava/util/Collection;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
@@ -3314,49 +3314,49 @@
 
     array-length v0, v5
 
-    move/from16 v24, v0
+    move/from16 v25, v0
 
-    add-int/lit8 v24, v24, -0x1
+    add-int/lit8 v25, v25, -0x1
 
-    const-string/jumbo v25, "adminUid"
+    const-string/jumbo v26, "adminUid"
 
-    aput-object v25, v5, v24
+    aput-object v26, v5, v25
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/restriction/RestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    move-object/from16 v24, v0
+    move-object/from16 v25, v0
 
-    const-string/jumbo v25, "RESTRICTION"
+    const-string/jumbo v26, "RESTRICTION"
 
-    const/16 v26, 0x0
+    const/16 v27, 0x0
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v25
 
-    move-object/from16 v1, v25
+    move-object/from16 v1, v26
 
     move-object/from16 v2, v16
 
-    move-object/from16 v3, v26
+    move-object/from16 v3, v27
 
     invoke-virtual {v0, v1, v5, v2, v3}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getCursor(Ljava/lang/String;[Ljava/lang/String;Landroid/content/ContentValues;Ljava/lang/String;)Landroid/database/Cursor;
 
     move-result-object v8
 
-    if-eqz v8, :cond_8
+    if-eqz v8, :cond_7
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/restriction/RestrictionPolicy;->mRestrictionCacheLock:Ljava/util/concurrent/locks/ReentrantReadWriteLock;
 
-    move-object/from16 v24, v0
+    move-object/from16 v25, v0
 
-    invoke-virtual/range {v24 .. v24}, Ljava/util/concurrent/locks/ReentrantReadWriteLock;->writeLock()Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;
+    invoke-virtual/range {v25 .. v25}, Ljava/util/concurrent/locks/ReentrantReadWriteLock;->writeLock()Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;
 
-    move-result-object v24
+    move-result-object v25
 
-    invoke-virtual/range {v24 .. v24}, Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;->lock()V
+    invoke-virtual/range {v25 .. v25}, Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;->lock()V
 
     :try_start_1
     invoke-interface {v8}, Landroid/database/Cursor;->moveToFirst()Z
@@ -3364,25 +3364,25 @@
     :goto_1
     invoke-interface {v8}, Landroid/database/Cursor;->isAfterLast()Z
 
-    move-result v24
+    move-result v25
 
-    if-nez v24, :cond_7
+    if-nez v25, :cond_9
 
-    const-wide v24, 0x1ffffffc3b9fffefL
+    const-wide v26, 0x1ffffffc3b9fffefL
 
-    invoke-static/range {v24 .. v25}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-static/range {v26 .. v27}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v14
 
-    const-string/jumbo v24, "adminUid"
+    const-string/jumbo v25, "adminUid"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v25
 
     invoke-interface {v8, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
-    move-result v24
+    move-result v25
 
-    move/from16 v0, v24
+    move/from16 v0, v25
 
     invoke-interface {v8, v0}, Landroid/database/Cursor;->getLong(I)J
 
@@ -3390,70 +3390,70 @@
 
     long-to-int v0, v6
 
-    move/from16 v24, v0
+    move/from16 v25, v0
 
-    move/from16 v0, v24
+    move/from16 v0, v25
 
     int-to-long v0, v0
 
-    move-wide/from16 v24, v0
+    move-wide/from16 v26, v0
 
-    cmp-long v24, v6, v24
+    cmp-long v25, v6, v26
 
-    if-nez v24, :cond_6
+    if-nez v25, :cond_6
 
     long-to-int v0, v6
 
-    move/from16 v24, v0
+    move/from16 v25, v0
 
-    invoke-static/range {v24 .. v24}, Landroid/os/UserHandle;->getUserId(I)I
+    invoke-static/range {v25 .. v25}, Landroid/os/UserHandle;->getUserId(I)I
 
-    move-result v20
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/enterprise/restriction/RestrictionPolicy;->mRestrictionCache:Ljava/util/HashMap;
-
-    move-object/from16 v24, v0
-
-    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v25
-
-    invoke-virtual/range {v24 .. v25}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v24
-
-    if-eqz v24, :cond_0
+    move-result v21
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/restriction/RestrictionPolicy;->mRestrictionCache:Ljava/util/HashMap;
 
-    move-object/from16 v24, v0
+    move-object/from16 v25, v0
 
-    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static/range {v21 .. v21}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v26
+
+    invoke-virtual/range {v25 .. v26}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v25
 
-    invoke-virtual/range {v24 .. v25}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    if-eqz v25, :cond_0
 
-    move-result-object v24
+    move-object/from16 v0, p0
 
-    move-object/from16 v0, v24
+    iget-object v0, v0, Lcom/android/server/enterprise/restriction/RestrictionPolicy;->mRestrictionCache:Ljava/util/HashMap;
+
+    move-object/from16 v25, v0
+
+    invoke-static/range {v21 .. v21}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v26
+
+    invoke-virtual/range {v25 .. v26}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v25
+
+    move-object/from16 v0, v25
 
     check-cast v0, Ljava/lang/Long;
 
     move-object v14, v0
 
     :cond_0
-    sget-object v24, Lcom/android/server/enterprise/restriction/RestrictionPolicy;->MASK_AND_COLUMN_NAME:Ljava/util/Map;
+    sget-object v25, Lcom/android/server/enterprise/restriction/RestrictionPolicy;->MASK_AND_COLUMN_NAME:Ljava/util/Map;
 
-    invoke-interface/range {v24 .. v24}, Ljava/util/Map;->entrySet()Ljava/util/Set;
+    invoke-interface/range {v25 .. v25}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
-    move-result-object v24
+    move-result-object v25
 
-    invoke-interface/range {v24 .. v24}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface/range {v25 .. v25}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v10
 
@@ -3461,9 +3461,9 @@
     :goto_2
     invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v24
+    move-result v25
 
-    if-eqz v24, :cond_5
+    if-eqz v25, :cond_5
 
     invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3473,17 +3473,17 @@
 
     invoke-interface {v9}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v24
+    move-result-object v25
 
-    check-cast v24, Ljava/lang/String;
+    check-cast v25, Ljava/lang/String;
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v25
 
     invoke-interface {v8, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
-    move-result v24
+    move-result v25
 
-    move/from16 v0, v24
+    move/from16 v0, v25
 
     invoke-interface {v8, v0}, Landroid/database/Cursor;->getInt(I)I
 
@@ -3495,40 +3495,41 @@
 
     check-cast v13, Ljava/lang/Long;
 
-    const/16 v24, 0x1
+    const/16 v25, 0x1
 
-    move/from16 v0, v24
+    move/from16 v0, v25
 
     if-ne v15, v0, :cond_4
 
     invoke-virtual {v13}, Ljava/lang/Long;->longValue()J
 
-    move-result-wide v24
+    move-result-wide v26
 
-    const-wide v26, 0x1ffffffc3b9fffefL
+    const-wide v28, 0x1ffffffc3b9fffefL
 
-    and-long v24, v24, v26
+    and-long v26, v26, v28
 
     invoke-virtual {v13}, Ljava/lang/Long;->longValue()J
 
-    move-result-wide v26
+    move-result-wide v28
 
-    cmp-long v24, v24, v26
+    cmp-long v25, v26, v28
 
-    if-eqz v24, :cond_4
+    if-eqz v25, :cond_4
 
     invoke-virtual {v14}, Ljava/lang/Long;->longValue()J
 
-    move-result-wide v24
+    move-result-wide v26
 
     invoke-virtual {v13}, Ljava/lang/Long;->longValue()J
 
-    move-result-wide v26
+    move-result-wide v28
 
-    or-long v24, v24, v26
+    or-long v26, v26, v28
 
-    invoke-static/range {v24 .. v25}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-static/range {v26 .. v27}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
     :try_end_1
+    .catch Landroid/database/SQLException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_2
 
     move-result-object v14
@@ -3536,7 +3537,40 @@
     goto :goto_2
 
     :catchall_0
-    move-exception v24
+    move-exception v25
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/enterprise/restriction/RestrictionPolicy;->mRestrictionCacheLock:Ljava/util/concurrent/locks/ReentrantReadWriteLock;
+
+    move-object/from16 v26, v0
+
+    invoke-virtual/range {v26 .. v26}, Ljava/util/concurrent/locks/ReentrantReadWriteLock;->writeLock()Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;
+
+    move-result-object v26
+
+    invoke-virtual/range {v26 .. v26}, Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;->unlock()V
+
+    throw v25
+
+    :cond_2
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/enterprise/restriction/RestrictionPolicy;->mContext:Landroid/content/Context;
+
+    move-object/from16 v25, v0
+
+    const-string/jumbo v26, "user"
+
+    invoke-virtual/range {v25 .. v26}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v22
+
+    check-cast v22, Landroid/os/UserManager;
+
+    invoke-virtual/range {v22 .. v22}, Landroid/os/UserManager;->getUsers()Ljava/util/List;
+
+    move-result-object v23
 
     move-object/from16 v0, p0
 
@@ -3548,80 +3582,47 @@
 
     move-result-object v25
 
-    invoke-virtual/range {v25 .. v25}, Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;->unlock()V
-
-    throw v24
-
-    :cond_2
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/enterprise/restriction/RestrictionPolicy;->mContext:Landroid/content/Context;
-
-    move-object/from16 v24, v0
-
-    const-string/jumbo v25, "user"
-
-    invoke-virtual/range {v24 .. v25}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v21
-
-    check-cast v21, Landroid/os/UserManager;
-
-    invoke-virtual/range {v21 .. v21}, Landroid/os/UserManager;->getUsers()Ljava/util/List;
-
-    move-result-object v22
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/enterprise/restriction/RestrictionPolicy;->mRestrictionCacheLock:Ljava/util/concurrent/locks/ReentrantReadWriteLock;
-
-    move-object/from16 v24, v0
-
-    invoke-virtual/range {v24 .. v24}, Ljava/util/concurrent/locks/ReentrantReadWriteLock;->writeLock()Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;
-
-    move-result-object v24
-
-    invoke-virtual/range {v24 .. v24}, Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;->lock()V
+    invoke-virtual/range {v25 .. v25}, Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;->lock()V
 
     :try_start_2
-    invoke-interface/range {v22 .. v22}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface/range {v23 .. v23}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v19
+
+    :goto_3
+    invoke-interface/range {v19 .. v19}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v25
+
+    if-eqz v25, :cond_3
+
+    invoke-interface/range {v19 .. v19}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v18
 
-    :goto_3
-    invoke-interface/range {v18 .. v18}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v24
-
-    if-eqz v24, :cond_3
-
-    invoke-interface/range {v18 .. v18}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v17
-
-    check-cast v17, Landroid/content/pm/UserInfo;
+    check-cast v18, Landroid/content/pm/UserInfo;
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/restriction/RestrictionPolicy;->mRestrictionCache:Ljava/util/HashMap;
 
-    move-object/from16 v24, v0
+    move-object/from16 v25, v0
 
-    invoke-virtual/range {v17 .. v17}, Landroid/content/pm/UserInfo;->getUserHandle()Landroid/os/UserHandle;
+    invoke-virtual/range {v18 .. v18}, Landroid/content/pm/UserInfo;->getUserHandle()Landroid/os/UserHandle;
 
-    move-result-object v25
+    move-result-object v26
 
-    invoke-virtual/range {v25 .. v25}, Landroid/os/UserHandle;->getIdentifier()I
+    invoke-virtual/range {v26 .. v26}, Landroid/os/UserHandle;->getIdentifier()I
 
-    move-result v25
+    move-result v26
 
-    invoke-static/range {v25 .. v25}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static/range {v26 .. v26}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v25
+    move-result-object v26
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v25
 
-    move-object/from16 v1, v25
+    move-object/from16 v1, v26
 
     invoke-virtual {v0, v1, v14}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_2
@@ -3630,8 +3631,23 @@
     goto :goto_3
 
     :catchall_1
-    move-exception v24
+    move-exception v25
 
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/enterprise/restriction/RestrictionPolicy;->mRestrictionCacheLock:Ljava/util/concurrent/locks/ReentrantReadWriteLock;
+
+    move-object/from16 v26, v0
+
+    invoke-virtual/range {v26 .. v26}, Ljava/util/concurrent/locks/ReentrantReadWriteLock;->writeLock()Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;
+
+    move-result-object v26
+
+    invoke-virtual/range {v26 .. v26}, Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;->unlock()V
+
+    throw v25
+
+    :cond_3
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/restriction/RestrictionPolicy;->mRestrictionCacheLock:Ljava/util/concurrent/locks/ReentrantReadWriteLock;
@@ -3643,21 +3659,6 @@
     move-result-object v25
 
     invoke-virtual/range {v25 .. v25}, Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;->unlock()V
-
-    throw v24
-
-    :cond_3
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/enterprise/restriction/RestrictionPolicy;->mRestrictionCacheLock:Ljava/util/concurrent/locks/ReentrantReadWriteLock;
-
-    move-object/from16 v24, v0
-
-    invoke-virtual/range {v24 .. v24}, Ljava/util/concurrent/locks/ReentrantReadWriteLock;->writeLock()Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;
-
-    move-result-object v24
-
-    invoke-virtual/range {v24 .. v24}, Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;->unlock()V
 
     goto/16 :goto_0
 
@@ -3667,37 +3668,37 @@
     :try_start_3
     invoke-virtual {v13}, Ljava/lang/Long;->longValue()J
 
-    move-result-wide v24
+    move-result-wide v26
 
-    const-wide v26, 0x1ffffffc3b9fffefL
+    const-wide v28, 0x1ffffffc3b9fffefL
 
-    and-long v24, v24, v26
+    and-long v26, v26, v28
 
     invoke-virtual {v13}, Ljava/lang/Long;->longValue()J
 
-    move-result-wide v26
+    move-result-wide v28
 
-    cmp-long v24, v24, v26
+    cmp-long v25, v26, v28
 
-    if-nez v24, :cond_1
+    if-nez v25, :cond_1
 
     invoke-virtual {v14}, Ljava/lang/Long;->longValue()J
 
-    move-result-wide v24
+    move-result-wide v26
 
     invoke-virtual {v13}, Ljava/lang/Long;->longValue()J
 
-    move-result-wide v26
+    move-result-wide v28
 
-    move-wide/from16 v0, v26
+    move-wide/from16 v0, v28
 
     not-long v0, v0
 
-    move-wide/from16 v26, v0
+    move-wide/from16 v28, v0
 
-    and-long v24, v24, v26
+    and-long v26, v26, v28
 
-    invoke-static/range {v24 .. v25}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-static/range {v26 .. v27}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v14
 
@@ -3708,27 +3709,57 @@
 
     iget-object v0, v0, Lcom/android/server/enterprise/restriction/RestrictionPolicy;->mRestrictionCache:Ljava/util/HashMap;
 
-    move-object/from16 v24, v0
+    move-object/from16 v25, v0
 
-    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static/range {v21 .. v21}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v25
+    move-result-object v26
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v25
 
-    move-object/from16 v1, v25
+    move-object/from16 v1, v26
 
     invoke-virtual {v0, v1, v14}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_6
     invoke-interface {v8}, Landroid/database/Cursor;->moveToNext()Z
     :try_end_3
+    .catch Landroid/database/SQLException; {:try_start_3 .. :try_end_3} :catch_0
     .catchall {:try_start_3 .. :try_end_3} :catchall_2
 
     goto/16 :goto_1
 
-    :catchall_2
-    move-exception v24
+    :catch_0
+    move-exception v17
+
+    :try_start_4
+    const-string/jumbo v25, "RestrictionPolicy"
+
+    new-instance v26, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v26 .. v26}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v27, "Exception occurred accessing Enterprise db "
+
+    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v26
+
+    invoke-virtual/range {v17 .. v17}, Landroid/database/SQLException;->getMessage()Ljava/lang/String;
+
+    move-result-object v27
+
+    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v26
+
+    invoke-virtual/range {v26 .. v26}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v26
+
+    invoke-static/range {v25 .. v26}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_2
 
     move-object/from16 v0, p0
 
@@ -3744,162 +3775,182 @@
 
     invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
-    throw v24
-
     :cond_7
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/enterprise/restriction/RestrictionPolicy;->mRestrictionCacheLock:Ljava/util/concurrent/locks/ReentrantReadWriteLock;
-
-    move-object/from16 v24, v0
-
-    invoke-virtual/range {v24 .. v24}, Ljava/util/concurrent/locks/ReentrantReadWriteLock;->writeLock()Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;
-
-    move-result-object v24
-
-    invoke-virtual/range {v24 .. v24}, Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;->unlock()V
-
-    invoke-interface {v8}, Landroid/database/Cursor;->close()V
-
-    :cond_8
-    const/16 v24, -0x1
+    :goto_4
+    const/16 v25, -0x1
 
     move/from16 v0, p1
 
-    move/from16 v1, v24
+    move/from16 v1, v25
 
     if-eq v0, v1, :cond_b
 
-    const/16 v24, 0x0
+    const/16 v25, 0x0
 
     move-object/from16 v0, p0
 
     move/from16 v1, p1
 
-    move/from16 v2, v24
+    move/from16 v2, v25
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/enterprise/restriction/RestrictionPolicy;->isScreenCaptureEnabled(IZ)Z
 
-    move-result v24
+    move-result v25
 
-    if-eqz v24, :cond_a
+    if-eqz v25, :cond_a
 
-    const/16 v24, 0x0
+    const/16 v25, 0x0
 
-    :goto_4
+    :goto_5
     move-object/from16 v0, p0
 
     move/from16 v1, p1
 
-    move/from16 v2, v24
+    move/from16 v2, v25
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/enterprise/restriction/RestrictionPolicy;->updateScreenCaptureDisabledInWindowManager(IZ)V
+
+    :cond_8
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/enterprise/restriction/RestrictionPolicy;->mContext:Landroid/content/Context;
+
+    move-object/from16 v25, v0
+
+    const-string/jumbo v26, "content://com.sec.knox.provider/RestrictionPolicy1/isClipboardAllowed"
+
+    invoke-static/range {v26 .. v26}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v26
+
+    invoke-static/range {v25 .. v26}, Lcom/android/server/enterprise/content/SecContentProvider;->notifyPolicyChangesAllUser(Landroid/content/Context;Landroid/net/Uri;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/enterprise/restriction/RestrictionPolicy;->mContext:Landroid/content/Context;
+
+    move-object/from16 v25, v0
+
+    const-string/jumbo v26, "content://com.sec.knox.provider/RestrictionPolicy1/isClipboardShareAllowed"
+
+    invoke-static/range {v26 .. v26}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v26
+
+    invoke-static/range {v25 .. v26}, Lcom/android/server/enterprise/content/SecContentProvider;->notifyPolicyChangesAllUser(Landroid/content/Context;Landroid/net/Uri;)V
+
+    return-void
 
     :cond_9
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/enterprise/restriction/RestrictionPolicy;->mContext:Landroid/content/Context;
+    iget-object v0, v0, Lcom/android/server/enterprise/restriction/RestrictionPolicy;->mRestrictionCacheLock:Ljava/util/concurrent/locks/ReentrantReadWriteLock;
 
-    move-object/from16 v24, v0
+    move-object/from16 v25, v0
 
-    const-string/jumbo v25, "content://com.sec.knox.provider/RestrictionPolicy1/isClipboardAllowed"
-
-    invoke-static/range {v25 .. v25}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-virtual/range {v25 .. v25}, Ljava/util/concurrent/locks/ReentrantReadWriteLock;->writeLock()Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;
 
     move-result-object v25
 
-    invoke-static/range {v24 .. v25}, Lcom/android/server/enterprise/content/SecContentProvider;->notifyPolicyChangesAllUser(Landroid/content/Context;Landroid/net/Uri;)V
+    invoke-virtual/range {v25 .. v25}, Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;->unlock()V
+
+    invoke-interface {v8}, Landroid/database/Cursor;->close()V
+
+    goto :goto_4
+
+    :catchall_2
+    move-exception v25
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/enterprise/restriction/RestrictionPolicy;->mContext:Landroid/content/Context;
+    iget-object v0, v0, Lcom/android/server/enterprise/restriction/RestrictionPolicy;->mRestrictionCacheLock:Ljava/util/concurrent/locks/ReentrantReadWriteLock;
 
-    move-object/from16 v24, v0
+    move-object/from16 v26, v0
 
-    const-string/jumbo v25, "content://com.sec.knox.provider/RestrictionPolicy1/isClipboardShareAllowed"
+    invoke-virtual/range {v26 .. v26}, Ljava/util/concurrent/locks/ReentrantReadWriteLock;->writeLock()Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;
 
-    invoke-static/range {v25 .. v25}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+    move-result-object v26
 
-    move-result-object v25
+    invoke-virtual/range {v26 .. v26}, Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;->unlock()V
 
-    invoke-static/range {v24 .. v25}, Lcom/android/server/enterprise/content/SecContentProvider;->notifyPolicyChangesAllUser(Landroid/content/Context;Landroid/net/Uri;)V
+    invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
-    return-void
+    throw v25
 
     :cond_a
-    const/16 v24, 0x1
+    const/16 v25, 0x1
 
-    goto :goto_4
+    goto :goto_5
 
     :cond_b
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/restriction/RestrictionPolicy;->mUserManager:Landroid/os/UserManager;
 
-    move-object/from16 v24, v0
+    move-object/from16 v25, v0
 
-    const/16 v25, 0x1
+    const/16 v26, 0x1
 
-    invoke-virtual/range {v24 .. v25}, Landroid/os/UserManager;->getUsers(Z)Ljava/util/List;
+    invoke-virtual/range {v25 .. v26}, Landroid/os/UserManager;->getUsers(Z)Ljava/util/List;
 
-    move-result-object v23
+    move-result-object v24
 
-    invoke-interface/range {v23 .. v23}, Ljava/util/List;->size()I
+    invoke-interface/range {v24 .. v24}, Ljava/util/List;->size()I
 
     move-result v4
 
     const/4 v12, 0x0
 
-    :goto_5
-    if-ge v12, v4, :cond_9
-
-    move-object/from16 v0, v23
-
-    invoke-interface {v0, v12}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v24
-
-    check-cast v24, Landroid/content/pm/UserInfo;
+    :goto_6
+    if-ge v12, v4, :cond_8
 
     move-object/from16 v0, v24
 
+    invoke-interface {v0, v12}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v25
+
+    check-cast v25, Landroid/content/pm/UserInfo;
+
+    move-object/from16 v0, v25
+
     iget v0, v0, Landroid/content/pm/UserInfo;->id:I
 
-    move/from16 v19, v0
+    move/from16 v20, v0
 
-    const/16 v24, 0x0
+    const/16 v25, 0x0
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v19
+    move/from16 v1, v20
 
-    move/from16 v2, v24
+    move/from16 v2, v25
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/enterprise/restriction/RestrictionPolicy;->isScreenCaptureEnabled(IZ)Z
 
-    move-result v24
+    move-result v25
 
-    if-eqz v24, :cond_c
+    if-eqz v25, :cond_c
 
-    const/16 v24, 0x0
+    const/16 v25, 0x0
 
-    :goto_6
+    :goto_7
     move-object/from16 v0, p0
 
-    move/from16 v1, v19
+    move/from16 v1, v20
 
-    move/from16 v2, v24
+    move/from16 v2, v25
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/enterprise/restriction/RestrictionPolicy;->updateScreenCaptureDisabledInWindowManager(IZ)V
 
     add-int/lit8 v12, v12, 0x1
 
-    goto :goto_5
+    goto :goto_6
 
     :cond_c
-    const/16 v24, 0x1
+    const/16 v25, 0x1
 
-    goto :goto_6
+    goto :goto_7
 .end method
 
 .method private manageEFSFile(Z)Z
@@ -6772,7 +6823,7 @@
 .end method
 
 .method public allowFastEncryption(Lcom/samsung/android/knox/ContextInfo;Z)Z
-    .locals 12
+    .locals 7
 
     const/4 v4, 0x0
 
@@ -6790,7 +6841,7 @@
 
     invoke-virtual {v0, v1, v2, v3, p2}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putBoolean(ILjava/lang/String;Ljava/lang/String;Z)Z
 
-    move-result v8
+    move-result v6
 
     const-string/jumbo v0, "RestrictionPolicy"
 
@@ -6824,95 +6875,7 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/android/server/enterprise/restriction/RestrictionPolicy;->updateRestrictionCache(Ljava/lang/String;JZI)V
 
-    if-eqz v8, :cond_0
-
-    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
-
-    move-result-wide v10
-
-    :try_start_0
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "com.android.settings"
-
-    const/4 v2, 0x0
-
-    invoke-interface {v0, v1, v2}, Landroid/app/IActivityManager;->forceStopPackage(Ljava/lang/String;I)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    :cond_0
-    :goto_0
-    return v8
-
-    :catch_0
-    move-exception v6
-
-    :try_start_1
-    const-string/jumbo v0, "RestrictionPolicy"
-
-    const-string/jumbo v1, "RestrictionPolicy.allowFastEncryption() exception : "
-
-    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    const/4 v8, 0x0
-
-    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    goto :goto_0
-
-    :catch_1
-    move-exception v7
-
-    :try_start_2
-    const-string/jumbo v0, "RestrictionPolicy"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "Fail getting ActivityManager "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v7}, Landroid/os/RemoteException;->getMessage()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    const/4 v8, 0x0
-
-    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    goto :goto_0
-
-    :catchall_0
-    move-exception v0
-
-    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    throw v0
+    return v6
 .end method
 
 .method public allowFirmwareAutoUpdate(Lcom/samsung/android/knox/ContextInfo;Z)Z

@@ -1129,7 +1129,7 @@
 .end method
 
 .method public getBlobList(Ljava/lang/String;Ljava/lang/String;Landroid/content/ContentValues;)Ljava/util/List;
-    .locals 6
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1142,67 +1142,105 @@
         }
     .end annotation
 
+    const/4 v6, 0x0
+
     const/4 v5, 0x0
 
-    const/4 v4, 0x0
+    new-instance v3, Ljava/util/ArrayList;
 
-    new-instance v2, Ljava/util/ArrayList;
+    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
-    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+    const/4 v4, 0x1
 
-    const/4 v3, 0x1
+    new-array v0, v4, [Ljava/lang/String;
 
-    new-array v0, v3, [Ljava/lang/String;
+    aput-object p2, v0, v5
 
-    aput-object p2, v0, v4
-
-    invoke-virtual {p0, p1, v0, p3, v5}, Lcom/android/server/enterprise/storage/EdmStorageProviderBase;->getCursor(Ljava/lang/String;[Ljava/lang/String;Landroid/content/ContentValues;Ljava/lang/String;)Landroid/database/Cursor;
+    invoke-virtual {p0, p1, v0, p3, v6}, Lcom/android/server/enterprise/storage/EdmStorageProviderBase;->getCursor(Ljava/lang/String;[Ljava/lang/String;Landroid/content/ContentValues;Ljava/lang/String;)Landroid/database/Cursor;
 
     move-result-object v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1
 
     :cond_0
     :goto_0
     :try_start_0
     invoke-interface {v1}, Landroid/database/Cursor;->moveToNext()Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_1
+    if-eqz v4, :cond_2
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    invoke-interface {v1, v3}, Landroid/database/Cursor;->isNull(I)Z
+    invoke-interface {v1, v4}, Landroid/database/Cursor;->isNull(I)Z
 
-    move-result v3
+    move-result v4
 
-    if-nez v3, :cond_0
+    if-nez v4, :cond_0
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    invoke-interface {v1, v3}, Landroid/database/Cursor;->getBlob(I)[B
+    invoke-interface {v1, v4}, Landroid/database/Cursor;->getBlob(I)[B
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v3, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
     :try_end_0
+    .catch Landroid/database/SQLException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     goto :goto_0
 
-    :catchall_0
-    move-exception v3
+    :catch_0
+    move-exception v2
+
+    :try_start_1
+    const-string/jumbo v4, "EdmStorageProvider"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "Exception occurred accessing Enterprise db "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v2}, Landroid/database/SQLException;->getMessage()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     invoke-interface {v1}, Landroid/database/Cursor;->close()V
-
-    throw v3
 
     :cond_1
-    invoke-interface {v1}, Landroid/database/Cursor;->close()V
+    :goto_1
+    return-object v3
 
     :cond_2
-    return-object v2
+    invoke-interface {v1}, Landroid/database/Cursor;->close()V
+
+    goto :goto_1
+
+    :catchall_0
+    move-exception v4
+
+    invoke-interface {v1}, Landroid/database/Cursor;->close()V
+
+    throw v4
 .end method
 
 .method public getBoolean(IILjava/lang/String;Ljava/lang/String;)Z
@@ -1334,7 +1372,7 @@
 .end method
 
 .method public getBooleanList(Ljava/lang/String;Ljava/lang/String;Landroid/content/ContentValues;)Ljava/util/List;
-    .locals 6
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1349,81 +1387,119 @@
         }
     .end annotation
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
-    new-instance v2, Ljava/util/ArrayList;
+    new-instance v3, Ljava/util/ArrayList;
 
-    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
-    new-array v0, v4, [Ljava/lang/String;
+    new-array v0, v5, [Ljava/lang/String;
 
-    aput-object p2, v0, v5
+    aput-object p2, v0, v6
 
-    invoke-virtual {p0, p1, v0, p3, v3}, Lcom/android/server/enterprise/storage/EdmStorageProviderBase;->getCursor(Ljava/lang/String;[Ljava/lang/String;Landroid/content/ContentValues;Ljava/lang/String;)Landroid/database/Cursor;
+    invoke-virtual {p0, p1, v0, p3, v4}, Lcom/android/server/enterprise/storage/EdmStorageProviderBase;->getCursor(Ljava/lang/String;[Ljava/lang/String;Landroid/content/ContentValues;Ljava/lang/String;)Landroid/database/Cursor;
 
     move-result-object v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_1
 
     :cond_0
     :goto_0
     :try_start_0
     invoke-interface {v1}, Landroid/database/Cursor;->moveToNext()Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_2
+    if-eqz v4, :cond_3
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    invoke-interface {v1, v3}, Landroid/database/Cursor;->isNull(I)Z
+    invoke-interface {v1, v4}, Landroid/database/Cursor;->isNull(I)Z
 
-    move-result v3
+    move-result v4
 
-    if-nez v3, :cond_0
+    if-nez v4, :cond_0
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    invoke-interface {v1, v3}, Landroid/database/Cursor;->getInt(I)I
+    invoke-interface {v1, v4}, Landroid/database/Cursor;->getInt(I)I
 
-    move-result v3
+    move-result v4
 
-    if-ne v3, v4, :cond_1
+    if-ne v4, v5, :cond_2
 
-    move v3, v4
+    move v4, v5
 
     :goto_1
-    invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v3, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
     :try_end_0
+    .catch Landroid/database/SQLException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     goto :goto_0
 
-    :catchall_0
-    move-exception v3
+    :catch_0
+    move-exception v2
+
+    :try_start_1
+    const-string/jumbo v4, "EdmStorageProvider"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "Exception occurred accessing Enterprise db "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v2}, Landroid/database/SQLException;->getMessage()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     invoke-interface {v1}, Landroid/database/Cursor;->close()V
 
-    throw v3
-
     :cond_1
-    move v3, v5
+    :goto_2
+    return-object v3
+
+    :cond_2
+    move v4, v6
 
     goto :goto_1
 
-    :cond_2
+    :cond_3
     invoke-interface {v1}, Landroid/database/Cursor;->close()V
 
-    :cond_3
-    return-object v2
+    goto :goto_2
+
+    :catchall_0
+    move-exception v4
+
+    invoke-interface {v1}, Landroid/database/Cursor;->close()V
+
+    throw v4
 .end method
 
 .method public getBooleanListAsUser(ILjava/lang/String;Ljava/lang/String;I)Ljava/util/ArrayList;
@@ -1598,15 +1674,15 @@
 .end method
 
 .method public getCount(Ljava/lang/String;Landroid/content/ContentValues;)I
-    .locals 6
+    .locals 7
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
     const/4 v0, -0x1
 
-    iget-object v3, p0, Lcom/android/server/enterprise/storage/EdmStorageProviderBase;->mEdmDbHelper:Lcom/android/server/enterprise/storage/EdmStorageHelper;
+    iget-object v4, p0, Lcom/android/server/enterprise/storage/EdmStorageProviderBase;->mEdmDbHelper:Lcom/android/server/enterprise/storage/EdmStorageHelper;
 
-    invoke-virtual {v3}, Lcom/android/server/enterprise/storage/EdmStorageHelper;->getWritableDatabase()Landroid/database/sqlite/SQLiteDatabase;
+    invoke-virtual {v4}, Lcom/android/server/enterprise/storage/EdmStorageHelper;->getWritableDatabase()Landroid/database/sqlite/SQLiteDatabase;
 
     move-result-object v2
 
@@ -1614,51 +1690,16 @@
 
     invoke-virtual {p2}, Landroid/content/ContentValues;->size()I
 
-    move-result v3
+    move-result v4
 
-    if-gtz v3, :cond_2
+    if-gtz v4, :cond_2
 
     :cond_0
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "SELECT COUNT(*) from "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3, v5}, Landroid/database/sqlite/SQLiteDatabase;->rawQuery(Ljava/lang/String;[Ljava/lang/String;)Landroid/database/Cursor;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_1
-
-    :try_start_0
-    invoke-interface {v1}, Landroid/database/Cursor;->moveToNext()Z
-
-    const/4 v3, 0x0
-
-    invoke-interface {v1, v3}, Landroid/database/Cursor;->getInt(I)I
-
-    move-result v0
-
-    const-string/jumbo v3, "EdmStorageProvider"
-
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v5, "getCount("
+    const-string/jumbo v5, "SELECT COUNT(*) from "
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1668,22 +1709,58 @@
 
     move-result-object v4
 
-    const-string/jumbo v5, ") - "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v4
 
-    invoke-static {v3, v4}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v2, v4, v6}, Landroid/database/sqlite/SQLiteDatabase;->rawQuery(Ljava/lang/String;[Ljava/lang/String;)Landroid/database/Cursor;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_1
+
+    :try_start_0
+    invoke-interface {v1}, Landroid/database/Cursor;->moveToNext()Z
+
+    const/4 v4, 0x0
+
+    invoke-interface {v1, v4}, Landroid/database/Cursor;->getInt(I)I
+
+    move-result v0
+
+    const-string/jumbo v4, "EdmStorageProvider"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "getCount("
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string/jumbo v6, ") - "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_0
+    .catch Landroid/database/SQLException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     invoke-interface {v1}, Landroid/database/Cursor;->close()V
@@ -1692,19 +1769,55 @@
     :goto_0
     return v0
 
-    :catchall_0
+    :catch_0
     move-exception v3
+
+    :try_start_1
+    const-string/jumbo v4, "EdmStorageProvider"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "Exception occurred accessing Enterprise db "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v3}, Landroid/database/SQLException;->getMessage()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     invoke-interface {v1}, Landroid/database/Cursor;->close()V
 
-    throw v3
+    goto :goto_0
+
+    :catchall_0
+    move-exception v4
+
+    invoke-interface {v1}, Landroid/database/Cursor;->close()V
+
+    throw v4
 
     :cond_2
     invoke-direct {p0, p2}, Lcom/android/server/enterprise/storage/EdmStorageProviderBase;->parseContentValues(Landroid/content/ContentValues;)V
 
-    const-string/jumbo v3, "COUNT(*)"
+    const-string/jumbo v4, "COUNT(*)"
 
-    invoke-virtual {p0, p1, v3, p2}, Lcom/android/server/enterprise/storage/EdmStorageProviderBase;->getInt(Ljava/lang/String;Ljava/lang/String;Landroid/content/ContentValues;)I
+    invoke-virtual {p0, p1, v4, p2}, Lcom/android/server/enterprise/storage/EdmStorageProviderBase;->getInt(Ljava/lang/String;Ljava/lang/String;Landroid/content/ContentValues;)I
 
     move-result v0
 
@@ -2105,7 +2218,7 @@
 .end method
 
 .method public getIntList(Ljava/lang/String;Ljava/lang/String;Landroid/content/ContentValues;)Ljava/util/List;
-    .locals 6
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2120,71 +2233,109 @@
         }
     .end annotation
 
+    const/4 v6, 0x0
+
     const/4 v5, 0x0
 
-    const/4 v4, 0x0
+    new-instance v3, Ljava/util/ArrayList;
 
-    new-instance v2, Ljava/util/ArrayList;
+    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
-    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+    const/4 v4, 0x1
 
-    const/4 v3, 0x1
+    new-array v0, v4, [Ljava/lang/String;
 
-    new-array v0, v3, [Ljava/lang/String;
+    aput-object p2, v0, v5
 
-    aput-object p2, v0, v4
-
-    invoke-virtual {p0, p1, v0, p3, v5}, Lcom/android/server/enterprise/storage/EdmStorageProviderBase;->getCursor(Ljava/lang/String;[Ljava/lang/String;Landroid/content/ContentValues;Ljava/lang/String;)Landroid/database/Cursor;
+    invoke-virtual {p0, p1, v0, p3, v6}, Lcom/android/server/enterprise/storage/EdmStorageProviderBase;->getCursor(Ljava/lang/String;[Ljava/lang/String;Landroid/content/ContentValues;Ljava/lang/String;)Landroid/database/Cursor;
 
     move-result-object v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1
 
     :cond_0
     :goto_0
     :try_start_0
     invoke-interface {v1}, Landroid/database/Cursor;->moveToNext()Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_1
+    if-eqz v4, :cond_2
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    invoke-interface {v1, v3}, Landroid/database/Cursor;->isNull(I)Z
+    invoke-interface {v1, v4}, Landroid/database/Cursor;->isNull(I)Z
 
-    move-result v3
+    move-result v4
 
-    if-nez v3, :cond_0
+    if-nez v4, :cond_0
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    invoke-interface {v1, v3}, Landroid/database/Cursor;->getInt(I)I
+    invoke-interface {v1, v4}, Landroid/database/Cursor;->getInt(I)I
 
-    move-result v3
+    move-result v4
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v3, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
     :try_end_0
+    .catch Landroid/database/SQLException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     goto :goto_0
 
-    :catchall_0
-    move-exception v3
+    :catch_0
+    move-exception v2
+
+    :try_start_1
+    const-string/jumbo v4, "EdmStorageProvider"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "Exception occurred accessing Enterprise db "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v2}, Landroid/database/SQLException;->getMessage()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     invoke-interface {v1}, Landroid/database/Cursor;->close()V
-
-    throw v3
 
     :cond_1
-    invoke-interface {v1}, Landroid/database/Cursor;->close()V
+    :goto_1
+    return-object v3
 
     :cond_2
-    return-object v2
+    invoke-interface {v1}, Landroid/database/Cursor;->close()V
+
+    goto :goto_1
+
+    :catchall_0
+    move-exception v4
+
+    invoke-interface {v1}, Landroid/database/Cursor;->close()V
+
+    throw v4
 .end method
 
 .method public getIntListAsUser(ILjava/lang/String;Ljava/lang/String;I)Ljava/util/ArrayList;
@@ -2257,7 +2408,7 @@
 .end method
 
 .method public getLongList(Ljava/lang/String;Ljava/lang/String;Landroid/content/ContentValues;)Ljava/util/List;
-    .locals 6
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2272,71 +2423,109 @@
         }
     .end annotation
 
+    const/4 v6, 0x0
+
     const/4 v5, 0x0
 
-    const/4 v4, 0x0
+    new-instance v3, Ljava/util/ArrayList;
 
-    new-instance v2, Ljava/util/ArrayList;
+    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
-    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+    const/4 v4, 0x1
 
-    const/4 v3, 0x1
+    new-array v0, v4, [Ljava/lang/String;
 
-    new-array v0, v3, [Ljava/lang/String;
+    aput-object p2, v0, v5
 
-    aput-object p2, v0, v4
-
-    invoke-virtual {p0, p1, v0, p3, v5}, Lcom/android/server/enterprise/storage/EdmStorageProviderBase;->getCursor(Ljava/lang/String;[Ljava/lang/String;Landroid/content/ContentValues;Ljava/lang/String;)Landroid/database/Cursor;
+    invoke-virtual {p0, p1, v0, p3, v6}, Lcom/android/server/enterprise/storage/EdmStorageProviderBase;->getCursor(Ljava/lang/String;[Ljava/lang/String;Landroid/content/ContentValues;Ljava/lang/String;)Landroid/database/Cursor;
 
     move-result-object v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1
 
     :cond_0
     :goto_0
     :try_start_0
     invoke-interface {v1}, Landroid/database/Cursor;->moveToNext()Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_1
+    if-eqz v4, :cond_2
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    invoke-interface {v1, v3}, Landroid/database/Cursor;->isNull(I)Z
+    invoke-interface {v1, v4}, Landroid/database/Cursor;->isNull(I)Z
 
-    move-result v3
+    move-result v4
 
-    if-nez v3, :cond_0
+    if-nez v4, :cond_0
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    invoke-interface {v1, v3}, Landroid/database/Cursor;->getLong(I)J
+    invoke-interface {v1, v4}, Landroid/database/Cursor;->getLong(I)J
 
     move-result-wide v4
 
     invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v3, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
     :try_end_0
+    .catch Landroid/database/SQLException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     goto :goto_0
 
-    :catchall_0
-    move-exception v3
+    :catch_0
+    move-exception v2
+
+    :try_start_1
+    const-string/jumbo v4, "EdmStorageProvider"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "Exception occurred accessing Enterprise db "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v2}, Landroid/database/SQLException;->getMessage()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     invoke-interface {v1}, Landroid/database/Cursor;->close()V
-
-    throw v3
 
     :cond_1
-    invoke-interface {v1}, Landroid/database/Cursor;->close()V
+    :goto_1
+    return-object v3
 
     :cond_2
-    return-object v2
+    invoke-interface {v1}, Landroid/database/Cursor;->close()V
+
+    goto :goto_1
+
+    :catchall_0
+    move-exception v4
+
+    invoke-interface {v1}, Landroid/database/Cursor;->close()V
+
+    throw v4
 .end method
 
 .method public getLongListAsUser(ILjava/lang/String;Ljava/lang/String;I)Ljava/util/ArrayList;
@@ -2596,7 +2785,7 @@
 .end method
 
 .method public getStringList(Ljava/lang/String;Ljava/lang/String;Landroid/content/ContentValues;)Ljava/util/List;
-    .locals 6
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2611,67 +2800,105 @@
         }
     .end annotation
 
+    const/4 v6, 0x0
+
     const/4 v5, 0x0
 
-    const/4 v4, 0x0
+    new-instance v3, Ljava/util/ArrayList;
 
-    new-instance v2, Ljava/util/ArrayList;
+    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
-    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+    const/4 v4, 0x1
 
-    const/4 v3, 0x1
+    new-array v0, v4, [Ljava/lang/String;
 
-    new-array v0, v3, [Ljava/lang/String;
+    aput-object p2, v0, v5
 
-    aput-object p2, v0, v4
-
-    invoke-virtual {p0, p1, v0, p3, v5}, Lcom/android/server/enterprise/storage/EdmStorageProviderBase;->getCursor(Ljava/lang/String;[Ljava/lang/String;Landroid/content/ContentValues;Ljava/lang/String;)Landroid/database/Cursor;
+    invoke-virtual {p0, p1, v0, p3, v6}, Lcom/android/server/enterprise/storage/EdmStorageProviderBase;->getCursor(Ljava/lang/String;[Ljava/lang/String;Landroid/content/ContentValues;Ljava/lang/String;)Landroid/database/Cursor;
 
     move-result-object v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1
 
     :cond_0
     :goto_0
     :try_start_0
     invoke-interface {v1}, Landroid/database/Cursor;->moveToNext()Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_1
+    if-eqz v4, :cond_2
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    invoke-interface {v1, v3}, Landroid/database/Cursor;->isNull(I)Z
+    invoke-interface {v1, v4}, Landroid/database/Cursor;->isNull(I)Z
 
-    move-result v3
+    move-result v4
 
-    if-nez v3, :cond_0
+    if-nez v4, :cond_0
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    invoke-interface {v1, v3}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    invoke-interface {v1, v4}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v3, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
     :try_end_0
+    .catch Landroid/database/SQLException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     goto :goto_0
 
-    :catchall_0
-    move-exception v3
+    :catch_0
+    move-exception v2
+
+    :try_start_1
+    const-string/jumbo v4, "EdmStorageProvider"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "Exception occurred accessing Enterprise db "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v2}, Landroid/database/SQLException;->getMessage()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     invoke-interface {v1}, Landroid/database/Cursor;->close()V
-
-    throw v3
 
     :cond_1
-    invoke-interface {v1}, Landroid/database/Cursor;->close()V
+    :goto_1
+    return-object v3
 
     :cond_2
-    return-object v2
+    invoke-interface {v1}, Landroid/database/Cursor;->close()V
+
+    goto :goto_1
+
+    :catchall_0
+    move-exception v4
+
+    invoke-interface {v1}, Landroid/database/Cursor;->close()V
+
+    throw v4
 .end method
 
 .method public getStringListAsUser(Ljava/lang/String;I[Ljava/lang/String;Ljava/util/HashMap;Ljava/lang/String;I)Landroid/database/Cursor;
@@ -2891,26 +3118,28 @@
         }
     .end annotation
 
-    const/4 v4, 0x0
+    new-instance v4, Ljava/util/ArrayList;
 
-    new-instance v3, Ljava/util/ArrayList;
+    invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
 
-    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
+    const/4 v0, 0x0
 
-    invoke-virtual {p0, p1, p2, p3, v4}, Lcom/android/server/enterprise/storage/EdmStorageProviderBase;->getCursor(Ljava/lang/String;[Ljava/lang/String;Landroid/content/ContentValues;Ljava/lang/String;)Landroid/database/Cursor;
+    const/4 v5, 0x0
+
+    :try_start_0
+    invoke-virtual {p0, p1, p2, p3, v5}, Lcom/android/server/enterprise/storage/EdmStorageProviderBase;->getCursor(Ljava/lang/String;[Ljava/lang/String;Landroid/content/ContentValues;Ljava/lang/String;)Landroid/database/Cursor;
 
     move-result-object v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_9
 
-    :try_start_0
     invoke-interface {v0}, Landroid/database/Cursor;->moveToFirst()Z
 
     invoke-interface {v0}, Landroid/database/Cursor;->getCount()I
 
-    move-result v4
+    move-result v5
 
-    if-lez v4, :cond_7
+    if-lez v5, :cond_9
 
     :cond_0
     new-instance v1, Landroid/content/ContentValues;
@@ -2922,27 +3151,27 @@
     :goto_0
     invoke-interface {v0}, Landroid/database/Cursor;->getColumnCount()I
 
-    move-result v4
+    move-result v5
 
-    if-ge v2, v4, :cond_5
+    if-ge v2, v5, :cond_7
 
     invoke-interface {v0, v2}, Landroid/database/Cursor;->getType(I)I
 
-    move-result v4
+    move-result v5
 
-    const/4 v5, 0x3
+    const/4 v6, 0x3
 
-    if-ne v4, v5, :cond_2
+    if-ne v5, v6, :cond_2
 
     invoke-interface {v0, v2}, Landroid/database/Cursor;->getColumnName(I)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v5
 
     invoke-interface {v0, v2}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-virtual {v1, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v1, v5, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_1
     :goto_1
@@ -2953,15 +3182,15 @@
     :cond_2
     invoke-interface {v0, v2}, Landroid/database/Cursor;->getType(I)I
 
-    move-result v4
+    move-result v5
 
-    const/4 v5, 0x1
+    const/4 v6, 0x1
 
-    if-ne v4, v5, :cond_3
+    if-ne v5, v6, :cond_4
 
     invoke-interface {v0, v2}, Landroid/database/Cursor;->getColumnName(I)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v5
 
     invoke-interface {v0, v2}, Landroid/database/Cursor;->getLong(I)J
 
@@ -2969,91 +3198,141 @@
 
     invoke-static {v6, v7}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-virtual {v1, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
+    invoke-virtual {v1, v5, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
     :try_end_0
+    .catch Landroid/database/SQLException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     goto :goto_1
 
-    :catchall_0
-    move-exception v4
+    :catch_0
+    move-exception v3
 
-    invoke-interface {v0}, Landroid/database/Cursor;->close()V
-
-    throw v4
-
-    :cond_3
     :try_start_1
-    invoke-interface {v0, v2}, Landroid/database/Cursor;->getType(I)I
+    const-string/jumbo v5, "EdmStorageProvider"
 
-    move-result v4
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    const/4 v5, 0x2
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    if-ne v4, v5, :cond_4
+    const-string/jumbo v7, "Exception occurred accessing Enterprise db "
 
-    invoke-interface {v0, v2}, Landroid/database/Cursor;->getColumnName(I)Ljava/lang/String;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v6
 
-    invoke-interface {v0, v2}, Landroid/database/Cursor;->getFloat(I)F
+    invoke-virtual {v3}, Landroid/database/SQLException;->getMessage()Ljava/lang/String;
 
-    move-result v5
+    move-result-object v7
 
-    invoke-static {v5}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-virtual {v1, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Float;)V
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    goto :goto_1
+    move-result-object v6
 
-    :cond_4
-    invoke-interface {v0, v2}, Landroid/database/Cursor;->getType(I)I
-
-    move-result v4
-
-    const/4 v5, 0x4
-
-    if-ne v4, v5, :cond_1
-
-    invoke-interface {v0, v2}, Landroid/database/Cursor;->getColumnName(I)Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-interface {v0, v2}, Landroid/database/Cursor;->getBlob(I)[B
-
-    move-result-object v5
-
-    invoke-virtual {v1, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;[B)V
-
-    goto :goto_1
-
-    :cond_5
-    invoke-virtual {v1}, Landroid/content/ContentValues;->size()I
-
-    move-result v4
-
-    if-lez v4, :cond_6
-
-    invoke-interface {v3, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    :cond_6
-    invoke-interface {v0}, Landroid/database/Cursor;->moveToNext()Z
+    invoke-static {v5, v6}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    move-result v4
+    if-eqz v0, :cond_3
 
-    if-nez v4, :cond_0
-
-    :cond_7
     invoke-interface {v0}, Landroid/database/Cursor;->close()V
 
+    :cond_3
+    :goto_2
+    return-object v4
+
+    :cond_4
+    :try_start_2
+    invoke-interface {v0, v2}, Landroid/database/Cursor;->getType(I)I
+
+    move-result v5
+
+    const/4 v6, 0x2
+
+    if-ne v5, v6, :cond_6
+
+    invoke-interface {v0, v2}, Landroid/database/Cursor;->getColumnName(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-interface {v0, v2}, Landroid/database/Cursor;->getFloat(I)F
+
+    move-result v6
+
+    invoke-static {v6}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v6
+
+    invoke-virtual {v1, v5, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Float;)V
+    :try_end_2
+    .catch Landroid/database/SQLException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    goto :goto_1
+
+    :catchall_0
+    move-exception v5
+
+    if-eqz v0, :cond_5
+
+    invoke-interface {v0}, Landroid/database/Cursor;->close()V
+
+    :cond_5
+    throw v5
+
+    :cond_6
+    :try_start_3
+    invoke-interface {v0, v2}, Landroid/database/Cursor;->getType(I)I
+
+    move-result v5
+
+    const/4 v6, 0x4
+
+    if-ne v5, v6, :cond_1
+
+    invoke-interface {v0, v2}, Landroid/database/Cursor;->getColumnName(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-interface {v0, v2}, Landroid/database/Cursor;->getBlob(I)[B
+
+    move-result-object v6
+
+    invoke-virtual {v1, v5, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;[B)V
+
+    goto :goto_1
+
+    :cond_7
+    invoke-virtual {v1}, Landroid/content/ContentValues;->size()I
+
+    move-result v5
+
+    if-lez v5, :cond_8
+
+    invoke-interface {v4, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
     :cond_8
-    return-object v3
+    invoke-interface {v0}, Landroid/database/Cursor;->moveToNext()Z
+    :try_end_3
+    .catch Landroid/database/SQLException; {:try_start_3 .. :try_end_3} :catch_0
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    move-result v5
+
+    if-nez v5, :cond_0
+
+    :cond_9
+    if-eqz v0, :cond_3
+
+    invoke-interface {v0}, Landroid/database/Cursor;->close()V
+
+    goto :goto_2
 .end method
 
 .method public getValuesList(ILjava/lang/String;[Ljava/lang/String;)Ljava/util/List;

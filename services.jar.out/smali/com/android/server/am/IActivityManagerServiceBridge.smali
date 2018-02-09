@@ -19,6 +19,9 @@
 .method public abstract clearCaller()V
 .end method
 
+.method public abstract clearCustomStartingWindowDataForAllUsers(Ljava/lang/String;)V
+.end method
+
 .method public abstract createBroadcastQueues(I)[Lcom/android/server/am/BroadcastQueue;
 .end method
 

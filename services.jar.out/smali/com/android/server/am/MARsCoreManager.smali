@@ -17,15 +17,17 @@
 # static fields
 .field static final ADJUST_RESTRICTION_TYPE_ALLOW_CHINESE_APP:I = 0x1
 
-.field static final ADJUST_RESTRICTION_TYPE_ALLOW_EDGE_INTENT:I = 0x4
+.field static final ADJUST_RESTRICTION_TYPE_ALLOW_ESSENTIAL_INTENT:I = 0x3
 
-.field static final ADJUST_RESTRICTION_TYPE_ALLOW_GEAR_INTENT:I = 0x3
+.field static final ADJUST_RESTRICTION_TYPE_ALLOW_FOREGROUND_APP:I = 0x7
 
-.field static final ADJUST_RESTRICTION_TYPE_ALLOW_KIES_INTENT:I = 0x5
-
-.field static final ADJUST_RESTRICTION_TYPE_ALLOW_MEDIA_INTENT:I = 0x6
+.field static final ADJUST_RESTRICTION_TYPE_ALLOW_VIDEO_CACHING_APP:I = 0x6
 
 .field static final ADJUST_RESTRICTION_TYPE_BLOCK_CHINESE_APP:I = 0x2
+
+.field static final ADJUST_RESTRICTION_TYPE_BLOCK_ESSENTIAL_INTENT:I = 0x4
+
+.field static final ADJUST_RESTRICTION_TYPE_BLOCK_TOP_ACTIVITY:I = 0x5
 
 .field static final TAG:Ljava/lang/String; = "MARsCoreManager"
 
@@ -122,11 +124,11 @@
 
     const/4 v8, 0x3
 
-    const/4 v7, 0x0
+    const/4 v7, 0x2
 
-    const/4 v6, 0x2
+    const/4 v6, 0x1
 
-    const/4 v5, 0x1
+    const/4 v5, 0x0
 
     const/4 v4, 0x0
 
@@ -138,17 +140,17 @@
 
     const-string/jumbo v2, "1"
 
-    aput-object v2, v1, v4
+    aput-object v2, v1, v5
 
     const-string/jumbo v2, "1"
 
-    aput-object v2, v1, v5
+    aput-object v2, v1, v6
 
     const-string/jumbo v2, "13"
 
-    aput-object v2, v1, v6
+    aput-object v2, v1, v7
 
-    const-string/jumbo v2, "360415504"
+    const-string/jumbo v2, "353730832"
 
     aput-object v2, v1, v8
 
@@ -170,7 +172,7 @@
 
     aput-object v2, v1, v3
 
-    aput-object v1, v0, v4
+    aput-object v1, v0, v5
 
     const/4 v1, 0x7
 
@@ -178,17 +180,17 @@
 
     const-string/jumbo v2, "2"
 
-    aput-object v2, v1, v4
+    aput-object v2, v1, v5
 
     const-string/jumbo v2, "0"
 
-    aput-object v2, v1, v5
+    aput-object v2, v1, v6
 
     const-string/jumbo v2, "21"
 
-    aput-object v2, v1, v6
+    aput-object v2, v1, v7
 
-    const-string/jumbo v2, "16320640"
+    const-string/jumbo v2, "270272640"
 
     aput-object v2, v1, v8
 
@@ -210,7 +212,7 @@
 
     aput-object v2, v1, v3
 
-    aput-object v1, v0, v5
+    aput-object v1, v0, v6
 
     const/4 v1, 0x7
 
@@ -218,17 +220,17 @@
 
     const-string/jumbo v2, "3"
 
-    aput-object v2, v1, v4
+    aput-object v2, v1, v5
 
     const-string/jumbo v2, "0"
 
-    aput-object v2, v1, v5
+    aput-object v2, v1, v6
 
     const-string/jumbo v2, "21"
 
-    aput-object v2, v1, v6
+    aput-object v2, v1, v7
 
-    const-string/jumbo v2, "16320640"
+    const-string/jumbo v2, "270272640"
 
     aput-object v2, v1, v8
 
@@ -250,7 +252,7 @@
 
     aput-object v2, v1, v3
 
-    aput-object v1, v0, v6
+    aput-object v1, v0, v7
 
     sput-object v0, Lcom/android/server/am/MARsCoreManager;->mPolicyInfoDefault:[[Ljava/lang/String;
 
@@ -260,15 +262,15 @@
 
     const-string/jumbo v1, "2"
 
-    aput-object v1, v0, v4
+    aput-object v1, v0, v5
 
     const-string/jumbo v1, "15"
 
-    aput-object v1, v0, v5
+    aput-object v1, v0, v6
 
     const-string/jumbo v1, "300"
 
-    aput-object v1, v0, v6
+    aput-object v1, v0, v7
 
     const-string/jumbo v1, "1"
 
@@ -292,39 +294,17 @@
 
     const-string/jumbo v2, "0"
 
-    aput-object v2, v1, v4
+    aput-object v2, v1, v5
 
     const-string/jumbo v2, "24"
 
-    aput-object v2, v1, v5
+    aput-object v2, v1, v6
 
     const-string/jumbo v2, "contains"
 
-    aput-object v2, v1, v6
+    aput-object v2, v1, v7
 
     const-string/jumbo v2, ".cts."
-
-    aput-object v2, v1, v8
-
-    aput-object v1, v0, v4
-
-    const/4 v1, 0x4
-
-    new-array v1, v1, [Ljava/lang/String;
-
-    const-string/jumbo v2, "0"
-
-    aput-object v2, v1, v4
-
-    const-string/jumbo v2, "24"
-
-    aput-object v2, v1, v5
-
-    const-string/jumbo v2, "endsWith"
-
-    aput-object v2, v1, v6
-
-    const-string/jumbo v2, ".cts"
 
     aput-object v2, v1, v8
 
@@ -336,17 +316,17 @@
 
     const-string/jumbo v2, "0"
 
-    aput-object v2, v1, v4
+    aput-object v2, v1, v5
 
     const-string/jumbo v2, "24"
 
-    aput-object v2, v1, v5
-
-    const-string/jumbo v2, "equals"
-
     aput-object v2, v1, v6
 
-    const-string/jumbo v2, "com.samsung.accessory"
+    const-string/jumbo v2, "endsWith"
+
+    aput-object v2, v1, v7
+
+    const-string/jumbo v2, ".cts"
 
     aput-object v2, v1, v8
 
@@ -356,17 +336,39 @@
 
     new-array v1, v1, [Ljava/lang/String;
 
-    const-string/jumbo v2, "2"
-
-    aput-object v2, v1, v4
-
-    const-string/jumbo v2, "8"
+    const-string/jumbo v2, "0"
 
     aput-object v2, v1, v5
 
-    const-string/jumbo v2, "equals"
+    const-string/jumbo v2, "24"
 
     aput-object v2, v1, v6
+
+    const-string/jumbo v2, "equals"
+
+    aput-object v2, v1, v7
+
+    const-string/jumbo v2, "com.samsung.accessory"
+
+    aput-object v2, v1, v8
+
+    aput-object v1, v0, v7
+
+    const/4 v1, 0x4
+
+    new-array v1, v1, [Ljava/lang/String;
+
+    const-string/jumbo v2, "2"
+
+    aput-object v2, v1, v5
+
+    const-string/jumbo v2, "1"
+
+    aput-object v2, v1, v6
+
+    const-string/jumbo v2, "equals"
+
+    aput-object v2, v1, v7
 
     const-string/jumbo v2, "com.sec.android.app.shealth"
 
@@ -380,15 +382,15 @@
 
     const-string/jumbo v2, "0"
 
-    aput-object v2, v1, v4
+    aput-object v2, v1, v5
 
     const-string/jumbo v2, "10"
 
-    aput-object v2, v1, v5
+    aput-object v2, v1, v6
 
     const-string/jumbo v2, "equals"
 
-    aput-object v2, v1, v6
+    aput-object v2, v1, v7
 
     const-string/jumbo v2, "com.sec.aecmonitor"
 
@@ -404,15 +406,15 @@
 
     const-string/jumbo v2, "0"
 
-    aput-object v2, v1, v4
+    aput-object v2, v1, v5
 
     const-string/jumbo v2, "10"
 
-    aput-object v2, v1, v5
+    aput-object v2, v1, v6
 
     const-string/jumbo v2, "equals"
 
-    aput-object v2, v1, v6
+    aput-object v2, v1, v7
 
     const-string/jumbo v2, "com.salab.act"
 
@@ -428,77 +430,77 @@
 
     new-array v0, v0, [[Ljava/lang/String;
 
-    new-array v1, v6, [Ljava/lang/String;
+    new-array v1, v7, [Ljava/lang/String;
 
     const-string/jumbo v2, "0"
 
-    aput-object v2, v1, v4
+    aput-object v2, v1, v5
 
     const-string/jumbo v2, "8000"
 
-    aput-object v2, v1, v5
-
-    aput-object v1, v0, v4
-
-    new-array v1, v6, [Ljava/lang/String;
-
-    const-string/jumbo v2, "1"
-
-    aput-object v2, v1, v4
-
-    const-string/jumbo v2, "18284"
-
-    aput-object v2, v1, v5
+    aput-object v2, v1, v6
 
     aput-object v1, v0, v5
 
-    new-array v1, v6, [Ljava/lang/String;
+    new-array v1, v7, [Ljava/lang/String;
 
-    const-string/jumbo v2, "2"
-
-    aput-object v2, v1, v4
-
-    const-string/jumbo v2, "65529"
+    const-string/jumbo v2, "1"
 
     aput-object v2, v1, v5
-
-    aput-object v1, v0, v6
-
-    new-array v1, v6, [Ljava/lang/String;
-
-    const-string/jumbo v2, "3"
-
-    aput-object v2, v1, v4
-
-    const-string/jumbo v2, "65527"
-
-    aput-object v2, v1, v5
-
-    aput-object v1, v0, v8
-
-    new-array v1, v6, [Ljava/lang/String;
-
-    const-string/jumbo v2, "4"
-
-    aput-object v2, v1, v4
 
     const-string/jumbo v2, "18284"
 
+    aput-object v2, v1, v6
+
+    aput-object v1, v0, v6
+
+    new-array v1, v7, [Ljava/lang/String;
+
+    const-string/jumbo v2, "2"
+
     aput-object v2, v1, v5
+
+    const-string/jumbo v2, "65529"
+
+    aput-object v2, v1, v6
+
+    aput-object v1, v0, v7
+
+    new-array v1, v7, [Ljava/lang/String;
+
+    const-string/jumbo v2, "3"
+
+    aput-object v2, v1, v5
+
+    const-string/jumbo v2, "65527"
+
+    aput-object v2, v1, v6
+
+    aput-object v1, v0, v8
+
+    new-array v1, v7, [Ljava/lang/String;
+
+    const-string/jumbo v2, "4"
+
+    aput-object v2, v1, v5
+
+    const-string/jumbo v2, "18284"
+
+    aput-object v2, v1, v6
 
     const/4 v2, 0x4
 
     aput-object v1, v0, v2
 
-    new-array v1, v6, [Ljava/lang/String;
+    new-array v1, v7, [Ljava/lang/String;
 
     const-string/jumbo v2, "5"
 
-    aput-object v2, v1, v4
+    aput-object v2, v1, v5
 
     const-string/jumbo v2, "18284"
 
-    aput-object v2, v1, v5
+    aput-object v2, v1, v6
 
     const/4 v2, 0x5
 
@@ -506,7 +508,7 @@
 
     sput-object v0, Lcom/android/server/am/MARsCoreManager;->mCurrentImportantDefault:[[Ljava/lang/String;
 
-    const/16 v0, 0x1d
+    const/16 v0, 0x2a
 
     new-array v0, v0, [[Ljava/lang/String;
 
@@ -516,49 +518,17 @@
 
     const-string/jumbo v2, "1"
 
-    aput-object v2, v1, v4
+    aput-object v2, v1, v5
 
     const-string/jumbo v2, "allow"
 
-    aput-object v2, v1, v5
+    aput-object v2, v1, v6
 
     const-string/jumbo v2, "com.eg.android.AlipayGphone"
 
-    aput-object v2, v1, v6
+    aput-object v2, v1, v7
 
-    aput-object v7, v1, v8
-
-    const-string/jumbo v2, "equals"
-
-    const/4 v3, 0x4
-
-    aput-object v2, v1, v3
-
-    const-string/jumbo v2, "com.eg.android.AlipayGphone.IAlixPay"
-
-    const/4 v3, 0x5
-
-    aput-object v2, v1, v3
-
-    aput-object v1, v0, v4
-
-    const/4 v1, 0x6
-
-    new-array v1, v1, [Ljava/lang/String;
-
-    const-string/jumbo v2, "1"
-
-    aput-object v2, v1, v4
-
-    const-string/jumbo v2, "allow"
-
-    aput-object v2, v1, v5
-
-    const-string/jumbo v2, "com.alipay.android.app"
-
-    aput-object v2, v1, v6
-
-    aput-object v7, v1, v8
+    aput-object v4, v1, v8
 
     const-string/jumbo v2, "equals"
 
@@ -580,25 +550,29 @@
 
     const-string/jumbo v2, "1"
 
-    aput-object v2, v1, v4
+    aput-object v2, v1, v5
 
     const-string/jumbo v2, "allow"
 
-    aput-object v2, v1, v5
-
-    const-string/jumbo v2, "com.tencent.mobileqq"
-
     aput-object v2, v1, v6
 
-    aput-object v7, v1, v8
+    const-string/jumbo v2, "com.alipay.android.app"
 
-    const/4 v2, 0x4
+    aput-object v2, v1, v7
 
-    aput-object v7, v1, v2
+    aput-object v4, v1, v8
 
-    const/4 v2, 0x5
+    const-string/jumbo v2, "equals"
 
-    aput-object v7, v1, v2
+    const/4 v3, 0x4
+
+    aput-object v2, v1, v3
+
+    const-string/jumbo v2, "com.eg.android.AlipayGphone.IAlixPay"
+
+    const/4 v3, 0x5
+
+    aput-object v2, v1, v3
 
     aput-object v1, v0, v6
 
@@ -608,25 +582,53 @@
 
     const-string/jumbo v2, "1"
 
-    aput-object v2, v1, v4
+    aput-object v2, v1, v5
 
     const-string/jumbo v2, "allow"
 
-    aput-object v2, v1, v5
-
-    const-string/jumbo v2, "com.tencent.mm"
-
     aput-object v2, v1, v6
 
-    aput-object v7, v1, v8
+    const-string/jumbo v2, "com.tencent.mobileqq"
+
+    aput-object v2, v1, v7
+
+    aput-object v4, v1, v8
 
     const/4 v2, 0x4
 
-    aput-object v7, v1, v2
+    aput-object v4, v1, v2
 
     const/4 v2, 0x5
 
-    aput-object v7, v1, v2
+    aput-object v4, v1, v2
+
+    aput-object v1, v0, v7
+
+    const/4 v1, 0x6
+
+    new-array v1, v1, [Ljava/lang/String;
+
+    const-string/jumbo v2, "1"
+
+    aput-object v2, v1, v5
+
+    const-string/jumbo v2, "allow"
+
+    aput-object v2, v1, v6
+
+    const-string/jumbo v2, "com.tencent.mm"
+
+    aput-object v2, v1, v7
+
+    aput-object v4, v1, v8
+
+    const/4 v2, 0x4
+
+    aput-object v4, v1, v2
+
+    const/4 v2, 0x5
+
+    aput-object v4, v1, v2
 
     aput-object v1, v0, v8
 
@@ -636,25 +638,25 @@
 
     const-string/jumbo v2, "1"
 
-    aput-object v2, v1, v4
+    aput-object v2, v1, v5
 
     const-string/jumbo v2, "allow"
 
-    aput-object v2, v1, v5
+    aput-object v2, v1, v6
 
     const-string/jumbo v2, "com.cmcc.sso"
 
-    aput-object v2, v1, v6
+    aput-object v2, v1, v7
 
-    aput-object v7, v1, v8
+    aput-object v4, v1, v8
 
     const/4 v2, 0x4
 
-    aput-object v7, v1, v2
+    aput-object v4, v1, v2
 
     const/4 v2, 0x5
 
-    aput-object v7, v1, v2
+    aput-object v4, v1, v2
 
     const/4 v2, 0x4
 
@@ -666,25 +668,25 @@
 
     const-string/jumbo v2, "1"
 
-    aput-object v2, v1, v4
+    aput-object v2, v1, v5
 
     const-string/jumbo v2, "allow"
 
-    aput-object v2, v1, v5
+    aput-object v2, v1, v6
 
     const-string/jumbo v2, "com.cmdm.rcs"
 
-    aput-object v2, v1, v6
+    aput-object v2, v1, v7
 
-    aput-object v7, v1, v8
+    aput-object v4, v1, v8
 
     const/4 v2, 0x4
 
-    aput-object v7, v1, v2
+    aput-object v4, v1, v2
 
     const/4 v2, 0x5
 
-    aput-object v7, v1, v2
+    aput-object v4, v1, v2
 
     const/4 v2, 0x5
 
@@ -696,15 +698,15 @@
 
     const-string/jumbo v2, "2"
 
-    aput-object v2, v1, v4
+    aput-object v2, v1, v5
 
     const-string/jumbo v2, "block"
 
-    aput-object v2, v1, v5
+    aput-object v2, v1, v6
 
     const-string/jumbo v2, "com.baidu.netdisk_ss"
 
-    aput-object v2, v1, v6
+    aput-object v2, v1, v7
 
     const-string/jumbo v2, "com.sec.android.cloudagent"
 
@@ -712,11 +714,11 @@
 
     const/4 v2, 0x4
 
-    aput-object v7, v1, v2
+    aput-object v4, v1, v2
 
     const/4 v2, 0x5
 
-    aput-object v7, v1, v2
+    aput-object v4, v1, v2
 
     const/4 v2, 0x6
 
@@ -728,13 +730,13 @@
 
     const-string/jumbo v2, "2"
 
-    aput-object v2, v1, v4
+    aput-object v2, v1, v5
 
     const-string/jumbo v2, "block"
 
-    aput-object v2, v1, v5
+    aput-object v2, v1, v6
 
-    aput-object v7, v1, v6
+    aput-object v4, v1, v7
 
     const-string/jumbo v2, "com.samsung.android.opencalendar"
 
@@ -742,11 +744,11 @@
 
     const/4 v2, 0x4
 
-    aput-object v7, v1, v2
+    aput-object v4, v1, v2
 
     const/4 v2, 0x5
 
-    aput-object v7, v1, v2
+    aput-object v4, v1, v2
 
     const/4 v2, 0x7
 
@@ -758,13 +760,13 @@
 
     const-string/jumbo v2, "3"
 
-    aput-object v2, v1, v4
+    aput-object v2, v1, v5
 
     const-string/jumbo v2, "allow"
 
-    aput-object v2, v1, v5
+    aput-object v2, v1, v6
 
-    aput-object v7, v1, v6
+    aput-object v4, v1, v7
 
     const-string/jumbo v2, "com.samsung.accessory"
 
@@ -792,13 +794,13 @@
 
     const-string/jumbo v2, "3"
 
-    aput-object v2, v1, v4
+    aput-object v2, v1, v5
 
     const-string/jumbo v2, "allow"
 
-    aput-object v2, v1, v5
+    aput-object v2, v1, v6
 
-    aput-object v7, v1, v6
+    aput-object v4, v1, v7
 
     const-string/jumbo v2, "com.samsung.accessory"
 
@@ -826,13 +828,13 @@
 
     const-string/jumbo v2, "3"
 
-    aput-object v2, v1, v4
+    aput-object v2, v1, v5
 
     const-string/jumbo v2, "allow"
 
-    aput-object v2, v1, v5
+    aput-object v2, v1, v6
 
-    aput-object v7, v1, v6
+    aput-object v4, v1, v7
 
     const-string/jumbo v2, "com.samsung.accessory"
 
@@ -860,13 +862,13 @@
 
     const-string/jumbo v2, "3"
 
-    aput-object v2, v1, v4
+    aput-object v2, v1, v5
 
     const-string/jumbo v2, "allow"
 
-    aput-object v2, v1, v5
+    aput-object v2, v1, v6
 
-    aput-object v7, v1, v6
+    aput-object v4, v1, v7
 
     const-string/jumbo v2, "com.samsung.accessory"
 
@@ -892,17 +894,17 @@
 
     new-array v1, v1, [Ljava/lang/String;
 
-    const-string/jumbo v2, "4"
-
-    aput-object v2, v1, v4
-
-    const-string/jumbo v2, "allow"
+    const-string/jumbo v2, "3"
 
     aput-object v2, v1, v5
 
-    aput-object v7, v1, v6
+    const-string/jumbo v2, "allow"
 
-    aput-object v7, v1, v8
+    aput-object v2, v1, v6
+
+    aput-object v4, v1, v7
+
+    aput-object v4, v1, v8
 
     const-string/jumbo v2, "startsWith"
 
@@ -924,17 +926,17 @@
 
     new-array v1, v1, [Ljava/lang/String;
 
-    const-string/jumbo v2, "4"
-
-    aput-object v2, v1, v4
-
-    const-string/jumbo v2, "allow"
+    const-string/jumbo v2, "3"
 
     aput-object v2, v1, v5
 
-    aput-object v7, v1, v6
+    const-string/jumbo v2, "allow"
 
-    aput-object v7, v1, v8
+    aput-object v2, v1, v6
+
+    aput-object v4, v1, v7
+
+    aput-object v4, v1, v8
 
     const-string/jumbo v2, "startsWith"
 
@@ -956,17 +958,17 @@
 
     new-array v1, v1, [Ljava/lang/String;
 
-    const-string/jumbo v2, "4"
-
-    aput-object v2, v1, v4
-
-    const-string/jumbo v2, "allow"
+    const-string/jumbo v2, "3"
 
     aput-object v2, v1, v5
 
-    aput-object v7, v1, v6
+    const-string/jumbo v2, "allow"
 
-    aput-object v7, v1, v8
+    aput-object v2, v1, v6
+
+    aput-object v4, v1, v7
+
+    aput-object v4, v1, v8
 
     const-string/jumbo v2, "startsWith"
 
@@ -988,15 +990,15 @@
 
     new-array v1, v1, [Ljava/lang/String;
 
-    const-string/jumbo v2, "5"
-
-    aput-object v2, v1, v4
-
-    const-string/jumbo v2, "allow"
+    const-string/jumbo v2, "3"
 
     aput-object v2, v1, v5
 
-    aput-object v7, v1, v6
+    const-string/jumbo v2, "allow"
+
+    aput-object v2, v1, v6
+
+    aput-object v4, v1, v7
 
     const-string/jumbo v2, "com.wssnps"
 
@@ -1022,15 +1024,15 @@
 
     new-array v1, v1, [Ljava/lang/String;
 
-    const-string/jumbo v2, "5"
-
-    aput-object v2, v1, v4
-
-    const-string/jumbo v2, "allow"
+    const-string/jumbo v2, "3"
 
     aput-object v2, v1, v5
 
-    aput-object v7, v1, v6
+    const-string/jumbo v2, "allow"
+
+    aput-object v2, v1, v6
+
+    aput-object v4, v1, v7
 
     const-string/jumbo v2, "com.wssnps"
 
@@ -1056,15 +1058,15 @@
 
     new-array v1, v1, [Ljava/lang/String;
 
-    const-string/jumbo v2, "5"
-
-    aput-object v2, v1, v4
-
-    const-string/jumbo v2, "allow"
+    const-string/jumbo v2, "3"
 
     aput-object v2, v1, v5
 
-    aput-object v7, v1, v6
+    const-string/jumbo v2, "allow"
+
+    aput-object v2, v1, v6
+
+    aput-object v4, v1, v7
 
     const-string/jumbo v2, "com.wssnps"
 
@@ -1090,15 +1092,15 @@
 
     new-array v1, v1, [Ljava/lang/String;
 
-    const-string/jumbo v2, "5"
-
-    aput-object v2, v1, v4
-
-    const-string/jumbo v2, "allow"
+    const-string/jumbo v2, "3"
 
     aput-object v2, v1, v5
 
-    aput-object v7, v1, v6
+    const-string/jumbo v2, "allow"
+
+    aput-object v2, v1, v6
+
+    aput-object v4, v1, v7
 
     const-string/jumbo v2, "com.wssnps"
 
@@ -1124,15 +1126,15 @@
 
     new-array v1, v1, [Ljava/lang/String;
 
-    const-string/jumbo v2, "5"
-
-    aput-object v2, v1, v4
-
-    const-string/jumbo v2, "allow"
+    const-string/jumbo v2, "3"
 
     aput-object v2, v1, v5
 
-    aput-object v7, v1, v6
+    const-string/jumbo v2, "allow"
+
+    aput-object v2, v1, v6
+
+    aput-object v4, v1, v7
 
     const-string/jumbo v2, "com.wssnps"
 
@@ -1158,15 +1160,15 @@
 
     new-array v1, v1, [Ljava/lang/String;
 
-    const-string/jumbo v2, "5"
-
-    aput-object v2, v1, v4
-
-    const-string/jumbo v2, "allow"
+    const-string/jumbo v2, "3"
 
     aput-object v2, v1, v5
 
-    aput-object v7, v1, v6
+    const-string/jumbo v2, "allow"
+
+    aput-object v2, v1, v6
+
+    aput-object v4, v1, v7
 
     const-string/jumbo v2, "com.wssnps"
 
@@ -1192,15 +1194,15 @@
 
     new-array v1, v1, [Ljava/lang/String;
 
-    const-string/jumbo v2, "5"
-
-    aput-object v2, v1, v4
-
-    const-string/jumbo v2, "allow"
+    const-string/jumbo v2, "3"
 
     aput-object v2, v1, v5
 
-    aput-object v7, v1, v6
+    const-string/jumbo v2, "allow"
+
+    aput-object v2, v1, v6
+
+    aput-object v4, v1, v7
 
     const-string/jumbo v2, "com.sec.android.easyMover"
 
@@ -1226,15 +1228,15 @@
 
     new-array v1, v1, [Ljava/lang/String;
 
-    const-string/jumbo v2, "5"
-
-    aput-object v2, v1, v4
-
-    const-string/jumbo v2, "allow"
+    const-string/jumbo v2, "3"
 
     aput-object v2, v1, v5
 
-    aput-object v7, v1, v6
+    const-string/jumbo v2, "allow"
+
+    aput-object v2, v1, v6
+
+    aput-object v4, v1, v7
 
     const-string/jumbo v2, "com.sec.android.easyMover"
 
@@ -1260,15 +1262,15 @@
 
     new-array v1, v1, [Ljava/lang/String;
 
-    const-string/jumbo v2, "5"
-
-    aput-object v2, v1, v4
-
-    const-string/jumbo v2, "allow"
+    const-string/jumbo v2, "3"
 
     aput-object v2, v1, v5
 
-    aput-object v7, v1, v6
+    const-string/jumbo v2, "allow"
+
+    aput-object v2, v1, v6
+
+    aput-object v4, v1, v7
 
     const-string/jumbo v2, "com.sec.android.easyMover"
 
@@ -1294,15 +1296,15 @@
 
     new-array v1, v1, [Ljava/lang/String;
 
-    const-string/jumbo v2, "5"
-
-    aput-object v2, v1, v4
-
-    const-string/jumbo v2, "allow"
+    const-string/jumbo v2, "3"
 
     aput-object v2, v1, v5
 
-    aput-object v7, v1, v6
+    const-string/jumbo v2, "allow"
+
+    aput-object v2, v1, v6
+
+    aput-object v4, v1, v7
 
     const-string/jumbo v2, "com.sec.android.easyMover"
 
@@ -1328,15 +1330,15 @@
 
     new-array v1, v1, [Ljava/lang/String;
 
-    const-string/jumbo v2, "5"
-
-    aput-object v2, v1, v4
-
-    const-string/jumbo v2, "allow"
+    const-string/jumbo v2, "3"
 
     aput-object v2, v1, v5
 
-    aput-object v7, v1, v6
+    const-string/jumbo v2, "allow"
+
+    aput-object v2, v1, v6
+
+    aput-object v4, v1, v7
 
     const-string/jumbo v2, "com.sec.android.easyMover"
 
@@ -1362,15 +1364,15 @@
 
     new-array v1, v1, [Ljava/lang/String;
 
-    const-string/jumbo v2, "5"
-
-    aput-object v2, v1, v4
-
-    const-string/jumbo v2, "allow"
+    const-string/jumbo v2, "3"
 
     aput-object v2, v1, v5
 
-    aput-object v7, v1, v6
+    const-string/jumbo v2, "allow"
+
+    aput-object v2, v1, v6
+
+    aput-object v4, v1, v7
 
     const-string/jumbo v2, "com.sec.android.easyMover"
 
@@ -1396,17 +1398,17 @@
 
     new-array v1, v1, [Ljava/lang/String;
 
-    const-string/jumbo v2, "6"
-
-    aput-object v2, v1, v4
-
-    const-string/jumbo v2, "allow"
+    const-string/jumbo v2, "3"
 
     aput-object v2, v1, v5
 
-    aput-object v7, v1, v6
+    const-string/jumbo v2, "allow"
 
-    aput-object v7, v1, v8
+    aput-object v2, v1, v6
+
+    aput-object v4, v1, v7
+
+    aput-object v4, v1, v8
 
     const-string/jumbo v2, "equals"
 
@@ -1428,17 +1430,17 @@
 
     new-array v1, v1, [Ljava/lang/String;
 
-    const-string/jumbo v2, "6"
-
-    aput-object v2, v1, v4
-
-    const-string/jumbo v2, "allow"
+    const-string/jumbo v2, "3"
 
     aput-object v2, v1, v5
 
-    aput-object v7, v1, v6
+    const-string/jumbo v2, "allow"
 
-    aput-object v7, v1, v8
+    aput-object v2, v1, v6
+
+    aput-object v4, v1, v7
+
+    aput-object v4, v1, v8
 
     const-string/jumbo v2, "equals"
 
@@ -1453,6 +1455,410 @@
     aput-object v2, v1, v3
 
     const/16 v2, 0x1c
+
+    aput-object v1, v0, v2
+
+    const/4 v1, 0x6
+
+    new-array v1, v1, [Ljava/lang/String;
+
+    const-string/jumbo v2, "3"
+
+    aput-object v2, v1, v5
+
+    const-string/jumbo v2, "allow"
+
+    aput-object v2, v1, v6
+
+    aput-object v4, v1, v7
+
+    aput-object v4, v1, v8
+
+    const-string/jumbo v2, "equals"
+
+    const/4 v3, 0x4
+
+    aput-object v2, v1, v3
+
+    const-string/jumbo v2, "com.sec.android.app.dictionary.SEARCH"
+
+    const/4 v3, 0x5
+
+    aput-object v2, v1, v3
+
+    const/16 v2, 0x1d
+
+    aput-object v1, v0, v2
+
+    const/4 v1, 0x6
+
+    new-array v1, v1, [Ljava/lang/String;
+
+    const-string/jumbo v2, "3"
+
+    aput-object v2, v1, v5
+
+    const-string/jumbo v2, "allow"
+
+    aput-object v2, v1, v6
+
+    aput-object v4, v1, v7
+
+    aput-object v4, v1, v8
+
+    const-string/jumbo v2, "equals"
+
+    const/4 v3, 0x4
+
+    aput-object v2, v1, v3
+
+    const-string/jumbo v2, "com.sec.android.app.dictionary.SEARCH_WORD"
+
+    const/4 v3, 0x5
+
+    aput-object v2, v1, v3
+
+    const/16 v2, 0x1e
+
+    aput-object v1, v0, v2
+
+    const/4 v1, 0x6
+
+    new-array v1, v1, [Ljava/lang/String;
+
+    const-string/jumbo v2, "3"
+
+    aput-object v2, v1, v5
+
+    const-string/jumbo v2, "allow"
+
+    aput-object v2, v1, v6
+
+    aput-object v4, v1, v7
+
+    aput-object v4, v1, v8
+
+    const-string/jumbo v2, "equals"
+
+    const/4 v3, 0x4
+
+    aput-object v2, v1, v3
+
+    const-string/jumbo v2, "com.sec.android.app.dictionary.CLOSE"
+
+    const/4 v3, 0x5
+
+    aput-object v2, v1, v3
+
+    const/16 v2, 0x1f
+
+    aput-object v1, v0, v2
+
+    const/4 v1, 0x6
+
+    new-array v1, v1, [Ljava/lang/String;
+
+    const-string/jumbo v2, "3"
+
+    aput-object v2, v1, v5
+
+    const-string/jumbo v2, "allow"
+
+    aput-object v2, v1, v6
+
+    const-string/jumbo v2, "com.samsung.android.app.music.chn"
+
+    aput-object v2, v1, v7
+
+    const-string/jumbo v2, "com.samsung.android.app.sreminder"
+
+    aput-object v2, v1, v8
+
+    const-string/jumbo v2, "startsWith"
+
+    const/4 v3, 0x4
+
+    aput-object v2, v1, v3
+
+    const-string/jumbo v2, "com.sec.android.app.music"
+
+    const/4 v3, 0x5
+
+    aput-object v2, v1, v3
+
+    const/16 v2, 0x20
+
+    aput-object v1, v0, v2
+
+    const/4 v1, 0x6
+
+    new-array v1, v1, [Ljava/lang/String;
+
+    const-string/jumbo v2, "5"
+
+    aput-object v2, v1, v5
+
+    const-string/jumbo v2, "block"
+
+    aput-object v2, v1, v6
+
+    aput-object v4, v1, v7
+
+    aput-object v4, v1, v8
+
+    const-string/jumbo v2, "startsWith"
+
+    const/4 v3, 0x4
+
+    aput-object v2, v1, v3
+
+    const-string/jumbo v2, "com.and.games505.Terraria"
+
+    const/4 v3, 0x5
+
+    aput-object v2, v1, v3
+
+    const/16 v2, 0x21
+
+    aput-object v1, v0, v2
+
+    const/4 v1, 0x6
+
+    new-array v1, v1, [Ljava/lang/String;
+
+    const-string/jumbo v2, "6"
+
+    aput-object v2, v1, v5
+
+    const-string/jumbo v2, "allow"
+
+    aput-object v2, v1, v6
+
+    const-string/jumbo v2, "com.youku.phone"
+
+    aput-object v2, v1, v7
+
+    aput-object v4, v1, v8
+
+    const/4 v2, 0x4
+
+    aput-object v4, v1, v2
+
+    const/4 v2, 0x5
+
+    aput-object v4, v1, v2
+
+    const/16 v2, 0x22
+
+    aput-object v1, v0, v2
+
+    const/4 v1, 0x6
+
+    new-array v1, v1, [Ljava/lang/String;
+
+    const-string/jumbo v2, "6"
+
+    aput-object v2, v1, v5
+
+    const-string/jumbo v2, "allow"
+
+    aput-object v2, v1, v6
+
+    const-string/jumbo v2, "com.sohu.sohuvideo"
+
+    aput-object v2, v1, v7
+
+    aput-object v4, v1, v8
+
+    const/4 v2, 0x4
+
+    aput-object v4, v1, v2
+
+    const/4 v2, 0x5
+
+    aput-object v4, v1, v2
+
+    const/16 v2, 0x23
+
+    aput-object v1, v0, v2
+
+    const/4 v1, 0x6
+
+    new-array v1, v1, [Ljava/lang/String;
+
+    const-string/jumbo v2, "6"
+
+    aput-object v2, v1, v5
+
+    const-string/jumbo v2, "allow"
+
+    aput-object v2, v1, v6
+
+    const-string/jumbo v2, "com.letv.android.client"
+
+    aput-object v2, v1, v7
+
+    aput-object v4, v1, v8
+
+    const/4 v2, 0x4
+
+    aput-object v4, v1, v2
+
+    const/4 v2, 0x5
+
+    aput-object v4, v1, v2
+
+    const/16 v2, 0x24
+
+    aput-object v1, v0, v2
+
+    const/4 v1, 0x6
+
+    new-array v1, v1, [Ljava/lang/String;
+
+    const-string/jumbo v2, "6"
+
+    aput-object v2, v1, v5
+
+    const-string/jumbo v2, "allow"
+
+    aput-object v2, v1, v6
+
+    const-string/jumbo v2, "com.qiyi.video"
+
+    aput-object v2, v1, v7
+
+    aput-object v4, v1, v8
+
+    const/4 v2, 0x4
+
+    aput-object v4, v1, v2
+
+    const/4 v2, 0x5
+
+    aput-object v4, v1, v2
+
+    const/16 v2, 0x25
+
+    aput-object v1, v0, v2
+
+    const/4 v1, 0x6
+
+    new-array v1, v1, [Ljava/lang/String;
+
+    const-string/jumbo v2, "6"
+
+    aput-object v2, v1, v5
+
+    const-string/jumbo v2, "allow"
+
+    aput-object v2, v1, v6
+
+    const-string/jumbo v2, "com.tencent.qqlive"
+
+    aput-object v2, v1, v7
+
+    aput-object v4, v1, v8
+
+    const/4 v2, 0x4
+
+    aput-object v4, v1, v2
+
+    const/4 v2, 0x5
+
+    aput-object v4, v1, v2
+
+    const/16 v2, 0x26
+
+    aput-object v1, v0, v2
+
+    const/4 v1, 0x6
+
+    new-array v1, v1, [Ljava/lang/String;
+
+    const-string/jumbo v2, "7"
+
+    aput-object v2, v1, v5
+
+    const-string/jumbo v2, "allow"
+
+    aput-object v2, v1, v6
+
+    const-string/jumbo v2, "com.sina.weibo"
+
+    aput-object v2, v1, v7
+
+    aput-object v4, v1, v8
+
+    const/4 v2, 0x4
+
+    aput-object v4, v1, v2
+
+    const/4 v2, 0x5
+
+    aput-object v4, v1, v2
+
+    const/16 v2, 0x27
+
+    aput-object v1, v0, v2
+
+    const/4 v1, 0x6
+
+    new-array v1, v1, [Ljava/lang/String;
+
+    const-string/jumbo v2, "7"
+
+    aput-object v2, v1, v5
+
+    const-string/jumbo v2, "allow"
+
+    aput-object v2, v1, v6
+
+    const-string/jumbo v2, "com.tencent.mm"
+
+    aput-object v2, v1, v7
+
+    aput-object v4, v1, v8
+
+    const/4 v2, 0x4
+
+    aput-object v4, v1, v2
+
+    const/4 v2, 0x5
+
+    aput-object v4, v1, v2
+
+    const/16 v2, 0x28
+
+    aput-object v1, v0, v2
+
+    const/4 v1, 0x6
+
+    new-array v1, v1, [Ljava/lang/String;
+
+    const-string/jumbo v2, "7"
+
+    aput-object v2, v1, v5
+
+    const-string/jumbo v2, "allow"
+
+    aput-object v2, v1, v6
+
+    const-string/jumbo v2, "com.tencent.mobileqq"
+
+    aput-object v2, v1, v7
+
+    aput-object v4, v1, v8
+
+    const/4 v2, 0x4
+
+    aput-object v4, v1, v2
+
+    const/4 v2, 0x5
+
+    aput-object v4, v1, v2
+
+    const/16 v2, 0x29
 
     aput-object v1, v0, v2
 
@@ -1593,6 +1999,46 @@
 
     :cond_1
     return-void
+.end method
+
+.method private convertRestrictionTypeToName(I)Ljava/lang/String;
+    .locals 1
+
+    const/4 v0, 0x1
+
+    if-eq p1, v0, :cond_0
+
+    const/4 v0, 0x2
+
+    if-ne p1, v0, :cond_1
+
+    :cond_0
+    const-string/jumbo v0, "CHN app"
+
+    return-object v0
+
+    :cond_1
+    const/4 v0, 0x7
+
+    if-eq p1, v0, :cond_0
+
+    const/4 v0, 0x3
+
+    if-eq p1, v0, :cond_2
+
+    const/4 v0, 0x4
+
+    if-ne p1, v0, :cond_3
+
+    :cond_2
+    const-string/jumbo v0, "Essential intent"
+
+    return-object v0
+
+    :cond_3
+    const/4 v0, 0x0
+
+    return-object v0
 .end method
 
 .method private isActionMatch(Lcom/android/server/am/MARsCoreManager$AdjustRestriction;Ljava/lang/String;)Z
@@ -1766,6 +2212,36 @@
     const/4 v0, 0x0
 
     return v0
+.end method
+
+.method private isRestrictionTypeAllowed(I)Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    packed-switch p1, :pswitch_data_0
+
+    :pswitch_0
+    return v0
+
+    :pswitch_1
+    const/4 v0, 0x1
+
+    return v0
+
+    :pswitch_2
+    return v0
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_1
+        :pswitch_2
+        :pswitch_1
+        :pswitch_2
+        :pswitch_0
+        :pswitch_0
+        :pswitch_1
+    .end packed-switch
 .end method
 
 
@@ -2504,7 +2980,25 @@
 
     move-result-object v3
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-direct {p0, p1}, Lcom/android/server/am/MARsCoreManager;->convertRestrictionTypeToName(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, " isAllowed = "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-direct {p0, p1}, Lcom/android/server/am/MARsCoreManager;->isRestrictionTypeAllowed(I)Z
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     move-result-object v3
 

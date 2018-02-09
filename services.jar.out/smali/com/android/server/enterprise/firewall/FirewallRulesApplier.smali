@@ -139,8 +139,8 @@
     return-void
 .end method
 
-.method static createIptablesChains()V
-    .locals 5
+.method static createIptablesChains()Z
+    .locals 11
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/SecurityException;,
@@ -150,31 +150,67 @@
         }
     .end annotation
 
+    const/4 v7, 0x0
+
     invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
 
-    move-result-object v0
+    move-result-object v2
 
     invoke-static {}, Lcom/android/server/enterprise/firewall/IptablesCommandBuilder;->getCreateChainsCommands()[Ljava/lang/String;
 
     move-result-object v3
 
-    const/4 v2, 0x0
+    array-length v8, v3
 
-    array-length v4, v3
+    move v6, v7
 
     :goto_0
-    if-ge v2, v4, :cond_0
+    if-ge v6, v8, :cond_2
 
-    aget-object v1, v3, v2
+    aget-object v5, v3, v6
 
-    invoke-virtual {v0, v1}, Ljava/lang/Runtime;->exec(Ljava/lang/String;)Ljava/lang/Process;
+    invoke-virtual {v2, v5}, Ljava/lang/Runtime;->exec(Ljava/lang/String;)Ljava/lang/Process;
 
-    add-int/lit8 v2, v2, 0x1
+    move-result-object v4
+
+    new-instance v1, Ljava/io/BufferedReader;
+
+    new-instance v9, Ljava/io/InputStreamReader;
+
+    invoke-virtual {v4}, Ljava/lang/Process;->getErrorStream()Ljava/io/InputStream;
+
+    move-result-object v10
+
+    invoke-direct {v9, v10}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;)V
+
+    invoke-direct {v1, v9}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
+
+    :cond_0
+    invoke-virtual {v1}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    const-string/jumbo v9, "Chain already exists"
+
+    invoke-virtual {v0, v9}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v9
+
+    if-nez v9, :cond_0
+
+    return v7
+
+    :cond_1
+    add-int/lit8 v6, v6, 0x1
 
     goto :goto_0
 
-    :cond_0
-    return-void
+    :cond_2
+    const/4 v6, 0x1
+
+    return v6
 .end method
 
 .method private disableIpTablesRule(Lcom/samsung/android/knox/net/firewall/FirewallRule;Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/net/firewall/FirewallResponse;

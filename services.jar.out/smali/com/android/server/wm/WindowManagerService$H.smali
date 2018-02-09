@@ -688,9 +688,15 @@
 
     iget-object v3, v0, Lcom/android/server/wm/AppWindowToken;->customStartingWindowKey:Ljava/lang/String;
 
+    move-object/from16 v0, v54
+
+    iget-object v4, v0, Lcom/android/server/wm/AppWindowToken;->mTask:Lcom/android/server/wm/Task;
+
+    iget v4, v4, Lcom/android/server/wm/Task;->mUserId:I
+
     move/from16 v0, v35
 
-    invoke-interface {v2, v3, v0}, Lcom/android/server/wm/IStartingWindowManagerBridge;->getCustomStartingBitmap(Ljava/lang/String;I)Landroid/graphics/Bitmap;
+    invoke-interface {v2, v3, v0, v4}, Lcom/android/server/wm/IStartingWindowManagerBridge;->getCustomStartingBitmap(Ljava/lang/String;II)Landroid/graphics/Bitmap;
 
     move-result-object v13
 
@@ -714,9 +720,15 @@
 
     iget-object v3, v0, Lcom/android/server/wm/AppWindowToken;->customStartingWindowKey:Ljava/lang/String;
 
+    move-object/from16 v0, v54
+
+    iget-object v4, v0, Lcom/android/server/wm/AppWindowToken;->mTask:Lcom/android/server/wm/Task;
+
+    iget v4, v4, Lcom/android/server/wm/Task;->mUserId:I
+
     move/from16 v0, v35
 
-    invoke-interface {v2, v3, v0}, Lcom/android/server/wm/IStartingWindowManagerBridge;->getStartingWindowLayoutResId(Ljava/lang/String;I)I
+    invoke-interface {v2, v3, v0, v4}, Lcom/android/server/wm/IStartingWindowManagerBridge;->getStartingWindowLayoutResId(Ljava/lang/String;II)I
 
     move-result v14
 
@@ -951,7 +963,13 @@
 
     iget-object v3, v0, Lcom/android/server/wm/AppWindowToken;->customStartingWindowKey:Ljava/lang/String;
 
-    invoke-interface {v2, v3}, Lcom/android/server/wm/IStartingWindowManagerBridge;->isCustomBitmapLoaded(Ljava/lang/String;)Z
+    move-object/from16 v0, v54
+
+    iget-object v4, v0, Lcom/android/server/wm/AppWindowToken;->mTask:Lcom/android/server/wm/Task;
+
+    iget v4, v4, Lcom/android/server/wm/Task;->mUserId:I
+
+    invoke-interface {v2, v3, v4}, Lcom/android/server/wm/IStartingWindowManagerBridge;->isCustomBitmapLoaded(Ljava/lang/String;I)Z
 
     move-result v2
 
@@ -1016,9 +1034,15 @@
 
     iget-object v3, v0, Lcom/android/server/wm/AppWindowToken;->customStartingWindowKey:Ljava/lang/String;
 
-    const/4 v4, 0x1
+    move-object/from16 v0, v54
 
-    invoke-interface {v2, v3, v4}, Lcom/android/server/wm/IStartingWindowManagerBridge;->setCustomBitmapLoaded(Ljava/lang/String;Z)Z
+    iget-object v4, v0, Lcom/android/server/wm/AppWindowToken;->mTask:Lcom/android/server/wm/Task;
+
+    iget v4, v4, Lcom/android/server/wm/Task;->mUserId:I
+
+    const/4 v5, 0x1
+
+    invoke-interface {v2, v3, v5, v4}, Lcom/android/server/wm/IStartingWindowManagerBridge;->setCustomBitmapLoaded(Ljava/lang/String;ZI)Z
     :try_end_8
     .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_8} :catch_1
 
@@ -1285,7 +1309,13 @@
 
     iget-object v3, v0, Lcom/android/server/wm/AppWindowToken;->customStartingWindowKey:Ljava/lang/String;
 
-    invoke-interface {v2, v3}, Lcom/android/server/wm/IStartingWindowManagerBridge;->isCustomBitmapLoaded(Ljava/lang/String;)Z
+    move-object/from16 v0, v54
+
+    iget-object v4, v0, Lcom/android/server/wm/AppWindowToken;->mTask:Lcom/android/server/wm/Task;
+
+    iget v4, v4, Lcom/android/server/wm/Task;->mUserId:I
+
+    invoke-interface {v2, v3, v4}, Lcom/android/server/wm/IStartingWindowManagerBridge;->isCustomBitmapLoaded(Ljava/lang/String;I)Z
 
     move-result v2
 
@@ -1533,7 +1563,13 @@
 
     iget-object v3, v0, Lcom/android/server/wm/AppWindowToken;->customStartingWindowKey:Ljava/lang/String;
 
-    invoke-interface {v2, v3}, Lcom/android/server/wm/IStartingWindowManagerBridge;->isCustomBitmapLoaded(Ljava/lang/String;)Z
+    move-object/from16 v0, v54
+
+    iget-object v4, v0, Lcom/android/server/wm/AppWindowToken;->mTask:Lcom/android/server/wm/Task;
+
+    iget v4, v4, Lcom/android/server/wm/Task;->mUserId:I
+
+    invoke-interface {v2, v3, v4}, Lcom/android/server/wm/IStartingWindowManagerBridge;->isCustomBitmapLoaded(Ljava/lang/String;I)Z
 
     move-result v2
 

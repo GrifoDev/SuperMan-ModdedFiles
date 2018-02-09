@@ -10119,9 +10119,9 @@
 
     iget-object v0, v4, Lcom/android/server/am/ActivityManagerService;->mMARsPolicyManager:Lcom/android/server/am/MARsPolicyManager;
 
-    move-object/from16 v28, v0
+    move-object/from16 v38, v0
 
-    new-instance v29, Landroid/content/ComponentName;
+    new-instance v39, Landroid/content/ComponentName;
 
     move-object/from16 v0, p5
 
@@ -10133,21 +10133,23 @@
 
     iget-object v5, v0, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v39
 
     invoke-direct {v0, v4, v5}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v33, "activity"
+    const-string/jumbo v43, "activity"
 
-    const/16 v34, 0x0
+    const/16 v44, 0x0
 
-    move-object/from16 v30, p1
+    move-object/from16 v40, p1
 
-    move/from16 v31, p12
+    move/from16 v41, p12
 
-    move/from16 v32, p13
+    move/from16 v42, p13
 
-    invoke-virtual/range {v28 .. v34}, Lcom/android/server/am/MARsPolicyManager;->isRestrictedPackage(Landroid/content/ComponentName;Landroid/app/IApplicationThread;IILjava/lang/String;Landroid/content/Intent;)Z
+    move/from16 v45, v20
+
+    invoke-virtual/range {v38 .. v45}, Lcom/android/server/am/MARsPolicyManager;->isRestrictedPackage(Landroid/content/ComponentName;Landroid/app/IApplicationThread;IILjava/lang/String;Landroid/content/Intent;I)Z
 
     move-result v4
 

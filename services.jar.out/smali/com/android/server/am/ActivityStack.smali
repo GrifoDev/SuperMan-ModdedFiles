@@ -17853,6 +17853,32 @@
 
     invoke-virtual {v7, v4, v8}, Lcom/android/server/am/ActivityManagerService;->updateUsageStats(Lcom/android/server/am/ActivityRecord;Z)V
 
+    sget-boolean v7, Lcom/android/server/am/MARsPolicyManager;->MARs_ENABLE:Z
+
+    if-eqz v7, :cond_4
+
+    iget-object v7, p0, Lcom/android/server/am/ActivityStack;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v7, v7, Lcom/android/server/am/ActivityManagerService;->mMARsPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+
+    if-eqz v7, :cond_4
+
+    iget-object v7, p0, Lcom/android/server/am/ActivityStack;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v7, v7, Lcom/android/server/am/ActivityManagerService;->mMARsPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+
+    iget-object v8, v4, Lcom/android/server/am/ActivityRecord;->info:Landroid/content/pm/ActivityInfo;
+
+    iget-object v8, v8, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+
+    iget-object v9, v4, Lcom/android/server/am/ActivityRecord;->launchedFromPackage:Ljava/lang/String;
+
+    iget-boolean v10, v4, Lcom/android/server/am/ActivityRecord;->fullscreen:Z
+
+    iget v11, v4, Lcom/android/server/am/ActivityRecord;->userId:I
+
+    invoke-virtual {v7, v8, v9, v10, v11}, Lcom/android/server/am/MARsPolicyManager;->handlePackagePausedBG(Ljava/lang/String;Ljava/lang/String;ZI)V
+
     :cond_4
     :goto_3
     const/4 v7, 0x1
@@ -20393,7 +20419,7 @@
 
     and-int/lit16 v0, v0, 0x80
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_b
 
     :cond_4
     move-object v0, v1
@@ -20452,7 +20478,7 @@
 
     iget-object v2, v1, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
 
-    if-eq v0, v2, :cond_b
+    if-eq v0, v2, :cond_c
 
     :cond_6
     :goto_1
@@ -20469,13 +20495,13 @@
 
     iget-object v0, v1, Lcom/android/server/am/ActivityRecord;->app:Lcom/android/server/am/ProcessRecord;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_d
 
     iget-object v0, v1, Lcom/android/server/am/ActivityRecord;->app:Lcom/android/server/am/ProcessRecord;
 
     iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->thread:Landroid/app/IApplicationThread;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_d
 
     const/4 v0, 0x3
 
@@ -20520,6 +20546,33 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/server/am/ActivityManagerService;->updateUsageStats(Lcom/android/server/am/ActivityRecord;Z)V
 
+    sget-boolean v0, Lcom/android/server/am/MARsPolicyManager;->MARs_ENABLE:Z
+
+    if-eqz v0, :cond_8
+
+    iget-object v0, p0, Lcom/android/server/am/ActivityStack;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mMARsPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+
+    if-eqz v0, :cond_8
+
+    iget-object v0, p0, Lcom/android/server/am/ActivityStack;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mMARsPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+
+    iget-object v2, v1, Lcom/android/server/am/ActivityRecord;->info:Landroid/content/pm/ActivityInfo;
+
+    iget-object v2, v2, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+
+    iget-object v3, v1, Lcom/android/server/am/ActivityRecord;->launchedFromPackage:Ljava/lang/String;
+
+    iget-boolean v4, v1, Lcom/android/server/am/ActivityRecord;->fullscreen:Z
+
+    iget v5, v1, Lcom/android/server/am/ActivityRecord;->userId:I
+
+    invoke-virtual {v0, v2, v3, v4, v5}, Lcom/android/server/am/MARsPolicyManager;->handlePackagePausedBG(Ljava/lang/String;Ljava/lang/String;ZI)V
+
+    :cond_8
     iget-object v0, v1, Lcom/android/server/am/ActivityRecord;->app:Lcom/android/server/am/ProcessRecord;
 
     iget-object v2, v0, Lcom/android/server/am/ProcessRecord;->thread:Landroid/app/IApplicationThread;
@@ -20539,7 +20592,7 @@
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     :goto_2
-    if-nez p2, :cond_8
+    if-nez p2, :cond_9
 
     iget-object v0, p0, Lcom/android/server/am/ActivityStack;->mService:Lcom/android/server/am/ActivityManagerService;
 
@@ -20547,20 +20600,20 @@
 
     move-result v0
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_e
 
-    :cond_8
+    :cond_9
     :goto_3
     iget-object v0, p0, Lcom/android/server/am/ActivityStack;->mPausingActivity:Lcom/android/server/am/ActivityRecord;
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_10
 
-    if-nez p2, :cond_9
+    if-nez p2, :cond_a
 
     invoke-virtual {v1}, Lcom/android/server/am/ActivityRecord;->pauseKeyDispatchingLocked()V
 
-    :cond_9
-    if-eqz p4, :cond_e
+    :cond_a
+    if-eqz p4, :cond_f
 
     const/4 v0, 0x0
 
@@ -20570,15 +20623,15 @@
 
     return v0
 
-    :cond_a
+    :cond_b
     const/4 v0, 0x0
 
     goto/16 :goto_0
 
-    :cond_b
+    :cond_c
     if-eqz p2, :cond_7
 
-    goto :goto_1
+    goto/16 :goto_1
 
     :catch_0
     move-exception v8
@@ -20603,7 +20656,7 @@
 
     goto :goto_2
 
-    :cond_c
+    :cond_d
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/server/am/ActivityStack;->mPausingActivity:Lcom/android/server/am/ActivityRecord;
@@ -20618,14 +20671,14 @@
 
     goto :goto_2
 
-    :cond_d
+    :cond_e
     iget-object v0, p0, Lcom/android/server/am/ActivityStack;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
 
     invoke-virtual {v0}, Lcom/android/server/am/ActivityStackSupervisor;->acquireLaunchWakelock()V
 
     goto :goto_3
 
-    :cond_e
+    :cond_f
     iget-object v0, p0, Lcom/android/server/am/ActivityStack;->mHandler:Landroid/os/Handler;
 
     const/16 v2, 0x65
@@ -20652,14 +20705,14 @@
 
     return v0
 
-    :cond_f
-    if-nez p3, :cond_10
+    :cond_10
+    if-nez p3, :cond_11
 
     iget-object v0, p0, Lcom/android/server/am/ActivityStack;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
 
     invoke-virtual {v0}, Lcom/android/server/am/ActivityStackSupervisor;->resumeFocusedStackTopActivityLocked()Z
 
-    :cond_10
+    :cond_11
     const/4 v0, 0x0
 
     return v0

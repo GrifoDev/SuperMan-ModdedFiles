@@ -674,6 +674,109 @@
     return v1
 .end method
 
+.method remove(Ljava/lang/String;I)Z
+    .locals 10
+
+    const/4 v8, 0x0
+
+    if-nez p1, :cond_0
+
+    return v8
+
+    :cond_0
+    const/4 v1, 0x0
+
+    const-wide/16 v6, 0x0
+
+    const-wide v4, 0x7fffffffffffffffL
+
+    const/4 v3, 0x0
+
+    iget-object v8, p0, Lcom/android/server/AlarmManagerService$Batch;->alarms:Ljava/util/ArrayList;
+
+    invoke-virtual {v8}, Ljava/util/ArrayList;->size()I
+
+    move-result v8
+
+    add-int/lit8 v2, v8, -0x1
+
+    :goto_0
+    if-ltz v2, :cond_5
+
+    iget-object v8, p0, Lcom/android/server/AlarmManagerService$Batch;->alarms:Ljava/util/ArrayList;
+
+    invoke-virtual {v8, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/server/AlarmManagerService$Alarm;
+
+    invoke-virtual {v0, p1, p2}, Lcom/android/server/AlarmManagerService$Alarm;->matches(Ljava/lang/String;I)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_2
+
+    iget-object v8, p0, Lcom/android/server/AlarmManagerService$Batch;->alarms:Ljava/util/ArrayList;
+
+    invoke-virtual {v8, v2}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
+
+    const/4 v1, 0x1
+
+    iget-object v8, v0, Lcom/android/server/AlarmManagerService$Alarm;->alarmClock:Landroid/app/AlarmManager$AlarmClockInfo;
+
+    if-eqz v8, :cond_1
+
+    iget-object v8, p0, Lcom/android/server/AlarmManagerService$Batch;->this$0:Lcom/android/server/AlarmManagerService;
+
+    const/4 v9, 0x1
+
+    invoke-static {v8, v9}, Lcom/android/server/AlarmManagerService;->-set1(Lcom/android/server/AlarmManagerService;Z)Z
+
+    :cond_1
+    :goto_1
+    add-int/lit8 v2, v2, -0x1
+
+    goto :goto_0
+
+    :cond_2
+    iget-wide v8, v0, Lcom/android/server/AlarmManagerService$Alarm;->whenElapsed:J
+
+    cmp-long v8, v8, v6
+
+    if-lez v8, :cond_3
+
+    iget-wide v6, v0, Lcom/android/server/AlarmManagerService$Alarm;->whenElapsed:J
+
+    :cond_3
+    iget-wide v8, v0, Lcom/android/server/AlarmManagerService$Alarm;->maxWhenElapsed:J
+
+    cmp-long v8, v8, v4
+
+    if-gez v8, :cond_4
+
+    iget-wide v4, v0, Lcom/android/server/AlarmManagerService$Alarm;->maxWhenElapsed:J
+
+    :cond_4
+    iget v8, v0, Lcom/android/server/AlarmManagerService$Alarm;->flags:I
+
+    or-int/2addr v3, v8
+
+    goto :goto_1
+
+    :cond_5
+    if-eqz v1, :cond_6
+
+    iput-wide v6, p0, Lcom/android/server/AlarmManagerService$Batch;->start:J
+
+    iput-wide v4, p0, Lcom/android/server/AlarmManagerService$Batch;->end:J
+
+    iput v3, p0, Lcom/android/server/AlarmManagerService$Batch;->flags:I
+
+    :cond_6
+    return v1
+.end method
+
 .method removeForStopped(I)Z
     .locals 12
 

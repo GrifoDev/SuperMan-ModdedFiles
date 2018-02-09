@@ -24,9 +24,9 @@
 
 .field private static final DELETE:Ljava/lang/String; = "-D"
 
-.field private static final IP6TABLES:Ljava/lang/String; = "/system/bin/ip6tables "
+.field private static final IP6TABLES:Ljava/lang/String; = "/system/bin/ip6tables -w "
 
-.field private static final IPTABLES:Ljava/lang/String; = "/system/bin/iptables "
+.field private static final IPTABLES:Ljava/lang/String; = "/system/bin/iptables -w "
 
 .field private static final PATTERN_NUMERAL_ENDING_SUFIX:Ljava/util/regex/Pattern;
 
@@ -219,7 +219,7 @@
 
     if-eqz v8, :cond_18
 
-    const-string/jumbo v17, "/system/bin/ip6tables "
+    const-string/jumbo v17, "/system/bin/ip6tables -w "
 
     :goto_1
     move-object/from16 v0, v17
@@ -288,7 +288,7 @@
 
     if-eqz v8, :cond_19
 
-    const-string/jumbo v17, "/system/bin/ip6tables "
+    const-string/jumbo v17, "/system/bin/ip6tables -w "
 
     :goto_2
     invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -996,12 +996,12 @@
     goto/16 :goto_0
 
     :cond_18
-    const-string/jumbo v17, "/system/bin/iptables "
+    const-string/jumbo v17, "/system/bin/iptables -w "
 
     goto/16 :goto_1
 
     :cond_19
-    const-string/jumbo v17, "/system/bin/iptables "
+    const-string/jumbo v17, "/system/bin/iptables -w "
 
     goto/16 :goto_2
 
@@ -1441,7 +1441,7 @@
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v8, "/system/bin/ip6tables "
+    const-string/jumbo v8, "/system/bin/ip6tables -w "
 
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1616,7 +1616,7 @@
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v8, "/system/bin/ip6tables "
+    const-string/jumbo v8, "/system/bin/ip6tables -w "
 
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1797,7 +1797,7 @@
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v8, "/system/bin/iptables "
+    const-string/jumbo v8, "/system/bin/iptables -w "
 
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1854,7 +1854,7 @@
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v8, "/system/bin/iptables "
+    const-string/jumbo v8, "/system/bin/iptables -w "
 
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2068,7 +2068,7 @@
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v8, "/system/bin/ip6tables "
+    const-string/jumbo v8, "/system/bin/ip6tables -w "
 
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2203,7 +2203,7 @@
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v8, "/system/bin/ip6tables "
+    const-string/jumbo v8, "/system/bin/ip6tables -w "
 
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2344,7 +2344,7 @@
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v8, "/system/bin/iptables "
+    const-string/jumbo v8, "/system/bin/iptables -w "
 
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2367,7 +2367,7 @@
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v8, "/system/bin/iptables "
+    const-string/jumbo v8, "/system/bin/iptables -w "
 
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2754,59 +2754,59 @@
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    const-string/jumbo v2, "/system/bin/iptables -N firewall_allow-input"
+    const-string/jumbo v2, "/system/bin/iptables -w -N firewall_allow-input"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v2, "/system/bin/iptables -N firewall_allow-output"
+    const-string/jumbo v2, "/system/bin/iptables -w -N firewall_allow-output"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v2, "/system/bin/iptables -N firewall_deny-input"
+    const-string/jumbo v2, "/system/bin/iptables -w -N firewall_deny-input"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v2, "/system/bin/iptables -N firewall_deny-output"
+    const-string/jumbo v2, "/system/bin/iptables -w -N firewall_deny-output"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v2, "/system/bin/iptables -t nat -N firewall_exceptions-output"
+    const-string/jumbo v2, "/system/bin/iptables -w -t nat -N firewall_exceptions-output"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v2, "/system/bin/iptables -t nat -N firewall_redirect-output"
+    const-string/jumbo v2, "/system/bin/iptables -w -t nat -N firewall_redirect-output"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v2, "/system/bin/iptables -t filter -N firewall_network_app-output"
+    const-string/jumbo v2, "/system/bin/iptables -w -t filter -N firewall_network_app-output"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v2, "/system/bin/iptables  -A INPUT -j firewall_allow-input"
+    const-string/jumbo v2, "/system/bin/iptables -w  -A INPUT -j firewall_allow-input"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v2, "/system/bin/iptables  -A OUTPUT -j firewall_allow-output"
+    const-string/jumbo v2, "/system/bin/iptables -w  -A OUTPUT -j firewall_allow-output"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v2, "/system/bin/iptables  -A INPUT -j firewall_deny-input"
+    const-string/jumbo v2, "/system/bin/iptables -w  -A INPUT -j firewall_deny-input"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v2, "/system/bin/iptables  -A OUTPUT -j firewall_deny-output"
+    const-string/jumbo v2, "/system/bin/iptables -w  -A OUTPUT -j firewall_deny-output"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v2, "/system/bin/iptables  -t nat -A OUTPUT -j firewall_exceptions-output"
+    const-string/jumbo v2, "/system/bin/iptables -w  -t nat -A OUTPUT -j firewall_exceptions-output"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v2, "/system/bin/iptables  -t nat -A OUTPUT -j firewall_redirect-output"
+    const-string/jumbo v2, "/system/bin/iptables -w  -t nat -A OUTPUT -j firewall_redirect-output"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v2, "/system/bin/iptables  -t filter -A OUTPUT -j firewall_network_app-output"
+    const-string/jumbo v2, "/system/bin/iptables -w  -t filter -A OUTPUT -j firewall_network_app-output"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
@@ -2814,43 +2814,43 @@
 
     if-eqz v2, :cond_0
 
-    const-string/jumbo v2, "/system/bin/ip6tables -N firewall_allow-input"
+    const-string/jumbo v2, "/system/bin/ip6tables -w -N firewall_allow-input"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v2, "/system/bin/ip6tables -N firewall_allow-output"
+    const-string/jumbo v2, "/system/bin/ip6tables -w -N firewall_allow-output"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v2, "/system/bin/ip6tables -N firewall_deny-input"
+    const-string/jumbo v2, "/system/bin/ip6tables -w -N firewall_deny-input"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v2, "/system/bin/ip6tables -N firewall_deny-output"
+    const-string/jumbo v2, "/system/bin/ip6tables -w -N firewall_deny-output"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v2, "/system/bin/ip6tables -t filter -N firewall_network_app-output"
+    const-string/jumbo v2, "/system/bin/ip6tables -w -t filter -N firewall_network_app-output"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v2, "/system/bin/ip6tables  -A INPUT -j firewall_allow-input"
+    const-string/jumbo v2, "/system/bin/ip6tables -w  -A INPUT -j firewall_allow-input"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v2, "/system/bin/ip6tables  -A OUTPUT -j firewall_allow-output"
+    const-string/jumbo v2, "/system/bin/ip6tables -w  -A OUTPUT -j firewall_allow-output"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v2, "/system/bin/ip6tables  -A INPUT -j firewall_deny-input"
+    const-string/jumbo v2, "/system/bin/ip6tables -w  -A INPUT -j firewall_deny-input"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v2, "/system/bin/ip6tables  -A OUTPUT -j firewall_deny-output"
+    const-string/jumbo v2, "/system/bin/ip6tables -w  -A OUTPUT -j firewall_deny-output"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v2, "/system/bin/ip6tables  -t filter -A OUTPUT -j firewall_network_app-output"
+    const-string/jumbo v2, "/system/bin/ip6tables -w  -t filter -A OUTPUT -j firewall_network_app-output"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
@@ -2859,19 +2859,19 @@
 
     if-eqz v2, :cond_1
 
-    const-string/jumbo v2, "/system/bin/ip6tables -t nat -N firewall_exceptions-output"
+    const-string/jumbo v2, "/system/bin/ip6tables -w -t nat -N firewall_exceptions-output"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v2, "/system/bin/ip6tables -t nat -N firewall_redirect-output"
+    const-string/jumbo v2, "/system/bin/ip6tables -w -t nat -N firewall_redirect-output"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v2, "/system/bin/ip6tables  -t nat -A OUTPUT -j firewall_exceptions-output"
+    const-string/jumbo v2, "/system/bin/ip6tables -w  -t nat -A OUTPUT -j firewall_exceptions-output"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v2, "/system/bin/ip6tables  -t nat -A OUTPUT -j firewall_redirect-output"
+    const-string/jumbo v2, "/system/bin/ip6tables -w  -t nat -A OUTPUT -j firewall_redirect-output"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
@@ -2898,31 +2898,31 @@
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    const-string/jumbo v2, "/system/bin/iptables -F firewall_allow-input"
+    const-string/jumbo v2, "/system/bin/iptables -w -F firewall_allow-input"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v2, "/system/bin/iptables -F firewall_allow-output"
+    const-string/jumbo v2, "/system/bin/iptables -w -F firewall_allow-output"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v2, "/system/bin/iptables -F firewall_deny-input"
+    const-string/jumbo v2, "/system/bin/iptables -w -F firewall_deny-input"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v2, "/system/bin/iptables -F firewall_deny-output"
+    const-string/jumbo v2, "/system/bin/iptables -w -F firewall_deny-output"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v2, "/system/bin/iptables -t nat -F firewall_exceptions-output"
+    const-string/jumbo v2, "/system/bin/iptables -w -t nat -F firewall_exceptions-output"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v2, "/system/bin/iptables -t nat -F firewall_redirect-output"
+    const-string/jumbo v2, "/system/bin/iptables -w -t nat -F firewall_redirect-output"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v2, "/system/bin/iptables -t filter -F firewall_network_app-output"
+    const-string/jumbo v2, "/system/bin/iptables -w -t filter -F firewall_network_app-output"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
@@ -2930,23 +2930,23 @@
 
     if-eqz v2, :cond_0
 
-    const-string/jumbo v2, "/system/bin/ip6tables -F firewall_allow-input"
+    const-string/jumbo v2, "/system/bin/ip6tables -w -F firewall_allow-input"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v2, "/system/bin/ip6tables -F firewall_allow-output"
+    const-string/jumbo v2, "/system/bin/ip6tables -w -F firewall_allow-output"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v2, "/system/bin/ip6tables -F firewall_deny-input"
+    const-string/jumbo v2, "/system/bin/ip6tables -w -F firewall_deny-input"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v2, "/system/bin/ip6tables -F firewall_deny-output"
+    const-string/jumbo v2, "/system/bin/ip6tables -w -F firewall_deny-output"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v2, "/system/bin/ip6tables -t filter -F firewall_network_app-output"
+    const-string/jumbo v2, "/system/bin/ip6tables -w -t filter -F firewall_network_app-output"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
@@ -2955,11 +2955,11 @@
 
     if-eqz v2, :cond_1
 
-    const-string/jumbo v2, "/system/bin/ip6tables -t nat -F firewall_exceptions-output"
+    const-string/jumbo v2, "/system/bin/ip6tables -w -t nat -F firewall_exceptions-output"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v2, "/system/bin/ip6tables -t nat -F firewall_redirect-output"
+    const-string/jumbo v2, "/system/bin/ip6tables -w -t nat -F firewall_redirect-output"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
@@ -3075,7 +3075,7 @@
 
     if-eqz p1, :cond_0
 
-    const-string/jumbo v1, "/system/bin/ip6tables "
+    const-string/jumbo v1, "/system/bin/ip6tables -w "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -3097,7 +3097,7 @@
     return-object v1
 
     :cond_0
-    const-string/jumbo v1, "/system/bin/iptables "
+    const-string/jumbo v1, "/system/bin/iptables -w "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -3202,7 +3202,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "/system/bin/ip6tables -t "
+    const-string/jumbo v2, "/system/bin/ip6tables -w -t "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -3236,7 +3236,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "/system/bin/ip6tables -t "
+    const-string/jumbo v2, "/system/bin/ip6tables -w -t "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

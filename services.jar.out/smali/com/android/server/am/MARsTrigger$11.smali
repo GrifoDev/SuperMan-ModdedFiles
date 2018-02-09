@@ -32,70 +32,92 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 4
+    .locals 7
 
-    if-eqz p2, :cond_0
-
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object v2
-
-    if-nez v2, :cond_1
-
-    :cond_0
-    return-void
-
-    :cond_1
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    const-string/jumbo v2, "com.samsung.intent.action.EMERGENCY_STATE_CHANGED"
+    const-string/jumbo v4, "MARsTrigger"
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    move-result v2
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    if-eqz v2, :cond_2
+    const-string/jumbo v6, "broadcast received action : "
 
-    const-string/jumbo v2, "reason"
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/4 v3, 0x0
+    move-result-object v5
 
-    invoke-virtual {p2, v2, v3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result v1
+    move-result-object v5
 
-    const/4 v2, 0x5
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    if-ne v1, v2, :cond_2
+    move-result-object v5
 
-    const-string/jumbo v2, "MARsTrigger"
+    invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v3, "disable ultra power saving mode"
+    const-string/jumbo v4, "android.intent.action.USER_SWITCHED"
 
-    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    iget-object v2, p0, Lcom/android/server/am/MARsTrigger$11;->this$0:Lcom/android/server/am/MARsTrigger;
+    move-result v4
 
-    iget-object v2, v2, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+    if-eqz v4, :cond_0
 
-    sget-boolean v2, Lcom/android/server/am/MARsPolicyManager;->MARs_ENABLE:Z
+    const-string/jumbo v4, "android.intent.extra.user_handle"
 
-    if-nez v2, :cond_2
+    const/4 v5, 0x0
 
-    iget-object v2, p0, Lcom/android/server/am/MARsTrigger$11;->this$0:Lcom/android/server/am/MARsTrigger;
+    invoke-virtual {p2, v4, v5}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    invoke-virtual {v2}, Lcom/android/server/am/MARsTrigger;->unregisterEmStateReceiver()V
+    move-result v3
 
-    iget-object v2, p0, Lcom/android/server/am/MARsTrigger$11;->this$0:Lcom/android/server/am/MARsTrigger;
+    new-instance v1, Landroid/os/UserHandle;
 
-    iget-object v2, v2, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+    invoke-direct {v1, v3}, Landroid/os/UserHandle;-><init>(I)V
 
-    const/4 v3, 0x1
+    iget-object v4, p0, Lcom/android/server/am/MARsTrigger$11;->this$0:Lcom/android/server/am/MARsTrigger;
 
-    invoke-virtual {v2, v3}, Lcom/android/server/am/MARsPolicyManager;->init(Z)V
+    invoke-static {v4, v1}, Lcom/android/server/am/MARsTrigger;->-wrap0(Lcom/android/server/am/MARsTrigger;Landroid/os/UserHandle;)Landroid/content/Context;
 
-    :cond_2
+    move-result-object v2
+
+    const-string/jumbo v4, "MARsTrigger"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "mContext.id = "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v2}, Landroid/content/Context;->getUserId()I
+
+    move-result v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v4, p0, Lcom/android/server/am/MARsTrigger$11;->this$0:Lcom/android/server/am/MARsTrigger;
+
+    iget-object v4, v4, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+
+    invoke-virtual {v4, v2}, Lcom/android/server/am/MARsPolicyManager;->switchUser(Landroid/content/Context;)V
+
+    :cond_0
     return-void
 .end method

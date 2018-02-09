@@ -278,173 +278,196 @@
 .end method
 
 .method private checkSdCardMetafile()V
-    .locals 14
+    .locals 15
 
-    const/high16 v13, 0x10400000
+    const/high16 v14, 0x10400000
 
-    const/4 v12, 0x3
+    const/4 v13, 0x3
 
-    const/4 v11, 0x1
+    const/4 v12, 0x1
 
-    const/4 v10, 0x0
+    const/4 v11, 0x0
 
-    iput v10, p0, Lcom/android/server/DirEncryptServiceHelper;->mLastError:I
+    iput v11, p0, Lcom/android/server/DirEncryptServiceHelper;->mLastError:I
 
-    iput v10, p0, Lcom/android/server/DirEncryptServiceHelper;->mErrAdditionalSpace:I
+    iput v11, p0, Lcom/android/server/DirEncryptServiceHelper;->mErrAdditionalSpace:I
 
-    iput-boolean v10, p0, Lcom/android/server/DirEncryptServiceHelper;->mAlreadyDecrypted:Z
+    iput-boolean v11, p0, Lcom/android/server/DirEncryptServiceHelper;->mAlreadyDecrypted:Z
 
-    new-instance v5, Landroid/os/Bundle;
+    new-instance v6, Landroid/os/Bundle;
 
-    invoke-direct {v5}, Landroid/os/Bundle;-><init>()V
+    invoke-direct {v6}, Landroid/os/Bundle;-><init>()V
 
-    invoke-direct {p0, v5}, Lcom/android/server/DirEncryptServiceHelper;->getStorageCardEncryptionInternal(Landroid/os/Bundle;)I
+    invoke-direct {p0, v6}, Lcom/android/server/DirEncryptServiceHelper;->getStorageCardEncryptionInternal(Landroid/os/Bundle;)I
 
     move-result v0
 
-    const-string/jumbo v7, "policy"
+    const-string/jumbo v8, "policy"
 
-    invoke-virtual {v5, v7}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {v6, v8}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v4
 
-    const-string/jumbo v7, "sec.fle.encryption.status"
+    const-string/jumbo v8, "sec.fle.encryption.status"
 
-    const-string/jumbo v8, ""
+    const-string/jumbo v9, ""
 
-    invoke-static {v7, v8}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v8, v9}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
-    const-string/jumbo v7, "DirEncryptService"
+    const-string/jumbo v8, "DirEncryptService"
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v9, "checkSdCardMetafile result "
+    const-string/jumbo v10, "checkSdCardMetafile result "
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v8, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v7, "encrypted"
+    const-string/jumbo v8, "encrypted"
 
-    invoke-virtual {v7, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v8, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v8
 
-    if-eqz v7, :cond_5
+    if-eqz v8, :cond_6
 
-    const/4 v6, -0x1
+    const/4 v7, -0x1
 
-    iget-object v7, p0, Lcom/android/server/DirEncryptServiceHelper;->mDep:Lcom/android/server/DirEncryptPrefs;
+    iget-object v8, p0, Lcom/android/server/DirEncryptServiceHelper;->mDep:Lcom/android/server/DirEncryptPrefs;
 
-    iget-object v8, p0, Lcom/android/server/DirEncryptServiceHelper;->mDew:Lcom/samsung/android/security/DirEncryptionWrapper;
+    iget-object v9, p0, Lcom/android/server/DirEncryptServiceHelper;->mDew:Lcom/samsung/android/security/DirEncryptionWrapper;
 
-    invoke-virtual {v8}, Lcom/samsung/android/security/DirEncryptionWrapper;->getExternalSDvolFsUuid()Ljava/lang/String;
+    invoke-virtual {v9}, Lcom/samsung/android/security/DirEncryptionWrapper;->getExternalSDvolFsUuid()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v9
 
     invoke-direct {p0}, Lcom/android/server/DirEncryptServiceHelper;->isAdminApplied()Z
 
-    move-result v9
+    move-result v10
 
-    invoke-virtual {v7, v8, v9}, Lcom/android/server/DirEncryptPrefs;->migrationUUIDPrefs(Ljava/lang/String;Z)I
+    invoke-virtual {v8, v9, v10}, Lcom/android/server/DirEncryptPrefs;->migrationUUIDPrefs(Ljava/lang/String;Z)I
 
-    move-result v6
+    move-result v7
 
-    if-nez v6, :cond_0
+    if-nez v7, :cond_0
 
-    const-string/jumbo v7, "DirEncryptService"
+    const-string/jumbo v8, "DirEncryptService"
 
-    const-string/jumbo v8, "Migration Success, so re-call policy"
+    const-string/jumbo v9, "Migration Success, so re-call policy"
 
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-direct {p0, v5}, Lcom/android/server/DirEncryptServiceHelper;->getStorageCardEncryptionInternal(Landroid/os/Bundle;)I
+    invoke-direct {p0, v6}, Lcom/android/server/DirEncryptServiceHelper;->getStorageCardEncryptionInternal(Landroid/os/Bundle;)I
 
     move-result v0
 
-    const-string/jumbo v7, "policy"
+    const-string/jumbo v8, "policy"
 
-    invoke-virtual {v5, v7}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {v6, v8}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v4
 
     :cond_0
-    if-eq v0, v11, :cond_1
+    if-eq v0, v12, :cond_1
 
     if-nez v0, :cond_3
 
     :cond_1
-    const-string/jumbo v7, "DirEncryptService"
+    const-string/jumbo v8, "DirEncryptService"
 
-    const-string/jumbo v8, "SD card has decrypting/encrypting state -> Self Decrypting/Encrypting!!"
+    const-string/jumbo v9, "SD card has decrypting/encrypting state -> Self Decrypting/Encrypting!!"
 
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iput-boolean v11, p0, Lcom/android/server/DirEncryptServiceHelper;->mSelfSDMountRequested:Z
+    iput-boolean v12, p0, Lcom/android/server/DirEncryptServiceHelper;->mSelfSDMountRequested:Z
 
-    iget-object v7, p0, Lcom/android/server/DirEncryptServiceHelper;->mDew:Lcom/samsung/android/security/DirEncryptionWrapper;
+    iget-object v8, p0, Lcom/android/server/DirEncryptServiceHelper;->mDew:Lcom/samsung/android/security/DirEncryptionWrapper;
 
-    invoke-virtual {v7}, Lcom/samsung/android/security/DirEncryptionWrapper;->getVolumeState()Ljava/lang/String;
+    invoke-virtual {v8}, Lcom/samsung/android/security/DirEncryptionWrapper;->getVolumeState()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-direct {p0, v7}, Lcom/android/server/DirEncryptServiceHelper;->doWorkForUSBState(Ljava/lang/String;)V
+    invoke-direct {p0, v8}, Lcom/android/server/DirEncryptServiceHelper;->doWorkForUSBState(Ljava/lang/String;)V
 
     :cond_2
     :goto_0
-    sput-boolean v10, Lcom/android/server/DirEncryptServiceHelper;->mMountSDcardToHelper:Z
+    sput-boolean v11, Lcom/android/server/DirEncryptServiceHelper;->mMountSDcardToHelper:Z
 
     return-void
 
     :cond_3
-    if-ne v0, v12, :cond_4
+    if-ne v0, v13, :cond_5
 
-    const-string/jumbo v7, "DirEncryptService"
+    const-string/jumbo v8, "DirEncryptService"
 
-    const-string/jumbo v8, "ENC_META_CHECK : Error Case (Encrypted on other device)"
+    const-string/jumbo v9, "ENC_META_CHECK : Error Case (Encrypted on other device)"
 
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/16 v7, 0x8
+    const/16 v8, 0x8
 
-    iput v7, p0, Lcom/android/server/DirEncryptServiceHelper;->mLastError:I
+    iput v8, p0, Lcom/android/server/DirEncryptServiceHelper;->mLastError:I
 
-    const-string/jumbo v7, "done"
+    const-string/jumbo v8, "done"
 
-    invoke-direct {p0, v12, v7}, Lcom/android/server/DirEncryptServiceHelper;->notifyEncryptionStatusChanged(ILjava/lang/String;)V
+    invoke-direct {p0, v13, v8}, Lcom/android/server/DirEncryptServiceHelper;->notifyEncryptionStatusChanged(ILjava/lang/String;)V
 
+    iget-object v8, p0, Lcom/android/server/DirEncryptServiceHelper;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v8}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v8
+
+    const-string/jumbo v9, "user_setup_complete"
+
+    invoke-static {v8, v9, v11}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v5
+
+    if-nez v5, :cond_4
+
+    const-string/jumbo v8, "DirEncryptService"
+
+    const-string/jumbo v9, "The Setup Wizard is not completed yet"
+
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_4
     new-instance v2, Landroid/content/Intent;
 
-    const-string/jumbo v7, "com.sec.app.action.START_SDCARD_ENCRYPTION"
+    const-string/jumbo v8, "com.sec.app.action.START_SDCARD_ENCRYPTION"
 
-    invoke-direct {v2, v7}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v8}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const-string/jumbo v7, "OtherDevice"
+    const-string/jumbo v8, "OtherDevice"
 
-    const-string/jumbo v8, "exception"
+    const-string/jumbo v9, "exception"
 
-    invoke-virtual {v2, v7, v8}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v2, v8, v9}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    invoke-virtual {v2, v13}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+    invoke-virtual {v2, v14}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
     :try_start_0
-    iget-object v7, p0, Lcom/android/server/DirEncryptServiceHelper;->mContext:Landroid/content/Context;
+    iget-object v8, p0, Lcom/android/server/DirEncryptServiceHelper;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v7, v2}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {v8, v2}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
     :try_end_0
     .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -453,121 +476,121 @@
     :catch_0
     move-exception v1
 
-    const-string/jumbo v7, "DirEncryptService"
+    const-string/jumbo v8, "DirEncryptService"
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v9, "Failed to start intent activity"
+    const-string/jumbo v10, "Failed to start intent activity"
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-
-    :cond_4
-    const-string/jumbo v7, "DirEncryptService"
-
-    const-string/jumbo v8, "ENC_META_CHECK : Encryption State Normal"
-
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iput-boolean v11, p0, Lcom/android/server/DirEncryptServiceHelper;->mSelfSDMountRequested:Z
-
-    iget-object v7, p0, Lcom/android/server/DirEncryptServiceHelper;->mDew:Lcom/samsung/android/security/DirEncryptionWrapper;
-
-    invoke-virtual {v7}, Lcom/samsung/android/security/DirEncryptionWrapper;->getVolumeState()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-direct {p0, v7}, Lcom/android/server/DirEncryptServiceHelper;->doWorkForUSBState(Ljava/lang/String;)V
+    invoke-static {v8, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
     :cond_5
-    if-eqz v0, :cond_6
+    const-string/jumbo v8, "DirEncryptService"
 
-    const/4 v7, 0x2
+    const-string/jumbo v9, "ENC_META_CHECK : Encryption State Normal"
 
-    if-ne v0, v7, :cond_7
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_6
-    const-string/jumbo v7, "DirEncryptService"
+    iput-boolean v12, p0, Lcom/android/server/DirEncryptServiceHelper;->mSelfSDMountRequested:Z
 
-    const-string/jumbo v8, "ENC_META_CHECK : Meta deleted Case"
+    iget-object v8, p0, Lcom/android/server/DirEncryptServiceHelper;->mDew:Lcom/samsung/android/security/DirEncryptionWrapper;
 
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v8}, Lcom/samsung/android/security/DirEncryptionWrapper;->getVolumeState()Ljava/lang/String;
 
-    iput-boolean v11, p0, Lcom/android/server/DirEncryptServiceHelper;->mSelfSDMountRequested:Z
+    move-result-object v8
 
-    iget-object v7, p0, Lcom/android/server/DirEncryptServiceHelper;->mDew:Lcom/samsung/android/security/DirEncryptionWrapper;
-
-    invoke-virtual {v7}, Lcom/samsung/android/security/DirEncryptionWrapper;->getVolumeState()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-direct {p0, v7}, Lcom/android/server/DirEncryptServiceHelper;->doWorkForUSBState(Ljava/lang/String;)V
+    invoke-direct {p0, v8}, Lcom/android/server/DirEncryptServiceHelper;->doWorkForUSBState(Ljava/lang/String;)V
 
     goto :goto_0
 
+    :cond_6
+    if-eqz v0, :cond_7
+
+    const/4 v8, 0x2
+
+    if-ne v0, v8, :cond_8
+
     :cond_7
-    if-ne v0, v11, :cond_8
+    const-string/jumbo v8, "DirEncryptService"
 
-    const-string/jumbo v7, "DirEncryptService"
+    const-string/jumbo v9, "ENC_META_CHECK : Meta deleted Case"
 
-    const-string/jumbo v8, "SD card has decrypting state -> Self Decrypting!!"
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    iput-boolean v12, p0, Lcom/android/server/DirEncryptServiceHelper;->mSelfSDMountRequested:Z
 
-    iput-boolean v11, p0, Lcom/android/server/DirEncryptServiceHelper;->mSelfSDMountRequested:Z
+    iget-object v8, p0, Lcom/android/server/DirEncryptServiceHelper;->mDew:Lcom/samsung/android/security/DirEncryptionWrapper;
 
-    iget-object v7, p0, Lcom/android/server/DirEncryptServiceHelper;->mDew:Lcom/samsung/android/security/DirEncryptionWrapper;
+    invoke-virtual {v8}, Lcom/samsung/android/security/DirEncryptionWrapper;->getVolumeState()Ljava/lang/String;
 
-    invoke-virtual {v7}, Lcom/samsung/android/security/DirEncryptionWrapper;->getVolumeState()Ljava/lang/String;
+    move-result-object v8
 
-    move-result-object v7
-
-    invoke-direct {p0, v7}, Lcom/android/server/DirEncryptServiceHelper;->doWorkForUSBState(Ljava/lang/String;)V
+    invoke-direct {p0, v8}, Lcom/android/server/DirEncryptServiceHelper;->doWorkForUSBState(Ljava/lang/String;)V
 
     goto/16 :goto_0
 
     :cond_8
-    if-ne v4, v11, :cond_9
+    if-ne v0, v12, :cond_9
 
-    const-string/jumbo v7, "DirEncryptService"
+    const-string/jumbo v8, "DirEncryptService"
 
-    const-string/jumbo v8, "ENC_META_CHECK : EAS Policy Set"
+    const-string/jumbo v9, "SD card has decrypting state -> Self Decrypting!!"
 
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iput-boolean v12, p0, Lcom/android/server/DirEncryptServiceHelper;->mSelfSDMountRequested:Z
+
+    iget-object v8, p0, Lcom/android/server/DirEncryptServiceHelper;->mDew:Lcom/samsung/android/security/DirEncryptionWrapper;
+
+    invoke-virtual {v8}, Lcom/samsung/android/security/DirEncryptionWrapper;->getVolumeState()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-direct {p0, v8}, Lcom/android/server/DirEncryptServiceHelper;->doWorkForUSBState(Ljava/lang/String;)V
+
+    goto/16 :goto_0
+
+    :cond_9
+    if-ne v4, v12, :cond_a
+
+    const-string/jumbo v8, "DirEncryptService"
+
+    const-string/jumbo v9, "ENC_META_CHECK : EAS Policy Set"
+
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     new-instance v2, Landroid/content/Intent;
 
-    const-string/jumbo v7, "com.sec.app.action.START_SDCARD_ENCRYPTION"
+    const-string/jumbo v8, "com.sec.app.action.START_SDCARD_ENCRYPTION"
 
-    invoke-direct {v2, v7}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v8}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v13}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+    invoke-virtual {v2, v14}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    sget-boolean v7, Lcom/android/server/DirEncryptServiceHelper;->mMountSDcardToHelper:Z
+    sget-boolean v8, Lcom/android/server/DirEncryptServiceHelper;->mMountSDcardToHelper:Z
 
-    if-nez v7, :cond_2
+    if-nez v8, :cond_2
 
     :try_start_1
-    iget-object v7, p0, Lcom/android/server/DirEncryptServiceHelper;->mContext:Landroid/content/Context;
+    iget-object v8, p0, Lcom/android/server/DirEncryptServiceHelper;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v7, v2}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {v8, v2}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
     :try_end_1
     .catch Landroid/content/ActivityNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
 
@@ -576,44 +599,44 @@
     :catch_1
     move-exception v1
 
-    const-string/jumbo v7, "DirEncryptService"
+    const-string/jumbo v8, "DirEncryptService"
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v9, "Failed to start intent activity"
+    const-string/jumbo v10, "Failed to start intent activity"
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_0
 
-    :cond_9
-    const-string/jumbo v7, "DirEncryptService"
+    :cond_a
+    const-string/jumbo v8, "DirEncryptService"
 
-    const-string/jumbo v8, "ENC_META_CHECK : Normal SD Card"
+    const-string/jumbo v9, "ENC_META_CHECK : Normal SD Card"
 
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iput-boolean v10, p0, Lcom/android/server/DirEncryptServiceHelper;->mSelfSDMountRequested:Z
+    iput-boolean v11, p0, Lcom/android/server/DirEncryptServiceHelper;->mSelfSDMountRequested:Z
 
-    iput-boolean v11, p0, Lcom/android/server/DirEncryptServiceHelper;->mAlreadyDecrypted:Z
+    iput-boolean v12, p0, Lcom/android/server/DirEncryptServiceHelper;->mAlreadyDecrypted:Z
 
-    const-string/jumbo v7, "done"
+    const-string/jumbo v8, "done"
 
-    invoke-direct {p0, v12, v7}, Lcom/android/server/DirEncryptServiceHelper;->notifyEncryptionStatusChanged(ILjava/lang/String;)V
+    invoke-direct {p0, v13, v8}, Lcom/android/server/DirEncryptServiceHelper;->notifyEncryptionStatusChanged(ILjava/lang/String;)V
 
     goto/16 :goto_0
 .end method
@@ -3032,20 +3055,20 @@
 .end method
 
 .method public onEventInner(ILjava/lang/String;[Ljava/lang/String;)Z
-    .locals 26
+    .locals 27
 
-    sget-object v23, Lcom/android/server/DirEncryptServiceHelper;->mSync:Ljava/lang/Object;
+    sget-object v24, Lcom/android/server/DirEncryptServiceHelper;->mSync:Ljava/lang/Object;
 
-    monitor-enter v23
+    monitor-enter v24
 
     :try_start_0
     invoke-direct/range {p0 .. p0}, Lcom/android/server/DirEncryptServiceHelper;->isAdminApplied()Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result v22
+    move-result v23
 
-    if-eqz v22, :cond_1
+    if-eqz v23, :cond_1
 
     const/4 v8, 0x1
 
@@ -3055,11 +3078,11 @@
     :cond_0
     :goto_1
     :pswitch_0
-    monitor-exit v23
+    monitor-exit v24
 
-    const/16 v22, 0x1
+    const/16 v23, 0x1
 
-    return v22
+    return v23
 
     :cond_1
     const/4 v8, 0x0
@@ -3072,36 +3095,36 @@
 
     iget-object v0, v0, Lcom/android/server/DirEncryptServiceHelper;->mContext:Landroid/content/Context;
 
-    move-object/from16 v22, v0
+    move-object/from16 v23, v0
 
-    const-string/jumbo v24, "notification"
+    const-string/jumbo v25, "notification"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v10
+    move-result-object v11
 
-    check-cast v10, Landroid/app/NotificationManager;
+    check-cast v11, Landroid/app/NotificationManager;
 
-    sget v22, Lcom/samsung/android/security/SemSdCardEncryption;->SECURITY_POLICY_NOTIFICATION_ID:I
+    sget v23, Lcom/samsung/android/security/SemSdCardEncryption;->SECURITY_POLICY_NOTIFICATION_ID:I
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
-    invoke-virtual {v10, v0}, Landroid/app/NotificationManager;->cancel(I)V
+    invoke-virtual {v11, v0}, Landroid/app/NotificationManager;->cancel(I)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_1
 
     :catchall_0
-    move-exception v22
+    move-exception v23
 
-    monitor-exit v23
+    monitor-exit v24
 
-    throw v22
+    throw v23
 
     :pswitch_2
     :try_start_2
@@ -3109,204 +3132,208 @@
 
     array-length v0, v0
 
-    move/from16 v22, v0
+    move/from16 v23, v0
 
-    const/16 v24, 0x4
+    const/16 v25, 0x4
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
-    move/from16 v1, v24
+    move/from16 v1, v25
 
     if-ne v0, v1, :cond_9
 
-    const/16 v22, 0x2
+    const/16 v23, 0x2
 
-    aget-object v22, p3, v22
+    aget-object v23, p3, v23
 
-    invoke-static/range {v22 .. v22}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static/range {v23 .. v23}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v18
+    move-result v19
 
-    const/16 v22, 0x3
+    const/16 v23, 0x3
 
-    aget-object v20, p3, v22
+    aget-object v21, p3, v23
 
-    const-string/jumbo v22, "success"
+    const-string/jumbo v23, "success"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v20
+    move-object/from16 v1, v21
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v22
+    move-result v23
 
-    if-eqz v22, :cond_5
+    if-eqz v23, :cond_5
 
-    const-string/jumbo v22, "DirEncryptService"
+    const-string/jumbo v23, "DirEncryptService"
 
-    const-string/jumbo v24, "RESP_ENCRYPT success"
+    const-string/jumbo v25, "RESP_ENCRYPT success"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/android/server/DirEncryptServiceHelper;->mLastError:I
 
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v22
+    move/from16 v1, v23
 
     invoke-direct {v0, v1}, Lcom/android/server/DirEncryptServiceHelper;->setStatus(I)V
 
-    const-string/jumbo v22, "success"
+    const-string/jumbo v23, "success"
 
-    const/16 v24, 0x2
+    const/16 v25, 0x2
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v24
+    move/from16 v1, v25
 
-    move/from16 v2, v18
+    move/from16 v2, v19
 
-    move-object/from16 v3, v22
+    move-object/from16 v3, v23
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/DirEncryptServiceHelper;->showNotification(IILjava/lang/String;)V
 
-    if-nez v18, :cond_2
+    if-nez v19, :cond_2
 
-    const/16 v22, 0x3
+    const/16 v23, 0x3
 
     :goto_2
-    const-string/jumbo v24, "Mount"
+    const-string/jumbo v25, "Mount"
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v22
+    move/from16 v1, v23
 
-    move-object/from16 v2, v24
+    move-object/from16 v2, v25
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/DirEncryptServiceHelper;->notifyEncryptionStatusChanged(ILjava/lang/String;)V
 
-    const-string/jumbo v22, "DirEncryptService"
+    const-string/jumbo v23, "DirEncryptService"
 
-    new-instance v24, Ljava/lang/StringBuilder;
+    new-instance v25, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v25, "ENCRYPT Response admin : "
+    const-string/jumbo v26, "ENCRYPT Response admin : "
 
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v25
 
     invoke-direct/range {p0 .. p0}, Lcom/android/server/DirEncryptServiceHelper;->isAdminApplied()Z
 
-    move-result v25
+    move-result v26
 
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v25
 
-    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v24
+    move-result-object v25
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-nez v18, :cond_3
+    if-nez v19, :cond_3
 
-    const-string/jumbo v22, "DirEncryptService"
+    const-string/jumbo v23, "DirEncryptService"
 
-    const-string/jumbo v24, "Decrypt compelte"
+    const-string/jumbo v25, "Decrypt compelte"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_3
-    new-instance v15, Lcom/samsung/android/security/SemSdCardEncryptionPolicy;
+    new-instance v16, Lcom/samsung/android/security/SemSdCardEncryptionPolicy;
 
-    if-nez v18, :cond_4
+    if-nez v19, :cond_4
 
-    const/16 v22, 0x3
+    const/16 v23, 0x3
 
     :goto_4
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/DirEncryptServiceHelper;->mDew:Lcom/samsung/android/security/DirEncryptionWrapper;
 
-    move-object/from16 v24, v0
+    move-object/from16 v25, v0
 
-    invoke-virtual/range {v24 .. v24}, Lcom/samsung/android/security/DirEncryptionWrapper;->getExternalSDvolFsUuid()Ljava/lang/String;
+    invoke-virtual/range {v25 .. v25}, Lcom/samsung/android/security/DirEncryptionWrapper;->getExternalSDvolFsUuid()Ljava/lang/String;
 
-    move-result-object v24
+    move-result-object v25
 
-    move/from16 v0, v22
+    move-object/from16 v0, v16
 
-    move-object/from16 v1, v24
+    move/from16 v1, v23
 
-    invoke-direct {v15, v8, v0, v1}, Lcom/samsung/android/security/SemSdCardEncryptionPolicy;-><init>(IILjava/lang/String;)V
+    move-object/from16 v2, v25
+
+    invoke-direct {v0, v8, v1, v2}, Lcom/samsung/android/security/SemSdCardEncryptionPolicy;-><init>(IILjava/lang/String;)V
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/DirEncryptServiceHelper;->mDep:Lcom/android/server/DirEncryptPrefs;
 
-    move-object/from16 v22, v0
+    move-object/from16 v23, v0
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    invoke-virtual {v0, v15}, Lcom/android/server/DirEncryptPrefs;->savePrefs(Lcom/samsung/android/security/SemSdCardEncryptionPolicy;)Z
+    move-object/from16 v1, v16
+
+    invoke-virtual {v0, v1}, Lcom/android/server/DirEncryptPrefs;->savePrefs(Lcom/samsung/android/security/SemSdCardEncryptionPolicy;)Z
 
     goto/16 :goto_1
 
     :cond_2
-    const/16 v22, 0x2
+    const/16 v23, 0x2
 
     goto :goto_2
 
     :cond_3
-    const-string/jumbo v22, "DirEncryptService"
+    const-string/jumbo v23, "DirEncryptService"
 
-    const-string/jumbo v24, "Encrypt complete"
+    const-string/jumbo v25, "Encrypt complete"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_3
 
     :cond_4
-    const/16 v22, 0x2
+    const/16 v23, 0x2
 
     goto :goto_4
 
     :cond_5
-    const-string/jumbo v22, "DirEncryptService"
+    const-string/jumbo v23, "DirEncryptService"
 
-    const-string/jumbo v24, "RESP_ENCRYPT failed"
+    const-string/jumbo v25, "RESP_ENCRYPT failed"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -3314,21 +3341,21 @@
 
     iget v0, v0, Lcom/android/server/DirEncryptServiceHelper;->mLastError:I
 
-    move/from16 v22, v0
+    move/from16 v23, v0
 
-    if-nez v22, :cond_6
+    if-nez v23, :cond_6
 
-    const/16 v22, 0x1
+    const/16 v23, 0x1
 
-    move/from16 v0, v18
+    move/from16 v0, v19
 
-    move/from16 v1, v22
+    move/from16 v1, v23
 
     if-ne v0, v1, :cond_7
 
-    const/16 v22, 0x5
+    const/16 v23, 0x5
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
     move-object/from16 v1, p0
 
@@ -3336,49 +3363,49 @@
 
     :cond_6
     :goto_5
-    const-string/jumbo v22, "failed"
+    const-string/jumbo v23, "failed"
 
-    const/16 v24, 0x2
+    const/16 v25, 0x2
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v24
+    move/from16 v1, v25
 
-    move/from16 v2, v18
+    move/from16 v2, v19
 
-    move-object/from16 v3, v22
+    move-object/from16 v3, v23
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/DirEncryptServiceHelper;->showNotification(IILjava/lang/String;)V
 
-    if-nez v18, :cond_8
+    if-nez v19, :cond_8
 
-    const/16 v22, 0x3
+    const/16 v23, 0x3
 
     :goto_6
-    const-string/jumbo v24, "free"
+    const-string/jumbo v25, "free"
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v22
+    move/from16 v1, v23
 
-    move-object/from16 v2, v24
+    move-object/from16 v2, v25
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/DirEncryptServiceHelper;->notifyEncryptionStatusChanged(ILjava/lang/String;)V
 
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v22
+    move/from16 v1, v23
 
     invoke-direct {v0, v1}, Lcom/android/server/DirEncryptServiceHelper;->setStatus(I)V
 
     goto/16 :goto_1
 
     :cond_7
-    const/16 v22, 0x6
+    const/16 v23, 0x6
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
     move-object/from16 v1, p0
 
@@ -3387,46 +3414,46 @@
     goto :goto_5
 
     :cond_8
-    const/16 v22, 0x2
+    const/16 v23, 0x2
 
     goto :goto_6
 
     :cond_9
-    const-string/jumbo v22, "DirEncryptService"
+    const-string/jumbo v23, "DirEncryptService"
 
-    new-instance v24, Ljava/lang/StringBuilder;
+    new-instance v25, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v25, "RESP_ENCRYPT extra data recvd["
+    const-string/jumbo v26, "RESP_ENCRYPT extra data recvd["
 
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v25
 
     move-object/from16 v0, p3
 
     array-length v0, v0
 
-    move/from16 v25, v0
+    move/from16 v26, v0
 
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v25
 
-    const-string/jumbo v25, "], please fix!!"
+    const-string/jumbo v26, "], please fix!!"
 
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v25
 
-    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v24
+    move-result-object v25
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -3437,174 +3464,174 @@
 
     array-length v0, v0
 
-    move/from16 v22, v0
+    move/from16 v23, v0
 
-    const/16 v24, 0x4
+    const/16 v25, 0x4
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
-    move/from16 v1, v24
+    move/from16 v1, v25
 
     if-ne v0, v1, :cond_c
 
-    const-string/jumbo v22, "DirEncryptService"
+    const-string/jumbo v23, "DirEncryptService"
 
-    const-string/jumbo v24, "DirEncryptServiceVoldResponse.PROGRESS inside"
+    const-string/jumbo v25, "DirEncryptServiceVoldResponse.PROGRESS inside"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/16 v22, 0x1
+    const/16 v23, 0x1
 
-    aget-object v22, p3, v22
+    aget-object v23, p3, v23
 
-    invoke-static/range {v22 .. v22}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static/range {v23 .. v23}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v18
+    move-result v19
 
-    const/16 v22, 0x2
+    const/16 v23, 0x2
 
-    aget-object v22, p3, v22
+    aget-object v23, p3, v23
 
-    invoke-static/range {v22 .. v22}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static/range {v23 .. v23}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v14
+    move-result v15
 
-    const/16 v22, 0x3
+    const/16 v23, 0x3
 
-    aget-object v22, p3, v22
+    aget-object v23, p3, v23
 
-    invoke-static/range {v22 .. v22}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static/range {v23 .. v23}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v21
+    move-result v22
 
-    const/16 v22, 0x1
+    const/16 v23, 0x1
 
-    move/from16 v0, v18
+    move/from16 v0, v19
 
-    move/from16 v1, v22
+    move/from16 v1, v23
 
     if-ne v0, v1, :cond_a
 
-    const/16 v22, 0x2
+    const/16 v23, 0x2
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v22
+    move/from16 v1, v23
 
     invoke-direct {v0, v1}, Lcom/android/server/DirEncryptServiceHelper;->setStatus(I)V
 
     :goto_7
-    new-instance v22, Ljava/lang/StringBuilder;
+    new-instance v23, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v23 .. v23}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v24, ""
+    const-string/jumbo v25, ""
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v22
+    move-result-object v23
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v15}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v22
+    move-result-object v23
 
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v22
+    move-result-object v23
 
-    const/16 v24, 0x5
+    const/16 v25, 0x5
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v24
+    move/from16 v1, v25
 
-    move/from16 v2, v18
+    move/from16 v2, v19
 
-    move-object/from16 v3, v22
+    move-object/from16 v3, v23
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/DirEncryptServiceHelper;->showNotification(IILjava/lang/String;)V
 
-    if-nez v18, :cond_b
+    if-nez v19, :cond_b
 
-    const/16 v22, 0x3
+    const/16 v23, 0x3
 
     :goto_8
-    const-string/jumbo v24, "busy"
+    const-string/jumbo v25, "busy"
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v22
+    move/from16 v1, v23
 
-    move-object/from16 v2, v24
+    move-object/from16 v2, v25
 
-    move/from16 v3, v21
+    move/from16 v3, v22
 
-    invoke-direct {v0, v1, v2, v14, v3}, Lcom/android/server/DirEncryptServiceHelper;->notifyEncryptionStatusChanged(ILjava/lang/String;II)V
+    invoke-direct {v0, v1, v2, v15, v3}, Lcom/android/server/DirEncryptServiceHelper;->notifyEncryptionStatusChanged(ILjava/lang/String;II)V
 
     goto/16 :goto_1
 
     :cond_a
-    const/16 v22, 0x3
+    const/16 v23, 0x3
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v22
+    move/from16 v1, v23
 
     invoke-direct {v0, v1}, Lcom/android/server/DirEncryptServiceHelper;->setStatus(I)V
 
     goto :goto_7
 
     :cond_b
-    const/16 v22, 0x2
+    const/16 v23, 0x2
 
     goto :goto_8
 
     :cond_c
-    const-string/jumbo v22, "DirEncryptService"
+    const-string/jumbo v23, "DirEncryptService"
 
-    new-instance v24, Ljava/lang/StringBuilder;
+    new-instance v25, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v25, "RESP_PROGRESS extra data recvd["
+    const-string/jumbo v26, "RESP_PROGRESS extra data recvd["
 
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v25
 
     move-object/from16 v0, p3
 
     array-length v0, v0
 
-    move/from16 v25, v0
+    move/from16 v26, v0
 
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v25
 
-    const-string/jumbo v25, "], please fix!!"
+    const-string/jumbo v26, "], please fix!!"
 
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v25
 
-    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v24
+    move-result-object v25
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -3615,190 +3642,194 @@
 
     array-length v0, v0
 
-    move/from16 v22, v0
+    move/from16 v23, v0
 
-    const/16 v24, 0x8
+    const/16 v25, 0x8
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
-    move/from16 v1, v24
+    move/from16 v1, v25
 
     if-ne v0, v1, :cond_f
 
-    const/16 v22, 0x2
+    const/16 v23, 0x2
 
-    aget-object v22, p3, v22
+    aget-object v23, p3, v23
 
-    invoke-static/range {v22 .. v22}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static/range {v23 .. v23}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v18
+    move-result v19
 
-    const/16 v22, 0x5
+    const/16 v23, 0x5
 
-    aget-object v22, p3, v22
+    aget-object v23, p3, v23
 
-    invoke-static/range {v22 .. v22}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static/range {v23 .. v23}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v6
 
-    const/16 v22, 0x6
+    const/16 v23, 0x6
 
-    aget-object v22, p3, v22
+    aget-object v23, p3, v23
 
-    invoke-static/range {v22 .. v22}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static/range {v23 .. v23}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v9
+    move-result v10
 
     move-object/from16 v0, p0
 
-    iput v9, v0, Lcom/android/server/DirEncryptServiceHelper;->mErrAdditionalSpace:I
+    iput v10, v0, Lcom/android/server/DirEncryptServiceHelper;->mErrAdditionalSpace:I
 
-    const/16 v22, 0x4
+    const/16 v23, 0x4
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/android/server/DirEncryptServiceHelper;->mLastError:I
 
-    new-instance v22, Ljava/lang/StringBuilder;
+    new-instance v23, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v23 .. v23}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v24, ""
+    const-string/jumbo v25, ""
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v22
+    move-result-object v23
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v22
+    move-result-object v23
 
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v22
+    move-result-object v23
 
-    const/16 v24, 0x6
+    const/16 v25, 0x6
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v24
+    move/from16 v1, v25
 
-    move-object/from16 v2, v22
+    move-object/from16 v2, v23
 
     invoke-direct {v0, v1, v6, v2}, Lcom/android/server/DirEncryptServiceHelper;->showNotification(IILjava/lang/String;)V
 
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v22
+    move/from16 v1, v23
 
     invoke-direct {v0, v1}, Lcom/android/server/DirEncryptServiceHelper;->setStatus(I)V
 
-    if-nez v18, :cond_d
+    if-nez v19, :cond_d
 
-    const/16 v22, 0x3
+    const/16 v23, 0x3
 
     :goto_9
-    const-string/jumbo v24, "free"
+    const-string/jumbo v25, "free"
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v22
+    move/from16 v1, v23
 
-    move-object/from16 v2, v24
+    move-object/from16 v2, v25
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/DirEncryptServiceHelper;->notifyEncryptionStatusChanged(ILjava/lang/String;)V
 
-    new-instance v15, Lcom/samsung/android/security/SemSdCardEncryptionPolicy;
+    new-instance v16, Lcom/samsung/android/security/SemSdCardEncryptionPolicy;
 
-    if-nez v18, :cond_e
+    if-nez v19, :cond_e
 
-    const/16 v22, 0x2
+    const/16 v23, 0x2
 
     :goto_a
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/DirEncryptServiceHelper;->mDew:Lcom/samsung/android/security/DirEncryptionWrapper;
 
-    move-object/from16 v24, v0
+    move-object/from16 v25, v0
 
-    invoke-virtual/range {v24 .. v24}, Lcom/samsung/android/security/DirEncryptionWrapper;->getExternalSDvolFsUuid()Ljava/lang/String;
+    invoke-virtual/range {v25 .. v25}, Lcom/samsung/android/security/DirEncryptionWrapper;->getExternalSDvolFsUuid()Ljava/lang/String;
 
-    move-result-object v24
+    move-result-object v25
 
-    move/from16 v0, v22
+    move-object/from16 v0, v16
 
-    move-object/from16 v1, v24
+    move/from16 v1, v23
 
-    invoke-direct {v15, v8, v0, v1}, Lcom/samsung/android/security/SemSdCardEncryptionPolicy;-><init>(IILjava/lang/String;)V
+    move-object/from16 v2, v25
+
+    invoke-direct {v0, v8, v1, v2}, Lcom/samsung/android/security/SemSdCardEncryptionPolicy;-><init>(IILjava/lang/String;)V
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/DirEncryptServiceHelper;->mDep:Lcom/android/server/DirEncryptPrefs;
 
-    move-object/from16 v22, v0
+    move-object/from16 v23, v0
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    invoke-virtual {v0, v15}, Lcom/android/server/DirEncryptPrefs;->savePrefs(Lcom/samsung/android/security/SemSdCardEncryptionPolicy;)Z
+    move-object/from16 v1, v16
+
+    invoke-virtual {v0, v1}, Lcom/android/server/DirEncryptPrefs;->savePrefs(Lcom/samsung/android/security/SemSdCardEncryptionPolicy;)Z
 
     goto/16 :goto_1
 
     :cond_d
-    const/16 v22, 0x2
+    const/16 v23, 0x2
 
     goto :goto_9
 
     :cond_e
-    const/16 v22, 0x3
+    const/16 v23, 0x3
 
     goto :goto_a
 
     :cond_f
-    const-string/jumbo v22, "DirEncryptService"
+    const-string/jumbo v23, "DirEncryptService"
 
-    new-instance v24, Ljava/lang/StringBuilder;
+    new-instance v25, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v25, "RESP_PRESCAN_FULL_ERR extra data recvd["
+    const-string/jumbo v26, "RESP_PRESCAN_FULL_ERR extra data recvd["
 
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v25
 
     move-object/from16 v0, p3
 
     array-length v0, v0
 
-    move/from16 v25, v0
+    move/from16 v26, v0
 
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v25
 
-    const-string/jumbo v25, "], please fix!!"
+    const-string/jumbo v26, "], please fix!!"
 
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v25
 
-    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v24
+    move-result-object v25
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -3809,156 +3840,160 @@
 
     array-length v0, v0
 
-    move/from16 v22, v0
+    move/from16 v23, v0
 
-    const/16 v24, 0x8
+    const/16 v25, 0x8
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
-    move/from16 v1, v24
+    move/from16 v1, v25
 
     if-ne v0, v1, :cond_12
 
-    const/16 v22, 0x2
+    const/16 v23, 0x2
 
-    aget-object v22, p3, v22
+    aget-object v23, p3, v23
 
-    invoke-static/range {v22 .. v22}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static/range {v23 .. v23}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v18
+    move-result v19
 
-    const/16 v22, 0x5
+    const/16 v23, 0x5
 
-    aget-object v22, p3, v22
+    aget-object v23, p3, v23
 
-    invoke-static/range {v22 .. v22}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static/range {v23 .. v23}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v6
 
-    const/16 v22, 0xb
+    const/16 v23, 0xb
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/android/server/DirEncryptServiceHelper;->mLastError:I
 
-    const-string/jumbo v22, ""
+    const-string/jumbo v23, ""
 
-    const/16 v24, 0xb
+    const/16 v25, 0xb
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v24
+    move/from16 v1, v25
 
-    move-object/from16 v2, v22
+    move-object/from16 v2, v23
 
     invoke-direct {v0, v1, v6, v2}, Lcom/android/server/DirEncryptServiceHelper;->showNotification(IILjava/lang/String;)V
 
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v22
+    move/from16 v1, v23
 
     invoke-direct {v0, v1}, Lcom/android/server/DirEncryptServiceHelper;->setStatus(I)V
 
-    if-nez v18, :cond_10
+    if-nez v19, :cond_10
 
-    const/16 v22, 0x3
+    const/16 v23, 0x3
 
     :goto_b
-    const-string/jumbo v24, "free"
+    const-string/jumbo v25, "free"
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v22
+    move/from16 v1, v23
 
-    move-object/from16 v2, v24
+    move-object/from16 v2, v25
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/DirEncryptServiceHelper;->notifyEncryptionStatusChanged(ILjava/lang/String;)V
 
-    new-instance v15, Lcom/samsung/android/security/SemSdCardEncryptionPolicy;
+    new-instance v16, Lcom/samsung/android/security/SemSdCardEncryptionPolicy;
 
-    if-nez v18, :cond_11
+    if-nez v19, :cond_11
 
-    const/16 v22, 0x2
+    const/16 v23, 0x2
 
     :goto_c
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/DirEncryptServiceHelper;->mDew:Lcom/samsung/android/security/DirEncryptionWrapper;
 
-    move-object/from16 v24, v0
+    move-object/from16 v25, v0
 
-    invoke-virtual/range {v24 .. v24}, Lcom/samsung/android/security/DirEncryptionWrapper;->getExternalSDvolFsUuid()Ljava/lang/String;
+    invoke-virtual/range {v25 .. v25}, Lcom/samsung/android/security/DirEncryptionWrapper;->getExternalSDvolFsUuid()Ljava/lang/String;
 
-    move-result-object v24
+    move-result-object v25
 
-    move/from16 v0, v22
+    move-object/from16 v0, v16
 
-    move-object/from16 v1, v24
+    move/from16 v1, v23
 
-    invoke-direct {v15, v8, v0, v1}, Lcom/samsung/android/security/SemSdCardEncryptionPolicy;-><init>(IILjava/lang/String;)V
+    move-object/from16 v2, v25
+
+    invoke-direct {v0, v8, v1, v2}, Lcom/samsung/android/security/SemSdCardEncryptionPolicy;-><init>(IILjava/lang/String;)V
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/DirEncryptServiceHelper;->mDep:Lcom/android/server/DirEncryptPrefs;
 
-    move-object/from16 v22, v0
+    move-object/from16 v23, v0
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    invoke-virtual {v0, v15}, Lcom/android/server/DirEncryptPrefs;->savePrefs(Lcom/samsung/android/security/SemSdCardEncryptionPolicy;)Z
+    move-object/from16 v1, v16
+
+    invoke-virtual {v0, v1}, Lcom/android/server/DirEncryptPrefs;->savePrefs(Lcom/samsung/android/security/SemSdCardEncryptionPolicy;)Z
 
     goto/16 :goto_1
 
     :cond_10
-    const/16 v22, 0x2
+    const/16 v23, 0x2
 
     goto :goto_b
 
     :cond_11
-    const/16 v22, 0x3
+    const/16 v23, 0x3
 
     goto :goto_c
 
     :cond_12
-    const-string/jumbo v22, "DirEncryptService"
+    const-string/jumbo v23, "DirEncryptService"
 
-    new-instance v24, Ljava/lang/StringBuilder;
+    new-instance v25, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v25, "RESP_FILE_OPEN_ERR extra data recvd["
+    const-string/jumbo v26, "RESP_FILE_OPEN_ERR extra data recvd["
 
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v25
 
     move-object/from16 v0, p3
 
     array-length v0, v0
 
-    move/from16 v25, v0
+    move/from16 v26, v0
 
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v25
 
-    const-string/jumbo v25, "], please fix!!"
+    const-string/jumbo v26, "], please fix!!"
 
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v25
 
-    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v24
+    move-result-object v25
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -3969,45 +4004,45 @@
 
     array-length v0, v0
 
-    move/from16 v22, v0
+    move/from16 v23, v0
 
-    const/16 v24, 0x2
+    const/16 v25, 0x2
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
-    move/from16 v1, v24
+    move/from16 v1, v25
 
     if-ne v0, v1, :cond_14
 
-    const/16 v22, 0x1
+    const/16 v23, 0x1
 
-    aget-object v22, p3, v22
+    aget-object v23, p3, v23
 
-    invoke-static/range {v22 .. v22}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static/range {v23 .. v23}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v19
+    move-result v20
 
-    const/16 v22, 0x1
+    const/16 v23, 0x1
 
-    move/from16 v0, v19
+    move/from16 v0, v20
 
-    move/from16 v1, v22
+    move/from16 v1, v23
 
     if-eq v0, v1, :cond_13
 
-    const-string/jumbo v22, "DirEncryptService"
+    const-string/jumbo v23, "DirEncryptService"
 
-    const-string/jumbo v24, "Unable to ss_migration"
+    const-string/jumbo v25, "Unable to ss_migration"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/16 v22, 0x2
+    const/16 v23, 0x2
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
     move-object/from16 v1, p0
 
@@ -4016,19 +4051,19 @@
     goto/16 :goto_1
 
     :cond_13
-    const-string/jumbo v22, "DirEncryptService"
+    const-string/jumbo v23, "DirEncryptService"
 
-    const-string/jumbo v24, "ss_migration successfully updated"
+    const-string/jumbo v25, "ss_migration successfully updated"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
     move-object/from16 v1, p0
 
@@ -4037,127 +4072,127 @@
     goto/16 :goto_1
 
     :cond_14
-    const-string/jumbo v22, "DirEncryptService"
+    const-string/jumbo v23, "DirEncryptService"
 
-    const-string/jumbo v24, "RESP_SS_MIGRATION extra data recvd, please fix!!"
+    const-string/jumbo v25, "RESP_SS_MIGRATION extra data recvd, please fix!!"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_1
 
     :pswitch_7
-    const/4 v11, -0x1
+    const/4 v12, -0x1
 
     move-object/from16 v0, p3
 
     array-length v0, v0
 
-    move/from16 v22, v0
+    move/from16 v23, v0
 
-    const/16 v24, 0x5
+    const/16 v25, 0x5
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
-    move/from16 v1, v24
+    move/from16 v1, v25
 
     if-ne v0, v1, :cond_16
 
-    const/16 v22, 0x3
+    const/16 v23, 0x3
 
-    aget-object v22, p3, v22
+    aget-object v23, p3, v23
 
-    invoke-static/range {v22 .. v22}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static/range {v23 .. v23}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v19
+    move-result v20
 
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v22
+    move/from16 v1, v23
 
     invoke-direct {v0, v1}, Lcom/android/server/DirEncryptServiceHelper;->setStatus(I)V
 
-    const/4 v11, 0x2
+    const/4 v12, 0x2
 
-    const/16 v22, 0x1
+    const/16 v23, 0x1
 
-    move/from16 v0, v19
+    move/from16 v0, v20
 
-    move/from16 v1, v22
+    move/from16 v1, v23
 
     if-ne v0, v1, :cond_15
 
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/android/server/DirEncryptServiceHelper;->mLastError:I
 
-    const-string/jumbo v22, "success"
+    const-string/jumbo v23, "success"
 
-    const/16 v24, 0x2
+    const/16 v25, 0x2
 
-    const/16 v25, 0x1
+    const/16 v26, 0x1
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v24
+    move/from16 v1, v25
 
-    move/from16 v2, v25
+    move/from16 v2, v26
 
-    move-object/from16 v3, v22
+    move-object/from16 v3, v23
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/DirEncryptServiceHelper;->showNotification(IILjava/lang/String;)V
 
-    const-string/jumbo v22, "Mount"
+    const-string/jumbo v23, "Mount"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v22
+    move-object/from16 v1, v23
 
-    invoke-direct {v0, v11, v1}, Lcom/android/server/DirEncryptServiceHelper;->notifyEncryptionStatusChanged(ILjava/lang/String;)V
+    invoke-direct {v0, v12, v1}, Lcom/android/server/DirEncryptServiceHelper;->notifyEncryptionStatusChanged(ILjava/lang/String;)V
 
     goto/16 :goto_1
 
     :cond_15
-    const/16 v22, 0x7
+    const/16 v23, 0x7
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/android/server/DirEncryptServiceHelper;->mLastError:I
 
-    const-string/jumbo v22, ""
+    const-string/jumbo v23, ""
 
-    const/16 v24, 0x2
+    const/16 v25, 0x2
 
-    const/16 v25, 0x1
+    const/16 v26, 0x1
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v24
+    move/from16 v1, v25
 
-    move/from16 v2, v25
+    move/from16 v2, v26
 
-    move-object/from16 v3, v22
+    move-object/from16 v3, v23
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/DirEncryptServiceHelper;->showNotification(IILjava/lang/String;)V
 
-    const-string/jumbo v22, "free"
+    const-string/jumbo v23, "free"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v22
+    move-object/from16 v1, v23
 
-    invoke-direct {v0, v11, v1}, Lcom/android/server/DirEncryptServiceHelper;->notifyEncryptionStatusChanged(ILjava/lang/String;)V
+    invoke-direct {v0, v12, v1}, Lcom/android/server/DirEncryptServiceHelper;->notifyEncryptionStatusChanged(ILjava/lang/String;)V
 
     goto/16 :goto_1
 
@@ -4166,324 +4201,328 @@
 
     array-length v0, v0
 
-    move/from16 v22, v0
+    move/from16 v23, v0
 
-    const/16 v24, 0x3
+    const/16 v25, 0x3
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
-    move/from16 v1, v24
+    move/from16 v1, v25
 
     if-ne v0, v1, :cond_19
 
-    const/16 v22, 0x2
+    const/16 v23, 0x2
 
-    aget-object v22, p3, v22
+    aget-object v23, p3, v23
 
-    invoke-static/range {v22 .. v22}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static/range {v23 .. v23}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v18
+    move-result v19
 
-    const/16 v22, 0x7
+    const/16 v23, 0x7
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/android/server/DirEncryptServiceHelper;->mLastError:I
 
-    if-nez v18, :cond_17
+    if-nez v19, :cond_17
 
-    const/4 v11, 0x3
+    const/4 v12, 0x3
 
     :goto_d
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v22
+    move/from16 v1, v23
 
     invoke-direct {v0, v1}, Lcom/android/server/DirEncryptServiceHelper;->setStatus(I)V
 
-    const-string/jumbo v22, "free"
+    const-string/jumbo v23, "free"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v22
+    move-object/from16 v1, v23
 
-    invoke-direct {v0, v11, v1}, Lcom/android/server/DirEncryptServiceHelper;->notifyEncryptionStatusChanged(ILjava/lang/String;)V
+    invoke-direct {v0, v12, v1}, Lcom/android/server/DirEncryptServiceHelper;->notifyEncryptionStatusChanged(ILjava/lang/String;)V
 
-    new-instance v15, Lcom/samsung/android/security/SemSdCardEncryptionPolicy;
+    new-instance v16, Lcom/samsung/android/security/SemSdCardEncryptionPolicy;
 
-    if-nez v18, :cond_18
+    if-nez v19, :cond_18
 
-    const/16 v22, 0x2
+    const/16 v23, 0x2
 
     :goto_e
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/DirEncryptServiceHelper;->mDew:Lcom/samsung/android/security/DirEncryptionWrapper;
 
-    move-object/from16 v24, v0
+    move-object/from16 v25, v0
 
-    invoke-virtual/range {v24 .. v24}, Lcom/samsung/android/security/DirEncryptionWrapper;->getExternalSDvolFsUuid()Ljava/lang/String;
+    invoke-virtual/range {v25 .. v25}, Lcom/samsung/android/security/DirEncryptionWrapper;->getExternalSDvolFsUuid()Ljava/lang/String;
 
-    move-result-object v24
+    move-result-object v25
 
-    move/from16 v0, v22
+    move-object/from16 v0, v16
 
-    move-object/from16 v1, v24
+    move/from16 v1, v23
 
-    invoke-direct {v15, v8, v0, v1}, Lcom/samsung/android/security/SemSdCardEncryptionPolicy;-><init>(IILjava/lang/String;)V
+    move-object/from16 v2, v25
+
+    invoke-direct {v0, v8, v1, v2}, Lcom/samsung/android/security/SemSdCardEncryptionPolicy;-><init>(IILjava/lang/String;)V
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/DirEncryptServiceHelper;->mDep:Lcom/android/server/DirEncryptPrefs;
 
-    move-object/from16 v22, v0
+    move-object/from16 v23, v0
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    invoke-virtual {v0, v15}, Lcom/android/server/DirEncryptPrefs;->savePrefs(Lcom/samsung/android/security/SemSdCardEncryptionPolicy;)Z
+    move-object/from16 v1, v16
+
+    invoke-virtual {v0, v1}, Lcom/android/server/DirEncryptPrefs;->savePrefs(Lcom/samsung/android/security/SemSdCardEncryptionPolicy;)Z
 
     goto/16 :goto_1
 
     :cond_17
-    const/4 v11, 0x2
+    const/4 v12, 0x2
 
     goto :goto_d
 
     :cond_18
-    const/16 v22, 0x3
+    const/16 v23, 0x3
 
     goto :goto_e
 
     :cond_19
-    const-string/jumbo v22, "DirEncryptService"
+    const-string/jumbo v23, "DirEncryptService"
 
-    new-instance v24, Ljava/lang/StringBuilder;
+    new-instance v25, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v25, "RESP_MOUNT extra data recvd["
+    const-string/jumbo v26, "RESP_MOUNT extra data recvd["
 
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v25
 
     move-object/from16 v0, p3
 
     array-length v0, v0
 
-    move/from16 v25, v0
+    move/from16 v26, v0
 
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v25
 
-    const-string/jumbo v25, "], please fix!!"
+    const-string/jumbo v26, "], please fix!!"
 
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v25
 
-    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v24
+    move-result-object v25
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_1
 
     :pswitch_8
-    const/4 v13, -0x1
+    const/4 v14, -0x1
 
     move-object/from16 v0, p3
 
     array-length v0, v0
 
-    move/from16 v22, v0
+    move/from16 v23, v0
 
-    const/16 v24, 0x4
+    const/16 v25, 0x4
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
-    move/from16 v1, v24
+    move/from16 v1, v25
 
     if-ne v0, v1, :cond_1b
 
-    const/16 v22, 0x3
+    const/16 v23, 0x3
 
-    aget-object v22, p3, v22
+    aget-object v23, p3, v23
 
-    invoke-static/range {v22 .. v22}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static/range {v23 .. v23}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v19
+    move-result v20
 
-    const/16 v22, 0x1
+    const/16 v23, 0x1
 
-    move/from16 v0, v19
+    move/from16 v0, v20
 
-    move/from16 v1, v22
+    move/from16 v1, v23
 
     if-ne v0, v1, :cond_1a
 
-    const-string/jumbo v22, ""
+    const-string/jumbo v23, ""
 
-    const/16 v24, 0x4
+    const/16 v25, 0x4
 
-    const/16 v25, 0x0
+    const/16 v26, 0x0
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v24
+    move/from16 v1, v25
 
-    move/from16 v2, v25
+    move/from16 v2, v26
 
-    move-object/from16 v3, v22
+    move-object/from16 v3, v23
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/DirEncryptServiceHelper;->showNotification(IILjava/lang/String;)V
 
     :cond_1a
-    const/4 v13, 0x3
+    const/4 v14, 0x3
 
     goto/16 :goto_1
 
     :cond_1b
-    const-string/jumbo v22, "DirEncryptService"
+    const-string/jumbo v23, "DirEncryptService"
 
-    new-instance v24, Ljava/lang/StringBuilder;
+    new-instance v25, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v25, "RESP_UNMOUNT extra data recvd["
+    const-string/jumbo v26, "RESP_UNMOUNT extra data recvd["
 
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v25
 
     move-object/from16 v0, p3
 
     array-length v0, v0
 
-    move/from16 v25, v0
+    move/from16 v26, v0
 
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v25
 
-    const-string/jumbo v25, "], please fix!!"
+    const-string/jumbo v26, "], please fix!!"
 
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v25
 
-    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v24
+    move-result-object v25
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_1
 
     :pswitch_9
-    const/4 v12, -0x1
+    const/4 v13, -0x1
 
     move-object/from16 v0, p3
 
     array-length v0, v0
 
-    move/from16 v22, v0
+    move/from16 v23, v0
 
-    const/16 v24, 0x2
+    const/16 v25, 0x2
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
-    move/from16 v1, v24
+    move/from16 v1, v25
 
     if-ne v0, v1, :cond_1d
 
-    const/16 v22, 0x1
+    const/16 v23, 0x1
 
-    aget-object v22, p3, v22
+    aget-object v23, p3, v23
 
-    invoke-static/range {v22 .. v22}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static/range {v23 .. v23}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v19
+    move-result v20
 
-    const/16 v22, 0x1
+    const/16 v23, 0x1
 
-    move/from16 v0, v19
+    move/from16 v0, v20
 
-    move/from16 v1, v22
+    move/from16 v1, v23
 
     if-ne v0, v1, :cond_1c
 
-    const-string/jumbo v22, ""
+    const-string/jumbo v23, ""
 
-    const/16 v24, 0x8
+    const/16 v25, 0x8
 
-    const/16 v25, 0x0
+    const/16 v26, 0x0
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v24
+    move/from16 v1, v25
 
-    move/from16 v2, v25
+    move/from16 v2, v26
 
-    move-object/from16 v3, v22
+    move-object/from16 v3, v23
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/DirEncryptServiceHelper;->showNotification(IILjava/lang/String;)V
 
     :cond_1c
-    const/16 v12, 0xb
+    const/16 v13, 0xb
 
     goto/16 :goto_1
 
     :cond_1d
-    const-string/jumbo v22, "DirEncryptService"
+    const-string/jumbo v23, "DirEncryptService"
 
-    new-instance v24, Ljava/lang/StringBuilder;
+    new-instance v25, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v25, "RESP_CHANGE_ECRYPTFS_PASSWORD extra data recvd["
+    const-string/jumbo v26, "RESP_CHANGE_ECRYPTFS_PASSWORD extra data recvd["
 
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v25
 
     move-object/from16 v0, p3
 
     array-length v0, v0
 
-    move/from16 v25, v0
+    move/from16 v26, v0
 
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v25
 
-    const-string/jumbo v25, "], please fix!!"
+    const-string/jumbo v26, "], please fix!!"
 
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v25
 
-    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v24
+    move-result-object v25
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -4494,86 +4533,86 @@
 
     array-length v0, v0
 
-    move/from16 v22, v0
+    move/from16 v23, v0
 
-    const/16 v24, 0x2
+    const/16 v25, 0x2
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
-    move/from16 v1, v24
+    move/from16 v1, v25
 
     if-ne v0, v1, :cond_1e
 
-    const/16 v22, 0x1
+    const/16 v23, 0x1
 
-    aget-object v22, p3, v22
+    aget-object v23, p3, v23
 
-    invoke-static/range {v22 .. v22}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static/range {v23 .. v23}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v19
+    move-result v20
 
-    const/16 v22, 0x1
+    const/16 v23, 0x1
 
-    move/from16 v0, v19
+    move/from16 v0, v20
 
-    move/from16 v1, v22
+    move/from16 v1, v23
 
     if-ne v0, v1, :cond_0
 
-    const-string/jumbo v22, ""
+    const-string/jumbo v23, ""
 
-    const/16 v24, 0x9
+    const/16 v25, 0x9
 
-    const/16 v25, 0x0
+    const/16 v26, 0x0
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v24
+    move/from16 v1, v25
 
-    move/from16 v2, v25
+    move/from16 v2, v26
 
-    move-object/from16 v3, v22
+    move-object/from16 v3, v23
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/DirEncryptServiceHelper;->showNotification(IILjava/lang/String;)V
 
     goto/16 :goto_1
 
     :cond_1e
-    const-string/jumbo v22, "DirEncryptService"
+    const-string/jumbo v23, "DirEncryptService"
 
-    new-instance v24, Ljava/lang/StringBuilder;
+    new-instance v25, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v25, "RESP_MOUNT_PATH_STATUS extra data recvd["
+    const-string/jumbo v26, "RESP_MOUNT_PATH_STATUS extra data recvd["
 
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v25
 
     move-object/from16 v0, p3
 
     array-length v0, v0
 
-    move/from16 v25, v0
+    move/from16 v26, v0
 
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v25
 
-    const-string/jumbo v25, "], please fix!!"
+    const-string/jumbo v26, "], please fix!!"
 
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v25
 
-    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v24
+    move-result-object v25
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -4584,163 +4623,163 @@
 
     array-length v0, v0
 
-    move/from16 v22, v0
+    move/from16 v23, v0
 
-    const/16 v24, 0x2
+    const/16 v25, 0x2
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
-    move/from16 v1, v24
+    move/from16 v1, v25
 
-    if-ne v0, v1, :cond_29
+    if-ne v0, v1, :cond_2a
 
-    const/16 v22, 0x1
+    const/16 v23, 0x1
 
-    aget-object v22, p3, v22
+    aget-object v23, p3, v23
 
-    invoke-static/range {v22 .. v22}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static/range {v23 .. v23}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v19
+    move-result v20
 
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/android/server/DirEncryptServiceHelper;->mLastError:I
 
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/android/server/DirEncryptServiceHelper;->mErrAdditionalSpace:I
 
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Lcom/android/server/DirEncryptServiceHelper;->mAlreadyDecrypted:Z
 
-    new-instance v16, Landroid/os/Bundle;
+    new-instance v17, Landroid/os/Bundle;
 
-    invoke-direct/range {v16 .. v16}, Landroid/os/Bundle;-><init>()V
+    invoke-direct/range {v17 .. v17}, Landroid/os/Bundle;-><init>()V
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v16
+    move-object/from16 v1, v17
 
     invoke-direct {v0, v1}, Lcom/android/server/DirEncryptServiceHelper;->getStorageCardEncryptionInternal(Landroid/os/Bundle;)I
 
     move-result v4
 
-    const-string/jumbo v22, "policy"
+    const-string/jumbo v23, "policy"
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v17
 
-    move-object/from16 v1, v22
+    move-object/from16 v1, v23
 
     invoke-virtual {v0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v8
 
-    const/16 v22, 0x1
+    const/16 v23, 0x1
 
-    move/from16 v0, v19
+    move/from16 v0, v20
 
-    move/from16 v1, v22
+    move/from16 v1, v23
 
-    if-ne v0, v1, :cond_24
+    if-ne v0, v1, :cond_25
 
-    const/16 v17, -0x1
+    const/16 v18, -0x1
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/DirEncryptServiceHelper;->mDep:Lcom/android/server/DirEncryptPrefs;
 
-    move-object/from16 v22, v0
+    move-object/from16 v23, v0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/DirEncryptServiceHelper;->mDew:Lcom/samsung/android/security/DirEncryptionWrapper;
 
-    move-object/from16 v24, v0
+    move-object/from16 v25, v0
 
-    invoke-virtual/range {v24 .. v24}, Lcom/samsung/android/security/DirEncryptionWrapper;->getExternalSDvolFsUuid()Ljava/lang/String;
+    invoke-virtual/range {v25 .. v25}, Lcom/samsung/android/security/DirEncryptionWrapper;->getExternalSDvolFsUuid()Ljava/lang/String;
 
-    move-result-object v24
+    move-result-object v25
 
     invoke-direct/range {p0 .. p0}, Lcom/android/server/DirEncryptServiceHelper;->isAdminApplied()Z
 
-    move-result v25
+    move-result v26
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
 
-    move/from16 v2, v25
+    move/from16 v2, v26
 
     invoke-virtual {v0, v1, v2}, Lcom/android/server/DirEncryptPrefs;->migrationUUIDPrefs(Ljava/lang/String;Z)I
 
-    move-result v17
+    move-result v18
 
-    if-nez v17, :cond_1f
+    if-nez v18, :cond_1f
 
-    const-string/jumbo v22, "DirEncryptService"
+    const-string/jumbo v23, "DirEncryptService"
 
-    const-string/jumbo v24, "Migration Success, so re-call policy"
+    const-string/jumbo v25, "Migration Success, so re-call policy"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v16
+    move-object/from16 v1, v17
 
     invoke-direct {v0, v1}, Lcom/android/server/DirEncryptServiceHelper;->getStorageCardEncryptionInternal(Landroid/os/Bundle;)I
 
     move-result v4
 
-    const-string/jumbo v22, "policy"
+    const-string/jumbo v23, "policy"
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v17
 
-    move-object/from16 v1, v22
+    move-object/from16 v1, v23
 
     invoke-virtual {v0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v8
 
     :cond_1f
-    const/16 v22, 0x1
+    const/16 v23, 0x1
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
     if-eq v4, v0, :cond_20
 
     if-nez v4, :cond_22
 
     :cond_20
-    const-string/jumbo v22, "DirEncryptService"
+    const-string/jumbo v23, "DirEncryptService"
 
-    const-string/jumbo v24, "SD card has decrypting/encrypting state -> Self Decrypting/Encrypting!!"
+    const-string/jumbo v25, "SD card has decrypting/encrypting state -> Self Decrypting/Encrypting!!"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/16 v22, 0x1
+    const/16 v23, 0x1
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
     move-object/from16 v1, p0
 
@@ -4750,72 +4789,111 @@
 
     iget-object v0, v0, Lcom/android/server/DirEncryptServiceHelper;->mDew:Lcom/samsung/android/security/DirEncryptionWrapper;
 
-    move-object/from16 v22, v0
+    move-object/from16 v23, v0
 
-    invoke-virtual/range {v22 .. v22}, Lcom/samsung/android/security/DirEncryptionWrapper;->getVolumeState()Ljava/lang/String;
+    invoke-virtual/range {v23 .. v23}, Lcom/samsung/android/security/DirEncryptionWrapper;->getVolumeState()Ljava/lang/String;
 
-    move-result-object v22
+    move-result-object v23
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v22
+    move-object/from16 v1, v23
 
     invoke-direct {v0, v1}, Lcom/android/server/DirEncryptServiceHelper;->doWorkForUSBState(Ljava/lang/String;)V
 
     :cond_21
     :goto_f
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
-    sput-boolean v22, Lcom/android/server/DirEncryptServiceHelper;->mMountSDcardToHelper:Z
+    sput-boolean v23, Lcom/android/server/DirEncryptServiceHelper;->mMountSDcardToHelper:Z
 
     goto/16 :goto_1
 
     :cond_22
-    const/16 v22, 0x3
+    const/16 v23, 0x3
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
-    if-ne v4, v0, :cond_23
+    if-ne v4, v0, :cond_24
 
-    const-string/jumbo v22, "DirEncryptService"
+    const-string/jumbo v23, "DirEncryptService"
 
-    const-string/jumbo v24, "ENC_META_CHECK : Error Case (Encrypted on other device)"
+    const-string/jumbo v25, "ENC_META_CHECK : Error Case (Encrypted on other device)"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/16 v22, 0x8
+    const/16 v23, 0x8
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/android/server/DirEncryptServiceHelper;->mLastError:I
 
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/DirEncryptServiceHelper;->mContext:Landroid/content/Context;
+
+    move-object/from16 v23, v0
+
+    invoke-virtual/range {v23 .. v23}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v23
+
+    const-string/jumbo v25, "user_setup_complete"
+
+    const/16 v26, 0x0
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v25
+
+    move/from16 v2, v26
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v9
+
+    if-nez v9, :cond_23
+
+    const-string/jumbo v23, "DirEncryptService"
+
+    const-string/jumbo v25, "The Setup Wizard is not completed yet"
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v25
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_1
+
+    :cond_23
     new-instance v7, Landroid/content/Intent;
 
-    const-string/jumbo v22, "com.sec.app.action.START_SDCARD_ENCRYPTION"
+    const-string/jumbo v23, "com.sec.app.action.START_SDCARD_ENCRYPTION"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
     invoke-direct {v7, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const-string/jumbo v22, "OtherDevice"
+    const-string/jumbo v23, "OtherDevice"
 
-    const-string/jumbo v24, "exception"
+    const-string/jumbo v25, "exception"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
 
     invoke-virtual {v7, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    const/high16 v22, 0x10400000
+    const/high16 v23, 0x10400000
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
     invoke-virtual {v7, v0}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
     :try_end_2
@@ -4826,9 +4904,9 @@
 
     iget-object v0, v0, Lcom/android/server/DirEncryptServiceHelper;->mContext:Landroid/content/Context;
 
-    move-object/from16 v22, v0
+    move-object/from16 v23, v0
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
     invoke-virtual {v0, v7}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
     :try_end_3
@@ -4841,96 +4919,50 @@
     move-exception v5
 
     :try_start_4
-    const-string/jumbo v22, "DirEncryptService"
+    const-string/jumbo v23, "DirEncryptService"
 
-    new-instance v24, Ljava/lang/StringBuilder;
+    new-instance v25, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v25, "Failed to start intent activity"
+    const-string/jumbo v26, "Failed to start intent activity"
 
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v25
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v25
 
     invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v25
 
-    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v24
+    move-result-object v25
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_f
-
-    :cond_23
-    const-string/jumbo v22, "DirEncryptService"
-
-    const-string/jumbo v24, "ENC_META_CHECK : Encryption State Normal"
-
-    move-object/from16 v0, v22
-
-    move-object/from16 v1, v24
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/16 v22, 0x1
-
-    move/from16 v0, v22
-
-    move-object/from16 v1, p0
-
-    iput-boolean v0, v1, Lcom/android/server/DirEncryptServiceHelper;->mSelfSDMountRequested:Z
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/DirEncryptServiceHelper;->mDew:Lcom/samsung/android/security/DirEncryptionWrapper;
-
-    move-object/from16 v22, v0
-
-    invoke-virtual/range {v22 .. v22}, Lcom/samsung/android/security/DirEncryptionWrapper;->getVolumeState()Ljava/lang/String;
-
-    move-result-object v22
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v22
-
-    invoke-direct {v0, v1}, Lcom/android/server/DirEncryptServiceHelper;->doWorkForUSBState(Ljava/lang/String;)V
 
     goto/16 :goto_f
 
     :cond_24
-    if-eqz v4, :cond_25
+    const-string/jumbo v23, "DirEncryptService"
 
-    const/16 v22, 0x2
+    const-string/jumbo v25, "ENC_META_CHECK : Encryption State Normal"
 
-    move/from16 v0, v22
+    move-object/from16 v0, v23
 
-    if-ne v4, v0, :cond_26
-
-    :cond_25
-    const-string/jumbo v22, "DirEncryptService"
-
-    const-string/jumbo v24, "ENC_META_CHECK : Meta deleted Case"
-
-    move-object/from16 v0, v22
-
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/16 v22, 0x1
+    const/16 v23, 0x1
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
     move-object/from16 v1, p0
 
@@ -4940,40 +4972,43 @@
 
     iget-object v0, v0, Lcom/android/server/DirEncryptServiceHelper;->mDew:Lcom/samsung/android/security/DirEncryptionWrapper;
 
-    move-object/from16 v22, v0
+    move-object/from16 v23, v0
 
-    invoke-virtual/range {v22 .. v22}, Lcom/samsung/android/security/DirEncryptionWrapper;->getVolumeState()Ljava/lang/String;
+    invoke-virtual/range {v23 .. v23}, Lcom/samsung/android/security/DirEncryptionWrapper;->getVolumeState()Ljava/lang/String;
 
-    move-result-object v22
+    move-result-object v23
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v22
+    move-object/from16 v1, v23
 
     invoke-direct {v0, v1}, Lcom/android/server/DirEncryptServiceHelper;->doWorkForUSBState(Ljava/lang/String;)V
 
     goto/16 :goto_f
 
-    :cond_26
-    const/16 v22, 0x1
+    :cond_25
+    if-eqz v4, :cond_26
 
-    move/from16 v0, v22
+    const/16 v23, 0x2
+
+    move/from16 v0, v23
 
     if-ne v4, v0, :cond_27
 
-    const-string/jumbo v22, "DirEncryptService"
+    :cond_26
+    const-string/jumbo v23, "DirEncryptService"
 
-    const-string/jumbo v24, "SD card has decrypting state -> Self Decrypting!!"
+    const-string/jumbo v25, "ENC_META_CHECK : Meta deleted Case"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/16 v22, 0x1
+    const/16 v23, 0x1
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
     move-object/from16 v1, p0
 
@@ -4983,65 +5018,108 @@
 
     iget-object v0, v0, Lcom/android/server/DirEncryptServiceHelper;->mDew:Lcom/samsung/android/security/DirEncryptionWrapper;
 
-    move-object/from16 v22, v0
+    move-object/from16 v23, v0
 
-    invoke-virtual/range {v22 .. v22}, Lcom/samsung/android/security/DirEncryptionWrapper;->getVolumeState()Ljava/lang/String;
+    invoke-virtual/range {v23 .. v23}, Lcom/samsung/android/security/DirEncryptionWrapper;->getVolumeState()Ljava/lang/String;
 
-    move-result-object v22
+    move-result-object v23
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v22
+    move-object/from16 v1, v23
 
     invoke-direct {v0, v1}, Lcom/android/server/DirEncryptServiceHelper;->doWorkForUSBState(Ljava/lang/String;)V
 
     goto/16 :goto_f
 
     :cond_27
-    const/16 v22, 0x1
+    const/16 v23, 0x1
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
-    if-ne v8, v0, :cond_28
+    if-ne v4, v0, :cond_28
 
-    const-string/jumbo v22, "DirEncryptService"
+    const-string/jumbo v23, "DirEncryptService"
 
-    const-string/jumbo v24, "ENC_META_CHECK : EAS Policy Set"
+    const-string/jumbo v25, "SD card has decrypting state -> Self Decrypting!!"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/16 v23, 0x1
+
+    move/from16 v0, v23
+
+    move-object/from16 v1, p0
+
+    iput-boolean v0, v1, Lcom/android/server/DirEncryptServiceHelper;->mSelfSDMountRequested:Z
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/DirEncryptServiceHelper;->mDew:Lcom/samsung/android/security/DirEncryptionWrapper;
+
+    move-object/from16 v23, v0
+
+    invoke-virtual/range {v23 .. v23}, Lcom/samsung/android/security/DirEncryptionWrapper;->getVolumeState()Ljava/lang/String;
+
+    move-result-object v23
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v23
+
+    invoke-direct {v0, v1}, Lcom/android/server/DirEncryptServiceHelper;->doWorkForUSBState(Ljava/lang/String;)V
+
+    goto/16 :goto_f
+
+    :cond_28
+    const/16 v23, 0x1
+
+    move/from16 v0, v23
+
+    if-ne v8, v0, :cond_29
+
+    const-string/jumbo v23, "DirEncryptService"
+
+    const-string/jumbo v25, "ENC_META_CHECK : EAS Policy Set"
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v25
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     new-instance v7, Landroid/content/Intent;
 
-    const-string/jumbo v22, "com.sec.app.action.START_SDCARD_ENCRYPTION"
+    const-string/jumbo v23, "com.sec.app.action.START_SDCARD_ENCRYPTION"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
     invoke-direct {v7, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const/high16 v22, 0x10400000
+    const/high16 v23, 0x10400000
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
     invoke-virtual {v7, v0}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    sget-boolean v22, Lcom/android/server/DirEncryptServiceHelper;->mMountSDcardToHelper:Z
+    sget-boolean v23, Lcom/android/server/DirEncryptServiceHelper;->mMountSDcardToHelper:Z
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    if-nez v22, :cond_21
+    if-nez v23, :cond_21
 
     :try_start_5
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/DirEncryptServiceHelper;->mContext:Landroid/content/Context;
 
-    move-object/from16 v22, v0
+    move-object/from16 v23, v0
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
     invoke-virtual {v0, v7}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
     :try_end_5
@@ -5054,133 +5132,133 @@
     move-exception v5
 
     :try_start_6
-    const-string/jumbo v22, "DirEncryptService"
+    const-string/jumbo v23, "DirEncryptService"
 
-    new-instance v24, Ljava/lang/StringBuilder;
+    new-instance v25, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v25, "Failed to start intent activity"
+    const-string/jumbo v26, "Failed to start intent activity"
 
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v25
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v25
 
     invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v25
 
-    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v24
+    move-result-object v25
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_f
 
-    :cond_28
-    const-string/jumbo v22, "DirEncryptService"
+    :cond_29
+    const-string/jumbo v23, "DirEncryptService"
 
-    const-string/jumbo v24, "ENC_META_CHECK : Normal SD Card"
+    const-string/jumbo v25, "ENC_META_CHECK : Normal SD Card"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Lcom/android/server/DirEncryptServiceHelper;->mSelfSDMountRequested:Z
 
-    const/16 v22, 0x1
+    const/16 v23, 0x1
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Lcom/android/server/DirEncryptServiceHelper;->mAlreadyDecrypted:Z
 
-    const-string/jumbo v22, "done"
+    const-string/jumbo v23, "done"
 
-    const/16 v24, 0x3
+    const/16 v25, 0x3
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v24
+    move/from16 v1, v25
 
-    move-object/from16 v2, v22
+    move-object/from16 v2, v23
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/DirEncryptServiceHelper;->notifyEncryptionStatusChanged(ILjava/lang/String;)V
 
     goto/16 :goto_f
 
-    :cond_29
-    const-string/jumbo v22, "DirEncryptService"
+    :cond_2a
+    const-string/jumbo v23, "DirEncryptService"
 
-    new-instance v24, Ljava/lang/StringBuilder;
+    new-instance v25, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v25, "RESP_ENC_META_CHECK extra data recvd["
+    const-string/jumbo v26, "RESP_ENC_META_CHECK extra data recvd["
 
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v25
 
     move-object/from16 v0, p3
 
     array-length v0, v0
 
-    move/from16 v25, v0
+    move/from16 v26, v0
 
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v25
 
-    const-string/jumbo v25, "], please fix!!"
+    const-string/jumbo v26, "], please fix!!"
 
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v25
 
-    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v24
+    move-result-object v25
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v22
+    move/from16 v1, v23
 
     invoke-direct {v0, v1}, Lcom/android/server/DirEncryptServiceHelper;->setStatus(I)V
 
-    const-string/jumbo v22, "free"
+    const-string/jumbo v23, "free"
 
-    const/16 v24, 0x3
+    const/16 v25, 0x3
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v24
+    move/from16 v1, v25
 
-    move-object/from16 v2, v22
+    move-object/from16 v2, v23
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/DirEncryptServiceHelper;->notifyEncryptionStatusChanged(ILjava/lang/String;)V
 
@@ -5191,108 +5269,110 @@
 
     array-length v0, v0
 
-    move/from16 v22, v0
+    move/from16 v23, v0
 
-    const/16 v24, 0x2
+    const/16 v25, 0x2
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
-    move/from16 v1, v24
+    move/from16 v1, v25
+
+    if-ne v0, v1, :cond_2c
+
+    const/16 v23, 0x1
+
+    aget-object v23, p3, v23
+
+    invoke-static/range {v23 .. v23}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v20
+
+    const/16 v23, 0x1
+
+    move/from16 v0, v20
+
+    move/from16 v1, v23
 
     if-ne v0, v1, :cond_2b
 
-    const/16 v22, 0x1
+    const-string/jumbo v23, "security.ode.knox.migration"
 
-    aget-object v22, p3, v22
+    const-string/jumbo v25, "Success"
 
-    invoke-static/range {v22 .. v22}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    move-object/from16 v0, v23
 
-    move-result v19
-
-    const/16 v22, 0x1
-
-    move/from16 v0, v19
-
-    move/from16 v1, v22
-
-    if-ne v0, v1, :cond_2a
-
-    const-string/jumbo v22, "security.ode.knox.migration"
-
-    const-string/jumbo v24, "Success"
-
-    move-object/from16 v0, v22
-
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
 
     invoke-static {v0, v1}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
     :goto_10
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v22
+    move/from16 v1, v23
 
     invoke-direct {v0, v1}, Lcom/android/server/DirEncryptServiceHelper;->setStatus(I)V
 
     goto/16 :goto_1
 
-    :cond_2a
-    const-string/jumbo v22, "security.ode.knox.migration"
+    :cond_2b
+    const-string/jumbo v23, "security.ode.knox.migration"
 
-    const-string/jumbo v24, "Failed"
+    const-string/jumbo v25, "Failed"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
 
     invoke-static {v0, v1}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_10
 
-    :cond_2b
-    const-string/jumbo v22, "DirEncryptService"
+    :cond_2c
+    const-string/jumbo v23, "DirEncryptService"
 
-    new-instance v24, Ljava/lang/StringBuilder;
+    new-instance v25, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v25, "RESP_KNOX_REVERT_SS extra data recvd["
+    const-string/jumbo v26, "RESP_KNOX_REVERT_SS extra data recvd["
 
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v25
 
     move-object/from16 v0, p3
 
     array-length v0, v0
 
-    move/from16 v25, v0
+    move/from16 v26, v0
 
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v25
 
-    const-string/jumbo v25, "], please fix!!"
+    const-string/jumbo v26, "], please fix!!"
 
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v25
 
-    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v24
+    move-result-object v25
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
     goto :goto_10
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x2ab

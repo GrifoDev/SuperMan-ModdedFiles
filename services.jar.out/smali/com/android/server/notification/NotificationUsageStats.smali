@@ -780,7 +780,17 @@
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Lcom/android/server/am/MARsPolicyManager;->handelNotificationBarClicked(Ljava/lang/String;)V
+    iget-object v3, p1, Lcom/android/server/notification/NotificationRecord;->sbn:Landroid/service/notification/StatusBarNotification;
+
+    invoke-virtual {v3}, Landroid/service/notification/StatusBarNotification;->getUid()I
+
+    move-result v3
+
+    invoke-static {v3}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v3
+
+    invoke-virtual {v1, v2, v3}, Lcom/android/server/am/MARsPolicyManager;->handleNotificationBarClicked(Ljava/lang/String;I)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

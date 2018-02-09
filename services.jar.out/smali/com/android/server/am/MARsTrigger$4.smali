@@ -32,11 +32,11 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 6
+    .locals 7
 
-    const/4 v5, 0x5
+    const/4 v6, 0x5
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -68,7 +68,15 @@
 
     iget-object v3, v3, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
 
-    invoke-virtual {v3, v2}, Lcom/android/server/am/MARsPolicyManager;->updateSBikePackages(Ljava/util/ArrayList;)V
+    iget-object v4, p0, Lcom/android/server/am/MARsTrigger$4;->this$0:Lcom/android/server/am/MARsTrigger;
+
+    iget-object v4, v4, Lcom/android/server/am/MARsTrigger;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v4}, Landroid/content/Context;->getUserId()I
+
+    move-result v4
+
+    invoke-virtual {v3, v2, v4}, Lcom/android/server/am/MARsPolicyManager;->updateSBikePackages(Ljava/util/ArrayList;I)V
 
     :cond_0
     iget-object v3, p0, Lcom/android/server/am/MARsTrigger$4;->this$0:Lcom/android/server/am/MARsTrigger;
@@ -79,7 +87,7 @@
 
     move-result-object v4
 
-    invoke-static {v3, v5, v4}, Lcom/android/server/am/MARsTrigger;->-wrap4(Lcom/android/server/am/MARsTrigger;ILjava/lang/String;)V
+    invoke-static {v3, v6, v4}, Lcom/android/server/am/MARsTrigger;->-wrap4(Lcom/android/server/am/MARsTrigger;ILjava/lang/String;)V
 
     :cond_1
     :goto_0
@@ -98,7 +106,15 @@
 
     iget-object v3, v3, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
 
-    invoke-virtual {v3, v4, v5}, Lcom/android/server/am/MARsPolicyManager;->cancelPolicy(Ljava/lang/String;I)V
+    iget-object v4, p0, Lcom/android/server/am/MARsTrigger$4;->this$0:Lcom/android/server/am/MARsTrigger;
+
+    iget-object v4, v4, Lcom/android/server/am/MARsTrigger;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v4}, Landroid/content/Context;->getUserId()I
+
+    move-result v4
+
+    invoke-virtual {v3, v5, v6, v4}, Lcom/android/server/am/MARsPolicyManager;->cancelPolicy(Ljava/lang/String;II)V
 
     goto :goto_0
 .end method

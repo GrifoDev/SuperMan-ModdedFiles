@@ -634,6 +634,14 @@
         }
     .end annotation
 
+    invoke-virtual {p2}, Landroid/content/Intent;->getFlags()I
+
+    move-result v9
+
+    and-int/lit16 v9, v9, -0xc4
+
+    invoke-virtual {p2, v9}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v2

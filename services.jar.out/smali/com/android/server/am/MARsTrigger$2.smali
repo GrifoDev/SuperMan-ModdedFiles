@@ -32,342 +32,652 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 10
-
-    const/4 v9, 0x3
-
-    const/4 v8, 0x2
-
-    const/4 v7, 0x1
-
-    const/4 v6, 0x0
+    .locals 12
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    const-string/jumbo v5, "com.android.server.am.ACTION_UI_SET_ALWAYS_OPTIMIZING"
+    const-string/jumbo v8, "com.android.server.am.ACTION_UI_SET_ALWAYS_OPTIMIZING"
 
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v8
 
-    if-nez v5, :cond_0
+    if-nez v8, :cond_0
 
-    const-string/jumbo v5, "com.android.server.am.ACTION_SMUI_SETTING_TRUN_ON"
+    const-string/jumbo v8, "com.android.server.am.ACTION_SMUI_SETTING_TRUN_ON"
 
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v8
 
-    if-nez v5, :cond_0
+    if-nez v8, :cond_0
 
-    const-string/jumbo v5, "com.android.server.am.ACTION_PACKAGE_NOTUSED_RECENTLY"
+    const-string/jumbo v8, "com.android.server.am.ACTION_PACKAGE_NOTUSED_RECENTLY"
 
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v8
 
-    if-eqz v5, :cond_2
+    if-eqz v8, :cond_2
 
     :cond_0
-    iget-object v5, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+    iget-object v8, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
 
-    iget-object v6, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+    iget-object v9, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
 
-    invoke-static {v6, v0}, Lcom/android/server/am/MARsTrigger;->-wrap2(Lcom/android/server/am/MARsTrigger;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v9, v0}, Lcom/android/server/am/MARsTrigger;->-wrap2(Lcom/android/server/am/MARsTrigger;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v9
 
-    invoke-static {v5, v7, v6}, Lcom/android/server/am/MARsTrigger;->-wrap4(Lcom/android/server/am/MARsTrigger;ILjava/lang/String;)V
+    const/4 v10, 0x1
+
+    invoke-static {v8, v10, v9}, Lcom/android/server/am/MARsTrigger;->-wrap4(Lcom/android/server/am/MARsTrigger;ILjava/lang/String;)V
 
     :cond_1
     :goto_0
     return-void
 
     :cond_2
-    const-string/jumbo v5, "FIRST_ALARM_APPLOCKER"
+    const-string/jumbo v8, "FIRST_ALARM_APPLOCKER"
 
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v8
 
-    if-nez v5, :cond_3
+    if-nez v8, :cond_3
 
-    const-string/jumbo v5, "REPEAT_ALARM_APPLOCKER"
+    const-string/jumbo v8, "REPEAT_ALARM_APPLOCKER"
 
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v8
 
-    if-eqz v5, :cond_4
+    if-eqz v8, :cond_4
 
     :cond_3
-    iget-object v5, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+    iget-object v8, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
 
-    iget-object v6, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+    iget-object v8, v8, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
 
-    invoke-static {v6, v0}, Lcom/android/server/am/MARsTrigger;->-wrap2(Lcom/android/server/am/MARsTrigger;Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v8}, Lcom/android/server/am/MARsPolicyManager;->getScreenOnState()Z
 
-    move-result-object v6
+    move-result v8
 
-    invoke-static {v5, v7, v6}, Lcom/android/server/am/MARsTrigger;->-wrap4(Lcom/android/server/am/MARsTrigger;ILjava/lang/String;)V
+    if-nez v8, :cond_1
 
-    iget-object v5, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+    iget-object v8, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
 
-    const-string/jumbo v6, "REPEAT_ALARM_APPLOCKER"
+    iget-object v9, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
 
-    iget-object v7, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+    invoke-static {v9, v0}, Lcom/android/server/am/MARsTrigger;->-wrap2(Lcom/android/server/am/MARsTrigger;Ljava/lang/String;)Ljava/lang/String;
 
-    iget-wide v8, v7, Lcom/android/server/am/MARsTrigger;->mAppLockerRepeatAlarmInterval:J
+    move-result-object v9
 
-    invoke-static {v5, v6, v8, v9}, Lcom/android/server/am/MARsTrigger;->-wrap3(Lcom/android/server/am/MARsTrigger;Ljava/lang/String;J)V
+    const/4 v10, 0x1
+
+    invoke-static {v8, v10, v9}, Lcom/android/server/am/MARsTrigger;->-wrap4(Lcom/android/server/am/MARsTrigger;ILjava/lang/String;)V
+
+    iget-object v8, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+
+    const-string/jumbo v9, "REPEAT_ALARM_APPLOCKER"
+
+    iget-object v10, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+
+    iget-wide v10, v10, Lcom/android/server/am/MARsTrigger;->mAppLockerRepeatAlarmInterval:J
+
+    invoke-static {v8, v9, v10, v11}, Lcom/android/server/am/MARsTrigger;->-wrap3(Lcom/android/server/am/MARsTrigger;Ljava/lang/String;J)V
 
     goto :goto_0
 
     :cond_4
-    const-string/jumbo v5, "com.android.server.am.ACTION_UI_SET_AUTORUN_OFF"
+    const-string/jumbo v8, "com.android.server.am.ACTION_UI_SET_AUTORUN_OFF"
 
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v8
 
-    if-eqz v5, :cond_5
+    if-eqz v8, :cond_5
 
-    iget-object v5, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+    iget-object v8, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
 
-    iget-object v6, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+    iget-object v9, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
 
-    invoke-static {v6, v0}, Lcom/android/server/am/MARsTrigger;->-wrap2(Lcom/android/server/am/MARsTrigger;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v9, v0}, Lcom/android/server/am/MARsTrigger;->-wrap2(Lcom/android/server/am/MARsTrigger;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v9
 
-    invoke-static {v5, v8, v6}, Lcom/android/server/am/MARsTrigger;->-wrap4(Lcom/android/server/am/MARsTrigger;ILjava/lang/String;)V
+    const/4 v10, 0x2
+
+    invoke-static {v8, v10, v9}, Lcom/android/server/am/MARsTrigger;->-wrap4(Lcom/android/server/am/MARsTrigger;ILjava/lang/String;)V
 
     goto :goto_0
 
     :cond_5
-    const-string/jumbo v5, "FIRST_ALARM_AUTORUN"
+    const-string/jumbo v8, "FIRST_ALARM_AUTORUN"
 
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v8
 
-    if-nez v5, :cond_6
+    if-nez v8, :cond_6
 
-    const-string/jumbo v5, "REPEAT_ALARM_AUTORUN"
+    const-string/jumbo v8, "REPEAT_ALARM_AUTORUN"
 
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v8
 
-    if-eqz v5, :cond_7
+    if-eqz v8, :cond_7
 
     :cond_6
-    iget-object v5, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+    iget-object v8, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
 
-    iget-object v6, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+    iget-object v8, v8, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
 
-    invoke-static {v6, v0}, Lcom/android/server/am/MARsTrigger;->-wrap2(Lcom/android/server/am/MARsTrigger;Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v8}, Lcom/android/server/am/MARsPolicyManager;->getScreenOnState()Z
 
-    move-result-object v6
+    move-result v8
 
-    invoke-static {v5, v8, v6}, Lcom/android/server/am/MARsTrigger;->-wrap4(Lcom/android/server/am/MARsTrigger;ILjava/lang/String;)V
+    if-nez v8, :cond_1
 
-    iget-object v5, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+    iget-object v8, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
 
-    iget-object v5, v5, Lcom/android/server/am/MARsTrigger;->mHandler:Lcom/android/server/am/MARsTrigger$MARsTriggerHandler;
+    iget-object v9, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
 
-    new-instance v6, Lcom/android/server/am/MARsTrigger$2$1;
+    invoke-static {v9, v0}, Lcom/android/server/am/MARsTrigger;->-wrap2(Lcom/android/server/am/MARsTrigger;Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-direct {v6, p0}, Lcom/android/server/am/MARsTrigger$2$1;-><init>(Lcom/android/server/am/MARsTrigger$2;)V
+    move-result-object v9
 
-    const-wide/16 v8, 0x64
+    const/4 v10, 0x2
 
-    invoke-virtual {v5, v6, v8, v9}, Lcom/android/server/am/MARsTrigger$MARsTriggerHandler;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-static {v8, v10, v9}, Lcom/android/server/am/MARsTrigger;->-wrap4(Lcom/android/server/am/MARsTrigger;ILjava/lang/String;)V
 
-    goto :goto_0
+    iget-object v8, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+
+    iget-object v8, v8, Lcom/android/server/am/MARsTrigger;->mHandler:Lcom/android/server/am/MARsTrigger$MARsTriggerHandler;
+
+    new-instance v9, Lcom/android/server/am/MARsTrigger$2$1;
+
+    invoke-direct {v9, p0}, Lcom/android/server/am/MARsTrigger$2$1;-><init>(Lcom/android/server/am/MARsTrigger$2;)V
+
+    const-wide/16 v10, 0x64
+
+    invoke-virtual {v8, v9, v10, v11}, Lcom/android/server/am/MARsTrigger$MARsTriggerHandler;->postDelayed(Ljava/lang/Runnable;J)Z
+
+    goto/16 :goto_0
 
     :cond_7
-    const-string/jumbo v5, "FIRST_ALARM_AUTORUN_TRAFFIC_STAT"
+    const-string/jumbo v8, "FIRST_ALARM_AUTORUN_TRAFFIC_STAT"
 
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v8
 
-    if-eqz v5, :cond_8
+    if-eqz v8, :cond_8
 
-    iget-object v5, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+    iget-object v8, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
 
-    iget-object v5, v5, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+    iget-object v8, v8, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
 
-    invoke-virtual {v5}, Lcom/android/server/am/MARsPolicyManager;->updateTrafficStat()V
+    invoke-virtual {v8}, Lcom/android/server/am/MARsPolicyManager;->getScreenOnState()Z
 
-    iget-object v5, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+    move-result v8
 
-    const-string/jumbo v6, "FIRST_ALARM_AUTORUN"
+    if-nez v8, :cond_1
 
-    iget-object v7, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+    iget-object v8, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
 
-    iget-wide v8, v7, Lcom/android/server/am/MARsTrigger;->mAutoRunTrafficStatCollectorInterval:J
+    iget-object v8, v8, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
 
-    invoke-static {v5, v6, v8, v9}, Lcom/android/server/am/MARsTrigger;->-wrap3(Lcom/android/server/am/MARsTrigger;Ljava/lang/String;J)V
+    invoke-virtual {v8}, Lcom/android/server/am/MARsPolicyManager;->updateTrafficStat()V
+
+    iget-object v8, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+
+    iget-object v8, v8, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+
+    invoke-virtual {v8}, Lcom/android/server/am/MARsPolicyManager;->updateLocationStat()V
+
+    iget-object v8, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+
+    const-string/jumbo v9, "FIRST_ALARM_AUTORUN"
+
+    iget-object v10, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+
+    iget-wide v10, v10, Lcom/android/server/am/MARsTrigger;->mAutoRunTrafficStatCollectorInterval:J
+
+    invoke-static {v8, v9, v10, v11}, Lcom/android/server/am/MARsTrigger;->-wrap3(Lcom/android/server/am/MARsTrigger;Ljava/lang/String;J)V
 
     goto/16 :goto_0
 
     :cond_8
-    const-string/jumbo v5, "REPEAT_ALARM_AUTORUN_TRAFFIC_STAT"
+    const-string/jumbo v8, "REPEAT_ALARM_AUTORUN_TRAFFIC_STAT"
 
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v8
 
-    if-eqz v5, :cond_9
+    if-eqz v8, :cond_9
 
-    iget-object v5, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+    iget-object v8, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
 
-    iget-object v5, v5, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+    iget-object v8, v8, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
 
-    invoke-virtual {v5}, Lcom/android/server/am/MARsPolicyManager;->updateTrafficStat()V
+    invoke-virtual {v8}, Lcom/android/server/am/MARsPolicyManager;->getScreenOnState()Z
 
-    iget-object v5, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+    move-result v8
 
-    const-string/jumbo v6, "REPEAT_ALARM_AUTORUN"
+    if-nez v8, :cond_1
 
-    iget-object v7, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+    iget-object v8, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
 
-    iget-wide v8, v7, Lcom/android/server/am/MARsTrigger;->mAutoRunTrafficStatCollectorInterval:J
+    iget-object v8, v8, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
 
-    invoke-static {v5, v6, v8, v9}, Lcom/android/server/am/MARsTrigger;->-wrap3(Lcom/android/server/am/MARsTrigger;Ljava/lang/String;J)V
+    invoke-virtual {v8}, Lcom/android/server/am/MARsPolicyManager;->updateTrafficStat()V
+
+    iget-object v8, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+
+    iget-object v8, v8, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+
+    invoke-virtual {v8}, Lcom/android/server/am/MARsPolicyManager;->updateLocationStat()V
+
+    iget-object v8, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+
+    const-string/jumbo v9, "REPEAT_ALARM_AUTORUN"
+
+    iget-object v10, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+
+    iget-wide v10, v10, Lcom/android/server/am/MARsTrigger;->mAutoRunTrafficStatCollectorInterval:J
+
+    invoke-static {v8, v9, v10, v11}, Lcom/android/server/am/MARsTrigger;->-wrap3(Lcom/android/server/am/MARsTrigger;Ljava/lang/String;J)V
 
     goto/16 :goto_0
 
     :cond_9
-    const-string/jumbo v5, "android.intent.action.SET_RUNNING_LOCATION"
+    const-string/jumbo v8, "com.samsung.intent.action.SET_RUNNING_LOCATION"
 
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v8
 
-    if-eqz v5, :cond_a
+    if-eqz v8, :cond_a
 
-    iget-object v5, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+    iget-object v8, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
 
-    iget-object v5, v5, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+    iget-object v8, v8, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
 
-    invoke-virtual {v5, p2}, Lcom/android/server/am/MARsPolicyManager;->updateRunningLocationPackages(Landroid/content/Intent;)V
+    invoke-virtual {v8, p2}, Lcom/android/server/am/MARsPolicyManager;->updateRunningLocationPackages(Landroid/content/Intent;)V
 
     goto/16 :goto_0
 
     :cond_a
-    const-string/jumbo v5, "com.samsung.android.server.am.ACTION_UI_TRIGGER_POLICY"
+    const-string/jumbo v8, "com.samsung.android.server.am.ACTION_UI_TRIGGER_POLICY"
 
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v8
 
-    if-eqz v5, :cond_b
+    if-eqz v8, :cond_b
 
     invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
-    move-result-object v1
-
-    if-eqz v1, :cond_1
-
-    const-string/jumbo v5, "POLICY_NAME"
-
-    const-string/jumbo v6, ""
-
-    invoke-virtual {v1, v5, v6}, Landroid/os/Bundle;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
     move-result-object v3
 
-    iget-object v5, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+    if-eqz v3, :cond_1
 
-    invoke-static {v5, v3}, Lcom/android/server/am/MARsTrigger;->-wrap1(Lcom/android/server/am/MARsTrigger;Ljava/lang/String;)I
+    const-string/jumbo v8, "POLICY_NAME"
 
-    move-result v4
+    const-string/jumbo v9, ""
 
-    const-string/jumbo v5, "PACKAGE_NAME"
+    invoke-virtual {v3, v8, v9}, Landroid/os/Bundle;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {v1, v5}, Landroid/os/Bundle;->getStringArrayList(Ljava/lang/String;)Ljava/util/ArrayList;
+    move-result-object v6
 
-    move-result-object v2
+    iget-object v8, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
 
-    if-eqz v4, :cond_1
+    invoke-static {v8, v6}, Lcom/android/server/am/MARsTrigger;->-wrap1(Lcom/android/server/am/MARsTrigger;Ljava/lang/String;)I
 
-    if-eqz v2, :cond_1
+    move-result v7
 
-    iget-object v5, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+    const-string/jumbo v8, "PACKAGE_NAME"
 
-    iget-object v5, v5, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+    invoke-virtual {v3, v8}, Landroid/os/Bundle;->getStringArrayList(Ljava/lang/String;)Ljava/util/ArrayList;
 
-    invoke-virtual {v5, v4, v2}, Lcom/android/server/am/MARsPolicyManager;->forceRunPolicyForSpecificPackage(ILjava/util/ArrayList;)V
+    move-result-object v5
+
+    if-eqz v7, :cond_1
+
+    if-eqz v5, :cond_1
+
+    iget-object v8, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+
+    iget-object v8, v8, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+
+    invoke-virtual {v8, v7, v5}, Lcom/android/server/am/MARsPolicyManager;->forceRunPolicyForSpecificPackage(ILjava/util/ArrayList;)V
 
     goto/16 :goto_0
 
     :cond_b
-    const-string/jumbo v5, "com.android.server.am.ACTION_UI_SET_ARES"
+    const-string/jumbo v8, "FIRST_ALARM_ARES_TRAFFIC_STAT"
 
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v8
 
-    if-eqz v5, :cond_c
+    if-eqz v8, :cond_c
 
-    iget-object v5, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+    iget-object v8, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
 
-    iget-object v6, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+    const-string/jumbo v9, "force"
 
-    invoke-static {v6, v0}, Lcom/android/server/am/MARsTrigger;->-wrap2(Lcom/android/server/am/MARsTrigger;Ljava/lang/String;)Ljava/lang/String;
+    const/4 v10, 0x0
 
-    move-result-object v6
+    invoke-virtual {p2, v9, v10}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
-    invoke-static {v5, v9, v6}, Lcom/android/server/am/MARsTrigger;->-wrap4(Lcom/android/server/am/MARsTrigger;ILjava/lang/String;)V
+    move-result v9
+
+    invoke-static {v8, v9}, Lcom/android/server/am/MARsTrigger;->-set1(Lcom/android/server/am/MARsTrigger;Z)Z
+
+    iget-object v8, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+
+    iget-object v8, v8, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+
+    invoke-virtual {v8}, Lcom/android/server/am/MARsPolicyManager;->getScreenOnState()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_1
+
+    iget-object v8, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+
+    iget-object v8, v8, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+
+    invoke-virtual {v8}, Lcom/android/server/am/MARsPolicyManager;->getCarModeOnState()Z
+
+    move-result v8
+
+    if-nez v8, :cond_1
+
+    iget-object v8, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+
+    iget-object v8, v8, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+
+    invoke-virtual {v8}, Lcom/android/server/am/MARsPolicyManager;->updateTrafficStat()V
+
+    iget-object v8, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+
+    iget-object v8, v8, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+
+    invoke-virtual {v8}, Lcom/android/server/am/MARsPolicyManager;->updateLocationStat()V
+
+    iget-object v8, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+
+    const-string/jumbo v9, "ALARM_ARES_MEMORY_NOT_ENOUGH"
+
+    iget-object v10, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+
+    iget-wide v10, v10, Lcom/android/server/am/MARsTrigger;->mAutoRunTrafficStatCollectorInterval:J
+
+    invoke-static {v8, v9, v10, v11}, Lcom/android/server/am/MARsTrigger;->-wrap3(Lcom/android/server/am/MARsTrigger;Ljava/lang/String;J)V
 
     goto/16 :goto_0
 
     :cond_c
-    const-string/jumbo v5, "com.android.server.am.ACTION_MEMORY_NOT_ENOUGH_ARES"
+    const-string/jumbo v8, "com.android.server.am.ACTION_UI_SET_ARES"
 
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v8
 
-    if-eqz v5, :cond_d
+    if-eqz v8, :cond_d
 
-    iget-object v5, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+    iget-object v8, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
 
-    const-string/jumbo v6, "ALARM_ARES_MEMORY_NOT_ENOUGH"
+    iget-object v9, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
 
-    iget-object v7, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+    invoke-static {v9, v0}, Lcom/android/server/am/MARsTrigger;->-wrap2(Lcom/android/server/am/MARsTrigger;Ljava/lang/String;)Ljava/lang/String;
 
-    iget-wide v8, v7, Lcom/android/server/am/MARsTrigger;->mAutoRunTrafficStatCollectorInterval:J
+    move-result-object v9
 
-    invoke-static {v5, v6, v8, v9}, Lcom/android/server/am/MARsTrigger;->-wrap3(Lcom/android/server/am/MARsTrigger;Ljava/lang/String;J)V
+    const/4 v10, 0x3
+
+    invoke-static {v8, v10, v9}, Lcom/android/server/am/MARsTrigger;->-wrap4(Lcom/android/server/am/MARsTrigger;ILjava/lang/String;)V
 
     goto/16 :goto_0
 
     :cond_d
-    const-string/jumbo v5, "ALARM_ARES_MEMORY_NOT_ENOUGH"
+    const-string/jumbo v8, "com.android.server.am.ACTION_MEMORY_NOT_ENOUGH_ARES"
 
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v8
 
-    if-eqz v5, :cond_1
+    if-eqz v8, :cond_e
 
-    iget-object v5, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+    iget-object v8, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
 
-    iget-object v5, v5, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+    iget-object v8, v8, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
 
-    invoke-virtual {v5}, Lcom/android/server/am/MARsPolicyManager;->updateTrafficStat()V
+    invoke-virtual {v8}, Lcom/android/server/am/MARsPolicyManager;->getScreenOnState()Z
 
-    iget-object v5, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+    move-result v8
 
-    iget-object v5, v5, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+    if-eqz v8, :cond_1
 
-    invoke-virtual {v5, v9, v6}, Lcom/android/server/am/MARsPolicyManager;->forceRunPolicyForMemoryNotEnough(IZ)V
+    iget-object v8, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+
+    iget-object v8, v8, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+
+    invoke-virtual {v8}, Lcom/android/server/am/MARsPolicyManager;->getCarModeOnState()Z
+
+    move-result v8
+
+    if-nez v8, :cond_1
+
+    iget-object v8, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+
+    iget-object v8, v8, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+
+    invoke-virtual {v8}, Lcom/android/server/am/MARsPolicyManager;->updateTrafficStat()V
+
+    iget-object v8, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+
+    iget-object v8, v8, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+
+    invoke-virtual {v8}, Lcom/android/server/am/MARsPolicyManager;->updateLocationStat()V
+
+    iget-object v8, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+
+    const-string/jumbo v9, "ALARM_ARES_MEMORY_NOT_ENOUGH"
+
+    iget-object v10, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+
+    iget-wide v10, v10, Lcom/android/server/am/MARsTrigger;->mAutoRunTrafficStatCollectorInterval:J
+
+    invoke-static {v8, v9, v10, v11}, Lcom/android/server/am/MARsTrigger;->-wrap3(Lcom/android/server/am/MARsTrigger;Ljava/lang/String;J)V
+
+    goto/16 :goto_0
+
+    :cond_e
+    const-string/jumbo v8, "ALARM_ARES_MEMORY_NOT_ENOUGH"
+
+    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_f
+
+    iget-object v8, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+
+    iget-object v8, v8, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+
+    invoke-virtual {v8}, Lcom/android/server/am/MARsPolicyManager;->getScreenOnState()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_1
+
+    iget-object v8, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+
+    iget-object v8, v8, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+
+    invoke-virtual {v8}, Lcom/android/server/am/MARsPolicyManager;->getCarModeOnState()Z
+
+    move-result v8
+
+    if-nez v8, :cond_1
+
+    iget-object v8, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+
+    iget-object v8, v8, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+
+    invoke-virtual {v8}, Lcom/android/server/am/MARsPolicyManager;->updateTrafficStat()V
+
+    iget-object v8, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v10
+
+    invoke-static {v8, v10, v11}, Lcom/android/server/am/MARsTrigger;->-set2(Lcom/android/server/am/MARsTrigger;J)J
+
+    iget-object v8, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+
+    iget-object v8, v8, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+
+    iget-object v9, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+
+    invoke-static {v9}, Lcom/android/server/am/MARsTrigger;->-get2(Lcom/android/server/am/MARsTrigger;)Z
+
+    move-result v9
+
+    const/4 v10, 0x3
+
+    invoke-virtual {v8, v10, v9}, Lcom/android/server/am/MARsPolicyManager;->forceRunPolicyForMemoryNotEnough(IZ)V
+
+    goto/16 :goto_0
+
+    :cond_f
+    const-string/jumbo v8, "ACTION_MARS_UPDATE_ARES_SETTING"
+
+    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_1
+
+    invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_1
+
+    const-string/jumbo v8, "coolTime"
+
+    invoke-virtual {v3, v8}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
+
+    move-result v1
+
+    if-lez v1, :cond_10
+
+    iget-object v8, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+
+    iget-object v8, v8, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+
+    iget-object v8, v8, Lcom/android/server/am/MARsPolicyManager;->mAm:Lcom/android/server/am/ActivityManagerService;
+
+    if-eqz v8, :cond_10
+
+    iget-object v8, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+
+    iget-object v8, v8, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+
+    iget-object v8, v8, Lcom/android/server/am/MARsPolicyManager;->mAm:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v8, v8, Lcom/android/server/am/ActivityManagerService;->mDynamicHiddenApp:Lcom/android/server/am/DynamicHiddenApp;
+
+    if-eqz v8, :cond_10
+
+    iget-object v8, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+
+    iget-object v8, v8, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+
+    iget-object v8, v8, Lcom/android/server/am/MARsPolicyManager;->mAm:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v8, v8, Lcom/android/server/am/ActivityManagerService;->mDynamicHiddenApp:Lcom/android/server/am/DynamicHiddenApp;
+
+    invoke-virtual {v8, v1}, Lcom/android/server/am/DynamicHiddenApp;->setAREsCoolTimeForSluggishAging(I)V
+
+    :cond_10
+    const-string/jumbo v8, "lastUsedTime"
+
+    invoke-virtual {v3, v8}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
+
+    move-result v4
+
+    if-lez v4, :cond_11
+
+    iget-object v8, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+
+    iget-object v8, v8, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+
+    if-eqz v8, :cond_11
+
+    iget-object v8, p0, Lcom/android/server/am/MARsTrigger$2;->this$0:Lcom/android/server/am/MARsTrigger;
+
+    iget-object v8, v8, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+
+    invoke-virtual {v8, v4}, Lcom/android/server/am/MARsPolicyManager;->setUnusedAREsTimeForSluggishAging(I)V
+
+    :cond_11
+    :try_start_0
+    const-string/jumbo v8, "sys.config.mars_ares_setting"
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-static {v1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    const-string/jumbo v10, "_"
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v8, v9}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto/16 :goto_0
+
+    :catch_0
+    move-exception v2
+
+    const-string/jumbo v8, "MARsTrigger"
+
+    const-string/jumbo v9, "init(), we cannot set system property"
+
+    invoke-static {v8, v9}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_0
 .end method

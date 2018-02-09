@@ -11993,9 +11993,13 @@
 
     iget-object v13, v4, Lcom/android/server/am/ActivityManagerService;->mMARsPolicyManager:Lcom/android/server/am/MARsPolicyManager;
 
+    invoke-static/range {p3 .. p3}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v14
+
     move-object/from16 v0, p4
 
-    invoke-virtual {v13, v0}, Lcom/android/server/am/MARsPolicyManager;->handelAlertToastWindowStarted(Ljava/lang/String;)V
+    invoke-virtual {v13, v0, v14}, Lcom/android/server/am/MARsPolicyManager;->handleAlertToastWindowStarted(Ljava/lang/String;I)V
 
     :cond_9
     iget v13, v10, Lcom/android/server/AppOpsService$Op;->mode:I

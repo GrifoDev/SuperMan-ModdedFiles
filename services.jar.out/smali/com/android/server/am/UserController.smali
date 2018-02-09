@@ -3521,20 +3521,20 @@
 
     if-eqz v2, :cond_3
 
-    if-eqz v36, :cond_8
+    if-eqz v36, :cond_9
 
     :cond_3
     invoke-virtual/range {v37 .. v37}, Landroid/content/pm/UserInfo;->isManagedProfile()Z
 
     move-result v2
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_8
 
     move-object/from16 v0, p1
 
     iget-boolean v2, v0, Lcom/android/server/am/UserState;->tokenProvided:Z
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_6
 
     move-object/from16 v0, p0
 
@@ -3546,7 +3546,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_7
 
     const/4 v11, 0x0
 
@@ -3579,12 +3579,27 @@
 
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
 
-    return-void
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/am/UserController;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v2, v2, Lcom/android/server/am/ActivityManagerService;->mMARsPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+
+    if-eqz v2, :cond_5
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/am/UserController;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v2, v2, Lcom/android/server/am/ActivityManagerService;->mMARsPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+
+    sget-boolean v2, Lcom/android/server/am/MARsPolicyManager;->MARs_ENABLE:Z
+
+    if-eqz v2, :cond_a
 
     :cond_5
-    const/4 v11, 0x1
-
-    goto :goto_0
+    :goto_2
+    return-void
 
     :cond_6
     const/4 v11, 0x1
@@ -3592,11 +3607,16 @@
     goto :goto_0
 
     :cond_7
-    const/4 v11, 0x0
+    const/4 v11, 0x1
 
     goto :goto_0
 
     :cond_8
+    const/4 v11, 0x0
+
+    goto :goto_0
+
+    :cond_9
     :try_start_3
     invoke-direct/range {p0 .. p1}, Lcom/android/server/am/UserController;->finishUserUnlockedCompleted(Lcom/android/server/am/UserState;)V
     :try_end_3
@@ -3612,6 +3632,19 @@
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
 
     throw v2
+
+    :cond_a
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/am/UserController;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v2, v2, Lcom/android/server/am/ActivityManagerService;->mMARsPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+
+    const/4 v3, 0x1
+
+    invoke-virtual {v2, v3}, Lcom/android/server/am/MARsPolicyManager;->init(Z)V
+
+    goto :goto_2
 .end method
 
 .method getCurrentOrTargetUserIdLocked()I

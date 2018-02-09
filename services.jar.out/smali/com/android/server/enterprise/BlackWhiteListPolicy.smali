@@ -641,7 +641,7 @@
 .end method
 
 .method private getAllObjectsFromList(ILjava/lang/String;Ljava/util/List;)V
-    .locals 8
+    .locals 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -663,6 +663,9 @@
 
     aput-object v0, v5, v1
 
+    const/4 v6, 0x0
+
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/enterprise/BlackWhiteListPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
     iget-object v1, p0, Lcom/android/server/enterprise/BlackWhiteListPolicy;->mTable:Ljava/lang/String;
@@ -686,7 +689,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     const-string/jumbo v0, "Object"
 
@@ -699,13 +702,50 @@
     move-result-object v7
 
     invoke-interface {p3, v7}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    :try_end_0
+    .catch Landroid/database/SQLException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     goto :goto_0
 
-    :cond_0
+    :catch_0
+    move-exception v8
+
+    :try_start_1
+    const-string/jumbo v0, "BlackWhiteListPolicyService"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "Exception occurred accessing Enterprise db "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v8}, Landroid/database/SQLException;->getMessage()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    if-eqz v6, :cond_0
+
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    :cond_1
+    :cond_0
+    :goto_1
     const-string/jumbo v0, "BlackWhiteListPolicyService"
 
     const-string/jumbo v1, "getAllObjectsFromList:"
@@ -713,6 +753,23 @@
     invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
+
+    :cond_1
+    if-eqz v6, :cond_0
+
+    invoke-interface {v6}, Landroid/database/Cursor;->close()V
+
+    goto :goto_1
+
+    :catchall_0
+    move-exception v0
+
+    if-eqz v6, :cond_2
+
+    invoke-interface {v6}, Landroid/database/Cursor;->close()V
+
+    :cond_2
+    throw v0
 .end method
 
 .method private getAllObjectsFromListForAllAdmins(Ljava/lang/String;)Ljava/util/List;

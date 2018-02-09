@@ -1098,40 +1098,100 @@
 .method private getNumberOfDeprecatedFiles()I
     .locals 7
 
-    const/4 v6, 0x0
+    const/4 v5, 0x0
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    new-array v1, v3, [Ljava/lang/String;
+    new-array v1, v4, [Ljava/lang/String;
 
-    const-string/jumbo v3, "auditNumberOfDepFiles"
+    const-string/jumbo v4, "auditNumberOfDepFiles"
 
-    aput-object v3, v1, v6
+    aput-object v4, v1, v5
 
-    iget-object v3, p0, Lcom/android/server/enterprise/auditlog/CircularBuffer;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
-
-    const-string/jumbo v4, "AUDITLOG"
-
-    iget v5, p0, Lcom/android/server/enterprise/auditlog/CircularBuffer;->mUid:I
-
-    invoke-virtual {v3, v4, v5, v1}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getCursorByAdmin(Ljava/lang/String;I[Ljava/lang/String;)Landroid/database/Cursor;
-
-    move-result-object v0
+    const/4 v0, 0x0
 
     const/4 v2, 0x0
+
+    :try_start_0
+    iget-object v4, p0, Lcom/android/server/enterprise/auditlog/CircularBuffer;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+
+    const-string/jumbo v5, "AUDITLOG"
+
+    iget v6, p0, Lcom/android/server/enterprise/auditlog/CircularBuffer;->mUid:I
+
+    invoke-virtual {v4, v5, v6, v1}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getCursorByAdmin(Ljava/lang/String;I[Ljava/lang/String;)Landroid/database/Cursor;
+
+    move-result-object v0
 
     if-eqz v0, :cond_0
 
     invoke-interface {v0}, Landroid/database/Cursor;->moveToFirst()Z
 
-    invoke-interface {v0, v6}, Landroid/database/Cursor;->getInt(I)I
+    const/4 v4, 0x0
+
+    invoke-interface {v0, v4}, Landroid/database/Cursor;->getInt(I)I
+    :try_end_0
+    .catch Landroid/database/SQLException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
+    :cond_0
+    if-eqz v0, :cond_1
+
     invoke-interface {v0}, Landroid/database/Cursor;->close()V
 
-    :cond_0
+    :cond_1
+    :goto_0
     return v2
+
+    :catch_0
+    move-exception v3
+
+    :try_start_1
+    const-string/jumbo v4, "CircularBuffer"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "Exception occurred accessing Enterprise db "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v3}, Landroid/database/SQLException;->getMessage()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    if-eqz v0, :cond_1
+
+    invoke-interface {v0}, Landroid/database/Cursor;->close()V
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v4
+
+    if-eqz v0, :cond_2
+
+    invoke-interface {v0}, Landroid/database/Cursor;->close()V
+
+    :cond_2
+    throw v4
 .end method
 
 .method private isCompressed(Ljava/io/File;)Z

@@ -121,7 +121,7 @@
 
     iget-object v1, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager$PersonaObserver;->this$0:Lcom/android/server/enterprise/ccm/ClientCertificateManager;
 
-    invoke-static {v1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->-get2(Lcom/android/server/enterprise/ccm/ClientCertificateManager;)Lcom/samsung/android/knox/SemPersonaManager;
+    invoke-static {v1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->-get3(Lcom/android/server/enterprise/ccm/ClientCertificateManager;)Lcom/samsung/android/knox/SemPersonaManager;
 
     move-result-object v1
 
@@ -137,7 +137,7 @@
 
     iget v2, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager$PersonaObserver;->containerId:I
 
-    invoke-static {v1, v2}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->-wrap4(Lcom/android/server/enterprise/ccm/ClientCertificateManager;I)Z
+    invoke-static {v1, v2}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->-wrap5(Lcom/android/server/enterprise/ccm/ClientCertificateManager;I)Z
 
     move-result v0
 
@@ -178,7 +178,7 @@
 
     iget v2, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager$PersonaObserver;->containerId:I
 
-    invoke-static {v1, v2}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->-wrap6(Lcom/android/server/enterprise/ccm/ClientCertificateManager;I)Z
+    invoke-static {v1, v2}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->-wrap7(Lcom/android/server/enterprise/ccm/ClientCertificateManager;I)Z
 
     move-result v1
 
@@ -206,12 +206,12 @@
 
     iget v2, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager$PersonaObserver;->containerId:I
 
-    invoke-static {v1, v2, v4}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->-wrap5(Lcom/android/server/enterprise/ccm/ClientCertificateManager;IZ)Z
+    invoke-static {v1, v2, v4}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->-wrap6(Lcom/android/server/enterprise/ccm/ClientCertificateManager;IZ)Z
 
     :cond_4
     iget-object v1, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager$PersonaObserver;->this$0:Lcom/android/server/enterprise/ccm/ClientCertificateManager;
 
-    invoke-static {v1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->-get2(Lcom/android/server/enterprise/ccm/ClientCertificateManager;)Lcom/samsung/android/knox/SemPersonaManager;
+    invoke-static {v1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->-get3(Lcom/android/server/enterprise/ccm/ClientCertificateManager;)Lcom/samsung/android/knox/SemPersonaManager;
 
     move-result-object v1
 
@@ -231,7 +231,7 @@
 
     iget-object v1, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager$PersonaObserver;->this$0:Lcom/android/server/enterprise/ccm/ClientCertificateManager;
 
-    invoke-static {v1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->-get2(Lcom/android/server/enterprise/ccm/ClientCertificateManager;)Lcom/samsung/android/knox/SemPersonaManager;
+    invoke-static {v1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->-get3(Lcom/android/server/enterprise/ccm/ClientCertificateManager;)Lcom/samsung/android/knox/SemPersonaManager;
 
     move-result-object v1
 
@@ -254,7 +254,7 @@
 
     iget v2, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager$PersonaObserver;->containerId:I
 
-    invoke-static {v1, v2, v4, v4, v5}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->-wrap7(Lcom/android/server/enterprise/ccm/ClientCertificateManager;IZZZ)Z
+    invoke-static {v1, v2, v4, v4, v5}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->-wrap8(Lcom/android/server/enterprise/ccm/ClientCertificateManager;IZZZ)Z
 
     :cond_6
     :goto_0
@@ -263,7 +263,7 @@
     :cond_7
     iget-object v1, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager$PersonaObserver;->this$0:Lcom/android/server/enterprise/ccm/ClientCertificateManager;
 
-    invoke-static {v1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->-get2(Lcom/android/server/enterprise/ccm/ClientCertificateManager;)Lcom/samsung/android/knox/SemPersonaManager;
+    invoke-static {v1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->-get3(Lcom/android/server/enterprise/ccm/ClientCertificateManager;)Lcom/samsung/android/knox/SemPersonaManager;
 
     move-result-object v1
 
@@ -285,7 +285,7 @@
 
     iget v2, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager$PersonaObserver;->containerId:I
 
-    invoke-static {v1, v2, v4, v5, v5}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->-wrap7(Lcom/android/server/enterprise/ccm/ClientCertificateManager;IZZZ)Z
+    invoke-static {v1, v2, v4, v5, v5}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->-wrap8(Lcom/android/server/enterprise/ccm/ClientCertificateManager;IZZZ)Z
 
     goto :goto_0
 .end method

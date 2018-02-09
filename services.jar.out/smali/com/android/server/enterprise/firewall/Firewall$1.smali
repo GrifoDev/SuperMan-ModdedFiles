@@ -44,7 +44,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_0
 
     invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
@@ -58,54 +58,10 @@
 
     if-nez v0, :cond_0
 
-    new-instance v1, Ljava/lang/Thread;
+    iget-object v1, p0, Lcom/android/server/enterprise/firewall/Firewall$1;->this$0:Lcom/android/server/enterprise/firewall/Firewall;
 
-    new-instance v2, Lcom/android/server/enterprise/firewall/Firewall$1$1;
-
-    invoke-direct {v2, p0}, Lcom/android/server/enterprise/firewall/Firewall$1$1;-><init>(Lcom/android/server/enterprise/firewall/Firewall$1;)V
-
-    invoke-direct {v1, v2}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
-
-    invoke-virtual {v1}, Ljava/lang/Thread;->start()V
+    invoke-static {v1}, Lcom/android/server/enterprise/firewall/Firewall;->-wrap3(Lcom/android/server/enterprise/firewall/Firewall;)V
 
     :cond_0
-    :goto_0
     return-void
-
-    :cond_1
-    const-string/jumbo v1, "android.intent.action.BOOT_COMPLETED"
-
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    invoke-static {}, Lcom/android/server/enterprise/firewall/Firewall;->-get2()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/server/enterprise/firewall/Firewall$1;->this$0:Lcom/android/server/enterprise/firewall/Firewall;
-
-    invoke-static {v1}, Lcom/android/server/enterprise/firewall/Firewall;->-get1(Lcom/android/server/enterprise/firewall/Firewall;)Lcom/android/server/enterprise/firewall/FirewallRulesApplier;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/server/enterprise/firewall/FirewallRulesApplier;->setRulesStatusAfterReboot()V
-
-    iget-object v1, p0, Lcom/android/server/enterprise/firewall/Firewall$1;->this$0:Lcom/android/server/enterprise/firewall/Firewall;
-
-    invoke-static {v1}, Lcom/android/server/enterprise/firewall/Firewall;->-wrap2(Lcom/android/server/enterprise/firewall/Firewall;)V
-
-    const/4 v1, 0x0
-
-    invoke-static {v1}, Lcom/android/server/enterprise/firewall/Firewall;->-set1(Z)Z
-
-    goto :goto_0
 .end method

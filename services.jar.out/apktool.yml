@@ -48,5 +48,5 @@ unknownFiles:
   mf/org/apache/xml/resolver/Version.src: '8'
   mf/org/apache/xml/serialize/HTMLEntities.res: '8'
 usesFramework: null
-version: 2.2.3
+version: 2.3.1
 versionInfo: null

@@ -24,6 +24,8 @@
 
 .field public static final ACCOUNT_TYPE_GOOGLE_POP3:Ljava/lang/String; = "com.google.android.gm.pop3"
 
+.field public static final ACCOUNT_TYPE_GOOGLE_WORK:Ljava/lang/String; = "com.google.work"
+
 .field public static final ACCOUNT_TYPE_LDAP:Ljava/lang/String; = "com.samsung.android.ldap"
 
 .field public static final ACCOUNT_TYPE_LDAP_OLD:Ljava/lang/String; = "com.android.ldap"
@@ -107,7 +109,7 @@
     return-void
 
     :cond_0
-    const/16 v0, 0x8
+    const/16 v0, 0x9
 
     new-array v0, v0, [Ljava/lang/String;
 
@@ -146,6 +148,12 @@
     const-string/jumbo v1, "com.google.android.gm.exchange"
 
     const/4 v2, 0x7
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "com.google.work"
+
+    const/16 v2, 0x8
 
     aput-object v1, v0, v2
 
