@@ -193,22 +193,10 @@
     goto :goto_0
 .end method
 
-.method private deleteEquals(Ljava/util/ArrayList;[Ljava/io/File;)[Ljava/io/File;
-    .locals 8
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/ArrayList",
-            "<",
-            "Landroid/sec/clipboard/data/file/WrapFileClipData;",
-            ">;[",
-            "Ljava/io/File;",
-            ")[",
-            "Ljava/io/File;"
-        }
-    .end annotation
+.method private getInvalidFileList([Ljava/io/File;)[Ljava/io/File;
+    .locals 9
 
-    invoke-virtual {p2}, Ljava/lang/Object;->clone()Ljava/lang/Object;
+    invoke-virtual {p1}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v2
 
@@ -216,7 +204,14 @@
 
     array-length v3, v2
 
-    invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    iget-object v7, p0, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;->dataList:Ljava/util/ArrayList;
+
+    monitor-enter v7
+
+    :try_start_0
+    iget-object v6, p0, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;->dataList:Ljava/util/ArrayList;
+
+    invoke-interface {v6}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v5
 
@@ -248,9 +243,9 @@
 
     iget-object v6, p0, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;->infoFile:Ljava/io/File;
 
-    aget-object v7, v2, v1
+    aget-object v8, v2, v1
 
-    invoke-virtual {v6, v7}, Ljava/io/File;->compareTo(Ljava/io/File;)I
+    invoke-virtual {v6, v8}, Ljava/io/File;->compareTo(Ljava/io/File;)I
 
     move-result v6
 
@@ -273,9 +268,9 @@
     :cond_2
     iget-object v6, p0, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;->infoTempFile:Ljava/io/File;
 
-    aget-object v7, v2, v1
+    aget-object v8, v2, v1
 
-    invoke-virtual {v6, v7}, Ljava/io/File;->compareTo(Ljava/io/File;)I
+    invoke-virtual {v6, v8}, Ljava/io/File;->compareTo(Ljava/io/File;)I
 
     move-result v6
 
@@ -288,12 +283,22 @@
     move-result-object v6
 
     aput-object v6, v2, v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     goto :goto_1
+
+    :catchall_0
+    move-exception v6
+
+    monitor-exit v7
+
+    throw v6
 
     :cond_3
     if-eqz v0, :cond_1
 
+    :try_start_1
     aget-object v6, v2, v1
 
     invoke-virtual {v0, v6}, Ljava/io/File;->compareTo(Ljava/io/File;)I
@@ -309,10 +314,14 @@
     move-result-object v6
 
     aput-object v6, v2, v1
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_1
 
     :cond_4
+    monitor-exit v7
+
     return-object v2
 .end method
 
@@ -1164,45 +1173,41 @@
 .method private saveInfoFile()Z
     .locals 5
 
-    new-instance v1, Ljava/util/ArrayList;
-
+    :try_start_0
     iget-object v2, p0, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;->dataList:Ljava/util/ArrayList;
 
-    invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
-
-    :try_start_0
-    iget-object v3, p0, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;->fileHelper:Landroid/sec/clipboard/util/FileHelper;
-
-    monitor-enter v3
+    monitor-enter v2
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     :try_start_1
-    iget-object v2, p0, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;->fileHelper:Landroid/sec/clipboard/util/FileHelper;
+    iget-object v1, p0, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;->fileHelper:Landroid/sec/clipboard/util/FileHelper;
 
-    iget-object v4, p0, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;->infoFile:Ljava/io/File;
+    iget-object v3, p0, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;->infoFile:Ljava/io/File;
 
-    invoke-virtual {v4}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-virtual {v2, v4, v1}, Landroid/sec/clipboard/util/FileHelper;->saveObjectFile(Ljava/lang/String;Ljava/lang/Object;)Z
+    iget-object v4, p0, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;->dataList:Ljava/util/ArrayList;
+
+    invoke-virtual {v1, v3, v4}, Landroid/sec/clipboard/util/FileHelper;->saveObjectFile(Ljava/lang/String;Ljava/lang/Object;)Z
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    move-result v2
+    move-result v1
 
     :try_start_2
-    monitor-exit v3
+    monitor-exit v2
 
-    return v2
+    return v1
 
     :catchall_0
-    move-exception v2
+    move-exception v1
 
-    monitor-exit v3
+    monitor-exit v2
 
-    throw v2
+    throw v1
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
 
@@ -1211,53 +1216,49 @@
 
     invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    return v2
+    return v1
 .end method
 
 .method private saveTempInfoFile()Z
     .locals 5
 
-    new-instance v1, Ljava/util/ArrayList;
-
+    :try_start_0
     iget-object v2, p0, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;->dataList:Ljava/util/ArrayList;
 
-    invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
-
-    :try_start_0
-    iget-object v3, p0, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;->fileHelper:Landroid/sec/clipboard/util/FileHelper;
-
-    monitor-enter v3
+    monitor-enter v2
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     :try_start_1
-    iget-object v2, p0, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;->fileHelper:Landroid/sec/clipboard/util/FileHelper;
+    iget-object v1, p0, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;->fileHelper:Landroid/sec/clipboard/util/FileHelper;
 
-    iget-object v4, p0, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;->infoTempFile:Ljava/io/File;
+    iget-object v3, p0, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;->infoTempFile:Ljava/io/File;
 
-    invoke-virtual {v4}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-virtual {v2, v4, v1}, Landroid/sec/clipboard/util/FileHelper;->saveObjectFile(Ljava/lang/String;Ljava/lang/Object;)Z
+    iget-object v4, p0, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;->dataList:Ljava/util/ArrayList;
+
+    invoke-virtual {v1, v3, v4}, Landroid/sec/clipboard/util/FileHelper;->saveObjectFile(Ljava/lang/String;Ljava/lang/Object;)Z
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    move-result v2
+    move-result v1
 
     :try_start_2
-    monitor-exit v3
+    monitor-exit v2
 
-    return v2
+    return v1
 
     :catchall_0
-    move-exception v2
+    move-exception v1
 
-    monitor-exit v3
+    monitor-exit v2
 
-    throw v2
+    throw v1
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
 
@@ -1266,9 +1267,9 @@
 
     invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    return v2
+    return v1
 .end method
 
 
@@ -1430,9 +1431,7 @@
     return-void
 
     :cond_1
-    iget-object v3, p0, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;->dataList:Ljava/util/ArrayList;
-
-    invoke-direct {p0, v3, v1}, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;->deleteEquals(Ljava/util/ArrayList;[Ljava/io/File;)[Ljava/io/File;
+    invoke-direct {p0, v1}, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;->getInvalidFileList([Ljava/io/File;)[Ljava/io/File;
 
     move-result-object v1
 
@@ -1728,9 +1727,7 @@
     return-void
 
     :cond_1
-    iget-object v3, p0, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;->dataList:Ljava/util/ArrayList;
-
-    invoke-direct {p0, v3, v1}, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;->deleteEquals(Ljava/util/ArrayList;[Ljava/io/File;)[Ljava/io/File;
+    invoke-direct {p0, v1}, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;->getInvalidFileList([Ljava/io/File;)[Ljava/io/File;
 
     move-result-object v1
 

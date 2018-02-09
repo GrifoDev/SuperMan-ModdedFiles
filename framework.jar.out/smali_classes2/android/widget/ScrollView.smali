@@ -1690,7 +1690,11 @@
 
     const v8, 0x3ecccccd    # 0.4f
 
-    invoke-virtual {v7, v8}, Landroid/widget/EdgeEffect;->onPull(F)V
+    const/high16 v9, 0x3f000000    # 0.5f
+
+    const/4 v10, 0x0
+
+    invoke-virtual {v7, v8, v9, v10}, Landroid/widget/EdgeEffect;->onPullCallOnRelease(FFI)V
 
     iget-object v7, p0, Landroid/widget/ScrollView;->mEdgeGlowBottom:Landroid/widget/EdgeEffect;
 
@@ -1765,7 +1769,11 @@
 
     const v8, 0x3ecccccd    # 0.4f
 
-    invoke-virtual {v7, v8}, Landroid/widget/EdgeEffect;->onPull(F)V
+    const/high16 v9, 0x3f000000    # 0.5f
+
+    const/4 v10, 0x0
+
+    invoke-virtual {v7, v8, v9, v10}, Landroid/widget/EdgeEffect;->onPullCallOnRelease(FFI)V
 
     const/4 v7, 0x1
 
@@ -5887,7 +5895,9 @@
 
     div-float/2addr v10, v11
 
-    invoke-virtual {v8, v9, v10}, Landroid/widget/EdgeEffect;->onPull(FF)V
+    const/16 v11, 0x96
+
+    invoke-virtual {v8, v9, v10, v11}, Landroid/widget/EdgeEffect;->onPullCallOnRelease(FFI)V
 
     invoke-virtual {p0}, Landroid/widget/ScrollView;->getWidth()I
 

@@ -28,6 +28,8 @@
 
 .field mDisappearingPackages:[Ljava/lang/String;
 
+.field mModifiedComponents:[Ljava/lang/String;
+
 .field mModifiedPackages:[Ljava/lang/String;
 
 .field mRegisteredContext:Landroid/content/Context;
@@ -256,6 +258,53 @@
     iget-object v0, p0, Lcom/android/internal/content/PackageMonitor;->mRegisteredHandler:Landroid/os/Handler;
 
     return-object v0
+.end method
+
+.method public isComponentModified(Ljava/lang/String;)Z
+    .locals 3
+
+    const/4 v2, 0x0
+
+    if-eqz p1, :cond_0
+
+    iget-object v1, p0, Lcom/android/internal/content/PackageMonitor;->mModifiedComponents:[Ljava/lang/String;
+
+    if-nez v1, :cond_1
+
+    :cond_0
+    return v2
+
+    :cond_1
+    iget-object v1, p0, Lcom/android/internal/content/PackageMonitor;->mModifiedComponents:[Ljava/lang/String;
+
+    array-length v1, v1
+
+    add-int/lit8 v0, v1, -0x1
+
+    :goto_0
+    if-ltz v0, :cond_3
+
+    iget-object v1, p0, Lcom/android/internal/content/PackageMonitor;->mModifiedComponents:[Ljava/lang/String;
+
+    aget-object v1, v1, v0
+
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    const/4 v1, 0x1
+
+    return v1
+
+    :cond_2
+    add-int/lit8 v0, v0, -0x1
+
+    goto :goto_0
+
+    :cond_3
+    return v2
 .end method
 
 .method public isPackageAppearing(Ljava/lang/String;)I
@@ -567,584 +616,590 @@
 .end method
 
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 13
+    .locals 12
 
-    const/16 v12, -0x2710
+    const/16 v11, -0x2710
 
-    const/4 v7, 0x2
+    const/4 v6, 0x2
+
+    const/4 v9, 0x0
+
+    const/4 v7, 0x1
 
     const/4 v10, 0x0
 
-    const/4 v8, 0x1
+    const-string/jumbo v8, "android.intent.extra.user_handle"
 
-    const/4 v11, 0x0
+    invoke-virtual {p2, v8, v11}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    const-string/jumbo v9, "android.intent.extra.user_handle"
+    move-result v8
 
-    invoke-virtual {p2, v9, v12}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    iput v8, p0, Lcom/android/internal/content/PackageMonitor;->mChangeUserId:I
 
-    move-result v9
+    iget v8, p0, Lcom/android/internal/content/PackageMonitor;->mChangeUserId:I
 
-    iput v9, p0, Lcom/android/internal/content/PackageMonitor;->mChangeUserId:I
+    if-ne v8, v11, :cond_0
 
-    iget v9, p0, Lcom/android/internal/content/PackageMonitor;->mChangeUserId:I
+    const-string/jumbo v6, "PackageMonitor"
 
-    if-ne v9, v12, :cond_0
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v7, "PackageMonitor"
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    const-string/jumbo v8, "Intent broadcast does not contain user handle: "
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v9, "Intent broadcast does not contain user handle: "
+    move-result-object v7
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v7
 
-    invoke-virtual {v8, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v7
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_0
     invoke-virtual {p0}, Lcom/android/internal/content/PackageMonitor;->onBeginPackageChanges()V
 
-    iput-object v10, p0, Lcom/android/internal/content/PackageMonitor;->mAppearingPackages:[Ljava/lang/String;
+    iput-object v9, p0, Lcom/android/internal/content/PackageMonitor;->mAppearingPackages:[Ljava/lang/String;
 
-    iput-object v10, p0, Lcom/android/internal/content/PackageMonitor;->mDisappearingPackages:[Ljava/lang/String;
+    iput-object v9, p0, Lcom/android/internal/content/PackageMonitor;->mDisappearingPackages:[Ljava/lang/String;
 
-    iput-boolean v11, p0, Lcom/android/internal/content/PackageMonitor;->mSomePackagesChanged:Z
+    iput-boolean v10, p0, Lcom/android/internal/content/PackageMonitor;->mSomePackagesChanged:Z
+
+    iput-object v9, p0, Lcom/android/internal/content/PackageMonitor;->mModifiedComponents:[Ljava/lang/String;
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    const-string/jumbo v9, "android.intent.action.PACKAGE_ADDED"
+    const-string/jumbo v8, "android.intent.action.PACKAGE_ADDED"
 
-    invoke-virtual {v9, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v8, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v9
+    move-result v8
 
-    if-eqz v9, :cond_4
+    if-eqz v8, :cond_4
 
     invoke-virtual {p0, p2}, Lcom/android/internal/content/PackageMonitor;->getPackageName(Landroid/content/Intent;)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v3
 
-    const-string/jumbo v7, "android.intent.extra.UID"
+    const-string/jumbo v6, "android.intent.extra.UID"
 
-    invoke-virtual {p2, v7, v11}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p2, v6, v10}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v5
+
+    iput-boolean v7, p0, Lcom/android/internal/content/PackageMonitor;->mSomePackagesChanged:Z
+
+    if-eqz v3, :cond_1
+
+    iget-object v6, p0, Lcom/android/internal/content/PackageMonitor;->mTempArray:[Ljava/lang/String;
+
+    iput-object v6, p0, Lcom/android/internal/content/PackageMonitor;->mAppearingPackages:[Ljava/lang/String;
+
+    iget-object v6, p0, Lcom/android/internal/content/PackageMonitor;->mTempArray:[Ljava/lang/String;
+
+    aput-object v3, v6, v10
+
+    const-string/jumbo v6, "android.intent.extra.REPLACING"
+
+    invoke-virtual {p2, v6, v10}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
     move-result v6
 
-    iput-boolean v8, p0, Lcom/android/internal/content/PackageMonitor;->mSomePackagesChanged:Z
+    if-eqz v6, :cond_3
 
-    if-eqz v4, :cond_1
+    iget-object v6, p0, Lcom/android/internal/content/PackageMonitor;->mTempArray:[Ljava/lang/String;
 
-    iget-object v7, p0, Lcom/android/internal/content/PackageMonitor;->mTempArray:[Ljava/lang/String;
+    iput-object v6, p0, Lcom/android/internal/content/PackageMonitor;->mModifiedPackages:[Ljava/lang/String;
 
-    iput-object v7, p0, Lcom/android/internal/content/PackageMonitor;->mAppearingPackages:[Ljava/lang/String;
+    iput v7, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
 
-    iget-object v7, p0, Lcom/android/internal/content/PackageMonitor;->mTempArray:[Ljava/lang/String;
+    invoke-virtual {p0, v3, v5}, Lcom/android/internal/content/PackageMonitor;->onPackageUpdateFinished(Ljava/lang/String;I)V
 
-    aput-object v4, v7, v11
-
-    const-string/jumbo v7, "android.intent.extra.REPLACING"
-
-    invoke-virtual {p2, v7, v11}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_3
-
-    iget-object v7, p0, Lcom/android/internal/content/PackageMonitor;->mTempArray:[Ljava/lang/String;
-
-    iput-object v7, p0, Lcom/android/internal/content/PackageMonitor;->mModifiedPackages:[Ljava/lang/String;
-
-    iput v8, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
-
-    invoke-virtual {p0, v4, v6}, Lcom/android/internal/content/PackageMonitor;->onPackageUpdateFinished(Ljava/lang/String;I)V
-
-    invoke-virtual {p0, v4}, Lcom/android/internal/content/PackageMonitor;->onPackageModified(Ljava/lang/String;)V
+    invoke-virtual {p0, v3}, Lcom/android/internal/content/PackageMonitor;->onPackageModified(Ljava/lang/String;)V
 
     :goto_0
-    iget v7, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
+    iget v6, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
 
-    invoke-virtual {p0, v4, v7}, Lcom/android/internal/content/PackageMonitor;->onPackageAppeared(Ljava/lang/String;I)V
+    invoke-virtual {p0, v3, v6}, Lcom/android/internal/content/PackageMonitor;->onPackageAppeared(Ljava/lang/String;I)V
 
-    iget v7, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
+    iget v6, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
 
-    if-ne v7, v8, :cond_1
+    if-ne v6, v7, :cond_1
 
-    iget-object v8, p0, Lcom/android/internal/content/PackageMonitor;->mUpdatingPackages:Ljava/util/HashSet;
-
-    monitor-enter v8
-
-    :try_start_0
     iget-object v7, p0, Lcom/android/internal/content/PackageMonitor;->mUpdatingPackages:Ljava/util/HashSet;
 
-    invoke-virtual {v7, v4}, Ljava/util/HashSet;->remove(Ljava/lang/Object;)Z
+    monitor-enter v7
+
+    :try_start_0
+    iget-object v6, p0, Lcom/android/internal/content/PackageMonitor;->mUpdatingPackages:Ljava/util/HashSet;
+
+    invoke-virtual {v6, v3}, Ljava/util/HashSet;->remove(Ljava/lang/Object;)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    monitor-exit v8
+    monitor-exit v7
 
     :cond_1
     :goto_1
-    iget-boolean v7, p0, Lcom/android/internal/content/PackageMonitor;->mSomePackagesChanged:Z
+    iget-boolean v6, p0, Lcom/android/internal/content/PackageMonitor;->mSomePackagesChanged:Z
 
-    if-eqz v7, :cond_2
+    if-eqz v6, :cond_2
 
     invoke-virtual {p0}, Lcom/android/internal/content/PackageMonitor;->onSomePackagesChanged()V
 
     :cond_2
     invoke-virtual {p0}, Lcom/android/internal/content/PackageMonitor;->onFinishPackageChanges()V
 
-    iput v12, p0, Lcom/android/internal/content/PackageMonitor;->mChangeUserId:I
+    iput v11, p0, Lcom/android/internal/content/PackageMonitor;->mChangeUserId:I
 
     return-void
 
     :cond_3
-    const/4 v7, 0x3
+    const/4 v6, 0x3
 
-    iput v7, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
+    iput v6, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
 
-    invoke-virtual {p0, v4, v6}, Lcom/android/internal/content/PackageMonitor;->onPackageAdded(Ljava/lang/String;I)V
+    invoke-virtual {p0, v3, v5}, Lcom/android/internal/content/PackageMonitor;->onPackageAdded(Ljava/lang/String;I)V
 
     goto :goto_0
 
     :catchall_0
-    move-exception v7
-
-    monitor-exit v8
-
-    throw v7
-
-    :cond_4
-    const-string/jumbo v9, "android.intent.action.PACKAGE_REMOVED"
-
-    invoke-virtual {v9, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v9
-
-    if-eqz v9, :cond_7
-
-    invoke-virtual {p0, p2}, Lcom/android/internal/content/PackageMonitor;->getPackageName(Landroid/content/Intent;)Ljava/lang/String;
-
-    move-result-object v4
-
-    const-string/jumbo v7, "android.intent.extra.UID"
-
-    invoke-virtual {p2, v7, v11}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
-
-    move-result v6
-
-    if-eqz v4, :cond_1
-
-    iget-object v7, p0, Lcom/android/internal/content/PackageMonitor;->mTempArray:[Ljava/lang/String;
-
-    iput-object v7, p0, Lcom/android/internal/content/PackageMonitor;->mDisappearingPackages:[Ljava/lang/String;
-
-    iget-object v7, p0, Lcom/android/internal/content/PackageMonitor;->mTempArray:[Ljava/lang/String;
-
-    aput-object v4, v7, v11
-
-    const-string/jumbo v7, "android.intent.extra.REPLACING"
-
-    invoke-virtual {p2, v7, v11}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_6
-
-    iput v8, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
-
-    iget-object v7, p0, Lcom/android/internal/content/PackageMonitor;->mUpdatingPackages:Ljava/util/HashSet;
-
-    monitor-enter v7
+    move-exception v6
 
     monitor-exit v7
 
-    invoke-virtual {p0, v4, v6}, Lcom/android/internal/content/PackageMonitor;->onPackageUpdateStarted(Ljava/lang/String;I)V
+    throw v6
+
+    :cond_4
+    const-string/jumbo v8, "android.intent.action.PACKAGE_REMOVED"
+
+    invoke-virtual {v8, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_7
+
+    invoke-virtual {p0, p2}, Lcom/android/internal/content/PackageMonitor;->getPackageName(Landroid/content/Intent;)Ljava/lang/String;
+
+    move-result-object v3
+
+    const-string/jumbo v6, "android.intent.extra.UID"
+
+    invoke-virtual {p2, v6, v10}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v5
+
+    if-eqz v3, :cond_1
+
+    iget-object v6, p0, Lcom/android/internal/content/PackageMonitor;->mTempArray:[Ljava/lang/String;
+
+    iput-object v6, p0, Lcom/android/internal/content/PackageMonitor;->mDisappearingPackages:[Ljava/lang/String;
+
+    iget-object v6, p0, Lcom/android/internal/content/PackageMonitor;->mTempArray:[Ljava/lang/String;
+
+    aput-object v3, v6, v10
+
+    const-string/jumbo v6, "android.intent.extra.REPLACING"
+
+    invoke-virtual {p2, v6, v10}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_6
+
+    iput v7, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
+
+    iget-object v6, p0, Lcom/android/internal/content/PackageMonitor;->mUpdatingPackages:Ljava/util/HashSet;
+
+    monitor-enter v6
+
+    monitor-exit v6
+
+    invoke-virtual {p0, v3, v5}, Lcom/android/internal/content/PackageMonitor;->onPackageUpdateStarted(Ljava/lang/String;I)V
 
     :cond_5
     :goto_2
-    iget v7, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
+    iget v6, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
 
-    invoke-virtual {p0, v4, v7}, Lcom/android/internal/content/PackageMonitor;->onPackageDisappeared(Ljava/lang/String;I)V
+    invoke-virtual {p0, v3, v6}, Lcom/android/internal/content/PackageMonitor;->onPackageDisappeared(Ljava/lang/String;I)V
 
     goto :goto_1
 
     :cond_6
-    const/4 v7, 0x3
+    const/4 v6, 0x3
 
-    iput v7, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
+    iput v6, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
 
-    iput-boolean v8, p0, Lcom/android/internal/content/PackageMonitor;->mSomePackagesChanged:Z
+    iput-boolean v7, p0, Lcom/android/internal/content/PackageMonitor;->mSomePackagesChanged:Z
 
-    invoke-virtual {p0, v4, v6}, Lcom/android/internal/content/PackageMonitor;->onPackageRemoved(Ljava/lang/String;I)V
+    invoke-virtual {p0, v3, v5}, Lcom/android/internal/content/PackageMonitor;->onPackageRemoved(Ljava/lang/String;I)V
 
-    const-string/jumbo v7, "android.intent.extra.REMOVED_FOR_ALL_USERS"
+    const-string/jumbo v6, "android.intent.extra.REMOVED_FOR_ALL_USERS"
 
-    invoke-virtual {p2, v7, v11}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    invoke-virtual {p2, v6, v10}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
-    move-result v7
+    move-result v6
 
-    if-eqz v7, :cond_5
+    if-eqz v6, :cond_5
 
-    invoke-virtual {p0, v4, v6}, Lcom/android/internal/content/PackageMonitor;->onPackageRemovedAllUsers(Ljava/lang/String;I)V
+    invoke-virtual {p0, v3, v5}, Lcom/android/internal/content/PackageMonitor;->onPackageRemovedAllUsers(Ljava/lang/String;I)V
 
     goto :goto_2
 
     :cond_7
-    const-string/jumbo v9, "android.intent.action.PACKAGE_CHANGED"
+    const-string/jumbo v8, "android.intent.action.PACKAGE_CHANGED"
 
-    invoke-virtual {v9, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v8, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v9
+    move-result v8
 
-    if-eqz v9, :cond_9
+    if-eqz v8, :cond_9
 
     invoke-virtual {p0, p2}, Lcom/android/internal/content/PackageMonitor;->getPackageName(Landroid/content/Intent;)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v3
 
-    const-string/jumbo v7, "android.intent.extra.UID"
+    const-string/jumbo v6, "android.intent.extra.UID"
 
-    invoke-virtual {p2, v7, v11}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p2, v6, v10}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v5
+
+    const-string/jumbo v6, "android.intent.extra.changed_component_name_list"
+
+    invoke-virtual {p2, v6}, Landroid/content/Intent;->getStringArrayExtra(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v6
+
+    iput-object v6, p0, Lcom/android/internal/content/PackageMonitor;->mModifiedComponents:[Ljava/lang/String;
+
+    if-eqz v3, :cond_1
+
+    iget-object v6, p0, Lcom/android/internal/content/PackageMonitor;->mTempArray:[Ljava/lang/String;
+
+    iput-object v6, p0, Lcom/android/internal/content/PackageMonitor;->mModifiedPackages:[Ljava/lang/String;
+
+    iget-object v6, p0, Lcom/android/internal/content/PackageMonitor;->mTempArray:[Ljava/lang/String;
+
+    aput-object v3, v6, v10
+
+    const/4 v6, 0x3
+
+    iput v6, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
+
+    iget-object v6, p0, Lcom/android/internal/content/PackageMonitor;->mModifiedComponents:[Ljava/lang/String;
+
+    invoke-virtual {p0, v3, v5, v6}, Lcom/android/internal/content/PackageMonitor;->onPackageChanged(Ljava/lang/String;I[Ljava/lang/String;)Z
 
     move-result v6
 
-    const-string/jumbo v7, "android.intent.extra.changed_component_name_list"
+    if-eqz v6, :cond_8
 
-    invoke-virtual {p2, v7}, Landroid/content/Intent;->getStringArrayExtra(Ljava/lang/String;)[Ljava/lang/String;
-
-    move-result-object v2
-
-    if-eqz v4, :cond_1
-
-    iget-object v7, p0, Lcom/android/internal/content/PackageMonitor;->mTempArray:[Ljava/lang/String;
-
-    iput-object v7, p0, Lcom/android/internal/content/PackageMonitor;->mModifiedPackages:[Ljava/lang/String;
-
-    iget-object v7, p0, Lcom/android/internal/content/PackageMonitor;->mTempArray:[Ljava/lang/String;
-
-    aput-object v4, v7, v11
-
-    const/4 v7, 0x3
-
-    iput v7, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
-
-    invoke-virtual {p0, v4, v6, v2}, Lcom/android/internal/content/PackageMonitor;->onPackageChanged(Ljava/lang/String;I[Ljava/lang/String;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_8
-
-    iput-boolean v8, p0, Lcom/android/internal/content/PackageMonitor;->mSomePackagesChanged:Z
+    iput-boolean v7, p0, Lcom/android/internal/content/PackageMonitor;->mSomePackagesChanged:Z
 
     :cond_8
-    invoke-virtual {p0, v4}, Lcom/android/internal/content/PackageMonitor;->onPackageModified(Ljava/lang/String;)V
+    invoke-virtual {p0, v3}, Lcom/android/internal/content/PackageMonitor;->onPackageModified(Ljava/lang/String;)V
 
     goto/16 :goto_1
 
     :cond_9
-    const-string/jumbo v9, "android.intent.action.PACKAGE_DATA_CLEARED"
+    const-string/jumbo v8, "android.intent.action.PACKAGE_DATA_CLEARED"
 
-    invoke-virtual {v9, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v8, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v9
+    move-result v8
 
-    if-eqz v9, :cond_a
+    if-eqz v8, :cond_a
 
     invoke-virtual {p0, p2}, Lcom/android/internal/content/PackageMonitor;->getPackageName(Landroid/content/Intent;)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v3
 
-    const-string/jumbo v7, "android.intent.extra.UID"
+    const-string/jumbo v6, "android.intent.extra.UID"
 
-    invoke-virtual {p2, v7, v11}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p2, v6, v10}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-result v6
+    move-result v5
 
-    if-eqz v4, :cond_1
+    if-eqz v3, :cond_1
 
-    invoke-virtual {p0, v4, v6}, Lcom/android/internal/content/PackageMonitor;->onPackageDataCleared(Ljava/lang/String;I)V
+    invoke-virtual {p0, v3, v5}, Lcom/android/internal/content/PackageMonitor;->onPackageDataCleared(Ljava/lang/String;I)V
 
     goto/16 :goto_1
 
     :cond_a
-    const-string/jumbo v9, "android.intent.action.QUERY_PACKAGE_RESTART"
+    const-string/jumbo v8, "android.intent.action.QUERY_PACKAGE_RESTART"
 
-    invoke-virtual {v9, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v9
-
-    if-eqz v9, :cond_b
-
-    const-string/jumbo v8, "android.intent.extra.PACKAGES"
-
-    invoke-virtual {p2, v8}, Landroid/content/Intent;->getStringArrayExtra(Ljava/lang/String;)[Ljava/lang/String;
-
-    move-result-object v8
-
-    iput-object v8, p0, Lcom/android/internal/content/PackageMonitor;->mDisappearingPackages:[Ljava/lang/String;
-
-    iput v7, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
-
-    iget-object v7, p0, Lcom/android/internal/content/PackageMonitor;->mDisappearingPackages:[Ljava/lang/String;
-
-    const-string/jumbo v8, "android.intent.extra.UID"
-
-    invoke-virtual {p2, v8, v11}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {v8, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v8
 
-    invoke-virtual {p0, p2, v7, v8, v11}, Lcom/android/internal/content/PackageMonitor;->onHandleForceStop(Landroid/content/Intent;[Ljava/lang/String;IZ)Z
+    if-eqz v8, :cond_b
+
+    const-string/jumbo v7, "android.intent.extra.PACKAGES"
+
+    invoke-virtual {p2, v7}, Landroid/content/Intent;->getStringArrayExtra(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v7
+
+    iput-object v7, p0, Lcom/android/internal/content/PackageMonitor;->mDisappearingPackages:[Ljava/lang/String;
+
+    iput v6, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
+
+    iget-object v6, p0, Lcom/android/internal/content/PackageMonitor;->mDisappearingPackages:[Ljava/lang/String;
+
+    const-string/jumbo v7, "android.intent.extra.UID"
+
+    invoke-virtual {p2, v7, v10}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v7
+
+    invoke-virtual {p0, p2, v6, v7, v10}, Lcom/android/internal/content/PackageMonitor;->onHandleForceStop(Landroid/content/Intent;[Ljava/lang/String;IZ)Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
-    const/4 v7, -0x1
+    const/4 v6, -0x1
 
-    invoke-virtual {p0, v7}, Lcom/android/internal/content/PackageMonitor;->setResultCode(I)V
+    invoke-virtual {p0, v6}, Lcom/android/internal/content/PackageMonitor;->setResultCode(I)V
 
     goto/16 :goto_1
 
     :cond_b
-    const-string/jumbo v9, "android.intent.action.PACKAGE_RESTARTED"
+    const-string/jumbo v8, "android.intent.action.PACKAGE_RESTARTED"
 
-    invoke-virtual {v9, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v8, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v9
+    move-result v8
 
-    if-eqz v9, :cond_c
+    if-eqz v8, :cond_c
 
-    new-array v9, v8, [Ljava/lang/String;
+    new-array v8, v7, [Ljava/lang/String;
 
     invoke-virtual {p0, p2}, Lcom/android/internal/content/PackageMonitor;->getPackageName(Landroid/content/Intent;)Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v9
 
-    aput-object v10, v9, v11
+    aput-object v9, v8, v10
 
-    iput-object v9, p0, Lcom/android/internal/content/PackageMonitor;->mDisappearingPackages:[Ljava/lang/String;
+    iput-object v8, p0, Lcom/android/internal/content/PackageMonitor;->mDisappearingPackages:[Ljava/lang/String;
 
-    iput v7, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
+    iput v6, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
 
-    iget-object v7, p0, Lcom/android/internal/content/PackageMonitor;->mDisappearingPackages:[Ljava/lang/String;
+    iget-object v6, p0, Lcom/android/internal/content/PackageMonitor;->mDisappearingPackages:[Ljava/lang/String;
 
-    const-string/jumbo v9, "android.intent.extra.UID"
+    const-string/jumbo v8, "android.intent.extra.UID"
 
-    invoke-virtual {p2, v9, v11}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p2, v8, v10}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-result v9
+    move-result v8
 
-    invoke-virtual {p0, p2, v7, v9, v8}, Lcom/android/internal/content/PackageMonitor;->onHandleForceStop(Landroid/content/Intent;[Ljava/lang/String;IZ)Z
+    invoke-virtual {p0, p2, v6, v8, v7}, Lcom/android/internal/content/PackageMonitor;->onHandleForceStop(Landroid/content/Intent;[Ljava/lang/String;IZ)Z
 
     goto/16 :goto_1
 
     :cond_c
-    const-string/jumbo v9, "android.intent.action.UID_REMOVED"
+    const-string/jumbo v8, "android.intent.action.UID_REMOVED"
 
-    invoke-virtual {v9, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v8, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v9
+    move-result v8
 
-    if-eqz v9, :cond_d
+    if-eqz v8, :cond_d
 
-    const-string/jumbo v7, "android.intent.extra.UID"
+    const-string/jumbo v6, "android.intent.extra.UID"
 
-    invoke-virtual {p2, v7, v11}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p2, v6, v10}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-result v7
+    move-result v6
 
-    invoke-virtual {p0, v7}, Lcom/android/internal/content/PackageMonitor;->onUidRemoved(I)V
+    invoke-virtual {p0, v6}, Lcom/android/internal/content/PackageMonitor;->onUidRemoved(I)V
 
     goto/16 :goto_1
 
     :cond_d
-    const-string/jumbo v9, "android.intent.action.USER_STOPPED"
+    const-string/jumbo v8, "android.intent.action.USER_STOPPED"
 
-    invoke-virtual {v9, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v8, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v9
+    move-result v8
 
-    if-eqz v9, :cond_e
+    if-eqz v8, :cond_e
 
-    const-string/jumbo v7, "android.intent.extra.user_handle"
+    const-string/jumbo v6, "android.intent.extra.user_handle"
 
-    invoke-virtual {p2, v7}, Landroid/content/Intent;->hasExtra(Ljava/lang/String;)Z
+    invoke-virtual {p2, v6}, Landroid/content/Intent;->hasExtra(Ljava/lang/String;)Z
 
-    move-result v7
+    move-result v6
 
-    if-eqz v7, :cond_1
+    if-eqz v6, :cond_1
 
-    const-string/jumbo v7, "android.intent.extra.user_handle"
+    const-string/jumbo v6, "android.intent.extra.user_handle"
 
-    invoke-virtual {p2, v7, v11}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p2, v6, v10}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-result v7
+    move-result v6
 
-    invoke-virtual {p0, p2, v7}, Lcom/android/internal/content/PackageMonitor;->onHandleUserStop(Landroid/content/Intent;I)V
+    invoke-virtual {p0, p2, v6}, Lcom/android/internal/content/PackageMonitor;->onHandleUserStop(Landroid/content/Intent;I)V
 
     goto/16 :goto_1
 
     :cond_e
-    const-string/jumbo v9, "android.intent.action.EXTERNAL_APPLICATIONS_AVAILABLE"
+    const-string/jumbo v8, "android.intent.action.EXTERNAL_APPLICATIONS_AVAILABLE"
 
-    invoke-virtual {v9, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v8, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v9
+    move-result v8
 
-    if-eqz v9, :cond_10
+    if-eqz v8, :cond_10
 
-    const-string/jumbo v9, "android.intent.extra.changed_package_list"
+    const-string/jumbo v8, "android.intent.extra.changed_package_list"
 
-    invoke-virtual {p2, v9}, Landroid/content/Intent;->getStringArrayExtra(Ljava/lang/String;)[Ljava/lang/String;
+    invoke-virtual {p2, v8}, Landroid/content/Intent;->getStringArrayExtra(Ljava/lang/String;)[Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    iput-object v5, p0, Lcom/android/internal/content/PackageMonitor;->mAppearingPackages:[Ljava/lang/String;
+    iput-object v4, p0, Lcom/android/internal/content/PackageMonitor;->mAppearingPackages:[Ljava/lang/String;
 
-    const-string/jumbo v9, "android.intent.extra.REPLACING"
+    const-string/jumbo v8, "android.intent.extra.REPLACING"
 
-    invoke-virtual {p2, v9, v11}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    invoke-virtual {p2, v8, v10}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
-    move-result v9
+    move-result v8
 
-    if-eqz v9, :cond_f
+    if-eqz v8, :cond_f
 
-    move v7, v8
+    move v6, v7
 
     :cond_f
-    iput v7, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
+    iput v6, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
 
-    iput-boolean v8, p0, Lcom/android/internal/content/PackageMonitor;->mSomePackagesChanged:Z
+    iput-boolean v7, p0, Lcom/android/internal/content/PackageMonitor;->mSomePackagesChanged:Z
 
-    if-eqz v5, :cond_1
+    if-eqz v4, :cond_1
 
-    invoke-virtual {p0, v5}, Lcom/android/internal/content/PackageMonitor;->onPackagesAvailable([Ljava/lang/String;)V
+    invoke-virtual {p0, v4}, Lcom/android/internal/content/PackageMonitor;->onPackagesAvailable([Ljava/lang/String;)V
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     :goto_3
-    array-length v7, v5
+    array-length v6, v4
 
-    if-ge v3, v7, :cond_1
+    if-ge v2, v6, :cond_1
 
-    aget-object v7, v5, v3
+    aget-object v6, v4, v2
 
-    iget v8, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
+    iget v7, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
 
-    invoke-virtual {p0, v7, v8}, Lcom/android/internal/content/PackageMonitor;->onPackageAppeared(Ljava/lang/String;I)V
+    invoke-virtual {p0, v6, v7}, Lcom/android/internal/content/PackageMonitor;->onPackageAppeared(Ljava/lang/String;I)V
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_3
 
     :cond_10
-    const-string/jumbo v9, "android.intent.action.EXTERNAL_APPLICATIONS_UNAVAILABLE"
+    const-string/jumbo v8, "android.intent.action.EXTERNAL_APPLICATIONS_UNAVAILABLE"
 
-    invoke-virtual {v9, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v8, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v9
+    move-result v8
 
-    if-eqz v9, :cond_12
+    if-eqz v8, :cond_12
 
-    const-string/jumbo v9, "android.intent.extra.changed_package_list"
+    const-string/jumbo v8, "android.intent.extra.changed_package_list"
 
-    invoke-virtual {p2, v9}, Landroid/content/Intent;->getStringArrayExtra(Ljava/lang/String;)[Ljava/lang/String;
+    invoke-virtual {p2, v8}, Landroid/content/Intent;->getStringArrayExtra(Ljava/lang/String;)[Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    iput-object v5, p0, Lcom/android/internal/content/PackageMonitor;->mDisappearingPackages:[Ljava/lang/String;
+    iput-object v4, p0, Lcom/android/internal/content/PackageMonitor;->mDisappearingPackages:[Ljava/lang/String;
 
-    const-string/jumbo v9, "android.intent.extra.REPLACING"
+    const-string/jumbo v8, "android.intent.extra.REPLACING"
 
-    invoke-virtual {p2, v9, v11}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    invoke-virtual {p2, v8, v10}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
-    move-result v9
+    move-result v8
 
-    if-eqz v9, :cond_11
+    if-eqz v8, :cond_11
 
-    move v7, v8
+    move v6, v7
 
     :cond_11
-    iput v7, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
+    iput v6, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
 
-    iput-boolean v8, p0, Lcom/android/internal/content/PackageMonitor;->mSomePackagesChanged:Z
+    iput-boolean v7, p0, Lcom/android/internal/content/PackageMonitor;->mSomePackagesChanged:Z
 
-    if-eqz v5, :cond_1
+    if-eqz v4, :cond_1
 
-    invoke-virtual {p0, v5}, Lcom/android/internal/content/PackageMonitor;->onPackagesUnavailable([Ljava/lang/String;)V
+    invoke-virtual {p0, v4}, Lcom/android/internal/content/PackageMonitor;->onPackagesUnavailable([Ljava/lang/String;)V
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     :goto_4
-    array-length v7, v5
+    array-length v6, v4
 
-    if-ge v3, v7, :cond_1
+    if-ge v2, v6, :cond_1
 
-    aget-object v7, v5, v3
+    aget-object v6, v4, v2
 
-    iget v8, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
+    iget v7, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
 
-    invoke-virtual {p0, v7, v8}, Lcom/android/internal/content/PackageMonitor;->onPackageDisappeared(Ljava/lang/String;I)V
+    invoke-virtual {p0, v6, v7}, Lcom/android/internal/content/PackageMonitor;->onPackageDisappeared(Ljava/lang/String;I)V
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_4
 
     :cond_12
-    const-string/jumbo v7, "android.intent.action.PACKAGES_SUSPENDED"
+    const-string/jumbo v6, "android.intent.action.PACKAGES_SUSPENDED"
 
-    invoke-virtual {v7, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v6, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v6
 
-    if-eqz v7, :cond_13
+    if-eqz v6, :cond_13
 
-    const-string/jumbo v7, "android.intent.extra.changed_package_list"
+    const-string/jumbo v6, "android.intent.extra.changed_package_list"
 
-    invoke-virtual {p2, v7}, Landroid/content/Intent;->getStringArrayExtra(Ljava/lang/String;)[Ljava/lang/String;
+    invoke-virtual {p2, v6}, Landroid/content/Intent;->getStringArrayExtra(Ljava/lang/String;)[Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    iput-boolean v8, p0, Lcom/android/internal/content/PackageMonitor;->mSomePackagesChanged:Z
+    iput-boolean v7, p0, Lcom/android/internal/content/PackageMonitor;->mSomePackagesChanged:Z
 
-    invoke-virtual {p0, v5}, Lcom/android/internal/content/PackageMonitor;->onPackagesSuspended([Ljava/lang/String;)V
+    invoke-virtual {p0, v4}, Lcom/android/internal/content/PackageMonitor;->onPackagesSuspended([Ljava/lang/String;)V
 
     goto/16 :goto_1
 
     :cond_13
-    const-string/jumbo v7, "android.intent.action.PACKAGES_UNSUSPENDED"
+    const-string/jumbo v6, "android.intent.action.PACKAGES_UNSUSPENDED"
 
-    invoke-virtual {v7, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v6, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v6
 
-    if-eqz v7, :cond_1
+    if-eqz v6, :cond_1
 
-    const-string/jumbo v7, "android.intent.extra.changed_package_list"
+    const-string/jumbo v6, "android.intent.extra.changed_package_list"
 
-    invoke-virtual {p2, v7}, Landroid/content/Intent;->getStringArrayExtra(Ljava/lang/String;)[Ljava/lang/String;
+    invoke-virtual {p2, v6}, Landroid/content/Intent;->getStringArrayExtra(Ljava/lang/String;)[Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    iput-boolean v8, p0, Lcom/android/internal/content/PackageMonitor;->mSomePackagesChanged:Z
+    iput-boolean v7, p0, Lcom/android/internal/content/PackageMonitor;->mSomePackagesChanged:Z
 
-    invoke-virtual {p0, v5}, Lcom/android/internal/content/PackageMonitor;->onPackagesUnsuspended([Ljava/lang/String;)V
+    invoke-virtual {p0, v4}, Lcom/android/internal/content/PackageMonitor;->onPackagesUnsuspended([Ljava/lang/String;)V
 
     goto/16 :goto_1
 .end method

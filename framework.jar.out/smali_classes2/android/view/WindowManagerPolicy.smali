@@ -217,10 +217,19 @@
 .method public abstract getSystemDecorLayerLw()I
 .end method
 
+.method public abstract getTopFullscreenOpaquePackage()Ljava/lang/String;
+.end method
+
+.method public abstract getTopFullscreenOpaqueUid()I
+.end method
+
 .method public abstract getUserRotationMode()I
 .end method
 
 .method public abstract getWinDissmissKeyguardPackage()Ljava/lang/String;
+.end method
+
+.method public abstract getWinDissmissKeyguardUid()I
 .end method
 
 .method public abstract getWinShowWhenLockedLw()Landroid/view/WindowManagerPolicy$WindowState;

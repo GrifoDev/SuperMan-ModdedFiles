@@ -12,6 +12,8 @@
 
 .field private static final LENGTH_HTTP_URL:I
 
+.field private static final MAX_LENGTH_OF_NAME:I = 0xff
+
 .field private static final PREFIX_CONTENT_URI:Ljava/lang/String; = "content://"
 
 .field private static final PREFIX_DATA:Ljava/lang/String; = "data:"
@@ -3233,9 +3235,9 @@
 .method public setFirstImagePathFromHtmlData(Lcom/samsung/android/content/clipboard/data/SemHtmlClipData;)Z
     .locals 11
 
-    const/4 v10, 0x7
+    const/4 v10, 0x0
 
-    const/4 v9, 0x0
+    const/4 v9, 0x7
 
     const/4 v8, 0x1
 
@@ -3276,17 +3278,12 @@
     move-result-object v3
 
     :goto_0
-    if-eqz v3, :cond_1
-
-    if-eqz v3, :cond_2
-
-    invoke-virtual {v3}, Ljava/lang/String;->length()I
+    invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v4
 
-    if-ge v4, v8, :cond_2
+    if-eqz v4, :cond_1
 
-    :cond_1
     const-string/jumbo v4, "FileHelper"
 
     const-string/jumbo v5, "getFirstImage : FileName is empty."
@@ -3301,6 +3298,23 @@
     invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
+
+    :cond_1
+    invoke-virtual {v3}, Ljava/lang/String;->length()I
+
+    move-result v4
+
+    const/16 v5, 0xff
+
+    if-le v4, v5, :cond_2
+
+    const-string/jumbo v4, "FileHelper"
+
+    const-string/jumbo v5, "getFirstImage : FileName is too long."
+
+    invoke-static {v4, v5}, Landroid/sec/clipboard/util/Log;->secW(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v8
 
     :cond_2
     const-string/jumbo v4, "FileHelper"
@@ -3374,9 +3388,9 @@
 
     move-result v4
 
-    if-le v4, v10, :cond_4
+    if-le v4, v9, :cond_4
 
-    invoke-virtual {v3, v7, v10}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {v3, v7, v9}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v4
 
@@ -3392,7 +3406,7 @@
 
     move-result v4
 
-    invoke-virtual {v3, v10, v4}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {v3, v9, v4}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v3
 
@@ -3477,7 +3491,7 @@
     if-nez v4, :cond_7
 
     :cond_6
-    invoke-virtual {p1, v9}, Lcom/samsung/android/content/clipboard/data/SemHtmlClipData;->setThumbnailImagePath(Ljava/lang/String;)Z
+    invoke-virtual {p1, v10}, Lcom/samsung/android/content/clipboard/data/SemHtmlClipData;->setThumbnailImagePath(Ljava/lang/String;)Z
 
     return v8
 
@@ -3519,7 +3533,7 @@
 
     if-nez v4, :cond_9
 
-    invoke-virtual {p1, v9}, Lcom/samsung/android/content/clipboard/data/SemHtmlClipData;->setThumbnailImagePath(Ljava/lang/String;)Z
+    invoke-virtual {p1, v10}, Lcom/samsung/android/content/clipboard/data/SemHtmlClipData;->setThumbnailImagePath(Ljava/lang/String;)Z
 
     return v8
 

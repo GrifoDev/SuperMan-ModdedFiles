@@ -46,31 +46,19 @@
 
     iget-object v3, p0, Landroid/app/ActivityManager$ActivityController;->this$0:Landroid/app/ActivityManager;
 
-    invoke-static {v3}, Landroid/app/ActivityManager;->-get0(Landroid/app/ActivityManager;)Ljava/util/ArrayList;
+    invoke-static {v3}, Landroid/app/ActivityManager;->-get0(Landroid/app/ActivityManager;)Ljava/util/concurrent/CopyOnWriteArrayList;
 
     move-result-object v3
 
-    if-eqz v3, :cond_0
-
-    iget-object v3, p0, Landroid/app/ActivityManager$ActivityController;->this$0:Landroid/app/ActivityManager;
-
-    invoke-static {v3}, Landroid/app/ActivityManager;->-get0(Landroid/app/ActivityManager;)Ljava/util/ArrayList;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/util/ArrayList;->isEmpty()Z
+    invoke-virtual {v3}, Ljava/util/concurrent/CopyOnWriteArrayList;->isEmpty()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-nez v3, :cond_1
 
-    :cond_0
-    return v2
-
-    :cond_1
     iget-object v3, p0, Landroid/app/ActivityManager$ActivityController;->this$0:Landroid/app/ActivityManager;
 
-    invoke-static {v3}, Landroid/app/ActivityManager;->-get0(Landroid/app/ActivityManager;)Ljava/util/ArrayList;
+    invoke-static {v3}, Landroid/app/ActivityManager;->-get0(Landroid/app/ActivityManager;)Ljava/util/concurrent/CopyOnWriteArrayList;
 
     move-result-object v3
 
@@ -78,13 +66,13 @@
 
     move-result-object v1
 
-    :cond_2
+    :cond_0
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -96,11 +84,14 @@
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_0
 
     const/4 v2, 0x0
 
     goto :goto_0
+
+    :cond_1
+    return v2
 .end method
 
 .method public activityStarting(Landroid/content/Intent;Ljava/lang/String;)Z
@@ -110,31 +101,19 @@
 
     iget-object v3, p0, Landroid/app/ActivityManager$ActivityController;->this$0:Landroid/app/ActivityManager;
 
-    invoke-static {v3}, Landroid/app/ActivityManager;->-get0(Landroid/app/ActivityManager;)Ljava/util/ArrayList;
+    invoke-static {v3}, Landroid/app/ActivityManager;->-get0(Landroid/app/ActivityManager;)Ljava/util/concurrent/CopyOnWriteArrayList;
 
     move-result-object v3
 
-    if-eqz v3, :cond_0
-
-    iget-object v3, p0, Landroid/app/ActivityManager$ActivityController;->this$0:Landroid/app/ActivityManager;
-
-    invoke-static {v3}, Landroid/app/ActivityManager;->-get0(Landroid/app/ActivityManager;)Ljava/util/ArrayList;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/util/ArrayList;->isEmpty()Z
+    invoke-virtual {v3}, Ljava/util/concurrent/CopyOnWriteArrayList;->isEmpty()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-nez v3, :cond_1
 
-    :cond_0
-    return v2
-
-    :cond_1
     iget-object v3, p0, Landroid/app/ActivityManager$ActivityController;->this$0:Landroid/app/ActivityManager;
 
-    invoke-static {v3}, Landroid/app/ActivityManager;->-get0(Landroid/app/ActivityManager;)Ljava/util/ArrayList;
+    invoke-static {v3}, Landroid/app/ActivityManager;->-get0(Landroid/app/ActivityManager;)Ljava/util/concurrent/CopyOnWriteArrayList;
 
     move-result-object v3
 
@@ -142,13 +121,13 @@
 
     move-result-object v1
 
-    :cond_2
+    :cond_0
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -160,11 +139,14 @@
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_0
 
     const/4 v2, 0x0
 
     goto :goto_0
+
+    :cond_1
+    return v2
 .end method
 
 .method public appCrashed(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;JLjava/lang/String;)Z
@@ -174,31 +156,19 @@
 
     iget-object v2, p0, Landroid/app/ActivityManager$ActivityController;->this$0:Landroid/app/ActivityManager;
 
-    invoke-static {v2}, Landroid/app/ActivityManager;->-get0(Landroid/app/ActivityManager;)Ljava/util/ArrayList;
+    invoke-static {v2}, Landroid/app/ActivityManager;->-get0(Landroid/app/ActivityManager;)Ljava/util/concurrent/CopyOnWriteArrayList;
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
-
-    iget-object v2, p0, Landroid/app/ActivityManager$ActivityController;->this$0:Landroid/app/ActivityManager;
-
-    invoke-static {v2}, Landroid/app/ActivityManager;->-get0(Landroid/app/ActivityManager;)Ljava/util/ArrayList;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/util/ArrayList;->isEmpty()Z
+    invoke-virtual {v2}, Ljava/util/concurrent/CopyOnWriteArrayList;->isEmpty()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-nez v2, :cond_1
 
-    :cond_0
-    return v9
-
-    :cond_1
     iget-object v2, p0, Landroid/app/ActivityManager$ActivityController;->this$0:Landroid/app/ActivityManager;
 
-    invoke-static {v2}, Landroid/app/ActivityManager;->-get0(Landroid/app/ActivityManager;)Ljava/util/ArrayList;
+    invoke-static {v2}, Landroid/app/ActivityManager;->-get0(Landroid/app/ActivityManager;)Ljava/util/concurrent/CopyOnWriteArrayList;
 
     move-result-object v2
 
@@ -206,13 +176,13 @@
 
     move-result-object v0
 
-    :cond_2
+    :cond_0
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -236,11 +206,14 @@
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_0
 
     const/4 v9, 0x0
 
     goto :goto_0
+
+    :cond_1
+    return v9
 .end method
 
 .method public appEarlyNotResponding(Ljava/lang/String;ILjava/lang/String;)I
@@ -254,31 +227,19 @@
 
     iget-object v4, p0, Landroid/app/ActivityManager$ActivityController;->this$0:Landroid/app/ActivityManager;
 
-    invoke-static {v4}, Landroid/app/ActivityManager;->-get0(Landroid/app/ActivityManager;)Ljava/util/ArrayList;
+    invoke-static {v4}, Landroid/app/ActivityManager;->-get0(Landroid/app/ActivityManager;)Ljava/util/concurrent/CopyOnWriteArrayList;
 
     move-result-object v4
 
-    if-eqz v4, :cond_0
-
-    iget-object v4, p0, Landroid/app/ActivityManager$ActivityController;->this$0:Landroid/app/ActivityManager;
-
-    invoke-static {v4}, Landroid/app/ActivityManager;->-get0(Landroid/app/ActivityManager;)Ljava/util/ArrayList;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/util/ArrayList;->isEmpty()Z
+    invoke-virtual {v4}, Ljava/util/concurrent/CopyOnWriteArrayList;->isEmpty()Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-nez v4, :cond_2
 
-    :cond_0
-    return v2
-
-    :cond_1
     iget-object v4, p0, Landroid/app/ActivityManager$ActivityController;->this$0:Landroid/app/ActivityManager;
 
-    invoke-static {v4}, Landroid/app/ActivityManager;->-get0(Landroid/app/ActivityManager;)Ljava/util/ArrayList;
+    invoke-static {v4}, Landroid/app/ActivityManager;->-get0(Landroid/app/ActivityManager;)Ljava/util/concurrent/CopyOnWriteArrayList;
 
     move-result-object v4
 
@@ -286,13 +247,13 @@
 
     move-result-object v1
 
-    :cond_2
+    :cond_0
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -304,20 +265,23 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_0
 
-    if-ne v3, v5, :cond_3
+    if-ne v3, v5, :cond_1
+
+    move v2, v3
+
+    goto :goto_0
+
+    :cond_1
+    if-eq v2, v5, :cond_0
 
     move v2, v3
 
     goto :goto_0
 
-    :cond_3
-    if-eq v2, v5, :cond_2
-
-    move v2, v3
-
-    goto :goto_0
+    :cond_2
+    return v2
 .end method
 
 .method public appNotResponding(Ljava/lang/String;ILjava/lang/String;)I
@@ -331,31 +295,19 @@
 
     iget-object v4, p0, Landroid/app/ActivityManager$ActivityController;->this$0:Landroid/app/ActivityManager;
 
-    invoke-static {v4}, Landroid/app/ActivityManager;->-get0(Landroid/app/ActivityManager;)Ljava/util/ArrayList;
+    invoke-static {v4}, Landroid/app/ActivityManager;->-get0(Landroid/app/ActivityManager;)Ljava/util/concurrent/CopyOnWriteArrayList;
 
     move-result-object v4
 
-    if-eqz v4, :cond_0
-
-    iget-object v4, p0, Landroid/app/ActivityManager$ActivityController;->this$0:Landroid/app/ActivityManager;
-
-    invoke-static {v4}, Landroid/app/ActivityManager;->-get0(Landroid/app/ActivityManager;)Ljava/util/ArrayList;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/util/ArrayList;->isEmpty()Z
+    invoke-virtual {v4}, Ljava/util/concurrent/CopyOnWriteArrayList;->isEmpty()Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-nez v4, :cond_2
 
-    :cond_0
-    return v2
-
-    :cond_1
     iget-object v4, p0, Landroid/app/ActivityManager$ActivityController;->this$0:Landroid/app/ActivityManager;
 
-    invoke-static {v4}, Landroid/app/ActivityManager;->-get0(Landroid/app/ActivityManager;)Ljava/util/ArrayList;
+    invoke-static {v4}, Landroid/app/ActivityManager;->-get0(Landroid/app/ActivityManager;)Ljava/util/concurrent/CopyOnWriteArrayList;
 
     move-result-object v4
 
@@ -363,13 +315,13 @@
 
     move-result-object v1
 
-    :cond_2
+    :cond_0
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -381,20 +333,23 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_0
 
-    if-ne v3, v5, :cond_3
+    if-ne v3, v5, :cond_1
+
+    move v2, v3
+
+    goto :goto_0
+
+    :cond_1
+    if-eq v2, v5, :cond_0
 
     move v2, v3
 
     goto :goto_0
 
-    :cond_3
-    if-eq v2, v5, :cond_2
-
-    move v2, v3
-
-    goto :goto_0
+    :cond_2
+    return v2
 .end method
 
 .method public systemNotResponding(Ljava/lang/String;)I
@@ -408,31 +363,19 @@
 
     iget-object v4, p0, Landroid/app/ActivityManager$ActivityController;->this$0:Landroid/app/ActivityManager;
 
-    invoke-static {v4}, Landroid/app/ActivityManager;->-get0(Landroid/app/ActivityManager;)Ljava/util/ArrayList;
+    invoke-static {v4}, Landroid/app/ActivityManager;->-get0(Landroid/app/ActivityManager;)Ljava/util/concurrent/CopyOnWriteArrayList;
 
     move-result-object v4
 
-    if-eqz v4, :cond_0
-
-    iget-object v4, p0, Landroid/app/ActivityManager$ActivityController;->this$0:Landroid/app/ActivityManager;
-
-    invoke-static {v4}, Landroid/app/ActivityManager;->-get0(Landroid/app/ActivityManager;)Ljava/util/ArrayList;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/util/ArrayList;->isEmpty()Z
+    invoke-virtual {v4}, Ljava/util/concurrent/CopyOnWriteArrayList;->isEmpty()Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-nez v4, :cond_2
 
-    :cond_0
-    return v2
-
-    :cond_1
     iget-object v4, p0, Landroid/app/ActivityManager$ActivityController;->this$0:Landroid/app/ActivityManager;
 
-    invoke-static {v4}, Landroid/app/ActivityManager;->-get0(Landroid/app/ActivityManager;)Ljava/util/ArrayList;
+    invoke-static {v4}, Landroid/app/ActivityManager;->-get0(Landroid/app/ActivityManager;)Ljava/util/concurrent/CopyOnWriteArrayList;
 
     move-result-object v4
 
@@ -440,13 +383,13 @@
 
     move-result-object v1
 
-    :cond_2
+    :cond_0
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -458,18 +401,21 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_0
 
-    if-ne v3, v5, :cond_3
+    if-ne v3, v5, :cond_1
+
+    move v2, v3
+
+    goto :goto_0
+
+    :cond_1
+    if-eq v2, v5, :cond_0
 
     move v2, v3
 
     goto :goto_0
 
-    :cond_3
-    if-eq v2, v5, :cond_2
-
-    move v2, v3
-
-    goto :goto_0
+    :cond_2
+    return v2
 .end method

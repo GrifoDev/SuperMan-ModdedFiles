@@ -23,5 +23,5 @@ unknownFiles:
   sun/util/logging/resources/logging_zh_CN.properties: '8'
   sun/util/logging/resources/logging_zh_TW.properties: '8'
 usesFramework: null
-version: 2.2.3
+version: 2.3.1
 versionInfo: null

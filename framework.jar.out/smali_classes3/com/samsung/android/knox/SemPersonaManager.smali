@@ -2289,6 +2289,8 @@
 
     move-result-object v7
 
+    if-eqz v7, :cond_f
+
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
     move-result v12
@@ -3788,23 +3790,23 @@
 
     invoke-static {p0}, Lcom/samsung/android/knox/SemPersonaManager;->getPersonaService(Landroid/content/Context;)Lcom/samsung/android/knox/SemPersonaManager;
 
-    move-result-object v1
+    move-result-object v2
 
     :try_start_0
-    iget-object v3, v1, Lcom/samsung/android/knox/SemPersonaManager;->mService:Lcom/samsung/android/knox/ISemPersonaManager;
+    iget-object v3, v2, Lcom/samsung/android/knox/SemPersonaManager;->mService:Lcom/samsung/android/knox/ISemPersonaManager;
 
     invoke-interface {v3}, Lcom/samsung/android/knox/ISemPersonaManager;->getMyknoxId()I
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
     return v5
 
     :cond_0
-    invoke-static {v0}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
+    invoke-static {v1}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
     :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v3
 
@@ -3815,13 +3817,13 @@
     return v3
 
     :catch_0
-    move-exception v2
+    move-exception v0
 
     sget-object v3, Lcom/samsung/android/knox/SemPersonaManager;->TAG:Ljava/lang/String;
 
     const-string/jumbo v4, "failed to isMyknoxExist"
 
-    invoke-static {v3, v4, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v3, v4, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :cond_1
     return v5
@@ -5651,6 +5653,8 @@
 
     move-result-object v3
 
+    if-eqz v3, :cond_0
+
     invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
@@ -7161,26 +7165,33 @@
 .end method
 
 .method public getKnoxId(IZ)I
-    .locals 5
+    .locals 6
+
+    const/4 v5, -0x1
 
     invoke-virtual {p0, p2}, Lcom/samsung/android/knox/SemPersonaManager;->getPersonas(Z)Ljava/util/List;
 
     move-result-object v2
 
+    if-nez v2, :cond_0
+
+    return v5
+
+    :cond_0
     const/4 v3, 0x1
 
-    if-ne p1, v3, :cond_2
+    if-ne p1, v3, :cond_3
 
     invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    :cond_0
+    :cond_1
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_3
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -7198,7 +7209,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_2
 
     invoke-virtual {v0}, Lcom/samsung/android/knox/SemPersonaInfo;->getType()Ljava/lang/String;
 
@@ -7210,28 +7221,28 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1
 
-    :cond_1
+    :cond_2
     iget v3, v0, Lcom/samsung/android/knox/SemPersonaInfo;->id:I
 
     return v3
 
-    :cond_2
+    :cond_3
     const/4 v3, 0x2
 
-    if-ne p1, v3, :cond_4
+    if-ne p1, v3, :cond_5
 
     invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    :cond_3
+    :cond_4
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_5
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -7241,16 +7252,14 @@
 
     iget-boolean v3, v0, Lcom/samsung/android/knox/SemPersonaInfo;->isSecureFolder:Z
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_4
 
     iget v3, v0, Lcom/samsung/android/knox/SemPersonaInfo;->id:I
 
     return v3
 
-    :cond_4
-    const/4 v3, -0x1
-
-    return v3
+    :cond_5
+    return v5
 .end method
 
 .method public getKnoxIds(Z)Ljava/util/List;
@@ -10007,15 +10016,24 @@
 
     move-result-object v1
 
+    if-nez v1, :cond_0
+
+    return v0
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/samsung/android/knox/SemPersonaManager;->getPersonas()Ljava/util/List;
+
+    move-result-object v1
+
     invoke-interface {v1}, Ljava/util/List;->size()I
 
     move-result v1
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_1
 
     const/4 v0, 0x1
 
-    :cond_0
+    :cond_1
     return v0
 .end method
 

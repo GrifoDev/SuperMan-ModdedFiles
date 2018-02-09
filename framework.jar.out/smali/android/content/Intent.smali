@@ -582,6 +582,8 @@
 
 .field public static final EXTRA_INTENT:Ljava/lang/String; = "android.intent.extra.INTENT"
 
+.field public static final EXTRA_INTENT_FROM_MARS:Ljava/lang/String; = "com.samsung.android.intent.extra.INTENT_FROM_MARS"
+
 .field public static final EXTRA_KEY_CONFIRM:Ljava/lang/String; = "android.intent.extra.KEY_CONFIRM"
 
 .field public static final EXTRA_KEY_EVENT:Ljava/lang/String; = "android.intent.extra.KEY_EVENT"
@@ -825,6 +827,8 @@
 .field public static final METADATA_SETUP_VERSION:Ljava/lang/String; = "android.SETUP_VERSION"
 
 .field public static final SAMSUNGFRAMEWORK_MULTISCREEN_MULTISCREENLAUNCHPARAMS:Ljava/lang/String; = "com.samsung.android.multiscreen.MultiScreenLaunchParams"
+
+.field public static final SEM_ACTION_CANCEL_ALARM_FROM_MARS:Ljava/lang/String; = "com.samsung.android.intent.action.CANCEL_ALARM_FROM_MARS"
 
 .field public static final SEM_ACTION_PALM_DOWN:Ljava/lang/String; = "com.samsung.android.motion.PALM_DOWN"
 

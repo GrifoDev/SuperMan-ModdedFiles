@@ -6106,13 +6106,13 @@
 
     iget-boolean v3, v0, Lcom/android/internal/os/BatteryStatsImpl;->mHaveBatteryLevel:Z
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_b
 
     move-object/from16 v0, p0
 
     iget-boolean v3, v0, Lcom/android/internal/os/BatteryStatsImpl;->mRecordingHistory:Z
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_b
 
     move-object/from16 v0, p0
 
@@ -6575,6 +6575,8 @@
     invoke-virtual {v3, v4}, Landroid/os/BatteryStats$HistoryItem;->setTo(Landroid/os/BatteryStats$HistoryItem;)V
 
     :cond_6
+    const/16 v17, 0x0
+
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/internal/os/BatteryStatsImpl;->mHistoryBuffer:Landroid/os/Parcel;
@@ -6583,15 +6585,83 @@
 
     move-result v11
 
+    const/high16 v3, 0x1e0000
+
+    if-lt v11, v3, :cond_c
+
+    invoke-direct/range {p0 .. p0}, Lcom/android/internal/os/BatteryStatsImpl;->resetAllStatsLocked()V
+
+    const/16 v17, 0x1
+
+    :cond_7
+    if-eqz v11, :cond_8
+
+    if-eqz v17, :cond_a
+
+    :cond_8
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v4
+
+    move-object/from16 v0, p5
+
+    iput-wide v4, v0, Landroid/os/BatteryStats$HistoryItem;->currentTime:J
+
+    if-eqz v17, :cond_9
+
+    const/4 v8, 0x6
+
+    move-object/from16 v3, p0
+
+    move-wide/from16 v4, p1
+
+    move-wide/from16 v6, p3
+
+    move-object/from16 v9, p5
+
+    invoke-direct/range {v3 .. v9}, Lcom/android/internal/os/BatteryStatsImpl;->addHistoryBufferLocked(JJBLandroid/os/BatteryStats$HistoryItem;)V
+
+    :cond_9
+    const/4 v8, 0x7
+
+    move-object/from16 v3, p0
+
+    move-wide/from16 v4, p1
+
+    move-wide/from16 v6, p3
+
+    move-object/from16 v9, p5
+
+    invoke-direct/range {v3 .. v9}, Lcom/android/internal/os/BatteryStatsImpl;->addHistoryBufferLocked(JJBLandroid/os/BatteryStats$HistoryItem;)V
+
+    :cond_a
+    const/4 v8, 0x0
+
+    move-object/from16 v3, p0
+
+    move-wide/from16 v4, p1
+
+    move-wide/from16 v6, p3
+
+    move-object/from16 v9, p5
+
+    invoke-direct/range {v3 .. v9}, Lcom/android/internal/os/BatteryStatsImpl;->addHistoryBufferLocked(JJBLandroid/os/BatteryStats$HistoryItem;)V
+
+    return-void
+
+    :cond_b
+    return-void
+
+    :cond_c
     const/high16 v3, 0x80000
 
-    if-lt v11, v3, :cond_10
+    if-lt v11, v3, :cond_7
 
     move-object/from16 v0, p0
 
     iget-boolean v3, v0, Lcom/android/internal/os/BatteryStatsImpl;->mHistoryOverflow:Z
 
-    if-nez v3, :cond_8
+    if-nez v3, :cond_d
 
     const/4 v3, 0x1
 
@@ -6625,11 +6695,8 @@
 
     return-void
 
-    :cond_7
-    return-void
-
-    :cond_8
-    const/16 v17, 0x0
+    :cond_d
+    const/16 v20, 0x0
 
     move-object/from16 v0, p5
 
@@ -6651,7 +6718,7 @@
 
     iget v3, v3, Landroid/os/BatteryStats$HistoryItem;->states:I
 
-    if-eq v3, v2, :cond_9
+    if-eq v3, v2, :cond_e
 
     move-object/from16 v0, p0
 
@@ -6679,11 +6746,11 @@
 
     move/from16 v0, v16
 
-    if-eq v0, v3, :cond_c
+    if-eq v0, v3, :cond_11
 
-    const/16 v17, 0x1
+    const/16 v20, 0x1
 
-    :cond_9
+    :cond_e
     :goto_0
     move-object/from16 v0, p5
 
@@ -6705,7 +6772,7 @@
 
     iget v3, v3, Landroid/os/BatteryStats$HistoryItem;->states2:I
 
-    if-eq v3, v10, :cond_a
+    if-eq v3, v10, :cond_f
 
     move-object/from16 v0, p0
 
@@ -6733,15 +6800,15 @@
 
     move/from16 v0, v16
 
-    if-eq v0, v3, :cond_d
+    if-eq v0, v3, :cond_12
 
     const/4 v3, 0x1
 
     :goto_1
-    or-int v17, v17, v3
+    or-int v20, v20, v3
 
-    :cond_a
-    if-nez v17, :cond_f
+    :cond_f
+    if-nez v20, :cond_14
 
     move-object/from16 v0, p0
 
@@ -6753,11 +6820,11 @@
 
     iget-byte v4, v0, Landroid/os/BatteryStats$HistoryItem;->batteryLevel:B
 
-    if-ne v3, v4, :cond_f
+    if-ne v3, v4, :cond_14
 
     const/high16 v3, 0xa0000
 
-    if-ge v11, v3, :cond_b
+    if-ge v11, v3, :cond_10
 
     move-object/from16 v0, p0
 
@@ -6775,22 +6842,22 @@
 
     and-int/2addr v3, v4
 
-    if-nez v3, :cond_e
+    if-nez v3, :cond_13
 
-    :cond_b
+    :cond_10
     return-void
 
-    :cond_c
-    const/16 v17, 0x0
+    :cond_11
+    const/16 v20, 0x0
 
     goto :goto_0
 
-    :cond_d
+    :cond_12
     const/4 v3, 0x0
 
     goto :goto_1
 
-    :cond_e
+    :cond_13
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/internal/os/BatteryStatsImpl;->mHistoryLastWritten:Landroid/os/BatteryStats$HistoryItem;
@@ -6807,47 +6874,9 @@
 
     and-int/2addr v3, v4
 
-    if-eqz v3, :cond_b
+    if-eqz v3, :cond_10
 
-    :cond_f
-    const/4 v8, 0x0
-
-    move-object/from16 v3, p0
-
-    move-wide/from16 v4, p1
-
-    move-wide/from16 v6, p3
-
-    move-object/from16 v9, p5
-
-    invoke-direct/range {v3 .. v9}, Lcom/android/internal/os/BatteryStatsImpl;->addHistoryBufferLocked(JJBLandroid/os/BatteryStats$HistoryItem;)V
-
-    return-void
-
-    :cond_10
-    if-nez v11, :cond_11
-
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v4
-
-    move-object/from16 v0, p5
-
-    iput-wide v4, v0, Landroid/os/BatteryStats$HistoryItem;->currentTime:J
-
-    const/4 v8, 0x7
-
-    move-object/from16 v3, p0
-
-    move-wide/from16 v4, p1
-
-    move-wide/from16 v6, p3
-
-    move-object/from16 v9, p5
-
-    invoke-direct/range {v3 .. v9}, Lcom/android/internal/os/BatteryStatsImpl;->addHistoryBufferLocked(JJBLandroid/os/BatteryStats$HistoryItem;)V
-
-    :cond_11
+    :cond_14
     const/4 v8, 0x0
 
     move-object/from16 v3, p0
@@ -13724,17 +13753,22 @@
 .end method
 
 .method public noteUidProcessStateLocked(II)V
-    .locals 1
+    .locals 2
 
     invoke-virtual {p0, p1}, Lcom/android/internal/os/BatteryStatsImpl;->mapUid(I)I
 
-    move-result p1
+    move-result v0
 
+    if-eq p1, v0, :cond_0
+
+    return-void
+
+    :cond_0
     invoke-virtual {p0, p1}, Lcom/android/internal/os/BatteryStatsImpl;->getUidStatsLocked(I)Lcom/android/internal/os/BatteryStatsImpl$Uid;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0, p2}, Lcom/android/internal/os/BatteryStatsImpl$Uid;->updateUidProcessStateLocked(I)V
+    invoke-virtual {v1, p2}, Lcom/android/internal/os/BatteryStatsImpl$Uid;->updateUidProcessStateLocked(I)V
 
     return-void
 .end method

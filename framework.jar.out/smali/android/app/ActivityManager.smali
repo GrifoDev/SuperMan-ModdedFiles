@@ -243,24 +243,14 @@
 
 
 # instance fields
-.field private final mActivityControllerListeners:Ljava/util/ArrayList;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/ArrayList",
-            "<",
-            "Landroid/app/ActivityManager$SemActivityControllerListener;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field private mActivityController:Landroid/app/ActivityManager$ActivityController;
 
-.field private final mActivityControllerMap:Ljava/util/Map;
+.field private final mActivityControllerListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/Map",
+            "Ljava/util/concurrent/CopyOnWriteArrayList",
             "<",
             "Landroid/app/ActivityManager$SemActivityControllerListener;",
-            "Landroid/app/ActivityManager$ActivityController;",
             ">;"
         }
     .end annotation
@@ -297,10 +287,10 @@
 
 
 # direct methods
-.method static synthetic -get0(Landroid/app/ActivityManager;)Ljava/util/ArrayList;
+.method static synthetic -get0(Landroid/app/ActivityManager;)Ljava/util/concurrent/CopyOnWriteArrayList;
     .locals 1
 
-    iget-object v0, p0, Landroid/app/ActivityManager;->mActivityControllerListeners:Ljava/util/ArrayList;
+    iget-object v0, p0, Landroid/app/ActivityManager;->mActivityControllerListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
 
     return-object v0
 .end method
@@ -334,6 +324,8 @@
 .method constructor <init>(Landroid/content/Context;Landroid/os/Handler;)V
     .locals 3
 
+    const/4 v2, 0x0
+
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     new-instance v1, Ljava/util/HashMap;
@@ -348,17 +340,13 @@
 
     iput-object v1, p0, Landroid/app/ActivityManager;->mProcessListeners:Ljava/util/ArrayList;
 
-    new-instance v1, Ljava/util/HashMap;
+    iput-object v2, p0, Landroid/app/ActivityManager;->mActivityController:Landroid/app/ActivityManager$ActivityController;
 
-    invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
+    new-instance v1, Ljava/util/concurrent/CopyOnWriteArrayList;
 
-    iput-object v1, p0, Landroid/app/ActivityManager;->mActivityControllerMap:Ljava/util/Map;
+    invoke-direct {v1}, Ljava/util/concurrent/CopyOnWriteArrayList;-><init>()V
 
-    new-instance v1, Ljava/util/ArrayList;
-
-    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
-
-    iput-object v1, p0, Landroid/app/ActivityManager;->mActivityControllerListeners:Ljava/util/ArrayList;
+    iput-object v1, p0, Landroid/app/ActivityManager;->mActivityControllerListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
 
     iput-object p1, p0, Landroid/app/ActivityManager;->mContext:Landroid/content/Context;
 
@@ -4345,55 +4333,80 @@
 .method public semRegisterActivityControllerListener(Landroid/app/ActivityManager$SemActivityControllerListener;)V
     .locals 5
 
-    const/4 v4, 0x0
+    iget-object v2, p0, Landroid/app/ActivityManager;->mActivityControllerListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
 
-    iget-object v3, p0, Landroid/app/ActivityManager;->mActivityControllerMap:Ljava/util/Map;
+    monitor-enter v2
 
-    invoke-interface {v3, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    :try_start_0
+    iget-object v1, p0, Landroid/app/ActivityManager;->mActivityControllerListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
 
-    move-result-object v2
+    invoke-virtual {v1, p1}, Ljava/util/concurrent/CopyOnWriteArrayList;->contains(Ljava/lang/Object;)Z
 
-    check-cast v2, Landroid/app/ActivityManager$ActivityController;
+    move-result v1
 
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_0
 
-    sget-object v3, Landroid/app/ActivityManager;->TAG:Ljava/lang/String;
+    sget-object v1, Landroid/app/ActivityManager;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v4, "ActivityControllerListener already registered"
+    const-string/jumbo v3, "ActivityControllerListener already registered"
 
-    invoke-static {v3, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v2
 
     return-void
 
     :cond_0
-    new-instance v0, Landroid/app/ActivityManager$ActivityController;
+    :try_start_1
+    iget-object v1, p0, Landroid/app/ActivityManager;->mActivityController:Landroid/app/ActivityManager$ActivityController;
 
-    invoke-direct {v0, p0, v4}, Landroid/app/ActivityManager$ActivityController;-><init>(Landroid/app/ActivityManager;Landroid/app/ActivityManager$ActivityController;)V
+    if-nez v1, :cond_1
 
-    :try_start_0
+    new-instance v1, Landroid/app/ActivityManager$ActivityController;
+
+    const/4 v3, 0x0
+
+    invoke-direct {v1, p0, v3}, Landroid/app/ActivityManager$ActivityController;-><init>(Landroid/app/ActivityManager;Landroid/app/ActivityManager$ActivityController;)V
+
+    iput-object v1, p0, Landroid/app/ActivityManager;->mActivityController:Landroid/app/ActivityManager$ActivityController;
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :cond_1
+    :try_start_2
+    iget-object v1, p0, Landroid/app/ActivityManager;->mActivityControllerListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    invoke-virtual {v1, p1}, Ljava/util/concurrent/CopyOnWriteArrayList;->add(Ljava/lang/Object;)Z
+
     invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
 
-    move-result-object v3
+    move-result-object v1
+
+    iget-object v3, p0, Landroid/app/ActivityManager;->mActivityController:Landroid/app/ActivityManager$ActivityController;
 
     const/4 v4, 0x0
 
-    invoke-interface {v3, v0, v4}, Landroid/app/IActivityManager;->setActivityController(Landroid/app/IActivityController;Z)V
-
-    iget-object v3, p0, Landroid/app/ActivityManager;->mActivityControllerMap:Ljava/util/Map;
-
-    invoke-interface {v3, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v3, p0, Landroid/app/ActivityManager;->mActivityControllerListeners:Ljava/util/ArrayList;
-
-    invoke-virtual {v3, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    invoke-interface {v1, v3, v4}, Landroid/app/IActivityManager;->setActivityController(Landroid/app/IActivityController;Z)V
+    :try_end_2
+    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     :goto_0
+    monitor-exit v2
+
     return-void
 
-    :catch_0
+    :catchall_0
     move-exception v1
+
+    monitor-exit v2
+
+    throw v1
+
+    :catch_0
+    move-exception v0
 
     goto :goto_0
 .end method
@@ -4545,48 +4558,70 @@
 .method public semUnregisterActivityControllerListener(Landroid/app/ActivityManager$SemActivityControllerListener;)V
     .locals 5
 
-    iget-object v2, p0, Landroid/app/ActivityManager;->mActivityControllerMap:Ljava/util/Map;
+    iget-object v2, p0, Landroid/app/ActivityManager;->mActivityControllerListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
 
-    invoke-interface {v2, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    monitor-enter v2
 
-    move-result-object v1
+    :try_start_0
+    iget-object v1, p0, Landroid/app/ActivityManager;->mActivityControllerListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
 
-    check-cast v1, Landroid/app/ActivityManager$ActivityController;
+    invoke-virtual {v1, p1}, Ljava/util/concurrent/CopyOnWriteArrayList;->contains(Ljava/lang/Object;)Z
+
+    move-result v1
 
     if-nez v1, :cond_0
 
-    sget-object v2, Landroid/app/ActivityManager;->TAG:Ljava/lang/String;
+    sget-object v1, Landroid/app/ActivityManager;->TAG:Ljava/lang/String;
 
     const-string/jumbo v3, "ActivityControllerListener no registered"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v2
 
     return-void
 
     :cond_0
-    :try_start_0
+    :try_start_1
+    iget-object v1, p0, Landroid/app/ActivityManager;->mActivityControllerListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    invoke-virtual {v1, p1}, Ljava/util/concurrent/CopyOnWriteArrayList;->remove(Ljava/lang/Object;)Z
+
+    iget-object v1, p0, Landroid/app/ActivityManager;->mActivityControllerListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    invoke-virtual {v1}, Ljava/util/concurrent/CopyOnWriteArrayList;->isEmpty()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
     invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
 
-    move-result-object v2
+    move-result-object v1
 
     const/4 v3, 0x0
 
     const/4 v4, 0x0
 
-    invoke-interface {v2, v3, v4}, Landroid/app/IActivityManager;->setActivityController(Landroid/app/IActivityController;Z)V
+    invoke-interface {v1, v3, v4}, Landroid/app/IActivityManager;->setActivityController(Landroid/app/IActivityController;Z)V
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    iget-object v2, p0, Landroid/app/ActivityManager;->mActivityControllerMap:Ljava/util/Map;
-
-    invoke-interface {v2, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v2, p0, Landroid/app/ActivityManager;->mActivityControllerListeners:Ljava/util/ArrayList;
-
-    invoke-virtual {v2, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
+    :cond_1
     :goto_0
+    monitor-exit v2
+
     return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v2
+
+    throw v1
 
     :catch_0
     move-exception v0

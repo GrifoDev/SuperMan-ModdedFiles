@@ -32,7 +32,9 @@
 
 .field public static final AUDIO_PARAMETER_KEY_IS_UHQ:Ljava/lang/String; = "isAvailableUHQ"
 
-.field public static final AUDIO_PARAMETER_KEY_IS_USE_AUDIO:Ljava/lang/String; = "isUseAudio"
+.field public static final AUDIO_PARAMETER_KEY_IS_USE_AUDIO_FOR_PACKAGE:Ljava/lang/String; = "isUseAudioForPackage"
+
+.field public static final AUDIO_PARAMETER_KEY_IS_USE_AUDIO_FOR_UID:Ljava/lang/String; = "isUseAudioForUid"
 
 .field public static final AUDIO_PARAMETER_KEY_MULTISOUND_ON:Ljava/lang/String; = "multisound_on"
 

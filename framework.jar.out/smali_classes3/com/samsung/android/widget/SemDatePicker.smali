@@ -1437,7 +1437,9 @@
 
     invoke-direct {v14, v0}, Lcom/samsung/android/widget/SemDatePicker$5;-><init>(Lcom/samsung/android/widget/SemDatePicker;)V
 
-    invoke-virtual {v13, v14}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->setOnSpinnerDateChangedListener(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$OnSpinnerDateChangedListener;)V
+    move-object/from16 v0, p0
+
+    invoke-virtual {v13, v0, v14}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->setOnSpinnerDateChangedListener(Lcom/samsung/android/widget/SemDatePicker;Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$OnSpinnerDateChangedListener;)V
 
     const/4 v13, 0x0
 
@@ -7525,7 +7527,7 @@
 
     const/4 v5, 0x1
 
-    if-ne v4, v5, :cond_5
+    if-ne v4, v5, :cond_6
 
     move-object/from16 v0, p0
 
@@ -7631,7 +7633,7 @@
 
     move/from16 v0, p2
 
-    if-ne v4, v0, :cond_7
+    if-ne v4, v0, :cond_8
 
     invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/widget/SemDatePicker;->getMinYear()I
 
@@ -7639,7 +7641,7 @@
 
     move/from16 v0, p1
 
-    if-ne v4, v0, :cond_7
+    if-ne v4, v0, :cond_8
 
     invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/widget/SemDatePicker;->getMinDay()I
 
@@ -7652,7 +7654,7 @@
 
     move/from16 v0, p2
 
-    if-ne v4, v0, :cond_8
+    if-ne v4, v0, :cond_9
 
     invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/widget/SemDatePicker;->getMaxYear()I
 
@@ -7660,7 +7662,7 @@
 
     move/from16 v0, p1
 
-    if-ne v4, v0, :cond_8
+    if-ne v4, v0, :cond_9
 
     invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/widget/SemDatePicker;->getMaxDay()I
 
@@ -7823,11 +7825,12 @@
 
     invoke-virtual {v3}, Landroid/view/View;->invalidate()V
 
+    :cond_4
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/samsung/android/widget/SemDatePicker;->mSpinnerLayout:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_5
 
     move-object/from16 v0, p0
 
@@ -7841,17 +7844,17 @@
 
     invoke-virtual {v4, v0, v1, v2}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->updateDate(III)V
 
-    :cond_4
+    :cond_5
     return-void
 
-    :cond_5
+    :cond_6
     move-object/from16 v0, p0
 
     iget v4, v0, Lcom/samsung/android/widget/SemDatePicker;->mMode:I
 
     const/4 v5, 0x2
 
-    if-ne v4, v5, :cond_6
+    if-ne v4, v5, :cond_7
 
     move-object/from16 v0, p0
 
@@ -7915,7 +7918,7 @@
 
     goto/16 :goto_0
 
-    :cond_6
+    :cond_7
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/samsung/android/widget/SemDatePicker;->mStartDate:Ljava/util/Calendar;
@@ -8032,12 +8035,12 @@
 
     goto/16 :goto_0
 
-    :cond_7
+    :cond_8
     const/4 v8, 0x1
 
     goto/16 :goto_1
 
-    :cond_8
+    :cond_9
     const/16 v9, 0x1f
 
     goto/16 :goto_2

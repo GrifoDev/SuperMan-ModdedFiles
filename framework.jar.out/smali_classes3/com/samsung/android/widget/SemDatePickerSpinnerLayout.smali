@@ -148,7 +148,7 @@
 .method static synthetic -get10(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)I
     .locals 1
 
-    iget v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mLunarTempDay:I
+    iget v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mLunarCurrentYear:I
 
     return v0
 .end method
@@ -156,7 +156,7 @@
 .method static synthetic -get11(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)I
     .locals 1
 
-    iget v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mLunarTempMonth:I
+    iget v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mLunarTempDay:I
 
     return v0
 .end method
@@ -164,12 +164,20 @@
 .method static synthetic -get12(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)I
     .locals 1
 
+    iget v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mLunarTempMonth:I
+
+    return v0
+.end method
+
+.method static synthetic -get13(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)I
+    .locals 1
+
     iget v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mLunarTempYear:I
 
     return v0
 .end method
 
-.method static synthetic -get13(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Lcom/samsung/android/widget/SemNumberPicker;
+.method static synthetic -get14(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Lcom/samsung/android/widget/SemNumberPicker;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
@@ -177,7 +185,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get14(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)I
+.method static synthetic -get15(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)I
     .locals 1
 
     iget v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mNumberOfMonths:I
@@ -185,7 +193,7 @@
     return v0
 .end method
 
-.method static synthetic -get15(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)[Landroid/widget/EditText;
+.method static synthetic -get16(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)[Landroid/widget/EditText;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
@@ -193,7 +201,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get16(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)[Ljava/lang/String;
+.method static synthetic -get17(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)[Ljava/lang/String;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mShortMonths:[Ljava/lang/String;
@@ -201,7 +209,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get17(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/lang/Object;
+.method static synthetic -get18(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/lang/Object;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mSolarLunarTables:Ljava/lang/Object;
@@ -209,18 +217,10 @@
     return-object v0
 .end method
 
-.method static synthetic -get18(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/util/Calendar;
+.method static synthetic -get19(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/util/Calendar;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mTempDate:Ljava/util/Calendar;
-
-    return-object v0
-.end method
-
-.method static synthetic -get19(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/lang/String;
-    .locals 1
-
-    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mToastText:Ljava/lang/String;
 
     return-object v0
 .end method
@@ -233,7 +233,15 @@
     return-object v0
 .end method
 
-.method static synthetic -get20(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Lcom/samsung/android/widget/SemNumberPicker;
+.method static synthetic -get20(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mToastText:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method static synthetic -get21(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Lcom/samsung/android/widget/SemNumberPicker;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearSpinner:Lcom/samsung/android/widget/SemNumberPicker;
@@ -241,7 +249,15 @@
     return-object v0
 .end method
 
-.method static synthetic -get3(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Lcom/samsung/android/widget/SemNumberPicker;
+.method static synthetic -get3(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Lcom/samsung/android/widget/SemDatePicker;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDatePicker:Lcom/samsung/android/widget/SemDatePicker;
+
+    return-object v0
+.end method
+
+.method static synthetic -get4(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Lcom/samsung/android/widget/SemNumberPicker;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDaySpinner:Lcom/samsung/android/widget/SemNumberPicker;
@@ -249,7 +265,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get4(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Z
+.method static synthetic -get5(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mIsLeapMonth:Z
@@ -257,7 +273,7 @@
     return v0
 .end method
 
-.method static synthetic -get5(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/lang/reflect/Method;
+.method static synthetic -get6(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/lang/reflect/Method;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mIsLeapMonthMethod:Ljava/lang/reflect/Method;
@@ -265,7 +281,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get6(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Z
+.method static synthetic -get7(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mIsLunar:Z
@@ -273,7 +289,7 @@
     return v0
 .end method
 
-.method static synthetic -get7(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)I
+.method static synthetic -get8(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)I
     .locals 1
 
     iget v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mLunarCurrentDay:I
@@ -281,18 +297,10 @@
     return v0
 .end method
 
-.method static synthetic -get8(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)I
-    .locals 1
-
-    iget v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mLunarCurrentMonth:I
-
-    return v0
-.end method
-
 .method static synthetic -get9(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)I
     .locals 1
 
-    iget v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mLunarCurrentYear:I
+    iget v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mLunarCurrentMonth:I
 
     return v0
 .end method
@@ -3535,10 +3543,17 @@
     return-void
 .end method
 
-.method public setOnSpinnerDateChangedListener(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$OnSpinnerDateChangedListener;)V
-    .locals 0
+.method public setOnSpinnerDateChangedListener(Lcom/samsung/android/widget/SemDatePicker;Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$OnSpinnerDateChangedListener;)V
+    .locals 1
 
-    iput-object p1, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mOnSpinnerDateChangedListener:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$OnSpinnerDateChangedListener;
+    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDatePicker:Lcom/samsung/android/widget/SemDatePicker;
+
+    if-nez v0, :cond_0
+
+    iput-object p1, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDatePicker:Lcom/samsung/android/widget/SemDatePicker;
+
+    :cond_0
+    iput-object p2, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mOnSpinnerDateChangedListener:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$OnSpinnerDateChangedListener;
 
     return-void
 .end method

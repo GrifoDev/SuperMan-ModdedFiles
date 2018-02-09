@@ -4520,7 +4520,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-ne v6, v3, :cond_0
 
     iget v3, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->mLastFocusedChildVirtualViewId:I
 
@@ -4548,7 +4548,7 @@
 
     invoke-direct {p0}, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->removeAllCallbacks()V
 
-    goto :goto_0
+    return v6
 
     :cond_4
     iget v3, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->mLastFocusedChildVirtualViewId:I
