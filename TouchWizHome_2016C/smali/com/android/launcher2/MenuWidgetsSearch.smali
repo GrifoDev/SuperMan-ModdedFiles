@@ -48,13 +48,12 @@
 
     move-result-object v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_0
 
-    :cond_0
     :goto_0
     return-void
 
-    :cond_1
+    :cond_0
     check-cast v2, Landroid/widget/SearchView;
 
     iput-object v2, p0, Lcom/android/launcher2/MenuWidgetsSearch;->mSearchEdit:Landroid/widget/SearchView;
@@ -93,7 +92,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1
 
     iget-object v3, p0, Lcom/android/launcher2/MenuWidgetsSearch;->mSearchEdit:Landroid/widget/SearchView;
 
@@ -119,11 +118,24 @@
 
     check-cast v0, Landroid/widget/AutoCompleteTextView;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     const/high16 v3, -0x1000000
 
     invoke-virtual {v0, v3}, Landroid/widget/AutoCompleteTextView;->setTextColor(I)V
+
+    :cond_1
+    iget-object v3, p0, Lcom/android/launcher2/MenuWidgetsSearch;->mSearchEdit:Landroid/widget/SearchView;
+
+    invoke-virtual {v3}, Landroid/widget/SearchView;->semGetAutoCompleteView()Landroid/widget/AutoCompleteTextView;
+
+    move-result-object v3
+
+    new-instance v4, Lcom/android/launcher2/MenuWidgetsSearch$1;
+
+    invoke-direct {v4, p0}, Lcom/android/launcher2/MenuWidgetsSearch$1;-><init>(Lcom/android/launcher2/MenuWidgetsSearch;)V
+
+    invoke-virtual {v3, v4}, Landroid/widget/AutoCompleteTextView;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
 
     goto :goto_0
 .end method
@@ -458,9 +470,9 @@
 
     invoke-direct {v1}, Landroid/os/Handler;-><init>()V
 
-    new-instance v2, Lcom/android/launcher2/MenuWidgetsSearch$1;
+    new-instance v2, Lcom/android/launcher2/MenuWidgetsSearch$2;
 
-    invoke-direct {v2, p0}, Lcom/android/launcher2/MenuWidgetsSearch$1;-><init>(Lcom/android/launcher2/MenuWidgetsSearch;)V
+    invoke-direct {v2, p0}, Lcom/android/launcher2/MenuWidgetsSearch$2;-><init>(Lcom/android/launcher2/MenuWidgetsSearch;)V
 
     const-wide/16 v4, 0x96
 

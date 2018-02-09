@@ -946,7 +946,7 @@
 
     iget-object v4, p0, Lcom/android/launcher2/WorkspaceSpanCalculator;->mResources:Landroid/content/res/Resources;
 
-    const v5, 0x7f0a0333
+    const v5, 0x7f0a0332
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -954,7 +954,7 @@
 
     iget-object v4, p0, Lcom/android/launcher2/WorkspaceSpanCalculator;->mResources:Landroid/content/res/Resources;
 
-    const v5, 0x7f0a0335
+    const v5, 0x7f0a0334
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -962,7 +962,7 @@
 
     iget-object v4, p0, Lcom/android/launcher2/WorkspaceSpanCalculator;->mResources:Landroid/content/res/Resources;
 
-    const v5, 0x7f0a0334
+    const v5, 0x7f0a0333
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -970,7 +970,7 @@
 
     iget-object v4, p0, Lcom/android/launcher2/WorkspaceSpanCalculator;->mResources:Landroid/content/res/Resources;
 
-    const v5, 0x7f0a0332
+    const v5, 0x7f0a0331
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

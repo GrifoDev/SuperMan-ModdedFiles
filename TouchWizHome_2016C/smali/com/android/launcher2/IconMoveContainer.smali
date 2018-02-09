@@ -6745,7 +6745,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Lcom/android/launcher2/IconMoveContainer;->mWorkspace:Lcom/android/launcher2/Workspace;
 
@@ -6770,6 +6770,49 @@
     iput v0, p1, Lcom/android/launcher2/HomeFolderItem;->mScreen:I
 
     :goto_0
+    if-nez v8, :cond_1
+
+    const-string v0, "IconMoveContainer"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "Recorvery dissolvedFolder screen is not exist, page : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget v3, p1, Lcom/android/launcher2/HomeFolderItem;->mScreen:I
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v0, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :goto_1
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/launcher2/IconMoveContainer;->mWorkspace:Lcom/android/launcher2/Workspace;
+
+    iget v2, p1, Lcom/android/launcher2/HomeFolderItem;->mScreen:I
+
+    invoke-virtual {v0, v2}, Lcom/android/launcher2/Workspace;->getPageAt(I)Landroid/view/View;
+
+    move-result-object v8
+
+    check-cast v8, Lcom/android/launcher2/CellLayout;
+
+    goto :goto_0
+
+    :cond_1
     new-array v9, v4, [I
 
     fill-array-data v9, :array_0
@@ -6778,7 +6821,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2
 
     aget v0, v9, v7
 
@@ -6788,18 +6831,18 @@
 
     iput v0, p1, Lcom/android/launcher2/HomeFolderItem;->cellY:I
 
-    :cond_0
+    :cond_2
     invoke-virtual {p1}, Lcom/android/launcher2/HomeFolderItem;->getItemCount()I
 
     move-result v0
 
-    if-ge v0, v4, :cond_3
+    if-ge v0, v4, :cond_4
 
     invoke-virtual {p1}, Lcom/android/launcher2/HomeFolderItem;->getItemCount()I
 
     move-result v0
 
-    if-ne v0, v3, :cond_2
+    if-ne v0, v3, :cond_3
 
     invoke-virtual {p1, v7}, Lcom/android/launcher2/HomeFolderItem;->getItemAt(I)Lcom/android/launcher2/BaseItem;
 
@@ -6847,7 +6890,7 @@
 
     invoke-virtual {p1, v1}, Lcom/android/launcher2/HomeFolderItem;->removeItem(Lcom/android/launcher2/BaseItem;)V
 
-    :goto_1
+    :goto_2
     const-string v0, "IconMoveContainer"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -6884,31 +6927,18 @@
 
     invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return-void
+    goto/16 :goto_1
 
-    :cond_1
-    iget-object v0, p0, Lcom/android/launcher2/IconMoveContainer;->mWorkspace:Lcom/android/launcher2/Workspace;
-
-    iget v2, p1, Lcom/android/launcher2/HomeFolderItem;->mScreen:I
-
-    invoke-virtual {v0, v2}, Lcom/android/launcher2/Workspace;->getPageAt(I)Landroid/view/View;
-
-    move-result-object v8
-
-    check-cast v8, Lcom/android/launcher2/CellLayout;
-
-    goto/16 :goto_0
-
-    :cond_2
+    :cond_3
     invoke-virtual {p0}, Lcom/android/launcher2/IconMoveContainer;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
     invoke-static {v0, p1}, Lcom/android/launcher2/LauncherModel;->deleteItemFromDatabase(Landroid/content/Context;Lcom/android/launcher2/HomeItem;)V
 
-    goto :goto_1
+    goto :goto_2
 
-    :cond_3
+    :cond_4
     invoke-direct {p0, v8, p1}, Lcom/android/launcher2/IconMoveContainer;->addItemToCellLayout(Lcom/android/launcher2/CellLayout;Lcom/android/launcher2/BaseItem;)V
 
     iget v4, p1, Lcom/android/launcher2/HomeFolderItem;->cellX:I
@@ -6923,7 +6953,9 @@
 
     invoke-direct/range {v2 .. v7}, Lcom/android/launcher2/IconMoveContainer;->updateItemPositionInDatabase(Lcom/android/launcher2/HomeItem;IIIZ)V
 
-    goto :goto_1
+    goto :goto_2
+
+    nop
 
     :array_0
     .array-data 4

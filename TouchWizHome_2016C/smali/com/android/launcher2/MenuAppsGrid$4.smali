@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher2/MenuAppsGrid;->invalidatePageData()V
+    value = Lcom/android/launcher2/MenuAppsGrid;->closeFolderWithDelay(ZZI)Z
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,12 +20,20 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher2/MenuAppsGrid;
 
+.field final synthetic val$animate:Z
+
+.field final synthetic val$commitEdit:Z
+
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher2/MenuAppsGrid;)V
+.method constructor <init>(Lcom/android/launcher2/MenuAppsGrid;ZZ)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher2/MenuAppsGrid$4;->this$0:Lcom/android/launcher2/MenuAppsGrid;
+
+    iput-boolean p2, p0, Lcom/android/launcher2/MenuAppsGrid$4;->val$commitEdit:Z
+
+    iput-boolean p3, p0, Lcom/android/launcher2/MenuAppsGrid$4;->val$animate:Z
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -35,89 +43,28 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .locals 3
 
-    iget-object v2, p0, Lcom/android/launcher2/MenuAppsGrid$4;->this$0:Lcom/android/launcher2/MenuAppsGrid;
+    iget-object v0, p0, Lcom/android/launcher2/MenuAppsGrid$4;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    const/4 v3, -0x1
-
-    invoke-static {v2, v3}, Lcom/android/launcher2/MenuAppsGrid;->access$702(Lcom/android/launcher2/MenuAppsGrid;I)I
-
-    iget-object v2, p0, Lcom/android/launcher2/MenuAppsGrid$4;->this$0:Lcom/android/launcher2/MenuAppsGrid;
-
-    invoke-virtual {v2}, Lcom/android/launcher2/MenuAppsGrid;->invalidatePageData()V
-
-    iget-object v2, p0, Lcom/android/launcher2/MenuAppsGrid$4;->this$0:Lcom/android/launcher2/MenuAppsGrid;
-
-    invoke-static {v2}, Lcom/android/launcher2/MenuAppsGrid;->access$100(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/Folder;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_1
-
-    iget-object v2, p0, Lcom/android/launcher2/MenuAppsGrid$4;->this$0:Lcom/android/launcher2/MenuAppsGrid;
-
-    invoke-static {v2}, Lcom/android/launcher2/MenuAppsGrid;->access$100(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/Folder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/launcher2/Folder;->notifyDataSetChanged()V
-
-    iget-object v2, p0, Lcom/android/launcher2/MenuAppsGrid$4;->this$0:Lcom/android/launcher2/MenuAppsGrid;
-
-    invoke-virtual {v2}, Lcom/android/launcher2/MenuAppsGrid;->getStateObj()Lcom/android/launcher2/MenuAppsGrid$StateObj;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_0
-
-    iget-object v2, p0, Lcom/android/launcher2/MenuAppsGrid$4;->this$0:Lcom/android/launcher2/MenuAppsGrid;
-
-    invoke-virtual {v2}, Lcom/android/launcher2/MenuAppsGrid;->getStateObj()Lcom/android/launcher2/MenuAppsGrid$StateObj;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/android/launcher2/MenuAppsGrid$4;->this$0:Lcom/android/launcher2/MenuAppsGrid;
-
-    invoke-static {v3}, Lcom/android/launcher2/MenuAppsGrid;->access$100(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/Folder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/android/launcher2/Folder;->getItemViews()Ljava/lang/Iterable;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Lcom/android/launcher2/MenuAppsGrid$StateObj;->enterFolderItemViews(Ljava/lang/Iterable;)V
-
-    :cond_0
-    iget-object v2, p0, Lcom/android/launcher2/MenuAppsGrid$4;->this$0:Lcom/android/launcher2/MenuAppsGrid;
-
-    invoke-static {v2}, Lcom/android/launcher2/MenuAppsGrid;->access$100(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/Folder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/launcher2/Folder;->getInfo()Lcom/android/launcher2/FolderItem;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/launcher2/MenuAppsGrid$4;->this$0:Lcom/android/launcher2/MenuAppsGrid;
-
-    invoke-virtual {v2, v1}, Lcom/android/launcher2/MenuAppsGrid;->findIconViewByTag(Ljava/lang/Object;)Landroid/view/View;
+    invoke-static {v0}, Lcom/android/launcher2/MenuAppsGrid;->access$100(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/Folder;
 
     move-result-object v0
 
-    check-cast v0, Lcom/android/launcher2/FolderIconView;
+    if-eqz v0, :cond_0
 
-    if-eqz v0, :cond_1
+    iget-object v0, p0, Lcom/android/launcher2/MenuAppsGrid$4;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    iget-object v2, p0, Lcom/android/launcher2/MenuAppsGrid$4;->this$0:Lcom/android/launcher2/MenuAppsGrid;
+    invoke-static {v0}, Lcom/android/launcher2/MenuAppsGrid;->access$100(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/Folder;
 
-    invoke-static {v2}, Lcom/android/launcher2/MenuAppsGrid;->access$100(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/Folder;
+    move-result-object v0
 
-    move-result-object v2
+    iget-boolean v1, p0, Lcom/android/launcher2/MenuAppsGrid$4;->val$commitEdit:Z
 
-    invoke-virtual {v2, v0}, Lcom/android/launcher2/Folder;->updateToNewIcon(Lcom/android/launcher2/FolderIconView;)V
+    iget-boolean v2, p0, Lcom/android/launcher2/MenuAppsGrid$4;->val$animate:Z
 
-    :cond_1
+    invoke-virtual {v0, v1, v2}, Lcom/android/launcher2/Folder;->close(ZZ)V
+
+    :cond_0
     return-void
 .end method

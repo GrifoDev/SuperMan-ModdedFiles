@@ -3766,7 +3766,7 @@
 
     iput v0, p0, Lcom/android/launcher2/PageIndicator;->mFastScrollPaddingTop:I
 
-    const v0, 0x7f0a03b1
+    const v0, 0x7f0a03b0
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

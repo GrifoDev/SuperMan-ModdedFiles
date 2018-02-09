@@ -145,7 +145,7 @@
     <string name="only_one_widget_instance_allowed">%s widget gehitu dira jada pantaila Nagusian.</string>
     <string name="open_folder">Ireki karpeta</string>
     <string name="open_folder_VZW">Ikusi aplikazioak</string>
-    <string name="option_menu_contact_up">Jarri gurekin harremanetan</string>
+    <string name="option_menu_contact_up">Jarri harremanetan</string>
     <string name="option_tray_screengrid">Pantaila sareta</string>
     <string name="options_home_set_theme">Gaiak</string>
     <string name="options_home_set_wallpapers_and_themes">Horma paperak eta gaiak</string>

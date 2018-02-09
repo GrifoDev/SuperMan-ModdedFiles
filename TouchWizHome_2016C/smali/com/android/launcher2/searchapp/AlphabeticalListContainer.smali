@@ -3103,7 +3103,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0a03c3
+    const v10, 0x7f0a03c2
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimension(I)F
 

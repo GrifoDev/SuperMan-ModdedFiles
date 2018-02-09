@@ -582,9 +582,9 @@
 
     iput-object v5, p0, Lcom/android/launcher2/MenuAppsGrid;->mFolderLocation:[I
 
-    new-instance v5, Lcom/android/launcher2/MenuAppsGrid$2;
+    new-instance v5, Lcom/android/launcher2/MenuAppsGrid$3;
 
-    invoke-direct {v5, p0}, Lcom/android/launcher2/MenuAppsGrid$2;-><init>(Lcom/android/launcher2/MenuAppsGrid;)V
+    invoke-direct {v5, p0}, Lcom/android/launcher2/MenuAppsGrid$3;-><init>(Lcom/android/launcher2/MenuAppsGrid;)V
 
     iput-object v5, p0, Lcom/android/launcher2/MenuAppsGrid;->mDarkenLayerTouchListener:Landroid/view/View$OnTouchListener;
 
@@ -594,9 +594,9 @@
 
     iput-object v5, p0, Lcom/android/launcher2/MenuAppsGrid;->mRecycledViews:Ljava/util/Stack;
 
-    new-instance v5, Lcom/android/launcher2/MenuAppsGrid$5;
+    new-instance v5, Lcom/android/launcher2/MenuAppsGrid$6;
 
-    invoke-direct {v5, p0}, Lcom/android/launcher2/MenuAppsGrid$5;-><init>(Lcom/android/launcher2/MenuAppsGrid;)V
+    invoke-direct {v5, p0}, Lcom/android/launcher2/MenuAppsGrid$6;-><init>(Lcom/android/launcher2/MenuAppsGrid;)V
 
     iput-object v5, p0, Lcom/android/launcher2/MenuAppsGrid;->mItemViewBuilder:Lcom/android/launcher2/ItemViewBuilder;
 
@@ -664,9 +664,9 @@
 
     iput-boolean v5, p0, Lcom/android/launcher2/MenuAppsGrid;->mIsFromHomeView:Z
 
-    new-instance v5, Lcom/android/launcher2/MenuAppsGrid$11;
+    new-instance v5, Lcom/android/launcher2/MenuAppsGrid$12;
 
-    invoke-direct {v5, p0}, Lcom/android/launcher2/MenuAppsGrid$11;-><init>(Lcom/android/launcher2/MenuAppsGrid;)V
+    invoke-direct {v5, p0}, Lcom/android/launcher2/MenuAppsGrid$12;-><init>(Lcom/android/launcher2/MenuAppsGrid;)V
 
     iput-object v5, p0, Lcom/android/launcher2/MenuAppsGrid;->mBuildLayersRunnable:Ljava/lang/Runnable;
 
@@ -748,7 +748,7 @@
 
     move-result-object v3
 
-    const v5, 0x7f0a038b
+    const v5, 0x7f0a038a
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3002,9 +3002,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/launcher2/MenuAppsGrid$6;
+    new-instance v1, Lcom/android/launcher2/MenuAppsGrid$7;
 
-    invoke-direct {v1, p0}, Lcom/android/launcher2/MenuAppsGrid$6;-><init>(Lcom/android/launcher2/MenuAppsGrid;)V
+    invoke-direct {v1, p0}, Lcom/android/launcher2/MenuAppsGrid$7;-><init>(Lcom/android/launcher2/MenuAppsGrid;)V
 
     invoke-virtual {v0, v1}, Landroid/animation/Animator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
@@ -3076,9 +3076,9 @@
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
-    new-instance v1, Lcom/android/launcher2/MenuAppsGrid$9;
+    new-instance v1, Lcom/android/launcher2/MenuAppsGrid$10;
 
-    invoke-direct {v1, p0}, Lcom/android/launcher2/MenuAppsGrid$9;-><init>(Lcom/android/launcher2/MenuAppsGrid;)V
+    invoke-direct {v1, p0}, Lcom/android/launcher2/MenuAppsGrid$10;-><init>(Lcom/android/launcher2/MenuAppsGrid;)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
@@ -3304,7 +3304,7 @@
 
     invoke-static/range {v19 .. v20}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    sget-object v19, Lcom/android/launcher2/MenuAppsGrid$17;->$SwitchMap$com$android$launcher2$LauncherApplication$HomeGridSize:[I
+    sget-object v19, Lcom/android/launcher2/MenuAppsGrid$18;->$SwitchMap$com$android$launcher2$LauncherApplication$HomeGridSize:[I
 
     invoke-virtual {v12}, Lcom/android/launcher2/LauncherApplication$HomeGridSize;->ordinal()I
 
@@ -4289,9 +4289,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/launcher2/MenuAppsGrid$15;
+    new-instance v1, Lcom/android/launcher2/MenuAppsGrid$16;
 
-    invoke-direct {v1, p0}, Lcom/android/launcher2/MenuAppsGrid$15;-><init>(Lcom/android/launcher2/MenuAppsGrid;)V
+    invoke-direct {v1, p0}, Lcom/android/launcher2/MenuAppsGrid$16;-><init>(Lcom/android/launcher2/MenuAppsGrid;)V
 
     invoke-virtual {v0, v1}, Lcom/android/launcher2/Launcher;->runOnUiThread(Ljava/lang/Runnable;)V
 
@@ -4305,9 +4305,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/launcher2/MenuAppsGrid$16;
+    new-instance v1, Lcom/android/launcher2/MenuAppsGrid$17;
 
-    invoke-direct {v1, p0}, Lcom/android/launcher2/MenuAppsGrid$16;-><init>(Lcom/android/launcher2/MenuAppsGrid;)V
+    invoke-direct {v1, p0}, Lcom/android/launcher2/MenuAppsGrid$17;-><init>(Lcom/android/launcher2/MenuAppsGrid;)V
 
     invoke-virtual {v0, v1}, Lcom/android/launcher2/Launcher;->runOnUiThread(Ljava/lang/Runnable;)V
 
@@ -4811,9 +4811,9 @@
 
     invoke-direct {v8}, Landroid/os/Handler;-><init>()V
 
-    new-instance v9, Lcom/android/launcher2/MenuAppsGrid$14;
+    new-instance v9, Lcom/android/launcher2/MenuAppsGrid$15;
 
-    invoke-direct {v9, p0}, Lcom/android/launcher2/MenuAppsGrid$14;-><init>(Lcom/android/launcher2/MenuAppsGrid;)V
+    invoke-direct {v9, p0}, Lcom/android/launcher2/MenuAppsGrid$15;-><init>(Lcom/android/launcher2/MenuAppsGrid;)V
 
     invoke-virtual {v8, v9}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
@@ -5286,9 +5286,9 @@
 
     invoke-direct {v1}, Landroid/os/Handler;-><init>()V
 
-    new-instance v3, Lcom/android/launcher2/MenuAppsGrid$3;
+    new-instance v3, Lcom/android/launcher2/MenuAppsGrid$4;
 
-    invoke-direct {v3, p0, p1, p2}, Lcom/android/launcher2/MenuAppsGrid$3;-><init>(Lcom/android/launcher2/MenuAppsGrid;ZZ)V
+    invoke-direct {v3, p0, p1, p2}, Lcom/android/launcher2/MenuAppsGrid$4;-><init>(Lcom/android/launcher2/MenuAppsGrid;ZZ)V
 
     int-to-long v6, v0
 
@@ -6932,7 +6932,9 @@
 .end method
 
 .method protected invalidatePageData()V
-    .locals 10
+    .locals 11
+
+    const/4 v10, 0x1
 
     const/4 v8, 0x0
 
@@ -6995,9 +6997,9 @@
 
     invoke-direct {v5}, Landroid/os/Handler;-><init>()V
 
-    new-instance v6, Lcom/android/launcher2/MenuAppsGrid$4;
+    new-instance v6, Lcom/android/launcher2/MenuAppsGrid$5;
 
-    invoke-direct {v6, p0}, Lcom/android/launcher2/MenuAppsGrid$4;-><init>(Lcom/android/launcher2/MenuAppsGrid;)V
+    invoke-direct {v6, p0}, Lcom/android/launcher2/MenuAppsGrid$5;-><init>(Lcom/android/launcher2/MenuAppsGrid;)V
 
     mul-int/lit8 v7, v4, 0x21
 
@@ -7008,12 +7010,12 @@
     invoke-virtual {v5, v6, v8, v9}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     :goto_1
+    sput-boolean v10, Lcom/android/launcher2/Launcher;->sDisableOrUninstallAppFromApps:Z
+
     return-void
 
     :cond_0
-    const/4 v5, 0x1
-
-    iput-boolean v5, p0, Lcom/android/launcher2/MenuAppsGrid;->mDeletedItemOnFolder:Z
+    iput-boolean v10, p0, Lcom/android/launcher2/MenuAppsGrid;->mDeletedItemOnFolder:Z
 
     iget-object v5, p0, Lcom/android/launcher2/MenuAppsGrid;->mFolder:Lcom/android/launcher2/Folder;
 
@@ -7772,9 +7774,9 @@
 
     invoke-direct {v2}, Landroid/os/Handler;-><init>()V
 
-    new-instance v8, Lcom/android/launcher2/MenuAppsGrid$12;
+    new-instance v8, Lcom/android/launcher2/MenuAppsGrid$13;
 
-    invoke-direct {v8, p0}, Lcom/android/launcher2/MenuAppsGrid$12;-><init>(Lcom/android/launcher2/MenuAppsGrid;)V
+    invoke-direct {v8, p0}, Lcom/android/launcher2/MenuAppsGrid$13;-><init>(Lcom/android/launcher2/MenuAppsGrid;)V
 
     const-wide/16 v10, 0x1f4
 
@@ -7808,9 +7810,9 @@
 
     if-ne v0, v1, :cond_0
 
-    new-instance v0, Lcom/android/launcher2/MenuAppsGrid$8;
+    new-instance v0, Lcom/android/launcher2/MenuAppsGrid$9;
 
-    invoke-direct {v0, p0, p1}, Lcom/android/launcher2/MenuAppsGrid$8;-><init>(Lcom/android/launcher2/MenuAppsGrid;Lcom/android/launcher2/FolderItem;)V
+    invoke-direct {v0, p0, p1}, Lcom/android/launcher2/MenuAppsGrid$9;-><init>(Lcom/android/launcher2/MenuAppsGrid;Lcom/android/launcher2/FolderItem;)V
 
     invoke-virtual {p0, v0}, Lcom/android/launcher2/MenuAppsGrid;->post(Ljava/lang/Runnable;)Z
 
@@ -8652,9 +8654,9 @@
 
     move-result-object v1
 
-    new-instance v2, Lcom/android/launcher2/MenuAppsGrid$10;
+    new-instance v2, Lcom/android/launcher2/MenuAppsGrid$11;
 
-    invoke-direct {v2, p0}, Lcom/android/launcher2/MenuAppsGrid$10;-><init>(Lcom/android/launcher2/MenuAppsGrid;)V
+    invoke-direct {v2, p0}, Lcom/android/launcher2/MenuAppsGrid$11;-><init>(Lcom/android/launcher2/MenuAppsGrid;)V
 
     invoke-virtual {v1, v2}, Landroid/view/ViewTreeObserver;->addOnDrawListener(Landroid/view/ViewTreeObserver$OnDrawListener;)V
 
@@ -8973,9 +8975,9 @@
 .method public relayoutOnConfigChange()V
     .locals 9
 
-    const v8, 0x7f0a03c0
+    const v8, 0x7f0a03bf
 
-    const v7, 0x7f0a03bf
+    const v7, 0x7f0a03be
 
     const/4 v6, 0x0
 
@@ -9017,7 +9019,7 @@
 
     invoke-virtual {p0, v4}, Lcom/android/launcher2/MenuAppsGrid;->setPageZoom(F)V
 
-    const v4, 0x7f0a03c1
+    const v4, 0x7f0a03c0
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -9125,42 +9127,44 @@
 .end method
 
 .method public removeFolderFromDrag(Lcom/android/launcher2/AppFolderItem;)V
-    .locals 3
+    .locals 6
 
-    iget-object v1, p0, Lcom/android/launcher2/MenuAppsGrid;->mFolder:Lcom/android/launcher2/Folder;
+    iget-object v2, p0, Lcom/android/launcher2/MenuAppsGrid;->mFolder:Lcom/android/launcher2/Folder;
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
-    iget-object v1, p0, Lcom/android/launcher2/MenuAppsGrid;->mFolder:Lcom/android/launcher2/Folder;
+    iget-object v2, p0, Lcom/android/launcher2/MenuAppsGrid;->mFolder:Lcom/android/launcher2/Folder;
 
-    invoke-virtual {v1}, Lcom/android/launcher2/Folder;->getInfo()Lcom/android/launcher2/FolderItem;
+    invoke-virtual {v2}, Lcom/android/launcher2/Folder;->getInfo()Lcom/android/launcher2/FolderItem;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-interface {v1}, Lcom/android/launcher2/FolderItem;->isOpened()Z
+    invoke-interface {v2}, Lcom/android/launcher2/FolderItem;->isOpened()Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    invoke-virtual {p0, v1, v2}, Lcom/android/launcher2/MenuAppsGrid;->closeFolder(ZZ)Z
+    invoke-virtual {p0, v2, v3}, Lcom/android/launcher2/MenuAppsGrid;->closeFolder(ZZ)Z
 
     :cond_0
     move-object v0, p1
 
-    sget-object v1, Lcom/android/launcher2/MenuAppModel;->INSTANCE:Lcom/android/launcher2/MenuAppModel;
+    new-instance v1, Landroid/os/Handler;
 
-    invoke-virtual {v1, v0}, Lcom/android/launcher2/MenuAppModel;->setFolderToDelete(Lcom/android/launcher2/AppFolderItem;)V
+    invoke-direct {v1}, Landroid/os/Handler;-><init>()V
 
-    sget-object v1, Lcom/android/launcher2/MenuAppModel;->INSTANCE:Lcom/android/launcher2/MenuAppModel;
+    new-instance v2, Lcom/android/launcher2/MenuAppsGrid$2;
 
-    invoke-virtual {v1}, Lcom/android/launcher2/MenuAppModel;->editRemoveFolder()V
+    invoke-direct {v2, p0, v0}, Lcom/android/launcher2/MenuAppsGrid$2;-><init>(Lcom/android/launcher2/MenuAppsGrid;Lcom/android/launcher2/AppFolderItem;)V
 
-    invoke-virtual {p0}, Lcom/android/launcher2/MenuAppsGrid;->appModelUpdated()V
+    const-wide/16 v4, 0x15e
+
+    invoke-virtual {v1, v2, v4, v5}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     return-void
 .end method
@@ -9699,9 +9703,9 @@
 
     invoke-direct {v1}, Landroid/os/Handler;-><init>()V
 
-    new-instance v4, Lcom/android/launcher2/MenuAppsGrid$13;
+    new-instance v4, Lcom/android/launcher2/MenuAppsGrid$14;
 
-    invoke-direct {v4, p0}, Lcom/android/launcher2/MenuAppsGrid$13;-><init>(Lcom/android/launcher2/MenuAppsGrid;)V
+    invoke-direct {v4, p0}, Lcom/android/launcher2/MenuAppsGrid$14;-><init>(Lcom/android/launcher2/MenuAppsGrid;)V
 
     int-to-long v6, v0
 
@@ -10116,9 +10120,9 @@
 
     iget-object v0, p0, Lcom/android/launcher2/MenuAppsGrid;->mStateAnimatorSet:Lcom/android/launcher2/MenuStateAnimatorSet;
 
-    new-instance v1, Lcom/android/launcher2/MenuAppsGrid$7;
+    new-instance v1, Lcom/android/launcher2/MenuAppsGrid$8;
 
-    invoke-direct {v1, p0}, Lcom/android/launcher2/MenuAppsGrid$7;-><init>(Lcom/android/launcher2/MenuAppsGrid;)V
+    invoke-direct {v1, p0}, Lcom/android/launcher2/MenuAppsGrid$8;-><init>(Lcom/android/launcher2/MenuAppsGrid;)V
 
     invoke-virtual {v0, v1}, Lcom/android/launcher2/MenuStateAnimatorSet;->setListenerAdapter(Landroid/animation/AnimatorListenerAdapter;)V
 

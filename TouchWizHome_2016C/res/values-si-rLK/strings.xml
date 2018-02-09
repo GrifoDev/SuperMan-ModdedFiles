@@ -201,7 +201,7 @@
     <string name="talkback_all_apps_button">යෙදුම්</string>
     <string name="talkback_checked">තෝරා ගැනිණි</string>
     <string name="talkback_double_tap_to_move">ගෙන යාමට ද්වි තට්ටු කර අල්ලාගෙන සිටින්න.</string>
-    <string name="talkback_double_tap_to_open_app_tray">යෙදුම් තැටිය විවෘත කිරීමට ද්වි තට්ටු කරන්න.</string>
+    <string name="talkback_double_tap_to_open_app_tray">යෙදුම් තැටිය විවෘත කිරීමට දෙවරක් තට්ටු කරන්න.</string>
     <string name="talkback_folder_created">ෆෝල්ඩරය සෑදුණි.</string>
     <string name="talkback_folder_item_hover_handle">ෆෝල්ඩර අයිතමය</string>
     <string name="talkback_header">ශීර්ෂය</string>

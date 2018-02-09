@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher2/MenuAppsGrid;->setTabHost(Lcom/android/launcher2/MenuView;)V
+    value = Lcom/android/launcher2/MenuAppsGrid;->setAppSearchAnimation(Ljava/util/List;Z)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -32,31 +32,21 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 2
+    .locals 3
 
     iget-object v0, p0, Lcom/android/launcher2/MenuAppsGrid$7;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/launcher2/MenuAppsGrid;->access$2602(Lcom/android/launcher2/MenuAppsGrid;Z)Z
+    sget-object v2, Lcom/android/launcher2/Launcher;->sViewLayerPaint:Landroid/graphics/Paint;
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/launcher2/MenuAppsGrid;->setLayerType(ILandroid/graphics/Paint;)V
 
     iget-object v0, p0, Lcom/android/launcher2/MenuAppsGrid$7;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    sget-object v1, Lcom/android/launcher2/PagedView$LayerOptions;->DEFAULT:Lcom/android/launcher2/PagedView$LayerOptions;
+    const/16 v1, 0x8
 
-    invoke-virtual {v0, v1}, Lcom/android/launcher2/MenuAppsGrid;->updateChildrenLayersEnabled(Lcom/android/launcher2/PagedView$LayerOptions;)V
-
-    return-void
-.end method
-
-.method public onAnimationStart(Landroid/animation/Animator;)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/launcher2/MenuAppsGrid$7;->this$0:Lcom/android/launcher2/MenuAppsGrid;
-
-    sget-object v1, Lcom/android/launcher2/PagedView$LayerOptions;->FORCE_HARDWARE:Lcom/android/launcher2/PagedView$LayerOptions;
-
-    invoke-virtual {v0, v1}, Lcom/android/launcher2/MenuAppsGrid;->updateChildrenLayersEnabled(Lcom/android/launcher2/PagedView$LayerOptions;)V
+    invoke-virtual {v0, v1}, Lcom/android/launcher2/MenuAppsGrid;->setVisibility(I)V
 
     return-void
 .end method

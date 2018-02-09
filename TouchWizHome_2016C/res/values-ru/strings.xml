@@ -22,7 +22,7 @@
     <string name="SS_THE_APP_LIST_WILL_BE_REARRANGED_IN_ALPHABETICAL_ORDER_ANY_CUSTOMISATIONS_YOU_HAVE_MADE_WILL_BE_DISCARDED">Список приложений будет упорядочен в алфавитном порядке. Будут отменены все сделанные вами настройки.</string>
     <string name="Tap_on_widgets_tab">Выберите вкладку виджетов.</string>
     <string name="Wallpaper_chooser_wallpapers">Обои</string>
-    <string name="Zeropage_permission_content">Невозможно корректно использовать %s. Коснитесь НАСТРОЙКИ, выберите “Сведения о приложении” > “Разрешения”, затем предоставьте следующие разрешения и повторите попытку. Если вы не хотите предоставлять данные разрешения, сенсорное взаимодействие на экране может быть представлено неверно.</string>
+    <string name="Zeropage_permission_content">Невозможно корректно использовать %s. Коснитесь НАСТРОЙКИ, выберите “Информация о приложении” > “Разрешения”, затем предоставьте следующие разрешения и повторите попытку. Если вы не хотите предоставлять данные разрешения, сенсорное взаимодействие на экране может быть представлено неверно.</string>
     <string name="Zeropage_permission_setting">Настройки</string>
     <string name="Zeropage_permission_skip">Проп.</string>
     <string name="Zeropage_permission_storage">Память</string>
@@ -167,7 +167,7 @@
     <string name="quickoptions_add_apps">Добавление приложений</string>
     <string name="quickoptions_add_to_secure_folder">"Добавить в
 защищ. папку"</string>
-    <string name="quickoptions_app_info">Сведения о приложении</string>
+    <string name="quickoptions_app_info">Информация о приложении</string>
     <string name="quickoptions_clear_badge">Очистить значок</string>
     <string name="quickoptions_disable">Выключить</string>
     <string name="quickoptions_sleep_alert">Переведя это приложение в спящий режим, вы запретите ему использовать заряд аккумулятора в фоновом режиме. Спящие приложения могут не получать обновления или присылать уведомления, но будут пробуждены, когда вы откроете их.</string>

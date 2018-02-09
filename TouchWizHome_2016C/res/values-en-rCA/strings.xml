@@ -207,9 +207,9 @@ Secure Folder"</string>
     <string name="talkback_header">Header</string>
     <string name="talkback_hotseat_move_to">Position %d in menu bar.</string>
     <string name="talkback_hover_item_over_other_item">%1$s on top of %2$s</string>
-    <string name="talkback_item_moved_out_of_folder">Item moved out of folder.</string>
+    <string name="talkback_item_moved_out_of_folder">Item was moved out of the folder.</string>
     <string name="talkback_mode_switched_to_selection_mode">Mode switched to Selection mode.</string>
-    <string name="talkback_move_item_into_folder">Item moved into folder.</string>
+    <string name="talkback_move_item_into_folder">Item was moved into the folder.</string>
     <string name="talkback_move_to">Row %1$d, column %2$d</string>
     <string name="talkback_n_items">%d items</string>
     <string name="talkback_not_checked">Not selected</string>
@@ -231,7 +231,7 @@ Secure Folder"</string>
     <string name="viewtype_custom_grid">Custom order</string>
     <string name="widget_duplicate">%s widget already on home screen.</string>
     <string name="work_folder_name">Work</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
+    <string name="workspace_empty_message">Touch and hold the screen to add items</string>
     <string name="zeropage_briefing_title">Briefing</string>
     <string name="zeropage_download">Download</string>
     <string name="zeropage_download_msg">To use this function, you need to install %1$s. Tap DOWNLOAD to download and install %2$s.</string>

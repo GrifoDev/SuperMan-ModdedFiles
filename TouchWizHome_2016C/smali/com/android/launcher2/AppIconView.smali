@@ -447,7 +447,7 @@
     sput v6, Lcom/android/launcher2/AppIconView;->mBadgeClearViewHeight:I
 
     :cond_5
-    const v6, 0x7f0a033c
+    const v6, 0x7f0a033b
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3126,7 +3126,7 @@
 
     move-result-object v19
 
-    const v20, 0x7f0a0378
+    const v20, 0x7f0a0377
 
     invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3180,7 +3180,7 @@
 
     move-result-object v19
 
-    const v20, 0x7f0a0379
+    const v20, 0x7f0a0378
 
     invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4379,7 +4379,7 @@
 
     move-result-object v22
 
-    const v23, 0x7f0a033d
+    const v23, 0x7f0a033c
 
     invoke-virtual/range {v22 .. v23}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

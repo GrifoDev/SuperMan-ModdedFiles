@@ -908,6 +908,10 @@
 
     check-cast v15, Lcom/android/launcher2/HomeItem;
 
+    iget-object v5, v15, Lcom/android/launcher2/HomeItem;->mTitle:Ljava/lang/String;
+
+    if-eqz v5, :cond_b
+
     iget-object v7, v15, Lcom/android/launcher2/HomeItem;->mTitle:Ljava/lang/String;
 
     move-object/from16 v0, p0

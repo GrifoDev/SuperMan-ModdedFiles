@@ -145,7 +145,7 @@
     <string name="only_one_widget_instance_allowed">Уиджетът %s вече е добавен към началния екран.</string>
     <string name="open_folder">Отваряне на папка</string>
     <string name="open_folder_VZW">Преглед на приложения</string>
-    <string name="option_menu_contact_up">Свържете се с нас</string>
+    <string name="option_menu_contact_up">Връзка с нас</string>
     <string name="option_tray_screengrid">Мрежа на екрана</string>
     <string name="options_home_set_theme">Теми</string>
     <string name="options_home_set_wallpapers_and_themes">Тапети и теми</string>

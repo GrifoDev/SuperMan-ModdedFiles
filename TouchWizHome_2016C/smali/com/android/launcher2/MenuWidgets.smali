@@ -2543,7 +2543,7 @@
 
     invoke-virtual {p0, v4}, Lcom/android/launcher2/MenuWidgets;->setPageZoom(F)V
 
-    const v4, 0x7f0a03c1
+    const v4, 0x7f0a03c0
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2553,7 +2553,7 @@
 
     iput v6, v0, Landroid/widget/FrameLayout$LayoutParams;->rightMargin:I
 
-    const v4, 0x7f0a03cf
+    const v4, 0x7f0a03ce
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2581,7 +2581,7 @@
 
     iput v6, v0, Landroid/widget/FrameLayout$LayoutParams;->topMargin:I
 
-    const v4, 0x7f0a03bf
+    const v4, 0x7f0a03be
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -6582,7 +6582,7 @@
     if-ne p1, v4, :cond_9
 
     :cond_4
-    const v4, 0x7f0a03c1
+    const v4, 0x7f0a03c0
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -6592,7 +6592,7 @@
 
     iput v7, v1, Landroid/widget/FrameLayout$LayoutParams;->rightMargin:I
 
-    const v4, 0x7f0a03cf
+    const v4, 0x7f0a03ce
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -6632,7 +6632,7 @@
 
     iput v7, v1, Landroid/widget/FrameLayout$LayoutParams;->topMargin:I
 
-    const v4, 0x7f0a03bf
+    const v4, 0x7f0a03be
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

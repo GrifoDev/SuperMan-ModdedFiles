@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="activity_not_found">Aplicación no instalada</string>
+    <string name="activity_not_found">Aplicación no instalada.</string>
     <string name="all_apps_button_label">Apps</string>
     <string name="application_name">Inicio TouchWiz</string>
     <string name="cancel_action">Cancelar</string>
-    <string name="gadget_error_text">Problema al cargar widget</string>
+    <string name="gadget_error_text">Problema al cargar widget.</string>
     <string name="long_press_widget_to_add">Mantén pulsado un widget para moverlo.</string>
-    <string name="menu_item_add_item">Añadir a pantalla de inicio</string>
+    <string name="menu_item_add_item">Añadir a pantalla Inicio</string>
     <string name="menu_search">Buscar</string>
-    <string name="out_of_space">No hay más espacio en esta página</string>
+    <string name="out_of_space">No hay más espacio en esta página.</string>
     <string name="shortcut_duplicate">El acceso directo %s ya existe.</string>
     <string name="shortcut_installed">Acceso directo a %s añadido a la pantalla Inicio.</string>
-    <string name="shortcut_uninstalled">Acceso directo %s eliminado</string>
+    <string name="shortcut_uninstalled">Acceso directo %s eliminado.</string>
     <string name="widgets_tab_label">Widgets</string>
-    <string name="Long_press_on_any_widget">Mantenga pulsado el widget que desee añadir</string>
+    <string name="Long_press_on_any_widget">Mantén pulsado el widget que quieras añadir.</string>
     <string name="Move_to_folder_tts">Mover a carpeta</string>
     <string name="SS_A_TO_Z_TBOPT">A a Z</string>
     <string name="SS_A_Z_ABB">A-Z</string>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">Historial de búsquedas</string>
     <string name="SS_SORT_ALPHABETICALLY_HEADER_ABB">Ordenar alfabéticamente</string>
     <string name="SS_THE_APP_LIST_WILL_BE_REARRANGED_IN_ALPHABETICAL_ORDER_ANY_CUSTOMISATIONS_YOU_HAVE_MADE_WILL_BE_DISCARDED">Se reorganizará la lista de aplicaciones por orden alfabético. Se descartarán las personalizaciones que hayas hecho.</string>
-    <string name="Tap_on_widgets_tab">Seleccione la pestaña de widgets</string>
+    <string name="Tap_on_widgets_tab">Selecciona la pestaña de widgets.</string>
     <string name="Wallpaper_chooser_wallpapers">Fondos</string>
     <string name="Zeropage_permission_content">No se puede utilizar %s correctamente. Pulsa AJUSTES, ve a Información de la aplicación > Permisos y, a continuación, concede los siguientes permisos e inténtalo de nuevo. Si no los concedes, puede que la interacción táctil no se muestre correctamente en la pantalla.</string>
     <string name="Zeropage_permission_setting">Ajustes</string>
@@ -30,7 +30,7 @@
     <string name="accessibility_button">Botón</string>
     <string name="accessibility_open_home_screen_page_edit">Se ha cambiado el modo a modo Edición de página.</string>
     <string name="activity_not_found_while_safemode">Las aplicaciones descargadas se desactivan cuando se activa el modo Seguro.</string>
-    <string name="add_to_home_msg">Mantenga tocado un elemento para moverlo a la pantalla de inicio</string>
+    <string name="add_to_home_msg">Mantén tocado un elemento para moverlo a la pantalla Inicio.</string>
     <string name="all_apps_title">Aplicaciones</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;ABCDEFGHIJKLMNÑOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#ÁÉÍÑÓÚÜABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
@@ -51,10 +51,10 @@
     <string name="clear_badge_text">Eliminar alerta</string>
     <string name="cling_do_not_show_again">No mostrar de nuevo.</string>
     <string name="cling_ok">Aceptar</string>
-    <string name="content_description_hand">Mantenga pulsado el círculo azul en el centro de la pantalla</string>
+    <string name="content_description_hand">Mantén pulsado el círculo azul en el centro de la pantalla.</string>
     <string name="create_folder_dialog_msg">Nombre de carpeta</string>
     <string name="default_page">Página predeterminada</string>
-    <string name="default_scroll_format">Página %1$d de %2$d</string>
+    <string name="default_scroll_format">Página %1$d de %2$d.</string>
     <string name="direct_dial">Marcación directa</string>
     <string name="direct_message">Mensaje directo</string>
     <string name="disable_message">%1$s y todas las funciones relacionadas se desactivarán. Para activar de nuevo la aplicación, ve a Ajustes > Aplicaciones y, a continuación, selecciona %2$s.</string>
@@ -84,10 +84,10 @@
     <string name="folder_facebook">Social</string>
     <string name="folder_microsoft_apps">Apps de Microsoft</string>
     <string name="folder_opened">Carpeta abierta.</string>
-    <string name="guide_remove_items_delete">Arrastre el elemento a la papelera de reciclaje para eliminarlo de la pantalla de inicio</string>
-    <string name="guide_resize_widget_step2">Tire del borde hacia arriba y abajo, o hacia dentro y fuera, para cambiar el tamaño del widget</string>
+    <string name="guide_remove_items_delete">Mueve el elemento a la papelera de reciclaje para eliminarlo de la pantalla Inicio.</string>
+    <string name="guide_resize_widget_step2">Tira del borde hacia arriba y abajo, o hacia dentro y fuera, para cambiar el tamaño del widget.</string>
     <string name="guide_tap_here">Pulsa el icono de aplicaciones.</string>
-    <string name="guide_widgets_tap_area">Mantenga pulsado un widget hasta que se pueda editar y después suéltelo</string>
+    <string name="guide_widgets_tap_area">Mantén pulsado un widget hasta que se pueda editar y después suéltalo.</string>
     <string name="hide">Ocultar</string>
     <string name="hide_confirm_continue">Continuar</string>
     <string name="hide_confirm_message">La aplicación %s está bloqueada. Si la ocultas, se desbloqueará.</string>
@@ -114,7 +114,7 @@
     <string name="max_characters_available">Hasta %d caracteres disponibles.</string>
     <string name="menu_edit">Editar</string>
     <string name="menu_edit_cancel">Cancelar</string>
-    <string name="menu_edit_cancel_msg">Se descartarán todos los cambios</string>
+    <string name="menu_edit_cancel_msg">Se descartarán todos los cambios.</string>
     <string name="menu_edit_done">Hecho</string>
     <string name="menu_edit_mode">Modo de edición</string>
     <string name="menu_edit_save">Guardar</string>
@@ -209,7 +209,7 @@ Carpeta segura"</string>
     <string name="talkback_checked">Seleccionadas</string>
     <string name="talkback_double_tap_to_move">Pulsa dos veces y mantén pulsado para mover.</string>
     <string name="talkback_double_tap_to_open_app_tray">Pulsa dos veces para abrir la bandeja de aplicaciones.</string>
-    <string name="talkback_folder_created">Carpeta creada</string>
+    <string name="talkback_folder_created">Carpeta creada.</string>
     <string name="talkback_folder_item_hover_handle">Elemento de carpeta</string>
     <string name="talkback_header">Encabezado</string>
     <string name="talkback_hotseat_move_to">Posición %d en la barra de menú.</string>

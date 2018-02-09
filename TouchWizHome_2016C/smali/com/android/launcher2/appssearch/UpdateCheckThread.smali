@@ -4,6 +4,8 @@
 
 
 # static fields
+.field private static final DEBUGGABLE:Z
+
 .field private static final NETWORK_NOT_CONNECTED:I = 0x5
 
 .field private static final RESULT_CONTENTS_SIZE:I = 0x14
@@ -26,6 +28,18 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    invoke-static {}, Lcom/android/launcher2/Utilities;->DEBUGGABLE()Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/launcher2/appssearch/UpdateCheckThread;->DEBUGGABLE:Z
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;ZLjava/lang/String;)V
     .locals 1
 
@@ -2219,6 +2233,10 @@
 
     move-result-object v5
 
+    sget-boolean v8, Lcom/android/launcher2/appssearch/UpdateCheckThread;->DEBUGGABLE:Z
+
+    if-eqz v8, :cond_0
+
     const-string v8, "UpdateCheckThread"
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -2241,6 +2259,7 @@
 
     invoke-static {v8, v9}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    :cond_0
     const-string v8, " "
 
     const-string v9, "%20"
@@ -2260,11 +2279,11 @@
 
     move-result v4
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_1
 
     iget-boolean v8, p0, Lcom/android/launcher2/appssearch/UpdateCheckThread;->mFromReceiver:Z
 
-    if-nez v8, :cond_0
+    if-nez v8, :cond_1
 
     const-string v8, "UpdateCheckThread"
 
@@ -2290,7 +2309,7 @@
 
     invoke-static {v8, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_0
+    :cond_1
     const-string v8, "UpdateCheckThread"
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -2315,7 +2334,7 @@
 
     iget-object v8, p0, Lcom/android/launcher2/appssearch/UpdateCheckThread;->mAppSearch:Lcom/android/launcher2/MenuAppsSearch;
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_2
 
     iget-object v8, p0, Lcom/android/launcher2/appssearch/UpdateCheckThread;->mAppSearch:Lcom/android/launcher2/MenuAppsSearch;
 
@@ -2333,7 +2352,7 @@
 
     invoke-virtual {v8, v3}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    :cond_1
+    :cond_2
     :goto_1
     return-void
 
@@ -2352,11 +2371,11 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_3
 
     iget-boolean v8, p0, Lcom/android/launcher2/appssearch/UpdateCheckThread;->mFromReceiver:Z
 
-    if-nez v8, :cond_2
+    if-nez v8, :cond_3
 
     const-string v8, "UpdateCheckThread"
 
@@ -2382,7 +2401,7 @@
 
     invoke-static {v8, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_2
+    :cond_3
     const-string v8, "UpdateCheckThread"
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -2407,7 +2426,7 @@
 
     iget-object v8, p0, Lcom/android/launcher2/appssearch/UpdateCheckThread;->mAppSearch:Lcom/android/launcher2/MenuAppsSearch;
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_2
 
     iget-object v8, p0, Lcom/android/launcher2/appssearch/UpdateCheckThread;->mAppSearch:Lcom/android/launcher2/MenuAppsSearch;
 
@@ -2430,11 +2449,11 @@
     :catchall_0
     move-exception v8
 
-    if-nez v4, :cond_3
+    if-nez v4, :cond_4
 
     iget-boolean v9, p0, Lcom/android/launcher2/appssearch/UpdateCheckThread;->mFromReceiver:Z
 
-    if-nez v9, :cond_3
+    if-nez v9, :cond_4
 
     const-string v9, "UpdateCheckThread"
 
@@ -2460,7 +2479,7 @@
 
     invoke-static {v9, v10}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_3
+    :cond_4
     const-string v9, "UpdateCheckThread"
 
     new-instance v10, Ljava/lang/StringBuilder;
@@ -2485,7 +2504,7 @@
 
     iget-object v9, p0, Lcom/android/launcher2/appssearch/UpdateCheckThread;->mAppSearch:Lcom/android/launcher2/MenuAppsSearch;
 
-    if-eqz v9, :cond_4
+    if-eqz v9, :cond_5
 
     iget-object v9, p0, Lcom/android/launcher2/appssearch/UpdateCheckThread;->mAppSearch:Lcom/android/launcher2/MenuAppsSearch;
 
@@ -2503,6 +2522,6 @@
 
     invoke-virtual {v9, v3}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    :cond_4
+    :cond_5
     throw v8
 .end method

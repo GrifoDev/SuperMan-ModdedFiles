@@ -9,7 +9,7 @@
     <string name="menu_item_add_item">ହୋମ୍ ସ୍କ୍ରିନକୁ ଯୋଡନ୍ତୁ</string>
     <string name="menu_search">ସନ୍ଧାନ</string>
     <string name="out_of_space">ଏହି ପୃଷ୍ଠାରେ ଅଧିକ ରୁମ୍‌ ନାହିଁ</string>
-    <string name="shortcut_duplicate">ସର୍ଟ୍‌କଟ୍ %s ପୂର୍ବରୁ ବିଦ୍ୟମାନ ଅଛି।</string>
+    <string name="shortcut_duplicate">ସର୍ଟକଟ୍ %s ପୂର୍ବରୁ ବିଦ୍ୟମାନ ଅଛି।</string>
     <string name="shortcut_installed">%sର ସର୍ଟକଟ୍ ହୋମ୍ ସ୍କ୍ରିନକୁ ଯୋଡାଯାଇଛି।</string>
     <string name="shortcut_uninstalled">ସର୍ଟକଟ୍ %s ଅପସାରିତ।</string>
     <string name="widgets_tab_label">ୱିଜେଟଗୁଡିକ</string>
@@ -19,7 +19,7 @@
     <string name="SS_A_Z_ABB">A-Z</string>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">ଇତିହାସ ସନ୍ଧାନ କରନ୍ତୁ</string>
     <string name="SS_SORT_ALPHABETICALLY_HEADER_ABB">ଅକ୍ଷର କ୍ରମରେ ସଜାନ୍ତୁ</string>
-    <string name="SS_THE_APP_LIST_WILL_BE_REARRANGED_IN_ALPHABETICAL_ORDER_ANY_CUSTOMISATIONS_YOU_HAVE_MADE_WILL_BE_DISCARDED">ବର୍ଣ୍ଣମାଳା କ୍ରମାଙ୍କ ଅନୁଯାୟୀ ଆପ୍ଲିକେସନ୍‌ ତାଲିକା ପୁନଃଆୟୋଜିତ ହେବ। ଆପଣ କରିଥିବା ଯେକୌଣସି କଷ୍ଟମାଇଜେଶନ ପରିତ୍ୟାଗ୍‌ କରାହେବ।</string>
+    <string name="SS_THE_APP_LIST_WILL_BE_REARRANGED_IN_ALPHABETICAL_ORDER_ANY_CUSTOMISATIONS_YOU_HAVE_MADE_WILL_BE_DISCARDED">ବର୍ଣ୍ଣମାଳା କ୍ରମାଙ୍କ ଅନୁଯାୟୀ ଆପ୍ଲିକେସନ୍‌ ତାଲିକା ପୁନଃଆୟୋଜିତ ହେବ। ଆପଣ କରିଥିବା ଯେକୌଣସି କଷ୍ଟମାଇଜେସନ୍ ପରିତ୍ୟାଗ୍‌ କରାହେବ।</string>
     <string name="Tap_on_widgets_tab">ୱିଜେଟ୍ ଟ୍ୟାବ୍ ଚୟନ କରନ୍ତୁ।</string>
     <string name="Wallpaper_chooser_wallpapers">ୱାଲପେପରଗୁଡିକ</string>
     <string name="Zeropage_permission_content">%s ସଠିକ୍‌ ଭାବେ ବ୍ୟବହାର କରିବାକୁ ଅସମର୍ଥ। “ସେଟିଂସ୍” ବ୍ୟବହାର କରିବାକୁ, ଆପ୍ଲିକେସନ୍‌ ସୂଚନା > ଅନୁମତିଗୁଡିକୁ ଯାଆନ୍ତୁ, ତାପରେ ନିମ୍ନଲିଖିତ ଅନୁମତିଗୁଡିକୁ ଅନୁମତି ଦିଅନ୍ତୁ ଏବଂ ପୁନଃଚେଷ୍ଟା କରନ୍ତୁ। ଆପଣ ଏହି ଅନୁମତିଗୁଡିକ ଅନୁମତି ନ ଦେଲେ, ସ୍ପର୍ଶ ଇଣ୍ଟରାକ୍ସସନ୍ ସ୍କ୍ରିନରେ ସଠିକ୍‌ ଭାବେ ଉପସ୍ଥାପିତ ହୋଇ ନପାରେ।</string>
@@ -39,7 +39,7 @@
     <string name="app_search">ସନ୍ଧାନ</string>
     <string name="app_search_no_apps">ଆପଣ ସନ୍ଧାନ ଫଳାଫଳରୁ ହୋମ୍ ସ୍କ୍ରିନରେ ସର୍ଟକଟଗୁଡିକ ଯୋଡି ପାରିବେ।</string>
     <string name="app_search_no_results_found">କୌଣସି ଫଳାଫଳ ମିଳିଲା ନାହିଁ</string>
-    <string name="app_unlocked_toast">%s ଅନ୍‌ଲକ୍ ହୋଇଛି।</string>
+    <string name="app_unlocked_toast">%s ଅନଲକ୍ ହୋଇଛି।</string>
     <string name="apply">ପ୍ରୟୋଗ</string>
     <string name="available_galaxyapps">Galaxy Appsରେ ଉପଲବ୍ଧ</string>
     <string name="badge_manage_explain">ପ୍ରତି ଆପ୍ଲିକେସନ୍‌ ପାଇଁ ବ୍ୟାଜ ଦେଖାଇବା କିମ୍ୱା ଲୁଚାନ୍ତୁ ଚୟନ କରନ୍ତୁ।</string>
@@ -158,7 +158,7 @@
     <string name="options_menu_sort">ସର୍ଟ୍</string>
     <string name="options_menu_uninstall">ୱିଜେଟ୍ ଅଣସଂସ୍ଥାପନ</string>
     <string name="out_of_space_dialog">ଏହି ପୃଷ୍ଠାରେ ଅଉ ଅଧିକ ସ୍ଥାନ ବାକି ନାହିଁ। ଏକ ନୂତନ ପୃଷ୍ଠାକୁ ଆଇଟମ୍ ଯୋଡା ହେବ।</string>
-    <string name="page_moved">%2$d ର %1$d କୁ ପୃଷ୍ଠା ଘୁଞ୍ଚିଛି।</string>
+    <string name="page_moved">%2$dର %1$d କୁ ପୃଷ୍ଠା ଘୁଞ୍ଚିଛି।</string>
     <string name="permdesc_install_widget">ଏହି ଆପ୍ଲିକେସନ୍‌ ହୋମ୍ ସ୍କ୍ରିନକୁ ୱିଜେଟଗୁଡିକ ଯୋଡି ପାରିବ।</string>
     <string name="permlab_install_widget">ୱିଜେଟଗୁଡିକ ଯୋଡନ୍ତୁ</string>
     <string name="quick_contact">ସମ୍ପର୍କ</string>
@@ -183,7 +183,7 @@
     <string name="remove_app_folder_confirm_VZW">ଅପସାରଣ</string>
     <string name="remove_app_folder_message">%s ଫୋଲ୍ଡର୍ ବିଲୋପ ହେବ। ଏହି ଫୋଲ୍ଡର୍ ଭିତରେ ଆପସ୍ ଆପସ୍ ସ୍କ୍ରିନରେ ଏପର୍ଯ୍ୟନ୍ତ ଉପଲବ୍ଧ ହେବ।</string>
     <string name="remove_app_folder_message_VZW">%s ଫୋଲ୍ଡର୍ ଅପସାରଣ ହେବ। ଏହି ଫୋଲ୍ଡର୍ ଆପସ୍ ମଧ୍ୟରେ ଆପ୍ଲିକେସନ୍‌ ଟ୍ରେର ଶେଷରେ ତାଲିକାଭୁକ୍ତ ହେବ।</string>
-    <string name="remove_app_folder_message_no_title">ଏହି ଫୋଲ୍ଡର୍ ଅପସାରିତ ହେବ। ଫୋଲ୍ଡର୍‌ରେ ଥିବା ଆପ୍ଲିକେସନ୍ ଅଣସଂସ୍ଥାପିତ ହେବ ନାହିଁ।</string>
+    <string name="remove_app_folder_message_no_title">ଏହି ଫୋଲ୍ଡର୍ ଅପସାରିତ ହେବ। ଫୋଲ୍ଡରରେ ଥିବା ଆପ୍ଲିକେସନ୍ ଅଣସଂସ୍ଥାପିତ ହେବନାହିଁ।</string>
     <string name="remove_app_folder_message_no_title_VZW">ଏହି ଫୋଲ୍ଡର୍ ଅପସାରିତ ହେବ। ଏହି ଫୋଲ୍ଡର୍ ଆପସ୍ ମଧ୍ୟରେ ଆପ୍ଲିକେସନ୍‌ ଟ୍ରେର ଶେଷରେ ତାଲିକାଭୁକ୍ତ ହେବ।</string>
     <string name="remove_app_folder_title">ଫୋଲ୍ଡର୍ ବିଲୋପ</string>
     <string name="remove_app_folder_title_VZW">ଫୋଲ୍ଡର୍ ଅପସାରଣ</string>

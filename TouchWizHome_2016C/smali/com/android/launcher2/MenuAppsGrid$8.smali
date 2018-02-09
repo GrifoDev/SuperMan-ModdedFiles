@@ -1,14 +1,11 @@
 .class Lcom/android/launcher2/MenuAppsGrid$8;
-.super Ljava/lang/Object;
+.super Landroid/animation/AnimatorListenerAdapter;
 .source "MenuAppsGrid.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher2/MenuAppsGrid;->onFolderNameChange(Lcom/android/launcher2/FolderItem;)V
+    value = Lcom/android/launcher2/MenuAppsGrid;->setTabHost(Lcom/android/launcher2/MenuView;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,87 +17,46 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-.field final synthetic val$folderItem:Lcom/android/launcher2/FolderItem;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher2/MenuAppsGrid;Lcom/android/launcher2/FolderItem;)V
+.method constructor <init>(Lcom/android/launcher2/MenuAppsGrid;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher2/MenuAppsGrid$8;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    iput-object p2, p0, Lcom/android/launcher2/MenuAppsGrid$8;->val$folderItem:Lcom/android/launcher2/FolderItem;
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
-    .locals 3
+.method public onAnimationEnd(Landroid/animation/Animator;)V
+    .locals 2
 
-    sget-object v1, Lcom/android/launcher2/MenuAppModel;->INSTANCE:Lcom/android/launcher2/MenuAppModel;
+    iget-object v0, p0, Lcom/android/launcher2/MenuAppsGrid$8;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    invoke-virtual {v1}, Lcom/android/launcher2/MenuAppModel;->invalidateTopLevelItems()V
+    const/4 v1, 0x0
 
-    sget-object v1, Lcom/android/launcher2/MenuAppModel;->INSTANCE:Lcom/android/launcher2/MenuAppModel;
+    invoke-static {v0, v1}, Lcom/android/launcher2/MenuAppsGrid;->access$2602(Lcom/android/launcher2/MenuAppsGrid;Z)Z
 
-    const/4 v2, 0x0
+    iget-object v0, p0, Lcom/android/launcher2/MenuAppsGrid$8;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    invoke-virtual {v1, v2}, Lcom/android/launcher2/MenuAppModel;->normalizeModel(Z)V
+    sget-object v1, Lcom/android/launcher2/PagedView$LayerOptions;->DEFAULT:Lcom/android/launcher2/PagedView$LayerOptions;
 
-    invoke-static {}, Lcom/android/launcher2/LauncherFeature;->supportAlphabeticalOrder()Z
+    invoke-virtual {v0, v1}, Lcom/android/launcher2/MenuAppsGrid;->updateChildrenLayersEnabled(Lcom/android/launcher2/PagedView$LayerOptions;)V
 
-    move-result v1
+    return-void
+.end method
 
-    if-eqz v1, :cond_0
+.method public onAnimationStart(Landroid/animation/Animator;)V
+    .locals 2
 
-    iget-object v1, p0, Lcom/android/launcher2/MenuAppsGrid$8;->this$0:Lcom/android/launcher2/MenuAppsGrid;
+    iget-object v0, p0, Lcom/android/launcher2/MenuAppsGrid$8;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    invoke-virtual {v1}, Lcom/android/launcher2/MenuAppsGrid;->getContext()Landroid/content/Context;
+    sget-object v1, Lcom/android/launcher2/PagedView$LayerOptions;->FORCE_HARDWARE:Lcom/android/launcher2/PagedView$LayerOptions;
 
-    move-result-object v1
-
-    check-cast v1, Lcom/android/launcher2/Launcher;
-
-    invoke-virtual {v1}, Lcom/android/launcher2/Launcher;->getMenuView()Lcom/android/launcher2/MenuView;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/launcher2/MenuView;->getViewType()Lcom/android/launcher2/MenuView$ViewType;
-
-    move-result-object v1
-
-    sget-object v2, Lcom/android/launcher2/MenuView$ViewType;->ALPHABETIC_GRID:Lcom/android/launcher2/MenuView$ViewType;
-
-    if-ne v1, v2, :cond_0
-
-    iget-object v1, p0, Lcom/android/launcher2/MenuAppsGrid$8;->val$folderItem:Lcom/android/launcher2/FolderItem;
-
-    instance-of v1, v1, Lcom/android/launcher2/AppFolderItem;
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/launcher2/MenuAppsGrid$8;->val$folderItem:Lcom/android/launcher2/FolderItem;
-
-    check-cast v1, Lcom/android/launcher2/AppFolderItem;
-
-    iget v0, v1, Lcom/android/launcher2/AppFolderItem;->mScreenInAlphabetical:I
-
-    const/4 v1, -0x1
-
-    if-eq v0, v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/launcher2/MenuAppsGrid$8;->this$0:Lcom/android/launcher2/MenuAppsGrid;
-
-    invoke-virtual {v1, v0}, Lcom/android/launcher2/MenuAppsGrid;->setCurrentPage(I)V
-
-    :cond_0
-    iget-object v1, p0, Lcom/android/launcher2/MenuAppsGrid$8;->this$0:Lcom/android/launcher2/MenuAppsGrid;
-
-    invoke-virtual {v1}, Lcom/android/launcher2/MenuAppsGrid;->invalidatePageData()V
+    invoke-virtual {v0, v1}, Lcom/android/launcher2/MenuAppsGrid;->updateChildrenLayersEnabled(Lcom/android/launcher2/PagedView$LayerOptions;)V
 
     return-void
 .end method

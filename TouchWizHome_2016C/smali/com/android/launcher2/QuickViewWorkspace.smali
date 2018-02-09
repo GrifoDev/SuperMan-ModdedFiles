@@ -7992,7 +7992,7 @@
 
     if-nez v13, :cond_b
 
-    const v13, 0x7f0a037c
+    const v13, 0x7f0a037b
 
     invoke-virtual {v8, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

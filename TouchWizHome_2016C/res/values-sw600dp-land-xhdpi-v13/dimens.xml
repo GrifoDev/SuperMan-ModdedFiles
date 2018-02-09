@@ -4,36 +4,35 @@
     <item type="dimen" name="home_cellGapY">@dimen/home_cellGapY_land</item>
     <item type="dimen" name="home_cellHeight">@dimen/home_cellHeight_land</item>
     <item type="dimen" name="home_cellWidth">@dimen/home_cellWidth_land</item>
-    <dimen name="home_editTitleBar">82.0dip</dimen>
-    <dimen name="home_editTitleBarTranslationY">-88.0dip</dimen>
+    <dimen name="home_editTitleBar">54.0dip</dimen>
     <dimen name="home_editmode_panel_horizontalGap">7.0dip</dimen>
     <dimen name="home_editmode_panel_padding_top">88.0dip</dimen>
-    <dimen name="home_icon_paddingTop">7.0dip</dimen>
+    <dimen name="home_icon_paddingTop">4.0dip</dimen>
     <dimen name="home_pageIndicatorGap">16.0dip</dimen>
     <dimen name="home_pageIndicatorMaxWidth">675.0dip</dimen>
     <dimen name="home_pageIndicatorTop">474.0dip</dimen>
-    <dimen name="home_pageIndicatorTopDrag">472.0dip</dimen>
-    <dimen name="home_pageIndicatorTopEdit">470.0dip</dimen>
-    <dimen name="home_pageMarginTop">6.0dip</dimen>
-    <dimen name="home_pagePaddingBottom">8.0dip</dimen>
-    <dimen name="home_pagePaddingLeft">8.0dip</dimen>
-    <dimen name="home_pagePaddingRight">8.0dip</dimen>
-    <dimen name="home_pagePaddingTop">8.0dip</dimen>
+    <dimen name="home_pageIndicatorTopDrag">473.0dip</dimen>
+    <dimen name="home_pageIndicatorTopEdit">473.0dip</dimen>
+    <dimen name="home_pageMarginTop">36.0dip</dimen>
+    <dimen name="home_pagePaddingBottom">0.0dip</dimen>
+    <dimen name="home_pagePaddingLeft">36.0dip</dimen>
+    <dimen name="home_pagePaddingRight">36.0dip</dimen>
+    <dimen name="home_pagePaddingTop">0.0dip</dimen>
     <dimen name="home_pageSpacing">0.0dip</dimen>
     <dimen name="home_screen_option_menu_height">92.0dip</dimen>
     <dimen name="homescreen_option_menu_margin_top">0.0dip</dimen>
     <dimen name="hotseat_barSize">89.0dip</dimen>
     <dimen name="hotseat_bottomGap">0.0dip</dimen>
-    <dimen name="hotseat_cellGapX">6.0dip</dimen>
+    <dimen name="hotseat_cellGapX">4.5dip</dimen>
     <dimen name="hotseat_cellGapY">0.0dip</dimen>
-    <dimen name="hotseat_cellHeight">89.0dip</dimen>
-    <dimen name="hotseat_cellWidth">132.0dip</dimen>
-    <dimen name="hotseat_icon_paddingTop">7.0dip</dimen>
+    <dimen name="hotseat_cellHeight">83.0dip</dimen>
+    <dimen name="hotseat_cellWidth">134.0dip</dimen>
+    <dimen name="hotseat_icon_paddingTop">4.0dip</dimen>
     <dimen name="hotseat_icon_shadow_offset_y">52.0dip</dimen>
     <dimen name="hotseat_leftGap">62.0dip</dimen>
     <dimen name="hotseat_rightGap">62.0dip</dimen>
     <dimen name="hotseat_topGap">0.0dip</dimen>
-    <dimen name="hotseatfolder_icon_paddingTop">7.0dip</dimen>
+    <dimen name="hotseatfolder_icon_paddingTop">4.0dip</dimen>
     <dimen name="icon_shadow_offset_y">52.0dip</dimen>
     <dimen name="menuAppsGrid_cellGapX">33.0dip</dimen>
     <dimen name="menuAppsGrid_cellGapY">9.0dip</dimen>
@@ -65,7 +64,7 @@
     <dimen name="menuWidgets_widgetOverlay_padding">2.0dip</dimen>
     <dimen name="menu_edit_button_text_size">11.0dip</dimen>
     <item type="dimen" name="menu_edit_translation_view_factor">0.89</item>
-    <dimen name="menu_icon_paddingTop">7.0dip</dimen>
+    <dimen name="menu_icon_paddingTop">4.0dip</dimen>
     <dimen name="menu_pageIndicatorTop">509.0dip</dimen>
     <dimen name="menu_titleHeight">46.0dip</dimen>
     <dimen name="menu_widgets_searchHeight">53.0dip</dimen>
@@ -89,6 +88,7 @@
     <dimen name="folder_paged_view_margin_top">6.0dip</dimen>
     <dimen name="home_editmode_panel_zeropage_height">349.0dip</dimen>
     <dimen name="home_editmode_panel_zeropage_width">576.0dip</dimen>
+    <dimen name="hotseat_barSize_drag">89.0dip</dimen>
     <dimen name="open_folder_appicon_addbutton_textsize">15.0dip</dimen>
     <dimen name="open_folder_appicon_addbutton_top_margin_new">444.0dip</dimen>
     <dimen name="open_folder_appicon_cell_width_new">132.0dip</dimen>
@@ -99,14 +99,15 @@
     <dimen name="open_folder_title_option_button_margin_top_new">2.0dip</dimen>
     <dimen name="open_folder_title_underbar_width">676.0dip</dimen>
     <dimen name="zeropageSwitch_topgap">41.0dip</dimen>
-    <dimen name="folder_icon_paddingTop">5.0dip</dimen>
+    <dimen name="folder_icon_paddingTop">3.0dip</dimen>
     <dimen name="home_editmode_panel_button_margin">2.0dip</dimen>
     <dimen name="menuWidgets_widgetFolderOpen_folder_padding_left">33.0dip</dimen>
     <dimen name="menu_edit_button_margin_end">44.0dip</dimen>
-    <dimen name="moveApps_cellHeight">75.0dip</dimen>
-    <dimen name="moveApps_cellWidth">83.0dip</dimen>
-    <dimen name="moveApps_containerHeight">83.0dip</dimen>
-    <dimen name="moveApps_topGap">8.0dip</dimen>
+    <dimen name="moveApps_cellHeight">53.0dip</dimen>
+    <dimen name="moveApps_cellWidth">97.0dip</dimen>
+    <dimen name="moveApps_containerHeight">54.0dip</dimen>
+    <dimen name="moveApps_iconSize">31.5dip</dimen>
+    <dimen name="moveApps_topGap">0.0dip</dimen>
     <dimen name="menuWidgets_widgetFolderOpen_extra_margin_for_indicator">428.0dip</dimen>
     <dimen name="widget_search_titlebar_padding_left">69.0dip</dimen>
     <dimen name="widget_search_titlebar_padding_right">82.0dip</dimen>
@@ -114,7 +115,7 @@
     <dimen name="open_folder_appicon_margin_bottom">0.0dip</dimen>
     <dimen name="appsearch_grid_margin_left_right">38.0dip</dimen>
     <dimen name="appsearch_grid_cell_height">95.0dip</dimen>
-    <item type="dimen" name="config_workspaceEditModeTranslationFactor">0.8115</item>
+    <item type="dimen" name="config_workspaceEditModeTranslationFactor">1.0</item>
     <dimen name="folder_multi_container_margin_end">45.0dip</dimen>
     <dimen name="folder_multi_container_margin_start">31.0dip</dimen>
     <dimen name="home_editTitleBar_side_margin_case_2_item">314.0dip</dimen>
@@ -123,5 +124,4 @@
     <dimen name="apps_search_titlebar_margin_end">80.0dip</dimen>
     <dimen name="apps_search_titlebar_margin_start">72.0dip</dimen>
     <dimen name="open_folder_appicon_cell_height_new">82.0dip</dimen>
-    <dimen name="home_editpageMarginTop">12.0dip</dimen>
 </resources>

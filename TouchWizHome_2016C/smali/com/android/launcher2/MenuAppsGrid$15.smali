@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher2/MenuAppsGrid;->appModelUpdatedForHidden()V
+    value = Lcom/android/launcher2/MenuAppsGrid;->changeGridSize(Lcom/android/launcher2/LauncherApplication$HomeGridSize;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,232 +34,152 @@
 
 
 # virtual methods
-.method public declared-synchronized run()V
-    .locals 10
+.method public run()V
+    .locals 8
 
-    const/4 v9, 0x1
+    const/4 v7, 0x0
 
-    monitor-enter p0
+    iget-object v4, p0, Lcom/android/launcher2/MenuAppsGrid$15;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    :try_start_0
-    invoke-static {}, Lcom/android/launcher2/MenuAppLoader;->getApps()Ljava/util/Map;
+    invoke-virtual {v4, v7}, Lcom/android/launcher2/MenuAppsGrid;->setCurrentPage(I)V
 
-    move-result-object v1
+    sget-object v4, Lcom/android/launcher2/MenuAppModel;->INSTANCE:Lcom/android/launcher2/MenuAppModel;
+
+    iget-object v5, p0, Lcom/android/launcher2/MenuAppsGrid$15;->this$0:Lcom/android/launcher2/MenuAppsGrid;
+
+    iget v5, v5, Lcom/android/launcher2/MenuAppsGrid;->mCellCountX:I
 
     iget-object v6, p0, Lcom/android/launcher2/MenuAppsGrid$15;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    invoke-virtual {v6}, Lcom/android/launcher2/MenuAppsGrid;->getContext()Landroid/content/Context;
+    iget v6, v6, Lcom/android/launcher2/MenuAppsGrid;->mCellCountY:I
 
-    move-result-object v6
+    mul-int/2addr v5, v6
 
-    check-cast v6, Lcom/android/launcher2/Launcher;
+    invoke-virtual {v4, v5}, Lcom/android/launcher2/MenuAppModel;->startChangeGridLoader(I)Ljava/util/List;
 
-    invoke-virtual {v6}, Lcom/android/launcher2/Launcher;->getMenuView()Lcom/android/launcher2/MenuView;
+    move-result-object v1
 
-    move-result-object v4
+    if-nez v1, :cond_1
 
-    const/4 v5, 0x0
+    const-string v4, "Launcher.MenuAppsGrid"
 
-    if-eqz v4, :cond_0
+    const-string v5, "topItem is null"
 
-    invoke-virtual {v4}, Lcom/android/launcher2/MenuView;->isEditState()Z
-
-    move-result v5
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    if-nez v5, :cond_1
-
-    sget-object v6, Lcom/android/launcher2/MenuAppModel;->INSTANCE:Lcom/android/launcher2/MenuAppModel;
-
-    invoke-virtual {v6}, Lcom/android/launcher2/MenuAppModel;->editBegin()V
+    :goto_0
+    return-void
 
     :cond_1
-    invoke-interface {v1}, Ljava/util/Map;->values()Ljava/util/Collection;
+    iget-object v4, p0, Lcom/android/launcher2/MenuAppsGrid$15;->this$0:Lcom/android/launcher2/MenuAppsGrid;
+
+    invoke-virtual {v4}, Lcom/android/launcher2/MenuAppsGrid;->syncPages()V
+
+    new-instance v3, Ljava/util/ArrayList;
+
+    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
+
+    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v6
 
-    invoke-interface {v6}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
-
-    move-result-object v3
-
     :cond_2
-    :goto_0
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+    :goto_1
+    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v6
+    move-result v4
 
-    if-eqz v6, :cond_5
+    if-eqz v4, :cond_5
 
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lcom/android/launcher2/AppItem;
 
-    invoke-virtual {v0}, Lcom/android/launcher2/AppItem;->isGame()Z
+    iget-boolean v4, v0, Lcom/android/launcher2/AppItem;->mDirty:Z
 
-    move-result v6
+    if-eqz v4, :cond_2
 
-    if-eqz v6, :cond_4
+    new-instance v2, Lcom/android/launcher2/LauncherSettings$AppOrderModify;
 
-    invoke-virtual {v0}, Lcom/android/launcher2/AppItem;->isGameHomeApp()Z
+    invoke-direct {v2}, Lcom/android/launcher2/LauncherSettings$AppOrderModify;-><init>()V
 
-    move-result v6
+    iget-object v4, v0, Lcom/android/launcher2/AppItem;->mType:Lcom/android/launcher2/BaseItem$Type;
 
-    if-nez v6, :cond_4
+    sget-object v5, Lcom/android/launcher2/BaseItem$Type;->MENU_APP:Lcom/android/launcher2/BaseItem$Type;
 
-    iget-boolean v6, v0, Lcom/android/launcher2/AppItem;->mHidden:Z
+    if-ne v4, v5, :cond_3
 
-    if-nez v6, :cond_4
+    const/4 v4, 0x4
 
-    iget-object v2, v0, Lcom/android/launcher2/AppItem;->mFolder:Lcom/android/launcher2/AppFolderItem;
+    :goto_2
+    iput v4, v2, Lcom/android/launcher2/LauncherSettings$AppOrderModify;->action:I
 
-    if-eqz v2, :cond_3
+    iget-wide v4, v0, Lcom/android/launcher2/AppItem;->mId:J
 
-    invoke-virtual {v2}, Lcom/android/launcher2/AppFolderItem;->getItemCount()I
+    iput-wide v4, v2, Lcom/android/launcher2/LauncherSettings$AppOrderModify;->id:J
 
-    move-result v6
+    iget-object v4, v0, Lcom/android/launcher2/AppItem;->mFolder:Lcom/android/launcher2/AppFolderItem;
 
-    const/4 v7, 0x2
+    if-eqz v4, :cond_4
 
-    if-gt v6, v7, :cond_3
+    iget-object v4, v0, Lcom/android/launcher2/AppItem;->mFolder:Lcom/android/launcher2/AppFolderItem;
 
-    sget-object v6, Lcom/android/launcher2/MenuAppModel;->INSTANCE:Lcom/android/launcher2/MenuAppModel;
+    iget-wide v4, v4, Lcom/android/launcher2/AppFolderItem;->mId:J
 
-    invoke-virtual {v6, v2}, Lcom/android/launcher2/MenuAppModel;->setFolderToDelete(Lcom/android/launcher2/AppFolderItem;)V
+    :goto_3
+    iput-wide v4, v2, Lcom/android/launcher2/LauncherSettings$AppOrderModify;->folderId:J
 
-    sget-object v6, Lcom/android/launcher2/MenuAppModel;->INSTANCE:Lcom/android/launcher2/MenuAppModel;
+    iget v4, v0, Lcom/android/launcher2/AppItem;->mScreen:I
 
-    invoke-virtual {v6}, Lcom/android/launcher2/MenuAppModel;->editRemoveFolder()V
+    iput v4, v2, Lcom/android/launcher2/LauncherSettings$AppOrderModify;->screen:I
 
-    :cond_3
-    invoke-virtual {v0}, Lcom/android/launcher2/AppItem;->hide()V
+    iget v4, v0, Lcom/android/launcher2/AppItem;->mCell:I
 
-    const-string v6, "Launcher.MenuAppsGrid"
+    iput v4, v2, Lcom/android/launcher2/LauncherSettings$AppOrderModify;->cell:I
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    iget-boolean v4, v0, Lcom/android/launcher2/AppItem;->mHidden:Z
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    iput-boolean v4, v2, Lcom/android/launcher2/LauncherSettings$AppOrderModify;->hidden:Z
 
-    const-string v8, "hideGameApps:"
+    iget-object v4, v0, Lcom/android/launcher2/AppItem;->mTitle:Ljava/lang/String;
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iput-object v4, v2, Lcom/android/launcher2/LauncherSettings$AppOrderModify;->title:Ljava/lang/String;
 
-    move-result-object v7
+    iget-object v4, v0, Lcom/android/launcher2/AppItem;->user:Lcom/android/launcher2/compat/UserHandleCompat;
 
-    invoke-virtual {v7, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    iput-object v4, v2, Lcom/android/launcher2/LauncherSettings$AppOrderModify;->user:Lcom/android/launcher2/compat/UserHandleCompat;
 
-    move-result-object v7
+    iput-boolean v7, v0, Lcom/android/launcher2/AppItem;->mDirty:Z
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    goto :goto_0
-
-    :catchall_0
-    move-exception v6
-
-    monitor-exit p0
-
-    throw v6
-
-    :cond_4
-    :try_start_1
-    invoke-virtual {v0}, Lcom/android/launcher2/AppItem;->isGame()Z
-
-    move-result v6
-
-    if-nez v6, :cond_2
-
-    iget-boolean v6, v0, Lcom/android/launcher2/AppItem;->mHidden:Z
-
-    if-ne v6, v9, :cond_2
-
-    invoke-virtual {v0}, Lcom/android/launcher2/AppItem;->getPackageName()Ljava/lang/String;
-
-    move-result-object v6
-
-    const-string v7, "com.google.android.googlequicksearchbox"
-
-    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-nez v6, :cond_2
-
-    invoke-virtual {v0}, Lcom/android/launcher2/AppItem;->unhide()V
-
-    const-string v6, "Launcher.MenuAppsGrid"
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v8, "showGameApps:"
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_0
-
-    :cond_5
-    if-nez v5, :cond_6
-
-    sget-object v6, Lcom/android/launcher2/MenuAppModel;->INSTANCE:Lcom/android/launcher2/MenuAppModel;
-
-    invoke-virtual {v6}, Lcom/android/launcher2/MenuAppModel;->editCommit()V
-
-    :cond_6
-    invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Lcom/android/launcher2/Launcher;->isPaused()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_7
-
-    iget-object v6, p0, Lcom/android/launcher2/MenuAppsGrid$15;->this$0:Lcom/android/launcher2/MenuAppsGrid;
-
-    invoke-static {v6}, Lcom/android/launcher2/MenuAppsGrid;->access$2300(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/MenuAppsGridFragment;
-
-    move-result-object v6
-
-    const/4 v7, 0x1
-
-    invoke-virtual {v6, v7}, Lcom/android/launcher2/MenuAppsGridFragment;->setPendingModelUpdate(Z)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    :goto_1
-    monitor-exit p0
-
-    return-void
-
-    :cond_7
-    :try_start_2
-    iget-object v6, p0, Lcom/android/launcher2/MenuAppsGrid$15;->this$0:Lcom/android/launcher2/MenuAppsGrid;
-
-    invoke-virtual {v6}, Lcom/android/launcher2/MenuAppsGrid;->appModelUpdated()V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    invoke-interface {v3, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_1
+
+    :cond_3
+    const/4 v4, 0x1
+
+    goto :goto_2
+
+    :cond_4
+    const-wide/16 v4, -0x1
+
+    goto :goto_3
+
+    :cond_5
+    invoke-interface {v3}, Ljava/util/List;->isEmpty()Z
+
+    move-result v4
+
+    if-nez v4, :cond_0
+
+    invoke-static {}, Lcom/android/launcher2/LauncherApplication;->getInst()Lcom/android/launcher2/LauncherApplication;
+
+    move-result-object v4
+
+    invoke-static {v4, v3}, Lcom/android/launcher2/LauncherModel;->updateAppItems(Landroid/content/Context;Ljava/util/List;)V
+
+    goto :goto_0
 .end method

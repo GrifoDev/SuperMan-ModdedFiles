@@ -11,7 +11,7 @@
     <string name="out_of_space">На цій сторінці немає вільного місця</string>
     <string name="shortcut_duplicate">Ярлик швидкого доступу %s уже існує.</string>
     <string name="shortcut_installed">Ярлик для %s додано на головний екран.</string>
-    <string name="shortcut_uninstalled">Клавішу швидкого доступу %s видалено.</string>
+    <string name="shortcut_uninstalled">Ярлик %s видалено.</string>
     <string name="widgets_tab_label">Віджети</string>
     <string name="Long_press_on_any_widget">Натисніть і утримуйте віджет, який потрібно додати.</string>
     <string name="Move_to_folder_tts">Перемістити до папки</string>
@@ -145,7 +145,7 @@
     <string name="only_one_widget_instance_allowed">Віджет %s вже додано на головний екран.</string>
     <string name="open_folder">Відкрити папку</string>
     <string name="open_folder_VZW">Переглянути програми</string>
-    <string name="option_menu_contact_up">Зв’язатися з нами</string>
+    <string name="option_menu_contact_up">Зв’яжіться з нами</string>
     <string name="option_tray_screengrid">Екранна сітка</string>
     <string name="options_home_set_theme">Теми</string>
     <string name="options_home_set_wallpapers_and_themes">Заставки та теми</string>

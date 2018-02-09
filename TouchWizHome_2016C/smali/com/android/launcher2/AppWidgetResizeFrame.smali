@@ -333,7 +333,7 @@
 
     invoke-virtual {p0, v6, v7, v8, v9}, Lcom/android/launcher2/AppWidgetResizeFrame;->setPadding(IIII)V
 
-    const v6, 0x7f0a031f
+    const v6, 0x7f0a031e
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 

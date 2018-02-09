@@ -765,38 +765,38 @@
 .end method
 
 .method public declared-synchronized updateGameAppsVisibility()V
-    .locals 12
+    .locals 13
 
-    const/4 v11, 0x1
+    const/4 v12, 0x1
 
     monitor-enter p0
 
     :try_start_0
     invoke-static {}, Lcom/android/launcher2/LauncherApplication;->getInst()Lcom/android/launcher2/LauncherApplication;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-direct {p0, v7}, Lcom/android/launcher2/gamehome/GameHomeManager;->getGameAppListFromGameHome(Landroid/content/Context;)Ljava/util/HashMap;
+    invoke-direct {p0, v8}, Lcom/android/launcher2/gamehome/GameHomeManager;->getGameAppListFromGameHome(Landroid/content/Context;)Ljava/util/HashMap;
 
-    move-result-object v2
+    move-result-object v3
 
     invoke-static {}, Lcom/android/launcher2/LauncherApplication;->getInst()Lcom/android/launcher2/LauncherApplication;
 
+    move-result-object v8
+
+    invoke-virtual {v8}, Lcom/android/launcher2/LauncherApplication;->getContentResolver()Landroid/content/ContentResolver;
+
     move-result-object v7
 
-    invoke-virtual {v7}, Lcom/android/launcher2/LauncherApplication;->getContentResolver()Landroid/content/ContentResolver;
+    const/4 v5, 0x0
 
-    move-result-object v6
+    if-nez v3, :cond_1
 
-    const/4 v4, 0x0
+    sget-object v8, Lcom/android/launcher2/gamehome/GameHomeManager;->TAG:Ljava/lang/String;
 
-    if-nez v2, :cond_1
+    const-string v9, "GameHomeProvider does not ready yet!"
 
-    sget-object v7, Lcom/android/launcher2/gamehome/GameHomeManager;->TAG:Ljava/lang/String;
-
-    const-string v8, "GameHomeProvider does not ready yet!"
-
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -808,31 +808,31 @@
 
     :cond_1
     :try_start_1
-    const-string v7, "game_home_hidden_games"
+    const-string v8, "game_home_hidden_games"
 
-    const/4 v8, 0x0
+    const/4 v9, 0x0
 
-    invoke-static {v6, v7, v8}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v7, v8, v9}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v3
+    move-result v4
 
     invoke-static {}, Lcom/android/launcher2/LauncherFeature;->supportHomeModeChange()Z
 
-    move-result v7
+    move-result v8
 
-    if-eqz v7, :cond_5
+    if-eqz v8, :cond_5
 
     invoke-static {}, Lcom/android/launcher2/LauncherApplication;->isHomeOnlyModeEnabled()Z
 
-    move-result v7
+    move-result v8
 
-    if-eqz v7, :cond_5
+    if-eqz v8, :cond_5
 
-    const-string v7, "game_home_hidden_games"
+    const-string v8, "game_home_hidden_games"
 
-    const/4 v8, 0x0
+    const/4 v9, 0x0
 
-    invoke-static {v6, v7, v8}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {v7, v8, v9}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     :cond_2
     :goto_1
@@ -842,29 +842,33 @@
 
     invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-virtual {v7}, Lcom/android/launcher2/Launcher;->getMenuView()Lcom/android/launcher2/MenuView;
+    invoke-virtual {v8}, Lcom/android/launcher2/Launcher;->getMenuView()Lcom/android/launcher2/MenuView;
 
-    move-result-object v5
+    move-result-object v6
+
+    new-instance v2, Ljava/util/ArrayList;
 
     invoke-interface {v1}, Ljava/util/Map;->values()Ljava/util/Collection;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-interface {v7}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+    invoke-direct {v2, v8}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    move-result-object v7
+    invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v8
 
     :cond_3
     :goto_2
-    invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v8
+    move-result v9
 
-    if-eqz v8, :cond_9
+    if-eqz v9, :cond_9
 
-    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -872,204 +876,204 @@
 
     invoke-virtual {v0}, Lcom/android/launcher2/AppItem;->getPackageName()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v2, v8}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v9}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v8
+    move-result v9
 
-    if-eqz v8, :cond_7
+    if-eqz v9, :cond_7
 
-    iget-boolean v8, v0, Lcom/android/launcher2/AppItem;->mGameApp:Z
+    iget-boolean v9, v0, Lcom/android/launcher2/AppItem;->mGameApp:Z
 
-    if-nez v8, :cond_7
+    if-nez v9, :cond_7
 
     invoke-static {}, Lcom/android/launcher2/Utilities;->DEBUGGABLE()Z
 
-    move-result v8
+    move-result v9
 
-    if-eqz v8, :cond_4
+    if-eqz v9, :cond_4
 
-    sget-object v8, Lcom/android/launcher2/gamehome/GameHomeManager;->TAG:Ljava/lang/String;
+    sget-object v9, Lcom/android/launcher2/gamehome/GameHomeManager;->TAG:Ljava/lang/String;
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v10, ""
+    const-string v11, ""
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v0}, Lcom/android/launcher2/AppItem;->getPackageName()Ljava/lang/String;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v10
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Lcom/android/launcher2/AppItem;->getPackageName()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v11
 
-    const-string v10, " is game app !! "
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v10
 
-    move-result-object v9
+    const-string v11, " is game app !! "
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-static {v8, v9}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_4
-    const/4 v8, 0x1
+    const/4 v9, 0x1
 
-    iput-boolean v8, v0, Lcom/android/launcher2/AppItem;->mGameApp:Z
+    iput-boolean v9, v0, Lcom/android/launcher2/AppItem;->mGameApp:Z
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_2
 
     :catchall_0
-    move-exception v7
+    move-exception v8
 
     monitor-exit p0
 
-    throw v7
+    throw v8
 
     :cond_5
-    if-nez v3, :cond_6
+    if-nez v4, :cond_6
 
     :try_start_2
-    const-string v7, "game_home_hidden_games"
+    const-string v8, "game_home_hidden_games"
 
-    const/4 v8, 0x2
+    const/4 v9, 0x2
 
-    invoke-static {v6, v7, v8}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {v7, v8, v9}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     goto :goto_1
 
     :cond_6
-    if-ne v3, v11, :cond_2
+    if-ne v4, v12, :cond_2
 
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
     goto :goto_1
 
     :cond_7
     invoke-virtual {v0}, Lcom/android/launcher2/AppItem;->getPackageName()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v2, v8}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v9}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v8
+    move-result v9
 
-    if-nez v8, :cond_3
+    if-nez v9, :cond_3
 
-    iget-boolean v8, v0, Lcom/android/launcher2/AppItem;->mGameApp:Z
+    iget-boolean v9, v0, Lcom/android/launcher2/AppItem;->mGameApp:Z
 
-    if-ne v8, v11, :cond_3
+    if-ne v9, v12, :cond_3
 
     invoke-static {}, Lcom/android/launcher2/Utilities;->DEBUGGABLE()Z
 
-    move-result v8
+    move-result v9
 
-    if-eqz v8, :cond_8
+    if-eqz v9, :cond_8
 
-    sget-object v8, Lcom/android/launcher2/gamehome/GameHomeManager;->TAG:Ljava/lang/String;
+    sget-object v9, Lcom/android/launcher2/gamehome/GameHomeManager;->TAG:Ljava/lang/String;
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v10, ""
+    const-string v11, ""
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v0}, Lcom/android/launcher2/AppItem;->getPackageName()Ljava/lang/String;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v10
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Lcom/android/launcher2/AppItem;->getPackageName()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v11
 
-    const-string v10, " is not game app any more !!!"
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v10
 
-    move-result-object v9
+    const-string v11, " is not game app any more !!!"
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_8
-    const/4 v8, 0x0
+    const/4 v9, 0x0
 
-    iput-boolean v8, v0, Lcom/android/launcher2/AppItem;->mGameApp:Z
+    iput-boolean v9, v0, Lcom/android/launcher2/AppItem;->mGameApp:Z
 
     goto/16 :goto_2
 
     :cond_9
-    if-eqz v5, :cond_0
+    if-eqz v6, :cond_0
 
-    invoke-virtual {v5}, Lcom/android/launcher2/MenuView;->getMenuAppsGrid()Lcom/android/launcher2/MenuAppsGrid;
+    invoke-virtual {v6}, Lcom/android/launcher2/MenuView;->getMenuAppsGrid()Lcom/android/launcher2/MenuAppsGrid;
 
-    move-result-object v7
+    move-result-object v8
 
-    if-eqz v7, :cond_0
+    if-eqz v8, :cond_0
 
-    if-eqz v4, :cond_a
+    if-eqz v5, :cond_a
 
-    sget-object v7, Lcom/android/launcher2/gamehome/GameHomeManager;->TAG:Ljava/lang/String;
+    sget-object v8, Lcom/android/launcher2/gamehome/GameHomeManager;->TAG:Ljava/lang/String;
 
-    const-string v8, "game app should be hidden in menu "
+    const-string v9, "game app should be hidden in menu "
 
-    invoke-static {v7, v8}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-virtual {v7}, Lcom/android/launcher2/Launcher;->getMenuView()Lcom/android/launcher2/MenuView;
+    invoke-virtual {v8}, Lcom/android/launcher2/Launcher;->getMenuView()Lcom/android/launcher2/MenuView;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-virtual {v7}, Lcom/android/launcher2/MenuView;->getMenuAppsGrid()Lcom/android/launcher2/MenuAppsGrid;
+    invoke-virtual {v8}, Lcom/android/launcher2/MenuView;->getMenuAppsGrid()Lcom/android/launcher2/MenuAppsGrid;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-virtual {v7}, Lcom/android/launcher2/MenuAppsGrid;->appModelUpdatedForHidden()V
+    invoke-virtual {v8}, Lcom/android/launcher2/MenuAppsGrid;->appModelUpdatedForHidden()V
 
     goto/16 :goto_0
 
     :cond_a
-    sget-object v7, Lcom/android/launcher2/gamehome/GameHomeManager;->TAG:Ljava/lang/String;
+    sget-object v8, Lcom/android/launcher2/gamehome/GameHomeManager;->TAG:Ljava/lang/String;
 
-    const-string v8, "game app should be shown in menu "
+    const-string v9, "game app should be shown in menu "
 
-    invoke-static {v7, v8}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-virtual {v7}, Lcom/android/launcher2/Launcher;->getMenuView()Lcom/android/launcher2/MenuView;
+    invoke-virtual {v8}, Lcom/android/launcher2/Launcher;->getMenuView()Lcom/android/launcher2/MenuView;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-virtual {v7}, Lcom/android/launcher2/MenuView;->getMenuAppsGrid()Lcom/android/launcher2/MenuAppsGrid;
+    invoke-virtual {v8}, Lcom/android/launcher2/MenuView;->getMenuAppsGrid()Lcom/android/launcher2/MenuAppsGrid;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-virtual {v7}, Lcom/android/launcher2/MenuAppsGrid;->appModelUpdatedForUnHidden()V
+    invoke-virtual {v8}, Lcom/android/launcher2/MenuAppsGrid;->appModelUpdatedForUnHidden()V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 

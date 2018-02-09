@@ -3,12 +3,12 @@
 .source "MenuAppsGrid.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/view/View$OnTouchListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher2/MenuAppsGrid;->closeFolderWithDelay(ZZI)Z
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/launcher2/MenuAppsGrid;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,20 +20,12 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-.field final synthetic val$animate:Z
-
-.field final synthetic val$commitEdit:Z
-
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher2/MenuAppsGrid;ZZ)V
+.method constructor <init>(Lcom/android/launcher2/MenuAppsGrid;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher2/MenuAppsGrid$3;->this$0:Lcom/android/launcher2/MenuAppsGrid;
-
-    iput-boolean p2, p0, Lcom/android/launcher2/MenuAppsGrid$3;->val$commitEdit:Z
-
-    iput-boolean p3, p0, Lcom/android/launcher2/MenuAppsGrid$3;->val$animate:Z
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -42,8 +34,10 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 3
+.method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
+    .locals 2
+
+    const/4 v1, 0x1
 
     iget-object v0, p0, Lcom/android/launcher2/MenuAppsGrid$3;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
@@ -59,12 +53,16 @@
 
     move-result-object v0
 
-    iget-boolean v1, p0, Lcom/android/launcher2/MenuAppsGrid$3;->val$commitEdit:Z
+    invoke-virtual {v0}, Lcom/android/launcher2/Folder;->isFolderOpenAnimationEnded()Z
 
-    iget-boolean v2, p0, Lcom/android/launcher2/MenuAppsGrid$3;->val$animate:Z
+    move-result v0
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/launcher2/Folder;->close(ZZ)V
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/launcher2/MenuAppsGrid$3;->this$0:Lcom/android/launcher2/MenuAppsGrid;
+
+    invoke-virtual {v0, v1, v1}, Lcom/android/launcher2/MenuAppsGrid;->closeFolderIfNeeded(ZZ)Z
 
     :cond_0
-    return-void
+    return v1
 .end method

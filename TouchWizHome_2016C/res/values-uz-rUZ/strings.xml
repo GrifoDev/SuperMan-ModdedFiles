@@ -145,7 +145,7 @@
     <string name="only_one_widget_instance_allowed">%s vidjeti avvalroq asosiy ekranga qo‘shilgan.</string>
     <string name="open_folder">Jildni ochish</string>
     <string name="open_folder_VZW">Ilovalarni ko‘rish</string>
-    <string name="option_menu_contact_up">Biz bilan bog‘lanish</string>
+    <string name="option_menu_contact_up">Bog‘lanish</string>
     <string name="option_tray_screengrid">Ekran to‘ri</string>
     <string name="options_home_set_theme">Mavzular</string>
     <string name="options_home_set_wallpapers_and_themes">Fon rasmlari va mavzular</string>

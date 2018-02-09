@@ -17,6 +17,8 @@
 # static fields
 .field private static final BLOCK_EVENTS_TIMEOUT:J = 0x3e8L
 
+.field static sDraggingOutSideLauncher:Z
+
 .field static final sRootLocationOnScreen:[I
 
 
@@ -94,6 +96,10 @@
     new-array v0, v0, [I
 
     sput-object v0, Lcom/android/launcher2/AnimationLayer;->sRootLocationOnScreen:[I
+
+    const/4 v0, 0x0
+
+    sput-boolean v0, Lcom/android/launcher2/AnimationLayer;->sDraggingOutSideLauncher:Z
 
     return-void
 .end method
@@ -1786,7 +1792,7 @@
 
     sput-object v13, Lcom/android/launcher2/Launcher;->dragstate:Lcom/android/launcher2/DragState;
 
-    if-eqz v4, :cond_10
+    if-eqz v4, :cond_12
 
     invoke-virtual {v4}, Lcom/android/launcher2/HomeView;->getVisibility()I
 
@@ -1799,13 +1805,13 @@
     invoke-virtual {v4, v13}, Lcom/android/launcher2/HomeView;->setVisibility(I)V
 
     :cond_3
-    if-eqz v12, :cond_10
+    if-eqz v12, :cond_12
 
     invoke-virtual {v12}, Lcom/android/launcher2/Workspace;->isQuickViewWorkspaceOpend()Z
 
     move-result v13
 
-    if-eqz v13, :cond_10
+    if-eqz v13, :cond_12
 
     const/4 v13, 0x1
 
@@ -1822,6 +1828,10 @@
     if-ne v1, v13, :cond_b
 
     iput-object v8, p0, Lcom/android/launcher2/AnimationLayer;->mDragLocalState:Ljava/lang/Object;
+
+    const/4 v13, 0x0
+
+    sput-boolean v13, Lcom/android/launcher2/AnimationLayer;->sDraggingOutSideLauncher:Z
 
     if-eqz v8, :cond_5
 
@@ -1905,9 +1915,31 @@
     goto :goto_4
 
     :cond_c
-    const/4 v13, 0x4
+    const/4 v13, 0x6
 
     if-ne v1, v13, :cond_d
+
+    const/4 v13, 0x1
+
+    sput-boolean v13, Lcom/android/launcher2/AnimationLayer;->sDraggingOutSideLauncher:Z
+
+    goto :goto_4
+
+    :cond_d
+    const/4 v13, 0x5
+
+    if-ne v1, v13, :cond_e
+
+    const/4 v13, 0x0
+
+    sput-boolean v13, Lcom/android/launcher2/AnimationLayer;->sDraggingOutSideLauncher:Z
+
+    goto :goto_4
+
+    :cond_e
+    const/4 v13, 0x4
+
+    if-ne v1, v13, :cond_f
 
     const/4 v13, 0x0
 
@@ -1917,20 +1949,20 @@
 
     goto :goto_4
 
-    :cond_d
+    :cond_f
     iget-boolean v13, p0, Lcom/android/launcher2/AnimationLayer;->mDragStateDropped:Z
 
     if-nez v13, :cond_5
 
     const/4 v13, 0x2
 
-    if-eq v1, v13, :cond_e
+    if-eq v1, v13, :cond_10
 
     const/4 v13, 0x3
 
-    if-ne v1, v13, :cond_f
+    if-ne v1, v13, :cond_11
 
-    :cond_e
+    :cond_10
     invoke-virtual/range {p1 .. p1}, Landroid/view/DragEvent;->getX()F
 
     move-result v13
@@ -1949,13 +1981,13 @@
 
     const/4 v13, 0x3
 
-    if-ne v1, v13, :cond_f
+    if-ne v1, v13, :cond_11
 
     const/4 v13, 0x1
 
     iput-boolean v13, p0, Lcom/android/launcher2/AnimationLayer;->mDragStateDropped:Z
 
-    :cond_f
+    :cond_11
     const/4 v10, 0x1
 
     goto :goto_4
@@ -1967,7 +1999,7 @@
 
     goto :goto_5
 
-    :cond_10
+    :cond_12
     move-object v8, v9
 
     goto :goto_3
@@ -2304,13 +2336,13 @@
 .end method
 
 .method public getLocationOfView(Landroid/view/View;Landroid/graphics/Bitmap;[IZ)[I
-    .locals 16
+    .locals 17
 
     if-nez p3, :cond_0
 
-    const/4 v12, 0x2
+    const/4 v13, 0x2
 
-    new-array v0, v12, [I
+    new-array v0, v13, [I
 
     move-object/from16 p3, v0
 
@@ -2333,17 +2365,17 @@
 
     move-result v11
 
-    const/high16 v12, 0x3f800000    # 1.0f
+    const/high16 v13, 0x3f800000    # 1.0f
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v12}, Landroid/view/View;->setScaleX(F)V
+    invoke-virtual {v0, v13}, Landroid/view/View;->setScaleX(F)V
 
-    const/high16 v12, 0x3f800000    # 1.0f
+    const/high16 v13, 0x3f800000    # 1.0f
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v12}, Landroid/view/View;->setScaleY(F)V
+    invoke-virtual {v0, v13}, Landroid/view/View;->setScaleY(F)V
 
     move-object/from16 v0, p1
 
@@ -2363,41 +2395,41 @@
 
     iget-object v8, v0, Lcom/android/launcher2/AnimationLayer;->mTmpFPos:[F
 
-    const/4 v12, 0x0
-
     const/4 v13, 0x0
 
-    aget v13, p3, v13
+    const/4 v14, 0x0
 
-    int-to-float v13, v13
-
-    aput v13, v8, v12
-
-    const/4 v12, 0x1
-
-    const/4 v13, 0x1
-
-    aget v13, p3, v13
-
-    int-to-float v13, v13
-
-    aput v13, v8, v12
-
-    const/4 v12, 0x1
-
-    aget v13, v8, v12
-
-    sget-object v14, Lcom/android/launcher2/AnimationLayer;->sRootLocationOnScreen:[I
-
-    const/4 v15, 0x1
-
-    aget v14, v14, v15
+    aget v14, p3, v14
 
     int-to-float v14, v14
 
-    sub-float/2addr v13, v14
+    aput v14, v8, v13
 
-    aput v13, v8, v12
+    const/4 v13, 0x1
+
+    const/4 v14, 0x1
+
+    aget v14, p3, v14
+
+    int-to-float v14, v14
+
+    aput v14, v8, v13
+
+    const/4 v13, 0x1
+
+    aget v14, v8, v13
+
+    sget-object v15, Lcom/android/launcher2/AnimationLayer;->sRootLocationOnScreen:[I
+
+    const/16 v16, 0x1
+
+    aget v15, v15, v16
+
+    int-to-float v15, v15
+
+    sub-float/2addr v14, v15
+
+    aput v14, v8, v13
 
     if-eqz p2, :cond_7
 
@@ -2405,38 +2437,38 @@
 
     move-object/from16 v0, p1
 
-    instance-of v12, v0, Lcom/android/launcher2/LauncherAppWidgetHostView;
+    instance-of v13, v0, Lcom/android/launcher2/LauncherAppWidgetHostView;
 
-    if-eqz v12, :cond_2
+    if-eqz v13, :cond_2
 
-    move-object/from16 v12, p1
+    move-object/from16 v13, p1
 
-    check-cast v12, Lcom/android/launcher2/LauncherAppWidgetHostView;
+    check-cast v13, Lcom/android/launcher2/LauncherAppWidgetHostView;
 
-    invoke-virtual {v12}, Lcom/android/launcher2/LauncherAppWidgetHostView;->getresizeResult()Lcom/android/launcher2/LauncherAppWidgetHostView$ResizeResult;
+    invoke-virtual {v13}, Lcom/android/launcher2/LauncherAppWidgetHostView;->getresizeResult()Lcom/android/launcher2/LauncherAppWidgetHostView$ResizeResult;
 
-    move-result-object v12
+    move-result-object v13
 
-    iget v9, v12, Lcom/android/launcher2/LauncherAppWidgetHostView$ResizeResult;->scaleToResize:F
+    iget v9, v13, Lcom/android/launcher2/LauncherAppWidgetHostView$ResizeResult;->scaleToResize:F
 
     :cond_2
-    iget v12, v7, Landroid/view/ViewGroup$LayoutParams;->width:I
-
-    int-to-float v12, v12
-
-    mul-float/2addr v12, v9
-
-    invoke-virtual/range {p2 .. p2}, Landroid/graphics/Bitmap;->getWidth()I
-
-    move-result v13
+    iget v13, v7, Landroid/view/ViewGroup$LayoutParams;->width:I
 
     int-to-float v13, v13
 
-    sub-float/2addr v12, v13
+    mul-float/2addr v13, v9
 
-    const/high16 v13, 0x40000000    # 2.0f
+    invoke-virtual/range {p2 .. p2}, Landroid/graphics/Bitmap;->getWidth()I
 
-    div-float v4, v12, v13
+    move-result v14
+
+    int-to-float v14, v14
+
+    sub-float/2addr v13, v14
+
+    const/high16 v14, 0x40000000    # 2.0f
+
+    div-float v4, v13, v14
 
     const/4 v5, 0x0
 
@@ -2444,63 +2476,87 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/graphics/Bitmap;->getHeight()I
 
-    move-result v12
+    move-result v13
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/View;->getHeight()I
 
-    move-result v13
+    move-result v14
 
-    if-eq v12, v13, :cond_3
+    if-eq v13, v14, :cond_3
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/View;->getPaddingTop()I
 
-    move-result v12
+    move-result v13
 
-    int-to-float v5, v12
+    int-to-float v5, v13
+
+    move-object/from16 v0, p1
+
+    instance-of v13, v0, Lcom/android/launcher2/MenuAppIconView;
+
+    if-eqz v13, :cond_3
+
+    move-object/from16 v13, p1
+
+    check-cast v13, Lcom/android/launcher2/MenuAppIconView;
+
+    invoke-virtual {v13}, Lcom/android/launcher2/MenuAppIconView;->getAppIcon()Lcom/android/launcher2/AppIconView;
+
+    move-result-object v12
+
+    if-eqz v12, :cond_3
+
+    invoke-virtual {v12}, Landroid/view/View;->getPaddingTop()I
+
+    move-result v13
+
+    int-to-float v13, v13
+
+    add-float/2addr v5, v13
 
     :cond_3
     :try_start_0
     invoke-virtual/range {p1 .. p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
-    move-result-object v12
+    move-result-object v13
 
-    invoke-interface {v12}, Landroid/view/ViewParent;->getParent()Landroid/view/ViewParent;
+    invoke-interface {v13}, Landroid/view/ViewParent;->getParent()Landroid/view/ViewParent;
 
-    move-result-object v12
+    move-result-object v13
 
-    check-cast v12, Landroid/view/View;
+    check-cast v13, Landroid/view/View;
 
-    invoke-virtual {v12}, Landroid/view/View;->getScaleX()F
+    invoke-virtual {v13}, Landroid/view/View;->getScaleX()F
 
     move-result v10
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
-    move-result-object v12
+    move-result-object v13
 
-    invoke-interface {v12}, Landroid/view/ViewParent;->getParent()Landroid/view/ViewParent;
+    invoke-interface {v13}, Landroid/view/ViewParent;->getParent()Landroid/view/ViewParent;
 
-    move-result-object v12
+    move-result-object v13
 
-    instance-of v12, v12, Lcom/android/launcher2/CellLayoutMoveApps;
+    instance-of v13, v13, Lcom/android/launcher2/CellLayoutMoveApps;
 
-    if-eqz v12, :cond_4
+    if-eqz v13, :cond_4
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
-    move-result-object v12
+    move-result-object v13
 
-    invoke-interface {v12}, Landroid/view/ViewParent;->getParent()Landroid/view/ViewParent;
+    invoke-interface {v13}, Landroid/view/ViewParent;->getParent()Landroid/view/ViewParent;
 
-    move-result-object v12
+    move-result-object v13
 
-    invoke-interface {v12}, Landroid/view/ViewParent;->getParent()Landroid/view/ViewParent;
+    invoke-interface {v13}, Landroid/view/ViewParent;->getParent()Landroid/view/ViewParent;
 
-    move-result-object v12
+    move-result-object v13
 
-    check-cast v12, Landroid/view/View;
+    check-cast v13, Landroid/view/View;
 
-    invoke-virtual {v12}, Landroid/view/View;->getScaleX()F
+    invoke-virtual {v13}, Landroid/view/View;->getScaleX()F
     :try_end_0
     .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -2508,87 +2564,87 @@
 
     :cond_4
     :goto_1
-    const/4 v12, 0x0
+    const/4 v13, 0x0
 
-    aget v13, v8, v12
+    aget v14, v8, v13
 
-    mul-float v14, v4, v10
+    mul-float v15, v4, v10
 
-    add-float/2addr v13, v14
+    add-float/2addr v14, v15
 
-    aput v13, v8, v12
+    aput v14, v8, v13
 
-    const/high16 v12, 0x3f800000    # 1.0f
+    const/high16 v13, 0x3f800000    # 1.0f
 
-    cmpl-float v12, v10, v12
+    cmpl-float v13, v10, v13
 
-    if-eqz v12, :cond_5
+    if-eqz v13, :cond_5
 
     invoke-virtual/range {p2 .. p2}, Landroid/graphics/Bitmap;->getWidth()I
 
-    move-result v12
+    move-result v13
 
-    int-to-float v3, v12
+    int-to-float v3, v13
 
-    const/4 v12, 0x0
+    const/4 v13, 0x0
 
-    aget v13, v8, v12
+    aget v14, v8, v13
 
-    mul-float v14, v3, v10
+    mul-float v15, v3, v10
 
-    sub-float v14, v3, v14
+    sub-float v15, v3, v15
 
-    const/high16 v15, 0x40000000    # 2.0f
+    const/high16 v16, 0x40000000    # 2.0f
 
-    div-float/2addr v14, v15
+    div-float v15, v15, v16
 
-    sub-float/2addr v13, v14
+    sub-float/2addr v14, v15
 
-    aput v13, v8, v12
+    aput v14, v8, v13
 
     :cond_5
     :try_start_1
     invoke-virtual/range {p1 .. p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
-    move-result-object v12
+    move-result-object v13
 
-    invoke-interface {v12}, Landroid/view/ViewParent;->getParent()Landroid/view/ViewParent;
+    invoke-interface {v13}, Landroid/view/ViewParent;->getParent()Landroid/view/ViewParent;
 
-    move-result-object v12
+    move-result-object v13
 
-    check-cast v12, Landroid/view/View;
+    check-cast v13, Landroid/view/View;
 
-    invoke-virtual {v12}, Landroid/view/View;->getScaleY()F
+    invoke-virtual {v13}, Landroid/view/View;->getScaleY()F
 
     move-result v11
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
-    move-result-object v12
+    move-result-object v13
 
-    invoke-interface {v12}, Landroid/view/ViewParent;->getParent()Landroid/view/ViewParent;
+    invoke-interface {v13}, Landroid/view/ViewParent;->getParent()Landroid/view/ViewParent;
 
-    move-result-object v12
+    move-result-object v13
 
-    instance-of v12, v12, Lcom/android/launcher2/CellLayoutMoveApps;
+    instance-of v13, v13, Lcom/android/launcher2/CellLayoutMoveApps;
 
-    if-eqz v12, :cond_6
+    if-eqz v13, :cond_6
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
-    move-result-object v12
+    move-result-object v13
 
-    invoke-interface {v12}, Landroid/view/ViewParent;->getParent()Landroid/view/ViewParent;
+    invoke-interface {v13}, Landroid/view/ViewParent;->getParent()Landroid/view/ViewParent;
 
-    move-result-object v12
+    move-result-object v13
 
-    invoke-interface {v12}, Landroid/view/ViewParent;->getParent()Landroid/view/ViewParent;
+    invoke-interface {v13}, Landroid/view/ViewParent;->getParent()Landroid/view/ViewParent;
 
-    move-result-object v12
+    move-result-object v13
 
-    check-cast v12, Landroid/view/View;
+    check-cast v13, Landroid/view/View;
 
-    invoke-virtual {v12}, Landroid/view/View;->getScaleY()F
+    invoke-virtual {v13}, Landroid/view/View;->getScaleY()F
     :try_end_1
     .catch Ljava/lang/NullPointerException; {:try_start_1 .. :try_end_1} :catch_1
 
@@ -2596,64 +2652,64 @@
 
     :cond_6
     :goto_2
-    const/4 v12, 0x1
+    const/4 v13, 0x1
 
-    aget v13, v8, v12
+    aget v14, v8, v13
 
-    mul-float v14, v5, v11
+    mul-float v15, v5, v11
 
-    add-float/2addr v13, v14
+    add-float/2addr v14, v15
 
-    aput v13, v8, v12
+    aput v14, v8, v13
 
-    const/high16 v12, 0x3f800000    # 1.0f
+    const/high16 v13, 0x3f800000    # 1.0f
 
-    cmpl-float v12, v11, v12
+    cmpl-float v13, v11, v13
 
-    if-eqz v12, :cond_7
+    if-eqz v13, :cond_7
 
     invoke-virtual/range {p2 .. p2}, Landroid/graphics/Bitmap;->getHeight()I
 
-    move-result v12
+    move-result v13
 
-    int-to-float v2, v12
-
-    const/4 v12, 0x1
-
-    aget v13, v8, v12
-
-    mul-float v14, v2, v11
-
-    sub-float v14, v2, v14
-
-    const/high16 v15, 0x40000000    # 2.0f
-
-    div-float/2addr v14, v15
-
-    sub-float/2addr v13, v14
-
-    aput v13, v8, v12
-
-    :cond_7
-    const/4 v12, 0x0
-
-    const/4 v13, 0x0
-
-    aget v13, v8, v13
-
-    float-to-int v13, v13
-
-    aput v13, p3, v12
-
-    const/4 v12, 0x1
+    int-to-float v2, v13
 
     const/4 v13, 0x1
 
-    aget v13, v8, v13
+    aget v14, v8, v13
 
-    float-to-int v13, v13
+    mul-float v15, v2, v11
 
-    aput v13, p3, v12
+    sub-float v15, v2, v15
+
+    const/high16 v16, 0x40000000    # 2.0f
+
+    div-float v15, v15, v16
+
+    sub-float/2addr v14, v15
+
+    aput v14, v8, v13
+
+    :cond_7
+    const/4 v13, 0x0
+
+    const/4 v14, 0x0
+
+    aget v14, v8, v14
+
+    float-to-int v14, v14
+
+    aput v14, p3, v13
+
+    const/4 v13, 0x1
+
+    const/4 v14, 0x1
+
+    aget v14, v8, v14
+
+    float-to-int v14, v14
+
+    aput v14, p3, v13
 
     goto/16 :goto_0
 
@@ -2662,7 +2718,7 @@
 
     const/high16 v10, 0x3f800000    # 1.0f
 
-    goto :goto_1
+    goto/16 :goto_1
 
     :catch_1
     move-exception v6

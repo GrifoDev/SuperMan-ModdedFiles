@@ -4192,6 +4192,10 @@
     invoke-interface {v5, v6}, Lcom/android/launcher2/DragOrigin;->show(Lcom/android/launcher2/BaseItem;)V
 
     :cond_7
+    sget-boolean v5, Lcom/android/launcher2/AnimationLayer;->sDraggingOutSideLauncher:Z
+
+    if-nez v5, :cond_0
+
     iget-object v5, p0, Lcom/android/launcher2/DragState;->mDragOrigin:Lcom/android/launcher2/DragOrigin;
 
     instance-of v5, v5, Lcom/android/launcher2/CellLayoutNoGap;

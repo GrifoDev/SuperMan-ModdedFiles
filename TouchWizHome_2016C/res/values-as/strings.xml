@@ -205,7 +205,7 @@
     <string name="show_suggested_apps">পৰামৰ্শিত এপ্প্‌চ দেখুৱাওক</string>
     <string name="show_suggested_apps_detail">অনুসন্ধান ফলাফলত Galaxy Apps-ৰ পৰা উপলব্ধ থকা প্ৰাসংগিক এপ্প্‌চ দেখুৱাওক।</string>
     <string name="speak_now">এতিয়া কওক</string>
-    <string name="talkback_all_apps_button">এপ্লিকেশ্বন</string>
+    <string name="talkback_all_apps_button">এপ্লিকেশ্বনসমূহ</string>
     <string name="talkback_checked">চয়নিত</string>
     <string name="talkback_double_tap_to_move">লৈ যাবলৈ দুবাৰ টিপক আৰু ধৰি ৰাখক৷</string>
     <string name="talkback_double_tap_to_open_app_tray">এপ ট্ৰে খুলিবলৈ দুবাৰ টিপক৷</string>
