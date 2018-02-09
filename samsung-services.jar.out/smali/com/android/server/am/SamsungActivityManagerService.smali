@@ -919,6 +919,28 @@
     return-void
 .end method
 
+.method public clearCustomStartingWindowDataForAllUsers(Ljava/lang/String;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/am/SamsungActivityManagerService;->mSamsungStartingWindowManager:Lcom/android/server/wm/SamsungStartingWindowManager;
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    if-nez p1, :cond_1
+
+    return-void
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/server/am/SamsungActivityManagerService;->mSamsungStartingWindowManager:Lcom/android/server/wm/SamsungStartingWindowManager;
+
+    invoke-virtual {v0, p1}, Lcom/android/server/wm/SamsungStartingWindowManager;->clearCustomStartingWindowDataForAllUsers(Ljava/lang/String;)V
+
+    return-void
+.end method
+
 .method public clearStacks(IZ)V
     .locals 4
 

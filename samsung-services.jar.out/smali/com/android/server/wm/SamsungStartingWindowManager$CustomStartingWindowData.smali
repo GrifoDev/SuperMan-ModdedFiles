@@ -236,6 +236,12 @@
 
     if-eqz v8, :cond_1
 
+    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
+
+    move-result-object v8
+
+    if-eqz v8, :cond_1
+
     new-instance v8, Ljava/lang/StringBuilder;
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
