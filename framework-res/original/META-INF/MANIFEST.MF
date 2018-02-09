@@ -828,7 +828,7 @@ Name: res/drawable-xxhdpi-v4/textfield_focused_holo_dark.9.png
 SHA-256-Digest: KztjI2vei8HK1bc14/kEGaEqtbOD9xkqLlvM0CxO7ZA=
 
 Name: AndroidManifest.xml
-SHA-256-Digest: 1gwhj0ZHH6CSgT66rUMst6ChR0gxrxbNQrPBtWJrWQQ=
+SHA-256-Digest: khj610zIoMyJI+Jj/6yg8wptRL/1I99LnaJkWqSM+58=
 
 Name: res/drawable-xxhdpi-v4/ic_media_pause.png
 SHA-256-Digest: oNNMvKgG0DKhz0O7fUsVXDTXLfvP6ZSBzTIEEtCqUkU=
@@ -4971,7 +4971,7 @@ Name: res/drawable-mdpi-v4/tw_btn_radio_to_on_mtrl_011.png
 SHA-256-Digest: sSsFwY/mbRFictSHZGWZ8UM5McNmQYjw/rs4HpRkS18=
 
 Name: SEC-INF/buildinfo.xml
-SHA-256-Digest: lYgP4aTM8nY5jLx3tax9w/IFZCea748kFtQQawBNAKo=
+SHA-256-Digest: az0wL1dy2Riot5BeFs09ZjgejN5UYhEXXHt0QtXgO28=
 
 Name: res/drawable-xxhdpi-v4/rate_star_med_off_holo_dark.png
 SHA-256-Digest: v0HP8RDV428fRAodZ69n96SG8qb0k1bb8bhoUHQOhG8=
