@@ -458,7 +458,7 @@
     invoke-virtual {v2, v4}, Landroid/widget/TextView;->setText(I)V
 
     :goto_0
-    const v4, 0x7f02038e
+    const v4, 0x7f02038c
 
     invoke-virtual {v1, v4}, Landroid/widget/ImageView;->setImageResource(I)V
 

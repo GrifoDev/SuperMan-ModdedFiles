@@ -811,7 +811,7 @@
 
     if-eqz v1, :cond_9
 
-    const v1, 0x7f020358
+    const v1, 0x7f020356
 
     iput v1, v0, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub$Description;->animation:I
 
@@ -925,7 +925,7 @@
 
     if-eqz v1, :cond_b
 
-    const v1, 0x7f020369
+    const v1, 0x7f020367
 
     iput v1, v0, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub$Description;->animation:I
 
@@ -1037,7 +1037,7 @@
 
     if-eqz v1, :cond_d
 
-    const v1, 0x7f020141
+    const v1, 0x7f02013f
 
     iput v1, v0, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub$Description;->animation:I
 
@@ -1162,7 +1162,7 @@
 
     iput-object v1, v0, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub$Description;->key:Ljava/lang/String;
 
-    const v1, 0x7f02013f
+    const v1, 0x7f02013d
 
     iput v1, v0, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub$Description;->animation:I
 
@@ -1241,7 +1241,7 @@
 
     iput-object v1, v0, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub$Description;->key:Ljava/lang/String;
 
-    const v1, 0x7f02035f
+    const v1, 0x7f02035d
 
     iput v1, v0, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub$Description;->animation:I
 
@@ -1328,7 +1328,7 @@
 
     if-eqz v1, :cond_13
 
-    const v1, 0x7f0203c0
+    const v1, 0x7f0203be
 
     iput v1, v0, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub$Description;->animation:I
 
@@ -1413,7 +1413,7 @@
 
     iput-object v1, v0, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub$Description;->key:Ljava/lang/String;
 
-    const v1, 0x7f0200ee
+    const v1, 0x7f0200ec
 
     iput v1, v0, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub$Description;->animation:I
 
@@ -1497,7 +1497,7 @@
     return-void
 
     :cond_9
-    const v1, 0x7f020357
+    const v1, 0x7f020355
 
     iput v1, v0, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub$Description;->animation:I
 
@@ -1515,7 +1515,7 @@
     goto/16 :goto_1
 
     :cond_b
-    const v1, 0x7f020368
+    const v1, 0x7f020366
 
     iput v1, v0, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub$Description;->animation:I
 
@@ -1541,7 +1541,7 @@
 
     if-eqz v1, :cond_e
 
-    const v1, 0x7f020143
+    const v1, 0x7f020141
 
     iput v1, v0, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub$Description;->animation:I
 
@@ -1556,14 +1556,14 @@
 
     if-eqz v1, :cond_f
 
-    const v1, 0x7f020140
+    const v1, 0x7f02013e
 
     iput v1, v0, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub$Description;->animation:I
 
     goto/16 :goto_4
 
     :cond_f
-    const v1, 0x7f020142
+    const v1, 0x7f020140
 
     iput v1, v0, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub$Description;->animation:I
 
@@ -1609,14 +1609,14 @@
 
     if-eqz v1, :cond_14
 
-    const v1, 0x7f0203bf
+    const v1, 0x7f0203bd
 
     iput v1, v0, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub$Description;->animation:I
 
     goto/16 :goto_7
 
     :cond_14
-    const v1, 0x7f0203c1
+    const v1, 0x7f0203bf
 
     iput v1, v0, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub$Description;->animation:I
 

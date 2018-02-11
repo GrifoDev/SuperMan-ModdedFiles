@@ -1567,7 +1567,7 @@
 
     iget v3, p0, Lcom/samsung/android/settings/accessibility/directionlock/ConfirmLockDirection;->STEP_CIRCLE_SIZE:I
 
-    const v4, 0x7f0200f0
+    const v4, 0x7f0200ee
 
     invoke-virtual {v0, v1, v4, v2, v3}, Lcom/samsung/android/settings/accessibility/directionlock/DirectionLockSettingsHelper;->getBitmapFromResource(Landroid/content/res/Resources;III)Landroid/graphics/Bitmap;
 
@@ -1589,7 +1589,7 @@
 
     iget v3, p0, Lcom/samsung/android/settings/accessibility/directionlock/ConfirmLockDirection;->STEP_CIRCLE_SIZE:I
 
-    const v4, 0x7f0200f3
+    const v4, 0x7f0200f1
 
     invoke-virtual {v0, v1, v4, v2, v3}, Lcom/samsung/android/settings/accessibility/directionlock/DirectionLockSettingsHelper;->getBitmapFromResource(Landroid/content/res/Resources;III)Landroid/graphics/Bitmap;
 
@@ -1611,7 +1611,7 @@
 
     iget v3, p0, Lcom/samsung/android/settings/accessibility/directionlock/ConfirmLockDirection;->STEP_CIRCLE_SIZE:I
 
-    const v4, 0x7f0200f1
+    const v4, 0x7f0200ef
 
     invoke-virtual {v0, v1, v4, v2, v3}, Lcom/samsung/android/settings/accessibility/directionlock/DirectionLockSettingsHelper;->getBitmapFromResource(Landroid/content/res/Resources;III)Landroid/graphics/Bitmap;
 
@@ -1633,7 +1633,7 @@
 
     iget v3, p0, Lcom/samsung/android/settings/accessibility/directionlock/ConfirmLockDirection;->STEP_CIRCLE_SIZE:I
 
-    const v4, 0x7f0200f2
+    const v4, 0x7f0200f0
 
     invoke-virtual {v0, v1, v4, v2, v3}, Lcom/samsung/android/settings/accessibility/directionlock/DirectionLockSettingsHelper;->getBitmapFromResource(Landroid/content/res/Resources;III)Landroid/graphics/Bitmap;
 
@@ -1646,7 +1646,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0200c5
+    const v1, 0x7f0200c3
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1658,7 +1658,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0200c4
+    const v1, 0x7f0200c2
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

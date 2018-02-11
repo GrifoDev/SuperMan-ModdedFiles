@@ -2282,7 +2282,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f02033c
+    const v3, 0x7f02033a
 
     invoke-virtual {v2, v3}, Landroid/view/View;->setBackgroundResource(I)V
 
@@ -2290,7 +2290,7 @@
 
     iget-object v2, v0, Lcom/android/settings/ConfirmLockPassword$ConfirmLockPasswordFragment;->mContinueButton:Landroid/widget/Button;
 
-    const v3, 0x7f02033c
+    const v3, 0x7f02033a
 
     invoke-virtual {v2, v3}, Landroid/widget/Button;->setBackgroundResource(I)V
 

@@ -332,9 +332,9 @@
 .method public constructor <init>(Landroid/content/Context;Landroid/os/Handler;Landroid/os/UserManager;Lcom/android/internal/os/BatterySipper;)V
     .locals 6
 
-    const v5, 0x7f020246
+    const v5, 0x7f020244
 
-    const v4, 0x7f0201b9
+    const v4, 0x7f0201b7
 
     const/4 v3, 0x0
 
@@ -436,7 +436,7 @@
 
     iput-object v1, p0, Lcom/android/settings/fuelgauge/BatteryEntry;->name:Ljava/lang/String;
 
-    const v1, 0x7f020243
+    const v1, 0x7f020241
 
     iput v1, p0, Lcom/android/settings/fuelgauge/BatteryEntry;->iconId:I
 
@@ -455,7 +455,7 @@
 
     iput-object v1, p0, Lcom/android/settings/fuelgauge/BatteryEntry;->name:Ljava/lang/String;
 
-    const v1, 0x7f020224
+    const v1, 0x7f020222
 
     iput v1, p0, Lcom/android/settings/fuelgauge/BatteryEntry;->iconId:I
 
@@ -474,7 +474,7 @@
 
     iput-object v1, p0, Lcom/android/settings/fuelgauge/BatteryEntry;->name:Ljava/lang/String;
 
-    const v1, 0x7f020255
+    const v1, 0x7f020253
 
     iput v1, p0, Lcom/android/settings/fuelgauge/BatteryEntry;->iconId:I
 
@@ -493,7 +493,7 @@
 
     iput-object v1, p0, Lcom/android/settings/fuelgauge/BatteryEntry;->name:Ljava/lang/String;
 
-    const v1, 0x7f020257
+    const v1, 0x7f020255
 
     iput v1, p0, Lcom/android/settings/fuelgauge/BatteryEntry;->iconId:I
 
@@ -512,7 +512,7 @@
 
     iput-object v1, p0, Lcom/android/settings/fuelgauge/BatteryEntry;->name:Ljava/lang/String;
 
-    const v1, 0x7f020222
+    const v1, 0x7f020220
 
     iput v1, p0, Lcom/android/settings/fuelgauge/BatteryEntry;->iconId:I
 
@@ -646,7 +646,7 @@
 
     iput-object v1, p0, Lcom/android/settings/fuelgauge/BatteryEntry;->name:Ljava/lang/String;
 
-    const v1, 0x7f020223
+    const v1, 0x7f020221
 
     iput v1, p0, Lcom/android/settings/fuelgauge/BatteryEntry;->iconId:I
 
@@ -881,7 +881,7 @@
 
     :cond_1
     :goto_0
-    const v3, 0x7f0201b9
+    const v3, 0x7f0201b7
 
     iput v3, p0, Lcom/android/settings/fuelgauge/BatteryEntry;->iconId:I
 

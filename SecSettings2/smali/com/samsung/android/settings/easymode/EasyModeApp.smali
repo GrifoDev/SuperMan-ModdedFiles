@@ -729,7 +729,7 @@
 
     check-cast v1, Landroid/widget/LinearLayout;
 
-    const v2, 0x7f0200d8
+    const v2, 0x7f0200d6
 
     invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setBackgroundResource(I)V
 
@@ -1906,7 +1906,7 @@
 .method public onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
     .locals 6
 
-    const v5, 0x7f020509
+    const v5, 0x7f020507
 
     const/4 v4, 0x0
 

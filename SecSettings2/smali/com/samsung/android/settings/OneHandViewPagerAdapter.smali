@@ -80,7 +80,7 @@
 
     iput-object v2, v0, Lcom/samsung/android/settings/OneHandViewPagerAdapter$Description;->key:Ljava/lang/String;
 
-    const v2, 0x7f02037b
+    const v2, 0x7f020379
 
     iput v2, v0, Lcom/samsung/android/settings/OneHandViewPagerAdapter$Description;->animation:I
 
@@ -100,7 +100,7 @@
 
     iput-object v2, v0, Lcom/samsung/android/settings/OneHandViewPagerAdapter$Description;->key:Ljava/lang/String;
 
-    const v2, 0x7f02037a
+    const v2, 0x7f020378
 
     iput v2, v0, Lcom/samsung/android/settings/OneHandViewPagerAdapter$Description;->animation:I
 

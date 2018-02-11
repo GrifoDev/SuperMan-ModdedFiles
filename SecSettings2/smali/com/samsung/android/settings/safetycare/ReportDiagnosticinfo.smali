@@ -159,7 +159,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/safetycare/ReportDiagnosticinfo;->mLearnMoreImage:Landroid/widget/ImageView;
 
-    const v2, 0x7f0203ae
+    const v2, 0x7f0203ac
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -172,7 +172,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/safetycare/ReportDiagnosticinfo;->mLearnMoreImage:Landroid/widget/ImageView;
 
-    const v2, 0x7f0203af
+    const v2, 0x7f0203ad
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -317,7 +317,7 @@
 
     iget-object v11, p0, Lcom/samsung/android/settings/safetycare/ReportDiagnosticinfo;->mLearnMoreImage:Landroid/widget/ImageView;
 
-    const v12, 0x7f0203af
+    const v12, 0x7f0203ad
 
     invoke-virtual {v11, v12}, Landroid/widget/ImageView;->setImageResource(I)V
 

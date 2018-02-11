@@ -512,7 +512,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/bluetooth/BluetoothExpListController;->mExpandableListView:Landroid/widget/SemExpandableListView;
 
-    const v1, 0x7f0200ba
+    const v1, 0x7f0200b9
 
     invoke-virtual {v0, v1}, Landroid/widget/SemExpandableListView;->setSelector(I)V
 

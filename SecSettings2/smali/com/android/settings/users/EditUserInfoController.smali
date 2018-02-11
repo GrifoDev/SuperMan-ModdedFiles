@@ -425,7 +425,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f02036d
+    const v3, 0x7f02036b
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

@@ -1084,7 +1084,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f020147
+    const v2, 0x7f020145
 
     invoke-interface {v1, v2}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -1441,7 +1441,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mAddPreference:Landroid/preference/Preference;
 
-    const v1, 0x7f0201aa
+    const v1, 0x7f0201a8
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setIcon(I)V
 
@@ -2864,7 +2864,7 @@
 
     if-eqz v2, :cond_3
 
-    const v2, 0x7f020525
+    const v2, 0x7f020523
 
     move-object/from16 v0, v19
 

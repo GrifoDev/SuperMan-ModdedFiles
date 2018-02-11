@@ -645,7 +645,7 @@
 .method public static getModeImageBgId(I)I
     .locals 2
 
-    const v0, 0x7f02042f
+    const v0, 0x7f02042d
 
     packed-switch p0, :pswitch_data_0
 
@@ -661,12 +661,12 @@
     return v0
 
     :pswitch_1
-    const v0, 0x7f02042b
+    const v0, 0x7f020429
 
     return v0
 
     :pswitch_2
-    const v0, 0x7f02042d
+    const v0, 0x7f02042b
 
     return v0
 
@@ -687,7 +687,7 @@
 .method public static getModeImageFgId(I)I
     .locals 2
 
-    const v0, 0x7f02042e
+    const v0, 0x7f02042c
 
     packed-switch p0, :pswitch_data_0
 
@@ -703,12 +703,12 @@
     return v0
 
     :pswitch_1
-    const v0, 0x7f02042a
+    const v0, 0x7f020428
 
     return v0
 
     :pswitch_2
-    const v0, 0x7f02042c
+    const v0, 0x7f02042a
 
     return v0
 
@@ -1755,7 +1755,7 @@
 
     if-ne v0, v2, :cond_2
 
-    const v16, 0x7f020489
+    const v16, 0x7f020487
 
     const v2, 0x7f0b0a69
 
@@ -2041,7 +2041,7 @@
 
     if-ne v0, v2, :cond_3
 
-    const v16, 0x7f02048a
+    const v16, 0x7f020488
 
     const v2, 0x7f0b0a6a
 
@@ -2054,7 +2054,7 @@
     goto/16 :goto_0
 
     :cond_3
-    const v16, 0x7f020488
+    const v16, 0x7f020486
 
     const v2, 0x7f0b0a6b
 

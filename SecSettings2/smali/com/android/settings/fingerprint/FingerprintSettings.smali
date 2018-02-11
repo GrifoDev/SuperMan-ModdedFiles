@@ -2778,7 +2778,7 @@
 .method private showHuntipForFingerprintIdentification()V
     .locals 14
 
-    const v13, 0x7f02010c
+    const v13, 0x7f02010a
 
     const/4 v12, 0x1
 

@@ -315,7 +315,7 @@
 
     iget-object v2, v0, Lcom/samsung/android/settings/boostmode/BoostModeChangeDialogActivity;->mCustomButton:Landroid/widget/TextView;
 
-    const v3, 0x7f02050a
+    const v3, 0x7f020508
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setBackgroundResource(I)V
 
@@ -1669,7 +1669,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/boostmode/BoostModeChangeDialogActivity;->mCustomButton:Landroid/widget/TextView;
 
-    const v5, 0x7f02050a
+    const v5, 0x7f020508
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setBackgroundResource(I)V
 

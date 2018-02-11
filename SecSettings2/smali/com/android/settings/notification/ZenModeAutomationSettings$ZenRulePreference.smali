@@ -209,7 +209,7 @@
     :catch_0
     move-exception v1
 
-    const v10, 0x7f0201a0
+    const v10, 0x7f02019e
 
     invoke-virtual {p0, v10}, Lcom/android/settings/notification/ZenModeAutomationSettings$ZenRulePreference;->setIcon(I)V
 

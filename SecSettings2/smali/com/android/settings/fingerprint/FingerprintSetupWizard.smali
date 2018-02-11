@@ -846,7 +846,7 @@
 
     const v7, 0x7f0b0228
 
-    const v6, 0x7f020508
+    const v6, 0x7f020506
 
     const/4 v5, 0x0
 
@@ -1101,7 +1101,7 @@
 
     check-cast v1, Landroid/widget/ImageView;
 
-    const v2, 0x7f020407
+    const v2, 0x7f020405
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 

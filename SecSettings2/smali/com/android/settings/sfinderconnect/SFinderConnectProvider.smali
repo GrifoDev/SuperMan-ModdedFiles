@@ -283,7 +283,7 @@
 
     const-string/jumbo v10, "com.android.settings"
 
-    const v5, 0x7f02045e
+    const v5, 0x7f02045c
 
     :cond_1
     move-object/from16 v0, p0

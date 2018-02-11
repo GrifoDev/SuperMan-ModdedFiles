@@ -107,7 +107,7 @@
 .method initswitchBtn()V
     .locals 8
 
-    const v7, 0x7f020507
+    const v7, 0x7f020505
 
     const/4 v3, 0x0
 
@@ -175,7 +175,7 @@
 
     check-cast v2, Landroid/widget/LinearLayout;
 
-    const v5, 0x7f0200d8
+    const v5, 0x7f0200d6
 
     invoke-virtual {v2, v5}, Landroid/widget/LinearLayout;->setBackgroundResource(I)V
 

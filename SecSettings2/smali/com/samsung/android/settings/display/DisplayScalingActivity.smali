@@ -2703,7 +2703,7 @@
 .method public onCreateOptionsMenu(Landroid/view/Menu;)Z
     .locals 4
 
-    const v3, 0x7f020507
+    const v3, 0x7f020505
 
     invoke-super {p0, p1}, Lcom/android/settings/InstrumentedActivity;->onCreateOptionsMenu(Landroid/view/Menu;)Z
 

@@ -235,7 +235,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f020486
+    const v2, 0x7f020484
 
     invoke-virtual {v1, v2}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
@@ -305,7 +305,7 @@
 .method private exportNotificationSet(Ljava/lang/String;Ljava/lang/String;I)V
     .locals 12
 
-    const v11, 0x7f020486
+    const v11, 0x7f020484
 
     const/4 v9, 0x1
 

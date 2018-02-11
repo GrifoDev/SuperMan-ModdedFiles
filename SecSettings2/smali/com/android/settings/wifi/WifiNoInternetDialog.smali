@@ -40,7 +40,7 @@
 
     iget-object v3, p0, Lcom/android/settings/wifi/WifiNoInternetDialog;->mAlert:Lcom/android/internal/app/AlertController;
 
-    const v4, 0x7f020257
+    const v4, 0x7f020255
 
     invoke-virtual {v3, v4}, Lcom/android/internal/app/AlertController;->setIcon(I)V
 

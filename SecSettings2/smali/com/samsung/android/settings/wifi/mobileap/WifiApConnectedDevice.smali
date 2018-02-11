@@ -497,7 +497,7 @@
 
     iput v9, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApConnectedDevice;->mIsButtonState:I
 
-    const v6, 0x7f0204eb
+    const v6, 0x7f0204e9
 
     invoke-virtual {v1, v6}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -582,7 +582,7 @@
 
     iput v6, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApConnectedDevice;->mIsButtonState:I
 
-    const v6, 0x7f0204ee
+    const v6, 0x7f0204ec
 
     invoke-virtual {v1, v6}, Landroid/widget/ImageView;->setImageResource(I)V
 

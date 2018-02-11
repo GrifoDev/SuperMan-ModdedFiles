@@ -378,7 +378,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f02050b
+    const v3, 0x7f020509
 
     invoke-virtual {v2, v3}, Landroid/view/View;->setBackgroundResource(I)V
 
@@ -2159,7 +2159,7 @@
 
     iget-object v1, p1, Lcom/android/settings/dashboard/DashboardAdapter$DashboardItemHolder;->itemView:Landroid/view/View;
 
-    const v2, 0x7f0200dc
+    const v2, 0x7f0200da
 
     invoke-virtual {v1, v2}, Landroid/view/View;->setBackgroundResource(I)V
 
@@ -2168,7 +2168,7 @@
     :cond_1
     iget-object v1, p1, Lcom/android/settings/dashboard/DashboardAdapter$DashboardItemHolder;->itemView:Landroid/view/View;
 
-    const v2, 0x7f0203e0
+    const v2, 0x7f0203de
 
     invoke-virtual {v1, v2}, Landroid/view/View;->setBackgroundResource(I)V
 
@@ -2644,7 +2644,7 @@
 
     iget-object v9, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
 
-    const v10, 0x7f02045e
+    const v10, 0x7f02045c
 
     invoke-static {v9, v10}, Landroid/graphics/drawable/Icon;->createWithResource(Landroid/content/Context;I)Landroid/graphics/drawable/Icon;
 
@@ -2702,7 +2702,7 @@
 
     iget-object v9, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
 
-    const v10, 0x7f020252
+    const v10, 0x7f020250
 
     invoke-static {v9, v10}, Landroid/graphics/drawable/Icon;->createWithResource(Landroid/content/Context;I)Landroid/graphics/drawable/Icon;
 

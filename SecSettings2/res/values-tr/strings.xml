@@ -1589,6 +1589,7 @@ Cihaz başlatılana kadar arama, mesaj veya bildirim almazsınız ve alarmlar ç
     <string name="knox_fingerprint_delete_fingerprint_popup_message">Parmak iziyle kilit açma şu anda Knox kilit açma yöntemi olarak ayarlı. Başka bir yöntem seçip tekrar deneyin.</string>
     <string name="knox_fingerprint_delete_fingerprint_popup_title">Parmak izi kaldırılamıyor</string>
     <string name="fingerprint_confirm_percent_for_talkback">Yüzde %d tamamlandı.</string>
+    <string name="fingerprint_confirm_percent_format">%%%d</string>
     <string name="fingerprint_disclaimer_message">Parmak izi tanıma özelliğinin çalışması için parmak izi bilgilerinizin cihazınıza eklenmiş olması gerekir. Parmak izinizi ekledikten sonra isteğinize göre aşağıdaki işlevler için parmak izinizi kullanabilirsiniz:</string>
     <string name="fingerprint_data_has_been_corrupted">Parmak izi verileri bozulmuş. Parmak izlerinizi tekrar ekleyin.</string>
     <string name="fingerprint_web">Web oturum açma</string>

@@ -6794,7 +6794,7 @@
 
     iget-object v13, v0, Lcom/android/settings/ChooseLockPassword$ChooseLockPasswordFragment;->mCancelButton:Landroid/widget/Button;
 
-    const v14, 0x7f02033c
+    const v14, 0x7f02033a
 
     invoke-virtual {v13, v14}, Landroid/widget/Button;->setBackgroundResource(I)V
 
@@ -6802,7 +6802,7 @@
 
     iget-object v13, v0, Lcom/android/settings/ChooseLockPassword$ChooseLockPasswordFragment;->mNextButton:Landroid/widget/Button;
 
-    const v14, 0x7f02033c
+    const v14, 0x7f02033a
 
     invoke-virtual {v13, v14}, Landroid/widget/Button;->setBackgroundResource(I)V
 

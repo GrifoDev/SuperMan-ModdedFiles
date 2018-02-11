@@ -167,7 +167,7 @@
 
     check-cast v1, Landroid/widget/ImageView;
 
-    const v2, 0x7f0200c8
+    const v2, 0x7f0200c6
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -184,7 +184,7 @@
 
     check-cast v1, Landroid/widget/ImageView;
 
-    const v2, 0x7f0200c9
+    const v2, 0x7f0200c7
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -1188,7 +1188,7 @@
 
     check-cast v8, Landroid/widget/ImageView;
 
-    const v9, 0x7f0200c9
+    const v9, 0x7f0200c7
 
     invoke-virtual {v8, v9}, Landroid/widget/ImageView;->setImageResource(I)V
 

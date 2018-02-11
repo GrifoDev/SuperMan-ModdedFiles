@@ -461,14 +461,14 @@
     goto/16 :goto_1
 
     :pswitch_5
-    const v0, 0x7f0201ba
+    const v0, 0x7f0201b8
 
     invoke-virtual {v8, v0}, Landroid/preference/PreferenceScreen;->setIcon(I)V
 
     goto/16 :goto_2
 
     :pswitch_6
-    const v0, 0x7f0201bb
+    const v0, 0x7f0201b9
 
     invoke-virtual {v8, v0}, Landroid/preference/PreferenceScreen;->setIcon(I)V
 

@@ -2324,13 +2324,13 @@
 
     iget-object v8, p0, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;->mFooterLeftButton:Landroid/widget/TextView;
 
-    const v9, 0x7f02033c
+    const v9, 0x7f02033a
 
     invoke-virtual {v8, v9}, Landroid/widget/TextView;->setBackgroundResource(I)V
 
     iget-object v8, p0, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;->mFooterRightButton:Landroid/widget/TextView;
 
-    const v9, 0x7f02033c
+    const v9, 0x7f02033a
 
     invoke-virtual {v8, v9}, Landroid/widget/TextView;->setBackgroundResource(I)V
 

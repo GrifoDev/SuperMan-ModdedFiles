@@ -473,7 +473,7 @@
 
     if-nez v2, :cond_4
 
-    const v2, 0x7f0203d9
+    const v2, 0x7f0203d7
 
     invoke-virtual {v9, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -594,7 +594,7 @@
 
     invoke-virtual {v0, v2}, Landroid/preference/Preference;->setSummary(I)V
 
-    const v2, 0x7f02025b
+    const v2, 0x7f020259
 
     move-object/from16 v0, v20
 

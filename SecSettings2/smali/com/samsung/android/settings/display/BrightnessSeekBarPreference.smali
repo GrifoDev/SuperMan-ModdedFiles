@@ -1215,7 +1215,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/display/BrightnessSeekBarPreference;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0203d4
+    const v2, 0x7f0203d2
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -2720,7 +2720,7 @@
 .method public setBrightnessIcon(Z)V
     .locals 1
 
-    const v0, 0x7f020455
+    const v0, 0x7f020453
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/display/BrightnessSeekBarPreference;->setIcon(I)V
 

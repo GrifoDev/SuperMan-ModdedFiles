@@ -1526,7 +1526,7 @@
 
     check-cast v2, Landroid/widget/LinearLayout;
 
-    const v3, 0x7f0200d8
+    const v3, 0x7f0200d6
 
     invoke-virtual {v2, v3}, Landroid/widget/LinearLayout;->setBackgroundResource(I)V
 
@@ -1698,7 +1698,7 @@
 .method public onConfigurationChanged(Landroid/content/res/Configuration;)V
     .locals 2
 
-    const v1, 0x7f020507
+    const v1, 0x7f020505
 
     iget-object v0, p0, Lcom/samsung/android/settings/boostmode/BoostModeCustomFragment;->mContext:Landroid/content/Context;
 
@@ -1718,7 +1718,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/boostmode/BoostModeCustomFragment;->mResetButton:Landroid/widget/TextView;
 
-    const v1, 0x7f02050a
+    const v1, 0x7f020508
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setBackgroundResource(I)V
 
@@ -1845,7 +1845,7 @@
 .method public onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
     .locals 4
 
-    const v3, 0x7f020507
+    const v3, 0x7f020505
 
     iget-object v1, p0, Lcom/samsung/android/settings/boostmode/BoostModeCustomFragment;->mActionBar:Landroid/app/ActionBar;
 
@@ -1994,7 +1994,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/boostmode/BoostModeCustomFragment;->mResetButton:Landroid/widget/TextView;
 
-    const v4, 0x7f02050a
+    const v4, 0x7f020508
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setBackgroundResource(I)V
 

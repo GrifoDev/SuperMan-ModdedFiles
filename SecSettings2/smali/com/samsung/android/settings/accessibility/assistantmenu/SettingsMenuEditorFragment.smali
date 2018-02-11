@@ -787,7 +787,7 @@
 
     const v4, 0x7f11062f
 
-    const v3, 0x7f020354
+    const v3, 0x7f020352
 
     const/4 v2, -0x1
 

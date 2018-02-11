@@ -102,9 +102,9 @@
 
     invoke-virtual {v1, v4}, Lcom/android/setupwizardlib/SetupWizardPreferenceLayout;->setDividerInset(I)V
 
-    const v4, 0x7f0203f9
+    const v4, 0x7f0203f7
 
-    const v5, 0x7f0203f8
+    const v5, 0x7f0203f6
 
     invoke-virtual {v1, v4, v5}, Lcom/android/setupwizardlib/SetupWizardPreferenceLayout;->setIllustration(II)V
 

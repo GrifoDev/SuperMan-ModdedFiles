@@ -1092,7 +1092,7 @@
 
     check-cast v1, Landroid/widget/ImageView;
 
-    const v7, 0x7f02040a
+    const v7, 0x7f020408
 
     invoke-virtual {v1, v7}, Landroid/widget/ImageView;->setImageResource(I)V
 

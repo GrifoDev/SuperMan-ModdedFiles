@@ -634,7 +634,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/NewModePreview;->mDisplayColourFooterView:Landroid/view/View;
 
-    const v2, 0x7f020399
+    const v2, 0x7f020397
 
     invoke-virtual {v1, v2}, Landroid/view/View;->setBackgroundResource(I)V
 

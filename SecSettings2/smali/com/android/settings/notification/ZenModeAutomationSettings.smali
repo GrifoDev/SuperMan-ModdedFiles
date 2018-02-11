@@ -619,7 +619,7 @@
 
     invoke-direct {v0, v5}, Landroid/preference/Preference;-><init>(Landroid/content/Context;)V
 
-    const v5, 0x7f02016a
+    const v5, 0x7f020168
 
     invoke-virtual {v0, v5}, Landroid/preference/Preference;->setIcon(I)V
 

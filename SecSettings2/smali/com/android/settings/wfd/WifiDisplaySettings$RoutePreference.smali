@@ -39,7 +39,7 @@
 
     new-array v0, v0, [I
 
-    const v1, 0x7f0202ff
+    const v1, 0x7f0202fd
 
     aput v1, v0, v2
 

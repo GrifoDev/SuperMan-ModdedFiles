@@ -637,7 +637,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DimmableIconPreference;->setTitle(I)V
 
-    const v1, 0x7f0204eb
+    const v1, 0x7f0204e9
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DimmableIconPreference;->setIcon(I)V
 
@@ -673,7 +673,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f020480
+    const v3, 0x7f02047e
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -723,7 +723,7 @@
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setTitle(I)V
 
-    const v1, 0x7f0204ee
+    const v1, 0x7f0204ec
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setIcon(I)V
 
@@ -875,7 +875,7 @@
 
     iget-object v3, p0, Lcom/android/settings/accounts/AccountSettings;->mProfileNotAvailablePreference:Landroid/preference/Preference;
 
-    const v4, 0x7f0200fa
+    const v4, 0x7f0200f8
 
     invoke-virtual {v3, v4}, Landroid/preference/Preference;->setIcon(I)V
 

@@ -167,7 +167,7 @@
 
     if-eqz v18, :cond_4
 
-    const v18, 0x7f0203d8
+    const v18, 0x7f0203d6
 
     move-object/from16 v0, p1
 
@@ -350,7 +350,7 @@
 
     iput v0, v1, Lcom/android/settings/deviceinfo/StorageVolumePreference;->mColor:I
 
-    const v18, 0x7f0203da
+    const v18, 0x7f0203d8
 
     move-object/from16 v0, p1
 
@@ -410,7 +410,7 @@
     return-void
 
     :cond_4
-    const v18, 0x7f0203d9
+    const v18, 0x7f0203d7
 
     move-object/from16 v0, p1
 

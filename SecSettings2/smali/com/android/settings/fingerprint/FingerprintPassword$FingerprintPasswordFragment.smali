@@ -3269,7 +3269,7 @@
 
     iget-object v12, v0, Lcom/android/settings/fingerprint/FingerprintPassword$FingerprintPasswordFragment;->mCancelButton:Landroid/widget/Button;
 
-    const v13, 0x7f02033c
+    const v13, 0x7f02033a
 
     invoke-virtual {v12, v13}, Landroid/widget/Button;->setBackgroundResource(I)V
 
@@ -3277,7 +3277,7 @@
 
     iget-object v12, v0, Lcom/android/settings/fingerprint/FingerprintPassword$FingerprintPasswordFragment;->mNextButton:Landroid/widget/Button;
 
-    const v13, 0x7f02033c
+    const v13, 0x7f02033a
 
     invoke-virtual {v12, v13}, Landroid/widget/Button;->setBackgroundResource(I)V
 

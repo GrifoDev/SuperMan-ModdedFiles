@@ -370,7 +370,7 @@
 
     invoke-direct {v2, p2}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
 
-    const v9, 0x7f02048d
+    const v9, 0x7f02048b
 
     invoke-virtual {v2, v9}, Landroid/widget/ImageView;->setImageResource(I)V
 

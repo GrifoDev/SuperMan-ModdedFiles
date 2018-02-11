@@ -45,9 +45,9 @@
 
     invoke-direct {p0, p2}, Landroid/preference/Preference;-><init>(Landroid/content/Context;)V
 
-    const v5, 0x7f0202ff
+    const v5, 0x7f0202fd
 
-    const v6, 0x7f020558
+    const v6, 0x7f020556
 
     filled-new-array {v5, v6}, [I
 

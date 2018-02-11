@@ -427,14 +427,14 @@
 
     if-eqz v3, :cond_6
 
-    const v9, 0x7f02040d
+    const v9, 0x7f02040b
 
     invoke-virtual {v3, v9}, Landroid/widget/ImageView;->setImageResource(I)V
 
     :cond_6
     if-eqz v5, :cond_7
 
-    const v9, 0x7f02040e
+    const v9, 0x7f02040c
 
     invoke-virtual {v5, v9}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -854,7 +854,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/KnoxFingerprintNotice;->mStartBtn:Landroid/widget/Button;
 
-    const v6, 0x7f0204c5
+    const v6, 0x7f0204c3
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/KnoxFingerprintNotice;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

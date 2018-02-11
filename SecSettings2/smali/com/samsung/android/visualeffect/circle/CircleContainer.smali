@@ -1206,7 +1206,7 @@
 
     const-wide v10, 0x3ff0a3d70a3d70a4L    # 1.04
 
-    const v8, 0x7f0200ca
+    const v8, 0x7f0200c8
 
     const/4 v7, 0x4
 
@@ -1414,7 +1414,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0200cb
+    const v3, 0x7f0200c9
 
     invoke-virtual {v2, v3, v5}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 

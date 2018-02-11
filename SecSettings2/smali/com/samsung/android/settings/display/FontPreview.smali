@@ -839,7 +839,7 @@
 
     check-cast v0, Landroid/widget/LinearLayout;
 
-    const v1, 0x7f0200d8
+    const v1, 0x7f0200d6
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setBackgroundResource(I)V
 
@@ -1572,7 +1572,7 @@
 
     const v3, 0x7f0d0159
 
-    const v2, 0x7f0204fb
+    const v2, 0x7f0204f9
 
     if-eqz p1, :cond_5
 
@@ -1599,7 +1599,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/display/FontPreview;->mFontSizeSeekBar:Lcom/samsung/android/settings/widget/IntervalSeekBar;
 
-    const v1, 0x7f0204de
+    const v1, 0x7f0204dc
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/settings/widget/IntervalSeekBar;->setDrawable(I)V
 
@@ -1688,7 +1688,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/display/FontPreview;->mFontSizeSeekBar:Lcom/samsung/android/settings/widget/IntervalSeekBar;
 
-    const v1, 0x7f0204dd
+    const v1, 0x7f0204db
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/settings/widget/IntervalSeekBar;->setDrawable(I)V
 
@@ -1902,7 +1902,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/display/FontPreview;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0204fb
+    const v5, 0x7f0204f9
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -2616,7 +2616,7 @@
 
     check-cast v1, Landroid/widget/ImageView;
 
-    const v2, 0x7f0200c8
+    const v2, 0x7f0200c6
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -2633,7 +2633,7 @@
 
     check-cast v1, Landroid/widget/ImageView;
 
-    const v2, 0x7f0200c9
+    const v2, 0x7f0200c7
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -4266,7 +4266,7 @@
 
     check-cast v3, Landroid/widget/ImageView;
 
-    const v4, 0x7f0200c9
+    const v4, 0x7f0200c7
 
     invoke-virtual {v3, v4}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -4661,7 +4661,7 @@
 .method public onCreateOptionsMenu(Landroid/view/Menu;)Z
     .locals 4
 
-    const v3, 0x7f020507
+    const v3, 0x7f020505
 
     invoke-super {p0, p1}, Lcom/android/settings/InstrumentedActivity;->onCreateOptionsMenu(Landroid/view/Menu;)Z
 

@@ -292,7 +292,7 @@
 
     iput-object v8, p0, Lcom/samsung/android/settings/safetycare/SafetyCareEmergencyMode;->mHelpContent:Ljava/lang/String;
 
-    const v8, 0x7f0203f3
+    const v8, 0x7f0203f1
 
     iput v8, p0, Lcom/samsung/android/settings/safetycare/SafetyCareEmergencyMode;->mHelpImgResID:I
 
@@ -512,7 +512,7 @@
     iput-object v8, p0, Lcom/samsung/android/settings/safetycare/SafetyCareEmergencyMode;->mHelpContent:Ljava/lang/String;
 
     :cond_8
-    const v8, 0x7f0203f4
+    const v8, 0x7f0203f2
 
     iput v8, p0, Lcom/samsung/android/settings/safetycare/SafetyCareEmergencyMode;->mHelpImgResID:I
 

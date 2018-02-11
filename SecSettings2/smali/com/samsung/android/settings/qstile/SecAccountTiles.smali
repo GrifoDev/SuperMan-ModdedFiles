@@ -170,7 +170,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/qstile/SecAccountTiles;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0203ad
+    const v3, 0x7f0203ab
 
     invoke-static {v2, v3}, Landroid/graphics/drawable/Icon;->createWithResource(Landroid/content/Context;I)Landroid/graphics/drawable/Icon;
 

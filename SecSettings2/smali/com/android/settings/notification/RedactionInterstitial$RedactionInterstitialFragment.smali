@@ -486,7 +486,7 @@
 
     iget-object v2, p0, Lcom/android/settings/notification/RedactionInterstitial$RedactionInterstitialFragment;->mDoneButton:Landroid/widget/Button;
 
-    const v3, 0x7f02033c
+    const v3, 0x7f02033a
 
     invoke-virtual {v2, v3}, Landroid/widget/Button;->setBackgroundResource(I)V
 

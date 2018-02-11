@@ -94,7 +94,7 @@
 
     iput-object v2, v0, Lcom/samsung/android/settings/usefulfeature/MultiWindowViewPagerAdapter$Description;->key:Ljava/lang/String;
 
-    const v2, 0x7f020370
+    const v2, 0x7f02036e
 
     iput v2, v0, Lcom/samsung/android/settings/usefulfeature/MultiWindowViewPagerAdapter$Description;->animation:I
 
@@ -168,7 +168,7 @@
 
     iput-object v2, v0, Lcom/samsung/android/settings/usefulfeature/MultiWindowViewPagerAdapter$Description;->key:Ljava/lang/String;
 
-    const v2, 0x7f02036f
+    const v2, 0x7f02036d
 
     iput v2, v0, Lcom/samsung/android/settings/usefulfeature/MultiWindowViewPagerAdapter$Description;->animation:I
 

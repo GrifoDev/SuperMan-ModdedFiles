@@ -2149,7 +2149,7 @@
 
     move-result-object v5
 
-    const v8, 0x7f020413
+    const v8, 0x7f020411
 
     invoke-virtual {v5, v8}, Landroid/app/ActionBar;->setIcon(I)V
 

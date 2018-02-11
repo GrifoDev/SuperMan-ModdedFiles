@@ -246,7 +246,7 @@
 
     if-eqz v1, :cond_1
 
-    const v1, 0x7f0200d8
+    const v1, 0x7f0200d6
 
     invoke-virtual {v8, v1}, Landroid/widget/LinearLayout;->setBackgroundResource(I)V
 

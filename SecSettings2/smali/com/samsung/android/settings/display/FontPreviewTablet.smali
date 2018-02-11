@@ -1172,7 +1172,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/display/FontPreviewTablet;->mFontSizeSeekBar:Lcom/samsung/android/settings/widget/IntervalSeekBar;
 
-    const v1, 0x7f0204de
+    const v1, 0x7f0204dc
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/settings/widget/IntervalSeekBar;->setDrawable(I)V
 
@@ -1253,7 +1253,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/display/FontPreviewTablet;->mFontSizeSeekBar:Lcom/samsung/android/settings/widget/IntervalSeekBar;
 
-    const v1, 0x7f0204dd
+    const v1, 0x7f0204db
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/settings/widget/IntervalSeekBar;->setDrawable(I)V
 
@@ -1677,7 +1677,7 @@
 
     iget-object v6, p0, Lcom/samsung/android/settings/display/FontPreviewTablet;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f0203d5
+    const v7, 0x7f0203d3
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

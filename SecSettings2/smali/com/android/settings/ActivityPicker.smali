@@ -242,6 +242,18 @@
 
     iput-object v3, p0, Lcom/android/settings/ActivityPicker;->mBaseIntent:Landroid/content/Intent;
 
+    iget-object v4, p0, Lcom/android/settings/ActivityPicker;->mBaseIntent:Landroid/content/Intent;
+
+    iget-object v5, p0, Lcom/android/settings/ActivityPicker;->mBaseIntent:Landroid/content/Intent;
+
+    invoke-virtual {v5}, Landroid/content/Intent;->getFlags()I
+
+    move-result v5
+
+    and-int/lit16 v5, v5, -0xc4
+
+    invoke-virtual {v4, v5}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+
     :goto_0
     iget-object v2, p0, Lcom/android/settings/ActivityPicker;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 

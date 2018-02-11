@@ -258,9 +258,9 @@
 
     iput-object v3, p0, Lcom/android/settings/fingerprint/FingerprintEnrollFindSensor;->mToken:[B
 
-    const v3, 0x7f050037
+    const v3, 0x7f050035
 
-    const v4, 0x7f050038
+    const v4, 0x7f050036
 
     invoke-virtual {p0, v3, v4}, Lcom/android/settings/fingerprint/FingerprintEnrollFindSensor;->overridePendingTransition(II)V
 

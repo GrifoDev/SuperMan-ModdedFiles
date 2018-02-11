@@ -553,6 +553,116 @@
     return-object v6
 .end method
 
+.method public static getSPLVersion()Ljava/lang/String;
+    .locals 10
+
+    sget-object v5, Landroid/os/Build$VERSION;->SECURITY_PATCH:Ljava/lang/String;
+
+    const-string/jumbo v1, ""
+
+    new-instance v4, Ljava/text/SimpleDateFormat;
+
+    const-string/jumbo v7, "yyyy-MM-dd"
+
+    invoke-direct {v4, v7}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;)V
+
+    new-instance v2, Ljava/text/SimpleDateFormat;
+
+    const-string/jumbo v7, "MMM-yyyy"
+
+    sget-object v8, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
+
+    invoke-direct {v2, v7, v8}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;Ljava/util/Locale;)V
+
+    :try_start_0
+    invoke-virtual {v4, v5}, Ljava/text/SimpleDateFormat;->parse(Ljava/lang/String;)Ljava/util/Date;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/text/SimpleDateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
+    :try_end_0
+    .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    :goto_0
+    const-string/jumbo v7, "SoftwareInfoSettings"
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "getSPLVersion() new_date : "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v6, ""
+
+    const-string/jumbo v7, ""
+
+    invoke-virtual {v7, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v7
+
+    if-nez v7, :cond_0
+
+    sget-object v7, Landroid/os/Build$VERSION;->SECURITY_INDEX:Ljava/lang/String;
+
+    if-eqz v7, :cond_0
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "SMR "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    const-string/jumbo v8, " Release "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    sget-object v8, Landroid/os/Build$VERSION;->SECURITY_INDEX:Ljava/lang/String;
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    :cond_0
+    return-object v6
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Ljava/text/ParseException;->printStackTrace()V
+
+    goto :goto_0
+.end method
+
 .method private removePreferenceIfPropertyMissing(Landroid/preference/PreferenceGroup;Ljava/lang/String;Ljava/lang/String;)V
     .locals 4
 
@@ -2720,683 +2830,728 @@
 .end method
 
 .method private showSecuritySWVersion()V
-    .locals 23
+    .locals 24
 
     const-string/jumbo v4, ""
 
-    const-string/jumbo v16, ""
+    const-string/jumbo v17, ""
 
-    const-string/jumbo v10, ""
+    const-string/jumbo v11, ""
 
     const-string/jumbo v3, ""
 
+    const-string/jumbo v10, ""
+
     const-string/jumbo v8, "MDF "
 
-    new-instance v20, Ljava/lang/StringBuilder;
+    new-instance v21, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v21, "v"
+    const-string/jumbo v22, "v"
 
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v20
-
-    const-string/jumbo v21, "ro.security.mdpp.ver"
-
-    invoke-static/range {v21 .. v21}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v21
 
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v22, "ro.security.mdpp.ver"
 
-    move-result-object v20
+    invoke-static/range {v22 .. v22}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v22
+
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v21
+
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v9
 
-    new-instance v20, Ljava/lang/StringBuilder;
+    new-instance v21, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v21, " Release "
+    const-string/jumbo v22, " Release "
 
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v20
-
-    const-string/jumbo v21, "ro.security.mdpp.release"
-
-    invoke-static/range {v21 .. v21}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v21
 
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v22, "ro.security.mdpp.release"
 
-    move-result-object v20
+    invoke-static/range {v22 .. v22}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v22
+
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v21
+
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v6
 
     const-string/jumbo v7, ""
 
-    const-string/jumbo v20, "security.mdpp"
+    const-string/jumbo v21, "security.mdpp"
 
-    invoke-static/range {v20 .. v20}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static/range {v21 .. v21}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v5
 
-    const-string/jumbo v20, "Enabled"
+    const-string/jumbo v21, "Enabled"
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v20
+    move-result v21
 
-    if-eqz v20, :cond_4
+    if-eqz v21, :cond_5
 
-    new-instance v20, Ljava/lang/StringBuilder;
+    new-instance v21, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v21, " : "
+    const-string/jumbo v22, " : "
 
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v20
+    move-result-object v21
 
     invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/deviceinfo/SoftwareInfoSettings;->getResources()Landroid/content/res/Resources;
 
+    move-result-object v22
+
+    const v23, 0x7f0b04e5
+
+    invoke-virtual/range {v22 .. v23}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v22
+
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
     move-result-object v21
 
-    const v22, 0x7f0b04e5
-
-    invoke-virtual/range {v21 .. v22}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v21
-
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v20
-
-    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v7
 
     :cond_0
     :goto_0
-    new-instance v20, Ljava/lang/StringBuilder;
+    new-instance v21, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v20
+    move-result-object v21
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v20
+    move-result-object v21
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v20
+    move-result-object v21
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v20
+    move-result-object v21
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v20
+    move-result-object v21
 
-    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v4
 
-    const-string/jumbo v20, ""
+    const-string/jumbo v21, ""
 
-    const-string/jumbo v21, "ro.security.wlan.ver"
+    const-string/jumbo v22, "ro.security.wlan.ver"
 
-    invoke-static/range {v21 .. v21}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static/range {v22 .. v22}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v21
+    move-result-object v22
 
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v20
+    move-result v21
 
-    if-nez v20, :cond_1
+    if-nez v21, :cond_1
 
-    const-string/jumbo v18, "WLAN "
+    const-string/jumbo v19, "WLAN "
 
-    new-instance v20, Ljava/lang/StringBuilder;
+    new-instance v21, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v21, "v"
+    const-string/jumbo v22, "v"
 
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v20
-
-    const-string/jumbo v21, "ro.security.wlan.ver"
-
-    invoke-static/range {v21 .. v21}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v21
 
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v22, "ro.security.wlan.ver"
 
-    move-result-object v20
+    invoke-static/range {v22 .. v22}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v22
 
-    move-result-object v19
-
-    new-instance v20, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v21, " Release "
-
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v20
-
-    const-string/jumbo v21, "ro.security.wlan.release"
-
-    invoke-static/range {v21 .. v21}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v21
 
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v20
 
-    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    new-instance v21, Ljava/lang/StringBuilder;
 
-    move-result-object v17
+    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
 
-    new-instance v20, Ljava/lang/StringBuilder;
+    const-string/jumbo v22, " Release "
 
-    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v0, v20
+    move-result-object v21
 
-    move-object/from16 v1, v16
+    const-string/jumbo v22, "ro.security.wlan.release"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static/range {v22 .. v22}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v20
+    move-result-object v22
 
-    const-string/jumbo v21, "\n"
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v21
 
-    move-result-object v20
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-object/from16 v0, v20
+    move-result-object v18
 
-    move-object/from16 v1, v18
+    new-instance v21, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v20
-
-    move-object/from16 v0, v20
-
-    move-object/from16 v1, v19
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v20
-
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     move-object/from16 v1, v17
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v20
+    move-result-object v21
 
-    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string/jumbo v22, "\n"
+
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v21
+
+    move-object/from16 v0, v21
+
+    move-object/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v21
+
+    move-object/from16 v0, v21
+
+    move-object/from16 v1, v20
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v21
+
+    move-object/from16 v0, v21
+
+    move-object/from16 v1, v18
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v21
+
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v17
+
+    :cond_1
+    const-string/jumbo v21, ""
+
+    const-string/jumbo v22, "ro.security.vpnpp.ver"
+
+    invoke-static/range {v22 .. v22}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v22
+
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v21
+
+    if-nez v21, :cond_3
+
+    const-string/jumbo v15, "VPN "
+
+    new-instance v21, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v22, "v"
+
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v21
+
+    const-string/jumbo v22, "ro.security.vpnpp.ver"
+
+    invoke-static/range {v22 .. v22}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v22
+
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v21
+
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v16
 
-    :cond_1
-    const-string/jumbo v20, ""
+    new-instance v21, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v21, "ro.security.vpnpp.ver"
+    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-static/range {v21 .. v21}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    const-string/jumbo v22, " Release "
 
-    move-result-object v21
-
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v20
-
-    if-nez v20, :cond_3
-
-    const-string/jumbo v14, "VPN "
-
-    new-instance v20, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v21, "v"
-
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v20
-
-    const-string/jumbo v21, "ro.security.vpnpp.ver"
-
-    invoke-static/range {v21 .. v21}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v21
 
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v22, "ro.security.vpnpp.release"
 
-    move-result-object v20
+    invoke-static/range {v22 .. v22}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v22
 
-    move-result-object v15
-
-    new-instance v20, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v21, " Release "
-
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v20
-
-    const-string/jumbo v21, "ro.security.vpnpp.release"
-
-    invoke-static/range {v21 .. v21}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v21
 
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v20
-
-    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v12
-
-    const-string/jumbo v13, ""
-
-    const-string/jumbo v20, "security.vpnpp"
-
-    invoke-static/range {v20 .. v20}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v11
-
-    const-string/jumbo v20, "Enabled"
-
-    move-object/from16 v0, v20
-
-    invoke-virtual {v0, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v20
-
-    if-eqz v20, :cond_7
-
-    new-instance v20, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v21, " : "
-
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v20
-
-    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/deviceinfo/SoftwareInfoSettings;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v21
-
-    const v22, 0x7f0b04e5
-
-    invoke-virtual/range {v21 .. v22}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v21
-
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v20
-
-    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v13
 
-    :cond_2
-    :goto_1
-    new-instance v20, Ljava/lang/StringBuilder;
+    const-string/jumbo v14, ""
 
-    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v21, "security.vpnpp"
 
-    move-object/from16 v0, v20
+    invoke-static/range {v21 .. v21}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v12
 
-    move-result-object v20
+    const-string/jumbo v21, "Enabled"
 
-    const-string/jumbo v21, "\n"
+    move-object/from16 v0, v21
 
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result-object v20
+    move-result v21
 
-    move-object/from16 v0, v20
+    if-eqz v21, :cond_8
 
-    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    new-instance v21, Ljava/lang/StringBuilder;
 
-    move-result-object v20
+    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-object/from16 v0, v20
+    const-string/jumbo v22, " : "
 
-    invoke-virtual {v0, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v20
-
-    move-object/from16 v0, v20
-
-    invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v20
-
-    move-object/from16 v0, v20
-
-    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v20
-
-    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v10
-
-    :cond_3
-    new-instance v20, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v21, "\nASKS v1.4 Release "
-
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v20
-
-    invoke-direct/range {p0 .. p0}, Lcom/samsung/android/settings/deviceinfo/SoftwareInfoSettings;->getASKSVersion()Ljava/lang/String;
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v21
 
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/deviceinfo/SoftwareInfoSettings;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v20
+    move-result-object v22
 
-    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const v23, 0x7f0b04e5
 
-    move-result-object v3
+    invoke-virtual/range {v22 .. v23}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    new-instance v20, Ljava/lang/StringBuilder;
+    move-result-object v22
 
-    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v0, v20
+    move-result-object v21
 
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v20
+    move-result-object v14
 
-    move-object/from16 v0, v20
+    :cond_2
+    :goto_1
+    new-instance v21, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
+
+    move-object/from16 v0, v21
+
+    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v21
+
+    const-string/jumbo v22, "\n"
+
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v21
+
+    move-object/from16 v0, v21
+
+    invoke-virtual {v0, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v21
+
+    move-object/from16 v0, v21
 
     move-object/from16 v1, v16
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v20
+    move-result-object v21
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v20
+    move-result-object v21
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
+
+    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v21
+
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v11
+
+    :cond_3
+    new-instance v21, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v22, "\nASKS v1.4 Release "
+
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v21
+
+    invoke-direct/range {p0 .. p0}, Lcom/samsung/android/settings/deviceinfo/SoftwareInfoSettings;->getASKSVersion()Ljava/lang/String;
+
+    move-result-object v22
+
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v21
+
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    const-string/jumbo v21, ""
+
+    invoke-static {}, Lcom/samsung/android/settings/deviceinfo/SoftwareInfoSettings;->getSPLVersion()Ljava/lang/String;
+
+    move-result-object v22
+
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v21
+
+    if-nez v21, :cond_4
+
+    new-instance v21, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v22, "\n"
+
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v21
+
+    invoke-static {}, Lcom/samsung/android/settings/deviceinfo/SoftwareInfoSettings;->getSPLVersion()Ljava/lang/String;
+
+    move-result-object v22
+
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v21
+
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    :cond_4
+    new-instance v21, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
+
+    move-object/from16 v0, v21
+
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v21
+
+    move-object/from16 v0, v21
+
+    move-object/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v21
+
+    move-object/from16 v0, v21
+
+    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v21
+
+    move-object/from16 v0, v21
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v20
+    move-result-object v21
 
-    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-object/from16 v0, v21
 
-    move-result-object v20
+    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    sput-object v20, Lcom/samsung/android/settings/deviceinfo/SoftwareInfoSettings;->securitySWVersion:Ljava/lang/String;
+    move-result-object v21
 
-    const-string/jumbo v20, "security_sw_version"
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    sget-object v21, Lcom/samsung/android/settings/deviceinfo/SoftwareInfoSettings;->securitySWVersion:Ljava/lang/String;
+    move-result-object v21
+
+    sput-object v21, Lcom/samsung/android/settings/deviceinfo/SoftwareInfoSettings;->securitySWVersion:Ljava/lang/String;
+
+    const-string/jumbo v21, "security_sw_version"
+
+    sget-object v22, Lcom/samsung/android/settings/deviceinfo/SoftwareInfoSettings;->securitySWVersion:Ljava/lang/String;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v20
+    move-object/from16 v1, v21
 
-    move-object/from16 v2, v21
+    move-object/from16 v2, v22
 
     invoke-direct {v0, v1, v2}, Lcom/samsung/android/settings/deviceinfo/SoftwareInfoSettings;->setStringSummary(Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 
-    :cond_4
-    const-string/jumbo v20, "Enforcing"
+    :cond_5
+    const-string/jumbo v21, "Enforcing"
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v20
+    move-result v21
 
-    if-eqz v20, :cond_5
+    if-eqz v21, :cond_6
 
-    new-instance v20, Ljava/lang/StringBuilder;
+    new-instance v21, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v21, " : "
+    const-string/jumbo v22, " : "
 
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v20
+    move-result-object v21
 
     invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/deviceinfo/SoftwareInfoSettings;->getResources()Landroid/content/res/Resources;
 
+    move-result-object v22
+
+    const v23, 0x7f0b04e6
+
+    invoke-virtual/range {v22 .. v23}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v22
+
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
     move-result-object v21
 
-    const v22, 0x7f0b04e6
-
-    invoke-virtual/range {v21 .. v22}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v21
-
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v20
-
-    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v7
 
     goto/16 :goto_0
 
-    :cond_5
-    const-string/jumbo v20, "Ready"
+    :cond_6
+    const-string/jumbo v21, "Ready"
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v20
+    move-result v21
 
-    if-eqz v20, :cond_6
+    if-eqz v21, :cond_7
 
     const-string/jumbo v7, ""
 
     goto/16 :goto_0
 
-    :cond_6
-    const-string/jumbo v20, "Disabled"
+    :cond_7
+    const-string/jumbo v21, "Disabled"
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v20
+    move-result v21
 
-    if-eqz v20, :cond_0
+    if-eqz v21, :cond_0
 
-    new-instance v20, Ljava/lang/StringBuilder;
+    new-instance v21, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v21, " : "
+    const-string/jumbo v22, " : "
 
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v20
+    move-result-object v21
 
     invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/deviceinfo/SoftwareInfoSettings;->getResources()Landroid/content/res/Resources;
 
+    move-result-object v22
+
+    const v23, 0x7f0b04e7
+
+    invoke-virtual/range {v22 .. v23}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v22
+
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
     move-result-object v21
 
-    const v22, 0x7f0b04e7
-
-    invoke-virtual/range {v21 .. v22}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v21
-
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v20
-
-    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v7
 
     goto/16 :goto_0
 
-    :cond_7
-    const-string/jumbo v20, "Enforcing"
+    :cond_8
+    const-string/jumbo v21, "Enforcing"
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
-    invoke-virtual {v0, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v20
+    move-result v21
 
-    if-eqz v20, :cond_8
+    if-eqz v21, :cond_9
 
-    new-instance v20, Ljava/lang/StringBuilder;
+    new-instance v21, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v21, " : "
+    const-string/jumbo v22, " : "
 
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v20
+    move-result-object v21
 
     invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/deviceinfo/SoftwareInfoSettings;->getResources()Landroid/content/res/Resources;
 
+    move-result-object v22
+
+    const v23, 0x7f0b04e6
+
+    invoke-virtual/range {v22 .. v23}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v22
+
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
     move-result-object v21
 
-    const v22, 0x7f0b04e6
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual/range {v21 .. v22}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v21
-
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v20
-
-    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v13
-
-    goto/16 :goto_1
-
-    :cond_8
-    const-string/jumbo v20, "Ready"
-
-    move-object/from16 v0, v20
-
-    invoke-virtual {v0, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v20
-
-    if-eqz v20, :cond_9
-
-    const-string/jumbo v13, ""
+    move-result-object v14
 
     goto/16 :goto_1
 
     :cond_9
-    const-string/jumbo v20, "Disabled"
+    const-string/jumbo v21, "Ready"
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
-    invoke-virtual {v0, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v20
+    move-result v21
 
-    if-eqz v20, :cond_2
+    if-eqz v21, :cond_a
 
-    new-instance v20, Ljava/lang/StringBuilder;
+    const-string/jumbo v14, ""
 
-    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
+    goto/16 :goto_1
 
-    const-string/jumbo v21, " : "
+    :cond_a
+    const-string/jumbo v21, "Disabled"
 
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v21
 
-    move-result-object v20
+    invoke-virtual {v0, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v21
+
+    if-eqz v21, :cond_2
+
+    new-instance v21, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v22, " : "
+
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v21
 
     invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/deviceinfo/SoftwareInfoSettings;->getResources()Landroid/content/res/Resources;
 
+    move-result-object v22
+
+    const v23, 0x7f0b04e7
+
+    invoke-virtual/range {v22 .. v23}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v22
+
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
     move-result-object v21
 
-    const v22, 0x7f0b04e7
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual/range {v21 .. v22}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v21
-
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v20
-
-    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v13
+    move-result-object v14
 
     goto/16 :goto_1
 .end method
@@ -3987,6 +4142,20 @@
     move-result-object v9
 
     invoke-direct {p0}, Lcom/samsung/android/settings/deviceinfo/SoftwareInfoSettings;->getASKSVersion()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    const-string/jumbo v10, "\n"
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-static {}, Lcom/samsung/android/settings/deviceinfo/SoftwareInfoSettings;->getSPLVersion()Ljava/lang/String;
 
     move-result-object v10
 

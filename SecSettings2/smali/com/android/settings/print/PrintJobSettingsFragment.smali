@@ -358,7 +358,7 @@
     :pswitch_5
     iget-object v0, p0, Lcom/android/settings/print/PrintJobSettingsFragment;->mPrintJobPreference:Landroid/preference/Preference;
 
-    const v1, 0x7f0201ba
+    const v1, 0x7f0201b8
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setIcon(I)V
 
@@ -367,7 +367,7 @@
     :pswitch_6
     iget-object v0, p0, Lcom/android/settings/print/PrintJobSettingsFragment;->mPrintJobPreference:Landroid/preference/Preference;
 
-    const v1, 0x7f0201bb
+    const v1, 0x7f0201b9
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setIcon(I)V
 

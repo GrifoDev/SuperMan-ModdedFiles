@@ -4787,7 +4787,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings;->mAllowedMenuItem:Landroid/view/MenuItem;
 
-    const v5, 0x7f02014e
+    const v5, 0x7f02014c
 
     invoke-interface {v2, v5}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -4906,7 +4906,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings;->mConfigureMenuItem:Landroid/view/MenuItem;
 
-    const v3, 0x7f020382
+    const v3, 0x7f020380
 
     invoke-interface {v2, v3}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -5665,7 +5665,7 @@
 
     move-result-object v5
 
-    const v8, 0x7f020413
+    const v8, 0x7f020411
 
     invoke-virtual {v5, v8}, Landroid/app/ActionBar;->setIcon(I)V
 
@@ -7833,7 +7833,7 @@
 
     iget-object v7, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings;->mWpsSwitch:Landroid/view/MenuItem;
 
-    const v8, 0x7f020149
+    const v8, 0x7f020147
 
     invoke-interface {v7, v8}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -8089,7 +8089,7 @@
 
     move-result-object v5
 
-    const v7, 0x7f020384
+    const v7, 0x7f020382
 
     invoke-interface {v5, v7}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -8150,7 +8150,7 @@
 
     move-result-object v4
 
-    const v7, 0x7f02019c
+    const v7, 0x7f02019a
 
     invoke-interface {v4, v7}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 

@@ -65,7 +65,7 @@
 
     if-ne p1, v0, :cond_0
 
-    const v0, 0x7f0200f5
+    const v0, 0x7f0200f3
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/widget/RoundButtonView;->setBackgroundResource(I)V
 
@@ -103,7 +103,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f020136
+    const v0, 0x7f020134
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/widget/RoundButtonView;->setBackgroundResource(I)V
 

@@ -556,7 +556,7 @@
 
     iput-object v2, v1, Lcom/android/settings/search/SearchIndexableRaw;->screenTitle:Ljava/lang/String;
 
-    const v2, 0x7f020222
+    const v2, 0x7f020220
 
     iput v2, v1, Lcom/android/settings/search/SearchIndexableRaw;->iconResId:I
 

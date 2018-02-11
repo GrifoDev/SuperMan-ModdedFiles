@@ -348,9 +348,9 @@
 
     const v5, 0x7f0d00b4
 
-    const v1, 0x7f0203a7
+    const v1, 0x7f0203a5
 
-    const v2, 0x7f0203a4
+    const v2, 0x7f0203a2
 
     packed-switch p2, :pswitch_data_0
 
@@ -370,7 +370,7 @@
 
     if-nez v0, :cond_0
 
-    const v0, 0x7f0203a5
+    const v0, 0x7f0203a3
 
     :goto_1
     const v4, 0x7f1105a1
@@ -399,7 +399,7 @@
 
     const v3, 0x7f1105a4
 
-    const v4, 0x7f0203a2
+    const v4, 0x7f0203a0
 
     invoke-virtual {p1, v3, v0, v4}, Landroid/widget/RemoteViews;->setInt(ILjava/lang/String;I)V
 
@@ -455,7 +455,7 @@
     goto :goto_0
 
     :cond_0
-    const v0, 0x7f0203a8
+    const v0, 0x7f0203a6
 
     goto :goto_1
 
@@ -506,7 +506,7 @@
 
     const v3, 0x7f1105a4
 
-    const v4, 0x7f0203a3
+    const v4, 0x7f0203a1
 
     invoke-virtual {p1, v3, v0, v4}, Landroid/widget/RemoteViews;->setInt(ILjava/lang/String;I)V
 
@@ -611,7 +611,7 @@
 
     const v1, 0x7f1105a4
 
-    const v2, 0x7f0203a2
+    const v2, 0x7f0203a0
 
     invoke-virtual {p1, v1, v0, v2}, Landroid/widget/RemoteViews;->setInt(ILjava/lang/String;I)V
 
@@ -641,7 +641,7 @@
 
     if-nez v0, :cond_5
 
-    const v0, 0x7f0203a9
+    const v0, 0x7f0203a7
 
     :goto_6
     const v2, 0x7f1105a7
@@ -674,7 +674,7 @@
     goto :goto_5
 
     :cond_5
-    const v0, 0x7f0203a6
+    const v0, 0x7f0203a4
 
     goto :goto_6
 
@@ -1004,7 +1004,7 @@
 
     if-eqz v0, :cond_1
 
-    const v1, 0x7f0203ab
+    const v1, 0x7f0203a9
 
     invoke-static {p0, v1}, Landroid/graphics/drawable/Icon;->createWithResource(Landroid/content/Context;I)Landroid/graphics/drawable/Icon;
 

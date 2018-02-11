@@ -30,13 +30,7 @@
 
 .field mAdminWarning:Landroid/widget/TextView;
 
-.field mAppOps:Landroid/app/AppOpsManager;
-
 .field mCancelButton:Landroid/widget/Button;
-
-.field mCurSysAppOpMode:I
-
-.field mCurToastAppOpMode:I
 
 .field mDPM:Landroid/app/admin/DevicePolicyManager;
 
@@ -499,6 +493,14 @@
 
     invoke-super/range {p0 .. p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
+    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/DeviceAdminAdd;->getWindow()Landroid/view/Window;
+
+    move-result-object v28
+
+    const/high16 v29, 0x80000
+
+    invoke-virtual/range {v28 .. v29}, Landroid/view/Window;->addPrivateFlags(I)V
+
     new-instance v28, Landroid/os/Handler;
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/DeviceAdminAdd;->getMainLooper()Landroid/os/Looper;
@@ -548,24 +550,6 @@
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/settings/DeviceAdminAdd;->mDPM:Landroid/app/admin/DevicePolicyManager;
-
-    const-string/jumbo v28, "appops"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v28
-
-    invoke-virtual {v0, v1}, Lcom/android/settings/DeviceAdminAdd;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v28
-
-    check-cast v28, Landroid/app/AppOpsManager;
-
-    move-object/from16 v0, v28
-
-    move-object/from16 v1, p0
-
-    iput-object v0, v1, Lcom/android/settings/DeviceAdminAdd;->mAppOps:Landroid/app/AppOpsManager;
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/DeviceAdminAdd;->getPackageManager()Landroid/content/pm/PackageManager;
 
@@ -2100,52 +2084,22 @@
 .end method
 
 .method protected onPause()V
-    .locals 6
+    .locals 3
 
     invoke-super {p0}, Landroid/app/Activity;->onPause()V
 
-    iget-object v3, p0, Lcom/android/settings/DeviceAdminAdd;->mDeviceAdmin:Lcom/samsung/android/knox/EnterpriseDeviceAdminInfo;
+    iget-object v1, p0, Lcom/android/settings/DeviceAdminAdd;->mActionButton:Landroid/widget/Button;
 
-    invoke-virtual {v3}, Lcom/samsung/android/knox/EnterpriseDeviceAdminInfo;->getActivityInfo()Landroid/content/pm/ActivityInfo;
+    const/4 v2, 0x0
 
-    move-result-object v3
-
-    iget-object v3, v3, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
-
-    iget v2, v3, Landroid/content/pm/ApplicationInfo;->uid:I
-
-    iget-object v3, p0, Lcom/android/settings/DeviceAdminAdd;->mDeviceAdmin:Lcom/samsung/android/knox/EnterpriseDeviceAdminInfo;
-
-    invoke-virtual {v3}, Lcom/samsung/android/knox/EnterpriseDeviceAdminInfo;->getActivityInfo()Landroid/content/pm/ActivityInfo;
-
-    move-result-object v3
-
-    iget-object v3, v3, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
-
-    iget-object v1, v3, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
-
-    iget-object v3, p0, Lcom/android/settings/DeviceAdminAdd;->mAppOps:Landroid/app/AppOpsManager;
-
-    iget v4, p0, Lcom/android/settings/DeviceAdminAdd;->mCurSysAppOpMode:I
-
-    const/16 v5, 0x18
-
-    invoke-virtual {v3, v5, v2, v1, v4}, Landroid/app/AppOpsManager;->setMode(IILjava/lang/String;I)V
-
-    iget-object v3, p0, Lcom/android/settings/DeviceAdminAdd;->mAppOps:Landroid/app/AppOpsManager;
-
-    iget v4, p0, Lcom/android/settings/DeviceAdminAdd;->mCurToastAppOpMode:I
-
-    const/16 v5, 0x2d
-
-    invoke-virtual {v3, v5, v2, v1, v4}, Landroid/app/AppOpsManager;->setMode(IILjava/lang/String;I)V
+    invoke-virtual {v1, v2}, Landroid/widget/Button;->setEnabled(Z)V
 
     :try_start_0
     invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-interface {v3}, Landroid/app/IActivityManager;->resumeAppSwitches()V
+    invoke-interface {v1}, Landroid/app/IActivityManager;->resumeAppSwitches()V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -2159,61 +2113,17 @@
 .end method
 
 .method protected onResume()V
-    .locals 6
-
-    const/16 v5, 0x2d
-
-    const/16 v4, 0x18
-
-    const/4 v3, 0x1
+    .locals 2
 
     invoke-super {p0}, Landroid/app/Activity;->onResume()V
 
+    iget-object v0, p0, Lcom/android/settings/DeviceAdminAdd;->mActionButton:Landroid/widget/Button;
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setEnabled(Z)V
+
     invoke-virtual {p0}, Lcom/android/settings/DeviceAdminAdd;->updateInterface()V
-
-    iget-object v2, p0, Lcom/android/settings/DeviceAdminAdd;->mDeviceAdmin:Lcom/samsung/android/knox/EnterpriseDeviceAdminInfo;
-
-    invoke-virtual {v2}, Lcom/samsung/android/knox/EnterpriseDeviceAdminInfo;->getActivityInfo()Landroid/content/pm/ActivityInfo;
-
-    move-result-object v2
-
-    iget-object v2, v2, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
-
-    iget v1, v2, Landroid/content/pm/ApplicationInfo;->uid:I
-
-    iget-object v2, p0, Lcom/android/settings/DeviceAdminAdd;->mDeviceAdmin:Lcom/samsung/android/knox/EnterpriseDeviceAdminInfo;
-
-    invoke-virtual {v2}, Lcom/samsung/android/knox/EnterpriseDeviceAdminInfo;->getActivityInfo()Landroid/content/pm/ActivityInfo;
-
-    move-result-object v2
-
-    iget-object v2, v2, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
-
-    iget-object v0, v2, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
-
-    iget-object v2, p0, Lcom/android/settings/DeviceAdminAdd;->mAppOps:Landroid/app/AppOpsManager;
-
-    invoke-virtual {v2, v4, v1, v0}, Landroid/app/AppOpsManager;->checkOp(IILjava/lang/String;)I
-
-    move-result v2
-
-    iput v2, p0, Lcom/android/settings/DeviceAdminAdd;->mCurSysAppOpMode:I
-
-    iget-object v2, p0, Lcom/android/settings/DeviceAdminAdd;->mAppOps:Landroid/app/AppOpsManager;
-
-    invoke-virtual {v2, v5, v1, v0}, Landroid/app/AppOpsManager;->checkOp(IILjava/lang/String;)I
-
-    move-result v2
-
-    iput v2, p0, Lcom/android/settings/DeviceAdminAdd;->mCurToastAppOpMode:I
-
-    iget-object v2, p0, Lcom/android/settings/DeviceAdminAdd;->mAppOps:Landroid/app/AppOpsManager;
-
-    invoke-virtual {v2, v4, v1, v0, v3}, Landroid/app/AppOpsManager;->setMode(IILjava/lang/String;I)V
-
-    iget-object v2, p0, Lcom/android/settings/DeviceAdminAdd;->mAppOps:Landroid/app/AppOpsManager;
-
-    invoke-virtual {v2, v5, v1, v0, v3}, Landroid/app/AppOpsManager;->setMode(IILjava/lang/String;I)V
 
     return-void
 .end method

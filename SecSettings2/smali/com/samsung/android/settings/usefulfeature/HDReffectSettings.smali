@@ -55,7 +55,7 @@
     :pswitch_0
     iget-object v0, p0, Lcom/samsung/android/settings/usefulfeature/HDReffectSettings;->mImageView:Landroid/widget/ImageView;
 
-    const v1, 0x7f020515
+    const v1, 0x7f020513
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -64,7 +64,7 @@
     :pswitch_1
     iget-object v0, p0, Lcom/samsung/android/settings/usefulfeature/HDReffectSettings;->mImageView:Landroid/widget/ImageView;
 
-    const v1, 0x7f020516
+    const v1, 0x7f020514
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 

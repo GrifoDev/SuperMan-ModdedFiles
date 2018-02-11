@@ -351,22 +351,22 @@
 
     :array_0
     .array-data 4
-        0x7f020549
-        0x7f020541
-        0x7f02054b
-        0x7f02053d
-        0x7f020555
         0x7f020547
-        0x7f020558
+        0x7f02053f
+        0x7f020549
+        0x7f02053b
         0x7f020553
-        0x7f020540
-        0x7f020544
+        0x7f020545
+        0x7f020556
+        0x7f020551
+        0x7f02053e
         0x7f020542
-        0x7f020280
-        0x7f020279
-        0x7f020281
-        0x7f020275
-        0x7f020276
+        0x7f020540
+        0x7f02027e
+        0x7f020277
+        0x7f02027f
+        0x7f020273
+        0x7f020274
     .end array-data
 .end method
 
@@ -418,7 +418,7 @@
 
     if-eqz v2, :cond_1
 
-    const v3, 0x7f0202ac
+    const v3, 0x7f0202aa
 
     invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 

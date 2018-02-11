@@ -6220,7 +6220,7 @@
 .method public static getFavoriteTileBackgroundId(Ljava/lang/String;)I
     .locals 2
 
-    const v0, 0x7f0201d1
+    const v0, 0x7f0201cf
 
     if-eqz p0, :cond_0
 
@@ -6232,7 +6232,7 @@
 
     if-eqz v1, :cond_1
 
-    const v0, 0x7f0201d3
+    const v0, 0x7f0201d1
 
     :cond_0
     :goto_0
@@ -6247,7 +6247,7 @@
 
     if-eqz v1, :cond_2
 
-    const v0, 0x7f0201d9
+    const v0, 0x7f0201d7
 
     goto :goto_0
 
@@ -6260,7 +6260,7 @@
 
     if-eqz v1, :cond_3
 
-    const v0, 0x7f0201db
+    const v0, 0x7f0201d9
 
     goto :goto_0
 
@@ -6273,7 +6273,7 @@
 
     if-eqz v1, :cond_4
 
-    const v0, 0x7f0201d7
+    const v0, 0x7f0201d5
 
     goto :goto_0
 
@@ -6286,7 +6286,7 @@
 
     if-eqz v1, :cond_0
 
-    const v0, 0x7f0201d5
+    const v0, 0x7f0201d3
 
     goto :goto_0
 .end method
@@ -9344,7 +9344,7 @@
 
     iput v6, p1, Lcom/android/settings/Utils$OnlineHelpMenuState;->titleRes:I
 
-    const v6, 0x7f020232
+    const v6, 0x7f020230
 
     iput v6, p1, Lcom/android/settings/Utils$OnlineHelpMenuState;->iconRes:I
 
@@ -9611,7 +9611,7 @@
     if-eqz v6, :cond_9
 
     :cond_8
-    const v6, 0x7f020254
+    const v6, 0x7f020252
 
     iput v6, p1, Lcom/android/settings/Utils$OnlineHelpMenuState;->iconRes:I
 
@@ -12368,7 +12368,7 @@
 
     packed-switch v2, :pswitch_data_0
 
-    const v1, 0x7f020415
+    const v1, 0x7f020413
 
     :goto_2
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -12394,52 +12394,52 @@
     goto :goto_1
 
     :pswitch_0
-    const v1, 0x7f020415
+    const v1, 0x7f020413
 
     goto :goto_2
 
     :pswitch_1
-    const v1, 0x7f020416
+    const v1, 0x7f020414
 
     goto :goto_2
 
     :pswitch_2
-    const v1, 0x7f020418
+    const v1, 0x7f020416
 
     goto :goto_2
 
     :pswitch_3
-    const v1, 0x7f020427
-
-    goto :goto_2
-
-    :pswitch_4
     const v1, 0x7f020425
 
     goto :goto_2
 
+    :pswitch_4
+    const v1, 0x7f020423
+
+    goto :goto_2
+
     :pswitch_5
-    const v1, 0x7f020424
+    const v1, 0x7f020422
 
     goto :goto_2
 
     :pswitch_6
-    const v1, 0x7f02041a
+    const v1, 0x7f020418
 
     goto :goto_2
 
     :pswitch_7
-    const v1, 0x7f020426
+    const v1, 0x7f020424
 
     goto :goto_2
 
     :pswitch_8
-    const v1, 0x7f020419
+    const v1, 0x7f020417
 
     goto :goto_2
 
     :pswitch_9
-    const v1, 0x7f020417
+    const v1, 0x7f020415
 
     goto :goto_2
 

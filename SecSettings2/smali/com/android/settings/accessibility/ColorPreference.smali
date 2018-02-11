@@ -126,7 +126,7 @@
 
     if-ge v0, v9, :cond_2
 
-    const v6, 0x7f0204ae
+    const v6, 0x7f0204ac
 
     invoke-virtual {v4, v6}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 
@@ -222,7 +222,7 @@
 
     if-ge v3, v4, :cond_1
 
-    const v3, 0x7f0204ae
+    const v3, 0x7f0204ac
 
     invoke-virtual {v1, v3}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 

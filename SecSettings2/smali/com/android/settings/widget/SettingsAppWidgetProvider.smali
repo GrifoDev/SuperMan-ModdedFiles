@@ -644,7 +644,7 @@
 
     invoke-virtual {p0, v9, v4}, Landroid/widget/RemoteViews;->setContentDescription(ILjava/lang/CharSequence;)V
 
-    const v4, 0x7f020170
+    const v4, 0x7f02016e
 
     invoke-virtual {p0, v10, v4}, Landroid/widget/RemoteViews;->setImageViewResource(II)V
 
@@ -712,7 +712,7 @@
 
     invoke-virtual {p0, v9, v4}, Landroid/widget/RemoteViews;->setContentDescription(ILjava/lang/CharSequence;)V
 
-    const v4, 0x7f020171
+    const v4, 0x7f02016f
 
     invoke-virtual {p0, v10, v4}, Landroid/widget/RemoteViews;->setImageViewResource(II)V
 
@@ -746,7 +746,7 @@
 
     invoke-virtual {p0, v9, v4}, Landroid/widget/RemoteViews;->setContentDescription(ILjava/lang/CharSequence;)V
 
-    const v4, 0x7f020172
+    const v4, 0x7f020170
 
     invoke-virtual {p0, v10, v4}, Landroid/widget/RemoteViews;->setImageViewResource(II)V
 
@@ -769,7 +769,7 @@
 
     invoke-virtual {p0, v9, v4}, Landroid/widget/RemoteViews;->setContentDescription(ILjava/lang/CharSequence;)V
 
-    const v4, 0x7f020173
+    const v4, 0x7f020171
 
     invoke-virtual {p0, v10, v4}, Landroid/widget/RemoteViews;->setImageViewResource(II)V
 
