@@ -7514,15 +7514,15 @@
     <public type="string" name="kg_wallpaper_preview_button" id="0x7f0f0885" />
     <public type="string" name="APKTOOL_DUMMY_6b7" id="0x7f0f06b7" />
     <public type="string" name="APKTOOL_DUMMY_6b8" id="0x7f0f06b8" />
-    <public type="string" name="status_view_24_hours_format" id="0x7f0f0886" />
-    <public type="string" name="text_pressure_scale_1" id="0x7f0f0887" />
-    <public type="string" name="text_pressure_scale_2" id="0x7f0f0888" />
-    <public type="string" name="text_pressure_scale_3" id="0x7f0f0889" />
-    <public type="string" name="zakat" id="0x7f0f088a" />
-    <public type="string" name="voshod" id="0x7f0f088b" />
-    <public type="string" name="service_background_processes" id="0x7f0f088c" />
-    <public type="string" name="service_foreground_processes" id="0x7f0f088d" />
-    <public type="string" name="status_view_12_hours_format" id="0x7f0f088e" />
+    <public type="string" name="status_view_24_hours_format" id="0x7f0f0887" />
+    <public type="string" name="text_pressure_scale_1" id="0x7f0f0888" />
+    <public type="string" name="text_pressure_scale_2" id="0x7f0f0889" />
+    <public type="string" name="text_pressure_scale_3" id="0x7f0f088a" />
+    <public type="string" name="zakat" id="0x7f0f088b" />
+    <public type="string" name="voshod" id="0x7f0f088c" />
+    <public type="string" name="service_background_processes" id="0x7f0f088d" />
+    <public type="string" name="service_foreground_processes" id="0x7f0f088e" />
+    <public type="string" name="status_view_12_hours_format" id="0x7f0f088f" />
     <public type="string" name="status_bar_date_formatter" id="0x7f0f0237" />
     <public type="string" name="toast_rotation_locked" id="0x7f0f06af" />
     <public type="string" name="clear_cover_wday_day" id="0x7f0f000c" />
