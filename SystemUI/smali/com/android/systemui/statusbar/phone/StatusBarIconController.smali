@@ -2887,7 +2887,7 @@
 .method public updateBatteryTextLevel(I)V
     .locals 7
 
-    const v6, 0x7f0f05fd
+    const v6, 0x7f0f05ff
 
     const/4 v5, 0x1
 

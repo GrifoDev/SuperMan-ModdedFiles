@@ -488,7 +488,7 @@
     goto :goto_0
 
     :sswitch_0
-    const v38, 0x7f0f0349
+    const v38, 0x7f0f034a
 
     const/16 v39, 0x0
 
@@ -507,7 +507,7 @@
     goto :goto_0
 
     :sswitch_1
-    const v38, 0x7f0f034a
+    const v38, 0x7f0f034b
 
     const/16 v39, 0x0
 
@@ -528,25 +528,6 @@
     goto :goto_0
 
     :sswitch_2
-    const v38, 0x7f0f034b
-
-    const/16 v39, 0x0
-
-    move-object/from16 v0, p1
-
-    move/from16 v1, v38
-
-    move/from16 v2, v39
-
-    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
-
-    move-result-object v38
-
-    invoke-virtual/range {v38 .. v38}, Landroid/widget/Toast;->show()V
-
-    goto :goto_0
-
-    :sswitch_3
     const v38, 0x7f0f034c
 
     const/16 v39, 0x0
@@ -565,7 +546,7 @@
 
     goto :goto_0
 
-    :sswitch_4
+    :sswitch_3
     const v38, 0x7f0f034d
 
     const/16 v39, 0x0
@@ -584,8 +565,27 @@
 
     goto :goto_0
 
-    :sswitch_5
+    :sswitch_4
     const v38, 0x7f0f034e
+
+    const/16 v39, 0x0
+
+    move-object/from16 v0, p1
+
+    move/from16 v1, v38
+
+    move/from16 v2, v39
+
+    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+
+    move-result-object v38
+
+    invoke-virtual/range {v38 .. v38}, Landroid/widget/Toast;->show()V
+
+    goto :goto_0
+
+    :sswitch_5
+    const v38, 0x7f0f034f
 
     const/16 v39, 0x0
 
@@ -604,7 +604,7 @@
     goto/16 :goto_0
 
     :sswitch_6
-    const v38, 0x7f0f034f
+    const v38, 0x7f0f0350
 
     const/16 v39, 0x0
 
@@ -706,7 +706,7 @@
 
     move-result-object v38
 
-    const v39, 0x7f0f0351
+    const v39, 0x7f0f0352
 
     invoke-virtual/range {v38 .. v39}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -761,7 +761,7 @@
 
     aput-object v29, v39, v40
 
-    const v40, 0x7f0f0354
+    const v40, 0x7f0f0355
 
     move-object/from16 v0, v38
 
@@ -794,7 +794,7 @@
 
     move-result-object v38
 
-    const v39, 0x7f0f0355
+    const v39, 0x7f0f0356
 
     invoke-virtual/range {v38 .. v39}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -836,7 +836,7 @@
 
     move-result-object v38
 
-    const v39, 0x7f0f0356
+    const v39, 0x7f0f0357
 
     invoke-virtual/range {v38 .. v39}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -861,7 +861,7 @@
 
     move-result-object v38
 
-    const v39, 0x7f0f0357
+    const v39, 0x7f0f0358
 
     invoke-virtual/range {v38 .. v39}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -886,7 +886,7 @@
 
     move-result-object v38
 
-    const v39, 0x7f0f0358
+    const v39, 0x7f0f0359
 
     invoke-virtual/range {v38 .. v39}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -911,7 +911,7 @@
 
     move-result-object v38
 
-    const v39, 0x7f0f0356
+    const v39, 0x7f0f0357
 
     invoke-virtual/range {v38 .. v39}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -936,7 +936,7 @@
 
     move-result-object v38
 
-    const v39, 0x7f0f0359
+    const v39, 0x7f0f035a
 
     invoke-virtual/range {v38 .. v39}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -961,7 +961,7 @@
 
     move-result-object v38
 
-    const v39, 0x7f0f035a
+    const v39, 0x7f0f035b
 
     invoke-virtual/range {v38 .. v39}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1048,7 +1048,7 @@
 
     move-result-object v38
 
-    const v39, 0x7f0f0350
+    const v39, 0x7f0f0351
 
     invoke-virtual/range {v38 .. v39}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1096,7 +1096,7 @@
     goto/16 :goto_0
 
     :sswitch_8
-    const v38, 0x7f0f035e
+    const v38, 0x7f0f035f
 
     const/16 v39, 0x0
 
@@ -1191,7 +1191,7 @@
 
     aput-object v29, v38, v39
 
-    const v39, 0x7f0f0348
+    const v39, 0x7f0f0349
 
     move-object/from16 v0, v25
 
@@ -1273,7 +1273,7 @@
 
     aput-object v39, v38, v40
 
-    const v39, 0x7f0f0348
+    const v39, 0x7f0f0349
 
     move-object/from16 v0, v25
 
@@ -1406,7 +1406,7 @@
 
     move-result-object v38
 
-    const v39, 0x7f0f035c
+    const v39, 0x7f0f035d
 
     invoke-virtual/range {v38 .. v39}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1440,7 +1440,7 @@
 
     move-result-object v38
 
-    const v39, 0x7f0f0353
+    const v39, 0x7f0f0354
 
     invoke-virtual/range {v38 .. v39}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1459,7 +1459,7 @@
 
     move-result-object v38
 
-    const v39, 0x7f0f035b
+    const v39, 0x7f0f035c
 
     invoke-virtual/range {v38 .. v39}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1993,7 +1993,7 @@
 
     move-result-object v38
 
-    const v39, 0x7f0f0360
+    const v39, 0x7f0f0361
 
     invoke-virtual/range {v38 .. v39}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2249,7 +2249,7 @@
 
     move-result-object v38
 
-    const v39, 0x7f0f035d
+    const v39, 0x7f0f035e
 
     invoke-virtual/range {v38 .. v39}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2338,7 +2338,7 @@
 
     move-result-object v39
 
-    const v40, 0x7f0f035f
+    const v40, 0x7f0f0360
 
     invoke-virtual/range {v39 .. v40}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

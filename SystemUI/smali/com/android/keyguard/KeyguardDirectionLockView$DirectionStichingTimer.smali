@@ -81,7 +81,7 @@
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardDirectionLockView$DirectionStichingTimer;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
 
-    invoke-static {v1}, Lcom/android/keyguard/KeyguardDirectionLockView;->-wrap3(Lcom/android/keyguard/KeyguardDirectionLockView;)V
+    invoke-static {v1}, Lcom/android/keyguard/KeyguardDirectionLockView;->-wrap2(Lcom/android/keyguard/KeyguardDirectionLockView;)V
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardDirectionLockView$DirectionStichingTimer;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
 

@@ -94,7 +94,7 @@
     :goto_0
     iget-object v0, p0, Lcom/android/systemui/recents/views/HeaderViewHolder;->labelView:Landroid/widget/TextView;
 
-    const v1, 0x7f0f05e2
+    const v1, 0x7f0f05e4
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -143,7 +143,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/views/HeaderViewHolder;->labelView:Landroid/widget/TextView;
 
-    const v1, 0x7f0f05e3
+    const v1, 0x7f0f05e5
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 

@@ -385,7 +385,7 @@
 
     invoke-direct {p0}, Lcom/android/systemui/BatteryMeterDrawable;->updateShowPercent()V
 
-    const v6, 0x7f0f0467
+    const v6, 0x7f0f0468
 
     invoke-virtual {p1, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

@@ -110,7 +110,7 @@
     :cond_1
     iget-object v2, p0, Lcom/android/keyguard/KeyguardDirectionLockView$4;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
 
-    invoke-static {v2}, Lcom/android/keyguard/KeyguardDirectionLockView;->-wrap9(Lcom/android/keyguard/KeyguardDirectionLockView;)V
+    invoke-static {v2}, Lcom/android/keyguard/KeyguardDirectionLockView;->-wrap8(Lcom/android/keyguard/KeyguardDirectionLockView;)V
 
     iget-object v2, p0, Lcom/android/keyguard/KeyguardDirectionLockView$4;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
 
@@ -231,7 +231,7 @@
 
     iget-object v2, p0, Lcom/android/keyguard/KeyguardDirectionLockView$4;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
 
-    invoke-static {v2}, Lcom/android/keyguard/KeyguardDirectionLockView;->-wrap7(Lcom/android/keyguard/KeyguardDirectionLockView;)V
+    invoke-static {v2}, Lcom/android/keyguard/KeyguardDirectionLockView;->-wrap6(Lcom/android/keyguard/KeyguardDirectionLockView;)V
 
     goto :goto_1
 .end method

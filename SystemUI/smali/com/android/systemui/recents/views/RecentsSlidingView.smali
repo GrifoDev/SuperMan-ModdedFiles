@@ -227,7 +227,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mStrRecents:Ljava/lang/String;
 
-    const v1, 0x7f0f05e1
+    const v1, 0x7f0f05e3
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

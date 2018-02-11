@@ -12101,6 +12101,20 @@
     return-void
 
     :cond_8
+    const-string/jumbo v2, "showEpdg"
+
+    const/4 v3, 0x0
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+
+    move-result v2
+
+    move-object/from16 v0, p0
+
+    iput-boolean v2, v0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mIsVoWifiInfo:Z
+
     const-string/jumbo v2, "showSpn"
 
     const/4 v3, 0x0
@@ -12148,20 +12162,6 @@
     move-object/from16 v2, p0
 
     invoke-virtual/range {v2 .. v7}, Lcom/android/systemui/statusbar/policy/MobileSignalController;->updateNetworkName(ZLjava/lang/String;Ljava/lang/String;ZLjava/lang/String;)V
-
-    const-string/jumbo v2, "showEpdg"
-
-    const/4 v3, 0x0
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
-
-    move-result v2
-
-    move-object/from16 v0, p0
-
-    iput-boolean v2, v0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mIsVoWifiInfo:Z
 
     const-string/jumbo v2, "showSpn"
 
@@ -14525,7 +14525,7 @@
 
     check-cast v2, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileState;
 
-    const v3, 0x7f0f067c
+    const v3, 0x7f0f067e
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/statusbar/policy/MobileSignalController;->getStringIfExists(I)Ljava/lang/String;
 

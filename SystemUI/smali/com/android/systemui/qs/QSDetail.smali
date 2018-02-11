@@ -593,7 +593,7 @@
 
     aput-object v9, v8, v10
 
-    const v9, 0x7f0f0503
+    const v9, 0x7f0f0504
 
     invoke-virtual {v7, v9, v8}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -883,13 +883,13 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSDetail;->mDetailDoneButton:Landroid/widget/TextView;
 
-    const v1, 0x7f0f0399
+    const v1, 0x7f0f039a
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSDetail;->mDetailSettingsButton:Landroid/widget/TextView;
 
-    const v1, 0x7f0f0398
+    const v1, 0x7f0f0399
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 

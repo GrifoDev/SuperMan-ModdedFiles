@@ -507,7 +507,7 @@
 
     if-eqz v0, :cond_4
 
-    const v0, 0x7f0f03f8
+    const v0, 0x7f0f03f9
 
     :goto_0
     invoke-virtual {v2, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
@@ -533,7 +533,7 @@
     return v7
 
     :cond_4
-    const v0, 0x7f0f03f7
+    const v0, 0x7f0f03f8
 
     goto :goto_0
 
@@ -1035,7 +1035,7 @@
 
     invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0f06a5
+    const v2, 0x7f0f06a7
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -1045,7 +1045,7 @@
 
     invoke-direct {v2, p0}, Lcom/android/systemui/qs/tiles/WifiCallingTile$7;-><init>(Lcom/android/systemui/qs/tiles/WifiCallingTile;)V
 
-    const v3, 0x7f0f06ac
+    const v3, 0x7f0f06ae
 
     invoke-virtual {v1, v3, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -1197,7 +1197,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f03bb
+    const v1, 0x7f0f03bc
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1208,7 +1208,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f03ba
+    const v1, 0x7f0f03bb
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1415,7 +1415,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f03bb
+    const v1, 0x7f0f03bc
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1453,7 +1453,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f03ba
+    const v1, 0x7f0f03bb
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

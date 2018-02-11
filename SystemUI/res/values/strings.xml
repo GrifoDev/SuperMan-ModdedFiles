@@ -504,7 +504,7 @@
     <string name="v7_preference_on">ON</string>
     <string name="v7_preference_off">OFF</string>
     <string name="config_statusBarComponent">com.android.systemui.statusbar.phone.PhoneStatusBar</string>
-    <string name="quick_settings_tiles_default">Wifi,SilentMode,Bluetooth,RotationLock,Flashlight,ScreenCapture,ScreenRecorder,TouchSensitivity,UHQ,DataSaver,Cast,PowerSaving,MobileData,AirplaneMode,Performance,BlueLightFilter,WifiHotspot,PersonalMode,SecureFolder,Location,Nfc,Aod,AllShareCast,DeviceVisibility,Dnd,Sync,UDS,BikeMode</string>
+    <string name="quick_settings_tiles_default">Wifi,SilentMode,Bluetooth,RotationLock,Flashlight,ScreenCapture,ScreenRecorder,TouchSensitivity,UHQ,VoLte,WifiCalling,DataSaver,PowerSaving,MobileData,AirplaneMode,Performance,BlueLightFilter,WifiHotspot,PersonalMode,SecureFolder,Location,Nfc,Aod,AllShareCast,DeviceVisibility,Dnd,Sync,UDS,BikeMode</string>
     <string name="quick_settings_tiles_upsm">Wifi,Bluetooth,AirplaneMode,custom(com.sec.android.emergencymode.service/.PowerSavingTile),MobileData,Location</string>
     <string name="quick_settings_custom_tile_component_names">Performance:com.samsung.android.lool/com.samsung.android.sm.ui.booster.PerformanceTile,PerformanceCHN:com.samsung.android.sm_cn/com.samsung.android.sm.ui.booster.PerformanceTile,PowerSaving:com.android.settings/com.samsung.android.settings.powersaving.PowerSavingTile,Aod:com.samsung.android.app.aodservice/.settings.AODTileService,DeviceVisibility:com.samsung.android.oneconnect/.external.DeviceVisibilityTile,PowerSavingUPSM:com.sec.android.emergencymode.service/.PowerSavingTile,Sync:com.android.settings/com.samsung.android.settings.qstile.SecAccountTiles,PersonalMode:com.android.settings/com.samsung.android.settings.qstile.PersonalModeTile,AllShareCast:com.sec.android.app.wfdbroker/.AllShareCastTile,Nfc:com.android.nfc/com.samsung.android.nfc.quicktile.NfcTile,SecureFolder:com.samsung.knox.securefolder/.switcher.SecureFolderTile</string>
     <string name="quick_settings_tiles">default</string>
@@ -771,6 +771,7 @@ Use only the supplied charger."</string>
     <string name="accessibility_quick_settings_data_saver_changed_off">Data Saver turned off.</string>
     <string name="accessibility_quick_settings_data_saver_changed_on">Data Saver turned on.</string>
     <string name="accessibility_brightness">Display brightness</string>
+    <string name="accessibility_brightness_expand_button">Brightness settings panel</string>
     <string name="data_usage_disabled_dialog_3g_title">2G-3G data is paused</string>
     <string name="data_usage_disabled_dialog_4g_title">4G data is paused</string>
     <string name="data_usage_disabled_dialog_mobile_title">Cellular data is paused</string>
@@ -1540,6 +1541,7 @@ For more information, contact your administrator."</string>
     <string name="accessibility_quick_settings_open_settings">Open %s settings.</string>
     <string name="accessibility_quick_settings_edit">Edit order of settings.</string>
     <string name="accessibility_quick_settings_page">Page %1$d of %2$d</string>
+    <string name="touch_filtered_warning">Because an app is obscuring a permission request, Settings can’t verify your response.</string>
     <string name="accessibility_quick_settings_more_option">More option.</string>
     <string name="accessibility_quick_settings_voice_search">Voice search.</string>
     <string name="recents_close_all_button_text">Close All</string>
@@ -1832,8 +1834,6 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">I ACCEPT</string>
-    <item type="string" name="APKTOOL_DUMMY_6b5">false</item>
-    <item type="string" name="APKTOOL_DUMMY_6b6">false</item>
     <string name="car_lockscreen_disclaimer_title">Drive safely</string>
     <string name="car_lockscreen_disclaimer_text">Stay fully aware of driving conditions and always obey applicable laws. Directions may be inaccurate, incomplete, dangerous, not suitable, prohibited, or involve crossing administrative areas. Business information may also be inaccurate or incomplete. Data is not real-time, and location accuracy cannot be guaranteed. Do not handle your mobile device or use apps not intended for Android Auto while driving.</string>
     <string name="pip_close">Close PIP</string>
@@ -2364,6 +2364,8 @@ Try again in 1 second"</string>
     <string name="theme_clockfont_effect_type" />
     <string name="kg_wallpaper_preview_title">Lock screen</string>
     <string name="kg_wallpaper_preview_button">Set as wallpaper</string>
+    <item type="string" name="APKTOOL_DUMMY_6b7">false</item>
+    <item type="string" name="APKTOOL_DUMMY_6b8">false</item>
     <string name="status_view_24_hours_format">kk:mm</string>
     <string name="text_pressure_scale_1">mm</string>
     <string name="text_pressure_scale_2">Hg. Art.</string>

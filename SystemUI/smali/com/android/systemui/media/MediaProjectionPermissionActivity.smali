@@ -481,7 +481,7 @@
 
     aput-object v6, v20, v21
 
-    const v21, 0x7f0f04a2
+    const v21, 0x7f0f04a3
 
     move-object/from16 v0, p0
 
@@ -550,7 +550,7 @@
 
     move-result-object v20
 
-    const v21, 0x7f0f04a5
+    const v21, 0x7f0f04a6
 
     move-object/from16 v0, v20
 

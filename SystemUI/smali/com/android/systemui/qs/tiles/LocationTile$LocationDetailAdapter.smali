@@ -33,11 +33,11 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const v0, 0x7f0f0428
+    const v0, 0x7f0f0429
 
-    const v1, 0x7f0f0429
+    const v1, 0x7f0f042a
 
-    const v2, 0x7f0f042a
+    const v2, 0x7f0f042b
 
     filled-new-array {v0, v1, v2}, [I
 
@@ -115,7 +115,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0f042b
+    const v5, 0x7f0f042c
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -184,7 +184,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0f042c
+    const v5, 0x7f0f042d
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

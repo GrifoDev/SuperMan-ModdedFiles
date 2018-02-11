@@ -362,7 +362,7 @@
 .method private getMessage(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZ)Ljava/lang/String;
     .locals 6
 
-    const v5, 0x7f0f04b0
+    const v5, 0x7f0f04b1
 
     const/4 v4, 0x2
 
@@ -384,7 +384,7 @@
 
     aput-object p3, v1, v3
 
-    const v2, 0x7f0f04ba
+    const v2, 0x7f0f04bb
 
     invoke-virtual {v0, v2, v1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -422,7 +422,7 @@
 
     aput-object p3, v1, v4
 
-    const v2, 0x7f0f04b9
+    const v2, 0x7f0f04ba
 
     invoke-virtual {v0, v2, v1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -435,7 +435,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSFooter;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f04b7
+    const v1, 0x7f0f04b8
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -450,7 +450,7 @@
 
     aput-object p3, v1, v2
 
-    const v2, 0x7f0f04b6
+    const v2, 0x7f0f04b7
 
     invoke-virtual {v0, v2, v1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -469,7 +469,7 @@
 
     aput-object p4, v1, v3
 
-    const v2, 0x7f0f04b8
+    const v2, 0x7f0f04b9
 
     invoke-virtual {v0, v2, v1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -515,7 +515,7 @@
     return-object v0
 
     :cond_0
-    const v0, 0x7f0f0399
+    const v0, 0x7f0f039a
 
     goto :goto_0
 .end method
@@ -539,12 +539,12 @@
 
     if-eqz p1, :cond_0
 
-    const v0, 0x7f0f04ab
+    const v0, 0x7f0f04ac
 
     return v0
 
     :cond_0
-    const v0, 0x7f0f04ad
+    const v0, 0x7f0f04ae
 
     return v0
 .end method
@@ -580,7 +580,7 @@
 
     if-eqz v2, :cond_0
 
-    const v2, 0x7f0f04a7
+    const v2, 0x7f0f04a8
 
     iput v2, p0, Lcom/android/systemui/qs/QSFooter;->mFooterTextId:I
 
@@ -606,7 +606,7 @@
 
     if-eqz v1, :cond_2
 
-    const v2, 0x7f0f04aa
+    const v2, 0x7f0f04ab
 
     :goto_1
     iput v2, p0, Lcom/android/systemui/qs/QSFooter;->mFooterTextId:I
@@ -636,7 +636,7 @@
     goto :goto_0
 
     :cond_2
-    const v2, 0x7f0f04a9
+    const v2, 0x7f0f04aa
 
     goto :goto_1
 

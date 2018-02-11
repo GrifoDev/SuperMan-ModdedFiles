@@ -825,7 +825,7 @@
 
     if-nez v4, :cond_5
 
-    const v5, 0x7f0f041d
+    const v5, 0x7f0f041e
 
     :goto_1
     sget-boolean v6, Lcom/android/systemui/SystemUIRune;->IS_VZW_POPUP:Z
@@ -848,7 +848,7 @@
 
     if-eqz v6, :cond_9
 
-    const v5, 0x7f0f0422
+    const v5, 0x7f0f0423
 
     :cond_1
     :goto_2
@@ -896,7 +896,7 @@
 
     if-eqz v6, :cond_b
 
-    const v6, 0x7f0f041b
+    const v6, 0x7f0f041c
 
     :goto_4
     invoke-virtual {v7, v6}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
@@ -989,14 +989,14 @@
     goto/16 :goto_0
 
     :cond_5
-    const v5, 0x7f0f041e
+    const v5, 0x7f0f041f
 
     goto/16 :goto_1
 
     :cond_6
     if-nez v4, :cond_7
 
-    const v5, 0x7f0f041f
+    const v5, 0x7f0f0420
 
     goto/16 :goto_1
 
@@ -1005,17 +1005,17 @@
 
     if-eqz v6, :cond_8
 
-    const v5, 0x7f0f0420
+    const v5, 0x7f0f0421
 
     goto/16 :goto_1
 
     :cond_8
-    const v5, 0x7f0f041c
+    const v5, 0x7f0f041d
 
     goto/16 :goto_1
 
     :cond_9
-    const v5, 0x7f0f0421
+    const v5, 0x7f0f0422
 
     goto/16 :goto_2
 
@@ -1027,7 +1027,7 @@
     goto/16 :goto_3
 
     :cond_b
-    const v6, 0x7f0f041a
+    const v6, 0x7f0f041b
 
     goto/16 :goto_4
 
@@ -1246,7 +1246,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f03b6
+    const v1, 0x7f0f03b7
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1377,7 +1377,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f0424
+    const v2, 0x7f0f0425
 
     invoke-static {v0, v2, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -1400,7 +1400,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f0423
+    const v2, 0x7f0f0424
 
     invoke-static {v0, v2, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -1498,7 +1498,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f0425
+    const v2, 0x7f0f0426
 
     invoke-static {v0, v2, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -1630,7 +1630,7 @@
     :goto_1
     iget-object v7, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->mContext:Landroid/content/Context;
 
-    const v8, 0x7f0f03b6
+    const v8, 0x7f0f03b7
 
     invoke-virtual {v7, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

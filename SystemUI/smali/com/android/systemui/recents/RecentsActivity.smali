@@ -1929,9 +1929,9 @@
 .method public onEnterAnimationComplete()V
     .locals 10
 
-    const v9, 0x7f0f05d3
+    const v9, 0x7f0f05d5
 
-    const v8, 0x7f0f05d2
+    const v8, 0x7f0f05d4
 
     const v5, 0x7f02043a
 
@@ -2012,9 +2012,9 @@
 
     const v3, 0x7f020438
 
-    const v4, 0x7f0f05cd
+    const v4, 0x7f0f05cf
 
-    const v5, 0x7f0f05ce
+    const v5, 0x7f0f05d0
 
     invoke-virtual {v2, v3, v4, v5, v6}, Lcom/android/systemui/recents/views/AbstractHelpPopup;->addContent(IIII)V
 
@@ -2089,7 +2089,7 @@
 
     const v3, 0x7f020439
 
-    const v4, 0x7f0f05d1
+    const v4, 0x7f0f05d3
 
     invoke-virtual {v2, v3, v8, v8, v4}, Lcom/android/systemui/recents/views/AbstractHelpPopup;->addContent(IIII)V
 
@@ -2105,9 +2105,9 @@
 
     iget-object v2, p0, Lcom/android/systemui/recents/RecentsActivity;->mHelpPopup:Lcom/android/systemui/recents/views/AbstractHelpPopup;
 
-    const v3, 0x7f0f05d4
+    const v3, 0x7f0f05d6
 
-    const v4, 0x7f0f05d4
+    const v4, 0x7f0f05d6
 
     invoke-virtual {v2, v5, v3, v4, v6}, Lcom/android/systemui/recents/views/AbstractHelpPopup;->addContent(IIII)V
 

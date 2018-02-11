@@ -47,7 +47,7 @@
 
     const/4 v4, 0x1
 
-    const v1, 0x7f0f042e
+    const v1, 0x7f0f042f
 
     iget-object v2, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile$AirplaneModeDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/AirplaneModeTile;
 
@@ -73,7 +73,7 @@
 
     if-nez v0, :cond_2
 
-    const v1, 0x7f0f041d
+    const v1, 0x7f0f041e
 
     :cond_0
     :goto_0
@@ -117,7 +117,7 @@
 
     if-ne v2, v4, :cond_6
 
-    const v1, 0x7f0f0430
+    const v1, 0x7f0f0431
 
     :cond_1
     :goto_1
@@ -134,14 +134,14 @@
     return-object v2
 
     :cond_2
-    const v1, 0x7f0f041e
+    const v1, 0x7f0f041f
 
     goto :goto_0
 
     :cond_3
     if-nez v0, :cond_4
 
-    const v1, 0x7f0f041f
+    const v1, 0x7f0f0420
 
     goto :goto_0
 
@@ -150,7 +150,7 @@
 
     if-eqz v2, :cond_5
 
-    const v1, 0x7f0f0420
+    const v1, 0x7f0f0421
 
     goto :goto_0
 
@@ -159,12 +159,12 @@
 
     if-eqz v2, :cond_0
 
-    const v1, 0x7f0f041c
+    const v1, 0x7f0f041d
 
     goto :goto_0
 
     :cond_6
-    const v1, 0x7f0f042f
+    const v1, 0x7f0f0430
 
     goto :goto_1
 
@@ -181,12 +181,12 @@
 
     if-ne v2, v4, :cond_8
 
-    const v1, 0x7f0f0432
+    const v1, 0x7f0f0433
 
     goto :goto_1
 
     :cond_8
-    const v1, 0x7f0f0431
+    const v1, 0x7f0f0432
 
     goto :goto_1
 .end method
@@ -264,7 +264,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0f042d
+    const v1, 0x7f0f042e
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -370,7 +370,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0f0424
+    const v1, 0x7f0f0425
 
     invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -407,7 +407,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0f0423
+    const v1, 0x7f0f0424
 
     invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -486,7 +486,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0f0425
+    const v1, 0x7f0f0426
 
     invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

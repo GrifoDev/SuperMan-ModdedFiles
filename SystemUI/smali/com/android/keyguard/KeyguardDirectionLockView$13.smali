@@ -3,7 +3,7 @@
 .source "KeyguardDirectionLockView.java"
 
 # interfaces
-.implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
+.implements Landroid/animation/Animator$AnimatorListener;
 
 
 # annotations
@@ -34,46 +34,67 @@
 
 
 # virtual methods
-.method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 3
+.method public onAnimationCancel(Landroid/animation/Animator;)V
+    .locals 2
 
-    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
+    const/high16 v1, 0x3f800000    # 1.0f
 
-    move-result-object v2
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardDirectionLockView$13;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
 
-    check-cast v2, Ljava/lang/Float;
-
-    invoke-virtual {v2}, Ljava/lang/Float;->floatValue()F
-
-    move-result v1
-
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardDirectionLockView$13;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
-
-    invoke-static {v2}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get9(Lcom/android/keyguard/KeyguardDirectionLockView;)Ljava/util/ArrayList;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get7(Lcom/android/keyguard/KeyguardDirectionLockView;)Landroid/widget/ImageView;
 
     move-result-object v0
 
-    :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    if-eqz v0, :cond_0
 
-    move-result v2
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardDirectionLockView$13;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
 
-    if-eqz v2, :cond_0
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get7(Lcom/android/keyguard/KeyguardDirectionLockView;)Landroid/widget/ImageView;
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    move-result-object v0
 
-    move-result-object v2
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setScaleX(F)V
 
-    check-cast v2, Landroid/widget/ImageView;
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardDirectionLockView$13;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
 
-    invoke-virtual {v2, v1}, Landroid/widget/ImageView;->setTranslationX(F)V
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get7(Lcom/android/keyguard/KeyguardDirectionLockView;)Landroid/widget/ImageView;
 
-    goto :goto_0
+    move-result-object v0
+
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setScaleY(F)V
 
     :cond_0
+    return-void
+.end method
+
+.method public onAnimationEnd(Landroid/animation/Animator;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onAnimationRepeat(Landroid/animation/Animator;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onAnimationStart(Landroid/animation/Animator;)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardDirectionLockView$13;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
+
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get8(Lcom/android/keyguard/KeyguardDirectionLockView;)Landroid/widget/LinearLayout;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardDirectionLockView$13;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
+
+    invoke-static {v1}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get7(Lcom/android/keyguard/KeyguardDirectionLockView;)Landroid/widget/ImageView;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+
     return-void
 .end method

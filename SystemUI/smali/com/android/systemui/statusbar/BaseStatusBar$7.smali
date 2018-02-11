@@ -234,7 +234,7 @@
 
     iget-object v1, v1, Lcom/android/systemui/statusbar/BaseStatusBar;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0f04d0
+    const v3, 0x7f0f04d1
 
     const/4 v4, 0x0
 

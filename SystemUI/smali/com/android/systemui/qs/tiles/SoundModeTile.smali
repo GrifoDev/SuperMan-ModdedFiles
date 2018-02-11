@@ -117,11 +117,11 @@
 
     sput-object v0, Lcom/android/systemui/qs/tiles/SoundModeTile;->SOUNDMODE_DETAIL_SETTINGS:Landroid/content/Intent;
 
-    const v0, 0x7f0f03aa
+    const v0, 0x7f0f03ab
 
-    const v1, 0x7f0f03a9
+    const v1, 0x7f0f03aa
 
-    const v2, 0x7f0f03a8
+    const v2, 0x7f0f03a9
 
     filled-new-array {v0, v1, v2}, [I
 

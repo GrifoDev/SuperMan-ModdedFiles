@@ -206,7 +206,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/CellularTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f03a0
+    const v1, 0x7f0f03a1
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -404,7 +404,7 @@
 
     aput-object v8, v6, v7
 
-    const v8, 0x7f0f05c2
+    const v8, 0x7f0f05c3
 
     invoke-virtual {v3, v8, v6}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -503,7 +503,7 @@
     goto/16 :goto_5
 
     :cond_b
-    const v5, 0x7f0f0380
+    const v5, 0x7f0f0381
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

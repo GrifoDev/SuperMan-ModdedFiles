@@ -75,7 +75,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/volume/SafetyWarningDialog;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f04dc
+    const v2, 0x7f0f04dd
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
