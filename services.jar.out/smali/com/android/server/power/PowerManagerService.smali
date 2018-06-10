@@ -23717,6 +23717,12 @@
 
     if-eqz v12, :cond_4
 
+    invoke-virtual {p0}, Lcom/android/server/power/PowerManagerService;->wakeOnUsb()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_4
+
     const-string/jumbo v1, " powered change"
 
     iput-object v1, p0, Lcom/android/server/power/PowerManagerService;->mScreenOnReason:Ljava/lang/String;
@@ -31890,4 +31896,24 @@
     monitor-exit v3
 
     throw v2
+.end method
+
+.method public wakeOnUsb()Z
+    .locals 6
+
+    iget-object v0, p0, Lcom/android/server/power/PowerManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const v1, 0x1
+
+    const-string/jumbo v2, "usb_plugged"
+
+    invoke-static {v0, v2, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v1
+
+    return v1
 .end method

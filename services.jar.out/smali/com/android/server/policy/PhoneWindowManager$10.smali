@@ -34,6 +34,31 @@
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 5
 
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+
+    move-result-object v3
+
+    const-string/jumbo v2, "com.tkkg.SERVICES"
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    const-string v2, "ACTION"
+
+    invoke-virtual {p2, v2}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    iget-object v2, p0, Lcom/android/server/policy/PhoneWindowManager$10;->this$0:Lcom/android/server/policy/PhoneWindowManager;
+
+    invoke-virtual {v2, v3}, Lcom/android/server/policy/PhoneWindowManager;->OnActionReceived(Ljava/lang/String;)V
+
+    return-void
+
+    :cond_0
     const-string/jumbo v2, "android.intent.action.DOCK_EVENT"
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -44,7 +69,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     iget-object v2, p0, Lcom/android/server/policy/PhoneWindowManager$10;->this$0:Lcom/android/server/policy/PhoneWindowManager;
 
@@ -84,7 +109,7 @@
 
     return-void
 
-    :cond_0
+    :cond_1
     :try_start_1
     const-string/jumbo v2, "uimode"
 

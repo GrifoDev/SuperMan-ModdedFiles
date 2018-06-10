@@ -13556,6 +13556,26 @@
     return v0
 .end method
 
+.method public getKeyboardSwitcherTweak()Z
+    .locals 2
+
+    iget-object v1, p0, Lcom/android/server/InputMethodManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string/jumbo p0, "hide_keyboard_switcher"
+
+    const/4 v0, 0x0
+
+    invoke-static {v1, p0, v0}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public getLastInputMethodSubtype()Landroid/view/inputmethod/InputMethodSubtype;
     .locals 9
 
@@ -20835,7 +20855,7 @@
     :try_start_0
     iget-boolean v4, p0, Lcom/android/server/InputMethodManagerService;->mSystemReady:Z
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_3
 
     const/4 v4, 0x1
 
@@ -20859,13 +20879,13 @@
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_4
 
     invoke-direct {p0}, Lcom/android/server/InputMethodManagerService;->getPersonaService()Lcom/samsung/android/knox/SemPersonaManager;
 
     move-result-object v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_4
 
     invoke-direct {p0}, Lcom/android/server/InputMethodManagerService;->getPersonaService()Lcom/samsung/android/knox/SemPersonaManager;
 
@@ -20875,7 +20895,7 @@
 
     move-result v4
 
-    if-lez v4, :cond_3
+    if-lez v4, :cond_4
 
     invoke-direct {p0}, Lcom/android/server/InputMethodManagerService;->getPersonaService()Lcom/samsung/android/knox/SemPersonaManager;
 
@@ -20945,19 +20965,25 @@
 
     invoke-direct {p0, v4, v6, v7}, Lcom/android/server/InputMethodManagerService;->updateSystemUiLocked(Landroid/os/IBinder;II)V
 
-    iget-object v4, p0, Lcom/android/server/InputMethodManagerService;->mRes:Landroid/content/res/Resources;
+    invoke-virtual {p0}, Lcom/android/server/InputMethodManagerService;->getKeyboardSwitcherTweak()Z
 
-    const v6, 0x11200e6
+    move-result v2
 
-    invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getBoolean(I)Z
+    if-eqz v2, :cond_1
 
-    move-result v4
+    const/4 p1, 0x0
 
-    iput-boolean v4, p0, Lcom/android/server/InputMethodManagerService;->mShowOngoingImeSwitcherForPhones:Z
+    iput-boolean p1, p0, Lcom/android/server/InputMethodManagerService;->mShowOngoingImeSwitcherForPhones:Z
 
-    iget-boolean v4, p0, Lcom/android/server/InputMethodManagerService;->mShowOngoingImeSwitcherForPhones:Z
+    goto :goto_0
 
-    if-eqz v4, :cond_1
+    :cond_1
+    const/4 p1, 0x1
+
+    iput-boolean p1, p0, Lcom/android/server/InputMethodManagerService;->mShowOngoingImeSwitcherForPhones:Z
+
+    :goto_0
+    if-eqz v4, :cond_2
 
     iget-object v4, p0, Lcom/android/server/InputMethodManagerService;->mWindowManagerInternal:Landroid/view/WindowManagerInternal;
 
@@ -20965,7 +20991,7 @@
 
     invoke-virtual {v4, v6}, Landroid/view/WindowManagerInternal;->setOnHardKeyboardStatusChangeListener(Landroid/view/WindowManagerInternal$OnHardKeyboardStatusChangeListener;)V
 
-    :cond_1
+    :cond_2
     iget-object v4, p0, Lcom/android/server/InputMethodManagerService;->mMyPackageMonitor:Lcom/android/server/InputMethodManagerService$MyPackageMonitor;
 
     iget-object v6, p0, Lcom/android/server/InputMethodManagerService;->mContext:Landroid/content/Context;
@@ -21078,12 +21104,12 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    :cond_2
+    :cond_3
     monitor-exit v5
 
     return-void
 
-    :cond_3
+    :cond_4
     :try_start_3
     iget-object v4, p0, Lcom/android/server/InputMethodManagerService;->mSettings:Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodSettings;
 

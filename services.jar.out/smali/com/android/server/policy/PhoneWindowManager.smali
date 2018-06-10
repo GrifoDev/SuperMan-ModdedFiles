@@ -236,6 +236,8 @@
 
 .field static localLOGV:Z
 
+.field static mAllowAllRotations:Z
+
 .field static final mTmpContentFrame:Landroid/graphics/Rect;
 
 .field static final mTmpDecorFrame:Landroid/graphics/Rect;
@@ -10283,6 +10285,39 @@
 
 
 # virtual methods
+.method public OnActionReceived(Ljava/lang/String;)V
+    .locals 3
+
+    if-eqz p1, :cond_0
+
+    const-string v0, "RECOVERY"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/server/policy/PhoneWindowManager;->goToRecovery()V
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    const-string v0, "DOWNLOAD"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/server/policy/PhoneWindowManager;->goToDownload()V
+
+    goto :goto_0
+.end method
+
 .method accessibilityShortcutActivated()V
     .locals 1
 
@@ -11771,6 +11806,26 @@
 
     :cond_0
     const/4 v0, 0x1
+
+    return v0
+.end method
+
+.method public allowNavBarHeightTweak()Z
+    .locals 2
+
+    iget-object v1, p0, Lcom/android/server/policy/PhoneWindowManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string/jumbo p0, "custom_navbar_height"
+
+    const/4 v0, 0x0
+
+    invoke-static {v1, p0, v0}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
 
     return v0
 .end method
@@ -18097,8 +18152,28 @@
     return-object v0
 .end method
 
+.method public getNavBarHeightTweak()I
+    .locals 2
+
+    iget-object v1, p0, Lcom/android/server/policy/PhoneWindowManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string/jumbo p0, "navbar_height"
+
+    const v0, 0x90
+
+    invoke-static {v1, p0, v0}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    return v0
+.end method
+
 .method getNavigationBarHeight(II)I
-    .locals 1
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mSPWM:Lcom/android/server/policy/IPhoneWindowManagerBridge;
 
@@ -18125,6 +18200,17 @@
 
     aget v0, v0, p1
 
+    invoke-virtual {p0}, Lcom/android/server/policy/PhoneWindowManager;->allowNavBarHeightTweak()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/server/policy/PhoneWindowManager;->getNavBarHeightTweak()I
+
+    move-result v0
+
+    :cond_1
     return v0
 .end method
 
@@ -18756,6 +18842,54 @@
     const/4 v1, 0x1
 
     return v1
+.end method
+
+.method public goToDownload()V
+    .locals 5
+
+    const-string/jumbo v0, "power"
+
+    invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+
+    move-result-object v0
+
+    invoke-static {v0}, Landroid/os/IPowerManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/IPowerManager;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    const-string/jumbo v2, "download"
+
+    const/4 v3, 0x0
+
+    invoke-interface {v0, v1, v2, v3}, Landroid/os/IPowerManager;->reboot(ZLjava/lang/String;Z)V
+
+    return-void
+.end method
+
+.method public goToRecovery()V
+    .locals 5
+
+    const-string/jumbo v0, "power"
+
+    invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+
+    move-result-object v0
+
+    invoke-static {v0}, Landroid/os/IPowerManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/IPowerManager;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    const-string/jumbo v2, "recovery"
+
+    const/4 v3, 0x0
+
+    invoke-interface {v0, v1, v2, v3}, Landroid/os/IPowerManager;->reboot(ZLjava/lang/String;Z)V
+
+    return-void
 .end method
 
 .method handleLongPressOnHome(I)V
@@ -20131,6 +20265,12 @@
     invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
     const-string/jumbo v2, "android.intent.action.DOCK_EVENT"
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string/jumbo v2, "com.tkkg.SERVICES"
 
     move-object/from16 v0, v19
 
@@ -32194,6 +32334,8 @@
 
     move-result v4
 
+    sget-boolean v4, Lcom/android/server/policy/PhoneWindowManager;->mAllowAllRotations:Z
+
     if-eqz v4, :cond_17
 
     const/4 v4, 0x1
@@ -35300,6 +35442,22 @@
     const/4 v8, 0x2
 
     const/4 v9, 0x1
+
+    iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "all_rotations"
+
+    const/4 v2, 0x0
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/server/policy/PhoneWindowManager;->mAllowAllRotations:Z
 
     iget-object v10, p0, Lcom/android/server/policy/PhoneWindowManager;->mContext:Landroid/content/Context;
 
