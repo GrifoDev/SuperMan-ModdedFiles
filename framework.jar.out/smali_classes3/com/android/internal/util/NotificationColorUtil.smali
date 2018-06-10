@@ -22,12 +22,22 @@
 
 .field private static final TAG:Ljava/lang/String; = "NotificationColorUtil"
 
+.field public static mAllowNotificationColorChange:Z
+
+.field public static mNotifSummaryTextColor:I
+
+.field public static mNotifTitleTextColor:I
+
+.field public static mNotificationLinkAppName:Z
+
 .field private static sInstance:Lcom/android/internal/util/NotificationColorUtil;
 
 .field private static final sLock:Ljava/lang/Object;
 
 
 # instance fields
+.field private mContext:Landroid/content/Context;
+
 .field private final mGrayscaleBitmapCache:Ljava/util/WeakHashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -66,6 +76,8 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    iput-object p1, p0, Lcom/android/internal/util/NotificationColorUtil;->mContext:Landroid/content/Context;
+
     new-instance v0, Lcom/android/internal/util/ImageUtils;
 
     invoke-direct {v0}, Lcom/android/internal/util/ImageUtils;-><init>()V
@@ -89,6 +101,8 @@
     move-result v0
 
     iput v0, p0, Lcom/android/internal/util/NotificationColorUtil;->mGrayscaleIconMaxSize:I
+
+    invoke-virtual {p0}, Lcom/android/internal/util/NotificationColorUtil;->setNotifTextColor()V
 
     return-void
 .end method
@@ -1075,13 +1089,13 @@
 .end method
 
 .method public static resolvePrimaryColor(Landroid/content/Context;I)I
-    .locals 2
+    .locals 3
 
     invoke-static {p1}, Lcom/android/internal/util/NotificationColorUtil;->shouldUseDark(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     const v1, 0x10600f9
 
@@ -1089,9 +1103,16 @@
 
     move-result v1
 
-    return v1
+    sget-boolean v2, Lcom/android/internal/util/NotificationColorUtil;->mAllowNotificationColorChange:Z
+
+    if-eqz v2, :cond_0
+
+    sget v1, Lcom/android/internal/util/NotificationColorUtil;->mNotifTitleTextColor:I
 
     :cond_0
+    return v1
+
+    :cond_1
     const v1, 0x10600f8
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getColor(I)I
@@ -1102,13 +1123,13 @@
 .end method
 
 .method public static resolveSecondaryColor(Landroid/content/Context;I)I
-    .locals 2
+    .locals 3
 
     invoke-static {p1}, Lcom/android/internal/util/NotificationColorUtil;->shouldUseDark(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     const v1, 0x10600fc
 
@@ -1116,9 +1137,16 @@
 
     move-result v1
 
-    return v1
+    sget-boolean v2, Lcom/android/internal/util/NotificationColorUtil;->mAllowNotificationColorChange:Z
+
+    if-eqz v2, :cond_0
+
+    sget v1, Lcom/android/internal/util/NotificationColorUtil;->mNotifSummaryTextColor:I
 
     :cond_0
+    return v1
+
+    :cond_1
     const v1, 0x10600fb
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getColor(I)I
@@ -1708,4 +1736,74 @@
 
     :cond_9
     return v5
+.end method
+
+.method public setNotifTextColor()V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/internal/util/NotificationColorUtil;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "unlock_notification_colors"
+
+    const/4 v2, 0x0
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/internal/util/NotificationColorUtil;->mAllowNotificationColorChange:Z
+
+    iget-object v0, p0, Lcom/android/internal/util/NotificationColorUtil;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "notification_title_text_color"
+
+    const v2, -0xdedede
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    sput v0, Lcom/android/internal/util/NotificationColorUtil;->mNotifTitleTextColor:I
+
+    iget-object v0, p0, Lcom/android/internal/util/NotificationColorUtil;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "notification_summary_text_color"
+
+    const v2, -0xdedede
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    sput v0, Lcom/android/internal/util/NotificationColorUtil;->mNotifSummaryTextColor:I
+
+    iget-object v0, p0, Lcom/android/internal/util/NotificationColorUtil;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "notification_link_app_name_color"
+
+    const v2, 0x0
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/internal/util/NotificationColorUtil;->mNotificationLinkAppName:Z
+
+    return-void
 .end method
