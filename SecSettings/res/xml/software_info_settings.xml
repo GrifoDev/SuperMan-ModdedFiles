@@ -2,6 +2,13 @@
 <PreferenceScreen android:title="@string/device_info_software_title"
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <PreferenceScreen android:layout="@layout/logo" android:key="od_logo" />
+    <PreferenceCategory android:title="@string/rom_info" android:key="dummy_gen">
+        <Preference android:title="@string/rom_name" android:key="rom_name" android:summary="@string/rom_name_details" style="?android:preferenceInformationStyle" />
+        <Preference android:title="@string/rom_ver" android:key="rom_ver" android:summary="@string/rom_ver_details" style="?android:preferenceInformationStyle" />
+        <Preference android:title="@string/rom_date" android:key="rom_date" android:summary="@string/rom_date_details" style="?android:preferenceInformationStyle" />
+        <Preference android:title="@string/rom_developer" android:key="rom_developer" android:summary="@string/rom_developer_name" style="?android:preferenceInformationStyle" />
+    </PreferenceCategory>
     <Preference android:enabled="false" android:title="@string/firmware_version" android:key="firmware_version" android:summary="@string/device_info_default" android:shouldDisableView="false" />
     <Preference android:enabled="false" android:title="@string/samsung_experience_version" android:key="samsung_experience_version" android:summary="@string/device_info_default" android:shouldDisableView="false" />
     <Preference android:enabled="false" android:title="@string/baseband_version" android:key="baseband_version" android:summary="@string/device_info_default" android:shouldDisableView="false" />

@@ -2490,4 +2490,6 @@
     <item type="id" name="zoom_minus">false</item>
     <item type="id" name="zoom_plus">false</item>
     <item type="id" name="zoom_seekbar">false</item>
+    <item type="id" name="dev_settings">false</item>
+    <item type="id" name="led_indicator_settings">false</item>
 </resources>

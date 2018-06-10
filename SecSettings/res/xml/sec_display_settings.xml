@@ -31,6 +31,7 @@
     <SecListPreference android:persistent="false" android:entries="@array/touch_key_light_entries" android:title="@string/touch_key_light" android:key="touch_key_light" android:entryValues="@array/touch_key_light_values" />
     <SecPreference android:title="@string/edge_lighting" android:key="edge_lighting" />
     <SecSwitchPreference android:persistent="false" android:title="@string/led_indicator_settings" android:key="key_simple_led_indicator_settings" android:summary="@string/led_indicator_settings_summary" />
+    <PreferenceScreen android:title="LED indicator settings" android:key="key_simple_led_indicator_settings" android:fragment="com.android.settings.LedIndicatorSettings" />
     <SecPreferenceScreen android:title="@string/status_bar" android:key="status_bar" android:fragment="com.samsung.android.settings.display.StatusBar" />
     <SecPreferenceScreen android:title="@string/navigationbar_title" android:key="navigation_Bar" android:summary="@string/navigationbar_summary" android:fragment="com.samsung.android.settings.navigationbar.NavigationBarSettings" />
     <com.android.settings.TimeoutListPreference android:persistent="false" android:entries="@array/screen_timeout_entries" android:title="@string/screen_timeout" android:key="screen_timeout" android:summary="@string/screen_timeout_summary" android:entryValues="@array/screen_timeout_values" settings:dbMatchingName="screen_off_timeout" settings:dbMatchingTable="system" />

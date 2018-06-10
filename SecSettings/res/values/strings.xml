@@ -9475,4 +9475,25 @@ Or, tap ALLOW SWITCH to switch to a mobile network whenever the %3$s internet co
 Incorrect"</string>
     <string name="zzz_lgt_password_wrong_pin_code2">"(%1$s/3)
 %1$s time(s) left"</string>
+    <string name="device_info">Device Information</string>
+    <string name="rom_info">Information About ROM</string>
+    <string name="rom_name">Rom Name</string>
+    <string name="rom_name_details">SuperMan-Rom</string>
+    <string name="rom_ver">Rom Version</string>
+    <string name="rom_ver_details">V3.0.0</string>
+    <string name="rom_date">Rom Date</string>
+    <string name="rom_date_details">17.08.18</string>
+    <string name="rom_developer">Rom Developer</string>
+    <string name="rom_developer_name">Tkkg1994</string>
+    <string name="led_indicator_charging">Charging</string>
+    <string name="led_indicator_charging_summary">Light up the red LED when the device is charging while the screen is off.</string>
+    <string name="led_indicator_notifications">Notifications</string>
+    <string name="led_indicator_notifications_summary">Light up the blue LED when there are missed calls, unread messages, or application notifications while the screen is off.</string>
+    <string name="led_indicator_voice_recording">Voice recording</string>
+    <string name="led_indicator_voice_recording_summary">Blink the blue LED when voice recording is in progress while the screen is off.</string>
+    <string name="led_indicator_incoming_notification">Incoming notification</string>
+    <string name="led_indicator_incoming_notification_summary">LED lights up when you receive a notification.</string>
+    <string name="led_indicator_low_battery">Low battery</string>
+    <string name="led_indicator_low_battery_summary">The red LED blinks when the battery power is low while the screen is off.</string>
+    <string name="notification_reminder_led_toast">LED indicator for Accessibility and Sounds and notifications cannot be enabled at same time. Go to Settings > Accessibility > Notification reminder, then disable LED indicator first.</string>
 </resources>
