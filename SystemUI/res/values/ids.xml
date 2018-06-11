@@ -1389,4 +1389,25 @@
     <item type="id" name="zen_mode_panel">false</item>
     <item type="id" name="zen_radio_buttons">false</item>
     <item type="id" name="zen_radio_buttons_content">false</item>
+    <item type="id" name="backgroundImageView">false</item>
+    <item type="id" name="qs_drag_handle_background">false</item>
+    <item type="id" name="center_clock">false</item>
+    <item type="id" name="left_clock">false</item>
+    <item type="id" name="system_icon_area2">false</item>
+    <item type="id" name="CustomBg">false</item>
+    <item type="id" name="ram_bar">false</item>
+    <item type="id" name="minitclock">false</item>
+    <item type="id" name="gear_bottom_layout">false</item>
+    <item type="id" name="attrName">false</item>
+    <item type="id" name="attrValue">false</item>
+    <item type="id" name="foregroundText">false</item>
+    <item type="id" name="backgroundText">false</item>
+    <item type="id" name="dynamic_status_bar_color">false</item>
+    <item type="id" name="dynamic_status_bar_filter">false</item>
+    <item type="id" name="dynamic_status_bar_gradient">false</item>
+    <item type="id" name="dynamic_status_bar">false</item>
+    <item type="id" name="recents_matrix_anim">false</item>
+    <item type="id" name="battbar_no_pulldown_below">false</item>
+    <item type="id" name="gif_animation">false</item>
+    <item type="id" name="hybrid_notification">false</item>
 </resources>

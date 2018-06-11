@@ -124,58 +124,6 @@
     return-void
 .end method
 
-.method private addAllBarItems()V
-    .locals 5
-
-    iget-object v3, p0, Lcom/android/systemui/qs/bar/QSBarController;->mQsPanel:Lcom/android/systemui/qs/QSPanel;
-
-    if-eqz v3, :cond_0
-
-    iget-object v3, p0, Lcom/android/systemui/qs/bar/QSBarController;->mBars:Ljava/util/LinkedHashMap;
-
-    invoke-virtual {v3}, Ljava/util/LinkedHashMap;->keySet()Ljava/util/Set;
-
-    move-result-object v3
-
-    invoke-interface {v3}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    iget-object v3, p0, Lcom/android/systemui/qs/bar/QSBarController;->mBars:Ljava/util/LinkedHashMap;
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/util/LinkedHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/qs/bar/QSBarItem;
-
-    iget-object v3, p0, Lcom/android/systemui/qs/bar/QSBarController;->mQsPanel:Lcom/android/systemui/qs/QSPanel;
-
-    invoke-virtual {v3}, Lcom/android/systemui/qs/QSPanel;->getChildCount()I
-
-    move-result v2
-
-    iget-object v3, p0, Lcom/android/systemui/qs/bar/QSBarController;->mQsPanel:Lcom/android/systemui/qs/QSPanel;
-
-    invoke-virtual {v3, v0, v2}, Lcom/android/systemui/qs/QSPanel;->addView(Landroid/view/View;I)V
-
-    goto :goto_0
-
-    :cond_0
-    return-void
-.end method
-
 .method private calculateOnTopBarsHeight()V
     .locals 4
 
@@ -480,61 +428,6 @@
     return-object v1
 .end method
 
-.method private removeAllBarItems()V
-    .locals 3
-
-    iget-object v2, p0, Lcom/android/systemui/qs/bar/QSBarController;->mQsPanel:Lcom/android/systemui/qs/QSPanel;
-
-    if-eqz v2, :cond_1
-
-    const/4 v0, 0x0
-
-    :goto_0
-    iget-object v2, p0, Lcom/android/systemui/qs/bar/QSBarController;->mQsPanel:Lcom/android/systemui/qs/QSPanel;
-
-    invoke-virtual {v2}, Lcom/android/systemui/qs/QSPanel;->getChildCount()I
-
-    move-result v2
-
-    if-ge v0, v2, :cond_1
-
-    iget-object v2, p0, Lcom/android/systemui/qs/bar/QSBarController;->mQsPanel:Lcom/android/systemui/qs/QSPanel;
-
-    invoke-virtual {v2, v0}, Lcom/android/systemui/qs/QSPanel;->getChildAt(I)Landroid/view/View;
-
-    move-result-object v2
-
-    instance-of v2, v2, Lcom/android/systemui/qs/bar/QSBarItem;
-
-    if-eqz v2, :cond_0
-
-    iget-object v2, p0, Lcom/android/systemui/qs/bar/QSBarController;->mQsPanel:Lcom/android/systemui/qs/QSPanel;
-
-    add-int/lit8 v1, v0, -0x1
-
-    invoke-virtual {v2, v0}, Lcom/android/systemui/qs/QSPanel;->removeViewAt(I)V
-
-    move v0, v1
-
-    :cond_0
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    return-void
-.end method
-
-.method private replaceAllBarItems()V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/bar/QSBarController;->removeAllBarItems()V
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/bar/QSBarController;->addAllBarItems()V
-
-    return-void
-.end method
-
 .method private setQuickBarList()V
     .locals 14
 
@@ -680,7 +573,7 @@
 
     invoke-virtual {v10, v8}, Ljava/util/LinkedHashMap;->putAll(Ljava/util/Map;)V
 
-    invoke-direct {p0}, Lcom/android/systemui/qs/bar/QSBarController;->replaceAllBarItems()V
+    invoke-virtual {p0}, Lcom/android/systemui/qs/bar/QSBarController;->replaceAllBarItems()V
 
     invoke-direct {p0}, Lcom/android/systemui/qs/bar/QSBarController;->updateOnTopBarsHeight()V
 
@@ -898,6 +791,58 @@
 
 
 # virtual methods
+.method public addAllBarItems()V
+    .locals 5
+
+    iget-object v3, p0, Lcom/android/systemui/qs/bar/QSBarController;->mQsPanel:Lcom/android/systemui/qs/QSPanel;
+
+    if-eqz v3, :cond_0
+
+    iget-object v3, p0, Lcom/android/systemui/qs/bar/QSBarController;->mBars:Ljava/util/LinkedHashMap;
+
+    invoke-virtual {v3}, Ljava/util/LinkedHashMap;->keySet()Ljava/util/Set;
+
+    move-result-object v3
+
+    invoke-interface {v3}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    iget-object v3, p0, Lcom/android/systemui/qs/bar/QSBarController;->mBars:Ljava/util/LinkedHashMap;
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/util/LinkedHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/qs/bar/QSBarItem;
+
+    iget-object v3, p0, Lcom/android/systemui/qs/bar/QSBarController;->mQsPanel:Lcom/android/systemui/qs/QSPanel;
+
+    invoke-virtual {v3}, Lcom/android/systemui/qs/QSPanel;->getChildCount()I
+
+    move-result v2
+
+    iget-object v3, p0, Lcom/android/systemui/qs/bar/QSBarController;->mQsPanel:Lcom/android/systemui/qs/QSPanel;
+
+    invoke-virtual {v3, v0, v2}, Lcom/android/systemui/qs/QSPanel;->addView(Landroid/view/View;I)V
+
+    goto :goto_0
+
+    :cond_0
+    return-void
+.end method
+
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 3
 
@@ -1045,7 +990,7 @@
 .method public onFragmentDestroy()V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/systemui/qs/bar/QSBarController;->removeAllBarItems()V
+    invoke-virtual {p0}, Lcom/android/systemui/qs/bar/QSBarController;->removeAllBarItems()V
 
     return-void
 .end method
@@ -1316,6 +1261,61 @@
     return-void
 .end method
 
+.method public removeAllBarItems()V
+    .locals 3
+
+    iget-object v2, p0, Lcom/android/systemui/qs/bar/QSBarController;->mQsPanel:Lcom/android/systemui/qs/QSPanel;
+
+    if-eqz v2, :cond_1
+
+    const/4 v0, 0x0
+
+    :goto_0
+    iget-object v2, p0, Lcom/android/systemui/qs/bar/QSBarController;->mQsPanel:Lcom/android/systemui/qs/QSPanel;
+
+    invoke-virtual {v2}, Lcom/android/systemui/qs/QSPanel;->getChildCount()I
+
+    move-result v2
+
+    if-ge v0, v2, :cond_1
+
+    iget-object v2, p0, Lcom/android/systemui/qs/bar/QSBarController;->mQsPanel:Lcom/android/systemui/qs/QSPanel;
+
+    invoke-virtual {v2, v0}, Lcom/android/systemui/qs/QSPanel;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v2
+
+    instance-of v2, v2, Lcom/android/systemui/qs/bar/QSBarItem;
+
+    if-eqz v2, :cond_0
+
+    iget-object v2, p0, Lcom/android/systemui/qs/bar/QSBarController;->mQsPanel:Lcom/android/systemui/qs/QSPanel;
+
+    add-int/lit8 v1, v0, -0x1
+
+    invoke-virtual {v2, v0}, Lcom/android/systemui/qs/QSPanel;->removeViewAt(I)V
+
+    move v0, v1
+
+    :cond_0
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    return-void
+.end method
+
+.method public replaceAllBarItems()V
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/bar/QSBarController;->removeAllBarItems()V
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/bar/QSBarController;->addAllBarItems()V
+
+    return-void
+.end method
+
 .method public setListening(Z)V
     .locals 1
 
@@ -1336,7 +1336,7 @@
 
     iput-object p1, p0, Lcom/android/systemui/qs/bar/QSBarController;->mQsPanel:Lcom/android/systemui/qs/QSPanel;
 
-    invoke-direct {p0}, Lcom/android/systemui/qs/bar/QSBarController;->replaceAllBarItems()V
+    invoke-virtual {p0}, Lcom/android/systemui/qs/bar/QSBarController;->replaceAllBarItems()V
 
     invoke-direct {p0}, Lcom/android/systemui/qs/bar/QSBarController;->updateOnTopBarsHeight()V
 

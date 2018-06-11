@@ -327,6 +327,9 @@
     <public type="array" name="wifi_status_with_ssid" id="0x7f030057" />
     <public type="array" name="window_animation_scale_entries" id="0x7f030058" />
     <public type="array" name="window_animation_scale_values" id="0x7f030059" />
+    <public type="array" name="device_info_keys" id="0x7f03005a" />
+    <public type="array" name="device_info_titles" id="0x7f03005b" />
+    <public type="array" name="config_globalActionsList" id="0x7f03005c" />
     <public type="attr" name="actionBarDivider" id="0x7f040000" />
     <public type="attr" name="actionBarItemBackground" id="0x7f040001" />
     <public type="attr" name="actionBarPopupTheme" id="0x7f040002" />
@@ -969,6 +972,8 @@
     <public type="attr" name="x" id="0x7f04027f" />
     <public type="attr" name="y" id="0x7f040280" />
     <public type="attr" name="yesNoPreferenceStyle" id="0x7f040281" />
+    <public type="attr" name="viewLocation" id="0x7f040282" />
+    <public type="attr" name="viewLocation2" id="0x7f040283" />
     <public type="bool" name="abc_action_bar_embed_tabs" id="0x7f050000" />
     <public type="bool" name="abc_allow_stacked_button_bar" id="0x7f050001" />
     <public type="bool" name="abc_config_actionMenuItemAllCaps" id="0x7f050002" />
@@ -3420,6 +3425,8 @@
     <public type="dimen" name="zen_mode_condition_detail_button_padding" id="0x7f070721" />
     <public type="dimen" name="zen_mode_condition_detail_item_interline_spacing" id="0x7f070722" />
     <public type="dimen" name="zen_mode_condition_detail_item_spacing" id="0x7f070723" />
+    <public type="dimen" name="net_traffic_single_text_size" id="0x7f070724" />
+    <public type="dimen" name="net_traffic_multi_text_size" id="0x7f070725" />
     <public type="dimen" name="wallpaper_item_height" id="0x7f070713" />
     <public type="dimen" name="wallpaper_item_width" id="0x7f070714" />
     <public type="dimen" name="recents_lower_task_view_header_button_padding" id="0x7f070598" />
@@ -4799,6 +4806,132 @@
     <public type="drawable" name="whitebg_transparent_ripple_drawable" id="0x7f0807bc" />
     <public type="drawable" name="wifi_calling_global_ic_help" id="0x7f0807bd" />
     <public type="drawable" name="zen_introduction_message_background" id="0x7f0807be" />
+    <public type="drawable" name="ACube" id="0x7f0807bf" />
+    <public type="drawable" name="AlienTwerking" id="0x7f0807c0" />
+    <public type="drawable" name="BMLogoBlack" id="0x7f0807c1" />
+    <public type="drawable" name="BMLogoBlue" id="0x7f0807c2" />
+    <public type="drawable" name="BMLogoYellow" id="0x7f0807c3" />
+    <public type="drawable" name="BadKoolAid" id="0x7f0807c4" />
+    <public type="drawable" name="BadSkeleton" id="0x7f0807c5" />
+    <public type="drawable" name="BattleStance" id="0x7f0807c6" />
+    <public type="drawable" name="BicLighter" id="0x7f0807c7" />
+    <public type="drawable" name="Bird" id="0x7f0807c8" />
+    <public type="drawable" name="BoobShoots" id="0x7f0807c9" />
+    <public type="drawable" name="BrianPeanutButterJelyTime" id="0x7f0807ca" />
+    <public type="drawable" name="ButtShake" id="0x7f0807cb" />
+    <public type="drawable" name="Butterfly" id="0x7f0807cc" />
+    <public type="drawable" name="Cats" id="0x7f0807cd" />
+    <public type="drawable" name="ChesterCheto" id="0x7f0807ce" />
+    <public type="drawable" name="CoolAPe" id="0x7f0807cf" />
+    <public type="drawable" name="DancingElsa" id="0x7f0807d0" />
+    <public type="drawable" name="DoubleMeaning" id="0x7f0807d1" />
+    <public type="drawable" name="Eyeball" id="0x7f0807d2" />
+    <public type="drawable" name="MM" id="0x7f0807d3" />
+    <public type="drawable" name="PifWithBacon" id="0x7f0807d4" />
+    <public type="drawable" name="PleaseNo" id="0x7f0807d5" />
+    <public type="drawable" name="RotatingSkeletonOnChair" id="0x7f0807d6" />
+    <public type="drawable" name="SkeletonCuttingFood" id="0x7f0807d7" />
+    <public type="drawable" name="SkeletonNoIceCream" id="0x7f0807d8" />
+    <public type="drawable" name="SkeletonWave" id="0x7f0807d9" />
+    <public type="drawable" name="SkeltonEatingChetos" id="0x7f0807da" />
+    <public type="drawable" name="Stitch" id="0x7f0807db" />
+    <public type="drawable" name="StitchBraHead" id="0x7f0807dc" />
+    <public type="drawable" name="StitchDrop" id="0x7f0807dd" />
+    <public type="drawable" name="WaitingSkeleton" id="0x7f0807de" />
+    <public type="drawable" name="WalkingDeadBirth" id="0x7f0807df" />
+    <public type="drawable" name="WalkingWolf" id="0x7f0807e0" />
+    <public type="drawable" name="WavingFroven" id="0x7f0807e1" />
+    <public type="drawable" name="abstract2" id="0x7f0807e2" />
+    <public type="drawable" name="dynamic_status_bar_drawable_gradient" id="0x7f0807e3" />
+    <public type="drawable" name="ic_gear_power" id="0x7f0807e4" />
+    <public type="drawable" name="stat_sys_signal_0_10_auto_rotate" id="0x7f0807f1" />
+    <public type="drawable" name="stat_sys_signal_0_11_auto_rotate" id="0x7f0807f3" />
+    <public type="drawable" name="stat_sys_signal_0_12_auto_rotate" id="0x7f0807f5" />
+    <public type="drawable" name="stat_sys_signal_0_13_auto_rotate" id="0x7f0807f7" />
+    <public type="drawable" name="stat_sys_signal_0_14_auto_rotate" id="0x7f0807f9" />
+    <public type="drawable" name="stat_sys_signal_0_15_auto_rotate" id="0x7f0807fb" />
+    <public type="drawable" name="stat_sys_signal_0_16_auto_rotate" id="0x7f0807fd" />
+    <public type="drawable" name="stat_sys_signal_0_17_auto_rotate" id="0x7f0807ff" />
+    <public type="drawable" name="stat_sys_signal_0_18_auto_rotate" id="0x7f080801" />
+    <public type="drawable" name="stat_sys_signal_0_2_auto_rotate" id="0x7f080803" />
+    <public type="drawable" name="stat_sys_signal_0_3_auto_rotate" id="0x7f080805" />
+    <public type="drawable" name="stat_sys_signal_0_4_auto_rotate" id="0x7f080807" />
+    <public type="drawable" name="stat_sys_signal_0_5_auto_rotate" id="0x7f080809" />
+    <public type="drawable" name="stat_sys_signal_0_6_auto_rotate" id="0x7f08080b" />
+    <public type="drawable" name="stat_sys_signal_0_7_auto_rotate" id="0x7f08080d" />
+    <public type="drawable" name="stat_sys_signal_0_8_auto_rotate" id="0x7f08080f" />
+    <public type="drawable" name="stat_sys_signal_0_9_auto_rotate" id="0x7f080811" />
+    <public type="drawable" name="stat_sys_signal_1_10_auto_rotate" id="0x7f080813" />
+    <public type="drawable" name="stat_sys_signal_1_11_auto_rotate" id="0x7f080815" />
+    <public type="drawable" name="stat_sys_signal_1_12_auto_rotate" id="0x7f080817" />
+    <public type="drawable" name="stat_sys_signal_1_13_auto_rotate" id="0x7f080819" />
+    <public type="drawable" name="stat_sys_signal_1_14_auto_rotate" id="0x7f08081b" />
+    <public type="drawable" name="stat_sys_signal_1_15_auto_rotate" id="0x7f08081d" />
+    <public type="drawable" name="stat_sys_signal_1_16_auto_rotate" id="0x7f08081f" />
+    <public type="drawable" name="stat_sys_signal_1_17_auto_rotate" id="0x7f080821" />
+    <public type="drawable" name="stat_sys_signal_1_18_auto_rotate" id="0x7f080823" />
+    <public type="drawable" name="stat_sys_signal_1_2_auto_rotate" id="0x7f080825" />
+    <public type="drawable" name="stat_sys_signal_1_3_auto_rotate" id="0x7f080827" />
+    <public type="drawable" name="stat_sys_signal_1_4_auto_rotate" id="0x7f080829" />
+    <public type="drawable" name="stat_sys_signal_1_5_auto_rotate" id="0x7f08082b" />
+    <public type="drawable" name="stat_sys_signal_1_6_auto_rotate" id="0x7f08082d" />
+    <public type="drawable" name="stat_sys_signal_1_7_auto_rotate" id="0x7f08082f" />
+    <public type="drawable" name="stat_sys_signal_1_8_auto_rotate" id="0x7f080831" />
+    <public type="drawable" name="stat_sys_signal_1_9_auto_rotate" id="0x7f080833" />
+    <public type="drawable" name="stat_sys_signal_2_10_auto_rotate" id="0x7f080835" />
+    <public type="drawable" name="stat_sys_signal_2_11_auto_rotate" id="0x7f080837" />
+    <public type="drawable" name="stat_sys_signal_2_12_auto_rotate" id="0x7f080839" />
+    <public type="drawable" name="stat_sys_signal_2_13_auto_rotate" id="0x7f08083b" />
+    <public type="drawable" name="stat_sys_signal_2_14_auto_rotate" id="0x7f08083d" />
+    <public type="drawable" name="stat_sys_signal_2_15_auto_rotate" id="0x7f08083f" />
+    <public type="drawable" name="stat_sys_signal_2_16_auto_rotate" id="0x7f080841" />
+    <public type="drawable" name="stat_sys_signal_2_17_auto_rotate" id="0x7f080843" />
+    <public type="drawable" name="stat_sys_signal_2_18_auto_rotate" id="0x7f080845" />
+    <public type="drawable" name="stat_sys_signal_2_2_auto_rotate" id="0x7f080847" />
+    <public type="drawable" name="stat_sys_signal_2_3_auto_rotate" id="0x7f080849" />
+    <public type="drawable" name="stat_sys_signal_2_4_auto_rotate" id="0x7f08084b" />
+    <public type="drawable" name="stat_sys_signal_2_5_auto_rotate" id="0x7f08084d" />
+    <public type="drawable" name="stat_sys_signal_2_6_auto_rotate" id="0x7f08084f" />
+    <public type="drawable" name="stat_sys_signal_2_7_auto_rotate" id="0x7f080851" />
+    <public type="drawable" name="stat_sys_signal_2_8_auto_rotate" id="0x7f080853" />
+    <public type="drawable" name="stat_sys_signal_2_9_auto_rotate" id="0x7f080855" />
+    <public type="drawable" name="stat_sys_signal_3_10_auto_rotate" id="0x7f080857" />
+    <public type="drawable" name="stat_sys_signal_3_11_auto_rotate" id="0x7f080859" />
+    <public type="drawable" name="stat_sys_signal_3_12_auto_rotate" id="0x7f08085b" />
+    <public type="drawable" name="stat_sys_signal_3_13_auto_rotate" id="0x7f08085d" />
+    <public type="drawable" name="stat_sys_signal_3_14_auto_rotate" id="0x7f08085f" />
+    <public type="drawable" name="stat_sys_signal_3_15_auto_rotate" id="0x7f080861" />
+    <public type="drawable" name="stat_sys_signal_3_16_auto_rotate" id="0x7f080863" />
+    <public type="drawable" name="stat_sys_signal_3_17_auto_rotate" id="0x7f080865" />
+    <public type="drawable" name="stat_sys_signal_3_18_auto_rotate" id="0x7f080867" />
+    <public type="drawable" name="stat_sys_signal_3_2_auto_rotate" id="0x7f080869" />
+    <public type="drawable" name="stat_sys_signal_3_3_auto_rotate" id="0x7f08086b" />
+    <public type="drawable" name="stat_sys_signal_3_4_auto_rotate" id="0x7f08086d" />
+    <public type="drawable" name="stat_sys_signal_3_5_auto_rotate" id="0x7f08086f" />
+    <public type="drawable" name="stat_sys_signal_3_6_auto_rotate" id="0x7f080871" />
+    <public type="drawable" name="stat_sys_signal_3_7_auto_rotate" id="0x7f080873" />
+    <public type="drawable" name="stat_sys_signal_3_8_auto_rotate" id="0x7f080875" />
+    <public type="drawable" name="stat_sys_signal_3_9_auto_rotate" id="0x7f080877" />
+    <public type="drawable" name="stat_sys_signal_4_10_auto_rotate" id="0x7f080879" />
+    <public type="drawable" name="stat_sys_signal_4_11_auto_rotate" id="0x7f08087b" />
+    <public type="drawable" name="stat_sys_signal_4_12_auto_rotate" id="0x7f08087d" />
+    <public type="drawable" name="stat_sys_signal_4_13_auto_rotate" id="0x7f08087f" />
+    <public type="drawable" name="stat_sys_signal_4_14_auto_rotate" id="0x7f080881" />
+    <public type="drawable" name="stat_sys_signal_4_15_auto_rotate" id="0x7f080883" />
+    <public type="drawable" name="stat_sys_signal_4_16_auto_rotate" id="0x7f080885" />
+    <public type="drawable" name="stat_sys_signal_4_17_auto_rotate" id="0x7f080887" />
+    <public type="drawable" name="stat_sys_signal_4_18_auto_rotate" id="0x7f080889" />
+    <public type="drawable" name="stat_sys_signal_4_2_auto_rotate" id="0x7f08088b" />
+    <public type="drawable" name="stat_sys_signal_4_3_auto_rotate" id="0x7f08088d" />
+    <public type="drawable" name="stat_sys_signal_4_4_auto_rotate" id="0x7f08088f" />
+    <public type="drawable" name="stat_sys_signal_4_5_auto_rotate" id="0x7f080891" />
+    <public type="drawable" name="stat_sys_signal_4_6_auto_rotate" id="0x7f080893" />
+    <public type="drawable" name="stat_sys_signal_4_7_auto_rotate" id="0x7f080895" />
+    <public type="drawable" name="stat_sys_signal_4_8_auto_rotate" id="0x7f080897" />
+    <public type="drawable" name="stat_sys_signal_4_9_auto_rotate" id="0x7f080899" />
+    <public type="drawable" name="tw_ic_do_rebootrecovery" id="0x7f0808d1" />
+    <public type="drawable" name="tw_ic_lock_screenrec" id="0x7f0808d2" />
+    <public type="drawable" name="tw_ic_lock_screenshot" id="0x7f0808d3" />
     <public type="drawable" name="search_panel_scrim" id="0x7f0805b4" />
     <public type="drawable" name="ic_call_lock_normal" id="0x7f08019c" />
     <public type="drawable" name="ic_call_lock_pressed" id="0x7f08019d" />
@@ -5330,6 +5463,9 @@
     <public type="drawable" name="tw_action_bar_icon_share_holo_dark" id="0x7f080782" />
     <public type="drawable" name="tw_stat_sys_battery_incompatible_vzw" id="0x7f080795" />
     <public type="drawable" name="whitebg_pin_lock_btn_back" id="0x7f0807bb" />
+    <public type="drawable" name="stat_sys_network_traffic_down" id="0x7f0807ed" />
+    <public type="drawable" name="stat_sys_network_traffic_up" id="0x7f0807ee" />
+    <public type="drawable" name="stat_sys_network_traffic_updown" id="0x7f0807ef" />
     <public type="drawable" name="ic_sysbar_back_light_old" id="0x7f0802fb" />
     <public type="drawable" name="ic_sysbar_back_carmode" id="0x7f0802f3" />
     <public type="drawable" name="abc_btn_check_to_on_mtrl_000" id="0x7f080004" />
@@ -5417,6 +5553,154 @@
     <public type="drawable" name="keyguard_default_wallpaper_white_1" id="0x7f080386" />
     <public type="drawable" name="keyguard_default_wallpaper_white_2" id="0x7f080387" />
     <public type="drawable" name="pip_dismiss_scrim" id="0x7f0804b0" />
+    <public type="drawable" name="no_arrows" id="0x7f0807e5" />
+    <public type="drawable" name="stat_sys_alarm_1" id="0x7f0807e6" />
+    <public type="drawable" name="stat_sys_alarm_2" id="0x7f0807e7" />
+    <public type="drawable" name="stat_sys_alarm_3" id="0x7f0807e8" />
+    <public type="drawable" name="stat_sys_alarm_4" id="0x7f0807e9" />
+    <public type="drawable" name="stat_sys_alarm_5" id="0x7f0807ea" />
+    <public type="drawable" name="stat_sys_alarm_6" id="0x7f0807eb" />
+    <public type="drawable" name="stat_sys_alarm_7" id="0x7f0807ec" />
+    <public type="drawable" name="stat_sys_signal_0_10" id="0x7f0807f0" />
+    <public type="drawable" name="stat_sys_signal_0_11" id="0x7f0807f2" />
+    <public type="drawable" name="stat_sys_signal_0_12" id="0x7f0807f4" />
+    <public type="drawable" name="stat_sys_signal_0_13" id="0x7f0807f6" />
+    <public type="drawable" name="stat_sys_signal_0_14" id="0x7f0807f8" />
+    <public type="drawable" name="stat_sys_signal_0_15" id="0x7f0807fa" />
+    <public type="drawable" name="stat_sys_signal_0_16" id="0x7f0807fc" />
+    <public type="drawable" name="stat_sys_signal_0_17" id="0x7f0807fe" />
+    <public type="drawable" name="stat_sys_signal_0_18" id="0x7f080800" />
+    <public type="drawable" name="stat_sys_signal_0_2" id="0x7f080802" />
+    <public type="drawable" name="stat_sys_signal_0_3" id="0x7f080804" />
+    <public type="drawable" name="stat_sys_signal_0_4" id="0x7f080806" />
+    <public type="drawable" name="stat_sys_signal_0_5" id="0x7f080808" />
+    <public type="drawable" name="stat_sys_signal_0_6" id="0x7f08080a" />
+    <public type="drawable" name="stat_sys_signal_0_7" id="0x7f08080c" />
+    <public type="drawable" name="stat_sys_signal_0_8" id="0x7f08080e" />
+    <public type="drawable" name="stat_sys_signal_0_9" id="0x7f080810" />
+    <public type="drawable" name="stat_sys_signal_1_10" id="0x7f080812" />
+    <public type="drawable" name="stat_sys_signal_1_11" id="0x7f080814" />
+    <public type="drawable" name="stat_sys_signal_1_12" id="0x7f080816" />
+    <public type="drawable" name="stat_sys_signal_1_13" id="0x7f080818" />
+    <public type="drawable" name="stat_sys_signal_1_14" id="0x7f08081a" />
+    <public type="drawable" name="stat_sys_signal_1_15" id="0x7f08081c" />
+    <public type="drawable" name="stat_sys_signal_1_16" id="0x7f08081e" />
+    <public type="drawable" name="stat_sys_signal_1_17" id="0x7f080820" />
+    <public type="drawable" name="stat_sys_signal_1_18" id="0x7f080822" />
+    <public type="drawable" name="stat_sys_signal_1_2" id="0x7f080824" />
+    <public type="drawable" name="stat_sys_signal_1_3" id="0x7f080826" />
+    <public type="drawable" name="stat_sys_signal_1_4" id="0x7f080828" />
+    <public type="drawable" name="stat_sys_signal_1_5" id="0x7f08082a" />
+    <public type="drawable" name="stat_sys_signal_1_6" id="0x7f08082c" />
+    <public type="drawable" name="stat_sys_signal_1_7" id="0x7f08082e" />
+    <public type="drawable" name="stat_sys_signal_1_8" id="0x7f080830" />
+    <public type="drawable" name="stat_sys_signal_1_9" id="0x7f080832" />
+    <public type="drawable" name="stat_sys_signal_2_10" id="0x7f080834" />
+    <public type="drawable" name="stat_sys_signal_2_11" id="0x7f080836" />
+    <public type="drawable" name="stat_sys_signal_2_12" id="0x7f080838" />
+    <public type="drawable" name="stat_sys_signal_2_13" id="0x7f08083a" />
+    <public type="drawable" name="stat_sys_signal_2_14" id="0x7f08083c" />
+    <public type="drawable" name="stat_sys_signal_2_15" id="0x7f08083e" />
+    <public type="drawable" name="stat_sys_signal_2_16" id="0x7f080840" />
+    <public type="drawable" name="stat_sys_signal_2_17" id="0x7f080842" />
+    <public type="drawable" name="stat_sys_signal_2_18" id="0x7f080844" />
+    <public type="drawable" name="stat_sys_signal_2_2" id="0x7f080846" />
+    <public type="drawable" name="stat_sys_signal_2_3" id="0x7f080848" />
+    <public type="drawable" name="stat_sys_signal_2_4" id="0x7f08084a" />
+    <public type="drawable" name="stat_sys_signal_2_5" id="0x7f08084c" />
+    <public type="drawable" name="stat_sys_signal_2_6" id="0x7f08084e" />
+    <public type="drawable" name="stat_sys_signal_2_7" id="0x7f080850" />
+    <public type="drawable" name="stat_sys_signal_2_8" id="0x7f080852" />
+    <public type="drawable" name="stat_sys_signal_2_9" id="0x7f080854" />
+    <public type="drawable" name="stat_sys_signal_3_10" id="0x7f080856" />
+    <public type="drawable" name="stat_sys_signal_3_11" id="0x7f080858" />
+    <public type="drawable" name="stat_sys_signal_3_12" id="0x7f08085a" />
+    <public type="drawable" name="stat_sys_signal_3_13" id="0x7f08085c" />
+    <public type="drawable" name="stat_sys_signal_3_14" id="0x7f08085e" />
+    <public type="drawable" name="stat_sys_signal_3_15" id="0x7f080860" />
+    <public type="drawable" name="stat_sys_signal_3_16" id="0x7f080862" />
+    <public type="drawable" name="stat_sys_signal_3_17" id="0x7f080864" />
+    <public type="drawable" name="stat_sys_signal_3_18" id="0x7f080866" />
+    <public type="drawable" name="stat_sys_signal_3_2" id="0x7f080868" />
+    <public type="drawable" name="stat_sys_signal_3_3" id="0x7f08086a" />
+    <public type="drawable" name="stat_sys_signal_3_4" id="0x7f08086c" />
+    <public type="drawable" name="stat_sys_signal_3_5" id="0x7f08086e" />
+    <public type="drawable" name="stat_sys_signal_3_6" id="0x7f080870" />
+    <public type="drawable" name="stat_sys_signal_3_7" id="0x7f080872" />
+    <public type="drawable" name="stat_sys_signal_3_8" id="0x7f080874" />
+    <public type="drawable" name="stat_sys_signal_3_9" id="0x7f080876" />
+    <public type="drawable" name="stat_sys_signal_4_10" id="0x7f080878" />
+    <public type="drawable" name="stat_sys_signal_4_11" id="0x7f08087a" />
+    <public type="drawable" name="stat_sys_signal_4_12" id="0x7f08087c" />
+    <public type="drawable" name="stat_sys_signal_4_13" id="0x7f08087e" />
+    <public type="drawable" name="stat_sys_signal_4_14" id="0x7f080880" />
+    <public type="drawable" name="stat_sys_signal_4_15" id="0x7f080882" />
+    <public type="drawable" name="stat_sys_signal_4_16" id="0x7f080884" />
+    <public type="drawable" name="stat_sys_signal_4_17" id="0x7f080886" />
+    <public type="drawable" name="stat_sys_signal_4_18" id="0x7f080888" />
+    <public type="drawable" name="stat_sys_signal_4_2" id="0x7f08088a" />
+    <public type="drawable" name="stat_sys_signal_4_3" id="0x7f08088c" />
+    <public type="drawable" name="stat_sys_signal_4_4" id="0x7f08088e" />
+    <public type="drawable" name="stat_sys_signal_4_5" id="0x7f080890" />
+    <public type="drawable" name="stat_sys_signal_4_6" id="0x7f080892" />
+    <public type="drawable" name="stat_sys_signal_4_7" id="0x7f080894" />
+    <public type="drawable" name="stat_sys_signal_4_8" id="0x7f080896" />
+    <public type="drawable" name="stat_sys_signal_4_9" id="0x7f080898" />
+    <public type="drawable" name="stat_sys_wifi_signal_0_10" id="0x7f08089a" />
+    <public type="drawable" name="stat_sys_wifi_signal_0_11" id="0x7f08089b" />
+    <public type="drawable" name="stat_sys_wifi_signal_0_12" id="0x7f08089c" />
+    <public type="drawable" name="stat_sys_wifi_signal_0_2" id="0x7f08089d" />
+    <public type="drawable" name="stat_sys_wifi_signal_0_3" id="0x7f08089e" />
+    <public type="drawable" name="stat_sys_wifi_signal_0_4" id="0x7f08089f" />
+    <public type="drawable" name="stat_sys_wifi_signal_0_5" id="0x7f0808a0" />
+    <public type="drawable" name="stat_sys_wifi_signal_0_6" id="0x7f0808a1" />
+    <public type="drawable" name="stat_sys_wifi_signal_0_7" id="0x7f0808a2" />
+    <public type="drawable" name="stat_sys_wifi_signal_0_8" id="0x7f0808a3" />
+    <public type="drawable" name="stat_sys_wifi_signal_0_9" id="0x7f0808a4" />
+    <public type="drawable" name="stat_sys_wifi_signal_1_10" id="0x7f0808a5" />
+    <public type="drawable" name="stat_sys_wifi_signal_1_11" id="0x7f0808a6" />
+    <public type="drawable" name="stat_sys_wifi_signal_1_12" id="0x7f0808a7" />
+    <public type="drawable" name="stat_sys_wifi_signal_1_2" id="0x7f0808a8" />
+    <public type="drawable" name="stat_sys_wifi_signal_1_3" id="0x7f0808a9" />
+    <public type="drawable" name="stat_sys_wifi_signal_1_4" id="0x7f0808aa" />
+    <public type="drawable" name="stat_sys_wifi_signal_1_5" id="0x7f0808ab" />
+    <public type="drawable" name="stat_sys_wifi_signal_1_6" id="0x7f0808ac" />
+    <public type="drawable" name="stat_sys_wifi_signal_1_7" id="0x7f0808ad" />
+    <public type="drawable" name="stat_sys_wifi_signal_1_8" id="0x7f0808ae" />
+    <public type="drawable" name="stat_sys_wifi_signal_1_9" id="0x7f0808af" />
+    <public type="drawable" name="stat_sys_wifi_signal_2_10" id="0x7f0808b0" />
+    <public type="drawable" name="stat_sys_wifi_signal_2_11" id="0x7f0808b1" />
+    <public type="drawable" name="stat_sys_wifi_signal_2_12" id="0x7f0808b2" />
+    <public type="drawable" name="stat_sys_wifi_signal_2_2" id="0x7f0808b3" />
+    <public type="drawable" name="stat_sys_wifi_signal_2_3" id="0x7f0808b4" />
+    <public type="drawable" name="stat_sys_wifi_signal_2_4" id="0x7f0808b5" />
+    <public type="drawable" name="stat_sys_wifi_signal_2_5" id="0x7f0808b6" />
+    <public type="drawable" name="stat_sys_wifi_signal_2_6" id="0x7f0808b7" />
+    <public type="drawable" name="stat_sys_wifi_signal_2_7" id="0x7f0808b8" />
+    <public type="drawable" name="stat_sys_wifi_signal_2_8" id="0x7f0808b9" />
+    <public type="drawable" name="stat_sys_wifi_signal_2_9" id="0x7f0808ba" />
+    <public type="drawable" name="stat_sys_wifi_signal_3_10" id="0x7f0808bb" />
+    <public type="drawable" name="stat_sys_wifi_signal_3_11" id="0x7f0808bc" />
+    <public type="drawable" name="stat_sys_wifi_signal_3_12" id="0x7f0808bd" />
+    <public type="drawable" name="stat_sys_wifi_signal_3_2" id="0x7f0808be" />
+    <public type="drawable" name="stat_sys_wifi_signal_3_3" id="0x7f0808bf" />
+    <public type="drawable" name="stat_sys_wifi_signal_3_4" id="0x7f0808c0" />
+    <public type="drawable" name="stat_sys_wifi_signal_3_5" id="0x7f0808c1" />
+    <public type="drawable" name="stat_sys_wifi_signal_3_6" id="0x7f0808c2" />
+    <public type="drawable" name="stat_sys_wifi_signal_3_7" id="0x7f0808c3" />
+    <public type="drawable" name="stat_sys_wifi_signal_3_8" id="0x7f0808c4" />
+    <public type="drawable" name="stat_sys_wifi_signal_3_9" id="0x7f0808c5" />
+    <public type="drawable" name="stat_sys_wifi_signal_4_10" id="0x7f0808c6" />
+    <public type="drawable" name="stat_sys_wifi_signal_4_11" id="0x7f0808c7" />
+    <public type="drawable" name="stat_sys_wifi_signal_4_12" id="0x7f0808c8" />
+    <public type="drawable" name="stat_sys_wifi_signal_4_2" id="0x7f0808c9" />
+    <public type="drawable" name="stat_sys_wifi_signal_4_3" id="0x7f0808ca" />
+    <public type="drawable" name="stat_sys_wifi_signal_4_4" id="0x7f0808cb" />
+    <public type="drawable" name="stat_sys_wifi_signal_4_5" id="0x7f0808cc" />
+    <public type="drawable" name="stat_sys_wifi_signal_4_6" id="0x7f0808cd" />
+    <public type="drawable" name="stat_sys_wifi_signal_4_7" id="0x7f0808ce" />
+    <public type="drawable" name="stat_sys_wifi_signal_4_8" id="0x7f0808cf" />
+    <public type="drawable" name="stat_sys_wifi_signal_4_9" id="0x7f0808d0" />
     <public type="fraction" name="battery_button_height_fraction" id="0x7f090000" />
     <public type="fraction" name="battery_subpixel_smoothing_left" id="0x7f090001" />
     <public type="fraction" name="battery_subpixel_smoothing_right" id="0x7f090002" />
@@ -6886,6 +7170,27 @@
     <public type="id" name="zen_mode_panel" id="0x7f0a05aa" />
     <public type="id" name="zen_radio_buttons" id="0x7f0a05ab" />
     <public type="id" name="zen_radio_buttons_content" id="0x7f0a05ac" />
+    <public type="id" name="backgroundImageView" id="0x7f0a05ad" />
+    <public type="id" name="qs_drag_handle_background" id="0x7f0a05ae" />
+    <public type="id" name="center_clock" id="0x7f0a05af" />
+    <public type="id" name="left_clock" id="0x7f0a05b0" />
+    <public type="id" name="system_icon_area2" id="0x7f0a05b1" />
+    <public type="id" name="CustomBg" id="0x7f0a05b2" />
+    <public type="id" name="ram_bar" id="0x7f0a05b3" />
+    <public type="id" name="minitclock" id="0x7f0a05b4" />
+    <public type="id" name="gear_bottom_layout" id="0x7f0a05b5" />
+    <public type="id" name="attrName" id="0x7f0a05b6" />
+    <public type="id" name="attrValue" id="0x7f0a05b7" />
+    <public type="id" name="foregroundText" id="0x7f0a05b8" />
+    <public type="id" name="backgroundText" id="0x7f0a05b9" />
+    <public type="id" name="dynamic_status_bar_color" id="0x7f0a05ba" />
+    <public type="id" name="dynamic_status_bar_filter" id="0x7f0a05bb" />
+    <public type="id" name="dynamic_status_bar_gradient" id="0x7f0a05bc" />
+    <public type="id" name="dynamic_status_bar" id="0x7f0a05bd" />
+    <public type="id" name="recents_matrix_anim" id="0x7f0a05be" />
+    <public type="id" name="battbar_no_pulldown_below" id="0x7f0a05bf" />
+    <public type="id" name="gif_animation" id="0x7f0a05c0" />
+    <public type="id" name="hybrid_notification" id="0x7f0a05c1" />
     <public type="integer" name="abc_config_activityDefaultDur" id="0x7f0b0000" />
     <public type="integer" name="abc_config_activityShortDur" id="0x7f0b0001" />
     <public type="integer" name="bottom_bar_button_text_size_integer" id="0x7f0b0002" />
@@ -7562,6 +7867,8 @@
     <public type="layout" name="zen_mode_button" id="0x7f0d01e1" />
     <public type="layout" name="zen_mode_condition" id="0x7f0d01e2" />
     <public type="layout" name="zen_mode_panel" id="0x7f0d01e3" />
+    <public type="layout" name="gear_info_item_layout" id="0x7f0d01e4" />
+    <public type="layout" name="ram" id="0x7f0d01e5" />
     <public type="menu" name="qspanel_more_menu" id="0x7f0e0000" />
     <public type="menu" name="recents_more_menu" id="0x7f0e0001" />
     <public type="mipmap" name="ic_daydreams" id="0x7f0f0000" />
@@ -9653,6 +9960,8 @@
     <public type="string" name="notification_save" id="0x7f12081e" />
     <public type="string" name="notification_settings_icon_description" id="0x7f12081f" />
     <public type="string" name="notification_tap_again" id="0x7f120820" />
+    <public type="string" name="APKTOOL_DUMMY_821" id="0x7f120821" />
+    <public type="string" name="APKTOOL_DUMMY_822" id="0x7f120822" />
     <public type="string" name="oem_preferred_feedback_reporter" id="0x7f120823" />
     <public type="string" name="oem_unlock_enable" id="0x7f120824" />
     <public type="string" name="oem_unlock_enable_summary" id="0x7f120825" />
@@ -10632,8 +10941,14 @@
     <public type="string" name="zen_priority_introduction" id="0x7f120c1c" />
     <public type="string" name="zen_silence_introduction" id="0x7f120c1d" />
     <public type="string" name="zen_silence_introduction_voice" id="0x7f120c1e" />
-    <public type="string" name="APKTOOL_DUMMY_821" id="0x7f120821" />
-    <public type="string" name="APKTOOL_DUMMY_822" id="0x7f120822" />
+    <public type="string" name="APKTOOL_DUMMY_7c9" id="0x7f120c22" />
+    <public type="string" name="APKTOOL_DUMMY_7ca" id="0x7f120c23" />
+    <public type="string" name="rebootrecovery" id="0x7f120c24" />
+    <public type="string" name="rebootrecovery2" id="0x7f120c25" />
+    <public type="string" name="global_action_screenshot" id="0x7f120c26" />
+    <public type="string" name="screenrec" id="0x7f120c27" />
+    <public type="string" name="service_background_processes" id="0x7f120c28" />
+    <public type="string" name="service_foreground_processes" id="0x7f120c29" />
     <public type="string" name="status_bar_date_formatter" id="0x7f120a96" />
     <public type="string" name="toast_rotation_locked" id="0x7f120b0a" />
     <public type="string" name="clear_cover_day_month_no_year" id="0x7f1201f5" />

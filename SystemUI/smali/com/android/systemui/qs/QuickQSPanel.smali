@@ -19,6 +19,10 @@
 
 .field private final mNumTiles:Lcom/android/systemui/tuner/TunerService$Tunable;
 
+.field public mQuickQsNumber:I
+
+.field public mQuickQsNumberLandscape:I
+
 .field private oldMobileKeyboardCovered:I
 
 .field private oldOrientation:I
@@ -29,6 +33,10 @@
     .locals 4
 
     const/4 v3, 0x0
+
+    iput v3, p0, Lcom/android/systemui/qs/QuickQSPanel;->mQuickQsNumber:I
+
+    iput v3, p0, Lcom/android/systemui/qs/QuickQSPanel;->mQuickQsNumberLandscape:I
 
     invoke-direct {p0, p1, p2}, Lcom/android/systemui/qs/QSPanel;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
@@ -108,7 +116,9 @@
 
     invoke-virtual {p0, v1, v3}, Lcom/android/systemui/qs/QuickQSPanel;->addView(Landroid/view/View;I)V
 
-    invoke-direct {p0}, Lcom/android/systemui/qs/QuickQSPanel;->setQuickQsTileNum()V
+    invoke-virtual {p0}, Lcom/android/systemui/qs/QuickQSPanel;->readRenovateMods()V
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/QuickQSPanel;->setQuickQsTileNum()V
 
     invoke-super {p0, v3, v3, v3, v3}, Lcom/android/systemui/qs/QSPanel;->setPadding(IIII)V
 
@@ -137,86 +147,6 @@
     move-result v0
 
     return v0
-.end method
-
-.method private setQuickQsTileNum()V
-    .locals 7
-
-    iget-object v4, p0, Lcom/android/systemui/qs/QuickQSPanel;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
-
-    move-result-object v4
-
-    iget v2, v4, Landroid/content/res/Configuration;->orientation:I
-
-    const/4 v4, 0x2
-
-    if-ne v2, v4, :cond_0
-
-    const/4 v0, 0x1
-
-    :goto_0
-    iget-object v4, p0, Lcom/android/systemui/qs/QuickQSPanel;->mContext:Landroid/content/Context;
-
-    invoke-static {v4}, Lcom/android/systemui/statusbar/DeviceState;->isMobileKeyboardConnected(Landroid/content/Context;)Z
-
-    move-result v1
-
-    if-eqz v0, :cond_1
-
-    if-eqz v1, :cond_1
-
-    const-class v4, Lcom/android/systemui/tuner/TunerService;
-
-    invoke-static {v4}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Lcom/android/systemui/tuner/TunerService;
-
-    const-string/jumbo v5, "sysui_qqs_count"
-
-    const v6, 0x7f0b005a
-
-    invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result v6
-
-    invoke-virtual {v4, v5, v6}, Lcom/android/systemui/tuner/TunerService;->setValue(Ljava/lang/String;I)V
-
-    :goto_1
-    return-void
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
-
-    :cond_1
-    const-class v4, Lcom/android/systemui/tuner/TunerService;
-
-    invoke-static {v4}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Lcom/android/systemui/tuner/TunerService;
-
-    const-string/jumbo v5, "sysui_qqs_count"
-
-    const v6, 0x7f0b0059
-
-    invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result v6
-
-    invoke-virtual {v4, v5, v6}, Lcom/android/systemui/tuner/TunerService;->setValue(Ljava/lang/String;I)V
-
-    goto :goto_1
 .end method
 
 
@@ -314,7 +244,7 @@
     if-eq v2, v0, :cond_1
 
     :cond_0
-    invoke-direct {p0}, Lcom/android/systemui/qs/QuickQSPanel;->setQuickQsTileNum()V
+    invoke-virtual {p0}, Lcom/android/systemui/qs/QuickQSPanel;->setQuickQsTileNum()V
 
     iput v1, p0, Lcom/android/systemui/qs/QuickQSPanel;->oldOrientation:I
 
@@ -371,6 +301,20 @@
     return-void
 .end method
 
+.method public readRenovateMods()V
+    .locals 1
+
+    sget v0, Lcom/android/mwilky/Renovate;->mQuickQsNumber:I
+
+    iput v0, p0, Lcom/android/systemui/qs/QuickQSPanel;->mQuickQsNumber:I
+
+    sget v0, Lcom/android/mwilky/Renovate;->mQuickQsNumberLandscape:I
+
+    iput v0, p0, Lcom/android/systemui/qs/QuickQSPanel;->mQuickQsNumberLandscape:I
+
+    return-void
+.end method
+
 .method public setHost(Lcom/android/systemui/qs/QSTileHost;Lcom/android/systemui/qs/customize/SecQSCustomizer;)V
     .locals 1
 
@@ -420,6 +364,96 @@
     iput-object p1, p0, Lcom/android/systemui/qs/QuickQSPanel;->mFullPanel:Lcom/android/systemui/qs/QSPanel;
 
     return-void
+.end method
+
+.method public setQuickQsTileNum()V
+    .locals 7
+
+    iget-object v4, p0, Lcom/android/systemui/qs/QuickQSPanel;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v4
+
+    iget v2, v4, Landroid/content/res/Configuration;->orientation:I
+
+    const/4 v4, 0x2
+
+    if-ne v2, v4, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    iget-object v4, p0, Lcom/android/systemui/qs/QuickQSPanel;->mContext:Landroid/content/Context;
+
+    invoke-static {v4}, Lcom/android/systemui/statusbar/DeviceState;->isMobileKeyboardConnected(Landroid/content/Context;)Z
+
+    move-result v1
+
+    if-eqz v0, :cond_1
+
+    if-eqz v1, :cond_1
+
+    const-class v4, Lcom/android/systemui/tuner/TunerService;
+
+    invoke-static {v4}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Lcom/android/systemui/tuner/TunerService;
+
+    const-string/jumbo v5, "sysui_qqs_count"
+
+    const v6, 0x7f0b005a
+
+    invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v6
+
+    invoke-virtual {v4, v5, v6}, Lcom/android/systemui/tuner/TunerService;->setValue(Ljava/lang/String;I)V
+
+    :goto_1
+    return-void
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+
+    :cond_1
+    const-class v4, Lcom/android/systemui/tuner/TunerService;
+
+    invoke-static {v4}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Lcom/android/systemui/tuner/TunerService;
+
+    const-string/jumbo v5, "sysui_qqs_count"
+
+    const v6, 0x7f0b0059
+
+    invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v6
+
+    if-eqz v0, :cond_2
+
+    iget v6, p0, Lcom/android/systemui/qs/QuickQSPanel;->mQuickQsNumberLandscape:I
+
+    goto :goto_2
+
+    :cond_2
+    iget v6, p0, Lcom/android/systemui/qs/QuickQSPanel;->mQuickQsNumber:I
+
+    :goto_2
+    invoke-virtual {v4, v5, v6}, Lcom/android/systemui/tuner/TunerService;->setValue(Ljava/lang/String;I)V
+
+    goto :goto_1
 .end method
 
 .method public setTiles(Ljava/util/Collection;)V

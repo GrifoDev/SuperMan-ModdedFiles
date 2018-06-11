@@ -9,6 +9,8 @@
 # instance fields
 .field private mDarkIntensity:F
 
+.field private mDarkIntensityOnBoot:I
+
 .field private mDarkModeIconColorSingleTone:I
 
 .field private mIconTint:I
@@ -70,6 +72,10 @@
 
     iput v0, p0, Lcom/android/systemui/statusbar/phone/DarkIconDispatcherImpl;->mLightModeIconColorSingleTone:I
 
+    const v0, 0x0
+
+    iput v0, p0, Lcom/android/systemui/statusbar/phone/DarkIconDispatcherImpl;->mDarkIntensityOnBoot:I
+
     new-instance v0, Lcom/android/systemui/statusbar/phone/LightBarTransitionsController;
 
     new-instance v1, Lcom/android/systemui/statusbar/phone/-$Lambda$PXrt0OKsNBVrAS4QahP_X8PH96Q;
@@ -125,18 +131,14 @@
     return-void
 .end method
 
-.method private setIconTintInternal(F)V
+.method private getTintInternal(FI)I
     .locals 3
-
-    iput p1, p0, Lcom/android/systemui/statusbar/phone/DarkIconDispatcherImpl;->mDarkIntensity:F
 
     invoke-static {}, Landroid/animation/ArgbEvaluator;->getInstance()Landroid/animation/ArgbEvaluator;
 
     move-result-object v0
 
-    iget v1, p0, Lcom/android/systemui/statusbar/phone/DarkIconDispatcherImpl;->mLightModeIconColorSingleTone:I
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
 
@@ -156,10 +158,35 @@
 
     move-result v0
 
+    return v0
+.end method
+
+.method private setIconTintInternal(F)V
+    .locals 3
+
+    iget v0, p0, Lcom/android/systemui/statusbar/phone/DarkIconDispatcherImpl;->mDarkIntensityOnBoot:I
+
+    float-to-int v1, p1
+
+    if-eq v0, v1, :cond_0
+
+    iput v1, p0, Lcom/android/systemui/statusbar/phone/DarkIconDispatcherImpl;->mDarkIntensityOnBoot:I
+
+    int-to-float v1, v1
+
+    iput v1, p0, Lcom/android/systemui/statusbar/phone/DarkIconDispatcherImpl;->mDarkIntensity:F
+
+    iget v0, p0, Lcom/android/systemui/statusbar/phone/DarkIconDispatcherImpl;->mLightModeIconColorSingleTone:I
+
+    invoke-direct {p0, v1, v0}, Lcom/android/systemui/statusbar/phone/DarkIconDispatcherImpl;->getTintInternal(FI)I
+
+    move-result v0
+
     iput v0, p0, Lcom/android/systemui/statusbar/phone/DarkIconDispatcherImpl;->mIconTint:I
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/DarkIconDispatcherImpl;->applyIconTint()V
 
+    :cond_0
     return-void
 .end method
 
@@ -260,6 +287,10 @@
 
     invoke-virtual {p1, v0}, Landroid/widget/ImageView;->setImageTintList(Landroid/content/res/ColorStateList;)V
 
+    check-cast p1, Lcom/android/systemui/statusbar/StatusBarIconView;
+
+    invoke-virtual {p1, p3}, Lcom/android/systemui/statusbar/StatusBarIconView;->setIconTint(F)V
+
     return-void
 .end method
 
@@ -316,4 +347,60 @@
     invoke-virtual {v0, p1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
     goto :goto_0
+.end method
+
+.method public updateViews()V
+    .locals 6
+
+    iget v2, p0, Lcom/android/systemui/statusbar/phone/DarkIconDispatcherImpl;->mDarkIntensityOnBoot:I
+
+    int-to-float v0, v2
+
+    const/4 v1, 0x0
+
+    :goto_0
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/DarkIconDispatcherImpl;->mReceivers:Landroid/util/ArrayMap;
+
+    invoke-virtual {v2}, Landroid/util/ArrayMap;->size()I
+
+    move-result v2
+
+    if-ge v1, v2, :cond_0
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/DarkIconDispatcherImpl;->mReceivers:Landroid/util/ArrayMap;
+
+    invoke-virtual {v2, v1}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/policy/DarkIconDispatcher$DarkReceiver;
+
+    iget v3, p0, Lcom/android/systemui/statusbar/phone/DarkIconDispatcherImpl;->mDarkIntensity:F
+
+    invoke-interface {v2, v3}, Lcom/android/systemui/statusbar/policy/DarkIconDispatcher$DarkReceiver;->updateViews(F)V
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/DarkIconDispatcherImpl;->mReceivers:Landroid/util/ArrayMap;
+
+    invoke-virtual {v2, v1}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/policy/DarkIconDispatcher$DarkReceiver;
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/DarkIconDispatcherImpl;->mTintArea:Landroid/graphics/Rect;
+
+    iget v4, p0, Lcom/android/systemui/statusbar/phone/DarkIconDispatcherImpl;->mDarkIntensityOnBoot:I
+
+    int-to-float v4, v4
+
+    iget v5, p0, Lcom/android/systemui/statusbar/phone/DarkIconDispatcherImpl;->mIconTint:I
+
+    invoke-interface {v2, v3, v4, v5}, Lcom/android/systemui/statusbar/policy/DarkIconDispatcher$DarkReceiver;->onDarkChanged(Landroid/graphics/Rect;FI)V
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    return-void
 .end method

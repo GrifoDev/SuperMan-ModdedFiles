@@ -1687,6 +1687,10 @@
 .method private onShowSafetyWarningW(I)V
     .locals 2
 
+    sget-boolean v0, Lcom/android/mwilky/Renovate;->mHideVolumeWarning:Z
+
+    if-nez v0, :cond_0
+
     iget-object v0, p0, Lcom/android/systemui/volume/VolumeDialogControllerImpl;->mKnoxStateMonitor:Lcom/android/systemui/KnoxStateMonitor;
 
     invoke-virtual {v0}, Lcom/android/systemui/KnoxStateMonitor;->isSafetyWarningDialogEnabled()Z
@@ -1695,8 +1699,9 @@
 
     xor-int/lit8 v0, v0, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
+    :cond_0
     sget-object v0, Lcom/android/systemui/volume/VolumeDialogControllerImpl;->TAG:Ljava/lang/String;
 
     const-string/jumbo v1, "KnoxStateMonitor : Disable SafetyWarningDialog"
@@ -1709,7 +1714,7 @@
 
     return-void
 
-    :cond_0
+    :cond_1
     iget-object v0, p0, Lcom/android/systemui/volume/VolumeDialogControllerImpl;->mCallbacks:Lcom/android/systemui/volume/VolumeDialogControllerImpl$C;
 
     invoke-virtual {v0, p1}, Lcom/android/systemui/volume/VolumeDialogControllerImpl$C;->onShowSafetyWarning(I)V

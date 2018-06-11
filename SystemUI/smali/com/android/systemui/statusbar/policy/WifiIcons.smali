@@ -35,7 +35,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 11
+    .locals 14
 
     const v10, 0x7f080533
 
@@ -65,6 +65,538 @@
 
     aput-object v1, v0, v6
 
+    const/4 v11, 0x1
+
+    const-string/jumbo v12, "switch_wifi"
+
+    invoke-static {v12, v11}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v12
+
+    if-eqz v12, :cond_b
+
+    const v13, 0x1
+
+    if-eq v12, v13, :cond_b
+
+    const v13, 0x2
+
+    if-eq v12, v13, :cond_0
+
+    const v13, 0x3
+
+    if-eq v12, v13, :cond_1
+
+    const v13, 0x4
+
+    if-eq v12, v13, :cond_2
+
+    const v13, 0x5
+
+    if-eq v12, v13, :cond_3
+
+    const v13, 0x6
+
+    if-eq v12, v13, :cond_4
+
+    const v13, 0x7
+
+    if-eq v12, v13, :cond_5
+
+    const v13, 0x8
+
+    if-eq v12, v13, :cond_6
+
+    const v13, 0x9
+
+    if-eq v12, v13, :cond_7
+
+    const v13, 0xa
+
+    if-eq v12, v13, :cond_8
+
+    const v13, 0xb
+
+    if-eq v12, v13, :cond_9
+
+    const v13, 0xc
+
+    if-eq v12, v13, :cond_a
+
+    :cond_0
+    const-string/jumbo v11, "stat_sys_wifi_signal_0_2"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v11, "stat_sys_wifi_signal_1_2"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v11, "stat_sys_wifi_signal_2_2"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v11, "stat_sys_wifi_signal_3_2"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v11, "stat_sys_wifi_signal_4_2"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto/16 :goto_0
+
+    :cond_1
+    const-string/jumbo v11, "stat_sys_wifi_signal_0_3"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v11, "stat_sys_wifi_signal_1_3"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v11, "stat_sys_wifi_signal_2_3"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v11, "stat_sys_wifi_signal_3_3"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v11, "stat_sys_wifi_signal_4_3"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto/16 :goto_0
+
+    :cond_2
+    const-string/jumbo v11, "stat_sys_wifi_signal_0_4"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v11, "stat_sys_wifi_signal_1_4"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v11, "stat_sys_wifi_signal_2_4"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v11, "stat_sys_wifi_signal_3_4"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v11, "stat_sys_wifi_signal_4_4"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto/16 :goto_0
+
+    :cond_3
+    const-string/jumbo v11, "stat_sys_wifi_signal_0_5"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v11, "stat_sys_wifi_signal_1_5"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v11, "stat_sys_wifi_signal_2_5"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v11, "stat_sys_wifi_signal_3_5"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v11, "stat_sys_wifi_signal_4_5"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto/16 :goto_0
+
+    :cond_4
+    const-string/jumbo v11, "stat_sys_wifi_signal_06"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v11, "stat_sys_wifi_signal_1_6"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v11, "stat_sys_wifi_signal_2_6"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v11, "stat_sys_wifi_signal_3_6"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v11, "stat_sys_wifi_signal_4_6"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto/16 :goto_0
+
+    :cond_5
+    const-string/jumbo v11, "stat_sys_wifi_signal_0_7"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v11, "stat_sys_wifi_signal_1_7"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v11, "stat_sys_wifi_signal_2_7"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v11, "stat_sys_wifi_signal_3_7"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v11, "stat_sys_wifi_signal_4_7"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto/16 :goto_0
+
+    :cond_6
+    const-string/jumbo v11, "stat_sys_wifi_signal_0_8"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v11, "stat_sys_wifi_signal_1_8"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v11, "stat_sys_wifi_signal_2_8"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v11, "stat_sys_wifi_signal_3_8"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v11, "stat_sys_wifi_signal_4_8"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto/16 :goto_0
+
+    :cond_7
+    const-string/jumbo v11, "stat_sys_wifi_signal_0_9"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v11, "stat_sys_wifi_signal_1_9"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v11, "stat_sys_wifi_signal_2_9"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v11, "stat_sys_wifi_signal_3_9"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v11, "stat_sys_wifi_signal_4_9"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto/16 :goto_0
+
+    :cond_8
+    const-string/jumbo v11, "stat_sys_wifi_signal_0_10"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v11, "stat_sys_wifi_signal_1_10"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v11, "stat_sys_wifi_signal_2_10"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v11, "stat_sys_wifi_signal_3_10"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v11, "stat_sys_wifi_signal_4_10"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto :goto_0
+
+    :cond_9
+    const-string/jumbo v11, "stat_sys_wifi_signal_0_11"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v11, "stat_sys_wifi_signal_1_11"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v11, "stat_sys_wifi_signal_2_11"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v11, "stat_sys_wifi_signal_3_11"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v11, "stat_sys_wifi_signal_4_11"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto :goto_0
+
+    :cond_a
+    const-string/jumbo v11, "stat_sys_wifi_signal_0_12"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v11, "stat_sys_wifi_signal_1_12"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v11, "stat_sys_wifi_signal_2_12"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v11, "stat_sys_wifi_signal_3_12"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v11, "stat_sys_wifi_signal_4_12"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto :goto_0
+
+    :cond_b
     const v1, 0x7f080725
 
     const v2, 0x7f080728
@@ -75,6 +607,7 @@
 
     const v5, 0x7f080731
 
+    :goto_0
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
     move-result-object v1
@@ -363,6 +896,60 @@
 
     sput-object v0, Lcom/android/systemui/statusbar/policy/WifiIcons;->WIFI_SIGNAL_STRENGTH_VZW:[[I
 
+    const/4 v11, 0x1
+
+    const-string/jumbo v12, "arrow_wifi"
+
+    invoke-static {v12, v11}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v12
+
+    if-eqz v12, :cond_d
+
+    const v13, 0x1
+
+    if-eq v12, v13, :cond_d
+
+    const v13, 0x2
+
+    if-eq v12, v13, :cond_c
+
+    :cond_c
+    const-string v11, "no_arrows"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v0
+
+    const-string v11, "no_arrows"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string v11, "no_arrows"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string v11, "no_arrows"
+
+    const-string v12, "drawable"
+
+    invoke-static {v11, v12}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    goto :goto_1
+
+    :cond_d
     const v0, 0x7f080748
 
     const v1, 0x7f080734
@@ -371,6 +958,7 @@
 
     const v3, 0x7f080735
 
+    :goto_1
     filled-new-array {v0, v1, v2, v3}, [I
 
     move-result-object v0

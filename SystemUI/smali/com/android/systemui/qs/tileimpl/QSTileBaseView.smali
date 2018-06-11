@@ -24,6 +24,8 @@
 
 .field private final mIconFrame:Landroid/widget/FrameLayout;
 
+.field private mQsTextColor:I
+
 .field protected mRipple:Landroid/graphics/drawable/RippleDrawable;
 
 .field private mTileBackground:Landroid/graphics/drawable/Drawable;

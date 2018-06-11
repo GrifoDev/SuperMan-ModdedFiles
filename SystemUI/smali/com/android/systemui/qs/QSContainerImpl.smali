@@ -323,6 +323,10 @@
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/QSContainerImpl;->setBackgroundColor(I)V
 
     :cond_0
+    sget v0, Lcom/android/mwilky/Renovate;->mQsBackgroundColor:I
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/QSContainerImpl;->setBackgroundColor(I)V
+
     return-void
 
     :cond_1

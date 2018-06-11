@@ -1844,7 +1844,7 @@
 .end method
 
 .method private updateAlarm()V
-    .locals 6
+    .locals 12
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;->mAlarmManager:Landroid/app/AlarmManager;
 
@@ -1854,7 +1854,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     invoke-virtual {v0}, Landroid/app/AlarmManager$AlarmClockInfo;->getTriggerTime()J
 
@@ -1864,7 +1864,7 @@
 
     cmp-long v2, v2, v4
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_8
 
     const/4 v1, 0x1
 
@@ -1881,8 +1881,129 @@
 
     move-result-object v4
 
+    const/4 v7, 0x1
+
+    const-string/jumbo v8, "switch_alarm"
+
+    invoke-static {v8, v7}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v8
+
+    if-eqz v8, :cond_7
+
+    const v9, 0x1
+
+    if-eq v8, v9, :cond_7
+
+    const v9, 0x2
+
+    if-eq v8, v9, :cond_0
+
+    const v9, 0x3
+
+    if-eq v8, v9, :cond_1
+
+    const v9, 0x4
+
+    if-eq v8, v9, :cond_2
+
+    const v9, 0x5
+
+    if-eq v8, v9, :cond_3
+
+    const v9, 0x6
+
+    if-eq v8, v9, :cond_4
+
+    const v9, 0x7
+
+    if-eq v8, v9, :cond_5
+
+    const v9, 0x8
+
+    if-eq v8, v9, :cond_6
+
+    :cond_0
+    const-string/jumbo v10, "stat_sys_alarm_1"
+
+    const-string v11, "drawable"
+
+    invoke-static {v10, v11}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto :goto_1
+
+    :cond_1
+    const-string/jumbo v10, "stat_sys_alarm_2"
+
+    const-string v11, "drawable"
+
+    invoke-static {v10, v11}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto :goto_1
+
+    :cond_2
+    const-string/jumbo v10, "stat_sys_alarm_3"
+
+    const-string v11, "drawable"
+
+    invoke-static {v10, v11}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto :goto_1
+
+    :cond_3
+    const-string/jumbo v10, "stat_sys_alarm_4"
+
+    const-string v11, "drawable"
+
+    invoke-static {v10, v11}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto :goto_1
+
+    :cond_4
+    const-string/jumbo v10, "stat_sys_alarm_5"
+
+    const-string v11, "drawable"
+
+    invoke-static {v10, v11}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto :goto_1
+
+    :cond_5
+    const-string/jumbo v10, "stat_sys_alarm_6"
+
+    const-string v11, "drawable"
+
+    invoke-static {v10, v11}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto :goto_1
+
+    :cond_6
+    const-string/jumbo v10, "stat_sys_alarm_7"
+
+    const-string v11, "drawable"
+
+    invoke-static {v10, v11}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto :goto_1
+
+    :cond_7
     const v5, 0x7f0805e0
 
+    :goto_1
     invoke-interface {v2, v3, v5, v4}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->setIcon(Ljava/lang/String;ILjava/lang/CharSequence;)V
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;->mIconController:Lcom/android/systemui/statusbar/phone/StatusBarIconController;
@@ -1891,22 +2012,22 @@
 
     iget-boolean v4, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;->mCurrentUserSetup:Z
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_9
 
-    :goto_1
+    :goto_2
     invoke-interface {v2, v3, v1}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->setIconVisibility(Ljava/lang/String;Z)V
 
     return-void
 
-    :cond_0
+    :cond_8
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto/16 :goto_0
 
-    :cond_1
+    :cond_9
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_2
 .end method
 
 .method private final updateBluetooth()V

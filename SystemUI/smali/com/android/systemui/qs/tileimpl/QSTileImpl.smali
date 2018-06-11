@@ -492,6 +492,8 @@
 
     move-result v3
 
+    sget v3, Lcom/android/mwilky/Renovate;->mQsIconOnColor:I
+
     and-int/2addr v3, v1
 
     return v3
@@ -503,6 +505,8 @@
 
     move-result v3
 
+    sget v3, Lcom/android/mwilky/Renovate;->mQsIconOffColor:I
+
     return v3
 
     :pswitch_5
@@ -511,6 +515,8 @@
     invoke-virtual {p0, v3}, Landroid/content/Context;->getColor(I)I
 
     move-result v3
+
+    sget v3, Lcom/android/mwilky/Renovate;->mQsIconOnColor:I
 
     return v3
 

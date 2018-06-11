@@ -243,7 +243,7 @@
 
     if-eqz v1, :cond_2
 
-    iget-boolean v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mKeyguardScreenRotation:Z
+    sget-boolean v1, Lcom/android/mwilky/Renovate;->mKeyguardScreenRotation:Z
 
     if-eqz v1, :cond_1
 
@@ -503,7 +503,7 @@
 
     iput v3, v2, Landroid/view/WindowManager$LayoutParams;->samsungFlags:I
 
-    iget-boolean v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mKeyguardScreenRotation:Z
+    sget-boolean v2, Lcom/android/mwilky/Renovate;->mKeyguardScreenRotation:Z
 
     if-nez v2, :cond_1
 
@@ -725,7 +725,7 @@
 
     iput-wide v4, v2, Landroid/view/WindowManager$LayoutParams;->screenDimDuration:J
 
-    iget-boolean v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mKeyguardScreenRotation:Z
+    sget-boolean v2, Lcom/android/mwilky/Renovate;->mKeyguardScreenRotation:Z
 
     if-nez v2, :cond_1
 

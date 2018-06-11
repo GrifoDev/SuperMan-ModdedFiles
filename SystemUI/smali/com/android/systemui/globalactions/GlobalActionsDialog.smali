@@ -43,6 +43,8 @@
 # static fields
 .field private static final COUNTRY_CODE:Ljava/lang/String;
 
+.field private static final GLOBAL_ACTION_KEY_SCREENREC:Ljava/lang/String; = "screenrec"
+
 .field private static final PRODUCT_NAME:Ljava/lang/String;
 
 .field private static final SAFE_DEBUG:Z
@@ -185,6 +187,8 @@
 .field private mConfirmDialogReceiver:Lcom/android/systemui/globalactions/GlobalActionsDialog$ConfirmDialogReceiver;
 
 .field private mConfirmPowerOffIconResId:I
+
+.field private mConfirmRecoveryIconResId:I
 
 .field private mConfirmRestartIconResId:I
 
@@ -361,6 +365,10 @@
 
 .field private mProKioskManager:Lcom/samsung/android/knox/custom/ProKioskManager;
 
+.field private mRebootRecovery:Lcom/android/systemui/globalactions/GlobalActionsDialog$SinglePressAction;
+
+.field private mRecoveryIconResId:I
+
 .field private mRestartAction:Lcom/android/systemui/globalactions/GlobalActionsDialog$SinglePressAction;
 
 .field private mRestartIconResId:I
@@ -368,6 +376,10 @@
 .field private mRingerModeReceiver:Landroid/content/BroadcastReceiver;
 
 .field private mSafeModeIconResId:I
+
+.field mScreenRec:Lcom/android/systemui/globalactions/GlobalActionsDialog$SinglePressAction;
+
+.field private mScreenshot:Lcom/android/systemui/globalactions/GlobalActionsDialog$SinglePressAction;
 
 .field private mScrollview:Landroid/widget/ScrollView;
 
@@ -1793,6 +1805,8 @@
 
     move-result v2
 
+    const/4 v2, 0x1
+
     iput-boolean v2, p0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->SUPPORT_DATAMODE_ACTION:Z
 
     iput-object v6, p0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mHandler:Landroid/os/Handler;
@@ -1961,7 +1975,11 @@
 
     iput v3, p0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mRestartIconResId:I
 
+    iput v3, p0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mRecoveryIconResId:I
+
     iput v3, p0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mConfirmRestartIconResId:I
+
+    iput v3, p0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mConfirmRecoveryIconResId:I
 
     iput v3, p0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mEmergencyIconResId:I
 
@@ -2420,6 +2438,22 @@
     move v2, v3
 
     goto :goto_2
+.end method
+
+.method static synthetic access$500(Lcom/android/systemui/globalactions/GlobalActionsDialog;)Landroid/content/Context;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mContext:Landroid/content/Context;
+
+    return-object v0
+.end method
+
+.method static synthetic access$5001(Lcom/android/systemui/globalactions/GlobalActionsDialog;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialog;->toggleScreenRecord()V
+
+    return-void
 .end method
 
 .method private actionClicked(Lcom/android/systemui/globalactions/GlobalActionsDialog$Action;Landroid/view/View;Z)V
@@ -3207,6 +3241,10 @@
     invoke-static {v0, v2}, Lcom/android/systemui/globalactions/GlobalActionsDialog;->setLimitTextSizeToLarge(Landroid/widget/TextView;I)V
 
     :cond_0
+    iget-object v2, p0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mPetNameLayout:Landroid/widget/LinearLayout;
+
+    if-eqz v2, :cond_1
+
     iget-object v2, p0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mPetNameLayout:Landroid/widget/LinearLayout;
 
     const/4 v3, 0x0
@@ -5199,6 +5237,54 @@
 
     const-string/jumbo v25, "content://com.sec.knox.provider2/KnoxCustomManagerService1"
 
+    const/16 v4, 0x200
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mScreenRec:Lcom/android/systemui/globalactions/GlobalActionsDialog$SinglePressAction;
+
+    move-object/from16 v0, p0
+
+    iget-object v6, v0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mItems:Ljava/util/ArrayList;
+
+    const/4 v7, 0x1
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v4, v5, v6, v7}, Lcom/android/systemui/globalactions/GlobalActionsDialog;->addDialogItemsIfEnabled(ILcom/android/systemui/globalactions/GlobalActionsDialog$Action;Ljava/util/ArrayList;Z)Z
+
+    const/16 v4, 0x300
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mScreenshot:Lcom/android/systemui/globalactions/GlobalActionsDialog$SinglePressAction;
+
+    move-object/from16 v0, p0
+
+    iget-object v6, v0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mItems:Ljava/util/ArrayList;
+
+    const/4 v7, 0x1
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v4, v5, v6, v7}, Lcom/android/systemui/globalactions/GlobalActionsDialog;->addDialogItemsIfEnabled(ILcom/android/systemui/globalactions/GlobalActionsDialog$Action;Ljava/util/ArrayList;Z)Z
+
+    const/16 v4, 0x400
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mRebootRecovery:Lcom/android/systemui/globalactions/GlobalActionsDialog$SinglePressAction;
+
+    move-object/from16 v0, p0
+
+    iget-object v6, v0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mItems:Ljava/util/ArrayList;
+
+    const/4 v7, 0x1
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v4, v5, v6, v7}, Lcom/android/systemui/globalactions/GlobalActionsDialog;->addDialogItemsIfEnabled(ILcom/android/systemui/globalactions/GlobalActionsDialog$Action;Ljava/util/ArrayList;Z)Z
+
     const-string/jumbo v26, "getSealedPowerDialogOptionMode"
 
     move-object/from16 v0, p0
@@ -5245,11 +5331,11 @@
     const/4 v7, 0x0
 
     :cond_1
-    if-eqz v7, :cond_14
+    if-eqz v7, :cond_17
 
     sget-object v25, Lcom/android/systemui/globalactions/GlobalActionsDialog;->sResource:Landroid/content/res/Resources;
 
-    const v26, 0x1070053
+    const v26, 0x7f03005c
 
     invoke-virtual/range {v25 .. v26}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -5272,7 +5358,7 @@
 
     move/from16 v1, v27
 
-    if-ge v0, v1, :cond_13
+    if-ge v0, v1, :cond_16
 
     aget-object v6, v13, v26
 
@@ -5589,6 +5675,69 @@
     goto/16 :goto_2
 
     :cond_d
+    const-string/jumbo v4, "screenrec"
+
+    invoke-virtual {v4, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_e
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mItems:Ljava/util/ArrayList;
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mScreenRec:Lcom/android/systemui/globalactions/GlobalActionsDialog$SinglePressAction;
+
+    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :cond_e
+    const-string/jumbo v4, "screenshot"
+
+    invoke-virtual {v4, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_f
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mItems:Ljava/util/ArrayList;
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mScreenshot:Lcom/android/systemui/globalactions/GlobalActionsDialog$SinglePressAction;
+
+    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :cond_f
+    const-string/jumbo v4, "rebootrecovery"
+
+    invoke-virtual {v4, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_10
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mItems:Ljava/util/ArrayList;
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mRebootRecovery:Lcom/android/systemui/globalactions/GlobalActionsDialog$SinglePressAction;
+
+    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :cond_10
     const-string/jumbo v25, "silent"
 
     move-object/from16 v0, v25
@@ -5597,7 +5746,7 @@
 
     move-result v25
 
-    if-eqz v25, :cond_e
+    if-eqz v25, :cond_11
 
     move-object/from16 v0, p0
 
@@ -5627,7 +5776,7 @@
 
     goto/16 :goto_2
 
-    :cond_e
+    :cond_11
     const-string/jumbo v25, "users"
 
     move-object/from16 v0, v25
@@ -5636,7 +5785,7 @@
 
     move-result v25
 
-    if-eqz v25, :cond_f
+    if-eqz v25, :cond_12
 
     const-string/jumbo v25, "fw.power_user_switcher"
 
@@ -5666,7 +5815,7 @@
 
     goto/16 :goto_2
 
-    :cond_f
+    :cond_12
     const-string/jumbo v25, "settings"
 
     move-object/from16 v0, v25
@@ -5675,7 +5824,7 @@
 
     move-result v25
 
-    if-eqz v25, :cond_10
+    if-eqz v25, :cond_13
 
     move-object/from16 v0, p0
 
@@ -5695,7 +5844,7 @@
 
     goto/16 :goto_2
 
-    :cond_10
+    :cond_13
     const-string/jumbo v25, "voiceassist"
 
     move-object/from16 v0, v25
@@ -5704,7 +5853,7 @@
 
     move-result v25
 
-    if-eqz v25, :cond_11
+    if-eqz v25, :cond_14
 
     move-object/from16 v0, p0
 
@@ -5724,7 +5873,7 @@
 
     goto/16 :goto_2
 
-    :cond_11
+    :cond_14
     const-string/jumbo v25, "assist"
 
     move-object/from16 v0, v25
@@ -5733,7 +5882,7 @@
 
     move-result v25
 
-    if-eqz v25, :cond_12
+    if-eqz v25, :cond_15
 
     move-object/from16 v0, p0
 
@@ -5753,7 +5902,7 @@
 
     goto/16 :goto_2
 
-    :cond_12
+    :cond_15
     const-string/jumbo v25, "GlobalActionsDialog"
 
     new-instance v28, Ljava/lang/StringBuilder;
@@ -5784,7 +5933,7 @@
 
     goto/16 :goto_2
 
-    :cond_13
+    :cond_16
     new-instance v25, Lcom/android/systemui/globalactions/GlobalActionsDialog$SilentModeAction;
 
     move-object/from16 v0, p0
@@ -5837,20 +5986,20 @@
 
     sput-object v25, Lcom/android/systemui/globalactions/GlobalActionsDialog;->sSilentModeView:Landroid/view/View;
 
-    :cond_14
+    :cond_17
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->SUPPORT_BIKEMODE_ACTION:Z
 
     move/from16 v25, v0
 
-    if-eqz v25, :cond_15
+    if-eqz v25, :cond_18
 
     invoke-direct/range {p0 .. p0}, Lcom/android/systemui/globalactions/GlobalActionsDialog;->isSBikeInstalled()Z
 
     move-result v25
 
-    if-eqz v25, :cond_15
+    if-eqz v25, :cond_18
 
     move-object/from16 v0, p0
 
@@ -5866,14 +6015,14 @@
 
     invoke-virtual/range {v25 .. v26}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_15
+    :cond_18
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mKnoxCustomSystemManager:Lcom/samsung/android/knox/custom/SystemManager;
 
     move-object/from16 v25, v0
 
-    if-eqz v25, :cond_16
+    if-eqz v25, :cond_19
 
     move-object/from16 v0, p0
 
@@ -5885,7 +6034,7 @@
 
     move-result v25
 
-    if-eqz v25, :cond_16
+    if-eqz v25, :cond_19
 
     invoke-direct/range {p0 .. p0}, Lcom/android/systemui/globalactions/GlobalActionsDialog;->clearCustomDialogItems()V
 
@@ -5899,7 +6048,7 @@
 
     move-result-object v15
 
-    if-eqz v15, :cond_16
+    if-eqz v15, :cond_19
 
     invoke-interface {v15}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
@@ -5910,7 +6059,7 @@
 
     move-result v25
 
-    if-eqz v25, :cond_16
+    if-eqz v25, :cond_19
 
     invoke-interface/range {v17 .. v17}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -5948,7 +6097,7 @@
 
     goto :goto_4
 
-    :cond_16
+    :cond_19
     new-instance v25, Lcom/android/systemui/globalactions/GlobalActionsDialog$MyAdapter;
 
     const/16 v26, 0x0
@@ -5983,13 +6132,13 @@
 
     sget-boolean v25, Lcom/android/systemui/globalactions/GlobalActionsDialog;->sIsCoverOpen:Z
 
-    if-nez v25, :cond_17
+    if-nez v25, :cond_1a
 
     sget-boolean v25, Lcom/android/systemui/globalactions/GlobalActionsDialog;->sIsClearCover:Z
 
-    if-eqz v25, :cond_1e
+    if-eqz v25, :cond_21
 
-    :cond_17
+    :cond_1a
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mAdapter:Lcom/android/systemui/globalactions/GlobalActionsDialog$MyAdapter;
@@ -6261,7 +6410,7 @@
 
     sget-boolean v25, Lcom/android/systemui/globalactions/GlobalActionsDialog;->sIsSViewCoverClosed:Z
 
-    if-nez v25, :cond_18
+    if-nez v25, :cond_1b
 
     move-object/from16 v0, p0
 
@@ -6283,7 +6432,7 @@
 
     iput-object v0, v1, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mLandscapeLinearLayout:Landroid/widget/LinearLayout;
 
-    :cond_18
+    :cond_1b
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mDescriptionLayout:Landroid/widget/LinearLayout;
@@ -6378,7 +6527,7 @@
 
     sget-boolean v25, Lcom/android/systemui/globalactions/GlobalActionsDialog;->sIsNeedWhiteTheme:Z
 
-    if-eqz v25, :cond_19
+    if-eqz v25, :cond_1c
 
     move-object/from16 v0, p0
 
@@ -6388,7 +6537,7 @@
 
     invoke-virtual/range {v24 .. v25}, Landroid/widget/TextView;->setTextColor(I)V
 
-    :cond_19
+    :cond_1c
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mBugReport:Landroid/widget/Button;
@@ -6411,7 +6560,7 @@
 
     move/from16 v25, v0
 
-    if-nez v25, :cond_1f
+    if-nez v25, :cond_22
 
     move-object/from16 v0, p0
 
@@ -6438,7 +6587,7 @@
 
     sget-boolean v25, Lcom/android/systemui/globalactions/GlobalActionsDialog;->sIsSViewCoverClosed:Z
 
-    if-nez v25, :cond_1a
+    if-nez v25, :cond_1d
 
     const/16 v25, 0x0
 
@@ -6448,7 +6597,7 @@
 
     invoke-direct {v0, v1}, Lcom/android/systemui/globalactions/GlobalActionsDialog;->buildActionsBaseView(Z)V
 
-    :cond_1a
+    :cond_1d
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mGlobalActionsFrameLayout:Lcom/android/systemui/globalactions/GlobalActionsFrameLayout;
@@ -6483,7 +6632,7 @@
 
     sget-boolean v25, Lcom/android/systemui/globalactions/GlobalActionsDialog;->sIsNeedWhiteTheme:Z
 
-    if-eqz v25, :cond_20
+    if-eqz v25, :cond_23
 
     const v25, 0x106020a
 
@@ -6494,7 +6643,7 @@
     :goto_7
     sget-boolean v25, Lcom/android/systemui/globalactions/GlobalActionsDialog;->sIsNeedWhiteTheme:Z
 
-    if-eqz v25, :cond_21
+    if-eqz v25, :cond_24
 
     const/16 v22, 0x66
 
@@ -6553,7 +6702,7 @@
 
     check-cast v21, Landroid/view/ViewGroup;
 
-    if-eqz v21, :cond_1b
+    if-eqz v21, :cond_1e
 
     move-object/from16 v0, p0
 
@@ -6567,7 +6716,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
-    :cond_1b
+    :cond_1e
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mGlobalActionsFrameLayout:Lcom/android/systemui/globalactions/GlobalActionsFrameLayout;
@@ -6586,13 +6735,13 @@
 
     sget-boolean v25, Lcom/android/systemui/globalactions/GlobalActionsDialog;->sIsCoverOpen:Z
 
-    if-nez v25, :cond_1c
+    if-nez v25, :cond_1f
 
     sget-boolean v25, Lcom/android/systemui/globalactions/GlobalActionsDialog;->sIsClearCover:Z
 
-    if-eqz v25, :cond_1d
+    if-eqz v25, :cond_20
 
-    :cond_1c
+    :cond_1f
     const-string/jumbo v25, "content://com.sec.knox.provider2/KnoxCustomManagerService1"
 
     const-string/jumbo v26, "getSealedPowerDialogOptionMode"
@@ -6613,7 +6762,7 @@
 
     move/from16 v1, v26
 
-    if-ne v0, v1, :cond_1d
+    if-ne v0, v1, :cond_20
 
     new-instance v25, Lcom/android/systemui/globalactions/GlobalActionsDialog$17;
 
@@ -6627,10 +6776,10 @@
 
     invoke-virtual {v14, v0}, Lcom/android/systemui/globalactions/GlobalActionsDialog$ActionsDialog;->setOnKeyListener(Landroid/content/DialogInterface$OnKeyListener;)V
 
-    :cond_1d
+    :cond_20
     return-object v14
 
-    :cond_1e
+    :cond_21
     new-instance v25, Landroid/widget/LinearLayout;
 
     move-object/from16 v0, p0
@@ -6685,12 +6834,12 @@
 
     goto/16 :goto_5
 
-    :cond_1f
+    :cond_22
     invoke-direct/range {p0 .. p0}, Lcom/android/systemui/globalactions/GlobalActionsDialog;->adjustBottomView()V
 
     goto/16 :goto_6
 
-    :cond_20
+    :cond_23
     const v25, 0x106020b
 
     move/from16 v0, v25
@@ -6699,7 +6848,7 @@
 
     goto/16 :goto_7
 
-    :cond_21
+    :cond_24
     const/16 v22, 0x99
 
     goto/16 :goto_8
@@ -7012,7 +7161,7 @@
     invoke-virtual {v10, v0}, Landroid/widget/TextView;->setTextColor(I)V
 
     :cond_1
-    if-eqz p6, :cond_f
+    if-eqz p6, :cond_10
 
     move-object/from16 v0, p0
 
@@ -7257,7 +7406,7 @@
 
     check-cast v24, Landroid/widget/LinearLayout;
 
-    if-eqz p6, :cond_12
+    if-eqz p6, :cond_13
 
     const-string/jumbo v32, "translationX"
 
@@ -7440,7 +7589,7 @@
 
     sget-boolean v32, Lcom/android/systemui/globalactions/GlobalActionsDialog;->sSupportBlackWhiteTheme:Z
 
-    if-eqz v32, :cond_15
+    if-eqz v32, :cond_16
 
     move-object/from16 v0, p0
 
@@ -7452,7 +7601,7 @@
 
     move/from16 v1, v32
 
-    if-ne v0, v1, :cond_15
+    if-ne v0, v1, :cond_16
 
     move-object/from16 v0, p0
 
@@ -7460,9 +7609,9 @@
 
     move/from16 v32, v0
 
-    if-eqz v32, :cond_15
+    if-eqz v32, :cond_16
 
-    if-eqz p6, :cond_14
+    if-eqz p6, :cond_15
 
     const v20, 0x10403ae
 
@@ -7472,7 +7621,7 @@
 
     move/from16 v32, v0
 
-    if-eqz v32, :cond_13
+    if-eqz v32, :cond_14
 
     const v9, 0x104039f
 
@@ -7498,11 +7647,11 @@
     :cond_5
     const/16 v18, 0x0
 
-    if-eqz p6, :cond_17
+    if-eqz p6, :cond_18
 
     sget-boolean v32, Lcom/android/systemui/globalactions/GlobalActionsDialog;->sSupportBlackWhiteTheme:Z
 
-    if-eqz v32, :cond_16
+    if-eqz v32, :cond_17
 
     move-object/from16 v0, p0
 
@@ -7514,7 +7663,7 @@
 
     move/from16 v1, v32
 
-    if-ne v0, v1, :cond_16
+    if-ne v0, v1, :cond_17
 
     move-object/from16 v0, p0
 
@@ -7522,7 +7671,7 @@
 
     move/from16 v32, v0
 
-    if-eqz v32, :cond_16
+    if-eqz v32, :cond_17
 
     const-string/jumbo v32, "alpha"
 
@@ -7622,11 +7771,11 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
 
-    if-eqz p6, :cond_1b
+    if-eqz p6, :cond_1c
 
     sget-boolean v32, Lcom/android/systemui/globalactions/GlobalActionsDialog;->sIsNeedWhiteTheme:Z
 
-    if-eqz v32, :cond_19
+    if-eqz v32, :cond_1a
 
     const v32, 0x106020a
 
@@ -7639,7 +7788,7 @@
     :goto_8
     sget-boolean v32, Lcom/android/systemui/globalactions/GlobalActionsDialog;->sIsNeedWhiteTheme:Z
 
-    if-eqz v32, :cond_1a
+    if-eqz v32, :cond_1b
 
     const/16 v29, 0x66
 
@@ -8004,6 +8153,21 @@
     :cond_d
     move-object/from16 v0, p0
 
+    iget v0, v0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mRecoveryIconResId:I
+
+    move/from16 v31, v0
+
+    move/from16 v0, v31
+
+    if-ne v15, v0, :cond_e
+
+    const v8, 0x7f120c25
+
+    goto/16 :goto_0
+
+    :cond_e
+    move-object/from16 v0, p0
+
     iget v0, v0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mRestartIconResId:I
 
     move/from16 v32, v0
@@ -8020,18 +8184,18 @@
 
     move/from16 v32, v0
 
-    if-eqz v32, :cond_e
+    if-eqz v32, :cond_f
 
     const v9, 0x104039d
 
     goto/16 :goto_0
 
-    :cond_e
+    :cond_f
     const v9, 0x104039c
 
     goto/16 :goto_0
 
-    :cond_f
+    :cond_10
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mDescriptionLayout:Landroid/widget/LinearLayout;
@@ -8118,7 +8282,7 @@
 
     move-object/from16 v32, v0
 
-    if-eqz v32, :cond_10
+    if-eqz v32, :cond_11
 
     move-object/from16 v0, p0
 
@@ -8160,14 +8324,14 @@
 
     move-result-object v12
 
-    :cond_10
+    :cond_11
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mPetNameLayout:Landroid/widget/LinearLayout;
 
     move-object/from16 v32, v0
 
-    if-eqz v32, :cond_11
+    if-eqz v32, :cond_12
 
     move-object/from16 v0, p0
 
@@ -8209,7 +8373,7 @@
 
     move-result-object v23
 
-    :cond_11
+    :cond_12
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mBugReport:Landroid/widget/Button;
@@ -8232,7 +8396,7 @@
 
     goto/16 :goto_1
 
-    :cond_12
+    :cond_13
     const-string/jumbo v32, "x"
 
     const/16 v33, 0x1
@@ -8309,12 +8473,12 @@
 
     goto/16 :goto_2
 
-    :cond_13
+    :cond_14
     const v9, 0x104039e
 
     goto/16 :goto_3
 
-    :cond_14
+    :cond_15
     const v20, 0x10403a7
 
     const/16 v32, 0x0
@@ -8325,7 +8489,7 @@
 
     goto/16 :goto_4
 
-    :cond_15
+    :cond_16
     const/high16 v32, 0x3f800000    # 1.0f
 
     move/from16 v0, v32
@@ -8334,7 +8498,7 @@
 
     goto/16 :goto_5
 
-    :cond_16
+    :cond_17
     const-string/jumbo v32, "alpha"
 
     const/16 v33, 0x0
@@ -8355,10 +8519,10 @@
 
     goto/16 :goto_6
 
-    :cond_17
+    :cond_18
     sget-boolean v32, Lcom/android/systemui/globalactions/GlobalActionsDialog;->sSupportBlackWhiteTheme:Z
 
-    if-eqz v32, :cond_18
+    if-eqz v32, :cond_19
 
     move-object/from16 v0, p0
 
@@ -8370,7 +8534,7 @@
 
     move/from16 v1, v32
 
-    if-ne v0, v1, :cond_18
+    if-ne v0, v1, :cond_19
 
     move-object/from16 v0, p0
 
@@ -8378,7 +8542,7 @@
 
     move/from16 v32, v0
 
-    if-eqz v32, :cond_18
+    if-eqz v32, :cond_19
 
     const-string/jumbo v32, "alpha"
 
@@ -8471,7 +8635,7 @@
 
     goto/16 :goto_7
 
-    :cond_18
+    :cond_19
     const-string/jumbo v32, "alpha"
 
     const/16 v33, 0xff
@@ -8492,7 +8656,7 @@
 
     goto :goto_a
 
-    :cond_19
+    :cond_1a
     const v32, 0x106020b
 
     move-object/from16 v0, v24
@@ -8503,17 +8667,17 @@
 
     goto/16 :goto_8
 
-    :cond_1a
+    :cond_1b
     const/16 v29, 0x99
 
     const/16 v11, 0xcc
 
     goto/16 :goto_9
 
-    :cond_1b
+    :cond_1c
     sget-boolean v32, Lcom/android/systemui/globalactions/GlobalActionsDialog;->sIsNeedWhiteTheme:Z
 
-    if-eqz v32, :cond_1c
+    if-eqz v32, :cond_1d
 
     const/16 v29, 0x99
 
@@ -8521,7 +8685,7 @@
 
     goto/16 :goto_9
 
-    :cond_1c
+    :cond_1d
     const/16 v29, 0xcc
 
     const/16 v11, 0x99
@@ -10174,9 +10338,25 @@
 
     iput v3, p0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mRestartIconResId:I
 
+    const v3, 0x7f0808d1
+
+    iput v3, p0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mRecoveryIconResId:I
+
     const v3, 0x1080aac
 
     iput v3, p0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mConfirmRestartIconResId:I
+
+    const v3, 0x7f0808d1
+
+    iput v3, p0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mRecoveryIconResId:I
+
+    const v3, 0x7f0808d1
+
+    iput v3, p0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mConfirmRecoveryIconResId:I
+
+    const v3, 0x7f0808d1
+
+    iput v3, p0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mConfirmRecoveryIconResId:I
 
     const v3, 0x1080aa4
 
@@ -11539,15 +11719,23 @@
     if-ne v1, v2, :cond_1
 
     :cond_0
+    :goto_0
     move v2, v3
 
-    :goto_0
+    :goto_1
     return v2
 
     :cond_1
-    const/4 v2, 0x0
+    iget v2, p0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mRecoveryIconResId:I
+
+    if-ne v1, v2, :cond_2
 
     goto :goto_0
+
+    :cond_2
+    const/4 v2, 0x0
+
+    goto :goto_1
 .end method
 
 .method private isTSafeLock()Z
@@ -12094,7 +12282,7 @@
 
     invoke-virtual {v12, v14}, Landroid/view/View;->setAlpha(F)V
 
-    if-eqz p3, :cond_5
+    if-eqz p3, :cond_6
 
     new-instance v9, Landroid/widget/LinearLayout$LayoutParams;
 
@@ -12227,7 +12415,7 @@
 
     move-result v14
 
-    if-eqz v14, :cond_6
+    if-eqz v14, :cond_7
 
     const-string/jumbo v14, "GlobalActionsDialog"
 
@@ -12292,6 +12480,35 @@
     :cond_4
     move-object/from16 v0, p0
 
+    iget v14, v0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mRecoveryIconResId:I
+
+    if-ne v7, v14, :cond_5
+
+    sget-object v14, Lcom/android/systemui/globalactions/GlobalActionsDialog;->sResource:Landroid/content/res/Resources;
+
+    move-object/from16 v0, p0
+
+    iget v15, v0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mConfirmRecoveryIconResId:I
+
+    sget v16, Lcom/android/systemui/globalactions/GlobalActionsDialog;->sCurrentDensity:I
+
+    invoke-virtual/range {v14 .. v16}, Landroid/content/res/Resources;->getDrawableForDensity(II)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v14
+
+    invoke-virtual {v5, v14}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    const/4 v14, 0x0
+
+    invoke-virtual {v5, v14}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    const/4 v14, 0x0
+
+    invoke-virtual {v5, v14}, Landroid/widget/ImageView;->setAlpha(F)V
+
+    goto/16 :goto_0
+
+    :cond_5
     iget v14, v0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mRestartIconResId:I
 
     if-ne v7, v14, :cond_0
@@ -12320,7 +12537,7 @@
 
     goto/16 :goto_0
 
-    :cond_5
+    :cond_6
     new-instance v9, Landroid/widget/LinearLayout$LayoutParams;
 
     move-object/from16 v0, p0
@@ -12363,7 +12580,7 @@
 
     goto/16 :goto_1
 
-    :cond_6
+    :cond_7
     const-string/jumbo v14, "GlobalActionsDialog"
 
     const-string/jumbo v15, "AccessibilityManager Disabled"
@@ -12641,6 +12858,102 @@
 
     iput-object v1, p0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mRestartAction:Lcom/android/systemui/globalactions/GlobalActionsDialog$SinglePressAction;
 
+    new-instance v4, Lcom/android/systemui/globalactions/GlobalActionsDialog$Recovery;
+
+    iget v5, p0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mRecoveryIconResId:I
+
+    sget-object v1, Lcom/android/systemui/globalactions/GlobalActionsDialog;->sResource:Landroid/content/res/Resources;
+
+    const v6, 0x7f120c24
+
+    invoke-direct {v4, p0, v5, v6}, Lcom/android/systemui/globalactions/GlobalActionsDialog$Recovery;-><init>(Lcom/android/systemui/globalactions/GlobalActionsDialog;II)V
+
+    iput-object v4, p0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mRebootRecovery:Lcom/android/systemui/globalactions/GlobalActionsDialog$SinglePressAction;
+
+    new-instance v4, Lcom/android/systemui/globalactions/GlobalActionsDialog$98;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "tw_ic_lock_screenrec"
+
+    const-string v2, "drawable"
+
+    invoke-static {v1, v2}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const-string v1, "screenrec"
+
+    const-string/jumbo v2, "string"
+
+    invoke-static {v1, v2}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v6
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v4, v0, v5, v6}, Lcom/android/systemui/globalactions/GlobalActionsDialog$98;-><init>(Lcom/android/systemui/globalactions/GlobalActionsDialog;II)V
+
+    move-object/from16 v0, p0
+
+    iput-object v4, v0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mScreenRec:Lcom/android/systemui/globalactions/GlobalActionsDialog$SinglePressAction;
+
+    new-instance v4, Lcom/android/systemui/globalactions/GlobalActionsDialog$Screenshot;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "tw_ic_lock_screenshot"
+
+    const-string v2, "drawable"
+
+    invoke-static {v1, v2}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const-string v1, "global_action_screenshot"
+
+    const-string/jumbo v2, "string"
+
+    invoke-static {v1, v2}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v6
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v4, v0, v5, v6}, Lcom/android/systemui/globalactions/GlobalActionsDialog$Screenshot;-><init>(Lcom/android/systemui/globalactions/GlobalActionsDialog;II)V
+
+    move-object/from16 v0, p0
+
+    iput-object v4, v0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mScreenshot:Lcom/android/systemui/globalactions/GlobalActionsDialog$SinglePressAction;
+
     iget-boolean v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->SUPPORT_BIKEMODE_ACTION:Z
 
     if-eqz v0, :cond_0
@@ -12721,17 +13034,17 @@
     :cond_5
     const v2, 0x108042d
 
-    goto :goto_4
+    goto/16 :goto_4
 
     :cond_6
     const v3, 0x108042d
 
-    goto :goto_5
+    goto/16 :goto_5
 
     :cond_7
     const v0, 0x1080aaa
 
-    goto :goto_6
+    goto/16 :goto_6
 
     :cond_8
     const v2, 0x1080ab3
@@ -13880,6 +14193,26 @@
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+
+    return-void
+.end method
+
+.method private toggleScreenRecord()V
+    .locals 4
+
+    new-instance v0, Landroid/content/Intent;
+
+    invoke-direct {v0}, Landroid/content/Intent;-><init>()V
+
+    const-string/jumbo v1, "com.sec.app.screenrecorder"
+
+    const-string/jumbo v2, "com.sec.app.screenrecorder.activity.LauncherActivity"
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    iget-object v2, p0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
     return-void
 .end method

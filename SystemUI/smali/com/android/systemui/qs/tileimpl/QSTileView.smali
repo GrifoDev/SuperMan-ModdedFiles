@@ -8,6 +8,8 @@
 
 .field private mCurrentUser:I
 
+.field private mDefaultTextColor:I
+
 .field private mDefaultTextSize:F
 
 .field private mDensityDpi:I
@@ -200,7 +202,7 @@
 
 # virtual methods
 .method protected createDivider()V
-    .locals 4
+    .locals 5
 
     iget-object v1, p0, Lcom/android/systemui/qs/tileimpl/QSTileView;->mContext:Landroid/content/Context;
 
@@ -223,6 +225,10 @@
     move-result-object v1
 
     iput-object v1, p0, Lcom/android/systemui/qs/tileimpl/QSTileView;->mDivider:Landroid/view/View;
+
+    sget v4, Lcom/android/mwilky/Renovate;->mQsDividerColor:I
+
+    invoke-virtual {v1, v4}, Landroid/view/View;->setBackgroundColor(I)V
 
     const-class v1, Lcom/android/systemui/coloring/QSColoringServiceManager;
 
@@ -283,7 +289,7 @@
 .end method
 
 .method protected createLabel()V
-    .locals 6
+    .locals 7
 
     const/4 v5, 0x1
 
@@ -332,6 +338,10 @@
     iput-object v2, p0, Lcom/android/systemui/qs/tileimpl/QSTileView;->mLabel:Landroid/widget/TextView;
 
     iget-object v2, p0, Lcom/android/systemui/qs/tileimpl/QSTileView;->mLabel:Landroid/widget/TextView;
+
+    sget v6, Lcom/android/mwilky/Renovate;->mQsTextColor:I
+
+    invoke-virtual {v2, v6}, Landroid/widget/TextView;->setTextColor(I)V
 
     invoke-virtual {v2, v5}, Landroid/widget/TextView;->setFocusable(Z)V
 

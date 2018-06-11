@@ -42,6 +42,8 @@
 
 .field private mBtTetherVisible:Z
 
+.field public mDarkIconColor:I
+
 .field private mDarkIntensity:F
 
 .field private mDeskAirplane:Landroid/view/ViewGroup;
@@ -108,6 +110,8 @@
 
 .field private mMPTCPVisible:Z
 
+.field public mMobileDataIconColor:I
+
 .field private final mMobileDataIconStartPadding:I
 
 .field mMobileSignalGroup:Landroid/widget/LinearLayout;
@@ -159,6 +163,8 @@
 
 .field private final mSecurityController:Lcom/android/systemui/statusbar/policy/SecurityController;
 
+.field public mSignalIconColor:I
+
 .field private mSimIcon:Landroid/widget/ImageView;
 
 .field private mSimIconId:I
@@ -166,6 +172,8 @@
 .field private mSimIconVisible:Z
 
 .field mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
+
+.field private mStatusbarMiscColor:I
 
 .field private final mTintArea:Landroid/graphics/Rect;
 
@@ -180,6 +188,8 @@
 .field mWifi:Landroid/widget/ImageView;
 
 .field mWifiActivity:Landroid/widget/ImageView;
+
+.field private mWifiActivityIconColor:I
 
 .field private mWifiActivityId:I
 
@@ -196,6 +206,8 @@
 .field private mWifiDescription:Ljava/lang/String;
 
 .field mWifiGroup:Landroid/view/ViewGroup;
+
+.field private mWifiIconColor:I
 
 .field private mWifiIn:Z
 
@@ -336,7 +348,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 6
+    .locals 7
 
     const/4 v5, 0x1
 
@@ -345,6 +357,20 @@
     const/4 v3, 0x0
 
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
+
+    iput v4, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mWifiIconColor:I
+
+    iput v4, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mWifiActivityIconColor:I
+
+    iput v4, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mSignalIconColor:I
+
+    iput v4, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mMobileDataIconColor:I
+
+    iput v4, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mStatusbarMiscColor:I
+
+    const v6, -0x67000000
+
+    iput v6, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mDarkIconColor:I
 
     iput-boolean v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mNoSimsVisible:Z
 
@@ -514,6 +540,12 @@
     iput-object v2, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mSecurityController:Lcom/android/systemui/statusbar/policy/SecurityController;
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/SignalClusterView;->updateActivityEnabled()V
+
+    const v0, 0x0
+
+    int-to-float v0, v0
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/SignalClusterView;->updateViews(F)V
 
     return-void
 
@@ -1463,7 +1495,7 @@
 .end method
 
 .method private applyIconTint()V
-    .locals 6
+    .locals 7
 
     iget-boolean v2, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mIsDeskTopMode:Z
 
@@ -1472,18 +1504,25 @@
     return-void
 
     :cond_0
+    iget v6, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mDarkIntensity:F
+
+    float-to-int v6, v6
+
     iget-object v2, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mVpn:Landroid/widget/ImageView;
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mTintArea:Landroid/graphics/Rect;
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mVpn:Landroid/widget/ImageView;
 
-    iget v5, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mIconTint:I
+    iget v5, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mStatusbarMiscColor:I
 
-    invoke-static {v3, v4, v5}, Lcom/android/systemui/statusbar/policy/DarkIconDispatcher;->getTint(Landroid/graphics/Rect;Landroid/view/View;I)I
+    iget v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mDarkIconColor:I
 
-    move-result v3
+    if-nez v6, :cond_1
 
+    iget v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mStatusbarMiscColor:I
+
+    :cond_1
     invoke-direct {p0, v2, v3}, Lcom/android/systemui/statusbar/SignalClusterView;->setTint(Landroid/widget/ImageView;I)V
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mAirplane:Landroid/widget/ImageView;
@@ -1492,29 +1531,31 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mAirplane:Landroid/widget/ImageView;
 
-    iget v5, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mIconTint:I
+    iget v5, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mStatusbarMiscColor:I
 
-    invoke-static {v3, v4, v5}, Lcom/android/systemui/statusbar/policy/DarkIconDispatcher;->getTint(Landroid/graphics/Rect;Landroid/view/View;I)I
+    iget v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mDarkIconColor:I
 
-    move-result v3
+    if-nez v6, :cond_2
 
+    iget v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mStatusbarMiscColor:I
+
+    :cond_2
     invoke-direct {p0, v2, v3}, Lcom/android/systemui/statusbar/SignalClusterView;->setTint(Landroid/widget/ImageView;I)V
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mTintArea:Landroid/graphics/Rect;
+    iget-object v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mTintArea:Landroid/graphics/Rect;
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mNoSims:Landroid/widget/ImageView;
+    iget-object v2, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mNoSims:Landroid/widget/ImageView;
 
-    iget v4, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mDarkIntensity:F
+    iget v5, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mStatusbarMiscColor:I
 
-    invoke-static {v2, v3, v4}, Lcom/android/systemui/statusbar/policy/DarkIconDispatcher;->getDarkIntensity(Landroid/graphics/Rect;Landroid/view/View;F)F
+    iget v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mDarkIconColor:I
 
-    move-result v2
+    if-nez v6, :cond_3
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mNoSims:Landroid/widget/ImageView;
+    iget v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mStatusbarMiscColor:I
 
-    iget-object v4, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mNoSimsDark:Landroid/widget/ImageView;
-
-    invoke-direct {p0, v2, v3, v4}, Lcom/android/systemui/statusbar/SignalClusterView;->applyDarkIntensity(FLandroid/view/View;Landroid/view/View;)V
+    :cond_3
+    invoke-direct {p0, v2, v3}, Lcom/android/systemui/statusbar/SignalClusterView;->setTint(Landroid/widget/ImageView;I)V
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mWifi:Landroid/widget/ImageView;
 
@@ -1522,12 +1563,13 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mWifi:Landroid/widget/ImageView;
 
-    iget v5, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mIconTint:I
+    iget v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mDarkIconColor:I
 
-    invoke-static {v3, v4, v5}, Lcom/android/systemui/statusbar/policy/DarkIconDispatcher;->getTint(Landroid/graphics/Rect;Landroid/view/View;I)I
+    if-nez v6, :cond_4
 
-    move-result v3
+    iget v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mWifiIconColor:I
 
+    :cond_4
     invoke-direct {p0, v2, v3}, Lcom/android/systemui/statusbar/SignalClusterView;->setTint(Landroid/widget/ImageView;I)V
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mWifiActivity:Landroid/widget/ImageView;
@@ -1536,12 +1578,13 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mWifiActivity:Landroid/widget/ImageView;
 
-    iget v5, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mIconTint:I
+    iget v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mDarkIconColor:I
 
-    invoke-static {v3, v4, v5}, Lcom/android/systemui/statusbar/policy/DarkIconDispatcher;->getTint(Landroid/graphics/Rect;Landroid/view/View;I)I
+    if-nez v6, :cond_5
 
-    move-result v3
+    iget v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mWifiActivityIconColor:I
 
+    :cond_5
     invoke-direct {p0, v2, v3}, Lcom/android/systemui/statusbar/SignalClusterView;->setTint(Landroid/widget/ImageView;I)V
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mWifiActivityIn:Landroid/widget/ImageView;
@@ -1550,12 +1593,13 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mWifiActivityIn:Landroid/widget/ImageView;
 
-    iget v5, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mIconTint:I
+    iget v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mDarkIconColor:I
 
-    invoke-static {v3, v4, v5}, Lcom/android/systemui/statusbar/policy/DarkIconDispatcher;->getTint(Landroid/graphics/Rect;Landroid/view/View;I)I
+    if-nez v6, :cond_6
 
-    move-result v3
+    iget v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mWifiActivityIconColor:I
 
+    :cond_6
     invoke-direct {p0, v2, v3}, Lcom/android/systemui/statusbar/SignalClusterView;->setTint(Landroid/widget/ImageView;I)V
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mWifiActivityOut:Landroid/widget/ImageView;
@@ -1564,12 +1608,13 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mWifiActivityOut:Landroid/widget/ImageView;
 
-    iget v5, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mIconTint:I
+    iget v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mDarkIconColor:I
 
-    invoke-static {v3, v4, v5}, Lcom/android/systemui/statusbar/policy/DarkIconDispatcher;->getTint(Landroid/graphics/Rect;Landroid/view/View;I)I
+    if-nez v6, :cond_7
 
-    move-result v3
+    iget v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mWifiActivityIconColor:I
 
+    :cond_7
     invoke-direct {p0, v2, v3}, Lcom/android/systemui/statusbar/SignalClusterView;->setTint(Landroid/widget/ImageView;I)V
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mEthernet:Landroid/widget/ImageView;
@@ -1578,89 +1623,90 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mWifi:Landroid/widget/ImageView;
 
-    iget v5, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mIconTint:I
+    iget v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mDarkIconColor:I
 
-    invoke-static {v3, v4, v5}, Lcom/android/systemui/statusbar/policy/DarkIconDispatcher;->getTint(Landroid/graphics/Rect;Landroid/view/View;I)I
+    if-nez v6, :cond_8
 
-    move-result v3
+    iget v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mStatusbarMiscColor:I
 
+    :cond_8
     invoke-direct {p0, v2, v3}, Lcom/android/systemui/statusbar/SignalClusterView;->setTint(Landroid/widget/ImageView;I)V
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mEthernetActivity:Landroid/widget/ImageView;
 
-    iget v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mIconTint:I
+    iget v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mStatusbarMiscColor:I
 
     invoke-direct {p0, v2, v3}, Lcom/android/systemui/statusbar/SignalClusterView;->setTint(Landroid/widget/ImageView;I)V
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mNWBoosterWifiStrength:Landroid/widget/ImageView;
 
-    iget v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mIconTint:I
+    iget v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mStatusbarMiscColor:I
 
     invoke-direct {p0, v2, v3}, Lcom/android/systemui/statusbar/SignalClusterView;->setTint(Landroid/widget/ImageView;I)V
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mNWBoosterMobileType:Landroid/widget/ImageView;
 
-    iget v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mIconTint:I
+    iget v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mStatusbarMiscColor:I
 
     invoke-direct {p0, v2, v3}, Lcom/android/systemui/statusbar/SignalClusterView;->setTint(Landroid/widget/ImageView;I)V
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mNWBoosterActivity:Landroid/widget/ImageView;
 
-    iget v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mIconTint:I
+    iget v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mStatusbarMiscColor:I
 
     invoke-direct {p0, v2, v3}, Lcom/android/systemui/statusbar/SignalClusterView;->setTint(Landroid/widget/ImageView;I)V
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mBtTether:Landroid/widget/ImageView;
 
-    iget v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mIconTint:I
+    iget v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mStatusbarMiscColor:I
 
     invoke-direct {p0, v2, v3}, Lcom/android/systemui/statusbar/SignalClusterView;->setTint(Landroid/widget/ImageView;I)V
 
     sget-boolean v2, Lcom/android/systemui/Rune;->STATBAR_SUPPORT_MPTCP:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_9
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mMPTCPType:Landroid/widget/ImageView;
 
-    iget v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mIconTint:I
+    iget v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mStatusbarMiscColor:I
 
     invoke-direct {p0, v2, v3}, Lcom/android/systemui/statusbar/SignalClusterView;->setTint(Landroid/widget/ImageView;I)V
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mMPTCPGiga:Landroid/widget/ImageView;
 
-    iget v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mIconTint:I
+    iget v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mStatusbarMiscColor:I
 
     invoke-direct {p0, v2, v3}, Lcom/android/systemui/statusbar/SignalClusterView;->setTint(Landroid/widget/ImageView;I)V
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mMPTCPActivity:Landroid/widget/ImageView;
 
-    iget v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mIconTint:I
+    iget v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mStatusbarMiscColor:I
 
     invoke-direct {p0, v2, v3}, Lcom/android/systemui/statusbar/SignalClusterView;->setTint(Landroid/widget/ImageView;I)V
 
-    :cond_1
+    :cond_9
     iget-object v2, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mSimIcon:Landroid/widget/ImageView;
 
-    iget v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mIconTint:I
+    iget v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mStatusbarMiscColor:I
 
     invoke-direct {p0, v2, v3}, Lcom/android/systemui/statusbar/SignalClusterView;->setTint(Landroid/widget/ImageView;I)V
 
     sget-boolean v2, Lcom/android/systemui/Rune;->STATBAR_SUPPORT_USE_NO_SIM_ICON_AT_SIGNAL_CLUSTER:Z
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_a
 
     const/4 v1, 0x0
 
     :goto_0
     sget v2, Lcom/android/systemui/statusbar/DeviceState;->mPhoneCount:I
 
-    if-ge v1, v2, :cond_2
+    if-ge v1, v2, :cond_a
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mNoSimIcons:[Landroid/widget/ImageView;
 
     aget-object v2, v2, v1
 
-    iget v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mIconTint:I
+    iget v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mStatusbarMiscColor:I
 
     invoke-direct {p0, v2, v3}, Lcom/android/systemui/statusbar/SignalClusterView;->setTint(Landroid/widget/ImageView;I)V
 
@@ -1668,7 +1714,7 @@
 
     goto :goto_0
 
-    :cond_2
+    :cond_a
     const/4 v0, 0x0
 
     :goto_1
@@ -1678,7 +1724,7 @@
 
     move-result v2
 
-    if-ge v0, v2, :cond_3
+    if-ge v0, v2, :cond_b
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mPhoneStates:Ljava/util/ArrayList;
 
@@ -1700,7 +1746,7 @@
 
     goto :goto_1
 
-    :cond_3
+    :cond_b
     return-void
 .end method
 
@@ -3143,6 +3189,36 @@
     goto :goto_1
 .end method
 
+.method public readRenovateMods()V
+    .locals 1
+
+    sget v0, Lcom/android/mwilky/Renovate;->mWifiIconColor:I
+
+    iput v0, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mWifiIconColor:I
+
+    sget v0, Lcom/android/mwilky/Renovate;->mWifiActivityIconColor:I
+
+    iput v0, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mWifiActivityIconColor:I
+
+    sget v0, Lcom/android/mwilky/Renovate;->mSignalIconColor:I
+
+    iput v0, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mSignalIconColor:I
+
+    sget v0, Lcom/android/mwilky/Renovate;->mMobileDataIconColor:I
+
+    iput v0, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mMobileDataIconColor:I
+
+    sget v0, Lcom/android/mwilky/Renovate;->mStatusbarMiscColor:I
+
+    iput v0, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mStatusbarMiscColor:I
+
+    sget v0, Lcom/android/mwilky/Renovate;->mDarkIconColor:I
+
+    iput v0, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mDarkIconColor:I
+
+    return-void
+.end method
+
 .method public setBar(Lcom/android/systemui/statusbar/phone/StatusBar;)V
     .locals 0
 
@@ -4016,4 +4092,14 @@
     move v0, v1
 
     goto :goto_1
+.end method
+
+.method public updateViews(F)V
+    .locals 2
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/SignalClusterView;->readRenovateMods()V
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/SignalClusterView;->applyIconTint()V
+
+    return-void
 .end method

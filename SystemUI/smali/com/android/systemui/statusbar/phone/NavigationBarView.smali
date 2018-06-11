@@ -401,6 +401,8 @@
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarView;->mBackLandCarModeIcon:Lcom/android/systemui/statusbar/policy/KeyButtonDrawable;
 
     :goto_0
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->setupNavBackIcon(Lcom/android/systemui/statusbar/policy/KeyButtonDrawable;)V
+
     return-object v0
 
     :cond_0
@@ -431,6 +433,8 @@
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarView;->mBackAltLandCarModeIcon:Lcom/android/systemui/statusbar/policy/KeyButtonDrawable;
 
     :goto_0
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->setupNavBackIcon(Lcom/android/systemui/statusbar/policy/KeyButtonDrawable;)V
+
     return-object v0
 
     :cond_0
@@ -673,6 +677,8 @@
 
     :goto_0
     invoke-virtual {v1, v0}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->setImageDrawable(Lcom/android/systemui/statusbar/policy/KeyButtonDrawable;)V
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->setupNavRecentsIcon(Lcom/android/systemui/statusbar/policy/KeyButtonDrawable;)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarView;->mBarTransitions:Lcom/android/systemui/statusbar/phone/NavigationBarTransitions;
 
@@ -1627,6 +1633,18 @@
     return v0
 .end method
 
+.method public reloadNavbar()V
+    .locals 3
+
+    iget v1, p0, Lcom/android/systemui/statusbar/phone/NavigationBarView;->mNavigationIconHints:I
+
+    const/4 v2, 0x1
+
+    invoke-virtual {p0, v1, v2}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->setNavigationIconHints(IZ)V
+
+    return-void
+.end method
+
 .method public reorient()V
     .locals 3
 
@@ -2154,6 +2172,8 @@
     invoke-virtual {v4, v5}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->setImageDrawable(Lcom/android/systemui/statusbar/policy/KeyButtonDrawable;)V
 
     :goto_2
+    invoke-virtual {p0, v5}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->setupNavHomeIcon(Lcom/android/systemui/statusbar/policy/KeyButtonDrawable;)V
+
     iget-boolean v4, p0, Lcom/android/systemui/statusbar/phone/NavigationBarView;->mShowAccessibilityButton:Z
 
     if-nez v4, :cond_5
@@ -2182,6 +2202,8 @@
 
     invoke-virtual {v3, v4}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->setImageDrawable(Lcom/android/systemui/statusbar/policy/KeyButtonDrawable;)V
 
+    invoke-virtual {p0, v4}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->setupNavImeIcon(Lcom/android/systemui/statusbar/policy/KeyButtonDrawable;)V
+
     iget-boolean v3, p0, Lcom/android/systemui/statusbar/phone/NavigationBarView;->mShowMenu:Z
 
     invoke-virtual {p0, v3, v6}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->setMenuVisibility(ZZ)V
@@ -2193,6 +2215,8 @@
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/NavigationBarView;->mMenuIcon:Lcom/android/systemui/statusbar/policy/KeyButtonDrawable;
 
     invoke-virtual {v3, v4}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->setImageDrawable(Lcom/android/systemui/statusbar/policy/KeyButtonDrawable;)V
+
+    invoke-virtual {p0, v4}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->setupNavMenuIcon(Lcom/android/systemui/statusbar/policy/KeyButtonDrawable;)V
 
     iget-boolean v3, p0, Lcom/android/systemui/statusbar/phone/NavigationBarView;->mShowAccessibilityButton:Z
 
@@ -2284,6 +2308,156 @@
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->updateLayoutTransitionsEnabled()V
 
     return-void
+.end method
+
+.method public setupNavBackIcon(Lcom/android/systemui/statusbar/policy/KeyButtonDrawable;)V
+    .locals 3
+
+    sget-boolean v0, Lcom/android/mwilky/Renovate;->mUnlockNavbarColors:Z
+
+    if-eqz v0, :cond_1
+
+    sget v0, Lcom/android/mwilky/Renovate;->mNavbarBackIconColor:I
+
+    sget-object v1, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
+
+    if-eqz p1, :cond_0
+
+    invoke-virtual {p1, v0, v1}, Landroid/graphics/drawable/LayerDrawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->clearColorFilter()V
+
+    goto :goto_0
+.end method
+
+.method public setupNavHomeIcon(Lcom/android/systemui/statusbar/policy/KeyButtonDrawable;)V
+    .locals 3
+
+    sget-boolean v0, Lcom/android/mwilky/Renovate;->mUnlockNavbarColors:Z
+
+    if-eqz v0, :cond_1
+
+    sget v0, Lcom/android/mwilky/Renovate;->mNavbarHomeIconColor:I
+
+    sget-object v1, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
+
+    if-eqz p1, :cond_0
+
+    invoke-virtual {p1, v0, v1}, Landroid/graphics/drawable/LayerDrawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->clearColorFilter()V
+
+    goto :goto_0
+.end method
+
+.method public setupNavImeIcon(Lcom/android/systemui/statusbar/policy/KeyButtonDrawable;)V
+    .locals 3
+
+    sget-boolean v0, Lcom/android/mwilky/Renovate;->mUnlockNavbarColors:Z
+
+    if-eqz v0, :cond_1
+
+    sget v0, Lcom/android/mwilky/Renovate;->mNavbarImeIconColor:I
+
+    sget-object v1, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
+
+    if-eqz p1, :cond_0
+
+    invoke-virtual {p1, v0, v1}, Landroid/graphics/drawable/LayerDrawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->clearColorFilter()V
+
+    goto :goto_0
+.end method
+
+.method public setupNavMenuIcon(Lcom/android/systemui/statusbar/policy/KeyButtonDrawable;)V
+    .locals 3
+
+    sget-boolean v0, Lcom/android/mwilky/Renovate;->mUnlockNavbarColors:Z
+
+    if-eqz v0, :cond_1
+
+    sget v0, Lcom/android/mwilky/Renovate;->mNavbarMenuIconColor:I
+
+    sget-object v1, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
+
+    if-eqz p1, :cond_0
+
+    invoke-virtual {p1, v0, v1}, Landroid/graphics/drawable/LayerDrawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->clearColorFilter()V
+
+    goto :goto_0
+.end method
+
+.method public setupNavPinIcon(Lcom/android/systemui/statusbar/policy/KeyButtonDrawable;)V
+    .locals 3
+
+    sget-boolean v0, Lcom/android/mwilky/Renovate;->mUnlockNavbarColors:Z
+
+    if-eqz v0, :cond_1
+
+    sget v0, Lcom/android/mwilky/Renovate;->mNavbarPinIconColor:I
+
+    sget-object v1, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
+
+    if-eqz p1, :cond_0
+
+    invoke-virtual {p1, v0, v1}, Landroid/graphics/drawable/LayerDrawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->clearColorFilter()V
+
+    goto :goto_0
+.end method
+
+.method public setupNavRecentsIcon(Lcom/android/systemui/statusbar/policy/KeyButtonDrawable;)V
+    .locals 3
+
+    sget-boolean v0, Lcom/android/mwilky/Renovate;->mUnlockNavbarColors:Z
+
+    if-eqz v0, :cond_1
+
+    sget v0, Lcom/android/mwilky/Renovate;->mNavbarRecentsIconColor:I
+
+    sget-object v1, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
+
+    if-eqz p1, :cond_0
+
+    invoke-virtual {p1, v0, v1}, Landroid/graphics/drawable/LayerDrawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->clearColorFilter()V
+
+    goto :goto_0
 .end method
 
 .method public updateAlternativeOrderForTablet()Z

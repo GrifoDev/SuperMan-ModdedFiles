@@ -8,6 +8,7 @@
 .implements Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
 .implements Lcom/android/systemui/statusbar/policy/DarkIconDispatcher$DarkReceiver;
 .implements Lcom/android/systemui/statusbar/policy/ConfigurationController$ConfigurationListener;
+.implements Landroid/view/View$OnClickListener;
 
 
 # annotations
@@ -30,15 +31,21 @@
 
 .field private mCallback:Lcom/android/systemui/statusbar/policy/Clock$Callback;
 
+.field private mClockColor:I
+
 .field private mClockFormat:Ljava/text/SimpleDateFormat;
 
 .field private mClockFormatString:Ljava/lang/String;
+
+.field mClockPosition:I
 
 .field private mClockVisibleByPolicy:Z
 
 .field private mClockVisibleByUser:Z
 
 .field private mContentDescriptionFormat:Ljava/text/SimpleDateFormat;
+
+.field private mDarkIconColor:I
 
 .field private mDemoMode:Z
 
@@ -151,13 +158,21 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 4
+    .locals 5
+
+    invoke-direct {p0, p1, p2, p3}, Landroid/widget/TextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
+
+    const v0, -0x42000001    # -0.12499999f
+
+    iput v0, p0, Lcom/android/systemui/statusbar/policy/Clock;->mClockColor:I
+
+    const v0, -0x67000000
+
+    iput v0, p0, Lcom/android/systemui/statusbar/policy/Clock;->mDarkIconColor:I
 
     const/4 v3, 0x0
 
     const/4 v1, 0x1
-
-    invoke-direct {p0, p1, p2, p3}, Landroid/widget/TextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
     iput-boolean v1, p0, Lcom/android/systemui/statusbar/policy/Clock;->mClockVisibleByPolicy:Z
 
@@ -194,6 +209,16 @@
     const/4 v1, 0x0
 
     const/4 v2, 0x2
+
+    const/4 v4, 0x0
+
+    int-to-float v4, v4
+
+    invoke-virtual {p0, v4}, Lcom/android/systemui/statusbar/policy/Clock;->updateViews(F)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/Clock;->updateClockVisibility()V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/Clock;->updateOnClick()V
 
     :try_start_0
     invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getInt(II)I
@@ -646,30 +671,6 @@
     return-object v16
 .end method
 
-.method private updateClockVisibility()V
-    .locals 2
-
-    iget-boolean v1, p0, Lcom/android/systemui/statusbar/policy/Clock;->mClockVisibleByPolicy:Z
-
-    if-eqz v1, :cond_0
-
-    iget-boolean v1, p0, Lcom/android/systemui/statusbar/policy/Clock;->mClockVisibleByUser:Z
-
-    if-eqz v1, :cond_0
-
-    const/4 v0, 0x0
-
-    :goto_0
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/policy/Clock;->setVisibility(I)V
-
-    return-void
-
-    :cond_0
-    const/16 v0, 0x8
-
-    goto :goto_0
-.end method
-
 .method private updateShowSeconds()V
     .locals 8
 
@@ -1108,14 +1109,27 @@
     return-void
 .end method
 
-.method public onDarkChanged(Landroid/graphics/Rect;FI)V
+.method public onClick(Landroid/view/View;)V
     .locals 1
 
-    invoke-static {p1, p0, p3}, Lcom/android/systemui/statusbar/policy/DarkIconDispatcher;->getTint(Landroid/graphics/Rect;Landroid/view/View;I)I
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/Clock;->startClockActivity()V
 
-    move-result v0
+    return-void
+.end method
 
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/policy/Clock;->setTextColor(I)V
+.method public onDarkChanged(Landroid/graphics/Rect;FI)V
+    .locals 2
+
+    float-to-int v0, p2
+
+    iget v1, p0, Lcom/android/systemui/statusbar/policy/Clock;->mDarkIconColor:I
+
+    if-nez v0, :cond_0
+
+    iget v1, p0, Lcom/android/systemui/statusbar/policy/Clock;->mClockColor:I
+
+    :cond_0
+    invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/policy/Clock;->setTextColor(I)V
 
     return-void
 .end method
@@ -1298,9 +1312,27 @@
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/policy/Clock;->setClockVisibleByUser(Z)V
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/Clock;->updateClockVisibility()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/Clock;->updateClockVisibility()V
 
     goto :goto_0
+.end method
+
+.method public readRenovateMods()V
+    .locals 1
+
+    sget v0, Lcom/android/mwilky/Renovate;->mClockColor:I
+
+    iput v0, p0, Lcom/android/systemui/statusbar/policy/Clock;->mClockColor:I
+
+    sget v0, Lcom/android/mwilky/Renovate;->mClockPosition:I
+
+    iput v0, p0, Lcom/android/systemui/statusbar/policy/Clock;->mClockPosition:I
+
+    sget v0, Lcom/android/mwilky/Renovate;->mDarkIconColor:I
+
+    iput v0, p0, Lcom/android/systemui/statusbar/policy/Clock;->mDarkIconColor:I
+
+    return-void
 .end method
 
 .method public setCallback(Lcom/android/systemui/statusbar/policy/Clock$Callback;)V
@@ -1316,7 +1348,7 @@
 
     iput-boolean p1, p0, Lcom/android/systemui/statusbar/policy/Clock;->mClockVisibleByPolicy:Z
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/Clock;->updateClockVisibility()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/Clock;->updateClockVisibility()V
 
     return-void
 .end method
@@ -1326,8 +1358,33 @@
 
     iput-boolean p1, p0, Lcom/android/systemui/statusbar/policy/Clock;->mClockVisibleByUser:Z
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/Clock;->updateClockVisibility()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/Clock;->updateClockVisibility()V
 
+    return-void
+.end method
+
+.method public startClockActivity()V
+    .locals 3
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/Clock;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v1
+
+    const-string v2, "com.sec.android.app.clockpackage"
+
+    invoke-virtual {v1, v2}, Landroid/content/pm/PackageManager;->getLaunchIntentForPackage(Ljava/lang/String;)Landroid/content/Intent;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/Clock;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+
+    :cond_0
     return-void
 .end method
 
@@ -1418,6 +1475,67 @@
     move-result-object v1
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/policy/Clock;->setContentDescription(Ljava/lang/CharSequence;)V
+
+    return-void
+.end method
+
+.method public updateClockVisibility()V
+    .locals 1
+
+    iget v0, p0, Lcom/android/systemui/statusbar/policy/Clock;->mClockPosition:I
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/policy/Clock;->setVisibility(I)V
+
+    :goto_0
+    return-void
+
+    :cond_0
+    const/16 v0, 0x8
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/policy/Clock;->setVisibility(I)V
+
+    goto :goto_0
+.end method
+
+.method public updateOnClick()V
+    .locals 1
+
+    sget-boolean v0, Lcom/android/mwilky/Renovate;->mClockOnClick:Z
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0, p0}, Lcom/android/systemui/statusbar/policy/Clock;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Landroid/view/View;->setClickable(Z)V
+
+    :goto_0
+    return-void
+.end method
+
+.method public updateViews(F)V
+    .locals 2
+
+    float-to-int v0, p1
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/Clock;->readRenovateMods()V
+
+    iget v1, p0, Lcom/android/systemui/statusbar/policy/Clock;->mDarkIconColor:I
+
+    if-nez v0, :cond_0
+
+    iget v1, p0, Lcom/android/systemui/statusbar/policy/Clock;->mClockColor:I
+
+    :cond_0
+    invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/policy/Clock;->setTextColor(I)V
 
     return-void
 .end method

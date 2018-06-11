@@ -499,7 +499,13 @@
 .end method
 
 .method public setUserSwitcherController(Lcom/android/systemui/statusbar/policy/UserSwitcherController;)V
-    .locals 0
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/MultiUserSwitch;->showMultiUser()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/phone/MultiUserSwitch;->mUserSwitcherController:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
 
@@ -507,5 +513,26 @@
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/MultiUserSwitch;->refreshContentDescription()V
 
+    :cond_0
     return-void
+.end method
+
+.method showMultiUser()Z
+    .locals 4
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/MultiUserSwitch;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "show_multi_user"
+
+    const v1, 0x0
+
+    invoke-static {v2, v3, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v2
+
+    return v2
 .end method

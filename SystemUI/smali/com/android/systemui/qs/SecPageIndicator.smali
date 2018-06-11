@@ -304,7 +304,7 @@
     const/4 v1, 0x0
 
     :goto_2
-    if-ge v1, p1, :cond_5
+    if-ge v1, p1, :cond_6
 
     new-instance v4, Landroid/widget/ImageView;
 
@@ -372,11 +372,18 @@
 
     move-result v2
 
+    :cond_3
+    sget-boolean v2, Lcom/android/mwilky/Renovate;->mUnlockQsColors:Z
+
+    if-eqz v2, :cond_4
+
+    sget v2, Lcom/android/mwilky/Renovate;->mQsPageIndicatorColor:I
+
     sget-object v5, Landroid/graphics/PorterDuff$Mode;->SRC_IN:Landroid/graphics/PorterDuff$Mode;
 
     invoke-virtual {v3, v2, v5}, Landroid/graphics/drawable/TransitionDrawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
 
-    :cond_3
+    :cond_4
     invoke-virtual {v4, v3}, Landroid/widget/ImageView;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
     new-instance v5, Landroid/widget/LinearLayout$LayoutParams;
@@ -391,7 +398,7 @@
 
     add-int/lit8 v5, p1, -0x1
 
-    if-eq v1, v5, :cond_4
+    if-eq v1, v5, :cond_5
 
     invoke-virtual {v4}, Landroid/widget/ImageView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
@@ -415,12 +422,12 @@
 
     invoke-virtual {v5, v8}, Landroid/widget/LinearLayout$LayoutParams;->setMarginEnd(I)V
 
-    :cond_4
+    :cond_5
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_2
 
-    :cond_5
+    :cond_6
     invoke-direct {p0, v6}, Lcom/android/systemui/qs/SecPageIndicator;->resetIndicator(I)V
 
     return-void

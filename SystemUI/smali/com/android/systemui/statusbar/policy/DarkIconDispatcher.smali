@@ -183,3 +183,6 @@
 
 .method public abstract setIconsDarkArea(Landroid/graphics/Rect;)V
 .end method
+
+.method public abstract updateViews()V
+.end method

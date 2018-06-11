@@ -280,7 +280,7 @@
 .end method
 
 .method private initBrightnessDetailViews()V
-    .locals 2
+    .locals 3
 
     const v0, 0x7f0a009b
 
@@ -291,6 +291,10 @@
     check-cast v0, Landroid/widget/ImageView;
 
     iput-object v0, p0, Lcom/android/systemui/qs/bar/BrightnessBar;->mBrightnessDetailIcon:Landroid/widget/ImageView;
+
+    sget v2, Lcom/android/mwilky/Renovate;->mQsSliderIconColor:I
+
+    invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setColorFilter(I)V
 
     iget-object v0, p0, Lcom/android/systemui/qs/bar/BrightnessBar;->mBrightnessDetailIcon:Landroid/widget/ImageView;
 
@@ -599,6 +603,10 @@
     check-cast v0, Landroid/widget/ImageView;
 
     iput-object v0, p0, Lcom/android/systemui/qs/bar/BrightnessBar;->mBrightnessIcon:Landroid/widget/ImageView;
+
+    sget v2, Lcom/android/mwilky/Renovate;->mQsSliderIconColor:I
+
+    invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setColorFilter(I)V
 
     const v0, 0x7f0a009f
 

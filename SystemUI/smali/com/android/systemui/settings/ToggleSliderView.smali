@@ -381,6 +381,10 @@
 .method private showStrainAlertDialog()V
     .locals 7
 
+    sget-boolean v0, Lcom/android/mwilky/Renovate;->mHideBrightnessWarning:Z
+
+    if-nez v0, :cond_0
+
     const/4 v6, 0x0
 
     iget-object v4, p0, Lcom/android/systemui/settings/ToggleSliderView;->mEyeStrainAlertDialog:Landroid/app/AlertDialog;
@@ -763,6 +767,8 @@
 
     move-result v2
 
+    sget v2, Lcom/android/mwilky/Renovate;->mQsSliderColor:I
+
     invoke-direct {p0, v2}, Lcom/android/systemui/settings/ToggleSliderView;->getColorStateListfromColor(I)Landroid/content/res/ColorStateList;
 
     move-result-object v2
@@ -776,6 +782,8 @@
     invoke-virtual {v0, v2, v4}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
     move-result v2
+
+    sget v2, Lcom/android/mwilky/Renovate;->mQsSliderThumbColor:I
 
     invoke-direct {p0, v2}, Lcom/android/systemui/settings/ToggleSliderView;->getColorStateListfromColor(I)Landroid/content/res/ColorStateList;
 

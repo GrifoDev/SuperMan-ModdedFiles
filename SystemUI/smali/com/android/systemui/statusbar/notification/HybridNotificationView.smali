@@ -152,7 +152,7 @@
 .end method
 
 .method protected onFinishInflate()V
-    .locals 5
+    .locals 6
 
     const/4 v4, 0x2
 
@@ -168,6 +168,10 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/notification/HybridNotificationView;->mTitleView:Landroid/widget/TextView;
 
+    sget v5, Lcom/android/mwilky/Renovate;->mNotificationTitleTextColor:I
+
+    invoke-virtual {v0, v5}, Landroid/widget/TextView;->setTextColor(I)V
+
     const v0, 0x7f0a03af
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/notification/HybridNotificationView;->findViewById(I)Landroid/view/View;
@@ -177,6 +181,10 @@
     check-cast v0, Landroid/widget/TextView;
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/notification/HybridNotificationView;->mTextView:Landroid/widget/TextView;
+
+    sget v5, Lcom/android/mwilky/Renovate;->mNotificationSummaryTextColor:I
+
+    invoke-virtual {v0, v5}, Landroid/widget/TextView;->setTextColor(I)V
 
     new-instance v0, Lcom/android/systemui/ViewInvertHelper;
 

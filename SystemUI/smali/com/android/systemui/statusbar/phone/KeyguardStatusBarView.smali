@@ -2009,6 +2009,12 @@
     goto :goto_0
 .end method
 
+.method public updateViews(F)V
+    .locals 2
+
+    return-void
+.end method
+
 .method public updateVisibilityAlphaSystemIcon(ZZZJJ)V
     .locals 8
 

@@ -60,6 +60,8 @@
 
 .field private mDarkAmount:F
 
+.field private mDarkIconColor:I
+
 .field private mDecorColor:I
 
 .field private mDensity:I
@@ -85,6 +87,8 @@
 .field private mIconColor:I
 
 .field private mIconScale:F
+
+.field private mIconTintcolor:I
 
 .field private mNotification:Landroid/service/notification/StatusBarNotification;
 
@@ -380,6 +384,20 @@
 
     :cond_0
     invoke-direct {p0}, Lcom/android/systemui/statusbar/StatusBarIconView;->reloadDimens()V
+
+    const v0, -0x67000000
+
+    iput v0, p0, Lcom/android/systemui/statusbar/StatusBarIconView;->mDarkIconColor:I
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/StatusBarIconView;->readRenovateMods()V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarIconView;->mSlot:Ljava/lang/String;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->getStatusbarColorFromSlotName(Ljava/lang/String;)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/systemui/statusbar/StatusBarIconView;->mIconTintcolor:I
 
     return-void
 .end method
@@ -1744,6 +1762,16 @@
     goto/16 :goto_0
 .end method
 
+.method public readRenovateMods()V
+    .locals 1
+
+    sget v0, Lcom/android/mwilky/Renovate;->mDarkIconColor:I
+
+    iput v0, p0, Lcom/android/systemui/statusbar/StatusBarIconView;->mDarkIconColor:I
+
+    return-void
+.end method
+
 .method public set(Lcom/android/internal/statusbar/StatusBarIcon;)Z
     .locals 8
 
@@ -2118,6 +2146,27 @@
     .end array-data
 .end method
 
+.method public setIconTint(F)V
+    .locals 4
+
+    float-to-int v0, p1
+
+    iget v1, p0, Lcom/android/systemui/statusbar/StatusBarIconView;->mDarkIconColor:I
+
+    if-nez v0, :cond_0
+
+    iget v1, p0, Lcom/android/systemui/statusbar/StatusBarIconView;->mIconTintcolor:I
+
+    :cond_0
+    invoke-static {v1}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/StatusBarIconView;->setImageTintList(Landroid/content/res/ColorStateList;)V
+
+    return-void
+.end method
+
 .method public setNotification(Landroid/service/notification/StatusBarNotification;)V
     .locals 1
 
@@ -2458,6 +2507,24 @@
     const/4 v0, 0x1
 
     invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/StatusBarIconView;->updateDrawable(Z)Z
+
+    return-void
+.end method
+
+.method public updateViews(F)V
+    .locals 2
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/StatusBarIconView;->readRenovateMods()V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarIconView;->mSlot:Ljava/lang/String;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->getStatusbarColorFromSlotName(Ljava/lang/String;)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/systemui/statusbar/StatusBarIconView;->mIconTintcolor:I
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/StatusBarIconView;->setIconTint(F)V
 
     return-void
 .end method

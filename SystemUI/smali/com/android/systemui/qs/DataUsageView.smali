@@ -1113,6 +1113,10 @@
 
     invoke-virtual {p0}, Lcom/android/systemui/qs/DataUsageView;->updateCurrentDataSubId()V
 
+    sget v0, Lcom/android/mwilky/Renovate;->mQsDataUsageTextColor:I
+
+    invoke-virtual {p0, v0}, Landroid/widget/TextView;->setTextColor(I)V
+
     return-void
 .end method
 

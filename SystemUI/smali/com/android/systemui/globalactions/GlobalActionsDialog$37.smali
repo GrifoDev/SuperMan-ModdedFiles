@@ -91,11 +91,37 @@
 .end method
 
 .method public showConditional()Z
-    .locals 1
+    .locals 4
 
-    const/4 v0, 0x0
+    const/4 v0, 0x1
 
+    const/4 v1, 0x0
+
+    iget-object v2, p0, Lcom/android/systemui/globalactions/GlobalActionsDialog$37;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialog;
+
+    invoke-static {v2}, Lcom/android/systemui/globalactions/GlobalActionsDialog;->-get11(Lcom/android/systemui/globalactions/GlobalActionsDialog;)Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "power_multiuser"
+
+    invoke-static {v2, v3, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v2
+
+    if-ne v2, v0, :cond_0
+
+    :goto_0
     return v0
+
+    :cond_0
+    move v0, v1
+
+    goto :goto_0
 .end method
 
 .method public showDuringKeyguard()Z

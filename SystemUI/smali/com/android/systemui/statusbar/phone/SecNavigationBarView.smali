@@ -891,6 +891,8 @@
 
     move-result-object v2
 
+    invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->setupNavHomeIcon(Lcom/android/systemui/statusbar/policy/KeyButtonDrawable;)V
+
     return-object v2
 
     :cond_0
@@ -4928,6 +4930,8 @@
 
     :goto_0
     invoke-virtual {v2, v1}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->setImageDrawable(Lcom/android/systemui/statusbar/policy/KeyButtonDrawable;)V
+
+    invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->setupNavPinIcon(Lcom/android/systemui/statusbar/policy/KeyButtonDrawable;)V
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mBarTransitions:Lcom/android/systemui/statusbar/phone/NavigationBarTransitions;
 

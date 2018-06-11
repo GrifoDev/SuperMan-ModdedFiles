@@ -32,7 +32,7 @@
 
 .field private mExpanded:Z
 
-.field protected mHeaderQsPanel:Lcom/android/systemui/qs/QuickQSPanel;
+.field public mHeaderQsPanel:Lcom/android/systemui/qs/QuickQSPanel;
 
 .field protected mHost:Lcom/android/systemui/qs/QSTileHost;
 
@@ -66,7 +66,7 @@
 
 .field private mSettingsBadgeCount:I
 
-.field private mSettingsButton:Landroid/widget/ImageButton;
+.field private mSettingsButton:Lcom/android/systemui/statusbar/phone/SettingsButton;
 
 .field protected mSettingsContainer:Landroid/view/View;
 
@@ -174,15 +174,15 @@
     invoke-virtual {v0, v3}, Landroid/view/ViewGroup;->setNextFocusUpId(I)V
 
     :cond_0
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mSettingsButton:Landroid/widget/ImageButton;
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mSettingsButton:Lcom/android/systemui/statusbar/phone/SettingsButton;
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mSettingsButton:Landroid/widget/ImageButton;
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mSettingsButton:Lcom/android/systemui/statusbar/phone/SettingsButton;
 
     invoke-virtual {v0, v3}, Landroid/widget/ImageButton;->setNextFocusLeftId(I)V
 
-    iget-object v3, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mSettingsButton:Landroid/widget/ImageButton;
+    iget-object v3, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mSettingsButton:Lcom/android/systemui/statusbar/phone/SettingsButton;
 
     iget-boolean v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mExpanded:Z
 
@@ -193,7 +193,7 @@
     :goto_0
     invoke-virtual {v3, v0}, Landroid/widget/ImageButton;->setNextFocusRightId(I)V
 
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mSettingsButton:Landroid/widget/ImageButton;
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mSettingsButton:Lcom/android/systemui/statusbar/phone/SettingsButton;
 
     invoke-virtual {v0, v2}, Landroid/widget/ImageButton;->setNextFocusUpId(I)V
 
@@ -221,6 +221,14 @@
     move v0, v2
 
     goto :goto_0
+.end method
+
+.method static synthetic startSettings(Lcom/android/systemui/qs/QuickStatusBarHeader;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->startSettingsActivity()V
+
+    return-void
 .end method
 
 .method private startSettingsActivity()V
@@ -319,7 +327,7 @@
 
     move-result v1
 
-    iget-object v2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mSettingsButton:Landroid/widget/ImageButton;
+    iget-object v2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mSettingsButton:Lcom/android/systemui/statusbar/phone/SettingsButton;
 
     invoke-virtual {v2, v0}, Landroid/widget/ImageButton;->setColorFilter(I)V
 
@@ -949,11 +957,39 @@
 .end method
 
 .method public onClick(Landroid/view/View;)V
-    .locals 2
+    .locals 4
 
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mSettingsButton:Landroid/widget/ImageButton;
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mSettingsButton:Lcom/android/systemui/statusbar/phone/SettingsButton;
 
-    if-ne p1, v0, :cond_2
+    if-ne p1, v0, :cond_3
+
+    iget-object v1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mSettingsButton:Lcom/android/systemui/statusbar/phone/SettingsButton;
+
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/SettingsButton;->isTunerClick()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mContext:Landroid/content/Context;
+
+    invoke-static {v1}, Lcom/android/systemui/tuner/TunerService;->isTunerEnabled(Landroid/content/Context;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_4
+
+    iget-object v1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mContext:Landroid/content/Context;
+
+    new-instance v2, Lcom/android/systemui/qs/QuickStatusBarHeader$startSettings;
+
+    invoke-direct {v2, p0}, Lcom/android/systemui/qs/QuickStatusBarHeader$startSettings;-><init>(Lcom/android/systemui/qs/QuickStatusBarHeader;)V
+
+    invoke-static {v1, v2}, Lcom/android/systemui/tuner/TunerService;->showResetRequest(Landroid/content/Context;Ljava/lang/Runnable;)V
+
+    :cond_0
+    :goto_0
+    const/4 v3, 0x0
 
     const-class v0, Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
 
@@ -967,7 +1003,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
 
     iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
 
@@ -979,7 +1015,7 @@
 
     return-void
 
-    :cond_0
+    :cond_1
     invoke-direct {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->startSettingsActivity()V
 
     sget-object v0, Lcom/android/systemui/SystemUIAnalytics;->mCurrentScreenID:Ljava/lang/String;
@@ -988,18 +1024,18 @@
 
     invoke-static {v0, v1}, Lcom/android/systemui/SystemUIAnalytics;->sendEventLog(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_1
-    :goto_0
+    :cond_2
+    :goto_1
     return-void
 
-    :cond_2
+    :cond_3
     iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mMoreButton:Landroid/widget/ImageButton;
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_2
 
     iget-boolean v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mExpanded:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     invoke-virtual {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->showQSPopupMenu()V
 
@@ -1008,6 +1044,41 @@
     const-string/jumbo v1, "2003"
 
     invoke-static {v0, v1}, Lcom/android/systemui/SystemUIAnalytics;->sendEventLog(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_1
+
+    :cond_4
+    iget-object v1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const-string/jumbo v2, "string"
+
+    invoke-virtual {v1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v3
+
+    const-string/jumbo v1, "tuner_toast"
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const/4 v3, 0x1
+
+    iget-object v1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mContext:Landroid/content/Context;
+
+    invoke-static {v1, v2, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/widget/Toast;->show()V
+
+    iget-object v1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mContext:Landroid/content/Context;
+
+    invoke-static {v1, v3}, Lcom/android/systemui/tuner/TunerService;->setTunerEnabled(Landroid/content/Context;Z)V
 
     goto :goto_0
 .end method
@@ -1135,7 +1206,7 @@
 .end method
 
 .method protected onFinishInflate()V
-    .locals 10
+    .locals 11
 
     const v9, 0x7f0a0409
 
@@ -1270,6 +1341,12 @@
 
     invoke-virtual {v4, v5}, Landroid/view/View;->setVisibility(I)V
 
+    check-cast v4, Landroid/widget/TextView;
+
+    sget v10, Lcom/android/mwilky/Renovate;->mHeaderDateColor:I
+
+    invoke-virtual {v4, v10}, Landroid/widget/TextView;->setTextColor(I)V
+
     :cond_1
     const v4, 0x7f0a01ff
 
@@ -1293,9 +1370,13 @@
 
     move-result-object v4
 
-    check-cast v4, Landroid/widget/ImageButton;
+    check-cast v4, Lcom/android/systemui/statusbar/phone/SettingsButton;
 
-    iput-object v4, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mSettingsButton:Landroid/widget/ImageButton;
+    iput-object v4, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mSettingsButton:Lcom/android/systemui/statusbar/phone/SettingsButton;
+
+    sget v10, Lcom/android/mwilky/Renovate;->mHeaderSettingsIconColor:I
+
+    invoke-virtual {v4, v10}, Landroid/widget/ImageView;->setColorFilter(I)V
 
     const v4, 0x7f0a04bb
 
@@ -1305,11 +1386,11 @@
 
     iput-object v4, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mSettingsContainer:Landroid/view/View;
 
-    iget-object v4, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mSettingsButton:Landroid/widget/ImageButton;
+    iget-object v4, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mSettingsButton:Lcom/android/systemui/statusbar/phone/SettingsButton;
 
     invoke-virtual {v4, p0}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    iget-object v4, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mSettingsButton:Landroid/widget/ImageButton;
+    iget-object v4, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mSettingsButton:Lcom/android/systemui/statusbar/phone/SettingsButton;
 
     invoke-virtual {v4, v5}, Landroid/widget/ImageButton;->semSetHoverPopupType(I)V
 
@@ -1322,6 +1403,10 @@
     check-cast v4, Landroid/widget/ImageButton;
 
     iput-object v4, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mMoreButton:Landroid/widget/ImageButton;
+
+    sget v10, Lcom/android/mwilky/Renovate;->mHeaderMenuIconColor:I
+
+    invoke-virtual {v4, v10}, Landroid/widget/ImageView;->setColorFilter(I)V
 
     const v4, 0x7f0a0340
 
@@ -1381,7 +1466,7 @@
     iput-object v4, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mMultiUserAvatar:Landroid/widget/ImageView;
 
     :cond_3
-    iget-object v4, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mSettingsButton:Landroid/widget/ImageButton;
+    iget-object v4, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mSettingsButton:Lcom/android/systemui/statusbar/phone/SettingsButton;
 
     invoke-virtual {v4}, Landroid/widget/ImageButton;->getBackground()Landroid/graphics/drawable/Drawable;
 
@@ -1401,6 +1486,18 @@
 
     iput-object v4, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDateTimeDivider:Landroid/view/View;
 
+    const v4, 0x7f0a0141
+
+    invoke-virtual {p0, v4}, Lcom/android/systemui/qs/QuickStatusBarHeader;->findViewById(I)Landroid/view/View;
+
+    move-result-object v4
+
+    check-cast v0, Landroid/view/View;
+
+    sget v10, Lcom/android/mwilky/Renovate;->mHeaderDividerColor:I
+
+    invoke-virtual {v4, v10}, Landroid/view/View;->setBackgroundColor(I)V
+
     const v4, 0x7f0a0531
 
     invoke-virtual {p0, v4}, Lcom/android/systemui/qs/QuickStatusBarHeader;->findViewById(I)Landroid/view/View;
@@ -1410,6 +1507,10 @@
     check-cast v4, Landroid/widget/TextView;
 
     iput-object v4, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mTimeView:Landroid/widget/TextView;
+
+    sget v10, Lcom/android/mwilky/Renovate;->mHeaderClockColor:I
+
+    invoke-virtual {v4, v10}, Landroid/widget/TextView;->setTextColor(I)V
 
     iget-object v4, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mSettingsContainer:Landroid/view/View;
 
@@ -1866,9 +1967,12 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mScreenGrid:Landroid/view/MenuItem;
 
+    goto :goto_0
+
     invoke-interface {v1, v3}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
 
     :cond_1
+    :goto_0
     iget-object v1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mPopup:Landroid/widget/PopupMenu;
 
     invoke-virtual {v1}, Landroid/widget/PopupMenu;->getMenu()Landroid/view/Menu;

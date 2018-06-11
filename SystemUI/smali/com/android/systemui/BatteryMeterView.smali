@@ -33,17 +33,23 @@
 
 .field private final mBatteryIconView:Landroid/widget/ImageView;
 
+.field private mBatteryPercentColor:I
+
 .field private mBatteryPercentView:Landroid/widget/TextView;
+
+.field private mDarkIconColor:I
 
 .field private mDarkModeBackgroundColor:I
 
 .field private mDarkModeFillColor:I
 
-.field private final mDrawable:Lcom/android/systemui/BatteryMeterDrawable;
+.field public final mDrawable:Lcom/android/systemui/BatteryMeterDrawable;
 
 .field private mForceHidePercent:Z
 
 .field private mForceShowPercent:Z
+
+.field public mHideBatteryView:I
 
 .field private final mInterestingConfigChanges:Lcom/android/settingslib/applications/InterestingConfigChanges;
 
@@ -112,7 +118,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 6
+    .locals 7
 
     const/4 v5, 0x0
 
@@ -186,11 +192,9 @@
 
     move-result-object v4
 
-    const v5, 0x7f07066e
+    const v4, 0x1
 
-    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getFloat(I)F
-
-    move-result v4
+    int-to-float v4, v4
 
     iput v4, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryIconDarkModeAlpha:F
 
@@ -276,6 +280,16 @@
 
     iput v4, p0, Lcom/android/systemui/BatteryMeterView;->mDarkModeBackgroundColor:I
 
+    invoke-virtual {p0}, Lcom/android/systemui/BatteryMeterView;->readRenovateMods()V
+
+    const/4 v6, 0x0
+
+    int-to-float v6, v6
+
+    invoke-virtual {p0, v6}, Lcom/android/systemui/BatteryMeterView;->updateViews(F)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/BatteryMeterView;->scaleBatteryMeterViews()V
+
     return-void
 .end method
 
@@ -329,161 +343,6 @@
     check-cast v0, Landroid/widget/TextView;
 
     return-object v0
-.end method
-
-.method private scaleBatteryMeterViews()V
-    .locals 11
-
-    const/4 v10, 0x0
-
-    invoke-virtual {p0}, Lcom/android/systemui/BatteryMeterView;->getContext()Landroid/content/Context;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v5
-
-    new-instance v7, Landroid/util/TypedValue;
-
-    invoke-direct {v7}, Landroid/util/TypedValue;-><init>()V
-
-    const v8, 0x7f070681
-
-    const/4 v9, 0x1
-
-    invoke-virtual {v5, v8, v7, v9}, Landroid/content/res/Resources;->getValue(ILandroid/util/TypedValue;Z)V
-
-    invoke-virtual {v7}, Landroid/util/TypedValue;->getFloat()F
-
-    move-result v2
-
-    const v8, 0x7f07066f
-
-    invoke-virtual {v5, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v0
-
-    const v8, 0x7f070670
-
-    invoke-virtual {v5, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v1
-
-    const v8, 0x7f07008b
-
-    invoke-virtual {v5, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v3
-
-    iget-boolean v8, p0, Lcom/android/systemui/BatteryMeterView;->mIsDeskTopMode:Z
-
-    if-eqz v8, :cond_2
-
-    const v8, 0x7f070148
-
-    invoke-virtual {v5, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v0
-
-    const v8, 0x7f07014b
-
-    invoke-virtual {v5, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v1
-
-    iget-object v8, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryPercentView:Landroid/widget/TextView;
-
-    if-eqz v8, :cond_1
-
-    iget-object v8, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryPercentView:Landroid/widget/TextView;
-
-    const v9, 0x7f070167
-
-    invoke-static {v8, v9}, Lcom/android/systemui/FontSizeUtils;->updateFontSize(Landroid/widget/TextView;I)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/BatteryMeterView;->getContext()Landroid/content/Context;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v8
-
-    const v9, 0x7f070166
-
-    invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v4
-
-    iget-object v8, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryPercentView:Landroid/widget/TextView;
-
-    invoke-virtual {v8}, Landroid/widget/TextView;->getPaddingEnd()I
-
-    move-result v8
-
-    if-eq v4, v8, :cond_0
-
-    iget-object v8, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryPercentView:Landroid/widget/TextView;
-
-    invoke-virtual {v8, v10, v10, v4, v10}, Landroid/widget/TextView;->setPaddingRelative(IIII)V
-
-    :cond_0
-    :goto_0
-    new-instance v6, Landroid/widget/LinearLayout$LayoutParams;
-
-    int-to-float v8, v1
-
-    mul-float/2addr v8, v2
-
-    float-to-int v8, v8
-
-    int-to-float v9, v0
-
-    mul-float/2addr v9, v2
-
-    float-to-int v9, v9
-
-    invoke-direct {v6, v8, v9}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
-
-    invoke-virtual {v6, v10, v10, v10, v3}, Landroid/widget/LinearLayout$LayoutParams;->setMargins(IIII)V
-
-    iget-object v8, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryIconView:Landroid/widget/ImageView;
-
-    invoke-virtual {v8, v6}, Landroid/widget/ImageView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    return-void
-
-    :cond_1
-    const-string/jumbo v8, "BatteryMeterView"
-
-    const-string/jumbo v9, "BatteryPercentView is null in DEX mode."
-
-    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-
-    :cond_2
-    iget-object v8, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryPercentView:Landroid/widget/TextView;
-
-    if-eqz v8, :cond_3
-
-    iget-object v8, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryPercentView:Landroid/widget/TextView;
-
-    const v9, 0x7f07008a
-
-    invoke-static {v8, v9}, Lcom/android/systemui/FontSizeUtils;->updateFontSize(Landroid/widget/TextView;I)V
-
-    goto :goto_0
-
-    :cond_3
-    const-string/jumbo v8, "BatteryMeterView"
-
-    const-string/jumbo v9, "BatteryPercentView is null in normal mode."
-
-    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
 .end method
 
 .method private updatePercentText()V
@@ -897,7 +756,7 @@
 .end method
 
 .method public onDarkChanged(Landroid/graphics/Rect;FI)V
-    .locals 8
+    .locals 10
 
     iget-boolean v5, p0, Lcom/android/systemui/BatteryMeterView;->mIsDeskTopMode:Z
 
@@ -910,19 +769,32 @@
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_6
 
     move v3, p2
 
     :goto_0
-    iget v5, p0, Lcom/android/systemui/BatteryMeterView;->mLightModeFillColor:I
+    float-to-int v9, v3
 
-    iget v6, p0, Lcom/android/systemui/BatteryMeterView;->mDarkModeFillColor:I
+    if-nez v9, :cond_1
 
-    invoke-direct {p0, v3, v5, v6}, Lcom/android/systemui/BatteryMeterView;->getColorForDarkIntensity(FII)I
+    const v3, 0x0
 
-    move-result v2
+    goto :goto_1
 
+    :cond_1
+    const v3, 0x1
+
+    :goto_1
+    int-to-float v3, v3
+
+    iget v2, p0, Lcom/android/systemui/BatteryMeterView;->mDarkModeFillColor:I
+
+    if-nez v9, :cond_2
+
+    iget v2, p0, Lcom/android/systemui/BatteryMeterView;->mLightModeFillColor:I
+
+    :cond_2
     iget v5, p0, Lcom/android/systemui/BatteryMeterView;->mLightModeBackgroundColor:I
 
     iget v6, p0, Lcom/android/systemui/BatteryMeterView;->mDarkModeBackgroundColor:I
@@ -935,18 +807,25 @@
 
     invoke-virtual {v5, v3, v2, v1}, Lcom/android/systemui/BatteryMeterDrawable;->setColors(FII)V
 
+    iget v2, p0, Lcom/android/systemui/BatteryMeterView;->mDarkIconColor:I
+
+    if-nez v9, :cond_3
+
+    iget v2, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryPercentColor:I
+
+    :cond_3
     iput v2, p0, Lcom/android/systemui/BatteryMeterView;->mTextColor:I
 
     iget-object v5, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryPercentView:Landroid/widget/TextView;
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_4
 
     iget-object v5, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryPercentView:Landroid/widget/TextView;
 
     invoke-virtual {v5, v2}, Landroid/widget/TextView;->setTextColor(I)V
 
-    :cond_1
-    if-eqz v4, :cond_4
+    :cond_4
+    if-eqz v4, :cond_7
 
     iget v5, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryIconLightModeAlpha:F
 
@@ -960,33 +839,33 @@
 
     add-float v0, v5, v6
 
-    :goto_1
+    :goto_2
     iget-object v5, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryIconContainer:Landroid/widget/LinearLayout;
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_5
 
     iget-object v5, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryIconContainer:Landroid/widget/LinearLayout;
 
     invoke-virtual {v5, v0}, Landroid/widget/LinearLayout;->setAlpha(F)V
 
-    :cond_2
+    :cond_5
     return-void
 
-    :cond_3
+    :cond_6
     const/4 v3, 0x0
 
     goto :goto_0
 
-    :cond_4
+    :cond_7
     const/high16 v0, 0x3f800000    # 1.0f
 
-    goto :goto_1
+    goto :goto_2
 .end method
 
 .method public onDensityOrFontScaleChanged()V
     .locals 1
 
-    invoke-direct {p0}, Lcom/android/systemui/BatteryMeterView;->scaleBatteryMeterViews()V
+    invoke-virtual {p0}, Lcom/android/systemui/BatteryMeterView;->scaleBatteryMeterViews()V
 
     iget-object v0, p0, Lcom/android/systemui/BatteryMeterView;->mDrawable:Lcom/android/systemui/BatteryMeterDrawable;
 
@@ -1229,6 +1108,195 @@
     return-void
 .end method
 
+.method public readRenovateMods()V
+    .locals 1
+
+    sget v0, Lcom/android/mwilky/Renovate;->mBatteryPercentColor:I
+
+    iput v0, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryPercentColor:I
+
+    sget v0, Lcom/android/mwilky/Renovate;->mDarkIconColor:I
+
+    iput v0, p0, Lcom/android/systemui/BatteryMeterView;->mDarkIconColor:I
+
+    sget v0, Lcom/android/mwilky/Renovate;->mHideBatteryView:I
+
+    iput v0, p0, Lcom/android/systemui/BatteryMeterView;->mHideBatteryView:I
+
+    return-void
+.end method
+
+.method public scaleBatteryMeterViews()V
+    .locals 12
+
+    const/4 v10, 0x0
+
+    invoke-virtual {p0}, Lcom/android/systemui/BatteryMeterView;->getContext()Landroid/content/Context;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v5
+
+    new-instance v7, Landroid/util/TypedValue;
+
+    invoke-direct {v7}, Landroid/util/TypedValue;-><init>()V
+
+    const v8, 0x7f070681
+
+    const/4 v9, 0x1
+
+    invoke-virtual {v5, v8, v7, v9}, Landroid/content/res/Resources;->getValue(ILandroid/util/TypedValue;Z)V
+
+    invoke-virtual {v7}, Landroid/util/TypedValue;->getFloat()F
+
+    move-result v2
+
+    const v8, 0x7f07066f
+
+    invoke-virtual {v5, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v0
+
+    const v8, 0x7f070670
+
+    invoke-virtual {v5, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v1
+
+    const v8, 0x7f07008b
+
+    invoke-virtual {v5, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v3
+
+    iget-boolean v8, p0, Lcom/android/systemui/BatteryMeterView;->mIsDeskTopMode:Z
+
+    if-eqz v8, :cond_3
+
+    const v8, 0x7f070148
+
+    invoke-virtual {v5, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v0
+
+    const v8, 0x7f07014b
+
+    invoke-virtual {v5, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v1
+
+    iget-object v8, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryPercentView:Landroid/widget/TextView;
+
+    if-eqz v8, :cond_2
+
+    iget-object v8, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryPercentView:Landroid/widget/TextView;
+
+    const v9, 0x7f070167
+
+    invoke-static {v8, v9}, Lcom/android/systemui/FontSizeUtils;->updateFontSize(Landroid/widget/TextView;I)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/BatteryMeterView;->getContext()Landroid/content/Context;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v8
+
+    const v9, 0x7f070166
+
+    invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v4
+
+    iget-object v8, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryPercentView:Landroid/widget/TextView;
+
+    invoke-virtual {v8}, Landroid/widget/TextView;->getPaddingEnd()I
+
+    move-result v8
+
+    if-eq v4, v8, :cond_0
+
+    iget-object v8, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryPercentView:Landroid/widget/TextView;
+
+    invoke-virtual {v8, v10, v10, v4, v10}, Landroid/widget/TextView;->setPaddingRelative(IIII)V
+
+    :cond_0
+    :goto_0
+    new-instance v6, Landroid/widget/LinearLayout$LayoutParams;
+
+    int-to-float v8, v1
+
+    mul-float/2addr v8, v2
+
+    float-to-int v8, v8
+
+    int-to-float v9, v0
+
+    mul-float/2addr v9, v2
+
+    float-to-int v9, v9
+
+    invoke-direct {v6, v8, v9}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+
+    invoke-virtual {v6, v10, v10, v10, v3}, Landroid/widget/LinearLayout$LayoutParams;->setMargins(IIII)V
+
+    iget-object v8, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryIconView:Landroid/widget/ImageView;
+
+    iget v9, p0, Lcom/android/systemui/BatteryMeterView;->mHideBatteryView:I
+
+    if-eqz v9, :cond_1
+
+    const v9, 0x8
+
+    invoke-virtual {v8, v9}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    goto :goto_1
+
+    :cond_1
+    const v9, 0x0
+
+    invoke-virtual {v8, v9}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    :goto_1
+    invoke-virtual {v8, v6}, Landroid/widget/ImageView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    return-void
+
+    :cond_2
+    const-string/jumbo v8, "BatteryMeterView"
+
+    const-string/jumbo v9, "BatteryPercentView is null in DEX mode."
+
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :cond_3
+    iget-object v8, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryPercentView:Landroid/widget/TextView;
+
+    if-eqz v8, :cond_4
+
+    iget-object v8, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryPercentView:Landroid/widget/TextView;
+
+    const v9, 0x7f07008a
+
+    invoke-static {v8, v9}, Lcom/android/systemui/FontSizeUtils;->updateFontSize(Landroid/widget/TextView;I)V
+
+    goto :goto_0
+
+    :cond_4
+    const-string/jumbo v8, "BatteryMeterView"
+
+    const-string/jumbo v9, "BatteryPercentView is null in normal mode."
+
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+.end method
+
 .method public setForceHidePercent(Z)V
     .locals 0
 
@@ -1246,5 +1314,42 @@
 
     invoke-direct {p0}, Lcom/android/systemui/BatteryMeterView;->updateShowPercent()V
 
+    return-void
+.end method
+
+.method public updateViews(F)V
+    .locals 3
+
+    float-to-int v2, p1
+
+    invoke-virtual {p0}, Lcom/android/systemui/BatteryMeterView;->readRenovateMods()V
+
+    iget-object v0, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryPercentView:Landroid/widget/TextView;
+
+    if-eqz v0, :cond_1
+
+    iget v1, p0, Lcom/android/systemui/BatteryMeterView;->mDarkIconColor:I
+
+    if-nez v2, :cond_0
+
+    iget v1, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryPercentColor:I
+
+    :cond_0
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/systemui/BatteryMeterView;->mDrawable:Lcom/android/systemui/BatteryMeterDrawable;
+
+    if-eqz v0, :cond_2
+
+    invoke-virtual {v0}, Lcom/android/systemui/BatteryMeterDrawable;->readRenovateMods()V
+
+    iget v1, p0, Lcom/android/systemui/BatteryMeterView;->mDarkModeFillColor:I
+
+    iget v2, p0, Lcom/android/systemui/BatteryMeterView;->mLightModeFillColor:I
+
+    invoke-virtual {v0, p1, v1, v2}, Lcom/android/systemui/BatteryMeterDrawable;->setColors(FII)V
+
+    :cond_2
     return-void
 .end method

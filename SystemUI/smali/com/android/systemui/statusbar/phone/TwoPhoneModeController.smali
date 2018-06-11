@@ -903,6 +903,12 @@
     return-void
 .end method
 
+.method public updateViews(F)V
+    .locals 2
+
+    return-void
+.end method
+
 .method public userSwitched()V
     .locals 0
 

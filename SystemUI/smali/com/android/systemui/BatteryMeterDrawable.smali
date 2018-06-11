@@ -24,6 +24,8 @@
 
 .field private mBatteryHealth:I
 
+.field private mBatteryIconColor:I
+
 .field private mBatteryLevelBackgroundDarkColor:I
 
 .field private mBatteryLevelBackgroundLightColor:I
@@ -45,6 +47,8 @@
 .field private mBatteryOnline:I
 
 .field private mBatteryStatus:I
+
+.field private mDarkIconColor:I
 
 .field private mDarkModeBoltColor:I
 
@@ -420,6 +424,8 @@
     invoke-virtual {v2, v3}, Landroid/graphics/Paint;->setTextAlign(Landroid/graphics/Paint$Align;)V
 
     :cond_0
+    invoke-virtual {p0}, Lcom/android/systemui/BatteryMeterDrawable;->readRenovateMods()V
+
     invoke-virtual {p0}, Lcom/android/systemui/BatteryMeterDrawable;->updateStatusBarBatteryColour()V
 
     return-void
@@ -1696,6 +1702,20 @@
     return-void
 .end method
 
+.method public readRenovateMods()V
+    .locals 1
+
+    sget v0, Lcom/android/mwilky/Renovate;->mBatteryIconColor:I
+
+    iput v0, p0, Lcom/android/systemui/BatteryMeterDrawable;->mBatteryIconColor:I
+
+    sget v0, Lcom/android/mwilky/Renovate;->mDarkIconColor:I
+
+    iput v0, p0, Lcom/android/systemui/BatteryMeterDrawable;->mDarkIconColor:I
+
+    return-void
+.end method
+
 .method public setBounds(IIII)V
     .locals 4
 
@@ -1745,17 +1765,23 @@
 .end method
 
 .method public setColors(FII)V
-    .locals 7
+    .locals 9
 
     iget v4, p0, Lcom/android/systemui/BatteryMeterDrawable;->mOldDarkIntensity:F
 
-    cmpl-float v4, p1, v4
+    float-to-int v4, v4
 
-    if-nez v4, :cond_0
+    float-to-int v7, p1
+
+    if-ne v4, v7, :cond_0
 
     return-void
 
     :cond_0
+    int-to-float v8, v7
+
+    iput v8, p0, Lcom/android/systemui/BatteryMeterDrawable;->mOldDarkIntensity:F
+
     iput p2, p0, Lcom/android/systemui/BatteryMeterDrawable;->mIconTint:I
 
     iget-object v4, p0, Lcom/android/systemui/BatteryMeterDrawable;->mFramePaint:Landroid/graphics/Paint;
@@ -1764,86 +1790,78 @@
 
     iget-object v4, p0, Lcom/android/systemui/BatteryMeterDrawable;->mBoltPaint:Landroid/graphics/Paint;
 
-    iget v5, p0, Lcom/android/systemui/BatteryMeterDrawable;->mLightModeBoltColor:I
+    iget v5, p0, Lcom/android/systemui/BatteryMeterDrawable;->mDarkIconColor:I
 
-    iget v6, p0, Lcom/android/systemui/BatteryMeterDrawable;->mDarkModeBoltColor:I
+    if-nez v7, :cond_1
 
-    invoke-direct {p0, p1, v5, v6}, Lcom/android/systemui/BatteryMeterDrawable;->getColorForDarkIntensity(FII)I
+    iget v5, p0, Lcom/android/systemui/BatteryMeterDrawable;->mBatteryIconColor:I
 
-    move-result v5
-
+    :cond_1
     invoke-virtual {v4, v5}, Landroid/graphics/Paint;->setColor(I)V
 
     sget-boolean v4, Lcom/android/systemui/Rune;->PWRUI_SUPPORT_USB_TYPE_C:Z
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_3
 
     iget-object v4, p0, Lcom/android/systemui/BatteryMeterDrawable;->mPowerSupplyingPaint:Landroid/graphics/Paint;
 
-    iget v5, p0, Lcom/android/systemui/BatteryMeterDrawable;->mLightModePowerSupplyingColor:I
+    iget v5, p0, Lcom/android/systemui/BatteryMeterDrawable;->mDarkIconColor:I
 
-    iget v6, p0, Lcom/android/systemui/BatteryMeterDrawable;->mDarkModePowerSupplyingColor:I
+    if-nez v7, :cond_2
 
-    invoke-direct {p0, p1, v5, v6}, Lcom/android/systemui/BatteryMeterDrawable;->getColorForDarkIntensity(FII)I
+    iget v5, p0, Lcom/android/systemui/BatteryMeterDrawable;->mBatteryIconColor:I
 
-    move-result v5
-
+    :cond_2
     invoke-virtual {v4, v5}, Landroid/graphics/Paint;->setColor(I)V
 
-    :cond_1
+    :cond_3
     iput p2, p0, Lcom/android/systemui/BatteryMeterDrawable;->mChargeColor:I
 
-    iget v4, p0, Lcom/android/systemui/BatteryMeterDrawable;->mBatteryFrameLightColor:I
+    iget v1, p0, Lcom/android/systemui/BatteryMeterDrawable;->mDarkIconColor:I
 
-    iget v5, p0, Lcom/android/systemui/BatteryMeterDrawable;->mBatteryFrameDarkColor:I
+    if-nez v7, :cond_4
 
-    invoke-direct {p0, p1, v4, v5}, Lcom/android/systemui/BatteryMeterDrawable;->getColorForDarkIntensity(FII)I
+    iget v1, p0, Lcom/android/systemui/BatteryMeterDrawable;->mBatteryIconColor:I
 
-    move-result v1
-
+    :cond_4
     iget-object v4, p0, Lcom/android/systemui/BatteryMeterDrawable;->mBatteryFramePaint:Landroid/graphics/Paint;
 
     invoke-virtual {v4, v1}, Landroid/graphics/Paint;->setColor(I)V
 
     iput v1, p0, Lcom/android/systemui/BatteryMeterDrawable;->mBatteryLevelColor:I
 
-    iget v4, p0, Lcom/android/systemui/BatteryMeterDrawable;->mBatteryLevelBackgroundLightColor:I
+    iget v3, p0, Lcom/android/systemui/BatteryMeterDrawable;->mBatteryLevelBackgroundDarkColor:I
 
-    iget v5, p0, Lcom/android/systemui/BatteryMeterDrawable;->mBatteryLevelBackgroundDarkColor:I
+    if-nez v7, :cond_5
 
-    invoke-direct {p0, p1, v4, v5}, Lcom/android/systemui/BatteryMeterDrawable;->getColorForDarkIntensity(FII)I
+    iget v3, p0, Lcom/android/systemui/BatteryMeterDrawable;->mBatteryLevelBackgroundLightColor:I
 
-    move-result v3
-
+    :cond_5
     iget-object v4, p0, Lcom/android/systemui/BatteryMeterDrawable;->mBatteryLevelBackgroundPaint:Landroid/graphics/Paint;
 
     invoke-virtual {v4, v3}, Landroid/graphics/Paint;->setColor(I)V
 
-    iget v4, p0, Lcom/android/systemui/BatteryMeterDrawable;->mBatteryLightningBoltLightColor:I
+    iget v2, p0, Lcom/android/systemui/BatteryMeterDrawable;->mDarkIconColor:I
 
-    iget v5, p0, Lcom/android/systemui/BatteryMeterDrawable;->mBatteryLightningBoltDarkColor:I
+    if-nez v7, :cond_6
 
-    invoke-direct {p0, p1, v4, v5}, Lcom/android/systemui/BatteryMeterDrawable;->getColorForDarkIntensity(FII)I
+    iget v2, p0, Lcom/android/systemui/BatteryMeterDrawable;->mBatteryIconColor:I
 
-    move-result v2
-
+    :cond_6
     iget-object v4, p0, Lcom/android/systemui/BatteryMeterDrawable;->mBatteryLightningBoltLightPaint:Landroid/graphics/Paint;
 
     invoke-virtual {v4, v2}, Landroid/graphics/Paint;->setColor(I)V
 
-    iget v4, p0, Lcom/android/systemui/BatteryMeterDrawable;->mBatteryLightningBoltDarkColor:I
+    iget v0, p0, Lcom/android/systemui/BatteryMeterDrawable;->mDarkIconColor:I
 
-    iget v5, p0, Lcom/android/systemui/BatteryMeterDrawable;->mBatteryLightningBoltLightColor:I
+    if-nez v7, :cond_7
 
-    invoke-direct {p0, p1, v4, v5}, Lcom/android/systemui/BatteryMeterDrawable;->getColorForDarkIntensity(FII)I
+    iget v0, p0, Lcom/android/systemui/BatteryMeterDrawable;->mBatteryIconColor:I
 
-    move-result v0
-
+    :cond_7
     iget-object v4, p0, Lcom/android/systemui/BatteryMeterDrawable;->mBatteryLightningBoltDarkPaint:Landroid/graphics/Paint;
 
     invoke-virtual {v4, v0}, Landroid/graphics/Paint;->setColor(I)V
-
-    iput p1, p0, Lcom/android/systemui/BatteryMeterDrawable;->mOldDarkIntensity:F
 
     invoke-virtual {p0}, Lcom/android/systemui/BatteryMeterDrawable;->invalidateSelf()V
 

@@ -2175,7 +2175,7 @@
 .end method
 
 .method protected onFinishInflate()V
-    .locals 4
+    .locals 5
 
     const/4 v3, 0x4
 
@@ -2213,6 +2213,10 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/NotificationShelf;->mClearAllButton:Landroid/widget/TextView;
 
+    sget v4, Lcom/android/mwilky/Renovate;->mNotificationFooterTextColor:I
+
+    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setTextColor(I)V
+
     const v0, 0x7f0a038e
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/NotificationShelf;->findViewById(I)Landroid/view/View;
@@ -2222,6 +2226,10 @@
     check-cast v0, Landroid/widget/TextView;
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/NotificationShelf;->mNotiSettingButton:Landroid/widget/TextView;
+
+    sget v4, Lcom/android/mwilky/Renovate;->mNotificationFooterTextColor:I
+
+    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setTextColor(I)V
 
     const v0, 0x7f0a03ab
 

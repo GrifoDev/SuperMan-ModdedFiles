@@ -16,6 +16,7 @@
 .implements Lcom/android/systemui/statusbar/ExpandableNotificationRow$OnExpandClickListener;
 .implements Lcom/android/systemui/statusbar/notification/NotificationInflater$InflationCallback;
 .implements Lcom/samsung/systemui/splugins/bixby/PluginStatusBar;
+.implements Lcom/android/wubydax/GearContentObserver$OnContentChangedListener;
 
 
 # annotations
@@ -593,7 +594,7 @@
 
 .field private mQSBarController:Lcom/android/systemui/qs/bar/QSBarController;
 
-.field private mQSPanel:Lcom/android/systemui/qs/QSPanel;
+.field public mQSPanel:Lcom/android/systemui/qs/QSPanel;
 
 .field mQueueLock:Ljava/lang/Object;
 
@@ -20789,6 +20790,8 @@
 
     invoke-virtual {v1, v2}, Lcom/android/systemui/qs/bar/QSBarController;->setPanel(Lcom/android/systemui/qs/QSPanel;)V
 
+    invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateBrightnessSlider(Lcom/android/systemui/qs/bar/QSBarController;)V
+
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mNotificationPanel:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mQSBarController:Lcom/android/systemui/qs/bar/QSBarController;
@@ -22193,6 +22196,14 @@
     if-nez v0, :cond_1
 
     :cond_0
+    const/4 v0, 0x4
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->setBlurImageView(I)V
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->setCustomBgView(I)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateGifAnimationView()V
+
     return-void
 
     :cond_1
@@ -22242,6 +22253,14 @@
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->goToKeyguard()V
 
     :cond_3
+    const/4 v0, 0x4
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->setBlurImageView(I)V
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->setCustomBgView(I)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateGifAnimationView()V
+
     return-void
 
     :cond_4
@@ -22335,6 +22354,14 @@
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_6
+    const/4 v0, 0x4
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->setBlurImageView(I)V
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->setCustomBgView(I)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateGifAnimationView()V
+
     return-void
 .end method
 
@@ -22351,7 +22378,7 @@
 
     const/4 v1, 0x1
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_3
 
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mExpandedVisible:Z
 
@@ -22361,7 +22388,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_3
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mNotificationPanel:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
 
@@ -22371,12 +22398,36 @@
 
     xor-int/lit8 v0, v0, 0x1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3
 
     :cond_0
-    return-void
+    const/4 v1, 0x0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mNotificationPanel:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->isPanelVisibleBecauseOfHeadsUp()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    const/4 v1, 0x4
 
     :cond_1
+    if-eqz p1, :cond_2
+
+    const/4 v1, 0x4
+
+    :cond_2
+    invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/StatusBar;->setBlurImageView(I)V
+
+    invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/StatusBar;->setCustomBgView(I)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateGifAnimationView()V
+
+    return-void
+
+    :cond_3
     iput-boolean v1, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mExpandedVisible:Z
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mStatusBarWindowManager:Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;
@@ -22394,6 +22445,30 @@
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->recomputeDisableFlags(Z)V
 
     invoke-virtual {p0, v1, v1}, Lcom/android/systemui/statusbar/phone/StatusBar;->setInteracting(IZ)V
+
+    const/4 v1, 0x0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mNotificationPanel:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->isPanelVisibleBecauseOfHeadsUp()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    const/4 v1, 0x4
+
+    :cond_4
+    if-eqz p1, :cond_5
+
+    const/4 v1, 0x4
+
+    :cond_5
+    invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/StatusBar;->setBlurImageView(I)V
+
+    invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/StatusBar;->setCustomBgView(I)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateGifAnimationView()V
 
     return-void
 .end method
@@ -23402,7 +23477,7 @@
 
     iget-object v3, v0, Lcom/android/systemui/statusbar/phone/StatusBar;->mCarrierLabel:Landroid/widget/TextView;
 
-    invoke-virtual {v2, v3}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->setCarrierLabel(Landroid/widget/TextView;)V
+    invoke-virtual {v2, v3}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->setCarrierLabel(Landroid/view/View;)V
 
     :cond_11
     move-object/from16 v0, p0
@@ -24290,6 +24365,12 @@
     goto/16 :goto_4
 
     :cond_27
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->registerObserver()V
+
+    move-object/from16 v0, p0
+
     new-instance v10, Landroid/content/IntentFilter;
 
     invoke-direct {v10}, Landroid/content/IntentFilter;-><init>()V
@@ -24613,6 +24694,8 @@
     iget-object v3, v0, Lcom/android/systemui/statusbar/phone/StatusBar;->mNotificationPanel:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
 
     invoke-virtual {v2, v3}, Lcom/android/systemui/coloring/QSColoringServiceManager;->setNotificationPanelView(Lcom/android/systemui/statusbar/phone/NotificationPanelView;)V
+
+    move-object/from16 v0, p0
 
     return-void
 
@@ -26098,6 +26181,1120 @@
     const/16 v6, 0x8
 
     goto/16 :goto_1
+.end method
+
+.method public onContentChanged(Ljava/lang/String;)V
+    .locals 1
+
+    const-string/jumbo v0, "statusbar_clock_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setStatusbarIconColors(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateStatusbarIconViews()V
+
+    :cond_0
+    const-string/jumbo v0, "netspeed_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setStatusbarIconColors(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateStatusbarIconViews()V
+
+    :cond_1
+    const-string/jumbo v0, "wifi_activity_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setStatusbarIconColors(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateStatusbarIconViews()V
+
+    :cond_2
+    const-string/jumbo v0, "dark_icon_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setStatusbarIconColors(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateStatusbarIconViews()V
+
+    :cond_3
+    const-string/jumbo v0, "wifi_signal_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setStatusbarIconColors(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateStatusbarIconViews()V
+
+    :cond_4
+    const-string/jumbo v0, "mobile_signal_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_5
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setStatusbarIconColors(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateStatusbarIconViews()V
+
+    :cond_5
+    const-string/jumbo v0, "mobile_type_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_6
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setStatusbarIconColors(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateStatusbarIconViews()V
+
+    :cond_6
+    const-string/jumbo v0, "statusbar_icon_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_7
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setStatusbarIconColors(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateStatusbarIconViews()V
+
+    :cond_7
+    const-string/jumbo v0, "notification_icon_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_8
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setStatusbarIconColors(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateStatusbarIconViews()V
+
+    :cond_8
+    const-string/jumbo v0, "statusbar_battery_percent_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_9
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setStatusbarIconColors(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateStatusbarIconViews()V
+
+    :cond_9
+    const-string/jumbo v0, "battery_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_a
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setStatusbarIconColors(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateStatusbarIconViews()V
+
+    :cond_a
+    const-string/jumbo v0, "bluetooth_icon_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_b
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setStatusbarIconColors(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateStatusbarIconViews()V
+
+    :cond_b
+    const-string/jumbo v0, "volume_icon_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_c
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setStatusbarIconColors(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateStatusbarIconViews()V
+
+    :cond_c
+    const-string/jumbo v0, "alarm_icon_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_d
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setStatusbarIconColors(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateStatusbarIconViews()V
+
+    :cond_d
+    const-string/jumbo v0, "location_icon_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_e
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setStatusbarIconColors(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateStatusbarIconViews()V
+
+    :cond_e
+    const-string/jumbo v0, "powersaver_icon_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_f
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setStatusbarIconColors(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateStatusbarIconViews()V
+
+    :cond_f
+    const-string/jumbo v0, "clock_position"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_10
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setStatusbarViews(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateClockView()V
+
+    :cond_10
+    const-string/jumbo v0, "hide_battery"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_11
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setStatusbarViews(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateBatteryView()V
+
+    :cond_11
+    const-string/jumbo v0, "hide_iris"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_12
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->hideIrisView(Landroid/content/Context;)V
+
+    :cond_12
+    const-string/jumbo v0, "scramble_pin"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_13
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->scrambleKeypad(Landroid/content/Context;)V
+
+    :cond_13
+    const-string/jumbo v0, "qs_rows"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_14
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsTileLayout(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateQsTileView()V
+
+    :cond_14
+    const-string/jumbo v0, "qs_rows_landscape"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_15
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsTileLayout(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateQsTileView()V
+
+    :cond_15
+    const-string/jumbo v0, "qs_columns"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_16
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsTileLayout(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateQsTileView()V
+
+    :cond_16
+    const-string/jumbo v0, "qs_columns_landscape"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_17
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsTileLayout(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateQsTileView()V
+
+    :cond_17
+    const-string/jumbo v0, "quick_qs_buttons"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_18
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsTileLayout(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateQuickQsView()V
+
+    :cond_18
+    const-string/jumbo v0, "quick_qs_buttons_landscape"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_19
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsTileLayout(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateQuickQsView()V
+
+    :cond_19
+    const-string/jumbo v0, "apm_download"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1a
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setPowerMenuSettings(Landroid/content/Context;)V
+
+    :cond_1a
+    const-string/jumbo v0, "apm_recovery"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1b
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setPowerMenuSettings(Landroid/content/Context;)V
+
+    :cond_1b
+    const-string/jumbo v0, "apm_emergency"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1c
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setPowerMenuSettings(Landroid/content/Context;)V
+
+    :cond_1c
+    const-string/jumbo v0, "unlock_qs_colors"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1d
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setStockColorProfiles(Landroid/content/Context;)V
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsColors(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->reloadTiles()V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateQsViews()V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mQSBarController:Lcom/android/systemui/qs/bar/QSBarController;
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateBrightnessSlider(Lcom/android/systemui/qs/bar/QSBarController;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateQsIndicatorView()V
+
+    :cond_1d
+    const-string/jumbo v0, "qs_text_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1e
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsColors(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->reloadTiles()V
+
+    :cond_1e
+    const-string/jumbo v0, "qs_divider_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1f
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsColors(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->reloadTiles()V
+
+    :cond_1f
+    const-string/jumbo v0, "qs_icon_off_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_20
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsColors(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->reloadTiles()V
+
+    :cond_20
+    const-string/jumbo v0, "qs_icon_on_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_21
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsColors(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->reloadTiles()V
+
+    :cond_21
+    const-string/jumbo v0, "qs_override_lockscreen"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_22
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsInLockscreen(Landroid/content/Context;)V
+
+    :cond_22
+    const-string v0, "current_sec_active_themepackage"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_23
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->isCustomThemeActive(Landroid/content/Context;)V
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->scrambleKeypad(Landroid/content/Context;)V
+
+    :cond_23
+    const-string/jumbo v0, "qs_background_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_24
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsColors(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateQsViews()V
+
+    :cond_24
+    const-string/jumbo v0, "hide_brightness_slider"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_25
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsTileLayout(Landroid/content/Context;)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mQSBarController:Lcom/android/systemui/qs/bar/QSBarController;
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateBrightnessSlider(Lcom/android/systemui/qs/bar/QSBarController;)V
+
+    :cond_25
+    const-string/jumbo v0, "qs_pulldown"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_26
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQuickQsPulldown(Landroid/content/Context;)V
+
+    :cond_26
+    const-string/jumbo v0, "double_tap_sleep"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_27
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setDoubleTapStatusbarSleep(Landroid/content/Context;)V
+
+    :cond_27
+    const-string/jumbo v0, "qs_lock"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_28
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setLockQsInLockscreen(Landroid/content/Context;)V
+
+    :cond_28
+    const-string/jumbo v0, "qs_slider_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_29
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsColors(Landroid/content/Context;)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mQSBarController:Lcom/android/systemui/qs/bar/QSBarController;
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateBrightnessSlider(Lcom/android/systemui/qs/bar/QSBarController;)V
+
+    :cond_29
+    const-string/jumbo v0, "qs_slider_thumb_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2a
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsColors(Landroid/content/Context;)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mQSBarController:Lcom/android/systemui/qs/bar/QSBarController;
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateBrightnessSlider(Lcom/android/systemui/qs/bar/QSBarController;)V
+
+    :cond_2a
+    const-string/jumbo v0, "hide_brightness_warning"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2b
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->hideBrightnessWarning(Landroid/content/Context;)V
+
+    :cond_2b
+    const-string/jumbo v0, "unlock_header_colors"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2c
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setStockColorProfiles(Landroid/content/Context;)V
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setHeaderColors(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateHeaderColors()V
+
+    :cond_2c
+    const-string/jumbo v0, "header_settings_icon_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2d
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setHeaderColors(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateHeaderColors()V
+
+    :cond_2d
+    const-string/jumbo v0, "header_menu_icon_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2e
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setHeaderColors(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateHeaderColors()V
+
+    :cond_2e
+    const-string/jumbo v0, "header_clock_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2f
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setHeaderColors(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateHeaderColors()V
+
+    :cond_2f
+    const-string/jumbo v0, "header_date_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_30
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setHeaderColors(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateHeaderColors()V
+
+    :cond_30
+    const-string/jumbo v0, "header_divider_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_31
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setHeaderColors(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateHeaderColors()V
+
+    :cond_31
+    const-string/jumbo v0, "qs_slider_icon_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_32
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsColors(Landroid/content/Context;)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mQSBarController:Lcom/android/systemui/qs/bar/QSBarController;
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateBrightnessSlider(Lcom/android/systemui/qs/bar/QSBarController;)V
+
+    :cond_32
+    const-string/jumbo v0, "notification_background_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_33
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setNotificationColors(Landroid/content/Context;)V
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateNotificationsOnDensityOrFontScaleChanged()V
+
+    :cond_33
+    const-string/jumbo v0, "unlock_notification_colors"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_34
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setStockColorProfiles(Landroid/content/Context;)V
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setNotificationColors(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateNotificationColors()V
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateNotificationsOnDensityOrFontScaleChanged()V
+
+    :cond_34
+    const-string/jumbo v0, "notification_title_text_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_35
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setNotificationColors(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateNotificationColors()V
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateNotificationsOnDensityOrFontScaleChanged()V
+
+    :cond_35
+    const-string/jumbo v0, "notification_summary_text_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_36
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setNotificationColors(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateNotificationColors()V
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateNotificationsOnDensityOrFontScaleChanged()V
+
+    :cond_36
+    const-string/jumbo v0, "allow_transparent_notifications"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_37
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setNotificationColors(Landroid/content/Context;)V
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateNotificationsOnDensityOrFontScaleChanged()V
+
+    :cond_37
+    const-string/jumbo v0, "notif_footer_text_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_38
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setNotificationColors(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateNotificationColors()V
+
+    :cond_38
+    const-string/jumbo v0, "unlock_navbar_colors"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_39
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setStockColorProfiles(Landroid/content/Context;)V
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setNavbarColors(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateNavbarColors()V
+
+    :cond_39
+    const-string/jumbo v0, "navbar_back_icon_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3a
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setNavbarColors(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateNavbarColors()V
+
+    :cond_3a
+    const-string/jumbo v0, "navbar_home_icon_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3b
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setNavbarColors(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateNavbarColors()V
+
+    :cond_3b
+    const-string/jumbo v0, "navbar_recents_icon_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3c
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setNavbarColors(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateNavbarColors()V
+
+    :cond_3c
+    const-string/jumbo v0, "navbar_menu_icon_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3d
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setNavbarColors(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateNavbarColors()V
+
+    :cond_3d
+    const-string/jumbo v0, "navbar_pin_icon_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3e
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setNavbarColors(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateNavbarColors()V
+
+    :cond_3e
+    const-string/jumbo v0, "navbar_ime_icon_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3f
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setNavbarColors(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateNavbarColors()V
+
+    :cond_3f
+    const-string/jumbo v0, "enable_blur"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_40
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setStatusbarBlur(Landroid/content/Context;)V
+
+    :cond_40
+    const-string/jumbo v0, "disable_volume_warning"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_41
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->hideVolumeWarning(Landroid/content/Context;)V
+
+    :cond_41
+    const-string/jumbo v0, "lockscreen_rotation"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_42
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setKeyguardScreenRotation(Landroid/content/Context;)V
+
+    :cond_42
+    const-string/jumbo v0, "qs_drag_handle_background_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_43
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsColors(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateQsViews()V
+
+    :cond_43
+    const-string/jumbo v0, "qs_drag_handle_icon_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_44
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsColors(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateQsViews()V
+
+    :cond_44
+    const-string/jumbo v0, "data_usage_text_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_45
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsColors(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateQsViews()V
+
+    :cond_45
+    const-string/jumbo v0, "qs_page_indicator_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_46
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsColors(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateQsIndicatorView()V
+
+    :cond_46
+    const-string/jumbo v0, "clock_onclick"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_47
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setClockOnClick(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateClockView()V
+
+    :cond_47
+    const-string/jumbo v0, "flashlight_low_battery"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_48
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setFlashlightLowBattery(Landroid/content/Context;)V
+
+    :cond_48
+    const-string/jumbo v0, "link_app_name_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_49
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateNotificationsOnDensityOrFontScaleChanged()V
+
+    :cond_49
+    return-void
 .end method
 
 .method public onCoverAppCovered(Z)I
@@ -28558,6 +29755,369 @@
     return-void
 .end method
 
+.method registerObserver()V
+    .locals 7
+
+    new-instance v3, Ljava/util/ArrayList;
+
+    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
+
+    const-string/jumbo v4, "statusbar_clock_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "netspeed_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "statusbar_icon_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "wifi_signal_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "wifi_activity_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "mobile_type_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "mobile_signal_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "notification_icon_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "statusbar_battery_percent_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "battery_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "bluetooth_icon_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "volume_icon_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "location_icon_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "powersaver_icon_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "alarm_icon_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "dark_icon_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "clock_position"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "hide_battery"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "hide_iris"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "scramble_pin"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "qs_rows"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "qs_rows_landscape"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "qs_columns"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "qs_columns_landscape"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "quick_qs_buttons"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "quick_qs_buttons_landscape"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "apm_recovery"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "apm_download"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "apm_emergency"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "unlock_qs_colors"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "qs_text_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "qs_divider_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "qs_icon_on_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "qs_icon_off_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "qs_override_lockscreen"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string v4, "current_sec_active_themepackage"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "qs_background_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "hide_brightness_slider"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "qs_pulldown"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "double_tap_sleep"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "qs_lock"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "qs_slider_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "qs_slider_thumb_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "hide_brightness_warning"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "unlock_header_colors"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "header_settings_icon_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "header_menu_icon_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "header_clock_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "header_date_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "header_divider_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "qs_slider_icon_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "notification_background_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "unlock_notification_colors"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "allow_transparent_notifications"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "notif_footer_text_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "unlock_navbar_colors"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "navbar_back_icon_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "navbar_home_icon_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "navbar_recents_icon_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "navbar_menu_icon_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "navbar_ime_icon_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "navbar_pin_icon_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "enable_blur"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "disable_volume_warning"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "lockscreen_rotation"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "notification_title_text_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "notification_summary_text_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "qs_drag_handle_background_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "qs_drag_handle_icon_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "data_usage_text_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "qs_page_indicator_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "clock_onclick"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "flashlight_low_battery"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "link_app_name_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    new-instance v1, Lcom/android/wubydax/GearContentObserver;
+
+    new-instance v4, Landroid/os/Handler;
+
+    invoke-direct {v4}, Landroid/os/Handler;-><init>()V
+
+    invoke-direct {v1, v4, p0}, Lcom/android/wubydax/GearContentObserver;-><init>(Landroid/os/Handler;Lcom/android/wubydax/GearContentObserver$OnContentChangedListener;)V
+
+    invoke-static {}, Lcom/android/systemui/SystemUIApplication;->getContext()Landroid/content/Context;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    invoke-virtual {v3}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v4
+
+    :goto_0
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/String;
+
+    invoke-static {v2}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v5
+
+    const/4 v6, 0x0
+
+    invoke-virtual {v0, v5, v6, v1}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
+    goto :goto_0
+
+    :cond_0
+    return-void
+.end method
+
+.method public reloadTiles()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->qsh:Lcom/android/systemui/qs/QSTileHost;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Lcom/android/systemui/qs/QSTileHost;->reloadTiles()V
+
+    :cond_0
+    return-void
+.end method
+
 .method public remQsTile(Landroid/content/ComponentName;)V
     .locals 1
 
@@ -30034,6 +31594,60 @@
     goto :goto_3
 .end method
 
+.method public setBlurImageView(I)V
+    .locals 5
+
+    sget-boolean v3, Lcom/android/mwilky/Renovate;->mStatusbarBlur:Z
+
+    const-string v0, "backgroundImageView"
+
+    const-string v1, "id"
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->isKeyguardState()Z
+
+    move-result v4
+
+    if-nez v4, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    goto :goto_0
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mKeyguardStatusBar:Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    :goto_0
+    if-eqz v2, :cond_1
+
+    check-cast v2, Landroid/widget/ImageView;
+
+    if-eqz v3, :cond_2
+
+    invoke-virtual {v2, p1}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    :cond_1
+    return-void
+
+    :cond_2
+    const v1, 0x4
+
+    invoke-virtual {v2, v1}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    return-void
+.end method
+
 .method public setBouncerShowing(Z)V
     .locals 1
 
@@ -30100,6 +31714,102 @@
     const/4 v1, 0x0
 
     goto :goto_0
+.end method
+
+.method public setCustomBgView(I)V
+    .locals 6
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const v2, 0x0
+
+    const-string/jumbo v1, "enable_gear_custom_bg"
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v3
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mNotificationPanel:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
+
+    const-string v4, "CustomBg"
+
+    const-string v5, "id"
+
+    invoke-static {v4, v5}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/widget/ImageView;
+
+    if-eqz v3, :cond_0
+
+    invoke-virtual {v2, p1}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    return-void
+
+    :cond_0
+    const v1, 0x4
+
+    invoke-virtual {v2, v1}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    return-void
+.end method
+
+.method setDataUsageTextColor()V
+    .locals 4
+
+    sget-boolean v3, Lcom/android/systemui/Rune$Renovate;->mAllowQsColorChange:Z
+
+    const-string/jumbo v1, "data_usage_text_color"
+
+    const v2, -0x26dadadb
+
+    invoke-static {v1, v2}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v2
+
+    const-string v0, "data_usage_view"
+
+    const-string v1, "id"
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
+
+    invoke-virtual {v1, v0}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    if-eqz v3, :cond_0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setTextColor(I)V
+
+    goto :goto_0
+
+    :cond_0
+    check-cast v0, Landroid/widget/TextView;
+
+    const v2, -0xdadadb
+
+    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setTextColor(I)V
+
+    :cond_1
+    :goto_0
+    return-void
 .end method
 
 .method public setEmptyDragAmount(F)V
@@ -31876,6 +33586,52 @@
 
     move-object/from16 v0, p0
 
+    iget-object v0, v0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->isCustomThemeActive(Landroid/content/Context;)V
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setStockColorProfiles(Landroid/content/Context;)V
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setStatusbarIconColors(Landroid/content/Context;)V
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setStatusbarViews(Landroid/content/Context;)V
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->hideIrisView(Landroid/content/Context;)V
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->scrambleKeypad(Landroid/content/Context;)V
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsTileLayout(Landroid/content/Context;)V
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setPowerMenuSettings(Landroid/content/Context;)V
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsColors(Landroid/content/Context;)V
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsInLockscreen(Landroid/content/Context;)V
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQuickQsPulldown(Landroid/content/Context;)V
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setDoubleTapStatusbarSleep(Landroid/content/Context;)V
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setLockQsInLockscreen(Landroid/content/Context;)V
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setHeaderColors(Landroid/content/Context;)V
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setNotificationColors(Landroid/content/Context;)V
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setNavbarColors(Landroid/content/Context;)V
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setStatusbarBlur(Landroid/content/Context;)V
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->hideVolumeWarning(Landroid/content/Context;)V
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setKeyguardScreenRotation(Landroid/content/Context;)V
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setClockOnClick(Landroid/content/Context;)V
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setFlashlightLowBattery(Landroid/content/Context;)V
+
+    move-object/from16 v0, p0
+
     iget-object v2, v0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -33091,7 +34847,7 @@
 
     const-string/jumbo v3, "heads_up_notifications_enabled"
 
-    invoke-static {v3}, Landroid/provider/Settings$Global;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-static {v3}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v3
 
@@ -34643,6 +36399,139 @@
     goto :goto_0
 .end method
 
+.method updateBatteryView()V
+    .locals 2
+
+    const-string v0, "battery"
+
+    const-string v1, "id"
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/BatteryMeterView;
+
+    invoke-virtual {v0}, Lcom/android/systemui/BatteryMeterView;->readRenovateMods()V
+
+    invoke-virtual {v0}, Lcom/android/systemui/BatteryMeterView;->scaleBatteryMeterViews()V
+
+    const-string v0, "battery"
+
+    const-string v1, "id"
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mKeyguardStatusBar:Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/BatteryMeterView;
+
+    invoke-virtual {v0}, Lcom/android/systemui/BatteryMeterView;->readRenovateMods()V
+
+    invoke-virtual {v0}, Lcom/android/systemui/BatteryMeterView;->scaleBatteryMeterViews()V
+
+    return-void
+.end method
+
+.method public updateBrightnessSlider(Lcom/android/systemui/qs/bar/QSBarController;)V
+    .locals 0
+
+    sget-boolean p0, Lcom/android/mwilky/Renovate;->mHideBrightnessSlider:Z
+
+    invoke-virtual {p1}, Lcom/android/systemui/qs/bar/QSBarController;->removeAllBarItems()V
+
+    if-nez p0, :cond_0
+
+    invoke-virtual {p1}, Lcom/android/systemui/qs/bar/QSBarController;->addAllBarItems()V
+
+    :cond_0
+    return-void
+.end method
+
+.method updateClockView()V
+    .locals 2
+
+    const-string v0, "clock"
+
+    const-string v1, "id"
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/policy/Clock;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/policy/Clock;->readRenovateMods()V
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/policy/Clock;->updateClockVisibility()V
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/policy/Clock;->updateOnClick()V
+
+    const-string v0, "center_clock"
+
+    const-string v1, "id"
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/policy/ClockCenter;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/policy/Clock;->readRenovateMods()V
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/policy/Clock;->updateClockVisibility()V
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/policy/Clock;->updateOnClick()V
+
+    const-string v0, "left_clock"
+
+    const-string v1, "id"
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/policy/ClockLeft;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/policy/Clock;->readRenovateMods()V
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/policy/Clock;->updateClockVisibility()V
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/policy/Clock;->updateOnClick()V
+
+    return-void
+.end method
+
 .method public updateCoverState(Lcom/samsung/android/cover/CoverState;)V
     .locals 8
 
@@ -35110,6 +36999,189 @@
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskPanel;->setCurrentDisplaySize(Landroid/graphics/Point;)V
 
     :cond_0
+    return-void
+.end method
+
+.method updateGifAnimationView()V
+    .locals 9
+
+    iget-object v1, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "show_gif_animation"
+
+    const/4 v3, 0x0
+
+    invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const v3, 0x8
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
+
+    const-string v8, "gif_animation"
+
+    const-string v7, "id"
+
+    invoke-static {v8, v7}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v6
+
+    invoke-virtual {v5, v6}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v3}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    goto/16 :goto_0
+
+    :cond_0
+    const v3, 0x3
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
+
+    const-string v8, "gif_animation"
+
+    const-string v7, "id"
+
+    invoke-static {v8, v7}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v6
+
+    invoke-virtual {v5, v6}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v3}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    :goto_0
+    return-void
+.end method
+
+.method public updateHeaderColors()V
+    .locals 3
+
+    const-string/jumbo v0, "settings_button"
+
+    const-string v1, "id"
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
+
+    invoke-virtual {v1, v0}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    check-cast v0, Landroid/widget/ImageView;
+
+    sget v2, Lcom/android/mwilky/Renovate;->mHeaderSettingsIconColor:I
+
+    invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setColorFilter(I)V
+
+    :cond_0
+    const-string v0, "more_button"
+
+    const-string v1, "id"
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
+
+    invoke-virtual {v1, v0}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    check-cast v0, Landroid/widget/ImageView;
+
+    sget v2, Lcom/android/mwilky/Renovate;->mHeaderMenuIconColor:I
+
+    invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setColorFilter(I)V
+
+    :cond_1
+    const-string/jumbo v0, "time_view"
+
+    const-string v1, "id"
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
+
+    invoke-virtual {v1, v0}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_2
+
+    check-cast v0, Landroid/widget/TextView;
+
+    sget v2, Lcom/android/mwilky/Renovate;->mHeaderClockColor:I
+
+    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setTextColor(I)V
+
+    :cond_2
+    const-string v0, "date"
+
+    const-string v1, "id"
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
+
+    invoke-virtual {v1, v0}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_3
+
+    check-cast v0, Landroid/widget/TextView;
+
+    sget v2, Lcom/android/mwilky/Renovate;->mHeaderDateColor:I
+
+    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setTextColor(I)V
+
+    :cond_3
+    const-string v0, "date_time_divider_image"
+
+    const-string v1, "id"
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
+
+    invoke-virtual {v1, v0}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_4
+
+    check-cast v0, Landroid/view/View;
+
+    sget v2, Lcom/android/mwilky/Renovate;->mHeaderDividerColor:I
+
+    invoke-virtual {v0, v2}, Landroid/view/View;->setBackgroundColor(I)V
+
+    :cond_4
     return-void
 .end method
 
@@ -35624,6 +37696,21 @@
     return-void
 .end method
 
+.method public updateNavbarColors()V
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->getNavigationBarView()Lcom/android/systemui/statusbar/phone/NavigationBarView;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->reloadNavbar()V
+
+    :cond_0
+    return-void
+.end method
+
 .method public updateNavigationBarHidden()V
     .locals 4
 
@@ -36014,6 +38101,66 @@
     goto :goto_2
 .end method
 
+.method public updateNotificationColors()V
+    .locals 3
+
+    const-string v0, "noti_setting"
+
+    const-string v1, "id"
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
+
+    invoke-virtual {v1, v0}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    sget v2, Lcom/android/mwilky/Renovate;->mNotificationFooterTextColor:I
+
+    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setTextColor(I)V
+
+    :cond_0
+    const-string v0, "clear_all"
+
+    const-string v1, "id"
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
+
+    invoke-virtual {v1, v0}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    check-cast v0, Landroid/widget/TextView;
+
+    sget v2, Lcom/android/mwilky/Renovate;->mNotificationFooterTextColor:I
+
+    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setTextColor(I)V
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/internal/util/NotificationColorUtil;->getInstance(Landroid/content/Context;)Lcom/android/internal/util/NotificationColorUtil;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/internal/util/NotificationColorUtil;->setNotifTextColor()V
+
+    return-void
+.end method
+
 .method protected updateNotificationIconsOnlyState()V
     .locals 4
 
@@ -36248,6 +38395,176 @@
     const v5, 0x1040606
 
     goto :goto_0
+.end method
+
+.method public updateQsIndicatorView()V
+    .locals 2
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mQSPanel:Lcom/android/systemui/qs/QSPanel;
+
+    invoke-virtual {v1}, Lcom/android/systemui/qs/QSPanel;->getTileLayout()Lcom/android/systemui/qs/QSPanel$QSTileLayout;
+
+    move-result-object v0
+
+    instance-of v1, v0, Lcom/android/systemui/qs/PagedTileLayout;
+
+    if-eqz v1, :cond_0
+
+    check-cast v0, Lcom/android/systemui/qs/PagedTileLayout;
+
+    invoke-virtual {v0}, Lcom/android/systemui/qs/PagedTileLayout;->updateIndicator()V
+
+    :cond_0
+    return-void
+.end method
+
+.method public updateQsTileView()V
+    .locals 2
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mQSPanel:Lcom/android/systemui/qs/QSPanel;
+
+    invoke-virtual {v1}, Lcom/android/systemui/qs/QSPanel;->getTileLayout()Lcom/android/systemui/qs/QSPanel$QSTileLayout;
+
+    move-result-object v0
+
+    instance-of v1, v0, Lcom/android/systemui/qs/PagedTileLayout;
+
+    if-eqz v1, :cond_0
+
+    check-cast v0, Lcom/android/systemui/qs/PagedTileLayout;
+
+    invoke-virtual {v0}, Lcom/android/systemui/qs/PagedTileLayout;->readRenovateMods()V
+
+    invoke-virtual {v0}, Lcom/android/systemui/qs/PagedTileLayout;->setQsTileGrid()V
+
+    :cond_0
+    return-void
+.end method
+
+.method public updateQsViews()V
+    .locals 3
+
+    const-string/jumbo v0, "quick_settings_container"
+
+    const-string v1, "id"
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
+
+    invoke-virtual {v1, v0}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    check-cast v0, Landroid/view/View;
+
+    sget v2, Lcom/android/mwilky/Renovate;->mQsBackgroundColor:I
+
+    invoke-virtual {v0, v2}, Landroid/view/View;->setBackgroundColor(I)V
+
+    :cond_0
+    const-string/jumbo v0, "qs_drag_handle_background"
+
+    const-string v1, "id"
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
+
+    invoke-virtual {v1, v0}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    check-cast v0, Landroid/view/View;
+
+    sget v2, Lcom/android/mwilky/Renovate;->mQsDragHandleBackgroundColor:I
+
+    invoke-virtual {v0, v2}, Landroid/view/View;->setBackgroundColor(I)V
+
+    :cond_1
+    const-string v0, "handler_image_view"
+
+    const-string v1, "id"
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
+
+    invoke-virtual {v1, v0}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_2
+
+    check-cast v0, Landroid/widget/ImageView;
+
+    sget v2, Lcom/android/mwilky/Renovate;->mQsDragHandleIconColor:I
+
+    invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setColorFilter(I)V
+
+    :cond_2
+    const-string v0, "data_usage_view"
+
+    const-string v1, "id"
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
+
+    invoke-virtual {v1, v0}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_3
+
+    check-cast v0, Landroid/widget/TextView;
+
+    sget v2, Lcom/android/mwilky/Renovate;->mQsDataUsageTextColor:I
+
+    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setTextColor(I)V
+
+    :cond_3
+    return-void
+.end method
+
+.method updateQuickQsView()V
+    .locals 2
+
+    const-string v0, "header"
+
+    const-string v1, "id"
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/qs/QuickStatusBarHeader;
+
+    iget-object v0, v0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mHeaderQsPanel:Lcom/android/systemui/qs/QuickQSPanel;
+
+    invoke-virtual {v0}, Lcom/android/systemui/qs/QuickQSPanel;->readRenovateMods()V
+
+    invoke-virtual {v0}, Lcom/android/systemui/qs/QuickQSPanel;->setQuickQsTileNum()V
+
+    return-void
 .end method
 
 .method updateResources()V
@@ -37637,6 +39954,22 @@
     const/4 v1, 0x0
 
     goto :goto_0
+.end method
+
+.method updateStatusbarIconViews()V
+    .locals 1
+
+    const-class v0, Lcom/android/systemui/statusbar/policy/DarkIconDispatcher;
+
+    invoke-static {v0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/policy/DarkIconDispatcher;
+
+    invoke-interface {v0}, Lcom/android/systemui/statusbar/policy/DarkIconDispatcher;->updateViews()V
+
+    return-void
 .end method
 
 .method protected updateVisibleToUser()V

@@ -374,6 +374,8 @@
 
     move-result v1
 
+    sget v1, Lcom/android/mwilky/Renovate;->mQsDragHandleIconColor:I
+
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setColorFilter(I)V
 
     iget-boolean v0, p0, Lcom/android/systemui/qs/bar/HandlerBar;->mHasBeenExpanded:Z
@@ -570,7 +572,7 @@
 .end method
 
 .method public initBarViews()V
-    .locals 3
+    .locals 4
 
     iget-object v0, p0, Lcom/android/systemui/qs/bar/HandlerBar;->mContext:Landroid/content/Context;
 
@@ -598,6 +600,25 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/bar/HandlerBar;->mHandlerImage:Landroid/widget/ImageView;
 
+    const-string/jumbo v0, "qs_drag_handle_background"
+
+    const-string v1, "id"
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v0
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/bar/HandlerBar;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    sget v3, Lcom/android/mwilky/Renovate;->mQsDragHandleBackgroundColor:I
+
+    invoke-virtual {v0, v3}, Landroid/view/View;->setBackgroundColor(I)V
+
+    :cond_0
     const v0, 0x7f0a01fa
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/bar/HandlerBar;->findViewById(I)Landroid/view/View;

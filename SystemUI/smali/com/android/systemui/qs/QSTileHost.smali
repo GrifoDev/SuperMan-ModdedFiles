@@ -124,6 +124,8 @@
     .end annotation
 .end field
 
+.field private mReloadTiles:Z
+
 .field private final mServices:Lcom/android/systemui/qs/external/TileServices;
 
 .field private final mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
@@ -261,6 +263,8 @@
     const/4 v4, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-boolean v2, p0, Lcom/android/systemui/qs/QSTileHost;->mReloadTiles:Z
 
     new-instance v1, Ljava/util/LinkedHashMap;
 
@@ -5091,6 +5095,10 @@
 
     if-eqz v8, :cond_4
 
+    iget-boolean v1, p0, Lcom/android/systemui/qs/QSTileHost;->mReloadTiles:Z
+
+    if-nez v1, :cond_4
+
     iget v8, p0, Lcom/android/systemui/qs/QSTileHost;->mCurrentUser:I
 
     if-ne v0, v8, :cond_4
@@ -5740,6 +5748,34 @@
     goto :goto_2
 
     :cond_b
+    return-void
+.end method
+
+.method public reloadTiles()V
+    .locals 3
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/systemui/qs/QSTileHost;->mReloadTiles:Z
+
+    iget-object v1, p0, Lcom/android/systemui/qs/QSTileHost;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const-string/jumbo v1, "sysui_qs_tiles"
+
+    invoke-static {v2, v1}, Landroid/provider/Settings$Secure;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {p0, v1, v2}, Lcom/android/systemui/qs/QSTileHost;->onTuningChanged(Ljava/lang/String;Ljava/lang/String;)V
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/systemui/qs/QSTileHost;->mReloadTiles:Z
+
     return-void
 .end method
 

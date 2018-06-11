@@ -2946,7 +2946,7 @@
 .end method
 
 .method protected onStart()V
-    .locals 5
+    .locals 9
 
     const/high16 v4, 0x100000
 
@@ -3000,7 +3000,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     :cond_0
     invoke-virtual {p0}, Lcom/android/systemui/recents/RecentsActivity;->getWindow()Landroid/view/Window;
@@ -3019,9 +3019,31 @@
     invoke-direct {p0, v3}, Lcom/android/systemui/recents/RecentsActivity;->reloadStackView(Z)V
 
     :cond_1
-    return-void
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "ram_bar_substratum_fix"
+
+    const/4 v7, 0x1
+
+    invoke-static {v5, v6, v7}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v5
+
+    if-nez v5, :cond_2
+
+    goto :goto_1
 
     :cond_2
+    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/recents/RecentsActivity;->updateRAMBar()V
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/recents/RecentsActivity;->updateMatrixAnim()V
+
+    :goto_1
+    return-void
+
+    :cond_3
     invoke-virtual {p0}, Lcom/android/systemui/recents/RecentsActivity;->getWindow()Landroid/view/Window;
 
     move-result-object v0
@@ -3148,5 +3170,117 @@
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/recents/events/EventBus;->send(Lcom/android/systemui/recents/events/EventBus$Event;)V
 
+    return-void
+.end method
+
+.method updateMatrixAnim()V
+    .locals 8
+
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "matrix_anim"
+
+    const/4 v2, 0x0
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const v2, 0x8
+
+    const-string v5, "recents_matrix_anim"
+
+    const-string v6, "id"
+
+    invoke-static {v5, v6}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v7
+
+    invoke-virtual {p0, v7}, Lcom/android/systemui/recents/RecentsActivity;->findViewById(I)Landroid/view/View;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v2}, Landroid/view/View;->setVisibility(I)V
+
+    goto/16 :goto_0
+
+    :cond_0
+    const v2, 0x3
+
+    const-string v5, "recents_matrix_anim"
+
+    const-string v6, "id"
+
+    invoke-static {v5, v6}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v7
+
+    invoke-virtual {p0, v7}, Lcom/android/systemui/recents/RecentsActivity;->findViewById(I)Landroid/view/View;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v2}, Landroid/view/View;->setVisibility(I)V
+
+    :goto_0
+    return-void
+.end method
+
+.method updateRAMBar()V
+    .locals 8
+
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "ram_bar_view"
+
+    const/4 v2, 0x0
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const v2, 0x8
+
+    const-string/jumbo v5, "ram_bar"
+
+    const-string v6, "id"
+
+    invoke-static {v5, v6}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v7
+
+    invoke-virtual {p0, v7}, Lcom/android/systemui/recents/RecentsActivity;->findViewById(I)Landroid/view/View;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v2}, Landroid/view/View;->setVisibility(I)V
+
+    goto/16 :goto_0
+
+    :cond_0
+    const v2, 0x3
+
+    const-string/jumbo v5, "ram_bar"
+
+    const-string v6, "id"
+
+    invoke-static {v5, v6}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v7
+
+    invoke-virtual {p0, v7}, Lcom/android/systemui/recents/RecentsActivity;->findViewById(I)Landroid/view/View;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v2}, Landroid/view/View;->setVisibility(I)V
+
+    :goto_0
     return-void
 .end method

@@ -17,3 +17,6 @@
 # virtual methods
 .method public abstract onDarkChanged(Landroid/graphics/Rect;FI)V
 .end method
+
+.method public abstract updateViews(F)V
+.end method

@@ -2230,6 +2230,8 @@ You're also connected to a VPN, which can monitor your network activity."</strin
     <string name="notification_save">Save</string>
     <string name="notification_settings_icon_description">App notification settings</string>
     <string name="notification_tap_again">Tap again to open</string>
+    <item type="string" name="APKTOOL_DUMMY_821">false</item>
+    <item type="string" name="APKTOOL_DUMMY_822">false</item>
     <string name="oem_preferred_feedback_reporter" />
     <string name="oem_unlock_enable">OEM unlocking</string>
     <string name="oem_unlock_enable_summary">Allow the bootloader to be unlocked</string>
@@ -2564,7 +2566,7 @@ disturb"</string>
 visibility"</string>
     <string name="quick_settings_tethering_label">Tethering</string>
     <string name="quick_settings_tiles">default</string>
-    <string name="quick_settings_tiles_default">Wifi,SoundMode,Bluetooth,RotationLock,Flashlight,AirplaneMode,PowerSaving,MobileData,BikeMode,Performance,BlueLightFilter,Hotspot,PersonalMode,SecureFolder,Location,Nfc,Aod,AllShareCast,DeviceVisibility,Dnd,Ebook,Sync,UDS,PowerPlanning,EdgeLighting,WifiCalling,Dolby</string>
+    <string name="quick_settings_tiles_default">Wifi,SoundMode,Bluetooth,RotationLock,Flashlight,ScreenCapture,ScreenRecorder,AirplaneMode,PowerSaving,MobileData,BikeMode,Performance,BlueLightFilter,Hotspot,PersonalMode,SecureFolder,Location,Nfc,Aod,AllShareCast,DeviceVisibility,Dnd,Ebook,Sync,UDS,PowerPlanning,EdgeLighting,WifiCalling,Dolby</string>
     <string name="quick_settings_tiles_retail_mode">cell,battery,dnd,flashlight,rotation,location</string>
     <string name="quick_settings_tiles_stock">wifi,cell,battery,dnd,flashlight,rotation,bt,airplane,location,hotspot,inversion,saver,work,cast,night</string>
     <string name="quick_settings_tiles_upsm">Wifi,Bluetooth,AirplaneMode,custom(com.sec.android.emergencymode.service/.PowerSavingTile),MobileData,Location</string>
@@ -3308,6 +3310,12 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="zen_priority_introduction">"You won\u0080\u0099t be disturbed by sounds and vibrations, except from alarms, reminders, events, and callers you specify. You'll still hear anything you choose to play including music, videos, and games."</string>
     <string name="zen_silence_introduction">This blocks ALL sounds and vibrations, including from alarms, music, videos, and games.</string>
     <string name="zen_silence_introduction_voice">This blocks ALL sounds and vibrations, including from alarms, music, videos, and games. You\u0080\u0099ll still be able to make phone calls.</string>
-    <item type="string" name="APKTOOL_DUMMY_821">false</item>
-    <item type="string" name="APKTOOL_DUMMY_822">false</item>
+    <item type="string" name="APKTOOL_DUMMY_7c9">false</item>
+    <item type="string" name="APKTOOL_DUMMY_7ca">false</item>
+    <string name="rebootrecovery">Recovery</string>
+    <string name="rebootrecovery2">Tap again to reboot to recovery</string>
+    <string name="global_action_screenshot">Screenshot</string>
+    <string name="screenrec">Screen Recorder</string>
+    <string name="service_background_processes">%1$s free</string>
+    <string name="service_foreground_processes">%1$s used</string>
 </resources>

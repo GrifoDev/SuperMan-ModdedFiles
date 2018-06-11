@@ -736,4 +736,38 @@
         <item>5</item>
         <item>10</item>
     </string-array>
+    <string-array name="device_info_keys">
+        <item>device_model</item>
+        <item>device_android_version</item>
+        <item>device_build_version</item>
+        <item>device_battery_level</item>
+        <item>device_network_name</item>
+        <item>device_wifi_info</item>
+        <item>device_next_alarm</item>
+        <item>device_up_time</item>
+    </string-array>
+    <string-array name="device_info_titles">
+        <item>Device model:</item>
+        <item>Android version:</item>
+        <item>Build version:</item>
+        <item>Battery level:</item>
+        <item>Network:</item>
+        <item>WiFi info:</item>
+        <item>Next alarm:</item>
+        <item>Up time:</item>
+    </string-array>
+    <string-array name="config_globalActionsList">
+        <item>power</item>
+        <item>datamode</item>
+        <item>airplane</item>
+        <item>restart</item>
+        <item>rebootrecovery</item>
+        <item>lockdown</item>
+        <item>bugreport</item>
+        <item>users</item>
+        <item>emergencymode</item>
+        <item>subscreen</item>
+        <item>screenshot</item>
+        <item>screenrec</item>
+    </string-array>
 </resources>

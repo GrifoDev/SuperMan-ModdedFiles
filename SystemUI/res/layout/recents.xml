@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
   xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ther.recents.MatrixEffect android:id="@id/recents_matrix_anim" android:layout_width="fill_parent" android:layout_height="fill_parent" />
     <ViewStub android:id="@id/recents_view_stub" android:inflatedId="@id/recents_view_inflate" android:layout_width="fill_parent" android:layout_height="fill_parent" />
     <ViewStub android:layout_gravity="center|top" android:id="@id/incompatible_app_overlay_stub" android:layout="@layout/recents_incompatible_app_overlay" android:inflatedId="@id/incompatible_app_overlay" android:layout_width="fill_parent" android:layout_height="128.0dip" />
     <ImageView android:layout_gravity="bottom|center" android:id="@id/nav_bar_scrim" android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="@drawable/recents_lower_gradient" android:scaleType="fitXY" />
@@ -18,4 +19,7 @@
         </LinearLayout>
         <View android:layout_gravity="end|center|top" android:id="@id/recents_more_menu_anchor" android:layout_width="10.0dip" android:layout_height="10.0dip" android:layout_margin="3.0dip" />
     </FrameLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@id/ram_bar" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dip" android:layout_weight="1.0">
+        <com.android.lg.rambar.aokpram android:layout_width="fill_parent" android:layout_height="30.0dip" />
+    </LinearLayout>
 </FrameLayout>

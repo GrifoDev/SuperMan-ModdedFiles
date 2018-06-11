@@ -38,6 +38,10 @@
 
 .field private mContentObserver:Landroid/database/ContentObserver;
 
+.field private mDarkIconColor:I
+
+.field private mNetSpeedColor:I
+
 .field private mNetworkSpeedManager:Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;
 
 .field private mNetworkStats:Z
@@ -725,18 +729,37 @@
 
     invoke-interface {v0, p0}, Lcom/android/systemui/statusbar/policy/DarkIconDispatcher;->addDarkReceiver(Lcom/android/systemui/statusbar/policy/DarkIconDispatcher$DarkReceiver;)V
 
+    const v0, -0x42000001    # -0.12499999f
+
+    iput v0, p0, Lcom/android/systemui/statusbar/policy/NetspeedView;->mNetSpeedColor:I
+
+    const v0, -0x67000000
+
+    iput v0, p0, Lcom/android/systemui/statusbar/policy/NetspeedView;->mDarkIconColor:I
+
+    const/4 v0, 0x0
+
+    int-to-float v0, v0
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/policy/NetspeedView;->updateViews(F)V
+
     :cond_0
     return-void
 .end method
 
 .method public onDarkChanged(Landroid/graphics/Rect;FI)V
-    .locals 1
+    .locals 2
 
-    invoke-static {p1, p0, p3}, Lcom/android/systemui/statusbar/policy/DarkIconDispatcher;->getTint(Landroid/graphics/Rect;Landroid/view/View;I)I
+    float-to-int v0, p2
 
-    move-result v0
+    iget v1, p0, Lcom/android/systemui/statusbar/policy/NetspeedView;->mDarkIconColor:I
 
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/policy/NetspeedView;->setTextColor(I)V
+    if-nez v0, :cond_0
+
+    iget v1, p0, Lcom/android/systemui/statusbar/policy/NetspeedView;->mNetSpeedColor:I
+
+    :cond_0
+    invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/policy/NetspeedView;->setTextColor(I)V
 
     return-void
 .end method
@@ -822,6 +845,20 @@
     return-void
 .end method
 
+.method public readRenovateMods()V
+    .locals 1
+
+    sget v0, Lcom/android/mwilky/Renovate;->mNetSpeedColor:I
+
+    iput v0, p0, Lcom/android/systemui/statusbar/policy/NetspeedView;->mNetSpeedColor:I
+
+    sget v0, Lcom/android/mwilky/Renovate;->mDarkIconColor:I
+
+    iput v0, p0, Lcom/android/systemui/statusbar/policy/NetspeedView;->mDarkIconColor:I
+
+    return-void
+.end method
+
 .method public setForceHideView(Z)V
     .locals 1
 
@@ -840,6 +877,25 @@
     check-cast p2, Ljava/lang/String;
 
     invoke-virtual {p0, p2}, Lcom/android/systemui/statusbar/policy/NetspeedView;->setText(Ljava/lang/CharSequence;)V
+
+    return-void
+.end method
+
+.method public updateViews(F)V
+    .locals 2
+
+    float-to-int v0, p1
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/NetspeedView;->readRenovateMods()V
+
+    iget v1, p0, Lcom/android/systemui/statusbar/policy/NetspeedView;->mDarkIconColor:I
+
+    if-nez v0, :cond_0
+
+    iget v1, p0, Lcom/android/systemui/statusbar/policy/NetspeedView;->mNetSpeedColor:I
+
+    :cond_0
+    invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/policy/NetspeedView;->setTextColor(I)V
 
     return-void
 .end method
