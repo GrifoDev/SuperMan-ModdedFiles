@@ -35,61 +35,21 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .locals 3
 
-    const-string/jumbo v2, ""
+    iget-object v0, p0, Lcom/android/server/policy/CombinationKeyManager$3;->this$0:Lcom/android/server/policy/CombinationKeyManager;
 
-    const-string/jumbo v3, "RestrictedInput"
+    iget-object v0, v0, Lcom/android/server/policy/CombinationKeyManager;->mSPWM:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    iget-object v1, p0, Lcom/android/server/policy/CombinationKeyManager$3;->this$0:Lcom/android/server/policy/CombinationKeyManager;
 
-    move-result v2
+    invoke-static {v1}, Lcom/android/server/policy/CombinationKeyManager;->-get1(Lcom/android/server/policy/CombinationKeyManager;)Z
 
-    if-eqz v2, :cond_0
+    move-result v1
 
-    :try_start_0
-    new-instance v1, Landroid/content/Intent;
+    const/4 v2, 0x1
 
-    const-string/jumbo v2, "android.intent.action.MAIN"
+    invoke-virtual {v0, v2, v1}, Lcom/android/server/policy/SamsungPhoneWindowManager;->takeScreenshot(IZ)V
 
-    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    const/high16 v2, 0x10000000
-
-    invoke-virtual {v1, v2}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
-
-    const-string/jumbo v2, "com.sec.android.app.servicemodeapp"
-
-    const-string/jumbo v3, "com.sec.android.app.servicemodeapp.SysDump"
-
-    invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    const-string/jumbo v2, "remote"
-
-    const/4 v3, 0x1
-
-    invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
-
-    const-string/jumbo v2, "noti"
-
-    const/4 v3, 0x1
-
-    invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
-
-    iget-object v2, p0, Lcom/android/server/policy/CombinationKeyManager$3;->this$0:Lcom/android/server/policy/CombinationKeyManager;
-
-    iget-object v2, v2, Lcom/android/server/policy/CombinationKeyManager;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v2, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
-    :try_end_0
-    .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :cond_0
-    :goto_0
     return-void
-
-    :catch_0
-    move-exception v0
-
-    goto :goto_0
 .end method

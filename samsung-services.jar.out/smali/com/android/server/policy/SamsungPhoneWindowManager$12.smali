@@ -35,19 +35,20 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$12;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    const/4 v1, 0x0
+    invoke-static {v0}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-wrap2(Lcom/android/server/policy/SamsungPhoneWindowManager;)Z
 
-    invoke-static {v0, v1}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-wrap2(Lcom/android/server/policy/SamsungPhoneWindowManager;I)V
+    move-result v0
+
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$12;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    iget-object v0, v0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mTorchlightWakeLock:Landroid/os/PowerManager$WakeLock;
+    invoke-static {v0}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-wrap6(Lcom/android/server/policy/SamsungPhoneWindowManager;)V
 
-    invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
-
+    :cond_0
     return-void
 .end method

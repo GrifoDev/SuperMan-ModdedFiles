@@ -24,6 +24,8 @@
 
 .field private final mContext:Landroid/content/Context;
 
+.field private mEdgeLightingManager:Lcom/android/server/cocktailbar/edgelighting/EdgeLightingManager;
+
 .field private final mHandler:Landroid/os/Handler;
 
 .field private mTurnOffWakeUpCocktailBarRunnable:Lcom/android/server/cocktailbar/CocktailBarManagerService$TurnOffWakeUpCocktailBarRunnable;
@@ -46,6 +48,14 @@
     return-object v0
 .end method
 
+.method static synthetic -get2(Lcom/android/server/cocktailbar/CocktailBarManagerService;)Lcom/android/server/cocktailbar/edgelighting/EdgeLightingManager;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/cocktailbar/CocktailBarManagerService;->mEdgeLightingManager:Lcom/android/server/cocktailbar/edgelighting/EdgeLightingManager;
+
+    return-object v0
+.end method
+
 .method static synthetic -wrap0(Lcom/android/server/cocktailbar/CocktailBarManagerService;ILjava/lang/String;)V
     .locals 0
 
@@ -54,15 +64,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap1(Lcom/android/server/cocktailbar/CocktailBarManagerService;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/cocktailbar/CocktailBarManagerService;->updateCocktailBarStateFromWindowManagerInternal(I)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap2(Lcom/android/server/cocktailbar/CocktailBarManagerService;Z)V
+.method static synthetic -wrap1(Lcom/android/server/cocktailbar/CocktailBarManagerService;Z)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/cocktailbar/CocktailBarManagerService;->updateSysfsGripDisableFromWindowManagerInternal(Z)V
@@ -70,7 +72,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap3(Lcom/android/server/cocktailbar/CocktailBarManagerService;ZII)V
+.method static synthetic -wrap2(Lcom/android/server/cocktailbar/CocktailBarManagerService;ZII)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3}, Lcom/android/server/cocktailbar/CocktailBarManagerService;->wakupCocktailBarFromWindowManagerInternal(ZII)V
@@ -104,6 +106,12 @@
     invoke-direct {v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
     iput-object v0, p0, Lcom/android/server/cocktailbar/CocktailBarManagerService;->mHandler:Landroid/os/Handler;
+
+    new-instance v0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingManager;
+
+    invoke-direct {v0, p1}, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingManager;-><init>(Landroid/content/Context;)V
+
+    iput-object v0, p0, Lcom/android/server/cocktailbar/CocktailBarManagerService;->mEdgeLightingManager:Lcom/android/server/cocktailbar/edgelighting/EdgeLightingManager;
 
     return-void
 .end method
@@ -238,16 +246,6 @@
     .end packed-switch
 .end method
 
-.method private updateCocktailBarStateFromWindowManagerInternal(I)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/cocktailbar/CocktailBarManagerService;->mCocktailBarService:Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;
-
-    invoke-virtual {v0, p1}, Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;->updateCocktailBarStateFromSystemInternal(I)V
-
-    return-void
-.end method
-
 .method private updateSysfsGripDisableFromWindowManagerInternal(Z)V
     .locals 0
 
@@ -271,52 +269,9 @@
 .method public onBootPhase(I)V
     .locals 2
 
-    const/16 v0, 0x258
-
-    if-ne p1, v0, :cond_1
-
-    invoke-virtual {p0}, Lcom/android/server/cocktailbar/CocktailBarManagerService;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/samsung/android/cocktailbar/CocktailBarFeatures;->isSupportCocktailBar(Landroid/content/Context;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    const-string/jumbo v0, "CocktailBarManagerService"
-
-    const-string/jumbo v1, "PHASE_THIRD_PARTY_APPS_CAN_START"
-
-    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v0, p0, Lcom/android/server/cocktailbar/CocktailBarManagerService;->mCocktailBarService:Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;
-
-    invoke-virtual {p0}, Lcom/android/server/cocktailbar/CocktailBarManagerService;->isSafeMode()Z
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;->systemRunning(Z)V
-
-    :cond_0
-    :goto_0
-    return-void
-
-    :cond_1
     const/16 v0, 0x3e8
 
     if-ne p1, v0, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/server/cocktailbar/CocktailBarManagerService;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/samsung/android/cocktailbar/CocktailBarFeatures;->isSupportCocktailBar(Landroid/content/Context;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
 
     const-string/jumbo v0, "CocktailBarManagerService"
 
@@ -332,7 +287,12 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;->systemRunning(Z)V
 
-    goto :goto_0
+    iget-object v0, p0, Lcom/android/server/cocktailbar/CocktailBarManagerService;->mEdgeLightingManager:Lcom/android/server/cocktailbar/edgelighting/EdgeLightingManager;
+
+    invoke-virtual {v0}, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingManager;->onBootCompleted()V
+
+    :cond_0
+    return-void
 .end method
 
 .method public onCleanupUser(I)V
@@ -368,6 +328,8 @@
 .method public onStart()V
     .locals 3
 
+    const/4 v2, 0x0
+
     const-string/jumbo v0, "CocktailBarService"
 
     iget-object v1, p0, Lcom/android/server/cocktailbar/CocktailBarManagerService;->mCocktailBarService:Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;
@@ -378,9 +340,23 @@
 
     new-instance v1, Lcom/android/server/cocktailbar/CocktailBarManagerService$CocktalBarLocalService;
 
-    const/4 v2, 0x0
-
     invoke-direct {v1, p0, v2}, Lcom/android/server/cocktailbar/CocktailBarManagerService$CocktalBarLocalService;-><init>(Lcom/android/server/cocktailbar/CocktailBarManagerService;Lcom/android/server/cocktailbar/CocktailBarManagerService$CocktalBarLocalService;)V
+
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/cocktailbar/CocktailBarManagerService;->publishLocalService(Ljava/lang/Class;Ljava/lang/Object;)V
+
+    const-string/jumbo v0, "edge"
+
+    new-instance v1, Lcom/android/server/cocktailbar/CocktailBarManagerService$EdgeManagerService;
+
+    invoke-direct {v1, p0, v2}, Lcom/android/server/cocktailbar/CocktailBarManagerService$EdgeManagerService;-><init>(Lcom/android/server/cocktailbar/CocktailBarManagerService;Lcom/android/server/cocktailbar/CocktailBarManagerService$EdgeManagerService;)V
+
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/cocktailbar/CocktailBarManagerService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
+
+    const-class v0, Lcom/samsung/android/edge/EdgeManagerInternal;
+
+    new-instance v1, Lcom/android/server/cocktailbar/CocktailBarManagerService$EdgeLightingLocalService;
+
+    invoke-direct {v1, p0, v2}, Lcom/android/server/cocktailbar/CocktailBarManagerService$EdgeLightingLocalService;-><init>(Lcom/android/server/cocktailbar/CocktailBarManagerService;Lcom/android/server/cocktailbar/CocktailBarManagerService$EdgeLightingLocalService;)V
 
     invoke-virtual {p0, v0, v1}, Lcom/android/server/cocktailbar/CocktailBarManagerService;->publishLocalService(Ljava/lang/Class;Ljava/lang/Object;)V
 
@@ -456,6 +432,10 @@
 
     invoke-virtual {v0, p1}, Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;->onUserSwitched(I)V
 
+    iget-object v0, p0, Lcom/android/server/cocktailbar/CocktailBarManagerService;->mEdgeLightingManager:Lcom/android/server/cocktailbar/edgelighting/EdgeLightingManager;
+
+    invoke-virtual {v0, p1}, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingManager;->onSwitchUser(I)V
+
     const-string/jumbo v0, "CocktailBarManagerService"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -511,6 +491,10 @@
     iget-object v0, p0, Lcom/android/server/cocktailbar/CocktailBarManagerService;->mCocktailBarService:Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;
 
     invoke-virtual {v0, p1}, Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;->onUnlockUser(I)V
+
+    iget-object v0, p0, Lcom/android/server/cocktailbar/CocktailBarManagerService;->mEdgeLightingManager:Lcom/android/server/cocktailbar/edgelighting/EdgeLightingManager;
+
+    invoke-virtual {v0, p1}, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingManager;->onUnlockUser(I)V
 
     return-void
 .end method

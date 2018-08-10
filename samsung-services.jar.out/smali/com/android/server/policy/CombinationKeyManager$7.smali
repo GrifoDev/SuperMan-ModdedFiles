@@ -35,55 +35,38 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .locals 3
 
     invoke-static {}, Lcom/android/server/policy/CombinationKeyManager;->-get0()Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_0
 
-    const-string/jumbo v2, "CombinationKeyManager"
+    const-string/jumbo v1, "CombinationKeyManager"
 
-    const-string/jumbo v3, "mFactoryTestChordLongPress : startActivity"
+    const-string/jumbo v2, "startService Camera QuickShot"
 
-    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    new-instance v1, Landroid/content/Intent;
+    new-instance v0, Landroid/content/Intent;
 
-    invoke-direct {v1}, Landroid/content/Intent;-><init>()V
+    const-string/jumbo v1, "com.sec.android.app.camera.QuickLauncher"
 
-    const-string/jumbo v2, "com.sec.factory"
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const-string/jumbo v3, "com.sec.factory.app.factorytest.FactoryTestMain"
+    const-string/jumbo v1, "QuickShot"
 
-    invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    const/4 v2, 0x1
 
-    const/high16 v2, 0x34000000
+    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    invoke-virtual {v1, v2}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+    iget-object v1, p0, Lcom/android/server/policy/CombinationKeyManager$7;->this$0:Lcom/android/server/policy/CombinationKeyManager;
 
-    :try_start_0
-    iget-object v2, p0, Lcom/android/server/policy/CombinationKeyManager$7;->this$0:Lcom/android/server/policy/CombinationKeyManager;
+    iget-object v1, v1, Lcom/android/server/policy/CombinationKeyManager;->mContext:Landroid/content/Context;
 
-    iget-object v2, v2, Lcom/android/server/policy/CombinationKeyManager;->mContext:Landroid/content/Context;
+    invoke-virtual {v1, v0}, Landroid/content/Context;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
 
-    invoke-virtual {v2, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
-    :try_end_0
-    .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_0
     return-void
-
-    :catch_0
-    move-exception v0
-
-    const-string/jumbo v2, "CombinationKeyManager"
-
-    const-string/jumbo v3, "No activity to launch factorytestmain."
-
-    invoke-static {v2, v3, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_0
 .end method

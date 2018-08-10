@@ -77,7 +77,7 @@
 
 .field private mPolicyWindowVisiblity:Z
 
-.field mSPWM:Lcom/android/server/policy/SamsungWindowManagerPolicy;
+.field mSPWM:Lcom/android/server/policy/IPhoneWindowManagerBridge;
 
 .field private final mServiceAquireLock:Ljava/lang/Object;
 
@@ -182,202 +182,131 @@
 .end method
 
 .method private checkTopFullscreenOpaqueWindowState(Landroid/view/WindowManagerPolicy$WindowState;Landroid/view/WindowManager$LayoutParams;Z)Z
-    .locals 6
+    .locals 5
 
-    const/4 v5, 0x1
+    const/4 v4, 0x1
 
-    const/4 v4, -0x1
+    const/4 v3, -0x1
 
-    const/4 v3, -0x2
+    const/4 v2, -0x2
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    iget v0, p2, Landroid/view/WindowManager$LayoutParams;->type:I
-
-    const/16 v1, 0x62
-
-    if-ne v0, v1, :cond_0
-
-    return v2
-
-    :cond_0
     iget v0, p2, Landroid/view/WindowManager$LayoutParams;->x:I
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_2
 
     iget v0, p2, Landroid/view/WindowManager$LayoutParams;->y:I
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_2
 
     iget v0, p2, Landroid/view/WindowManager$LayoutParams;->width:I
 
-    if-ne v0, v4, :cond_1
+    if-ne v0, v3, :cond_0
 
     iget v0, p2, Landroid/view/WindowManager$LayoutParams;->height:I
 
-    if-ne v0, v4, :cond_1
+    if-ne v0, v3, :cond_0
 
-    return v5
+    return v4
+
+    :cond_0
+    if-eqz p3, :cond_2
+
+    iget v0, p2, Landroid/view/WindowManager$LayoutParams;->width:I
+
+    if-eq v0, v2, :cond_1
+
+    iget v0, p2, Landroid/view/WindowManager$LayoutParams;->height:I
+
+    if-ne v0, v2, :cond_2
 
     :cond_1
-    if-eqz p3, :cond_3
-
-    iget v0, p2, Landroid/view/WindowManager$LayoutParams;->width:I
-
-    if-eq v0, v3, :cond_2
-
-    iget v0, p2, Landroid/view/WindowManager$LayoutParams;->height:I
-
-    if-ne v0, v3, :cond_3
+    return v4
 
     :cond_2
-    return v5
-
-    :cond_3
-    return v2
+    return v1
 .end method
 
 .method private getPolicyWindowType()I
-    .locals 9
+    .locals 6
 
-    const/high16 v8, 0x20000000
+    const/4 v5, 0x5
 
-    const/4 v7, 0x5
+    const/4 v4, 0x1
 
-    const/4 v6, 0x1
+    iget-object v3, p0, Lcom/android/server/policy/EdgeWindowManager;->mPolicyWindowState:Landroid/view/WindowManagerPolicy$WindowState;
 
-    const/4 v5, 0x0
+    if-eqz v3, :cond_4
 
-    iget-object v4, p0, Lcom/android/server/policy/EdgeWindowManager;->mPolicyWindowState:Landroid/view/WindowManagerPolicy$WindowState;
+    iget-object v3, p0, Lcom/android/server/policy/EdgeWindowManager;->mPolicyWindowState:Landroid/view/WindowManagerPolicy$WindowState;
 
-    if-eqz v4, :cond_8
+    invoke-interface {v3}, Landroid/view/WindowManagerPolicy$WindowState;->getAttrs()Landroid/view/WindowManager$LayoutParams;
 
-    iget-object v4, p0, Lcom/android/server/policy/EdgeWindowManager;->mPolicyWindowState:Landroid/view/WindowManagerPolicy$WindowState;
+    move-result-object v2
 
-    invoke-interface {v4}, Landroid/view/WindowManagerPolicy$WindowState;->getAttrs()Landroid/view/WindowManager$LayoutParams;
+    const/4 v1, 0x0
 
-    move-result-object v3
+    iget-object v3, p0, Lcom/android/server/policy/EdgeWindowManager;->mPolicyWindowState:Landroid/view/WindowManagerPolicy$WindowState;
 
-    const/4 v2, 0x0
+    invoke-interface {v3}, Landroid/view/WindowManagerPolicy$WindowState;->getBaseType()I
 
-    iget-object v4, p0, Lcom/android/server/policy/EdgeWindowManager;->mPolicyAppWindowState:Landroid/view/WindowManagerPolicy$WindowState;
+    move-result v0
 
-    if-eqz v4, :cond_0
+    sparse-switch v0, :sswitch_data_0
 
-    iget-object v4, p0, Lcom/android/server/policy/EdgeWindowManager;->mPolicyAppWindowState:Landroid/view/WindowManagerPolicy$WindowState;
+    if-lt v0, v4, :cond_0
 
-    invoke-interface {v4}, Landroid/view/WindowManagerPolicy$WindowState;->isAnimatingLw()Z
+    const/16 v3, 0x7cf
 
-    move-result v4
-
-    if-eqz v4, :cond_2
+    if-le v0, v3, :cond_3
 
     :cond_0
-    iget-object v4, p0, Lcom/android/server/policy/EdgeWindowManager;->mPolicyWindowState:Landroid/view/WindowManagerPolicy$WindowState;
+    const/4 v3, 0x6
 
-    invoke-interface {v4}, Landroid/view/WindowManagerPolicy$WindowState;->getBaseType()I
-
-    move-result v1
-
-    sparse-switch v1, :sswitch_data_0
-
-    if-lt v1, v6, :cond_1
-
-    const/16 v4, 0x7cf
-
-    if-le v1, v4, :cond_7
-
-    :cond_1
-    const/4 v4, 0x6
-
-    return v4
-
-    :cond_2
-    iget-object v4, p0, Lcom/android/server/policy/EdgeWindowManager;->mPolicyAppWindowState:Landroid/view/WindowManagerPolicy$WindowState;
-
-    invoke-interface {v4}, Landroid/view/WindowManagerPolicy$WindowState;->getAttrs()Landroid/view/WindowManager$LayoutParams;
-
-    move-result-object v0
-
-    iget v4, v0, Landroid/view/WindowManager$LayoutParams;->samsungFlags:I
-
-    and-int/2addr v4, v8
-
-    if-eqz v4, :cond_0
-
-    iget v4, v3, Landroid/view/WindowManager$LayoutParams;->samsungFlags:I
-
-    and-int/2addr v4, v8
-
-    if-nez v4, :cond_3
-
-    iget-object v4, p0, Lcom/android/server/policy/EdgeWindowManager;->mPolicyWindowState:Landroid/view/WindowManagerPolicy$WindowState;
-
-    invoke-direct {p0, v4, v3, v5}, Lcom/android/server/policy/EdgeWindowManager;->checkTopFullscreenOpaqueWindowState(Landroid/view/WindowManagerPolicy$WindowState;Landroid/view/WindowManager$LayoutParams;Z)Z
-
-    move-result v4
-
-    if-nez v4, :cond_0
-
-    :cond_3
-    const/4 v4, 0x2
-
-    return v4
+    return v3
 
     :sswitch_0
-    const/16 v4, 0x8
+    const/16 v3, 0x8
 
-    return v4
+    return v3
 
     :sswitch_1
-    return v7
+    return v5
 
     :sswitch_2
-    iget v4, v3, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
+    iget v3, v2, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
 
-    and-int/lit16 v4, v4, 0x400
+    and-int/lit16 v3, v3, 0x400
 
-    if-eqz v4, :cond_4
+    if-eqz v3, :cond_1
 
-    return v7
+    return v5
 
-    :cond_4
-    iget v4, v3, Landroid/view/WindowManager$LayoutParams;->samsungFlags:I
+    :cond_1
+    if-eqz v1, :cond_2
 
-    const/high16 v5, 0x10000000
+    const/4 v3, 0x3
 
-    and-int/2addr v4, v5
+    return v3
 
-    if-eqz v4, :cond_5
+    :cond_2
+    iget v3, p0, Lcom/android/server/policy/EdgeWindowManager;->mPolicyWindowType:I
 
-    const/4 v4, 0x7
-
-    return v4
-
-    :cond_5
-    if-eqz v2, :cond_6
-
-    const/4 v4, 0x3
-
-    return v4
-
-    :cond_6
-    iget v4, p0, Lcom/android/server/policy/EdgeWindowManager;->mPolicyWindowType:I
-
-    return v4
+    return v3
 
     :sswitch_3
-    const/4 v4, 0x4
+    const/4 v3, 0x4
 
+    return v3
+
+    :cond_3
     return v4
 
-    :cond_7
-    return v6
+    :cond_4
+    iget v3, p0, Lcom/android/server/policy/EdgeWindowManager;->mPolicyWindowType:I
 
-    :cond_8
-    iget v4, p0, Lcom/android/server/policy/EdgeWindowManager;->mPolicyWindowType:I
-
-    return v4
+    return v3
 
     :sswitch_data_0
     .sparse-switch
@@ -386,7 +315,6 @@
         0x7db -> :sswitch_3
         0x7dc -> :sswitch_3
         0x8ad -> :sswitch_0
-        0x960 -> :sswitch_3
     .end sparse-switch
 .end method
 
@@ -407,7 +335,7 @@
 
     iget-object v1, p0, Lcom/android/server/policy/EdgeWindowManager;->mCocktailBar:Landroid/view/WindowManagerPolicy$WindowState;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1
 
     iget-object v1, p0, Lcom/android/server/policy/EdgeWindowManager;->mPolicyWindowState:Landroid/view/WindowManagerPolicy$WindowState;
 
@@ -480,29 +408,6 @@
     iput-object p1, p0, Lcom/android/server/policy/EdgeWindowManager;->mPolicyAppWindowState:Landroid/view/WindowManagerPolicy$WindowState;
 
     :cond_1
-    iget-object v1, p0, Lcom/android/server/policy/EdgeWindowManager;->mCurrentInputMethodTarget:Landroid/view/WindowManagerPolicy$WindowState;
-
-    if-eqz v1, :cond_2
-
-    iget v1, p3, Landroid/view/WindowManager$LayoutParams;->type:I
-
-    const/16 v2, 0x62
-
-    if-ne v1, v2, :cond_2
-
-    iget-object v1, p0, Lcom/android/server/policy/EdgeWindowManager;->mCurrentInputMethodTarget:Landroid/view/WindowManagerPolicy$WindowState;
-
-    invoke-interface {v1}, Landroid/view/WindowManagerPolicy$WindowState;->getAppToken()Landroid/view/IApplicationToken;
-
-    move-result-object v1
-
-    invoke-interface {p1}, Landroid/view/WindowManagerPolicy$WindowState;->getAppToken()Landroid/view/IApplicationToken;
-
-    move-result-object v2
-
-    if-ne v1, v2, :cond_2
-
-    :cond_2
     return-void
 
     :sswitch_0
@@ -517,8 +422,6 @@
         0x3 -> :sswitch_0
         0x7d6 -> :sswitch_0
         0x8ae -> :sswitch_0
-        0x8ca -> :sswitch_0
-        0x8cf -> :sswitch_0
     .end sparse-switch
 .end method
 
@@ -881,7 +784,7 @@
     throw v0
 .end method
 
-.method public init(Landroid/content/Context;Landroid/view/IWindowManager;Landroid/view/WindowManagerPolicy$WindowManagerFuncs;Lcom/android/server/policy/SamsungWindowManagerPolicy;Lcom/android/server/policy/SystemGesturesPointerEventListener;Lcom/android/server/policy/PhoneWindowManager;)V
+.method public init(Landroid/content/Context;Landroid/view/IWindowManager;Landroid/view/WindowManagerPolicy$WindowManagerFuncs;Lcom/android/server/policy/IPhoneWindowManagerBridge;Lcom/android/server/policy/SystemGesturesPointerEventListener;Lcom/android/server/policy/PhoneWindowManager;)V
     .locals 2
 
     iput-object p1, p0, Lcom/android/server/policy/EdgeWindowManager;->mContext:Landroid/content/Context;
@@ -900,7 +803,7 @@
 
     iput-object v0, p0, Lcom/android/server/policy/EdgeWindowManager;->mWindowManagerInternal:Landroid/view/WindowManagerInternal;
 
-    iput-object p4, p0, Lcom/android/server/policy/EdgeWindowManager;->mSPWM:Lcom/android/server/policy/SamsungWindowManagerPolicy;
+    iput-object p4, p0, Lcom/android/server/policy/EdgeWindowManager;->mSPWM:Lcom/android/server/policy/IPhoneWindowManagerBridge;
 
     iput-object p5, p0, Lcom/android/server/policy/EdgeWindowManager;->mSystemGestures:Lcom/android/server/policy/SystemGesturesPointerEventListener;
 
@@ -953,7 +856,7 @@
 
     move-result-object v1
 
-    sget v2, Lcom/samsung/android/framework/res/R$dimen;->cocktail_bar_size:I
+    const v2, 0x105003f
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -971,7 +874,7 @@
 
     move-result-object v1
 
-    const v2, 0x1050017
+    const v2, 0x10502ba
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1067,9 +970,9 @@
 .method public isCocktailRotationAnimationNeeded()Z
     .locals 1
 
-    iget-object v0, p0, Lcom/android/server/policy/EdgeWindowManager;->mSPWM:Lcom/android/server/policy/SamsungWindowManagerPolicy;
+    iget-object v0, p0, Lcom/android/server/policy/EdgeWindowManager;->mSPWM:Lcom/android/server/policy/IPhoneWindowManagerBridge;
 
-    invoke-interface {v0}, Lcom/android/server/policy/SamsungWindowManagerPolicy;->isForceHideBySViewCover()Z
+    invoke-interface {v0}, Lcom/android/server/policy/IPhoneWindowManagerBridge;->isForceHideBySViewCover()Z
 
     move-result v0
 
@@ -1147,15 +1050,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    const/4 v0, 0x0
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
 
     return v0
 
-    :cond_1
-    const/4 v0, 0x1
+    :cond_0
+    const/4 v0, 0x0
 
     return v0
 .end method
@@ -1182,36 +1086,6 @@
     .packed-switch 0x8ac
         :pswitch_0
     .end packed-switch
-.end method
-
-.method public needForceHide(Landroid/view/WindowManagerPolicy$WindowState;)Z
-    .locals 3
-
-    const/4 v0, 0x0
-
-    if-eqz p1, :cond_1
-
-    invoke-interface {p1}, Landroid/view/WindowManagerPolicy$WindowState;->getAttrs()Landroid/view/WindowManager$LayoutParams;
-
-    move-result-object v1
-
-    iget v1, v1, Landroid/view/WindowManager$LayoutParams;->type:I
-
-    const/16 v2, 0x62
-
-    if-ne v1, v2, :cond_1
-
-    iget-object v1, p0, Lcom/android/server/policy/EdgeWindowManager;->mFocusedFloatingSubWindow:Landroid/view/WindowManagerPolicy$WindowState;
-
-    if-ne p1, v1, :cond_0
-
-    const/4 v0, 0x1
-
-    :cond_0
-    return v0
-
-    :cond_1
-    return v0
 .end method
 
 .method public prepareAddWindowLw(Landroid/view/WindowManagerPolicy$WindowState;Landroid/view/WindowManager$LayoutParams;)I
@@ -1442,7 +1316,11 @@
 
     if-nez v1, :cond_0
 
-    if-eqz p3, :cond_1
+    xor-int/lit8 v1, p3, 0x1
+
+    if-eqz v1, :cond_0
+
+    return-void
 
     :cond_0
     iget-object v1, p0, Lcom/android/server/policy/EdgeWindowManager;->mHandler:Landroid/os/Handler;
@@ -1451,28 +1329,25 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_2
 
     iget v1, p0, Lcom/android/server/policy/EdgeWindowManager;->mEdgeScreenWakeupReason:I
 
-    if-ne v1, p2, :cond_2
+    if-ne v1, p2, :cond_1
 
     return-void
 
     :cond_1
-    return-void
-
-    :cond_2
     iget-object v1, p0, Lcom/android/server/policy/EdgeWindowManager;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v1, v4}, Landroid/os/Handler;->removeMessages(I)V
 
-    :cond_3
+    :cond_2
     iput p2, p0, Lcom/android/server/policy/EdgeWindowManager;->mEdgeScreenWakeupReason:I
 
     iget-object v2, p0, Lcom/android/server/policy/EdgeWindowManager;->mHandler:Landroid/os/Handler;
 
-    if-eqz p3, :cond_4
+    if-eqz p3, :cond_3
 
     iget v1, p0, Lcom/android/server/policy/EdgeWindowManager;->mWakeupKeyCode:I
 
@@ -1493,7 +1368,7 @@
 
     return-void
 
-    :cond_4
+    :cond_3
     const/4 v1, -0x1
 
     goto :goto_0
@@ -1632,13 +1507,13 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x10a008a
+    const v0, 0x10a0087
 
     const/4 v1, 0x0
 
     aput v0, p1, v1
 
-    const v0, 0x10a0089
+    const v0, 0x10a0086
 
     const/4 v1, 0x1
 
@@ -1688,94 +1563,94 @@
 .method public updateCocktailBarVisibility(Z)Z
     .locals 6
 
-    const/4 v2, 0x0
+    const/4 v5, 0x0
 
-    const/4 v1, 0x1
+    const/4 v4, 0x1
 
     const/4 v0, 0x0
 
-    iget-object v3, p0, Lcom/android/server/policy/EdgeWindowManager;->mCocktailBar:Landroid/view/WindowManagerPolicy$WindowState;
+    iget-object v1, p0, Lcom/android/server/policy/EdgeWindowManager;->mCocktailBar:Landroid/view/WindowManagerPolicy$WindowState;
 
-    if-eqz v3, :cond_3
+    if-eqz v1, :cond_3
 
-    iget-boolean v3, p0, Lcom/android/server/policy/EdgeWindowManager;->mPolicyWindowVisiblity:Z
+    iget-boolean v1, p0, Lcom/android/server/policy/EdgeWindowManager;->mPolicyWindowVisiblity:Z
 
-    if-eq v3, p1, :cond_0
+    if-eq v1, p1, :cond_0
 
-    move v0, v1
+    const/4 v0, 0x1
 
     :goto_0
     if-eqz v0, :cond_3
 
     iput-boolean p1, p0, Lcom/android/server/policy/EdgeWindowManager;->mPolicyWindowVisiblity:Z
 
-    const-string/jumbo v3, "EdgeWindowManager"
+    const-string/jumbo v1, "EdgeWindowManager"
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v5, "updateCocktailBarVisibility : "
+    const-string/jumbo v3, "updateCocktailBarVisibility : "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
-
-    iget-boolean v5, p0, Lcom/android/server/policy/EdgeWindowManager;->mPolicyWindowVisiblity:Z
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget v3, p0, Lcom/android/server/policy/EdgeWindowManager;->mPolicyWindowType:I
-
-    const/4 v4, 0x2
-
-    if-ne v3, v4, :cond_2
+    move-result-object v2
 
     iget-boolean v3, p0, Lcom/android/server/policy/EdgeWindowManager;->mPolicyWindowVisiblity:Z
 
-    if-eqz v3, :cond_1
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    iget-object v3, p0, Lcom/android/server/policy/EdgeWindowManager;->mCocktailBar:Landroid/view/WindowManagerPolicy$WindowState;
+    move-result-object v2
 
-    invoke-interface {v3, v1}, Landroid/view/WindowManagerPolicy$WindowState;->showLw(Z)Z
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget v1, p0, Lcom/android/server/policy/EdgeWindowManager;->mPolicyWindowType:I
+
+    const/4 v2, 0x2
+
+    if-ne v1, v2, :cond_2
+
+    iget-boolean v1, p0, Lcom/android/server/policy/EdgeWindowManager;->mPolicyWindowVisiblity:Z
+
+    if-eqz v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/server/policy/EdgeWindowManager;->mCocktailBar:Landroid/view/WindowManagerPolicy$WindowState;
+
+    invoke-interface {v1, v4}, Landroid/view/WindowManagerPolicy$WindowState;->showLw(Z)Z
 
     :goto_1
-    return v2
+    return v5
 
     :cond_0
-    move v0, v2
+    const/4 v0, 0x0
 
     goto :goto_0
 
     :cond_1
-    iget-object v3, p0, Lcom/android/server/policy/EdgeWindowManager;->mCocktailBar:Landroid/view/WindowManagerPolicy$WindowState;
+    iget-object v1, p0, Lcom/android/server/policy/EdgeWindowManager;->mCocktailBar:Landroid/view/WindowManagerPolicy$WindowState;
 
-    invoke-interface {v3, v1}, Landroid/view/WindowManagerPolicy$WindowState;->hideLw(Z)Z
+    invoke-interface {v1, v4}, Landroid/view/WindowManagerPolicy$WindowState;->hideLw(Z)Z
 
     goto :goto_1
 
     :cond_2
-    iget-boolean v3, p0, Lcom/android/server/policy/EdgeWindowManager;->mPolicyWindowVisiblity:Z
+    iget-boolean v1, p0, Lcom/android/server/policy/EdgeWindowManager;->mPolicyWindowVisiblity:Z
 
-    if-eqz v3, :cond_3
+    if-eqz v1, :cond_3
 
-    iget-object v3, p0, Lcom/android/server/policy/EdgeWindowManager;->mCocktailBar:Landroid/view/WindowManagerPolicy$WindowState;
+    iget-object v1, p0, Lcom/android/server/policy/EdgeWindowManager;->mCocktailBar:Landroid/view/WindowManagerPolicy$WindowState;
 
-    invoke-interface {v3, v1}, Landroid/view/WindowManagerPolicy$WindowState;->showLw(Z)Z
+    invoke-interface {v1, v4}, Landroid/view/WindowManagerPolicy$WindowState;->showLw(Z)Z
 
     move-result v1
 
     if-eqz v1, :cond_3
 
-    return v2
+    return v5
 
     :cond_3
     return v0

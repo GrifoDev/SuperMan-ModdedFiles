@@ -92,13 +92,13 @@
 
     check-cast v1, Lcom/android/server/policy/PhoneWindowManager;
 
-    invoke-virtual {v1}, Lcom/android/server/policy/PhoneWindowManager;->getSamsungPolicy()Lcom/android/server/policy/SamsungWindowManagerPolicy;
+    invoke-virtual {v1}, Lcom/android/server/policy/PhoneWindowManager;->getSamsungPolicy()Lcom/android/server/policy/IPhoneWindowManagerBridge;
 
     move-result-object v1
 
     const-wide/16 v2, 0x1
 
-    invoke-interface {v1, v2, v3, v5}, Lcom/android/server/policy/SamsungWindowManagerPolicy;->notifyCoverSwitchStateChanged(JZ)V
+    invoke-interface {v1, v2, v3, v5}, Lcom/android/server/policy/IPhoneWindowManagerBridge;->notifyCoverSwitchStateChanged(JZ)V
 
     goto :goto_0
 
@@ -107,7 +107,7 @@
 
     iget-object v1, v1, Lcom/android/server/wm/SamsungWindowManagerService;->mService:Lcom/android/server/wm/WindowManagerService;
 
-    iget-object v2, v1, Lcom/android/server/wm/WindowManagerService;->mWindowMap:Ljava/util/HashMap;
+    iget-object v2, v1, Lcom/android/server/wm/WindowManagerService;->mWindowMap:Lcom/android/server/wm/WindowHashMap;
 
     monitor-enter v2
 
@@ -120,11 +120,11 @@
 
     check-cast v1, Lcom/android/server/policy/PhoneWindowManager;
 
-    invoke-virtual {v1}, Lcom/android/server/policy/PhoneWindowManager;->getSamsungPolicy()Lcom/android/server/policy/SamsungWindowManagerPolicy;
+    invoke-virtual {v1}, Lcom/android/server/policy/PhoneWindowManager;->getSamsungPolicy()Lcom/android/server/policy/IPhoneWindowManagerBridge;
 
     move-result-object v1
 
-    invoke-interface {v1, v0}, Lcom/android/server/policy/SamsungWindowManagerPolicy;->setCoverSwitchState(Lcom/samsung/android/cover/CoverState;)Z
+    invoke-interface {v1, v0}, Lcom/android/server/policy/IPhoneWindowManagerBridge;->setCoverSwitchState(Lcom/samsung/android/cover/CoverState;)Z
 
     iget-object v1, p0, Lcom/android/server/wm/SamsungWindowManagerService$H;->this$0:Lcom/android/server/wm/SamsungWindowManagerService;
 
@@ -140,9 +140,7 @@
 
     move-result-object v1
 
-    const/4 v3, 0x1
-
-    iput-boolean v3, v1, Lcom/android/server/wm/DisplayContent;->layoutNeeded:Z
+    invoke-virtual {v1}, Lcom/android/server/wm/DisplayContent;->setLayoutNeeded()V
 
     iget-object v1, p0, Lcom/android/server/wm/SamsungWindowManagerService$H;->this$0:Lcom/android/server/wm/SamsungWindowManagerService;
 

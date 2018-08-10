@@ -35,7 +35,7 @@
     return-void
 .end method
 
-.method public isAcceptCloseCocktail(Lcom/samsung/android/cocktailbar/Cocktail;IZ)Z
+.method public isAcceptCloseCocktail(Lcom/samsung/android/cocktailbar/Cocktail;Lcom/android/server/cocktailbar/settings/CocktailBarSettings;IZ)Z
     .locals 1
 
     const/4 v0, 0x0
@@ -43,7 +43,7 @@
     return v0
 .end method
 
-.method public isAcceptShowCocktail(Lcom/samsung/android/cocktailbar/Cocktail;IZ)Z
+.method public isAcceptShowCocktail(Lcom/samsung/android/cocktailbar/Cocktail;Lcom/android/server/cocktailbar/settings/CocktailBarSettings;IZ)Z
     .locals 1
 
     const/4 v0, 0x0

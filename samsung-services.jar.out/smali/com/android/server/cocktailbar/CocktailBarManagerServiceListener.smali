@@ -7,9 +7,6 @@
 .method public abstract onResetMode(IILjava/lang/String;)V
 .end method
 
-.method public abstract onRestrictMode(ZI)V
-.end method
-
 .method public abstract onSetMode(IILjava/lang/String;I)V
 .end method
 

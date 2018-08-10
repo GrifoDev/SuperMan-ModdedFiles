@@ -35,27 +35,61 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 4
 
-    new-instance v0, Landroid/content/Intent;
+    const-string/jumbo v2, ""
 
-    const-string/jumbo v1, "com.samsung.android.app.accesscontrol.TOGGLE_MODE"
+    const-string/jumbo v3, "RestrictedInput"
 
-    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v2, v3}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
-    iget-object v1, p0, Lcom/android/server/policy/CombinationKeyManager$2;->this$0:Lcom/android/server/policy/CombinationKeyManager;
+    move-result v2
 
-    iget-object v1, v1, Lcom/android/server/policy/CombinationKeyManager;->mContext:Landroid/content/Context;
+    if-eqz v2, :cond_0
 
-    sget-object v2, Landroid/os/UserHandle;->CURRENT:Landroid/os/UserHandle;
+    :try_start_0
+    new-instance v1, Landroid/content/Intent;
 
-    invoke-virtual {v1, v0, v2}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
+    const-string/jumbo v2, "android.intent.action.MAIN"
 
-    const-string/jumbo v1, "CombinationKeyManager"
+    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const-string/jumbo v2, "Access Control mesage : broadcast"
+    const/high16 v2, 0x10000000
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v1, v2}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
+    const-string/jumbo v2, "com.sec.android.app.servicemodeapp"
+
+    const-string/jumbo v3, "com.sec.android.app.servicemodeapp.SysDump"
+
+    invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string/jumbo v2, "remote"
+
+    const/4 v3, 0x1
+
+    invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+
+    const-string/jumbo v2, "noti"
+
+    const/4 v3, 0x1
+
+    invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+
+    iget-object v2, p0, Lcom/android/server/policy/CombinationKeyManager$2;->this$0:Lcom/android/server/policy/CombinationKeyManager;
+
+    iget-object v2, v2, Lcom/android/server/policy/CombinationKeyManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+    :try_end_0
+    .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_0
+    :goto_0
     return-void
+
+    :catch_0
+    move-exception v0
+
+    goto :goto_0
 .end method

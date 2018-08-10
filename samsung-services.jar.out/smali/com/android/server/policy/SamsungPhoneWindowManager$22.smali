@@ -1,11 +1,11 @@
 .class Lcom/android/server/policy/SamsungPhoneWindowManager$22;
-.super Lcom/samsung/android/vr/IGearVrStateCallbacks$Stub;
+.super Landroid/content/BroadcastReceiver;
 .source "SamsungPhoneWindowManager.java"
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/policy/SamsungPhoneWindowManager;->systemReady(Lcom/android/server/policy/keyguard/KeyguardServiceDelegate;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/server/policy/SamsungPhoneWindowManager;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,50 +24,76 @@
 
     iput-object p1, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$22;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    invoke-direct {p0}, Lcom/samsung/android/vr/IGearVrStateCallbacks$Stub;-><init>()V
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onGearVrStateChanged(I)V
-    .locals 2
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
+.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 4
 
-    packed-switch p1, :pswitch_data_0
+    const-string/jumbo v2, "android.intent.action.PACKAGE_REPLACED"
+
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-virtual {p2}, Landroid/content/Intent;->getData()Landroid/net/Uri;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {v1}, Landroid/net/Uri;->getSchemeSpecificPart()Ljava/lang/String;
+
+    move-result-object v0
 
     :goto_0
-    :pswitch_0
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v2, "com.android.systemui"
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    iget-object v2, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$22;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+
+    iget-object v2, v2, Lcom/android/server/policy/SamsungPhoneWindowManager;->mKeyguardDelegate:Lcom/android/server/policy/keyguard/KeyguardServiceDelegate;
+
+    if-eqz v2, :cond_0
+
+    iget-object v2, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$22;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+
+    iget-object v2, v2, Lcom/android/server/policy/SamsungPhoneWindowManager;->mKeyguardDelegate:Lcom/android/server/policy/keyguard/KeyguardServiceDelegate;
+
+    iget-object v3, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$22;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+
+    iget-object v3, v3, Lcom/android/server/policy/SamsungPhoneWindowManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2, v3}, Lcom/android/server/policy/keyguard/KeyguardServiceDelegate;->bindService(Landroid/content/Context;)V
+
+    iget-object v2, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$22;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+
+    iget-object v2, v2, Lcom/android/server/policy/SamsungPhoneWindowManager;->mKeyguardDelegate:Lcom/android/server/policy/keyguard/KeyguardServiceDelegate;
+
+    invoke-virtual {v2}, Lcom/android/server/policy/keyguard/KeyguardServiceDelegate;->onBootCompleted()V
+
+    :cond_0
     return-void
 
-    :pswitch_1
-    iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$22;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
-
-    const/4 v1, 0x1
-
-    invoke-static {v0, v1}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-set5(Lcom/android/server/policy/SamsungPhoneWindowManager;Z)Z
+    :cond_1
+    const/4 v0, 0x0
 
     goto :goto_0
-
-    :pswitch_2
-    iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$22;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-set5(Lcom/android/server/policy/SamsungPhoneWindowManager;Z)Z
-
-    goto :goto_0
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_1
-        :pswitch_2
-        :pswitch_0
-        :pswitch_2
-    .end packed-switch
 .end method

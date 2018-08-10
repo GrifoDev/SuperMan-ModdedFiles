@@ -4,22 +4,35 @@
 
 
 # static fields
-.field private static final DEBUG:Z = true
+.field private static final DEBUG:Z
 
 .field private static final TAG:Ljava/lang/String;
 
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .locals 2
 
-    const-class v0, Lcom/android/server/cocktailbar/policy/state/OverlayCocktailBarStatePolicy;
+    const/4 v0, 0x1
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+    const-class v1, Lcom/android/server/cocktailbar/policy/state/OverlayCocktailBarStatePolicy;
 
-    move-result-object v0
+    invoke-virtual {v1}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
 
-    sput-object v0, Lcom/android/server/cocktailbar/policy/state/OverlayCocktailBarStatePolicy;->TAG:Ljava/lang/String;
+    move-result-object v1
+
+    sput-object v1, Lcom/android/server/cocktailbar/policy/state/OverlayCocktailBarStatePolicy;->TAG:Ljava/lang/String;
+
+    invoke-static {}, Landroid/os/Debug;->isProductShip()I
+
+    move-result v1
+
+    if-ne v1, v0, :cond_0
+
+    const/4 v0, 0x0
+
+    :cond_0
+    sput-boolean v0, Lcom/android/server/cocktailbar/policy/state/OverlayCocktailBarStatePolicy;->DEBUG:Z
 
     return-void
 .end method
@@ -44,22 +57,12 @@
     return-object v0
 .end method
 
-.method public getBackgroundType()I
-    .locals 1
-
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
-.method public handleChangeVisibility(I)V
-    .locals 0
-
-    return-void
-.end method
-
 .method public handleNotifyCurrentStateToBinder(Landroid/os/IBinder;)V
     .locals 3
+
+    sget-boolean v1, Lcom/android/server/cocktailbar/policy/state/OverlayCocktailBarStatePolicy;->DEBUG:Z
+
+    if-eqz v1, :cond_0
 
     sget-object v1, Lcom/android/server/cocktailbar/policy/state/OverlayCocktailBarStatePolicy;->TAG:Ljava/lang/String;
 
@@ -67,6 +70,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    :cond_0
     iget-object v1, p0, Lcom/android/server/cocktailbar/policy/state/OverlayCocktailBarStatePolicy;->mStateInfo:Lcom/samsung/android/cocktailbar/CocktailBarStateInfo;
 
     invoke-virtual {v1}, Lcom/samsung/android/cocktailbar/CocktailBarStateInfo;->clone()Lcom/samsung/android/cocktailbar/CocktailBarStateInfo;
@@ -88,18 +92,6 @@
     iget-object v1, p0, Lcom/android/server/cocktailbar/policy/state/OverlayCocktailBarStatePolicy;->mListener:Lcom/android/server/cocktailbar/policy/state/CocktailBarStatePolicy$OnCocktailBarStateListener;
 
     invoke-interface {v1, p1, v0}, Lcom/android/server/cocktailbar/policy/state/CocktailBarStatePolicy$OnCocktailBarStateListener;->notifyCocktailBarStateToBinder(Landroid/os/IBinder;Lcom/samsung/android/cocktailbar/CocktailBarStateInfo;)Z
-
-    return-void
-.end method
-
-.method public handleNotifyState(I)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public handleRefreshState()V
-    .locals 0
 
     return-void
 .end method
@@ -166,6 +158,10 @@
 .method public handleUpdatePosition(I)V
     .locals 4
 
+    sget-boolean v1, Lcom/android/server/cocktailbar/policy/state/OverlayCocktailBarStatePolicy;->DEBUG:Z
+
+    if-eqz v1, :cond_0
+
     sget-object v1, Lcom/android/server/cocktailbar/policy/state/OverlayCocktailBarStatePolicy;->TAG:Ljava/lang/String;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -202,11 +198,12 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    :cond_0
     iget-object v1, p0, Lcom/android/server/cocktailbar/policy/state/OverlayCocktailBarStatePolicy;->mStateInfo:Lcom/samsung/android/cocktailbar/CocktailBarStateInfo;
 
     iget v1, v1, Lcom/samsung/android/cocktailbar/CocktailBarStateInfo;->position:I
 
-    if-eq v1, p1, :cond_0
+    if-eq v1, p1, :cond_1
 
     new-instance v0, Lcom/samsung/android/cocktailbar/CocktailBarStateInfo;
 
@@ -228,24 +225,16 @@
 
     invoke-interface {v1, v0}, Lcom/android/server/cocktailbar/policy/state/CocktailBarStatePolicy$OnCocktailBarStateListener;->notifyCocktailBarState(Lcom/samsung/android/cocktailbar/CocktailBarStateInfo;)Z
 
-    :cond_0
-    return-void
-.end method
-
-.method public handleUpdateState(ZZ)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public handleUpdateStateFromSystem(IZ)V
-    .locals 0
-
+    :cond_1
     return-void
 .end method
 
 .method public handleUpdateVisibility(I)V
     .locals 4
+
+    sget-boolean v1, Lcom/android/server/cocktailbar/policy/state/OverlayCocktailBarStatePolicy;->DEBUG:Z
+
+    if-eqz v1, :cond_0
 
     sget-object v1, Lcom/android/server/cocktailbar/policy/state/OverlayCocktailBarStatePolicy;->TAG:Ljava/lang/String;
 
@@ -283,11 +272,12 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    :cond_0
     iget-object v1, p0, Lcom/android/server/cocktailbar/policy/state/OverlayCocktailBarStatePolicy;->mStateInfo:Lcom/samsung/android/cocktailbar/CocktailBarStateInfo;
 
     iget v1, v1, Lcom/samsung/android/cocktailbar/CocktailBarStateInfo;->visibility:I
 
-    if-eq v1, p1, :cond_0
+    if-eq v1, p1, :cond_1
 
     new-instance v0, Lcom/samsung/android/cocktailbar/CocktailBarStateInfo;
 
@@ -307,6 +297,6 @@
 
     iput p1, v1, Lcom/samsung/android/cocktailbar/CocktailBarStateInfo;->visibility:I
 
-    :cond_0
+    :cond_1
     return-void
 .end method

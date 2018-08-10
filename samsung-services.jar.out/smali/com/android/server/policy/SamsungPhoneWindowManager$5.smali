@@ -32,48 +32,70 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 4
+    .locals 6
+
+    const/4 v2, 0x1
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    const-string/jumbo v1, "android.intent.action.PACKAGE_CHANGED"
+    const-string/jumbo v3, "android.intent.action.BOOT_COMPLETED"
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    iget-object v3, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$5;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+
+    iput-boolean v2, v3, Lcom/android/server/policy/SamsungPhoneWindowManager;->mBootCompleted:Z
+
+    invoke-static {p1}, Lcom/android/server/policy/SamsungPolicyProperties;->hasSPenFeature(Landroid/content/Context;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    iget-object v3, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$5;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+
+    iget-object v3, v3, Lcom/android/server/policy/SamsungPhoneWindowManager;->mWindowManagerFuncs:Landroid/view/WindowManagerPolicy$WindowManagerFuncs;
+
+    invoke-interface {v3}, Landroid/view/WindowManagerPolicy$WindowManagerFuncs;->getPenState()I
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    iget-object v3, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$5;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    iget-object v1, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$5;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+    iget v3, v3, Lcom/android/server/policy/SamsungPhoneWindowManager;->mPenState:I
 
-    iget-object v2, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$5;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+    if-eq v1, v3, :cond_0
 
     iget-object v3, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$5;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    iget-object v3, v3, Lcom/android/server/policy/SamsungPhoneWindowManager;->mVoiceCommandIntent:Landroid/content/Intent;
+    invoke-static {v3}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-wrap1(Lcom/android/server/policy/SamsungPhoneWindowManager;)Z
 
-    invoke-virtual {v2, v3}, Lcom/android/server/policy/SamsungPhoneWindowManager;->isActivitiesAvailable(Landroid/content/Intent;)Z
+    move-result v3
 
-    move-result v2
+    xor-int/lit8 v3, v3, 0x1
 
-    iput-boolean v2, v1, Lcom/android/server/policy/SamsungPhoneWindowManager;->mAvailableVoiceCommand:Z
-
-    iget-object v1, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$5;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
-
-    iget-object v2, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$5;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+    if-eqz v3, :cond_0
 
     iget-object v3, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$5;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    iget-object v3, v3, Lcom/android/server/policy/SamsungPhoneWindowManager;->mDoubleTapOnHomeCommandIntent:Landroid/content/Intent;
+    const-wide/16 v4, 0x0
 
-    invoke-virtual {v2, v3}, Lcom/android/server/policy/SamsungPhoneWindowManager;->isActivitiesAvailable(Landroid/content/Intent;)Z
+    if-ne v1, v2, :cond_1
 
-    move-result v2
-
-    iput-boolean v2, v1, Lcom/android/server/policy/SamsungPhoneWindowManager;->mAvailableDoublTapOnHomeCommand:Z
+    :goto_0
+    invoke-virtual {v3, v4, v5, v2}, Lcom/android/server/policy/SamsungPhoneWindowManager;->notifyPenSwitchChanged(JZ)V
 
     :cond_0
     return-void
+
+    :cond_1
+    const/4 v2, 0x0
+
+    goto :goto_0
 .end method

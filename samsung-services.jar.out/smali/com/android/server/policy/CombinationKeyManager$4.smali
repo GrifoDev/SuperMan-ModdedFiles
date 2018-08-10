@@ -35,15 +35,34 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .locals 3
 
-    iget-object v0, p0, Lcom/android/server/policy/CombinationKeyManager$4;->this$0:Lcom/android/server/policy/CombinationKeyManager;
+    new-instance v0, Landroid/content/Intent;
 
-    iget-object v0, v0, Lcom/android/server/policy/CombinationKeyManager;->mSPWM:Lcom/android/server/policy/SamsungPhoneWindowManager;
+    const-string/jumbo v1, "com.samsung.android.app.accesscontrol.TOGGLE_MODE"
 
-    const/4 v1, 0x1
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v1}, Lcom/android/server/policy/SamsungPhoneWindowManager;->takeScreenshot(I)V
+    iget-object v1, p0, Lcom/android/server/policy/CombinationKeyManager$4;->this$0:Lcom/android/server/policy/CombinationKeyManager;
 
+    iget-object v1, v1, Lcom/android/server/policy/CombinationKeyManager;->mContext:Landroid/content/Context;
+
+    sget-object v2, Landroid/os/UserHandle;->CURRENT:Landroid/os/UserHandle;
+
+    invoke-virtual {v1, v0, v2}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
+
+    invoke-static {}, Lcom/android/server/policy/CombinationKeyManager;->-get0()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const-string/jumbo v1, "CombinationKeyManager"
+
+    const-string/jumbo v2, "Access Control mesage : broadcast"
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     return-void
 .end method

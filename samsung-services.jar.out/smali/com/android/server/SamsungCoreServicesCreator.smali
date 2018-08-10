@@ -9,8 +9,6 @@
 # static fields
 .field private static final synthetic -com-android-server-SamsungCoreServices$ServiceTagSwitchesValues:[I = null
 
-.field private static final SAMSUNG_MULTISCREEN_MANAGER_SERVICE_CLASS_NAME:Ljava/lang/String; = "com.android.server.am.MultiScreenManagerService"
-
 .field private static final TAG:Ljava/lang/String; = "SamsungCoreServicesCreator"
 
 
@@ -60,7 +58,7 @@
 
     aput v2, v0, v1
     :try_end_0
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_11
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_d
 
     :goto_0
     :try_start_1
@@ -74,7 +72,7 @@
 
     aput v2, v0, v1
     :try_end_1
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_10
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_c
 
     :goto_1
     :try_start_2
@@ -88,7 +86,7 @@
 
     aput v2, v0, v1
     :try_end_2
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_f
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_b
 
     :goto_2
     :try_start_3
@@ -98,113 +96,29 @@
 
     move-result v1
 
-    const/4 v2, 0x4
+    const/16 v2, 0xb
 
     aput v2, v0, v1
     :try_end_3
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_e
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_a
 
     :goto_3
     :try_start_4
-    sget-object v1, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_MULTISCREEN_MANAGER_SERVICE:Lcom/android/server/SamsungCoreServices$ServiceTag;
-
-    invoke-virtual {v1}, Lcom/android/server/SamsungCoreServices$ServiceTag;->ordinal()I
-
-    move-result v1
-
-    const/4 v2, 0x5
-
-    aput v2, v0, v1
-    :try_end_4
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_4 .. :try_end_4} :catch_d
-
-    :goto_4
-    :try_start_5
     sget-object v1, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_MULTITAPKEY_MANAGER:Lcom/android/server/SamsungCoreServices$ServiceTag;
 
     invoke-virtual {v1}, Lcom/android/server/SamsungCoreServices$ServiceTag;->ordinal()I
 
     move-result v1
 
-    const/4 v2, 0x6
+    const/4 v2, 0x4
 
     aput v2, v0, v1
-    :try_end_5
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_5 .. :try_end_5} :catch_c
+    :try_end_4
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_4 .. :try_end_4} :catch_9
 
-    :goto_5
-    :try_start_6
-    sget-object v1, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_MULTIWINDOW_FOCUSED_FRAME_CONTROLLER:Lcom/android/server/SamsungCoreServices$ServiceTag;
-
-    invoke-virtual {v1}, Lcom/android/server/SamsungCoreServices$ServiceTag;->ordinal()I
-
-    move-result v1
-
-    const/4 v2, 0x7
-
-    aput v2, v0, v1
-    :try_end_6
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_6 .. :try_end_6} :catch_b
-
-    :goto_6
-    :try_start_7
-    sget-object v1, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_MULTIWINDOW_MANAGER_INTERNAL:Lcom/android/server/SamsungCoreServices$ServiceTag;
-
-    invoke-virtual {v1}, Lcom/android/server/SamsungCoreServices$ServiceTag;->ordinal()I
-
-    move-result v1
-
-    const/16 v2, 0x8
-
-    aput v2, v0, v1
-    :try_end_7
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_7 .. :try_end_7} :catch_a
-
-    :goto_7
-    :try_start_8
-    sget-object v1, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_MULTIWINDOW_MANAGER_SERVICE:Lcom/android/server/SamsungCoreServices$ServiceTag;
-
-    invoke-virtual {v1}, Lcom/android/server/SamsungCoreServices$ServiceTag;->ordinal()I
-
-    move-result v1
-
-    const/16 v2, 0x9
-
-    aput v2, v0, v1
-    :try_end_8
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_8 .. :try_end_8} :catch_9
-
-    :goto_8
-    :try_start_9
+    :goto_4
+    :try_start_5
     sget-object v1, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_MULTIWINDOW_PHONE_WINDOW_MANAGER:Lcom/android/server/SamsungCoreServices$ServiceTag;
-
-    invoke-virtual {v1}, Lcom/android/server/SamsungCoreServices$ServiceTag;->ordinal()I
-
-    move-result v1
-
-    const/16 v2, 0xa
-
-    aput v2, v0, v1
-    :try_end_9
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_9 .. :try_end_9} :catch_8
-
-    :goto_9
-    :try_start_a
-    sget-object v1, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_MULTIWINDOW_STACK_COLOR_LAYER:Lcom/android/server/SamsungCoreServices$ServiceTag;
-
-    invoke-virtual {v1}, Lcom/android/server/SamsungCoreServices$ServiceTag;->ordinal()I
-
-    move-result v1
-
-    const/16 v2, 0xb
-
-    aput v2, v0, v1
-    :try_end_a
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_a .. :try_end_a} :catch_7
-
-    :goto_a
-    :try_start_b
-    sget-object v1, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_PACKAGE_CONFIGURATION_CONTROLLER:Lcom/android/server/SamsungCoreServices$ServiceTag;
 
     invoke-virtual {v1}, Lcom/android/server/SamsungCoreServices$ServiceTag;->ordinal()I
 
@@ -213,12 +127,12 @@
     const/16 v2, 0xc
 
     aput v2, v0, v1
-    :try_end_b
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_b .. :try_end_b} :catch_6
+    :try_end_5
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_5 .. :try_end_5} :catch_8
 
-    :goto_b
-    :try_start_c
-    sget-object v1, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_REDUCE_SCREEN_MANAGER:Lcom/android/server/SamsungCoreServices$ServiceTag;
+    :goto_5
+    :try_start_6
+    sget-object v1, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_MULTIWINDOW_STACK_COLOR_LAYER:Lcom/android/server/SamsungCoreServices$ServiceTag;
 
     invoke-virtual {v1}, Lcom/android/server/SamsungCoreServices$ServiceTag;->ordinal()I
 
@@ -227,12 +141,26 @@
     const/16 v2, 0xd
 
     aput v2, v0, v1
-    :try_end_c
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_c .. :try_end_c} :catch_5
+    :try_end_6
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_6 .. :try_end_6} :catch_7
 
-    :goto_c
-    :try_start_d
-    sget-object v1, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_SAMSUNG_PHONE_WINDOW_MANAGER:Lcom/android/server/SamsungCoreServices$ServiceTag;
+    :goto_6
+    :try_start_7
+    sget-object v1, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_PACKAGE_CONFIGURATION_CONTROLLER:Lcom/android/server/SamsungCoreServices$ServiceTag;
+
+    invoke-virtual {v1}, Lcom/android/server/SamsungCoreServices$ServiceTag;->ordinal()I
+
+    move-result v1
+
+    const/4 v2, 0x5
+
+    aput v2, v0, v1
+    :try_end_7
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_7 .. :try_end_7} :catch_6
+
+    :goto_7
+    :try_start_8
+    sget-object v1, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_REDUCE_SCREEN_MANAGER:Lcom/android/server/SamsungCoreServices$ServiceTag;
 
     invoke-virtual {v1}, Lcom/android/server/SamsungCoreServices$ServiceTag;->ordinal()I
 
@@ -241,66 +169,80 @@
     const/16 v2, 0xe
 
     aput v2, v0, v1
-    :try_end_d
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_d .. :try_end_d} :catch_4
+    :try_end_8
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_8 .. :try_end_8} :catch_5
 
-    :goto_d
-    :try_start_e
+    :goto_8
+    :try_start_9
+    sget-object v1, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_SAMSUNG_PHONE_WINDOW_MANAGER:Lcom/android/server/SamsungCoreServices$ServiceTag;
+
+    invoke-virtual {v1}, Lcom/android/server/SamsungCoreServices$ServiceTag;->ordinal()I
+
+    move-result v1
+
+    const/4 v2, 0x6
+
+    aput v2, v0, v1
+    :try_end_9
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_9 .. :try_end_9} :catch_4
+
+    :goto_9
+    :try_start_a
     sget-object v1, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_SAMSUNG_STARTING_WINDOW_MANAGER:Lcom/android/server/SamsungCoreServices$ServiceTag;
 
     invoke-virtual {v1}, Lcom/android/server/SamsungCoreServices$ServiceTag;->ordinal()I
 
     move-result v1
 
-    const/16 v2, 0xf
+    const/4 v2, 0x7
 
     aput v2, v0, v1
-    :try_end_e
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_e .. :try_end_e} :catch_3
+    :try_end_a
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_a .. :try_end_a} :catch_3
 
-    :goto_e
-    :try_start_f
+    :goto_a
+    :try_start_b
     sget-object v1, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_SAMSUNG_WINDOW_MANAGER_SERVICE:Lcom/android/server/SamsungCoreServices$ServiceTag;
 
     invoke-virtual {v1}, Lcom/android/server/SamsungCoreServices$ServiceTag;->ordinal()I
 
     move-result v1
 
-    const/16 v2, 0x10
+    const/16 v2, 0x8
 
     aput v2, v0, v1
-    :try_end_f
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_f .. :try_end_f} :catch_2
+    :try_end_b
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_b .. :try_end_b} :catch_2
 
-    :goto_f
-    :try_start_10
+    :goto_b
+    :try_start_c
     sget-object v1, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_SAMSUNG_WINDOW_STATE:Lcom/android/server/SamsungCoreServices$ServiceTag;
 
     invoke-virtual {v1}, Lcom/android/server/SamsungCoreServices$ServiceTag;->ordinal()I
 
     move-result v1
 
-    const/16 v2, 0x11
+    const/16 v2, 0x9
 
     aput v2, v0, v1
-    :try_end_10
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_10 .. :try_end_10} :catch_1
+    :try_end_c
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_c .. :try_end_c} :catch_1
 
-    :goto_10
-    :try_start_11
+    :goto_c
+    :try_start_d
     sget-object v1, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_TSP_STATE_MANAGER:Lcom/android/server/SamsungCoreServices$ServiceTag;
 
     invoke-virtual {v1}, Lcom/android/server/SamsungCoreServices$ServiceTag;->ordinal()I
 
     move-result v1
 
-    const/16 v2, 0x12
+    const/16 v2, 0xa
 
     aput v2, v0, v1
-    :try_end_11
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_11 .. :try_end_11} :catch_0
+    :try_end_d
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_d .. :try_end_d} :catch_0
 
-    :goto_11
+    :goto_d
     sput-object v0, Lcom/android/server/SamsungCoreServicesCreator;->-com-android-server-SamsungCoreServices$ServiceTagSwitchesValues:[I
 
     return-object v0
@@ -308,89 +250,69 @@
     :catch_0
     move-exception v1
 
-    goto :goto_11
+    goto :goto_d
 
     :catch_1
     move-exception v1
 
-    goto :goto_10
+    goto :goto_c
 
     :catch_2
     move-exception v1
 
-    goto :goto_f
+    goto :goto_b
 
     :catch_3
     move-exception v1
 
-    goto :goto_e
+    goto :goto_a
 
     :catch_4
     move-exception v1
 
-    goto :goto_d
+    goto :goto_9
 
     :catch_5
     move-exception v1
 
-    goto :goto_c
+    goto :goto_8
 
     :catch_6
     move-exception v1
 
-    goto :goto_b
+    goto :goto_7
 
     :catch_7
     move-exception v1
 
-    goto :goto_a
+    goto :goto_6
 
     :catch_8
     move-exception v1
 
-    goto :goto_9
+    goto :goto_5
 
     :catch_9
     move-exception v1
 
-    goto :goto_8
+    goto :goto_4
 
     :catch_a
     move-exception v1
 
-    goto :goto_7
+    goto :goto_3
 
     :catch_b
     move-exception v1
 
-    goto/16 :goto_6
+    goto/16 :goto_2
 
     :catch_c
     move-exception v1
 
-    goto/16 :goto_5
-
-    :catch_d
-    move-exception v1
-
-    goto/16 :goto_4
-
-    :catch_e
-    move-exception v1
-
-    goto/16 :goto_3
-
-    :catch_f
-    move-exception v1
-
-    goto/16 :goto_2
-
-    :catch_10
-    move-exception v1
-
     goto/16 :goto_1
 
-    :catch_11
+    :catch_d
     move-exception v1
 
     goto/16 :goto_0
@@ -584,120 +506,46 @@
     goto :goto_0
 
     :pswitch_4
-    new-instance v0, Lcom/android/server/policy/ReduceScreenManager;
-
-    invoke-direct {v0}, Lcom/android/server/policy/ReduceScreenManager;-><init>()V
-
-    goto :goto_0
-
-    :pswitch_5
-    new-instance v0, Lcom/android/server/policy/EdgeWindowManager;
-
-    invoke-direct {v0}, Lcom/android/server/policy/EdgeWindowManager;-><init>()V
-
-    goto :goto_0
-
-    :pswitch_6
-    new-instance v0, Lcom/android/server/policy/AODWindowManager;
-
-    invoke-direct {v0}, Lcom/android/server/policy/AODWindowManager;-><init>()V
-
-    goto :goto_0
-
-    :pswitch_7
-    const-string/jumbo v1, "com.android.server.am.MultiScreenManagerService"
-
-    invoke-direct {p0, v1}, Lcom/android/server/SamsungCoreServicesCreator;->createService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    const-string/jumbo v2, "MultiScreen"
-
-    move-object v1, v0
-
-    check-cast v1, Landroid/os/IBinder;
-
-    invoke-static {v2, v1}, Landroid/os/ServiceManager;->addService(Ljava/lang/String;Landroid/os/IBinder;)V
-
-    goto :goto_0
-
-    :pswitch_8
-    new-instance v0, Lcom/android/server/wm/HorizontalModeController;
-
-    invoke-direct {v0}, Lcom/android/server/wm/HorizontalModeController;-><init>()V
-
-    goto :goto_0
-
-    :pswitch_9
-    new-instance v0, Lcom/android/server/am/MultiWindowManagerService;
-
-    invoke-direct {v0}, Lcom/android/server/am/MultiWindowManagerService;-><init>()V
-
-    const-string/jumbo v2, "multiwindow"
-
-    move-object v1, v0
-
-    check-cast v1, Lcom/android/server/am/MultiWindowManagerService;
-
-    invoke-static {v2, v1}, Landroid/os/ServiceManager;->addService(Ljava/lang/String;Landroid/os/IBinder;)V
-
-    goto :goto_0
-
-    :pswitch_a
-    new-instance v0, Lcom/android/server/wm/MultiWindowManagerInternal;
-
-    invoke-direct {v0}, Lcom/android/server/wm/MultiWindowManagerInternal;-><init>()V
-
-    goto :goto_0
-
-    :pswitch_b
-    new-instance v0, Lcom/android/server/wm/MultiWindowFocusedFrameController;
-
-    invoke-direct {v0}, Lcom/android/server/wm/MultiWindowFocusedFrameController;-><init>()V
-
-    goto :goto_0
-
-    :pswitch_c
-    new-instance v0, Lcom/android/server/wm/MultiWindowStackColorLayer;
-
-    invoke-direct {v0}, Lcom/android/server/wm/MultiWindowStackColorLayer;-><init>()V
-
-    goto :goto_0
-
-    :pswitch_d
-    new-instance v0, Lcom/android/server/policy/MultiPhoneWindowManager;
-
-    invoke-direct {v0}, Lcom/android/server/policy/MultiPhoneWindowManager;-><init>()V
-
-    goto :goto_0
-
-    :pswitch_e
     new-instance v0, Lcom/android/server/wm/SamsungStartingWindowManager;
 
     invoke-direct {v0}, Lcom/android/server/wm/SamsungStartingWindowManager;-><init>()V
 
     goto :goto_0
 
-    :pswitch_f
+    :pswitch_5
+    new-instance v0, Lcom/android/server/PackageConfigurationControllerImpl;
+
+    invoke-direct {v0}, Lcom/android/server/PackageConfigurationControllerImpl;-><init>()V
+
+    goto :goto_0
+
+    :pswitch_6
+    new-instance v0, Lcom/android/server/policy/EdgeWindowManager;
+
+    invoke-direct {v0}, Lcom/android/server/policy/EdgeWindowManager;-><init>()V
+
+    goto :goto_0
+
+    :pswitch_7
+    new-instance v0, Lcom/android/server/policy/AODWindowManager;
+
+    invoke-direct {v0}, Lcom/android/server/policy/AODWindowManager;-><init>()V
+
+    goto :goto_0
+
+    :pswitch_8
+    new-instance v0, Lcom/android/server/policy/TspStateManager;
+
+    invoke-direct {v0}, Lcom/android/server/policy/TspStateManager;-><init>()V
+
+    goto :goto_0
+
+    :pswitch_9
     new-instance v0, Lcom/android/server/DssControllerImpl;
 
     invoke-direct {v0}, Lcom/android/server/DssControllerImpl;-><init>()V
 
     goto :goto_0
-
-    :pswitch_10
-    new-instance v0, Lcom/android/server/policy/TspStateManager;
-
-    invoke-direct {v0}, Lcom/android/server/policy/TspStateManager;-><init>()V
-
-    goto/16 :goto_0
-
-    :pswitch_11
-    new-instance v0, Lcom/android/server/PackageConfigurationControllerImpl;
-
-    invoke-direct {v0}, Lcom/android/server/PackageConfigurationControllerImpl;-><init>()V
-
-    goto/16 :goto_0
 
     :cond_2
     new-instance v1, Ljava/lang/RuntimeException;
@@ -726,24 +574,16 @@
 
     :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_6
-        :pswitch_f
-        :pswitch_5
-        :pswitch_8
         :pswitch_7
-        :pswitch_3
-        :pswitch_b
-        :pswitch_a
         :pswitch_9
-        :pswitch_d
-        :pswitch_c
-        :pswitch_11
-        :pswitch_4
+        :pswitch_6
+        :pswitch_3
+        :pswitch_5
         :pswitch_2
-        :pswitch_e
+        :pswitch_4
         :pswitch_0
         :pswitch_1
-        :pswitch_10
+        :pswitch_8
     .end packed-switch
 .end method
 

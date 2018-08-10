@@ -2897,10 +2897,19 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    xor-int/lit8 v3, v3, 0x1
+
+    if-eqz v3, :cond_2
+
+    new-instance v3, Lcom/android/server/cocktailbar/settings/CocktailOrderManager$CocktailOrderComparator;
+
+    iget-object v4, p0, Lcom/android/server/cocktailbar/settings/CocktailOrderManager;->mCocktailOrderedList:Ljava/util/ArrayList;
+
+    invoke-direct {v3, p0, v4, p2}, Lcom/android/server/cocktailbar/settings/CocktailOrderManager$CocktailOrderComparator;-><init>(Lcom/android/server/cocktailbar/settings/CocktailOrderManager;Ljava/util/ArrayList;Landroid/util/SparseArray;)V
+
+    invoke-static {p1, v3}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
 
     :cond_2
-    :goto_1
     invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
 
     move-result v3
@@ -2911,8 +2920,8 @@
 
     const/4 v0, 0x0
 
-    :goto_2
-    if-ge v0, v1, :cond_5
+    :goto_1
+    if-ge v0, v1, :cond_4
 
     invoke-virtual {p1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
@@ -2928,7 +2937,7 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_2
+    goto :goto_1
 
     :cond_3
     :try_start_1
@@ -2946,17 +2955,6 @@
     throw v3
 
     :cond_4
-    new-instance v3, Lcom/android/server/cocktailbar/settings/CocktailOrderManager$CocktailOrderComparator;
-
-    iget-object v4, p0, Lcom/android/server/cocktailbar/settings/CocktailOrderManager;->mCocktailOrderedList:Ljava/util/ArrayList;
-
-    invoke-direct {v3, p0, v4, p2}, Lcom/android/server/cocktailbar/settings/CocktailOrderManager$CocktailOrderComparator;-><init>(Lcom/android/server/cocktailbar/settings/CocktailOrderManager;Ljava/util/ArrayList;Landroid/util/SparseArray;)V
-
-    invoke-static {p1, v3}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
-
-    goto :goto_1
-
-    :cond_5
     return-object v2
 .end method
 

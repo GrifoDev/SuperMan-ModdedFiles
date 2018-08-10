@@ -28,10 +28,6 @@
 
 .field public static final PRIVATE_MODE_ACTION_TYPE_RESET:I = 0x3
 
-.field public static final PRIVATE_MODE_ACTION_TYPE_RESTRICT_OFF:I = 0x5
-
-.field public static final PRIVATE_MODE_ACTION_TYPE_RESTRICT_ON:I = 0x4
-
 .field public static final PRIVATE_MODE_ACTION_TYPE_SET:I = 0x2
 
 .field public static final REGISTRATION_TYPE_BROADCAST_RECEIVER:I = 0x1

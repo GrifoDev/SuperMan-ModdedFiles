@@ -39,9 +39,11 @@
 
     iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$15;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    const/4 v1, 0x0
+    iget-object v0, v0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mPWM:Lcom/android/server/policy/PhoneWindowManager;
 
-    iput-boolean v1, v0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mWatchLaunching:Z
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lcom/android/server/policy/PhoneWindowManager;->updateRotation(Z)V
 
     return-void
 .end method

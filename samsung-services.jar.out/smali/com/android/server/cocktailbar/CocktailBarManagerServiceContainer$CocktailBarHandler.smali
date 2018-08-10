@@ -77,7 +77,7 @@
     if-ne v2, v0, :cond_0
 
     :goto_1
-    invoke-static {v1, v0}, Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;->-wrap2(Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;Z)V
+    invoke-static {v1, v0}, Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;->-wrap0(Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;Z)V
 
     goto :goto_0
 
@@ -93,14 +93,23 @@
 
     check-cast v0, Ljava/lang/String;
 
-    invoke-static {v1, v0}, Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;->-wrap3(Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;Ljava/lang/String;)V
+    invoke-static {v1, v0}, Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;->-wrap1(Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;Ljava/lang/String;)V
 
     goto :goto_0
 
     :pswitch_2
     iget-object v0, p0, Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer$CocktailBarHandler;->this$0:Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;
 
-    invoke-static {v0}, Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;->-wrap6(Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;)V
+    invoke-static {v0}, Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;->-wrap5(Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;)V
+
+    goto :goto_0
+
+    :pswitch_3
+    iget-object v0, p0, Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer$CocktailBarHandler;->this$0:Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;
+
+    iget v1, p1, Landroid/os/Message;->arg1:I
+
+    invoke-static {v0, v1}, Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;->-wrap2(Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;I)V
 
     goto :goto_0
 
@@ -109,5 +118,6 @@
         :pswitch_0
         :pswitch_1
         :pswitch_2
+        :pswitch_3
     .end packed-switch
 .end method

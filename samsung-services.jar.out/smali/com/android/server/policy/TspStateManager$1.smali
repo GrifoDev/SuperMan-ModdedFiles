@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/policy/TspStateManager;->updateTspState(Ljava/lang/String;)V
+    value = Lcom/android/server/policy/TspStateManager;->updateTspState(Ljava/lang/String;I)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -22,14 +22,18 @@
 
 .field final synthetic val$cmd:Ljava/lang/String;
 
+.field final synthetic val$type:I
+
 
 # direct methods
-.method constructor <init>(Lcom/android/server/policy/TspStateManager;Ljava/lang/String;)V
+.method constructor <init>(Lcom/android/server/policy/TspStateManager;Ljava/lang/String;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/policy/TspStateManager$1;->this$0:Lcom/android/server/policy/TspStateManager;
 
     iput-object p2, p0, Lcom/android/server/policy/TspStateManager$1;->val$cmd:Ljava/lang/String;
+
+    iput p3, p0, Lcom/android/server/policy/TspStateManager$1;->val$type:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -39,7 +43,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 11
+    .locals 12
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -77,6 +81,33 @@
 
     invoke-static {v8, v9}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    iget-object v8, p0, Lcom/android/server/policy/TspStateManager$1;->this$0:Lcom/android/server/policy/TspStateManager;
+
+    invoke-static {v8}, Lcom/android/server/policy/TspStateManager;->-get1(Lcom/android/server/policy/TspStateManager;)Lcom/android/server/policy/TspStateManager$TspDebug;
+
+    move-result-object v8
+
+    if-eqz v8, :cond_0
+
+    iget-object v8, p0, Lcom/android/server/policy/TspStateManager$1;->this$0:Lcom/android/server/policy/TspStateManager;
+
+    invoke-static {v8}, Lcom/android/server/policy/TspStateManager;->-get1(Lcom/android/server/policy/TspStateManager;)Lcom/android/server/policy/TspStateManager$TspDebug;
+
+    move-result-object v8
+
+    iget-object v9, p0, Lcom/android/server/policy/TspStateManager$1;->this$0:Lcom/android/server/policy/TspStateManager;
+
+    invoke-static {v9}, Lcom/android/server/policy/TspStateManager;->-get0(Lcom/android/server/policy/TspStateManager;)Landroid/content/Context;
+
+    move-result-object v9
+
+    iget-object v10, p0, Lcom/android/server/policy/TspStateManager$1;->val$cmd:Ljava/lang/String;
+
+    iget v11, p0, Lcom/android/server/policy/TspStateManager$1;->val$type:I
+
+    invoke-virtual {v8, v9, v10, v11}, Lcom/android/server/policy/TspStateManager$TspDebug;->updateTspState(Landroid/content/Context;Ljava/lang/String;I)V
+
+    :cond_0
     const/4 v5, 0x0
 
     :try_start_0
@@ -90,7 +121,7 @@
 
     move-result v8
 
-    if-nez v8, :cond_0
+    if-nez v8, :cond_1
 
     const-string/jumbo v8, "TspStateManagerInternal"
 
@@ -100,12 +131,12 @@
 
     return-void
 
-    :cond_0
+    :cond_1
     invoke-virtual {v4}, Ljava/io/File;->canWrite()Z
 
     move-result v8
 
-    if-nez v8, :cond_1
+    if-nez v8, :cond_2
 
     const-string/jumbo v8, "TspStateManagerInternal"
 
@@ -115,7 +146,7 @@
 
     return-void
 
-    :cond_1
+    :cond_2
     new-instance v6, Ljava/io/FileOutputStream;
 
     invoke-direct {v6, v4}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
@@ -139,18 +170,18 @@
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_7
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_3
 
     :try_start_2
     invoke-virtual {v6}, Ljava/io/OutputStream;->close()V
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
 
-    :cond_2
+    :cond_3
     :goto_0
     move-object v5, v6
 
-    :cond_3
+    :cond_4
     :goto_1
     return-void
 
@@ -170,7 +201,7 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_4
 
     :try_start_4
     invoke-virtual {v5}, Ljava/io/OutputStream;->close()V
@@ -195,7 +226,7 @@
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_4
 
     :try_start_6
     invoke-virtual {v5}, Ljava/io/OutputStream;->close()V
@@ -215,14 +246,14 @@
     move-exception v8
 
     :goto_4
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_5
 
     :try_start_7
     invoke-virtual {v5}, Ljava/io/OutputStream;->close()V
     :try_end_7
     .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_7} :catch_5
 
-    :cond_4
+    :cond_5
     :goto_5
     throw v8
 

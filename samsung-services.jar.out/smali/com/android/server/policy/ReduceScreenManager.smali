@@ -2,9 +2,6 @@
 .super Ljava/lang/Object;
 .source "ReduceScreenManager.java"
 
-# interfaces
-.implements Lcom/android/server/policy/ReduceScreenPolicy;
-
 
 # static fields
 .field private static final DEBUG:Z
@@ -22,8 +19,6 @@
 .field private mHandler:Landroid/os/Handler;
 
 .field private mPWM:Lcom/android/server/policy/PhoneWindowManager;
-
-.field private mSEM:Lcom/samsung/android/emergencymode/SemEmergencyManager;
 
 .field private mSPWM:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
@@ -49,7 +44,7 @@
     return-void
 .end method
 
-.method public constructor <init>()V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/server/policy/PhoneWindowManager;Lcom/android/server/policy/SamsungPhoneWindowManager;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -59,6 +54,12 @@
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/policy/ReduceScreenManager;->mHandler:Landroid/os/Handler;
+
+    iput-object p1, p0, Lcom/android/server/policy/ReduceScreenManager;->mContext:Landroid/content/Context;
+
+    iput-object p2, p0, Lcom/android/server/policy/ReduceScreenManager;->mPWM:Lcom/android/server/policy/PhoneWindowManager;
+
+    iput-object p3, p0, Lcom/android/server/policy/ReduceScreenManager;->mSPWM:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
     return-void
 .end method
@@ -77,28 +78,6 @@
     const-string/jumbo v0, "--- Reduce Screen Policy ---"
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method public init(Landroid/content/Context;Lcom/android/server/policy/PhoneWindowManager;Lcom/android/server/policy/SamsungWindowManagerPolicy;)V
-    .locals 1
-
-    iput-object p1, p0, Lcom/android/server/policy/ReduceScreenManager;->mContext:Landroid/content/Context;
-
-    iput-object p2, p0, Lcom/android/server/policy/ReduceScreenManager;->mPWM:Lcom/android/server/policy/PhoneWindowManager;
-
-    check-cast p3, Lcom/android/server/policy/SamsungPhoneWindowManager;
-
-    iput-object p3, p0, Lcom/android/server/policy/ReduceScreenManager;->mSPWM:Lcom/android/server/policy/SamsungPhoneWindowManager;
-
-    iget-object v0, p0, Lcom/android/server/policy/ReduceScreenManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/samsung/android/emergencymode/SemEmergencyManager;->getInstance(Landroid/content/Context;)Lcom/samsung/android/emergencymode/SemEmergencyManager;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/server/policy/ReduceScreenManager;->mSEM:Lcom/samsung/android/emergencymode/SemEmergencyManager;
 
     return-void
 .end method
@@ -233,7 +212,7 @@
 
     iget-object v0, p0, Lcom/android/server/policy/ReduceScreenManager;->mEasyOneHandController:Landroid/view/WindowManagerPolicy$WindowState;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     move v0, v1
 
@@ -250,7 +229,7 @@
 
     iget-object v4, p0, Lcom/android/server/policy/ReduceScreenManager;->mEasyOneHandHalder:Landroid/view/WindowManagerPolicy$WindowState;
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_4
 
     :goto_1
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
@@ -280,7 +259,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/server/policy/ReduceScreenManager;->mEasyOneHandController:Landroid/view/WindowManagerPolicy$WindowState;
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_1
 
     iget-object v0, p0, Lcom/android/server/policy/ReduceScreenManager;->mSPWM:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
@@ -288,7 +267,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     iget-object v0, p0, Lcom/android/server/policy/ReduceScreenManager;->mSPWM:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
@@ -296,28 +275,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_1
-    :goto_2
-    return-void
+    if-eqz v0, :cond_2
 
-    :cond_2
-    move v0, v2
-
-    goto :goto_0
-
-    :cond_3
-    move v1, v2
-
-    goto :goto_1
-
-    :cond_4
     iget-object v0, p0, Lcom/android/server/policy/ReduceScreenManager;->mEasyOneHandHalder:Landroid/view/WindowManagerPolicy$WindowState;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2
 
-    :cond_5
+    :cond_1
     iget-object v0, p0, Lcom/android/server/policy/ReduceScreenManager;->mHandler:Landroid/os/Handler;
 
     new-instance v1, Lcom/android/server/policy/ReduceScreenManager$1;
@@ -326,7 +292,18 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    goto :goto_2
+    :cond_2
+    return-void
+
+    :cond_3
+    move v0, v2
+
+    goto :goto_0
+
+    :cond_4
+    move v1, v2
+
+    goto :goto_1
 .end method
 
 .method public startService(I)V
@@ -354,29 +331,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v0, p0, Lcom/android/server/policy/ReduceScreenManager;->mSEM:Lcom/samsung/android/emergencymode/SemEmergencyManager;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/server/policy/ReduceScreenManager;->mSEM:Lcom/samsung/android/emergencymode/SemEmergencyManager;
-
-    iget-object v0, p0, Lcom/android/server/policy/ReduceScreenManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/samsung/android/emergencymode/SemEmergencyManager;->isEmergencyMode(Landroid/content/Context;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const-string/jumbo v0, "ReduceScreenManager"
-
-    const-string/jumbo v1, "Reduce screen blocked emergency mode"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_0
     iget-object v0, p0, Lcom/android/server/policy/ReduceScreenManager;->mHandler:Landroid/os/Handler;
 
     new-instance v1, Lcom/android/server/policy/ReduceScreenManager$2;

@@ -107,7 +107,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_3
 
     const-string/jumbo v3, "reason"
 
@@ -149,15 +149,7 @@
     :cond_1
     const/4 v3, 0x5
 
-    if-ne v2, v3, :cond_3
-
-    iget-object v3, p0, Lcom/android/server/cocktailbar/mode/PrivateEmergencyMode;->mContext:Landroid/content/Context;
-
-    invoke-static {v3}, Lcom/samsung/android/cocktailbar/CocktailBarFeatures;->isSupportCocktailBar(Landroid/content/Context;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_2
+    if-ne v2, v3, :cond_2
 
     sget-object v3, Lcom/android/server/cocktailbar/mode/PrivateEmergencyMode;->TAG:Ljava/lang/String;
 
@@ -189,16 +181,15 @@
 
     invoke-virtual {v3, v1, v4}, Landroid/content/Context;->startServiceAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)Landroid/content/ComponentName;
 
-    :cond_2
     const/4 v3, 0x3
 
     return v3
 
-    :cond_3
+    :cond_2
     const/4 v3, 0x1
 
     return v3
 
-    :cond_4
+    :cond_3
     return v4
 .end method

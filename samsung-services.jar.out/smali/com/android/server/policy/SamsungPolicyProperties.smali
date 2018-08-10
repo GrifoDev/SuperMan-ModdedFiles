@@ -189,16 +189,6 @@
 
     move-result v0
 
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Z)V
-
-    const-string/jumbo v0, " isMultiSIMDevice="
-
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    invoke-static {}, Lcom/android/server/policy/SamsungPolicyProperties;->isMultiSIMDevice()Z
-
-    move-result v0
-
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Z)V
 
     return-void
@@ -402,14 +392,6 @@
     return v0
 .end method
 
-.method public static isMultiSIMDevice()Z
-    .locals 1
-
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
 .method public static isOneTouchReportChordEnabled(Landroid/content/Context;)Z
     .locals 2
 
@@ -446,7 +428,7 @@
 
     move-result-object v1
 
-    const v2, 0x1120029
+    const v2, 0x1120064
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -574,15 +556,16 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_0
-    const/4 v1, 0x0
+    if-eqz v1, :cond_0
+
+    const/4 v1, 0x1
 
     return v1
 
-    :cond_1
-    const/4 v1, 0x1
+    :cond_0
+    const/4 v1, 0x0
 
     return v1
 .end method

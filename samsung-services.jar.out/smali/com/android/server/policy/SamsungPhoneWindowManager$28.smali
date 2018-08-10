@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/policy/SamsungPhoneWindowManager;->notifyCoverSwitchStateChanged(JZ)V
+    value = Lcom/android/server/policy/SamsungPhoneWindowManager;->interceptKeyBeforeDispatching(Landroid/view/WindowManagerPolicy$WindowState;Landroid/view/KeyEvent;I)J
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -35,31 +35,52 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .locals 4
 
     iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$28;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    iget-object v1, v0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mLock:Ljava/lang/Object;
+    iget-object v0, v0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mBixbyToast:Landroid/widget/Toast;
 
-    monitor-enter v1
+    if-eqz v0, :cond_0
 
-    :try_start_0
-    invoke-static {}, Landroid/hardware/input/InputManager;->getInstance()Landroid/hardware/input/InputManager;
+    iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$28;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mBixbyToast:Landroid/widget/Toast;
 
-    invoke-virtual {v0}, Landroid/hardware/input/InputManager;->coverEventFinished()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    invoke-virtual {v0}, Landroid/widget/Toast;->cancel()V
 
-    monitor-exit v1
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$28;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+
+    iget-object v1, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$28;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+
+    iget-object v1, v1, Lcom/android/server/policy/SamsungPhoneWindowManager;->mContext:Landroid/content/Context;
+
+    iget-object v2, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$28;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+
+    invoke-static {v2}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-get2(Lcom/android/server/policy/SamsungPhoneWindowManager;)Ljava/lang/String;
+
+    move-result-object v2
+
+    const/4 v3, 0x0
+
+    invoke-static {v1, v2, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mBixbyToast:Landroid/widget/Toast;
+
+    iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$28;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+
+    iget-object v0, v0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mBixbyToast:Landroid/widget/Toast;
+
+    invoke-virtual {v0}, Landroid/widget/Toast;->setShowForAllUsers()V
+
+    iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$28;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+
+    iget-object v0, v0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mBixbyToast:Landroid/widget/Toast;
+
+    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
     return-void
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-
-    throw v0
 .end method

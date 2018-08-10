@@ -103,7 +103,7 @@
 
     sput-boolean v0, Lcom/android/server/SamsungAlarmManagerService;->DEBUG_SAFE:Z
 
-    const/4 v0, 0x2
+    const/4 v0, 0x4
 
     new-array v0, v0, [Ljava/lang/String;
 
@@ -116,6 +116,18 @@
     const-string/jumbo v1, "com.samsung.android.app.aodservice"
 
     const/4 v2, 0x1
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "com.android.mms"
+
+    const/4 v2, 0x2
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "com.samsung.android.app.cocktailbarservice"
+
+    const/4 v2, 0x3
 
     aput-object v1, v0, v2
 
@@ -231,70 +243,32 @@
 .end method
 
 .method buildWhitelistForDozeMode()V
-    .locals 8
+    .locals 6
 
-    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
+    const/4 v2, 0x0
+
+    iget-object v3, p0, Lcom/android/server/SamsungAlarmManagerService;->mWhitelistPackages:Ljava/util/Set;
+
+    sget-object v4, Lcom/android/server/SamsungAlarmManagerService;->defaultWhitelistPackages:[Ljava/lang/String;
+
+    invoke-static {v4}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v4
 
-    const-string/jumbo v5, "CscFeature_Framework_ConfigWhiteListForDozeMode"
+    invoke-interface {v3, v4}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
 
-    invoke-virtual {v4, v5}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
+    iget-object v3, p0, Lcom/android/server/SamsungAlarmManagerService;->mWhitelistPackages:Ljava/util/Set;
 
-    move-result-object v3
-
-    if-eqz v3, :cond_0
-
-    const-string/jumbo v4, ","
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
-
-    move-result-object v2
-
-    const/4 v4, 0x0
-
-    array-length v5, v2
-
-    :goto_0
-    if-ge v4, v5, :cond_0
-
-    aget-object v0, v2, v4
-
-    iget-object v6, p0, Lcom/android/server/SamsungAlarmManagerService;->mWhitelistPackages:Ljava/util/Set;
-
-    invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-interface {v6, v7}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    add-int/lit8 v4, v4, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    iget-object v4, p0, Lcom/android/server/SamsungAlarmManagerService;->mWhitelistPackages:Ljava/util/Set;
-
-    sget-object v5, Lcom/android/server/SamsungAlarmManagerService;->defaultWhitelistPackages:[Ljava/lang/String;
-
-    invoke-static {v5}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
-
-    move-result-object v5
-
-    invoke-interface {v4, v5}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
-
-    iget-object v4, p0, Lcom/android/server/SamsungAlarmManagerService;->mWhitelistPackages:Ljava/util/Set;
-
-    invoke-interface {v4}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    :goto_1
+    :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v4
+    move-result v3
 
-    if-eqz v4, :cond_1
+    if-eqz v3, :cond_0
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -302,31 +276,31 @@
 
     check-cast v0, Ljava/lang/String;
 
-    const-string/jumbo v4, "SamsungAlarmManager"
+    const-string/jumbo v3, "SamsungAlarmManager"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "Add Dozemode Whitelist Package: "
+    const-string/jumbo v5, "Add Dozemode Whitelist Package: "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-static {v4, v5}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_1
+    :cond_0
     return-void
 .end method
 
@@ -2492,64 +2466,209 @@
     return-void
 .end method
 
-.method public setPendingIdleUntil(Lcom/android/server/AlarmManagerService$Alarm;)V
-    .locals 8
+.method public setPendingIdleUntilLocked(Lcom/android/server/AlarmManagerService$Alarm;Z)V
+    .locals 16
 
-    new-instance v2, Landroid/text/format/Time;
+    new-instance v9, Landroid/text/format/Time;
 
-    invoke-direct {v2}, Landroid/text/format/Time;-><init>()V
+    invoke-direct {v9}, Landroid/text/format/Time;-><init>()V
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v4
+    move-result-wide v12
 
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
-    move-result-wide v6
+    move-result-wide v14
 
-    sub-long v0, v4, v6
+    sub-long v4, v12, v14
 
-    iget-wide v4, p1, Lcom/android/server/AlarmManagerService$Alarm;->when:J
+    move-object/from16 v0, p1
 
-    add-long/2addr v4, v0
+    iget-wide v12, v0, Lcom/android/server/AlarmManagerService$Alarm;->when:J
 
-    invoke-virtual {v2, v4, v5}, Landroid/text/format/Time;->set(J)V
+    add-long/2addr v12, v4
 
-    invoke-virtual {v2}, Landroid/text/format/Time;->format2445()Ljava/lang/String;
+    invoke-virtual {v9, v12, v13}, Landroid/text/format/Time;->set(J)V
+
+    invoke-virtual {v9}, Landroid/text/format/Time;->format2445()Ljava/lang/String;
+
+    move-result-object v10
+
+    move-object/from16 v0, p0
+
+    iget-object v11, v0, Lcom/android/server/SamsungAlarmManagerService;->mService:Lcom/android/server/AlarmManagerService;
+
+    iget-object v11, v11, Lcom/android/server/AlarmManagerService;->mPendingIdleUntil:Lcom/android/server/AlarmManagerService$Alarm;
+
+    if-eqz v11, :cond_2
+
+    if-nez p2, :cond_2
+
+    move-object/from16 v0, p0
+
+    iget-object v11, v0, Lcom/android/server/SamsungAlarmManagerService;->mService:Lcom/android/server/AlarmManagerService;
+
+    iget-object v11, v11, Lcom/android/server/AlarmManagerService;->mAlarmBatches:Ljava/util/ArrayList;
+
+    invoke-virtual {v11}, Ljava/util/ArrayList;->size()I
+
+    move-result v7
+
+    const/4 v6, 0x0
+
+    :goto_0
+    if-ge v6, v7, :cond_2
+
+    move-object/from16 v0, p0
+
+    iget-object v11, v0, Lcom/android/server/SamsungAlarmManagerService;->mService:Lcom/android/server/AlarmManagerService;
+
+    iget-object v11, v11, Lcom/android/server/AlarmManagerService;->mAlarmBatches:Ljava/util/ArrayList;
+
+    invoke-virtual {v11, v6}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v3
 
-    const-string/jumbo v4, "SamsungAlarmManager"
+    check-cast v3, Lcom/android/server/AlarmManagerService$Batch;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    invoke-virtual {v3}, Lcom/android/server/AlarmManagerService$Batch;->size()I
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    move-result v2
 
-    const-string/jumbo v6, "Assign mPendingIdleUntil "
+    const/4 v8, 0x0
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :goto_1
+    if-ge v8, v2, :cond_1
 
-    move-result-object v5
+    invoke-virtual {v3, v8}, Lcom/android/server/AlarmManagerService$Batch;->get(I)Lcom/android/server/AlarmManagerService$Alarm;
 
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v11
 
-    move-result-object v5
+    move-object/from16 v0, p0
 
-    const-string/jumbo v6, " : "
+    iget-object v12, v0, Lcom/android/server/SamsungAlarmManagerService;->mService:Lcom/android/server/AlarmManagerService;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v12, v12, Lcom/android/server/AlarmManagerService;->mPendingIdleUntil:Lcom/android/server/AlarmManagerService$Alarm;
 
-    move-result-object v5
+    if-ne v11, v12, :cond_0
 
-    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, p0
 
-    move-result-object v5
+    iget-object v11, v0, Lcom/android/server/SamsungAlarmManagerService;->mService:Lcom/android/server/AlarmManagerService;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    iget-object v11, v11, Lcom/android/server/AlarmManagerService;->mAlarmBatches:Ljava/util/ArrayList;
 
-    move-result-object v5
+    invoke-virtual {v11, v6}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
-    invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v11, "SamsungAlarmManager"
+
+    new-instance v12, Ljava/lang/StringBuilder;
+
+    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v13, "mPendingIdleUntil is already registered : "
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/server/SamsungAlarmManagerService;->mService:Lcom/android/server/AlarmManagerService;
+
+    iget-object v13, v13, Lcom/android/server/AlarmManagerService;->mPendingIdleUntil:Lcom/android/server/AlarmManagerService$Alarm;
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    const-string/jumbo v13, ", Assign new mPendingIdleUntil "
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    invoke-virtual {v12, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    const-string/jumbo v13, " : "
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v12, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-static {v11, v12}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_0
+    add-int/lit8 v8, v8, 0x1
+
+    goto :goto_1
+
+    :cond_1
+    add-int/lit8 v6, v6, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    const-string/jumbo v11, "SamsungAlarmManager"
+
+    new-instance v12, Ljava/lang/StringBuilder;
+
+    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v13, "Rebatching("
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    move/from16 v0, p2
+
+    invoke-virtual {v12, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    const-string/jumbo v13, ") Assign mPendingIdleUntil "
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    invoke-virtual {v12, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    const-string/jumbo v13, " : "
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v12, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-static {v11, v12}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method

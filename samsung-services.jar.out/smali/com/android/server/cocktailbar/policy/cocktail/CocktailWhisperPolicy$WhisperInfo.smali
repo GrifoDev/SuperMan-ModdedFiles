@@ -24,15 +24,17 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Lcom/samsung/android/cocktailbar/Cocktail;)V
-    .locals 5
+    .locals 6
+
+    const/4 v3, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     invoke-virtual {p3}, Lcom/samsung/android/cocktailbar/Cocktail;->getCocktailId()I
 
-    move-result v3
+    move-result v4
 
-    iput v3, p0, Lcom/android/server/cocktailbar/policy/cocktail/CocktailWhisperPolicy$WhisperInfo;->cocktailId:I
+    iput v4, p0, Lcom/android/server/cocktailbar/policy/cocktail/CocktailWhisperPolicy$WhisperInfo;->cocktailId:I
 
     invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
@@ -42,10 +44,10 @@
 
     if-eqz p2, :cond_0
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
     :try_start_0
-    invoke-virtual {v2, p2, v3}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
+    invoke-virtual {v2, p2, v4}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
 
     move-result-object v0
 
@@ -53,17 +55,23 @@
 
     iput-object p2, p0, Lcom/android/server/cocktailbar/policy/cocktail/CocktailWhisperPolicy$WhisperInfo;->packageName:Ljava/lang/String;
 
-    iget v3, v0, Landroid/content/pm/ApplicationInfo;->uid:I
+    iget v4, v0, Landroid/content/pm/ApplicationInfo;->uid:I
 
-    iput v3, p0, Lcom/android/server/cocktailbar/policy/cocktail/CocktailWhisperPolicy$WhisperInfo;->uid:I
+    iput v4, p0, Lcom/android/server/cocktailbar/policy/cocktail/CocktailWhisperPolicy$WhisperInfo;->uid:I
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_0
     :goto_0
-    iget-object v3, p0, Lcom/android/server/cocktailbar/policy/cocktail/CocktailWhisperPolicy$WhisperInfo;->packageName:Ljava/lang/String;
+    iget-object v4, p0, Lcom/android/server/cocktailbar/policy/cocktail/CocktailWhisperPolicy$WhisperInfo;->packageName:Ljava/lang/String;
 
-    if-nez v3, :cond_1
+    if-nez v4, :cond_2
+
+    invoke-virtual {p3}, Lcom/samsung/android/cocktailbar/Cocktail;->getProvider()Landroid/content/ComponentName;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_1
 
     invoke-virtual {p3}, Lcom/samsung/android/cocktailbar/Cocktail;->getProvider()Landroid/content/ComponentName;
 
@@ -73,6 +81,7 @@
 
     move-result-object v3
 
+    :cond_1
     iput-object v3, p0, Lcom/android/server/cocktailbar/policy/cocktail/CocktailWhisperPolicy$WhisperInfo;->packageName:Ljava/lang/String;
 
     invoke-virtual {p3}, Lcom/samsung/android/cocktailbar/Cocktail;->getUid()I
@@ -81,7 +90,7 @@
 
     iput v3, p0, Lcom/android/server/cocktailbar/policy/cocktail/CocktailWhisperPolicy$WhisperInfo;->uid:I
 
-    :cond_1
+    :cond_2
     return-void
 
     :catch_0
@@ -89,25 +98,33 @@
 
     invoke-static {}, Lcom/android/server/cocktailbar/policy/cocktail/CocktailWhisperPolicy;->-get0()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    const-string/jumbo v4, "WhisperInfo packageName is wrong"
+    const-string/jumbo v5, "WhisperInfo packageName is wrong"
 
-    invoke-static {v3, v4}, Lcom/samsung/android/util/SemLog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Lcom/samsung/android/util/SemLog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method
 
 .method public constructor <init>(Lcom/samsung/android/cocktailbar/Cocktail;)V
-    .locals 1
+    .locals 2
+
+    const/4 v0, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     invoke-virtual {p1}, Lcom/samsung/android/cocktailbar/Cocktail;->getCocktailId()I
 
-    move-result v0
+    move-result v1
 
-    iput v0, p0, Lcom/android/server/cocktailbar/policy/cocktail/CocktailWhisperPolicy$WhisperInfo;->cocktailId:I
+    iput v1, p0, Lcom/android/server/cocktailbar/policy/cocktail/CocktailWhisperPolicy$WhisperInfo;->cocktailId:I
+
+    invoke-virtual {p1}, Lcom/samsung/android/cocktailbar/Cocktail;->getProvider()Landroid/content/ComponentName;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
 
     invoke-virtual {p1}, Lcom/samsung/android/cocktailbar/Cocktail;->getProvider()Landroid/content/ComponentName;
 
@@ -117,6 +134,7 @@
 
     move-result-object v0
 
+    :cond_0
     iput-object v0, p0, Lcom/android/server/cocktailbar/policy/cocktail/CocktailWhisperPolicy$WhisperInfo;->packageName:Ljava/lang/String;
 
     invoke-virtual {p1}, Lcom/samsung/android/cocktailbar/Cocktail;->getUid()I

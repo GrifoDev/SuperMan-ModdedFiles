@@ -1,14 +1,11 @@
 .class Lcom/android/server/policy/SamsungPhoneWindowManager$25;
-.super Ljava/lang/Object;
+.super Landroid/telephony/PhoneStateListener;
 .source "SamsungPhoneWindowManager.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/policy/SamsungPhoneWindowManager;->injectionKeyEvent(I)V
+    value = Lcom/android/server/policy/SamsungPhoneWindowManager;->init(Landroid/content/Context;Lcom/android/server/policy/PhoneWindowManager;Landroid/view/IWindowManager;Landroid/view/WindowManagerPolicy$WindowManagerFuncs;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,45 +17,70 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-.field final synthetic val$key:I
-
 
 # direct methods
-.method constructor <init>(Lcom/android/server/policy/SamsungPhoneWindowManager;I)V
+.method constructor <init>(Lcom/android/server/policy/SamsungPhoneWindowManager;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$25;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    iput p2, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$25;->val$key:I
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/telephony/PhoneStateListener;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
-    .locals 3
+.method public onCallStateChanged(ILjava/lang/String;)V
+    .locals 4
 
-    :try_start_0
-    new-instance v1, Landroid/app/Instrumentation;
+    const/4 v2, 0x0
 
-    invoke-direct {v1}, Landroid/app/Instrumentation;-><init>()V
+    const/4 v1, 0x1
 
-    iget v2, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$25;->val$key:I
+    iget-object v3, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$25;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    invoke-virtual {v1, v2}, Landroid/app/Instrumentation;->sendKeyDownUpSync(I)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    if-eq p1, v1, :cond_0
+
+    const/4 v0, 0x2
+
+    if-ne p1, v0, :cond_2
+
+    :cond_0
+    move v0, v1
 
     :goto_0
+    invoke-static {v3, v0}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-set11(Lcom/android/server/policy/SamsungPhoneWindowManager;Z)Z
+
+    iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$25;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+
+    invoke-static {v0}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-get8(Lcom/android/server/policy/SamsungPhoneWindowManager;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$25;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+
+    invoke-virtual {v0}, Lcom/android/server/policy/SamsungPhoneWindowManager;->requestTraversalForCoverView()V
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$25;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+
+    if-ne p1, v1, :cond_3
+
+    :goto_1
+    invoke-static {v0, v1}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-set10(Lcom/android/server/policy/SamsungPhoneWindowManager;Z)Z
+
     return-void
 
-    :catch_0
-    move-exception v0
-
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+    :cond_2
+    move v0, v2
 
     goto :goto_0
+
+    :cond_3
+    move v1, v2
+
+    goto :goto_1
 .end method

@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/policy/SamsungPhoneWindowManager;->performHomeBroadcast()V
+    value = Lcom/android/server/policy/SamsungPhoneWindowManager;->interceptKeyBeforeDispatching(Landroid/view/WindowManagerPolicy$WindowState;Landroid/view/KeyEvent;I)J
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -35,25 +35,25 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .locals 3
 
-    new-instance v0, Landroid/content/Intent;
+    iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$29;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    invoke-direct {v0}, Landroid/content/Intent;-><init>()V
-
-    const-string/jumbo v1, "com.samsung.android.action.START_DOCK_OR_HOME"
-
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
+    iget-object v0, v0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$29;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    iget-object v1, v1, Lcom/android/server/policy/SamsungPhoneWindowManager;->mContext:Landroid/content/Context;
+    invoke-static {v1}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-get2(Lcom/android/server/policy/SamsungPhoneWindowManager;)Ljava/lang/String;
 
-    sget-object v2, Landroid/os/UserHandle;->CURRENT:Landroid/os/UserHandle;
+    move-result-object v1
 
-    const-string/jumbo v3, "com.samsung.android.permisson.START_DOCK_OR_HOME"
+    const/4 v2, 0x0
 
-    invoke-virtual {v1, v0, v2, v3}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Ljava/lang/String;)V
+    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
     return-void
 .end method

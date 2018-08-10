@@ -35,38 +35,43 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 4
 
-    invoke-static {}, Lcom/android/server/policy/CombinationKeyManager;->-get0()Z
+    iget-object v2, p0, Lcom/android/server/policy/CombinationKeyManager$8;->this$0:Lcom/android/server/policy/CombinationKeyManager;
 
-    move-result v1
+    iget-object v2, v2, Lcom/android/server/policy/CombinationKeyManager;->mPWM:Lcom/android/server/policy/PhoneWindowManager;
 
-    if-eqz v1, :cond_0
+    sget-boolean v2, Lcom/android/server/policy/PhoneWindowManager;->DEBUG_INPUT:Z
 
-    const-string/jumbo v1, "CombinationKeyManager"
+    if-eqz v2, :cond_0
 
-    const-string/jumbo v2, "startService Camera QuickShot"
+    const-string/jumbo v2, "CombinationKeyManager"
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v3, "Stop Lock Task Mode"
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    new-instance v0, Landroid/content/Intent;
+    :try_start_0
+    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
 
-    const-string/jumbo v1, "com.sec.android.app.camera.QuickLauncher"
+    move-result-object v0
 
-    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-interface {v0}, Landroid/app/IActivityManager;->stopSystemLockTaskMode()V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    const-string/jumbo v1, "QuickShot"
-
-    const/4 v2, 0x1
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
-
-    iget-object v1, p0, Lcom/android/server/policy/CombinationKeyManager$8;->this$0:Lcom/android/server/policy/CombinationKeyManager;
-
-    iget-object v1, v1, Lcom/android/server/policy/CombinationKeyManager;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v1, v0}, Landroid/content/Context;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
-
+    :goto_0
     return-void
+
+    :catch_0
+    move-exception v1
+
+    const-string/jumbo v2, "CombinationKeyManager"
+
+    const-string/jumbo v3, "Unable to reach activity manager"
+
+    invoke-static {v2, v3, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
 .end method

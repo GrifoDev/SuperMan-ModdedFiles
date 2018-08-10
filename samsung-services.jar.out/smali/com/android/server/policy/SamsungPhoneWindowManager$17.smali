@@ -1,6 +1,9 @@
 .class Lcom/android/server/policy/SamsungPhoneWindowManager$17;
-.super Landroid/content/BroadcastReceiver;
+.super Ljava/lang/Object;
 .source "SamsungPhoneWindowManager.java"
+
+# interfaces
+.implements Ljava/lang/Runnable;
 
 
 # annotations
@@ -24,53 +27,21 @@
 
     iput-object p1, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$17;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 3
+.method public run()V
+    .locals 2
 
-    invoke-static {}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-get7()Lcom/samsung/android/os/SemDvfsManager;
+    iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$17;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    move-result-object v0
+    const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    iput-boolean v1, v0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mWatchLaunching:Z
 
-    invoke-static {}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-get7()Lcom/samsung/android/os/SemDvfsManager;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$17;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
-
-    iget-object v1, v1, Lcom/android/server/policy/SamsungPhoneWindowManager;->mContext:Landroid/content/Context;
-
-    const-string/jumbo v2, "PWM_ROTATION"
-
-    invoke-virtual {v0, v1, v2}, Lcom/samsung/android/os/SemDvfsManager;->update(Landroid/content/Context;Ljava/lang/String;)V
-
-    :cond_0
-    invoke-static {}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-get8()Lcom/samsung/android/os/SemDvfsManager;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_1
-
-    invoke-static {}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-get8()Lcom/samsung/android/os/SemDvfsManager;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$17;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
-
-    iget-object v1, v1, Lcom/android/server/policy/SamsungPhoneWindowManager;->mContext:Landroid/content/Context;
-
-    const-string/jumbo v2, "DEVICE_WAKEUP"
-
-    invoke-virtual {v0, v1, v2}, Lcom/samsung/android/os/SemDvfsManager;->update(Landroid/content/Context;Ljava/lang/String;)V
-
-    :cond_1
     return-void
 .end method

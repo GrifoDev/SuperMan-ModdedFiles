@@ -132,40 +132,11 @@
 .end method
 
 .method public static isExistKioskContainers(Landroid/content/Context;)Z
-    .locals 5
-
-    const/4 v4, 0x1
-
-    const/4 v3, 0x0
+    .locals 1
 
     invoke-static {p0}, Lcom/samsung/android/knox/SemPersonaManager;->isKioskModeEnabled(Landroid/content/Context;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_0
-
-    const-string/jumbo v2, "persona"
-
-    invoke-virtual {p0, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/samsung/android/knox/SemPersonaManager;
-
-    invoke-virtual {v1, v4}, Lcom/samsung/android/knox/SemPersonaManager;->getPersonas(Z)Ljava/util/List;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    invoke-interface {v0}, Ljava/util/List;->size()I
-
-    move-result v2
-
-    if-lez v2, :cond_0
-
-    return v4
-
-    :cond_0
-    return v3
+    return v0
 .end method

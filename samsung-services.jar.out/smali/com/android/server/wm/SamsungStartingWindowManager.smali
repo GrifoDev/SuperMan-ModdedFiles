@@ -23,7 +23,9 @@
 
 .field private static final STARTINGWINDOW_DIRNAME:Ljava/lang/String; = "startingwindow"
 
-.field private static final TAG:Ljava/lang/String; = "CustomStartingWindowManager"
+.field private static SUPPORT_CUSTOM_STARTING_WINDOW_LAYOUT_RESID_FOR_MASS:Z = false
+
+.field private static final TAG:Ljava/lang/String; = "SamsungStartingWindowManager"
 
 .field public static final TYPE_KEYGUARD_PREVIEW:I = 0x3
 
@@ -43,6 +45,8 @@
 
 
 # instance fields
+.field final PIXEL_PER_BYTE:I
+
 .field private final TAG_RESID:Ljava/lang/String;
 
 .field private mKeyguardPreviewResId:Ljava/util/Map;
@@ -68,6 +72,8 @@
         }
     .end annotation
 .end field
+
+.field mService:Lcom/android/server/wm/WindowManagerService;
 
 .field private mStartingWindowDataMapsForUser:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
@@ -95,7 +101,15 @@
 
 
 # direct methods
-.method static synthetic -get0()Landroid/content/Context;
+.method static synthetic -get0()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/server/wm/SamsungStartingWindowManager;->SUPPORT_CUSTOM_STARTING_WINDOW_LAYOUT_RESID_FOR_MASS:Z
+
+    return v0
+.end method
+
+.method static synthetic -get1()Landroid/content/Context;
     .locals 1
 
     sget-object v0, Lcom/android/server/wm/SamsungStartingWindowManager;->mContext:Landroid/content/Context;
@@ -103,7 +117,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get1(Lcom/android/server/wm/SamsungStartingWindowManager;)Ljava/util/Map;
+.method static synthetic -get2(Lcom/android/server/wm/SamsungStartingWindowManager;)Ljava/util/Map;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/SamsungStartingWindowManager;->mKeyguardPreviewResId:Ljava/util/Map;
@@ -111,7 +125,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get2(Lcom/android/server/wm/SamsungStartingWindowManager;)Ljava/util/Map;
+.method static synthetic -get3(Lcom/android/server/wm/SamsungStartingWindowManager;)Ljava/util/Map;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/SamsungStartingWindowManager;->mReverseStartingWindowResId:Ljava/util/Map;
@@ -119,7 +133,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get3(Lcom/android/server/wm/SamsungStartingWindowManager;)Ljava/util/Map;
+.method static synthetic -get4(Lcom/android/server/wm/SamsungStartingWindowManager;)Ljava/util/Map;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/SamsungStartingWindowManager;->mStartingWindowDataMapsForUser:Ljava/util/Map;
@@ -127,7 +141,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get4(Lcom/android/server/wm/SamsungStartingWindowManager;)Ljava/util/Map;
+.method static synthetic -get5(Lcom/android/server/wm/SamsungStartingWindowManager;)Ljava/util/Map;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/SamsungStartingWindowManager;->mStartingWindowResId:Ljava/util/Map;
@@ -184,6 +198,10 @@
 
     sput-object v0, Lcom/android/server/wm/SamsungStartingWindowManager;->mCustomImageSystemPath:Ljava/io/File;
 
+    const/4 v0, 0x0
+
+    sput-boolean v0, Lcom/android/server/wm/SamsungStartingWindowManager;->SUPPORT_CUSTOM_STARTING_WINDOW_LAYOUT_RESID_FOR_MASS:Z
+
     invoke-static {}, Landroid/os/Debug;->semIsProductDev()Z
 
     move-result v0
@@ -226,7 +244,115 @@
 
     iput-object v0, p0, Lcom/android/server/wm/SamsungStartingWindowManager;->mKeyguardPreviewResId:Ljava/util/Map;
 
+    const/4 v0, 0x4
+
+    iput v0, p0, Lcom/android/server/wm/SamsungStartingWindowManager;->PIXEL_PER_BYTE:I
+
     return-void
+.end method
+
+.method public static byteArrayToInt([B)I
+    .locals 4
+
+    const/4 v3, 0x2
+
+    const/4 v2, 0x1
+
+    const/4 v1, 0x0
+
+    array-length v0, p0
+
+    packed-switch v0, :pswitch_data_0
+
+    aget-byte v0, p0, v1
+
+    and-int/lit16 v0, v0, 0xff
+
+    shl-int/lit8 v0, v0, 0x18
+
+    aget-byte v1, p0, v2
+
+    and-int/lit16 v1, v1, 0xff
+
+    shl-int/lit8 v1, v1, 0x10
+
+    or-int/2addr v0, v1
+
+    aget-byte v1, p0, v3
+
+    and-int/lit16 v1, v1, 0xff
+
+    shl-int/lit8 v1, v1, 0x8
+
+    or-int/2addr v0, v1
+
+    const/4 v1, 0x3
+
+    aget-byte v1, p0, v1
+
+    and-int/lit16 v1, v1, 0xff
+
+    or-int/2addr v0, v1
+
+    return v0
+
+    :pswitch_0
+    return v1
+
+    :pswitch_1
+    aget-byte v0, p0, v1
+
+    and-int/lit16 v0, v0, 0xff
+
+    return v0
+
+    :pswitch_2
+    aget-byte v0, p0, v1
+
+    and-int/lit16 v0, v0, 0xff
+
+    shl-int/lit8 v0, v0, 0x8
+
+    aget-byte v1, p0, v2
+
+    and-int/lit16 v1, v1, 0xff
+
+    or-int/2addr v0, v1
+
+    return v0
+
+    :pswitch_3
+    aget-byte v0, p0, v1
+
+    and-int/lit16 v0, v0, 0xff
+
+    shl-int/lit8 v0, v0, 0x10
+
+    aget-byte v1, p0, v2
+
+    and-int/lit16 v1, v1, 0xff
+
+    shl-int/lit8 v1, v1, 0x8
+
+    or-int/2addr v0, v1
+
+    aget-byte v1, p0, v3
+
+    and-int/lit16 v1, v1, 0xff
+
+    or-int/2addr v0, v1
+
+    return v0
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+    .end packed-switch
 .end method
 
 .method private clearCustomStartingWindowData(Ljava/lang/String;I)V
@@ -275,7 +401,7 @@
 
     invoke-virtual {v2, v1}, Ljava/util/concurrent/ConcurrentHashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string/jumbo v3, "CustomStartingWindowManager"
+    const-string/jumbo v3, "SamsungStartingWindowManager"
 
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -374,6 +500,157 @@
 
     :cond_0
     return-object v0
+.end method
+
+.method public static intToByteArray(I)[B
+    .locals 3
+
+    const/4 v0, 0x4
+
+    new-array v0, v0, [B
+
+    ushr-int/lit8 v1, p0, 0x18
+
+    int-to-byte v1, v1
+
+    const/4 v2, 0x0
+
+    aput-byte v1, v0, v2
+
+    ushr-int/lit8 v1, p0, 0x10
+
+    int-to-byte v1, v1
+
+    const/4 v2, 0x1
+
+    aput-byte v1, v0, v2
+
+    ushr-int/lit8 v1, p0, 0x8
+
+    int-to-byte v1, v1
+
+    const/4 v2, 0x2
+
+    aput-byte v1, v0, v2
+
+    int-to-byte v1, p0
+
+    const/4 v2, 0x3
+
+    aput-byte v1, v0, v2
+
+    return-object v0
+.end method
+
+.method private makeBlurBitmap(Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
+    .locals 12
+
+    const/4 v9, 0x1
+
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+
+    move-result-wide v0
+
+    invoke-virtual {p1}, Landroid/graphics/Bitmap;->getConfig()Landroid/graphics/Bitmap$Config;
+
+    move-result-object v8
+
+    invoke-virtual {p1, v8, v9}, Landroid/graphics/Bitmap;->copy(Landroid/graphics/Bitmap$Config;Z)Landroid/graphics/Bitmap;
+
+    move-result-object v2
+
+    sget-object v8, Lcom/android/server/wm/SamsungStartingWindowManager;->mContext:Landroid/content/Context;
+
+    invoke-static {v8}, Landroid/renderscript/RenderScript;->create(Landroid/content/Context;)Landroid/renderscript/RenderScript;
+
+    move-result-object v6
+
+    sget-object v8, Landroid/renderscript/Allocation$MipmapControl;->MIPMAP_NONE:Landroid/renderscript/Allocation$MipmapControl;
+
+    invoke-static {v6, p1, v8, v9}, Landroid/renderscript/Allocation;->createFromBitmap(Landroid/renderscript/RenderScript;Landroid/graphics/Bitmap;Landroid/renderscript/Allocation$MipmapControl;I)Landroid/renderscript/Allocation;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/renderscript/Allocation;->getType()Landroid/renderscript/Type;
+
+    move-result-object v8
+
+    invoke-static {v6, v8}, Landroid/renderscript/Allocation;->createTyped(Landroid/renderscript/RenderScript;Landroid/renderscript/Type;)Landroid/renderscript/Allocation;
+
+    move-result-object v4
+
+    invoke-static {v6}, Landroid/renderscript/Element;->U8_4(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
+
+    move-result-object v8
+
+    invoke-static {v6, v8}, Landroid/renderscript/ScriptIntrinsicBlur;->create(Landroid/renderscript/RenderScript;Landroid/renderscript/Element;)Landroid/renderscript/ScriptIntrinsicBlur;
+
+    move-result-object v7
+
+    sget-object v8, Lcom/android/server/wm/SamsungStartingWindowManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v8}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v8
+
+    const-string/jumbo v9, "samsung_starting_window_blur_radius"
+
+    const/16 v10, 0x19
+
+    const/4 v11, -0x2
+
+    invoke-static {v8, v9, v10, v11}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
+
+    move-result v8
+
+    int-to-float v5, v8
+
+    const/high16 v8, 0x41c80000    # 25.0f
+
+    cmpl-float v8, v5, v8
+
+    if-lez v8, :cond_0
+
+    const/high16 v5, 0x41c80000    # 25.0f
+
+    :cond_0
+    invoke-virtual {v7, v5}, Landroid/renderscript/ScriptIntrinsicBlur;->setRadius(F)V
+
+    invoke-virtual {v7, v3}, Landroid/renderscript/ScriptIntrinsicBlur;->setInput(Landroid/renderscript/Allocation;)V
+
+    invoke-virtual {v7, v4}, Landroid/renderscript/ScriptIntrinsicBlur;->forEach(Landroid/renderscript/Allocation;)V
+
+    invoke-virtual {v4, v2}, Landroid/renderscript/Allocation;->copyTo(Landroid/graphics/Bitmap;)V
+
+    const-string/jumbo v8, "SamsungStartingWindowManager"
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v10, "CustomStartingWindow makeBlurBitma success "
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+
+    move-result-wide v10
+
+    sub-long/2addr v10, v0
+
+    invoke-virtual {v9, v10, v11}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v8, v9}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-object v2
 .end method
 
 .method private removeXml(Ljava/lang/String;I)V
@@ -499,7 +776,7 @@
 
     sget-object v9, Lcom/android/server/wm/SamsungStartingWindowManager;->mStartingWindowPath:Ljava/io/File;
 
-    invoke-virtual {v9}, Ljava/io/File;->mkdir()Z
+    invoke-virtual {v9}, Ljava/io/File;->mkdirs()Z
 
     :cond_0
     sget-object v9, Lcom/android/server/wm/SamsungStartingWindowManager;->mContext:Landroid/content/Context;
@@ -508,7 +785,7 @@
 
     move-result-object v4
 
-    const-string/jumbo v9, "CustomStartingWindowManager"
+    const-string/jumbo v9, "SamsungStartingWindowManager"
 
     new-instance v10, Ljava/lang/StringBuilder;
 
@@ -544,7 +821,7 @@
 
     if-eqz v7, :cond_1
 
-    const-string/jumbo v9, "CustomStartingWindowManager"
+    const-string/jumbo v9, "SamsungStartingWindowManager"
 
     new-instance v10, Ljava/lang/StringBuilder;
 
@@ -577,7 +854,7 @@
 
     aget-object v1, v7, v9
 
-    const-string/jumbo v11, "CustomStartingWindowManager"
+    const-string/jumbo v11, "SamsungStartingWindowManager"
 
     new-instance v12, Ljava/lang/StringBuilder;
 
@@ -638,7 +915,7 @@
     :catch_0
     move-exception v0
 
-    const-string/jumbo v11, "CustomStartingWindowManager"
+    const-string/jumbo v11, "SamsungStartingWindowManager"
 
     const-string/jumbo v12, "CustomStartingWindow the app is removed. remove xml also"
 
@@ -659,10 +936,10 @@
 
     sget-object v9, Lcom/android/server/wm/SamsungStartingWindowManager;->mReverseStartingWindowPath:Ljava/io/File;
 
-    invoke-virtual {v9}, Ljava/io/File;->mkdir()Z
+    invoke-virtual {v9}, Ljava/io/File;->mkdirs()Z
 
     :cond_2
-    const-string/jumbo v9, "CustomStartingWindowManager"
+    const-string/jumbo v9, "SamsungStartingWindowManager"
 
     new-instance v10, Ljava/lang/StringBuilder;
 
@@ -698,7 +975,7 @@
 
     if-eqz v6, :cond_3
 
-    const-string/jumbo v9, "CustomStartingWindowManager"
+    const-string/jumbo v9, "SamsungStartingWindowManager"
 
     new-instance v10, Ljava/lang/StringBuilder;
 
@@ -731,7 +1008,7 @@
 
     aget-object v1, v6, v9
 
-    const-string/jumbo v11, "CustomStartingWindowManager"
+    const-string/jumbo v11, "SamsungStartingWindowManager"
 
     new-instance v12, Ljava/lang/StringBuilder;
 
@@ -792,7 +1069,7 @@
     :catch_1
     move-exception v0
 
-    const-string/jumbo v11, "CustomStartingWindowManager"
+    const-string/jumbo v11, "SamsungStartingWindowManager"
 
     const-string/jumbo v12, "CustomStartingWindow the app is removed. remove xml also"
 
@@ -813,10 +1090,10 @@
 
     sget-object v9, Lcom/android/server/wm/SamsungStartingWindowManager;->mKeyguardPreviewPath:Ljava/io/File;
 
-    invoke-virtual {v9}, Ljava/io/File;->mkdir()Z
+    invoke-virtual {v9}, Ljava/io/File;->mkdirs()Z
 
     :cond_4
-    const-string/jumbo v9, "CustomStartingWindowManager"
+    const-string/jumbo v9, "SamsungStartingWindowManager"
 
     new-instance v10, Ljava/lang/StringBuilder;
 
@@ -852,7 +1129,7 @@
 
     if-eqz v5, :cond_5
 
-    const-string/jumbo v9, "CustomStartingWindowManager"
+    const-string/jumbo v9, "SamsungStartingWindowManager"
 
     new-instance v10, Ljava/lang/StringBuilder;
 
@@ -883,7 +1160,7 @@
 
     aget-object v1, v5, v8
 
-    const-string/jumbo v10, "CustomStartingWindowManager"
+    const-string/jumbo v10, "SamsungStartingWindowManager"
 
     new-instance v11, Ljava/lang/StringBuilder;
 
@@ -944,7 +1221,7 @@
     :catch_2
     move-exception v0
 
-    const-string/jumbo v10, "CustomStartingWindowManager"
+    const-string/jumbo v10, "SamsungStartingWindowManager"
 
     const-string/jumbo v11, "CustomStartingWindow the app is removed. remove xml also"
 
@@ -1051,7 +1328,7 @@
 
     invoke-virtual {p0, v7, v10, p2}, Lcom/android/server/wm/SamsungStartingWindowManager;->addCustomLayoutResId(Ljava/lang/String;II)V
 
-    const-string/jumbo v10, "CustomStartingWindowManager"
+    const-string/jumbo v10, "SamsungStartingWindowManager"
 
     new-instance v11, Ljava/lang/StringBuilder;
 
@@ -1089,7 +1366,7 @@
 
     :goto_2
     :try_start_2
-    const-string/jumbo v10, "CustomStartingWindowManager"
+    const-string/jumbo v10, "SamsungStartingWindowManager"
 
     new-instance v11, Ljava/lang/StringBuilder;
 
@@ -1134,7 +1411,7 @@
 
     :cond_3
     :try_start_4
-    const-string/jumbo v10, "CustomStartingWindowManager"
+    const-string/jumbo v10, "SamsungStartingWindowManager"
 
     new-instance v11, Ljava/lang/StringBuilder;
 
@@ -1185,7 +1462,7 @@
 
     :cond_6
     :try_start_6
-    const-string/jumbo v10, "CustomStartingWindowManager"
+    const-string/jumbo v10, "SamsungStartingWindowManager"
 
     new-instance v11, Ljava/lang/StringBuilder;
 
@@ -1506,7 +1783,7 @@
 
     invoke-virtual {v1, v5}, Landroid/util/AtomicFile;->finishWrite(Ljava/io/FileOutputStream;)V
 
-    const-string/jumbo v8, "CustomStartingWindowManager"
+    const-string/jumbo v8, "SamsungStartingWindowManager"
 
     new-instance v9, Ljava/lang/StringBuilder;
 
@@ -1567,7 +1844,7 @@
     invoke-virtual {v0, v5}, Landroid/util/AtomicFile;->failWrite(Ljava/io/FileOutputStream;)V
 
     :cond_1
-    const-string/jumbo v8, "CustomStartingWindowManager"
+    const-string/jumbo v8, "SamsungStartingWindowManager"
 
     new-instance v9, Ljava/lang/StringBuilder;
 
@@ -1610,7 +1887,7 @@
     invoke-virtual {v0, v5}, Landroid/util/AtomicFile;->failWrite(Ljava/io/FileOutputStream;)V
 
     :cond_2
-    const-string/jumbo v8, "CustomStartingWindowManager"
+    const-string/jumbo v8, "SamsungStartingWindowManager"
 
     new-instance v9, Ljava/lang/StringBuilder;
 
@@ -1653,7 +1930,7 @@
     invoke-virtual {v0, v5}, Landroid/util/AtomicFile;->failWrite(Ljava/io/FileOutputStream;)V
 
     :cond_3
-    const-string/jumbo v8, "CustomStartingWindowManager"
+    const-string/jumbo v8, "SamsungStartingWindowManager"
 
     new-instance v9, Ljava/lang/StringBuilder;
 
@@ -1773,26 +2050,18 @@
     .end packed-switch
 .end method
 
-.method public addCustomStartingWinodwData(Ljava/lang/String;Landroid/os/Bundle;I)Ljava/lang/String;
-    .locals 4
+.method public addCustomStartingWinodwData(Landroid/content/ComponentName;Landroid/os/Bundle;I)Ljava/lang/String;
+    .locals 3
 
-    invoke-virtual {p1}, Ljava/lang/String;->length()I
-
-    move-result v2
-
-    add-int/lit8 v2, v2, -0x1
-
-    const/4 v3, 0x1
-
-    invoke-virtual {p1, v3, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {p0, p3}, Lcom/android/server/wm/SamsungStartingWindowManager;->getStartingWindowDataMapForUser(I)Ljava/util/Map;
+    invoke-virtual {p1}, Landroid/content/ComponentName;->flattenToString()Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-interface {v1, v0}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+    invoke-direct {p0, p3}, Lcom/android/server/wm/SamsungStartingWindowManager;->getStartingWindowDataMapForUser(I)Ljava/util/Map;
+
+    move-result-object v0
+
+    invoke-interface {v0, v1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v2
 
@@ -1800,12 +2069,45 @@
 
     new-instance v2, Lcom/android/server/wm/SamsungStartingWindowManager$CustomStartingWindowData;
 
-    invoke-direct {v2, p0, v0, p2, p3}, Lcom/android/server/wm/SamsungStartingWindowManager$CustomStartingWindowData;-><init>(Lcom/android/server/wm/SamsungStartingWindowManager;Ljava/lang/String;Landroid/os/Bundle;I)V
+    invoke-direct {v2, p0, v1, p2, p3}, Lcom/android/server/wm/SamsungStartingWindowManager$CustomStartingWindowData;-><init>(Lcom/android/server/wm/SamsungStartingWindowManager;Ljava/lang/String;Landroid/os/Bundle;I)V
 
-    invoke-interface {v1, v0, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_0
-    return-object v0
+    return-object v1
+.end method
+
+.method public canAddSamsungStartingWindow(Lcom/android/server/wm/AppWindowToken;)Z
+    .locals 3
+
+    const/4 v2, 0x1
+
+    const/4 v1, 0x0
+
+    iget-object v0, p1, Lcom/android/server/wm/AppWindowToken;->customStartingWindowKey:Ljava/lang/String;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p1}, Lcom/android/server/wm/AppWindowToken;->getTask()Lcom/android/server/wm/Task;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p1}, Lcom/android/server/wm/AppWindowToken;->getTask()Lcom/android/server/wm/Task;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/server/wm/Task;->isFullscreen()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    return v2
+
+    :cond_0
+    return v1
 .end method
 
 .method public clearCustomStartingWindowDataForAllUsers(Ljava/lang/String;)V
@@ -1822,6 +2124,440 @@
     invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
     return-void
+.end method
+
+.method public decodeImageFromRawFile(Ljava/io/File;)Landroid/graphics/Bitmap;
+    .locals 22
+
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+
+    move-result-wide v4
+
+    if-nez p1, :cond_0
+
+    const-string/jumbo v17, "SamsungStartingWindowManager"
+
+    const-string/jumbo v18, "CustomStartingWindow decodeImageToRawFile failed"
+
+    invoke-static/range {v17 .. v18}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/16 v17, 0x0
+
+    return-object v17
+
+    :cond_0
+    const/16 v16, 0x0
+
+    const/4 v13, 0x0
+
+    const/4 v6, 0x0
+
+    const/4 v10, 0x0
+
+    :try_start_0
+    new-instance v11, Ljava/io/FileInputStream;
+
+    move-object/from16 v0, p1
+
+    invoke-direct {v11, v0}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    const/16 v17, 0x4
+
+    :try_start_1
+    move/from16 v0, v17
+
+    new-array v15, v0, [B
+
+    const/16 v17, 0x4
+
+    move/from16 v0, v17
+
+    new-array v12, v0, [B
+
+    const/16 v17, 0x0
+
+    const/16 v18, 0x4
+
+    move/from16 v0, v17
+
+    move/from16 v1, v18
+
+    invoke-virtual {v11, v15, v0, v1}, Ljava/io/FileInputStream;->read([BII)I
+
+    const/16 v17, 0x0
+
+    const/16 v18, 0x4
+
+    move/from16 v0, v17
+
+    move/from16 v1, v18
+
+    invoke-virtual {v11, v12, v0, v1}, Ljava/io/FileInputStream;->read([BII)I
+
+    invoke-static {v15}, Lcom/android/server/wm/SamsungStartingWindowManager;->byteArrayToInt([B)I
+
+    move-result v16
+
+    invoke-static {v12}, Lcom/android/server/wm/SamsungStartingWindowManager;->byteArrayToInt([B)I
+
+    move-result v13
+
+    mul-int v17, v16, v13
+
+    mul-int/lit8 v17, v17, 0x4
+
+    invoke-static/range {v17 .. v17}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/nio/ByteBuffer;->array()[B
+
+    move-result-object v17
+
+    move-object/from16 v0, v17
+
+    invoke-virtual {v11, v0}, Ljava/io/FileInputStream;->read([B)I
+
+    invoke-virtual {v11}, Ljava/io/FileInputStream;->close()V
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_3
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+
+    sget-object v17, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
+
+    move/from16 v0, v16
+
+    move-object/from16 v1, v17
+
+    invoke-static {v0, v13, v1}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
+
+    move-result-object v14
+
+    :try_start_2
+    invoke-virtual {v14, v6}, Landroid/graphics/Bitmap;->copyPixelsFromBuffer(Ljava/nio/Buffer;)V
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_2
+
+    const-string/jumbo v17, "SamsungStartingWindowManager"
+
+    new-instance v18, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v19, "CustomStartingWindow encodeImageToRawFile : Decoding finished. "
+
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v18
+
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+
+    move-result-wide v20
+
+    sub-long v20, v20, v4
+
+    move-object/from16 v0, v18
+
+    move-wide/from16 v1, v20
+
+    invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v18
+
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v18
+
+    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-object v14
+
+    :catch_0
+    move-exception v7
+
+    :goto_0
+    if-eqz v10, :cond_1
+
+    :try_start_3
+    invoke-virtual {v10}, Ljava/io/FileInputStream;->close()V
+    :try_end_3
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_1
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    :cond_1
+    :goto_1
+    :try_start_4
+    invoke-virtual {v7}, Ljava/io/IOException;->printStackTrace()V
+
+    const-string/jumbo v17, "SamsungStartingWindowManager"
+
+    new-instance v18, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v19, "CustomStartingWindow decodeImageToRawFile IOException "
+
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v18
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v18
+
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v18
+
+    invoke-static/range {v17 .. v18}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+
+    const/16 v17, 0x0
+
+    return-object v17
+
+    :catch_1
+    move-exception v9
+
+    goto :goto_1
+
+    :catchall_0
+    move-exception v17
+
+    :goto_2
+    throw v17
+
+    :catch_2
+    move-exception v8
+
+    const-string/jumbo v17, "SamsungStartingWindowManager"
+
+    new-instance v18, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v19, "CustomStartingWindow exception : "
+
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v18
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v18
+
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v18
+
+    invoke-static/range {v17 .. v18}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/16 v17, 0x0
+
+    return-object v17
+
+    :catchall_1
+    move-exception v17
+
+    move-object v10, v11
+
+    goto :goto_2
+
+    :catch_3
+    move-exception v7
+
+    move-object v10, v11
+
+    goto :goto_0
+.end method
+
+.method public encodeImageToRawFile(Landroid/graphics/Bitmap;Ljava/io/File;)Z
+    .locals 18
+
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+
+    move-result-wide v2
+
+    if-nez p1, :cond_0
+
+    const-string/jumbo v13, "SamsungStartingWindowManager"
+
+    const-string/jumbo v14, "encodeImageToRawFile : bitmap is null!"
+
+    invoke-static {v13, v14}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v13, 0x0
+
+    return v13
+
+    :cond_0
+    invoke-virtual/range {p1 .. p1}, Landroid/graphics/Bitmap;->getWidth()I
+
+    move-result v12
+
+    invoke-virtual/range {p1 .. p1}, Landroid/graphics/Bitmap;->getHeight()I
+
+    move-result v11
+
+    invoke-static {v12}, Lcom/android/server/wm/SamsungStartingWindowManager;->intToByteArray(I)[B
+
+    move-result-object v6
+
+    invoke-static {v11}, Lcom/android/server/wm/SamsungStartingWindowManager;->intToByteArray(I)[B
+
+    move-result-object v5
+
+    mul-int v13, v12, v11
+
+    mul-int/lit8 v13, v13, 0x4
+
+    invoke-static {v13}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
+
+    move-result-object v4
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v4}, Landroid/graphics/Bitmap;->copyPixelsToBuffer(Ljava/nio/Buffer;)V
+
+    const/4 v9, 0x0
+
+    :try_start_0
+    new-instance v10, Ljava/io/FileOutputStream;
+
+    move-object/from16 v0, p2
+
+    invoke-direct {v10, v0}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :try_start_1
+    invoke-virtual {v10, v6}, Ljava/io/FileOutputStream;->write([B)V
+
+    invoke-virtual {v10, v5}, Ljava/io/FileOutputStream;->write([B)V
+
+    invoke-virtual {v4}, Ljava/nio/ByteBuffer;->array()[B
+
+    move-result-object v13
+
+    invoke-virtual {v10, v13}, Ljava/io/FileOutputStream;->write([B)V
+
+    invoke-virtual {v10}, Ljava/io/FileOutputStream;->close()V
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_2
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+
+    const-string/jumbo v13, "SamsungStartingWindowManager"
+
+    new-instance v14, Ljava/lang/StringBuilder;
+
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v15, "CustomStartingWindow encodeImageToRawFile : Encoding finished. "
+
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+
+    move-result-wide v16
+
+    sub-long v16, v16, v2
+
+    move-wide/from16 v0, v16
+
+    invoke-virtual {v14, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v14
+
+    invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v13, 0x1
+
+    return v13
+
+    :catch_0
+    move-exception v7
+
+    :goto_0
+    if-eqz v9, :cond_1
+
+    :try_start_2
+    invoke-virtual {v9}, Ljava/io/FileOutputStream;->close()V
+    :try_end_2
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    :cond_1
+    :goto_1
+    :try_start_3
+    invoke-virtual {v7}, Ljava/io/IOException;->printStackTrace()V
+
+    const-string/jumbo v13, "SamsungStartingWindowManager"
+
+    new-instance v14, Ljava/lang/StringBuilder;
+
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v15, "CustomStartingWindow encodeImageToRawFile IOException "
+
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v14, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v14
+
+    invoke-static {v13, v14}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    const/4 v13, 0x0
+
+    return v13
+
+    :catch_1
+    move-exception v8
+
+    goto :goto_1
+
+    :catchall_0
+    move-exception v13
+
+    :goto_2
+    throw v13
+
+    :catchall_1
+    move-exception v13
+
+    move-object v9, v10
+
+    goto :goto_2
+
+    :catch_2
+    move-exception v7
+
+    move-object v9, v10
+
+    goto :goto_0
 .end method
 
 .method public getCustomStartingBitmap(Ljava/lang/String;II)Landroid/graphics/Bitmap;
@@ -1876,164 +2612,218 @@
 .end method
 
 .method public getStartingWindowLayoutResId(Ljava/lang/String;II)I
-    .locals 5
+    .locals 7
 
-    const/4 v3, 0x2
+    const/4 v5, 0x2
 
-    const/4 v4, 0x0
+    const/4 v6, 0x0
 
     invoke-direct {p0, p3}, Lcom/android/server/wm/SamsungStartingWindowManager;->getStartingWindowDataMapForUser(I)Ljava/util/Map;
 
-    move-result-object v2
+    move-result-object v4
 
-    invoke-interface {v2, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v4, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lcom/android/server/wm/SamsungStartingWindowManager$CustomStartingWindowData;
+    check-cast v1, Lcom/android/server/wm/SamsungStartingWindowManager$CustomStartingWindowData;
 
-    if-eqz v0, :cond_6
+    if-eqz v1, :cond_7
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
-    if-eq p2, v3, :cond_0
+    if-eq p2, v5, :cond_0
 
-    const/4 v2, 0x3
+    const/4 v4, 0x3
 
-    if-ne p2, v2, :cond_1
+    if-ne p2, v4, :cond_1
 
     :cond_0
-    iget v2, v0, Lcom/android/server/wm/SamsungStartingWindowManager$CustomStartingWindowData;->resIdOfReverseLayout:I
+    iget v4, v1, Lcom/android/server/wm/SamsungStartingWindowManager$CustomStartingWindowData;->resIdOfReverseLayout:I
 
-    if-eqz v2, :cond_2
+    if-eqz v4, :cond_2
 
-    iget v1, v0, Lcom/android/server/wm/SamsungStartingWindowManager$CustomStartingWindowData;->resIdOfReverseLayout:I
+    iget v3, v1, Lcom/android/server/wm/SamsungStartingWindowManager$CustomStartingWindowData;->resIdOfReverseLayout:I
 
-    const-string/jumbo v2, "CustomStartingWindowManager"
+    const-string/jumbo v4, "SamsungStartingWindowManager"
 
-    const-string/jumbo v3, "CustomStartingWindow reverse layout will show"
+    const-string/jumbo v5, "CustomStartingWindow reverse layout will show"
 
-    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v2, p0, Lcom/android/server/wm/SamsungStartingWindowManager;->mReverseStartingWindowResId:Ljava/util/Map;
+    iget-object v4, p0, Lcom/android/server/wm/SamsungStartingWindowManager;->mReverseStartingWindowResId:Ljava/util/Map;
 
-    invoke-interface {v2, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+    invoke-interface {v4, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v4
 
-    if-eqz v2, :cond_1
+    if-eqz v4, :cond_1
 
-    iget-object v2, p0, Lcom/android/server/wm/SamsungStartingWindowManager;->mReverseStartingWindowResId:Ljava/util/Map;
+    iget-object v4, p0, Lcom/android/server/wm/SamsungStartingWindowManager;->mReverseStartingWindowResId:Ljava/util/Map;
 
-    invoke-interface {v2, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v4, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v4
 
-    check-cast v2, Ljava/lang/Integer;
+    check-cast v4, Ljava/lang/Integer;
 
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
 
-    move-result v1
+    move-result v3
 
     :cond_1
     :goto_0
-    if-lez v1, :cond_3
+    if-lez v3, :cond_3
 
-    return v1
+    return v3
 
     :cond_2
-    iget-object v2, p0, Lcom/android/server/wm/SamsungStartingWindowManager;->mReverseStartingWindowResId:Ljava/util/Map;
+    iget-object v4, p0, Lcom/android/server/wm/SamsungStartingWindowManager;->mReverseStartingWindowResId:Ljava/util/Map;
 
-    invoke-interface {v2, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+    invoke-interface {v4, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v4
 
-    if-eqz v2, :cond_1
+    if-eqz v4, :cond_1
 
-    invoke-virtual {p0, p1, v3}, Lcom/android/server/wm/SamsungStartingWindowManager;->removeCustomLayoutResId(Ljava/lang/String;I)V
+    invoke-virtual {p0, p1, v5}, Lcom/android/server/wm/SamsungStartingWindowManager;->removeCustomLayoutResId(Ljava/lang/String;I)V
 
     goto :goto_0
 
     :cond_3
-    iget v1, v0, Lcom/android/server/wm/SamsungStartingWindowManager$CustomStartingWindowData;->resIdOfDefaultLayout:I
+    invoke-static {p1}, Landroid/content/ComponentName;->unflattenFromString(Ljava/lang/String;)Landroid/content/ComponentName;
 
-    if-lez v1, :cond_5
+    move-result-object v0
 
-    iget-object v2, p0, Lcom/android/server/wm/SamsungStartingWindowManager;->mStartingWindowResId:Ljava/util/Map;
+    if-eqz v0, :cond_5
 
-    invoke-interface {v2, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_4
-
-    iget-object v2, p0, Lcom/android/server/wm/SamsungStartingWindowManager;->mStartingWindowResId:Ljava/util/Map;
-
-    invoke-interface {v2, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
     move-result-object v2
 
-    check-cast v2, Ljava/lang/Integer;
+    :goto_1
+    iget v3, v1, Lcom/android/server/wm/SamsungStartingWindowManager$CustomStartingWindowData;->resIdOfDefaultLayout:I
 
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+    if-lez v3, :cond_6
 
-    move-result v1
+    iget-object v4, p0, Lcom/android/server/wm/SamsungStartingWindowManager;->mStartingWindowResId:Ljava/util/Map;
+
+    invoke-interface {v4, v2}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_4
+
+    iget-object v4, p0, Lcom/android/server/wm/SamsungStartingWindowManager;->mStartingWindowResId:Ljava/util/Map;
+
+    invoke-interface {v4, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Ljava/lang/Integer;
+
+    invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
+
+    move-result v3
 
     :cond_4
-    return v1
+    return v3
 
     :cond_5
-    iget-object v2, p0, Lcom/android/server/wm/SamsungStartingWindowManager;->mStartingWindowResId:Ljava/util/Map;
+    const-string/jumbo v2, ""
 
-    invoke-interface {v2, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_6
-
-    const/4 v2, 0x1
-
-    invoke-virtual {p0, p1, v2}, Lcom/android/server/wm/SamsungStartingWindowManager;->removeCustomLayoutResId(Ljava/lang/String;I)V
+    goto :goto_1
 
     :cond_6
-    return v4
+    iget-object v4, p0, Lcom/android/server/wm/SamsungStartingWindowManager;->mStartingWindowResId:Ljava/util/Map;
+
+    invoke-interface {v4, v2}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_7
+
+    const/4 v4, 0x1
+
+    invoke-virtual {p0, v2, v4}, Lcom/android/server/wm/SamsungStartingWindowManager;->removeCustomLayoutResId(Ljava/lang/String;I)V
+
+    :cond_7
+    return v6
 .end method
 
-.method public init(Landroid/content/Context;)Z
-    .locals 2
+.method public init(Lcom/android/server/wm/WindowManagerService;Landroid/content/Context;)Z
+    .locals 4
 
-    const-string/jumbo v0, "CustomStartingWindowManager"
+    const/4 v3, 0x1
 
-    const-string/jumbo v1, "CustomStartingWindow Constructed"
+    const-string/jumbo v1, "SamsungStartingWindowManager"
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v2, "CustomStartingWindow Constructed"
 
-    sput-object p1, Lcom/android/server/wm/SamsungStartingWindowManager;->mContext:Landroid/content/Context;
+    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    sput-object p2, Lcom/android/server/wm/SamsungStartingWindowManager;->mContext:Landroid/content/Context;
 
     invoke-direct {p0}, Lcom/android/server/wm/SamsungStartingWindowManager;->restoreAllFromXml()V
 
-    sget-object v0, Lcom/android/server/wm/SamsungStartingWindowManager;->mCustomImageSystemPath:Ljava/io/File;
+    sget-object v1, Lcom/android/server/wm/SamsungStartingWindowManager;->mCustomImageSystemPath:Ljava/io/File;
 
-    invoke-virtual {v0}, Ljava/io/File;->exists()Z
+    invoke-virtual {v1}, Ljava/io/File;->exists()Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
-    const-string/jumbo v0, "CustomStartingWindowManager"
+    const-string/jumbo v1, "SamsungStartingWindowManager"
 
-    const-string/jumbo v1, "CustomStartingWindow custom image dir created"
+    const-string/jumbo v2, "CustomStartingWindow custom image dir created"
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    sget-object v0, Lcom/android/server/wm/SamsungStartingWindowManager;->mCustomImageSystemPath:Ljava/io/File;
+    sget-object v1, Lcom/android/server/wm/SamsungStartingWindowManager;->mCustomImageSystemPath:Ljava/io/File;
 
-    invoke-virtual {v0}, Ljava/io/File;->mkdir()Z
+    invoke-virtual {v1}, Ljava/io/File;->mkdirs()Z
 
     :cond_0
-    const/4 v0, 0x1
+    iput-object p1, p0, Lcom/android/server/wm/SamsungStartingWindowManager;->mService:Lcom/android/server/wm/WindowManagerService;
 
-    return v0
+    sget-object v1, Lcom/android/server/wm/SamsungStartingWindowManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "com.samsung.feature.device_category_phone_low_end"
+
+    invoke-virtual {v0, v1}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    const-string/jumbo v1, "com.samsung.feature.device_category_tablet"
+
+    invoke-virtual {v0, v1}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    const-string/jumbo v1, "com.samsung.feature.device_category_tablet_high_end"
+
+    invoke-virtual {v0, v1}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
+
+    move-result v1
+
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_2
+
+    :cond_1
+    sput-boolean v3, Lcom/android/server/wm/SamsungStartingWindowManager;->SUPPORT_CUSTOM_STARTING_WINDOW_LAYOUT_RESID_FOR_MASS:Z
+
+    :cond_2
+    return v3
 .end method
 
 .method public isCustomBitmapLoaded(Ljava/lang/String;I)Z
@@ -2060,6 +2850,43 @@
     iget-boolean v1, v0, Lcom/android/server/wm/SamsungStartingWindowManager$CustomStartingWindowData;->bitmapIsLoaded:Z
 
     goto :goto_0
+.end method
+
+.method public isFixedOrientation(Ljava/lang/String;I)Z
+    .locals 4
+
+    const/4 v3, 0x0
+
+    invoke-direct {p0, p2, v3}, Lcom/android/server/wm/SamsungStartingWindowManager;->getStartingWindowDataMapForUser(IZ)Ljava/util/concurrent/ConcurrentHashMap;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    if-nez p1, :cond_1
+
+    :cond_0
+    return v3
+
+    :cond_1
+    invoke-virtual {v1, p1}, Ljava/util/concurrent/ConcurrentHashMap;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    invoke-virtual {v1, p1}, Ljava/util/concurrent/ConcurrentHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/server/wm/SamsungStartingWindowManager$CustomStartingWindowData;
+
+    iget-boolean v2, v0, Lcom/android/server/wm/SamsungStartingWindowManager$CustomStartingWindowData;->isFixedOrientation:Z
+
+    return v2
+
+    :cond_2
+    return v3
 .end method
 
 .method public removeCustomLayoutResId(Ljava/lang/String;I)V
@@ -2184,7 +3011,7 @@
 
     if-nez v8, :cond_1
 
-    const-string/jumbo v22, "CustomStartingWindowManager"
+    const-string/jumbo v22, "SamsungStartingWindowManager"
 
     const-string/jumbo v23, "CustomStartingWindow custom image not support app"
 
@@ -2203,7 +3030,7 @@
 
     if-nez v22, :cond_2
 
-    const-string/jumbo v22, "CustomStartingWindowManager"
+    const-string/jumbo v22, "SamsungStartingWindowManager"
 
     const-string/jumbo v23, "CustomStartingWindow mkdir for getFD. but it\'s weird"
 
@@ -2211,7 +3038,7 @@
 
     sget-object v22, Lcom/android/server/wm/SamsungStartingWindowManager;->mStartingWindowPath:Ljava/io/File;
 
-    invoke-virtual/range {v22 .. v22}, Ljava/io/File;->mkdir()Z
+    invoke-virtual/range {v22 .. v22}, Ljava/io/File;->mkdirs()Z
 
     :cond_2
     invoke-virtual/range {p1 .. p1}, Ljava/lang/String;->length()I
@@ -2290,7 +3117,7 @@
 
     if-nez v9, :cond_3
 
-    const-string/jumbo v22, "CustomStartingWindowManager"
+    const-string/jumbo v22, "SamsungStartingWindowManager"
 
     new-instance v23, Ljava/lang/StringBuilder;
 
@@ -2355,7 +3182,7 @@
 
     if-eqz v22, :cond_4
 
-    const-string/jumbo v22, "CustomStartingWindowManager"
+    const-string/jumbo v22, "SamsungStartingWindowManager"
 
     const-string/jumbo v23, "CustomStartingWindow custom image remove"
 
@@ -2372,7 +3199,7 @@
 
     if-eqz v22, :cond_4
 
-    const-string/jumbo v22, "CustomStartingWindowManager"
+    const-string/jumbo v22, "SamsungStartingWindowManager"
 
     const-string/jumbo v23, "CustomStartingWindow custom image remove called. but there is no file."
 
@@ -2428,7 +3255,7 @@
 
     if-eqz v22, :cond_8
 
-    const-string/jumbo v22, "CustomStartingWindowManager"
+    const-string/jumbo v22, "SamsungStartingWindowManager"
 
     new-instance v23, Ljava/lang/StringBuilder;
 
@@ -2505,7 +3332,7 @@
 
     if-eqz v22, :cond_11
 
-    const-string/jumbo v22, "CustomStartingWindowManager"
+    const-string/jumbo v22, "SamsungStartingWindowManager"
 
     new-instance v23, Ljava/lang/StringBuilder;
 
@@ -2541,7 +3368,7 @@
     :catch_0
     move-exception v12
 
-    const-string/jumbo v22, "CustomStartingWindowManager"
+    const-string/jumbo v22, "SamsungStartingWindowManager"
 
     new-instance v23, Ljava/lang/StringBuilder;
 
@@ -2574,7 +3401,7 @@
 
     :goto_2
     :try_start_4
-    const-string/jumbo v22, "CustomStartingWindowManager"
+    const-string/jumbo v22, "SamsungStartingWindowManager"
 
     new-instance v23, Ljava/lang/StringBuilder;
 
@@ -2620,7 +3447,7 @@
     :catch_2
     move-exception v12
 
-    const-string/jumbo v22, "CustomStartingWindowManager"
+    const-string/jumbo v22, "SamsungStartingWindowManager"
 
     new-instance v23, Ljava/lang/StringBuilder;
 
@@ -2653,7 +3480,7 @@
 
     :goto_3
     :try_start_6
-    const-string/jumbo v22, "CustomStartingWindowManager"
+    const-string/jumbo v22, "SamsungStartingWindowManager"
 
     new-instance v23, Ljava/lang/StringBuilder;
 
@@ -2699,7 +3526,7 @@
     :catch_4
     move-exception v12
 
-    const-string/jumbo v22, "CustomStartingWindowManager"
+    const-string/jumbo v22, "SamsungStartingWindowManager"
 
     new-instance v23, Ljava/lang/StringBuilder;
 
@@ -2749,7 +3576,7 @@
     :catch_5
     move-exception v12
 
-    const-string/jumbo v22, "CustomStartingWindowManager"
+    const-string/jumbo v22, "SamsungStartingWindowManager"
 
     new-instance v23, Ljava/lang/StringBuilder;
 
@@ -2778,7 +3605,7 @@
     return v22
 
     :cond_11
-    const-string/jumbo v22, "CustomStartingWindowManager"
+    const-string/jumbo v22, "SamsungStartingWindowManager"
 
     const-string/jumbo v23, "CustomStartingWindow setImage done normally"
 

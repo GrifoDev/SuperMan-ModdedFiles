@@ -37,10 +37,10 @@
 .method public abstract getCocktailType()I
 .end method
 
-.method public abstract isAcceptCloseCocktail(Lcom/samsung/android/cocktailbar/Cocktail;IZ)Z
+.method public abstract isAcceptCloseCocktail(Lcom/samsung/android/cocktailbar/Cocktail;Lcom/android/server/cocktailbar/settings/CocktailBarSettings;IZ)Z
 .end method
 
-.method public abstract isAcceptShowCocktail(Lcom/samsung/android/cocktailbar/Cocktail;IZ)Z
+.method public abstract isAcceptShowCocktail(Lcom/samsung/android/cocktailbar/Cocktail;Lcom/android/server/cocktailbar/settings/CocktailBarSettings;IZ)Z
 .end method
 
 .method public abstract isAcceptUpdateCocktail(Lcom/samsung/android/cocktailbar/Cocktail;Lcom/android/server/cocktailbar/settings/CocktailBarSettings;Lcom/android/server/cocktailbar/mode/CocktailBarModeManager;IZ)Z

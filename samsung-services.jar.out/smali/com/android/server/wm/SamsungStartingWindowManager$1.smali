@@ -43,7 +43,7 @@
 
     iget-object v2, p0, Lcom/android/server/wm/SamsungStartingWindowManager$1;->this$0:Lcom/android/server/wm/SamsungStartingWindowManager;
 
-    invoke-static {v2}, Lcom/android/server/wm/SamsungStartingWindowManager;->-get3(Lcom/android/server/wm/SamsungStartingWindowManager;)Ljava/util/Map;
+    invoke-static {v2}, Lcom/android/server/wm/SamsungStartingWindowManager;->-get4(Lcom/android/server/wm/SamsungStartingWindowManager;)Ljava/util/Map;
 
     move-result-object v2
 
@@ -83,7 +83,7 @@
     :cond_0
     iget-object v2, p0, Lcom/android/server/wm/SamsungStartingWindowManager$1;->this$0:Lcom/android/server/wm/SamsungStartingWindowManager;
 
-    invoke-static {v2}, Lcom/android/server/wm/SamsungStartingWindowManager;->-get4(Lcom/android/server/wm/SamsungStartingWindowManager;)Ljava/util/Map;
+    invoke-static {v2}, Lcom/android/server/wm/SamsungStartingWindowManager;->-get5(Lcom/android/server/wm/SamsungStartingWindowManager;)Ljava/util/Map;
 
     move-result-object v2
 
@@ -95,7 +95,7 @@
 
     if-eqz v2, :cond_1
 
-    const-string/jumbo v2, "CustomStartingWindowManager"
+    const-string/jumbo v2, "SamsungStartingWindowManager"
 
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -136,7 +136,7 @@
     :cond_1
     iget-object v2, p0, Lcom/android/server/wm/SamsungStartingWindowManager$1;->this$0:Lcom/android/server/wm/SamsungStartingWindowManager;
 
-    invoke-static {v2}, Lcom/android/server/wm/SamsungStartingWindowManager;->-get2(Lcom/android/server/wm/SamsungStartingWindowManager;)Ljava/util/Map;
+    invoke-static {v2}, Lcom/android/server/wm/SamsungStartingWindowManager;->-get3(Lcom/android/server/wm/SamsungStartingWindowManager;)Ljava/util/Map;
 
     move-result-object v2
 
@@ -148,7 +148,7 @@
 
     if-eqz v2, :cond_2
 
-    const-string/jumbo v2, "CustomStartingWindowManager"
+    const-string/jumbo v2, "SamsungStartingWindowManager"
 
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -189,7 +189,7 @@
     :cond_2
     iget-object v2, p0, Lcom/android/server/wm/SamsungStartingWindowManager$1;->this$0:Lcom/android/server/wm/SamsungStartingWindowManager;
 
-    invoke-static {v2}, Lcom/android/server/wm/SamsungStartingWindowManager;->-get1(Lcom/android/server/wm/SamsungStartingWindowManager;)Ljava/util/Map;
+    invoke-static {v2}, Lcom/android/server/wm/SamsungStartingWindowManager;->-get2(Lcom/android/server/wm/SamsungStartingWindowManager;)Ljava/util/Map;
 
     move-result-object v2
 
@@ -201,7 +201,7 @@
 
     if-eqz v2, :cond_3
 
-    const-string/jumbo v2, "CustomStartingWindowManager"
+    const-string/jumbo v2, "SamsungStartingWindowManager"
 
     new-instance v3, Ljava/lang/StringBuilder;
 

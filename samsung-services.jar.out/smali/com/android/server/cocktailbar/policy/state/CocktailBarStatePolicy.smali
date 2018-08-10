@@ -21,9 +21,6 @@
 .method public abstract dump()Ljava/lang/String;
 .end method
 
-.method public abstract getBackgroundType()I
-.end method
-
 .method public abstract getCocktailBarStateInfo()Lcom/samsung/android/cocktailbar/CocktailBarStateInfo;
 .end method
 
@@ -39,9 +36,6 @@
 .method public abstract notifyStateToBinder(Landroid/os/IBinder;)V
 .end method
 
-.method public abstract refreshState()V
-.end method
-
 .method public abstract setLockState(IZ)V
 .end method
 
@@ -55,12 +49,6 @@
 .end method
 
 .method public abstract updatePosition(I)V
-.end method
-
-.method public abstract updateState(ZZ)V
-.end method
-
-.method public abstract updateStateFromSystem(I)V
 .end method
 
 .method public abstract updateVisibility(I)V

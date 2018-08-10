@@ -35,43 +35,32 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .locals 2
 
-    iget-object v2, p0, Lcom/android/server/policy/CombinationKeyManager$9;->this$0:Lcom/android/server/policy/CombinationKeyManager;
+    iget-object v0, p0, Lcom/android/server/policy/CombinationKeyManager$9;->this$0:Lcom/android/server/policy/CombinationKeyManager;
 
-    iget-object v2, v2, Lcom/android/server/policy/CombinationKeyManager;->mPWM:Lcom/android/server/policy/PhoneWindowManager;
+    invoke-static {v0}, Lcom/android/server/policy/CombinationKeyManager;->-get1(Lcom/android/server/policy/CombinationKeyManager;)Z
 
-    sget-boolean v2, Lcom/android/server/policy/PhoneWindowManager;->DEBUG_INPUT:Z
+    move-result v0
 
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
-    const-string/jumbo v2, "CombinationKeyManager"
+    const-string/jumbo v0, "CombinationKeyManager"
 
-    const-string/jumbo v3, "Stop Lock Task Mode"
+    const-string/jumbo v1, "Reset mHomeKeyTriggered"
 
-    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/android/server/policy/CombinationKeyManager$9;->this$0:Lcom/android/server/policy/CombinationKeyManager;
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/android/server/policy/CombinationKeyManager;->-set1(Lcom/android/server/policy/CombinationKeyManager;Z)Z
+
+    iget-object v0, p0, Lcom/android/server/policy/CombinationKeyManager$9;->this$0:Lcom/android/server/policy/CombinationKeyManager;
+
+    invoke-static {v0}, Lcom/android/server/policy/CombinationKeyManager;->-wrap0(Lcom/android/server/policy/CombinationKeyManager;)V
 
     :cond_0
-    :try_start_0
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Landroid/app/IActivityManager;->stopSystemLockTaskMode()V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_0
     return-void
-
-    :catch_0
-    move-exception v1
-
-    const-string/jumbo v2, "CombinationKeyManager"
-
-    const-string/jumbo v3, "Unable to reach activity manager"
-
-    invoke-static {v2, v3, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_0
 .end method

@@ -32,108 +32,44 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 5
+    .locals 3
 
-    const-string/jumbo v3, "com.samsung.action.DEBUG_RECONFIGURE"
+    invoke-static {}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-get11()Lcom/samsung/android/os/SemDvfsManager;
 
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v4
+    if-eqz v0, :cond_0
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static {}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-get11()Lcom/samsung/android/os/SemDvfsManager;
 
-    move-result v3
+    move-result-object v0
 
-    if-eqz v3, :cond_1
+    iget-object v1, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$19;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    const-string/jumbo v3, "PWM_DEBUG"
+    iget-object v1, v1, Lcom/android/server/policy/SamsungPhoneWindowManager;->mContext:Landroid/content/Context;
 
-    invoke-virtual {p2, v3}, Landroid/content/Intent;->getExtra(Ljava/lang/String;)Ljava/lang/Object;
+    const-string/jumbo v2, "PWM_ROTATION"
 
-    move-result-object v2
-
-    check-cast v2, [Z
-
-    array-length v3, v2
-
-    const/4 v4, 0x7
-
-    if-eq v3, v4, :cond_0
-
-    return-void
+    invoke-virtual {v0, v1, v2}, Lcom/samsung/android/os/SemDvfsManager;->update(Landroid/content/Context;Ljava/lang/String;)V
 
     :cond_0
-    iget-object v3, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$19;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+    invoke-static {}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-get14()Lcom/samsung/android/os/SemDvfsManager;
 
-    iget-object v3, v3, Lcom/android/server/policy/SamsungPhoneWindowManager;->mPWM:Lcom/android/server/policy/PhoneWindowManager;
+    move-result-object v0
 
-    const/4 v3, 0x0
+    if-eqz v0, :cond_1
 
-    const/4 v0, 0x1
+    invoke-static {}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-get14()Lcom/samsung/android/os/SemDvfsManager;
 
-    aget-boolean v3, v2, v3
+    move-result-object v0
 
-    sput-boolean v3, Lcom/android/server/policy/PhoneWindowManager;->DEBUG:Z
+    iget-object v1, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$19;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    iget-object v3, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$19;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+    iget-object v1, v1, Lcom/android/server/policy/SamsungPhoneWindowManager;->mContext:Landroid/content/Context;
 
-    iget-object v3, v3, Lcom/android/server/policy/SamsungPhoneWindowManager;->mPWM:Lcom/android/server/policy/PhoneWindowManager;
+    const-string/jumbo v2, "DEVICE_WAKEUP"
 
-    add-int/lit8 v1, v0, 0x1
-
-    aget-boolean v3, v2, v0
-
-    sput-boolean v3, Lcom/android/server/policy/PhoneWindowManager;->localLOGV:Z
-
-    iget-object v3, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$19;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
-
-    iget-object v3, v3, Lcom/android/server/policy/SamsungPhoneWindowManager;->mPWM:Lcom/android/server/policy/PhoneWindowManager;
-
-    add-int/lit8 v0, v1, 0x1
-
-    aget-boolean v3, v2, v1
-
-    sput-boolean v3, Lcom/android/server/policy/PhoneWindowManager;->DEBUG_INPUT:Z
-
-    iget-object v3, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$19;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
-
-    iget-object v3, v3, Lcom/android/server/policy/SamsungPhoneWindowManager;->mPWM:Lcom/android/server/policy/PhoneWindowManager;
-
-    add-int/lit8 v1, v0, 0x1
-
-    aget-boolean v3, v2, v0
-
-    sput-boolean v3, Lcom/android/server/policy/PhoneWindowManager;->DEBUG_KEYGUARD:Z
-
-    iget-object v3, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$19;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
-
-    iget-object v3, v3, Lcom/android/server/policy/SamsungPhoneWindowManager;->mPWM:Lcom/android/server/policy/PhoneWindowManager;
-
-    add-int/lit8 v0, v1, 0x1
-
-    aget-boolean v3, v2, v1
-
-    sput-boolean v3, Lcom/android/server/policy/PhoneWindowManager;->DEBUG_LAYOUT:Z
-
-    iget-object v3, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$19;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
-
-    iget-object v3, v3, Lcom/android/server/policy/SamsungPhoneWindowManager;->mPWM:Lcom/android/server/policy/PhoneWindowManager;
-
-    add-int/lit8 v1, v0, 0x1
-
-    aget-boolean v3, v2, v0
-
-    sput-boolean v3, Lcom/android/server/policy/PhoneWindowManager;->DEBUG_STARTING_WINDOW:Z
-
-    iget-object v3, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$19;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
-
-    iget-object v3, v3, Lcom/android/server/policy/SamsungPhoneWindowManager;->mPWM:Lcom/android/server/policy/PhoneWindowManager;
-
-    add-int/lit8 v0, v1, 0x1
-
-    aget-boolean v3, v2, v1
-
-    sput-boolean v3, Lcom/android/server/policy/PhoneWindowManager;->DEBUG_WAKEUP:Z
+    invoke-virtual {v0, v1, v2}, Lcom/samsung/android/os/SemDvfsManager;->update(Landroid/content/Context;Ljava/lang/String;)V
 
     :cond_1
     return-void

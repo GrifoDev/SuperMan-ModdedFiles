@@ -71,7 +71,7 @@
     :try_start_0
     iget-object v10, p0, Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer$SecurityPolicy;->this$0:Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;
 
-    invoke-static {v10}, Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;->-get7(Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;)Landroid/os/UserManager;
+    invoke-static {v10}, Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;->-get6(Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;)Landroid/os/UserManager;
 
     move-result-object v10
 
@@ -168,7 +168,7 @@
 
     iget-object v1, p0, Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer$SecurityPolicy;->this$0:Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;
 
-    invoke-static {v1}, Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;->-get6(Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;)Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer$SecurityPolicy;
+    invoke-static {v1}, Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;->-get5(Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;)Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer$SecurityPolicy;
 
     move-result-object v1
 
@@ -199,7 +199,7 @@
     :try_start_0
     iget-object v3, p0, Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer$SecurityPolicy;->this$0:Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;
 
-    invoke-static {v3}, Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;->-get7(Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;)Landroid/os/UserManager;
+    invoke-static {v3}, Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;->-get6(Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;)Landroid/os/UserManager;
 
     move-result-object v3
 

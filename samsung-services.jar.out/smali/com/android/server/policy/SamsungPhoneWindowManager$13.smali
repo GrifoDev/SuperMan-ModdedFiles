@@ -35,15 +35,35 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .locals 5
 
-    iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$13;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+    iget-object v1, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$13;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    iget-object v0, v0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mPWM:Lcom/android/server/policy/PhoneWindowManager;
+    iget-object v1, v1, Lcom/android/server/policy/SamsungPhoneWindowManager;->mContext:Landroid/content/Context;
 
-    const/4 v1, 0x1
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/policy/PhoneWindowManager;->updateRotation(Z)V
+    move-result-object v1
+
+    const-string/jumbo v2, "torchlight_timeout"
+
+    const/16 v3, 0x7530
+
+    const/4 v4, -0x2
+
+    invoke-static {v1, v2, v3, v4}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$13;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+
+    iget-object v1, v1, Lcom/android/server/policy/SamsungPhoneWindowManager;->mTorchlightWakeLock:Landroid/os/PowerManager$WakeLock;
+
+    invoke-virtual {v1}, Landroid/os/PowerManager$WakeLock;->acquire()V
+
+    iget-object v1, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$13;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+
+    invoke-static {v1, v0}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-wrap3(Lcom/android/server/policy/SamsungPhoneWindowManager;I)V
 
     return-void
 .end method

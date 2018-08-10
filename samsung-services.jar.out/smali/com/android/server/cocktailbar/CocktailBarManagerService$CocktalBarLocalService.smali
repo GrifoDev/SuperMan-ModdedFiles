@@ -49,22 +49,12 @@
     return-void
 .end method
 
-.method public updateCocktailBarStateFromWindowManager(I)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/cocktailbar/CocktailBarManagerService$CocktalBarLocalService;->this$0:Lcom/android/server/cocktailbar/CocktailBarManagerService;
-
-    invoke-static {v0, p1}, Lcom/android/server/cocktailbar/CocktailBarManagerService;->-wrap1(Lcom/android/server/cocktailbar/CocktailBarManagerService;I)V
-
-    return-void
-.end method
-
 .method public updateSysfsGripDisableFromWindowManager(Z)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/cocktailbar/CocktailBarManagerService$CocktalBarLocalService;->this$0:Lcom/android/server/cocktailbar/CocktailBarManagerService;
 
-    invoke-static {v0, p1}, Lcom/android/server/cocktailbar/CocktailBarManagerService;->-wrap2(Lcom/android/server/cocktailbar/CocktailBarManagerService;Z)V
+    invoke-static {v0, p1}, Lcom/android/server/cocktailbar/CocktailBarManagerService;->-wrap1(Lcom/android/server/cocktailbar/CocktailBarManagerService;Z)V
 
     return-void
 .end method
@@ -74,7 +64,7 @@
 
     iget-object v0, p0, Lcom/android/server/cocktailbar/CocktailBarManagerService$CocktalBarLocalService;->this$0:Lcom/android/server/cocktailbar/CocktailBarManagerService;
 
-    invoke-static {v0, p1, p2, p3}, Lcom/android/server/cocktailbar/CocktailBarManagerService;->-wrap3(Lcom/android/server/cocktailbar/CocktailBarManagerService;ZII)V
+    invoke-static {v0, p1, p2, p3}, Lcom/android/server/cocktailbar/CocktailBarManagerService;->-wrap2(Lcom/android/server/cocktailbar/CocktailBarManagerService;ZII)V
 
     return-void
 .end method

@@ -1,5 +1,5 @@
 .class Lcom/android/server/policy/SamsungPhoneWindowManager$16;
-.super Landroid/hardware/camera2/CameraManager$TorchCallback;
+.super Landroid/content/BroadcastReceiver;
 .source "SamsungPhoneWindowManager.java"
 
 
@@ -24,146 +24,53 @@
 
     iput-object p1, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$16;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    invoke-direct {p0}, Landroid/hardware/camera2/CameraManager$TorchCallback;-><init>()V
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onTorchModeChanged(Ljava/lang/String;Z)V
-    .locals 3
+.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 4
 
-    const-string/jumbo v0, "SamsungPhoneWindowManager"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "onTorchModeChanged mCameraId = "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-static {}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-get1()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, " cameraId = "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, " enabled = "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-static {}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-get1()Ljava/lang/String;
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    const-string/jumbo v1, "com.samsung.android.intent.action.PAUSE_WATCH"
 
-    invoke-static {}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-get1()Ljava/lang/String;
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result-object v0
+    move-result v1
 
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    if-eqz v1, :cond_0
 
-    move-result v0
+    const-string/jumbo v1, "SamsungPhoneWindowManager"
 
-    if-eqz v0, :cond_0
+    const-string/jumbo v2, "Premium watch pause received."
 
-    iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$16;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+    invoke-static {v1, v2}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v0, p2}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-set0(Lcom/android/server/policy/SamsungPhoneWindowManager;Z)Z
+    iget-object v1, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$16;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    :cond_0
-    return-void
-.end method
+    iget-object v1, v1, Lcom/android/server/policy/SamsungPhoneWindowManager;->mPWM:Lcom/android/server/policy/PhoneWindowManager;
 
-.method public onTorchModeUnavailable(Ljava/lang/String;)V
-    .locals 3
+    iget v1, v1, Lcom/android/server/policy/PhoneWindowManager;->mLidState:I
 
-    const-string/jumbo v0, "SamsungPhoneWindowManager"
+    const/4 v2, 0x1
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    if-eq v1, v2, :cond_0
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    iget-object v1, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$16;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    const-string/jumbo v2, "onTorchModeUnavailable mCameraId = "
+    iget-object v1, v1, Lcom/android/server/policy/SamsungPhoneWindowManager;->mPowerManager:Landroid/os/PowerManager;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
-    move-result-object v1
+    move-result-wide v2
 
-    invoke-static {}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-get1()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, " cameraId = "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-static {}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-get1()Ljava/lang/String;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    invoke-static {}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-get1()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$16;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-set0(Lcom/android/server/policy/SamsungPhoneWindowManager;Z)Z
+    invoke-virtual {v1, v2, v3}, Landroid/os/PowerManager;->goToSleep(J)V
 
     :cond_0
     return-void

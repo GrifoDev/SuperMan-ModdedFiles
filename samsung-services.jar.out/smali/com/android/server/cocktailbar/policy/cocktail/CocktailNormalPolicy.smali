@@ -40,14 +40,45 @@
     return v0
 .end method
 
-.method public isAcceptShowCocktail(Lcom/samsung/android/cocktailbar/Cocktail;IZ)Z
+.method public isAcceptCloseCocktail(Lcom/samsung/android/cocktailbar/Cocktail;Lcom/android/server/cocktailbar/settings/CocktailBarSettings;IZ)Z
     .locals 1
 
-    if-eqz p3, :cond_0
+    invoke-virtual {p1}, Lcom/samsung/android/cocktailbar/Cocktail;->getCocktailId()I
 
-    const/16 v0, 0x64
+    move-result v0
 
-    if-lt p2, v0, :cond_0
+    invoke-virtual {p2, v0}, Lcom/android/server/cocktailbar/settings/CocktailBarSettings;->isEnabledCocktail(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    if-eqz p4, :cond_0
+
+    const/4 v0, 0x1
+
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public isAcceptShowCocktail(Lcom/samsung/android/cocktailbar/Cocktail;Lcom/android/server/cocktailbar/settings/CocktailBarSettings;IZ)Z
+    .locals 1
+
+    invoke-virtual {p1}, Lcom/samsung/android/cocktailbar/Cocktail;->getCocktailId()I
+
+    move-result v0
+
+    invoke-virtual {p2, v0}, Lcom/android/server/cocktailbar/settings/CocktailBarSettings;->isEnabledCocktail(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    if-eqz p4, :cond_0
 
     const/4 v0, 0x1
 

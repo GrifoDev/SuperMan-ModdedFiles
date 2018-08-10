@@ -46,7 +46,11 @@
 
     iget-object v0, p0, Lcom/android/server/policy/TspStateManager$SettingObserver;->this$0:Lcom/android/server/policy/TspStateManager;
 
-    invoke-static {v0}, Lcom/android/server/policy/TspStateManager;->-wrap0(Lcom/android/server/policy/TspStateManager;)V
+    invoke-static {v0}, Lcom/android/server/policy/TspStateManager;->-wrap2(Lcom/android/server/policy/TspStateManager;)V
+
+    iget-object v0, p0, Lcom/android/server/policy/TspStateManager$SettingObserver;->this$0:Lcom/android/server/policy/TspStateManager;
+
+    invoke-static {v0}, Lcom/android/server/policy/TspStateManager;->-wrap3(Lcom/android/server/policy/TspStateManager;)V
 
     iget-object v0, p0, Lcom/android/server/policy/TspStateManager$SettingObserver;->this$0:Lcom/android/server/policy/TspStateManager;
 

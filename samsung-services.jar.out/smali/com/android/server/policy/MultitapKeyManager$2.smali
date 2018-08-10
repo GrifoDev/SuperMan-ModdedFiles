@@ -35,9 +35,9 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .locals 3
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     iget-object v0, p0, Lcom/android/server/policy/MultitapKeyManager$2;->this$0:Lcom/android/server/policy/MultitapKeyManager;
 
@@ -49,11 +49,25 @@
 
     iget-object v0, p0, Lcom/android/server/policy/MultitapKeyManager$2;->this$0:Lcom/android/server/policy/MultitapKeyManager;
 
-    invoke-static {v0, v1}, Lcom/android/server/policy/MultitapKeyManager;->-set2(Lcom/android/server/policy/MultitapKeyManager;Z)Z
+    invoke-static {v0, v2}, Lcom/android/server/policy/MultitapKeyManager;->-set2(Lcom/android/server/policy/MultitapKeyManager;Z)Z
 
     iget-object v0, p0, Lcom/android/server/policy/MultitapKeyManager$2;->this$0:Lcom/android/server/policy/MultitapKeyManager;
 
-    invoke-virtual {v0}, Lcom/android/server/policy/MultitapKeyManager;->handleDoubleTapOnHome()V
+    iget-object v0, v0, Lcom/android/server/policy/MultitapKeyManager;->mSPWM:Lcom/android/server/policy/SamsungPhoneWindowManager;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/android/server/policy/SamsungPhoneWindowManager;->isDoubleTapLaunchEnabled(Landroid/view/KeyEvent;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/policy/MultitapKeyManager$2;->this$0:Lcom/android/server/policy/MultitapKeyManager;
+
+    const/4 v1, 0x3
+
+    invoke-virtual {v0, v1}, Lcom/android/server/policy/MultitapKeyManager;->handleDoubleTapLaunch(I)V
 
     :cond_0
     iget-object v0, p0, Lcom/android/server/policy/MultitapKeyManager$2;->this$0:Lcom/android/server/policy/MultitapKeyManager;
@@ -66,7 +80,7 @@
 
     iget-object v0, p0, Lcom/android/server/policy/MultitapKeyManager$2;->this$0:Lcom/android/server/policy/MultitapKeyManager;
 
-    invoke-static {v0, v1}, Lcom/android/server/policy/MultitapKeyManager;->-set1(Lcom/android/server/policy/MultitapKeyManager;Z)Z
+    invoke-static {v0, v2}, Lcom/android/server/policy/MultitapKeyManager;->-set1(Lcom/android/server/policy/MultitapKeyManager;Z)Z
 
     :cond_1
     return-void

@@ -1,9 +1,6 @@
 .class Lcom/android/server/policy/SamsungPhoneWindowManager$9;
-.super Ljava/lang/Object;
+.super Landroid/content/BroadcastReceiver;
 .source "SamsungPhoneWindowManager.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # annotations
@@ -27,28 +24,56 @@
 
     iput-object p1, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$9;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
-    .locals 2
+.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 4
 
-    iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$9;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    iget-boolean v0, v0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mFingerPrintPending:Z
+    move-result-object v0
 
-    if-eqz v0, :cond_0
+    const-string/jumbo v1, "android.os.action.POWER_SAVE_MODE_CHANGED"
 
-    iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$9;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const/4 v1, 0x0
+    move-result v1
 
-    iput-boolean v1, v0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mFingerPrintPending:Z
+    if-eqz v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$9;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+
+    invoke-static {v1}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-wrap9(Lcom/android/server/policy/SamsungPhoneWindowManager;)V
 
     :cond_0
+    :goto_0
     return-void
+
+    :cond_1
+    const-string/jumbo v1, "android.os.action.POWER_SAVE_MODE_CHANGING"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$9;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+
+    const-string/jumbo v2, "mode"
+
+    const/4 v3, 0x0
+
+    invoke-virtual {p2, v2, v3}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+
+    move-result v2
+
+    invoke-static {v1, v2}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-wrap8(Lcom/android/server/policy/SamsungPhoneWindowManager;Z)V
+
+    goto :goto_0
 .end method

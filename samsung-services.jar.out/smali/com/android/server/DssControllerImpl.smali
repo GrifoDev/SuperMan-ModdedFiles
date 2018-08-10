@@ -27,6 +27,20 @@
 
 .field private final DEFAULT_SCALE:F
 
+.field private final FLOAT_EPSILON:F
+
+.field private final mRunningMultiPidPackages:Ljava/util/HashMap;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/HashMap",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/lang/Integer;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final mRunningPackageNames:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -82,6 +96,10 @@
 
     iput v0, p0, Lcom/android/server/DssControllerImpl;->DEFAULT_SCALE:F
 
+    const v0, 0x3a83126f    # 0.001f
+
+    iput v0, p0, Lcom/android/server/DssControllerImpl;->FLOAT_EPSILON:F
+
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
@@ -99,6 +117,12 @@
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/DssControllerImpl;->mRunningPackageNames:Ljava/util/HashMap;
+
+    new-instance v0, Ljava/util/HashMap;
+
+    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+
+    iput-object v0, p0, Lcom/android/server/DssControllerImpl;->mRunningMultiPidPackages:Ljava/util/HashMap;
 
     return-void
 .end method
@@ -201,6 +225,51 @@
     monitor-exit p0
 
     throw v1
+.end method
+
+.method public createDssOverrideConfiguration(Landroid/content/res/Configuration;Ljava/lang/String;)Landroid/content/res/Configuration;
+    .locals 4
+
+    new-instance v1, Landroid/content/res/Configuration;
+
+    invoke-direct {v1, p1}, Landroid/content/res/Configuration;-><init>(Landroid/content/res/Configuration;)V
+
+    invoke-virtual {p0, p2}, Lcom/android/server/DssControllerImpl;->isScaledApp(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    iget v2, p1, Landroid/content/res/Configuration;->densityDpi:I
+
+    if-eqz v2, :cond_0
+
+    iget v2, p1, Landroid/content/res/Configuration;->densityDpi:I
+
+    iput v2, v1, Landroid/content/res/Configuration;->densityDpi:I
+
+    :cond_0
+    iget-object v2, p1, Landroid/content/res/Configuration;->appBounds:Landroid/graphics/Rect;
+
+    if-eqz v2, :cond_1
+
+    new-instance v2, Landroid/graphics/Rect;
+
+    iget-object v3, p1, Landroid/content/res/Configuration;->appBounds:Landroid/graphics/Rect;
+
+    invoke-direct {v2, v3}, Landroid/graphics/Rect;-><init>(Landroid/graphics/Rect;)V
+
+    iput-object v2, v1, Landroid/content/res/Configuration;->appBounds:Landroid/graphics/Rect;
+
+    :cond_1
+    invoke-virtual {p0, p2}, Lcom/android/server/DssControllerImpl;->getScalingFactor(Ljava/lang/String;)F
+
+    move-result v0
+
+    invoke-static {v1, v0}, Lcom/android/server/DssController$Tools;->applyDssToConfiguration(Landroid/content/res/Configuration;F)V
+
+    :cond_2
+    return-object v1
 .end method
 
 .method public createScaledConfiguration(Landroid/content/res/Configuration;Ljava/lang/String;)Landroid/content/res/Configuration;
@@ -452,7 +521,9 @@
 .end method
 
 .method public declared-synchronized getWhiteList()Ljava/lang/StringBuilder;
-    .locals 9
+    .locals 10
+
+    const v9, 0x3a83126f    # 0.001f
 
     monitor-enter p0
 
@@ -503,9 +574,15 @@
 
     const/high16 v8, 0x3f000000    # 0.5f
 
-    cmpl-float v7, v7, v8
+    sub-float/2addr v7, v8
 
-    if-nez v7, :cond_1
+    invoke-static {v7}, Ljava/lang/Math;->abs(F)F
+
+    move-result v7
+
+    cmpg-float v7, v7, v9
+
+    if-gez v7, :cond_1
 
     invoke-interface {v2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
@@ -538,9 +615,15 @@
 
     const/high16 v8, 0x3f400000    # 0.75f
 
-    cmpl-float v7, v7, v8
+    sub-float/2addr v7, v8
 
-    if-nez v7, :cond_0
+    invoke-static {v7}, Ljava/lang/Math;->abs(F)F
+
+    move-result v7
+
+    cmpg-float v7, v7, v9
+
+    if-gez v7, :cond_0
 
     invoke-interface {v2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
@@ -636,159 +719,468 @@
     return-object v6
 .end method
 
-.method public declared-synchronized isScaledApp(I)Z
+.method public inverseScaleExistingConfiguration(Landroid/content/res/Configuration;Ljava/lang/String;)V
     .locals 2
 
-    monitor-enter p0
-
-    :try_start_0
-    invoke-static {}, Lcom/android/server/DssControllerImpl;->isScaleAllowed()Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x0
-
-    monitor-exit p0
-
-    return v0
-
-    :cond_0
-    :try_start_1
-    iget-object v0, p0, Lcom/android/server/DssControllerImpl;->mRunningPids:Ljava/util/HashMap;
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    move-result v0
-
-    monitor-exit p0
-
-    return v0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
-.end method
-
-.method public declared-synchronized isScaledApp(Ljava/lang/String;)Z
-    .locals 1
-
-    monitor-enter p0
-
-    :try_start_0
-    invoke-static {}, Lcom/android/server/DssControllerImpl;->isScaleAllowed()Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x0
-
-    monitor-exit p0
-
-    return v0
-
-    :cond_0
-    :try_start_1
-    iget-object v0, p0, Lcom/android/server/DssControllerImpl;->mRunningPackageNames:Ljava/util/HashMap;
-
-    invoke-virtual {v0, p1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    move-result v0
-
-    monitor-exit p0
-
-    return v0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
-.end method
-
-.method public declared-synchronized onApplicationStarted(Ljava/lang/String;I)F
-    .locals 4
-
-    monitor-enter p0
-
-    const/high16 v0, 0x3f800000    # 1.0f
-
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/DssControllerImpl;->mWhiteList:Ljava/util/HashMap;
-
-    invoke-virtual {v1, p1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p2}, Lcom/android/server/DssControllerImpl;->isScaledApp(Ljava/lang/String;)Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/DssControllerImpl;->mWhiteList:Ljava/util/HashMap;
+    invoke-virtual {p0, p2}, Lcom/android/server/DssControllerImpl;->getScalingFactor(Ljava/lang/String;)F
 
-    invoke-virtual {v1, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    move-result v0
 
-    move-result-object v1
+    invoke-static {p1, v0}, Lcom/android/server/DssController$Tools;->applyInverseDssToConfiguration(Landroid/content/res/Configuration;F)V
 
-    check-cast v1, Lcom/android/server/DssControllerImpl$DssAppDate;
+    :cond_0
+    return-void
+.end method
 
-    iget v0, v1, Lcom/android/server/DssControllerImpl$DssAppDate;->mScale:F
+.method public inverseScaleExistingMergedConfiguration(Landroid/util/MergedConfiguration;Ljava/lang/String;)V
+    .locals 2
 
+    invoke-virtual {p0, p2}, Lcom/android/server/DssControllerImpl;->isScaledApp(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {p0, p2}, Lcom/android/server/DssControllerImpl;->getScalingFactor(Ljava/lang/String;)F
+
+    move-result v0
+
+    invoke-static {p1, v0}, Lcom/android/server/DssController$Tools;->applyInverseDssToMergedConfiguration(Landroid/util/MergedConfiguration;F)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public declared-synchronized isScaledApp(I)Z
+    .locals 6
+
+    const/4 v3, 0x0
+
+    monitor-enter p0
+
+    :try_start_0
+    invoke-static {}, Lcom/android/server/DssControllerImpl;->isScaleAllowed()Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v4
+
+    if-nez v4, :cond_0
+
+    monitor-exit p0
+
+    return v3
+
+    :cond_0
+    const/high16 v2, 0x3f800000    # 1.0f
+
+    :try_start_1
+    iget-object v4, p0, Lcom/android/server/DssControllerImpl;->mRunningPids:Ljava/util/HashMap;
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    iget-object v4, p0, Lcom/android/server/DssControllerImpl;->mRunningPids:Ljava/util/HashMap;
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Float;
+
+    if-eqz v0, :cond_2
+
+    invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    move-result v2
+
+    :cond_1
+    :goto_0
+    const/high16 v4, 0x3f800000    # 1.0f
+
+    cmpl-float v4, v2, v4
+
+    if-nez v4, :cond_3
+
+    :goto_1
+    monitor-exit p0
+
+    return v3
+
+    :cond_2
+    const/high16 v2, 0x3f800000    # 1.0f
+
+    goto :goto_0
+
+    :cond_3
+    const/4 v3, 0x1
+
+    goto :goto_1
+
+    :catchall_0
+    move-exception v3
+
+    monitor-exit p0
+
+    throw v3
+.end method
+
+.method public declared-synchronized isScaledApp(Ljava/lang/String;)Z
+    .locals 5
+
+    const/4 v3, 0x0
+
+    monitor-enter p0
+
+    :try_start_0
+    invoke-static {}, Lcom/android/server/DssControllerImpl;->isScaleAllowed()Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v4
+
+    if-nez v4, :cond_0
+
+    monitor-exit p0
+
+    return v3
+
+    :cond_0
+    const/high16 v2, 0x3f800000    # 1.0f
+
+    :try_start_1
+    iget-object v4, p0, Lcom/android/server/DssControllerImpl;->mRunningPackageNames:Ljava/util/HashMap;
+
+    invoke-virtual {v4, p1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    iget-object v4, p0, Lcom/android/server/DssControllerImpl;->mRunningPackageNames:Ljava/util/HashMap;
+
+    invoke-virtual {v4, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Float;
+
+    if-eqz v0, :cond_2
+
+    invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    move-result v2
+
+    :cond_1
+    :goto_0
+    const/high16 v4, 0x3f800000    # 1.0f
+
+    cmpl-float v4, v2, v4
+
+    if-nez v4, :cond_3
+
+    :goto_1
+    monitor-exit p0
+
+    return v3
+
+    :cond_2
+    const/high16 v2, 0x3f800000    # 1.0f
+
+    goto :goto_0
+
+    :cond_3
+    const/4 v3, 0x1
+
+    goto :goto_1
+
+    :catchall_0
+    move-exception v3
+
+    monitor-exit p0
+
+    throw v3
+.end method
+
+.method public declared-synchronized onApplicationStarted(Ljava/lang/String;I)F
+    .locals 6
+
+    monitor-enter p0
+
+    const/high16 v1, 0x3f800000    # 1.0f
+
+    :try_start_0
+    iget-object v3, p0, Lcom/android/server/DssControllerImpl;->mRunningPackageNames:Ljava/util/HashMap;
+
+    invoke-virtual {v3, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Float;
+
+    iget-object v3, p0, Lcom/android/server/DssControllerImpl;->mWhiteList:Ljava/util/HashMap;
+
+    invoke-virtual {v3, p1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_3
+
+    iget-object v3, p0, Lcom/android/server/DssControllerImpl;->mWhiteList:Ljava/util/HashMap;
+
+    invoke-virtual {v3, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/server/DssControllerImpl$DssAppDate;
+
+    iget v1, v3, Lcom/android/server/DssControllerImpl$DssAppDate;->mScale:F
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
+
+    move-result v1
+
+    :cond_0
+    iget-object v3, p0, Lcom/android/server/DssControllerImpl;->mRunningPids:Ljava/util/HashMap;
+
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    invoke-static {v1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v5
+
+    invoke-virtual {v3, v4, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v3, p0, Lcom/android/server/DssControllerImpl;->mRunningPackageNames:Ljava/util/HashMap;
+
+    invoke-static {v1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v4
+
+    invoke-virtual {v3, p1, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_1
+
+    iget-object v3, p0, Lcom/android/server/DssControllerImpl;->mRunningMultiPidPackages:Ljava/util/HashMap;
+
+    invoke-virtual {v3, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/Integer;
+
+    if-nez v2, :cond_2
+
+    iget-object v3, p0, Lcom/android/server/DssControllerImpl;->mRunningMultiPidPackages:Ljava/util/HashMap;
+
+    const/4 v4, 0x2
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    invoke-virtual {v3, p1, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    :cond_1
+    :goto_0
+    invoke-static {}, Lcom/android/server/DssControllerImpl;->isScaleAllowed()Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v3
+
+    if-nez v3, :cond_6
+
+    const/high16 v3, 0x3f800000    # 1.0f
+
+    monitor-exit p0
+
+    return v3
+
+    :cond_2
+    :try_start_1
+    iget-object v3, p0, Lcom/android/server/DssControllerImpl;->mRunningMultiPidPackages:Ljava/util/HashMap;
+
+    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+
+    move-result v4
+
+    add-int/lit8 v4, v4, 0x1
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    invoke-virtual {v3, p1, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v3
+
+    monitor-exit p0
+
+    throw v3
+
+    :cond_3
+    if-eqz v0, :cond_5
+
+    :try_start_2
+    invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
+
+    move-result v1
+
+    iget-object v3, p0, Lcom/android/server/DssControllerImpl;->mRunningPids:Ljava/util/HashMap;
+
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    invoke-static {v1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v5
+
+    invoke-virtual {v3, v4, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v3, p0, Lcom/android/server/DssControllerImpl;->mRunningMultiPidPackages:Ljava/util/HashMap;
+
+    invoke-virtual {v3, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/Integer;
+
+    if-nez v2, :cond_4
+
+    iget-object v3, p0, Lcom/android/server/DssControllerImpl;->mRunningMultiPidPackages:Ljava/util/HashMap;
+
+    const/4 v4, 0x2
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    invoke-virtual {v3, p1, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    goto :goto_0
+
+    :cond_4
+    iget-object v3, p0, Lcom/android/server/DssControllerImpl;->mRunningMultiPidPackages:Ljava/util/HashMap;
+
+    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+
+    move-result v4
+
+    add-int/lit8 v4, v4, 0x1
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    invoke-virtual {v3, p1, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    goto :goto_0
+
+    :cond_5
+    iget-object v3, p0, Lcom/android/server/DssControllerImpl;->mRunningPackageNames:Ljava/util/HashMap;
+
+    invoke-static {v1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v4
+
+    invoke-virtual {v3, p1, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    goto :goto_0
+
+    :cond_6
+    monitor-exit p0
+
+    return v1
+.end method
+
+.method public declared-synchronized onApplicationStopped(Ljava/lang/String;I)V
+    .locals 3
+
+    monitor-enter p0
+
+    :try_start_0
     iget-object v1, p0, Lcom/android/server/DssControllerImpl;->mRunningPids:Ljava/util/HashMap;
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v2
 
-    invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+    invoke-virtual {v1, v2}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v3
+    iget-object v1, p0, Lcom/android/server/DssControllerImpl;->mRunningMultiPidPackages:Ljava/util/HashMap;
 
-    invoke-virtual {v1, v2, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Integer;
+
+    if-nez v0, :cond_0
 
     iget-object v1, p0, Lcom/android/server/DssControllerImpl;->mRunningPackageNames:Ljava/util/HashMap;
 
-    invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
-
-    move-result-object v2
-
-    invoke-virtual {v1, p1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    :cond_0
-    invoke-static {}, Lcom/android/server/DssControllerImpl;->isScaleAllowed()Z
+    invoke-virtual {v1, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    :goto_0
+    monitor-exit p0
+
+    return-void
+
+    :cond_0
+    :try_start_1
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+
     move-result v1
 
-    if-nez v1, :cond_1
+    const/4 v2, 0x2
 
-    const/high16 v1, 0x3f800000    # 1.0f
+    if-gt v1, v2, :cond_1
 
-    monitor-exit p0
+    iget-object v1, p0, Lcom/android/server/DssControllerImpl;->mRunningMultiPidPackages:Ljava/util/HashMap;
 
-    return v1
+    invoke-virtual {v1, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    :cond_1
-    monitor-exit p0
-
-    return v0
+    goto :goto_0
 
     :catchall_0
     move-exception v1
@@ -796,38 +1188,26 @@
     monitor-exit p0
 
     throw v1
-.end method
 
-.method public declared-synchronized onApplicationStopped(Ljava/lang/String;I)V
-    .locals 2
+    :cond_1
+    :try_start_2
+    iget-object v1, p0, Lcom/android/server/DssControllerImpl;->mRunningMultiPidPackages:Ljava/util/HashMap;
 
-    monitor-enter p0
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
-    :try_start_0
-    iget-object v0, p0, Lcom/android/server/DssControllerImpl;->mRunningPids:Ljava/util/HashMap;
+    move-result v2
 
-    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    add-int/lit8 v2, v2, -0x1
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-virtual {v0, v1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v2
 
-    iget-object v0, p0, Lcom/android/server/DssControllerImpl;->mRunningPackageNames:Ljava/util/HashMap;
+    invoke-virtual {v1, p1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    invoke-virtual {v0, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    monitor-exit p0
-
-    return-void
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
+    goto :goto_0
 .end method
 
 .method public declared-synchronized removePackage(Ljava/lang/String;)V
@@ -882,18 +1262,45 @@
     return-void
 .end method
 
+.method public scaleExistingMergedConfiguration(Landroid/util/MergedConfiguration;Ljava/lang/String;)V
+    .locals 2
+
+    invoke-virtual {p0, p2}, Lcom/android/server/DssControllerImpl;->isScaledApp(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {p0, p2}, Lcom/android/server/DssControllerImpl;->getScalingFactor(Ljava/lang/String;)F
+
+    move-result v0
+
+    invoke-static {p1, v0}, Lcom/android/server/DssController$Tools;->applyDssToMergedConfiguration(Landroid/util/MergedConfiguration;F)V
+
+    :cond_0
+    return-void
+.end method
+
 .method public declared-synchronized setDssForPackage(Ljava/lang/String;F)V
-    .locals 1
+    .locals 2
 
     monitor-enter p0
 
     const/high16 v0, 0x3f800000    # 1.0f
 
-    cmpl-float v0, p2, v0
-
-    if-nez v0, :cond_0
+    sub-float v0, p2, v0
 
     :try_start_0
+    invoke-static {v0}, Ljava/lang/Math;->abs(F)F
+
+    move-result v0
+
+    const v1, 0x3a83126f    # 0.001f
+
+    cmpg-float v0, v0, v1
+
+    if-gez v0, :cond_0
+
     invoke-virtual {p0, p1}, Lcom/android/server/DssControllerImpl;->removePackage(Ljava/lang/String;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0

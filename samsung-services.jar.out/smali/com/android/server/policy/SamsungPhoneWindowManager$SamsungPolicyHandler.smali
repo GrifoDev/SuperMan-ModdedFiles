@@ -17,11 +17,11 @@
 # static fields
 .field private static final MSG_ENDCALL_DELAYED_PRESS:I = 0x3
 
-.field public static final MSG_RECONFIGURE_DEFAULT_DISPLAY:I = 0x2
+.field private static final MSG_RECONFIGURE_DEFAULT_DISPLAY:I = 0x2
 
 .field private static final MSG_REQUEST_TRAVERSAL_BY_PWM:I = 0x3c
 
-.field public static final MSG_SET_IN_TOUCH_MODE:I = 0x1
+.field private static final MSG_SET_IN_TOUCH_MODE:I = 0x1
 
 
 # instance fields
@@ -111,11 +111,11 @@
     :goto_1
     iget v2, p1, Landroid/os/Message;->arg2:I
 
-    invoke-static {v4, v6, v7, v1, v2}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-wrap3(Lcom/android/server/policy/SamsungPhoneWindowManager;JZI)V
+    invoke-static {v4, v6, v7, v1, v2}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-wrap4(Lcom/android/server/policy/SamsungPhoneWindowManager;JZI)V
 
     iget-object v1, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$SamsungPolicyHandler;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    invoke-static {v1}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-wrap4(Lcom/android/server/policy/SamsungPhoneWindowManager;)V
+    invoke-static {v1}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-wrap5(Lcom/android/server/policy/SamsungPhoneWindowManager;)V
 
     goto :goto_0
 

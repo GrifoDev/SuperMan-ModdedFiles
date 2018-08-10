@@ -1,9 +1,6 @@
 .class Lcom/android/server/policy/SamsungPhoneWindowManager$10;
-.super Ljava/lang/Object;
+.super Landroid/content/BroadcastReceiver;
 .source "SamsungPhoneWindowManager.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # annotations
@@ -27,28 +24,69 @@
 
     iput-object p1, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$10;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
-    .locals 1
+.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 5
 
-    iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$10;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    invoke-static {v0}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-wrap1(Lcom/android/server/policy/SamsungPhoneWindowManager;)Z
+    move-result-object v0
 
-    move-result v0
+    sget-object v3, Lcom/samsung/android/knox/kiosk/KioskMode;->ACTION_REFRESH_HWKEY_INTERNAL:Ljava/lang/String;
 
-    if-nez v0, :cond_0
+    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$10;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+    move-result v3
 
-    invoke-static {v0}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-wrap5(Lcom/android/server/policy/SamsungPhoneWindowManager;)V
+    if-eqz v3, :cond_0
+
+    :try_start_0
+    const-string/jumbo v3, "kioskmode"
+
+    invoke-static {v3}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/samsung/android/knox/kiosk/IKioskMode$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/knox/kiosk/IKioskMode;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_0
+
+    iget-object v3, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$10;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+
+    invoke-interface {v2}, Lcom/samsung/android/knox/kiosk/IKioskMode;->getBlockedHwKeysCache()Ljava/util/Map;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-set3(Lcom/android/server/policy/SamsungPhoneWindowManager;Ljava/util/Map;)Ljava/util/Map;
+
+    const-string/jumbo v3, "SamsungPhoneWindowManager"
+
+    const-string/jumbo v4, "Blocked hw keys cache is being refreshed."
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_0
+    :goto_0
     return-void
+
+    :catch_0
+    move-exception v1
+
+    const-string/jumbo v3, "SamsungPhoneWindowManager"
+
+    const-string/jumbo v4, "Exception while getting kiosk mode service"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
 .end method

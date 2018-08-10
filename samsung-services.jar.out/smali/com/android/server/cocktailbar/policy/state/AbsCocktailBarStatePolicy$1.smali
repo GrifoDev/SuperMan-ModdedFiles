@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/cocktailbar/policy/state/AbsCocktailBarStatePolicy;->initialize()V
+    value = Lcom/android/server/cocktailbar/policy/state/AbsCocktailBarStatePolicy;->createHandlerThreadLocked()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;

@@ -146,7 +146,7 @@
 
     move-result v7
 
-    invoke-static {v6, v7}, Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;->-wrap4(Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;I)V
+    invoke-static {v6, v7}, Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;->-wrap3(Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;I)V
 
     goto :goto_1
 
@@ -167,7 +167,7 @@
 
     move-result v7
 
-    invoke-static {v6, v7}, Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;->-wrap5(Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;I)V
+    invoke-static {v6, v7}, Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;->-wrap4(Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;I)V
 
     goto :goto_1
 
@@ -228,18 +228,6 @@
 
     iget-object v6, p0, Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer$1;->this$0:Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;
 
-    invoke-static {v6}, Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;->-get4(Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;)Landroid/content/Context;
-
-    move-result-object v6
-
-    invoke-static {v6}, Lcom/samsung/android/cocktailbar/CocktailBarFeatures;->isSupportCocktailBar(Landroid/content/Context;)Z
-
-    move-result v6
-
-    if-nez v6, :cond_3
-
-    iget-object v6, p0, Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer$1;->this$0:Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;
-
     invoke-static {v6}, Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;->-get2(Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;)Landroid/os/Handler;
 
     move-result-object v6
@@ -277,7 +265,7 @@
 
     iget-object v6, p0, Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer$1;->this$0:Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;
 
-    invoke-static {v6}, Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;->-get5(Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;)Lcom/android/server/cocktailbar/mode/CocktailBarModeManager;
+    invoke-static {v6}, Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;->-get4(Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;)Lcom/android/server/cocktailbar/mode/CocktailBarModeManager;
 
     move-result-object v6
 

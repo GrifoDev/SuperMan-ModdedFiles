@@ -17,6 +17,8 @@
 # instance fields
 .field private mAspectRatio:F
 
+.field private mForceShowBackgroundSurface:Z
+
 .field private mNavbarIsAlwaysEnabled:Z
 
 .field private mReducedAppScreenParams:Lcom/android/server/PackageConfigurationController$ReducedAppScreenParams;
@@ -63,6 +65,36 @@
     return v0
 .end method
 
+.method public isBackgroundSurfaceNeed()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/server/PackageConfigurationControllerImpl$PackageConfiguration;->mForceShowBackgroundSurface:Z
+
+    return v0
+.end method
+
+.method public isCustomAspectRatio()Z
+    .locals 2
+
+    iget v0, p0, Lcom/android/server/PackageConfigurationControllerImpl$PackageConfiguration;->mAspectRatio:F
+
+    const/4 v1, 0x0
+
+    cmpl-float v0, v0, v1
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
 .method public isDefault()Z
     .locals 3
 
@@ -76,6 +108,12 @@
 
     if-nez v1, :cond_0
 
+    iget-boolean v1, p0, Lcom/android/server/PackageConfigurationControllerImpl$PackageConfiguration;->mNavbarIsAlwaysEnabled:Z
+
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_0
+
     iget v1, p0, Lcom/android/server/PackageConfigurationControllerImpl$PackageConfiguration;->mAspectRatio:F
 
     const/4 v2, 0x0
@@ -84,18 +122,10 @@
 
     if-nez v1, :cond_0
 
-    iget-boolean v1, p0, Lcom/android/server/PackageConfigurationControllerImpl$PackageConfiguration;->mNavbarIsAlwaysEnabled:Z
-
-    if-eqz v1, :cond_1
-
-    :cond_0
-    :goto_0
-    return v0
-
-    :cond_1
     const/4 v0, 0x1
 
-    goto :goto_0
+    :cond_0
+    return v0
 .end method
 
 .method public isNavbarIsAlwaysEnabled()Z
@@ -110,6 +140,14 @@
     .locals 0
 
     iput p1, p0, Lcom/android/server/PackageConfigurationControllerImpl$PackageConfiguration;->mAspectRatio:F
+
+    return-void
+.end method
+
+.method public setBackgroundSurfaceNeeded(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/server/PackageConfigurationControllerImpl$PackageConfiguration;->mForceShowBackgroundSurface:Z
 
     return-void
 .end method

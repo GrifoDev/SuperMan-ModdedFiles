@@ -85,9 +85,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Lcom/android/server/cocktailbar/CocktailBarManagerServiceListener;Landroid/content/BroadcastReceiver;Landroid/os/Handler;)V
-    .locals 7
-
-    const/high16 v6, 0x10000
+    .locals 6
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -150,38 +148,6 @@
     if-nez v0, :cond_0
 
     :goto_0
-    new-instance v0, Lcom/android/server/cocktailbar/mode/PrivateRestrictMode;
-
-    iget-object v1, p0, Lcom/android/server/cocktailbar/mode/CocktailBarModeManager;->mContext:Landroid/content/Context;
-
-    iget v2, p0, Lcom/android/server/cocktailbar/mode/CocktailBarModeManager;->mNextPrivateModeId:I
-
-    add-int/lit8 v2, v2, 0x1
-
-    iput v2, p0, Lcom/android/server/cocktailbar/mode/CocktailBarModeManager;->mNextPrivateModeId:I
-
-    or-int/2addr v2, v6
-
-    invoke-direct {v0, v1, v2, p3, p0}, Lcom/android/server/cocktailbar/mode/PrivateRestrictMode;-><init>(Landroid/content/Context;ILandroid/content/BroadcastReceiver;Lcom/android/server/cocktailbar/mode/CocktailBarMode$OnCocktailBarModeListener;)V
-
-    invoke-direct {p0, v0}, Lcom/android/server/cocktailbar/mode/CocktailBarModeManager;->setupPrivateMode(Lcom/android/server/cocktailbar/mode/CocktailBarMode;)V
-
-    new-instance v0, Lcom/android/server/cocktailbar/mode/PrivateKioskMDMMode;
-
-    iget-object v1, p0, Lcom/android/server/cocktailbar/mode/CocktailBarModeManager;->mContext:Landroid/content/Context;
-
-    iget v2, p0, Lcom/android/server/cocktailbar/mode/CocktailBarModeManager;->mNextPrivateModeId:I
-
-    add-int/lit8 v2, v2, 0x1
-
-    iput v2, p0, Lcom/android/server/cocktailbar/mode/CocktailBarModeManager;->mNextPrivateModeId:I
-
-    or-int/2addr v2, v6
-
-    invoke-direct {v0, v1, v2, p3, p0}, Lcom/android/server/cocktailbar/mode/PrivateKioskMDMMode;-><init>(Landroid/content/Context;ILandroid/content/BroadcastReceiver;Lcom/android/server/cocktailbar/mode/CocktailBarMode$OnCocktailBarModeListener;)V
-
-    invoke-direct {p0, v0}, Lcom/android/server/cocktailbar/mode/CocktailBarModeManager;->setupPrivateMode(Lcom/android/server/cocktailbar/mode/CocktailBarMode;)V
-
     iget-object v0, p0, Lcom/android/server/cocktailbar/mode/CocktailBarModeManager;->mKnoxMode:Lcom/android/server/cocktailbar/mode/CocktailBarMode;
 
     invoke-direct {p0, v0}, Lcom/android/server/cocktailbar/mode/CocktailBarModeManager;->setupPrivateMode(Lcom/android/server/cocktailbar/mode/CocktailBarMode;)V
@@ -199,7 +165,9 @@
 
     iput v2, p0, Lcom/android/server/cocktailbar/mode/CocktailBarModeManager;->mNextPrivateModeId:I
 
-    or-int/2addr v2, v6
+    const/high16 v3, 0x10000
+
+    or-int/2addr v2, v3
 
     invoke-direct {v0, v1, v2, p3, p0}, Lcom/android/server/cocktailbar/mode/PrivateEmergencyMode;-><init>(Landroid/content/Context;ILandroid/content/BroadcastReceiver;Lcom/android/server/cocktailbar/mode/CocktailBarMode$OnCocktailBarModeListener;)V
 
@@ -437,98 +405,75 @@
 .end method
 
 .method public onBroadcastReceived(Landroid/content/Intent;)Z
-    .locals 6
+    .locals 5
 
-    const/4 v5, 0x1
+    const/4 v4, 0x1
 
-    iget-object v4, p0, Lcom/android/server/cocktailbar/mode/CocktailBarModeManager;->mPrivateModes:Ljava/util/ArrayList;
+    iget-object v3, p0, Lcom/android/server/cocktailbar/mode/CocktailBarModeManager;->mPrivateModes:Ljava/util/ArrayList;
 
-    invoke-interface {v4}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v3
-
-    :cond_0
-    :goto_0
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_2
-
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    check-cast v2, Lcom/android/server/cocktailbar/mode/CocktailBarMode;
+    :cond_0
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    invoke-interface {v2}, Lcom/android/server/cocktailbar/mode/CocktailBarMode;->getRegistrationType()I
+    move-result v3
 
-    move-result v4
+    if-eqz v3, :cond_1
 
-    if-ne v4, v5, :cond_0
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    invoke-interface {v2, p1}, Lcom/android/server/cocktailbar/mode/CocktailBarMode;->onBroadcastReceived(Landroid/content/Intent;)I
+    move-result-object v1
 
-    move-result v1
+    check-cast v1, Lcom/android/server/cocktailbar/mode/CocktailBarMode;
 
-    packed-switch v1, :pswitch_data_0
+    invoke-interface {v1}, Lcom/android/server/cocktailbar/mode/CocktailBarMode;->getRegistrationType()I
+
+    move-result v3
+
+    if-ne v3, v4, :cond_0
+
+    invoke-interface {v1, p1}, Lcom/android/server/cocktailbar/mode/CocktailBarMode;->onBroadcastReceived(Landroid/content/Intent;)I
+
+    move-result v0
+
+    packed-switch v0, :pswitch_data_0
 
     goto :goto_0
 
     :pswitch_0
-    return v5
+    return v4
 
     :pswitch_1
     invoke-static {}, Landroid/os/UserHandle;->getCallingUserId()I
 
-    move-result v4
+    move-result v3
 
-    invoke-virtual {p0, v4, v2}, Lcom/android/server/cocktailbar/mode/CocktailBarModeManager;->onSetMode(ILcom/android/server/cocktailbar/mode/CocktailBarMode;)V
+    invoke-virtual {p0, v3, v1}, Lcom/android/server/cocktailbar/mode/CocktailBarModeManager;->onSetMode(ILcom/android/server/cocktailbar/mode/CocktailBarMode;)V
 
-    return v5
+    return v4
 
     :pswitch_2
     invoke-static {}, Landroid/os/UserHandle;->getCallingUserId()I
 
-    move-result v4
+    move-result v3
 
-    invoke-virtual {p0, v4, v2}, Lcom/android/server/cocktailbar/mode/CocktailBarModeManager;->onResetMode(ILcom/android/server/cocktailbar/mode/CocktailBarMode;)V
-
-    return v5
-
-    :pswitch_3
-    const/4 v4, 0x4
-
-    if-ne v1, v4, :cond_1
-
-    const/4 v0, 0x1
-
-    :goto_1
-    invoke-interface {v2}, Lcom/android/server/cocktailbar/mode/CocktailBarMode;->getModeId()I
-
-    move-result v4
-
-    invoke-virtual {p0, v0, v4}, Lcom/android/server/cocktailbar/mode/CocktailBarModeManager;->restrictMode(ZI)V
-
-    return v5
-
-    :cond_1
-    const/4 v0, 0x0
-
-    goto :goto_1
-
-    :cond_2
-    const/4 v4, 0x0
+    invoke-virtual {p0, v3, v1}, Lcom/android/server/cocktailbar/mode/CocktailBarModeManager;->onResetMode(ILcom/android/server/cocktailbar/mode/CocktailBarMode;)V
 
     return v4
+
+    :cond_1
+    const/4 v3, 0x0
+
+    return v3
 
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
         :pswitch_1
         :pswitch_2
-        :pswitch_3
-        :pswitch_3
     .end packed-switch
 .end method
 
@@ -839,16 +784,6 @@
     move-result-object v0
 
     invoke-virtual {p0, p1, v0}, Lcom/android/server/cocktailbar/mode/CocktailBarModeManager;->onResetMode(ILcom/android/server/cocktailbar/mode/CocktailBarMode;)V
-
-    return-void
-.end method
-
-.method public restrictMode(ZI)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/cocktailbar/mode/CocktailBarModeManager;->mListener:Lcom/android/server/cocktailbar/CocktailBarManagerServiceListener;
-
-    invoke-interface {v0, p1, p2}, Lcom/android/server/cocktailbar/CocktailBarManagerServiceListener;->onRestrictMode(ZI)V
 
     return-void
 .end method

@@ -84,6 +84,19 @@
 
     move-result-object v2
 
+    if-nez v2, :cond_0
+
+    invoke-static {}, Lcom/android/server/cocktailbar/utils/CocktailBarUtils;->-get0()Ljava/lang/String;
+
+    move-result-object v4
+
+    const-string/jumbo v5, "Can not get PM"
+
+    invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v6
+
+    :cond_0
     const/16 v4, 0x40
 
     :try_start_0
@@ -91,7 +104,7 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1
 
     iget-object v4, v3, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
@@ -99,13 +112,13 @@
 
     and-int/lit16 v4, v4, 0x81
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1
 
     const/4 v4, 0x1
 
     return v4
 
-    :cond_0
+    :cond_1
     new-instance v4, Ljava/lang/StringBuffer;
 
     const-string/jumbo v5, "isSystemApplication: "
@@ -116,7 +129,7 @@
 
     move-result-object v0
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_2
 
     const-string/jumbo v4, " is no signature app"
 
@@ -135,7 +148,7 @@
 
     return v6
 
-    :cond_1
+    :cond_2
     const-string/jumbo v4, " f="
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;

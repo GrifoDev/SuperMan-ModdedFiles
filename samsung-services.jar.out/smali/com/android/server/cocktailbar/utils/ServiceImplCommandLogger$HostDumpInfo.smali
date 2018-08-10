@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0xa
     name = "HostDumpInfo"
 .end annotation
 
@@ -30,14 +30,10 @@
 
 .field mStratTime:Ljava/lang/String;
 
-.field final synthetic this$0:Lcom/android/server/cocktailbar/utils/ServiceImplCommandLogger;
-
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/cocktailbar/utils/ServiceImplCommandLogger;)V
+.method private constructor <init>()V
     .locals 1
-
-    iput-object p1, p0, Lcom/android/server/cocktailbar/utils/ServiceImplCommandLogger$HostDumpInfo;->this$0:Lcom/android/server/cocktailbar/utils/ServiceImplCommandLogger;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -50,10 +46,10 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/cocktailbar/utils/ServiceImplCommandLogger;Lcom/android/server/cocktailbar/utils/ServiceImplCommandLogger$HostDumpInfo;)V
+.method synthetic constructor <init>(Lcom/android/server/cocktailbar/utils/ServiceImplCommandLogger$HostDumpInfo;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/server/cocktailbar/utils/ServiceImplCommandLogger$HostDumpInfo;-><init>(Lcom/android/server/cocktailbar/utils/ServiceImplCommandLogger;)V
+    invoke-direct {p0}, Lcom/android/server/cocktailbar/utils/ServiceImplCommandLogger$HostDumpInfo;-><init>()V
 
     return-void
 .end method
