@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="accessibilty_autoclick_preference_subtitle_extremely_short_delay">
+        <item quantity="other">တိုလြန္းေသာ ဖင့္ေႏွးခ်ိန္ (%s ms)</item>
+        <item quantity="one">တိုလြန္းေသာ ဖင့္ေႏွးခ်ိန္ (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_long_delay">
+        <item quantity="other">ၾကာေသာ ဖင့္ေႏွးခ်ိန္ (%s ms)</item>
+        <item quantity="one">ၾကာေသာ ဖင့္ေႏွးခ်ိန္ (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_short_delay">
+        <item quantity="other">တိုေသာ ဖင့္ေႏွးခ်ိန္ (%s ms)</item>
+        <item quantity="one">တိုေသာ ဖင့္ေႏွးခ်ိန္ (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_long_delay">
+        <item quantity="other">အခ်ိန္အေတာ္ၾကာ ေႏွာင့္ေႏွးၾကန္႔ၾကာမႈ (%s ms)</item>
+        <item quantity="one">အခ်ိန္အေတာ္ၾကာ ေႏွာင့္ေႏွးၾကန္႔ၾကာမႈ (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_short_delay">
+        <item quantity="other">အလြန္တိုေသာ ဖင့္ေႏွးခ်ိန္ (%s ms)</item>
+        <item quantity="one">အလြန္တိုေသာ ဖင့္ေႏွးခ်ိန္ (%s ms)</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">ကန္႔သတ္ခ်က္မ်ားမရွိဘဲ အက္ပ္ %d ခုအား ေဒတာသံုးခြင့္ ျပဳထားသည္</item>
+        <item quantity="one">အက္ပ္ ၁ ခုအား ကန္႔သတ္ခ်က္မ်ားမရွိပဲ ေဒတာ သုံးစြဲခြင့္ေပးထားသည္</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary_chn">
+        <item quantity="other">အက္ပ္ %d ခုသည္ ေနာက္ခံေဒတာ ကန္႔သတ္ထားရန္ကို ဖြင့္ထားစဥ္အတြင္း မိုဘိုင္းေဒတာကို ကန္႔သတ္ခ်က္မ်ား မရွိဘဲ သုံးခြင့္ရွိသည္။</item>
+        <item quantity="one">အက္ပ္ %d ခုသည္ ေနာက္ခံေဒတာ ကန္႔သတ္ထားရန္ကို ဖြင့္ထားစဥ္အတြင္း မိုဘိုင္းေဒတာကို ကန္႔သတ္ခ်က္မ်ား မရွိဘဲ သုံးခြင့္ရွိသည္။</item>
+    </plurals>
+    <plurals name="deleted_channels">
+        <item quantity="other">အမ်ိဳးအစား %d ခု ဖ်က္ၿပီး</item>
+        <item quantity="one">အမ်ိဳးအစား ၁ ခုကို ဖ်က္ပစ္ထားသည္</item>
+    </plurals>
+    <plurals name="dex_timeout_day">
+        <item quantity="other">%d ရက္</item>
+        <item quantity="one">၁ ရက္</item>
+    </plurals>
+    <plurals name="dex_timeout_hour">
+        <item quantity="other">%d နာရီ</item>
+        <item quantity="one">1 နာရီ</item>
+    </plurals>
+    <plurals name="dex_timeout_minute">
+        <item quantity="other">%d မိနစ္</item>
+        <item quantity="one">၁ မိနစ္</item>
+    </plurals>
+    <plurals name="dex_timeout_second">
+        <item quantity="other">%d စကၠန္႔</item>
+        <item quantity="one">၁ စကၠန္႔</item>
+    </plurals>
+    <plurals name="dex_timeout_week">
+        <item quantity="other">%d ပတ္</item>
+        <item quantity="one">ရက္သတၱပတ္ ၁ ပတ္</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">ေ႐ြးထားေသာ ဘာသာစကားမ်ားကို ဖယ္႐ွားပါ</item>
+        <item quantity="one">ေ႐ြးထားေသာ ဘာသာစကားကို ဖယ္႐ွားပါ</item>
+    </plurals>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d နာရီ</item>
+        <item quantity="one">1 နာရီ</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d မိနစ္</item>
+        <item quantity="one">၁ မိနစ္</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d စကၠန္႔</item>
+        <item quantity="one">၁ စကၠန္႔</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">စကားဝွက္သည္ အနည္းဆံုး စာလံုး %d လံုး ပါဝင္ရမည္။</item>
+        <item quantity="one">စကားဝွက္သည္ အနည္းဆံုး စာ ၁ လံုး ပါရမည္။</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">စကားဝွက္သည္ အနည္းဆံုး စာလံုးေသး %d လံုး ပါဝင္ရမည္။</item>
+        <item quantity="one">စကားဝွက္သည္ အနည္းဆံုး စာအေသး ၁ လံုး ပါရမည္။</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">စကားဝွက္သည္ အနည္းဆံုး ဂဏန္း သို႔မဟုတ္ သေကၤတ %d ခု ပါဝင္ရမည္။</item>
+        <item quantity="one">စကားဝွက္သည္ အနည္းဆံုး ဂဏန္း သို႔မဟုတ္ သေကၤတ ၁ လံုး ပါရမည္။</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">စကားဝွက္သည္ အနည္းဆံုး ဂဏန္း %d လံုး ပါဝင္ရမည္။</item>
+        <item quantity="one">စကားဝွက္သည္ အနည္းဆံုး ဂဏန္း ၁ လံုး ပါရမည္။</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">စကားဝွက္သည္ အနည္းဆံုး သေကၤတ %d ခု ပါဝင္ရမည္။</item>
+        <item quantity="one">စကားဝွက္သည္ အနည္းဆံုး သေကၤတ ၁ လံုး ပါရမည္။</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">စကားဝွက္သည္ အနည္းဆံုး စာလံုးၾကီး %d လံုး ပါဝင္ရမည္။</item>
+        <item quantity="one">စကားဝွက္သည္ အနည္းဆံုး စာလံုးအၾကီး ၁ လံုး ပါရမည္။</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">အပလီေကးရွင္း %d ခုက အသိေပးခ်က္မ်ားကို ဖတ္ႏိုင္ၾကသည္။</item>
+        <item quantity="one">%d အပလီေကးရွင္းကို အေၾကာင္းၾကားစာမ်ား ဖတ္ရန္အတြက္ ခြင့္ျပထားပါသည္။</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">လုပ္ငန္းစဥ္ %1$d ခုတို႔သည္ လြန္ခဲ့သည့္ %2$s အတြင္း RAM အသုံးျပဳထားသည္</item>
+        <item quantity="one">လုပ္ငန္းစဥ္ %1$d ခုသည္ လြန္ခဲ့သည့္ %2$s အတြင္း RAM အသုံးျပဳထားသည္</item>
+    </plurals>
+    <plurals name="network_restrictions_summary">
+        <item quantity="other">ကန္႔သတ္ခ်က္ %d ခု</item>
+        <item quantity="one">ကန္႔သတ္ခ်က္ ၁ ခု</item>
+    </plurals>
+    <plurals name="notification_summary">
+        <item quantity="other">အက္ပ္ %d ခုအတြက္ ပိတ္ထား</item>
+        <item quantity="one">အက္ပ္ ၁ ခုအတြက္ ပိတ္ထား</item>
+    </plurals>
+    <plurals name="number_of_device_admins">
+        <item quantity="other">အလုပ္လုပ္ေနေသာ အက္ပ္ %d ခု</item>
+        <item quantity="one">အလုပ္လုပ္ေနေသာ အက္ပ္ ၁ ခု</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">ေနာက္ထပ္ ခြင့္ျပဳခ်က္ %d ခု</item>
+        <item quantity="one">ေနာက္ထပ္ ခြင့္ျပဳခ်က္ %d ခု</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">ဖြံ႔ၿဖိဳးေအာင္ ေဆာင္ရြက္သူတစ္ဦးအျဖစ္မွ %d ဆင့္အကြာတြင္ ယခုေရာက္ေနသည္။</item>
+        <item quantity="one">ယခု သင္သည္ ဖြံ႔ၿဖိဳးေစသူ တစ္ဦးအျဖစ္မွ ၁ ဆင့္ လိုေသးသည္။</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_dialog_title">
+        <item quantity="other">အေထာက္အထားမ်ားကုိ ယံုၾကည္ပါ (သုိ႔) ဖယ္ရွားပါ</item>
+        <item quantity="one">အေထာက္အထားကုိ ယံုၾကည္ပါ (သုိ႔) ဖယ္ရွားပါ</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message">
+        <item quantity="other">"%s က သင့္အလုပ္ပ႐ုိဖုိင္အတြက္ အေထာက္အထား လုပ္ပုိင္ခြင့္မ်ားကုိ ထည့္သြင္းထားသည့္အတြက္ အီးေမးလ္မ်ား၊ အက္ပ္မ်ားႏွင့္ စိတ္ခ်ရေသာ ဝဘ္ဆုိက္မ်ားအပါအဝင္ အလုပ္၏ ကြန္ရက္အသံုးျပဳမႈကုိ ၎တုိ႔အား ေစာင့္ၾကည့္ခြင့္ျပဳႏုိင္သည္။ ဤအေထာက္အထားမ်ားကုိ ယံုၾကည္သည္ (သုိ႔) ဖယ္ရွားမည္ဟု ေရြးခ်ယ္ႏုိင္သည္။
+
+ဤအေထာက္အထားမ်ားအေၾကာင္း ေနာက္ထပ္ အခ်က္အလက္မ်ားကုိ သိရွိရန္ သင္၏ စီမံသူကုိ ဆက္သြယ္ပါ။"</item>
+        <item quantity="one">"%s က သင့္အလုပ္ပ႐ုိဖုိင္အတြက္ အေထာက္အထား လုပ္ပုိင္ခြင့္ကုိ ထည့္သြင္းထားသည့္အတြက္ အီးေမးလ္မ်ား၊ အက္ပ္မ်ားႏွင့္ စိတ္ခ်ရေသာ ဝဘ္ဆုိက္မ်ားအပါအဝင္ အလုပ္၏ ကြန္ရက္အသံုးျပဳမႈကုိ ၎တုိ႔အား ေစာင့္ၾကည့္ခြင့္ျပဳႏုိင္သည္။ ဤအေထာက္အထားကုိ ယံုၾကည္သည္ (သုိ႔) ဖယ္ရွားမည္ဟု ေရြးခ်ယ္ႏုိင္သည္။
+
+ဤအေထာက္အထားအေၾကာင္း ေနာက္ထပ္ အခ်က္အလက္မ်ားကုိ သိရွိရန္ သင္၏ စီမံသူကုိ ဆက္သြယ္ပါ။"</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s သည္ CA ဆာတီဖီကိတ္မ်ားကို ကိရိယာတြင္ တပ္ဆင္ထားၿပီး၊ တပ္ဆင္ျခင္းျဖင့္ ၎ကို သင့္အီးေမးလ္မ်ား၊ အက္ပ္မ်ား ႏွင့္၊ စိတ္ခ်ရေသာဝဘ္ဆိုဒ္မ်ား အသုံးျပဳမႈ အပါအဝင္၊ သင့္ကိရိယာ၏ ကြန္ရက္လုပ္ေဆာင္မႈမ်ားကို ေစာင့္ၾကည့္မွတ္သားရန္ ခြင့္ျပဳလိုက္သည္။
+
+ဤဆာတီဖီကိတ္မ်ားႏွင့္ပတ္သက္၍ ေနာက္ထပ္ အခ်က္အလက္အတြက္၊ သင္၏ IT စီမံသူကို ဆက္သြယ္ပါ။"</item>
+        <item quantity="one">"%s သည္ CA ဆာတီဖီကိတ္တစ္ခုကို ကိရိယာတြင္ တပ္ဆင္ထားၿပီး၊ တပ္ဆင္ျခင္းျဖင့္ ၎ကို သင့္အီးေမးလ္မ်ား၊ အက္ပ္မ်ား ႏွင့္၊ စိတ္ခ်ရေသာဝဘ္ဆိုဒ္မ်ား အသုံးျပဳမႈ အပါအဝင္၊ သင့္ကိရိယာ၏ ကြန္ရက္လုပ္ေဆာင္မႈမ်ားကို ေစာင့္ၾကည့္မွတ္သားရန္ ခြင့္ျပဳလိုက္သည္။
+
+ဤဆာတီဖီကိတ္ႏွင့္ပတ္သက္၍ ေနာက္ထပ္ အခ်က္အလက္အတြက္၊ သင္၏ IT စီမံသူကို ဆက္သြယ္ပါ။"</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_settings_button">
+        <item quantity="other">အေထာက္အထားမ်ားကုိ စစ္ေဆးပါ</item>
+        <item quantity="one">အေထာက္အထားကုိ စစ္ေဆးပါ</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">ဖိုဒါ/ဖိုင္ %d ထဲ ဝင္ၾကည့္ပါ</item>
+        <item quantity="one">ဖိုဒါ/ဖိုင္ ၁ ခုထဲ ဝင္ၾကည့္ပါ</item>
+    </plurals>
+</resources>

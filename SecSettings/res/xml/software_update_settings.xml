@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <SecPreference android:title="@string/samsung_update" android:key="key_update" android:summary="@string/update_summary" />
+    <SecSwitchPreference android:title="@string/auto_update" android:key="key_auto_download" android:summary="@string/auto_update_summary" />
+    <SecSwitchPreference android:title="@string/scheduled_update" android:key="key_scheduled_update" android:summary="@string/reservation_scheduled_install" />
+    <SecPreference android:title="@string/date_time_set_time" android:key="key_scheduled_update_time" />
+    <SecPreference android:title="@string/last_software_update" android:key="key_last_update" android:summary="@string/last_software_update_summary_for_search" />
+    <PreferenceScreen android:title="@string/update_prl" android:key="update_prl" />
+    <PreferenceScreen android:title="@string/update_profile" android:key="update_profile" />
+    <PreferenceScreen android:title="@string/uicc_unlock" android:key="uicc_unlock" />
+</PreferenceScreen>

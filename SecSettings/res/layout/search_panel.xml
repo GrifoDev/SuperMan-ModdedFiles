@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/search_panel" android:background="@drawable/search_panel_list_background" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:id="@id/layout_recent_searches" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentTop="true">
+        <android.support.v7.widget.RecyclerView android:scrollbarStyle="outsideOverlay" android:id="@id/list_recent_searches" android:paddingTop="@dimen/dashboard_padding_top" android:paddingBottom="@dimen/dashboard_padding_bottom" android:layout_width="fill_parent" android:layout_height="fill_parent" android:headerDividersEnabled="false" android:paddingStart="@dimen/dashboard_padding_start" android:paddingEnd="@dimen/dashboard_padding_end" android:elevation="@dimen/search_panel_elevation" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/layout_results" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_above="@id/feedback_popup">
+        <android.support.v7.widget.RecyclerView android:scrollbarStyle="outsideOverlay" android:id="@id/list_results" android:paddingTop="@dimen/dashboard_padding_top" android:paddingBottom="@dimen/dashboard_padding_bottom" android:scrollbars="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/dashboard_padding_start" android:paddingEnd="@dimen/dashboard_padding_end" />
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/no_results_layout" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <ImageView android:layout_width="112.0dip" android:layout_height="112.0dip" android:src="@drawable/no_search_results" />
+            <TextView android:textSize="18.0sp" android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/search_settings_no_results" />
+        </LinearLayout>
+    </LinearLayout>
+    <include layout="@layout/search_feedback" />
+</RelativeLayout>

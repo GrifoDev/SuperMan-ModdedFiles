@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="accessibilty_autoclick_preference_subtitle_extremely_short_delay">
+        <item quantity="other">Таъхири бениҳоят кӯтоҳ (%s мс)</item>
+        <item quantity="one">Таъхири бениҳоят кӯтоҳ (%s мс)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_long_delay">
+        <item quantity="other">Таъхири тӯлонӣ (%s мс)</item>
+        <item quantity="one">Таъхири тӯлонӣ (%s мс)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_short_delay">
+        <item quantity="other">Таъхири кӯтоҳ (%s мс)</item>
+        <item quantity="one">Таъхири кӯтоҳ (%s мс)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_long_delay">
+        <item quantity="other">Таъхири хеле тӯлонӣ (%s мс)</item>
+        <item quantity="one">Таъхири хеле тӯлонӣ (%s мс)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_short_delay">
+        <item quantity="other">Таъхири хеле кӯтоҳ (%s мс)</item>
+        <item quantity="one">Таъхири хеле кӯтоҳ (%s мс)</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d барнома барои истифодаи номаҳдуди иттилоот иҷозат дода шуданд</item>
+        <item quantity="one">1 барнома барои истифодаи номаҳдуди иттилоот иҷозат дода шуд</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary_chn">
+        <item quantity="other">%d барномаҳо иҷозат доранд, ки ҳангоми фаъол будани Маҳдуд кардани иттилооти пасзамина иттилооти мобилиро бе маҳдудият истифода баранд.</item>
+        <item quantity="one">%d барномаҳо иҷозат доранд, ки ҳангоми фаъол будани Маҳдуд кардани иттилооти пасзамина иттилооти мобилиро бе маҳдудият истифода баранд.</item>
+    </plurals>
+    <plurals name="deleted_channels">
+        <item quantity="other">%d категория нест карда шуд</item>
+        <item quantity="one">1 категория нест карда шуд</item>
+    </plurals>
+    <plurals name="dex_timeout_day">
+        <item quantity="other">%d рӯз</item>
+        <item quantity="one">1 рӯз</item>
+    </plurals>
+    <plurals name="dex_timeout_hour">
+        <item quantity="other">%d соат</item>
+        <item quantity="one">1 соат</item>
+    </plurals>
+    <plurals name="dex_timeout_minute">
+        <item quantity="other">%d дақиқа</item>
+        <item quantity="one">1 дақиқа</item>
+    </plurals>
+    <plurals name="dex_timeout_second">
+        <item quantity="other">%d сония</item>
+        <item quantity="one">1 сония</item>
+    </plurals>
+    <plurals name="dex_timeout_week">
+        <item quantity="other">%d ҳафта</item>
+        <item quantity="one">1 ҳафта</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Хориҷ кардани забонҳои интихобшуда</item>
+        <item quantity="one">Хориҷ кардани забони интихобшуда</item>
+    </plurals>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d соат</item>
+        <item quantity="one">1 соат</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d дақиқа</item>
+        <item quantity="one">1 дақиқа</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d сония</item>
+        <item quantity="one">1 сония</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Парол бояд на камтар аз %d ҳарф дошта бошад.</item>
+        <item quantity="one">Парол бояд на камтар аз 1 ҳарф дошта бошад.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Парол бояд на камтар аз %d ҳарфи хурд дошта бошад.</item>
+        <item quantity="one">Парол бояд на камтар аз 1 ҳарфи хурд дошта бошад.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Парол бояд на камтар аз %d адад ё аломат дошта бошад.</item>
+        <item quantity="one">Парол бояд на камтар аз 1 адад ё аломат дошта бошад</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Парол бояд на камтар аз %d адад дошта бошад.</item>
+        <item quantity="one">Парол бояд на камтар аз 1 адад дошта бошад.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Парол бояд на камтар аз %d аломат дошта бошад.</item>
+        <item quantity="one">Парол бояд на камтар аз 1 аломат дошта бошад.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Парол бояд на камтар аз %d ҳарфи калон дошта бошад.</item>
+        <item quantity="one">Парол бояд на камтар аз 1 ҳарфи калон дошта бошад.</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d барномаҳо огоҳиҳоро хонда наметавонанд.</item>
+        <item quantity="one">Барномаи %d барои хондани огоҳиҳо иҷозат дода шудааст.</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$d раванд дар давоми %2$s охир RAM истифода бурдаанд</item>
+        <item quantity="one">%1$d раванд дар давоми %2$s охир RAM истифода бурдааст</item>
+    </plurals>
+    <plurals name="network_restrictions_summary">
+        <item quantity="other">%d маҳдудият</item>
+        <item quantity="one">1 маҳдудият</item>
+    </plurals>
+    <plurals name="notification_summary">
+        <item quantity="other">Барои %d барнома хомӯш аст</item>
+        <item quantity="one">Барои 1 барнома хомӯш аст</item>
+    </plurals>
+    <plurals name="number_of_device_admins">
+        <item quantity="other">%d барномаи фаъол</item>
+        <item quantity="one">1 барномаи фаъол</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d боз иҷозатҳо</item>
+        <item quantity="one">%d иҷозати дигар</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Акнун ба шумо то унвони таҳиягар танҳо %d қадам мондааст.</item>
+        <item quantity="one">Акнун ба шумо то унвони таҳиягар танҳо як қадам мондааст.</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_dialog_title">
+        <item quantity="other">Ба гувоҳиномаҳо эътимод к ё онҳоро нест к</item>
+        <item quantity="one">Ба гувоҳинома эътимод к-н ё онро нест к-н</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message">
+        <item quantity="other">"%s барои профили кории шумо чунин мақомотҳои гувоҳинома насб кардааст, ки метавонанд ба он барои назорат кардани фаъолияти шабакавӣ, аз қабили паёмҳои электронӣ, барномаҳо ва вебсайтҳои эмин имконият диҳанд. Шумо метавонед ба ин гувоҳиномаҳоро эътимоднок ҳисобед ё онҳоро нест кунед.
+
+Барои оиди ин гувоҳиномаҳо маълумоти бештар гирифтан, ба маъмури худ муроҷиат кунед."</item>
+        <item quantity="one">"%s барои профили кории шумо мақомоти гувоҳиномае насб кардааст, ки метавонад ба он барои назорат кардани фаъолияти шабакавӣ, аз қабили паёмҳои электронӣ, барномаҳо ва вебсайтҳои эмин имконият диҳад. Шумо метавонед ба ин гувоҳиномаро эътимоднок ҳисобед ё онро нест кунед.
+
+Барои оиди ин гувоҳинома маълумоти бештар гирифтан, ба маъмури худ муроҷиат кунед."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s дар дастгоҳи шумо гувоҳиномаҳои CA насб кард, ки метавонад ба онҳо имкон диҳад фаъолияти шабакаи дастгоҳи шумо, аз ҷумла, истифодаи почтаҳои электронӣ, барномаҳо ва вебсайтҳои амнро назорат кунад.
+
+Барои маълумоти иловагӣ дар бораи ин гувоҳнома, ба маъмури ИКТ-и худ муроҷиат кунед."</item>
+        <item quantity="one">"%s дар дастгоҳи шумо гувоҳиномаи CA насб кард, ки метавонад ба онҳо имкон диҳад фаъолияти шабакаи дастгоҳи шумо, аз ҷумла, истифодаи почтаҳои электронӣ, барномаҳо ва вебсайтҳои амнро назорат кунад.
+
+Барои маълумоти иловагӣ дар бораи ин гувоҳнома, ба маъмури ИКТ-и худ муроҷиат кунед."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_settings_button">
+        <item quantity="other">Санҷиши гувоҳиномаҳо</item>
+        <item quantity="one">Санҷиши гувоҳинома</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Дастрасӣ ба %d ҷузвдонҳо/файлҳо</item>
+        <item quantity="one">Дастрасӣ ба 1 ҷузвдон/файл</item>
+    </plurals>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list android:paddingStart="@dimen/device_info_bottom_botton_padding_horizontal" android:paddingEnd="@dimen/device_info_bottom_botton_padding_horizontal"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <stroke android:width="@dimen/device_info_bottom_botton_stroke" android:color="@color/device_info_button_border_color" />
+            <corners android:radius="@dimen/device_info_botton_radius" />
+        </shape>
+    </item>
+    <item android:gravity="end|center" android:drawable="@drawable/device_info_next_mtrl_mirrored" />
+</layer-list>

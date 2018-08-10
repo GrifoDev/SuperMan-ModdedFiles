@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="enterprise_privacy_number_packages_lower_bound">
+        <item quantity="other">ಕನಿಷ್ಠ %d ಅಪ್ಲಿಕೇಶನ್‌ಗಳು</item>
+        <item quantity="one">ಕನಿಷ್ಠ %d ಅಪ್ಲಿಕೇಶನ್‌ಗಳು</item>
+    </plurals>
+</resources>

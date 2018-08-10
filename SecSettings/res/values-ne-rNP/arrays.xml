@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="allshare_download_to">
+        <item>उपकरण</item>
+        <item>SD कार्ड</item>
+    </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>एनिमेसन बन्द छ।</item>
+        <item>एनिमेसन स्केल 0.5x</item>
+        <item>एनिमेसन स्केल 1x</item>
+        <item>एनिमेसन स्केल 1.5x</item>
+        <item>एनिमेसन स्केल 2x</item>
+        <item>एनिमेसन स्केल 5x</item>
+        <item>एनिमेसन स्केल 10x</item>
+    </string-array>
+    <string-array name="apn_auth_entries">
+        <item>शून्‍य</item>
+        <item>PAP</item>
+        <item>CHAP</item>
+        <item>PAP or CHAP</item>
+    </string-array>
+    <string-array name="bearer_entries">
+        <item>अनिर्दिष्ट</item>
+        <item>LTE</item>
+        <item>HSPAP</item>
+        <item>HSPA</item>
+        <item>HSUPA</item>
+        <item>HSDPA</item>
+        <item>UMTS</item>
+        <item>EDGE</item>
+        <item>GPRS</item>
+        <item>eHRPD</item>
+        <item>EVDO_B</item>
+        <item>EVDO_A</item>
+        <item>EVDO_0</item>
+        <item>1xRTT</item>
+        <item>IS95B</item>
+        <item>IS95A</item>
+        <item>IWLAN</item>
+    </string-array>
+    <string-array name="bearer_entries_dcm_kdi">
+        <item>अनिर्दिष्ट</item>
+        <item>4G</item>
+        <item>HSPAP</item>
+        <item>HSPA</item>
+        <item>HSUPA</item>
+        <item>HSDPA</item>
+        <item>UMTS</item>
+        <item>EDGE</item>
+        <item>GPRS</item>
+        <item>eHRPD</item>
+        <item>EVDO_B</item>
+        <item>EVDO_A</item>
+        <item>EVDO_0</item>
+        <item>1xRTT</item>
+        <item>IS95B</item>
+        <item>IS95A</item>
+        <item>IWLAN</item>
+    </string-array>
+    <string-array name="captioning_edge_type_selector_titles">
+        <item>पूर्वनिर्धारित</item>
+        <item>शून्‍य</item>
+        <item>रूपरेखा</item>
+        <item>छाँया ड्रप गर्नुहोस्</item>
+        <item>उठाइएको</item>
+        <item>दबाइएको</item>
+    </string-array>
+    <string-array name="captioning_font_size_selector_titles">
+        <item>धेरै सानो</item>
+        <item>सानो</item>
+        <item>सामान्य</item>
+        <item>ठूलो</item>
+        <item>अति ठूलो</item>
+    </string-array>
+    <string-array name="captioning_preset_selector_titles">
+        <item>पूर्वनिर्धारित</item>
+        <item>कालोमा सेतो</item>
+        <item>सेतोमा कालो</item>
+        <item>कालोमा पहेंलो</item>
+        <item>नीलोमा पहेंलो</item>
+        <item>कस्टम</item>
+    </string-array>
+    <string-array name="captioning_typeface_selector_titles">
+        <item>पूर्वनिर्धारित</item>
+        <item>स्यान्स सेरिफ</item>
+        <item>स्यान्स सेरिफ कन्डेन्सड</item>
+        <item>स्यान्स सेरिफ मोनोस्पेस</item>
+        <item>सेरिफ</item>
+        <item>सेरिफ मोनोस्पेस</item>
+        <item>अनौपचारिक</item>
+        <item>कर्सिभ</item>
+        <item>साना क्याप्स</item>
+    </string-array>
+    <string-array name="color_adjust_type_entries">
+        <item>ग्रेस्केल</item>
+        <item>पोर्टन (रातो-हरियो)</item>
+        <item>ड्युटन (हरियो-रातो)</item>
+        <item>ट्राइटन (नीलो-पहेंलो)</item>
+        <item>व्यक्तिगतकरण गरिएको रंग</item>
+    </string-array>
+    <string-array name="color_lens_entries">
+        <item>नीलो</item>
+        <item>आकाशे नीलो</item>
+        <item>सियान</item>
+        <item>एकदम हरियो</item>
+        <item>हरियो</item>
+        <item>हल्का हरियो</item>
+        <item>पहेंलो</item>
+        <item>सुन्तला रंग</item>
+        <item>रातो</item>
+        <item>गुलाबी</item>
+        <item>मजेन्टा</item>
+        <item>प्याजी</item>
+    </string-array>
+    <string-array name="data_usage_display_unit">
+        <item>MB/GB (auto change)</item>
+        <item>MB only</item>
+        <item>GB only</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>तत्काल पावर कुञ्जीसंग वा जब स्क्रीन समयावधि सकिन्छ</item>
+        <item>5 सेकेन्ड</item>
+        <item>15 सेकेन्ड</item>
+        <item>30 सेकेन्ड</item>
+        <item>1 मिनट</item>
+        <item>2 मिनट</item>
+        <item>5 मिनट</item>
+        <item>10 मिनट</item>
+        <item>30 मिनट</item>
+    </string-array>
+    <string-array name="dex_timeout_entries">
+        <item>15 सेकेन्ड</item>
+        <item>30 सेकेन्ड</item>
+        <item>1 मिनट</item>
+        <item>2 मिनट</item>
+        <item>5 मिनट</item>
+        <item>10 मिनट</item>
+        <item>20 मिनट</item>
+        <item>30 मिनट</item>
+        <item>60 मिनट</item>
+    </string-array>
+    <string-array name="key_backlight_entries">
+        <item>सधैं अफ गर्ने</item>
+        <item>1 second</item>
+        <item>3 seconds</item>
+        <item>5 seconds</item>
+        <item>10 seconds</item>
+        <item>15 seconds</item>
+    </string-array>
+    <string-array name="lock_after_timeout_entries">
+        <item>तुरन्तै</item>
+        <item>5 सेकेन्ड</item>
+        <item>15 सेकेन्ड</item>
+        <item>30 सेकेन्ड</item>
+        <item>1 मिनट</item>
+        <item>2 मिनट</item>
+        <item>5 मिनट</item>
+        <item>10 मिनट</item>
+        <item>30 मिनट</item>
+    </string-array>
+    <string-array name="long_press_timeout_titles_selector">
+        <item>छोटो (0.5 सेकेन्ड)</item>
+        <item>मध्यम (1.0 सेकेन्ड)</item>
+        <item>लामो (1.5 सेकेन्ड)</item>
+        <item>कस्टम</item>
+    </string-array>
+    <string-array name="mvno_type_entries">
+        <item>शून्‍य</item>
+        <item>SPN</item>
+        <item>IMSI</item>
+        <item>GID</item>
+    </string-array>
+    <string-array name="num_allowed_devices">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+    <string-array name="ram_states">
+        <item>सामान्य</item>
+        <item>सहजीकरण</item>
+        <item>न्यून</item>
+        <item>आलोचनात्मक</item>
+        <item>\?</item>
+    </string-array>
+    <string-array name="screen_timeout_entries">
+        <item>15 सेकेन्ड</item>
+        <item>30 सेकेन्ड</item>
+        <item>1 मिनट</item>
+        <item>2 मिनट</item>
+        <item>5 मिनट</item>
+        <item>10 मिनट</item>
+        <item>30 मिनट</item>
+    </string-array>
+    <string-array name="screen_timeout_for_device_lock_entries">
+        <item>15 सेकेन्ड</item>
+        <item>30 सेकेन्ड</item>
+        <item>1 मिनट</item>
+        <item>3 मिनट</item>
+        <item>5 मिनट</item>
+        <item>10 मिनट</item>
+        <item>15 मिनट</item>
+        <item>30 मिनट</item>
+    </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>सोध</item>
+        <item>कहिल्यै नमान्नुहोस्</item>
+        <item>सधैँ स्वीकारनुहोस्</item>
+    </string-array>
+    <string-array name="time_interval_entries_selectable">
+        <item>1 मिनट</item>
+        <item>3 मिनट</item>
+        <item>5 मिनट</item>
+        <item>10 मिनट</item>
+        <item>15 मिनट</item>
+    </string-array>
+    <string-array name="touch_key_light_entries">
+        <item>1.5 सेकेन्ड</item>
+        <item>6 सेकेन्ड</item>
+        <item>सधैं अफ गर्ने</item>
+        <item>सधैं अन गर्ने</item>
+    </string-array>
+    <string-array name="transition_animation_scale_entries">
+        <item>एनिमेसन बन्द छ।</item>
+        <item>एनिमेसन स्केल 0.5x</item>
+        <item>एनिमेसन स्केल 1x</item>
+        <item>एनिमेसन स्केल 1.5x</item>
+        <item>एनिमेसन स्केल 2x</item>
+        <item>एनिमेसन स्केल 5x</item>
+        <item>एनिमेसन स्केल 10x</item>
+    </string-array>
+    <string-array name="usb_configuration_titles">
+        <item>@string/usb_use_charging_only</item>
+        <item>MTP (Media Transfer Protocol)</item>
+        <item>PTP (Picture Transfer Protocol)</item>
+        <item>RNDIS (USB Ethernet)</item>
+        <item>अडियो स्रोत</item>
+        <item>MIDI</item>
+    </string-array>
+    <string-array name="vpn_states">
+        <item>जोडन विच्छेद भयो</item>
+        <item>चालू गरिँदै छ…</item>
+        <item>जोडिँदै छ…</item>
+        <item>जडान गरिएको छ</item>
+        <item>टाइमाउट</item>
+        <item>असफल</item>
+    </string-array>
+    <string-array name="wifi_ap_channel">
+        <item>स्‍वचालित</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+    </string-array>
+    <string-array name="wifi_ap_security_testmode">
+        <item>खोल्नुहोस्</item>
+        <item>WPA2 PSK</item>
+    </string-array>
+    <string-array name="wifi_ap_timeout">
+        <item>काल-समापन कहिल्यै नगर्नुहोस्</item>
+        <item>5 मिनट</item>
+        <item>10 मिनट</item>
+        <item>20 मिनट</item>
+        <item>30 मिनट</item>
+        <item>60 मिनट</item>
+    </string-array>
+    <string-array name="wifi_ap_wifi_sharing">
+        <item>Wi-Fi मार्फत साझेदारीलाई अन गर्नुहोस्</item>
+        <item>Wi-Fi मार्फत साझेदारीलाई अफ गर्नुहोस्</item>
+    </string-array>
+    <string-array name="wifi_connect_entries">
+        <item>स्वचालित</item>
+        <item>हस्तचालित</item>
+        <item>सधैं सोध्नुहोस्</item>
+    </string-array>
+    <string-array name="wifi_ip_settings">
+        <item>DHCP</item>
+        <item>स्‍थिर</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>जडान गरिएको छ</item>
+        <item>निमन्त्रित।</item>
+        <item>जडान असफल भयो</item>
+        <item>जडान गर्नको लागि यहाँ ट्याप गर्नुहोस्।</item>
+        <item>क्षेत्र बाहिर।</item>
+        <item>अर्को डिभाइससंग जोडिएको छ</item>
+    </string-array>
+    <string-array name="wifi_peap_phase2_entries_with_sim_auth">
+        <item>केही छैन</item>
+        <item>MSCHAPV2</item>
+        <item>GTC</item>
+        <item>SIM</item>
+        <item>AKA</item>
+        <item>"AKA'"</item>
+    </string-array>
+    <string-array name="wifi_phase2_entries">
+        <item>शून्‍य</item>
+        <item>PAP</item>
+        <item>MSCHAP</item>
+        <item>MSCHAPV2</item>
+        <item>GTC</item>
+    </string-array>
+    <string-array name="wifi_proxy_settings">
+        <item>शून्‍य</item>
+        <item>हस्तचालित</item>
+        <item>स्वतः-कन्फिगरेसन</item>
+    </string-array>
+    <string-array name="wifi_signal">
+        <item>कमजोर</item>
+        <item>सुन्दर</item>
+        <item>राम्रो</item>
+        <item>शक्तिशाली</item>
+        <item>निकै शक्तिशाली</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_entries">
+        <item>"सधैं
+(बैटरी खपत बढाउँछ)"</item>
+        <item>चार्जिङ गरिरहेको बेला</item>
+        <item>"कहिल्यै पनि
+(डाटा प्रयोग बढाउँदैन)"</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_entries_wifi_only">
+        <item>"सधैं
+(बैटरी खपत बढाउँछ)"</item>
+        <item>चार्जिङ गरिरहेको बेला</item>
+        <item>कहिल्यै नहुने</item>
+    </string-array>
+    <string-array name="wifi_status">
+        <item></item>
+        <item>स्क्यान गर्दैछ…</item>
+        <item>जोडिँदै छ…</item>
+        <item>सत्यापन गरिँदै छ…</item>
+        <item>IP ठेगाना प्राप्त गर्दै…</item>
+        <item>जोड्यो</item>
+        <item>निलंबित गरिएको छ</item>
+        <item>जोडन विच्छेद हुँदै छ…</item>
+        <item>जोडन विच्छेद भयो</item>
+        <item>असफल</item>
+        <item>ब्लक गरिएको</item>
+        <item>तपाईको इन्टरनेट जडानको गुणस्तर जाँच गर्दै…</item>
+    </string-array>
+    <string-array name="window_animation_scale_entries">
+        <item>एनिमेसन बन्द छ।</item>
+        <item>एनिमेसन स्केल 0.5x</item>
+        <item>एनिमेसन स्केल 1x</item>
+        <item>एनिमेसन स्केल 1.5x</item>
+        <item>एनिमेसन स्केल 2x</item>
+        <item>एनिमेसन स्केल 5x</item>
+        <item>एनिमेसन स्केल 10x</item>
+    </string-array>
+</resources>

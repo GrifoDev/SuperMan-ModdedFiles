@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/bixby_intro_header" android:layout_width="fill_parent" android:layout_height="@dimen/vzw_bixby_intro_height">
+        <RelativeLayout android:id="@id/bixby_header_layout" style="@style/Vzw_Bixby_Intro">
+            <include layout="@layout/vzw_bixby_particle_layout" />
+            <TextView android:id="@id/bixby_intro_title" android:visibility="invisible" style="@style/Vzw_Bixby_Intro_Title" />
+        </RelativeLayout>
+        <TextView android:id="@id/bixby_header_subtitle" style="@style/Vzw_Bixby_Header_SubTitle" />
+        <include layout="@layout/vzw_bixby_mode_switcher" />
+    </RelativeLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/button_bar_intro" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+        <FrameLayout android:background="@null" style="@style/Vzw_Wifi_BottomButtonBar">
+            <View android:background="@color/bixby_setup_screen_divider_color" style="@style/Vzw_Wifi_BottomButton_Divider" />
+            <LinearLayout style="@style/Vzw_Wifi_BottomButtonBar_Button">
+                <RelativeLayout style="@style/Vzw_Wifi_BottomButtonBar_Button_Container.Left">
+                    <Button android:textColor="@color/bixby_intro_soft_button_text_color" android:id="@id/bixby_intro_button_back" android:text="@string/back" android:nextFocusForward="@id/button_back" android:drawableTint="@color/bixby_intro_soft_button_text_color" style="@style/Vzw_Wifi_BottomButtonBar_Button_Text.Left.Back" />
+                </RelativeLayout>
+                <RelativeLayout style="@style/Vzw_Wifi_BottomButtonBar_Button_Container.Right">
+                    <Button android:textColor="@color/bixby_intro_soft_button_text_color" android:id="@id/bixby_intro_button_next" android:text="@string/next_button_label" android:drawableTint="@color/bixby_intro_soft_button_text_color" style="@style/Vzw_Wifi_BottomButtonBar_Button_Text.Right">
+                        <requestFocus />
+                    </Button>
+                </RelativeLayout>
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+</RelativeLayout>

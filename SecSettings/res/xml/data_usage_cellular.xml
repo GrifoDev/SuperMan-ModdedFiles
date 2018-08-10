@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/data_usage_summary_title"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.settings.datausage.TemplatePreferenceCategory android:title="@string/data_usage_list_mobile" android:key="mobile_category">
+        <com.android.settings.datausage.CellDataPreference android:title="@string/data_usage_enable_mobile" android:key="data_usage_enable" />
+        <com.samsung.android.settings.datausage.networkconnect.ManagaAppDataChnPreference android:title="@string/restrcit_network" android:key="restrict_app_data" />
+        <SecSwitchPreference android:title="@string/data_usage_enable_confirmation" android:key="confirm_at_boot" />
+        <com.samsung.android.settings.datausage.AlertAtWarningPreference android:title="@string/data_usage_alert_at_warning_title" android:key="alert_at_warning" />
+        <com.android.settings.datausage.DataUsagePreference android:title="@string/cellular_data_usage" android:key="cellular_data_usage" />
+        <com.android.settings.datausage.BillingCyclePreference android:title="@string/billing_cycle" android:key="billing_preference" />
+        <com.android.settings.datausage.BillingCycleChnPreference android:title="@string/data_monitoring" android:key="billing_preference_chn" />
+        <Preference android:title="@string/manual_calibration_button" android:key="set_used_data" />
+        <Preference android:key="top_up_phone_balance" />
+        <Preference android:key="check_phone_balance" />
+        <Preference android:key="top_up_data_balance" />
+        <Preference android:title="@string/operator_set" android:key="operator_set" />
+    </com.android.settings.datausage.TemplatePreferenceCategory>
+</PreferenceScreen>

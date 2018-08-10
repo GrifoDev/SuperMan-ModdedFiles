@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:paddingTop="@dimen/section_divider_top_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/search_list_root_item_start_padding"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:gravity="center" android:id="@id/icon" android:layout_width="@dimen/search_result_image_size" android:layout_height="@dimen/search_result_image_size" android:scaleType="centerInside" />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="2.0dip">
+        <com.samsung.android.settings.widget.CategoryTextView android:ellipsize="end" android:id="@id/category_title" android:layout_width="fill_parent" android:text="@string/search_results_label" android:paddingStart="0.0dip" style="?android:listSeparatorTextViewStyle" />
+    </LinearLayout>
+</LinearLayout>

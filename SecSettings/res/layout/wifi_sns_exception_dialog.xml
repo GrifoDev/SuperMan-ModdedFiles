@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/parentPanel" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/contentPanel" android:paddingTop="@dimen/alert_dialog_padding_top" android:paddingBottom="@dimen/wifi_alert_dialog_padding_bottom" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <ScrollView android:id="@id/scrollView" android:layout_width="fill_parent" android:layout_height="wrap_content" android:overScrollMode="ifContentScrolls">
+            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+              xmlns:android="http://schemas.android.com/apk/res/android">
+                <TextView android:id="@id/wifi_sns_exception_dialog_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:textAlignment="viewStart" android:layout_marginStart="@dimen/alert_dialog_padding_left_right" android:layout_marginEnd="@dimen/alert_dialog_padding_left_right" style="@style/dialog_body_text_style" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/buttonPanel" android:layout_width="fill_parent" android:layout_height="wrap_content"
+      xmlns:android="http://schemas.android.com/apk/res/android">
+        <LinearLayout android:layout_gravity="right" android:orientation="vertical" android:paddingTop="@dimen/alert_dialog_padding_top" android:paddingBottom="@dimen/wifi_alert_dialog_padding_bottom" android:layout_width="fill_parent" android:layout_height="wrap_content" android:measureWithLargestChild="true" style="?android:buttonBarStyle">
+            <Button android:textSize="@dimen/dialog_button_text_size" android:gravity="right" android:layout_gravity="right" android:id="@id/switch_btn" android:paddingRight="0.0dip" android:layout_width="wrap_content" android:layout_height="@dimen/wifi_ap_button_layout_height" android:text="@string/wifi_switch_to_mobile_data_exception_switch_to_mobile" android:paddingStart="0.0dip" android:paddingEnd="0.0dip" android:layout_marginEnd="@dimen/alert_dialog_padding_left_right" style="?android:buttonBarPositiveButtonStyle" />
+            <Button android:textSize="@dimen/dialog_button_text_size" android:gravity="right" android:layout_gravity="right" android:id="@id/keep_btn" android:paddingRight="0.0dip" android:layout_width="wrap_content" android:layout_height="@dimen/wifi_ap_button_layout_height" android:text="@string/wifi_switch_to_mobile_data_exception_keep_wifi" android:paddingStart="0.0dip" android:paddingEnd="0.0dip" android:layout_marginEnd="@dimen/alert_dialog_padding_left_right" style="?android:buttonBarPositiveButtonStyle" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

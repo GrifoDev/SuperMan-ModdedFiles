@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/fingerprint_swipe_for_notifications_title"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.android.settings.widget.VideoPreference android:key="gesture_swipe_down_fingerprint_video" app:animation="@raw/gesture_fingerprint_swipe" app:preview="@drawable/gesture_fingerprint_swipe" />
+    <SwitchPreference android:title="@string/fingerprint_swipe_for_notifications_title" android:key="gesture_swipe_down_fingerprint" android:summary="@string/fingerprint_swipe_for_notifications_summary" />
+</PreferenceScreen>

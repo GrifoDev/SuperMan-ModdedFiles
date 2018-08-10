@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/lock_settings_picker_title"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <SecPreferenceCategory android:layout="@layout/lock_screen_in_line_tips" android:key="lock_screen_menu_huntip" />
+    <SecPreferenceCategory android:title="@string/device_security_category" android:key="sec_device_security_category">
+        <com.samsung.android.settings.SecGearPreference android:title="@string/unlock_set_unlock_launch_picker_title" android:key="unlock_set_or_change" android:summary="@string/unlock_set_unlock_mode_pattern" settings:keywords="@string/keywords_lockscreen" />
+        <SecPreferenceScreen android:title="@string/lock_screen_secured_lock_settings_title" android:key="secured_lock_settigns" android:summary="@string/lock_screen_secured_lock_settings_summary" android:fragment="com.samsung.android.settings.lockscreen.SecuredLockSettingsMenu" />
+    </SecPreferenceCategory>
+    <SecPreferenceCategory android:title="@string/biometrics" android:key="sec_biometrics_category">
+        <SecPreferenceScreen android:title="@string/bio_smartscan_title" android:key="smart_scan" />
+        <SecPreferenceScreen android:title="@string/bio_face_recognition_title" android:key="silent_lock" />
+        <SecPreferenceScreen android:title="@string/bio_iris_scanner_title" android:key="iris_settings" />
+        <SecPreferenceScreen android:title="@string/bio_fingerprint_sanner_title" android:key="finger_scanner" />
+    </SecPreferenceCategory>
+    <SecPreferenceCategory android:title="@string/lock_and_always_category" android:key="sec_lock_and_always_category">
+        <SecSwitchPreferenceScreen android:title="@string/always_on_display_title" android:key="always_on_screen" />
+        <SecPreferenceScreen android:title="@string/clock_and_facewidgets" android:key="show_information" android:summary="@string/information_and_quicktools_summary" android:fragment="com.samsung.android.settings.lockscreen.ShowInfomationMenu" />
+        <SecRestrictedSwitchPreferenceScreen android:title="@string/lockscreen_notifications" android:key="lock_screen_menu_sec_notifications" android:fragment="com.samsung.android.settings.lockscreen.SecLockscreenNotificationApplist" />
+        <SecPreferenceScreen android:title="@string/lock_app_shortcut_title" android:key="lock_app_shortcut" android:summary="@string/lock_screen_app_shortcut_summary" android:fragment="com.samsung.android.settings.lockappshortcut.LockAppShortcutSettings" />
+    </SecPreferenceCategory>
+</PreferenceScreen>

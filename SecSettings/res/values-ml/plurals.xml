@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="enterprise_privacy_number_packages_lower_bound">
+        <item quantity="other">ചുരുങ്ങിയത് %d ആപ്പുകൾ</item>
+        <item quantity="one">ചുരുങ്ങിയത് %d ആപ്പ്</item>
+    </plurals>
+</resources>

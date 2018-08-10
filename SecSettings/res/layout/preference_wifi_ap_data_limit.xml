@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:focusable="false" android:clickable="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/listItemMinHeight"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:id="@id/wifi_ap_data_limit_pref" android:background="?android:selectableItemBackground" android:paddingTop="@dimen/wifi_ap_pref_paddingTop" android:paddingBottom="@dimen/wifi_ap_pref_paddingBottom" android:focusable="true" android:clickable="true" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+        <RelativeLayout android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginStart="24.0dip" android:layout_marginEnd="6.0dip">
+            <TextView android:textAppearance="?android:textAppearanceLarge" android:textSize="17.0sp" android:ellipsize="marquee" android:id="@android:id/title" android:focusable="false" android:fadingEdge="horizontal" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="2.0dip" android:singleLine="true" android:fontFamily="sec-roboto-light" />
+            <TextView android:textAppearance="?android:textAppearanceMedium" android:textSize="14.0sp" android:textColor="?android:textColorSecondary" android:id="@id/mysummary" android:paddingBottom="3.0dip" android:focusable="false" android:clickable="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:maxLines="4" android:layout_below="@android:id/title" android:layout_alignLeft="@android:id/title" android:fontFamily="sec-roboto-light" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

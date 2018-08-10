@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.settings.applications.LayoutPreference android:layout="@layout/app_details" android:selectable="false" android:key="header_view" android:order="-10000" />
+    <com.android.settings.applications.LayoutPreference android:layout="@layout/instant_app_buttons" android:selectable="false" android:key="instant_app_buttons" android:order="-9999" />
+    <com.android.settings.applications.LayoutPreference android:layout="@layout/sec_app_action_buttons" android:selectable="false" android:key="action_buttons" android:order="-9998" />
+    <PreferenceCategory android:title="@string/usage_status" />
+    <com.android.settings.AppProgressPreference android:title="@string/data_usage_enable_mobile" android:selectable="true" android:key="data_settings" android:summary="@string/summary_placeholder" />
+    <com.android.settings.AppProgressPreference android:title="@string/power_usage_summary_title" android:selectable="true" android:key="battery" android:summary="@string/summary_placeholder" />
+    <com.android.settings.AppProgressPreference android:title="@string/storage_settings" android:selectable="true" android:key="storage_settings" android:summary="@string/summary_placeholder" />
+    <com.android.settings.AppProgressPreference android:enabled="false" android:title="@string/memory_settings_title" android:selectable="true" android:key="memory" android:summary="@string/summary_placeholder" />
+    <PreferenceCategory android:title="@string/detail_settings" />
+    <SecPreference android:title="@string/notifications_label" android:selectable="true" android:key="notification_settings" />
+    <SecPreference android:title="@string/permissions_label" android:selectable="true" android:key="permission_settings" android:summary="@string/summary_placeholder" />
+    <com.android.settings.applications.AppDomainsPreference android:title="@string/app_launch_supported_domain_urls_title" android:selectable="true" android:key="instant_app_launch_supported_domain_urls" />
+    <SecPreference android:title="@string/default_app_title" android:selectable="true" android:key="preferred_settings" android:summary="@string/summary_placeholder" />
+    <Preference android:title="@string/app_info_more_settings" android:selectable="true" android:key="apps_settings" />
+    <SecPreference android:title="@string/home_app" android:key="default_home" android:fragment="com.android.settings.applications.defaultapps.DefaultHomePicker" />
+    <SecPreference android:persistent="false" android:title="@string/home_app" android:key="home_dcm" android:fragment="com.samsung.android.settings.DCMHomeSettings" />
+    <SecPreference android:title="@string/default_browser_title" android:key="default_browser" android:fragment="com.android.settings.applications.defaultapps.DefaultBrowserPicker" />
+    <SecPreference android:title="@string/default_phone_title" android:key="default_phone_app" android:fragment="com.android.settings.applications.defaultapps.DefaultPhonePicker" />
+    <SecPreference android:title="@string/default_emergency_app" android:key="default_emergency_app" />
+    <SecPreference android:title="@string/sms_application_title" android:key="default_sms_app" android:fragment="com.android.settings.applications.defaultapps.DefaultSmsPicker" />
+    <Preference android:selectable="false" android:key="app_version" android:order="9999" />
+</PreferenceScreen>

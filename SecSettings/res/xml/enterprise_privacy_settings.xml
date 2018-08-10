@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/enterprise_privacy_settings" android:key="enterprise_privacy_settings"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <Preference android:icon="@drawable/ic_info_outline_24dp" android:selectable="false" android:summary="@string/enterprise_privacy_header" />
+    <PreferenceCategory android:title="@string/enterprise_privacy_exposure_category" android:contentDescription="@string/enterprise_privacy_exposure_category">
+        <Preference android:layout_height="wrap_content" android:title="@string/enterprise_privacy_enterprise_data" android:selectable="false" />
+        <Preference android:title="@string/enterprise_privacy_installed_packages" android:selectable="false" />
+        <Preference android:title="@string/enterprise_privacy_usage_stats" android:selectable="false" />
+        <Preference android:title="@string/enterprise_privacy_network_logs" android:selectable="false" android:key="network_logs" />
+        <Preference android:title="@string/enterprise_privacy_bug_reports" android:selectable="false" android:key="bug_reports" />
+        <Preference android:title="@string/enterprise_privacy_security_logs" android:selectable="false" android:key="security_logs" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/enterprise_privacy_exposure_changes_category">
+        <Preference android:title="@string/enterprise_privacy_enterprise_installed_packages" android:key="number_enterprise_installed_packages" android:fragment="com.android.settings.enterprise.ApplicationListFragment$EnterpriseInstalledPackages" />
+        <Preference android:title="@string/enterprise_privacy_location_access" android:key="enterprise_privacy_number_location_access_packages" android:fragment="com.android.settings.enterprise.ApplicationListFragment$AdminGrantedPermissionLocation" />
+        <Preference android:title="@string/enterprise_privacy_microphone_access" android:key="enterprise_privacy_number_microphone_access_packages" android:fragment="com.android.settings.enterprise.ApplicationListFragment$AdminGrantedPermissionMicrophone" />
+        <Preference android:title="@string/enterprise_privacy_camera_access" android:key="enterprise_privacy_number_camera_access_packages" android:fragment="com.android.settings.enterprise.ApplicationListFragment$AdminGrantedPermissionCamera" />
+        <Preference android:title="@string/enterprise_privacy_enterprise_set_default_apps" android:key="number_enterprise_set_default_apps" android:fragment="com.android.settings.enterprise.EnterpriseSetDefaultAppsListFragment" />
+        <Preference android:selectable="false" android:key="always_on_vpn_primary_user" />
+        <Preference android:title="@string/enterprise_privacy_always_on_vpn_work" android:selectable="false" android:key="always_on_vpn_managed_profile" />
+        <Preference android:title="@string/enterprise_privacy_input_method" android:selectable="false" android:key="input_method" />
+        <Preference android:title="@string/enterprise_privacy_global_http_proxy" android:selectable="false" android:key="global_http_proxy" />
+        <Preference android:title="@string/enterprise_privacy_ca_certs" android:selectable="false" android:key="ca_certs" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/enterprise_privacy_device_access_category">
+        <Preference android:title="@string/enterprise_privacy_lock_device" android:selectable="false" />
+        <Preference android:title="@string/enterprise_privacy_wipe_device" android:selectable="false" />
+        <Preference android:title="@string/enterprise_privacy_failed_password_wipe_device" android:selectable="false" android:key="failed_password_wipe_current_user" />
+        <Preference android:title="@string/enterprise_privacy_failed_password_wipe_work" android:selectable="false" android:key="failed_password_wipe_managed_profile" />
+    </PreferenceCategory>
+</PreferenceScreen>

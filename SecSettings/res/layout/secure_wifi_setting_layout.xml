@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:paddingTop="@dimen/list_item_top_padding" android:paddingBottom="@dimen/list_item_bottom_padding" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/secure_wifi_description_layout" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" android:paddingEnd="4.0dip">
+        <TextView android:id="@id/secure_wifi_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/secured_wifi" android:singleLine="true" android:paddingStart="@dimen/body_text_side_padding" style="@style/list_title_text_style" />
+        <TextView android:id="@id/secure_wifi_status" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/body_text_side_padding" style="@style/list_summary_text_style" />
+    </LinearLayout>
+    <LinearLayout android:gravity="end|center" android:orientation="horizontal" android:id="@id/secure_wifi_switch_view" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="fill_parent" android:minWidth="32.0dip" android:paddingEnd="8.0dip">
+        <ImageView android:layout_gravity="center_vertical" android:background="#ffd4d4d4" android:layout_width="@dimen/secure_wifi_divider_width" android:layout_height="@dimen/secure_wifi_divider_height" />
+        <Switch android:id="@id/secure_wifi_switch" android:focusable="false" android:layout_width="wrap_content" android:layout_height="fill_parent" android:paddingStart="@dimen/secure_wifi_switch_margin_start" android:paddingEnd="@dimen/secure_wifi_switch_margin_end" />
+    </LinearLayout>
+</LinearLayout>

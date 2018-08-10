@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="accessibilty_autoclick_preference_subtitle_extremely_short_delay">
+        <item quantity="other">ඉතා කෙටි ප්‍රමාදයක් (%s ms)</item>
+        <item quantity="one">ඉතා කෙටි ප්‍රමාදයක් (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_long_delay">
+        <item quantity="other">දිගු ප්‍රමාදයක් (%s ms)</item>
+        <item quantity="one">දිගු ප්‍රමාදයක් (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_short_delay">
+        <item quantity="other">කෙටි ප්‍රමාදයක් (%s ms)</item>
+        <item quantity="one">කෙටි ප්‍රමාදයක් (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_long_delay">
+        <item quantity="other">ඉතා දිගු පමාවක් (%s ms)</item>
+        <item quantity="one">ඉතා දිගු පමාවක් (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_short_delay">
+        <item quantity="other">ඉතා කෙටි ප්‍රමාදයක් (%s ms)</item>
+        <item quantity="one">ඉතා කෙටි ප්‍රමාදයක් (%s ms)</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">සීමා නොමැතිව දත්ත භාවිතයට යෙදුම් %dකට ඉඩ දෙයි</item>
+        <item quantity="one">සීමා නොමැතිව දත්ත භාවිතයට 1 යෙදුමකට ඉඩ දෙයි</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary_chn">
+        <item quantity="other">පසුබිම් දත්ත සීමා කිරීම සක්‍රිය අතරේ සීමා කිරීම් නොමැතිව ජංගම දත්ත භාවිතා කිරීමට යෙදුම් %dකට ඉඩ ලබා දේ.</item>
+        <item quantity="one">පසුබිම් දත්ත සීමා කිරීම සක්‍රිය අතරේ සීමා කිරීම් නොමැතිව ජංගම දත්ත භාවිතා කිරීමට යෙදුම් %dකට ඉඩ ලබා දේ.</item>
+    </plurals>
+    <plurals name="deleted_channels">
+        <item quantity="other">ප්‍රවර්ග %dක් මැකිණි</item>
+        <item quantity="one">ප්‍රවර්ග 1ක් මැකිණි</item>
+    </plurals>
+    <plurals name="dex_timeout_day">
+        <item quantity="other">දවස් %d</item>
+        <item quantity="one">දවස 1</item>
+    </plurals>
+    <plurals name="dex_timeout_hour">
+        <item quantity="other">%d පැය</item>
+        <item quantity="one">පැය 1</item>
+    </plurals>
+    <plurals name="dex_timeout_minute">
+        <item quantity="other">විනාඩි %d</item>
+        <item quantity="one">විනාඩි 1</item>
+    </plurals>
+    <plurals name="dex_timeout_second">
+        <item quantity="other">තත්පර %d</item>
+        <item quantity="one">තත්පර 1</item>
+    </plurals>
+    <plurals name="dex_timeout_week">
+        <item quantity="other">සති %d</item>
+        <item quantity="one">සති 1</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">තෝරාගත් භාෂා ඉවත් කිරීම</item>
+        <item quantity="one">තෝරාගත් භාෂාව ඉවත් කිරීම</item>
+    </plurals>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d පැය</item>
+        <item quantity="one">පැය 1</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">විනාඩි %d</item>
+        <item quantity="one">විනාඩි 1</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">තත්පර %d</item>
+        <item quantity="one">තත්පර 1</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">මුරපදයේ අඩු වශයෙන් අකුරු %d ක් අඩංගු විය යුතුය.</item>
+        <item quantity="one">මුරපදයට අවම වශයෙන් අකුරු 1 වත් තිබිය යුතුය.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">මුරපදයේ අඩු වශයෙන් සිම්පල් අකුරු %d ක් අඩංගු විය යුතුය.</item>
+        <item quantity="one">මුරපදයට අවම වශයෙන් සිම්පල් අකුරු 1 වත් තිබිය යුතුය.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">රහස් අංකයේ අවම වශයෙන් අංක හෝ සලකුණු %d ක් ඇතුලත් විය යුතුය.</item>
+        <item quantity="one">රහස් අංකයේ අවම වශයෙන් අංක හෝ සලකුණු 1 ක් ඇතුලත් විය යුතුය.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">මුරපදයේ අඩු වශයෙන් ඉලක්කම් %d ක් අඩංගු විය යුතුය.</item>
+        <item quantity="one">මුරපදයට අවම වශයෙන් ඉලක්කම් 1 වත් තිබිය යුතුය.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">රහස් අංකයේ අවම වශයෙන් සලකුණු %d ක් ඇතුලත් විය යුතුය.</item>
+        <item quantity="one">රහස් අංකයේ අවම වශයෙන් සලකුණු 1 ක් ඇතුලත් විය යුතුය.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">මුරපදයේ අඩු වශයෙන් කැපිටල් අකුරු %d ක් අඩංගු විය යුතුය.</item>
+        <item quantity="one">මුරපදයට අවම වශයෙන් කැපිටල් අකුරු 1 වත් තිබිය යුතුය.</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">යෙදුම් %d කට දැනුම්දීම් කියවිය නොහැක.</item>
+        <item quantity="one">යෙදුම් %d කට දැනුම්දීම් කියවීමට අවසර තිබේ.</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">අවසන් %2$s දී ක්‍රියාවලි %1$d RAM භාවිතා කර ඇත</item>
+        <item quantity="one">අවසන් %2$s දී ක්‍රියාවලි %1$d RAM භාවිතා කර ඇත</item>
+    </plurals>
+    <plurals name="network_restrictions_summary">
+        <item quantity="other">සීමාවන් %dක්</item>
+        <item quantity="one">සීමාවන් 1ක්</item>
+    </plurals>
+    <plurals name="notification_summary">
+        <item quantity="other">යෙදුම් %dක් සඳහා ක්‍රියා විරහිතයි</item>
+        <item quantity="one">යෙදුම් 1ක් සඳහා ක්‍රියා විරහිතයි</item>
+    </plurals>
+    <plurals name="number_of_device_admins">
+        <item quantity="other">සක්‍රිය යෙදුම් %dක්</item>
+        <item quantity="one">සක්‍රිය යෙදුම් 1ක්</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">වැඩිදුර අවසර %d</item>
+        <item quantity="one">වැඩිදුර අවසර %d</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">ඔබ දැන් සංවර්ධකයෙකු වීමට පියවර %d ක් පසුපසින් සිටී.</item>
+        <item quantity="one">ඔබට දැන් නිපැයුම්කරුවකු වීමට ඇත්තේ තවත් එක් පියවරක් පමණි.</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_dialog_title">
+        <item quantity="other">සහතික විශ්වාස හෝ ඉවත් කිරීම</item>
+        <item quantity="one">සහතිකය විශ්වාස හෝ ඉවත් කිරීම</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message">
+        <item quantity="other">"%s විසින් ඊමේල්, යෙදුම් සහ සුරක්ෂිත වෙබ් අඩවි ඇතුළු, වැඩ ජාල ක්‍රියාකාරකම් අධීක්ෂණය කිරීමට ඉඩ දිය හැකි, ඔබේ වැඩ පැතිකඩ සඳහා සහතික අධිකාරීන් ස්ථාපිත කර ඇත. ඔබට මෙම සහතික විශ්වාස හෝ ඉවත් කිරීමට තෝරා ගත හැකිය.
+
+මෙම සහතික පිළිබඳ වැඩිදුර තොරතුරු සඳහා, ඔබේ පරිපාලක සම්බන්ධ කර ගන්න."</item>
+        <item quantity="one">"%s විසින් ඊමේල්, යෙදුම් සහ සුරක්ෂිත වෙබ් අඩවි ඇතුළු, වැඩ ජාල ක්‍රියාකාරකම් අධීක්ෂණය කිරීමට ඉඩ දිය හැකි, ඔබේ වැඩ පැතිකඩ සඳහා සහතික අධිකාරියක් ස්ථාපිත කර ඇත. ඔබට මෙම සහතිකය විශ්වාස හෝ ඉවත් කිරීමට තෝරා ගත හැකිය.
+
+මෙම සහතිකය පිළිබඳ වැඩිදුර තොරතුරු සඳහා, ඔබේ පරිපාලක සම්බන්ධ කර ගන්න."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s ඊමේල්, යෙදුම්, සහ සුරක්ෂිත වෙබ් අඩවිවල ඔබේ භාවිතය ඇතුළුව, ඔබේ උපාංගයේ ජාල ක්‍රියාකාරකම් නිරීක්ෂණය කර ගැනීමට ඔවුන්ට ඉඩ සලසමින්, ඔබේ උපාංගය මත CA සහතිකපත් ස්ථාපිත කර ඇත.
+
+මෙම සහතිකපත් පිළිබඳ වැඩිදුර තොරතුරු සඳහා, ඔබේ IT පරිපාලක හා සම්බන්ධ වන්න."</item>
+        <item quantity="one">"%s ඊමේල්, යෙදුම්, සහ සුරක්ෂිත වෙබ් අඩවිවල ඔබේ භාවිතය ඇතුළුව, ඔබේ උපාංගයේ ජාල ක්‍රියාකාරකම් නිරීක්ෂණය කර ගැනීමට ඔවුන්ට ඉඩ සලසමින්, ඔබේ උපාංගය මත CA සහතිකයක් ස්ථාපිත කර ඇත.
+
+මෙම සහතිකය පිළිබඳ වැඩිදුර තොරතුරු සඳහා, ඔබේ IT පරිපාලක හා සම්බන්ධ වන්න."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_settings_button">
+        <item quantity="other">සහතික පිරික්සන්න</item>
+        <item quantity="one">සහතිකය පිරික්සන්න</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">ෆෝල්ඩර/ගොනු %dකට ප්‍රවේශය</item>
+        <item quantity="one">ෆෝල්ඩර/ගොනු 1කට ප්‍රවේශය</item>
+    </plurals>
+</resources>

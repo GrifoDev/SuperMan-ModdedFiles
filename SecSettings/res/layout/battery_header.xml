@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_gravity="center" android:orientation="horizontal" android:id="@id/app_snippet" android:background="@drawable/selectable_card_grey" android:paddingTop="24.0dip" android:paddingBottom="24.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" style="@style/EntityHeader"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="216.0dip" android:layout_height="wrap_content" android:layout_marginStart="48.0dip" android:layout_marginEnd="12.0dip">
+        <TextView android:textAppearance="@android:style/TextAppearance.Material.Display1" android:id="@id/battery_percent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12.0dip" />
+        <TextView android:textAppearance="@android:style/TextAppearance.Material.Small" android:id="@id/summary1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12.0dip" />
+    </LinearLayout>
+    <com.android.settings.fuelgauge.BatteryMeterView android:layout_gravity="end" android:id="@id/battery_header_icon" android:layout_width="@dimen/battery_meter_width" android:layout_height="@dimen/battery_meter_height" android:layout_marginEnd="24.0dip" />
+</LinearLayout>

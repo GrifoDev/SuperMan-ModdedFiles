@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/advanced_battery_title" settings:keywords="@string/keywords_battery"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <com.android.settings.fuelgauge.BatteryHistoryPreference android:key="battery_graph" />
+    <PreferenceCategory android:title="@string/battery_detail_since_full_charge" android:key="battery_usage_list" />
+</PreferenceScreen>

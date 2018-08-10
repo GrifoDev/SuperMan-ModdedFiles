@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="300.0sp" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="16.0sp" android:textColor="@color/wifi_ap_dialog_body_text_color" android:id="@id/none_security_message" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="24.0dip" android:layout_marginTop="24.0dip" android:layout_marginRight="24.0dip" android:layout_marginBottom="24.0dip" android:text="@string/wifi_ap_none_security_warning" android:lineSpacingExtra="4.0sp" android:fontFamily="sec-roboto-light" style="?android:textAppearanceSmallInverse" />
+    </LinearLayout>
+</ScrollView>

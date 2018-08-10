@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView>
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+      xmlns:android="http://schemas.android.com/apk/res/android">
+        <TextView android:id="@id/wifi_sns_poor_dialog_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="24.0dip" android:layout_marginBottom="24.0dip" android:textAlignment="viewStart" android:layout_marginStart="24.0dip" android:layout_marginEnd="24.0dip" style="@style/dialog_body_text_style" />
+    </LinearLayout>
+</ScrollView>

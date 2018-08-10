@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+      xmlns:android="http://schemas.android.com/apk/res/android">
+        <ImageView android:layout_gravity="center" android:id="@id/smart_capture_animation_view" android:paddingBottom="@dimen/body_text_bottom_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/body_text_top_padding" android:scaleType="fitXY" android:adjustViewBounds="true" android:paddingStart="@dimen/body_text_side_padding" android:paddingEnd="@dimen/body_text_side_padding" />
+        <TextView android:gravity="center_vertical" android:id="@id/description_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/motions_description_card_title_margin_bottom" android:minHeight="@dimen/motions_description_card_title_area_height" android:includeFontPadding="false" android:paddingStart="@dimen/body_text_side_padding" android:paddingEnd="@dimen/body_text_side_padding" style="@style/description_text" />
+        <TextView android:id="@id/smart_capture_noti1" android:paddingBottom="@dimen/smart_stay_line_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/smart_capture_summary" android:includeFontPadding="false" android:paddingStart="@dimen/body_text_side_padding" android:paddingEnd="@dimen/body_text_side_padding" style="@style/description_text" />
+        <LinearLayout android:orientation="horizontal" android:paddingBottom="@dimen/smart_stay_line_padding" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/sub_description_bullet" android:paddingStart="@dimen/description_dot_text_padding" android:paddingEnd="@dimen/smart_stay_bullet_right_padding" android:layout_marginStart="@dimen/body_text_side_padding" style="@style/description_sub_text" />
+            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/smart_capture_summary_1" android:paddingEnd="@dimen/body_text_side_padding" style="@style/description_sub_text" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:paddingBottom="@dimen/smart_stay_line_padding" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/sub_description_bullet" android:paddingStart="@dimen/description_dot_text_padding" android:paddingEnd="@dimen/smart_stay_bullet_right_padding" android:layout_marginStart="@dimen/body_text_side_padding" style="@style/description_sub_text" />
+            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/smart_capture_summary_2" android:paddingEnd="@dimen/body_text_side_padding" style="@style/description_sub_text" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:paddingBottom="@dimen/smart_stay_line_padding" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/sub_description_bullet" android:paddingStart="@dimen/description_dot_text_padding" android:paddingEnd="@dimen/smart_stay_bullet_right_padding" android:layout_marginStart="@dimen/body_text_side_padding" style="@style/description_sub_text" />
+            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/smart_capture_summary_3" android:paddingEnd="@dimen/body_text_side_padding" style="@style/description_sub_text" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:paddingBottom="@dimen/smart_stay_line_padding" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/sub_description_bullet" android:paddingStart="@dimen/description_dot_text_padding" android:paddingEnd="@dimen/smart_stay_bullet_right_padding" android:layout_marginStart="@dimen/body_text_side_padding" style="@style/description_sub_text" />
+            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/smart_capture_summary_4" android:paddingEnd="@dimen/body_text_side_padding" style="@style/description_sub_text" />
+        </LinearLayout>
+        <TextView android:id="@id/smart_capture_noti2" android:paddingBottom="@dimen/smart_stay_line_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:includeFontPadding="false" android:paddingStart="@dimen/body_text_side_padding" android:paddingEnd="@dimen/body_text_side_padding" style="@style/description_text" />
+    </LinearLayout>
+</ScrollView>

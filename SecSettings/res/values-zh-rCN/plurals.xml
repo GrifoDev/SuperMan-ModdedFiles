@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="accessibilty_autoclick_preference_subtitle_extremely_short_delay">
+        <item quantity="other">极短延迟 (%s 毫秒)</item>
+        <item quantity="one">极短延迟 (%s 毫秒)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_long_delay">
+        <item quantity="other">长延迟 (%s 毫秒)</item>
+        <item quantity="one">长延迟 (%s 毫秒)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_short_delay">
+        <item quantity="other">短延迟 (%s 毫秒)</item>
+        <item quantity="one">短延迟 (%s 毫秒)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_long_delay">
+        <item quantity="other">超长延迟 (%s 毫秒)</item>
+        <item quantity="one">超长延迟 (%s 毫秒)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_short_delay">
+        <item quantity="other">超短延迟 (%s 毫秒)</item>
+        <item quantity="one">超短延迟 (%s 毫秒)</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">已允许 %d 个应用程序随意使用数据流量</item>
+        <item quantity="one">已允许 1 个应用程序随意使用数据流量</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary_chn">
+        <item quantity="other">已允许 %d 个应用程序在启用【限制后台流量】期间随意使用数据流量</item>
+        <item quantity="one">已允许 %d 个应用程序在启用【限制后台流量】期间随意使用数据流量</item>
+    </plurals>
+    <plurals name="deleted_channels">
+        <item quantity="other">已删除 %d 个类别</item>
+        <item quantity="one">1 个类别已删除</item>
+    </plurals>
+    <plurals name="dex_timeout_day">
+        <item quantity="other">%d 天</item>
+        <item quantity="one">1 天</item>
+    </plurals>
+    <plurals name="dex_timeout_hour">
+        <item quantity="other">%d 小时</item>
+        <item quantity="one">1 小时</item>
+    </plurals>
+    <plurals name="dex_timeout_minute">
+        <item quantity="other">%d 分钟</item>
+        <item quantity="one">1 分钟</item>
+    </plurals>
+    <plurals name="dex_timeout_second">
+        <item quantity="other">%d秒</item>
+        <item quantity="one">1 秒</item>
+    </plurals>
+    <plurals name="dex_timeout_week">
+        <item quantity="other">%d 周</item>
+        <item quantity="one">1 周</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">移除选定的语言</item>
+        <item quantity="one">移除选定的语言</item>
+    </plurals>
+    <plurals name="enterprise_privacy_number_packages_lower_bound">
+        <item quantity="other">至少 %d 个应用</item>
+        <item quantity="one">至少 %d 个应用</item>
+    </plurals>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d 小时</item>
+        <item quantity="one">1 小时</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d 分钟</item>
+        <item quantity="one">1 分钟</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d秒</item>
+        <item quantity="one">1 秒</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">密码必须至少包含%d个字母。</item>
+        <item quantity="one">密码必须至少包含一个字母。</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">密码必须至少包含%d个小写字母。</item>
+        <item quantity="one">密码必须至少包含一个小写字母。</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">密码必须至少包含%d个数字或符号。</item>
+        <item quantity="one">密码必须至少包含1个数字或符号。</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">密码必须至少包含%d个数字。</item>
+        <item quantity="one">密码必须至少包含一个数字。</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">密码必须至少包含%d个符号。</item>
+        <item quantity="one">密码必须至少包含1个符号。</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">密码必须至少包含%d个大写字母。</item>
+        <item quantity="one">密码必须至少包含一个大写字母。</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d 个应用程序可以读取通知</item>
+        <item quantity="one">允许 %d 个应用程序读取通知</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">最近%2$s内有 %1$d 个程序使用了内存</item>
+        <item quantity="one">最近%2$s内有 %1$d 个程序使用了内存</item>
+    </plurals>
+    <plurals name="network_restrictions_summary">
+        <item quantity="other">%d 条限制</item>
+        <item quantity="one">1 条限制</item>
+    </plurals>
+    <plurals name="notification_summary">
+        <item quantity="other">关闭 %d 个应用程序的通知</item>
+        <item quantity="one">关闭 1 个应用程序的通知</item>
+    </plurals>
+    <plurals name="number_of_device_admins">
+        <item quantity="other">%d 个活动应用程序</item>
+        <item quantity="one">1 个活动应用程序</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">其他 %d 项权限</item>
+        <item quantity="one">其他 %d 项权限</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">您只差 %d 步即可成为开发者。</item>
+        <item quantity="one">您现在距开发者仅一步之遥。</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_dialog_title">
+        <item quantity="other">信任或移除证书</item>
+        <item quantity="one">信任或移除证书</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message">
+        <item quantity="other">"%s为您的工作配置文件安装了一个证书授权，这会允许其监视工作网络活动，包括电子邮件、应用程序和安全网络。您可以选择信任或移除这些证书。
+
+有关这些证书的更多信息，请联系您的管理员。"</item>
+        <item quantity="one">"%s为您的工作配置文件安装了一个证书授权，这会允许其监视工作网络活动，包括电子邮件、应用程序和安全网络。您可以选择信任或移除该证书。
+
+有关此证书的更多信息，请联系您的管理员。"</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s 已在您的设备上安装 CA 证书，这可能允许其监视设备的网络活动，包括邮件、应用程序和安全网站的使用信息。
+
+若需有关此证书的更多信息，请联系您的 IT 管理员。"</item>
+        <item quantity="one">"%s 已在您的设备上安装 1 个 CA 证书，这可能允许其监视设备的网络活动，包括邮件、应用程序和安全网站的使用信息。
+
+有关此证书的更多信息，请联系您的 IT 管理员。"</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_settings_button">
+        <item quantity="other">查看证书</item>
+        <item quantity="one">查看证书</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">访问 %d 个文件夹/文件</item>
+        <item quantity="one">访问 1 个文件夹/文件</item>
+    </plurals>
+</resources>

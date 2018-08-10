@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/lock_and_security_settings_title"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <SecPreferenceCategory android:title="@string/security_settings_title" android:key="sec_security_category">
+        <SecPreference android:title="@string/install_other_apps" android:key="manage_external_sources" android:fragment="com.android.settings.applications.ManageApplications" settings:keywords="@string/keywords_install_other_apps">
+            <extra android:name="classname" android:value="com.android.settings.Settings$ManageExternalSourcesActivity" />
+        </SecPreference>
+        <SecPreferenceScreen android:persistent="false" android:title="@string/iris_use_samsung_pass" android:key="samsung_pass" android:summary="@string/lockscreen_samsung_pass_summary" />
+        <SecPreferenceScreen android:persistent="false" android:title="@string/find_my_mobile" android:key="find_my_mobile" android:summary="@string/find_my_mobile_summary" android:fragment="com.samsung.android.settings.fmm.FindMyMobileSettings" />
+        <SecPreferenceScreen android:persistent="false" android:title="@string/app_ops_settings" android:key="app_ops_settings" android:summary="@string/app_ops_settings_summary" android:fragment="com.android.settings.applications.AppOpsSummary" />
+        <SecPreferenceScreen android:title="@string/personal_page" android:key="key_private_mode" android:summary="@string/switch_off_text" android:fragment="com.samsung.android.settings.personalpage.PersonalPageSettings" />
+        <SecPreferenceScreen android:persistent="false" android:title="@string/secure_folder_title" android:key="secure_folder" android:summary="@string/secure_folder_summary" />
+        <SecSwitchPreferenceScreen android:persistent="false" android:title="@string/app_permission_monitor_title" android:key="app_permission_monitor" android:summary="@string/app_permission_monitor_description" />
+    </SecPreferenceCategory>
+</PreferenceScreen>

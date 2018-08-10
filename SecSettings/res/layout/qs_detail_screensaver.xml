@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="@dimen/qs_detail_item_padding" android:paddingEnd="@dimen/qs_detail_item_padding"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/qs_detail_text_size" android:textColor="@color/qs_detail_disable_text_color" android:id="@id/screensaver_description" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/section_divider_padding" android:text="@string/screensaver_settings_summary" android:fontFamily="sec-roboto-condensed" />
+    <LinearLayout android:id="@id/tile_screensaver_header" android:paddingTop="@dimen/qs_detail_item_padding" android:paddingBottom="@dimen/qs_detail_item_padding" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="@dimen/qs_detail_text_size" android:textColor="@color/qs_detail_sub_header_normal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/screensaver_qs_settings_title" android:textAllCaps="true" android:fontFamily="sec-roboto-condensed" />
+        <ImageView android:background="@drawable/tw_section_divider_mtrl" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginStart="64.0dip" android:backgroundTint="@color/qs_detail_screensaver_style_subheader_divider_color" />
+    </LinearLayout>
+    <RadioGroup android:theme="@android:style/Theme.DeviceDefault.Light" android:id="@id/tile_detail_radio_group" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+</LinearLayout>

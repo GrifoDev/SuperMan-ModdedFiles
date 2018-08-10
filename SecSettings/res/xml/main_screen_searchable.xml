@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<searchable android:label="@string/settings_label" android:hint="@string/settings_label" android:searchSuggestSelection="pattern" android:searchSuggestIntentAction="android.intent.action.SEARCH" android:voiceSearchMode="launchRecognizer|showVoiceSearchButton" android:voicePromptText="" android:imeOptions="actionSearch|flagNoExtractUi" android:includeInGlobalSearch="false" android:searchSettingsDescription="@string/settings_label"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <extra-attr android:name="searchLayoutStyle" android:value="suggest_template_settings" />
+    <extra-attr android:name="categoryFilters" android:value="help" />
+</searchable>

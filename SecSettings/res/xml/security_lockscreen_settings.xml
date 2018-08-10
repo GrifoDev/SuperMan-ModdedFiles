@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/lockscreen_settings_title"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.settings.notification.RestrictedDropDownPreference android:title="@string/lock_screen_notifications_title" android:key="lock_screen_notifications" android:summary="%s" />
+    <com.android.settingslib.RestrictedSwitchPreference android:title="@string/user_add_on_lockscreen_menu" android:key="add_users_when_locked" />
+    <com.android.settingslib.RestrictedPreference android:title="@string/owner_info_settings_title" android:key="owner_info_settings" android:summary="@string/owner_info_settings_summary" />
+</PreferenceScreen>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <SecPreferenceScreen android:title="@string/power_usage_summary_title" android:key="battery_settings" settings:related_keywords="@array/battery_keywords">
+        <intent android:action="com.samsung.android.sm.ACTION_BATTERY" />
+    </SecPreferenceScreen>
+    <SecPreferenceScreen android:title="@string/storage_settings" android:key="storage_settings" android:fragment="com.android.settings.deviceinfo.StorageSettings" />
+    <SecPreferenceScreen android:title="@string/memory_string" android:key="memory_settings" android:fragment="com.android.settings.applications.ProcessStatsSummary" />
+    <SecPreferenceCategory android:title="@string/language_and_time_category" />
+    <SecPreferenceScreen android:title="@string/language_settings" android:key="device_info_language_settings" android:fragment="com.android.settings.language.LanguageAndInputSettingsSamsung" />
+    <SecPreference android:title="@string/date_and_time_settings_title" android:key="device_info_date_time_settings" android:fragment="com.samsung.android.settings.DateTimeSettings" />
+    <SecPreferenceCategory android:title="@string/support" android:key="support" />
+    <SecPreferenceScreen android:title="@string/contact_us_title" android:key="device_info_contact_us" />
+    <SecSwitchPreference android:title="@string/label_diagnostics_info" android:key="device_info_report_diagnostics_info" settings:dbMatchingName="samsung_errorlog_agree" settings:dbMatchingTable="system" />
+    <SecSwitchPreference android:title="@string/label_att_iqi_diagnostics_info" android:key="att_iqi_report_diagnostics_info" settings:dbMatchingName="att_iqi_report_diagnostic" settings:dbMatchingTable="system" />
+    <SecPreferenceScreen android:title="@string/samsung_ad_id" android:key="samsung_ad_id" android:fragment="com.samsung.android.settings.deviceinfo.SamsungAdId" />
+    <SecPreferenceScreen android:title="@string/device_info_marketing_information_title" android:key="marketing_information" />
+    <SecPreferenceCategory android:title="@string/reset" android:key="reset_category" />
+    <SecPreferenceScreen android:title="@string/reset" android:key="reset_preference" android:fragment="com.samsung.android.settings.PrivacyResetSettings" />
+</PreferenceScreen>

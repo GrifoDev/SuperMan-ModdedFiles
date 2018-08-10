@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:oneshot="false"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:duration="500" android:drawable="@drawable/abeam_tutorial_tablet_1" />
+    <item android:duration="500" android:drawable="@drawable/abeam_tutorial_tablet_2" />
+    <item android:duration="500" android:drawable="@drawable/abeam_tutorial_tablet_3" />
+    <item android:duration="500" android:drawable="@drawable/abeam_tutorial_tablet_4" />
+    <item android:duration="500" android:drawable="@drawable/abeam_tutorial_tablet_5" />
+    <item android:duration="500" android:drawable="@drawable/abeam_tutorial_tablet_6" />
+</animation-list>

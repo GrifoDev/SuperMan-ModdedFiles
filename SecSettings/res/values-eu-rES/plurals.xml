@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="accessibilty_autoclick_preference_subtitle_extremely_short_delay">
+        <item quantity="other">Epe labur-laburra (%s ms)</item>
+        <item quantity="one">Epe labur-laburra (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_long_delay">
+        <item quantity="other">Epe luzea (%s ms)</item>
+        <item quantity="one">Epe luzea (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_short_delay">
+        <item quantity="other">Epe laburra (%s ms)</item>
+        <item quantity="one">Epe laburra (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_long_delay">
+        <item quantity="other">Epe oso luzea (%s ms)</item>
+        <item quantity="one">Epe oso luzea (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_short_delay">
+        <item quantity="other">Epe oso laburra (%s ms)</item>
+        <item quantity="one">Epe oso laburra (%s ms)</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d aplikaziok dute datuak mugarik gabe erabiltzeko baimena</item>
+        <item quantity="one">1 aplikaziok dute datuak mugarik gabe erabiltzeko baimena</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary_chn">
+        <item quantity="other">%d aplikaziok datu mugikorrak inongo mugarik gabe erabiltzeko baimena dute Mugatu atzealdeko datuak gaituta dagoenean.</item>
+        <item quantity="one">%d aplikaziok datu mugikorrak inongo mugarik gabe erabiltzeko baimena dute Mugatu atzealdeko datuak gaituta dagoenean.</item>
+    </plurals>
+    <plurals name="deleted_channels">
+        <item quantity="other">%d kategoria ezabatu dira</item>
+        <item quantity="one">1 kategoria ezabatu da</item>
+    </plurals>
+    <plurals name="dex_timeout_day">
+        <item quantity="other">%d egun</item>
+        <item quantity="one">Egun 1</item>
+    </plurals>
+    <plurals name="dex_timeout_hour">
+        <item quantity="other">%d ordu</item>
+        <item quantity="one">Ordu 1</item>
+    </plurals>
+    <plurals name="dex_timeout_minute">
+        <item quantity="other">%d minutu</item>
+        <item quantity="one">Minutu 1</item>
+    </plurals>
+    <plurals name="dex_timeout_second">
+        <item quantity="other">%d segundo</item>
+        <item quantity="one">Segundo 1</item>
+    </plurals>
+    <plurals name="dex_timeout_week">
+        <item quantity="other">%d aste</item>
+        <item quantity="one">Aste 1</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Kendu hautatutako hizkuntzak</item>
+        <item quantity="one">Kendu hautatutako hizkuntza</item>
+    </plurals>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d ordu</item>
+        <item quantity="one">Ordu 1</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d minutu</item>
+        <item quantity="one">Minutu 1</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d segundo</item>
+        <item quantity="one">Segundo 1</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Pasahitzak gutxienez %d letra izan behar ditu</item>
+        <item quantity="one">Pasahitzak gutxienez letra 1 izan behar du</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Pasahitzak gutxienez %d letra izan behar ditu minuskulaz</item>
+        <item quantity="one">Pasahitzak gutxienez letra 1 izan behar du minuskulaz</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Pasahitzak gutxienez %d zenbaki edo sinbolo izan behar ditu</item>
+        <item quantity="one">Pasahitzak gutxienez zenbaki edo sinbolo 1 izan behar du</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Pasahitzak gutxienez %d zenbaki izan behar ditu</item>
+        <item quantity="one">Pasahitzak gutxienez zenbaki 1 izan behar du</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Pasahitzak gutxienez %d sinbolo izan behar ditu</item>
+        <item quantity="one">Pasahitzak gutxienez sinbolo 1 izan behar du</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Pasahitzak gutxienez %d letra izan behar ditu maiuskulaz</item>
+        <item quantity="one">Pasahitzak gutxienez letra 1 izan behar du maiuskulaz</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d aplikaziok jakinarazpenak irakur ditzakete.</item>
+        <item quantity="one">%d aplikazioak jakinarazpenak irakur ditzake.</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$d prozesuk erabili dute RAM memoria azken %2$setan</item>
+        <item quantity="one">%1$d prozesuk erabili du RAM memoria azken %2$setan</item>
+    </plurals>
+    <plurals name="network_restrictions_summary">
+        <item quantity="other">%d muga</item>
+        <item quantity="one">1 muga</item>
+    </plurals>
+    <plurals name="notification_summary">
+        <item quantity="other">Desaktibatuta %d aplikaziotan</item>
+        <item quantity="one">Desaktibatuta 1 aplikaziotan</item>
+    </plurals>
+    <plurals name="number_of_device_admins">
+        <item quantity="other">%d aplikazio aktibo</item>
+        <item quantity="one">1 aplikazio aktibo</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d baimen gehiago</item>
+        <item quantity="one">%d baimen gehiago</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Orain garatzaile bat izatetik %d pausora zaude</item>
+        <item quantity="one">Orain garatzaile bat izatetik pauso 1era zaude</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_dialog_title">
+        <item quantity="other">Jo fidagarritzat edo kendu ziurtagiriak</item>
+        <item quantity="one">Jo fidagarritzat edo kendu ziurtagiria</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message">
+        <item quantity="other">"%s aplikazioak/administratzaileak ziurtagiri autoritate baten ziurtagiriak instalatu ditu zure gailuan; horrela, gailuaren laneko sareko jarduerak kontrolatu ahal izango ditu, mezu elektronikoak, aplikazioak eta webgune seguruak barne. Ziurtagiri horiek fidagarritzat jotzeko edo kentzeko aukera duzu.
+
+Ziurtagiriei buruzko informazio gehiago lortzeko, jarri harremanetan administratzailearekin."</item>
+        <item quantity="one">"%s aplikazioak/administratzaileak ziurtagiri autoritate baten ziurtagiri bat instalatu du zure gailuan; horrela, gailuaren laneko sareko jarduerak kontrolatu ahal izango ditu, mezu elektronikoak, aplikazioak eta webgune seguruak barne. Ziurtagiri hori fidagarritzat jotzeko edo kentzeko aukera duzu.
+
+Ziurtagiriari buruzko informazio gehiago lortzeko, jarri harremanetan administratzailearekin."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s administratzaileak CA ziurtagiriak instalatu ditu zure gailuan; horrela, gailuaren sareko jarduerak kontrolatu ahal izango ditu, mezu elektronikoen, aplikazioen eta webgune seguruen erabilera barne.
+
+Ziurtagiriei buruzko informazio gehiago lortzeko, jarri IT administratzailearekin harremanetan."</item>
+        <item quantity="one">"%s administratzaileak CA ziurtagiri bat instalatu du zure gailuan; horrela, gailuaren sareko jarduerak kontrolatu ahal izango ditu, mezu elektronikoen, aplikazioen eta webgune seguruen erabilera barne.
+
+Ziurtagiriari buruzko informazio gehiago lortzeko, jarri IT administratzailearekin harremanetan."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_settings_button">
+        <item quantity="other">Egiaztatu ziurtagiriak</item>
+        <item quantity="one">Egiaztatu ziurtagiria</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Atzitu %d karpeta/fitxategi</item>
+        <item quantity="one">Atzitu 1 karpeta/fitxategi</item>
+    </plurals>
+</resources>

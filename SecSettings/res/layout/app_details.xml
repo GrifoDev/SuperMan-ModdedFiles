@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/app_snippet" android:paddingTop="@dimen/sub_app_bar_icon_padding_top" android:paddingBottom="@dimen/sub_app_bar_icon_padding_botton" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="?android:listPreferredItemPaddingStart" android:paddingEnd="?android:listPreferredItemPaddingEnd" style="@style/SecEntityHeader">
+        <ImageView android:layout_gravity="center" android:id="@id/app_detail_icon" android:layout_width="@dimen/list_app_icon_size" android:layout_height="@dimen/list_app_icon_size" android:antialias="true" android:scaleType="fitXY" />
+        <LinearLayout android:orientation="vertical" android:id="@id/app_detail_links" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_centerInParent="true" android:layout_alignParentEnd="true">
+            <ImageButton android:id="@id/right_button" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="0.0dip" android:src="@drawable/ic_settings_24dp" android:tint="?android:colorAccent" android:minWidth="@dimen/min_tap_target_size" android:layout_weight="1.0" style="?android:actionOverflowButtonStyle" />
+            <ImageButton android:id="@id/left_button" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="0.0dip" android:src="@null" android:tint="?android:colorAccent" android:minWidth="@dimen/min_tap_target_size" android:layout_weight="1.0" style="?android:actionOverflowButtonStyle" />
+            <ImageButton android:id="@id/app_preference_button" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="0.0dip" android:src="@drawable/st_list_icon_setting" android:tint="@color/ic_list_item_config_normal_color" android:minWidth="@dimen/min_tap_target_size" android:layout_weight="1.0" style="?android:actionModeCloseButtonStyle" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_centerInParent="true" android:paddingStart="18.0dip" android:paddingEnd="24.0dip" android:layout_toStartOf="@id/app_detail_links" android:layout_toEndOf="@id/app_detail_icon">
+            <TextView android:ellipsize="marquee" android:gravity="start" android:id="@id/app_detail_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="false" android:textDirection="locale" style="@style/list_title_text_style" />
+            <TextView android:ellipsize="marquee" android:gravity="start" android:id="@id/install_type" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" style="@style/list_summary_text_style" />
+            <TextView android:ellipsize="marquee" android:gravity="start" android:id="@id/app_detail_summary" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" android:textDirection="locale" style="@style/list_summary_text_style" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

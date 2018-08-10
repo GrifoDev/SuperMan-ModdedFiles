@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/apps_filter_spinner" />
+    <include layout="@layout/data_usage_chart" />
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="?android:listPreferredItemPaddingStart" android:paddingEnd="?android:listPreferredItemPaddingEnd">
+        <TextView android:textSize="14.0dip" android:textColor="?android:textColorSecondary" android:id="@id/start_date" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_alignParentLeft="true" />
+        <TextView android:textSize="14.0dip" android:textColor="?android:textColorSecondary" android:id="@id/mid_date" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_centerInParent="true" />
+        <TextView android:textSize="14.0dip" android:textColor="?android:textColorSecondary" android:id="@id/end_date" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_alignParentRight="true" />
+    </RelativeLayout>
+    <TextView android:textAppearance="@android:style/TextAppearance.Material.Subhead" android:textColor="?android:textColorPrimary" android:ellipsize="marquee" android:id="@id/usage_summary" android:paddingTop="8.0dip" android:paddingBottom="6.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="?android:listPreferredItemPaddingStart" android:paddingEnd="?android:listPreferredItemPaddingEnd" />
+    <TextView android:gravity="center_vertical" android:id="@id/disclaimer" android:paddingTop="6.0dip" android:paddingBottom="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/operator_warning" android:paddingStart="?android:listPreferredItemPaddingStart" android:paddingEnd="?android:listPreferredItemPaddingEnd" style="@style/list_summary_text_style" />
+</LinearLayout>

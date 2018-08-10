@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="accessibilty_autoclick_preference_subtitle_extremely_short_delay">
+        <item quantity="other">Изключително кратко забавяне (%s ms)</item>
+        <item quantity="one">Изключително кратко забавяне (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_long_delay">
+        <item quantity="other">Дълго забавяне (%s ms)</item>
+        <item quantity="one">Дълго забавяне (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_short_delay">
+        <item quantity="other">Кратко забавяне (%s ms)</item>
+        <item quantity="one">Кратко забавяне (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_long_delay">
+        <item quantity="other">Много дълго забавяне (%s ms)</item>
+        <item quantity="one">Много дълго забавяне (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_short_delay">
+        <item quantity="other">Много кратко забавяне (%s ms)</item>
+        <item quantity="one">Много кратко забавяне (%s ms)</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d приложения имат право да използват данни без ограничения</item>
+        <item quantity="one">1 приложение има право да използва данни без ограничения</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary_chn">
+        <item quantity="other">%d приложения могат да използват мобилни данни без ограничения, докато „Ограничаване на данни във фонов режим“ е активирано.</item>
+        <item quantity="one">%d приложения могат да използват мобилни данни без ограничения, докато „Ограничаване на данни във фонов режим“ е активирано.</item>
+    </plurals>
+    <plurals name="deleted_channels">
+        <item quantity="other">%d категории са изтрити</item>
+        <item quantity="one">1 категория е изтрита</item>
+    </plurals>
+    <plurals name="dex_timeout_day">
+        <item quantity="other">%d дни</item>
+        <item quantity="one">1 ден</item>
+    </plurals>
+    <plurals name="dex_timeout_hour">
+        <item quantity="other">%d часа</item>
+        <item quantity="one">1 час</item>
+    </plurals>
+    <plurals name="dex_timeout_minute">
+        <item quantity="other">%d минути</item>
+        <item quantity="one">1 минута</item>
+    </plurals>
+    <plurals name="dex_timeout_second">
+        <item quantity="other">%d секунди</item>
+        <item quantity="one">1 секунда</item>
+    </plurals>
+    <plurals name="dex_timeout_week">
+        <item quantity="other">%d седмици</item>
+        <item quantity="one">1 седмица</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Премахване на избраните езици</item>
+        <item quantity="one">Премахване на избрания език</item>
+    </plurals>
+    <plurals name="enterprise_privacy_number_packages_lower_bound">
+        <item quantity="other">Поне %d приложения</item>
+        <item quantity="one">Поне %d приложение</item>
+    </plurals>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d часа</item>
+        <item quantity="one">1 час</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d минути</item>
+        <item quantity="one">1 минута</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d секунди</item>
+        <item quantity="one">1 секунда</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Паролата трябва да съдържа поне %d букви.</item>
+        <item quantity="one">Паролата трябва да съдържа поне една буква.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Паролата трябва да съдържа поне %d малки букви.</item>
+        <item quantity="one">Паролата трябва да съдържа поне 1 малка буква.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Паролата трябва да съдържа поне %d цифри или символи.</item>
+        <item quantity="one">Паролата трябва да съдържа поне 1 цифра или символ.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Паролата трябва да съдържа поне %d цифри.</item>
+        <item quantity="one">Паролата трябва да съдържа поне една цифра.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Паролата трябва да съдържа поне %d символа.</item>
+        <item quantity="one">Паролата трябва да съдържа поне 1 символ.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Паролата трябва да съдържа поне %d главни букви.</item>
+        <item quantity="one">Паролата трябва да съдържа поне 1 главна буква.</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d приложения не могат да четат известия.</item>
+        <item quantity="one">Приложението %d може да чете известия.</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$d процеса са използвали RAM в последните %2$s</item>
+        <item quantity="one">%1$d процес е използвал RAM в последните %2$s</item>
+    </plurals>
+    <plurals name="network_restrictions_summary">
+        <item quantity="other">%d ограничения</item>
+        <item quantity="one">1 ограничение</item>
+    </plurals>
+    <plurals name="notification_summary">
+        <item quantity="other">Изключено за %d приложения</item>
+        <item quantity="one">Изключено за 1 приложение</item>
+    </plurals>
+    <plurals name="number_of_device_admins">
+        <item quantity="other">%d активни приложения</item>
+        <item quantity="one">1 активно приложение</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">Още %d разрешения</item>
+        <item quantity="one">Още %d разрешение</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Остават ви само %d стъпки, докато станете разработчик.</item>
+        <item quantity="one">Остава ви само 1 стъпка, докато станете разработчик.</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_dialog_title">
+        <item quantity="other">Премахване или доверяване на сертификатите</item>
+        <item quantity="one">Премахване или доверяване на сертификата</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message">
+        <item quantity="other">"%s инсталира издатели на сертификата за вашия служебен профил, който може да му позволи да следи дейността ви в служебната мрежа, включително използването на имейли, приложения и защитени уеб сайтове. Може да изберете да премахнете или да се доверите на тези сертификати.
+
+За повече информация относно тези сертификати се свържете с администратора."</item>
+        <item quantity="one">"%s инсталира издател на сертификата за вашия служебен профил, който може да му позволи да следи дейността ви в служебната мрежа, включително използването на имейли, приложения и защитени уеб сайтове. Може да изберете да премахнете или да се доверите на този сертификат.
+
+За повече информация относно този сертификат се свържете с администратора."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s инсталира CA сертификати на устройството, което може да му позволи да следи мрежовата дейност на устройството, включително използването на имейли, приложения и защитени уеб сайтове.
+
+За повече информация относно тези сертификати се свържете със своя ИТ администратор."</item>
+        <item quantity="one">"%s инсталира CA сертификат на устройството, което може да му позволи да следи мрежовата дейност на устройството, включително използването на имейли, приложения и защитени уеб сайтове.
+
+За повече информация относно този сертификат се свържете със своя ИТ администратор."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_settings_button">
+        <item quantity="other">Проверка на сертификатите</item>
+        <item quantity="one">Проверка на сертификата</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Достъп до %d папки/файлове</item>
+        <item quantity="one">Достъп до 1 папка/файл</item>
+    </plurals>
+</resources>

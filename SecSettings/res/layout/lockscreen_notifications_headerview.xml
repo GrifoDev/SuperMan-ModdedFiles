@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:layout_gravity="center_horizontal" android:orientation="vertical" android:id="@id/noti_card_background" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <TextView android:gravity="start" android:id="@id/empty" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/body_text_top_padding" android:layout_marginBottom="@dimen/body_text_top_padding" android:text="@string/lockscreen_notification_off_aod_off_desc" android:layout_marginStart="@dimen/list_item_start_padding" android:layout_marginEnd="@dimen/list_item_end_padding" style="@style/body_text_style" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/done_btn_container" android:visibility="gone" android:layout_marginBottom="0.0dip" style="@style/dialog_button_area_container">
+        <Button android:id="@id/button_done" android:layout_marginBottom="@dimen/alert_dialog_padding_bottom" android:text="@string/done_button" android:layout_marginEnd="16.0dip" style="@style/dialog_button_area" />
+    </LinearLayout>
+</LinearLayout>

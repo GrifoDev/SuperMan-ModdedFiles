@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="accessibilty_autoclick_preference_subtitle_extremely_short_delay">
+        <item quantity="other">Ārkārtīgi īsa aizkave (%s ms)</item>
+        <item quantity="one">Ārkārtīgi īsa aizkave (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_long_delay">
+        <item quantity="other">Gara aizkave (%s ms)</item>
+        <item quantity="one">Gara aizkave (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_short_delay">
+        <item quantity="other">Īsa aizkave (%s ms)</item>
+        <item quantity="one">Īsa aizkave (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_long_delay">
+        <item quantity="other">Ļoti gara aizkave (%s ms)</item>
+        <item quantity="one">Ļoti gara aizkave (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_short_delay">
+        <item quantity="other">Ļoti īsa aizkave (%s ms)</item>
+        <item quantity="one">Ļoti īsa aizkave (%s ms)</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d programmām ir atļauts lietot datus bez ierobežojumiem</item>
+        <item quantity="one">1 programmai ir atļauts lietot datus bez ierobežojumiem</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary_chn">
+        <item quantity="other">%d programmām ir atļauts lietot mobilos datus bez ierobežojuma, kad ir aktivizēta funkcija Ierobežot fona datus.</item>
+        <item quantity="one">%d programmām ir atļauts lietot mobilos datus bez ierobežojuma, kad ir aktivizēta funkcija Ierobežot fona datus.</item>
+    </plurals>
+    <plurals name="deleted_channels">
+        <item quantity="other">Izdzēstas %d kategorijas</item>
+        <item quantity="one">Izdzēsta 1 kategorija</item>
+    </plurals>
+    <plurals name="dex_timeout_day">
+        <item quantity="other">%d dienas</item>
+        <item quantity="one">1 diena</item>
+    </plurals>
+    <plurals name="dex_timeout_hour">
+        <item quantity="other">%d stundas</item>
+        <item quantity="one">1 stunda</item>
+    </plurals>
+    <plurals name="dex_timeout_minute">
+        <item quantity="other">%d minūtes</item>
+        <item quantity="one">1 minūte</item>
+    </plurals>
+    <plurals name="dex_timeout_second">
+        <item quantity="other">%d sekundes</item>
+        <item quantity="one">1 sekunde</item>
+    </plurals>
+    <plurals name="dex_timeout_week">
+        <item quantity="other">%d nedēļas</item>
+        <item quantity="one">1 nedēļa</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Noņemt izvēlētās valodas</item>
+        <item quantity="one">Noņemt izvēlēto valodu</item>
+    </plurals>
+    <plurals name="enterprise_privacy_number_packages_lower_bound">
+        <item quantity="other">Vismaz %d lietotnes</item>
+        <item quantity="zero">Vismaz %d lietotnes</item>
+        <item quantity="one">Vismaz %d lietotne</item>
+    </plurals>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d stundas</item>
+        <item quantity="one">1 stunda</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d minūtes</item>
+        <item quantity="one">1 minūte</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d sekundes</item>
+        <item quantity="one">1 sekunde</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Parolē ir jābūt vismaz %d burtiem.</item>
+        <item quantity="one">Parolē ir jābūt vismaz 1 burtam.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Parolē ir jābūt vismaz %d mazajiem burtiem.</item>
+        <item quantity="one">Parolē ir jābūt vismaz 1 mazajam burtam.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Parolē ir jābūt vismaz %d cipariem vai simboliem.</item>
+        <item quantity="one">Parolē ir jābūt vismaz 1 ciparam vai simbolam.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Parolē ir jābūt vismaz %d cipariem.</item>
+        <item quantity="one">Parolē ir jābūt vismaz 1 ciparam.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Parolē ir jābūt vismaz %d simboliem.</item>
+        <item quantity="one">Parolē ir jābūt vismaz 1 simbolam.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Parolē ir jābūt vismaz %d lielajiem burtiem.</item>
+        <item quantity="one">Parolē ir jābūt vismaz 1 lielajam burtam.</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d programmas var nolasīt paziņojumus.</item>
+        <item quantity="one">%d programmai ir atļauts nolasīt paziņojumus.</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">Pēdējo %2$s laikā RAM izmantoja %1$d procesi</item>
+        <item quantity="one">Pēdējo %2$s laikā RAM izmantoja %1$d process</item>
+    </plurals>
+    <plurals name="network_restrictions_summary">
+        <item quantity="other">%d ierobežojumi</item>
+        <item quantity="one">1 ierobežojums</item>
+    </plurals>
+    <plurals name="notification_summary">
+        <item quantity="other">Izslēgts %d programmām</item>
+        <item quantity="one">Izslēgts 1 programmai</item>
+    </plurals>
+    <plurals name="number_of_device_admins">
+        <item quantity="other">%d aktīvas programmas</item>
+        <item quantity="one">1 aktīva programma</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d citas atļaujas</item>
+        <item quantity="one">%d cita atļauja</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Lai kļūtu par izstrādātāju, jums ir jāveic vēl tikai %d darbības.</item>
+        <item quantity="one">Lai kļūtu par izstrādātāju, jums ir jāveic vēl tikai 1 darbība.</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_dialog_title">
+        <item quantity="other">Uzticēties vai noņemt sertifikātus</item>
+        <item quantity="one">Uzticēties vai noņemt sertifikātu</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message">
+        <item quantity="other">"%s instalēja sertifikātu izdevējus jūsu darba profilam, kas var atļaut tiem pārraudzīt darba tīkla darbības, tostarp e-pasta ziņas, programmas un drošās tīmekļa vietnes. Varat izvēlēties uzticēties šiem sertifikātiem vai noņemt tos.
+
+Lai saņemtu papildinformāciju par šiem sertifikātiem, sazinieties ar savu administratoru."</item>
+        <item quantity="one">"%s instalēja sertifikātu izdevēju jūsu darba profilam, kas var atļaut tam pārraudzīt darba tīkla darbības, tostarp e-pasta ziņas, programmas un drošās tīmekļa vietnes. Varat izvēlēties uzticēties šim sertifikātam vai noņemt to.
+
+Lai saņemtu papildinformāciju par šo sertifikātu, sazinieties ar savu administratoru."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s instalēja CA sertifikātus jūsu ierīcē, kas var ļaut pārraudzīt jūsu ierīces tīkla darbību, tostarp e-pasta, programmu un aizsargāto tīmekļa vietņu lietojumu.
+
+Lai iegūtu papildinformāciju par šiem sertifikātiem, sazinieties ar savu IT administratoru."</item>
+        <item quantity="one">"%s instalēja CA sertifikātu jūsu ierīcē, kas var ļaut pārraudzīt jūsu ierīces tīkla darbību, tostarp e-pasta, programmu un aizsargāto tīmekļa vietņu lietojumu.
+
+Lai iegūtu papildinformāciju par šo sertifikātu, sazinieties ar savu IT administratoru."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_settings_button">
+        <item quantity="other">Pārbaudīt sertifikātus</item>
+        <item quantity="one">Pārbaudīt sertifikātu</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Piekļuve %d mapēm/failiem</item>
+        <item quantity="one">Piekļuve 1 mapei/failam</item>
+    </plurals>
+</resources>

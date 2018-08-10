@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@id/fingerprint_unlock_category" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="3.0dip" android:id="@id/unlock_category_title" android:background="@null" android:paddingTop="0.0dip" android:paddingBottom="0.0dip" android:layout_width="fill_parent" android:layout_height="3.0dip" android:text="@null" android:textAlignment="viewStart" android:paddingStart="@dimen/list_divider_padding" style="?android:listSeparatorTextViewStyle" />
+</LinearLayout>

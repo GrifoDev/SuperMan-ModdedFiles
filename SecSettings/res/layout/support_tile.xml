@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="?android:selectableItemBackground" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/support_tile_min_height"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@android:id/icon" android:layout_width="@dimen/dashboard_tile_image_size" android:layout_height="@dimen/dashboard_tile_image_size" android:scaleType="centerInside" android:layout_marginStart="@dimen/dashboard_tile_image_margin_start" android:layout_marginEnd="@dimen/dashboard_tile_image_margin_end" />
+    <TextView android:textAppearance="@style/TextAppearance.TileTitle" android:ellipsize="end" android:id="@id/tile_title" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="2" />
+</LinearLayout>

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bitmap android:src="@drawable/tw_expander_close_mtrl_alpha" android:tint="@color/dashboard_suggestion_expander_tint_color" android:alpha="0.5"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/user_dict_settings_add_dialog_top" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.android.internal.widget.DialogTitle android:ellipsize="end" android:gravity="start|center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/alert_dialog_padding_top" android:layout_marginBottom="0.0dip" android:text="@string/user_dict_settings_add_dialog_title" android:singleLine="true" android:layout_marginStart="@dimen/alert_dialog_padding_left_right" android:layout_marginEnd="@dimen/alert_dialog_padding_left_right" style="?android:windowTitleStyle" />
+        <EditText android:layout_gravity="fill_horizontal|center" android:id="@id/user_dictionary_add_word_text" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="@dimen/body_text_top_padding" android:hint="@string/user_dict_settings_add_word_hint" android:inputType="textNoSuggestions" android:layout_marginStart="@dimen/alert_dialog_edit_label_padding_left" android:layout_marginEnd="@dimen/alert_dialog_padding_left_right">
+            <requestFocus />
+        </EditText>
+        <TextView android:textSize="@dimen/edit_dialog_hint_text_size" android:textColor="@color/red" android:id="@id/error_textview" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/wifi_ssid_max_byte_error" android:layout_marginStart="@dimen/alert_dialog_padding_left_right" android:layout_marginEnd="@dimen/alert_dialog_padding_left_right" />
+        <LinearLayout android:orientation="horizontal" android:layout_marginTop="@dimen/dialog_bottom_botton_container_margin_top_bottom" style="@style/dialog_button_area_container">
+            <Button android:textAppearance="@style/dialog_button_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="@dimen/lock_iris_confirm_button_hight" android:text="@string/cancel" android:maxLines="2" android:onClick="onClickCancel" android:paddingStart="@dimen/alert_dialog_padding_left_right" android:paddingEnd="@dimen/dialog_bottom_button_padding_left_right" style="?android:buttonBarButtonStyle" />
+            <Button android:textAppearance="@style/dialog_button_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="@dimen/lock_iris_confirm_button_hight" android:text="@string/user_dict_settings_add_dialog_confirm" android:maxLines="2" android:onClick="onClickConfirm" android:paddingStart="@dimen/dialog_bottom_button_padding_left_right" android:paddingEnd="@dimen/alert_dialog_padding_left_right" style="?android:buttonBarButtonStyle" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

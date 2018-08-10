@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="accessibilty_autoclick_preference_subtitle_extremely_short_delay">
+        <item quantity="other">Afar stutt töf (%s ms)</item>
+        <item quantity="one">Afar stutt töf (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_long_delay">
+        <item quantity="other">Mikil töf (%s ms)</item>
+        <item quantity="one">Mikil töf (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_short_delay">
+        <item quantity="other">Stutt töf (%s ms)</item>
+        <item quantity="one">Stutt töf (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_long_delay">
+        <item quantity="other">Mjög mikil töf (%s ms)</item>
+        <item quantity="one">Mjög mikil töf (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_short_delay">
+        <item quantity="other">Mjög stutt töf (%s ms)</item>
+        <item quantity="one">Mjög stutt töf (%s ms)</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d forritum leyft að nota gögn án takmarkana</item>
+        <item quantity="one">1 forriti leyft að nota gögn án takmarkana</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary_chn">
+        <item quantity="other">%d forrit mega nota farsímagögn án takmarkana á meðan kveikt er á „Takmarka bakgrunnsgögn“.</item>
+        <item quantity="one">%d forrit mega nota farsímagögn án takmarkana á meðan kveikt er á „Takmarka bakgrunnsgögn“.</item>
+    </plurals>
+    <plurals name="deleted_channels">
+        <item quantity="other">%d flokkum eytt</item>
+        <item quantity="one">Einum flokki eytt</item>
+    </plurals>
+    <plurals name="dex_timeout_day">
+        <item quantity="other">%d dagar</item>
+        <item quantity="one">1 dagur</item>
+    </plurals>
+    <plurals name="dex_timeout_hour">
+        <item quantity="other">%d klukkustundir</item>
+        <item quantity="one">1 klst.</item>
+    </plurals>
+    <plurals name="dex_timeout_minute">
+        <item quantity="other">%d mínútur</item>
+        <item quantity="one">1 mínúta</item>
+    </plurals>
+    <plurals name="dex_timeout_second">
+        <item quantity="other">%d sekúndur</item>
+        <item quantity="one">1 sekúnda</item>
+    </plurals>
+    <plurals name="dex_timeout_week">
+        <item quantity="other">%d vikur</item>
+        <item quantity="one">1 vika</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Fjarlægja valin tungumál</item>
+        <item quantity="one">Fjarlægja valið tungumál</item>
+    </plurals>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d klukkustundir</item>
+        <item quantity="one">1 klst.</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d mínútur</item>
+        <item quantity="one">1 mínúta</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d sekúndur</item>
+        <item quantity="one">1 sekúnda</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Lykilorð verður að innihalda minnst %d stafi.</item>
+        <item quantity="one">Lykilorð verður að innihalda minnst 1 staf.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Lykilorð verður að innihalda minnst %d lágstafi.</item>
+        <item quantity="one">Lykilorð verður að innihalda minnst 1 lágstaf.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Lykilorð verður að innihalda minnst %d tölur eða tákn.</item>
+        <item quantity="one">Lykilorð verður að innihalda minnst eina tölu eða tákn.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Lykilorð verður að innihalda minnst %d tölustafi.</item>
+        <item quantity="one">Lykilorð verður að innihalda minnst 1 tölustaf.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Lykilorð verður að innihalda minnst %d tákn.</item>
+        <item quantity="one">Lykilorð verður að innihalda minnst eitt tákn.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Lykilorð verður að innihalda minnst %d hástafi.</item>
+        <item quantity="one">Lykilorð verður að innihalda minnst 1 hástaf.</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d forrit geta lesið tilkynningar.</item>
+        <item quantity="one">%d forrit hefur heimild til að lesa tilkynningar.</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$d ferli notuðu vinnsluminni síðustu %2$s</item>
+        <item quantity="one">%1$d ferli notaði vinnsluminni síðustu %2$s</item>
+    </plurals>
+    <plurals name="network_restrictions_summary">
+        <item quantity="other">%d takmarkanir</item>
+        <item quantity="one">1 takmörkun</item>
+    </plurals>
+    <plurals name="notification_summary">
+        <item quantity="other">Slökkt á fyrir %d forrit</item>
+        <item quantity="one">Slökkt á fyrir 1 forrit</item>
+    </plurals>
+    <plurals name="number_of_device_admins">
+        <item quantity="other">%d virk forrit</item>
+        <item quantity="one">1 virkt forrit</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d fleiri heimildir</item>
+        <item quantity="one">%d heimild til viðbótar</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Nú ertu %d skrefum frá því að gerast forritari.</item>
+        <item quantity="one">Nú ertu einu skrefi frá því að gerast forritari.</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_dialog_title">
+        <item quantity="other">Treysta eða fjarlægja vottorð</item>
+        <item quantity="one">Treysta eða fjarlægja vottorð</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message">
+        <item quantity="other">"%s hefur sett upp CA-vottorð fyrir vinnusniðið þitt, sem getur gert því kleift að fylgjast með netnotkuninni á vinnusniðinu, þar á meðal tölvupósti, forritum og öruggum vefsvæðum. Þú getur valið að annaðhvort treysta þessum vottorðum eða fjarlægja þau.
+
+Hafðu samband við stjórnandann til að fá frekari upplýsingar um þessi vottorð."</item>
+        <item quantity="one">"%s hefur sett upp CA-vottorð fyrir vinnusniðið þitt, sem getur gert því kleift að fylgjast með netnotkuninni á vinnusniðinu, þar á meðal tölvupósti, forritum og öruggum vefsvæðum. Þú getur valið að annaðhvort treysta þessu vottorði eða fjarlægja það.
+
+Hafðu samband við stjórnandann til að fá frekari upplýsingar um þetta vottorð."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s setti upp CA-vottorð í tækinu sem gera honum kleift að fylgjast með netvirkni tækisins, þ. á m. notkun þinni á tölvupósti, forritum og öruggum vefsvæðum.
+
+Hafðu samband við kerfisstjórann til að fá frekari upplýsingar um þessi vottorð."</item>
+        <item quantity="one">"%s setti upp CA-vottorð í tækinu sem gerir honum kleift að fylgjast með netvirkni tækisins, þ. á m. notkun þinni á tölvupósti, forritum og öruggum vefsvæðum.
+
+Hafðu samband við kerfisstjórann til að fá frekari upplýsingar um þetta vottorð."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_settings_button">
+        <item quantity="other">Athuga vottorð</item>
+        <item quantity="one">Athuga vottorð</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Aðgangur að %d möppum/skrám</item>
+        <item quantity="one">Aðgangur að 1 möppu/skrá</item>
+    </plurals>
+</resources>

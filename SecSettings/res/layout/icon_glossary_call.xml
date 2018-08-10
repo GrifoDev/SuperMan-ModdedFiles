@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:helphub="http://schemas.android.com/apk/res/com.samsung.helphub">
+    <TextView android:id="@id/help_page_title_call" android:text="@string/item_icon_glossary_call" style="?android:listSeparatorTextViewStyle" />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/help_page_title_call">
+        <LinearLayout android:id="@id/call_in_call" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/call_in_call" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_call_in_call" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/call_missed_call" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/call_missed_call" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_call_missed_call" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/call_rejected_call" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/call_rejected_call" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_call_reject_call" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/call_layout_auto_rejected_call" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:id="@id/call_layout_auto_rejected_call_image" android:src="@drawable/call_auto_rejected_call" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_call_auto_rejected_call" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

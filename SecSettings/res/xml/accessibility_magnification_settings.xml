@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/accessibility_screen_magnification_title" android:key="magnification_preference_screen_title"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <SecPreference android:title="@string/accessibility_screen_magnification_gestures_title" android:key="screen_magnification_gestures_preference_screen" android:fragment="com.android.settings.accessibility.ToggleScreenMagnificationPreferenceFragment" />
+    <SecPreference android:title="@string/accessibility_screen_magnification_navbar_title" android:key="screen_magnification_navbar_preference_screen" android:fragment="com.android.settings.accessibility.ToggleScreenMagnificationPreferenceFragment" />
+</PreferenceScreen>

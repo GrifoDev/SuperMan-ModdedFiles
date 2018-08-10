@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <fraction name="fingerprint_register_effect_margintop_percent">25.600004%</fraction>
+    <fraction name="fingerprint_register_guideClip_margintop_percent">25.600004%</fraction>
+    <fraction name="fingerprint_register_guide_height_percent">25.0%</fraction>
+    <fraction name="fingerprint_register_progress_margintop_percent">5.400002%</fraction>
+    <fraction name="fingerprint_register_suw_effect_margintop_percent">14.999998%</fraction>
+    <fraction name="fingerprint_register_suw_guideClip_margintop_percent">14.999998%</fraction>
+    <fraction name="fingerprint_register_suw_title_margintop_percent">4.999995%</fraction>
+    <fraction name="fingerprint_register_title_margintop_percent">15.999996%</fraction>
+</resources>

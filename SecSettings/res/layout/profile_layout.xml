@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:layout_gravity="end" android:id="@id/profile_layout" android:layout_width="@dimen/profile_layout_width" android:layout_height="fill_parent" android:paddingEnd="@dimen/profile_layout_end_padding"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <android.widget.QuickContactBadge android:id="@id/profile_image_button" android:focusable="true" android:clickable="true" android:layout_width="@dimen/profile_image_size" android:layout_height="@dimen/profile_image_size" android:src="@drawable/profile_default_image" android:contentDescription="@string/samsung_account_profile" />
+</LinearLayout>

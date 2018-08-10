@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/navigationbar_title" android:key="navibationbar_setting"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <com.android.settings.SecSettingsSwitchPreference android:title="@string/navigationbar_hide_bar" android:key="show_hide_bar" android:summary="@string/navigationbar_hide_bar_summary" android:fragment="com.samsung.android.settings.navigationbar.NavigationBarHideButtonAppsSettings" />
+    <PreferenceCategory android:title="@string/navigationbar_color_title" android:key="color_title" />
+    <SecSwitchPreference android:title="@string/navigationbar_theme_switch" android:key="theme_switch" />
+    <com.samsung.android.settings.navigationbar.NavigationbarColorPreference android:key="color" />
+    <PreferenceCategory android:title="@string/navigationbar_category_button" />
+    <com.android.settings.SecSettingsSwitchPreference android:title="@string/navigationbar_pressure_sensitivity_title" android:key="navigationbar_hard_press" android:summary="@string/navigationbar_pressure_sensitivity_summary" android:fragment="com.samsung.android.settings.navigationbar.NavigationBarHardPressSetting" />
+    <SecSwitchPreference android:title="@string/navigationbar_unlock_with_home_btn_title" android:key="unlock_with_home_btn" android:summary="@string/navigationbar_unlock_with_home_btn_summary" />
+    <com.android.settings.SecDropDownPreference android:title="@string/navigationbar_order_title" android:key="order_option" />
+</PreferenceScreen>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:orientation="vertical" android:paddingTop="@dimen/datausage_help_contents_padding_top" android:paddingBottom="@dimen/datausage_help_contents_padding_bottom" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/datausage_help_contents_padding_side" android:paddingEnd="@dimen/datausage_help_contents_padding_side">
+        <TextView android:id="@id/numberOne" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="4.0dip" style="@style/description_text" />
+        <TextView android:id="@id/numberOneContent" android:paddingBottom="@dimen/datausage_help_contents_line_spacing" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toEndOf="@id/numberOne" style="@style/description_text" />
+        <TextView android:id="@id/numberTwo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/numberOneContent" android:layout_marginEnd="4.0dip" style="@style/description_text" />
+        <TextView android:id="@id/numberTwoContent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/numberOneContent" android:layout_toEndOf="@id/numberTwo" style="@style/description_text" />
+    </RelativeLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/moreInfo" android:background="@drawable/datausage_help_more_info_background" android:paddingTop="@dimen/datausage_help_more_info_padding_top" android:paddingBottom="@dimen/datausage_help_more_info_padding_bottom" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/datausage_help_more_info_padding_side" android:paddingEnd="@dimen/datausage_help_more_info_padding_side" android:layout_marginStart="@dimen/datausage_help_contents_padding_side" android:layout_marginEnd="@dimen/datausage_help_contents_padding_side">
+        <TextView android:id="@id/moreInfoTitle" android:paddingBottom="@dimen/datausage_help_contents_line_spacing" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/datausage_help_more_info" style="@style/datausage_help_more_info_title_text" />
+        <TextView android:id="@id/moreInfoContent" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/datausage_help_more_info_content_text" />
+    </LinearLayout>
+</LinearLayout>

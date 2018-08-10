@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:helphub="http://schemas.android.com/apk/res/com.samsung.helphub">
+    <TextView android:id="@id/help_page_title_other_icons" android:text="@string/item_icon_glossary_other_icons" style="?android:listSeparatorTextViewStyle" />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/help_page_title_other_icons">
+        <LinearLayout android:id="@id/other_icons_more_notifications" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/other_icons_more_notifications" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_other_icons_more_notifications" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/other_icons_screenshot_saved" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/other_icons_screenshot_saved" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_other_icons_screenshot_saved" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/other_icons_keyboard" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/other_icons_keyboard" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_other_icons_keyboard" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/other_icons_smart_stay" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/other_icons_smart_stay" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_other_icons_smart_stay" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/other_icons_private_mode" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/other_icons_private_mode" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_other_icons_private_mode" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/other_icons_cooling_down" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/other_icons_cooling_down" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_other_icons_cooling_down" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/other_icons_flashlight_on" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/other_icons_flashlight_on" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_other_icons_flashlight_on" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/other_icons_sound_detector_on" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/other_icons_sound_detector_on" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_other_icons_sound_detector_on" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/other_icons_voice_recorder" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/other_icons_voice_recorder" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_other_icons_voice_recorder" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/other_icons_power_saving_mode_on" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/other_icons_power_saving_mode_on" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_other_icons_power_saving_mode_on" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/other_icons_ultra_power_saving_mode_on" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/other_icons_ultra_power_saving_mode_on" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:id="@id/other_icons_ultra_power_saving_mode_on_text" android:text="@string/icon_glossary_other_icons_ultra_power_saving_mode_on" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/other_icons_security_warning" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/other_icons_security_warning" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_other_icons_security_warning" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/other_icons_sim_card_full" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/other_icons_sim_card_full" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_other_icons_sim_card_full" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/other_icons_sent_help_message" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/other_icons_sent_help_message" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_other_icons_sent_help_message" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/other_icons_blocking_mode" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:id="@id/other_icons_do_not_disturb_on_image" android:src="@drawable/other_icons_do_not_disturb_on" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_other_icons_do_not_disturb_on" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/other_icons_s_pen_detached" android:visibility="gone" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/other_icons_s_pen_detached" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_other_icons_s_pen_detached" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

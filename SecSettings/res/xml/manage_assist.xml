@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/assist_and_voice_input_title"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.samsung.android.settings.UnclickablePreference android:clickable="false" android:title="@string/assist_footer" android:key="assist_description" style="@style/description_text" />
+    <com.samsung.android.settings.SecGearPreference android:title="@string/assist_and_voice_input_title" android:key="default_assist" android:summary="@string/app_list_preference_none" android:fragment="com.android.settings.applications.assist.DefaultAssistPicker" />
+    <SecPreference android:title="@string/assist_gesture_title" android:key="gesture_assist" android:fragment="com.android.settings.gestures.AssistGestureSettings" />
+    <SecSwitchPreference android:title="@string/assist_access_context_title" android:key="context" android:summary="@string/assist_access_context_summary" />
+    <SecSwitchPreference android:title="@string/assist_access_screenshot_title" android:key="screenshot" android:summary="@string/assist_access_screenshot_summary" />
+    <SecSwitchPreference android:title="@string/assist_flash_title" android:key="flash" android:summary="@string/assist_flash_summary" />
+    <com.samsung.android.settings.SecGearPreference android:title="@string/voice_input_settings_title" android:key="voice_input_settings" android:fragment="com.android.settings.applications.assist.DefaultVoiceInputPicker" />
+</PreferenceScreen>

@@ -1,0 +1,872 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="allshare_download_to">
+        <item>Eszköz</item>
+        <item>SD-kártya</item>
+    </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>Animáció kikapcsolva.</item>
+        <item>0,5x animációs skála</item>
+        <item>1x animációs skála</item>
+        <item>1,5x animációs skála</item>
+        <item>2x animációs skála</item>
+        <item>5x animációs skála</item>
+        <item>10x animációs skála</item>
+    </string-array>
+    <string-array name="apn_auth_entries">
+        <item>Nincs</item>
+        <item>PAP</item>
+        <item>CHAP</item>
+        <item>PAP vagy CHAP</item>
+    </string-array>
+    <string-array name="apn_protocol_entries">
+        <item>IPv4</item>
+        <item>IPv6</item>
+        <item>IPv4/IPv6</item>
+    </string-array>
+    <string-array name="app_install_location_entries">
+        <item>Belső tárhely</item>
+        <item>Eltávolítható SD-kártya</item>
+        <item>Döntse el a rendszer</item>
+    </string-array>
+    <string-array name="app_ops_categories">
+        <item>Hely</item>
+        <item>Személyes</item>
+        <item>Üzenetváltás</item>
+        <item>Média</item>
+        <item>Eszköz</item>
+        <item>Auto run</item>
+    </string-array>
+    <string-array name="app_ops_labels">
+        <item>Hely</item>
+        <item>Hely</item>
+        <item>Hely</item>
+        <item>Rezgés</item>
+        <item>Névjegyek olvasása</item>
+        <item>Névjegyek módosítása</item>
+        <item>Hívásnapló olvasása</item>
+        <item>Hívásnapló módosítása</item>
+        <item>Naptár olvasása</item>
+        <item>Naptár módosítása</item>
+        <item>Hely</item>
+        <item>Értesítés közzététele</item>
+        <item>Hely</item>
+        <item>Telefonálás</item>
+        <item>SMS/MMS olvasása</item>
+        <item>SMS/MMS írása</item>
+        <item>SMS/MMS fogadása</item>
+        <item>SMS/MMS fogadása</item>
+        <item>SMS/MMS fogadása</item>
+        <item>SMS/MMS fogadása</item>
+        <item>SMS/MMS küldése</item>
+        <item>SMS/MMS olvasása</item>
+        <item>SMS/MMS írása</item>
+        <item>Beállítások módosítása</item>
+        <item>Megjelenítés felül</item>
+        <item>Hozzáférési értesítések</item>
+        <item>Kamera</item>
+        <item>Hanganyag rögzítése</item>
+        <item>Hanganyag lejátszása</item>
+        <item>Vágólap olvasása</item>
+        <item>Vágólap módosítása</item>
+        <item>Médiagombok</item>
+        <item>Audiofókusz</item>
+        <item>Hangerő-szabályozó</item>
+        <item>Beszéd hangereje</item>
+        <item>Csengés hangereje</item>
+        <item>Média hangereje</item>
+        <item>Ébresztés hangereje</item>
+        <item>Értesítés hangereje</item>
+        <item>Bluetooth hangereje</item>
+        <item>Ébren tartás</item>
+        <item>Tartózkodási hely</item>
+        <item>Tartózkodási hely</item>
+        <item>Használati statisztikák lekérése</item>
+        <item>Mikrofon némítása és a némítás feloldása</item>
+        <item>Üzenet megjelenítése</item>
+        <item>Médiatartalom kivetítése</item>
+        <item>VPN aktiválása</item>
+        <item>Háttérkép írása</item>
+        <item>Segédlet a szerkezethez</item>
+        <item>Segédlet a képernyőképhez</item>
+        <item>Telefonállapot olvasása</item>
+        <item>Hangposta hozzáadása</item>
+        <item>SIP használata</item>
+        <item>Kimenő hívás feldolgozása</item>
+        <item>Ujjlenyomat</item>
+        <item>Testérzékelők</item>
+        <item>Cellán belüli üzenetszórás olvasása</item>
+        <item>Helyimitálás</item>
+        <item>Tárhely olvasása</item>
+        <item>Tárhely írása</item>
+        <item>Képernyő bekapcsolása</item>
+        <item>Fiókok beszerzése</item>
+        <item>Futtatás a háttérben</item>
+        <item>Kisegítő lehetőségek – hangerő</item>
+    </string-array>
+    <string-array name="app_ops_summaries">
+        <item>hozzávetőleges helymeghatározás</item>
+        <item>pontos helymeghatározás</item>
+        <item>GPS</item>
+        <item>rezgés</item>
+        <item>névjegyek olvasása</item>
+        <item>névjegyek módosítása</item>
+        <item>hívásnapló olvasása</item>
+        <item>hívásnapló módosítása</item>
+        <item>naptár olvasása</item>
+        <item>naptár módosítása</item>
+        <item>Wi-Fi hálózat keresése</item>
+        <item>értesítés</item>
+        <item>hálózatkeresés</item>
+        <item>telefonálás</item>
+        <item>SMS olvasása</item>
+        <item>SMS írása</item>
+        <item>SMS fogadása</item>
+        <item>sürgősségi SMS fogadása</item>
+        <item>MMS fogadása</item>
+        <item>WAP push fogadása</item>
+        <item>SMS küldése</item>
+        <item>ICC SMS olvasása</item>
+        <item>ICC SMS írása</item>
+        <item>beállítások módosítása</item>
+        <item>megjelenítés felül</item>
+        <item>Hozzáférési értesítések</item>
+        <item>kamera</item>
+        <item>hanganyag rögzítése</item>
+        <item>hanganyag lejátszása</item>
+        <item>vágólap olvasása</item>
+        <item>vágólap módosítása</item>
+        <item>médiagombok</item>
+        <item>audiofókusz</item>
+        <item>hangerő-szabályozó</item>
+        <item>beszéd hangereje</item>
+        <item>csengés hangereje</item>
+        <item>média hangereje</item>
+        <item>ébresztés hangereje</item>
+        <item>értesítés hangereje</item>
+        <item>bluetooth hangereje</item>
+        <item>ébren tartás</item>
+        <item>hely figyelése</item>
+        <item>magas energiaszintű helyek figyelése</item>
+        <item>használati statisztikák lekérése</item>
+        <item>mikrofon némítása és a némítás feloldása</item>
+        <item>üzenet megjelenítése</item>
+        <item>médiatartalom kivetítése</item>
+        <item>VPN aktiválása</item>
+        <item>háttérkép írása</item>
+        <item>segédlet a szerkezethez</item>
+        <item>segédlet a képernyőképhez</item>
+        <item>telefonállapot olvasása</item>
+        <item>hangposta hozzáadása</item>
+        <item>SIP használata</item>
+        <item>kimenő hívás feldolgozása</item>
+        <item>ujjlenyomat</item>
+        <item>testérzékelők</item>
+        <item>cellán belüli üzenetszórás olvasása</item>
+        <item>helyimitálás</item>
+        <item>tárhely olvasása</item>
+        <item>tárhely írása</item>
+        <item>képernyő bekapcsolása</item>
+        <item>fiókok beszerzése</item>
+        <item>futtatás a háttérben</item>
+        <item>kisegítő lehetőségek – hangerő</item>
+    </string-array>
+    <string-array name="app_process_limit_entries">
+        <item>Normál korlátozás</item>
+        <item>Nincsenek háttérfolyamatok</item>
+        <item>Legfeljebb 1 folyamat</item>
+        <item>Legfeljebb 2 folyamat</item>
+        <item>Legfeljebb 3 folyamat</item>
+        <item>Legfeljebb 4 folyamat</item>
+    </string-array>
+    <string-array name="automatic_storage_management_days">
+        <item>Több mint 30 napos</item>
+        <item>Több mint 60 napos</item>
+        <item>Több mint 90 napos</item>
+    </string-array>
+    <string-array name="bearer_entries">
+        <item>Nincs megadva</item>
+        <item>LTE</item>
+        <item>HSPAP</item>
+        <item>HSPA</item>
+        <item>HSUPA</item>
+        <item>HSDPA</item>
+        <item>UMTS</item>
+        <item>EDGE</item>
+        <item>GPRS</item>
+        <item>eHRPD</item>
+        <item>EVDO_B</item>
+        <item>EVDO_A</item>
+        <item>EVDO_0</item>
+        <item>1xRTT</item>
+        <item>IS95B</item>
+        <item>IS95A</item>
+        <item>IWLAN</item>
+    </string-array>
+    <string-array name="bearer_entries_dcm_kdi">
+        <item>Nincs megadva</item>
+        <item>4G</item>
+        <item>HSPAP</item>
+        <item>HSPA</item>
+        <item>HSUPA</item>
+        <item>HSDPA</item>
+        <item>UMTS</item>
+        <item>EDGE</item>
+        <item>GPRS</item>
+        <item>eHRPD</item>
+        <item>EVDO_B</item>
+        <item>EVDO_A</item>
+        <item>EVDO_0</item>
+        <item>1xRTT</item>
+        <item>IS95B</item>
+        <item>IS95A</item>
+        <item>IWLAN</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_bits_per_sample_summaries">
+        <item>Rendszerérték (alapértelmezett)</item>
+        <item>16 bit/minta</item>
+        <item>24 bit/minta</item>
+        <item>32 bit/minta</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_bits_per_sample_titles">
+        <item>Rendszerérték (alapértelmezett)</item>
+        <item>16 bit/minta</item>
+        <item>24 bit/minta</item>
+        <item>32 bit/minta</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_channel_mode_summaries">
+        <item>Rendszerérték (alapértelmezett)</item>
+        <item>Monó</item>
+        <item>Sztereó</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_channel_mode_titles">
+        <item>Rendszerérték (alapértelmezett)</item>
+        <item>Monó</item>
+        <item>Sztereó</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_ldac_playback_quality_summaries">
+        <item>Optimális hangminőség</item>
+        <item>Kiegyensúlyozott hang- és kapcsolatminőség</item>
+        <item>Optimális kapcsolatminőség</item>
+        <item>A legjobb eredmény (adaptív bitsebesség)</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_ldac_playback_quality_titles">
+        <item>Optimális hangminőség (990 kbps/909 kbps)</item>
+        <item>Kiegyensúlyozott hang- és kapcsolatminőség (660 kbps/606 kbps)</item>
+        <item>Optimális kapcsolatminőség (330 kbps/303 kbps)</item>
+        <item>A legjobb eredmény (adaptív bitsebesség)</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_sample_rate_summaries">
+        <item>Rendszerérték (alapértelmezett)</item>
+        <item>44,1 kHz</item>
+        <item>48 kHz</item>
+        <item>88,2 kHz</item>
+        <item>96 kHz</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_sample_rate_titles">
+        <item>Rendszerérték (alapértelmezett)</item>
+        <item>44,1 kHz</item>
+        <item>48 kHz</item>
+        <item>88,2 kHz</item>
+        <item>96 kHz</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_summaries">
+        <item>Rendszerérték (alapértelmezett)</item>
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>aptX HD</item>
+        <item>LDAC</item>
+        <item>Engedélyezi a nem kötelező kodekeket</item>
+        <item>Letiltja a nem kötelező kodekeket</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_titles">
+        <item>Rendszerérték (alapértelmezett)</item>
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>aptX HD</item>
+        <item>LDAC</item>
+        <item>Nem kötelező kodekek engedélyezése</item>
+        <item>Nem kötelező kodekek letiltása</item>
+    </string-array>
+    <string-array name="bluetooth_avrcp_versions">
+        <item>AVRCP 1.4 (alapértelmezett)</item>
+        <item>AVRCP 1.5</item>
+        <item>AVRCP 1.6</item>
+    </string-array>
+    <string-array name="bluetooth_ss_a2dp_codec_summaries">
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>Minden kodek</item>
+        <item>Alapértelmezett kodek</item>
+    </string-array>
+    <string-array name="bluetooth_ss_a2dp_codec_titles">
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>Minden kodek</item>
+        <item>Alapértelmezett kodek</item>
+    </string-array>
+    <string-array name="bluetooth_ss_japan_a2dp_codec_titles">
+        <item>SBC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>Minden kodek</item>
+        <item>Alapértelmezett kodek</item>
+    </string-array>
+    <string-array name="bluetooth_visibility_timeout_entries">
+        <item>2 perc</item>
+        <item>5 perc</item>
+        <item>1 óra</item>
+        <item>Soha ne legyen időtúllépés</item>
+    </string-array>
+    <string-array name="captioning_edge_type_selector_titles">
+        <item>Alapértelmezett</item>
+        <item>Nincs</item>
+        <item>Kontúros</item>
+        <item>Árnyékolt</item>
+        <item>Domború</item>
+        <item>Süllyesztett</item>
+    </string-array>
+    <string-array name="captioning_font_size_selector_titles">
+        <item>Nagyon kicsi</item>
+        <item>Kicsi</item>
+        <item>Normál</item>
+        <item>Nagy</item>
+        <item>Nagyon nagy</item>
+    </string-array>
+    <string-array name="captioning_opacity_selector_titles">
+        <item>25%</item>
+        <item>50%</item>
+        <item>75%</item>
+        <item>100%</item>
+    </string-array>
+    <string-array name="captioning_preset_selector_titles">
+        <item>Alapértelmezett</item>
+        <item>Feketén fehéren</item>
+        <item>Fehéren feketén</item>
+        <item>Feketén sárgán</item>
+        <item>Kéken sárgán</item>
+        <item>Egyedi</item>
+    </string-array>
+    <string-array name="captioning_typeface_selector_titles">
+        <item>Alapértelmezett</item>
+        <item>Sans serif</item>
+        <item>Sans serif condensed</item>
+        <item>Sans serif monospace</item>
+        <item>Serif</item>
+        <item>Serif monospace</item>
+        <item>Mindennapi</item>
+        <item>Kurzív</item>
+        <item>Kiskapitális</item>
+    </string-array>
+    <string-array name="color_adjust_type_entries">
+        <item>Szürkeárnyalatos</item>
+        <item>Protanomália (piros-zöld)</item>
+        <item>Deuteranomália (zöld-piros)</item>
+        <item>Tritanomália (kék-sárga)</item>
+        <item>Személyre szabott szín</item>
+    </string-array>
+    <string-array name="color_lens_entries">
+        <item>Kék</item>
+        <item>Azúrkék</item>
+        <item>Ciánkék</item>
+        <item>Élénkzöld</item>
+        <item>Zöld</item>
+        <item>Neonzöld</item>
+        <item>Sárga</item>
+        <item>Narancssárga</item>
+        <item>Piros</item>
+        <item>Rózsaszín</item>
+        <item>Magenta</item>
+        <item>Ibolya</item>
+    </string-array>
+    <string-array name="color_mode_descriptions">
+        <item>Erős színek</item>
+        <item>Természetes színek, ahogyan azt az emberi szem is látja</item>
+        <item>Digitális tartalomhoz optimalizált színek</item>
+    </string-array>
+    <string-array name="color_mode_names">
+        <item>Élénk (alapértelmezett)</item>
+        <item>Természetes</item>
+        <item>Normál</item>
+    </string-array>
+    <string-array name="color_picker">
+        <item>Pávakék</item>
+        <item>Kék</item>
+        <item>Indigókék</item>
+        <item>Lila</item>
+        <item>Rózsaszín</item>
+        <item>Piros</item>
+    </string-array>
+    <string-array name="data_usage_data_range">
+        <item>Legutóbbi 30 nap</item>
+        <item>Ciklus beállítása…</item>
+    </string-array>
+    <string-array name="data_usage_display_unit">
+        <item>MB/GB (auto change)</item>
+        <item>MB only</item>
+        <item>GB only</item>
+    </string-array>
+    <string-array name="debug_hw_overdraw_entries">
+        <item>Ki</item>
+        <item>Tartalom-felülírási területek mutatása</item>
+        <item>A deuteranomália területeinek megjelenítése</item>
+    </string-array>
+    <string-array name="debug_hw_renderer_entries">
+        <item>OpenGL (alapértelmezett)</item>
+        <item>OpenGL (Skia)</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>Azonnal a Bekapcsolás gombbal vagy a képernyő időkorlátjának lejártakor</item>
+        <item>5 másodperc</item>
+        <item>15 másodperc</item>
+        <item>30 másodperc</item>
+        <item>1 perc</item>
+        <item>2 perc</item>
+        <item>5 perc</item>
+        <item>10 perc</item>
+        <item>30 perc</item>
+    </string-array>
+    <string-array name="dex_timeout_entries">
+        <item>15 másodperc</item>
+        <item>30 másodperc</item>
+        <item>1 perc</item>
+        <item>2 perc</item>
+        <item>5 perc</item>
+        <item>10 perc</item>
+        <item>20 perc</item>
+        <item>30 perc</item>
+        <item>60 perc</item>
+    </string-array>
+    <string-array name="dream_timeout_entries">
+        <item>Soha</item>
+        <item>15 másodperc</item>
+        <item>30 másodperc</item>
+        <item>1 perc</item>
+        <item>2 perc</item>
+        <item>5 perc</item>
+        <item>10 perc</item>
+        <item>30 perc</item>
+    </string-array>
+    <string-array name="eap_method_without_sim_auth">
+        <item>PEAP</item>
+        <item>TLS</item>
+        <item>TTLS</item>
+        <item>PWD</item>
+    </string-array>
+    <string-array name="enable_opengl_traces_entries">
+        <item>Semelyik</item>
+        <item>Logcat</item>
+        <item>Systrace (grafika)</item>
+        <item>Verem meghívása glGetError esetén</item>
+    </string-array>
+    <string-array name="entries_font_size">
+        <item>Kicsi</item>
+        <item>Alapértelmezett</item>
+        <item>Nagy</item>
+        <item>A legnagyobb</item>
+        <item>Huge</item>
+    </string-array>
+    <string-array name="hdcp_checking_summaries">
+        <item>Soha ne használjon HDCP ellenőrzést</item>
+        <item>Csak DRM-tartalomhoz használjon HDCP ellenőrzést</item>
+        <item>Mindig használjon HDCP ellenőrzést</item>
+    </string-array>
+    <string-array name="hdcp_checking_titles">
+        <item>Soha ne ellenőrizze</item>
+        <item>Csak DRM-tartalom ellenőrzése</item>
+        <item>Mindig ellenőrizze</item>
+    </string-array>
+    <string-array name="key_backlight_entries">
+        <item>Mindig kikapcsolva</item>
+        <item>1 second</item>
+        <item>3 seconds</item>
+        <item>5 seconds</item>
+        <item>10 seconds</item>
+        <item>15 seconds</item>
+    </string-array>
+    <string-array name="lock_after_timeout_entries">
+        <item>Azonnal</item>
+        <item>5 másodperc</item>
+        <item>15 másodperc</item>
+        <item>30 másodperc</item>
+        <item>1 perc</item>
+        <item>2 perc</item>
+        <item>5 perc</item>
+        <item>10 perc</item>
+        <item>30 perc</item>
+    </string-array>
+    <string-array name="long_press_timeout_selector_titles">
+        <item>Rövid</item>
+        <item>Közepes</item>
+        <item>Hosszú</item>
+    </string-array>
+    <string-array name="long_press_timeout_titles_selector">
+        <item>Rövid (0,5 másodperc)</item>
+        <item>Közepes (1,0 másodperc)</item>
+        <item>Hosszú (1,5 másodperc)</item>
+        <item>Egyedi</item>
+    </string-array>
+    <string-array name="mvno_type_entries">
+        <item>Nincs</item>
+        <item>SPN</item>
+        <item>IMSI</item>
+        <item>GID</item>
+    </string-array>
+    <string-array name="num_allowed_devices">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+    <string-array name="overlay_display_devices_entries">
+        <item>Egyik sem</item>
+        <item>480p</item>
+        <item>480p (biztonságos)</item>
+        <item>720p</item>
+        <item>720p (biztonságos)</item>
+        <item>1080p</item>
+        <item>1080p (biztonságos)</item>
+        <item>4K</item>
+        <item>4K (biztonságos)</item>
+        <item>4K (felskálázott)</item>
+        <item>4K (felskálázott, biztonságos)</item>
+        <item>720p, 1080p (két képernyő)</item>
+    </string-array>
+    <string-array name="proc_stats_memory_states">
+        <item>Normál</item>
+        <item>Mérsékelt</item>
+        <item>Alacsony</item>
+        <item>Kritikus</item>
+    </string-array>
+    <string-array name="proc_stats_process_states">
+        <item>Állandó</item>
+        <item>Leggyakoribb tevékenység</item>
+        <item>Fontos (előtérben)</item>
+        <item>Fontos (háttérben)</item>
+        <item>Biztonsági másolat</item>
+        <item>Számottevő</item>
+        <item>Szolgáltatás (fut)</item>
+        <item>Szolgáltatás (újraindul)</item>
+        <item>Fogadó</item>
+        <item>Otthon</item>
+        <item>Legutóbbi tevékenység</item>
+        <item>Gyorsítótárazott (tevékenység)</item>
+        <item>Gyorsítótárazott (tevékenységkliens)</item>
+        <item>Gyorsítótárazott (üres)</item>
+    </string-array>
+    <string-array name="ram_states">
+        <item>Normál</item>
+        <item>Közepes</item>
+        <item>Alacsony</item>
+        <item>Kritikus</item>
+        <item>\?</item>
+    </string-array>
+    <string-array name="screen_timeout_entries">
+        <item>15 másodperc</item>
+        <item>30 másodperc</item>
+        <item>1 perc</item>
+        <item>2 perc</item>
+        <item>5 perc</item>
+        <item>10 perc</item>
+        <item>30 perc</item>
+    </string-array>
+    <string-array name="screen_timeout_for_device_lock_entries">
+        <item>15 másodperc</item>
+        <item>30 másodperc</item>
+        <item>1 perc</item>
+        <item>3 perc</item>
+        <item>5 perc</item>
+        <item>10 perc</item>
+        <item>15 perc</item>
+        <item>30 perc</item>
+    </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Kérés</item>
+        <item>Sosem engedélyezi</item>
+        <item>Mindig engedélyezi</item>
+    </string-array>
+    <string-array name="select_logd_size_lowram_titles">
+        <item>Ki</item>
+        <item>64 KB</item>
+        <item>256 KB</item>
+        <item>1 MB</item>
+    </string-array>
+    <string-array name="select_logd_size_summaries">
+        <item>Ki</item>
+        <item>64 KB/naplópuffer</item>
+        <item>256 KB/naplópuffer</item>
+        <item>1 MB/naplópuffer</item>
+        <item>4 MB/naplópuffer</item>
+        <item>16 MB/naplópuffer</item>
+    </string-array>
+    <string-array name="select_logd_size_titles">
+        <item>Ki</item>
+        <item>64 KB</item>
+        <item>256 KB</item>
+        <item>1 MB</item>
+        <item>4 MB</item>
+        <item>16 MB</item>
+    </string-array>
+    <string-array name="select_logpersist_summaries">
+        <item>Kikapcsolva</item>
+        <item>Minden naplópuffer</item>
+        <item>A rádiónapló-pufferen kívül mindegyik</item>
+        <item>csak kernelnaplópuffer</item>
+    </string-array>
+    <string-array name="select_logpersist_titles">
+        <item>Kikapcsolva</item>
+        <item>Összes</item>
+        <item>Rádiót kivéve</item>
+        <item>csak kernel</item>
+    </string-array>
+    <string-array name="show_non_rect_clip_entries">
+        <item>Kikapcsolva</item>
+        <item>Nem négyzetes kivágás kékkel</item>
+        <item>Tesztelt rajzolási parancsok kiemelése zölddel</item>
+    </string-array>
+    <string-array name="time_interval_entries_selectable">
+        <item>1 perc</item>
+        <item>3 perc</item>
+        <item>5 perc</item>
+        <item>10 perc</item>
+        <item>15 perc</item>
+    </string-array>
+    <string-array name="timezone_filters">
+        <item>Amerika</item>
+        <item>Európa</item>
+        <item>Afrika</item>
+        <item>Ázsia</item>
+        <item>Ausztrália</item>
+        <item>Csendes-óceán</item>
+        <item>Összes</item>
+    </string-array>
+    <string-array name="touch_key_light_entries">
+        <item>1,5 másodperc</item>
+        <item>6 másodperc</item>
+        <item>Mindig kikapcsolva</item>
+        <item>Mindig bekapcs.</item>
+    </string-array>
+    <string-array name="track_frame_time_entries">
+        <item>Ki</item>
+        <item>A képernyőn sávként</item>
+        <item>adb shell dumpsys gfxinfo</item>
+    </string-array>
+    <string-array name="transition_animation_scale_entries">
+        <item>Animáció kikapcsolva.</item>
+        <item>0,5x animációs skála</item>
+        <item>1x animációs skála</item>
+        <item>1,5x animációs skála</item>
+        <item>2x animációs skála</item>
+        <item>5x animációs skála</item>
+        <item>10x animációs skála</item>
+    </string-array>
+    <string-array name="tts_rate_entries">
+        <item>Nagyon lassú</item>
+        <item>Lassú</item>
+        <item>Normál</item>
+        <item>Gyors</item>
+        <item>Gyorsabb</item>
+        <item>Nagyon gyors</item>
+        <item>Igen gyors</item>
+        <item>Rendkívül gyors</item>
+        <item>Leggyorsabb</item>
+    </string-array>
+    <string-array name="usage_stats_display_order_types">
+        <item>Használat ideje</item>
+        <item>Utoljára használva</item>
+        <item>Alkalmazás neve</item>
+    </string-array>
+    <string-array name="usb_configuration_titles">
+        <item>@string/usb_use_charging_only</item>
+        <item>MTP (Media Transfer Protocol)</item>
+        <item>PTP (Picture Transfer Protocol)</item>
+        <item>RNDIS (USB Ethernet)</item>
+        <item>Hangforrás</item>
+        <item>MIDI</item>
+    </string-array>
+    <string-array name="vpn_states">
+        <item>Szétkapcsolva</item>
+        <item>Inicializálás…</item>
+        <item>Kapcsolódás…</item>
+        <item>Csatlakoztatva</item>
+        <item>Időkorlát</item>
+        <item>Sikertelen</item>
+    </string-array>
+    <string-array name="vpn_types_long">
+        <item>PPTP VPN</item>
+        <item>L2TP/IPSec VPN megosztott kulcsokkal</item>
+        <item>L2TP/IPSec VPN-tanúsítványokkal</item>
+        <item>IPSec VPN előre megosztott kulcsokkal és Xauth azonosítás</item>
+        <item>IPSec VPN-tanúsítványokkal és Xauth azonosítás</item>
+        <item>IPSec VPN-tanúsítványokkal és hibrid azonosítás</item>
+        <item>IPSec VPN with IKEv2 and pre-shared key-based authentication</item>
+        <item>IPSec VPN with IKEv2 and certificate-based authentication</item>
+    </string-array>
+    <string-array name="wifi_ap_channel">
+        <item>Auto.</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+    </string-array>
+    <string-array name="wifi_ap_security_testmode">
+        <item>Nincs</item>
+        <item>WPA2 PSK</item>
+    </string-array>
+    <string-array name="wifi_ap_timeout">
+        <item>Nincs időkorlát</item>
+        <item>5 perc</item>
+        <item>10 perc</item>
+        <item>20 perc</item>
+        <item>30 perc</item>
+        <item>60 perc</item>
+    </string-array>
+    <string-array name="wifi_ap_wifi_sharing">
+        <item>Wi-Fi-megosztás bekapcsolása</item>
+        <item>Wi-Fi-megosztás kikapcsolása</item>
+    </string-array>
+    <string-array name="wifi_connect_entries">
+        <item>Automatikus</item>
+        <item>Kézi</item>
+        <item>Rákérdez</item>
+    </string-array>
+    <string-array name="wifi_eap_entries">
+        <item>PEAP</item>
+        <item>TLS</item>
+        <item>TTLS</item>
+        <item>Nyilvános webes meghajtó</item>
+    </string-array>
+    <string-array name="wifi_eap_method">
+        <item>PEAP</item>
+        <item>TLS</item>
+        <item>TTLS</item>
+        <item>Nyilvános webes meghajtó</item>
+        <item>SIM</item>
+        <item>AKA</item>
+        <item>"AKA'"</item>
+    </string-array>
+    <string-array name="wifi_ip_settings">
+        <item>DHCP</item>
+        <item>Statikus</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>Csatlakoztatva</item>
+        <item>Meghívása van.</item>
+        <item>Sikert. kapcsolódás</item>
+        <item>Érintse meg a kapcsolódáshoz.</item>
+        <item>Túl nagy szám</item>
+        <item>Másik eszközhöz csatlakozik</item>
+    </string-array>
+    <string-array name="wifi_p2p_wps_setup">
+        <item>Nyomógomb</item>
+        <item>Partnereszköztől kapott PIN</item>
+        <item>A készülék PIN-kódja</item>
+    </string-array>
+    <string-array name="wifi_peap_phase2_entries">
+        <item>Nincs</item>
+        <item>MSCHAPV2</item>
+        <item>GTC</item>
+    </string-array>
+    <string-array name="wifi_peap_phase2_entries_with_sim_auth">
+        <item>Egyik sem</item>
+        <item>MSCHAPv2</item>
+        <item>GTC</item>
+        <item>SIM</item>
+        <item>AKA</item>
+        <item>"AKA'"</item>
+    </string-array>
+    <string-array name="wifi_phase2_entries">
+        <item>Nincs</item>
+        <item>PAP</item>
+        <item>MSCHAP</item>
+        <item>MSCHAPV2</item>
+        <item>GTC</item>
+    </string-array>
+    <string-array name="wifi_proxy_settings">
+        <item>Nincs</item>
+        <item>Kézi</item>
+        <item>Automatikus konfigurálás</item>
+    </string-array>
+    <string-array name="wifi_signal">
+        <item>Gyenge</item>
+        <item>Megfelelő</item>
+        <item>Jó</item>
+        <item>Erős</item>
+        <item>Kiváló</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_entries">
+        <item>"Mindig
+(Gyorsabban merül az akkumulátor)"</item>
+        <item>Töltéskor</item>
+        <item>"Soha
+(növeli az adathasználatot)"</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_entries_wifi_only">
+        <item>"Mindig
+(Gyorsabban merül az akkumulátor)"</item>
+        <item>Töltéskor</item>
+        <item>Soha</item>
+    </string-array>
+    <string-array name="wifi_status">
+        <item></item>
+        <item>Ellenőrzés…</item>
+        <item>Kapcsolódás…</item>
+        <item>Hitelesítés…</item>
+        <item>IP-cím lekérése…</item>
+        <item>Csatlakoztatva.</item>
+        <item>Felfüggesztve</item>
+        <item>Szétkapcsolás…</item>
+        <item>Szétkapcsolva</item>
+        <item>Sikertelen</item>
+        <item>Blokkolva</item>
+        <item>Az internetkapcsolat minőségének ellenőrzése…</item>
+    </string-array>
+    <string-array name="wifi_status_with_ssid">
+        <item></item>
+        <item>Keresés...</item>
+        <item>Csatlakozás a(z) %1$s hálózathoz...</item>
+        <item>Hitelesítés a(z) %1$s hálózaton...</item>
+        <item>IP-cím lekérése a(z) %1$s hálózattól...</item>
+        <item>Kapcsolódva a(z) %1$s hálózathoz</item>
+        <item>Felfüggesztve</item>
+        <item>Kapcsolat bontása %1$s hálózattal...</item>
+        <item>Nincs kapcsolat</item>
+        <item>Sikertelen</item>
+        <item>Letiltva</item>
+        <item>A rossz minőségű kapcsolatok átmeneti elkerülése</item>
+    </string-array>
+    <string-array name="window_animation_scale_entries">
+        <item>Animáció kikapcsolva.</item>
+        <item>0,5x animációs skála</item>
+        <item>1x animációs skála</item>
+        <item>1,5x animációs skála</item>
+        <item>2x animációs skála</item>
+        <item>5x animációs skála</item>
+        <item>10x animációs skála</item>
+    </string-array>
+</resources>

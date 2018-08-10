@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.samsung.android.settings.widget.GoToTopButton android:layout_gravity="bottom|center" android:id="@id/go_to_top" android:background="@drawable/go_to_top_btn_bg" android:visibility="gone" android:clickable="true" android:layout_width="@dimen/go_to_tob_btn_size" android:layout_height="@dimen/go_to_tob_btn_size" android:layout_marginBottom="@dimen/go_to_tob_btn_bottom_margin"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/biometrics_setup_text" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="@dimen/biometrics_chooselock_vertical_margin" android:paddingStart="?android:listPreferredItemPaddingStart" android:paddingEnd="?android:listPreferredItemPaddingEnd">
+        <TextView android:textSize="@dimen/biometrics_chooselock_text_size" android:textColor="@color/fingerprint_paypal_sub_text_color" android:gravity="start" android:id="@id/biometrics_setup_help_1" android:layout_width="fill_parent" android:layout_height="wrap_content" android:lineSpacingExtra="@dimen/biometrics_chooselock_help_linespace" android:fontFamily="sec-roboto-light" />
+        <TextView android:textSize="@dimen/biometrics_chooselock_text_size" android:textColor="@color/fingerprint_paypal_state_text_color" android:gravity="start" android:id="@id/biometrics_setup_help_2" android:paddingTop="@dimen/biometrics_chooselock_help_margin_top" android:layout_width="fill_parent" android:layout_height="wrap_content" android:lineSpacingExtra="@dimen/biometrics_chooselock_help_linespace" android:fontFamily="sec-roboto-light" />
+    </LinearLayout>
+    <include android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/biometrics_chooselock_vertical_margin" android:layout_below="@id/biometrics_setup_text" layout="@layout/divider_line_layout" />
+</RelativeLayout>

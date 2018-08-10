@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:orientation="vertical" android:id="@id/view_full" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:layout_gravity="center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <View android:layout_width="0.0px" android:layout_height="fill_parent" android:layout_weight="12.0" />
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="0.0px" android:layout_height="wrap_content" android:layout_weight="76.0">
+            <TextView android:textSize="19.0dip" android:textColor="#ff252525" android:gravity="center_horizontal" android:id="@id/poc_description_1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="20.0dip" android:text="@string/poc_progress_description_1" android:lineSpacingExtra="4.0dip" android:fontFamily="sec-roboto-light" />
+            <TextView android:textSize="16.0dip" android:textColor="#99252525" android:gravity="center_horizontal" android:id="@id/poc_description_2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="16.0dip" android:text="@string/poc_progress_description_2" android:lineSpacingExtra="4.0dip" android:fontFamily="sec-roboto-light" />
+            <TextView android:textSize="16.0dip" android:textStyle="bold" android:textColor="#99252525" android:gravity="center_horizontal" android:id="@id/poc_description_3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/poc_progress_description_3" android:lineSpacingExtra="4.0dip" android:fontFamily="sec-roboto-light" />
+        </LinearLayout>
+        <View android:layout_width="0.0px" android:layout_height="fill_parent" android:layout_weight="12.0" />
+    </LinearLayout>
+    <LinearLayout android:gravity="bottom|center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginBottom="98.0dip">
+        <ProgressBar android:id="@id/progress_horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:max="100" android:progress="0" android:secondaryProgress="1" android:layout_alignParentBottom="true" android:paddingStart="@dimen/screen_mode_color_balance_preset_seekbar_side_padding" android:paddingEnd="@dimen/screen_mode_color_balance_preset_seekbar_side_padding" style="?android:progressBarStyleHorizontal" />
+        <TextView android:textSize="14.0dip" android:layout_gravity="right" android:id="@id/count_val" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="32.0dip" />
+    </LinearLayout>
+</FrameLayout>

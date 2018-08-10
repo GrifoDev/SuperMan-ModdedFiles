@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="enterprise_privacy_number_packages_lower_bound">
+        <item quantity="other">ຂັ້ນຕ່ຳ %d ແອັບ</item>
+        <item quantity="one">ຂັ້ນຕ່ຳ %d ແອັບ</item>
+    </plurals>
+</resources>

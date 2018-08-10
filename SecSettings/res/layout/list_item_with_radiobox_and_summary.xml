@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.settings.CheckableLinearLayout android:orientation="vertical" android:background="?android:selectableItemBackground" android:paddingBottom="@dimen/list_item_bottom_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeightSmall"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@android:id/cut" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <CheckedTextView android:ellipsize="end" android:gravity="center_vertical" android:id="@android:id/title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/list_item_top_padding" android:checkMark="?android:listChoiceIndicatorSingle" android:paddingStart="20.0dip" android:paddingEnd="@dimen/list_item_checkbox_margin_right" style="@style/list_title_text_style" />
+    <TextView android:textAppearance="?android:textAppearanceListItemSecondary" android:textColor="?android:textColorSecondary" android:id="@android:id/summary" android:layout_width="fill_parent" android:layout_height="wrap_content" android:maxLines="2" android:paddingStart="72.0dip" android:paddingEnd="@dimen/list_item_checkbox_margin_right" />
+</com.android.settings.CheckableLinearLayout>

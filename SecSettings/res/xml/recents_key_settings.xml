@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen settings:parent="@xml/multi_window_screen_settings"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <PreferenceCategory android:title="@string/multi_window_use_recents_key_category">
+        <com.samsung.android.settings.SecRadioButtonPreference android:title="@string/multi_window_use_recents_key_split" android:key="split_screen_view" />
+        <com.samsung.android.settings.SecRadioButtonPreference android:title="@string/multi_window_use_recents_key_snap" android:key="snap_window" />
+    </PreferenceCategory>
+</PreferenceScreen>

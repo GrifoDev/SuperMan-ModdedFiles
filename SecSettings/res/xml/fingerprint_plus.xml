@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:key="fingersetting"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:touchwiz="http://schemas.android.com/apk/res/touchwiz">
+    <com.samsung.android.settings.UnclickablePreference android:clickable="false" android:title="@string/fingerprintplus_register_dedicated_fingerprint" android:key="fingerprint_plus_unclickable_pref" android:summary="@string/fingerprintplus_select_msg" style="@style/description_text" />
+    <SecPreferenceCategory android:key="register_category">
+        <PreferenceScreen android:layout="@layout/sem_biometrics_preference_registericon" android:title="@string/fingerprint_add_fingerprint" android:key="key_fingerprint_add" android:order="@integer/fingerprint_register_category_order_add" android:widgetLayout="@layout/sem_biometrics_registericon" />
+    </SecPreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <TextView android:id="@id/encryption_message" android:paddingTop="@dimen/body_text_top_padding" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/encryption_interstitial_error_message_direction_without_fingerprint" android:paddingStart="@dimen/body_text_side_padding" android:paddingEnd="@dimen/body_text_side_padding" style="@style/crypt_keeper_description" />
+            <TextView android:textColor="@color/encryption_interstitial_if_forget_passwd_color" android:id="@id/if_forget_passwd_warning" android:paddingTop="@dimen/body_text_top_padding" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/encryption_interstitial_if_forget_passwd_message" android:paddingStart="@dimen/body_text_side_padding" android:paddingEnd="@dimen/body_text_side_padding" style="@style/crypt_keeper_description" />
+            <LinearLayout android:orientation="vertical" android:id="@id/encryption_select_layout" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="@dimen/body_text_side_padding">
+                <RadioGroup android:layout_width="fill_parent" android:layout_height="wrap_content" android:checkedButton="@id/encrypt_require_password">
+                    <com.android.settings.CheckableLinearLayout android:orientation="vertical" android:id="@id/require_password_on" android:background="?android:selectableItemBackground" android:focusable="true" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                        <CheckedTextView android:textAppearance="?android:textAppearanceListItem" android:ellipsize="marquee" android:gravity="center_vertical" android:id="@id/encrypt_require_password" android:background="?android:selectableItemBackgroundBorderless" android:paddingLeft="@dimen/list_item_checkbox_margin_left" android:paddingTop="@dimen/list_item_top_padding" android:paddingRight="@dimen/list_item_checkbox_margin_right" android:paddingBottom="@dimen/list_item_bottom_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:checkMark="?android:listChoiceIndicatorSingle" android:minHeight="?android:listPreferredItemHeightSmall" />
+                    </com.android.settings.CheckableLinearLayout>
+                    <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" android:layout_marginStart="@dimen/list_radio_button_divier_margin_start" style="@style/lock_screen_dialog_list_divider_wrapping_style" />
+                    <com.android.settings.CheckableLinearLayout android:orientation="vertical" android:id="@id/require_password_off" android:background="?android:selectableItemBackground" android:focusable="true" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                        <CheckedTextView android:textAppearance="?android:textAppearanceListItem" android:ellipsize="marquee" android:gravity="center_vertical" android:id="@id/encrypt_dont_require_password" android:background="?android:selectableItemBackgroundBorderless" android:paddingLeft="@dimen/list_item_checkbox_margin_left" android:paddingTop="@dimen/list_item_top_padding" android:paddingRight="@dimen/list_item_checkbox_margin_right" android:paddingBottom="@dimen/list_item_bottom_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:checked="true" android:checkMark="?android:listChoiceIndicatorSingle" android:minHeight="?android:listPreferredItemHeightSmall" />
+                    </com.android.settings.CheckableLinearLayout>
+                    <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" android:layout_marginStart="@dimen/list_radio_button_divier_margin_start" style="@style/lock_screen_dialog_list_divider_wrapping_style" />
+                </RadioGroup>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout android:orientation="horizontal" android:id="@id/button_layout" android:layout_width="fill_parent" style="@style/SecurityPreferenceButtonContainer">
+        <com.samsung.android.settings.widget.BottomBarButton android:id="@id/change_password" android:layout_width="fill_parent" android:text="@string/okay" style="@style/SecurityPreferenceButton" />
+    </LinearLayout>
+    <include layout="@layout/sec_suw_lock_bottom_bar" />
+</LinearLayout>

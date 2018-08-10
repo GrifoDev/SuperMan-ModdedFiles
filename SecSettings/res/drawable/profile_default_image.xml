@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple android:color="@color/profile_image_ripple_color"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <stroke android:width="@dimen/default_profile_image_stroke_width" android:color="@color/default_profile_image_color" />
+            <solid android:color="@color/default_profile_image_background_color" />
+        </shape>
+    </item>
+    <item>
+        <bitmap android:src="@drawable/samsung_account_logo_settings_list" android:tint="@color/default_profile_image_color" />
+    </item>
+</ripple>

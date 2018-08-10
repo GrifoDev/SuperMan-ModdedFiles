@@ -1,0 +1,872 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="allshare_download_to">
+        <item>Συσκευή</item>
+        <item>Κάρτα SD</item>
+    </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>Απενεργοποιημένο κινούμενο στοιχείο.</item>
+        <item>Κλίμακα κινούμενων γραφικών 0.5x</item>
+        <item>Κλίμακα κινούμενων γραφικών 1x</item>
+        <item>Κλίμακα κινούμενων γραφικών 1.5x</item>
+        <item>Κλίμακα κινούμενων γραφικών 2x</item>
+        <item>Κλίμακα κινούμενων γραφικών 5x</item>
+        <item>Κλίμακα κινούμενων γραφικών 10x</item>
+    </string-array>
+    <string-array name="apn_auth_entries">
+        <item>Κανένα</item>
+        <item>PAP</item>
+        <item>CHAP</item>
+        <item>PAP ή CHAP</item>
+    </string-array>
+    <string-array name="apn_protocol_entries">
+        <item>IPv4</item>
+        <item>IPv6</item>
+        <item>IPv4/IPv6</item>
+    </string-array>
+    <string-array name="app_install_location_entries">
+        <item>Εσωτερικός αποθηκευτικός χώρος της συσκευής</item>
+        <item>Αφαιρούμενη κάρτα SD</item>
+        <item>Να αποφασίζει το σύστημα</item>
+    </string-array>
+    <string-array name="app_ops_categories">
+        <item>Τοποθεσία</item>
+        <item>Προσωπικό</item>
+        <item>Ανταλλαγή μηνυμάτων</item>
+        <item>Μέσα</item>
+        <item>Συσκευή</item>
+        <item>Auto run</item>
+    </string-array>
+    <string-array name="app_ops_labels">
+        <item>Τοποθεσία</item>
+        <item>Τοποθεσία</item>
+        <item>Τοποθεσία</item>
+        <item>Δόνηση</item>
+        <item>Ανάγνωση επαφών</item>
+        <item>Τροποποίηση επαφών</item>
+        <item>Ανάγνωση αρχείου καταγραφής κλήσεων</item>
+        <item>Τροποποίηση αρχείου κλήσεων</item>
+        <item>Ανάγνωση ημερολογίου</item>
+        <item>Τροποποίηση ημερολογίου</item>
+        <item>Τοποθεσία</item>
+        <item>Δημοσίευση ειδοποίησης</item>
+        <item>Τοποθεσία</item>
+        <item>Κλήση τηλεφώνου</item>
+        <item>Ανάγνωση SMS/MMS</item>
+        <item>Σύνταξη SMS/MMS</item>
+        <item>Λήψη SMS/MMS</item>
+        <item>Λήψη SMS/MMS</item>
+        <item>Λήψη SMS/MMS</item>
+        <item>Λήψη SMS/MMS</item>
+        <item>Αποστολή SMS/MMS</item>
+        <item>Ανάγνωση SMS/MMS</item>
+        <item>Σύνταξη SMS/MMS</item>
+        <item>Τροποποίηση ρυθμίσεων</item>
+        <item>Μεταφορά στην κορυφή</item>
+        <item>Πρόσβαση στις ειδοποιήσεις</item>
+        <item>Κάμερα</item>
+        <item>Ηχογράφηση</item>
+        <item>Αναπαραγωγή ήχου</item>
+        <item>Ανάγνωση περιεχομένων προχείρου</item>
+        <item>Τροποποίηση περιεχομένων προχείρου</item>
+        <item>Κουμπιά μέσων</item>
+        <item>Εστίαση ήχου</item>
+        <item>Κύρια ένταση ήχου</item>
+        <item>Έντασης ήχου φωνής</item>
+        <item>Ένταση ήχου κλήσης</item>
+        <item>Ένταση ήχου πολυμέσων</item>
+        <item>Ένταση ήχου ξυπνητηριού</item>
+        <item>Ένταση ήχου ειδοποιήσεων</item>
+        <item>Ένταση ήχου Bluetooth</item>
+        <item>Διατήρηση λειτουργίας</item>
+        <item>Τοποθεσία</item>
+        <item>Τοποθεσία</item>
+        <item>Λήψη στατιστικών στοιχείων χρήσης</item>
+        <item>Σίγαση/κατάργηση σίγασης μικροφώνου</item>
+        <item>Εμφάνιση αναδυόμενης ειδοποίησης</item>
+        <item>Προβολή μέσου</item>
+        <item>Ενεργοποίηση VPN</item>
+        <item>Σύνταξη ταπετσαρίας</item>
+        <item>Βοήθεια δομής</item>
+        <item>Βοήθεια στιγμιότυπου οθόνης</item>
+        <item>Ανάγνωση κατάστασης τηλεφώνου</item>
+        <item>Προσθήκη αυτόματου τηλεφωνητή</item>
+        <item>Χρήση SIP</item>
+        <item>Επεξεργασία εξερχόμενης κλήσης</item>
+        <item>Δακτυλικό αποτύπωμα</item>
+        <item>Αισθητήρες σώματος</item>
+        <item>Ανάγνωση εκπομπών κινητής τηλεφωνίας</item>
+        <item>Εικονική τοποθεσία</item>
+        <item>Ανάγνωση αποθηκευτικού χώρου</item>
+        <item>Σύνταξη αποθηκευτικού χώρου</item>
+        <item>Ενεργοποίηση οθόνης</item>
+        <item>Λήψη λογαριασμών</item>
+        <item>Εκτέλεση στο παρασκήνιο</item>
+        <item>Ένταση ήχου προσβασιμότητας</item>
+    </string-array>
+    <string-array name="app_ops_summaries">
+        <item>τοποθεσία κατά προσέγγιση</item>
+        <item>ακριβής τοποθεσία</item>
+        <item>GPS</item>
+        <item>δόνηση</item>
+        <item>ανάγνωση επαφών</item>
+        <item>τροποποίηση επαφών</item>
+        <item>ανάγνωση αρχείου καταγραφής κλήσεων</item>
+        <item>τροποποίηση αρχείου κλήσεων</item>
+        <item>ανάγνωση ημερολογίου</item>
+        <item>τροποποίηση ημερολογίου</item>
+        <item>σάρωση Wi-Fi</item>
+        <item>ειδοποίηση</item>
+        <item>σάρωση κυψέλης</item>
+        <item>κλήση τηλεφώνου</item>
+        <item>ανάγνωση SMS</item>
+        <item>σύνταξη SMS</item>
+        <item>λήψη SMS</item>
+        <item>λήψη SMS έκτακτης ανάγκης</item>
+        <item>λήψη MMS</item>
+        <item>λήψη μηνύματος push μέσω WAP</item>
+        <item>αποστολή SMS</item>
+        <item>ανάγνωση ICC SMS</item>
+        <item>σύνταξη ICC SMS</item>
+        <item>τροποποίηση ρυθμίσεων</item>
+        <item>μεταφορά στην κορυφή</item>
+        <item>πρόσβαση στις ειδοποιήσεις</item>
+        <item>κάμερα</item>
+        <item>εγγραφή ήχου</item>
+        <item>αναπαραγωγή ήχου</item>
+        <item>ανάγνωση περιεχόμενων προχείρου</item>
+        <item>τροποποίηση περιεχομένων προχείρου</item>
+        <item>κουμπιά μέσων</item>
+        <item>εστίαση ήχου</item>
+        <item>κύρια ένταση ήχου</item>
+        <item>έντασης ήχου φωνής</item>
+        <item>ένταση ήχου κλήσης</item>
+        <item>ένταση ήχου μέσων</item>
+        <item>ένταση ήχου ξυπνητηριού</item>
+        <item>ένταση ήχου ειδοποιήσεων</item>
+        <item>ένταση ήχου Bluetooth</item>
+        <item>διατήρηση λειτουργίας</item>
+        <item>παρακολούθηση τοποθεσίας</item>
+        <item>παρακολούθηση θέσης υψηλής ισχύος</item>
+        <item>λήψη στατιστικών στοιχείων χρήσης</item>
+        <item>σίγαση/κατάργηση σίγασης μικροφώνου</item>
+        <item>εμφάνιση αναδυόμενης ειδοποίησης</item>
+        <item>προβολή μέσου</item>
+        <item>ενεργοποίηση VPN</item>
+        <item>σύνταξης ταπετσαρίας</item>
+        <item>βοήθεια δομής</item>
+        <item>βοήθεια στιγμιότυπου οθόνης</item>
+        <item>ανάγνωση κατάστασης τηλεφώνου</item>
+        <item>προσθήκη αυτόματου τηλεφωνητή</item>
+        <item>χρήση SIP</item>
+        <item>επεξεργασία εξερχόμενης κλήσης</item>
+        <item>δακτυλικό αποτύπωμα</item>
+        <item>αισθητήρες σώματος</item>
+        <item>ανάγνωση εκπομπών κινητής τηλεφωνίας</item>
+        <item>εικονική τοποθεσία</item>
+        <item>ανάγνωση αποθηκευτικού χώρου</item>
+        <item>σύνταξη αποθηκευτικού χώρου</item>
+        <item>ενεργοποίηση οθόνης</item>
+        <item>λήψη λογαριασμών</item>
+        <item>εκτέλεση στο παρασκήνιο</item>
+        <item>ένταση ήχου προσβασιμότητας</item>
+    </string-array>
+    <string-array name="app_process_limit_entries">
+        <item>Τυπικό όριο</item>
+        <item>Δεν υπάρχουν διεργασίες παρασκηνίου</item>
+        <item>Το πολύ 1 διεργασία</item>
+        <item>Το πολύ 2 διεργασίες</item>
+        <item>Το πολύ 3 διαδικασίες</item>
+        <item>Το πολύ 4 διεργασίες</item>
+    </string-array>
+    <string-array name="automatic_storage_management_days">
+        <item>Πάνω από 30 ημερών</item>
+        <item>Πάνω από 60 ημερών</item>
+        <item>Πάνω από 90 ημερών</item>
+    </string-array>
+    <string-array name="bearer_entries">
+        <item>Ακαθόριστο</item>
+        <item>LTE</item>
+        <item>HSPAP</item>
+        <item>HSPA</item>
+        <item>HSUPA</item>
+        <item>HSDPA</item>
+        <item>UMTS</item>
+        <item>EDGE</item>
+        <item>GPRS</item>
+        <item>eHRPD</item>
+        <item>EVDO_B</item>
+        <item>EVDO_A</item>
+        <item>EVDO_0</item>
+        <item>1xRTT</item>
+        <item>IS95B</item>
+        <item>IS95A</item>
+        <item>IWLAN</item>
+    </string-array>
+    <string-array name="bearer_entries_dcm_kdi">
+        <item>Ακαθόριστο</item>
+        <item>4G</item>
+        <item>HSPAP</item>
+        <item>HSPA</item>
+        <item>HSUPA</item>
+        <item>HSDPA</item>
+        <item>UMTS</item>
+        <item>EDGE</item>
+        <item>GPRS</item>
+        <item>eHRPD</item>
+        <item>EVDO_B</item>
+        <item>EVDO_A</item>
+        <item>EVDO_0</item>
+        <item>1xRTT</item>
+        <item>IS95B</item>
+        <item>IS95A</item>
+        <item>IWLAN</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_bits_per_sample_summaries">
+        <item>Χρήση επιλογής συστήματος (Προεπιλογή)</item>
+        <item>16 bit/δείγμα</item>
+        <item>24 bit/δείγμα</item>
+        <item>32 bit/δείγμα</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_bits_per_sample_titles">
+        <item>Χρήση επιλογής συστήματος (Προεπιλογή)</item>
+        <item>16 bit/δείγμα</item>
+        <item>24 bit/δείγμα</item>
+        <item>32 bit/δείγμα</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_channel_mode_summaries">
+        <item>Χρήση επιλογής συστήματος (Προεπιλογή)</item>
+        <item>Μονοφωνικό</item>
+        <item>Στερεοφωνικό</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_channel_mode_titles">
+        <item>Χρήση επιλογής συστήματος (Προεπιλογή)</item>
+        <item>Μονοφωνικό</item>
+        <item>Στερεοφωνικό</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_ldac_playback_quality_summaries">
+        <item>Βελτιστοποιημένο για ποιότητα ήχου</item>
+        <item>Ισορροπημένος ήχος και ποιότητα σύνδεσης</item>
+        <item>Βελτιστοποιημένο για ποιότητα σύνδεσης</item>
+        <item>Βέλτιστη προσπάθεια (ρυθμός δεδομένων με δυνατότητα προσαρμογής)</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_ldac_playback_quality_titles">
+        <item>Βελτιστοποιημένο για ποιότητα ήχου (990kbps/909kbps)</item>
+        <item>Ισορροπημένος ήχος και ποιότητα σύνδεσης (660kbps/606kbps)</item>
+        <item>Βελτιστοποιημένο για ποιότητα σύνδεσης (330kbps/303kbps)</item>
+        <item>Βέλτιστη προσπάθεια (ρυθμός δεδομένων με δυνατότητα προσαρμογής)</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_sample_rate_summaries">
+        <item>Χρήση επιλογής συστήματος (Προεπιλογή)</item>
+        <item>44,1 kHz</item>
+        <item>48,0 kHz</item>
+        <item>88,2 kHz</item>
+        <item>96,0 kHz</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_sample_rate_titles">
+        <item>Χρήση επιλογής συστήματος (Προεπιλογή)</item>
+        <item>44,1 kHz</item>
+        <item>48,0 kHz</item>
+        <item>88,2 kHz</item>
+        <item>96,0 kHz</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_summaries">
+        <item>Χρήση επιλογής συστήματος (Προεπιλογή)</item>
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>aptX HD</item>
+        <item>LDAC</item>
+        <item>Ενεργοποίηση προαιρετικών κωδικοποιητών</item>
+        <item>Απενεργοποίηση προαιρετικών κωδικοποιητών</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_titles">
+        <item>Χρήση επιλογής συστήματος (Προεπιλογή)</item>
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>aptX HD</item>
+        <item>LDAC</item>
+        <item>Ενεργοποίηση προαιρετικών κωδικοποιητών</item>
+        <item>Απενεργοποίηση προαιρετικών κωδικοποιητών</item>
+    </string-array>
+    <string-array name="bluetooth_avrcp_versions">
+        <item>AVRCP 1.4 (Προεπιλογή)</item>
+        <item>AVRCP 1.5</item>
+        <item>AVRCP 1.6</item>
+    </string-array>
+    <string-array name="bluetooth_ss_a2dp_codec_summaries">
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>Όλα τα codec</item>
+        <item>Προεπιλεγμένο codec</item>
+    </string-array>
+    <string-array name="bluetooth_ss_a2dp_codec_titles">
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>Όλα τα codec</item>
+        <item>Προεπιλεγμένο codec</item>
+    </string-array>
+    <string-array name="bluetooth_ss_japan_a2dp_codec_titles">
+        <item>SBC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>Όλα τα codec</item>
+        <item>Προεπιλεγμένο codec</item>
+    </string-array>
+    <string-array name="bluetooth_visibility_timeout_entries">
+        <item>2 λεπτά</item>
+        <item>5 λεπτά</item>
+        <item>1 ώρα</item>
+        <item>Να μην λήγει ποτέ το χρονικό όριο</item>
+    </string-array>
+    <string-array name="captioning_edge_type_selector_titles">
+        <item>Προεπιλογή</item>
+        <item>Κανένα</item>
+        <item>Διάρθρωση</item>
+        <item>Σκιά</item>
+        <item>Υπερυψωμένο</item>
+        <item>Πεπλατυσμένο</item>
+    </string-array>
+    <string-array name="captioning_font_size_selector_titles">
+        <item>Πάρα πολύ μικρό</item>
+        <item>Μικρό</item>
+        <item>Κανονικό</item>
+        <item>Μεγάλο</item>
+        <item>Πολύ μεγάλο</item>
+    </string-array>
+    <string-array name="captioning_opacity_selector_titles">
+        <item>25%</item>
+        <item>50%</item>
+        <item>75%</item>
+        <item>100%</item>
+    </string-array>
+    <string-array name="captioning_preset_selector_titles">
+        <item>Προεπιλογή</item>
+        <item>Άσπρο σε μαύρο</item>
+        <item>Μαύρο σε άσπρο</item>
+        <item>Κίτρινο σε μαύρο</item>
+        <item>Κίτρινο σε μπλε</item>
+        <item>Προσαρμογή</item>
+    </string-array>
+    <string-array name="captioning_typeface_selector_titles">
+        <item>Προεπιλογή</item>
+        <item>Sans serif</item>
+        <item>Sans serif condensed</item>
+        <item>Sans serif monospace</item>
+        <item>Serif</item>
+        <item>Serif monospace</item>
+        <item>Καθημερινά</item>
+        <item>Ρέουσα γραφή</item>
+        <item>Μικρά κεφαλαία</item>
+    </string-array>
+    <string-array name="color_adjust_type_entries">
+        <item>Αποχρώσεις του γκρι</item>
+        <item>Πρωτανοπία (πράσ.-κοκκ.)</item>
+        <item>Δευτερανοπία(πράσ.-κοκκ.)</item>
+        <item>Τριτανοπία (μπλε-κίτρ.)</item>
+        <item>Εξατομικευμένο χρώμα</item>
+    </string-array>
+    <string-array name="color_lens_entries">
+        <item>Μπλε</item>
+        <item>Κυανό</item>
+        <item>Γαλάζιο</item>
+        <item>Φωτεινό πράσινο</item>
+        <item>Πράσινο</item>
+        <item>Κιτρινοπράσινο</item>
+        <item>Κίτρινο</item>
+        <item>Πορτοκαλί</item>
+        <item>Κόκκινο</item>
+        <item>Τριανταφυλλί</item>
+        <item>Ματζέντα</item>
+        <item>Βιολετί</item>
+    </string-array>
+    <string-array name="color_mode_descriptions">
+        <item>Βελτιωμένα χρώματα</item>
+        <item>Φυσικά χρώματα όπως είναι ορατά στο μάτι</item>
+        <item>Βελτιστοποιημένα χρώματα για ψηφιακό περιεχόμενο</item>
+    </string-array>
+    <string-array name="color_mode_names">
+        <item>Ζωντανό (προεπιλογή)</item>
+        <item>Φυσικό</item>
+        <item>Τυπικό</item>
+    </string-array>
+    <string-array name="color_picker">
+        <item>Γαλαζοπράσινο</item>
+        <item>Μπλε</item>
+        <item>Indigo</item>
+        <item>Μοβ</item>
+        <item>Ροζ</item>
+        <item>Κόκκινο</item>
+    </string-array>
+    <string-array name="data_usage_data_range">
+        <item>30 τελευταίες ημέρες</item>
+        <item>Ορισμός κύκλου χρήσης…</item>
+    </string-array>
+    <string-array name="data_usage_display_unit">
+        <item>MB/GB (auto change)</item>
+        <item>MB only</item>
+        <item>GB only</item>
+    </string-array>
+    <string-array name="debug_hw_overdraw_entries">
+        <item>Ανενεργές</item>
+        <item>Εμφάνιση περιοχών υπέρβασης</item>
+        <item>Εμφάνιση περιοχών για Deuteranomaly</item>
+    </string-array>
+    <string-array name="debug_hw_renderer_entries">
+        <item>OpenGL (προεπιλογή)</item>
+        <item>OpenGL (Skia)</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>Άμεσα με το πλήκτρο ενεργοποίησης ή όταν λήξει το χρονικό όριο της οθόνης</item>
+        <item>5 δευτερόλεπτα</item>
+        <item>15 δευτερόλεπτα</item>
+        <item>30 δευτερόλεπτα</item>
+        <item>1 λεπτό</item>
+        <item>2 λεπτά</item>
+        <item>5 λεπτά</item>
+        <item>10 λεπτά</item>
+        <item>30 λεπτά</item>
+    </string-array>
+    <string-array name="dex_timeout_entries">
+        <item>15 δευτερόλεπτα</item>
+        <item>30 δευτερόλεπτα</item>
+        <item>1 λεπτό</item>
+        <item>2 λεπτά</item>
+        <item>5 λεπτά</item>
+        <item>10 λεπτά</item>
+        <item>20 λεπτά</item>
+        <item>30 λεπτά</item>
+        <item>60 λεπτά</item>
+    </string-array>
+    <string-array name="dream_timeout_entries">
+        <item>Ποτέ</item>
+        <item>15 δευτερόλεπτα</item>
+        <item>30 δευτερόλεπτα</item>
+        <item>1 λεπτό</item>
+        <item>2 λεπτά</item>
+        <item>5 λεπτά</item>
+        <item>10 λεπτά</item>
+        <item>30 λεπτά</item>
+    </string-array>
+    <string-array name="eap_method_without_sim_auth">
+        <item>PEAP</item>
+        <item>TLS</item>
+        <item>TTLS</item>
+        <item>PWD</item>
+    </string-array>
+    <string-array name="enable_opengl_traces_entries">
+        <item>Τίποτα</item>
+        <item>Logcat</item>
+        <item>Systrace (Γραφικά)</item>
+        <item>Κλήση στοίβας σε glGetError</item>
+    </string-array>
+    <string-array name="entries_font_size">
+        <item>Μικρό μέγεθος</item>
+        <item>Προεπιλογή</item>
+        <item>Μεγάλο μέγεθος</item>
+        <item>Μεγαλύτερο</item>
+        <item>Huge</item>
+    </string-array>
+    <string-array name="hdcp_checking_summaries">
+        <item>Να μην χρησιμοποιείται ποτέ έλεγχος HDCP</item>
+        <item>Χρήση ελέγχου HDCP μόνο για περιεχόμενο DRM</item>
+        <item>Να χρησιμοποιείται πάντα έλεγχος HDCP</item>
+    </string-array>
+    <string-array name="hdcp_checking_titles">
+        <item>Να μην γίνεται ποτέ έλεγχος</item>
+        <item>Έλεγχος μόνο για περιεχόμενο DRM</item>
+        <item>Να γίνεται πάντα έλεγχος</item>
+    </string-array>
+    <string-array name="key_backlight_entries">
+        <item>Πάντα απενεργ.</item>
+        <item>1 second</item>
+        <item>3 seconds</item>
+        <item>5 seconds</item>
+        <item>10 seconds</item>
+        <item>15 seconds</item>
+    </string-array>
+    <string-array name="lock_after_timeout_entries">
+        <item>Άμμεσα</item>
+        <item>5 δευτερόλεπτα</item>
+        <item>15 δευτερόλεπτα</item>
+        <item>30 δευτερόλεπτα</item>
+        <item>1 λεπτό</item>
+        <item>2 λεπτά</item>
+        <item>5 λεπτά</item>
+        <item>10 λεπτά</item>
+        <item>30 λεπτά</item>
+    </string-array>
+    <string-array name="long_press_timeout_selector_titles">
+        <item>Σύντομο</item>
+        <item>Μεσαίο</item>
+        <item>Παρατεταμένο</item>
+    </string-array>
+    <string-array name="long_press_timeout_titles_selector">
+        <item>Μικρή (0,5 δευτερόλεπτα)</item>
+        <item>Μεσαία (1 δευτερόλεπτο)</item>
+        <item>Μεγάλη (1,5 δευτερόλ.)</item>
+        <item>Προσαρμογή</item>
+    </string-array>
+    <string-array name="mvno_type_entries">
+        <item>Κανένα</item>
+        <item>SPN</item>
+        <item>IMSI</item>
+        <item>GID</item>
+    </string-array>
+    <string-array name="num_allowed_devices">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+    <string-array name="overlay_display_devices_entries">
+        <item>Καμία</item>
+        <item>480p</item>
+        <item>480p (ασφαλής)</item>
+        <item>720p</item>
+        <item>720p (ασφαλής)</item>
+        <item>1080p</item>
+        <item>1080p (ασφαλής)</item>
+        <item>4K</item>
+        <item>4K (ασφαλής)</item>
+        <item>4K (αναβαθμισμένη)</item>
+        <item>4K (αναβαθμισμένη, ασφαλής)</item>
+        <item>720p, 1080p (διπλή οθόνη)</item>
+    </string-array>
+    <string-array name="proc_stats_memory_states">
+        <item>Κανονική</item>
+        <item>Μέτρια</item>
+        <item>Χαμηλή</item>
+        <item>Σημαντική</item>
+    </string-array>
+    <string-array name="proc_stats_process_states">
+        <item>Συνεχής</item>
+        <item>Κορυφαία δραστηριότητα</item>
+        <item>Σημαντικό (προσκήνιο)</item>
+        <item>Σημαντικό (παρασκήνιο)</item>
+        <item>Αντίγραφο ασφαλείας</item>
+        <item>Απαιτητική</item>
+        <item>Υπηρεσία (σε εκτέλεση)</item>
+        <item>Υπηρεσία (επανεκκίνηση)</item>
+        <item>Δέκτης</item>
+        <item>Αρχική οθόνη</item>
+        <item>Τελευταία δραστηριότητα</item>
+        <item>Αποθηκευμένο στην κρυφή μνήμη (δραστηριότητα)</item>
+        <item>Αποθηκευμένο στην κρυφή μνήμη (δραστηριότητα πελάτη)</item>
+        <item>Αποθηκευμένο στην κρυφή μνήμη (κενό)</item>
+    </string-array>
+    <string-array name="ram_states">
+        <item>Κανονική</item>
+        <item>Μέτρια</item>
+        <item>Χαμηλή</item>
+        <item>Κρίσιμο</item>
+        <item>\?</item>
+    </string-array>
+    <string-array name="screen_timeout_entries">
+        <item>15 δευτερόλεπτα</item>
+        <item>30 δευτερόλεπτα</item>
+        <item>1 λεπτό</item>
+        <item>2 λεπτά</item>
+        <item>5 λεπτά</item>
+        <item>10 λεπτά</item>
+        <item>30 λεπτά</item>
+    </string-array>
+    <string-array name="screen_timeout_for_device_lock_entries">
+        <item>15 δευτερόλεπτα</item>
+        <item>30 δευτερόλεπτα</item>
+        <item>1 λεπτό</item>
+        <item>3 λεπτά</item>
+        <item>5 λεπτά</item>
+        <item>10 λεπτά</item>
+        <item>15 λεπτά</item>
+        <item>30 λεπτά</item>
+    </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Ερώτηση</item>
+        <item>Δεν επιτρέπεται ποτέ</item>
+        <item>Επιτρέπεται πάντα</item>
+    </string-array>
+    <string-array name="select_logd_size_lowram_titles">
+        <item>Ανενεργό</item>
+        <item>64 K</item>
+        <item>256 K</item>
+        <item>1 M</item>
+    </string-array>
+    <string-array name="select_logd_size_summaries">
+        <item>Ανενεργό</item>
+        <item>64 K ανά πρ. μν. αρχ. καταγρ.</item>
+        <item>256 K ανά πρ. μν. αρχ. καταγρ.</item>
+        <item>1 Μ ανά προσ. μν. αρχ. καταγρ.</item>
+        <item>4 M ανά προσ. μν. αρχ. καταγρ.</item>
+        <item>16 M ανά πρ. μν. αρχ. καταγρ.</item>
+    </string-array>
+    <string-array name="select_logd_size_titles">
+        <item>Ανενεργό</item>
+        <item>64 K</item>
+        <item>256 K</item>
+        <item>1 M</item>
+        <item>4 M</item>
+        <item>16 M</item>
+    </string-array>
+    <string-array name="select_logpersist_summaries">
+        <item>Ανενεργό</item>
+        <item>Όλα τα αρχεία καταγραφής προσωρινής μνήμης</item>
+        <item>Όλα εκτός από τα αρχεία κατ.προσ.μνήμης αποστολέα</item>
+        <item>μόνο προσωρινή μνήμη αρχείου καταγραφής πυρήνα</item>
+    </string-array>
+    <string-array name="select_logpersist_titles">
+        <item>Ανενεργό</item>
+        <item>Όλα</item>
+        <item>Όλοι εκτός από του αποστολέα</item>
+        <item>μόνο πυρήνας</item>
+    </string-array>
+    <string-array name="show_non_rect_clip_entries">
+        <item>Απενεργοποίηση</item>
+        <item>Σχεδίαση μη ορθογώνιας περιοχής με μπλε χρώμα</item>
+        <item>Επισ/ση ελεγμένων εντολών με πράσ.</item>
+    </string-array>
+    <string-array name="time_interval_entries_selectable">
+        <item>1 λεπτό</item>
+        <item>3 λεπτά</item>
+        <item>5 λεπτά</item>
+        <item>10 λεπτά</item>
+        <item>15 λεπτά</item>
+    </string-array>
+    <string-array name="timezone_filters">
+        <item>Αμερική</item>
+        <item>Ευρώπη</item>
+        <item>Αφρική</item>
+        <item>Ασία</item>
+        <item>Αυστραλία</item>
+        <item>Ειρηνικός</item>
+        <item>Όλα</item>
+    </string-array>
+    <string-array name="touch_key_light_entries">
+        <item>1.5 δευτερόλεπτα</item>
+        <item>6 δευτερόλεπτα</item>
+        <item>Πάντα απενεργ.</item>
+        <item>Πάντα ενεργοπ.</item>
+    </string-array>
+    <string-array name="track_frame_time_entries">
+        <item>Απενεργοποιημένο</item>
+        <item>Στην οθόνη ως ράβδοι</item>
+        <item>Σε adb shell dumpsys gfxinfo</item>
+    </string-array>
+    <string-array name="transition_animation_scale_entries">
+        <item>Απενεργοποιημένο κινούμενο στοιχείο.</item>
+        <item>Κλίμακα κινούμενων γραφικών 0.5x</item>
+        <item>Κλίμακα κινούμενων γραφικών 1x</item>
+        <item>Κλίμακα κινούμενων γραφικών 1.5x</item>
+        <item>Κλίμακα κινούμενων γραφικών 2x</item>
+        <item>Κλίμακα κινούμενων γραφικών 5x</item>
+        <item>Κλίμακα κινούμενων γραφικών 10x</item>
+    </string-array>
+    <string-array name="tts_rate_entries">
+        <item>Πολύ αργή</item>
+        <item>Αργή</item>
+        <item>Κανονική</item>
+        <item>Γρήγορη</item>
+        <item>Πιο γρήγορη</item>
+        <item>Πολύ γρήγορη</item>
+        <item>Ταχεία</item>
+        <item>Εξαιρετικά ταχεία</item>
+        <item>Ταχύτατη</item>
+    </string-array>
+    <string-array name="usage_stats_display_order_types">
+        <item>Χρόνος χρήσης</item>
+        <item>Τελευταία χρήση</item>
+        <item>Όνομα εφαρμογής</item>
+    </string-array>
+    <string-array name="usb_configuration_titles">
+        <item>@string/usb_use_charging_only</item>
+        <item>MTP (Media Transfer Protocol)</item>
+        <item>PTP (Picture Transfer Protocol)</item>
+        <item>RNDIS (USB Ethernet)</item>
+        <item>Πηγή ήχου</item>
+        <item>MIDI</item>
+    </string-array>
+    <string-array name="vpn_states">
+        <item>Αποσυνδέθηκε</item>
+        <item>Προετοιμασία…</item>
+        <item>Σύνδεση…</item>
+        <item>Έγινε σύνδεση</item>
+        <item>Τέλος χρόνου</item>
+        <item>Ανεπιτυχής</item>
+    </string-array>
+    <string-array name="vpn_types_long">
+        <item>PPTP VPN</item>
+        <item>L2TP/IPSec VPN με κλειδιά μοιρασμένα εκ των προτέρων</item>
+        <item>L2TP/IPSec VPN με πιστοποιητικά</item>
+        <item>IPSec VPN με ήδη κοινόχρηστα κλειδιά και έλεγχο ταυτότητας Xauth</item>
+        <item>IPSec VPN με πιστοποιητικά και έλεγχο ταυτότητας Xauth</item>
+        <item>IPSec VPN με πιστοποιητικά και υβριδικό έλεγχο ταυτότητας</item>
+        <item>IPSec VPN with IKEv2 and pre-shared key-based authentication</item>
+        <item>IPSec VPN with IKEv2 and certificate-based authentication</item>
+    </string-array>
+    <string-array name="wifi_ap_channel">
+        <item>Auto</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+    </string-array>
+    <string-array name="wifi_ap_security_testmode">
+        <item>Άνοιγμα</item>
+        <item>WPA2 PSK</item>
+    </string-array>
+    <string-array name="wifi_ap_timeout">
+        <item>Χωρίς χρονικό όριο</item>
+        <item>5 λεπτά</item>
+        <item>10 λεπτά</item>
+        <item>20 λεπτά</item>
+        <item>30 λεπτά</item>
+        <item>60 λεπτά</item>
+    </string-array>
+    <string-array name="wifi_ap_wifi_sharing">
+        <item>Ενεργοποίηση κοινής χρήσης Wi-Fi</item>
+        <item>Απενεργοποίηση κοινής χρήσης Wi-Fi</item>
+    </string-array>
+    <string-array name="wifi_connect_entries">
+        <item>Αυτόματα</item>
+        <item>Χειροκίνητα</item>
+        <item>Ερώτηση πάντα</item>
+    </string-array>
+    <string-array name="wifi_eap_entries">
+        <item>PEAP</item>
+        <item>TLS</item>
+        <item>TTLS</item>
+        <item>PWD</item>
+    </string-array>
+    <string-array name="wifi_eap_method">
+        <item>PEAP</item>
+        <item>TLS</item>
+        <item>TTLS</item>
+        <item>PWD</item>
+        <item>SIM</item>
+        <item>AKA</item>
+        <item>"AKA'"</item>
+    </string-array>
+    <string-array name="wifi_ip_settings">
+        <item>DHCP</item>
+        <item>Στατικό</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>Έγινε σύνδεση</item>
+        <item>Εστάλη πρόσκληση.</item>
+        <item>Η σύνδεση απέτυχε</item>
+        <item>Πατήστε εδώ για σύνδεση.</item>
+        <item>Εκτός εμβέλειας.</item>
+        <item>Έχει συνδεθεί με άλλη συσκευή</item>
+    </string-array>
+    <string-array name="wifi_p2p_wps_setup">
+        <item>Πάτημα κουμπιού</item>
+        <item>PIN από ομότιμη συσκευή</item>
+        <item>PIN από τη συσκευή</item>
+    </string-array>
+    <string-array name="wifi_peap_phase2_entries">
+        <item>Καμία</item>
+        <item>MSCHAPV2</item>
+        <item>GTC</item>
+    </string-array>
+    <string-array name="wifi_peap_phase2_entries_with_sim_auth">
+        <item>Κανένα</item>
+        <item>MSCHAPV2</item>
+        <item>GTC</item>
+        <item>SIM</item>
+        <item>AKA</item>
+        <item>"AKA'"</item>
+    </string-array>
+    <string-array name="wifi_phase2_entries">
+        <item>Κανένα</item>
+        <item>PAP</item>
+        <item>MSCHAP</item>
+        <item>MSCHAPV2</item>
+        <item>GTC</item>
+    </string-array>
+    <string-array name="wifi_proxy_settings">
+        <item>Κανένα</item>
+        <item>Χειροκίνητα</item>
+        <item>Αυτόματη διαμόρφωση</item>
+    </string-array>
+    <string-array name="wifi_signal">
+        <item>Ασθενές</item>
+        <item>Καλό</item>
+        <item>Καλό</item>
+        <item>Ισχυρό</item>
+        <item>Πολύ ισχυρό</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_entries">
+        <item>"Πάντα
+(Αυξάνει την κατανάλωση μπαταρίας)"</item>
+        <item>Κατά τη φόρτιση</item>
+        <item>"Ποτέ
+(Αυξάνεται η χρήση δεδομένων)"</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_entries_wifi_only">
+        <item>"Πάντα
+(Αυξάνει την κατανάλωση μπαταρίας)"</item>
+        <item>Κατά τη φόρτιση</item>
+        <item>Ποτέ</item>
+    </string-array>
+    <string-array name="wifi_status">
+        <item></item>
+        <item>Σάρωση…</item>
+        <item>Σύνδεση…</item>
+        <item>Έλεγχος ταυτότητας…</item>
+        <item>Γίνεται λήψη διεύθυνσης IP…</item>
+        <item>Συνδέθηκε</item>
+        <item>Σε αναστολή</item>
+        <item>Αποσύνδεση…</item>
+        <item>Αποσυνδέθηκε</item>
+        <item>Ανεπιτυχής</item>
+        <item>Αποκλεισμένη</item>
+        <item>Έλεγχος ποιότητας της σύνδεσής σας στο Internet…</item>
+    </string-array>
+    <string-array name="wifi_status_with_ssid">
+        <item></item>
+        <item>Σάρωση...</item>
+        <item>Σύνδεση σε %1$s...</item>
+        <item>Έλεγχος ταυτότητας με %1$s…</item>
+        <item>Λήψη διεύθυνσης IP από %1$s...</item>
+        <item>Συνδεδεμένο σε %1$s</item>
+        <item>Σε αναστολή</item>
+        <item>Αποσύνδεση από %1$s…</item>
+        <item>Αποσυνδέθηκε</item>
+        <item>Ανεπιτυχής</item>
+        <item>Αποκλεισμένο</item>
+        <item>Προσωρινή αποφυγή αδύναμης σύνδεσης</item>
+    </string-array>
+    <string-array name="window_animation_scale_entries">
+        <item>Απενεργοποιημένο κινούμενο στοιχείο.</item>
+        <item>Κλίμακα κινούμενων γραφικών 0.5x</item>
+        <item>Κλίμακα κινούμενων γραφικών 1x</item>
+        <item>Κλίμακα κινούμενων γραφικών 1.5x</item>
+        <item>Κλίμακα κινούμενων γραφικών 2x</item>
+        <item>Κλίμακα κινούμενων γραφικών 5x</item>
+        <item>Κλίμακα κινούμενων γραφικών 10x</item>
+    </string-array>
+</resources>

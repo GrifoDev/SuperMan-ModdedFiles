@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:key="facesetting"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:touchwiz="http://schemas.android.com/apk/res/touchwiz">
+    <PreferenceCategory android:title="@string/facelock_category_manager" android:key="register_category">
+        <PreferenceScreen android:layout="@layout/sem_biometrics_preference_registericon" android:title="@string/facelock_add_face" android:key="key_facelock_register" android:widgetLayout="@layout/sem_biometrics_registericon" />
+        <PreferenceScreen android:title="@string/facelock_remove_face" android:key="key_facelock_remove" />
+        <PreferenceScreen android:title="@string/fingerprint_change_reset_password" android:key="key_facelock_password" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/facelock_category_feature" android:key="feature_category">
+        <PreferenceScreen android:title="@string/iris_use_samsung_pass" android:key="key_facelock_samsung_pass" />
+        <com.android.settings.fingerprint.FingerprintSwitchPreference android:title="@string/facelock_face_unlock" android:key="key_facelock_unlock" android:summary="@string/facelock_face_unlock_summary_common" />
+        <SwitchPreference android:title="@string/facelock_without_swipe_to_unlock" android:key="key_facelock_without_swipe_to_unlock" android:summary="@string/facelock_without_swipe_to_unlock_summary_common" />
+        <com.android.settings.fingerprint.FingerprintSwitchPreference android:title="@string/facelock_recognition_speed_up" android:key="key_facelock_recognition_speed_up" android:summary="@string/facelock_recognition_speed_up_summary" />
+    </PreferenceCategory>
+</PreferenceScreen>

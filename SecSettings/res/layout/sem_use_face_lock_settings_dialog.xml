@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingTop="@dimen/biometrics_single_choice_dialog_desc_padding_top_bottom" android:paddingBottom="@dimen/biometrics_single_choice_dialog_desc_padding_top_bottom" android:layout_width="fill_parent" android:layout_height="@dimen/list_size_standard" android:minHeight="@dimen/listItemMinHeight"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeightSmall" android:text="@string/facelock_use_face_lock_turn_on_desc_with_iris" android:paddingStart="@dimen/biometrics_single_choice_dialog_desc_padding_start_end" android:paddingEnd="@dimen/biometrics_single_choice_dialog_desc_padding_start_end" style="@style/dialog_body_text_style" />
+</LinearLayout>

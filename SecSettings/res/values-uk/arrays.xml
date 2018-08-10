@@ -1,0 +1,872 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="allshare_download_to">
+        <item>Пристрій</item>
+        <item>SD-карта</item>
+    </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>Анімацію вимкнено.</item>
+        <item>0.5-кратне збільш. розміру анімації</item>
+        <item>1-кратне збільш. розміру анімації</item>
+        <item>1.5-кратне збільш. розміру анімації</item>
+        <item>2-кратне збільш. розміру анімації</item>
+        <item>5-кратне збільш. розміру анімації</item>
+        <item>10-кратне збільш. розміру анімації</item>
+    </string-array>
+    <string-array name="apn_auth_entries">
+        <item>Немає</item>
+        <item>PAP</item>
+        <item>CHAP</item>
+        <item>PAP або CHAP</item>
+    </string-array>
+    <string-array name="apn_protocol_entries">
+        <item>IPv4</item>
+        <item>IPv6</item>
+        <item>IPv4/IPv6</item>
+    </string-array>
+    <string-array name="app_install_location_entries">
+        <item>"Внутрішня пам'ять пристрою"</item>
+        <item>Знімна карта SD</item>
+        <item>Дозвольте виріш. системі</item>
+    </string-array>
+    <string-array name="app_ops_categories">
+        <item>Місцезнаходження</item>
+        <item>Особисті дані</item>
+        <item>Повідомлення</item>
+        <item>Медіа-файли</item>
+        <item>Пристрій</item>
+        <item>Auto run</item>
+    </string-array>
+    <string-array name="app_ops_labels">
+        <item>Місцезнаходження</item>
+        <item>Місцезнаходження</item>
+        <item>Місцезнаходження</item>
+        <item>Вібросигнал</item>
+        <item>Читати контакти</item>
+        <item>Змінювати контакти</item>
+        <item>Читати журнал викликів</item>
+        <item>Змінювати журнал викликів</item>
+        <item>Переглядати календар</item>
+        <item>Змінювати календар</item>
+        <item>Місцезнаходження</item>
+        <item>Публікувати сповіщення</item>
+        <item>Місцезнаходження</item>
+        <item>Телефонувати</item>
+        <item>Читати SMS/MMS</item>
+        <item>Писати SMS/MMS</item>
+        <item>Отримувати SMS/MMS</item>
+        <item>Отримувати SMS/MMS</item>
+        <item>Отримувати SMS/MMS</item>
+        <item>Отримувати SMS/MMS</item>
+        <item>Надсилати SMS/MMS</item>
+        <item>Читати SMS/MMS</item>
+        <item>Писати SMS/MMS</item>
+        <item>Змінювати налаштування</item>
+        <item>Відображати зверху</item>
+        <item>Отримувати доступ до сповіщень</item>
+        <item>Камера</item>
+        <item>Записувати аудіо</item>
+        <item>Відтворювати аудіо</item>
+        <item>Читати буфер обміну</item>
+        <item>Змінювати буфер обміну</item>
+        <item>Кнопки медіа</item>
+        <item>Активізація звуку</item>
+        <item>Загальна гучність</item>
+        <item>Гучність голосу</item>
+        <item>Гучність дзвінка</item>
+        <item>Гучність медіа</item>
+        <item>Гучність будильник</item>
+        <item>Гучність сповіщення</item>
+        <item>Гучність Bluetooth</item>
+        <item>Залишати активним</item>
+        <item>Місцезнаходження</item>
+        <item>Місцезнаходження</item>
+        <item>Отримати статистику використання</item>
+        <item>Вимкнути або ввімкнути мікрофон</item>
+        <item>Показувати підказки</item>
+        <item>Транслювати вміст</item>
+        <item>Активувати VPN</item>
+        <item>Змінювати фоновий малюнок</item>
+        <item>Допоміжна структура</item>
+        <item>Допоміжний знімок екрана</item>
+        <item>Переглядати статус телефона</item>
+        <item>Додавати голосову пошту</item>
+        <item>Використовувати протокол SIP</item>
+        <item>Обробляти вихідні виклики</item>
+        <item>Відбиток пальця</item>
+        <item>Датчики на тілі</item>
+        <item>Переглядати повідомлення Cell Broadcast</item>
+        <item>Фіктивне місцезнаходження</item>
+        <item>Переглядати дані про пам’ять</item>
+        <item>Додавати дані в пам’ять і змінювати їх</item>
+        <item>Вмикати екран</item>
+        <item>Отримувати дані облікових записів</item>
+        <item>Працювати у фоновому режимі</item>
+        <item>Спеціальні можливості: гучність</item>
+    </string-array>
+    <string-array name="app_ops_summaries">
+        <item>приблизне місцезнаходження</item>
+        <item>точне місцезнаходження</item>
+        <item>GPS</item>
+        <item>вібросигнал</item>
+        <item>читати контакти</item>
+        <item>змінювати контакти</item>
+        <item>читати журнал викликів</item>
+        <item>змінювати журнал викликів</item>
+        <item>переглядати календар</item>
+        <item>змінювати календар</item>
+        <item>сканування Wi-Fi</item>
+        <item>сповіщення</item>
+        <item>пошук мобільних мереж</item>
+        <item>телефонувати</item>
+        <item>читати SMS</item>
+        <item>писати SMS</item>
+        <item>отримувати SMS</item>
+        <item>отримувати екстрені SMS</item>
+        <item>отримувати MMS</item>
+        <item>отримувати WAP Push</item>
+        <item>надсилати SMS</item>
+        <item>читати ICC SMS</item>
+        <item>писати ICC SMS</item>
+        <item>змінювати налаштування</item>
+        <item>відображати зверху</item>
+        <item>отримувати доступ до сповіщень</item>
+        <item>камера</item>
+        <item>записувати аудіо</item>
+        <item>відтворювати аудіо</item>
+        <item>читати буфер обміну</item>
+        <item>змінювати буфер обміну</item>
+        <item>кнопки медіа</item>
+        <item>активізація звуку</item>
+        <item>загальна гучність</item>
+        <item>гучність голосу</item>
+        <item>гучність дзвінка</item>
+        <item>гучність медіа</item>
+        <item>гучність будильника</item>
+        <item>гучність сповіщення</item>
+        <item>гучність Bluetooth</item>
+        <item>залишати активним</item>
+        <item>відстежувати місцезнаходження</item>
+        <item>відстежувати енергозатратні місцезнаходження</item>
+        <item>отримати статистику використання</item>
+        <item>вимкнути або ввімкнути мікрофон</item>
+        <item>показувати підказки</item>
+        <item>транслювати вміст</item>
+        <item>активувати VPN</item>
+        <item>змінювати фоновий малюнок</item>
+        <item>допоміжна структура</item>
+        <item>допоміжний знімок екрана</item>
+        <item>переглядати статус телефона</item>
+        <item>додавати голосову пошту</item>
+        <item>використовувати протокол SIP</item>
+        <item>обробляти вихідні виклики</item>
+        <item>відбиток пальця</item>
+        <item>датчики на тілі</item>
+        <item>переглядати повідомлення Cell Broadcast</item>
+        <item>фіктивне місцезнаходження</item>
+        <item>переглядати дані про пам’ять</item>
+        <item>додавати дані в пам’ять і змінювати їх</item>
+        <item>вмикати екран</item>
+        <item>отримувати дані облікових записів</item>
+        <item>працювати у фоновому режимі</item>
+        <item>спеціальні можливості: гучність</item>
+    </string-array>
+    <string-array name="app_process_limit_entries">
+        <item>Стандартне обмеження</item>
+        <item>Без фонових процесів</item>
+        <item>Не більше 1 процесу</item>
+        <item>Не більше 2 процесів</item>
+        <item>Не більше 3 процесів</item>
+        <item>Не більше 4 процесів</item>
+    </string-array>
+    <string-array name="automatic_storage_management_days">
+        <item>Старіші за 30 днів</item>
+        <item>Старіші за 60 днів</item>
+        <item>Старіші за 90 днів</item>
+    </string-array>
+    <string-array name="bearer_entries">
+        <item>Не визначено</item>
+        <item>LTE</item>
+        <item>HSPAP</item>
+        <item>HSPA</item>
+        <item>HSUPA</item>
+        <item>HSDPA</item>
+        <item>UMTS</item>
+        <item>EDGE</item>
+        <item>GPRS</item>
+        <item>eHRPD</item>
+        <item>EVDO_B</item>
+        <item>EVDO_A</item>
+        <item>EVDO_0</item>
+        <item>1xRTT</item>
+        <item>IS95B</item>
+        <item>IS95A</item>
+        <item>IWLAN</item>
+    </string-array>
+    <string-array name="bearer_entries_dcm_kdi">
+        <item>Не визначено</item>
+        <item>4G</item>
+        <item>HSPAP</item>
+        <item>HSPA</item>
+        <item>HSUPA</item>
+        <item>HSDPA</item>
+        <item>UMTS</item>
+        <item>EDGE</item>
+        <item>GPRS</item>
+        <item>eHRPD</item>
+        <item>EVDO_B</item>
+        <item>EVDO_A</item>
+        <item>EVDO_0</item>
+        <item>1xRTT</item>
+        <item>IS95B</item>
+        <item>IS95A</item>
+        <item>IWLAN</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_bits_per_sample_summaries">
+        <item>Використовувати вибір системи (за умовчанням)</item>
+        <item>16 бітів на зразок</item>
+        <item>24 біти на зразок</item>
+        <item>32 біти на зразок</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_bits_per_sample_titles">
+        <item>Використовувати вибір системи (за умовчанням)</item>
+        <item>16 бітів на зразок</item>
+        <item>24 біти на зразок</item>
+        <item>32 біти на зразок</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_channel_mode_summaries">
+        <item>Використовувати вибір системи (за умовчанням)</item>
+        <item>Моно</item>
+        <item>Стерео</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_channel_mode_titles">
+        <item>Використовувати вибір системи (за умовчанням)</item>
+        <item>Моно</item>
+        <item>Стерео</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_ldac_playback_quality_summaries">
+        <item>Оптимізовано для кращої якості аудіо</item>
+        <item>Збалансована якість аудіо та з’єднання</item>
+        <item>Оптимізовано для кращої якості з’єднання</item>
+        <item>Найкраща якість (адаптивна швидкість передавання)</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_ldac_playback_quality_titles">
+        <item>Оптимізовано для кращої якості аудіо (990/909 кбіт/с)</item>
+        <item>Збалансована якість аудіо та з’єднання (660/606 кбіт/с)</item>
+        <item>Оптимізовано для кращої якості з’єднання (330/303 кбіт/с)</item>
+        <item>Найкраща якість (адаптивна швидкість передавання)</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_sample_rate_summaries">
+        <item>Використовувати вибір системи (за умовчанням)</item>
+        <item>44,1 кГц</item>
+        <item>48 кГц</item>
+        <item>88,2 кГц</item>
+        <item>96 кГц</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_sample_rate_titles">
+        <item>Використовувати вибір системи (за умовчанням)</item>
+        <item>44,1 кГц</item>
+        <item>48 кГц</item>
+        <item>88,2 кГц</item>
+        <item>96 кГц</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_summaries">
+        <item>Використовувати вибір системи (за умовчанням)</item>
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>aptX HD</item>
+        <item>LDAC</item>
+        <item>Увімкнути додаткові кодеки</item>
+        <item>Вимкнути додаткові кодеки</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_titles">
+        <item>Використовувати вибір системи (за умовчанням)</item>
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>aptX HD</item>
+        <item>LDAC</item>
+        <item>Увімкнути додаткові кодеки</item>
+        <item>Вимкнути додаткові кодеки</item>
+    </string-array>
+    <string-array name="bluetooth_avrcp_versions">
+        <item>AVRCP 1.4 (за умовчанням)</item>
+        <item>AVRCP 1.5</item>
+        <item>AVRCP 1.6</item>
+    </string-array>
+    <string-array name="bluetooth_ss_a2dp_codec_summaries">
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>Усі кодеки</item>
+        <item>Стандартний кодек</item>
+    </string-array>
+    <string-array name="bluetooth_ss_a2dp_codec_titles">
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>Усі кодеки</item>
+        <item>Стандартний кодек</item>
+    </string-array>
+    <string-array name="bluetooth_ss_japan_a2dp_codec_titles">
+        <item>SBC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>Усі кодеки</item>
+        <item>Стандартний кодек</item>
+    </string-array>
+    <string-array name="bluetooth_visibility_timeout_entries">
+        <item>2 хвилини</item>
+        <item>5 хвилин</item>
+        <item>1 година</item>
+        <item>Без часу очікування</item>
+    </string-array>
+    <string-array name="captioning_edge_type_selector_titles">
+        <item>За замовчуванням</item>
+        <item>Немає</item>
+        <item>Схема</item>
+        <item>Відтінений</item>
+        <item>Припіднятий</item>
+        <item>Стиснений</item>
+    </string-array>
+    <string-array name="captioning_font_size_selector_titles">
+        <item>Дуже малий</item>
+        <item>Маленький</item>
+        <item>Звичайний</item>
+        <item>Великий</item>
+        <item>Дуже великий</item>
+    </string-array>
+    <string-array name="captioning_opacity_selector_titles">
+        <item>25%</item>
+        <item>50%</item>
+        <item>75%</item>
+        <item>100%</item>
+    </string-array>
+    <string-array name="captioning_preset_selector_titles">
+        <item>Стандартний</item>
+        <item>Біле на чорному</item>
+        <item>Чорне на білому</item>
+        <item>Жовте на чорному</item>
+        <item>Жовте на синьому</item>
+        <item>Настроювана</item>
+    </string-array>
+    <string-array name="captioning_typeface_selector_titles">
+        <item>За замовчуванням</item>
+        <item>Sans Serif</item>
+        <item>Стислий Sans Serif</item>
+        <item>Sans serif monospace</item>
+        <item>Serif</item>
+        <item>Serif monospace</item>
+        <item>На кожен день</item>
+        <item>Курсив</item>
+        <item>Зменшені прописні</item>
+    </string-array>
+    <string-array name="color_adjust_type_entries">
+        <item>Відтінки сірого</item>
+        <item>Протаномалія (черв/зел)</item>
+        <item>Дейтераномалія (зел/черв)</item>
+        <item>Тританомалія (син/жовт)</item>
+        <item>Інший колір</item>
+    </string-array>
+    <string-array name="color_lens_entries">
+        <item>Синій</item>
+        <item>Лазурний</item>
+        <item>Синьо-зелений</item>
+        <item>Яскраво-зелений</item>
+        <item>Зелений</item>
+        <item>Зелений (шартрез)</item>
+        <item>Жовтий</item>
+        <item>Помаранчевий</item>
+        <item>Червоний</item>
+        <item>Трояндовий</item>
+        <item>Пурпурний</item>
+        <item>Фіолетовий</item>
+    </string-array>
+    <string-array name="color_mode_descriptions">
+        <item>Покращені кольори</item>
+        <item>Природні кольори</item>
+        <item>Кольори для цифрового вмісту</item>
+    </string-array>
+    <string-array name="color_mode_names">
+        <item>Насичений (за умовчанням)</item>
+        <item>Природний</item>
+        <item>Стандартний</item>
+    </string-array>
+    <string-array name="color_picker">
+        <item>Бірюзовий</item>
+        <item>Синій</item>
+        <item>Індиго</item>
+        <item>Пурпуровий</item>
+        <item>Рожевий</item>
+        <item>Червоний</item>
+    </string-array>
+    <string-array name="data_usage_data_range">
+        <item>Останні 30 днів</item>
+        <item>Цикл використання даних…</item>
+    </string-array>
+    <string-array name="data_usage_display_unit">
+        <item>MB/GB (auto change)</item>
+        <item>MB only</item>
+        <item>GB only</item>
+    </string-array>
+    <string-array name="debug_hw_overdraw_entries">
+        <item>Вимк.</item>
+        <item>Показувати області накладання</item>
+        <item>Показувати області дейтераномалії</item>
+    </string-array>
+    <string-array name="debug_hw_renderer_entries">
+        <item>OpenGL (за умовчанням)</item>
+        <item>OpenGL (Skia)</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>Миттєво за допомогою клавіші ввімк./вимк. живлення або у разі автоматичного вимкнення екрана</item>
+        <item>5 секунд</item>
+        <item>15 секунд</item>
+        <item>30 секунд</item>
+        <item>1 хвилина</item>
+        <item>2 хвилини</item>
+        <item>5 хвилин</item>
+        <item>10 хвилин</item>
+        <item>30 хвилин</item>
+    </string-array>
+    <string-array name="dex_timeout_entries">
+        <item>15 секунд</item>
+        <item>30 секунд</item>
+        <item>1 хвилина</item>
+        <item>2 хвилини</item>
+        <item>5 хвилин</item>
+        <item>10 хвилин</item>
+        <item>20 хвилин</item>
+        <item>30 хвилин</item>
+        <item>60 хвилин</item>
+    </string-array>
+    <string-array name="dream_timeout_entries">
+        <item>Ніколи</item>
+        <item>15 секунд</item>
+        <item>30 секунд</item>
+        <item>1 хвилина</item>
+        <item>2 хвилини</item>
+        <item>5 хвилин</item>
+        <item>10 хвилин</item>
+        <item>30 хвилин</item>
+    </string-array>
+    <string-array name="eap_method_without_sim_auth">
+        <item>PEAP</item>
+        <item>TLS</item>
+        <item>TTLS</item>
+        <item>PWD</item>
+    </string-array>
+    <string-array name="enable_opengl_traces_entries">
+        <item>Нічого</item>
+        <item>Logcat</item>
+        <item>Systrace (графіка)</item>
+        <item>Стек викликів glGetError</item>
+    </string-array>
+    <string-array name="entries_font_size">
+        <item>Малий</item>
+        <item>За умовчанням</item>
+        <item>Великий</item>
+        <item>Найбільший</item>
+        <item>Huge</item>
+    </string-array>
+    <string-array name="hdcp_checking_summaries">
+        <item>Ніколи не використовувати перевірку HDCP</item>
+        <item>Використовувати перевірку HDCP лише для вмісту, захищеного DRM</item>
+        <item>Завжди використовувати перевірку HDCP</item>
+    </string-array>
+    <string-array name="hdcp_checking_titles">
+        <item>Ніколи не перевіряти</item>
+        <item>Перевіряти лише DRM-контент</item>
+        <item>Завжди перевіряти</item>
+    </string-array>
+    <string-array name="key_backlight_entries">
+        <item>Завжди вимкнено</item>
+        <item>1 second</item>
+        <item>3 seconds</item>
+        <item>5 seconds</item>
+        <item>10 seconds</item>
+        <item>15 seconds</item>
+    </string-array>
+    <string-array name="lock_after_timeout_entries">
+        <item>Негайно</item>
+        <item>5 секунд</item>
+        <item>15 секунд</item>
+        <item>30 секунд</item>
+        <item>1 хвилина</item>
+        <item>2 хвилини</item>
+        <item>5 хвилин</item>
+        <item>10 хвилин</item>
+        <item>30 хвилин</item>
+    </string-array>
+    <string-array name="long_press_timeout_selector_titles">
+        <item>Коротка</item>
+        <item>Середня</item>
+        <item>Довга</item>
+    </string-array>
+    <string-array name="long_press_timeout_titles_selector">
+        <item>Коротка (0,5 с)</item>
+        <item>Середня (1 с)</item>
+        <item>Тривала (1,5 с)</item>
+        <item>Настроювана</item>
+    </string-array>
+    <string-array name="mvno_type_entries">
+        <item>Немає</item>
+        <item>SPN</item>
+        <item>IMSI</item>
+        <item>GID</item>
+    </string-array>
+    <string-array name="num_allowed_devices">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+    <string-array name="overlay_display_devices_entries">
+        <item>Немає</item>
+        <item>480p</item>
+        <item>480p (захист)</item>
+        <item>720p</item>
+        <item>720p (захист)</item>
+        <item>1080p</item>
+        <item>1080p (захист)</item>
+        <item>4K</item>
+        <item>4K (захист)</item>
+        <item>4K (масштабування)</item>
+        <item>4K (масштабування, захист)</item>
+        <item>720p, 1080p (два екрани)</item>
+    </string-array>
+    <string-array name="proc_stats_memory_states">
+        <item>Нормальний</item>
+        <item>Середній</item>
+        <item>Низький</item>
+        <item>Критичний</item>
+    </string-array>
+    <string-array name="proc_stats_process_states">
+        <item>Постійний</item>
+        <item>Перші дії</item>
+        <item>Важливо (активний додаток)</item>
+        <item>Важливо (фоновий додаток)</item>
+        <item>Резервне копіювання</item>
+        <item>Інтенсивний</item>
+        <item>Служба (запущено)</item>
+        <item>Служба (перезапуск)</item>
+        <item>Приймач</item>
+        <item>Головний екран</item>
+        <item>Останні дії</item>
+        <item>Кеш (дії)</item>
+        <item>Кеш (дії клієнта)</item>
+        <item>Кеш (порожньо)</item>
+    </string-array>
+    <string-array name="ram_states">
+        <item>Звичайний</item>
+        <item>Середня</item>
+        <item>Низька</item>
+        <item>Критичний</item>
+        <item>\?</item>
+    </string-array>
+    <string-array name="screen_timeout_entries">
+        <item>15 секунд</item>
+        <item>30 секунд</item>
+        <item>1 хвилина</item>
+        <item>2 хвилини</item>
+        <item>5 хвилин</item>
+        <item>10 хвилин</item>
+        <item>30 хвилин</item>
+    </string-array>
+    <string-array name="screen_timeout_for_device_lock_entries">
+        <item>15 секунд</item>
+        <item>30 секунд</item>
+        <item>1 хвилина</item>
+        <item>3 хвилини</item>
+        <item>5 хвилин</item>
+        <item>10 хвилин</item>
+        <item>15 хвилин</item>
+        <item>30 хвилин</item>
+    </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Запитати</item>
+        <item>Ніколи не дозволяти</item>
+        <item>Завжди дозволяти</item>
+    </string-array>
+    <string-array name="select_logd_size_lowram_titles">
+        <item>Вимкнено</item>
+        <item>64 Кб</item>
+        <item>256 Кб</item>
+        <item>1 Мб</item>
+    </string-array>
+    <string-array name="select_logd_size_summaries">
+        <item>Вимкнено</item>
+        <item>Буфер журналу: 64 Кб</item>
+        <item>Буфер журналу: 256 Кб</item>
+        <item>Буфер журналу: 1 Мб</item>
+        <item>Буфер журналу: 4 Мб</item>
+        <item>Буфер журналу: 16 Мб</item>
+    </string-array>
+    <string-array name="select_logd_size_titles">
+        <item>Вимкнено</item>
+        <item>64 Кб</item>
+        <item>256 Кб</item>
+        <item>1 Мб</item>
+        <item>4 Мб</item>
+        <item>16 Мб</item>
+    </string-array>
+    <string-array name="select_logpersist_summaries">
+        <item>Вимкнено</item>
+        <item>Буфери всіх журналів</item>
+        <item>Буфери всіх журналів, крім радіо</item>
+        <item>лише буфер журналу ядра</item>
+    </string-array>
+    <string-array name="select_logpersist_titles">
+        <item>Вимкнено</item>
+        <item>Усі</item>
+        <item>Усі, крім радіо</item>
+        <item>лише ядро</item>
+    </string-array>
+    <string-array name="show_non_rect_clip_entries">
+        <item>Вимкнено</item>
+        <item>Непрямокутне обрізання синім</item>
+        <item>Тест. команди малювання зеленим</item>
+    </string-array>
+    <string-array name="time_interval_entries_selectable">
+        <item>1 хвилина</item>
+        <item>3 хвилини</item>
+        <item>5 хвилин</item>
+        <item>10 хвилин</item>
+        <item>15 хвилин</item>
+    </string-array>
+    <string-array name="timezone_filters">
+        <item>Америка</item>
+        <item>Європа</item>
+        <item>Африка</item>
+        <item>Азія</item>
+        <item>Австралія</item>
+        <item>Тихоокеан.</item>
+        <item>Усі</item>
+    </string-array>
+    <string-array name="touch_key_light_entries">
+        <item>1,5 секунди</item>
+        <item>6 секунд</item>
+        <item>Завжди вимкнено</item>
+        <item>Завжди увімкнено</item>
+    </string-array>
+    <string-array name="track_frame_time_entries">
+        <item>Вимк.</item>
+        <item>На екрані у вигляді смужок</item>
+        <item>У команді \"adb shell dumpsys gfxinfo\"</item>
+    </string-array>
+    <string-array name="transition_animation_scale_entries">
+        <item>Анімацію вимкнено.</item>
+        <item>0.5-кратне збільш. розміру анімації</item>
+        <item>1-кратне збільш. розміру анімації</item>
+        <item>1.5-кратне збільш. розміру анімації</item>
+        <item>2-кратне збільш. розміру анімації</item>
+        <item>5-кратне збільш. розміру анімації</item>
+        <item>10-кратне збільш. розміру анімації</item>
+    </string-array>
+    <string-array name="tts_rate_entries">
+        <item>Дуже повільно</item>
+        <item>Повільно</item>
+        <item>Звичайно</item>
+        <item>Швидко</item>
+        <item>Швидше</item>
+        <item>Дуже швидко</item>
+        <item>Надзвичайно швидко</item>
+        <item>Украй швидко</item>
+        <item>Найшвидше</item>
+    </string-array>
+    <string-array name="usage_stats_display_order_types">
+        <item>Час використання</item>
+        <item>Останнє використання</item>
+        <item>Назва програми</item>
+    </string-array>
+    <string-array name="usb_configuration_titles">
+        <item>@string/usb_use_charging_only</item>
+        <item>MTP (Media Transfer Protocol)</item>
+        <item>PTP (Picture Transfer Protocol)</item>
+        <item>RNDIS (USB Ethernet)</item>
+        <item>Джерело звуку</item>
+        <item>MIDI</item>
+    </string-array>
+    <string-array name="vpn_states">
+        <item>"Роз'єднано"</item>
+        <item>Ініціалізація…</item>
+        <item>"З'єднання…"</item>
+        <item>Підключено</item>
+        <item>Час очікування</item>
+        <item>Невдалий</item>
+    </string-array>
+    <string-array name="vpn_types_long">
+        <item>PPTP VPN</item>
+        <item>L2TP/IPSec VPN зі спільними ключами</item>
+        <item>L2TP/IPSec VPN із сертифікатами</item>
+        <item>IPSec VPN зі спільними ключами й автентифікацією Xauth</item>
+        <item>IPSec VPN із сертифікатами та автентифікацією Xauth</item>
+        <item>IPSec VPN із сертифікатами та гібридною автентифікацією</item>
+        <item>IPSec VPN with IKEv2 and pre-shared key-based authentication</item>
+        <item>IPSec VPN with IKEv2 and certificate-based authentication</item>
+    </string-array>
+    <string-array name="wifi_ap_channel">
+        <item>Авто</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+    </string-array>
+    <string-array name="wifi_ap_security_testmode">
+        <item>Відкрита</item>
+        <item>WPA2 PSK</item>
+    </string-array>
+    <string-array name="wifi_ap_timeout">
+        <item>Не вимикати точку доступу.</item>
+        <item>5 хвилин</item>
+        <item>10 хвилин</item>
+        <item>20 хвилин</item>
+        <item>30 хвилин</item>
+        <item>60 хвилин</item>
+    </string-array>
+    <string-array name="wifi_ap_wifi_sharing">
+        <item>Увімкнути надання спільного доступу до Wi-Fi</item>
+        <item>Вимкнути надання спільного доступу до Wi-Fi</item>
+    </string-array>
+    <string-array name="wifi_connect_entries">
+        <item>Автоматично</item>
+        <item>Вручну</item>
+        <item>Завжди запитувати</item>
+    </string-array>
+    <string-array name="wifi_eap_entries">
+        <item>PEAP</item>
+        <item>TLS</item>
+        <item>TTLS</item>
+        <item>PWD</item>
+    </string-array>
+    <string-array name="wifi_eap_method">
+        <item>PEAP</item>
+        <item>TLS</item>
+        <item>TTLS</item>
+        <item>PWD</item>
+        <item>SIM</item>
+        <item>AKA</item>
+        <item>"AKA'"</item>
+    </string-array>
+    <string-array name="wifi_ip_settings">
+        <item>DHCP</item>
+        <item>Статична</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>Підключено</item>
+        <item>Запрошено.</item>
+        <item>Збій підключення</item>
+        <item>Натисніть тут, щоб підключитися.</item>
+        <item>Переповнення</item>
+        <item>Підключено до іншого пристрою</item>
+    </string-array>
+    <string-array name="wifi_p2p_wps_setup">
+        <item>Кнопка Push</item>
+        <item>PIN з однорангового пристрою</item>
+        <item>PIN із цього пристрою</item>
+    </string-array>
+    <string-array name="wifi_peap_phase2_entries">
+        <item>Нічого</item>
+        <item>MSCHAPV2</item>
+        <item>GTC</item>
+    </string-array>
+    <string-array name="wifi_peap_phase2_entries_with_sim_auth">
+        <item>Немає</item>
+        <item>MSCHAPV2</item>
+        <item>GTC</item>
+        <item>SIM-карта</item>
+        <item>AKA</item>
+        <item>"AKA'"</item>
+    </string-array>
+    <string-array name="wifi_phase2_entries">
+        <item>Немає</item>
+        <item>PAP</item>
+        <item>MSCHAP</item>
+        <item>MSCHAPV2</item>
+        <item>GTC</item>
+    </string-array>
+    <string-array name="wifi_proxy_settings">
+        <item>Немає</item>
+        <item>Вручну</item>
+        <item>Автоналаштування</item>
+    </string-array>
+    <string-array name="wifi_signal">
+        <item>Слабкий</item>
+        <item>Задовільний</item>
+        <item>Хороший</item>
+        <item>Сильний</item>
+        <item>Дуже сильний</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_entries">
+        <item>"Завжди
+(збільшує споживання заряду акумулятора)"</item>
+        <item>Під час зарядження</item>
+        <item>"Ніколи
+(збільшується використання даних)"</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_entries_wifi_only">
+        <item>"Завжди
+(збільшує споживання заряду акумулятора)"</item>
+        <item>Під час зарядження</item>
+        <item>Ніколи</item>
+    </string-array>
+    <string-array name="wifi_status">
+        <item></item>
+        <item>Сканування…</item>
+        <item>"З'єднання…"</item>
+        <item>Аутентифікація…</item>
+        <item>Отримання IP-адреси…</item>
+        <item>"З'єднано"</item>
+        <item>Призупинено</item>
+        <item>"Роз'єднання…"</item>
+        <item>"Роз'єднано"</item>
+        <item>Невдалий</item>
+        <item>Заблоковано</item>
+        <item>Триває перевірка якості підключення до Інтернету…</item>
+    </string-array>
+    <string-array name="wifi_status_with_ssid">
+        <item></item>
+        <item>Сканув-ня...</item>
+        <item>Підключення до %1$s…</item>
+        <item>Автентифікація з %1$s…</item>
+        <item>Отримання ІР-адреси від %1$s...</item>
+        <item>Підключено до %1$s</item>
+        <item>Призупинено</item>
+        <item>Відключення від %1$s…</item>
+        <item>Роз’єднано</item>
+        <item>Помилка</item>
+        <item>Заблоковано</item>
+        <item>Тимчасове уникнення слабкого з’єднання</item>
+    </string-array>
+    <string-array name="window_animation_scale_entries">
+        <item>Анімацію вимкнено.</item>
+        <item>0.5-кратне збільш. розміру анімації</item>
+        <item>1-кратне збільш. розміру анімації</item>
+        <item>1.5-кратне збільш. розміру анімації</item>
+        <item>2-кратне збільш. розміру анімації</item>
+        <item>5-кратне збільш. розміру анімації</item>
+        <item>10-кратне збільш. розміру анімації</item>
+    </string-array>
+</resources>

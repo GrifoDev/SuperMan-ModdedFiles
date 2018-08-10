@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:background="@color/shortcut_background" android:layout_width="@dimen/shortcut_size_maskable" android:layout_height="@dimen/shortcut_size_maskable"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Space android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="22.0" />
+    <ImageView android:id="@android:id/icon" android:layout_width="0.0dip" android:layout_height="fill_parent" android:scaleType="fitCenter" android:tint="@color/icon_accent" android:layout_weight="16.0" />
+    <Space android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="22.0" />
+</LinearLayout>

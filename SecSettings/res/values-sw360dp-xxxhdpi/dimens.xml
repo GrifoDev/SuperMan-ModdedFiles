@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="fingerprint_register_v3_effect_marginTop">173.0dip</dimen>
+    <dimen name="fingerprint_register_v3_guideClip_marginTop_new">173.0dip</dimen>
+    <dimen name="fingerprint_register_v3_suw_raisedButton_marginBottom">60.0dip</dimen>
+</resources>

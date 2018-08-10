@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/account_dashboard_title" settings:keywords="@string/keywords_accounts"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <Preference android:title="@string/emergency_info_title" android:key="emergency_info" android:order="100" settings:allowDividerAbove="true" />
+    <SwitchPreference android:title="@string/account_settings_menu_auto_sync" android:key="auto_sync_account_data" android:order="102" settings:allowDividerAbove="true" />
+    <SwitchPreference android:title="@string/account_settings_menu_auto_sync_work" android:key="auto_sync_work_account_data" android:order="103" />
+    <SwitchPreference android:title="@string/account_settings_menu_auto_sync_personal" android:key="auto_sync_personal_account_data" android:order="104" />
+    <com.android.settingslib.RestrictedSwitchPreference android:title="@string/user_add_on_lockscreen_menu" android:key="add_users_when_locked" android:order="105" />
+    <PreferenceCategory android:key="dashboard_tile_placeholder" android:order="200" />
+</PreferenceScreen>

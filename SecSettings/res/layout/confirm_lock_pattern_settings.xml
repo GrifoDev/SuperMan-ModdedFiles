@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/confirm_lock_background_base" />
+    <com.android.internal.widget.LinearLayoutWithDefaultTouchRecepient android:orientation="vertical" android:id="@id/topLayout" android:paddingTop="@dimen/lock_pattern_header_text_marginTop" android:layout_width="fill_parent" android:layout_height="fill_parent"
+      xmlns:android="http://schemas.android.com/apk/res/android">
+        <include layout="@layout/confirm_iris_preview" />
+        <include layout="@layout/confirm_smartscan_preview" />
+        <TextView android:textColor="?android:colorAccent" android:id="@id/headerText" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="?confirmDeviceCredentialsTopMargin" android:layout_marginStart="?confirmDeviceCredentialsSideMargin" android:layout_marginEnd="?confirmDeviceCredentialsSideMargin" style="@android:style/TextAppearance.Material.Headline" />
+        <LinearLayout android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+        <com.samsung.android.settings.lockscreen.LockCustomTextView android:textSize="@dimen/lock_pattern_header_text_size" android:gravity="bottom|center" android:id="@id/detailsText" android:layout_width="fill_parent" android:layout_height="@dimen/lock_pattern_header_text_hight" android:paddingStart="16.0dip" android:paddingEnd="16.0dip" style="@style/lockscreen_body_text_style" />
+        <Button android:id="@id/cancelButton" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/cancel" />
+        <LinearLayout android:layout_width="fill_parent" android:layout_height="@dimen/lock_pattern_view_padding" style="@style/pattern_lock_background" />
+        <RelativeLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="@dimen/lock_pattern_view_size" android:minHeight="200.0dip" style="@style/pattern_lock_background">
+            <com.android.internal.widget.LockPatternView android:id="@id/lockPattern" android:layout_width="@dimen/lock_pattern_view_size" android:layout_height="@dimen/lock_pattern_view_size" android:minHeight="200.0dip" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+        <FrameLayout android:layout_width="fill_parent" android:layout_height="@dimen/pattern_lock_confirm_bottom" style="@style/pattern_lock_background">
+            <TextView android:textSize="@dimen/lock_pattern_footer_text_size" android:gravity="center" android:id="@id/errorText" android:layout_width="fill_parent" android:layout_height="fill_parent" style="@style/TextAppearance.ConfirmDeviceCredentialsErrorText" />
+            <com.samsung.android.settings.widget.BottomBarButton android:layout_gravity="bottom" android:id="@id/backupPin" android:background="@drawable/ripple_lockpattern_backup_pin_button" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/bottom_button_height" android:text="@string/lockpattern_backup_pin" android:textAlignment="center" style="@style/SecurityPreferenceButton" />
+            <ImageView android:layout_gravity="center_horizontal" android:id="@id/fingerprintIcon" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </FrameLayout>
+    </com.android.internal.widget.LinearLayoutWithDefaultTouchRecepient>
+</FrameLayout>

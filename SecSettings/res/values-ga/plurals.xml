@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="accessibilty_autoclick_preference_subtitle_extremely_short_delay">
+        <item quantity="other">Moill ríghearr (%s ms)</item>
+        <item quantity="one">Moill ríghearr (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_long_delay">
+        <item quantity="other">Moill fhada (%s ms)</item>
+        <item quantity="one">Moill fhada (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_short_delay">
+        <item quantity="other">Moill ghearr (%s ms)</item>
+        <item quantity="one">Moill ghearr (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_long_delay">
+        <item quantity="other">Moill an-fhada (%s ms)</item>
+        <item quantity="one">Moill an-fhada (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_short_delay">
+        <item quantity="other">Moill an-ghearr (%s ms)</item>
+        <item quantity="one">Moill an-ghearr (%s ms)</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">Ceadaítear do %d feidhmchlár sonraí a úsáid gan srianta</item>
+        <item quantity="one">Ceadaítear do 1 fheidhmchlár sonraí a úsáid gan srianta</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary_chn">
+        <item quantity="other">Tá cead ag %d feidhmchlár sonraí móibíleacha a úsáid gan srianta agus Cuir srian ar shonraí cúlra cumasaithe.</item>
+        <item quantity="one">Tá cead ag %d feidhmchlár sonraí móibíleacha a úsáid gan srianta agus Cuir srian ar shonraí cúlra cumasaithe.</item>
+    </plurals>
+    <plurals name="deleted_channels">
+        <item quantity="other">%d catagóir scriosta</item>
+        <item quantity="one">1 chatagóir scriosta</item>
+    </plurals>
+    <plurals name="dex_timeout_day">
+        <item quantity="other">%d lá</item>
+        <item quantity="one">1 lá</item>
+    </plurals>
+    <plurals name="dex_timeout_hour">
+        <item quantity="other">%d uair an chloig</item>
+        <item quantity="one">1 uair an chloig</item>
+    </plurals>
+    <plurals name="dex_timeout_minute">
+        <item quantity="other">%d nóiméad</item>
+        <item quantity="one">1 nóiméad</item>
+    </plurals>
+    <plurals name="dex_timeout_second">
+        <item quantity="other">%d soicind</item>
+        <item quantity="one">1 soicind</item>
+    </plurals>
+    <plurals name="dex_timeout_week">
+        <item quantity="other">%d scht</item>
+        <item quantity="one">1 seachtain</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Bain na teangacha roghnaithe</item>
+        <item quantity="one">Bain an teanga roghnaithe</item>
+    </plurals>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d uair an chloig</item>
+        <item quantity="one">1 uair an chloig</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d nóiméad</item>
+        <item quantity="one">1 nóiméad</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d soicind</item>
+        <item quantity="one">1 soicind</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Ní mór %d litir ar a laghad a bheith sa phasfhocal</item>
+        <item quantity="one">Ní mór litir amháin ar a laghad a bheith sa phasfhocal</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Ní mór %d litir chás íochtair ar a laghad a bheith sa phasfhocal</item>
+        <item quantity="one">Ní mór litir chás íochtair amháin ar a laghad a bheith sa phasfhocal</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Ní mór %d uimhir nó siombail ar a laghad a bheith sa phasfhocal</item>
+        <item quantity="one">Ní mór uimhir nó siombail amháin ar a laghad a bheith sa phasfhocal</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Ní mór %d uimhir ar a laghad a bheith sa phasfhocal</item>
+        <item quantity="one">Ní mór uimhir amháin ar a laghad a bheith sa phasfhocal</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Ní mór %d siombail ar a laghad a bheith sa phasfhocal</item>
+        <item quantity="one">Ní mór siombail amháin ar a laghad a bheith sa phasfhocal</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Ní mór %d litir chás uachtair ar a laghad a bheith sa phasfhocal</item>
+        <item quantity="one">Ní mór litir chás uachtair amháin ar a laghad a bheith sa phasfhocal</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">Ní féidir le %d feidhmchlár fógraí a léamh.</item>
+        <item quantity="one">Ceadaítear do %d feidhmchlár fógraí a léamh.</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">"D'úsáid %1$d próiseas RAM le %2$s anuas"</item>
+        <item quantity="one">"D'úsáid %1$d phróiseas RAM le %2$s anuas"</item>
+    </plurals>
+    <plurals name="network_restrictions_summary">
+        <item quantity="other">%d srian</item>
+        <item quantity="one">1 srian</item>
+    </plurals>
+    <plurals name="notification_summary">
+        <item quantity="other">As do %d feidhmchlár</item>
+        <item quantity="one">As do 1 fheidhmchlár</item>
+    </plurals>
+    <plurals name="number_of_device_admins">
+        <item quantity="other">%d feidhmchlár ghníomhacha</item>
+        <item quantity="one">1 fheidhmchlár gníomhach</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d cead eile</item>
+        <item quantity="one">%d chead eile</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">"Tá %d céim eile ann anois roimh duit bheith i d'fhorbróir"</item>
+        <item quantity="one">"Níl fágtha agat ach 1 chéim eile le bheith i d'fhorbróir."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_dialog_title">
+        <item quantity="other">Cuir muinín i ndeimhnithe nó bain iad</item>
+        <item quantity="one">Cuir muinín i ndeimhniú nó bain é</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message">
+        <item quantity="other">"Tá údaráis deimhnithe suiteáilte ar do ghléas ag %s le haghaidh do phróifíle oibre, rud a d'fhéadfadh ligean dó monatóireacht a dhéanamh ar ghníomhaíocht líonra a bhaineann le hobair, lena n-áirítear r-phoist, feidhmchláir, agus láithreáin ghréasáin shlána. Tá sé de rogha agat muinín a chur sna deimhnithe seo nó iad a bhaint.
+
+Le tuilleadh faisnéise a fháil faoi na deimhnithe seo, déan teagmháil le do riarthóir."</item>
+        <item quantity="one">"Tá údarás deimhnithe suiteáilte ar do ghléas ag %s le haghaidh do phróifíle oibre, rud a d'fhéadfadh ligean dó monatóireacht a dhéanamh ar ghníomhaíocht líonra a bhaineann le hobair, lena n-áirítear r-phoist, feidhmchláir, agus láithreáin ghréasáin shlána. Tá sé do rogha agat muinín a chur sa deimhniú seo nó é a bhaint.
+
+Le tuilleadh faisnéise a fháil faoin deimhniú seo, déan teagmháil le do riarthóir."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"Tá deimhnithe CA suiteáilte ar do ghléas ag %s, rud a d'fhéadfadh ligean dóibh monatóireacht a dhéanamh ar ghníomhaíocht líonra do ghléis, lena n-áirítear an úsáid a bhaineann tú as r-phoist, feidhmchláir, agus láithreáin ghréasáin shlána.
+
+Le tuilleadh faisnéise a fháil faoi na deimhnithe seo, déan teagmháil le do riarthóir TF."</item>
+        <item quantity="one">"Tá deimhniú CA suiteáilte ar do ghléas ag %s, rud a d'fhéadfadh ligean dóibh monatóireacht a dhéanamh ar ghníomhaíocht líonra do ghléis, lena n-áirítear an úsáid a bhaineann tú as r-phoist, feidhmchláir, agus láithreáin ghréasáin shlána.
+
+Le tuilleadh faisnéise a fháil faoin deimhniú seo, déan teagmháil le do riarthóir TF."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_settings_button">
+        <item quantity="other">Seiceáil deimhnithe</item>
+        <item quantity="one">Seiceáil deimhniú</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Rochtain ar %d fillteán/comhad</item>
+        <item quantity="one">Rochtain ar 1 fhillteán/chomhad</item>
+    </plurals>
+</resources>

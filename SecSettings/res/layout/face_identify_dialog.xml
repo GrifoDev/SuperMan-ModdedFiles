@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_gravity="center" android:id="@id/identify_dialog_background" android:background="@drawable/face_dialog_bg" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:orientation="vertical" android:id="@id/identify_animation_box" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_centerInParent="true">
+        <FrameLayout android:orientation="horizontal" android:id="@id/identify_title_area" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="0.0dip">
+            <TextView android:textSize="16.0dip" android:ellipsize="marquee" android:gravity="center" android:id="@id/identify_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:ems="10" android:singleLine="true" />
+            <TextView android:textSize="18.0dip" android:gravity="start" android:id="@id/timeout_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginStart="24.0dip" />
+        </FrameLayout>
+        <RelativeLayout android:id="@id/identify_info_box" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="8.0dip" android:minHeight="100.0dip" android:layout_below="@id/identify_title_area">
+            <ImageView android:gravity="center" android:id="@id/identify_error_image" android:layout_width="46.0dip" android:layout_height="46.0dip" android:layout_centerVertical="true" android:layout_marginStart="12.0dip" android:layout_alignParentStart="true" />
+            <TextView android:textSize="16.0dip" android:textColor="#ff252525" android:gravity="start|center" android:id="@id/identify_dialog_info_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="5" android:layout_centerVertical="true" android:layout_marginStart="9.0dip" android:layout_marginEnd="24.0dip" android:layout_toEndOf="@id/identify_error_image" />
+        </RelativeLayout>
+        <TextView android:textSize="16.0dip" android:textColor="#ff252525" android:gravity="start|center" android:id="@id/insecure_biometrics_description" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:layout_marginBottom="24.0dip" android:maxLines="5" android:layout_below="@id/identify_info_box" android:layout_marginStart="67.0dip" android:layout_marginEnd="24.0dip" />
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/backupButtonContainer" android:layout_width="fill_parent" android:layout_height="42.0dip" android:layout_marginBottom="8.0dip" android:weightSum="3.0" android:layout_below="@id/insecure_biometrics_description">
+            <View android:layout_width="wrap_content" android:layout_height="42.0dip" android:layout_weight="1.0" />
+            <Button android:textSize="16.0dip" android:textColor="#ff000000" android:gravity="center" android:id="@id/backup_password_button" android:background="@drawable/face_button_background" android:focusable="true" android:layout_width="wrap_content" android:layout_height="42.0dip" android:text="@string/face_backup_password" android:fontFamily="sec-roboto-condensed" android:paddingStart="15.0dip" android:paddingEnd="15.0dip" />
+            <View android:layout_width="wrap_content" android:layout_height="42.0dip" android:layout_weight="1.0" />
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

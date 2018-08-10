@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.samsung.android.settings.vzwbixbysetupwizard.view.BixbyModeSwitcherView android:gravity="right" android:id="@id/mode_swicther" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/mode_switcher_text" style="@style/Vzw_Bixby_Switch_Mode_Text" />
+</com.samsung.android.settings.vzwbixbysetupwizard.view.BixbyModeSwitcherView>

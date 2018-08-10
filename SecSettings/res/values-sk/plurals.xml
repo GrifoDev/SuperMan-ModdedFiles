@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="accessibilty_autoclick_preference_subtitle_extremely_short_delay">
+        <item quantity="other">Extrémne krátke oneskorenie (%s ms)</item>
+        <item quantity="one">Extrémne krátke oneskorenie (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_long_delay">
+        <item quantity="other">Dlhé oneskorenie (%s ms)</item>
+        <item quantity="one">Dlhé oneskorenie (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_short_delay">
+        <item quantity="other">Krátke oneskorenie (%s ms)</item>
+        <item quantity="one">Krátke oneskorenie (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_long_delay">
+        <item quantity="other">Veľmi dlhé oneskorenie (%s ms)</item>
+        <item quantity="one">Veľmi dlhé oneskorenie (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_short_delay">
+        <item quantity="other">Veľmi krátke oneskorenie (%s ms)</item>
+        <item quantity="one">Veľmi krátke oneskorenie (%s ms)</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d aplikáciám bolo povolené používanie dátového pripojenia bez obmedzení</item>
+        <item quantity="one">1 aplikácia má povolené používanie dátového pripojenia bez obmedzení</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary_chn">
+        <item quantity="other">%d aplikáciám bolo povolené používanie mobilného dátového pripojenia bez obmedzení, kým je zapnutá funkcia Obmedziť dátové prenosy na pozadí.</item>
+        <item quantity="one">%d aplikáciám bolo povolené používanie mobilného dátového pripojenia bez obmedzení, kým je zapnutá funkcia Obmedziť dátové prenosy na pozadí.</item>
+    </plurals>
+    <plurals name="deleted_channels">
+        <item quantity="other">Vykonalo sa odstránenie %d kategórií</item>
+        <item quantity="one">1 kategória bola odstránená</item>
+    </plurals>
+    <plurals name="dex_timeout_day">
+        <item quantity="other">Dni: %d</item>
+        <item quantity="one">1 deň</item>
+    </plurals>
+    <plurals name="dex_timeout_hour">
+        <item quantity="other">%d hodín</item>
+        <item quantity="one">1 hodina</item>
+    </plurals>
+    <plurals name="dex_timeout_minute">
+        <item quantity="other">Počet minút: %d</item>
+        <item quantity="one">1 minúta</item>
+    </plurals>
+    <plurals name="dex_timeout_second">
+        <item quantity="other">Počet sekúnd: %d</item>
+        <item quantity="one">1 sekunda</item>
+    </plurals>
+    <plurals name="dex_timeout_week">
+        <item quantity="other">Týždne: %d</item>
+        <item quantity="one">1 týždeň</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Odstránenie vybratých jazykov</item>
+        <item quantity="one">Odstránenie vybratého jazyka</item>
+    </plurals>
+    <plurals name="enterprise_privacy_number_packages_lower_bound">
+        <item quantity="other">Minimálne %d aplikácií</item>
+        <item quantity="one">Minimálne %d aplikácia</item>
+        <item quantity="few">Minimálne %d aplikácie</item>
+        <item quantity="many">Minimálne %d aplikácie</item>
+    </plurals>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d hodín</item>
+        <item quantity="one">1 hodina</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">Počet minút: %d</item>
+        <item quantity="one">1 minúta</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">Počet sekúnd: %d</item>
+        <item quantity="one">1 sekunda</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Heslo musí obsahovať aspoň %d písmen.</item>
+        <item quantity="one">Heslo musí obsahovať aspoň 1 písmeno.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Heslo musí obsahovať aspoň %d malých písmen.</item>
+        <item quantity="one">Heslo musí obsahovať aspoň 1 malé písmeno.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Heslo musí obsahovať aspoň %d číslic alebo symbolov.</item>
+        <item quantity="one">Heslo musí obsahovať aspoň 1 číslicu alebo symbol.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Heslo musí obsahovať aspoň %d číslic.</item>
+        <item quantity="one">Heslo musí obsahovať aspoň 1 číslicu.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Heslo musí obsahovať aspoň %d symbolov.</item>
+        <item quantity="one">Heslo musí obsahovať aspoň 1 symbol.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Heslo musí obsahovať aspoň %d veľkých písmen.</item>
+        <item quantity="one">Heslo musí obsahovať aspoň 1 veľké písmeno.</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">Aplikácie v počte %d môžu čítať oznámenia.</item>
+        <item quantity="one">Aplikácie v počte %d majú povolené čítať oznámenia.</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">Počas poslednej %2$s sa pamäť RAM využívala v %1$d procesoch</item>
+        <item quantity="one">Počas poslednej %2$s sa pamäť RAM využívala v %1$d procese</item>
+    </plurals>
+    <plurals name="network_restrictions_summary">
+        <item quantity="other">%d obmedzenia/obmedzení</item>
+        <item quantity="one">1 obmedzenie</item>
+    </plurals>
+    <plurals name="notification_summary">
+        <item quantity="other">Vypnuté pre %d aplikácie/aplikácií</item>
+        <item quantity="one">Vypnuté pre 1 aplikáciu</item>
+    </plurals>
+    <plurals name="number_of_device_admins">
+        <item quantity="other">Aktívne aplikácie: %d</item>
+        <item quantity="one">1 aktívna aplikácia</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">Ďalšie povolenia: %d</item>
+        <item quantity="one">%d ďalšie povolenie</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Teraz vás delia iba %d kroky od toho, aby z vás bol vývojár.</item>
+        <item quantity="one">Teraz ste iba 1 krok od toho, aby z vás bol vývojár.</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_dialog_title">
+        <item quantity="other">Dôverov. certifikátom alebo ich odstránenie</item>
+        <item quantity="one">Dôverov. certifikátu alebo jeho odstránenie</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message">
+        <item quantity="other">"Správca %s nainštaloval certifikačné úrady pre váš pracovný profil, ktorý mu umožňuje sledovať aktivitu pracovnej siete vrátane e-mailov, aplikácií a zabezpečených webových lokalít. Môžete zvoliť, či chcete týmto certifikátom dôverovať alebo ich odstrániť.
+
+Ďalšie informácie o týchto certifikátoch získate od svojho správcu."</item>
+        <item quantity="one">"Správca %s nainštaloval certifikačný úrad pre váš pracovný profil, ktorý mu umožňuje sledovať aktivitu pracovnej siete vrátane e-mailov, aplikácií a zabezpečených webových lokalít. Môžete zvoliť, či chcete tomuto certifikátu dôverovať alebo ho odstrániť.
+
+Ďalšie informácie o tomto certifikáte získate od svojho správcu."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s nainštaloval do vášho zariadenia certifikáty certifikačného úradu, ktoré mu môžu umožniť sledovanie sieťovej aktivity vášho zariadenia vrátane vášho využívania e-mailov, aplikácií a bezpečných webových lokalít.
+
+Ďalšie informácie o týchto certifikátoch získate od svojho správcu IT."</item>
+        <item quantity="one">"%s nainštaloval do vášho zariadenia certifikát certifikačného úradu, ktorý mu môže umožniť sledovanie sieťovej aktivity vášho zariadenia vrátane vášho využívania e-mailov, aplikácií a bezpečných webových lokalít.
+
+Ďalšie informácie o tomto certifikáte získate od svojho správcu IT."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_settings_button">
+        <item quantity="other">Skontrolovať certifikáty</item>
+        <item quantity="one">Skontrolovať certifikát</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Prístup k %d priečinkom/súborom</item>
+        <item quantity="one">Prístup k 1 priečinku/súboru</item>
+    </plurals>
+</resources>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resource-map>
+    <color>
+        <match overlay="font_bg_color">
+            <original>dashboard_suggestion_stub_bg_color</original>
+        </match>
+        <match overlay="list_divider_color">
+            <original>dashboard_suggestion_dummy_header_bg_color</original>
+            <original>device_info_devider_color</original>
+            <original>device_info_button_border_color</original>
+        </match>
+        <match overlay="datausage_help_more_info_title_text_color">
+            <original>dashboard_suggestion_title_color</original>
+        </match>
+        <match overlay="winset_reorder_drag_handler">
+            <original>dashboard_suggestion_expander_tint_color</original>
+        </match>
+        <match overlay="ic_list_item_config_normal_color">
+            <original>recent_search_clear_history_button_color</original>
+        </match>
+        <match overlay="font_bg_color">
+            <original>round_button_empty_bg</original>
+        </match>
+        <match overlay="volume_icon_color">
+            <original>default_profile_image_color</original>
+        </match>
+        <match overlay="body_text_color">
+            <original>pressure_test_description_color</original>
+        </match>
+        <match overlay="relative_link_text_color">
+            <original>device_info_device_name_text_color</original>
+            <original>device_info_device_name_button_text_color</original>
+            <original>device_info_info_chart_text_color</original>
+        </match>
+        <match overlay="dashboard_maintenance_color">
+            <original>dashboard_hotspot_tethering_color</original>
+        </match>
+    </color>
+</resource-map>

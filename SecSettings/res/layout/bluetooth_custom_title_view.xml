@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:paddingLeft="@dimen/bluetooth_dialog_title_view_padding" android:paddingTop="@dimen/bluetooth_dialog_title_view_padding" android:paddingRight="@dimen/bluetooth_dialog_title_view_padding" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="@style/BluetoothScanDialogTitleStyle" android:id="@id/title_header" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/bluetooth_settings" android:layout_weight="1.0" />
+    <ProgressBar android:gravity="right" android:layout_gravity="center" android:id="@id/progress" android:layout_width="@dimen/bluetooth_dialog_progressbar_size" android:layout_height="@dimen/bluetooth_dialog_progressbar_size" android:layout_weight="0.0" style="?android:progressBarStyleSmall" />
+</LinearLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@id/instant_app_button_container" android:paddingTop="4.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="8.0dip" android:paddingEnd="8.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Button android:enabled="false" android:layout_gravity="center" android:id="@id/install" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/install_text" android:layout_weight="1.0" style="@style/AppActionPrimaryButton" />
+    <Button android:layout_gravity="center" android:id="@id/clear_data" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/clear_instant_app_data" android:layout_weight="1.0" />
+</LinearLayout>

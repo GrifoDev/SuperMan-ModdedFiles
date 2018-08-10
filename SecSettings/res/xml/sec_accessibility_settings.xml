@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:persistent="true" android:title="@string/accessibility_settings"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <PreferenceCategory android:title="@string/accessibility_categories_title" android:key="categories_category">
+        <SecPreference android:title="@string/accessibility_vision_category" android:key="vision_preferences" android:fragment="com.samsung.android.settings.accessibility.AccessibilitySettingsVision" />
+        <SecPreference android:title="@string/audio_preference_title" android:key="audio_preference_key" android:fragment="com.samsung.android.settings.accessibility.AccessibilitySettingsHearing" />
+        <SecPreference android:title="@string/mobility_and_cognitive_title" android:key="mobility_preference_key" android:fragment="com.samsung.android.settings.accessibility.AccessibilitySettingsMobility" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/app_info_more_settings" android:key="moresettings_category">
+        <SecPreference android:title="@string/tts_settings_title" android:key="tts_settings_preference" android:fragment="com.android.settings.tts.TextToSpeechSettings" />
+        <SecPreference android:title="@string/direction_lock_title" android:key="direction_lock" android:summary="@string/direction_lock_summary" android:fragment="com.samsung.android.settings.accessibility.directionlock.DirectionLockSplashActivity" />
+        <SecPreference android:title="@string/direct_access_title" android:key="direct_access" android:summary="@string/direct_access_description" android:fragment="com.samsung.android.settings.accessibility.directaccess.DirectAccessFragment" />
+        <SecPreference android:title="@string/accessibility_global_gesture_preference_title" android:key="accessibility_shortcut_preference" android:fragment="com.android.settings.accessibility.AccessibilityShortcutPreferenceFragment" />
+        <SecPreference android:title="@string/accessibility_notification_reminder" android:key="notification_preference" android:fragment="com.samsung.android.settings.accessibility.notificationreminder.NotificationReminderPreferenceFragment" />
+        <SecPreference android:title="@string/answering_end_call_title" android:key="call_answering_ending" />
+        <SecSwitchPreference android:persistent="false" android:title="@string/accessibility_easy_interaction_preference_title" android:key="toggle_easy_interaction_preference" android:summary="@string/accessibility_easy_interaction_summary" />
+        <SecPreference android:title="@string/share_accessibility_settings" android:key="share_acc_setting_menu" android:summary="@string/share_accessibility_settings_summary" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/accessibility_services_category" android:key="services_category" />
+</PreferenceScreen>

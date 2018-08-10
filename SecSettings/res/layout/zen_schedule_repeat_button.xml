@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/zen_mode_schedule_repeat_text_size" android:textColor="?android:textColorPrimary" android:gravity="start|center" android:layout_gravity="start" android:id="@id/repeat_text" android:clickable="false" android:layout_width="wrap_content" android:layout_height="@dimen/zen_mode_schedule_repeat_textview_height" android:layout_marginTop="@dimen/zen_mode_schedule_repeat_text_margin_top" android:text="@string/zen_mode_downtime_days" android:fontFamily="sans-serif" android:layout_marginStart="@dimen/zen_mode_schedule_repeat_text_margin_left" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/repeat_btn_group" android:layout_width="fill_parent" android:layout_height="@dimen/zen_mode_schedule_repeat_btn_group_layout_height" android:layout_below="@id/repeat_text" android:layout_marginStart="@dimen/zen_mode_schedule_repeat_btn_layout_start_end_margin" android:layout_marginEnd="@dimen/zen_mode_schedule_repeat_btn_layout_start_end_margin">
+        <ToggleButton android:id="@id/repeat_0" android:textOn="@string/sun" android:textOff="@string/sun" style="@style/alarm_repeat_toggle_style" />
+        <ToggleButton android:id="@id/repeat_1" android:textOn="@string/mon" android:textOff="@string/mon" style="@style/alarm_repeat_toggle_style" />
+        <ToggleButton android:id="@id/repeat_2" android:textOn="@string/tue" android:textOff="@string/tue" style="@style/alarm_repeat_toggle_style" />
+        <ToggleButton android:id="@id/repeat_3" android:textOn="@string/wed" android:textOff="@string/wed" style="@style/alarm_repeat_toggle_style" />
+        <ToggleButton android:id="@id/repeat_4" android:textOn="@string/thu" android:textOff="@string/thu" style="@style/alarm_repeat_toggle_style" />
+        <ToggleButton android:id="@id/repeat_5" android:textOn="@string/fri" android:textOff="@string/fri" style="@style/alarm_repeat_toggle_style" />
+        <ToggleButton android:id="@id/repeat_6" android:textOn="@string/sat" android:textOff="@string/sat" style="@style/alarm_repeat_toggle_style" />
+    </LinearLayout>
+</RelativeLayout>

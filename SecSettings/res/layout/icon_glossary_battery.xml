@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:helphub="http://schemas.android.com/apk/res/com.samsung.helphub">
+    <TextView android:id="@id/help_page_title_battery" android:text="@string/item_icon_glossary_battery" style="?android:listSeparatorTextViewStyle" />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/help_page_title_battery">
+        <LinearLayout android:id="@id/battery_full_battery" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:id="@id/battery_full_battery_image" android:src="@drawable/battery_battery_full" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_battery_battery_full" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/battery_charging_battery" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:id="@id/battery_charging_battery_image" android:src="@drawable/battery_charging_battery" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_battery_charging_battery" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/battery_battery_low" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:id="@id/battery_battery_low_image" android:src="@drawable/battery_battery_low" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_battery_battery_low" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/battery_battery_critically_low" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:id="@id/battery_battery_critically_low_image" android:src="@drawable/battery_battery_critically_low" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_battery_battery_critically_low" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

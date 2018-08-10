@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/account_settings_title" settings:keywords="@string/keywords_accounts"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <Preference android:layout="@layout/account_header" android:selectable="false" android:key="account_header" android:order="-10000" />
+    <Preference android:icon="@drawable/ic_sync" android:title="@string/account_sync_title" android:key="account_sync" android:order="-9999" />
+    <PreferenceCategory android:key="dashboard_tile_placeholder" android:order="-9998" />
+    <SecPreferenceCategory android:order="999" />
+    <com.android.settings.applications.LayoutPreference android:layout="@layout/remove_account_button" android:selectable="false" android:key="remove_account" android:order="1000" />
+</PreferenceScreen>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingTop="@dimen/seekbar_preference_item_top_padding" android:paddingBottom="@dimen/seekbar_preference_item_bottom_padding" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:layout_gravity="start" android:id="@id/magnifier_zoom" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/zoom_percentage" android:paddingStart="@dimen/list_item_start_padding" android:paddingEnd="@dimen/list_item_start_padding" style="@style/list_title_text_style" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="horizontal" android:id="@id/zoom_layer" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/magnifier_seekbar_start_padding" android:paddingEnd="@dimen/magnifier_seekbar_end_padding">
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/zoom_minus" android:background="?android:selectableItemBackgroundBorderless" android:layout_width="@dimen/volume_seekbar_icon_size" android:layout_height="@dimen/volume_seekbar_icon_size" android:src="@drawable/tw_list_icon_minus_mtrl" android:scaleType="center" android:contentDescription="@string/magnifier_seekbar_minus_tts" />
+            <SeekBar android:layout_gravity="center_vertical" android:id="@id/zoom_seekbar" android:focusable="true" android:layout_width="0.0dip" android:layout_height="wrap_content" android:minHeight="@dimen/accessibility_seekbar_min_height" android:layout_weight="1.0" />
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/zoom_plus" android:background="?android:selectableItemBackgroundBorderless" android:layout_width="@dimen/volume_seekbar_icon_size" android:layout_height="@dimen/volume_seekbar_icon_size" android:src="@drawable/tw_list_icon_create_mtrl" android:scaleType="center" android:contentDescription="@string/magnifier_seekbar_plus_tts" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

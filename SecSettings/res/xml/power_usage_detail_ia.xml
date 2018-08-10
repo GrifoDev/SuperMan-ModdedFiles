@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.settings.applications.LayoutPreference android:layout="@layout/app_details" android:selectable="false" android:key="header_view" android:order="-10000" />
+    <com.android.settings.applications.LayoutPreference android:layout="@layout/sec_app_action_buttons" android:selectable="false" android:key="action_buttons" android:order="-9999" />
+    <PreferenceCategory android:title="@string/battery_detail_info_title">
+        <Preference android:title="@string/battery_detail_foreground" android:key="app_usage_foreground" />
+        <Preference android:title="@string/battery_detail_background" android:key="app_usage_background" />
+        <Preference android:title="@string/battery_detail_power_usage" android:key="app_power_usage" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/battery_detail_manage_title">
+        <SwitchPreference android:title="@string/background_activity_title" android:selectable="true" android:key="background_activity" />
+        <Preference android:title="@string/high_power_apps" android:selectable="true" android:key="battery_optimization" android:summary="@string/high_power_off" />
+    </PreferenceCategory>
+</PreferenceScreen>

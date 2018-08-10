@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingTop="@dimen/list_item_top_padding" android:layout_width="fill_parent" android:layout_height="fill_parent" style="@style/list_item_container_style"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:layout_gravity="center" android:id="@id/preview_area" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="13.0dip">
+        <ImageView android:id="@id/preview_bg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/help_navigationbar_bg" />
+        <ImageView android:id="@id/preview_device_image" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/help_navigationbar_image" />
+        <ImageView android:id="@id/preview_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/help_navigationbar_icon" />
+    </FrameLayout>
+    <TextView android:textAppearance="?android:textAppearanceSmall" android:textColor="@color/body_text_color" android:id="@id/summary" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginBottom="@dimen/list_item_top_padding" android:text="@string/navigationbar_color_summary" />
+    <GridView android:id="@id/gridView" android:layout_width="fill_parent" android:layout_height="@dimen/navigationbar_color_gridview_height" android:listSelector="#00000000" android:horizontalSpacing="20.0dip" android:verticalSpacing="5.0dip" android:numColumns="5" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" />
+</LinearLayout>

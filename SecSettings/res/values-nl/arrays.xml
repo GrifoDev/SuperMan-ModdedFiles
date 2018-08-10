@@ -1,0 +1,872 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="allshare_download_to">
+        <item>Apparaat</item>
+        <item>SD-kaart</item>
+    </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>Animatie is uit.</item>
+        <item>Animatieschaal 0.5 x</item>
+        <item>Animatieschaal 1 x</item>
+        <item>Animatieschaal 1.5 x</item>
+        <item>Animatieschaal 2 x</item>
+        <item>Animatieschaal 5 x</item>
+        <item>Animatieschaal 10 x</item>
+    </string-array>
+    <string-array name="apn_auth_entries">
+        <item>Geen</item>
+        <item>PAP</item>
+        <item>CHAP</item>
+        <item>PAP of CHAP</item>
+    </string-array>
+    <string-array name="apn_protocol_entries">
+        <item>IPv4</item>
+        <item>IPv6</item>
+        <item>IPv4/IPv6</item>
+    </string-array>
+    <string-array name="app_install_location_entries">
+        <item>Interne apparaatopslag</item>
+        <item>Verwisselbare SD-kaart</item>
+        <item>Het systeem laten bepalen</item>
+    </string-array>
+    <string-array name="app_ops_categories">
+        <item>Locatie</item>
+        <item>Persoonlijk</item>
+        <item>Berichten</item>
+        <item>Media</item>
+        <item>Apparaat</item>
+        <item>Auto run</item>
+    </string-array>
+    <string-array name="app_ops_labels">
+        <item>Locatie</item>
+        <item>Locatie</item>
+        <item>Locatie</item>
+        <item>Trillen</item>
+        <item>Contacten lezen</item>
+        <item>Contacten aanpassen</item>
+        <item>Gesprekkenlijst lezen</item>
+        <item>Gesprekkenlijst aanpassen</item>
+        <item>Agenda lezen</item>
+        <item>Agenda aanpassen</item>
+        <item>Locatie</item>
+        <item>Melding verzenden</item>
+        <item>Locatie</item>
+        <item>Nummer bellen</item>
+        <item>Sms/mms lezen</item>
+        <item>Sms/mms schrijven</item>
+        <item>Sms/mms ontvangen</item>
+        <item>Sms/mms ontvangen</item>
+        <item>Sms/mms ontvangen</item>
+        <item>Sms/mms ontvangen</item>
+        <item>Sms/mms verzenden</item>
+        <item>Sms/mms lezen</item>
+        <item>Sms/mms schrijven</item>
+        <item>Instellingen aanpassen</item>
+        <item>Bovenop tekenen</item>
+        <item>Toegang tot meldingen</item>
+        <item>Camera</item>
+        <item>Audio opnemen</item>
+        <item>Audio afspelen</item>
+        <item>Klembord lezen</item>
+        <item>Klembord aanpassen</item>
+        <item>Mediaknoppen</item>
+        <item>Audiofocus</item>
+        <item>Hoofdvolume</item>
+        <item>Stemvolume</item>
+        <item>Beltoonvolume</item>
+        <item>Mediavolume</item>
+        <item>Alarmvolume</item>
+        <item>Meldingsvolume</item>
+        <item>Bluetooth-volume</item>
+        <item>Ingeschakeld houden</item>
+        <item>Locatie</item>
+        <item>Locatie</item>
+        <item>Gebruiksstatistieken ophalen</item>
+        <item>Microfoon dempen/dempen opheffen</item>
+        <item>Toast weergeven</item>
+        <item>Media projecteren</item>
+        <item>VPN activeren</item>
+        <item>Achtergrond schrijven</item>
+        <item>Structuur voor ondersteuning</item>
+        <item>Screenshot voor ondersteuning</item>
+        <item>Telefoonstatus lezen</item>
+        <item>Voicemail toevoegen</item>
+        <item>SIP gebruiken</item>
+        <item>Uitgaande oproep verwerken</item>
+        <item>Vingerafdruk</item>
+        <item>Lichaamssensoren</item>
+        <item>Cell broadcasts lezen</item>
+        <item>Neplocatie</item>
+        <item>Opslag lezen</item>
+        <item>Schrijven naar opslag</item>
+        <item>Scherm inschakelen</item>
+        <item>Accounts ophalen</item>
+        <item>Uitvoeren op de achtergrond</item>
+        <item>Toegankelijkheidsvolume</item>
+    </string-array>
+    <string-array name="app_ops_summaries">
+        <item>geschatte locatie</item>
+        <item>nauwkeurige locatie</item>
+        <item>gps</item>
+        <item>trillen</item>
+        <item>contacten lezen</item>
+        <item>contacten aanpassen</item>
+        <item>gesprekkenlijst lezen</item>
+        <item>gesprekkenlijst aanpassen</item>
+        <item>agenda lezen</item>
+        <item>agenda aanpassen</item>
+        <item>wifi-scan</item>
+        <item>melding</item>
+        <item>mobiele scan</item>
+        <item>nummer bellen</item>
+        <item>sms lezen</item>
+        <item>sms schrijven</item>
+        <item>sms ontvangen</item>
+        <item>nood-sms ontvangen</item>
+        <item>mms ontvangen</item>
+        <item>WAP-push ontvangen</item>
+        <item>sms verzenden</item>
+        <item>ICC sms lezen</item>
+        <item>ICC sms schrijven</item>
+        <item>instellingen aanpassen</item>
+        <item>bovenop tekenen</item>
+        <item>toegang tot meldingen</item>
+        <item>camera</item>
+        <item>audio opnemen</item>
+        <item>audio afspelen</item>
+        <item>klembord lezen</item>
+        <item>klembord aanpassen</item>
+        <item>mediaknoppen</item>
+        <item>audiofocus</item>
+        <item>hoofdvolume</item>
+        <item>stemvolume</item>
+        <item>beltoonvolume</item>
+        <item>mediavolume</item>
+        <item>alarmvolume</item>
+        <item>meldingsvolume</item>
+        <item>bluetooth-volume</item>
+        <item>ingeschakeld houden</item>
+        <item>monitorlocatie</item>
+        <item>locatie met hoog energieverbruik controleren</item>
+        <item>gebruiksstatistieken ophalen</item>
+        <item>microfoon dempen/dempen opheffen</item>
+        <item>toast weergeven</item>
+        <item>media projecteren</item>
+        <item>VPN activeren</item>
+        <item>achtergrond schrijven</item>
+        <item>structuur voor ondersteuning</item>
+        <item>screenshot voor ondersteuning</item>
+        <item>telefoonstatus lezen</item>
+        <item>voicemail toevoegen</item>
+        <item>SIP gebruiken</item>
+        <item>uitgaande oproep verwerken</item>
+        <item>vingerafdruk</item>
+        <item>lichaamssensoren</item>
+        <item>cell broadcasts lezen</item>
+        <item>neplocatie</item>
+        <item>opslag lezen</item>
+        <item>schrijven naar opslag</item>
+        <item>scherm inschakelen</item>
+        <item>accounts ophalen</item>
+        <item>uitvoeren op de achtergrond</item>
+        <item>toegankelijkheidsvolume</item>
+    </string-array>
+    <string-array name="app_process_limit_entries">
+        <item>Standaardlimiet</item>
+        <item>Geen achtergrondprocessen</item>
+        <item>Maximaal 1 proces</item>
+        <item>Maximaal 2 processen</item>
+        <item>Maximaal 3 processen</item>
+        <item>Maximaal 4 processen</item>
+    </string-array>
+    <string-array name="automatic_storage_management_days">
+        <item>Meer dan 30 dagen oud</item>
+        <item>Meer dan 60 dagen oud</item>
+        <item>Meer dan 90 dagen oud</item>
+    </string-array>
+    <string-array name="bearer_entries">
+        <item>Niet-gespecificeerd</item>
+        <item>LTE</item>
+        <item>HSPAP</item>
+        <item>HSPA</item>
+        <item>HSUPA</item>
+        <item>HSDPA</item>
+        <item>UMTS</item>
+        <item>EDGE</item>
+        <item>GPRS</item>
+        <item>eHRPD</item>
+        <item>EVDO_B</item>
+        <item>EVDO_A</item>
+        <item>EVDO_0</item>
+        <item>1xRTT</item>
+        <item>IS95B</item>
+        <item>IS95A</item>
+        <item>IWLAN</item>
+    </string-array>
+    <string-array name="bearer_entries_dcm_kdi">
+        <item>Niet-gespecificeerd</item>
+        <item>4G</item>
+        <item>HSPAP</item>
+        <item>HSPA</item>
+        <item>HSUPA</item>
+        <item>HSDPA</item>
+        <item>UMTS</item>
+        <item>EDGE</item>
+        <item>GPRS</item>
+        <item>eHRPD</item>
+        <item>EVDO_B</item>
+        <item>EVDO_A</item>
+        <item>EVDO_0</item>
+        <item>1xRTT</item>
+        <item>IS95B</item>
+        <item>IS95A</item>
+        <item>IWLAN</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_bits_per_sample_summaries">
+        <item>Systeemselectie gebruiken (standaard)</item>
+        <item>16 bits per sample</item>
+        <item>24 bits per sample</item>
+        <item>32 bits per sample</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_bits_per_sample_titles">
+        <item>Systeemselectie gebruiken (standaard)</item>
+        <item>16 bits per sample</item>
+        <item>24 bits per sample</item>
+        <item>32 bits per sample</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_channel_mode_summaries">
+        <item>Systeemselectie gebruiken (standaard)</item>
+        <item>Mono</item>
+        <item>Stereo</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_channel_mode_titles">
+        <item>Systeemselectie gebruiken (standaard)</item>
+        <item>Mono</item>
+        <item>Stereo</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_ldac_playback_quality_summaries">
+        <item>Geoptimaliseerd voor audiokwaliteit</item>
+        <item>Gebalanceerde audio- en verbindingskwaliteit</item>
+        <item>Geoptimaliseerd voor verbindingskwaliteit</item>
+        <item>Beste mogelijkheid (aanpasbare bitsnelheid)</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_ldac_playback_quality_titles">
+        <item>Geoptimaliseerd voor audiokwaliteit (990 kbps/909 kbps)</item>
+        <item>Gebalanceerde audio- en verbindingskwaliteit (660 kbps/606 kbps)</item>
+        <item>Geoptimaliseerd voor verbindingskwaliteit (330 kbps/303 kbps)</item>
+        <item>Beste mogelijkheid (aanpasbare bitsnelheid)</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_sample_rate_summaries">
+        <item>Systeemselectie gebruiken (standaard)</item>
+        <item>44,1 kHz</item>
+        <item>48,0 kHz</item>
+        <item>88,2 kHz</item>
+        <item>96,0 kHz</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_sample_rate_titles">
+        <item>Systeemselectie gebruiken (standaard)</item>
+        <item>44,1 kHz</item>
+        <item>48,0 kHz</item>
+        <item>88,2 kHz</item>
+        <item>96,0 kHz</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_summaries">
+        <item>Systeemselectie gebruiken (standaard)</item>
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>aptX HD</item>
+        <item>LDAC</item>
+        <item>Optionele codecs inschakelen</item>
+        <item>Optionele codecs uitschakelen</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_titles">
+        <item>Systeemselectie gebruiken (standaard)</item>
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>aptX HD</item>
+        <item>LDAC</item>
+        <item>Optionele codecs inschakelen</item>
+        <item>Optionele codecs uitschakelen</item>
+    </string-array>
+    <string-array name="bluetooth_avrcp_versions">
+        <item>AVRCP 1.4 (standaard)</item>
+        <item>AVRCP 1.5</item>
+        <item>AVRCP 1.6</item>
+    </string-array>
+    <string-array name="bluetooth_ss_a2dp_codec_summaries">
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>Alle codecs</item>
+        <item>Standaardcodec</item>
+    </string-array>
+    <string-array name="bluetooth_ss_a2dp_codec_titles">
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>Alle codecs</item>
+        <item>Standaardcodec</item>
+    </string-array>
+    <string-array name="bluetooth_ss_japan_a2dp_codec_titles">
+        <item>SBC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>Alle codecs</item>
+        <item>Standaardcodec</item>
+    </string-array>
+    <string-array name="bluetooth_visibility_timeout_entries">
+        <item>2 minuten</item>
+        <item>5 minuten</item>
+        <item>1 uur</item>
+        <item>Geen time-out</item>
+    </string-array>
+    <string-array name="captioning_edge_type_selector_titles">
+        <item>Standaard</item>
+        <item>Geen</item>
+        <item>Omtrek</item>
+        <item>Slagschaduw</item>
+        <item>Verhoogd</item>
+        <item>Ingedrukt</item>
+    </string-array>
+    <string-array name="captioning_font_size_selector_titles">
+        <item>Heel klein</item>
+        <item>Klein</item>
+        <item>Normaal</item>
+        <item>Groot</item>
+        <item>Zeer groot</item>
+    </string-array>
+    <string-array name="captioning_opacity_selector_titles">
+        <item>25%</item>
+        <item>50%</item>
+        <item>75%</item>
+        <item>100%</item>
+    </string-array>
+    <string-array name="captioning_preset_selector_titles">
+        <item>Standaard</item>
+        <item>Wit op zwart</item>
+        <item>Zwart op wit</item>
+        <item>Geel op zwart</item>
+        <item>Geel op blauw</item>
+        <item>Aangepast</item>
+    </string-array>
+    <string-array name="captioning_typeface_selector_titles">
+        <item>Standaard</item>
+        <item>Sans serif</item>
+        <item>Sans serif condensed</item>
+        <item>Sans serif monospace</item>
+        <item>Serif</item>
+        <item>Serif monospace</item>
+        <item>Normaal</item>
+        <item>Cursief</item>
+        <item>Kleine hoofdletters</item>
+    </string-array>
+    <string-array name="color_adjust_type_entries">
+        <item>Grijswaarden</item>
+        <item>Protanoop (rood-groen)</item>
+        <item>Deuteranomaal (groen-rood)</item>
+        <item>Tritanomaal (blauw-geel)</item>
+        <item>Gepersonaliseerde kleur</item>
+    </string-array>
+    <string-array name="color_lens_entries">
+        <item>Blauw</item>
+        <item>Azuurblauw</item>
+        <item>Cyaan</item>
+        <item>Lentegroen</item>
+        <item>Groen</item>
+        <item>Groengeel</item>
+        <item>Geel</item>
+        <item>Oranje</item>
+        <item>Rood</item>
+        <item>Roze</item>
+        <item>Magenta</item>
+        <item>Paars</item>
+    </string-array>
+    <string-array name="color_mode_descriptions">
+        <item>Verbeterde kleuren</item>
+        <item>Natuurlijke kleuren zoals gezien door het menselijk oog</item>
+        <item>Kleuren geoptimaliseerd voor digitale content</item>
+    </string-array>
+    <string-array name="color_mode_names">
+        <item>Levendig (standaard)</item>
+        <item>Natuurlijk</item>
+        <item>Standaard</item>
+    </string-array>
+    <string-array name="color_picker">
+        <item>Blauwgroen</item>
+        <item>Blauw</item>
+        <item>Indigo</item>
+        <item>Paars</item>
+        <item>Roze</item>
+        <item>Rood</item>
+    </string-array>
+    <string-array name="data_usage_data_range">
+        <item>Afgelopen 30 dagen</item>
+        <item>Gebruikscyclus instellen…</item>
+    </string-array>
+    <string-array name="data_usage_display_unit">
+        <item>MB/GB (auto change)</item>
+        <item>MB only</item>
+        <item>GB only</item>
+    </string-array>
+    <string-array name="debug_hw_overdraw_entries">
+        <item>Uit</item>
+        <item>Gedeeltes met overbelasting weergeven</item>
+        <item>Gebieden voor deuteranomalie weergeven</item>
+    </string-array>
+    <string-array name="debug_hw_renderer_entries">
+        <item>OpenGL (standaard)</item>
+        <item>OpenGL (Skia)</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>Meteen met de aan/uit-toets of bij time-out scherm</item>
+        <item>5 seconden</item>
+        <item>15 seconden</item>
+        <item>30 seconden</item>
+        <item>1 minuut</item>
+        <item>2 minuten</item>
+        <item>5 minuten</item>
+        <item>10 minuten</item>
+        <item>30 minuten</item>
+    </string-array>
+    <string-array name="dex_timeout_entries">
+        <item>15 seconden</item>
+        <item>30 seconden</item>
+        <item>1 minuut</item>
+        <item>2 minuten</item>
+        <item>5 minuten</item>
+        <item>10 minuten</item>
+        <item>20 minuten</item>
+        <item>30 minuten</item>
+        <item>60 minuten</item>
+    </string-array>
+    <string-array name="dream_timeout_entries">
+        <item>Nooit</item>
+        <item>15 seconden</item>
+        <item>30 seconden</item>
+        <item>1 minuut</item>
+        <item>2 minuten</item>
+        <item>5 minuten</item>
+        <item>10 minuten</item>
+        <item>30 minuten</item>
+    </string-array>
+    <string-array name="eap_method_without_sim_auth">
+        <item>PEAP</item>
+        <item>TLS</item>
+        <item>TTLS</item>
+        <item>PWD</item>
+    </string-array>
+    <string-array name="enable_opengl_traces_entries">
+        <item>Geen</item>
+        <item>Logcat</item>
+        <item>Systrace (graphics)</item>
+        <item>Oproepstack op glGetError</item>
+    </string-array>
+    <string-array name="entries_font_size">
+        <item>Klein</item>
+        <item>Standaard</item>
+        <item>Groot</item>
+        <item>Grootst</item>
+        <item>Huge</item>
+    </string-array>
+    <string-array name="hdcp_checking_summaries">
+        <item>HDCP-controle nooit gebruiken</item>
+        <item>HDCP-controle alleen voor DRM-content gebruiken</item>
+        <item>HDCP-controle altijd gebruiken</item>
+    </string-array>
+    <string-array name="hdcp_checking_titles">
+        <item>Nooit controleren</item>
+        <item>Alleen controleren op DRM-content</item>
+        <item>Altijd controleren</item>
+    </string-array>
+    <string-array name="key_backlight_entries">
+        <item>Altijd uit</item>
+        <item>1 second</item>
+        <item>3 seconds</item>
+        <item>5 seconds</item>
+        <item>10 seconds</item>
+        <item>15 seconds</item>
+    </string-array>
+    <string-array name="lock_after_timeout_entries">
+        <item>Direct</item>
+        <item>5 seconden</item>
+        <item>15 seconden</item>
+        <item>30 seconden</item>
+        <item>1 minuut</item>
+        <item>2 minuten</item>
+        <item>5 minuten</item>
+        <item>10 minuten</item>
+        <item>30 minuten</item>
+    </string-array>
+    <string-array name="long_press_timeout_selector_titles">
+        <item>Kort</item>
+        <item>Normaal</item>
+        <item>Lang</item>
+    </string-array>
+    <string-array name="long_press_timeout_titles_selector">
+        <item>Kort (0,5 seconde)</item>
+        <item>Gemiddeld (1,0 seconde)</item>
+        <item>Lang (1,5 seconde)</item>
+        <item>Aangepast</item>
+    </string-array>
+    <string-array name="mvno_type_entries">
+        <item>Geen</item>
+        <item>SPN</item>
+        <item>IMSI</item>
+        <item>GID</item>
+    </string-array>
+    <string-array name="num_allowed_devices">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+    <string-array name="overlay_display_devices_entries">
+        <item>Geen</item>
+        <item>480p</item>
+        <item>480p (veilig)</item>
+        <item>720p</item>
+        <item>720p (veilig)</item>
+        <item>1080p</item>
+        <item>1080p (veilig)</item>
+        <item>4K</item>
+        <item>4K (veilig)</item>
+        <item>4K (opgeschaald)</item>
+        <item>4K (opgeschaald, veilig)</item>
+        <item>720p, 1080p (dubbel scherm)</item>
+    </string-array>
+    <string-array name="proc_stats_memory_states">
+        <item>Normaal</item>
+        <item>Gemiddeld</item>
+        <item>Laag</item>
+        <item>Kritiek</item>
+    </string-array>
+    <string-array name="proc_stats_process_states">
+        <item>Permanent</item>
+        <item>Topactiviteit</item>
+        <item>Belangrijk (voorgrond)</item>
+        <item>Belangrijk (achtergrond)</item>
+        <item>Back-up</item>
+        <item>Zwaar gewicht</item>
+        <item>Service (actief)</item>
+        <item>Service (opnieuw starten)</item>
+        <item>Ontvanger</item>
+        <item>Thuis</item>
+        <item>Laatste activiteit</item>
+        <item>Gecacht (activiteit)</item>
+        <item>Gecacht (activiteitsclient)</item>
+        <item>Gecacht (leeg)</item>
+    </string-array>
+    <string-array name="ram_states">
+        <item>Normaal</item>
+        <item>Gemiddeld</item>
+        <item>Laag</item>
+        <item>Kritisch</item>
+        <item>\?</item>
+    </string-array>
+    <string-array name="screen_timeout_entries">
+        <item>15 seconden</item>
+        <item>30 seconden</item>
+        <item>1 minuut</item>
+        <item>2 minuten</item>
+        <item>5 minuten</item>
+        <item>10 minuten</item>
+        <item>30 minuten</item>
+    </string-array>
+    <string-array name="screen_timeout_for_device_lock_entries">
+        <item>15 seconden</item>
+        <item>30 seconden</item>
+        <item>1 minuut</item>
+        <item>3 minuten</item>
+        <item>5 minuten</item>
+        <item>10 minuten</item>
+        <item>15 minuten</item>
+        <item>30 minuten</item>
+    </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Vragen</item>
+        <item>Nooit toestaan</item>
+        <item>Altijd toestaan</item>
+    </string-array>
+    <string-array name="select_logd_size_lowram_titles">
+        <item>Uit</item>
+        <item>64 K</item>
+        <item>256 K</item>
+        <item>1 M</item>
+    </string-array>
+    <string-array name="select_logd_size_summaries">
+        <item>Uit</item>
+        <item>64 K per logbuffer</item>
+        <item>256 K per logbuffer</item>
+        <item>1 M per logbuffer</item>
+        <item>4 M per logbuffer</item>
+        <item>16 M per logbuffer</item>
+    </string-array>
+    <string-array name="select_logd_size_titles">
+        <item>Uit</item>
+        <item>64 K</item>
+        <item>256 K</item>
+        <item>1 M</item>
+        <item>4 M</item>
+        <item>16 M</item>
+    </string-array>
+    <string-array name="select_logpersist_summaries">
+        <item>Uit</item>
+        <item>Alle logboekbuffers</item>
+        <item>Alle logboekbuffers behalve voor keuzerondjes</item>
+        <item>alleen kernel-logbuffer</item>
+    </string-array>
+    <string-array name="select_logpersist_titles">
+        <item>Uit</item>
+        <item>Alle</item>
+        <item>Alle beh. keuzerondje</item>
+        <item>alleen kernel</item>
+    </string-array>
+    <string-array name="show_non_rect_clip_entries">
+        <item>Uit</item>
+        <item>Niet-rechthoekige bijsnijdregio tekenen in blauw</item>
+        <item>Geteste tekenopdrachten markeren in groen</item>
+    </string-array>
+    <string-array name="time_interval_entries_selectable">
+        <item>1 minuut</item>
+        <item>3 minuten</item>
+        <item>5 minuten</item>
+        <item>10 minuten</item>
+        <item>15 minuten</item>
+    </string-array>
+    <string-array name="timezone_filters">
+        <item>Amerika</item>
+        <item>Europa</item>
+        <item>Afrika</item>
+        <item>Azië</item>
+        <item>Australië</item>
+        <item>Stille Oceaan</item>
+        <item>Alles</item>
+    </string-array>
+    <string-array name="touch_key_light_entries">
+        <item>1,5 seconde</item>
+        <item>6 seconden</item>
+        <item>Altijd uit</item>
+        <item>Altijd aan</item>
+    </string-array>
+    <string-array name="track_frame_time_entries">
+        <item>Uit</item>
+        <item>Op het scherm als balken</item>
+        <item>In adb shell dumpsys gfxinfo</item>
+    </string-array>
+    <string-array name="transition_animation_scale_entries">
+        <item>Animatie is uit.</item>
+        <item>Animatieschaal 0.5 x</item>
+        <item>Animatieschaal 1 x</item>
+        <item>Animatieschaal 1.5 x</item>
+        <item>Animatieschaal 2 x</item>
+        <item>Animatieschaal 5 x</item>
+        <item>Animatieschaal 10 x</item>
+    </string-array>
+    <string-array name="tts_rate_entries">
+        <item>Zeer langzaam</item>
+        <item>Langzaam</item>
+        <item>Normaal</item>
+        <item>Snel</item>
+        <item>Sneller</item>
+        <item>Nog sneller</item>
+        <item>Heel erg snel</item>
+        <item>Snelst</item>
+        <item>Allerallersnelst</item>
+    </string-array>
+    <string-array name="usage_stats_display_order_types">
+        <item>Gebruikstijd</item>
+        <item>Laatst gebruikt</item>
+        <item>App-naam</item>
+    </string-array>
+    <string-array name="usb_configuration_titles">
+        <item>@string/usb_use_charging_only</item>
+        <item>MTP (Media Transfer Protocol)</item>
+        <item>PTP (Picture Transfer Protocol)</item>
+        <item>RNDIS (USB Ethernet)</item>
+        <item>Audiobron</item>
+        <item>MIDI</item>
+    </string-array>
+    <string-array name="vpn_states">
+        <item>Verbinding verbroken</item>
+        <item>Initialiseren…</item>
+        <item>Verbinden…</item>
+        <item>Verbonden</item>
+        <item>Time-out</item>
+        <item>Niet geslaagd</item>
+    </string-array>
+    <string-array name="vpn_types_long">
+        <item>PPTP-VPN</item>
+        <item>L2TP/IPSec-VPN met van tevoren gedeelde sleutels</item>
+        <item>L2TP/IPSec-VPN met certificaten</item>
+        <item>IPSec VPN-met van tevoren gedeelde sleutels en Xauth-authenticatie</item>
+        <item>IPSec-VPN met certificaten en Xauth-authenticatie</item>
+        <item>IPSec-VPN met certificaten en hybride authenticatie</item>
+        <item>IPSec VPN with IKEv2 and pre-shared key-based authentication</item>
+        <item>IPSec VPN with IKEv2 and certificate-based authentication</item>
+    </string-array>
+    <string-array name="wifi_ap_channel">
+        <item>Auto</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+    </string-array>
+    <string-array name="wifi_ap_security_testmode">
+        <item>Open</item>
+        <item>WPA2 PSK</item>
+    </string-array>
+    <string-array name="wifi_ap_timeout">
+        <item>Nooit time-out</item>
+        <item>5 minuten</item>
+        <item>10 minuten</item>
+        <item>20 minuten</item>
+        <item>30 minuten</item>
+        <item>60 minuten</item>
+    </string-array>
+    <string-array name="wifi_ap_wifi_sharing">
+        <item>Wi-Fi delen inschakelen</item>
+        <item>Wi-Fi delen uitschakelen</item>
+    </string-array>
+    <string-array name="wifi_connect_entries">
+        <item>Automatisch</item>
+        <item>Handmatig</item>
+        <item>Altijd vragen</item>
+    </string-array>
+    <string-array name="wifi_eap_entries">
+        <item>PEAP</item>
+        <item>TLS</item>
+        <item>TTLS</item>
+        <item>PWD</item>
+    </string-array>
+    <string-array name="wifi_eap_method">
+        <item>PEAP</item>
+        <item>TLS</item>
+        <item>TTLS</item>
+        <item>PWD</item>
+        <item>SIM</item>
+        <item>AKA</item>
+        <item>"AKA'"</item>
+    </string-array>
+    <string-array name="wifi_ip_settings">
+        <item>DHCP</item>
+        <item>Statisch</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>Verbonden</item>
+        <item>Uitgenodigd.</item>
+        <item>Verbinding mislukt</item>
+        <item>Tik hier om te verbinden.</item>
+        <item>Buiten bereik.</item>
+        <item>Verbonden met ander apparaat</item>
+    </string-array>
+    <string-array name="wifi_p2p_wps_setup">
+        <item>Knop indrukken</item>
+        <item>Pincode van peerapparaat</item>
+        <item>Pin van dit apparaat</item>
+    </string-array>
+    <string-array name="wifi_peap_phase2_entries">
+        <item>Geen</item>
+        <item>MSCHAPV2</item>
+        <item>GTC</item>
+    </string-array>
+    <string-array name="wifi_peap_phase2_entries_with_sim_auth">
+        <item>Geen</item>
+        <item>MSCHAPV2</item>
+        <item>GTC</item>
+        <item>SIM</item>
+        <item>AKA</item>
+        <item>"AKA'"</item>
+    </string-array>
+    <string-array name="wifi_phase2_entries">
+        <item>Geen</item>
+        <item>PAP</item>
+        <item>MSCHAP</item>
+        <item>MSCHAPV2</item>
+        <item>GTC</item>
+    </string-array>
+    <string-array name="wifi_proxy_settings">
+        <item>Geen</item>
+        <item>Handmatig</item>
+        <item>Automatisch configureren</item>
+    </string-array>
+    <string-array name="wifi_signal">
+        <item>Zwak</item>
+        <item>Redelijk</item>
+        <item>Goed</item>
+        <item>Sterk</item>
+        <item>Erg sterk</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_entries">
+        <item>"Altijd
+(verhoogt batterijverbruik)"</item>
+        <item>Tijdens opladen</item>
+        <item>"Nooit
+(verhoogt gegevensgebruik)"</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_entries_wifi_only">
+        <item>"Altijd
+(verhoogt batterijverbruik)"</item>
+        <item>Tijdens opladen</item>
+        <item>Nooit</item>
+    </string-array>
+    <string-array name="wifi_status">
+        <item></item>
+        <item>Scannen…</item>
+        <item>Verbinden…</item>
+        <item>Verifiëren…</item>
+        <item>IP-adres ophalen…</item>
+        <item>Verbonden</item>
+        <item>Onderbroken</item>
+        <item>Verbinding verbreken…</item>
+        <item>Verbinding verbroken</item>
+        <item>Niet geslaagd</item>
+        <item>Geblokkeerd</item>
+        <item>De kwaliteit van uw internetverbinding controleren…</item>
+    </string-array>
+    <string-array name="wifi_status_with_ssid">
+        <item></item>
+        <item>Scannen...</item>
+        <item>Verbinding maken met %1$s...</item>
+        <item>Verifiëren met %1$s…</item>
+        <item>IP-adres ophalen van %1$s…</item>
+        <item>Verbonden met %1$s</item>
+        <item>Opgeschort</item>
+        <item>Verbinding verbreken met %1$s…</item>
+        <item>Verbinding verbroken</item>
+        <item>Mislukt</item>
+        <item>Geblokkeerd</item>
+        <item>Slechte verbinding tijdelijk vermijden</item>
+    </string-array>
+    <string-array name="window_animation_scale_entries">
+        <item>Animatie is uit.</item>
+        <item>Animatieschaal 0.5 x</item>
+        <item>Animatieschaal 1 x</item>
+        <item>Animatieschaal 1.5 x</item>
+        <item>Animatieschaal 2 x</item>
+        <item>Animatieschaal 5 x</item>
+        <item>Animatieschaal 10 x</item>
+    </string-array>
+</resources>

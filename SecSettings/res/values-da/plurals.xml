@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="accessibilty_autoclick_preference_subtitle_extremely_short_delay">
+        <item quantity="other">Ekstremt kort forsinkelse (%s ms)</item>
+        <item quantity="one">Ekstremt kort forsinkelse (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_long_delay">
+        <item quantity="other">Lang forsinkelse (%s ms)</item>
+        <item quantity="one">Lang forsinkelse (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_short_delay">
+        <item quantity="other">Kort forsinkelse (%s ms)</item>
+        <item quantity="one">Kort forsinkelse (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_long_delay">
+        <item quantity="other">Meget lang forsinkelse (%s ms)</item>
+        <item quantity="one">Meget lang forsinkelse (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_short_delay">
+        <item quantity="other">Meget kort forsinkelse (%s ms)</item>
+        <item quantity="one">Meget kort forsinkelse (%s ms)</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d apps har tilladelse til at bruge data uden begrænsninger</item>
+        <item quantity="one">1 app har tilladelse til at bruge data uden begrænsninger</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary_chn">
+        <item quantity="other">%d apps har tilladelse til at bruge mobile data uden begrænsninger, mens Begræns baggrundsdata er aktiveret.</item>
+        <item quantity="one">%d apps har tilladelse til at bruge mobile data uden begrænsninger, mens Begræns baggrundsdata er aktiveret.</item>
+    </plurals>
+    <plurals name="deleted_channels">
+        <item quantity="other">Der er blevet slettet %d kategorier</item>
+        <item quantity="one">Der er blevet slettet 1 kategori</item>
+    </plurals>
+    <plurals name="dex_timeout_day">
+        <item quantity="other">%d dage</item>
+        <item quantity="one">1 dag</item>
+    </plurals>
+    <plurals name="dex_timeout_hour">
+        <item quantity="other">%d timer</item>
+        <item quantity="one">1 time</item>
+    </plurals>
+    <plurals name="dex_timeout_minute">
+        <item quantity="other">%d minutter</item>
+        <item quantity="one">1 minut</item>
+    </plurals>
+    <plurals name="dex_timeout_second">
+        <item quantity="other">%d sekunder</item>
+        <item quantity="one">1 sekund</item>
+    </plurals>
+    <plurals name="dex_timeout_week">
+        <item quantity="other">%d uger</item>
+        <item quantity="one">1 uge</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Fjern de valgte sprog</item>
+        <item quantity="one">Fjern det valgte sprog</item>
+    </plurals>
+    <plurals name="enterprise_privacy_number_packages_lower_bound">
+        <item quantity="other">Mindst %d apps</item>
+        <item quantity="one">Mindst %d app</item>
+    </plurals>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d timer</item>
+        <item quantity="one">1 time</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d minutter</item>
+        <item quantity="one">1 minut</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d sekunder</item>
+        <item quantity="one">1 sekund</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Adgangskode skal indeholde mindst %d bogstaver.</item>
+        <item quantity="one">Adgangskoden skal indeholde mindst 1 bogstav.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Adgangskode skal indeholde mindst %d små bogstaver.</item>
+        <item quantity="one">Adgangskoden skal indeholde mindst 1 lille bogstav.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Adgangskode skal indeholde mindst %d tal eller symboler.</item>
+        <item quantity="one">Adgangskoden skal indeholde mindst 1 tal eller symbol.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Adgangskode skal indeholde mindst %d tal.</item>
+        <item quantity="one">Adgangskode skal indeholde mindst 1 tal.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Adgangskode skal indeholde mindst %d symboler.</item>
+        <item quantity="one">Adgangskoden skal indeholde mindst 1 symbol.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Adgangskode skal indeholde mindst %d store bogstaver.</item>
+        <item quantity="one">Adgangskode skal indeholde mindst 1 stort bogstav.</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d applikationer kan læse meddelelser.</item>
+        <item quantity="one">%d applikation har tilladelse til at læse meddelelser.</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$d processer har brugt RAM den seneste %2$s</item>
+        <item quantity="one">%1$d proces har brugt RAM den seneste %2$s</item>
+    </plurals>
+    <plurals name="network_restrictions_summary">
+        <item quantity="other">%d begrænsninger</item>
+        <item quantity="one">1 begrænsning</item>
+    </plurals>
+    <plurals name="notification_summary">
+        <item quantity="other">Deaktiveret for %d apps</item>
+        <item quantity="one">Deaktiveret for 1 app</item>
+    </plurals>
+    <plurals name="number_of_device_admins">
+        <item quantity="other">%d aktive apps</item>
+        <item quantity="one">1 aktiv app</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d tilladelser mere</item>
+        <item quantity="one">%d tilladelse mere</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Du er nu %d trin fra at blive en udvikler.</item>
+        <item quantity="one">Du er nu 1 trin fra at blive en udvikler.</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_dialog_title">
+        <item quantity="other">Vis tillid til eller fjern certifikater</item>
+        <item quantity="one">Vis tillid til eller fjern certifikat</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message">
+        <item quantity="other">"%s har installeret nøglecentre for din arbejdsprofil, hvilket kan gøre det muligt for dem at overvåge din netværksaktivitet på arbejdet – herunder din brug af e-mails, apps og sikre websteder. Du kan vælge at have tillid til disse certifikater, eller du kan fjerne dem.
+
+Kontakt din administrator, hvis du vil have flere oplysninger om disse certifikater."</item>
+        <item quantity="one">"%s har installeret et nøglecenter for din arbejdsprofil, hvilket kan gøre det muligt for dem at overvåge din netværksaktivitet på arbejdet – herunder din brug af e-mails, apps og sikre websteder. Du kan vælge at have tillid til dette certifikat, eller du kan fjerne det.
+
+Kontakt din administrator, hvis du vil have flere oplysninger om dette certifikat."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s har installeret CA-certifikater på din enhed, hvilket gør det muligt for dem at overvåge din enheds netværksaktivitet – herunder din brug af e-mails, apps og sikre websteder.
+
+Kontakt din it-administrator, hvis du vil have flere oplysninger om disse certifikater."</item>
+        <item quantity="one">"%s har installeret et CA-certifikat på din enhed, hvilket gør det muligt for dem at overvåge din enheds netværksaktivitet – herunder din brug af e-mails, apps og sikre websteder.
+
+Kontakt din it-administrator, hvis du vil have flere oplysninger om dette certifikat."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_settings_button">
+        <item quantity="other">Kontroller certifikater</item>
+        <item quantity="one">Kontroller certifikat</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Adgang til %d mapper/filer</item>
+        <item quantity="one">Adgang til 1 mappe/fil</item>
+    </plurals>
+</resources>

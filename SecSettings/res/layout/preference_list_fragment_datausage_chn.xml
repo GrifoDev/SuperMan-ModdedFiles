@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/container_datausage" android:background="@android:color/transparent" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/data_usage_summary" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/container_datausage_land" android:paddingTop="@dimen/dashboard_padding_top" android:paddingBottom="@dimen/dashboard_padding_bottom" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <include layout="@layout/data_usage_infomation_land" />
+    </LinearLayout>
+</LinearLayout>

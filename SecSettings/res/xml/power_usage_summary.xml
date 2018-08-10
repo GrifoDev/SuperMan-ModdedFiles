@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/power_usage_summary_title" settings:keywords="@string/keywords_battery"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <com.android.settings.applications.LayoutPreference android:layout="@layout/battery_header" android:selectable="true" android:key="battery_header" />
+    <PreferenceCategory android:key="device_usage_list">
+        <com.android.settings.fuelgauge.PowerGaugePreference android:title="@string/battery_last_full_charge" android:selectable="false" android:key="last_full_charge" />
+        <com.android.settings.fuelgauge.PowerGaugePreference android:title="@string/device_screen_usage" android:selectable="false" android:key="screen_usage" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/battery_power_management" android:key="power_management">
+        <com.android.settings.widget.MasterSwitchPreference android:title="@string/battery_saver" android:key="battery_saver_summary" android:fragment="com.android.settings.fuelgauge.BatterySaverSettings" />
+        <SwitchPreference android:title="@string/battery_percentage" android:key="battery_percentage" android:summary="@string/battery_percentage_description" />
+        <SwitchPreference android:title="@string/auto_brightness_title" android:key="auto_brightness_battery" android:summary="@string/auto_brightness_summary" settings:keywords="@string/keywords_display_auto_brightness" />
+        <com.android.settings.TimeoutListPreference android:entries="@array/screen_timeout_entries" android:title="@string/screen_timeout" android:key="screen_timeout_battery" android:summary="@string/screen_timeout_summary" android:entryValues="@array/screen_timeout_values" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/power_usage_list_summary" android:key="app_list" />
+</PreferenceScreen>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/lock_screen_secured_lock_settings_title" settings:parent="@xml/security_settings_chooser"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <SecSwitchPreference android:title="@string/direction_lock_vibration" android:key="lock_screen_vibration" android:defaultValue="true" />
+    <SecSwitchPreference android:title="@string/direction_lock_sound" android:key="lock_screen_beep" android:defaultValue="true" />
+    <SecSwitchPreference android:title="@string/direction_lock_visible" android:key="lock_screen_visible" android:defaultValue="false" />
+    <SecSwitchPreference android:title="@string/direction_lock_voice" android:key="lock_screen_voice" android:defaultValue="false" />
+    <SecSwitchPreference android:title="@string/auto_swipe_title" android:key="auto_factory_reset" settings:dbMatchingName="" settings:dbMatchingTable="" />
+    <com.android.settings.TimeoutListPreference android:persistent="false" android:entries="@array/lock_after_timeout_entries" android:title="@string/lock_after_timeout" android:key="lock_after_timeout" android:summary="@string/lock_after_timeout_summary" android:widgetLayout="@layout/round_more_icon" android:entryValues="@array/lock_after_timeout_values" settings:dbMatchingName="lock_screen_lock_after_timeout" settings:dbMatchingTable="secure" />
+    <SecSwitchPreference android:title="@string/lockpattern_settings_enable_power_button_instantly_locks" android:key="power_button_instantly_locks" android:summary="@string/lock_instantly_with_power_key_summary" settings:dbMatchingName="" settings:dbMatchingTable="" />
+    <SecSwitchPreference android:title="@string/lock_network_and_security" android:key="lock_network_and_security" android:summary="@string/lock_network_and_security_summary" />
+</PreferenceScreen>

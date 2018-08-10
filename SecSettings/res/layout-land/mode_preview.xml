@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/main_view" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="?android:dialogPreferredPadding" android:paddingEnd="?android:dialogPreferredPadding">
+        <TextView android:textSize="@dimen/screen_mode_auto_adaptive_d2sc_text_size" android:id="@id/auto_adaptive_description" android:paddingTop="@dimen/screen_mode_auto_adaptive_desc_top_bottom_padding" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/screen_mode_auto_adaptive_description" />
+        <LinearLayout android:orientation="horizontal" android:paddingTop="@dimen/screen_mode_auto_adaptive_desc_top_bottom_padding" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <ImageView android:id="@id/preview_image" android:layout_width="0.0px" android:layout_height="fill_parent" android:src="@drawable/st_screen_mode_previewmode_img_h" android:scaleType="fitXY" android:layout_weight="1.0" />
+            <View android:layout_width="13.0dip" android:layout_height="fill_parent" />
+            <ListView android:textColor="?android:textColorAlertDialogListItem" android:id="@id/mode_list" android:layout_width="0.0px" android:layout_height="fill_parent" android:divider="?android:listDivider" android:choiceMode="singleChoice" android:layout_weight="1.0" />
+        </LinearLayout>
+        <ListView android:textColor="?android:textColorAlertDialogListItem" android:id="@id/color_balance_list" android:paddingTop="@dimen/preview_bottom_padding" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:divider="@null" android:choiceMode="singleChoice" android:layout_weight="1.0" />
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="300.0sp" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:paddingTop="@dimen/alert_dialog_padding_top" android:paddingBottom="@dimen/alert_dialog_padding_bottom" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/alert_dialog_padding_left_right" android:paddingEnd="@dimen/alert_dialog_padding_left_right">
+        <TextView android:id="@id/wifi_ap_wifi_enable_warning_dialog_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/alert_dialog_padding_bottom" style="@style/wif_warning_dialog_title_style" />
+        <TextView android:id="@id/wifi_ap_wifi_enable_warning_dialog_content" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/wifi_warning_dialog_body_text_style" />
+        <LinearLayout android:id="@id/wifi_ap_wifi_enable_warning_do_not_show" android:layout_marginTop="@dimen/alert_dialog_bottom_checkbox_margin_top" android:layout_marginBottom="0.0dip" style="@style/wifi_dialog_checkbox_layout_style">
+            <CheckBox android:id="@id/wifi_ap_enable_warning__do_not_show_again_checkbox" android:text="@string/wifi_ap_do_not_show_again" android:paddingStart="@dimen/alert_dialog_bottom_checkbox_padding_left" style="@style/wifi_dialog_checkbox_style" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

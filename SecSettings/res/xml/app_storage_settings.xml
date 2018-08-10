@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/application_info_label"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:settings="http://schemas.android.com/apk/res-auto">
+    <com.android.settings.applications.LayoutPreference android:layout="@layout/sec_app_action_buttons" android:selectable="false" android:key="header_view" />
+    <com.android.settings.applications.SpacePreference android:layout_height="8.0dip" android:key="storage_space" />
+    <Preference android:layout="@layout/horizontal_preference" android:title="@string/storage_used" android:selectable="false" android:key="storage_used" android:summary="@string/storage_type_internal" />
+    <com.android.settings.applications.LayoutPreference android:layout="@layout/single_button_panel" android:selectable="false" android:key="change_storage_button" />
+    <PreferenceCategory android:layout="@layout/tall_preference_category" android:title="@string/app_info_storage_title" android:key="storage_category" settings:allowDividerAbove="false" settings:allowDividerBelow="false">
+        <Preference android:layout="@layout/horizontal_preference" android:title="@string/application_size_label" android:selectable="false" android:key="app_size" />
+        <Preference android:layout="@layout/horizontal_preference" android:title="@string/data_size_label" android:selectable="false" android:key="data_size" />
+        <Preference android:layout="@layout/horizontal_preference" android:title="@string/cache_size_label" android:selectable="false" android:key="cache_size" />
+        <Preference android:layout="@layout/horizontal_preference" android:title="@string/total_size_label" android:selectable="false" android:key="total_size" />
+        <com.android.settings.applications.SpacePreference android:layout_height="8.0dip" />
+    </PreferenceCategory>
+    <PreferenceCategory android:layout="@layout/headerless_preference_category" android:key="uri_category" settings:allowDividerAbove="false" settings:allowDividerBelow="false">
+        <com.android.settings.applications.LayoutPreference android:layout="@layout/single_button_panel" android:selectable="false" android:key="clear_uri_button" />
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="allshare_download_to">
+        <item>ಸಾಧನ</item>
+        <item>SD ಕಾರ್ಡ್</item>
+    </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>ಅನಿಮೇಶನ್ ಆಫ್ ಆಗಿದೆ.</item>
+        <item>ಅನಿಮೇಶನ್ ಸ್ಕೇಲ್ 0.5x</item>
+        <item>ಅನಿಮೇಶನ್ ಸ್ಕೇಲ್ 1x</item>
+        <item>ಅನಿಮೇಶನ್ ಸ್ಕೇಲ್ 1.5x</item>
+        <item>ಅನಿಮೇಶನ್ ಸ್ಕೇಲ್ 2x</item>
+        <item>ಅನಿಮೇಶನ್ ಸ್ಕೇಲ್ 5x</item>
+        <item>ಅನಿಮೇಶನ್ ಸ್ಕೇಲ್ 10x</item>
+    </string-array>
+    <string-array name="apn_auth_entries">
+        <item>ಯಾವುದೂ ಇಲ್ಲ</item>
+        <item>PAP</item>
+        <item>CHAP</item>
+        <item>PAP ಅಥವಾ CHAP</item>
+    </string-array>
+    <string-array name="bearer_entries">
+        <item>ಅನಿರ್ದಿಷ್ಟವಾಗಿರುವುದು</item>
+        <item>LTE</item>
+        <item>HSPAP</item>
+        <item>HSPA</item>
+        <item>HSUPA</item>
+        <item>HSDPA</item>
+        <item>UMTS</item>
+        <item>EDGE</item>
+        <item>GPRS</item>
+        <item>eHRPD</item>
+        <item>EVDO_B</item>
+        <item>EVDO_A</item>
+        <item>EVDO_0</item>
+        <item>1xRTT</item>
+        <item>IS95B</item>
+        <item>IS95A</item>
+        <item>IWLAN</item>
+    </string-array>
+    <string-array name="bearer_entries_dcm_kdi">
+        <item>ಅನಿರ್ದಿಷ್ಟವಾಗಿರುವುದು</item>
+        <item>4G</item>
+        <item>HSPAP</item>
+        <item>HSPA</item>
+        <item>HSUPA</item>
+        <item>HSDPA</item>
+        <item>UMTS</item>
+        <item>EDGE</item>
+        <item>GPRS</item>
+        <item>eHRPD</item>
+        <item>EVDO_B</item>
+        <item>EVDO_A</item>
+        <item>EVDO_0</item>
+        <item>1xRTT</item>
+        <item>IS95B</item>
+        <item>IS95A</item>
+        <item>IWLAN</item>
+    </string-array>
+    <string-array name="bluetooth_ss_a2dp_codec_summaries">
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>ಎಲ್ಲಾ ಕೊಡೆಕ್‍ಗಳು</item>
+        <item>ಡಿಫಾಲ್ಟ್ ಕೊಡೆಕ್</item>
+    </string-array>
+    <string-array name="bluetooth_ss_a2dp_codec_titles">
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>ಎಲ್ಲಾ ಕೊಡೆಕ್‍ಗಳು</item>
+        <item>ಡಿಫಾಲ್ಟ್ ಕೊಡೆಕ್</item>
+    </string-array>
+    <string-array name="bluetooth_ss_japan_a2dp_codec_titles">
+        <item>SBC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>ಎಲ್ಲಾ ಕೊಡೆಕ್‍ಗಳು</item>
+        <item>ಡಿಫಾಲ್ಟ್ ಕೊಡೆಕ್</item>
+    </string-array>
+    <string-array name="captioning_edge_type_selector_titles">
+        <item>ಡೀಫಾಲ್ಟ್</item>
+        <item>ಯಾವುದೂ ಇಲ್ಲ</item>
+        <item>ಬಾಹ್ಯರೇಖೆ</item>
+        <item>ಡ್ರಾಪ್ ಶಾಡೋ</item>
+        <item>ಎತ್ತರಿಸಿದೆ</item>
+        <item>ಕುಗ್ಗಿಸಿರುವುದು</item>
+    </string-array>
+    <string-array name="captioning_font_size_selector_titles">
+        <item>ಅತಿ ಚಿಕ್ಕದು</item>
+        <item>ಚಿಕ್ಕದು</item>
+        <item>ಸಾಮಾನ್ಯ</item>
+        <item>ದೊಡ್ಡದು</item>
+        <item>ಅತಿ ದೊಡ್ಡ</item>
+    </string-array>
+    <string-array name="captioning_preset_selector_titles">
+        <item>ಡಿಫಾಲ್ಟ್</item>
+        <item>ಕಪ್ಪು ಮೇಲೆ ಬಿಳಿ</item>
+        <item>ಬಿಳಿಯ ಮೇಲೆ ಕಪ್ಪು</item>
+        <item>ಕಪ್ಪು ಮೇಲೆ ಹಳದಿ</item>
+        <item>ನೀಲಿ ಮೇಲೆ ಹಳದಿ</item>
+        <item>ಕಸ್ಟಮ್</item>
+    </string-array>
+    <string-array name="captioning_typeface_selector_titles">
+        <item>ಡೀಫಾಲ್ಟ್</item>
+        <item>ಸಾನ್ಸ್ ಸೆರಿಫ್</item>
+        <item>ಸಾನ್ಸ್ ಸೆರಿಫ್ ಕಂಡೆನ್ಸ್ಡ</item>
+        <item>ಸಾನ್ಸ್ ಸೆರಿಫ್ ಮೊನೋಸ್ಪೇಸ್</item>
+        <item>ಸೆರಿಫ್</item>
+        <item>ಸೆರಿಫ್ ಮೊನೋಸ್ಪೇಸ್</item>
+        <item>ಅನೌಪಚಾರಿಕ</item>
+        <item>ಕರ್ಸೈವ್</item>
+        <item>ಸ್ಮಾಲ್ ಕ್ಯಾಪ್ಸ್</item>
+    </string-array>
+    <string-array name="color_adjust_type_entries">
+        <item>ಗ್ರೇಸ್ಕೇಲ್</item>
+        <item>ಪ್ರೊಟಾನ್ (ಕೆಂಪು-ಹಸಿರು)</item>
+        <item>ಡ್ಯೂಟನ್ (ಹಸಿರು-ಕೆಂಪು)</item>
+        <item>ಟ್ರೈಟಾನ್ (ನೀಲಿ-ಹಳದಿ)</item>
+        <item>ವೈಯಕ್ತೀಕರಿಸಿದ ಬಣ್ಣ</item>
+    </string-array>
+    <string-array name="color_lens_entries">
+        <item>ನೀಲಿ ಬಣ್ಣ</item>
+        <item>ಅಝುರ್ ಬಣ್ಣ</item>
+        <item>ಕ್ಯಾನ್ ಬಣ್ಣ</item>
+        <item>ಸ್ಪ್ರಿಂಗ್ ಹಸಿರು</item>
+        <item>ಹಸಿರು</item>
+        <item>ಚಾರ್ಟ್ರೀಸ್ ಹಸಿರು</item>
+        <item>ಹಳದಿ</item>
+        <item>ಕಿತ್ತಳೆ ಬಣ್ಣ</item>
+        <item>ಕೆಂಪು ಬಣ್ಣ</item>
+        <item>ಗುಲಾಬಿ</item>
+        <item>ಮ್ಯಾಜೆಂಟಾ</item>
+        <item>ನೇರಳೆ ಬಣ್ಣ</item>
+    </string-array>
+    <string-array name="data_usage_display_unit">
+        <item>MB/GB (auto change)</item>
+        <item>MB only</item>
+        <item>GB only</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>ಪವರ್‌ ಕೀಯೊಂದಿಗೆ ತಕ್ಷಣ ಅಥವಾ ಸ್ಕ್ರೀನ್ ಸಮಯ ಮುಗಿದಾಗ</item>
+        <item>5 ಸೆಕೆಂಡುಗಳು</item>
+        <item>15 ಸೆಕೆಂಡುಗಳು</item>
+        <item>30 ಸೆಕೆಂಡುಗಳು</item>
+        <item>1 ನಿಮಿಷ</item>
+        <item>2 ನಿಮಿಷಗಳು</item>
+        <item>5 ನಿಮಿಷಗಳು</item>
+        <item>10 ನಿಮಿಷಗಳು</item>
+        <item>30 ನಿಮಿಷಗಳು</item>
+    </string-array>
+    <string-array name="dex_timeout_entries">
+        <item>15 ಸೆಕೆಂಡುಗಳು</item>
+        <item>30 ಸೆಕೆಂಡುಗಳು</item>
+        <item>1 ನಿಮಿಷ</item>
+        <item>2 ನಿಮಿಷಗಳು</item>
+        <item>5 ನಿಮಿಷಗಳು</item>
+        <item>10 ನಿಮಿಷಗಳು</item>
+        <item>20 ನಿಮಿಷಗಳು</item>
+        <item>30 ನಿಮಿಷಗಳು</item>
+        <item>60 ನಿಮಿಷಗಳು</item>
+    </string-array>
+    <string-array name="key_backlight_entries">
+        <item>ಯಾವಾಗಲೂ ಆಫ್</item>
+        <item>1 second</item>
+        <item>3 seconds</item>
+        <item>5 seconds</item>
+        <item>10 seconds</item>
+        <item>15 seconds</item>
+    </string-array>
+    <string-array name="lock_after_timeout_entries">
+        <item>ತಕ್ಷಣವೇ</item>
+        <item>5 ಸೆಕೆಂಡುಗಳು</item>
+        <item>15 ಸೆಕೆಂಡುಗಳು</item>
+        <item>30 ಸೆಕೆಂಡುಗಳು</item>
+        <item>1 ನಿಮಿಷ</item>
+        <item>2 ನಿಮಿಷಗಳು</item>
+        <item>5 ನಿಮಿಷಗಳು</item>
+        <item>10 ನಿಮಿಷಗಳು</item>
+        <item>30 ನಿಮಿಷಗಳು</item>
+    </string-array>
+    <string-array name="long_press_timeout_titles_selector">
+        <item>ಅಲ್ಪ (0.5 ಸೆಕೆಂಡುಗಳು)</item>
+        <item>ಮಧ್ಯಮ (1.0 ಸೆಕೆಂಡು)</item>
+        <item>ದೀರ್ಘ (1.5 ಸೆಕೆಂಡುಗಳು)</item>
+        <item>ಕಸ್ಟಮ್</item>
+    </string-array>
+    <string-array name="mvno_type_entries">
+        <item>ಯಾವುದೂ ಇಲ್ಲ</item>
+        <item>SPN</item>
+        <item>IMSI</item>
+        <item>GID</item>
+    </string-array>
+    <string-array name="num_allowed_devices">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+    <string-array name="ram_states">
+        <item>ಸಾಮಾನ್ಯ</item>
+        <item>ಮಾಡರೇಟ್</item>
+        <item>ಕಡಿಮೆ</item>
+        <item>ನಿರ್ಣಾಯಕ ಸ್ಥಿತಿ</item>
+        <item>\?</item>
+    </string-array>
+    <string-array name="screen_timeout_entries">
+        <item>15 ಸೆಕೆಂಡುಗಳು</item>
+        <item>30 ಸೆಕೆಂಡುಗಳು</item>
+        <item>1 ನಿಮಿಷ</item>
+        <item>2 ನಿಮಿಷಗಳು</item>
+        <item>5 ನಿಮಿಷಗಳು</item>
+        <item>10 ನಿಮಿಷಗಳು</item>
+        <item>30 ನಿಮಿಷಗಳು</item>
+    </string-array>
+    <string-array name="screen_timeout_for_device_lock_entries">
+        <item>15 ಸೆಕೆಂಡುಗಳು</item>
+        <item>30 ಸೆಕೆಂಡುಗಳು</item>
+        <item>1 ನಿಮಿಷ</item>
+        <item>3 ನಿಮಿಷಗಳು</item>
+        <item>5 ನಿಮಿಷಗಳು</item>
+        <item>10 ನಿಮಿಷಗಳು</item>
+        <item>15 ನಿಮಿಷಗಳು</item>
+        <item>30 ನಿಮಿಷಗಳು</item>
+    </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>ಕೇಳಿ</item>
+        <item>ಎಂದಿಗೂ ಅನುಮತಿಸಬೇಡಿ</item>
+        <item>ಯಾವಾಗಲೂ ಅನುಮತಿಸಿ</item>
+    </string-array>
+    <string-array name="time_interval_entries_selectable">
+        <item>1 ನಿಮಿಷ</item>
+        <item>3 ನಿಮಿಷಗಳು</item>
+        <item>5 ನಿಮಿಷಗಳು</item>
+        <item>10 ನಿಮಿಷಗಳು</item>
+        <item>15 ನಿಮಿಷಗಳು</item>
+    </string-array>
+    <string-array name="touch_key_light_entries">
+        <item>1.5 ಸೆಕೆಂಡುಗಳು</item>
+        <item>6 ಸೆಕೆಂಡುಗಳು</item>
+        <item>ಯಾವಾಗಲೂ ಆಫ್</item>
+        <item>ಯಾವಾಗಲೂ ಆನ್</item>
+    </string-array>
+    <string-array name="transition_animation_scale_entries">
+        <item>ಅನಿಮೇಶನ್ ಆಫ್ ಆಗಿದೆ.</item>
+        <item>ಅನಿಮೇಶನ್ ಸ್ಕೇಲ್ 0.5x</item>
+        <item>ಅನಿಮೇಶನ್ ಸ್ಕೇಲ್ 1x</item>
+        <item>ಅನಿಮೇಶನ್ ಸ್ಕೇಲ್ 1.5x</item>
+        <item>ಅನಿಮೇಶನ್ ಸ್ಕೇಲ್ 2x</item>
+        <item>ಅನಿಮೇಶನ್ ಸ್ಕೇಲ್ 5x</item>
+        <item>ಅನಿಮೇಶನ್ ಸ್ಕೇಲ್ 10x</item>
+    </string-array>
+    <string-array name="usb_configuration_titles">
+        <item>@string/usb_use_charging_only</item>
+        <item>MTP (Media Transfer Protocol)</item>
+        <item>PTP (Picture Transfer Protocol)</item>
+        <item>RNDIS (USB Ethernet)</item>
+        <item>ಆಡಿಯೋ ಮೂಲ</item>
+        <item>MIDI</item>
+    </string-array>
+    <string-array name="vpn_states">
+        <item>ಸಂಪರ್ಕ ಕಡಿತಗೊಳಿಸಲಾಗಿದೆ</item>
+        <item>ಆರಂಭಗೊಳ್ಳುತ್ತಿದೆ…</item>
+        <item>ಸಂಪರ್ಕಿಸುತ್ತಿದೆ…</item>
+        <item>ಸಂಪರ್ಕಿಸಲಾಗಿದೆ</item>
+        <item>ಟೈಮ್ ಔಟ್‌</item>
+        <item>ಅಸಫಲ</item>
+    </string-array>
+    <string-array name="wifi_ap_channel">
+        <item>ಸ್ವಯಂ</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+    </string-array>
+    <string-array name="wifi_ap_security_testmode">
+        <item>ತೆರೆಯಿರಿ</item>
+        <item>WPA2 PSK</item>
+    </string-array>
+    <string-array name="wifi_ap_timeout">
+        <item>ಯಾವಾಗಲೂ ಸಮಯ ಮುಗಿದಿಲ್ಲ</item>
+        <item>5 ನಿಮಿಷಗಳು</item>
+        <item>10 ನಿಮಿಷಗಳು</item>
+        <item>20 ನಿಮಿಷಗಳು</item>
+        <item>30 ನಿಮಿಷಗಳು</item>
+        <item>60 ನಿಮಿಷಗಳು</item>
+    </string-array>
+    <string-array name="wifi_ap_wifi_sharing">
+        <item>Wi-Fi ಹಂಚಿಕೆ ಆನ್ ಮಾಡಿ</item>
+        <item>Wi-Fi ಹಂಚಿಕೆ ಆಫ್ ಮಾಡಿ</item>
+    </string-array>
+    <string-array name="wifi_connect_entries">
+        <item>ಸ್ವಯಂಚಾಲಿತವಾಗಿ</item>
+        <item>ಹಸ್ತಚಾಲಿತ</item>
+        <item>ಯಾವಾಗಲೂ ಕೇಳಿ</item>
+    </string-array>
+    <string-array name="wifi_ip_settings">
+        <item>DHCP</item>
+        <item>ಸ್ಥಿರ</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>ಸಂಪರ್ಕಿಸಲಾಗಿದೆ</item>
+        <item>ಆಮಂತ್ರಿಸಿದೆ.</item>
+        <item>ಸಂಪರ್ಕ ವಿಫಲವಾಗಿದೆ</item>
+        <item>ಸಂಪರ್ಕಿಸಲು ಇಲ್ಲಿ ತಟ್ಟಿ.</item>
+        <item>ರೆಂಜ್‍ನಿಂದ ಹೊರಗಿದೆ.</item>
+        <item>ಇನ್ನೊಂದು ಸಾಧನದೊಂದಿಗೆ ಸಂಪರ್ಕಿತವಾಗಿದೆ</item>
+    </string-array>
+    <string-array name="wifi_peap_phase2_entries_with_sim_auth">
+        <item>ಯಾವುದೂ ಇಲ್ಲ</item>
+        <item>MSCHAPV2</item>
+        <item>GTC</item>
+        <item>SIM</item>
+        <item>AKA</item>
+        <item>"AKA'"</item>
+    </string-array>
+    <string-array name="wifi_phase2_entries">
+        <item>ಯಾವುದೂ ಇಲ್ಲ</item>
+        <item>PAP</item>
+        <item>MSCHAP</item>
+        <item>MSCHAPV2</item>
+        <item>GTC</item>
+    </string-array>
+    <string-array name="wifi_proxy_settings">
+        <item>ಯಾವುದೂ ಇಲ್ಲ</item>
+        <item>ಹಸ್ತಚಾಲಿತ</item>
+        <item>ಸ್ವಯಂ-ಕಾನ್ಫಿಗರ್</item>
+    </string-array>
+    <string-array name="wifi_signal">
+        <item>ದುರ್ಬಲ</item>
+        <item>ಫೇರ್</item>
+        <item>ಒಳ್ಳೆಯ</item>
+        <item>ಪ್ರಬಲ</item>
+        <item>ತುಂಬ ಪ್ರಬಲ</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_entries">
+        <item>"ಯಾವಾಗಲೂ
+(ಬ್ಯಾಟರಿ ಬಳಕೆಯನ್ನು ಹೆಚ್ಚಿಸುತ್ತದೆ)"</item>
+        <item>ಚಾರ್ಜ್ ಆಗುತ್ತಿರುವಾಗ</item>
+        <item>"ಎಂದಿಗೂ ಬೇಡ
+(ಡೇಟಾ ಬಳಕೆ ಹೆಚ್ಚಿಸುತ್ತದೆ)"</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_entries_wifi_only">
+        <item>"ಯಾವಾಗಲೂ
+(ಬ್ಯಾಟರಿ ಬಳಕೆಯನ್ನು ಹೆಚ್ಚಿಸುತ್ತದೆ)"</item>
+        <item>ಚಾರ್ಜ್ ಆಗುತ್ತಿರುವಾಗ</item>
+        <item>ಎಂದಿಗೂ ಇಲ್ಲ</item>
+    </string-array>
+    <string-array name="wifi_status">
+        <item></item>
+        <item>ಸ್ಕ್ಯಾನ್ ಮಾಡಲಾಗುತ್ತಿದೆ…</item>
+        <item>ಸಂಪರ್ಕಿಸುತ್ತಿದೆ…</item>
+        <item>ದೃಢೀಕರಿಸುತ್ತಿದೆ…</item>
+        <item>IP ವಿಳಾಸವನ್ನು ಪಡೆಯುತ್ತಿದೆ…</item>
+        <item>ಸಂಪರ್ಕಿಸಲಾಗಿದೆ</item>
+        <item>ಸ್ಥಗಿತಗೊಳಿಸಲಾಗಿದೆ</item>
+        <item>ಸಂಪರ್ಕ ಕಡಿತವಾಗುತ್ತಿದೆ…</item>
+        <item>ಸಂಪರ್ಕ ಕಡಿತಗೊಳಿಸಲಾಗಿದೆ</item>
+        <item>ಅಸಫಲ</item>
+        <item>ನಿರ್ಬಂಧಿಸಲಾಗಿದೆ</item>
+        <item>ನಿಮ್ಮ ಇಂಟರ್ನೆಟ್ ಸಂಪರ್ಕದ ಗುಣಮಟ್ಟವನ್ನು ಪರಿಶೀಲಿಸಲಾಗುತ್ತಿದೆ…</item>
+    </string-array>
+    <string-array name="window_animation_scale_entries">
+        <item>ಅನಿಮೇಶನ್ ಆಫ್ ಆಗಿದೆ.</item>
+        <item>ಅನಿಮೇಶನ್ ಸ್ಕೇಲ್ 0.5x</item>
+        <item>ಅನಿಮೇಶನ್ ಸ್ಕೇಲ್ 1x</item>
+        <item>ಅನಿಮೇಶನ್ ಸ್ಕೇಲ್ 1.5x</item>
+        <item>ಅನಿಮೇಶನ್ ಸ್ಕೇಲ್ 2x</item>
+        <item>ಅನಿಮೇಶನ್ ಸ್ಕೇಲ್ 5x</item>
+        <item>ಅನಿಮೇಶನ್ ಸ್ಕೇಲ್ 10x</item>
+    </string-array>
+</resources>

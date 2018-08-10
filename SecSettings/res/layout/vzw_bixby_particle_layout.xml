@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_gravity="center" android:id="@id/bixby_icon" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.samsung.android.settings.vzwbixbysetupwizard.hq.vi.logoparticle.LogoButton android:layout_gravity="center" android:id="@id/logo_icon" android:visibility="gone" android:clipChildren="false" android:clipToPadding="false" android:layout_width="@dimen/vzw_bixby_particle_view_size" android:layout_height="@dimen/vzw_bixby_particle_view_size">
+        <FrameLayout android:layout_gravity="center" android:id="@id/bixby_logo_shadow" android:clipChildren="false" android:layout_width="@dimen/vzw_bixby_logo_width" android:layout_height="@dimen/vzw_bixby_logo_height">
+            <ImageView android:background="@drawable/vzw_bixby_mic_ring_standby" android:layout_width="fill_parent" android:layout_height="fill_parent" android:elevation="4.0dip" />
+        </FrameLayout>
+        <com.samsung.android.settings.vzwbixbysetupwizard.hq.vi.logoparticle.BixbyUserSayingView android:layout_gravity="center" android:id="@id/bixby_user_saying_view" android:clipChildren="false" android:layout_width="@dimen/vzw_bixby_particle_view_size" android:layout_height="@dimen/vzw_bixby_particle_view_size" />
+        <com.samsung.android.settings.vzwbixbysetupwizard.hq.vi.logoparticle.BixbyParticleView android:layout_gravity="center" android:id="@id/bixby_particle_view" android:clipChildren="false" android:layout_width="@dimen/vzw_bixby_particle_view_size" android:layout_height="@dimen/vzw_bixby_particle_view_size" />
+        <FrameLayout android:layout_gravity="center" android:id="@id/bixby_logo_view" android:clipChildren="false" android:layout_width="@dimen/vzw_bixby_logo_width" android:layout_height="@dimen/vzw_bixby_logo_height" android:hapticFeedbackEnabled="false">
+            <ImageView android:id="@id/logo_floating_bg_view" android:background="@drawable/vzw_bixby_mic_ring_floating" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+            <ImageView android:id="@id/logo_bg_view" android:background="@drawable/vzw_bixby_mic_ring_standby" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+            <ImageView android:id="@id/logo_process_view" android:background="@drawable/vzw_bixby_processing_000" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+            <ImageView android:id="@id/logo_listen_view" android:background="@drawable/vzw_bixby_mic_ring_listening" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/vzw_bixby_ic_voice_cue_logo_2" android:tint="#fffafafa" />
+        </FrameLayout>
+    </com.samsung.android.settings.vzwbixbysetupwizard.hq.vi.logoparticle.LogoButton>
+</FrameLayout>

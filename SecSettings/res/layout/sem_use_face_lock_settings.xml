@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="@dimen/fingerprint_lock_settings_description_text_size" android:textColor="@color/body_text_color" android:id="@id/face_lock_setting_description" android:paddingTop="@dimen/body_text_top_padding" android:paddingBottom="@dimen/body_text_bottom_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:lineSpacingExtra="@dimen/fingerprint_lock_settings_lineSpacingExtra" android:fontFamily="sans-serif" android:paddingStart="@dimen/body_text_side_padding" android:paddingEnd="@dimen/body_text_side_padding" />
+            <RadioGroup android:id="@id/lock_type_area" android:layout_width="fill_parent" android:layout_height="wrap_content" android:checkedButton="@id/iris_unlock">
+                <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" android:layout_marginStart="@dimen/list_radio_button_divier_margin_start" style="@style/lock_screen_dialog_list_divider_wrapping_style" />
+                <com.android.settings.CheckableLinearLayout android:orientation="vertical" android:id="@id/face_unlock_button_area" android:background="?android:selectableItemBackground" android:focusable="true" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <CheckedTextView android:ellipsize="marquee" android:gravity="center_vertical" android:id="@id/face_unlock" android:background="?android:selectableItemBackgroundBorderless" android:paddingTop="@dimen/list_item_top_padding" android:paddingBottom="@dimen/list_item_bottom_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:checkMark="?android:listChoiceIndicatorSingle" android:minHeight="?android:listPreferredItemHeightSmall" android:text="@string/facelock_face_unlock" style="@style/lock_screen_dialog_list_item_wrapping_style" />
+                </com.android.settings.CheckableLinearLayout>
+                <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" android:layout_marginStart="@dimen/list_radio_button_divier_margin_start" style="@style/lock_screen_dialog_list_divider_wrapping_style" />
+                <com.android.settings.CheckableLinearLayout android:orientation="vertical" android:id="@id/iris_unlock_button_area" android:background="?android:selectableItemBackground" android:focusable="true" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <CheckedTextView android:ellipsize="marquee" android:gravity="center_vertical" android:id="@id/iris_unlock" android:background="?android:selectableItemBackgroundBorderless" android:paddingTop="@dimen/list_item_top_padding" android:paddingBottom="@dimen/list_item_bottom_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:checkMark="?android:listChoiceIndicatorSingle" android:minHeight="?android:listPreferredItemHeightSmall" android:text="@string/iris_unlock" style="@style/lock_screen_dialog_list_item_wrapping_style" />
+                </com.android.settings.CheckableLinearLayout>
+                <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" android:layout_marginStart="@dimen/list_radio_button_divier_margin_start" style="@style/lock_screen_dialog_list_divider_wrapping_style" />
+            </RadioGroup>
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout android:orientation="horizontal" android:id="@id/two_button_container" android:layout_alignParentEnd="true" style="@style/SecurityPreferenceButtonContainer">
+        <com.samsung.android.settings.widget.BottomBarButton android:id="@id/later_button" android:text="@string/biometrics_button_not_now" style="@style/SecurityPreferenceButton" />
+        <com.samsung.android.settings.widget.BottomBarButton android:id="@id/turn_on_button" android:text="@string/biometrics_button_turn_on" style="@style/SecurityPreferenceButton" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@id/one_button_container" android:layout_width="fill_parent" style="@style/SecurityPreferenceButtonContainer">
+        <com.samsung.android.settings.widget.BottomBarButton android:id="@id/ok_button" android:layout_width="fill_parent" android:text="@string/common_ok" style="@style/SecurityPreferenceButton" />
+    </LinearLayout>
+</LinearLayout>

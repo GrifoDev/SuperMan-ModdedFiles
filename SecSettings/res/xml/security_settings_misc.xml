@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/security_settings_title"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:persistent="false" android:title="@string/security_passwords_title">
+        <Preference android:title="@string/location_settings_title" android:key="location" android:fragment="com.android.settings.location.LocationSettings" />
+        <SwitchPreference android:title="@string/show_password" android:key="show_password" android:summary="@string/show_password_summary" />
+    </PreferenceCategory>
+    <PreferenceCategory>
+        <Preference android:persistent="false" android:title="@string/manage_device_admin" android:key="manage_device_admin" android:fragment="com.android.settings.DeviceAdminSettings" />
+        <Preference android:persistent="false" android:title="@string/enterprise_privacy_settings" android:key="enterprise_privacy" android:fragment="com.android.settings.enterprise.EnterprisePrivacySettings" />
+    </PreferenceCategory>
+    <Preference android:persistent="false" android:title="@string/sim_lock_settings_category" android:key="sim_lock_settings">
+        <intent android:targetPackage="com.android.settings" android:action="android.intent.action.MAIN" android:targetClass="com.android.settings.Settings$IccLockSettingsActivity" />
+    </Preference>
+    <Preference android:title="@string/encryption_and_credential_settings_title" android:key="encryption_and_credential" android:summary="@string/encryption_and_credential_settings_summary" android:fragment="com.android.settings.EncryptionAndCredential" />
+    <Preference android:persistent="false" android:title="@string/manage_trust_agents" android:key="manage_trust_agents" android:fragment="com.android.settings.TrustAgentSettings" />
+    <Preference android:title="@string/screen_pinning_title" android:key="screen_pinning_settings" android:summary="@string/switch_off_text" android:fragment="com.android.settings.ScreenPinningSettings" />
+    <Preference android:title="@string/usage_access_title" android:key="usage_access" android:fragment="com.android.settings.applications.ManageApplications">
+        <extra android:name="classname" android:value="com.android.settings.Settings$UsageAccessSettingsActivity" />
+    </Preference>
+</PreferenceScreen>

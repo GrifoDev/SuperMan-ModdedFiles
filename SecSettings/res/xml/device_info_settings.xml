@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/about_settings"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:settings="http://schemas.android.com/apk/res-auto">
+    <Preference android:title="@string/additional_system_update_settings_list_item_title" android:key="additional_system_update_settings">
+        <intent android:targetPackage="@string/additional_system_update" android:action="android.intent.action.MAIN" android:targetClass="@string/additional_system_update_menu" />
+    </Preference>
+    <Preference android:title="@string/manual" android:key="manual">
+        <intent android:action="android.settings.SHOW_MANUAL" />
+    </Preference>
+    <Preference android:persistent="false" android:enabled="false" android:title="@string/status_number" android:key="my_phone_number" android:summary="@string/device_info_default" android:shouldDisableView="false" />
+    <Preference android:enabled="false" android:title="@string/software_version" android:key="software_version" android:summary="@string/device_info_default" android:shouldDisableView="false" />
+    <Preference android:enabled="false" android:title="@string/hardware_version" android:key="hardware_version_spr" android:summary="@string/device_info_default" android:shouldDisableView="false" />
+    <PreferenceScreen android:title="@string/diagnostics_and_usage_title" android:key="diagnostics_and_usage">
+        <intent android:action="android.intent.action.SAMSUNG_CRASHREPORT_SETTING" />
+    </PreferenceScreen>
+    <PreferenceScreen android:title="@string/icon_glossary" android:key="icon_glossary" android:fragment="com.samsung.android.settings.deviceinfo.IconGlossary" />
+    <Preference android:title="@string/device_status" android:key="status_info" android:summary="@string/device_status_summary">
+        <intent android:targetPackage="com.android.settings" android:action="android.intent.action.MAIN" android:targetClass="com.android.settings.Settings$StatusActivity" />
+    </Preference>
+    <com.samsung.android.settings.deviceinfo.AvoidRootPreference android:title="@string/device_status" android:key="status_info_root" android:summary="@string/device_status_summary">
+        <intent android:targetPackage="com.android.settings" android:action="android.intent.action.MAIN" android:targetClass="com.android.settings.Settings$StatusActivity" />
+    </com.samsung.android.settings.deviceinfo.AvoidRootPreference>
+    <Preference android:title="@string/legal_information" android:key="legal_container" android:fragment="com.android.settings.LegalSettings" />
+    <PreferenceScreen android:title="@string/epush_settings" android:key="ctc_epush">
+        <intent android:targetPackage="com.ctc.epush" android:action="android.intent.action.MAIN" android:targetClass="com.ctc.epush.IndexActivity" />
+    </PreferenceScreen>
+    <PreferenceScreen android:title="@string/service_information_title" android:key="service_information" android:fragment="com.samsung.android.settings.ServiceInfoSettings" />
+    <PreferenceScreen android:title="@string/ntc_approval_title" android:key="ntc_approval" />
+    <SecPreference android:title="@string/device_name" android:key="device_name" android:widgetLayout="@layout/round_more_icon" />
+    <Preference android:title="@string/regulatory_information" android:key="regulatory_info" />
+    <Preference android:title="@string/device_feedback" android:key="device_feedback" />
+    <Preference android:title="@string/model_info" android:key="device_model" android:summary="@string/device_info_default" />
+    <PreferenceScreen android:title="@string/device_info_software_title" android:key="software_info" android:summary="@string/device_info_software_summary" android:fragment="com.samsung.android.settings.deviceinfo.SoftwareInfoSettings" />
+    <PreferenceScreen android:title="@string/device_info_preloaded_apps_title" android:key="preloaded_apps" android:summary="@string/device_info_preloaded_apps_summary" android:fragment="com.samsung.android.settings.deviceinfo.PreloadedApps" />
+    <PreferenceScreen android:title="@string/device_info_battery_title" android:key="battery_info" android:summary="@string/device_info_battery_summary" android:fragment="com.samsung.android.settings.deviceinfo.BatteryInfoSettings" />
+    <Preference android:title="@string/device_info_customer_services" android:key="customer_services" android:summary="@string/device_info_default" />
+    <Preference android:title="@string/firmware_version" android:key="firmware_version" android:summary="@string/device_info_default" />
+    <Preference android:enabled="false" android:title="@string/samsung_experience_version" android:key="samsung_experience_version" android:summary="@string/device_info_default" android:shouldDisableView="false" />
+    <Preference android:title="@string/fcc_equipment_id" android:key="fcc_equipment_id" android:summary="@string/device_info_default" />
+    <Preference android:title="@string/baseband_version" android:key="baseband_version" android:summary="@string/device_info_default" />
+    <Preference android:title="@string/kernel_version" android:key="kernel_version" android:summary="@string/device_info_default" />
+    <Preference android:title="@string/build_number" android:key="build_number" android:summary="@string/device_info_default" />
+    <Preference android:title="@string/selinux_status" android:key="selinux_status" android:summary="@string/selinux_status_enforcing" />
+    <Preference android:enabled="false" android:title="Secure boot status" android:key="csb_value" android:summary="@string/device_info_default" android:shouldDisableView="false" />
+    <Preference android:enabled="false" android:title="@string/hardware_version" android:key="hardware_version" android:summary="@string/device_info_default" android:shouldDisableView="false" />
+    <Preference android:enabled="false" android:title="@string/software_version" android:key="software_version_cmcc" android:summary="@string/device_info_default" android:shouldDisableView="false" />
+    <Preference android:enabled="false" android:title="United Arab Emirates" android:key="country_certification_info" android:summary="TRA ID : 0016333/08\nTA : 000000000/00" android:shouldDisableView="false" />
+    <Preference android:enabled="false" android:title="@string/knox_version" android:key="knox_version" android:summary="@string/device_info_default" android:shouldDisableView="false" />
+    <PreferenceScreen android:title="@string/kcc_information" android:key="knox_custom_configurator">
+        <intent android:targetPackage="com.sec.knox.kccagent" android:action="android.intent.action.MAIN" android:targetClass="com.sec.knox.kccc.agent.activities.KCCCSettings" />
+    </PreferenceScreen>
+    <PreferenceScreen android:title="@string/kcagent_information" android:key="knox_configurator">
+        <intent android:targetPackage="com.sec.knox.kccagent" android:action="android.intent.action.MAIN" android:targetClass="com.sec.knox.kccc.agent.activities.KCCCSettings" />
+    </PreferenceScreen>
+    <Preference android:enabled="false" android:title="@string/omc_version" android:key="omc_version" android:summary="@string/device_info_default" android:shouldDisableView="false" />
+    <Preference android:enabled="false" android:title="@string/device_info_battery_capacity" android:key="battery_capacity" android:summary="@string/device_info_default" android:shouldDisableView="false" />
+    <Preference android:enabled="false" android:title="@string/security_sw_version" android:key="security_sw_version" android:shouldDisableView="false" />
+    <Preference android:title="@string/security_patch" android:key="security_patch" android:summary="@string/device_info_default" />
+</PreferenceScreen>

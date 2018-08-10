@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="biometrics_lock_setup_button_height">40.0dip</dimen>
+    <dimen name="biometrics_lock_setup_button_margin_top">301.0dip</dimen>
+    <dimen name="biometrics_lock_setup_desc_linespace">6.0dip</dimen>
+    <dimen name="biometrics_lock_setup_desc_margin_top">126.0dip</dimen>
+    <dimen name="biometrics_lock_setup_desc_text_size">15.0sp</dimen>
+    <dimen name="biometrics_lock_setup_padding">65.0dip</dimen>
+    <dimen name="biometrics_lock_setup_sub_desc_margin_top">33.0dip</dimen>
+    <dimen name="biometrics_lock_setup_suw_button_height">56.0dip</dimen>
+    <dimen name="biometrics_lock_setup_title_size">24.0sp</dimen>
+    <dimen name="fingerprint_register_v3_guideTitle_marginTop">90.0dip</dimen>
+    <dimen name="smart_scan_tip_text_phrase_top_margin">24.0dip</dimen>
+    <dimen name="suw_small_header_bottom_margin">14.0dip</dimen>
+    <dimen name="suw_small_header_icon_size">32.0dip</dimen>
+    <dimen name="suw_small_header_side_margin">40.0dip</dimen>
+    <dimen name="suw_small_header_top_margin">48.0dip</dimen>
+    <dimen name="suw_total_area_bottom_margin">77.0dip</dimen>
+    <dimen name="suw_total_area_side_margin">23.0dip</dimen>
+    <dimen name="suw_total_area_top_margin">156.0dip</dimen>
+    <dimen name="use_intelligent_biometrics_lock_setting_description_margin_top">24.0dip</dimen>
+    <dimen name="wifi_setup_list_margin_left">0.0dip</dimen>
+    <dimen name="biometrics_lock_setup_button_margin_top_landscape">113.0dip</dimen>
+    <dimen name="biometrics_lock_setup_button_width">177.0dip</dimen>
+    <dimen name="biometrics_lock_setup_desc_margin_top_landscape">120.0dip</dimen>
+    <dimen name="biometrics_lock_setup_padding_landscape">80.0dip</dimen>
+    <dimen name="fingerprint_register_v3_guideText_width">483.0dip</dimen>
+    <dimen name="fingerprint_register_v3_raisedButton_width">177.0dip</dimen>
+</resources>

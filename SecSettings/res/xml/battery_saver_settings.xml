@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/battery_saver" android:key="battery_saver"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <DropDownPreference android:title="@string/battery_saver_turn_on_automatically_title" android:key="turn_on_automatically" android:summary="%s" />
+</PreferenceScreen>

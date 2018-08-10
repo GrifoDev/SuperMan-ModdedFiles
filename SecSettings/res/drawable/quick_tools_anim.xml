@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:oneshot="false"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:duration="2000" android:drawable="@drawable/lock_setting_img_quick_tools_01" />
+    <item android:duration="100" android:drawable="@drawable/lock_setting_img_quick_tools_02" />
+    <item android:duration="2000" android:drawable="@drawable/lock_setting_img_quick_tools_03" />
+    <item android:duration="100" android:drawable="@drawable/lock_setting_img_quick_tools_04" />
+    <item android:duration="2000" android:drawable="@drawable/lock_setting_img_quick_tools_05" />
+    <item android:duration="100" android:drawable="@drawable/lock_setting_img_quick_tools_06" />
+</animation-list>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@id/fingerprint_background" android:drawable="@drawable/fp_illustration_enrollment" />
+    <item android:id="@id/fingerprint_animation" android:drawable="@drawable/enrollment_fingerprint_isolated_animation" />
+</layer-list>

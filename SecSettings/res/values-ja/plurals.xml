@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="accessibilty_autoclick_preference_subtitle_extremely_short_delay">
+        <item quantity="other">極めて短い待機時間(%sミリ秒)</item>
+        <item quantity="one">極めて短い待機時間(%sミリ秒)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_long_delay">
+        <item quantity="other">長い待機時間(%sミリ秒)</item>
+        <item quantity="one">長い待機時間(%sミリ秒)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_short_delay">
+        <item quantity="other">短い待機時間(%sミリ秒)</item>
+        <item quantity="one">短い待機時間(%sミリ秒)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_long_delay">
+        <item quantity="other">非常に長い待機時間(%sミリ秒)</item>
+        <item quantity="one">非常に長い待機時間(%sミリ秒)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_short_delay">
+        <item quantity="other">非常に短い待機時間(%sミリ秒)</item>
+        <item quantity="one">非常に短い待機時間(%sミリ秒)</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d件のアプリにデータを無制限に使用することを許可</item>
+        <item quantity="one">1件のアプリにデータを無制限に使用することを許可</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary_chn">
+        <item quantity="other">%d件のアプリに、[バックグラウンドデータを制限]が有効な場合でもモバイルデータを無制限に使用することを許可しました。</item>
+        <item quantity="one">%d件のアプリに、[バックグラウンドデータを制限]が有効な場合でもモバイルデータを無制限に使用することを許可しました。</item>
+    </plurals>
+    <plurals name="deleted_channels">
+        <item quantity="other">%d件のカテゴリを削除しました。</item>
+        <item quantity="one">1件のカテゴリを削除</item>
+    </plurals>
+    <plurals name="dex_timeout_day">
+        <item quantity="other">%d日</item>
+        <item quantity="one">1日</item>
+    </plurals>
+    <plurals name="dex_timeout_hour">
+        <item quantity="other">%d時間</item>
+        <item quantity="one">1時間</item>
+    </plurals>
+    <plurals name="dex_timeout_minute">
+        <item quantity="other">%d分</item>
+        <item quantity="one">1分</item>
+    </plurals>
+    <plurals name="dex_timeout_second">
+        <item quantity="other">%d秒</item>
+        <item quantity="one">1秒</item>
+    </plurals>
+    <plurals name="dex_timeout_week">
+        <item quantity="other">%d週間</item>
+        <item quantity="one">1週間</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">選択した言語を削除</item>
+        <item quantity="one">選択した言語を削除</item>
+    </plurals>
+    <plurals name="enterprise_privacy_number_packages_lower_bound">
+        <item quantity="other">アプリ: %d 個以上</item>
+        <item quantity="one">アプリ: %d 個以上</item>
+    </plurals>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d時間</item>
+        <item quantity="one">1時間</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d分</item>
+        <item quantity="one">1分</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d秒</item>
+        <item quantity="one">1秒</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">パスワードには%d文字以上の文字を含める必要があります。</item>
+        <item quantity="one">パスワードには1文字以上の文字を含める必要があります。</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">パスワードには%d文字以上の小文字を含める必要があります。</item>
+        <item quantity="one">パスワードには1文字以上の小文字を含める必要があります。</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">パスワードには%d文字以上の数字または記号を含める必要があります。</item>
+        <item quantity="one">パスワードには1文字以上の数字または記号を含める必要があります。</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">パスワードには%d個以上の数字を含める必要があります。</item>
+        <item quantity="one">パスワードには1個以上の数字を含める必要があります。</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">パスワードには%d文字以上の記号を含める必要があります。</item>
+        <item quantity="one">パスワードには1文字以上の記号を含める必要があります。</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">パスワードには%d文字以上の大文字を含める必要があります。</item>
+        <item quantity="one">パスワードには1文字以上の大文字を含める必要があります。</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d個のアプリケーションで通知の読み取りが可能です。</item>
+        <item quantity="one">%d個のアプリケーションで通知の読み取りが可能です。</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">過去%2$sで%1$d件のプロセスがRAMを使用</item>
+        <item quantity="one">過去%2$sで%1$d件のプロセスがRAMを使用</item>
+    </plurals>
+    <plurals name="network_restrictions_summary">
+        <item quantity="other">%d件制限中</item>
+        <item quantity="one">1件制限中</item>
+    </plurals>
+    <plurals name="notification_summary">
+        <item quantity="other">%d件のアプリでOFF</item>
+        <item quantity="one">1件のアプリでOFF</item>
+    </plurals>
+    <plurals name="number_of_device_admins">
+        <item quantity="other">起動中のアプリ%d件</item>
+        <item quantity="one">起動中のアプリ1件</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">追加の権限%d件</item>
+        <item quantity="one">追加の権限%d件</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">あと%dステップでデベロッパーモードになります。</item>
+        <item quantity="one">あと1ステップでデベロッパーモードになります。</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_dialog_title">
+        <item quantity="other">証明書を信頼または削除</item>
+        <item quantity="one">証明書を信頼または削除</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message">
+        <item quantity="other">"%sは業務用プロファイルのCA証明書をインストールしました。これにより、Eメール、アプリ、セキュリティで保護されたWebサイトを含む業務上のネットワーク活動が監視される可能性があります。これらの証明書を信頼するか削除するかを選択することができます。
+
+これらの証明書の詳細については、管理者にお問い合わせください。"</item>
+        <item quantity="one">"%sは業務用プロファイルのCA証明書をインストールしました。これにより、Eメール、アプリ、セキュリティで保護されたWebサイトを含む業務上のネットワーク活動が監視される可能性があります。この証明書を信頼するか削除するかを選択することができます。
+
+この証明書の詳細については、管理者にお問い合わせください。"</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%sはこの端末にCA証明書をインストールしました。これにより、Eメール、アプリ、セキュリティで保護されたWebサイトを含む端末のネットワーク活動が監視される可能性があります。
+
+これらの証明書の詳細については、IT管理者にお問い合わせください。"</item>
+        <item quantity="one">"%sはこの端末にCA証明書をインストールしました。これにより、Eメール、アプリ、セキュリティで保護されたWebサイトを含む端末のネットワーク活動が監視される可能性があります。
+
+この証明書の詳細については、IT管理者にお問い合わせください。"</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_settings_button">
+        <item quantity="other">証明書を確認</item>
+        <item quantity="one">証明書を確認</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">%d件のフォルダ/ファイルへのアクセス</item>
+        <item quantity="one">1件のフォルダ/ファイルへのアクセス</item>
+    </plurals>
+</resources>

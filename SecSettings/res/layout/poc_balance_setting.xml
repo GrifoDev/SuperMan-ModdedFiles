@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:orientation="vertical" android:id="@id/view_full" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:layout_gravity="center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <View android:layout_width="0.0px" android:layout_height="fill_parent" android:layout_weight="12.0" />
+        <TextView android:textSize="16.0dip" android:textColor="#99252525" android:gravity="center_horizontal" android:id="@id/poc_description" android:layout_width="0.0px" android:layout_height="wrap_content" android:text="@string/poc_balance_description_1" android:layout_weight="76.0" android:lineSpacingExtra="4.0dip" android:fontFamily="sec-roboto-light" />
+        <View android:layout_width="0.0px" android:layout_height="fill_parent" android:layout_weight="12.0" />
+    </LinearLayout>
+    <LinearLayout android:layout_gravity="bottom" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="98.0dip">
+        <RelativeLayout android:orientation="horizontal" android:id="@id/preset_label" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/list_item_top_padding">
+            <TextView android:textSize="14.0dip" android:textColor="#99252525" android:id="@id/preset_cool" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/display_temperature_preset_cool" android:lineSpacingExtra="4.0dip" android:fontFamily="sec-roboto-light" android:textAlignment="center" android:layout_marginStart="@dimen/screen_mode_color_balance_preset_seekbar_side_padding" />
+            <TextView android:textSize="14.0dip" android:textColor="#99252525" android:id="@id/preset_warm" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/display_temperature_preset_warm" android:lineSpacingExtra="4.0dip" android:fontFamily="sec-roboto-light" android:textAlignment="center" android:layout_marginEnd="@dimen/screen_mode_color_balance_preset_seekbar_side_padding" android:layout_alignParentEnd="true" />
+        </RelativeLayout>
+        <com.samsung.android.settings.widget.IntervalSeekBar android:id="@id/poc_balance_seekbar" android:layout_width="fill_parent" android:layout_height="@dimen/font_preveiw_seekbar_height" android:layout_marginBottom="@dimen/seekbar_preference_item_bottom_padding" android:max="4" android:paddingStart="@dimen/screen_mode_color_balance_preset_seekbar_side_padding" android:paddingEnd="@dimen/screen_mode_color_balance_preset_seekbar_side_padding" />
+    </LinearLayout>
+    <com.samsung.android.settings.widget.RoundButtonView android:gravity="center" android:layout_gravity="bottom|center" android:id="@id/poc_apply" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="28.0dip" android:minWidth="190.0dip" android:minHeight="42.0dip" android:text="@string/common_apply" />
+</FrameLayout>

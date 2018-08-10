@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.settings.widget.SwitchBar android:theme="?switchBarTheme" android:id="@id/switch_bar" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <FrameLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content" android:fillViewport="true">
+            <LinearLayout android:gravity="top" android:orientation="vertical" android:paddingTop="@dimen/bluetooth_dual_play_settings_content_padding_top" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/switchbar_margin_start" android:paddingEnd="@dimen/switchbar_margin_start">
+                <ImageView android:id="@id/image" android:layout_width="fill_parent" android:layout_height="wrap_content" android:scaleType="centerInside" android:adjustViewBounds="true" />
+                <TextView android:id="@id/content" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/bluetooth_dual_play_settings_content_padding_between" android:textAlignment="viewStart" android:breakStrategy="simple" style="@style/body_text_style" />
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
+</LinearLayout>

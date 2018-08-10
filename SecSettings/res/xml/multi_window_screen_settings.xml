@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/multi_window_screen_title" settings:parent="@xml/useful_feature"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <com.android.settings.SecSettingsSwitchPreference android:title="@string/multi_window_use_recents_button" android:key="recents_key" android:summary="@string/multi_window_use_recents_key_summary_swkey" android:fragment="com.samsung.android.settings.usefulfeature.RecentsKeySettings" />
+    <SecSwitchPreference android:title="@string/multi_window_split_screen_title" android:key="split_screen" android:summary="@string/button_on" />
+    <SecSwitchPreference android:title="@string/multi_window_setting_title" android:key="pop_up_gesture" android:summary="@string/button_on" />
+</PreferenceScreen>

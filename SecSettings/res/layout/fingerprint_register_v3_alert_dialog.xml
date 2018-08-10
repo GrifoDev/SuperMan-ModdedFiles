@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:paddingTop="@dimen/fingerprint_register_dialog_paddingTop" android:paddingBottom="@dimen/fingerprint_register_dialog_paddingTop" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.samsung.android.visualeffect.progressfingerscan.FingerPrintAlertView android:id="@id/errorimage" android:layout_width="@dimen/fingerprint_register_v3_dialog_image_width" android:layout_height="@dimen/fingerprint_register_v3_dialog_image_height" android:layout_centerVertical="true" android:layout_marginStart="@dimen/fingerprint_register_v3_dialog_image_marginStart" />
+    <TextView android:textSize="@dimen/fingerprint_register_v3_dialog_textSize" android:textColor="@color/body_text_color" android:id="@id/errortext" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_centerVertical="true" android:lineSpacingExtra="@dimen/fingerprint_register_v3_textLineSpace" android:fontFamily="sec-roboto-light" android:layout_marginStart="@dimen/fingerprint_register_v3_dialog_text_marginStart" android:layout_marginEnd="@dimen/fingerprint_register_v3_dialog_text_marginEnd" android:layout_toEndOf="@id/errorimage" />
+</RelativeLayout>

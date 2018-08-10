@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/tab_category_connections" android:key="connections_settings"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <SecSwitchPreferenceScreen android:title="@string/wifi_settings_title" android:key="wifi_settings" android:fragment="com.android.settings.wifi.WifiSettings" />
+    <SecPreferenceScreen android:title="@string/wifi_calling_title" android:key="wifi_calling_settings_open">
+        <intent android:targetPackage="com.android.phone" android:action="android.intent.action.MAIN" android:targetClass="com.android.phone.callsettings.WifiCallActivity" />
+    </SecPreferenceScreen>
+    <PreferenceScreen android:title="@string/avea_giga_title" android:key="avea_mptcp" android:fragment="com.samsung.android.settings.GigaLteSettings" />
+    <PreferenceScreen android:title="@string/ais_mptcp_title" android:key="ais_mptcp" android:fragment="com.samsung.android.settings.GigaLteSettings" />
+    <SecSwitchPreferenceScreen android:title="@string/bluetooth_settings_title" android:key="bluetooth_settings" android:fragment="com.android.settings.bluetooth.BluetoothSettings" />
+    <SecSwitchPreferenceScreen android:title="@string/device_visibility_title" android:key="device_visibility_settings" android:summary="@string/device_visibility_text" android:fragment="com.samsung.android.settings.devicevisibility.DeviceVisibilitySettings" />
+    <SecPreferenceScreen android:title="@string/data_usage_summary_title" android:key="data_usage_settings" android:fragment="com.android.settings.datausage.DataUsageSummary" />
+    <PreferenceScreen android:title="@string/ss_advanced_calling_header_us" android:key="vzw_provision_volte">
+        <intent android:targetPackage="com.samsung.advancedcalling" android:action="com.samsung.advancedcalling.action.VZW_ADV_CALLING" android:targetClass="com.samsung.advancedcalling.VzwAdvancedCalling" />
+    </PreferenceScreen>
+    <SecSwitchPreferenceScreen android:persistent="false" android:title="@string/airplane_mode" android:key="toggle_airplane" android:summary="@string/airplane_mode_summary" android:disableDependentsState="true" android:fragment="com.samsung.android.settings.AirplaneModeSettings" />
+    <SecSwitchPreferenceScreen android:title="@string/nfcpayment_quick_toggle_title" android:key="nfc_settings" android:summary="@string/nfc_settings_title" android:fragment="com.samsung.android.settings.nfc.NfcSettings" />
+    <PreferenceScreen android:title="@string/nfc_osaifukeitai_title" android:key="nfc_osaifukeitai_settings" android:fragment="com.samsung.android.settings.nfc.osaifu.NfcOsaifukeitaiSettings" />
+    <SecRestrictedPreference android:title="@string/tether_settings_title_all" android:key="tethering_and_hotspot" android:fragment="com.android.settings.TetherSettings" settings:useAdminDisabledSummary="true" settings:userRestriction="no_config_tethering" />
+    <SecRestrictedPreference android:title="@string/network_settings_title" android:key="mobile_network_settings" android:dependency="toggle_airplane" settings:keywords="@string/keywords_more_mobile_networks" settings:useAdminDisabledSummary="true" settings:userRestriction="no_config_mobile_networks">
+        <intent android:targetPackage="com.samsung.networkui" android:action="android.intent.action.MAIN" android:targetClass="com.samsung.networkui.MobileNetworkSettings" />
+    </SecRestrictedPreference>
+    <SecPreferenceScreen android:title="@string/sim_card_management_ds" android:key="simcard_management">
+        <intent android:action="settings.SIM_CARD_NETWORK" />
+    </SecPreferenceScreen>
+    <SecSwitchPreferenceScreen android:title="@string/location_settings_title" android:key="location_settings" android:fragment="com.android.settings.location.LocationSettings" />
+    <SecPreferenceScreen android:title="@string/lgt_service_global_auto_roaming" android:key="kt_roaming_settings" android:fragment="com.samsung.android.settings.TRoamingSettings" />
+    <SecPreferenceScreen android:title="@string/lgt_service_global_auto_roaming" android:key="global_roaming_settings" android:fragment="com.samsung.android.settings.GlobalRoamingSettings" />
+    <SecPreferenceScreen android:title="@string/more_connection_settings_title" android:key="wireless_settings" android:fragment="com.samsung.android.settings.WirelessSettings" />
+</PreferenceScreen>

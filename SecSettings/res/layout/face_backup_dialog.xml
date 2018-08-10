@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_gravity="center" android:orientation="vertical" android:id="@id/identify_alternative_password_box" android:background="@drawable/face_dialog_bg" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="16.0dip" android:textColor="#ff383838" android:gravity="center_vertical" android:layout_gravity="bottom|center" android:id="@id/identify_alternative_password_guide" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="24.0dip" android:layout_marginTop="24.0dip" android:layout_marginRight="24.0dip" android:layout_marginBottom="16.0dip" android:maxLines="4" android:lineSpacingExtra="4.0dip" />
+    <FrameLayout android:layout_gravity="center" android:id="@id/identify_alternative_password_area" android:background="#fffafafa" android:layout_width="fill_parent" android:layout_height="50.0dip" android:layout_marginLeft="24.0dip" android:layout_marginRight="24.0dip" android:layout_marginBottom="18.0dip">
+        <EditText android:textSize="16.0dip" android:textStyle="normal" android:textColor="#ff000000" android:ellipsize="start" android:gravity="center" android:id="@id/identify_alternative_password" android:background="@drawable/face_edittext_style" android:focusable="true" android:layout_width="fill_parent" android:layout_height="42.0dip" android:layout_marginTop="8.0dip" android:singleLine="true" android:maxLength="16" android:inputType="textPassword" android:imeOptions="actionDone|flagForceAscii|flagNoExtractUi" android:textCursorDrawable="@drawable/face_edittext_cursor_color">
+            <requestFocus />
+        </EditText>
+        <TextView android:textSize="16.0dip" android:textStyle="normal" android:textColor="#ff383838" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/identify_alternative_password_error" android:background="@drawable/face_edittext_style" android:layout_width="fill_parent" android:layout_height="50.0dip" />
+    </FrameLayout>
+</LinearLayout>

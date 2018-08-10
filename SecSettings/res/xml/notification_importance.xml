@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/notification_importance_title"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.settings.widget.RadioButtonPreference android:title="@string/notification_importance_high_title" android:key="importance_high" android:summary="@string/notification_importance_high" />
+    <com.android.settings.widget.RadioButtonPreference android:title="@string/notification_importance_default_title" android:key="importance_default" android:summary="@string/notification_importance_default" />
+    <com.android.settings.widget.RadioButtonPreference android:title="@string/notification_importance_low_title" android:key="importance_low" android:summary="@string/notification_importance_low" />
+    <com.android.settings.widget.RadioButtonPreference android:title="@string/notification_importance_min_title" android:key="importance_min" android:summary="@string/notification_importance_min" />
+</PreferenceScreen>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/active_layout" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:scrollbarStyle="outsideOverlay" android:gravity="top" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dip" android:paddingStart="16.0dip" android:paddingEnd="16.0dip">
+                <ImageView android:layout_gravity="center_vertical" android:id="@id/admin_icon" android:layout_width="@android:dimen/app_icon_size" android:layout_height="@android:dimen/app_icon_size" android:scaleType="fitCenter" android:contentDescription="@null" android:layout_marginEnd="16.0dip" />
+                <TextView android:textAppearance="?android:textAppearanceMedium" android:textStyle="bold" android:ellipsize="marquee" android:layout_gravity="center_vertical" android:id="@id/admin_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="2.0dip" android:singleLine="true" android:layout_weight="1.0" />
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="16.0dip" android:paddingEnd="16.0dip">
+                <TextView android:id="@id/profile_owner_warning" android:padding="0.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/adding_profile_owner_warning" />
+                <TextView android:id="@id/admin_description" android:padding="0.0dip" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="0.0" />
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <ImageView android:gravity="center_vertical" android:id="@id/add_msg_expander" android:layout_width="wrap_content" android:layout_height="wrap_content" android:contentDescription="@null" />
+                    <TextView android:gravity="center_vertical" android:id="@id/add_msg" android:padding="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+                </LinearLayout>
+                <TextView android:textAppearance="?android:textAppearanceMedium" android:id="@id/admin_warning" android:padding="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1.0" />
+                <LinearLayout android:orientation="vertical" android:id="@id/admin_policies" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1.0" android:paddingStart="16.0dip" android:paddingEnd="12.0dip" />
+                <TextView android:textAppearance="?android:textAppearanceMedium" android:autoLink="email|phone|web" android:id="@id/admin_support_message" android:padding="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:id="@id/buttonPanel" android:layout_width="fill_parent" android:layout_height="wrap_content" android:divider="?android:dividerHorizontal" android:showDividers="beginning|end|middle" style="?android:buttonBarStyle">
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/restricted_action" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                    <Button android:gravity="start|center" android:layout_gravity="start" android:id="@id/action_button" android:focusable="false" android:clickable="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:maxLines="2" android:textAllCaps="false" style="?android:buttonBarButtonStyle" />
+                    <include layout="@layout/restricted_icon" />
+                </LinearLayout>
+                <Button android:gravity="start|center" android:layout_gravity="end" android:id="@id/cancel_button" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/cancel" android:maxLines="2" android:textAllCaps="false" style="?android:buttonBarButtonStyle" />
+                <Button android:gravity="start|center" android:layout_gravity="end" android:id="@id/uninstall_button" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/uninstall_device_admin" android:maxLines="2" android:textAllCaps="false" style="?android:buttonBarButtonStyle" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

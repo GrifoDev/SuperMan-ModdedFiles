@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="accessibilty_autoclick_preference_subtitle_extremely_short_delay">
+        <item quantity="other">Εξαιρετικά μικρή καθυστέρηση (%s ms)</item>
+        <item quantity="one">Εξαιρετικά μικρή καθυστέρηση (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_long_delay">
+        <item quantity="other">Μεγάλη καθυστέρηση (%s ms)</item>
+        <item quantity="one">Μεγάλη καθυστέρηση (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_short_delay">
+        <item quantity="other">Μικρή καθυστέρηση (%s ms)</item>
+        <item quantity="one">Μικρή καθυστέρηση (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_long_delay">
+        <item quantity="other">Πολύ μεγάλη καθυστέρηση (%s ms)</item>
+        <item quantity="one">Πολύ μεγάλη καθυστέρηση (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_short_delay">
+        <item quantity="other">Πολύ μικρή καθυστέρηση (%s ms)</item>
+        <item quantity="one">Πολύ μικρή καθυστέρηση (%s ms)</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d εφαρμογές επιτρέπεται να χρησιμοποιούν δεδομένα χωρίς περιορισμούς</item>
+        <item quantity="one">1 εφαρμογή επιτρέπεται να χρησιμοποιεί δεδομένα χωρίς περιορισμούς</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary_chn">
+        <item quantity="other">%d εφαρμογές επιτρέπεται να χρησιμοποιούν δεδομένα κινητής τηλεφωνίας χωρίς περιορισμούς όσο είναι ενεργοποιημένη η λειτουργία «Περιορισμός δεδομένων παρασκηνίου».</item>
+        <item quantity="one">%d εφαρμογές επιτρέπεται να χρησιμοποιούν δεδομένα κινητής τηλεφωνίας χωρίς περιορισμούς όσο είναι ενεργοποιημένη η λειτουργία «Περιορισμός δεδομένων παρασκηνίου».</item>
+    </plurals>
+    <plurals name="deleted_channels">
+        <item quantity="other">Διαγράφηκαν %d κατηγορίες</item>
+        <item quantity="one">Διαγράφηκε 1 κατηγορία</item>
+    </plurals>
+    <plurals name="dex_timeout_day">
+        <item quantity="other">%d ημέρες</item>
+        <item quantity="one">1 ημέρα</item>
+    </plurals>
+    <plurals name="dex_timeout_hour">
+        <item quantity="other">%d ώρες</item>
+        <item quantity="one">1 ώρα</item>
+    </plurals>
+    <plurals name="dex_timeout_minute">
+        <item quantity="other">%d λεπτά</item>
+        <item quantity="one">1 λεπτό</item>
+    </plurals>
+    <plurals name="dex_timeout_second">
+        <item quantity="other">%d δευτερόλεπτα</item>
+        <item quantity="one">1 δευτερόλεπτο</item>
+    </plurals>
+    <plurals name="dex_timeout_week">
+        <item quantity="other">%d εβδομ.</item>
+        <item quantity="one">1 εβδομάδα</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Κατάργηση επιλεγμένων γλωσσών</item>
+        <item quantity="one">Κατάργηση επιλεγμένης γλώσσας</item>
+    </plurals>
+    <plurals name="enterprise_privacy_number_packages_lower_bound">
+        <item quantity="other">Τουλάχιστον %d εφαρμογές</item>
+        <item quantity="one">Τουλάχιστον %d εφαρμογή</item>
+    </plurals>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d ώρες</item>
+        <item quantity="one">1 ώρα</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d λεπτά</item>
+        <item quantity="one">1 λεπτό</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d δευτερόλεπτα</item>
+        <item quantity="one">1 δευτερόλεπτο</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Ο κωδικός πρόσβασης πρέπει να περιέχει τουλάχιστον %d γράμματα.</item>
+        <item quantity="one">Ο κωδικός πρόσβασης πρέπει να περιέχει τουλάχιστον ένα γράμμα.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Ο κωδικός πρόσβασης θα πρέπει να περιέχει τουλάχιστον %d πεζούς χαρακτήρες.</item>
+        <item quantity="one">Ο κωδικός πρόσβασης θα πρέπει να περιέχει τουλάχιστον έναν πεζό χαρακτήρα.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Ο κωδικός πρόσβασης πρέπει να περιέχει τουλάχιστον %d αριθμούς ή σύμβολα.</item>
+        <item quantity="one">Ο κωδικός πρόσβασης πρέπει να περιέχει τουλάχιστον 1 αριθμό ή σύμβολο.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Ο κωδικός πρόσβασης θα πρέπει να περιέχει τουλάχιστον %d αριθμούς.</item>
+        <item quantity="one">Ο κωδικός πρόσβασης θα πρέπει να περιλαμβάνει τουλάχιστον 1 αριθμό.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Ο κωδικός πρόσβασης πρέπει να περιέχει τουλάχιστον %d σύμβολα.</item>
+        <item quantity="one">Ο κωδικός πρόσβασης πρέπει να περιέχει τουλάχιστον 1 σύμβολο.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Ο κωδικός πρόσβασης θα πρέπει να περιέχει τουλάχιστον %d κεφαλαίους χαρακτήρες.</item>
+        <item quantity="one">Ο κωδικός πρόσβασης θα πρέπει να περιέχει τουλάχιστον έναν κεφαλαίο χαρακτήρα.</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d εφαρμογές μπορούν να διαβάσουν ειδοποιήσεις.</item>
+        <item quantity="one">Επιτρέπεται η ανάγνωση ειδοποιήσεων από την εφαρμογή %d.</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$d διεργασίες χρησιμοποίησαν RAM τις τελευταίες %2$s</item>
+        <item quantity="one">%1$d διεργασία χρησιμοποίησε RAM τις τελευταίες %2$s</item>
+    </plurals>
+    <plurals name="network_restrictions_summary">
+        <item quantity="other">%d περιορισμοί</item>
+        <item quantity="one">1 περιορισμός</item>
+    </plurals>
+    <plurals name="notification_summary">
+        <item quantity="other">Απενεργοποιημένες για %d εφαρμογές</item>
+        <item quantity="one">Απενεργοποιημένες για 1 εφαρμογή</item>
+    </plurals>
+    <plurals name="number_of_device_admins">
+        <item quantity="other">%d ενεργές εφαρμογές</item>
+        <item quantity="one">1 ενεργή εφαρμογή</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d ακόμη δικαιώματα</item>
+        <item quantity="one">%d ακόμη δικαίωμα</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Απομένουν μόνο %d βήματα για να γίνετε προγραμματιστής.</item>
+        <item quantity="one">Απομένει μόνο 1 βήμα, για να γίνετε προγραμματιστής.</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_dialog_title">
+        <item quantity="other">Ορισμός ως αξιόπ. ή κατάργ. πιστοποιητικών</item>
+        <item quantity="one">Ορισμός ως αξιόπ. ή κατάργ. πιστοποιητικού</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message">
+        <item quantity="other">"Ο χρήστης %s εγκατέστησε αρχές έκδοσης πιστοποιητικών για το προφίλ σας εργασίας, οι οποίες μπορούν να του επιτρέψουν να παρακολουθεί τις δραστηριότητες εργασίας στο δίκτυο, συμπεριλαμβανομένης της χρήσης των email, των εφαρμογών και των ασφαλών τοποθεσιών web. Μπορείτε να ορίσετε τα πιστοποιητικό ως αξιόπιστα ή να τα καταργήσετε.
+
+Για περισσότερες πληροφορίες σχετικά με αυτά τα πιστοποιητικά, επικοινωνήστε με το διαχειριστή."</item>
+        <item quantity="one">"Ο χρήστης %s εγκατέστησε μια αρχή έκδοσης πιστοποιητικών για το προφίλ σας εργασίας, η οποία μπορεί να του επιτρέψει να παρακολουθεί τις δραστηριότητες εργασίας στο δίκτυο, συμπεριλαμβανομένης της χρήσης των email, των εφαρμογών και των ασφαλών τοποθεσιών web. Μπορείτε να ορίσετε το πιστοποιητικό ως αξιόπιστο ή να το καταργήσετε.
+
+Για περισσότερες πληροφορίες σχετικά με αυτό το πιστοποιητικό, επικοινωνήστε με το διαχειριστή."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"Ο χρήστης %s εγκατέστησε πιστοποιητικά CA στη συσκευή σας, τα οποία μπορεί να του επιτρέψουν να παρακολουθεί τη δραστηριότητα δικτύου της συσκευής, συμπεριλαμβανομένης της χρήσης των email, των εφαρμογών και των ασφαλών τοποθεσιών web.
+
+Για περισσότερες πληροφορίες σχετικά με αυτά τα πιστοποιητικά, επικοινωνήστε με το διαχειριστή IT."</item>
+        <item quantity="one">"Ο χρήστης %s εγκατέστησε ένα πιστοποιητικό CA στη συσκευή σας, το οποίο μπορεί να του επιτρέψει να παρακολουθεί τη δραστηριότητα δικτύου της συσκευής, συμπεριλαμβανομένης της χρήσης των email, των εφαρμογών και των ασφαλών τοποθεσιών web.
+
+Για περισσότερες πληροφορίες σχετικά με αυτό το πιστοποιητικό, επικοινωνήστε με το διαχειριστή IT."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_settings_button">
+        <item quantity="other">Έλεγχος πιστοποιητικών</item>
+        <item quantity="one">Έλεγχος πιστοποιητικού</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Πρόσβαση σε %d φακέλους/αρχεία</item>
+        <item quantity="one">Πρόσβαση σε 1 φάκελο/αρχείο</item>
+    </plurals>
+</resources>

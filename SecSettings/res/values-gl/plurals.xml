@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="enterprise_privacy_number_packages_lower_bound">
+        <item quantity="other">Mínimo de %d aplicacións</item>
+        <item quantity="one">Mínimo de %d aplicación</item>
+    </plurals>
+</resources>

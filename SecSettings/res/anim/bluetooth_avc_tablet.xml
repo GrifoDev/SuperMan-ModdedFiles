@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:oneshot="false"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:duration="500" android:drawable="@drawable/bluetooth_avc_img_tablet_01" />
+    <item android:duration="500" android:drawable="@drawable/bluetooth_avc_img_tablet_02" />
+    <item android:duration="500" android:drawable="@drawable/bluetooth_avc_img_tablet_03" />
+    <item android:duration="500" android:drawable="@drawable/bluetooth_avc_img_tablet_04" />
+    <item android:duration="500" android:drawable="@drawable/bluetooth_avc_img_tablet_05" />
+    <item android:duration="500" android:drawable="@drawable/bluetooth_avc_img_tablet_06" />
+    <item android:duration="500" android:drawable="@drawable/bluetooth_avc_img_tablet_07" />
+    <item android:duration="500" android:drawable="@drawable/bluetooth_avc_img_tablet_08" />
+    <item android:duration="500" android:drawable="@drawable/bluetooth_avc_img_tablet_09" />
+    <item android:duration="500" android:drawable="@drawable/bluetooth_avc_img_tablet_10" />
+</animation-list>

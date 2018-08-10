@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="allshare_download_to">
+        <item>آلہ</item>
+        <item>‏SD کارڈ</item>
+    </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>حرکت اندازی آف ہے</item>
+        <item>حرکت اندازی پیمانہ 0.5x</item>
+        <item>حرکت اندازی پیمانہ 1x</item>
+        <item>حرکت اندازی پیمانہ 1.5x</item>
+        <item>حرکت اندازی پیمانہ 2x</item>
+        <item>حرکت اندازی پیمانہ 5x</item>
+        <item>حرکت اندازی پیمانہ 10x</item>
+    </string-array>
+    <string-array name="apn_auth_entries">
+        <item>نہیں</item>
+        <item>PAP</item>
+        <item>CHAP</item>
+        <item>‏PAP یا CHAP</item>
+    </string-array>
+    <string-array name="bearer_entries">
+        <item>غیر بیانی</item>
+        <item>LTE</item>
+        <item>HSPAP</item>
+        <item>HSPA</item>
+        <item>HSUPA</item>
+        <item>HSDPA</item>
+        <item>UMTS</item>
+        <item>EDGE</item>
+        <item>GPRS</item>
+        <item>eHRPD</item>
+        <item>EVDO_B</item>
+        <item>EVDO_A</item>
+        <item>EVDO_0</item>
+        <item>1xRTT</item>
+        <item>IS95B</item>
+        <item>IS95A</item>
+        <item>IWLAN</item>
+    </string-array>
+    <string-array name="bearer_entries_dcm_kdi">
+        <item>غیر بیانی</item>
+        <item>4G</item>
+        <item>HSPAP</item>
+        <item>HSPA</item>
+        <item>HSUPA</item>
+        <item>HSDPA</item>
+        <item>UMTS</item>
+        <item>EDGE</item>
+        <item>GPRS</item>
+        <item>eHRPD</item>
+        <item>EVDO_B</item>
+        <item>EVDO_A</item>
+        <item>EVDO_0</item>
+        <item>1xRTT</item>
+        <item>IS95B</item>
+        <item>IS95A</item>
+        <item>IWLAN</item>
+    </string-array>
+    <string-array name="bluetooth_ss_a2dp_codec_summaries">
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>تمام کوڈیکس</item>
+        <item>ڈیفالٹ کوڈیک</item>
+    </string-array>
+    <string-array name="bluetooth_ss_a2dp_codec_titles">
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>تمام کوڈیکس</item>
+        <item>ڈیفالٹ کوڈیک</item>
+    </string-array>
+    <string-array name="bluetooth_ss_japan_a2dp_codec_titles">
+        <item>SBC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>تمام کوڈیکس</item>
+        <item>ڈیفالٹ کوڈیک</item>
+    </string-array>
+    <string-array name="captioning_edge_type_selector_titles">
+        <item>ڈیفالٹ</item>
+        <item>نہیں</item>
+        <item>آوٹ لاؤین</item>
+        <item>ڈراپ شیڈو</item>
+        <item>اٹھایا گیا</item>
+        <item>اداس</item>
+    </string-array>
+    <string-array name="captioning_font_size_selector_titles">
+        <item>بہت چھوٹا</item>
+        <item>چھوٹا</item>
+        <item>نارمل</item>
+        <item>بڑا</item>
+        <item>بہت بڑا</item>
+    </string-array>
+    <string-array name="captioning_preset_selector_titles">
+        <item>ڈیفالٹ</item>
+        <item>سیاہ پر سفید</item>
+        <item>سفید پر سیاہ</item>
+        <item>سیاہ پر پیلا</item>
+        <item>نیلے پر پیلا</item>
+        <item>کسٹم</item>
+    </string-array>
+    <string-array name="captioning_typeface_selector_titles">
+        <item>ڈیفالٹ</item>
+        <item>Sans serif</item>
+        <item>Sans serif condensed</item>
+        <item>Sans serif monospace</item>
+        <item>Serif</item>
+        <item>Serif monospace</item>
+        <item>کیزوئل</item>
+        <item>رواں خط</item>
+        <item>چھوٹے حروف</item>
+    </string-array>
+    <string-array name="color_adjust_type_entries">
+        <item>گرے اسکیل</item>
+        <item>پورتان (سرخ-سبز)</item>
+        <item>دیوتان (سبز-سرخ)</item>
+        <item>تریتان (نیلا- پیلا)</item>
+        <item>شخصی رنگ</item>
+    </string-array>
+    <string-array name="color_lens_entries">
+        <item>نیلا</item>
+        <item>ازور</item>
+        <item>لاجوردی</item>
+        <item>بہاریہ سبز</item>
+        <item>سبز</item>
+        <item>چارٹر استعمال سبز</item>
+        <item>زرد</item>
+        <item>نارنجی</item>
+        <item>سرخ</item>
+        <item>گلاب</item>
+        <item>قرمزی رنگ</item>
+        <item>وایلیٹ</item>
+    </string-array>
+    <string-array name="data_usage_display_unit">
+        <item>MB/GB (auto change)</item>
+        <item>MB only</item>
+        <item>GB only</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>فوری طور پر پاور کلید کے ساتھ یا جب اسکرین کا وقت ختم ہورہا ہو</item>
+        <item>5 سیکنڈ</item>
+        <item>15 سیکنڈ</item>
+        <item>30 سیکنڈ</item>
+        <item>1 منٹ</item>
+        <item>2 منٹ</item>
+        <item>5 منٹ</item>
+        <item>10 منٹ</item>
+        <item>30 منٹ</item>
+    </string-array>
+    <string-array name="dex_timeout_entries">
+        <item>15 سیکنڈ</item>
+        <item>30 سیکنڈ</item>
+        <item>1 منٹ</item>
+        <item>2 منٹ</item>
+        <item>5 منٹ</item>
+        <item>10 منٹ</item>
+        <item>20 منٹ</item>
+        <item>30 منٹ</item>
+        <item>60 منٹ</item>
+    </string-array>
+    <string-array name="key_backlight_entries">
+        <item>ہمیشہ آف</item>
+        <item>1 second</item>
+        <item>3 seconds</item>
+        <item>5 seconds</item>
+        <item>10 seconds</item>
+        <item>15 seconds</item>
+    </string-array>
+    <string-array name="lock_after_timeout_entries">
+        <item>جلدی</item>
+        <item>5 سیکنڈ</item>
+        <item>15 سیکنڈ</item>
+        <item>30 سیکنڈ</item>
+        <item>1 منٹ</item>
+        <item>2 منٹ</item>
+        <item>5 منٹ</item>
+        <item>10 منٹ</item>
+        <item>30 منٹ</item>
+    </string-array>
+    <string-array name="long_press_timeout_titles_selector">
+        <item>مختصر (0.5 سیکنڈ)</item>
+        <item>متوسط (1.0 سیکنڈ)</item>
+        <item>لمبائی (1.5 سیکنڈ)</item>
+        <item>کسٹم</item>
+    </string-array>
+    <string-array name="mvno_type_entries">
+        <item>نہیں</item>
+        <item>SPN</item>
+        <item>IMSI</item>
+        <item>GID</item>
+    </string-array>
+    <string-array name="num_allowed_devices">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+    <string-array name="ram_states">
+        <item>معمولی</item>
+        <item>مناسب</item>
+        <item>کم</item>
+        <item>شدید</item>
+        <item>\?</item>
+    </string-array>
+    <string-array name="screen_timeout_entries">
+        <item>15 سیکنڈ</item>
+        <item>30 سیکنڈ</item>
+        <item>1 منٹ</item>
+        <item>2 منٹ</item>
+        <item>5 منٹ</item>
+        <item>10 منٹ</item>
+        <item>30 منٹ</item>
+    </string-array>
+    <string-array name="screen_timeout_for_device_lock_entries">
+        <item>15 سیکنڈ</item>
+        <item>30 سیکنڈ</item>
+        <item>1 منٹ</item>
+        <item>3 منٹ</item>
+        <item>5 منٹ</item>
+        <item>10 منٹ</item>
+        <item>15منٹ</item>
+        <item>30 منٹ</item>
+    </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>پوچھیں</item>
+        <item>کبھی بھی اجازت نہ دیں</item>
+        <item>اجازت دیں</item>
+    </string-array>
+    <string-array name="time_interval_entries_selectable">
+        <item>1 منٹ</item>
+        <item>3 منٹ</item>
+        <item>5 منٹ</item>
+        <item>10 منٹ</item>
+        <item>15 منٹ</item>
+    </string-array>
+    <string-array name="touch_key_light_entries">
+        <item>1.5 سیکنڈ</item>
+        <item>6 سیکنڈ</item>
+        <item>ہمیشہ آف</item>
+        <item>ھمیشہ آن</item>
+    </string-array>
+    <string-array name="transition_animation_scale_entries">
+        <item>حرکت اندازی آف ہے</item>
+        <item>حرکت اندازی پیمانہ 0.5x</item>
+        <item>حرکت اندازی پیمانہ 1x</item>
+        <item>حرکت اندازی پیمانہ 1.5x</item>
+        <item>حرکت اندازی پیمانہ 2x</item>
+        <item>حرکت اندازی پیمانہ 5x</item>
+        <item>حرکت اندازی پیمانہ 10x</item>
+    </string-array>
+    <string-array name="usb_configuration_titles">
+        <item>@string/usb_use_charging_only</item>
+        <item>MTP (Media Transfer Protocol)</item>
+        <item>PTP (Picture Transfer Protocol)</item>
+        <item>RNDIS (USB Ethernet)</item>
+        <item>آڈیو وسیلہ</item>
+        <item>MIDI</item>
+    </string-array>
+    <string-array name="vpn_states">
+        <item>غیر منسلک ہو گیا</item>
+        <item>فہرست شروع ہو رہی ہے</item>
+        <item>جڑ رہا ہے</item>
+        <item>مربوط</item>
+        <item>وقت ختم ہونا</item>
+        <item>ناکام</item>
+    </string-array>
+    <string-array name="wifi_ap_channel">
+        <item>آٹو</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+    </string-array>
+    <string-array name="wifi_ap_security_testmode">
+        <item>کھولیں</item>
+        <item>WPA2 PSK</item>
+    </string-array>
+    <string-array name="wifi_ap_timeout">
+        <item>ہر گز وقت ختم نہ ہو</item>
+        <item>5 منٹ</item>
+        <item>10 منٹ</item>
+        <item>20 منٹ</item>
+        <item>30 منٹ</item>
+        <item>60 منٹ</item>
+    </string-array>
+    <string-array name="wifi_ap_wifi_sharing">
+        <item>‏Wi-Fi شیئرنگ آن کریں</item>
+        <item>‏Wi-Fi شیئرنگ آف کریں</item>
+    </string-array>
+    <string-array name="wifi_connect_entries">
+        <item>آٹومیٹک</item>
+        <item>مینوئل</item>
+        <item>ہمیشہ پوچھیں</item>
+    </string-array>
+    <string-array name="wifi_ip_settings">
+        <item>DHCP</item>
+        <item>جامد</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>مربوط</item>
+        <item>مدعو کیا۔</item>
+        <item>کنکشن ناکام ہوگیا</item>
+        <item>مربوط ہونے کیلئے یہاں تھپکی دیں۔</item>
+        <item>حدد سے زیادہ۔</item>
+        <item>کسی دوسرے آلے سے جڑا ہوا</item>
+    </string-array>
+    <string-array name="wifi_peap_phase2_entries_with_sim_auth">
+        <item>کوئی بھی نہیں</item>
+        <item>MSCHAPV2</item>
+        <item>GTC</item>
+        <item>SIM</item>
+        <item>AKA</item>
+        <item>"AKA'"</item>
+    </string-array>
+    <string-array name="wifi_phase2_entries">
+        <item>نہیں</item>
+        <item>PAP</item>
+        <item>MSCHAP</item>
+        <item>MSCHAPV2</item>
+        <item>GTC</item>
+    </string-array>
+    <string-array name="wifi_proxy_settings">
+        <item>نہیں</item>
+        <item>مینوئل</item>
+        <item>خودکار تشکیل</item>
+    </string-array>
+    <string-array name="wifi_signal">
+        <item>کمزور</item>
+        <item>مناسب</item>
+        <item>اچھا</item>
+        <item>طاقتور</item>
+        <item>بہت طاقتور</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_entries">
+        <item>"ہمیشہ
+(بیٹری کا استعمال بڑھاتا ہے)"</item>
+        <item>چارج کرنے کے دوران</item>
+        <item>"ہر گز نہیں
+(ڈیٹا کا استعمال بڑھاتا ہے)"</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_entries_wifi_only">
+        <item>"ہمیشہ
+(بیٹری کا استعمال بڑھاتا ہے)"</item>
+        <item>چارج کرنے کے دوران</item>
+        <item>کبھی نہیں</item>
+    </string-array>
+    <string-array name="wifi_status">
+        <item></item>
+        <item>سکین کر رہا ہے۔۔۔۔</item>
+        <item>جڑ رہا ہے</item>
+        <item>تصدیق کررہا ہے…</item>
+        <item>‏IP پتہ حاصل کررہا ہے…</item>
+        <item>منسلک ہوگیا</item>
+        <item>معطل</item>
+        <item>کنیکشن توڑ رہا ہے۔۔۔</item>
+        <item>غیر منسلک ہو گیا</item>
+        <item>ناکام</item>
+        <item>بلاک کردہ</item>
+        <item>آپ کے انٹرنیٹ کنکشن کی کوالٹی کی پڑتال کی جارہی ہے…</item>
+    </string-array>
+    <string-array name="window_animation_scale_entries">
+        <item>حرکت اندازی آف ہے</item>
+        <item>حرکت اندازی پیمانہ 0.5x</item>
+        <item>حرکت اندازی پیمانہ 1x</item>
+        <item>حرکت اندازی پیمانہ 1.5x</item>
+        <item>حرکت اندازی پیمانہ 2x</item>
+        <item>حرکت اندازی پیمانہ 5x</item>
+        <item>حرکت اندازی پیمانہ 10x</item>
+    </string-array>
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:oneshot="false"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:duration="2000" android:drawable="@drawable/lock_setting_img_quick_tools_1_tablet" />
+    <item android:duration="100" android:drawable="@drawable/lock_setting_img_quick_tools_2_tablet" />
+    <item android:duration="2000" android:drawable="@drawable/lock_setting_img_quick_tools_3_tablet" />
+    <item android:duration="100" android:drawable="@drawable/lock_setting_img_quick_tools_4_tablet" />
+    <item android:duration="2000" android:drawable="@drawable/lock_setting_img_quick_tools_5_tablet" />
+    <item android:duration="100" android:drawable="@drawable/lock_setting_img_quick_tools_6_tablet" />
+</animation-list>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:scrollbarStyle="outsideOverlay" android:layout_width="fill_parent" android:layout_height="fill_parent" android:fillViewport="true" android:layout_weight="1.0"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <TextView android:id="@id/handwriting_language_desc" android:paddingTop="@dimen/body_text_top_padding" android:paddingBottom="@dimen/body_text_top_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/handwriting_language_desc_select_eng" android:paddingStart="@dimen/body_text_side_padding" android:paddingEnd="@dimen/body_text_side_padding" style="@style/body_text_style" />
+        <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" />
+        <ListView android:id="@id/handwriting_language_list" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1.0" android:nestedScrollingEnabled="true" />
+        <LinearLayout android:orientation="horizontal" android:id="@id/more_button_layout" android:layout_width="fill_parent" style="@style/SecurityPreferenceButtonContainer">
+            <com.samsung.android.settings.widget.BottomBarButton android:id="@id/more_button" android:layout_width="fill_parent" android:text="@string/more_languages" style="@style/SecurityPreferenceButton" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:settings="http://schemas.android.com/apk/res-auto">
+    <com.android.settings.SecSettingsSwitchPreference android:persistent="false" android:title="@string/mobileap" android:key="wifi_ap_settings" android:fragment="com.samsung.android.settings.wifi.mobileap.WifiApSettings">
+        <intent android:targetPackage="com.samsung.android.settings" android:action="android.intent.action.MAIN" android:targetClass="com.samsung.android.settings.wifi.mobileap.WifiApSettings" />
+    </com.android.settings.SecSettingsSwitchPreference>
+    <com.android.settings.SecSettingsSwitchPreference android:title="@string/bluetooth_tether_checkbox_text" android:key="enable_bluetooth_tethering" android:fragment="com.samsung.android.settings.bluetooth.tethering.BtTetherSettings" />
+    <SecSwitchPreference android:title="@string/usb_tethering_button_text" android:key="usb_tether_settings" />
+    <com.samsung.android.settings.UnclickablePreference android:title="@string/tether_settings_disabled_on_data_saver" android:key="disabled_on_data_saver" style="@style/description_text" />
+    <com.samsung.android.settings.UnclickablePreference android:selectable="false" android:key="disabled_on_data_saver_divider" />
+</PreferenceScreen>

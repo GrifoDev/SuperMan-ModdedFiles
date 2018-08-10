@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.setupwizardlib.GlifLayout android:icon="@drawable/ic_lock" android:layout_width="fill_parent" android:layout_height="fill_parent" app:suwFooter="@layout/encryption_interstitial_footer"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/SuwContentFrame">
+        <TextView android:id="@id/encryption_message" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/SuwDescription.Glif" />
+    </LinearLayout>
+</com.android.setupwizardlib.GlifLayout>

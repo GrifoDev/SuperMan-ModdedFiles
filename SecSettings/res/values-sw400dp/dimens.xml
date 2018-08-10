@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="fingerprint_enrolling_content_margin_top">56.0dip</dimen>
+    <dimen name="fingerprint_find_sensor_graphic_size">240.0dip</dimen>
+    <dimen name="fingerprint_in_app_indicator_size">176.0dip</dimen>
+    <dimen name="support_escalation_card_padding_end">56.0dip</dimen>
+    <dimen name="support_escalation_card_padding_start">56.0dip</dimen>
+</resources>

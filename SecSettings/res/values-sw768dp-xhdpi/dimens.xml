@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="crypt_keeper_emergency_text_size">16.0sp</dimen>
+    <dimen name="crypt_keeper_header_text_size">21.0sp</dimen>
+    <dimen name="crypt_keeper_password_entry_text_size">42.0sp</dimen>
+    <dimen name="crypt_keeper_status_text_size">21.0sp</dimen>
+    <dimen name="fingerprint_register_v3_effect_marginTop">284.0dip</dimen>
+    <dimen name="fingerprint_register_v3_firstGuide_marginTop">65.0dip</dimen>
+    <dimen name="fingerprint_register_v3_guideText_marginTop">98.0dip</dimen>
+    <dimen name="fingerprint_register_v3_guideTitle_marginTop">165.0dip</dimen>
+    <dimen name="ram_detail_container_margin_top">75.0dip</dimen>
+    <dimen name="ram_detail_container_margin_top_new">72.0dip</dimen>
+    <dimen name="storage_and_ram_pie_chart_layout_height">300.0dip</dimen>
+    <dimen name="sub_donut_layout_text_start_margin">250.0dip</dimen>
+    <dimen name="wifi_alert_dialog_scrollview_padding_side">24.0dip</dimen>
+    <dimen name="wifi_dialog_margin_left">9.0dip</dimen>
+    <dimen name="wifi_setup_advanced_btn_text_size">16.0sp</dimen>
+</resources>

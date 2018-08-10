@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <fraction name="battery_button_height_fraction">10.500002%</fraction>
+    <fraction name="battery_subpixel_smoothing_left">0.0%</fraction>
+    <fraction name="battery_subpixel_smoothing_right">0.0%</fraction>
+    <fraction name="fingerprint_register_effect_margintop_percent">22.000004%</fraction>
+    <fraction name="fingerprint_register_guideClip_margintop_percent">23.000002%</fraction>
+    <fraction name="fingerprint_register_guide_height_percent">22.000004%</fraction>
+    <fraction name="fingerprint_register_keyboard_guideClip_marginTop">12.5%</fraction>
+    <fraction name="fingerprint_register_progress_margintop_percent">2.9999971%</fraction>
+    <fraction name="fingerprint_register_suw_effect_margintop_percent">15.999996%</fraction>
+    <fraction name="fingerprint_register_suw_guideClip_margintop_percent">15.999996%</fraction>
+    <fraction name="fingerprint_register_suw_title_margintop_percent">4.999995%</fraction>
+    <fraction name="fingerprint_register_title_margintop_percent">4.999995%</fraction>
+    <fraction name="fingerprint_sensor_location_fraction_x">50.0%</fraction>
+    <fraction name="fingerprint_sensor_location_fraction_y">29.999996%</fraction>
+</resources>

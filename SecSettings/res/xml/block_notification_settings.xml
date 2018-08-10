@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/notification_sound_title"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <SecPreferenceCategory android:title="@string/notification_category_option" />
+    <com.android.settings.SecSettingsSwitchPreference android:title="@string/notification_badge_app_icon_title" android:key="badge_app_icon" android:fragment="com.samsung.android.settings.notification.BadgeAppIconSettings" />
+    <SwitchPreference android:title="@string/simple_status_bar_title" android:key="simple_status_bar" android:summary="@string/simple_status_bar_summary" />
+    <SecPreferenceCategory android:title="@string/notification_settings_apps_title" android:key="notification_apps_category" />
+    <com.samsung.android.settings.UnclickablePreference android:title="@string/app_notification_block_list_describtion" android:selectable="false" android:key="notification_apps_desc" style="@style/description_text" />
+    <SecPreferenceCategory android:title="" android:key="notification_apps_divider" />
+    <SwitchPreference android:title="@string/notifications_all_apps" android:key="notification_all_apps" />
+    <SecPreferenceCategory android:title="" android:key="notification_apps" />
+</PreferenceScreen>

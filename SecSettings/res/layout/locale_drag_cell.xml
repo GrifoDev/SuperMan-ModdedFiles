@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.settings.localepicker.LocaleDragCell android:background="?android:colorBackground" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeight" android:textDirection="locale" android:layoutDirection="locale"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBox android:id="@id/checkbox" android:paddingStart="16.0dip" android:layout_toStartOf="@id/dragHandle" style="@style/LanguageCheckboxAndLabel" />
+    <TextView android:id="@id/label" android:paddingStart="48.0dip" android:layout_toStartOf="@id/dragHandle" style="@style/LanguageCheckboxAndLabel" />
+    <TextView android:textColor="?android:colorAccent" android:gravity="center" android:id="@id/miniLabel" android:layout_width="wrap_content" android:minWidth="24.0sp" android:layout_alignTop="@id/checkbox" android:layout_alignBottom="@id/checkbox" style="@style/LanguageCheckboxAndLabel" />
+    <TextView android:textAppearance="?android:textAppearanceListItemSecondary" android:textColor="?android:textColorSecondary" android:id="@id/l10nWarn" android:layout_marginTop="-28.0dip" android:text="@string/locale_not_translated" android:layout_below="@id/label" android:paddingStart="48.0dip" android:layout_toStartOf="@id/dragHandle" style="@style/LanguageCheckboxAndLabel" />
+    <ImageView android:layout_gravity="center_vertical" android:id="@id/dragHandle" android:layout_width="wrap_content" android:layout_height="fill_parent" android:src="@drawable/drag_handle" android:layout_alignTop="@id/checkbox" android:layout_alignBottom="@id/checkbox" android:importantForAccessibility="no" android:paddingStart="?android:listPreferredItemPaddingStart" android:paddingEnd="?android:listPreferredItemPaddingEnd" android:layout_alignParentEnd="true" />
+    <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_alignParentBottom="true" />
+</com.android.settings.localepicker.LocaleDragCell>

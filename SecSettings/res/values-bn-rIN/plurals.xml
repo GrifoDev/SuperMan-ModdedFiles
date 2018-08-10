@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="accessibilty_autoclick_preference_subtitle_extremely_short_delay">
+        <item quantity="other">প্রচন্ড কম বিলম্ব (%s ms)</item>
+        <item quantity="one">প্রচন্ড কম বিলম্ব (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_long_delay">
+        <item quantity="other">দীর্ঘ বিলম্ব (%s ms)</item>
+        <item quantity="one">দীর্ঘ বিলম্ব (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_short_delay">
+        <item quantity="other">অল্প বিলম্ব (%s ms)</item>
+        <item quantity="one">অল্প বিলম্ব (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_long_delay">
+        <item quantity="other">খুব বেশি বিলম্ব (%s ms)</item>
+        <item quantity="one">খুব বেশি বিলম্ব (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_short_delay">
+        <item quantity="other">খুবই অল্প বিলম্ব (%s ms)</item>
+        <item quantity="one">খুবই অল্প বিলম্ব (%s ms)</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%dটি অ্যাপকে তথ্য ছাড়া সীমাবদ্ধতা ব্যবহার করতে অনুমতি দেওয়া হয়েছে</item>
+        <item quantity="one">1টি অ্যাপকে সীমাবদ্ধতা ছাড়া তথ্য ব্যবহার করতে অনুমতি দেওয়া হয়েছে</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary_chn">
+        <item quantity="other">ব্যাকগ্রাউন্ড তথ্য সীমাবদ্ধ করুন সক্ষম থাকার সময় %dটি অ্যাপকে সীমাবদ্ধতা ছাড়া মোবাইল তথ্য ব্যবহার করার অনুমতি দেওয়া হয়েছে।</item>
+        <item quantity="one">ব্যাকগ্রাউন্ড তথ্য সীমাবদ্ধ করুন সক্ষম থাকার সময় %dটি অ্যাপকে সীমাবদ্ধতা ছাড়া মোবাইল তথ্য ব্যবহার করার অনুমতি দেওয়া হয়েছে।</item>
+    </plurals>
+    <plurals name="deleted_channels">
+        <item quantity="other">%dটি বিভাগ মোছা হয়েছে</item>
+        <item quantity="one">1টি বিভাগ মোছা হয়েছে</item>
+    </plurals>
+    <plurals name="dex_timeout_day">
+        <item quantity="other">%d দিন</item>
+        <item quantity="one">1 দিন</item>
+    </plurals>
+    <plurals name="dex_timeout_hour">
+        <item quantity="other">%d ঘন্টা</item>
+        <item quantity="one">1 ঘন্টা</item>
+    </plurals>
+    <plurals name="dex_timeout_minute">
+        <item quantity="other">%d মিনিট</item>
+        <item quantity="one">1 মিনিট</item>
+    </plurals>
+    <plurals name="dex_timeout_second">
+        <item quantity="other">%d সেকেন্ড</item>
+        <item quantity="one">1 সেকেন্ড</item>
+    </plurals>
+    <plurals name="dex_timeout_week">
+        <item quantity="other">%d সপ্তাহ</item>
+        <item quantity="one">1 সপ্তাহ</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">নির্বাচিত ভাষাগুলির অপসারণ</item>
+        <item quantity="one">নির্বাচিত ভাষার অপসারণ</item>
+    </plurals>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d ঘন্টা</item>
+        <item quantity="one">1 ঘন্টা</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d মিনিট</item>
+        <item quantity="one">1 মিনিট</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d সেকেন্ড</item>
+        <item quantity="one">1 সেকেন্ড</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">পাসওয়ার্ডে অন্তত %dটি বর্ণ থাকতে হবে।</item>
+        <item quantity="one">পাসওয়ার্ডে অন্তত 1টি বর্ণ থাকতে হবে।</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">পাসওয়ার্ডে অন্তত %dটি ছোটহাতের বর্ণ থাকতে হবে।</item>
+        <item quantity="one">পাসওয়ার্ডে অন্তত 1টি ছোটহাতের বর্ণ থাকতে হবে।</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">পাসওয়ার্ডে অন্তত %dটি সংখ্যা বা চিহ্ন থাকতে হবে।</item>
+        <item quantity="one">পাসওয়ার্ডে অন্তত 1টি সংখ্যা বা চিহ্ন থাকতে হবে।</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">পাসওয়ার্ডে অন্তত %dটি সংখ্যা থাকতে হবে।</item>
+        <item quantity="one">পাসওয়ার্ডে অন্তত 1টি সংখ্যা থাকতে হবে।</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">পাসওয়ার্ডে অন্তত %dটি চিহ্ন থাকতে হবে।</item>
+        <item quantity="one">পাসওয়ার্ডে অন্তত 1টি চিহ্ন থাকতে হবে।</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">পাসওয়ার্ডে অন্তত %dটি বড়হাতের বর্ণ থাকতে হবে।</item>
+        <item quantity="one">পাসওয়ার্ডে অন্তত 1টি বড়হাতের বর্ণ থাকতে হবে।</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%dটি অ্যাপ্লিকেশন বিজ্ঞপ্তিগুলি পড়তে পারে।</item>
+        <item quantity="one">বিজ্ঞপ্তিগুলি পড়ার জন্য %dটি অ্যাপ্লিকেশন অনুমতিপ্রাপ্ত।</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$dটি প্রক্রিয়া গত %2$s-এ RAM ব্যবহার করেছে</item>
+        <item quantity="one">%1$dটি প্রক্রিয়া গত %2$s-এ RAM ব্যবহার করেছে</item>
+    </plurals>
+    <plurals name="network_restrictions_summary">
+        <item quantity="other">%dটি বিধিনিষেধ</item>
+        <item quantity="one">1টি বিধিনিষেধ</item>
+    </plurals>
+    <plurals name="notification_summary">
+        <item quantity="other">%dটি অ্যাপের জন্য বন্ধ</item>
+        <item quantity="one">1টি অ্যাপের জন্য বন্ধ</item>
+    </plurals>
+    <plurals name="number_of_device_admins">
+        <item quantity="other">%dটি সক্রিয় অ্যাপ</item>
+        <item quantity="one">1টি সক্রিয় অ্যাপ</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d এর বেশি অনুমতি</item>
+        <item quantity="one">আরও %dটি অনুমতি</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">বিকাশকারী হওয়ার থেকে আপনি আর %dটি পদক্ষেপ দূরে আছেন।</item>
+        <item quantity="one">বিকাশকারী হওয়ার থেকে আপনি আর 1টি পদক্ষেপ দূরে আছেন।</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_dialog_title">
+        <item quantity="other">শংসাপত্রগুলি বিশ্বাস করুন বা অপসারণ করুন</item>
+        <item quantity="one">শংসাপত্র বিশ্বাস করুন বা অপসারণ করুন</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message">
+        <item quantity="other">"আপনার কাজের প্রোফাইলের জন্য %s শংসাপত্র কর্তৃপক্ষদের ইনস্টল করেছে যা ইমেল, অ্যাপ ও নিরাপদ ওয়েবসাইটগুলি সহ কাজের নেটওয়ার্কের ক্রিয়াকলাপ মনিটর করতে তাদের অনুমতি দিতে পারে। আপনি এই শংসাপত্রগুলি হয় বিশ্বাস করতে বা অপসারণ করতে বেছে নিতে পারবেন।
+
+এই শংসাপত্রগুলি সম্বন্ধে আরও তথ্যের জন্য, আপনার প্রশাসকের সাথে যোগাযোগ করুন।"</item>
+        <item quantity="one">"আপনার কাজের প্রোফাইলের জন্য %s একটি শংসাপত্র কর্তৃপক্ষ ইনস্টল করেছে যা ইমেল, অ্যাপ ও নিরাপদ ওয়েবসাইটগুলি সহ কাজের নেটওয়ার্কের ক্রিয়াকলাপ মনিটর করতে তাদের অনুমতি দিতে পারে। আপনি এই শংসাপত্র হয় বিশ্বাস করতে বা অপসারণ করতে বেছে নিতে পারবেন।
+
+এই শংসাপত্র সম্বন্ধে আরও তথ্যের জন্য, আপনার প্রশাসকের সাথে যোগাযোগ করুন।"</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s আপনার ডিভাইসে CA শংসাপত্রগুলি ইনস্টল করেছে, যা আপনার ইমেল, অ্যাপ ও নিরাপদ ওয়েবসাইটগুলির ব্যবহার সহ আপনার ডিভাইসের নেটওয়ার্ক ক্রিয়াকলাপ মনিটর করতে সেগুলিকে অনুমতি দিতে পারে।
+
+এই শংসাপত্রগুলি সম্বন্ধে আরও তথ্যের জন্য, আপনার IT প্রশাসকের সাথে যোগাযোগ করুন।"</item>
+        <item quantity="one">"%s আপনার ডিভাইসে একটি CA শংসাপত্র ইনস্টল করেছে, যা আপনার ইমেল, অ্যাপ ও নিরাপদ ওয়েবসাইটগুলির ব্যবহার সহ আপনার ডিভাইসের নেটওয়ার্ক ক্রিয়াকলাপ মনিটর করতে সেগুলিকে অনুমতি দিতে পারে।
+
+এই শংসাপত্র সম্বন্ধে আরও তথ্যের জন্য, আপনার IT প্রশাসকের সাথে যোগাযোগ করুন।"</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_settings_button">
+        <item quantity="other">শংসাপত্রগুলি পরীক্ষা করুন</item>
+        <item quantity="one">শংসাপত্র পরীক্ষা করুন</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">%dটি ফোল্ডার/ফাইলে অ্যাক্সেস করুন</item>
+        <item quantity="one">1টি ফোল্ডার/ফাইলে অ্যাক্সেস করুন</item>
+    </plurals>
+</resources>

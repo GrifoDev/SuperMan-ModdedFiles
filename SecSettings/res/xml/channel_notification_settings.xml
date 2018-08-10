@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <Preference android:title="@string/notification_importance_title" android:key="importance" />
+    <com.android.settings.notification.NotificationSoundPreference android:title="@string/sound_mode_sound" android:key="ringtone" android:dialogTitle="@string/sound_mode_sound" android:ringtoneType="notification" android:showDefault="true" android:showSilent="true" />
+    <com.android.settingslib.RestrictedSwitchPreference android:title="@string/sound_mode_vibrate" android:key="vibrate" settings:useAdditionalSummary="true" />
+    <com.android.settingslib.RestrictedSwitchPreference android:title="@string/notification_badge_app_icon_title" android:key="badge" settings:restrictedSwitchSummary="@string/enabled_by_admin" settings:useAdditionalSummary="true" />
+    <com.android.settingslib.RestrictedSwitchPreference android:title="@string/notification_show_lights_title" android:key="lights" settings:useAdditionalSummary="true" />
+    <com.android.settings.notification.RestrictedDropDownPreference android:title="@string/app_notification_visibility_override_title" android:key="visibility_override" />
+    <com.android.settingslib.RestrictedSwitchPreference android:title="@string/app_notification_override_dnd_title" android:key="bypass_dnd" android:summary="@string/app_notification_override_dnd_summary" settings:useAdditionalSummary="true" />
+</PreferenceScreen>

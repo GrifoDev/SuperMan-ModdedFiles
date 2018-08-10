@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:key="smartscansetting"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:touchwiz="http://schemas.android.com/apk/res/touchwiz">
+    <com.samsung.android.settings.smartscan.SmartScanMultipleLinePreference android:title="@string/smartscan_main_title" android:key="key_intelligentscan_description" />
+    <PreferenceCategory android:title="@string/smartscan_category_register" android:key="register_category">
+        <PreferenceScreen android:layout="@layout/sem_biometrics_preference_registericon" android:title="@string/smartscan_register_face_and_iris" android:key="key_intelligentscan_register" android:widgetLayout="@layout/sem_biometrics_registericon" />
+        <PreferenceScreen android:title="@string/smartscan_remove_face_and_iris" android:key="key_intelligentscan_remove" />
+        <PreferenceScreen android:title="@string/fingerprint_change_reset_password" android:key="key_intelligentscan_password" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/smartscan_category_feature" android:key="feature_category">
+        <SwitchPreference android:title="@string/fingerprint_web" android:key="key_intelligentscan_web_signin" android:summary="@string/smartscan_web_summary" />
+        <PreferenceScreen android:title="@string/iris_use_samsung_pass" android:key="key_intelligentscan_samsung_pass" />
+        <SwitchPreference android:title="@string/fingerprint_samsung_account" android:key="key_intelligentscan_samsung_account" android:summary="@string/smartscan_samsung_account_summary" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/smartscan_category_feature" android:key="unlock_category">
+        <com.android.settings.fingerprint.FingerprintSwitchPreference android:title="@string/smartscan_unlock_title" android:key="key_intelligentscan_unlock" android:summary="@string/smartscan_unlock_summary" />
+        <SwitchPreference android:title="@string/smarscan_unlock_when_turns_on_title" android:key="key_intelligentscan_unlock_when_turns_on" android:summary="@string/smarscan_unlock_when_turns_on_summary" />
+    </PreferenceCategory>
+</PreferenceScreen>

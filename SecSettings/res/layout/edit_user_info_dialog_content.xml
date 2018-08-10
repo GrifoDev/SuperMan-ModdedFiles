@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_gravity="center_vertical" android:paddingTop="@dimen/alert_dialog_padding_top" android:paddingBottom="@dimen/alert_dialog_padding_bottom" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/alert_dialog_padding_left_right" android:paddingEnd="@dimen/alert_dialog_padding_left_right"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center_vertical" android:id="@id/user_photo" android:background="?android:selectableItemBackground" android:layout_width="@dimen/multi_user_dlg_icon_circle_size" android:layout_height="@dimen/multi_user_dlg_icon_circle_size" android:scaleType="fitCenter" android:contentDescription="@string/user_image_photo_selector" android:layout_marginEnd="@dimen/list_item_inner_padding" />
+    <EditText android:ellipsize="end" android:layout_gravity="center_vertical" android:id="@id/user_name" android:layout_width="0.0dip" android:layout_height="wrap_content" android:hint="@string/user_nickname" android:singleLine="true" android:selectAllOnFocus="true" android:layout_weight="1.0" android:inputType="textCapWords" android:textAlignment="viewStart" android:labelFor="@id/user_photo" />
+</LinearLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/ultra_data_saving_title" android:key="uds_category">
+        <SecPreference android:title="@string/ultra_data_saving_title" android:key="ultra_data_saver" android:summary="@string/switch_off_text" />
+    </PreferenceCategory>
+</PreferenceScreen>

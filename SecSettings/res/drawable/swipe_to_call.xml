@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:oneshot="false"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:duration="750" android:drawable="@drawable/phone_settings_swip_to_call_image01" />
+    <item android:duration="750" android:drawable="@drawable/phone_settings_swip_to_call_image02" />
+    <item android:duration="750" android:drawable="@drawable/phone_settings_swip_to_call_image03" />
+    <item android:duration="750" android:drawable="@drawable/phone_settings_swip_to_call_image04" />
+</animation-list>

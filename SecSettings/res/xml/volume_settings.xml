@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="notification_settings"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <com.android.settings.notification.SecVolumeSeekBarPreference android:icon="@android:drawable/tw_ic_audio_ring_notif" android:title="@string/ring_volume_option_title" android:key="ring_volume" settings:SettingsMode="UPSM" />
+    <com.android.settings.notification.SecVolumeSeekBarPreference android:icon="@android:drawable/tw_ic_audio_vol" android:title="@string/volume_settings_media" android:key="media_volume" settings:SettingsMode="UPSM" />
+    <com.android.settings.notification.SecVolumeSeekBarPreference android:icon="@android:drawable/tw_ic_audio_notification" android:title="@string/notification_sound_title" android:key="notification_volume" settings:SettingsMode="UPSM" />
+    <com.android.settings.notification.SecVolumeSeekBarPreference android:icon="@android:drawable/ic_audio_alarm" android:title="@string/alarm_volume_option_title" android:key="alarm_volume" />
+    <com.android.settings.notification.SecVolumeSeekBarPreference android:icon="@android:drawable/tw_ic_audio_system" android:title="@string/volume_settings_system" android:key="system_volume" settings:SettingsMode="UPSM" />
+    <com.android.settings.notification.SecVolumeSeekBarPreference android:icon="@android:drawable/tw_ic_audio_sound" android:title="@string/bixby_volume_option_title" android:key="bixby_volume" />
+    <com.android.settings.notification.SecVolumeSeekBarPreference android:icon="@android:drawable/tw_ic_audio_sound" android:title="@string/waiting_tone_volume_title" android:key="waiting_tone_volume" settings:SettingsMode="UPSM" />
+    <PreferenceScreen android:key="waiting_tone_volume_explanation" android:summary="@string/waiting_tone_volume_summary" settings:SettingsMode="UPSM" />
+    <com.samsung.android.settings.StatusDisplayPreference android:title="@string/dnd_enabled" android:selectable="false" android:key="dnd_enabled" />
+</PreferenceScreen>

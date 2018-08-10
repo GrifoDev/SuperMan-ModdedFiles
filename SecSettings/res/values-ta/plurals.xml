@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="enterprise_privacy_number_packages_lower_bound">
+        <item quantity="other">குறைந்தபட்சம் %d பயன்பாடுகள்</item>
+        <item quantity="one">குறைந்தபட்சம் %d பயன்பாடு</item>
+    </plurals>
+</resources>

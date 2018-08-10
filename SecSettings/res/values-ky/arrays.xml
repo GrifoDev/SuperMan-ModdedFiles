@@ -1,0 +1,679 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="animator_duration_scale_entries">
+        <item>Анимацияны токтотуу</item>
+        <item>Анимация масштабы .5x</item>
+        <item>Анимация масштабы 1x</item>
+        <item>Анимация масштабы 1.5x</item>
+        <item>"Анимация масштабы  2x"</item>
+        <item>Анимация масштабы 5x</item>
+        <item>Анимация масштабы 10x</item>
+    </string-array>
+    <string-array name="apn_auth_entries">
+        <item>Эч бири</item>
+        <item>PAP</item>
+        <item>CHAP</item>
+        <item>PAP же CHAP</item>
+    </string-array>
+    <string-array name="apn_protocol_entries">
+        <item>IPv4</item>
+        <item>IPv6</item>
+        <item>IPv4/IPv6</item>
+    </string-array>
+    <string-array name="app_install_location_entries">
+        <item>Ички түзмөк эстутуму</item>
+        <item>Ташыма SD карта</item>
+        <item>Тутум өзү тандасын</item>
+    </string-array>
+    <string-array name="app_ops_categories">
+        <item>Жайгашкан жер</item>
+        <item>Жеке</item>
+        <item>SMS/MMS</item>
+        <item>Медиа</item>
+        <item>Түзмөк</item>
+    </string-array>
+    <string-array name="app_ops_labels">
+        <item>Орду</item>
+        <item>Жайгашкан жер</item>
+        <item>Орду</item>
+        <item>Дирилдөө</item>
+        <item>Байланыштарды окуу</item>
+        <item>Байланыштарды өзгөртүү</item>
+        <item>Чалуулар тизмесин окуу</item>
+        <item>Чалуулар тизмесин өзгөртүү</item>
+        <item>Күнбаракты окуу</item>
+        <item>Күнбаракты өзгөртүү</item>
+        <item>Орду</item>
+        <item>Эскертүү жайгаштыруу</item>
+        <item>Орду</item>
+        <item>Телефон чалуу</item>
+        <item>SMS/MMS окуу</item>
+        <item>SMS/MMS жазуу</item>
+        <item>SMS/MMS алуу</item>
+        <item>SMS/MMS алуу</item>
+        <item>SMS/MMS алуу</item>
+        <item>SMS/MMS алуу</item>
+        <item>SMS/MMS жөнөтүү</item>
+        <item>SMS/MMS окуу</item>
+        <item>SMS/MMS жазуу</item>
+        <item>Тууралоолорду өзгөртүү</item>
+        <item>Үстүнө тартуу</item>
+        <item>Жетки эскертмелери</item>
+        <item>Камера</item>
+        <item>Аудио жаздыруу</item>
+        <item>Аудио ойнотуу</item>
+        <item>Алмашуу буферин окуу</item>
+        <item>Алмашуу буферин өзгөртүү</item>
+        <item>Медиа баскычтар</item>
+        <item>Аудио фокус</item>
+        <item>Үн башкаргыч</item>
+        <item>Үндүн деңгээли</item>
+        <item>Шыңгырактын үнү</item>
+        <item>Медианын үнү</item>
+        <item>Ойготкучтун үнү</item>
+        <item>Эскерткичтин үнү</item>
+        <item>Bluetooth үнү</item>
+        <item>Ойго кармоо</item>
+        <item>Орду</item>
+        <item>Орду</item>
+        <item>Колдонуу статистикасын алуу</item>
+        <item>Микрофондун үнүн басуу/чыгаруу</item>
+        <item>Эскертмени көрсөтүү</item>
+        <item>Долбоор медиясы</item>
+        <item>"VPN'ди жандыруу"</item>
+        <item>Тушкагаз жазуу</item>
+        <item>Көмөкчү түзүм</item>
+        <item>Көмөкчү скриншот</item>
+        <item>Телефон абалын окуу</item>
+        <item>Үн почтасын кошуу</item>
+        <item>Sip пайдалануу</item>
+        <item>Чыгуучу чалууну иштетүү</item>
+        <item>Манжа изи</item>
+        <item>Дене сенсорлору</item>
+        <item>Калкка кабар берүү тутумунун билдирүүлөрүн окуу</item>
+        <item>Жайгашкан жер дайындарын бурмалоо</item>
+        <item>Сактагычтагы дайындарды окуу</item>
+        <item>Сактагычка дайындарды жазуу</item>
+        <item>Экранды күйгүзүү</item>
+        <item>Каттоо эсептерин алуу</item>
+        <item>Фондо ойнотуу</item>
+        <item>Атайын мүмкүнчүлүктөрдүн үнүнүн катуулугу</item>
+    </string-array>
+    <string-array name="app_ops_summaries">
+        <item>болжолдуу жайгаштыруу</item>
+        <item>так жайгаштыруу</item>
+        <item>GPS</item>
+        <item>титиретүү</item>
+        <item>байланыштарды окуу</item>
+        <item>байланыштарды өзгөртүү</item>
+        <item>чалуулар тизмесин окуу</item>
+        <item>чалуулар тизмесин өзгөртүү</item>
+        <item>күнбаракты окуу</item>
+        <item>күнбаракты өзгөртүү</item>
+        <item>wi-fi издөө</item>
+        <item>эскертме</item>
+        <item>түйүн издөө</item>
+        <item>телефон чалуу</item>
+        <item>SMS окуу</item>
+        <item>SMS жазуу</item>
+        <item>SMS алуу</item>
+        <item>шашылыш SMS алуу</item>
+        <item>MMS алуу</item>
+        <item>WAP push алуу</item>
+        <item>SMS жөнөтүү</item>
+        <item>ICC SMS окуу</item>
+        <item>ICC SMS жазуу</item>
+        <item>тууралоолорду өзгөртүү</item>
+        <item>үстүнө тартуу</item>
+        <item>жетки эскертүүлөрү</item>
+        <item>камера</item>
+        <item>audio жаздыруу</item>
+        <item>audio ойнотуу</item>
+        <item>алмашуу буферин окуу</item>
+        <item>алмашуу буферин өзгөртүү</item>
+        <item>медиа баскычтар</item>
+        <item>audio фокус</item>
+        <item>үн башкаргыч</item>
+        <item>үн деңгээли</item>
+        <item>шыңгырактын үнү</item>
+        <item>медианын үнү</item>
+        <item>ойготкучтун үнү</item>
+        <item>эскерткичтин үнү</item>
+        <item>bluetooth үнү</item>
+        <item>ойго кармоо</item>
+        <item>жайгашууну көзөмөлдөө</item>
+        <item>жогору кубаттуу жайгашууну көзөмөлдөө</item>
+        <item>колдонуу статистикасын алуу</item>
+        <item>микрофондун үнүн басуу/чыгаруу</item>
+        <item>эскертмени көрсөтүү</item>
+        <item>долбоор медиясы</item>
+        <item>"VPN'ди жандыруу"</item>
+        <item>тушкагаз жазуу</item>
+        <item>көмөкчү түзүм</item>
+        <item>көмөкчү скриншот</item>
+        <item>телефон абалын окуу</item>
+        <item>үн почтасын кошуу</item>
+        <item>sip пайдалануу</item>
+        <item>чыгуучу чалууну иштетүү</item>
+        <item>манжа изи</item>
+        <item>дене сенсорлору</item>
+        <item>Калкка кабар берүү тутумунун билдирүүлөрүн окуу</item>
+        <item>Жайгашкан жер дайындарын бурмалоо</item>
+        <item>сактагычтагы дайындарды окуу</item>
+        <item>сактагычка дайындарды жазуу</item>
+        <item>экранды күйгүзүү</item>
+        <item>каттоо эсептерин алуу</item>
+        <item>фондо ойнотуу</item>
+        <item>атайын мүмкүнчүлүктөрдүн үнүнүн катуулугу</item>
+    </string-array>
+    <string-array name="app_process_limit_entries">
+        <item>Стандарттык чектөө</item>
+        <item>Фондо процесстер жок</item>
+        <item>Эң көп дегенде 1 процесс</item>
+        <item>Эң көп дегенде 2 процесс</item>
+        <item>Эң көп дегенде 3 процесс</item>
+        <item>Эң көп дегенде 4 процесс</item>
+    </string-array>
+    <string-array name="automatic_storage_management_days">
+        <item>30 күндөн мурунку</item>
+        <item>60 күндөн мурунку</item>
+        <item>90 күндөн мурунку</item>
+    </string-array>
+    <string-array name="bearer_entries">
+        <item>Көрсөтүлбөгөн</item>
+        <item>LTE</item>
+        <item>HSPAP</item>
+        <item>HSPA</item>
+        <item>HSUPA</item>
+        <item>HSDPA</item>
+        <item>UMTS</item>
+        <item>EDGE</item>
+        <item>GPRS</item>
+        <item>eHRPD</item>
+        <item>EVDO_B</item>
+        <item>EVDO_A</item>
+        <item>EVDO_0</item>
+        <item>1xRTT</item>
+        <item>IS95B</item>
+        <item>IS95A</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_bits_per_sample_summaries">
+        <item>Тутум тандаганды колдонуу (демейки)</item>
+        <item>16 бит/үлгү</item>
+        <item>24 бит/үлгү</item>
+        <item>32 бит/үлгү</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_bits_per_sample_titles">
+        <item>Тутум тандаганды колдонуу (демейки)</item>
+        <item>16 бит/үлгү</item>
+        <item>24 бит/үлгү</item>
+        <item>32 бит/үлгү</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_channel_mode_summaries">
+        <item>Тутум тандаганды колдонуу (демейки)</item>
+        <item>Моно</item>
+        <item>Стерео</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_channel_mode_titles">
+        <item>Тутум тандаганды колдонуу (демейки)</item>
+        <item>Моно</item>
+        <item>Стерео</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_ldac_playback_quality_summaries">
+        <item>Аудионун сапатын оптималдаштыруу</item>
+        <item>Теңделген аудио жана туташуу сапаты</item>
+        <item>Туташуунун сапатын оптималдаштыруу</item>
+        <item>Эң жакшы сунуш (Ыңгайлуу өткөрүү ылдамдыгы)</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_ldac_playback_quality_titles">
+        <item>Аудионун сапатын оптималдаштыруу (990кб/сек./909кб/сек.)</item>
+        <item>Теңделген аудио жана туташуу сапаты (660кб/сек./606кб/сек.)</item>
+        <item>Туташуунун сапатын оптималдаштыруу (330кб/сек./303кб/сек.)</item>
+        <item>Эң жакшы сунуш (Ыңгайлуу өткөрүү ылдамдыгы)</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_sample_rate_summaries">
+        <item>Тутум тандаганды колдонуу (демейки)</item>
+        <item>44,1 кГц</item>
+        <item>48,0 кГц</item>
+        <item>88,2 кГц</item>
+        <item>96,0 кГц</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_sample_rate_titles">
+        <item>Тутум тандаганды колдонуу (демейки)</item>
+        <item>44,1 кГц</item>
+        <item>48,0 кГц</item>
+        <item>88,2 кГц</item>
+        <item>96,0 кГц</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_summaries">
+        <item>Тутум тандаганды колдонуу (демейки)</item>
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>aptX HD</item>
+        <item>LDAC</item>
+        <item>Кошумча кодекстер иштетилсин</item>
+        <item>Кошумча кодекстер өчүрүлсүн</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_titles">
+        <item>Тутум тандаганды колдонуу (демейки)</item>
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>aptX HD</item>
+        <item>LDAC</item>
+        <item>Кошумча кодекстер иштетилсин</item>
+        <item>Кошумча кодекстер өчүрүлсүн</item>
+    </string-array>
+    <string-array name="bluetooth_avrcp_versions">
+        <item>AVRCP 1.4 (Демейки)</item>
+        <item>AVRCP 1.5</item>
+        <item>AVRCP 1.6</item>
+    </string-array>
+    <string-array name="bluetooth_visibility_timeout_entries">
+        <item>2 мүнөт</item>
+        <item>5 мүнөт</item>
+        <item>1 саат</item>
+        <item>Токтотпоо</item>
+    </string-array>
+    <string-array name="captioning_edge_type_selector_titles">
+        <item>Демейки</item>
+        <item>Эч нерсе жок</item>
+        <item>Контур</item>
+        <item>Көлөкөлөтүү</item>
+        <item>Дөмпөйгөн</item>
+        <item>Ныгырылган</item>
+    </string-array>
+    <string-array name="captioning_font_size_selector_titles">
+        <item>Өтө кичине</item>
+        <item>Кичине</item>
+        <item>Кадимки</item>
+        <item>Чоң</item>
+        <item>Өтө чоң</item>
+    </string-array>
+    <string-array name="captioning_opacity_selector_titles">
+        <item>25%</item>
+        <item>50%</item>
+        <item>75%</item>
+        <item>100%</item>
+    </string-array>
+    <string-array name="captioning_preset_selector_titles">
+        <item>Колдонмонун демейкилерин колдонуу</item>
+        <item>Ак карада</item>
+        <item>Кара акта</item>
+        <item>Сары карада</item>
+        <item>Сары көктө</item>
+        <item>Өзгөчөлөнгөн</item>
+    </string-array>
+    <string-array name="captioning_typeface_selector_titles">
+        <item>Демейки</item>
+        <item>Санс-сериф</item>
+        <item>коюлтулган Санс-сериф</item>
+        <item>Sans-serif бир орундуу</item>
+        <item>Serif</item>
+        <item>Serif бир орундуу</item>
+        <item>Эркин</item>
+        <item>Жантык</item>
+        <item>Кичине баш тамгалар</item>
+    </string-array>
+    <string-array name="color_mode_descriptions">
+        <item>Жакшыртылган түстөр</item>
+        <item>Көзгө көрүнгөн табигый түстөр</item>
+        <item>Санарип мазмун үчүн оптималдаштырылган түстөр</item>
+    </string-array>
+    <string-array name="color_mode_names">
+        <item>Толкундуу (демейки)</item>
+        <item>Табигый</item>
+        <item>Кадимки</item>
+    </string-array>
+    <string-array name="color_picker">
+        <item>Жашыл көгүш</item>
+        <item>Көк</item>
+        <item>Индиго</item>
+        <item>Кызгылт көгүш</item>
+        <item>Кызгылтым</item>
+        <item>Кызыл</item>
+    </string-array>
+    <string-array name="data_usage_data_range">
+        <item>Акыркы 30 күн</item>
+        <item>Колдонуу мерчимин коюу…</item>
+    </string-array>
+    <string-array name="debug_hw_overdraw_entries">
+        <item>Өчүк</item>
+        <item>Үстүнө тартуу аймагын көргөзүү</item>
+        <item>Дейтераномалиялуулар үчүн мейкиндикти көргөзүү</item>
+    </string-array>
+    <string-array name="debug_hw_renderer_entries">
+        <item>OpenGL (Демейки)</item>
+        <item>OpenGL (Skia)</item>
+    </string-array>
+    <string-array name="dream_timeout_entries">
+        <item>Эч качан</item>
+        <item>15 секунд</item>
+        <item>30 секунд</item>
+        <item>1 мүнөт</item>
+        <item>2 мүнөт</item>
+        <item>5 мүнөт</item>
+        <item>10 мүнөт</item>
+        <item>30 мүнөт</item>
+    </string-array>
+    <string-array name="eap_method_without_sim_auth">
+        <item>PEAP</item>
+        <item>TLS</item>
+        <item>TTLS</item>
+        <item>PWD</item>
+    </string-array>
+    <string-array name="enable_opengl_traces_entries">
+        <item>Эчтеке жок</item>
+        <item>Logcat</item>
+        <item>Systrace (Graphics)</item>
+        <item>"glGetError'го карата стекти чакыруу"</item>
+    </string-array>
+    <string-array name="entries_font_size">
+        <item>Кичине</item>
+        <item>Демейки</item>
+        <item>Чоң</item>
+        <item>Эң чоң</item>
+    </string-array>
+    <string-array name="hdcp_checking_summaries">
+        <item>Эч качан HDCP текшерүү колдонулбасын</item>
+        <item>HDCP текшерүү DRM мазмунуна гана колдонулсун</item>
+        <item>Ар дайым HDCP текшерүү колдонулсун</item>
+    </string-array>
+    <string-array name="hdcp_checking_titles">
+        <item>Эч качан текшерилбесин</item>
+        <item>DRM мазмунун гана текшерүү</item>
+        <item>Ар дайым текшерүү</item>
+    </string-array>
+    <string-array name="lock_after_timeout_entries">
+        <item>Дароо</item>
+        <item>5 секунд</item>
+        <item>15 секунд</item>
+        <item>30 секунд</item>
+        <item>1 мүнөт</item>
+        <item>2 мүнөт</item>
+        <item>5 мүнөт</item>
+        <item>10 мүнөт</item>
+        <item>30 мүнөт</item>
+    </string-array>
+    <string-array name="long_press_timeout_selector_titles">
+        <item>Кыска</item>
+        <item>Орточо</item>
+        <item>Узун</item>
+    </string-array>
+    <string-array name="mvno_type_entries">
+        <item>Эчтеке жок</item>
+        <item>SPN</item>
+        <item>IMSI</item>
+        <item>GID</item>
+    </string-array>
+    <string-array name="overlay_display_devices_entries">
+        <item>Эчтеке жок</item>
+        <item>480p</item>
+        <item>480p (коопсуз)</item>
+        <item>720p</item>
+        <item>720p (коопсуз)</item>
+        <item>1080p</item>
+        <item>1080p (коопсуз)</item>
+        <item>4K</item>
+        <item>4K (коопсуз)</item>
+        <item>4K (жогорку сапатта)</item>
+        <item>4K (жогорку сапатта, коопсуз)</item>
+        <item>720p, 1080p (кош экран)</item>
+    </string-array>
+    <string-array name="proc_stats_memory_states">
+        <item>Кадимки</item>
+        <item>Орточо</item>
+        <item>Төмөн</item>
+        <item>Кескин</item>
+    </string-array>
+    <string-array name="proc_stats_process_states">
+        <item>Туруктуу</item>
+        <item>Көп аткарылган иш</item>
+        <item>Маанилүү (алдыңкы көрүнүштө)</item>
+        <item>Маанилүү (арткы көрүнүштө)</item>
+        <item>Камдык көчүрмөнү сактоо</item>
+        <item>Оор</item>
+        <item>Кызмат (иштеп жатат)</item>
+        <item>Кызмат (өчүрүлүп-күйгүзүлүүдө)</item>
+        <item>Алуучу</item>
+        <item>Үй</item>
+        <item>Акыркы аткарылган иш</item>
+        <item>Кештелген (иш)</item>
+        <item>Кештелген (иш-аракет кардары)</item>
+        <item>Кештелген (бош)</item>
+    </string-array>
+    <string-array name="ram_states">
+        <item>Кадимки</item>
+        <item>Орточо</item>
+        <item>Төмөн</item>
+        <item>Кескин</item>
+        <item>\?</item>
+    </string-array>
+    <string-array name="screen_timeout_entries">
+        <item>15 секунд</item>
+        <item>30 секунд</item>
+        <item>1 мүнөт</item>
+        <item>2 мүнөт</item>
+        <item>5 мүнөт</item>
+        <item>10 мүнөт</item>
+        <item>30 мүнөт</item>
+    </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Суроо</item>
+        <item>Эч качан уруксат жок</item>
+        <item>Дайым уруксат</item>
+    </string-array>
+    <string-array name="select_logd_size_lowram_titles">
+        <item>Өчүк</item>
+        <item>64K</item>
+        <item>256K</item>
+        <item>1M</item>
+    </string-array>
+    <string-array name="select_logd_size_summaries">
+        <item>Өчүк</item>
+        <item>Буфер: 64КБ ашпашы керек</item>
+        <item>Буфер: 256КБ ашпашы керек</item>
+        <item>Буфер: 1М ашпашы керек</item>
+        <item>Буфер: 4М ашпашы керек</item>
+        <item>Буфер: 16М ашпашы керек</item>
+    </string-array>
+    <string-array name="select_logd_size_titles">
+        <item>Өчүк</item>
+        <item>64K</item>
+        <item>256K</item>
+        <item>1M</item>
+        <item>4M</item>
+        <item>16M</item>
+    </string-array>
+    <string-array name="select_logpersist_summaries">
+        <item>Өчүк</item>
+        <item>Бардык таржымал буферлери</item>
+        <item>Радио таржымал буферлеринен башкаларынын баары</item>
+        <item>өзөктүк журнал буфери гана</item>
+    </string-array>
+    <string-array name="select_logpersist_titles">
+        <item>Өчүк</item>
+        <item>Бардыгы</item>
+        <item>Радиодон башка</item>
+        <item>өзөк гана</item>
+    </string-array>
+    <string-array name="show_non_rect_clip_entries">
+        <item>Өчүрүү</item>
+        <item>Тик бурчтуу эмес кесилген аймакты көк түстө тартуу</item>
+        <item>Текшерилген тартуу буйруктарын жашыл менен белгилөө</item>
+    </string-array>
+    <string-array name="timezone_filters">
+        <item>Америка</item>
+        <item>Европа</item>
+        <item>Африка</item>
+        <item>Азия</item>
+        <item>Австралия</item>
+        <item>Тынч океан</item>
+        <item>Бардыгы</item>
+    </string-array>
+    <string-array name="track_frame_time_entries">
+        <item>Өчүк</item>
+        <item>Экранда тилке катары</item>
+        <item>Төмөнкүдө: adb shell dumpsys gfxinfo</item>
+    </string-array>
+    <string-array name="transition_animation_scale_entries">
+        <item>Анимацияны өчүрүү</item>
+        <item>Анимация масштабы .5x</item>
+        <item>Анимация масштабы 1x</item>
+        <item>Анимация масштабы 1.5x</item>
+        <item>Анимация масштабы 2x</item>
+        <item>Анимация масштабы 5x</item>
+        <item>Анимация масштабы 10x</item>
+    </string-array>
+    <string-array name="tts_rate_entries">
+        <item>Өтө жай</item>
+        <item>Жай</item>
+        <item>Орточо</item>
+        <item>Ылдам</item>
+        <item>Ылдамыраак</item>
+        <item>Абдан ылдам</item>
+        <item>Тез</item>
+        <item>Өтө тез</item>
+        <item>Эң ылдам</item>
+    </string-array>
+    <string-array name="usage_stats_display_order_types">
+        <item>Колдонулган убакыт</item>
+        <item>Акыркы жолу колдонулган</item>
+        <item>Колдонмонун аты</item>
+    </string-array>
+    <string-array name="usb_configuration_titles">
+        <item>Кубатталууда</item>
+        <item>MTP (Медиа өткөрүүчү протокол)</item>
+        <item>PTP (Сүрөт өткөрүүчү протокол)</item>
+        <item>RNDIS (USB Ethernet)</item>
+        <item>Аудио булак</item>
+        <item>MIDI</item>
+    </string-array>
+    <string-array name="vpn_states">
+        <item>Ажыратылган</item>
+        <item>Демилгеленүүдө…</item>
+        <item>Туташууда…</item>
+        <item>Туташып турат</item>
+        <item>Тайм-аут</item>
+        <item>Ийгиликсиз</item>
+    </string-array>
+    <string-array name="vpn_types_long">
+        <item>PPTP VPN</item>
+        <item>Алдын ала бөлүшүлгөн ачкычтары бар L2TP/IPSec VPN</item>
+        <item>Тастыктамасы бар L2TP/IPSec VPN</item>
+        <item>Алдын ала бөлүшүлгөн ачкычтары бар жана аныктыгы Xauth менен текшерилүчүү IPSec VPN</item>
+        <item>Тастыктамалары бар жана аныктыгы Xauth менен текшерилүчүү IPSec VPN</item>
+        <item>Тастыктамалары бар жана аныктыгы аралаш ыкма менен текшерилүчүү IPSec VPN</item>
+    </string-array>
+    <string-array name="wifi_eap_entries">
+        <item>PEAP</item>
+        <item>TLS</item>
+        <item>TTLS</item>
+        <item>PWD</item>
+    </string-array>
+    <string-array name="wifi_eap_method">
+        <item>PEAP</item>
+        <item>TLS</item>
+        <item>TTLS</item>
+        <item>PWD</item>
+        <item>SIM</item>
+        <item>AKA</item>
+        <item>"AKA'"</item>
+    </string-array>
+    <string-array name="wifi_ip_settings">
+        <item>DHCP</item>
+        <item>Туруктуу</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>Туташып турат</item>
+        <item>Чакырылды</item>
+        <item>Ийгиликсиз</item>
+        <item>Жеткиликтүү</item>
+        <item>Аракет чегинен тышкары</item>
+    </string-array>
+    <string-array name="wifi_p2p_wps_setup">
+        <item>Баскычты басыңыз</item>
+        <item>"Туташуучу түзмөктүн PIN'и"</item>
+        <item>"Ушул түзмөктүн PIN'и"</item>
+    </string-array>
+    <string-array name="wifi_peap_phase2_entries">
+        <item>Эчтеке жок</item>
+        <item>MSCHAPV2</item>
+        <item>GTC</item>
+    </string-array>
+    <string-array name="wifi_peap_phase2_entries_with_sim_auth">
+        <item>Эч бири</item>
+        <item>MSCHAPV2</item>
+        <item>GTC</item>
+        <item>SIM-карта</item>
+        <item>AKA</item>
+        <item>"AKA'"</item>
+    </string-array>
+    <string-array name="wifi_phase2_entries">
+        <item>Эч бири</item>
+        <item>PAP</item>
+        <item>MSCHAP</item>
+        <item>MSCHAPV2</item>
+        <item>GTC</item>
+    </string-array>
+    <string-array name="wifi_proxy_settings">
+        <item>Эч бири</item>
+        <item>Нускама</item>
+        <item>Прокси авто-конфигурац.</item>
+    </string-array>
+    <string-array name="wifi_signal">
+        <item>Начар</item>
+        <item>Начар</item>
+        <item>Орто</item>
+        <item>Жакшы</item>
+        <item>Эң жакшы</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_entries">
+        <item>Дайыма</item>
+        <item>Дүрмөттөө учурунда гана</item>
+        <item>Эч качан</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_entries_wifi_only">
+        <item>Дайыма</item>
+        <item>Бир гана дүрмөттөө учурунда</item>
+        <item>Эч качан</item>
+    </string-array>
+    <string-array name="wifi_status">
+        <item></item>
+        <item>Скандалууда…</item>
+        <item>Туташууда…</item>
+        <item>Аныктыгы текшерилүүдө…</item>
+        <item>IP дареги алынууда…</item>
+        <item>Туташып турат</item>
+        <item>Убактылуу токтотулду</item>
+        <item>Ажыратылууда…</item>
+        <item>Ажыратылган</item>
+        <item>Ийгиликсиз</item>
+        <item>Бөгөттөлгөн</item>
+        <item>Начар байланыштан убактылуу баш тартууда</item>
+    </string-array>
+    <string-array name="wifi_status_with_ssid">
+        <item></item>
+        <item>Скандалууда…</item>
+        <item>%1$s тармагына туташууда…</item>
+        <item>%1$s менен аныктыгы текшерилүүдө…</item>
+        <item>%1$s тармагынан IP дареги алынууда…</item>
+        <item>%1$s тармагына туташты</item>
+        <item>Убактылуу токтотулду</item>
+        <item>%1$s тармагынан ажыратылууда…</item>
+        <item>Ажыратылган</item>
+        <item>Ийгиликсиз</item>
+        <item>Бөгөттөлгөн</item>
+        <item>Начар байланыштан убактылуу баш тартууда</item>
+    </string-array>
+    <string-array name="window_animation_scale_entries">
+        <item>Анимацияны өчүрүү</item>
+        <item>Анимация масштабы .5x</item>
+        <item>Анимация масштабы 1x</item>
+        <item>Анимация масштабы 1.5x</item>
+        <item>Анимация масштабы 2x</item>
+        <item>Анимация масштабы 5x</item>
+        <item>Анимация масштабы 10x</item>
+    </string-array>
+</resources>

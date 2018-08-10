@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="0.0px" android:layout_weight="1.0">
+        <com.android.settings.widget.SwitchBar android:theme="?switchBarTheme" android:id="@id/switch_bar" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <FrameLayout android:id="@id/main_content" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    </LinearLayout>
+    <RelativeLayout android:id="@id/button_bar" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="0.0">
+        <View android:id="@id/bottom_divider" android:layout_width="fill_parent" style="@style/bottom_bar_divider_style" />
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:weightSum="0.0" style="@style/SecurityPreferenceButtonContainer">
+            <com.samsung.android.settings.widget.BottomBarButton android:textSize="@dimen/bottom_btn_font_size" android:id="@id/back_button" android:layout_width="fill_parent" android:text="@string/back_button_label" style="@style/SecurityPreferenceButton" />
+            <com.samsung.android.settings.widget.BottomBarButton android:textSize="@dimen/bottom_btn_font_size" android:id="@id/skip_button" android:visibility="gone" android:layout_width="fill_parent" android:text="@android:string/skip_button_label" style="@style/SecurityPreferenceButton" />
+            <com.samsung.android.settings.widget.BottomBarButton android:textSize="@dimen/bottom_btn_font_size" android:id="@id/next_button" android:layout_width="fill_parent" android:text="@string/next_button_label" style="@style/SecurityPreferenceButton" />
+        </LinearLayout>
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/button_flat_bar" android:background="@color/bottom_bar_bg_color" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <View android:id="@id/bottom_divider" android:layout_width="fill_parent" style="@style/bottom_bar_divider_style" />
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <LinearLayout android:gravity="center" android:layout_gravity="center_vertical" android:orientation="horizontal" android:id="@id/prev_button_area" android:background="@drawable/ripple_bottom_bar_button_wifi" android:focusable="true" android:layout_width="wrap_content" android:layout_height="@dimen/wifi_buttom_button_bar_height" android:layout_weight="1.0" android:layout_marginStart="@dimen/wifi_buttom_button_bar_padding">
+                <ImageView android:gravity="center" android:id="@id/prev_btn_arrow" android:layout_width="@dimen/ssw_bottom_button_image_size" android:layout_height="@dimen/ssw_bottom_button_image_size" android:src="@drawable/setupwizard_prev_arrow_auto_mirrored" android:layout_marginEnd="@dimen/wifi_buttom_button_padding" />
+                <TextView android:gravity="start|center" android:id="@id/prev_text_btn" android:text="@string/prev_button_label" android:textAllCaps="true" android:paddingEnd="@dimen/wifi_buttom_button_padding" style="@style/WifiPreferenceButtonBar" />
+            </LinearLayout>
+            <LinearLayout android:gravity="center" android:layout_gravity="center_vertical" android:orientation="horizontal" android:id="@id/next_button_area" android:background="@drawable/ripple_bottom_bar_button_wifi" android:focusable="true" android:layout_width="wrap_content" android:layout_height="@dimen/wifi_buttom_button_bar_height" android:layout_weight="1.0" android:layout_marginEnd="@dimen/wifi_buttom_button_bar_padding" android:layout_alignParentEnd="true">
+                <TextView android:gravity="end|center" android:id="@id/next_text_btn" android:text="@string/next_button_label" android:textAllCaps="true" android:paddingStart="6.0dip" style="@style/WifiPreferenceButtonBar" />
+                <ImageView android:gravity="center" android:id="@id/next_btn_arrow" android:layout_width="@dimen/ssw_bottom_button_image_size" android:layout_height="@dimen/ssw_bottom_button_image_size" android:src="@drawable/setupwizard_next_arrow_auto_mirrored" android:layout_marginStart="@dimen/wifi_buttom_button_padding" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+    <include layout="@layout/sec_suw_lock_bottom_bar" />
+</LinearLayout>

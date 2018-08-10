@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple android:color="#28000000"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="7.0dip" />
+            <solid android:color="@color/biometrics_lock_setup_sub_button_color" />
+        </shape>
+    </item>
+</ripple>

@@ -1,0 +1,872 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="allshare_download_to">
+        <item>Устройство</item>
+        <item>Карта памяти</item>
+    </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>Анимация отключена.</item>
+        <item>Масштаб анимации: 0.5x</item>
+        <item>Масштаб анимации: 1x</item>
+        <item>Масштаб анимации: 1.5x</item>
+        <item>Масштаб анимации: 2x</item>
+        <item>Масштаб анимации: 5x</item>
+        <item>Масштаб анимации: 10x</item>
+    </string-array>
+    <string-array name="apn_auth_entries">
+        <item>Нет</item>
+        <item>PAP</item>
+        <item>CHAP</item>
+        <item>PAP или CHAP</item>
+    </string-array>
+    <string-array name="apn_protocol_entries">
+        <item>IPv4</item>
+        <item>IPv6</item>
+        <item>IPv4/IPv6</item>
+    </string-array>
+    <string-array name="app_install_location_entries">
+        <item>Внутренний накопитель устройства</item>
+        <item>Съемная SD-карта</item>
+        <item>На усмотрение системы</item>
+    </string-array>
+    <string-array name="app_ops_categories">
+        <item>Местоположение</item>
+        <item>Личные данные</item>
+        <item>SMS/MMS</item>
+        <item>Мультимедиа</item>
+        <item>Устройство</item>
+        <item>Auto run</item>
+    </string-array>
+    <string-array name="app_ops_labels">
+        <item>Местоположение</item>
+        <item>Местоположение</item>
+        <item>Местоположение</item>
+        <item>Вибросигнал</item>
+        <item>Считывать данные контактов</item>
+        <item>Изменение контактов</item>
+        <item>Просмотр списка вызовов</item>
+        <item>Изменение списка вызовов</item>
+        <item>Считывать данные календаря</item>
+        <item>Изменение календаря</item>
+        <item>Местоположение</item>
+        <item>Разместить уведомление</item>
+        <item>Местоположение</item>
+        <item>Позвонить</item>
+        <item>Чтение SMS/MMS</item>
+        <item>Запись SMS/MMS</item>
+        <item>Получение SMS/MMS</item>
+        <item>Получение SMS/MMS</item>
+        <item>Получение SMS/MMS</item>
+        <item>Получение SMS/MMS</item>
+        <item>Отправка SMS/MMS</item>
+        <item>Чтение SMS/MMS</item>
+        <item>Запись SMS/MMS</item>
+        <item>Изменение настроек</item>
+        <item>Отображать поверх других элементов</item>
+        <item>Доступ к уведомлениям</item>
+        <item>Камера</item>
+        <item>Записать аудио</item>
+        <item>Воспроизвести аудио</item>
+        <item>Считать из буфера обмена</item>
+        <item>Изменить буфер обмена</item>
+        <item>Кнопки мультимедиа</item>
+        <item>Аудиофокус</item>
+        <item>Общая громкость</item>
+        <item>Громкость голоса</item>
+        <item>Громкость звонка</item>
+        <item>Громкость мультимедиа</item>
+        <item>Громкость будильника</item>
+        <item>Громкость уведомлений</item>
+        <item>Громкость Bluetooth-устройств</item>
+        <item>Не отключать</item>
+        <item>Местоположение</item>
+        <item>Определение местоположения</item>
+        <item>Посмотреть статистику использования</item>
+        <item>Включить/отключить микрофон</item>
+        <item>Показ оповещения</item>
+        <item>Трансляция контента</item>
+        <item>Активация VPN</item>
+        <item>Сохранение обоев</item>
+        <item>Вспомогательная структура</item>
+        <item>Вспомогательный скриншот</item>
+        <item>Чтение состояния телефона</item>
+        <item>Добавление голосовой почты</item>
+        <item>Использование SIP</item>
+        <item>Обработка исходящих вызовов</item>
+        <item>Отпечатки пальцев</item>
+        <item>Нательные датчики</item>
+        <item>Чтение сообщений системы оповещения населения</item>
+        <item>Подмена геоданных</item>
+        <item>Чтение из хранилища</item>
+        <item>Запись в хранилище</item>
+        <item>Включение экрана</item>
+        <item>Получение данных об аккаунтах</item>
+        <item>Запуск в фоновом режиме</item>
+        <item>Громкость подсказок</item>
+    </string-array>
+    <string-array name="app_ops_summaries">
+        <item>приблизительное местоположение</item>
+        <item>точное местоположение</item>
+        <item>GPS</item>
+        <item>вибросигнал</item>
+        <item>считывать данные контактов</item>
+        <item>изменение контактов</item>
+        <item>просмотр списка вызовов</item>
+        <item>изменение списка вызовов</item>
+        <item>считывать данные календаря</item>
+        <item>изменение календаря</item>
+        <item>поиск Wi-Fi</item>
+        <item>уведомление</item>
+        <item>поиск мобильных сетей</item>
+        <item>позвонить</item>
+        <item>чтение SMS</item>
+        <item>создание SMS</item>
+        <item>Получение SMS</item>
+        <item>получение экстренных SMS</item>
+        <item>получение MMS</item>
+        <item>получение сообщений WAP PUSH</item>
+        <item>отправка SMS</item>
+        <item>чтение SMS со смарт-карты</item>
+        <item>запись SMS на смарт-карту</item>
+        <item>изменение настроек</item>
+        <item>отображать поверх других элементов</item>
+        <item>Доступ к уведомлениям</item>
+        <item>камера</item>
+        <item>записать аудио</item>
+        <item>воспроизвести аудио</item>
+        <item>считать из буфера обмена</item>
+        <item>изменить буфер обмена</item>
+        <item>кнопки мультимедиа</item>
+        <item>аудиофокус</item>
+        <item>общая громкость</item>
+        <item>громкость голоса</item>
+        <item>громкость звонка</item>
+        <item>громкость мультимедиа</item>
+        <item>громкость будильника</item>
+        <item>громкость уведомлений</item>
+        <item>громкость Bluetooth-устройств</item>
+        <item>не отключать</item>
+        <item>Отслеживать местоположение</item>
+        <item>контролировать использование энергии при определении местоположения</item>
+        <item>посмотреть статистику использования</item>
+        <item>включить/отключить микрофон</item>
+        <item>показ оповещения</item>
+        <item>трансляция контента</item>
+        <item>активация VPN</item>
+        <item>сохранение обоев</item>
+        <item>вспомогательная структура</item>
+        <item>вспомогательный скриншот</item>
+        <item>чтение состояния телефона</item>
+        <item>добавление голосовой почты</item>
+        <item>использование SIP</item>
+        <item>обработка исходящих вызовов</item>
+        <item>отпечатки пальцев</item>
+        <item>нательные датчики</item>
+        <item>чтение сообщений системы оповещения населения</item>
+        <item>подмена геоданных</item>
+        <item>чтение из хранилища</item>
+        <item>запись в хранилище</item>
+        <item>включение экрана</item>
+        <item>получение данных об аккаунтах</item>
+        <item>запуск в фоновом режиме</item>
+        <item>громкость подсказок</item>
+    </string-array>
+    <string-array name="app_process_limit_entries">
+        <item>Стандартное ограничение</item>
+        <item>Без фоновых процессов</item>
+        <item>Не более одного процесса</item>
+        <item>Не более 2 процессов</item>
+        <item>Не более 3 процессов</item>
+        <item>Не более 4 процессов</item>
+    </string-array>
+    <string-array name="automatic_storage_management_days">
+        <item>Добавленные более 30 дней назад</item>
+        <item>Добавленные более 60 дней назад</item>
+        <item>Добавленные более 90 дней назад</item>
+    </string-array>
+    <string-array name="bearer_entries">
+        <item>Не указано</item>
+        <item>LTE</item>
+        <item>HSPAP</item>
+        <item>HSPA</item>
+        <item>HSUPA</item>
+        <item>HSDPA</item>
+        <item>UMTS</item>
+        <item>EDGE</item>
+        <item>GPRS</item>
+        <item>eHRPD</item>
+        <item>EVDO_B</item>
+        <item>EVDO_A</item>
+        <item>EVDO_0</item>
+        <item>1xRTT</item>
+        <item>IS95B</item>
+        <item>IS95A</item>
+        <item>IWLAN</item>
+    </string-array>
+    <string-array name="bearer_entries_dcm_kdi">
+        <item>Не указано</item>
+        <item>4G</item>
+        <item>HSPAP</item>
+        <item>HSPA</item>
+        <item>HSUPA</item>
+        <item>HSDPA</item>
+        <item>UMTS</item>
+        <item>EDGE</item>
+        <item>GPRS</item>
+        <item>eHRPD</item>
+        <item>EVDO_B</item>
+        <item>EVDO_A</item>
+        <item>EVDO_0</item>
+        <item>1xRTT</item>
+        <item>IS95B</item>
+        <item>IS95A</item>
+        <item>IWLAN</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_bits_per_sample_summaries">
+        <item>Выбор системы (по умолчанию)</item>
+        <item>16 бит/отсчет</item>
+        <item>24 бит/отсчет</item>
+        <item>32 бит/отсчет</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_bits_per_sample_titles">
+        <item>Выбор системы (по умолчанию)</item>
+        <item>16 бит/отсчет</item>
+        <item>24 бит/отсчет</item>
+        <item>32 бит/отсчет</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_channel_mode_summaries">
+        <item>Выбор системы (по умолчанию)</item>
+        <item>Моно</item>
+        <item>Стерео</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_channel_mode_titles">
+        <item>Выбор системы (по умолчанию)</item>
+        <item>Моно</item>
+        <item>Стерео</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_ldac_playback_quality_summaries">
+        <item>Оптимизировать качество звука</item>
+        <item>Баланс качества звука и скорости подключения</item>
+        <item>Оптимизировать скорость подключения</item>
+        <item>Лучший возможный результат (адаптивный битрейт)</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_ldac_playback_quality_titles">
+        <item>Оптимизировать качество звука (990/909 Кбит/с)</item>
+        <item>Баланс качества звука и скорости подключения (660/606 кбит/с)</item>
+        <item>Оптимизировать скорость подключения (330/303 Кбит/с)</item>
+        <item>Лучший возможный результат (адаптивный битрейт)</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_sample_rate_summaries">
+        <item>Выбор системы (по умолчанию)</item>
+        <item>44,1 кГц</item>
+        <item>48 кГц</item>
+        <item>88,2 кГц</item>
+        <item>96 кГц</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_sample_rate_titles">
+        <item>Выбор системы (по умолчанию)</item>
+        <item>44,1 кГц</item>
+        <item>48 кГц</item>
+        <item>88,2 кГц</item>
+        <item>96 кГц</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_summaries">
+        <item>Выбор системы (по умолчанию)</item>
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>aptX HD</item>
+        <item>LDAC</item>
+        <item>Включить дополнительные кодеки</item>
+        <item>Отключить дополнительные кодеки</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_titles">
+        <item>Выбор системы (по умолчанию)</item>
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>aptX HD</item>
+        <item>LDAC</item>
+        <item>Включить дополнительные кодеки</item>
+        <item>Отключить дополнительные кодеки</item>
+    </string-array>
+    <string-array name="bluetooth_avrcp_versions">
+        <item>AVRCP 1.4 (по умолчанию)</item>
+        <item>AVRCP 1.5</item>
+        <item>AVRCP 1.6</item>
+    </string-array>
+    <string-array name="bluetooth_ss_a2dp_codec_summaries">
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>Все кодеки</item>
+        <item>Стандартный кодек</item>
+    </string-array>
+    <string-array name="bluetooth_ss_a2dp_codec_titles">
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>Все кодеки</item>
+        <item>Стандартный кодек</item>
+    </string-array>
+    <string-array name="bluetooth_ss_japan_a2dp_codec_titles">
+        <item>SBC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>Все кодеки</item>
+        <item>Стандартный кодек</item>
+    </string-array>
+    <string-array name="bluetooth_visibility_timeout_entries">
+        <item>2 мин.</item>
+        <item>5 мин.</item>
+        <item>1 ч.</item>
+        <item>Без тайм-аута</item>
+    </string-array>
+    <string-array name="captioning_edge_type_selector_titles">
+        <item>По умолчанию</item>
+        <item>Нет</item>
+        <item>Контур</item>
+        <item>Оттенение</item>
+        <item>Приподнятый</item>
+        <item>Вдавленный</item>
+    </string-array>
+    <string-array name="captioning_font_size_selector_titles">
+        <item>Очень маленький</item>
+        <item>Мелкий</item>
+        <item>Обычный</item>
+        <item>Крупный</item>
+        <item>Очень большой</item>
+    </string-array>
+    <string-array name="captioning_opacity_selector_titles">
+        <item>25%</item>
+        <item>50%</item>
+        <item>75%</item>
+        <item>100%</item>
+    </string-array>
+    <string-array name="captioning_preset_selector_titles">
+        <item>По умолчанию</item>
+        <item>Белый текст на черном фоне</item>
+        <item>Черный текст на белом фоне</item>
+        <item>Желтый текст на черном фоне</item>
+        <item>Желтый текст на синем фоне</item>
+        <item>Другое</item>
+    </string-array>
+    <string-array name="captioning_typeface_selector_titles">
+        <item>По умолчанию</item>
+        <item>Sans Serif</item>
+        <item>Сжатый Sans Serif</item>
+        <item>Sans serif monospace</item>
+        <item>Serif</item>
+        <item>Serif monospace</item>
+        <item>Любительские</item>
+        <item>Курсив</item>
+        <item>Малые прописные</item>
+    </string-array>
+    <string-array name="color_adjust_type_entries">
+        <item>Оттенки серого</item>
+        <item>Протаномалия (красн/зел)</item>
+        <item>Дейтераном. (зел/красн)</item>
+        <item>Тританомалия (син/желт)</item>
+        <item>Другой цвет</item>
+    </string-array>
+    <string-array name="color_lens_entries">
+        <item>Синий</item>
+        <item>Лазурный</item>
+        <item>Сине-зеленый</item>
+        <item>Ярко-зеленый</item>
+        <item>Зеленый</item>
+        <item>Зеленый (шартрёз)</item>
+        <item>Желтый</item>
+        <item>Оранжевый</item>
+        <item>Красный</item>
+        <item>Розовый</item>
+        <item>Пурпурный</item>
+        <item>Фиолетовый</item>
+    </string-array>
+    <string-array name="color_mode_descriptions">
+        <item>Улучшенные цвета</item>
+        <item>Натуральные цвета, привычные глазу</item>
+        <item>Цвета, оптимизированные для цифрового контента</item>
+    </string-array>
+    <string-array name="color_mode_names">
+        <item>Насыщенный (по умолчанию)</item>
+        <item>Естественный</item>
+        <item>Стандартный</item>
+    </string-array>
+    <string-array name="color_picker">
+        <item>Сине-зеленый</item>
+        <item>Синий</item>
+        <item>Индиго</item>
+        <item>Фиолетовый</item>
+        <item>Розовый</item>
+        <item>Красный</item>
+    </string-array>
+    <string-array name="data_usage_data_range">
+        <item>За последние 30 дней</item>
+        <item>Цикл использования данных</item>
+    </string-array>
+    <string-array name="data_usage_display_unit">
+        <item>MB/GB (auto change)</item>
+        <item>MB only</item>
+        <item>GB only</item>
+    </string-array>
+    <string-array name="debug_hw_overdraw_entries">
+        <item>ВЫКЛ</item>
+        <item>Показывать области наложения</item>
+        <item>Выделять области определенного цвета</item>
+    </string-array>
+    <string-array name="debug_hw_renderer_entries">
+        <item>OpenGL (по умолчанию)</item>
+        <item>OpenGL (Skia)</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>Мгновенно при нажатии клавиши питания или по истечении времени ожидания экрана</item>
+        <item>5 секунд</item>
+        <item>15 секунд</item>
+        <item>30 секунд</item>
+        <item>1 минута</item>
+        <item>2 минуты</item>
+        <item>5 минут</item>
+        <item>10 минут</item>
+        <item>30 минут</item>
+    </string-array>
+    <string-array name="dex_timeout_entries">
+        <item>15 секунд</item>
+        <item>30 секунд</item>
+        <item>1 минута</item>
+        <item>2 минуты</item>
+        <item>5 минут</item>
+        <item>10 минут</item>
+        <item>20 минут</item>
+        <item>30 минут</item>
+        <item>60 минут</item>
+    </string-array>
+    <string-array name="dream_timeout_entries">
+        <item>Никогда</item>
+        <item>15 сек.</item>
+        <item>30 сек.</item>
+        <item>1 мин.</item>
+        <item>2 мин.</item>
+        <item>5 мин.</item>
+        <item>10 мин.</item>
+        <item>30 мин.</item>
+    </string-array>
+    <string-array name="eap_method_without_sim_auth">
+        <item>PEAP</item>
+        <item>TLS</item>
+        <item>TTLS</item>
+        <item>PWD</item>
+    </string-array>
+    <string-array name="enable_opengl_traces_entries">
+        <item>Нет</item>
+        <item>Logcat</item>
+        <item>Systrace (графика)</item>
+        <item>Список вызовов в glGetError</item>
+    </string-array>
+    <string-array name="entries_font_size">
+        <item>Мелкий</item>
+        <item>По умолчанию</item>
+        <item>Крупный</item>
+        <item>Максимальный</item>
+        <item>Huge</item>
+    </string-array>
+    <string-array name="hdcp_checking_summaries">
+        <item>Не использовать проверку HDCP</item>
+        <item>Использовать проверку HDCP только для DRM-контента</item>
+        <item>Всегда использовать проверку HDCP</item>
+    </string-array>
+    <string-array name="hdcp_checking_titles">
+        <item>Никогда не проверять</item>
+        <item>Проверять только DRM-контент</item>
+        <item>Всегда проверять</item>
+    </string-array>
+    <string-array name="key_backlight_entries">
+        <item>Всегда выключены</item>
+        <item>1 second</item>
+        <item>3 seconds</item>
+        <item>5 seconds</item>
+        <item>10 seconds</item>
+        <item>15 seconds</item>
+    </string-array>
+    <string-array name="lock_after_timeout_entries">
+        <item>Немедленно</item>
+        <item>5 секунд</item>
+        <item>15 секунд</item>
+        <item>30 секунд</item>
+        <item>1 минута</item>
+        <item>2 минуты</item>
+        <item>5 минут</item>
+        <item>10 минут</item>
+        <item>30 минут</item>
+    </string-array>
+    <string-array name="long_press_timeout_selector_titles">
+        <item>Небольшая</item>
+        <item>Средняя</item>
+        <item>Большая</item>
+    </string-array>
+    <string-array name="long_press_timeout_titles_selector">
+        <item>Короткая (0.5 с)</item>
+        <item>Средняя (1 с)</item>
+        <item>Длинная (1.5 с)</item>
+        <item>Другое</item>
+    </string-array>
+    <string-array name="mvno_type_entries">
+        <item>Нет</item>
+        <item>SPN</item>
+        <item>IMSI</item>
+        <item>GID</item>
+    </string-array>
+    <string-array name="num_allowed_devices">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+    <string-array name="overlay_display_devices_entries">
+        <item>Нет</item>
+        <item>480p</item>
+        <item>480p (защита)</item>
+        <item>720p</item>
+        <item>720p (защита)</item>
+        <item>1080p</item>
+        <item>1080p (защита)</item>
+        <item>4K</item>
+        <item>4K (защита)</item>
+        <item>4K (масштабирование)</item>
+        <item>4K (масштабирование, защита)</item>
+        <item>720p, 1080p (два экрана)</item>
+    </string-array>
+    <string-array name="proc_stats_memory_states">
+        <item>Нормальное</item>
+        <item>Умеренное</item>
+        <item>Низкое</item>
+        <item>Высокое</item>
+    </string-array>
+    <string-array name="proc_stats_process_states">
+        <item>Стабильное</item>
+        <item>Наиболее частое действие</item>
+        <item>Важное (активный режим)</item>
+        <item>Важное (фоновый режим)</item>
+        <item>Резервное копирование</item>
+        <item>Большой объем данных</item>
+        <item>Служба (работает)</item>
+        <item>Служба (перезапуск)</item>
+        <item>Получатель</item>
+        <item>Главная</item>
+        <item>Последнее действие</item>
+        <item>Кешировано (действие)</item>
+        <item>Кешировано (клиент)</item>
+        <item>Кешировано (пусто)</item>
+    </string-array>
+    <string-array name="ram_states">
+        <item>Обычный</item>
+        <item>Средняя</item>
+        <item>Низкая</item>
+        <item>Критическое</item>
+        <item>Неизвестно</item>
+    </string-array>
+    <string-array name="screen_timeout_entries">
+        <item>15 секунд</item>
+        <item>30 секунд</item>
+        <item>1 минута</item>
+        <item>2 минуты</item>
+        <item>5 минут</item>
+        <item>10 минут</item>
+        <item>30 минут</item>
+    </string-array>
+    <string-array name="screen_timeout_for_device_lock_entries">
+        <item>15 секунд</item>
+        <item>30 секунд</item>
+        <item>1 минута</item>
+        <item>3 минуты</item>
+        <item>5 минут</item>
+        <item>10 минут</item>
+        <item>15 минут</item>
+        <item>30 минут</item>
+    </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Запросить</item>
+        <item>Никогда не разрешать</item>
+        <item>Всегда разрешать</item>
+    </string-array>
+    <string-array name="select_logd_size_lowram_titles">
+        <item>Выкл.</item>
+        <item>64 КБ</item>
+        <item>256 КБ</item>
+        <item>1 МБ</item>
+    </string-array>
+    <string-array name="select_logd_size_summaries">
+        <item>Выкл.</item>
+        <item>Буфер: макс. 64 КБ</item>
+        <item>Буфер: макс. 256 КБ</item>
+        <item>Буфер: макс. 1 МБ</item>
+        <item>Буфер: макс. 4 МБ</item>
+        <item>Буфер: макс. 16 МБ</item>
+    </string-array>
+    <string-array name="select_logd_size_titles">
+        <item>Выкл.</item>
+        <item>64 КБ</item>
+        <item>256 КБ</item>
+        <item>1 МБ</item>
+        <item>4 МБ</item>
+        <item>16 МБ</item>
+    </string-array>
+    <string-array name="select_logpersist_summaries">
+        <item>Отключено</item>
+        <item>Все буферы журналов</item>
+        <item>Все, кроме буферов системного журнала</item>
+        <item>только буфер журнала ядра</item>
+    </string-array>
+    <string-array name="select_logpersist_titles">
+        <item>Отключено</item>
+        <item>Все</item>
+        <item>Все, кроме системных</item>
+        <item>только ядро</item>
+    </string-array>
+    <string-array name="show_non_rect_clip_entries">
+        <item>Откл.</item>
+        <item>Непрямоугольное усечение синим</item>
+        <item>Тест. команды рисования зеленым</item>
+    </string-array>
+    <string-array name="time_interval_entries_selectable">
+        <item>1 минута</item>
+        <item>3 минуты</item>
+        <item>5 минут</item>
+        <item>10 минут</item>
+        <item>15 минут</item>
+    </string-array>
+    <string-array name="timezone_filters">
+        <item>Америка</item>
+        <item>Европа</item>
+        <item>Африка</item>
+        <item>Азия</item>
+        <item>Австралия</item>
+        <item>Тихий океан</item>
+        <item>Все</item>
+    </string-array>
+    <string-array name="touch_key_light_entries">
+        <item>1,5 секунды</item>
+        <item>6 секунд</item>
+        <item>Всегда выключены</item>
+        <item>Всегда включены</item>
+    </string-array>
+    <string-array name="track_frame_time_entries">
+        <item>Отключить</item>
+        <item>На экране в виде полос</item>
+        <item>В adb shell dumpsys gfxinfo</item>
+    </string-array>
+    <string-array name="transition_animation_scale_entries">
+        <item>Анимация отключена.</item>
+        <item>Масштаб анимации: 0.5x</item>
+        <item>Масштаб анимации: 1x</item>
+        <item>Масштаб анимации: 1.5x</item>
+        <item>Масштаб анимации: 2x</item>
+        <item>Масштаб анимации: 5x</item>
+        <item>Масштаб анимации: 10x</item>
+    </string-array>
+    <string-array name="tts_rate_entries">
+        <item>Очень медленная</item>
+        <item>Медленная</item>
+        <item>Обычная</item>
+        <item>Умеренно быстрая</item>
+        <item>Быстрая</item>
+        <item>Очень быстрая</item>
+        <item>Ускоренная</item>
+        <item>Сильно ускоренная</item>
+        <item>Максимальная</item>
+    </string-array>
+    <string-array name="usage_stats_display_order_types">
+        <item>Время использования</item>
+        <item>Последнее использование</item>
+        <item>Название приложения</item>
+    </string-array>
+    <string-array name="usb_configuration_titles">
+        <item>@string/usb_use_charging_only</item>
+        <item>MTP (Media Transfer Protocol)</item>
+        <item>PTP (Picture Transfer Protocol)</item>
+        <item>RNDIS (USB Ethernet)</item>
+        <item>Источник аудио</item>
+        <item>MIDI</item>
+    </string-array>
+    <string-array name="vpn_states">
+        <item>Отключено</item>
+        <item>Инициализация…</item>
+        <item>Подключение…</item>
+        <item>Подключено</item>
+        <item>Время истекло</item>
+        <item>Сбой</item>
+    </string-array>
+    <string-array name="vpn_types_long">
+        <item>VPN-подключение по протоколу PPTP</item>
+        <item>VPN-соединение по протоколу L2TP/IPSec с общими ключами</item>
+        <item>VPN-подключение по протоколу L2TP/IPSec с использованием сертификатов</item>
+        <item>VPN-подключение IPSec с общими ключами и аутентификацией Xauth</item>
+        <item>VPN-подключение IPSec с использованием сертификатов и аутентификации Xauth</item>
+        <item>VPN-подключение IPSec с использованием сертификатов и комбинированной аутентификации</item>
+        <item>IPSec VPN with IKEv2 and pre-shared key-based authentication</item>
+        <item>IPSec VPN with IKEv2 and certificate-based authentication</item>
+    </string-array>
+    <string-array name="wifi_ap_channel">
+        <item>Авто</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+    </string-array>
+    <string-array name="wifi_ap_security_testmode">
+        <item>Открытый</item>
+        <item>WPA2 PSK</item>
+    </string-array>
+    <string-array name="wifi_ap_timeout">
+        <item>Не использовать время ожидания</item>
+        <item>5 минут</item>
+        <item>10 минут</item>
+        <item>20 минут</item>
+        <item>30 минут</item>
+        <item>60 минут</item>
+    </string-array>
+    <string-array name="wifi_ap_wifi_sharing">
+        <item>Включить предоставление общего доступа к Wi-Fi</item>
+        <item>Отключить предоставление общего доступа к Wi-Fi</item>
+    </string-array>
+    <string-array name="wifi_connect_entries">
+        <item>Автоматически</item>
+        <item>Вручную</item>
+        <item>Всегда спрашивать</item>
+    </string-array>
+    <string-array name="wifi_eap_entries">
+        <item>PEAP</item>
+        <item>TLS</item>
+        <item>TTLS</item>
+        <item>PWD</item>
+    </string-array>
+    <string-array name="wifi_eap_method">
+        <item>PEAP</item>
+        <item>TLS</item>
+        <item>TTLS</item>
+        <item>PWD</item>
+        <item>SIM</item>
+        <item>AKA</item>
+        <item>"AKA'"</item>
+    </string-array>
+    <string-array name="wifi_ip_settings">
+        <item>DHCP</item>
+        <item>Статический</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>Подключено</item>
+        <item>Вы приглашены.</item>
+        <item>Сбой при подключении</item>
+        <item>Нажмите здесь для подключения.</item>
+        <item>Вне диапазона</item>
+        <item>Подключено к другому устройству</item>
+    </string-array>
+    <string-array name="wifi_p2p_wps_setup">
+        <item>Push-кнопка</item>
+        <item>PIN-код с обнаруженного устройства</item>
+        <item>PIN-код этого устройства</item>
+    </string-array>
+    <string-array name="wifi_peap_phase2_entries">
+        <item>Нет</item>
+        <item>MSCHAPV2</item>
+        <item>GTC</item>
+    </string-array>
+    <string-array name="wifi_peap_phase2_entries_with_sim_auth">
+        <item>Нет</item>
+        <item>MSCHAPV2</item>
+        <item>GTC</item>
+        <item>SIM-карта</item>
+        <item>AKA</item>
+        <item>"AKA'"</item>
+    </string-array>
+    <string-array name="wifi_phase2_entries">
+        <item>Нет</item>
+        <item>PAP</item>
+        <item>MSCHAP</item>
+        <item>MSCHAPV2</item>
+        <item>GTC</item>
+    </string-array>
+    <string-array name="wifi_proxy_settings">
+        <item>Нет</item>
+        <item>Вручную</item>
+        <item>Автонастройка</item>
+    </string-array>
+    <string-array name="wifi_signal">
+        <item>Слабый</item>
+        <item>Средний</item>
+        <item>Хороший</item>
+        <item>Сильный</item>
+        <item>Очень сильный</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_entries">
+        <item>"Всегда
+(увеличивает потребление заряда аккумулятора)"</item>
+        <item>При зарядке</item>
+        <item>"Никогда
+(увеличивает расход трафика)"</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_entries_wifi_only">
+        <item>"Всегда
+(увеличивает потребление заряда аккумулятора)"</item>
+        <item>При зарядке</item>
+        <item>Никогда</item>
+    </string-array>
+    <string-array name="wifi_status">
+        <item></item>
+        <item>Поиск…</item>
+        <item>Подключение…</item>
+        <item>Проверка подлинности…</item>
+        <item>Получение IP-адреса…</item>
+        <item>Подключено</item>
+        <item>Приостановлено</item>
+        <item>Отключение…</item>
+        <item>Отключено</item>
+        <item>Сбой</item>
+        <item>Заблокировано</item>
+        <item>Проверка качества подключения к Интернету…</item>
+    </string-array>
+    <string-array name="wifi_status_with_ssid">
+        <item></item>
+        <item>Поиск...</item>
+        <item>Соединение с сетью %1$s…</item>
+        <item>Аутентификация в сети %1$s...</item>
+        <item>Получение IP-адреса от %1$s…</item>
+        <item>Подключено к %1$s</item>
+        <item>Приостановлено</item>
+        <item>Отключение от %1$s…</item>
+        <item>Нет подключения</item>
+        <item>Сбой</item>
+        <item>Заблокировано</item>
+        <item>Временно избегать плохого соединения</item>
+    </string-array>
+    <string-array name="window_animation_scale_entries">
+        <item>Анимация отключена.</item>
+        <item>Масштаб анимации: 0.5x</item>
+        <item>Масштаб анимации: 1x</item>
+        <item>Масштаб анимации: 1.5x</item>
+        <item>Масштаб анимации: 2x</item>
+        <item>Масштаб анимации: 5x</item>
+        <item>Масштаб анимации: 10x</item>
+    </string-array>
+</resources>

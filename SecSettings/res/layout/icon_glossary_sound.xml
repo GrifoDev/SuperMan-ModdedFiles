@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:helphub="http://schemas.android.com/apk/res/com.samsung.helphub">
+    <TextView android:id="@id/help_page_title_sound" android:text="@string/item_icon_glossary_sound" style="?android:listSeparatorTextViewStyle" />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/help_page_title_sound">
+        <LinearLayout android:id="@id/sound_silent_mode" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/sound_silent_mode" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_sound_silent_mode" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/sound_vibration_mode" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/sound_vibration_mode" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_sound_vibration_mode" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/sound_play" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/sound_play" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_sound_play" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/sound_pause" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/sound_pause" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_sound_pause" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

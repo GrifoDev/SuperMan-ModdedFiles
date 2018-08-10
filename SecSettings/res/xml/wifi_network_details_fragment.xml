@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <Preference android:layout="@layout/connection_detail_pref" android:key="connection_detail" />
+    <PreferenceCategory android:key="general_details_category">
+        <com.android.settings.applications.LayoutPreference android:layout="@layout/two_buttons_panel" android:selectable="false" android:key="buttons" />
+        <com.android.settings.wifi.WifiDetailPreference android:title="@string/wifi_signal" android:selectable="false" android:key="signal_strength" />
+        <com.android.settings.wifi.WifiDetailPreference android:icon="@drawable/ic_frequency_antenna" android:title="@string/wifi_frequency" android:selectable="false" android:key="frequency" />
+        <com.android.settings.wifi.WifiDetailPreference android:icon="@drawable/ic_security_lock_24dp" android:title="@string/wifi_security" android:selectable="false" android:key="security" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/wifi_setup_detail" android:key="ip_details_category">
+        <com.android.settings.wifi.WifiDetailPreference android:title="@string/wifi_advanced_mac_address_title" android:selectable="false" android:key="mac_address" />
+        <com.android.settings.wifi.WifiDetailPreference android:title="@string/wifi_ip_address" android:selectable="false" android:key="ip_address" />
+        <com.android.settings.wifi.WifiDetailPreference android:title="@string/wifi_gateway" android:selectable="false" android:key="gateway" />
+        <com.android.settings.wifi.WifiDetailPreference android:title="@string/wifi_details_subnet_mask" android:selectable="false" android:key="subnet_mask" />
+        <com.android.settings.wifi.WifiDetailPreference android:title="@string/wifi_details_dns" android:selectable="false" android:key="dns" />
+        <com.android.settings.wifi.WifiDetailPreference android:title="@string/wifi_speed" android:selectable="false" android:key="link_speed" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/wifi_details_ipv6_address_header" android:selectable="false" android:key="ipv6_details_category" />
+</PreferenceScreen>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <include android:id="@id/icgl_call" layout="@layout/icon_glossary_call" />
+        <include android:id="@id/icgl_sound" layout="@layout/icon_glossary_sound" />
+        <include android:id="@id/icgl_network" layout="@layout/icon_glossary_network" />
+        <include android:id="@id/icgl_connectivity" layout="@layout/icon_glossary_connectivity" />
+        <include android:id="@id/icgl_email" layout="@layout/icon_glossary_email" />
+        <include android:id="@id/icgl_messages" layout="@layout/icon_glossary_messages" />
+        <include android:id="@id/icgl_alarm_and_calendar" layout="@layout/icon_glossary_alarm_and_calendar" />
+        <include android:id="@id/icgl_battery" layout="@layout/icon_glossary_battery" />
+        <include android:id="@id/icgl_other_icons" layout="@layout/icon_glossary_other_icons" />
+    </LinearLayout>
+</ScrollView>

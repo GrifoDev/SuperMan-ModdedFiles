@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <item type="layout" name="setup_choose_lock_pattern_template">@layout/suw_template</item>
-</resources>

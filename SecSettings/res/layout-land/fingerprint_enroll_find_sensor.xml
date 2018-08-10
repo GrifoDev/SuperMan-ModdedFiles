@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.setupwizardlib.GlifLayout android:id="@id/setup_wizard_layout" android:layout="@layout/suw_glif_blank_template" android:layout_width="fill_parent" android:layout_height="fill_parent" style="?fingerprint_layout_theme"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical" android:clipChildren="false" android:clipToPadding="false" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_marginBottom="@dimen/suw_content_frame_padding_bottom" android:layout_weight="1.0" android:layout_marginStart="?suwMarginSides">
+            <LinearLayout android:orientation="vertical" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <ImageView android:id="@id/suw_layout_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_fingerprint_header" android:layout_marginStart="0.0dip" android:layout_marginEnd="0.0dip" style="@style/SuwGlifIcon" />
+                <TextView android:id="@id/suw_layout_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginStart="0.0dip" android:layout_marginEnd="0.0dip" style="@style/SuwGlifHeaderTitle" />
+                <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/security_settings_fingerprint_enroll_find_sensor_message" style="@style/SuwDescription.Glif" />
+                <Button android:id="@id/next_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:text="@string/fingerprint_enroll_button_next" style="@style/SetupWizardButton.Positive" />
+            </LinearLayout>
+        </LinearLayout>
+        <FrameLayout android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <include android:layout_gravity="center" android:layout_width="@dimen/fingerprint_find_sensor_graphic_size" android:layout_height="@dimen/fingerprint_find_sensor_graphic_size" layout="@layout/fingerprint_enroll_find_sensor_graphic" />
+        </FrameLayout>
+    </LinearLayout>
+</com.android.setupwizardlib.GlifLayout>

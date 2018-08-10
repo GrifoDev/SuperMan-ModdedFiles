@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="accessibilty_autoclick_preference_subtitle_extremely_short_delay">
+        <item quantity="other">Iznimno kratka odgoda (%s ms)</item>
+        <item quantity="one">Iznimno kratka odgoda (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_long_delay">
+        <item quantity="other">Duga odgoda (%s ms)</item>
+        <item quantity="one">Duga odgoda (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_short_delay">
+        <item quantity="other">Kratka odgoda (%s ms)</item>
+        <item quantity="one">Kratka odgoda (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_long_delay">
+        <item quantity="other">Vrlo duga odgoda (%s ms)</item>
+        <item quantity="one">Vrlo duga odgoda (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_short_delay">
+        <item quantity="other">Vrlo kratka odgoda (%s ms)</item>
+        <item quantity="one">Vrlo kratka odgoda (%s ms)</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">Aplikacije kojima je dopuštena upotreba podataka bez ograničenja: %d</item>
+        <item quantity="one">1 aplikaciji dopustila se upotreba podataka bez ograničenja</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary_chn">
+        <item quantity="other">Više aplikacija (njih %d) ima dozvolu za upotrebu mobilnih podataka bez ograničenja dok je uključena funkcija Ograniči pozadinske podatke.</item>
+        <item quantity="one">Više aplikacija (njih %d) ima dozvolu za upotrebu mobilnih podataka bez ograničenja dok je uključena funkcija Ograniči pozadinske podatke.</item>
+    </plurals>
+    <plurals name="deleted_channels">
+        <item quantity="other">Izbrisano kategorija: %d</item>
+        <item quantity="one">Izbrisana 1 kategorija</item>
+    </plurals>
+    <plurals name="dex_timeout_day">
+        <item quantity="other">%d dan/a</item>
+        <item quantity="one">1 dan</item>
+    </plurals>
+    <plurals name="dex_timeout_hour">
+        <item quantity="other">%d sati</item>
+        <item quantity="one">1 sat</item>
+    </plurals>
+    <plurals name="dex_timeout_minute">
+        <item quantity="other">%d min</item>
+        <item quantity="one">1 min</item>
+    </plurals>
+    <plurals name="dex_timeout_second">
+        <item quantity="other">%d sekundi</item>
+        <item quantity="one">1 sek</item>
+    </plurals>
+    <plurals name="dex_timeout_week">
+        <item quantity="other">%d tjed.</item>
+        <item quantity="one">1 tj</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Uklanjanje odabranih jezika</item>
+        <item quantity="one">Uklanjanje odabranog jezika</item>
+    </plurals>
+    <plurals name="enterprise_privacy_number_packages_lower_bound">
+        <item quantity="other">Najmanje %d aplikacija</item>
+        <item quantity="one">Najmanje %d aplikacija</item>
+        <item quantity="few">Najmanje %d aplikacije</item>
+    </plurals>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d sati</item>
+        <item quantity="one">1 sat</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d min</item>
+        <item quantity="one">1 min</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d sekundi</item>
+        <item quantity="one">1 sek</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Lozinka mora sadržavati min. %d slova.</item>
+        <item quantity="one">Lozinka mora sadržavati min. 1 slovo.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Lozinka mora sadržavati min. %d malih slova.</item>
+        <item quantity="one">Lozinka mora sadržavati min. 1 malo slovo.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Lozinka mora sadržavati min. %d brojeva ili simbola.</item>
+        <item quantity="one">Lozinka mora sadržavati min. 1 broj ili simbol.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Lozinka mora sadržavati min. %d brojeva.</item>
+        <item quantity="one">Lozinka mora sadržavati min. 1 broj.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Lozinka mora sadržavati min. %d simbola.</item>
+        <item quantity="one">Lozinka mora sadržavati min. 1 simbol.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Lozinka mora sadržavati min. %d velikih slova.</item>
+        <item quantity="one">Lozinka mora sadržavati min. 1 veliko slovo.</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d aplikacija ne mogu čitati obavijesti.</item>
+        <item quantity="one">%d aplikaciji je dopušteno čitati obavijesti.</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">Više procesa (njih %1$d) upotrebljavalo je RAM u posljednja/ih %2$s</item>
+        <item quantity="one">%1$d proces upotrebljavao je RAM u posljednja/ih %2$s</item>
+    </plurals>
+    <plurals name="network_restrictions_summary">
+        <item quantity="other">Ograničenja: %d</item>
+        <item quantity="one">1 ograničenje</item>
+    </plurals>
+    <plurals name="notification_summary">
+        <item quantity="other">Isključeno za više aplikacija (njih %d)</item>
+        <item quantity="one">Isključeno za 1 aplikaciju</item>
+    </plurals>
+    <plurals name="number_of_device_admins">
+        <item quantity="other">Aktivne aplikacije: %d</item>
+        <item quantity="one">1 aktivna aplikacija</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d dodatna/ih dopuštenja</item>
+        <item quantity="one">%d dodatno dopuštenje</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Udaljeni ste %d koraka od postanka programerom.</item>
+        <item quantity="one">Udaljeni ste 1 korak od postanka programerom.</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_dialog_title">
+        <item quantity="other">Pouzdati se u certifikate ili ih ukloniti</item>
+        <item quantity="one">Pouzdati se u certifikate ili ih ukloniti</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message">
+        <item quantity="other">"%s instalirao/la je izdavatelje certifikata za vaš radni profil te stoga može nadzirati aktivnost radne mreže, uključujući poruke e-pošte, aplikacije i sigurna web-mjesta. Možete smatrati certifikate pouzdanima ili ih možete ukloniti.
+
+Za više informacija o ovim certifikatima obratite se svojem administratoru."</item>
+        <item quantity="one">"%s instalirao/la je izdavatelj certifikata za vaš radni profil te stoga može nadzirati aktivnost radne mreže, uključujući poruke e-pošte, aplikacije i sigurna web-mjesta. Možete smatrati certifikat pouzdanim ili ga možete ukloniti.
+
+Za više informacija o ovom certifikatu obratite se svojem administratoru."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"Administrator %s instalirao je CA certifikate na vaš uređaj te stoga može nadzirati mrežnu aktivnost vašeg uređaja, uključujući vašu upotrebu e-pošte, aplikacija i sigurnih web-mjesta.
+
+Za više informacija o ovim certifikatima obratite se svom IT administratoru."</item>
+        <item quantity="one">"Administrator %s instalirao je CA certifikat na vaš uređaj te stoga može nadzirati mrežnu aktivnost vašeg uređaja, uključujući vašu upotrebu e-pošte, aplikacija i sigurnih web-mjesta.
+
+Za više informacija o ovom certifikatu obratite se svojem IT administratoru."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_settings_button">
+        <item quantity="other">Provjeri certifikate</item>
+        <item quantity="one">Provjeri certifikate</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Pristupite većem broju datoteka/mapa (njih %d)</item>
+        <item quantity="one">Pristupite jednoj mapi/datoteci</item>
+    </plurals>
+</resources>

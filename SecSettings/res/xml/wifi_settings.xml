@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/wifi_settings_title" settings:keywords="@string/keywords_wifi"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <com.samsung.android.settings.wifi.WifiPreferenceCategory android:key="header_settings">
+        <Preference android:key="wifi_cricket_manager" />
+    </com.samsung.android.settings.wifi.WifiPreferenceCategory>
+    <com.samsung.android.settings.wifi.WifiPreferenceCategory android:title="@string/wifi_preference_connected_network" android:key="connected_access_point" />
+    <com.samsung.android.settings.wifi.WifiPreferenceCategory android:title="@string/wifi_preference_availavle_networks" android:key="access_points">
+        <Preference android:key="add_network" />
+    </com.samsung.android.settings.wifi.WifiPreferenceCategory>
+    <com.samsung.android.settings.wifi.WifiPreferenceCategory android:title="@string/wifi_preference_passpoint_networks" android:key="passpoint_access_point" />
+</PreferenceScreen>

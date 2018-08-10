@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:key="pref_security_locktype"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.samsung.android.settings.UnclickablePreference android:persistent="false" android:clickable="false" android:title="@string/knox_twofactor_description" android:selectable="false" android:key="pref_two_factor_description" style="@style/description_text" />
+    <SwitchPreference android:title="@string/fingerprint" android:key="switch_fingerprint" />
+    <SwitchPreference android:title="@string/iris_title" android:key="switch_iris" />
+    <com.android.settingslib.RestrictedPreference android:title="@string/unlock_set_unlock_password_title" android:key="pref_lock_password" android:summary="@string/unlock_set_unlock_password_summary" />
+    <com.android.settingslib.RestrictedPreference android:title="@string/unlock_set_unlock_pin_title" android:key="pref_lock_pin" android:summary="@string/unlock_set_unlock_pin_summary" />
+    <com.android.settingslib.RestrictedPreference android:title="@string/unlock_set_unlock_pattern_title" android:key="pref_lock_pattern" android:summary="@string/unlock_set_unlock_pattern_summary" />
+    <com.android.settingslib.RestrictedPreference android:title="@string/unlock_set_unlock_enterprise_identity_title" android:key="pref_lock_enterprise_identity" />
+</PreferenceScreen>

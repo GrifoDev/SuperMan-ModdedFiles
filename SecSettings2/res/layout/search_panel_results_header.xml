@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<TextView android:textAppearance="@style/TextAppearance.ResultTitle" android:ellipsize="marquee" android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="@dimen/dashboard_category_height" android:text="@string/search_results_label" android:singleLine="true" android:textAlignment="viewStart" android:paddingStart="@dimen/search_title_padding_start"
-  xmlns:android="http://schemas.android.com/apk/res/android" />

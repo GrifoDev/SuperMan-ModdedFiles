@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="accessibilty_autoclick_preference_subtitle_extremely_short_delay">
+        <item quantity="other">Juda gysga gijikme (%s ms)</item>
+        <item quantity="one">Juda gysga gijikme (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_long_delay">
+        <item quantity="other">Uzak gijikme (%s ms)</item>
+        <item quantity="one">Uzak gijikme (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_short_delay">
+        <item quantity="other">Gysga gijikme (%s ms)</item>
+        <item quantity="one">Gysga gijikme (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_long_delay">
+        <item quantity="other">Örän uzak gijikme (%s ms)</item>
+        <item quantity="one">Örän uzak gijikme (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_short_delay">
+        <item quantity="other">Örän gysga gijikme (%s ms)</item>
+        <item quantity="one">Örän gysga gijikme (%s ms)</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d goýma çäklendirmesiz maglumat ulanmaga rugsat berildi</item>
+        <item quantity="one">1 goýma çäklendirmesiz maglumat ulanmaga rugsat berildi</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary_chn">
+        <item quantity="other">Fon maglumaty çäklendirmek açyk wagty, %d goýma mobil maglumaty çäklendirmesiz ulanmaga rugsat berildi.</item>
+        <item quantity="one">Fon maglumaty çäklendirmek açyk wagty, %d goýma mobil maglumaty çäklendirmesiz ulanmaga rugsat berildi.</item>
+    </plurals>
+    <plurals name="deleted_channels">
+        <item quantity="other">%d kategoriýalar öçürildi</item>
+        <item quantity="one">1 kategoriýa öçürildi</item>
+    </plurals>
+    <plurals name="dex_timeout_day">
+        <item quantity="other">%d gün</item>
+        <item quantity="one">1 gün</item>
+    </plurals>
+    <plurals name="dex_timeout_hour">
+        <item quantity="other">%d sagat</item>
+        <item quantity="one">1 sagat</item>
+    </plurals>
+    <plurals name="dex_timeout_minute">
+        <item quantity="other">%d minut</item>
+        <item quantity="one">1 minut</item>
+    </plurals>
+    <plurals name="dex_timeout_second">
+        <item quantity="other">%d sekunt</item>
+        <item quantity="one">1 sekunt</item>
+    </plurals>
+    <plurals name="dex_timeout_week">
+        <item quantity="other">%d hepde</item>
+        <item quantity="one">1 hepde</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Saýlanan dilleri aýyr</item>
+        <item quantity="one">Saýlanan dili aýyr</item>
+    </plurals>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d sagat</item>
+        <item quantity="one">1 sagat</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d minut</item>
+        <item quantity="one">1 minut</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d sekunt</item>
+        <item quantity="one">1 sekunt</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Açar söz azyndan %d harpdan ybarat bolmaly</item>
+        <item quantity="one">Açar sözde azyndan 1 harp bolmaly</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Açar sözde azyndan %d setir harp bolmaly</item>
+        <item quantity="one">Açarsözde azyndan 1 setir harp bolmaly</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Açar sözde azyndan %d belgiler we şekiller bolmaly</item>
+        <item quantity="one">Açarsözde azyndan 1 belgi ýa-da şekil bolmaly</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Açar sözde azyndan %d belgi bolmaly</item>
+        <item quantity="one">Açarsözde azyndan 1 belgi bolmaly</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Açar sözde azyndan %d şekiller bolmaly</item>
+        <item quantity="one">Açarsözde azyndan 1 şekil bolmaly</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Açar sözde azyndan %d baş harplar bolmaly</item>
+        <item quantity="one">Açarsözde azyndan 1 baş harp bolmaly</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d gollanma duýduryşlary okap bilýär.</item>
+        <item quantity="one">%d gollanmasyna bildirişleri okamaga rugsat berildi.</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">Soňky %2$s dowamynda %1$d proses RAM ulandy</item>
+        <item quantity="one">Soňky %2$s dowamynda %1$d proses RAM ulandy</item>
+    </plurals>
+    <plurals name="network_restrictions_summary">
+        <item quantity="other">%d çäklendirmeleri</item>
+        <item quantity="one">1 çäklendirme</item>
+    </plurals>
+    <plurals name="notification_summary">
+        <item quantity="other">%d goýma üçin ýapyk</item>
+        <item quantity="one">1 goýma üçin ýapyk</item>
+    </plurals>
+    <plurals name="number_of_device_admins">
+        <item quantity="other">%d işjeň goýmalar</item>
+        <item quantity="one">1 işjeň goýma</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">Ýene %d rugsat</item>
+        <item quantity="one">Ýene %d rugsat</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Siziň indi işläp düzüji bolmagyňyza %d ädim galdy.</item>
+        <item quantity="one">Siziň indi işläp düzüji bolmagyňyza 1 ädim galdy.</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_dialog_title">
+        <item quantity="other">Sertifikatlara ynanmak ýa aýyrmak</item>
+        <item quantity="one">Sertifikata ynanmak ýa aýyrmak</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message">
+        <item quantity="other">"Iş profiliňiz üçin %s-da sertifikat edaralary gurnaldy, şu bolsa iş toryň işjeňligi, şol sanda e-poçtalary, goýmalary we howpsuz websaýtlary dolandyrmaga olara rugsat berýär. Bu sertifikatlara ynanmak ýa aýyrmak saýlap bilersiňiz.
+
+Bu sertifikatlar boýunça goşmaça maglumat üçin adminiňiz bilen habarlaşyň."</item>
+        <item quantity="one">"Iş profiliňiz üçin %s-da sertifikat edarasy gurnaldy, şu bolsa iş toryň işjeňligi, şol sanda e-poçtalary, goýmalary we howpsuz websaýtlary dolandyrmaga olara rugsat berýär. Bu sertifikata ynanmak ýa aýyrmak saýlap bilersiňiz.
+
+Bu sertifikat boýunça goşmaça maglumat üçin adminiňiz bilen habarlaşyň."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s enjamyňyza CA sertifikatlaryny gurnady, ol onuň enjamyňyzyň tor işjeňligine, şol sanda e-poçtalary, goýmalary we howpsuz websaýtlary ulanyşyňyza gözegçilik etmäge mümkinçilik berip biler.
+
+Bu sertifikatlar hakda goşmaça maglumat üçin, IT administratoryňyza ýüz tutuň."</item>
+        <item quantity="one">"%s enjamyňyza CA sertifikatyny gurnady, ol onuň enjamyňyzyň tor işjeňligine, şol sanda e-poçtalary, goýmalary we howpsuz websaýtlary ulanyşyňyza gözegçilik etmäge mümkinçilik berip biler.
+
+Bu sertifikat hakda goşmaça maglumat üçin, IT administratoryňyza ýüz tutuň."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_settings_button">
+        <item quantity="other">Sertifikatlary barlamak</item>
+        <item quantity="one">Sertifikaty barlamak</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">%d bukja/faýla gir</item>
+        <item quantity="one">1 bukja/faýla gir</item>
+    </plurals>
+</resources>

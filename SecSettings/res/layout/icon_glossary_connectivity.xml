@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:helphub="http://schemas.android.com/apk/res/com.samsung.helphub">
+    <TextView android:id="@id/help_page_title_connectivity" android:text="@string/item_icon_glossary_connectivity" style="?android:listSeparatorTextViewStyle" />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/help_page_title_connectivity">
+        <LinearLayout android:id="@id/connectivity_syncing" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/connectivity_syncing" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_connectivity_syncing" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/connectivity_sync_error" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/connectivity_sync_error" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_connectivity_sync_error" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/connectivity_mobile_hotspot_on" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/connectivity_mobile_hotspot_on" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_connectivity_mobile_hotspot_on" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/connectivity_usb_connect" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/connectivity_usb_connect" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_connectivity_usb_connect" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/connectivity_usb_connect_fail" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/connectivity_usb_connect_fail" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_connectivity_usb_connect_fail" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/connectivity_bluetooth_on" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/connectivity_bluetooth_on" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_connectivity_bluetooth_on" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/connectivity_bluetooth_connected" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/connectivity_bluetooth_connected" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_connectivity_bluetooth_connected" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/connectivity_nfc_on" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:id="@id/connectivity_nfc_on_image" android:src="@drawable/connectivity_nfc_on" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_connectivity_nfc_on" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/connectivity_headset_connected" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/connectivity_headset_connected" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_connectivity_headset_connected" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/connectivity_sd_card" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/connectivity_sd_card" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_connectivity_sd_card" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/connectivity_sd_card_error" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/connectivity_sd_card_error" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_connectivity_sd_card_error" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/connectivity_printing" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/connectivity_printing" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_connectivity_printing" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:layout_gravity="center_horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minWidth="@dimen/datepicker_dialog_layout_min_width_data_rank" android:minHeight="@dimen/datepicker_dialog_layout_min_height_data_rank"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TabHost android:gravity="center_vertical" android:id="@id/from_to_container" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minWidth="@dimen/datepicker_fromto_min_width_land" android:layout_alignParentTop="true">
+        <LinearLayout android:orientation="vertical" android:id="@id/tabs_container" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TabWidget android:gravity="start" android:id="@android:id/tabs" android:layout_width="fill_parent" android:layout_height="wrap_content" android:measureWithLargestChild="true" />
+            <FrameLayout android:id="@android:id/tabcontent" android:layout_width="fill_parent" android:layout_height="0.0dip" />
+            <ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <com.samsung.android.widget.SemDatePicker android:gravity="center_horizontal" android:layout_gravity="center_horizontal" android:id="@id/sem_datePicker" android:layout_width="fill_parent" android:layout_height="wrap_content" android:spinnersShown="true" android:calendarViewShown="false" />
+            </ScrollView>
+        </LinearLayout>
+    </TabHost>
+</LinearLayout>

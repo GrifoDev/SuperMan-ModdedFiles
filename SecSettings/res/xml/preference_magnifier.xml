@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <SecPreferenceCategory android:title="@string/accessibility_magnifier_category" android:key="magnifier_settings">
+        <SecDropDownPreference android:entries="@array/fmpad_size_entries" android:title="@string/magnifier_size" android:key="magnifier_size" android:dialogTitle="@string/magnifier_size" android:entryValues="@array/fmpad_size_values" />
+        <SecSwitchPreference android:title="@string/accessibility_magnifier_horizontal_focus_lock_title" android:key="horizontal_focus_lock" android:summary="@string/accessibility_magnifier_horizontal_focus_lock_summary" />
+    </SecPreferenceCategory>
+</PreferenceScreen>

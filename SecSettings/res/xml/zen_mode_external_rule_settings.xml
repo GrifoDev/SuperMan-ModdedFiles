@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:key="zen_mode_external_rule_settings"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Preference android:persistent="false" android:title="@string/zen_mode_rule_name" android:key="rule_name" />
+    <Preference android:persistent="false" android:title="@string/zen_mode_rule_type" android:key="type" />
+    <Preference android:persistent="false" android:title="@string/zen_mode_configure_rule" android:key="configure" />
+    <DropDownPreference android:title="@string/zen_mode_settings_title" android:key="zen_mode" android:summary="%s" />
+</PreferenceScreen>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="accessibilty_autoclick_preference_subtitle_extremely_short_delay">
+        <item quantity="other">تأخير قصيرة للغاية (%s مللي ثانية)</item>
+        <item quantity="one">تأخير قصيرة للغاية (%s مللي ثانية)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_long_delay">
+        <item quantity="other">تأخير طويل (%s مللي ثانية)</item>
+        <item quantity="one">تأخير طويل (%s مللي ثانية)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_short_delay">
+        <item quantity="other">تأخير قصير (%s مللي ثانية)</item>
+        <item quantity="one">تأخير قصير (%s مللي ثانية)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_long_delay">
+        <item quantity="other">تأخير طويل جداً (%s ميللي ثانية)</item>
+        <item quantity="one">تأخير طويل جداً (%s ميللي ثانية)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_short_delay">
+        <item quantity="other">تأخير قصير جداً (%s مللي ثانية)</item>
+        <item quantity="one">تأخير قصير جداً (%s مللي ثانية)</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">تم السماح لـ %d من التطبيقات باستخدام البيانات من دون قيود</item>
+        <item quantity="one">تم السماح لتطبيق واحد باستخدام البيانات من دون قيود</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary_chn">
+        <item quantity="other">يُسمح لـ %d من التطبيقات باستخدام بيانات الهاتف المحمول من دون قيود عندما يكون خيار تقييد بيانات الخلفية مفعلاً.</item>
+        <item quantity="one">يُسمح لـ %d من التطبيقات باستخدام بيانات الهاتف المحمول من دون قيود عندما يكون خيار تقييد بيانات الخلفية مفعلاً.</item>
+    </plurals>
+    <plurals name="deleted_channels">
+        <item quantity="other">تم حذف %d من الفئات</item>
+        <item quantity="one">تم حذف فئة واحدة</item>
+    </plurals>
+    <plurals name="dex_timeout_day">
+        <item quantity="other">%d من الأيام</item>
+        <item quantity="one">يوم واحد</item>
+    </plurals>
+    <plurals name="dex_timeout_hour">
+        <item quantity="other">%d ساعات</item>
+        <item quantity="one">ساعة واحدة</item>
+    </plurals>
+    <plurals name="dex_timeout_minute">
+        <item quantity="other">%d دقيقة</item>
+        <item quantity="one">دقيقة واحدة</item>
+    </plurals>
+    <plurals name="dex_timeout_second">
+        <item quantity="other">%d ثانية</item>
+        <item quantity="one">ثانية واحدة</item>
+    </plurals>
+    <plurals name="dex_timeout_week">
+        <item quantity="other">%d من الأسابيع</item>
+        <item quantity="one">أسبوع واحد</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">إزالة اللغات المحددة</item>
+        <item quantity="one">إزالة اللغة المحددة</item>
+    </plurals>
+    <plurals name="enterprise_privacy_number_packages_lower_bound">
+        <item quantity="other">%d تطبيق كحد أدنى</item>
+        <item quantity="zero">%d تطبيق كحد أدنى</item>
+        <item quantity="one">تطبيق واحد (%d) كحد أدنى</item>
+        <item quantity="two">تطبيقان (%d) كحد أدنى</item>
+        <item quantity="few">%d تطبيقات كحد أدنى</item>
+        <item quantity="many">%d تطبيقًا كحد أدنى</item>
+    </plurals>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d ساعات</item>
+        <item quantity="one">ساعة واحدة</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d دقيقة</item>
+        <item quantity="one">دقيقة واحدة</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d ثانية</item>
+        <item quantity="one">ثانية واحدة</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">يجب أن تحتوي كلمة المرور على %d حروف على الأقل.</item>
+        <item quantity="one">يجب أن تحتوي كلمة المرور على حرف واحد على الأقل.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">يجب أن تحتوي كلمة المرور على %d حروف صغيرة على الأقل.</item>
+        <item quantity="one">يجب أن تحتوي كلمة المرور على حرف واحد صغير على الأقل.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">يجب أن تحتوي كلمة المرور على %d أرقام أو رموز على الأقل.</item>
+        <item quantity="one">يجب أن تحتوي كلمة المرور على رقم أو رمز واحد على الأقل.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">يجب أن تحتوي كلمة المرور على %d أرقام على الأقل.</item>
+        <item quantity="one">يجب أن تحتوي كلمة المرور على رقم واحد على الأقل.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">يجب أن تحتوي كلمة المرور على %d رموز على الأقل.</item>
+        <item quantity="one">يجب أن تحتوي كلمة المرور على رمز واحد على الأقل.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">يجب أن تحتوي كلمة المرور على %d حروف كبيرة على الأقل.</item>
+        <item quantity="one">يجب أن تحتوي كلمة المرور على حرف واحد كبير على الأقل.</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">يمكن لـ %d من التطبيقات قراءة الإشعارات.</item>
+        <item quantity="one">يسمح لـ %d من التطبيقات بقراءة الإشعارات.</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$d من العمليات استخدمت RAM في آخر %2$s</item>
+        <item quantity="one">%1$d عملية استخدمت RAM في آخر %2$s</item>
+    </plurals>
+    <plurals name="network_restrictions_summary">
+        <item quantity="other">%d من القيود</item>
+        <item quantity="one">قيد واحد</item>
+    </plurals>
+    <plurals name="notification_summary">
+        <item quantity="other">إيقاف تشغيل %d من التطبيقات</item>
+        <item quantity="one">إيقاف تشغيل تطبيق واحد</item>
+    </plurals>
+    <plurals name="number_of_device_admins">
+        <item quantity="other">%d من التطبيقات المفعّلة</item>
+        <item quantity="one">تطبيق مفعّل واحد</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d من الأذونات الإضافية</item>
+        <item quantity="one">%d المزيد من الأذونات</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">أنت على بعد %d من الخطوات من أن تكون مطوراً.</item>
+        <item quantity="one">أنت على بعد خطوة واحدة من أن تكون مطورا</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_dialog_title">
+        <item quantity="other">الوثوق بالشهادات أو إزالتها</item>
+        <item quantity="one">الوثوق بالشهادة أو إزالتها</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message">
+        <item quantity="other">"ثبّت %s مراجع شهادات لملف تعريف عملك، مما قد يسمح لها بمراقبة نشاط شبكة عملك، بما في ذلك رسائل البريد الإلكتروني والتطبيقات ومواقع الويب الآمنة. يمكنك اختيار إما الوثوق بهذه الشهادات أو إزالتها.
+
+للمزيد من المعلومات عن هذه الشهادات، اتصل بالمسؤول."</item>
+        <item quantity="one">"ثبّت %s مرجع شهادات لملف تعريف عملك، مما قد يسمح له بمراقبة نشاط شبكة عملك، بما في ذلك رسائل البريد الإلكتروني والتطبيقات ومواقع الويب الآمنة. يمكنك اختيار إما الوثوق بهذه الشهادة أو إزالتها.
+
+للمزيد من المعلومات عن هذه الشهادة، اتصل بالمسؤول."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"تم تثبيت شهادات مراجع مصدقة من قبل %s على جهازك، ما قد يتيح له مراقبة نشاط شبكة جهازك، بما في ذلك استخدامك رسائل البريد الإلكتروني والتطبيقات ومواقع الويب الآمنة.
+
+للحصول على مزيد من المعلومات حول هذه الشهادات، اتصل بمسؤول تقنية المعلومات."</item>
+        <item quantity="one">"تم تثبيت شهادة مرجع مصدق من قبل %s على جهازك، ما قد يتيح له مراقبة نشاط شبكة جهازك، بما في ذلك استخدامك رسائل البريد الإلكتروني والتطبيقات ومواقع الويب الآمنة.
+
+للحصول على مزيد من المعلومات حول هذه الشهادة، اتصل بمسؤول تقنية المعلومات."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_settings_button">
+        <item quantity="other">التحقق من الشهادات</item>
+        <item quantity="one">التحقق من الشهادة</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">الوصول إلى %d من المجلدات/الملفات</item>
+        <item quantity="one">الوصول إلى مجلد/ملف واحد</item>
+    </plurals>
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:id="@id/ll_header_space" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/ll_top_container" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:gravity="center" android:id="@id/device_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Sample" style="@style/device_info_txt_device_name" />
+        <Button android:id="@id/device_name_edit" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/common_edit" android:paddingHorizontal="@dimen/device_info_device_name_button_padding_horizontal" style="@style/device_info_btn_edit" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_horizontal" android:layout_gravity="center_horizontal" android:orientation="vertical" android:id="@id/ll_middle_container" android:paddingTop="@dimen/device_info_info_chart_margin_top" android:paddingBottom="@dimen/device_info_info_chart_margin_bottom" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginHorizontal="@dimen/device_info_info_chart_margin_horizontal">
+        <View android:id="@id/ll_middle_info_divider_top" android:background="@color/device_info_devider_color" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" />
+        <LinearLayout android:layout_gravity="center_horizontal" android:orientation="vertical" android:id="@id/ll_middle_info_container" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginHorizontal="@dimen/device_info_info_text_margin_horizontal" android:layout_marginVertical="@dimen/device_info_info_text_margin_vertical" />
+        <View android:id="@id/ll_middle_info_divider_bottom" android:background="@color/device_info_devider_color" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" />
+    </LinearLayout>
+    <View android:id="@id/divider" android:layout_width="fill_parent" android:layout_marginLeft="@dimen/list_divider_padding" android:layout_marginRight="@dimen/list_divider_padding" style="@style/list_divider_style" />
+</LinearLayout>

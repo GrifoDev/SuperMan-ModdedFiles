@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:focusable="false" android:clickable="false" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:paddingTop="@dimen/body_text_top_padding" android:paddingBottom="@dimen/body_text_bottom_padding" android:focusable="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/body_text_side_padding" android:paddingEnd="@dimen/body_text_side_padding">
+        <TextView android:id="@id/textView1" android:focusable="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="false" style="@style/body_text_style" />
+        <Button android:textAppearance="@style/SMWinset.Font.Roboto.Condensed" android:textSize="@dimen/body_text_size" android:textColor="@color/fix_now_good_bg_color" android:ellipsize="end" android:layout_gravity="center_horizontal" android:id="@id/linked_button" android:background="@drawable/done_button_bg" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/body_text_top_padding" android:minWidth="235.0dip" android:minHeight="@dimen/reset_button_min_height" android:singleLine="true" android:layout_centerHorizontal="true" android:textAllCaps="false" android:paddingStart="@dimen/button_minimum_side_padding" android:paddingEnd="@dimen/button_minimum_side_padding" />
+    </LinearLayout>
+    <View android:id="@id/divider" android:focusable="false" android:layout_width="fill_parent" android:layout_marginStart="@dimen/list_item_inner_padding_layout" android:layout_marginEnd="@dimen/list_item_inner_padding_layout" style="@style/list_divider_style" />
+</LinearLayout>

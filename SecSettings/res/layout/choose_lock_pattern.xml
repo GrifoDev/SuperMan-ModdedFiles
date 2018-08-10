@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.internal.widget.LinearLayoutWithDefaultTouchRecepient android:orientation="vertical" android:id="@id/topLayout" android:paddingTop="@dimen/lock_pattern_header_text_marginTop" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.settings.widget.MatchParentShrinkingLinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <ScrollView android:layout_width="fill_parent" android:layout_height="0.0dip" android:fillViewport="true" android:layout_weight="1.0">
+            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <LinearLayout android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="3.0" />
+                <com.samsung.android.settings.lockscreen.LockCustomTextView android:textSize="@dimen/lock_pattern_header_text_size" android:textColor="@color/wifi_dialog_error_color" android:gravity="bottom|center" android:id="@id/helpText" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginStart="@dimen/password_lock_headerText_side_padding" android:layout_marginEnd="@dimen/password_lock_headerText_side_padding" style="@style/sub_body_text_style" />
+                <com.samsung.android.settings.lockscreen.LockCustomTextView android:textSize="@dimen/lock_pattern_header_text_size" android:gravity="center_horizontal" android:id="@id/headerText" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/fingerprint_backuplock_helptext_margintop" android:layout_marginStart="@dimen/password_lock_headerText_side_padding" android:layout_marginEnd="@dimen/password_lock_headerText_side_padding" style="@style/lockscreen_body_text_style" />
+                <LinearLayout android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+            </LinearLayout>
+        </ScrollView>
+        <LinearLayout android:layout_width="fill_parent" android:layout_height="@dimen/lock_pattern_view_padding" style="@style/pattern_lock_background" />
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="@dimen/lock_pattern_view_size" android:minHeight="200.0dip" style="@style/pattern_lock_background">
+            <com.android.internal.widget.LockPatternView android:id="@id/lockPattern" android:layout_width="@dimen/lock_pattern_view_size" android:layout_height="@dimen/lock_pattern_view_size" android:minHeight="200.0dip" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+        <LinearLayout android:layout_width="fill_parent" android:layout_height="@dimen/lock_pattern_view_padding" style="@style/pattern_lock_background" />
+        <TextView android:textSize="@dimen/lock_pattern_footer_text_size" android:gravity="center" android:id="@id/footerText" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/pattern_lock_background" />
+    </com.android.settings.widget.MatchParentShrinkingLinearLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@id/bottom_bar" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/SecurityPreferenceButtonContainer">
+        <com.samsung.android.settings.widget.BottomBarButton android:textSize="@dimen/lockscreen_bottom_button_size" android:id="@id/footerLeftButton" android:text="@string/lockpattern_restart_button_text" style="@style/SecurityPreferenceButton" />
+        <com.samsung.android.settings.widget.BottomBarButton android:textSize="@dimen/lockscreen_bottom_button_size" android:id="@id/footerRightButton" android:text="@string/lockpattern_confirm_button_text" style="@style/SecurityPreferenceButton" />
+    </LinearLayout>
+    <include layout="@layout/sec_suw_lock_bottom_bar" />
+</com.android.internal.widget.LinearLayoutWithDefaultTouchRecepient>

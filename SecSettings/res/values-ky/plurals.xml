@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="enterprise_privacy_number_packages_lower_bound">
+        <item quantity="other">Кеминде %d колдонмо</item>
+        <item quantity="one">Кеминде %d колдонмо</item>
+    </plurals>
+</resources>

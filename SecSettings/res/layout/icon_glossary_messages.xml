@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:helphub="http://schemas.android.com/apk/res/com.samsung.helphub">
+    <TextView android:id="@id/help_page_title_messages" android:text="@string/item_icon_glossary_messages" style="?android:listSeparatorTextViewStyle" />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/help_page_title_messages">
+        <LinearLayout android:id="@id/messages_new_message" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/messages_new_message" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_messages_new_message" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/messages_message_not_sent" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/messages_message_not_sent" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_messages_message_not_sent" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/messages_new_voice_mail" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/messages_new_voice_mail" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:id="@id/messages_new_voice_mail_text" android:text="@string/icon_glossary_messages_new_voice_mail" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/messages_voice_mail_not_sent" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/messages_voice_mail_not_sent" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:id="@id/messages_voice_mail_not_sent_text" android:text="@string/icon_glossary_messages_voice_mail_not_sent" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/messages_urgent_voice_mail" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/messages_urgent_voice_mail" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:id="@id/messages_urgent_voice_mail_text" android:text="@string/icon_glossary_messages_urgent_voice_mail" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="accessibilty_autoclick_preference_subtitle_extremely_short_delay">
+        <item quantity="other">Исклучително кратко одложување (%s ms)</item>
+        <item quantity="one">Исклучително кратко одложување (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_long_delay">
+        <item quantity="other">Долго одложување (%s ms)</item>
+        <item quantity="one">Долго одложување (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_short_delay">
+        <item quantity="other">Кратко одложување (%s ms)</item>
+        <item quantity="one">Кратко одложување (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_long_delay">
+        <item quantity="other">Многу долго одложување (%s ms)</item>
+        <item quantity="one">Многу долго одложување (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_short_delay">
+        <item quantity="other">Многу кратко одложување (%s ms)</item>
+        <item quantity="one">Многу кратко одложување (%s ms)</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">На %d апликации им е дозволено да користат податоци без ограничувања</item>
+        <item quantity="one">На 1 апликација ѝ е дозволено да користи податоци без ограничувања</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary_chn">
+        <item quantity="other">На %d апликации им е дозволено да користат мобилни податоци без ограничувања додека е овозможено Ограничи податоци во заднина.</item>
+        <item quantity="one">На %d апликации им е дозволено да користат мобилни податоци без ограничувања додека е овозможено Ограничи податоци во заднина.</item>
+    </plurals>
+    <plurals name="deleted_channels">
+        <item quantity="other">%d категории се избришани</item>
+        <item quantity="one">1 категорија е избришана</item>
+    </plurals>
+    <plurals name="dex_timeout_day">
+        <item quantity="other">%d дена</item>
+        <item quantity="one">1 ден</item>
+    </plurals>
+    <plurals name="dex_timeout_hour">
+        <item quantity="other">%d часови</item>
+        <item quantity="one">1 час</item>
+    </plurals>
+    <plurals name="dex_timeout_minute">
+        <item quantity="other">%d минути</item>
+        <item quantity="one">1 минута</item>
+    </plurals>
+    <plurals name="dex_timeout_second">
+        <item quantity="other">%d секунди</item>
+        <item quantity="one">1 секунда</item>
+    </plurals>
+    <plurals name="dex_timeout_week">
+        <item quantity="other">%d седмици</item>
+        <item quantity="one">1 седмица</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Отстрани избрани јазици</item>
+        <item quantity="one">Отстрани избран јазик</item>
+    </plurals>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d часови</item>
+        <item quantity="one">1 час</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d минути</item>
+        <item quantity="one">1 минута</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d секунди</item>
+        <item quantity="one">1 секунда</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Лозинката мора да содржи барем %d букви.</item>
+        <item quantity="one">Лозинката мора да содржи барем 1 буква.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Лозинката мора да содржи барем %d мали букви.</item>
+        <item quantity="one">Лозинката мора да содржи барем 1 мала буква.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Лозинката мора да содржи барем %d бројки или симболи.</item>
+        <item quantity="one">Лозинката мора да содржи барем 1 бројка или симбол.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Лозинката мора да содржи барем %d бројки.</item>
+        <item quantity="one">Лозинката мора да содржи барем 1 бројка.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Лозинката мора да содржи барем %d симболи.</item>
+        <item quantity="one">Лозинката мора да содржи барем 1 симбол.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Лозинката мора да содржи барем %d големи букви.</item>
+        <item quantity="one">Лозинката мора да содржи барем 1 голема буква.</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d апликации можат да читаат известувања.</item>
+        <item quantity="one">Апликацијата %d има дозвола за читање известувања.</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$d процеси користеа RAM во последните %2$s</item>
+        <item quantity="one">%1$d процес користеше RAM во последните %2$s</item>
+    </plurals>
+    <plurals name="network_restrictions_summary">
+        <item quantity="other">%d ограничувања</item>
+        <item quantity="one">1 ограничување</item>
+    </plurals>
+    <plurals name="notification_summary">
+        <item quantity="other">Исклучено за %d апликации</item>
+        <item quantity="one">Исклучено за 1 апликација</item>
+    </plurals>
+    <plurals name="number_of_device_admins">
+        <item quantity="other">%d активни апликации</item>
+        <item quantity="one">1 активна апликација</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">Уште %d дозволи</item>
+        <item quantity="one">Уште %d дозвола</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Сега сте на %d чекори од програмерство.</item>
+        <item quantity="one">Сега сте на 1 чекор од програмерство.</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_dialog_title">
+        <item quantity="other">Верување или отстранување сертификати</item>
+        <item quantity="one">Верување или отстранување сертификат</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message">
+        <item quantity="other">"%s инсталираше овластени сертификати за Вашиот работен профил, што може да му дозволи да ја следи мрежната активност на работа, вклучително и користењето на е-пошти, апликации и безбедни интернет-страници. Можете да изберете да им верувате или да ги отстраните овие сертификати.
+
+За повеќе информации за овие сертификати, контактирајте со администраторот."</item>
+        <item quantity="one">"%s инсталираше овластен сертификат за Вашиот работен профил, што може да му дозволи да ја следи мрежната активност на работа, вклучително и користењето на е-пошти, апликации и безбедни интернет-страници. Можете да изберете да му верувате или да го отстраните овој сертификат.
+
+За повеќе информации за овој сертификат, контактирајте со администраторот."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s инсталираше сертификати CA на Вашиот уред, што може да му дозволи да ја следи мрежната активност на Вашиот уред, вклучително и користењето на е-пошти, апликации и безбедни интернет-страници.
+
+За повеќе информации за овие сертификати, контактирајте со администраторот за ИТ."</item>
+        <item quantity="one">"%s инсталираше сертификат CA на Вашиот уред, што може да му дозволи да ја следи мрежната активност на Вашиот уред, вклучително и користењето на е-пошти, апликации и безбедни интернет-страници.
+
+За повеќе информации за овој сертификат, контактирајте со администраторот за ИТ."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_settings_button">
+        <item quantity="other">Провери сертификати</item>
+        <item quantity="one">Провери сертификат</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Пристап до %d папки/датотеки</item>
+        <item quantity="one">Пристап до 1 папка/датотека</item>
+    </plurals>
+</resources>

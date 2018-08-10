@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:helphub="http://schemas.android.com/apk/res/com.samsung.helphub">
+    <TextView android:id="@id/help_page_title_network" android:text="@string/item_icon_glossary_network" style="?android:listSeparatorTextViewStyle" />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/help_page_title_network">
+        <LinearLayout android:id="@id/network_4g_lte_connected" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:id="@id/network_4g_lte_connected_image" android:src="@drawable/network_4g_lte_connected" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:id="@id/network_4g_lte_connected_text" android:text="@string/icon_glossary_network_4g_lte_connected" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/network_4g_lte_in_use" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:id="@id/network_4g_lte_in_use_image" android:src="@drawable/network_4g_lte_in_use" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_network_4g_lte_in_use" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/network_4g_lte_data_disabled" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:id="@id/network_4g_lte_data_disabled_image" android:src="@drawable/network_4g_lte_data_disabled" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_network_4g_lte_data_disabled" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/network_3g_connected" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:id="@id/network_3g_connected_image" android:src="@drawable/network_3g_connected" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:id="@id/network_3g_connected_text" android:text="@string/icon_glossary_network_3g_connected" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/network_3g_in_use" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:id="@id/network_3g_in_use_image" android:src="@drawable/network_3g_in_use" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_network_3g_in_use" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/network_3g_data_disabled" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:id="@id/network_3g_data_disabled_image" android:src="@drawable/network_3g_data_disabled" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_network_3g_data_disabled" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/network_wifi_status" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/network_wifi_status" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_network_wifi_status" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/network_wifi_connected" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:id="@id/network_wifi_connected_image" android:src="@drawable/network_wifi_connected" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_network_wifi_connected" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/network_wifi_within_range" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:id="@id/network_wifi_within_range_image" android:src="@drawable/network_wifi_within_range" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_network_wifi_within_range" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/network_wifi_with_no_internet" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/network_wifi_with_no_internet" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_network_wifi_with_no_internet" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/network_signal_strength" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:id="@id/network_signal_strength_image" android:src="@drawable/network_signal_strength" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_network_signal_strength" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/network_signal_not_authenticated" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:id="@id/network_signal_not_authenticated_image" android:src="@drawable/network_signal_unauthenticated_spr" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_network_signal_data_unavailable" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/network_no_signal" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:id="@id/network_no_signal_image" android:src="@drawable/network_no_signal" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:id="@id/network_no_signal_text" android:text="@string/icon_glossary_network_no_service" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/network_roaming" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:id="@id/network_roaming_image" android:src="@drawable/network_roaming" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:id="@id/network_roaming_text" android:text="@string/icon_glossary_network_roaming_vzw" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/network_network_extender" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/network_network_extender" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_network_network_extender" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/network_no_sim_card" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:id="@id/network_no_sim_card_image" android:src="@drawable/network_no_sim_card" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_network_no_sim_card" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/network_unknown_sim_card" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/network_unknown_sim_card" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_network_unknown_sim_card" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/network_airplane_mode" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:id="@id/network_airplane_mode_image" android:src="@drawable/network_airplane_mode" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_network_airplane_mode" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/network_location_on" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/network_location_on" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_network_location_on" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/network_app_update_available" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/network_app_update_available" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_network_app_update_available" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/network_app_update_successful" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/network_app_update_successful" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_network_app_update_successful" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/network_downloading" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/network_downloading" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_network_downloading" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/network_download_complete" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/network_download_complete" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_network_download_complete" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/network_uploading" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/network_uploading" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_network_uploading" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/network_upload_complete" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:src="@drawable/network_upload_complete" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_network_upload_complete" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/network_download_booster_in_use" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:id="@id/network_download_booster_in_use_image" android:src="@drawable/network_download_booster_in_use" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_network_download_booster_in_use" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/network_emergency_alert" style="@style/HelpPageIconGlossaryLinearLayout">
+            <ImageView android:id="@id/network_emergency_alert_image" android:src="@drawable/network_emergency_alert" style="@style/HelpPageIconGlossaryImage" />
+            <TextView android:text="@string/icon_glossary_network_emergency_alert" style="@style/HelpPageIconGlossaryText" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

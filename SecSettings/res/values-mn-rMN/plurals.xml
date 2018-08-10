@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="accessibilty_autoclick_preference_subtitle_extremely_short_delay">
+        <item quantity="other">Хэт богино саатал (%s мс)</item>
+        <item quantity="one">Хэт богино саатал (%s мс)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_long_delay">
+        <item quantity="other">Урт саатал (%s мс)</item>
+        <item quantity="one">Урт саатал (%s мс)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_short_delay">
+        <item quantity="other">Богино саатал (%s мс)</item>
+        <item quantity="one">Богино саатал (%s мс)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_long_delay">
+        <item quantity="other">Маш удаан саатал (%s мс)</item>
+        <item quantity="one">Маш удаан саатал (%s мс)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_short_delay">
+        <item quantity="other">Маш богино саатал (%s мс)</item>
+        <item quantity="one">Маш богино саатал (%s мс)</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d хэрэглүүрт өгөгдөл хязгаарлалтгүй ашиглахыг зөвшөөрсөн</item>
+        <item quantity="one">1 хэрэглүүрт дата хязгаарлалтгүй ашиглахыг зөвшөөрсөн</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary_chn">
+        <item quantity="other">%d хэрэглүүрт Арын өгөгдлийг хязгаарлахыг идэвхжүүлэлгүйгээр мобайл дата ашиглахыг зөвшөөрсөн.</item>
+        <item quantity="one">%d хэрэглүүрт Арын өгөгдлийг хязгаарлахыг идэвхжүүлэлгүйгээр мобайл дата ашиглахыг зөвшөөрсөн.</item>
+    </plurals>
+    <plurals name="deleted_channels">
+        <item quantity="other">%d категориудыг устгасан</item>
+        <item quantity="one">1 ангилал устгасан</item>
+    </plurals>
+    <plurals name="dex_timeout_day">
+        <item quantity="other">%d өдөр</item>
+        <item quantity="one">1 хоног</item>
+    </plurals>
+    <plurals name="dex_timeout_hour">
+        <item quantity="other">%d цаг</item>
+        <item quantity="one">1 цаг</item>
+    </plurals>
+    <plurals name="dex_timeout_minute">
+        <item quantity="other">%d минут</item>
+        <item quantity="one">1 минут</item>
+    </plurals>
+    <plurals name="dex_timeout_second">
+        <item quantity="other">%d секунд</item>
+        <item quantity="one">1 секунд</item>
+    </plurals>
+    <plurals name="dex_timeout_week">
+        <item quantity="other">%d дол.хнг</item>
+        <item quantity="one">1 долоо хоног</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Сонгосон хэлүүдийг арилгах</item>
+        <item quantity="one">Сонгосон хэлийг арилгах</item>
+    </plurals>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d цаг</item>
+        <item quantity="one">1 цаг</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d минут</item>
+        <item quantity="one">1 минут</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d секунд</item>
+        <item quantity="one">1 секунд</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Нууц үг дор хаяж %d үсэг агуулах ёстой</item>
+        <item quantity="one">Нууц үг дор хаяж 1 үсэг агуулах ёстой</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Нууц үг дор хаяж %d жижиг үсэг агуулах ёстой</item>
+        <item quantity="one">Нууц үг дор хаяж 1 жижиг үсэг агуулах ёстой</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Нууц үг дор хаяж %d тоо эсвэл тэмдэглэгээ агуулах ёстой</item>
+        <item quantity="one">Нууц үг дор хаяж 1 тоо эсвэл тэмдэглэгээ агуулах ёстой</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Нууц үг дор хаяж %d тоо агуулах ёстой</item>
+        <item quantity="one">Нууц үг дор хаяж 1 тоо агуулах ёстой</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Нууц үг дор хаяж %d тэмдэглэгээ агуулах ёстой</item>
+        <item quantity="one">Нууц үг дор хаяж 1 тэмдэглэгээ агуулах ёстой</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Нууц үг дор хаяж %d том үсэг агуулах ёстой</item>
+        <item quantity="one">Нууц үг дор хаяж 1 том үсэг агуулах ёстой</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d програм мэдэгдлүүдийг унших боломжтой.</item>
+        <item quantity="one">%d програмд мэдэгдэл унших зөвшөөрнө.</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">Сүүлийн %2$s цаг %1$d-т ашиглаж буй RAM</item>
+        <item quantity="one">Сүүлийн %2$s цаг %1$d-т ашигласан RAM</item>
+    </plurals>
+    <plurals name="network_restrictions_summary">
+        <item quantity="other">%d хязгаар</item>
+        <item quantity="one">1 хязгаар</item>
+    </plurals>
+    <plurals name="notification_summary">
+        <item quantity="other">%d хэрэглүүрийнх идэвхгүй</item>
+        <item quantity="one">1 хэрэглүүрийнх идэвхгүй</item>
+    </plurals>
+    <plurals name="number_of_device_admins">
+        <item quantity="other">%d идэвхтэй хэрэглүүрүүд</item>
+        <item quantity="one">1 идэвхтэй хэрэглүүр</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d нэмэлт зөвшөөрөл</item>
+        <item quantity="one">%d нэмэлт зөвшөөрөл</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Танд одоо хөгжүүлэгч болоход %d алхам дутуу байна</item>
+        <item quantity="one">Танд одоо хөгжүүлэгч болоход 1 алхам дутуу байна</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_dialog_title">
+        <item quantity="other">Гэрчилгээнүүдийг итгэмжлэх эсвэл арилгах</item>
+        <item quantity="one">Гэрчилгээг итгэмжлэх эсвэл арилгах</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message">
+        <item quantity="other">"%s таны ажлын профильд ажлын сүлжээний үйлдэл э-шуудан, хэрэглүүрүүд ба найдвартай веб сайтуудыг хянах боломж олгодог гэрчилгээжүүлэх байгууллагууд суурилуулсан. Та эдгээр гэрчилгээнүүдийг итгэмжлэх эсвэл арилгах хоёрын аль алийг сонгох боломжтой.
+
+Эдгээр гэрчилгээнүүдийн талаар илүү их мэдээлэл авахын тулд админтайгаа холбоо барина уу."</item>
+        <item quantity="one">"%s таны ажлын профильд ажлын сүлжээний үйлдэл э-шуудан, хэрэглүүрүүд ба найдвартай веб сайтуудыг хянах боломж олгодог гэрчилгээжүүлэх байгууллага суурилуулсан. Та энэ гэрчилгээг итгэмжлэх эсвэл арилгах хоёрын аль алийг сонгох боломжтой.
+
+Энэ гэрчилгээний талаар илүү их мэдээлэл авахын тулд админтайгаа холбоо барина уу."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s таны төхөөрөмж дээр CA сертификатууд суулгасан ба энэ нь таны төхөөрөмжийн сүлжээний үйлдлийг, тухайлбал, э-шуудан, хэрэглүүр, хамгаалалттай вэб сайтуудад хандаж байгааг хянах боломж олгоно.
+
+Эдгээр сертификатын тухай нэмэлт мэдээлэл авахын тулд МТ админдаа хандана уу."</item>
+        <item quantity="one">"%s таны төхөөрөмж дээр CA сертификат суулгасан ба энэ нь таны төхөөрөмжийн сүлжээний үйлдлийг, тухайлбал, э-шуудан, хэрэглүүр, хамгаалалттай вэб сайтуудад хандаж байгааг хянах боломж олгоно.
+
+Энэ сертификатын тухай нэмэлт мэдээлэл авахын тулд МТ админдаа хандана уу."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_settings_button">
+        <item quantity="other">Гэрчилгээнүүдийг шалгах</item>
+        <item quantity="one">Гэрчилгээг шалгах</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">%d хавтас/файл руу хандах</item>
+        <item quantity="one">1 хавтас/файл руу хандах</item>
+    </plurals>
+</resources>

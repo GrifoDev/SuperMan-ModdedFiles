@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="accessibilty_autoclick_preference_subtitle_extremely_short_delay">
+        <item quantity="other">Întârziere extrem de scurtă (%s ms)</item>
+        <item quantity="one">Întârziere extrem de scurtă (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_long_delay">
+        <item quantity="other">Întârziere lungă (%s ms)</item>
+        <item quantity="one">Întârziere lungă (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_short_delay">
+        <item quantity="other">Întârziere scurtă (%s ms)</item>
+        <item quantity="one">Întârziere scurtă (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_long_delay">
+        <item quantity="other">Întârziere foarte lungă (%s ms)</item>
+        <item quantity="one">Întârziere foarte lungă (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_short_delay">
+        <item quantity="other">Întârziere foarte de scurtă (%s ms)</item>
+        <item quantity="one">Întârziere foarte de scurtă (%s ms)</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d aplicații au permisiunea de a utiliza datele fără restricții</item>
+        <item quantity="one">1 aplicație are permisiunea de a utiliza datele fără restricții</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary_chn">
+        <item quantity="other">%d aplicații pot să utilizeze date mobile fără restricții cât timp funcția Restricționare date fundal este activată.</item>
+        <item quantity="one">%d aplicații pot să utilizeze date mobile fără restricții cât timp funcția Restricționare date fundal este activată.</item>
+    </plurals>
+    <plurals name="deleted_channels">
+        <item quantity="other">%d categorii șterse</item>
+        <item quantity="one">1 categorie ștearsă</item>
+    </plurals>
+    <plurals name="dex_timeout_day">
+        <item quantity="other">%d zile</item>
+        <item quantity="one">1 zi</item>
+    </plurals>
+    <plurals name="dex_timeout_hour">
+        <item quantity="other">%d ore</item>
+        <item quantity="one">1 oră</item>
+    </plurals>
+    <plurals name="dex_timeout_minute">
+        <item quantity="other">%d minute</item>
+        <item quantity="one">1 minut</item>
+    </plurals>
+    <plurals name="dex_timeout_second">
+        <item quantity="other">%d secunde</item>
+        <item quantity="one">1 secundă</item>
+    </plurals>
+    <plurals name="dex_timeout_week">
+        <item quantity="other">%d săptămâni</item>
+        <item quantity="one">1 săptămână</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Eliminare limbi selectate</item>
+        <item quantity="one">Eliminare limbă selectată</item>
+    </plurals>
+    <plurals name="enterprise_privacy_number_packages_lower_bound">
+        <item quantity="other">Cel puțin %d de aplicații</item>
+        <item quantity="one">Cel puțin %d aplicație</item>
+        <item quantity="few">Cel puțin %d aplicații</item>
+    </plurals>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d ore</item>
+        <item quantity="one">1 oră</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d minute</item>
+        <item quantity="one">1 minut</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d secunde</item>
+        <item quantity="one">1 secundă</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Parola trebuie să conțină cel puțin %d litere.</item>
+        <item quantity="one">Parola trebuie să conțină cel puțin o literă.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Parola trebuie să conțină cel puțin %d litere mici.</item>
+        <item quantity="one">Parola trebuie să conțină cel puțin o literă mică.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Parola trebuie să conțină cel puțin %d numere sau simboluri.</item>
+        <item quantity="one">Parola trebuie să conțină cel puțin 1 număr sau simbol.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Parola trebuie să conțină cel puțin %d numere.</item>
+        <item quantity="one">Parola trebuie să conțină cel puțin un număr.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Parola trebuie să conțină cel puțin %d simboluri.</item>
+        <item quantity="one">Parola trebuie să conțină cel puțin 1 simbol.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Parola trebuie să conțină cel puțin %d majuscule.</item>
+        <item quantity="one">Parola trebuie să conțină cel puțin o literă mare.</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d aplicații pot citi notificările.</item>
+        <item quantity="one">%d aplicație poate citi notificările.</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$d procese au utilizat memoria RAM în ultimele %2$s</item>
+        <item quantity="one">%1$d proces a utilizat memoria RAM în ultimele %2$s</item>
+    </plurals>
+    <plurals name="network_restrictions_summary">
+        <item quantity="other">%d restricții</item>
+        <item quantity="one">1 restricție</item>
+    </plurals>
+    <plurals name="notification_summary">
+        <item quantity="other">Oprite pentru %d aplicații</item>
+        <item quantity="one">Oprite pentru 1 aplicație</item>
+    </plurals>
+    <plurals name="number_of_device_admins">
+        <item quantity="other">%d aplicații active</item>
+        <item quantity="one">1 aplicație activă</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d mai multe permisiuni</item>
+        <item quantity="one">%d permisiune în plus</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Sunteți la %d pași distanță de a deveni dezvoltator.</item>
+        <item quantity="one">Sunteți la 1 pas distanță de a deveni dezvoltator.</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_dialog_title">
+        <item quantity="other">Autorizare sau eliminare certificate</item>
+        <item quantity="one">Autorizare sau eliminare certificat</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message">
+        <item quantity="other">"%s a instalat autorități de certificare pe profilul dvs. de serviciu, care îi pot permite să monitorizeze activitatea din rețeaua de serviciu, inclusiv e-mailurile, aplicațiile și site-urile web securizate. Puteți alege să autorizați sau să eliminați certificatele.
+
+Pentru mai multe informații privind certificatele, contactați administratorul."</item>
+        <item quantity="one">"%s a instalat o autoritate de certificare pe profilul dvs. de serviciu, care îi poate permite să monitorizeze activitatea din rețeaua de serviciu, inclusiv e-mailurile, aplicațiile și site-urile web securizate. Puteți alege să autorizați sau să eliminați certificatul.
+
+Pentru mai multe informații privind certificatul, contactați administratorul."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s a instalat certificate CA pe dispozitivul dvs. care îi pot permite să monitorizeze activitatea în rețea a acestuia, inclusiv modul în care se utilizează e-mailurile, aplicațiile și site-urile web securizate
+
+Pentru mai multe informații privind certificatele, contactați administratorul IT."</item>
+        <item quantity="one">"%s a instalat un certificat CA pe dispozitivul dvs. care îi poate permite să monitorizeze activitatea în rețea a acestuia, inclusiv modul în care se utilizează e-mailurile, aplicațiile și site-urile web securizate
+
+Pentru mai multe informații privind certificatul, contactați administratorul IT."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_settings_button">
+        <item quantity="other">Verificare certificate</item>
+        <item quantity="one">Verificare certificat</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Acces la %d foldere/fișiere</item>
+        <item quantity="one">Acces la 1 folder/fișier</item>
+    </plurals>
+</resources>

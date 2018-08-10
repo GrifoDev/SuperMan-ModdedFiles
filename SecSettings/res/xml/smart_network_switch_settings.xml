@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/wifi_switch_to_mobile_data" android:key="sns_settings"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <com.samsung.android.settings.wifi.SnsRadioButtonPreference android:id="@id/sns_normal_mode" android:title="@string/wifi_switch_to_mobile_data_normal_btn" android:key="mode_normal_mode" />
+    <Preference android:key="mode_divider" />
+    <com.samsung.android.settings.wifi.SnsRadioButtonPreference android:id="@id/sns_aggressive_mode" android:title="@string/wifi_switch_to_mobile_data_agg_btn" android:key="mode_aggressive_mode" android:summary="@string/wifi_switch_to_mobile_data_agg_btn_summary" />
+    <PreferenceCategory android:title="@string/wifi_smart_network_switch_excluded_networks" android:selectable="false" android:key="sns_excluded_device" />
+</PreferenceScreen>

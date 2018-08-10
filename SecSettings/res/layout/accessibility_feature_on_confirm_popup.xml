@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:id="@id/accessibility_feature_on_confirm_scroll_view" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <TextView android:paddingTop="@dimen/alert_dialog_padding_top" android:paddingBottom="@dimen/alert_dialog_bottom_checkbox_margin_top" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/alert_dialog_padding_left_right" android:layout_marginRight="@dimen/alert_dialog_padding_left_right" android:text="@string/accessibility_feature_on_confirm_popup_message" style="@style/dialog_body_text_style" />
+    </ScrollView>
+    <CheckBox android:id="@id/do_not_show_again_checkbox" android:paddingLeft="@dimen/alert_dialog_bottom_checkbox_padding_left" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/alert_dialog_bottom_checkbox_margin_left" android:layout_marginRight="@dimen/alert_dialog_bottom_checkbox_margin_left" android:layout_marginBottom="@dimen/alert_dialog_padding_bottom" android:text="@string/accessibility_popup_dont_show_again" style="@style/dialog_body_text_style" />
+</LinearLayout>

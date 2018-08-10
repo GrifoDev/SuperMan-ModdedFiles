@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/night_display_title"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/night_display_category_schedule">
+        <DropDownPreference android:title="@string/night_display_auto_mode_title" android:key="night_display_auto_mode" android:summary="%s" />
+        <Preference android:title="@string/night_display_start_time_title" android:key="night_display_start_time" />
+        <Preference android:title="@string/night_display_end_time_title" android:key="night_display_end_time" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/night_display_category_status">
+        <com.android.settings.display.NightDisplayPreference android:title="@string/night_display_title" android:key="night_display_activated" />
+        <com.android.settings.SeekBarPreference android:title="@string/night_display_temperature_title" android:key="night_display_temperature" />
+    </PreferenceCategory>
+</PreferenceScreen>

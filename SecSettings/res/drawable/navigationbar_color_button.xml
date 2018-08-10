@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="oval"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#ffffffff" />
+    <size android:height="@dimen/navigationbar_color_gridview_item_content_size" android:width="@dimen/navigationbar_color_gridview_item_content_size" />
+</shape>

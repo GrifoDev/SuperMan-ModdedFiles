@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:focusable="false" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" android:paddingStart="?android:listPreferredItemPaddingStart" android:paddingEnd="?android:listPreferredItemPaddingEnd" />
+    <Button android:id="@id/add_language" android:background="?android:selectableItemBackground" android:focusable="false" android:clickable="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeightSmall" android:text="@string/add_a_language" android:drawablePadding="@dimen/list_item_text_margin_right" android:drawableStart="@drawable/tw_list_icon_create_mtrl" android:textAlignment="textStart" android:paddingStart="@dimen/list_item_checkbox_margin_left" android:paddingEnd="?android:listPreferredItemPaddingEnd" style="@style/list_title_text_style" />
+</LinearLayout>

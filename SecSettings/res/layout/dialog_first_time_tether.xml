@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TextView android:textAppearance="?android:textAppearanceListItem" android:textSize="@dimen/tethering_dialog_description_text_size" android:id="@id/message" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/alert_dialog_padding_top" android:text="@string/first_use_usb_tether_msg" android:layout_marginStart="@dimen/alert_dialog_padding_left_right" android:layout_marginEnd="@dimen/alert_dialog_padding_left_right" />
+            <CheckBox android:id="@id/dns_check_box" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/alert_dialog_bottom_checkbox_margin_top" android:layout_marginBottom="@dimen/alert_dialog_padding_bottom" android:text="@string/dont_show_dialog" android:paddingStart="@dimen/alert_dialog_bottom_checkbox_padding_left" android:layout_marginStart="@dimen/alert_dialog_bottom_checkbox_margin_left" style="@style/dialog_body_text_style" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

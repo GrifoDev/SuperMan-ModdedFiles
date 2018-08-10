@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@id/conversation_item" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:id="@id/message_content" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="32.0dip">
+        <TextView android:textSize="@dimen/conversation_message_contact_icon_text_size" android:textStyle="bold" android:gravity="center" android:id="@id/conversation_icon_recv" android:background="@drawable/conversation_message_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="sans-serif" />
+        <com.android.settings.display.MessageBubbleBackground android:gravity="center_vertical" android:orientation="vertical" android:id="@id/message_text_and_info" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="0.0dip">
+            <TextView android:textSize="@dimen/conversation_message_text_size" android:id="@id/message_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="205.0dip" />
+        </com.android.settings.display.MessageBubbleBackground>
+        <TextView android:textSize="@dimen/conversation_message_contact_icon_text_size" android:textStyle="bold" android:gravity="center" android:id="@id/conversation_icon_sent" android:background="@drawable/conversation_message_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="sans-serif"
+          xmlns:android="http://schemas.android.com/apk/res/android" />
+    </LinearLayout>
+</LinearLayout>

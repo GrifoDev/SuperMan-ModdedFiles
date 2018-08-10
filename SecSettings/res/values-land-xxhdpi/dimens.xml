@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="appshortcutview_column_width">77.0dip</dimen>
+    <dimen name="appshortcutview_pading_start_end">27.0dip</dimen>
+</resources>

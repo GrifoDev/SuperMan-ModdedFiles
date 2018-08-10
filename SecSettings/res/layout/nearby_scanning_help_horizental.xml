@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:orientation="horizontal" android:id="@id/nearby_help_layout" android:paddingTop="@dimen/body_text_top_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/body_text_side_padding" android:paddingEnd="@dimen/body_text_side_padding"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="4.0" android:paddingEnd="@dimen/body_text_side_padding">
+            <ImageView android:id="@id/nearby_help_img" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@anim/nearby_scanning_device_anim" android:adjustViewBounds="true" android:layout_weight="6.0" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="6.0">
+            <TextView android:id="@id/help" android:paddingBottom="@dimen/body_text_top_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/nearby_scanning_help_msg" android:paddingStart="@dimen/body_text_side_padding" android:paddingEnd="@dimen/body_text_side_padding" style="@style/body_text_style" />
+            <TextView android:id="@id/help_sub" android:paddingBottom="@dimen/body_text_top_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/nearby_scanning_help_msg_sub" android:paddingStart="@dimen/body_text_side_padding" android:paddingEnd="@dimen/body_text_side_padding" style="@style/body_text_style" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

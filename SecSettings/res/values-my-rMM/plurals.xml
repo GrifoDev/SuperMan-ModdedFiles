@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="accessibilty_autoclick_preference_subtitle_extremely_short_delay">
+        <item quantity="other">တိုလွန်းသော ဖင့်နှေးချိန် (%s ms)</item>
+        <item quantity="one">တိုလွန်းသော ဖင့်နှေးချိန် (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_long_delay">
+        <item quantity="other">ကြာသော ဖင့်နှေးချိန် (%s ms)</item>
+        <item quantity="one">ကြာသော ဖင့်နှေးချိန် (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_short_delay">
+        <item quantity="other">တိုသော ဖင့်နှေးချိန် (%s ms)</item>
+        <item quantity="one">တိုသော ဖင့်နှေးချိန် (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_long_delay">
+        <item quantity="other">အချိန်အတော်ကြာ နှောင့်နှေးကြန့်ကြာမှု (%s ms)</item>
+        <item quantity="one">အချိန်အတော်ကြာ နှောင့်နှေးကြန့်ကြာမှု (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_short_delay">
+        <item quantity="other">အလွန်တိုသော ဖင့်နှေးချိန် (%s ms)</item>
+        <item quantity="one">အလွန်တိုသော ဖင့်နှေးချိန် (%s ms)</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">ကန့်သတ်ချက်များမရှိဘဲ အက်ပ် %d ခုအား ဒေတာသုံးခွင့် ပြုထားသည်</item>
+        <item quantity="one">အက်ပ် ၁ ခုအား ကန့်သတ်ချက်များမရှိပဲ ဒေတာ သုံးစွဲခွင့်ပေးထားသည်</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary_chn">
+        <item quantity="other">အက်ပ် %d ခုသည် နောက်ခံဒေတာ ကန့်သတ်ထားရန်ကို ဖွင့်ထားစဉ်အတွင်း မိုဘိုင်းဒေတာကို ကန့်သတ်ချက်များ မရှိဘဲ သုံးခွင့်ရှိသည်။</item>
+        <item quantity="one">အက်ပ် %d ခုသည် နောက်ခံဒေတာ ကန့်သတ်ထားရန်ကို ဖွင့်ထားစဉ်အတွင်း မိုဘိုင်းဒေတာကို ကန့်သတ်ချက်များ မရှိဘဲ သုံးခွင့်ရှိသည်။</item>
+    </plurals>
+    <plurals name="deleted_channels">
+        <item quantity="other">အမျိုးအစား %d ခု ဖျက်ပြီး</item>
+        <item quantity="one">အမျိုးအစား ၁ ခုကို ဖျက်ပစ်ထားသည်</item>
+    </plurals>
+    <plurals name="dex_timeout_day">
+        <item quantity="other">%d ရက်</item>
+        <item quantity="one">1 ရက်</item>
+    </plurals>
+    <plurals name="dex_timeout_hour">
+        <item quantity="other">%d နာရီ</item>
+        <item quantity="one">1 နာရီ</item>
+    </plurals>
+    <plurals name="dex_timeout_minute">
+        <item quantity="other">%d မိနစ်</item>
+        <item quantity="one">1 မိနစ်</item>
+    </plurals>
+    <plurals name="dex_timeout_second">
+        <item quantity="other">%d စက္ကန့်</item>
+        <item quantity="one">၁ စက္ကန့်</item>
+    </plurals>
+    <plurals name="dex_timeout_week">
+        <item quantity="other">%d ပတ်</item>
+        <item quantity="one">ရက်သတ္တပတ် ၁ ပတ်</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">ရွေးထားသော ဘာသာစကားများကို ဖယ်ရှားပါ</item>
+        <item quantity="one">ရွေးထားသော ဘာသာစကားကို ဖယ်ရှားပါ</item>
+    </plurals>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d နာရီ</item>
+        <item quantity="one">1 နာရီ</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d မိနစ်</item>
+        <item quantity="one">1 မိနစ်</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d စက္ကန့်</item>
+        <item quantity="one">၁ စက္ကန့်</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">စကားဝှက်သည် အနည်းဆုံး စာလုံး %d လုံး ပါဝင်ရမည်။</item>
+        <item quantity="one">စကားဝှက်သည် အနည်းဆုံး စာ ၁ လုံး ပါရမည်။</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">စကားဝှက်သည် အနည်းဆုံး စာလုံးသေး %d လုံး ပါဝင်ရမည်။</item>
+        <item quantity="one">စကားဝှက်သည် အနည်းဆုံး စာအသေး ၁ လုံး ပါရမည်။</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">စကားဝှက်သည် အနည်းဆုံး ဂဏန်း သို့မဟုတ် သင်္ကေတ %d ခု ပါဝင်ရမည်။</item>
+        <item quantity="one">စကားဝှက်သည် အနည်းဆုံး ဂဏန်း သို့မဟုတ် သင်္ကေတ ၁ လုံး ပါရမည်။</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">စကားဝှက်သည် အနည်းဆုံး ဂဏန်း %d လုံး ပါဝင်ရမည်။</item>
+        <item quantity="one">စကားဝှက်သည် အနည်းဆုံး ဂဏန်း ၁ လုံး ပါရမည်။</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">စကားဝှက်သည် အနည်းဆုံး သင်္ကေတ %d ခု ပါဝင်ရမည်။</item>
+        <item quantity="one">စကားဝှက်သည် အနည်းဆုံး သင်္ကေတ ၁ လုံး ပါရမည်။</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">စကားဝှက်သည် အနည်းဆုံး စာလုံးကြီး %d လုံး ပါဝင်ရမည်။</item>
+        <item quantity="one">စကားဝှက်သည် အနည်းဆုံး စာလုံးအကြီး ၁ လုံး ပါရမည်။</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">အပလီကေးရှင်း %d ခုက အသိပေးချက်များကို ဖတ်နိုင်ကြသည်။</item>
+        <item quantity="one">%d အပလီကေးရှင်းကို အကြောင်းကြားစာများ ဖတ်ရန်အတွက် ခွင့်ပြထားပါသည်။</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">လုပ်ငန်းစဉ် %1$d ခုတို့သည် လွန်ခဲ့သည့် %2$s အတွင်း RAM အသုံးပြုထားသည်</item>
+        <item quantity="one">လုပ်ငန်းစဉ် %1$d ခုသည် လွန်ခဲ့သည့် %2$s အတွင်း RAM အသုံးပြုထားသည်</item>
+    </plurals>
+    <plurals name="network_restrictions_summary">
+        <item quantity="other">ကန့်သတ်ချက် %d ခု</item>
+        <item quantity="one">ကန့်သတ်ချက် ၁ ခု</item>
+    </plurals>
+    <plurals name="notification_summary">
+        <item quantity="other">အက်ပ် %d ခုအတွက် ပိတ်ထား</item>
+        <item quantity="one">အက်ပ် ၁ ခုအတွက် ပိတ်ထား</item>
+    </plurals>
+    <plurals name="number_of_device_admins">
+        <item quantity="other">အလုပ်လုပ်နေသော အက်ပ် %d ခု</item>
+        <item quantity="one">အလုပ်လုပ်နေသော အက်ပ် ၁ ခု</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">နောက်ထပ် ခွင့်ပြုချက် %d ခု</item>
+        <item quantity="one">နောက်ထပ် ခွင့်ပြုချက် %d ခု</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">ဖွံ့ဖြိုးအောင် ဆောင်ရွက်သူတစ်ဦးအဖြစ်မှ %d ဆင့်အကွာတွင် ယခုရောက်နေသည်။</item>
+        <item quantity="one">ယခု သင်သည် ဖွံ့ဖြိုးစေသူ တစ်ဦးအဖြစ်မှ ၁ ဆင့် လိုသေးသည်။</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_dialog_title">
+        <item quantity="other">အထောက်အထားများကို ယုံကြည်ပါ (သို့) ဖယ်ရှားပါ</item>
+        <item quantity="one">အထောက်အထားကို ယုံကြည်ပါ (သို့) ဖယ်ရှားပါ</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message">
+        <item quantity="other">"%s က သင့်အလုပ်ပရိုဖိုင်အတွက် အထောက်အထား လုပ်ပိုင်ခွင့်များကို ထည့်သွင်းထားသည့်အတွက် အီးမေးလ်များ၊ အက်ပ်များနှင့် စိတ်ချရသော ဝဘ်ဆိုက်များအပါအဝင် အလုပ်၏ ကွန်ရက်အသုံးပြုမှုကို ၎င်းတို့အား စောင့်ကြည့်ခွင့်ပြုနိုင်သည်။ ဤအထောက်အထားများကို ယုံကြည်သည် (သို့) ဖယ်ရှားမည်ဟု ရွေးချယ်နိုင်သည်။
+
+ဤအထောက်အထားများအကြောင်း နောက်ထပ် အချက်အလက်များကို သိရှိရန် သင်၏ စီမံသူကို ဆက်သွယ်ပါ။"</item>
+        <item quantity="one">"%s က သင့်အလုပ်ပရိုဖိုင်အတွက် အထောက်အထား လုပ်ပိုင်ခွင့်ကို ထည့်သွင်းထားသည့်အတွက် အီးမေးလ်များ၊ အက်ပ်များနှင့် စိတ်ချရသော ဝဘ်ဆိုက်များအပါအဝင် အလုပ်၏ ကွန်ရက်အသုံးပြုမှုကို ၎င်းတို့အား စောင့်ကြည့်ခွင့်ပြုနိုင်သည်။ ဤအထောက်အထားကို ယုံကြည်သည် (သို့) ဖယ်ရှားမည်ဟု ရွေးချယ်နိုင်သည်။
+
+ဤအထောက်အထားအကြောင်း နောက်ထပ် အချက်အလက်များကို သိရှိရန် သင်၏ စီမံသူကို ဆက်သွယ်ပါ။"</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s သည် CA ဆာတီဖီကိတ်များကို ကိရိယာတွင် တပ်ဆင်ထားပြီး၊ တပ်ဆင်ခြင်းဖြင့် ၎င်းကို သင့်အီးမေးလ်များ၊ အက်ပ်များ နှင့်၊ စိတ်ချရသောဝဘ်ဆိုဒ်များ အသုံးပြုမှု အပါအဝင်၊ သင့်ကိရိယာ၏ ကွန်ရက်လုပ်ဆောင်မှုများကို စောင့်ကြည့်မှတ်သားရန် ခွင့်ပြုလိုက်သည်။
+
+ဤဆာတီဖီကိတ်များနှင့်ပတ်သက်၍ နောက်ထပ် အချက်အလက်အတွက်၊ သင်၏ IT စီမံသူကို ဆက်သွယ်ပါ။"</item>
+        <item quantity="one">"%s သည် CA ဆာတီဖီကိတ်တစ်ခုကို ကိရိယာတွင် တပ်ဆင်ထားပြီး၊ တပ်ဆင်ခြင်းဖြင့် ၎င်းကို သင့်အီးမေးလ်များ၊ အက်ပ်များ နှင့်၊ စိတ်ချရသောဝဘ်ဆိုဒ်များ အသုံးပြုမှု အပါအဝင်၊ သင့်ကိရိယာ၏ ကွန်ရက်လုပ်ဆောင်မှုများကို စောင့်ကြည့်မှတ်သားရန် ခွင့်ပြုလိုက်သည်။
+
+ဤဆာတီဖီကိတ်နှင့်ပတ်သက်၍ နောက်ထပ် အချက်အလက်အတွက်၊ သင်၏ IT စီမံသူကို ဆက်သွယ်ပါ။"</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_settings_button">
+        <item quantity="other">အထောက်အထားများကို စစ်ဆေးပါ</item>
+        <item quantity="one">အထောက်အထားကို စစ်ဆေးပါ</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">ဖိုဒါ/ဖိုင် %d ထဲ ဝင်ကြည့်ပါ</item>
+        <item quantity="one">ဖိုဒါ/ဖိုင် ၁ ခုထဲ ဝင်ကြည့်ပါ</item>
+    </plurals>
+</resources>

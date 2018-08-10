@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="allshare_download_to">
+        <item>சாதனம்</item>
+        <item>SD அட்டை</item>
+    </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>அனிமேஷன் நிறுத்தப்பட்டது.</item>
+        <item>அனிமேஷன் அளவு 0.5x</item>
+        <item>அனிமேஷன் அளவு 1x</item>
+        <item>அனிமேஷன் அளவு 1.5x</item>
+        <item>அனிமேஷன் அளவு 2x</item>
+        <item>அனிமேஷன் அளவு 5x</item>
+        <item>அனிமேஷன் அளவு 10x</item>
+    </string-array>
+    <string-array name="apn_auth_entries">
+        <item>ஒன்றுமில்லை</item>
+        <item>PAP</item>
+        <item>CHAP</item>
+        <item>PAP அல்லது CHAP</item>
+    </string-array>
+    <string-array name="bearer_entries">
+        <item>குறிப்பிடாதவை</item>
+        <item>LTE</item>
+        <item>HSPAP</item>
+        <item>HSPA</item>
+        <item>HSUPA</item>
+        <item>HSDPA</item>
+        <item>UMTS</item>
+        <item>EDGE</item>
+        <item>GPRS</item>
+        <item>eHRPD</item>
+        <item>EVDO_B</item>
+        <item>EVDO_A</item>
+        <item>EVDO_0</item>
+        <item>1xRTT</item>
+        <item>IS95B</item>
+        <item>IS95A</item>
+        <item>IWLAN</item>
+    </string-array>
+    <string-array name="bearer_entries_dcm_kdi">
+        <item>குறிப்பிடாதவை</item>
+        <item>4G</item>
+        <item>HSPAP</item>
+        <item>HSPA</item>
+        <item>HSUPA</item>
+        <item>HSDPA</item>
+        <item>UMTS</item>
+        <item>EDGE</item>
+        <item>GPRS</item>
+        <item>eHRPD</item>
+        <item>EVDO_B</item>
+        <item>EVDO_A</item>
+        <item>EVDO_0</item>
+        <item>1xRTT</item>
+        <item>IS95B</item>
+        <item>IS95A</item>
+        <item>IWLAN</item>
+    </string-array>
+    <string-array name="bluetooth_ss_a2dp_codec_summaries">
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>எல்லா கோடெக்குகளும்</item>
+        <item>டீஃபால்ட் கோடெக்</item>
+    </string-array>
+    <string-array name="bluetooth_ss_a2dp_codec_titles">
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>எல்லா கோடெக்குகளும்</item>
+        <item>டீஃபால்ட் கோடெக்</item>
+    </string-array>
+    <string-array name="bluetooth_ss_japan_a2dp_codec_titles">
+        <item>SBC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>எல்லா கோடெக்குகளும்</item>
+        <item>டீஃபால்ட் கோடெக்</item>
+    </string-array>
+    <string-array name="captioning_edge_type_selector_titles">
+        <item>டீஃபால்ட்</item>
+        <item>ஒன்றுமில்லை</item>
+        <item>வெளிகோடு</item>
+        <item>ட்ராப் ஷேடோ</item>
+        <item>ரைஸ்டு</item>
+        <item>டிப்ரஸ்டு</item>
+    </string-array>
+    <string-array name="captioning_font_size_selector_titles">
+        <item>மிகவும் சிறியது</item>
+        <item>சிறிய</item>
+        <item>சாதாரண</item>
+        <item>பெரிய</item>
+        <item>மிகப் பெரிய</item>
+    </string-array>
+    <string-array name="captioning_preset_selector_titles">
+        <item>டீஃபால்ட்</item>
+        <item>கருப்பில் வெள்ளை</item>
+        <item>வெள்ளை மீது கருப்பு</item>
+        <item>கருப்பில் மஞ்சள்</item>
+        <item>நீலத்தில் மஞ்சள்</item>
+        <item>தனிப்பயன்</item>
+    </string-array>
+    <string-array name="captioning_typeface_selector_titles">
+        <item>டீஃபால்ட்</item>
+        <item>சேன்ஸ் ஷெரிஃப்</item>
+        <item>Sans serif condensed</item>
+        <item>சான்ஸ் செரிஃப் மோனோஸ்பேஸ்</item>
+        <item>ஷெரிஃப்</item>
+        <item>செரிஃப் மோனோஸ்பேஸ்</item>
+        <item>கேஷுவல்</item>
+        <item>இணைவெழுத்து</item>
+        <item>சிறிய எழுத்துகள்</item>
+    </string-array>
+    <string-array name="color_adjust_type_entries">
+        <item>கிரேஸ்கேல்</item>
+        <item>போர்ட்டான் (சிவப்பு-பச்சை)</item>
+        <item>ட்யூட்டான் (பச்சை-சிவப்பு)</item>
+        <item>ட்ரைட்டன் (நீலம்-மஞ்சள்)</item>
+        <item>தனிப்பயனாக்கப்பட்ட நிறம்</item>
+    </string-array>
+    <string-array name="color_lens_entries">
+        <item>நீலம்</item>
+        <item>அசூர்</item>
+        <item>சியான்</item>
+        <item>ஸ்பிரிங் பச்சை</item>
+        <item>பச்சை</item>
+        <item>சார்ட்ரியுஸ் பச்சை</item>
+        <item>மஞ்சள்</item>
+        <item>ஆரஞ்சு</item>
+        <item>சிவப்பு</item>
+        <item>ரோஸ்</item>
+        <item>கருஞ்சிவப்பு</item>
+        <item>ஊதா</item>
+    </string-array>
+    <string-array name="data_usage_display_unit">
+        <item>MB/GB (auto change)</item>
+        <item>MB only</item>
+        <item>GB only</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>பவர் விசையால் உடனடியாக அல்லது திரை நேரம் முடியும் போது</item>
+        <item>5 வினாடிகள்</item>
+        <item>15 வினாடிகள்</item>
+        <item>30 வினாடிகள்</item>
+        <item>1 நிமிடம்</item>
+        <item>2 நிமிடங்கள்</item>
+        <item>5 நிமிடங்கள்</item>
+        <item>10 நிமிடங்கள்</item>
+        <item>30 நிமிடங்கள்</item>
+    </string-array>
+    <string-array name="dex_timeout_entries">
+        <item>15 வினாடிகள்</item>
+        <item>30 வினாடிகள்</item>
+        <item>1 நிமிடம்</item>
+        <item>2 நிமிடங்கள்</item>
+        <item>5 நிமிடங்கள்</item>
+        <item>10 நிமிடங்கள்</item>
+        <item>20 நிமிடங்கள்</item>
+        <item>30 நிமிடங்கள்</item>
+        <item>60 நிமிடங்கள்</item>
+    </string-array>
+    <string-array name="key_backlight_entries">
+        <item>எப்போதும் ஆஃப்</item>
+        <item>1 second</item>
+        <item>3 seconds</item>
+        <item>5 seconds</item>
+        <item>10 seconds</item>
+        <item>15 seconds</item>
+    </string-array>
+    <string-array name="lock_after_timeout_entries">
+        <item>உடனடியாக</item>
+        <item>5 வினாடிகள்</item>
+        <item>15 வினாடிகள்</item>
+        <item>30 வினாடிகள்</item>
+        <item>1 நிமிடம்</item>
+        <item>2 நிமிடங்கள்</item>
+        <item>5 நிமிடங்கள்</item>
+        <item>10 நிமிடங்கள்</item>
+        <item>30 நிமிடங்கள்</item>
+    </string-array>
+    <string-array name="long_press_timeout_titles_selector">
+        <item>குறுகிய (0.5 வினாடிகள்)</item>
+        <item>நடுத்தரம் (1.0 வினாடி)</item>
+        <item>நீளமானது (1.5 வினாடிகள்)</item>
+        <item>தனிப்பயன்</item>
+    </string-array>
+    <string-array name="mvno_type_entries">
+        <item>ஒன்றுமில்லை</item>
+        <item>SPN</item>
+        <item>IMSI</item>
+        <item>GID</item>
+    </string-array>
+    <string-array name="num_allowed_devices">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+    <string-array name="ram_states">
+        <item>சாதாரண</item>
+        <item>மிதமான</item>
+        <item>குறைந்த</item>
+        <item>மிகக் குறைவு</item>
+        <item>\?</item>
+    </string-array>
+    <string-array name="screen_timeout_entries">
+        <item>15 வினாடிகள்</item>
+        <item>30 வினாடிகள்</item>
+        <item>1 நிமிடம்</item>
+        <item>2 நிமிடங்கள்</item>
+        <item>5 நிமிடங்கள்</item>
+        <item>10 நிமிடங்கள்</item>
+        <item>30 நிமிடங்கள்</item>
+    </string-array>
+    <string-array name="screen_timeout_for_device_lock_entries">
+        <item>15 வினாடிகள்</item>
+        <item>30 வினாடிகள்</item>
+        <item>1 நிமிடம்</item>
+        <item>3 நிமிடங்கள்</item>
+        <item>5 நிமிடங்கள்</item>
+        <item>10 நிமிடங்கள்</item>
+        <item>15 நிமிடங்கள்</item>
+        <item>30 நிமிடங்கள்</item>
+    </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>கேட்கவும்</item>
+        <item>எப்போதும் அனுமதி இல்லை</item>
+        <item>எப்போதும் அனுமதி</item>
+    </string-array>
+    <string-array name="time_interval_entries_selectable">
+        <item>1 நிமிடம்</item>
+        <item>3 நிமிடங்கள்</item>
+        <item>5 நிமிடங்கள்</item>
+        <item>10 நிமிடங்கள்</item>
+        <item>15 நிமிடங்கள்</item>
+    </string-array>
+    <string-array name="touch_key_light_entries">
+        <item>1.5 வினாடிகள்</item>
+        <item>6 வினாடிகள்</item>
+        <item>எப்போதும் ஆஃப்</item>
+        <item>எப்போதும் ஆன்</item>
+    </string-array>
+    <string-array name="transition_animation_scale_entries">
+        <item>அனிமேஷன் நிறுத்தப்பட்டது.</item>
+        <item>அனிமேஷன் அளவு 0.5x</item>
+        <item>அனிமேஷன் அளவு 1x</item>
+        <item>அனிமேஷன் அளவு 1.5x</item>
+        <item>அனிமேஷன் அளவு 2x</item>
+        <item>அனிமேஷன் அளவு 5x</item>
+        <item>அனிமேஷன் அளவு 10x</item>
+    </string-array>
+    <string-array name="usb_configuration_titles">
+        <item>@string/usb_use_charging_only</item>
+        <item>MTP (Media Transfer Protocol)</item>
+        <item>PTP (Picture Transfer Protocol)</item>
+        <item>RNDIS (USB Ethernet)</item>
+        <item>கேட்பொலி மூலம்</item>
+        <item>MIDI</item>
+    </string-array>
+    <string-array name="vpn_states">
+        <item>துண்டிக்கபட்டது</item>
+        <item>துவங்குகிறது…</item>
+        <item>இணைக்கிறது…</item>
+        <item>இணைக்கபட்டது</item>
+        <item>நேரமுடிவு</item>
+        <item>தோல்வி</item>
+    </string-array>
+    <string-array name="wifi_ap_channel">
+        <item>தானாக</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+    </string-array>
+    <string-array name="wifi_ap_security_testmode">
+        <item>திற.</item>
+        <item>WPA2 PSK</item>
+    </string-array>
+    <string-array name="wifi_ap_timeout">
+        <item>நேரமுடிவு ஒருபோதும் இல்லை</item>
+        <item>5 நிமிடங்கள்</item>
+        <item>10 நிமிடங்கள்</item>
+        <item>20 நிமிடங்கள்</item>
+        <item>30 நிமிடங்கள்</item>
+        <item>60 நிமிடங்கள்</item>
+    </string-array>
+    <string-array name="wifi_ap_wifi_sharing">
+        <item>Wi-Fi பகிர்தலை ஆன் செய்யவும்</item>
+        <item>Wi-Fi பகிர்தலை ஆஃப் செய்யவும்</item>
+    </string-array>
+    <string-array name="wifi_connect_entries">
+        <item>தானியக்கம்</item>
+        <item>கைமுறை</item>
+        <item>எ. கேட்க்கவும்</item>
+    </string-array>
+    <string-array name="wifi_ip_settings">
+        <item>DHCP</item>
+        <item>நிலையான</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>இணைக்கபட்டது</item>
+        <item>அழைக்கப்பட்டுள்ளீர்.</item>
+        <item>இணைப்பு தோல்வி</item>
+        <item>இணைக்க இங்கு டேப் செய்யவும்.</item>
+        <item>வரம்பை மீறியது.</item>
+        <item>மற்றொரு சாதனத்துடன் இணைக்கப்பட்டது</item>
+    </string-array>
+    <string-array name="wifi_peap_phase2_entries_with_sim_auth">
+        <item>ஏதுமில்லை</item>
+        <item>MSCHAPV2</item>
+        <item>GTC</item>
+        <item>SIM</item>
+        <item>AKA</item>
+        <item>"AKA'"</item>
+    </string-array>
+    <string-array name="wifi_phase2_entries">
+        <item>ஒன்றுமில்லை</item>
+        <item>PAP</item>
+        <item>MSCHAP</item>
+        <item>MSCHAPV2</item>
+        <item>GTC</item>
+    </string-array>
+    <string-array name="wifi_proxy_settings">
+        <item>ஒன்றுமில்லை</item>
+        <item>கைமுறை</item>
+        <item>தானியங்கு-கட்டமைப்பு</item>
+    </string-array>
+    <string-array name="wifi_signal">
+        <item>வலுக்குறைந்தது</item>
+        <item>நன்று</item>
+        <item>நன்று</item>
+        <item>பலமாக</item>
+        <item>மிக பலமாக</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_entries">
+        <item>"எப்போதும்
+(மின்கல உபயோகத்தை அதிகரிக்கும்)"</item>
+        <item>சார்ஜ் செய்கையில்</item>
+        <item>"ஒருபோதுமில்லை
+(தரவுப் பயன்பாட்டை அதிகரிக்கிறது)"</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_entries_wifi_only">
+        <item>"எப்போதும்
+(மின்கல உபயோகத்தை அதிகரிக்கும்)"</item>
+        <item>சார்ஜ் செய்கையில்</item>
+        <item>ஒருபோதும் இல்லை</item>
+    </string-array>
+    <string-array name="wifi_status">
+        <item></item>
+        <item>ஸ்கேனிங்…</item>
+        <item>இணைக்கிறது…</item>
+        <item>அங்கீகரிக்கிறது…</item>
+        <item>IP முகவரி எடுக்கிறது…</item>
+        <item>இணைக்கபட்டது</item>
+        <item>இடைநீக்கப்பட்டது</item>
+        <item>துண்டிக்கிறது…</item>
+        <item>துண்டிக்கபட்டது</item>
+        <item>தோல்வி</item>
+        <item>தடை செய்யப்பட்டது</item>
+        <item>உங்கள் இணைய இணைப்பின் தரத்தைச் சரிபார்க்கிறது…</item>
+    </string-array>
+    <string-array name="window_animation_scale_entries">
+        <item>அனிமேஷன் நிறுத்தப்பட்டது.</item>
+        <item>அனிமேஷன் அளவு 0.5x</item>
+        <item>அனிமேஷன் அளவு 1x</item>
+        <item>அனிமேஷன் அளவு 1.5x</item>
+        <item>அனிமேஷன் அளவு 2x</item>
+        <item>அனிமேஷன் அளவு 5x</item>
+        <item>அனிமேஷன் அளவு 10x</item>
+    </string-array>
+</resources>

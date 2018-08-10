@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="accessibilty_autoclick_preference_subtitle_extremely_short_delay">
+        <item quantity="other">Extremt kort fördröjning (%s ms)</item>
+        <item quantity="one">Extremt kort fördröjning (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_long_delay">
+        <item quantity="other">Lång fördröjning (%s ms)</item>
+        <item quantity="one">Lång fördröjning (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_short_delay">
+        <item quantity="other">Kort fördröjning (%s ms)</item>
+        <item quantity="one">Kort fördröjning (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_long_delay">
+        <item quantity="other">Mycket lång fördröjning (%s ms)</item>
+        <item quantity="one">Mycket lång fördröjning (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_short_delay">
+        <item quantity="other">Mycket kort fördröjning (%s ms)</item>
+        <item quantity="one">Mycket kort fördröjning (%s ms)</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d appar tillåts använda data utan begränsningar</item>
+        <item quantity="one">En app tillåts använda data utan begränsningar</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary_chn">
+        <item quantity="other">%d appar tillåts använda mobildata utan begränsningar när Begränsa bakgrundsdata är aktiverat.</item>
+        <item quantity="one">%d appar tillåts använda mobildata utan begränsningar när Begränsa bakgrundsdata är aktiverat.</item>
+    </plurals>
+    <plurals name="deleted_channels">
+        <item quantity="other">%d kategorier raderades</item>
+        <item quantity="one">En kategori raderades</item>
+    </plurals>
+    <plurals name="dex_timeout_day">
+        <item quantity="other">%d dagar</item>
+        <item quantity="one">1 dag</item>
+    </plurals>
+    <plurals name="dex_timeout_hour">
+        <item quantity="other">%d timmar</item>
+        <item quantity="one">1 timme</item>
+    </plurals>
+    <plurals name="dex_timeout_minute">
+        <item quantity="other">%d minuter</item>
+        <item quantity="one">1 minut</item>
+    </plurals>
+    <plurals name="dex_timeout_second">
+        <item quantity="other">%d sekunder</item>
+        <item quantity="one">1 sekund</item>
+    </plurals>
+    <plurals name="dex_timeout_week">
+        <item quantity="other">%d veckor</item>
+        <item quantity="one">1 vecka</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Ta bort de valda språken</item>
+        <item quantity="one">Ta bort det valda språket</item>
+    </plurals>
+    <plurals name="enterprise_privacy_number_packages_lower_bound">
+        <item quantity="other">Minst %d appar</item>
+        <item quantity="one">Minst %d app</item>
+    </plurals>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d timmar</item>
+        <item quantity="one">1 timme</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d minuter</item>
+        <item quantity="one">1 minut</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d sekunder</item>
+        <item quantity="one">1 sekund</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Lösenordet måste innehålla minst %d bokstäver.</item>
+        <item quantity="one">Lösenordet måste innehålla minst 1 bokstav.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Lösenordet måste innehålla minst %d små bokstäver.</item>
+        <item quantity="one">Lösenordet måste innehålla minst 1 liten bokstav.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Lösenordet måste innehålla minst %d siffror eller symboler.</item>
+        <item quantity="one">Lösenordet måste innehålla minst 1 siffra eller symbol.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Lösenordet måste innehålla minst %d siffror.</item>
+        <item quantity="one">Lösenordet måste innehålla minst 1 siffra.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Lösenordet måste innehålla minst %d symboler.</item>
+        <item quantity="one">Lösenordet måste innehålla minst 1 symbol.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Lösenordet måste innehålla minst %d stora bokstäver.</item>
+        <item quantity="one">Lösenordet måste innehålla minst 1 stor bokstav.</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d appar kan läsa meddelanden.</item>
+        <item quantity="one">Appen %d har tillstånd att läsa aviseringar.</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$d processer använde RAM-minnet under senaste %2$s</item>
+        <item quantity="one">%1$d process använde RAM-minnet under senaste %2$s</item>
+    </plurals>
+    <plurals name="network_restrictions_summary">
+        <item quantity="other">%d begränsningar</item>
+        <item quantity="one">En begränsning</item>
+    </plurals>
+    <plurals name="notification_summary">
+        <item quantity="other">Av för %d appar</item>
+        <item quantity="one">Av för en app</item>
+    </plurals>
+    <plurals name="number_of_device_admins">
+        <item quantity="other">%d aktiva appar</item>
+        <item quantity="one">En aktiv app</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d fler behörigheter</item>
+        <item quantity="one">%d behörighet till</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Nu är du %d steg från att vara en utvecklare.</item>
+        <item quantity="one">Du är nu 1 steg från att vara en utvecklare.</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_dialog_title">
+        <item quantity="other">Lita på eller ta bort certifikat</item>
+        <item quantity="one">Lita på eller ta bort certifikat</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message">
+        <item quantity="other">"%s har installerat certifikatutfärdare för din arbetsprofil, vilket kan ge dem möjlighet att övervaka enhetens arbetsnätverksaktivitet, däribland e-post, appar och säkra webbplatser. Du kan välja mellan att lita på eller ta bort certifikaten.
+
+Kontakta administratören om du vill ha mer information om certifikaten."</item>
+        <item quantity="one">"%s har installerat en certifikatutfärdare för din arbetsprofil, vilket kan ge dem möjlighet att övervaka enhetens arbetsnätverksaktivitet, däribland e-post, appar och säkra webbplatser. Du kan välja mellan att lita på eller ta bort certifikatet.
+
+Kontakta administratören om du vill ha mer information om det här certifikatet."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s har installerat CA-certifikat på din enhet, vilket kan ge dem möjlighet att övervaka enhetens nätverksaktivitet, däribland hur du använder e-post, appar och säkra webbplatser.
+
+Kontakta IT-administratören om du vill ha mer information om dessa certifikat."</item>
+        <item quantity="one">"%s har installerat ett CA-certifikat på din enhet, vilket kan ge dem möjlighet att övervaka enhetens nätverksaktivitet, däribland hur du använder e-post, appar och säkra webbplatser.
+
+Kontakta IT-administratören om du vill ha mer information om det här certifikatet."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_settings_button">
+        <item quantity="other">Kontrollera certifikat</item>
+        <item quantity="one">Kontrollera certifikat</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Åtkomst till %d mappar/filer</item>
+        <item quantity="one">Åtkomst till 1 mapp/fil</item>
+    </plurals>
+</resources>

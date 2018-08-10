@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.setupwizardlib.GlifLayout android:icon="@drawable/ic_lock" android:id="@id/setup_wizard_layout" android:layout_width="fill_parent" android:layout_height="fill_parent" settings:suwHeaderText="@string/setup_lock_screen_intro_title"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:settings="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:focusableInTouchMode="true" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/SuwContentFrame">
+        <TextView android:id="@id/description_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/setup_lock_screen_intro_text" style="@style/SuwDescription.Glif" />
+        <TextView android:textStyle="bold" android:id="@id/description_text_leran_more" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/learn_more" style="@style/suw_learn_more_text" />
+        <CheckBox android:id="@id/lock_screen_intro_check_box" android:layout_width="fill_parent" android:layout_height="wrap_content" android:checked="true" android:text="@string/setup_lock_screen_intro_check_box" style="@style/SuwCheckBox.Multiline" />
+        <RadioGroup android:id="@id/lock_screen_intro_radio_group" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <RadioButton android:id="@id/lock_screen_intro_option_ib" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/setup_lock_screen_intro_radio_ib" style="@style/SuwRadioButton" />
+            <RadioButton android:id="@id/lock_screen_intro_option_face" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/setup_lock_screen_intro_radio_face" style="@style/SuwRadioButton" />
+            <RadioButton android:id="@id/lock_screen_intro_option_iris" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/setup_lock_screen_intro_radio_iris" style="@style/SuwRadioButton" />
+            <RadioButton android:id="@id/lock_screen_intro_option_fingerprint" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/setup_lock_screen_intro_radio_fingerprint" style="@style/SuwRadioButton" />
+            <RadioButton android:id="@id/lock_screen_intro_option_generic" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/setup_lock_screen_intro_radio_generic" style="@style/SuwRadioButton" />
+            <RadioButton android:id="@id/lock_screen_intro_option_no" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/setup_lock_screen_intro_radio_no" style="@style/SuwRadioButton" />
+        </RadioGroup>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip">
+            <Button android:id="@id/lock_cancel_button" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/SetupWizardButton.Negative" />
+            <Space android:layout_width="0.0dip" android:layout_height="0.0dip" android:layout_weight="1.0" />
+            <Button android:id="@id/lock_next_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/skip_wifi_setup" style="@style/SetupWizardButton.Positive" />
+        </LinearLayout>
+    </LinearLayout>
+</com.android.setupwizardlib.GlifLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="enterprise_privacy_number_packages_lower_bound">
+        <item quantity="other">Նվազագույնը %d հավելված</item>
+        <item quantity="one">Minimum %d apps</item>
+    </plurals>
+</resources>

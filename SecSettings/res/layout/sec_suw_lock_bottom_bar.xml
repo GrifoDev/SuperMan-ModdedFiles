@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/suw_button_flat_bar" android:background="@color/bottom_bar_bg_color" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/suw_bottom_divider" android:layout_width="fill_parent" style="@style/bottom_bar_divider_style" />
+    <LinearLayout android:gravity="center" android:layout_gravity="center_vertical" android:orientation="horizontal" android:id="@id/suw_prev_button_area" android:background="@drawable/ripple_bottom_bar_button_wifi" android:focusable="true" android:layout_width="wrap_content" android:layout_height="@dimen/biometrics_lock_setup_suw_button_height" android:layout_marginStart="@dimen/biometrics_lock_setup_suw_button_margin">
+        <ImageView android:gravity="center" android:id="@id/suw_prev_btn_arrow" android:layout_width="@dimen/biometrics_lock_setup_suw_button_image_size" android:layout_height="@dimen/biometrics_lock_setup_suw_button_image_size" android:src="@drawable/setupwizard_prev_arrow_auto_mirrored" android:layout_marginEnd="@dimen/biometrics_lock_setup_suw_button_padding" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:layout_gravity="center_vertical" android:orientation="horizontal" android:id="@id/suw_next_button_area" android:background="@drawable/ripple_bottom_bar_button_wifi" android:focusable="true" android:layout_width="wrap_content" android:layout_height="@dimen/biometrics_lock_setup_suw_button_height" android:layout_marginEnd="@dimen/biometrics_lock_setup_suw_button_margin" android:layout_alignParentEnd="true">
+        <TextView android:gravity="end|center" android:id="@id/suw_next_text_btn" android:background="@null" android:text="@string/next_button_label" android:textAllCaps="true" android:paddingStart="6.0dip" style="@style/SecurityPreferenceButton" />
+        <ImageView android:gravity="center" android:id="@id/suw_next_btn_arrow" android:layout_width="@dimen/biometrics_lock_setup_suw_button_image_size" android:layout_height="@dimen/biometrics_lock_setup_suw_button_image_size" android:src="@drawable/setupwizard_next_arrow_auto_mirrored" android:layout_marginStart="@dimen/biometrics_lock_setup_suw_button_padding" />
+        <ImageView android:gravity="center" android:id="@id/suw_open_btn_arrow" android:visibility="gone" android:layout_width="@dimen/biometrics_lock_setup_suw_button_image_size" android:layout_height="@dimen/biometrics_lock_setup_suw_button_image_size" android:src="@drawable/setupwizard_bottom_arrow_open" android:layout_marginStart="@dimen/biometrics_lock_setup_suw_button_padding" />
+    </LinearLayout>
+</RelativeLayout>

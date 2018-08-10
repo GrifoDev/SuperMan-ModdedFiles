@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="preferences_left_pane_weight">44</integer>
+    <integer name="preferences_right_pane_weight">56</integer>
+    <integer name="keyguard_appwidget_picker_cols">2</integer>
+</resources>

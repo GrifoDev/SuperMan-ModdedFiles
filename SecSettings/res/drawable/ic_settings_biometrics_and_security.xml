@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bitmap android:src="@drawable/st_ic_biometrics_and_security" android:tint="@color/dashboard_biometrics_and_security_color"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

@@ -1,0 +1,872 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="allshare_download_to">
+        <item>උපාංගය</item>
+        <item>SD කාඩ්පත</item>
+    </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>සජීවීකරණය අක්‍රියයි.</item>
+        <item>සජීවීකරණ පරිමාණය 0.5x</item>
+        <item>සජීවීකරණ පරිමාණය 1x</item>
+        <item>සජීවීකරණ පරිමාණය 1.5x</item>
+        <item>සජීවීකරණ පරිමාණය 2x</item>
+        <item>සජීවීකරණ පරිමාණය 5x</item>
+        <item>සජීවීකරණ පරිමාණය 10x</item>
+    </string-array>
+    <string-array name="apn_auth_entries">
+        <item>නොමැත</item>
+        <item>PAP</item>
+        <item>CHAP</item>
+        <item>PAP හෝ CHAP</item>
+    </string-array>
+    <string-array name="apn_protocol_entries">
+        <item>IPv4</item>
+        <item>IPv6</item>
+        <item>IPv4/IPv6</item>
+    </string-array>
+    <string-array name="app_install_location_entries">
+        <item>අභ්‍යන්තර උපාංග ආචයනය</item>
+        <item>ඉවත් කළ හැකි SD කාඩ් පත</item>
+        <item>තීරණය කිරීමට පද්ධතියට ඉඩ දෙන්න</item>
+    </string-array>
+    <string-array name="app_ops_categories">
+        <item>ස්ථානය</item>
+        <item>පෞද්ගලික</item>
+        <item>පණිවිඩ යැවීම</item>
+        <item>මාධ්‍ය</item>
+        <item>උපාංගය</item>
+        <item>Auto run</item>
+    </string-array>
+    <string-array name="app_ops_labels">
+        <item>ස්ථානය</item>
+        <item>ස්ථානය</item>
+        <item>ස්ථානය</item>
+        <item>කම්පනය වීම</item>
+        <item>සම්බන්ධතා කියවන්න</item>
+        <item>සම්බන්ධතා වෙනස් කරන්න</item>
+        <item>ඇමතුම් ලොගය කියවන්න</item>
+        <item>ඇමතුම් ලොගය වෙනස් කරන්න</item>
+        <item>දින දර්ශනය කියවන්න</item>
+        <item>දින දර්ශනය වෙනස් කරන්න</item>
+        <item>ස්ථානය</item>
+        <item>පසු දැනුම්දීම</item>
+        <item>ස්ථානය</item>
+        <item>දුරකතනය අමතන්න</item>
+        <item>SMS/MMS කියවන්න</item>
+        <item>SMS/MMS ලියන්න</item>
+        <item>SMS/MMS ලැබීම</item>
+        <item>SMS/MMS ලැබීම</item>
+        <item>SMS/MMS ලැබීම</item>
+        <item>SMS/MMS ලැබීම</item>
+        <item>SMS/MMS යවන්න</item>
+        <item>SMS/MMS කියවන්න</item>
+        <item>SMS/MMS ලියන්න</item>
+        <item>සැකසුම් වෙනස් කරන්න</item>
+        <item>උඩ අඳින්න</item>
+        <item>ප්‍රවේශ දැනුම්දීම්</item>
+        <item>කැමරාව</item>
+        <item>ශ්‍රව්‍ය තැටිගත කරන්න</item>
+        <item>ශ්‍රව්‍ය ධාවනය කරන්න</item>
+        <item>පසුරු පුවරුව කියවන්න</item>
+        <item>පසුරු පුවරුව වෙනස්කරන්න</item>
+        <item>මාධ්‍ය බොත්තම</item>
+        <item>ශ්‍රව්‍ය අවධානය</item>
+        <item>උසස් ශබ්දය</item>
+        <item>හඬ ශබ්දය</item>
+        <item>නාද ශබ්දය</item>
+        <item>මාධ්‍ය ශබ්දය</item>
+        <item>සීනුවේ ශබ්දය</item>
+        <item>දැනුම්දීමේ ශබ්දය</item>
+        <item>බ්ලූටූත් ශබ්දය</item>
+        <item>අවදිව සිටින්න</item>
+        <item>ස්ථානය</item>
+        <item>ස්ථානය</item>
+        <item>භාවිත කිරීමේ තත්ත්ව ලබාගන්න</item>
+        <item>මයික්‍රෝෆෝනය නිශ්ශබ්ද/නිශ්ශබ්ද නැති කරන්න</item>
+        <item>ටෝස්ට් පෙන්වීම</item>
+        <item>මාධ්‍ය ව්‍යාපෘතිය</item>
+        <item>VPN සක්‍රිය කරන්න</item>
+        <item>වෝල්පේපරය ලියන්න</item>
+        <item>ව්‍යුහයට සහාය</item>
+        <item>තිර රුවට සහාය</item>
+        <item>දුරකථන තත්ත්වය කියවීම</item>
+        <item>හඬ තැපෑල එක් කිරීම</item>
+        <item>SIP භාවිතය</item>
+        <item>පිටතට යන ඇමතුම් ක්‍රියාවලිය</item>
+        <item>ඇඟිලි සලකුණ</item>
+        <item>ශරීර සංවේදක</item>
+        <item>සෙල් විකාශන කියවීම</item>
+        <item>ව්‍යාජ ස්ථාන</item>
+        <item>ගබඩාව කියවීම</item>
+        <item>ගබඩාව ලිවීම</item>
+        <item>තිරය ක්‍රියාත්මක කිරීම</item>
+        <item>ගිණුම් ලබා ගැනීම</item>
+        <item>පසුබිමෙහි ධාවනය</item>
+        <item>ප්‍රවේශ්‍යතා හඬ පරිමාව</item>
+    </string-array>
+    <string-array name="app_ops_summaries">
+        <item>දළ ස්ථානය</item>
+        <item>බොහෝ නිවැරදි ස්ථානය</item>
+        <item>GPS</item>
+        <item>කම්පනය වන්න</item>
+        <item>සම්බන්ධතා කියවන්න</item>
+        <item>සම්බන්ධතා වෙනස් කරන්න</item>
+        <item>ඇමතුම් ලොගය කියවන්න</item>
+        <item>ඇමතුම් ලොගය වෙනස් කරන්න</item>
+        <item>දින දසුන කියවන්න</item>
+        <item>දින දර්ශනය වෙනස් කරන්න</item>
+        <item>wi-fi පරිලෝකනය</item>
+        <item>දැනුම්දීම</item>
+        <item>කොටු පරිලෝකනය</item>
+        <item>දුරකතනය අමතන්න</item>
+        <item>SMS කියවන්න</item>
+        <item>SMS ලියන්න</item>
+        <item>SMS ලබන්න</item>
+        <item>හදිසි SMS ලබාගන්න</item>
+        <item>MMS ලබන්න</item>
+        <item>WAP තල්ලු කිරීම ලැබීම</item>
+        <item>SMS යවන්න</item>
+        <item>ICC SMS කියවන්න</item>
+        <item>ICC SMS ලියන්න</item>
+        <item>සැකසුම් වෙනස් කරන්න</item>
+        <item>ඉහළින් අඳින්න</item>
+        <item>ප්‍රවේශ දැනුම්දීම්</item>
+        <item>කැමරාව</item>
+        <item>ශබ්ද පටිගත කරන්න</item>
+        <item>ශ්‍රව්‍ය ධාවනය කරන්න</item>
+        <item>පසුරු පුවරුව කියවන්න</item>
+        <item>පසුරු පුවරුව වෙනස් කරන්න</item>
+        <item>මාධ්‍ය බොත්තම</item>
+        <item>ශ්‍රව්‍ය අවධානය</item>
+        <item>උසස් ශබ්දය</item>
+        <item>හඬ ශබ්දය</item>
+        <item>නාද ශබ්දය</item>
+        <item>මාධ්‍ය ශබ්දය</item>
+        <item>සීනුවේ ශබ්දය</item>
+        <item>දැනුම්දීමේ ශබ්දය</item>
+        <item>බ්ලූටූත් ශබ්දය</item>
+        <item>අවදිව සිටින්න</item>
+        <item>නිරීක්ෂණ ස්ථානය</item>
+        <item>වැඩි බල ස්ථානය නිරීක්ෂණය</item>
+        <item>භාවිත කිරීමේ තත්ත්ව ලබාගන්න</item>
+        <item>මයික්‍රෝෆෝනය නිශ්ශබ්ද/නිශ්ශබ්ද නැති කරන්න</item>
+        <item>ටෝස්ට් පෙන්වීම</item>
+        <item>මාධ්‍ය ව්‍යාපෘතිය</item>
+        <item>VPN සක්‍රිය කරන්න</item>
+        <item>වෝල්පේපරය ලියන්න</item>
+        <item>ව්‍යුහයට සහාය</item>
+        <item>තිර රුවට සහාය</item>
+        <item>දුරකථන තත්ත්වය කියවීම</item>
+        <item>හඬ තැපෑල එක් කිරීම</item>
+        <item>SIP භාවිතය</item>
+        <item>පිටතට යන ඇමතුම් ක්‍රියාවලිය</item>
+        <item>ඇඟිලි සලකුණ</item>
+        <item>ශරීර සංවේදක</item>
+        <item>සෙල් විකාශන කියවීම</item>
+        <item>ව්‍යාජ ස්ථාන</item>
+        <item>ගබඩාව කියවීම</item>
+        <item>ගබඩාව ලිවීම</item>
+        <item>තිරය ක්‍රියාත්මක කිරීම</item>
+        <item>ගිණුම් ලබා ගැනීම</item>
+        <item>පසුබිමෙහි ධාවනය</item>
+        <item>ප්‍රවේශ්‍යතා හඬ පරිමාව</item>
+    </string-array>
+    <string-array name="app_process_limit_entries">
+        <item>සම්මත සීමාව</item>
+        <item>පසුබිම් ක්‍රියාවලි නොමැත</item>
+        <item>උපරිම වශයෙන් 1 ක්‍රියාවලියක්</item>
+        <item>උපරිම ලෙස ක්‍රියාවලි 2 කි</item>
+        <item>උපරිම ලෙස ක්‍රියාවලි 3 කි</item>
+        <item>උපරිම ලෙස ක්‍රියාවලි 4 කි</item>
+    </string-array>
+    <string-array name="automatic_storage_management_days">
+        <item>දින 30කට වඩා පැරණි</item>
+        <item>දින 60කට වඩා පැරණි</item>
+        <item>දින 90කට වඩා පැරණි</item>
+    </string-array>
+    <string-array name="bearer_entries">
+        <item>විශේෂණය නොකළ</item>
+        <item>LTE</item>
+        <item>HSPAP</item>
+        <item>HSPA</item>
+        <item>HSUPA</item>
+        <item>HSDPA</item>
+        <item>UMTS</item>
+        <item>EDGE</item>
+        <item>GPRS</item>
+        <item>eHRPD</item>
+        <item>EVDO_B</item>
+        <item>EVDO_A</item>
+        <item>EVDO_0</item>
+        <item>1xRTT</item>
+        <item>IS95B</item>
+        <item>IS95A</item>
+        <item>IWLAN</item>
+    </string-array>
+    <string-array name="bearer_entries_dcm_kdi">
+        <item>විශේෂණය නොකළ</item>
+        <item>4G</item>
+        <item>HSPAP</item>
+        <item>HSPA</item>
+        <item>HSUPA</item>
+        <item>HSDPA</item>
+        <item>UMTS</item>
+        <item>EDGE</item>
+        <item>GPRS</item>
+        <item>eHRPD</item>
+        <item>EVDO_B</item>
+        <item>EVDO_A</item>
+        <item>EVDO_0</item>
+        <item>1xRTT</item>
+        <item>IS95B</item>
+        <item>IS95A</item>
+        <item>IWLAN</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_bits_per_sample_summaries">
+        <item>පද්ධති තේරීම භාවිත කරන්න (පෙරනිමි)</item>
+        <item>බිටු 16/නියැදිය</item>
+        <item>බිටු 24/නියැදිය</item>
+        <item>බිටු 32/නියැදිය</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_bits_per_sample_titles">
+        <item>පද්ධති තේරීම භාවිත කරන්න (පෙරනිමි)</item>
+        <item>බිටු 16/නියැදිය</item>
+        <item>බිටු 24/නියැදිය</item>
+        <item>බිටු 32/නියැදිය</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_channel_mode_summaries">
+        <item>පද්ධති තේරීම භාවිත කරන්න (පෙරනිමි)</item>
+        <item>ඒකල</item>
+        <item>ස්ටීරියෝ</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_channel_mode_titles">
+        <item>පද්ධති තේරීම භාවිත කරන්න (පෙරනිමි)</item>
+        <item>ඒකල</item>
+        <item>ස්ටීරියෝ</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_ldac_playback_quality_summaries">
+        <item>ශ්‍රව්‍ය ගුණත්වය සඳහා ප්‍රශස්ත කරන ලදී</item>
+        <item>සමබර ශ්‍රව්‍ය සහ සබැඳුම් ගුණත්වය</item>
+        <item>සබැඳුම් ගුණත්වය සඳහා ප්‍රශස්ත කරන ලදී</item>
+        <item>හොඳම වෑයම (අනුවර්තී බිට් අනුපාතය)</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_ldac_playback_quality_titles">
+        <item>ශ්‍රව්‍ය ගුණත්වය සඳහා ප්‍රශස්ත කරන ලදී (990kbps/909kbps)</item>
+        <item>සමබර ශ්‍රව්‍ය සහ සබැඳුම් ගුණත්වය (660kbps/606kbps)</item>
+        <item>සබැඳුම් ගුණත්වය සඳහා ප්‍රශස්ත කරන ලදී (330kbps/303kbps)</item>
+        <item>හොඳම වෑයම (අනුවර්තී බිට් අනුපාතය)</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_sample_rate_summaries">
+        <item>පද්ධති තේරීම භාවිත කරන්න (පෙරනිමි)</item>
+        <item>44.1 kHz</item>
+        <item>48.0 kHz</item>
+        <item>88.2 kHz</item>
+        <item>96.0 kHz</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_sample_rate_titles">
+        <item>පද්ධති තේරීම භාවිත කරන්න (පෙරනිමි)</item>
+        <item>44.1 kHz</item>
+        <item>48.0 kHz</item>
+        <item>88.2 kHz</item>
+        <item>96.0 kHz</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_summaries">
+        <item>පද්ධති තේරීම භාවිත කරන්න (පෙරනිමි)</item>
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>aptX HD</item>
+        <item>LDAC</item>
+        <item>විකල්පමය කොඩෙක් සබල කරන්න</item>
+        <item>විකල්පමය කොඩෙක් අබල කරන්න</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_titles">
+        <item>පද්ධති තේරීම භාවිත කරන්න (පෙරනිමි)</item>
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>aptX HD</item>
+        <item>LDAC</item>
+        <item>විකල්පමය කොඩෙක් සබල කරන්න</item>
+        <item>විකල්පමය කොඩෙක් අබල කරන්න</item>
+    </string-array>
+    <string-array name="bluetooth_avrcp_versions">
+        <item>AVRCP 1.4 (පෙරනිමි)</item>
+        <item>AVRCP 1.5</item>
+        <item>AVRCP 1.6</item>
+    </string-array>
+    <string-array name="bluetooth_ss_a2dp_codec_summaries">
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>සියලු කොඩෙක්ස්</item>
+        <item>පෙරනිමි කොඩෙක්</item>
+    </string-array>
+    <string-array name="bluetooth_ss_a2dp_codec_titles">
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>සියලු කොඩෙක්ස්</item>
+        <item>පෙරනිමි කොඩෙක්</item>
+    </string-array>
+    <string-array name="bluetooth_ss_japan_a2dp_codec_titles">
+        <item>SBC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>සියලු කොඩෙක්ස්</item>
+        <item>පෙරනිමි කොඩෙක්</item>
+    </string-array>
+    <string-array name="bluetooth_visibility_timeout_entries">
+        <item>මිනිත්තු 2</item>
+        <item>මිනිත්තු 5</item>
+        <item>පැය 1</item>
+        <item>කිසිවිටෙක කල් ඉකුත් නොවන්න</item>
+    </string-array>
+    <string-array name="captioning_edge_type_selector_titles">
+        <item>සාමාන්‍ය</item>
+        <item>නොමැත</item>
+        <item>මායිම</item>
+        <item>සෙවණැල්ල හෙළන්න</item>
+        <item>එසැවුණු</item>
+        <item>අවපාතිත</item>
+    </string-array>
+    <string-array name="captioning_font_size_selector_titles">
+        <item>ඉතා කුඩා</item>
+        <item>කුඩා</item>
+        <item>සාමාන්‍ය</item>
+        <item>විශාල</item>
+        <item>ඉතා විශාලයි</item>
+    </string-array>
+    <string-array name="captioning_opacity_selector_titles">
+        <item>25%</item>
+        <item>50%</item>
+        <item>75%</item>
+        <item>100%</item>
+    </string-array>
+    <string-array name="captioning_preset_selector_titles">
+        <item>පෙරනිමිය</item>
+        <item>කළු මත සුදු</item>
+        <item>සුදු මත කළු</item>
+        <item>කළු මත කහ</item>
+        <item>නිල් මත කහ</item>
+        <item>අභිමත</item>
+    </string-array>
+    <string-array name="captioning_typeface_selector_titles">
+        <item>සාමාන්‍ය</item>
+        <item>Sans serif</item>
+        <item>Sans serif condensed</item>
+        <item>Sans serif monospace</item>
+        <item>Serif</item>
+        <item>Serif monospace</item>
+        <item>අනියම්</item>
+        <item>වැල් අකුරුමය</item>
+        <item>කුඩා කැපිටල්</item>
+    </string-array>
+    <string-array name="color_adjust_type_entries">
+        <item>අළුවන්</item>
+        <item>ප්‍රෝටන් (රතු-කොළ)</item>
+        <item>ඩියුටන් (කොළ-රතු)</item>
+        <item>ට්‍රයිටන් (නිල්-කහ)</item>
+        <item>පුද්ගලාරෝපිත වර්ණය</item>
+    </string-array>
+    <string-array name="color_lens_entries">
+        <item>නිල්</item>
+        <item>ලා නිල්</item>
+        <item>මයුර නිල</item>
+        <item>වසන්ත කොළ</item>
+        <item>කොළ</item>
+        <item>ගුරුකුලයේ කොළ</item>
+        <item>කහ</item>
+        <item>තැඹිලි</item>
+        <item>රතු</item>
+        <item>රෝස</item>
+        <item>මැජෙන්ටා</item>
+        <item>ජම්බූල</item>
+    </string-array>
+    <string-array name="color_mode_descriptions">
+        <item>වැඩිදියුණු කරන ලද වර්ණ</item>
+        <item>ඇස දකින ස්වභාවික වර්ණ</item>
+        <item>ඩිජිටල් අන්තර්ගතය සඳහා වර්ණ ප්‍රශස්ත කරන ලද</item>
+    </string-array>
+    <string-array name="color_mode_names">
+        <item>දීප්තිමත් (පෙරනිමිය)</item>
+        <item>ස්වභාවික</item>
+        <item>සම්මත</item>
+    </string-array>
+    <string-array name="color_picker">
+        <item>සේරා</item>
+        <item>නිල්</item>
+        <item>ඉන්ඩිගෝ</item>
+        <item>දම්</item>
+        <item>රෝස</item>
+        <item>රතු</item>
+    </string-array>
+    <string-array name="data_usage_data_range">
+        <item>අවසන් දින 30</item>
+        <item>භාවිත කිරීමේ කවය සකසන්න...</item>
+    </string-array>
+    <string-array name="data_usage_display_unit">
+        <item>MB/GB (auto change)</item>
+        <item>MB only</item>
+        <item>GB only</item>
+    </string-array>
+    <string-array name="debug_hw_overdraw_entries">
+        <item>අක්‍රියයි</item>
+        <item>වැඩිකොට දක්වනවා ඇති ප්‍රදේශ පෙන්වන්න</item>
+        <item>අපවිෂවීම සඳහා ප්‍රදේශ පෙන්වන්න</item>
+    </string-array>
+    <string-array name="debug_hw_renderer_entries">
+        <item>OpenGL (පෙරනිමි)</item>
+        <item>OpenGL (Skia)</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>බල යතුරෙන් ක්ෂණිකව හෝ තිරය කල් ඉකුත් වූ විට</item>
+        <item>තත්පර 5</item>
+        <item>තත්පර 15</item>
+        <item>තත්පර 30</item>
+        <item>විනාඩි 1</item>
+        <item>විනාඩි 2</item>
+        <item>විනාඩි 5</item>
+        <item>විනාඩි 10</item>
+        <item>විනාඩි 30</item>
+    </string-array>
+    <string-array name="dex_timeout_entries">
+        <item>තත්පර 15</item>
+        <item>තත්පර 30</item>
+        <item>විනාඩි 1</item>
+        <item>විනාඩි 2</item>
+        <item>විනාඩි 5</item>
+        <item>විනාඩි 10</item>
+        <item>විනාඩි 20</item>
+        <item>විනාඩි 30</item>
+        <item>විනාඩි 60</item>
+    </string-array>
+    <string-array name="dream_timeout_entries">
+        <item>කවදාවත් නොවේ</item>
+        <item>තත්පර 15</item>
+        <item>තත්පර 30</item>
+        <item>මිනිත්තු 1</item>
+        <item>මිනිත්තු 2</item>
+        <item>මිනිත්තු 5</item>
+        <item>මිනිත්තු 10</item>
+        <item>මිනිත්තු 30</item>
+    </string-array>
+    <string-array name="eap_method_without_sim_auth">
+        <item>PEAP</item>
+        <item>TLS</item>
+        <item>TTLS</item>
+        <item>PWD</item>
+    </string-array>
+    <string-array name="enable_opengl_traces_entries">
+        <item>කිසිවක් නැත</item>
+        <item>Logcat</item>
+        <item>Systrace (චිත්‍රක)</item>
+        <item>glGetError මත ඇමතීමේ අට්ටිය</item>
+    </string-array>
+    <string-array name="entries_font_size">
+        <item>කුඩා</item>
+        <item>පෙරනිමි</item>
+        <item>විශාල</item>
+        <item>විශාලතම</item>
+        <item>Huge</item>
+    </string-array>
+    <string-array name="hdcp_checking_summaries">
+        <item>කිසිවිටෙකත් HDCP පරීක්ෂාකිරීම භාවිතා නොකරන්න</item>
+        <item>DRM අන්තර්ගත සඳහා පමණක් HDCP පරික්ෂාව භාවිතා කරන්න</item>
+        <item>සැමවිටම HDCP පිරික්සුම භාවිතා කරන්න</item>
+    </string-array>
+    <string-array name="hdcp_checking_titles">
+        <item>කිසිදා පරික්ෂා නොකරන්න</item>
+        <item>DRM අන්තර්ගතය සඳහා පමණක් පිරික්සන්න</item>
+        <item>සැමවිටම පරික්ෂා කරන්න</item>
+    </string-array>
+    <string-array name="key_backlight_entries">
+        <item>සැමවිටම අක්‍රි.</item>
+        <item>1 second</item>
+        <item>3 seconds</item>
+        <item>5 seconds</item>
+        <item>10 seconds</item>
+        <item>15 seconds</item>
+    </string-array>
+    <string-array name="lock_after_timeout_entries">
+        <item>ඉක්මනින්</item>
+        <item>තත්පර 5</item>
+        <item>තත්පර 15</item>
+        <item>තත්පර 30</item>
+        <item>විනාඩි 1</item>
+        <item>විනාඩි 2</item>
+        <item>විනාඩි 5</item>
+        <item>විනාඩි 10</item>
+        <item>විනාඩි 30</item>
+    </string-array>
+    <string-array name="long_press_timeout_selector_titles">
+        <item>කොට</item>
+        <item>මධ්‍යම</item>
+        <item>දීර්ඝ</item>
+    </string-array>
+    <string-array name="long_press_timeout_titles_selector">
+        <item>කෙටි (තත්පර 0.5)</item>
+        <item>මධ්‍යම (තත්පර 1.0)</item>
+        <item>දිගු (තත්පර 1.5)</item>
+        <item>අභිමත</item>
+    </string-array>
+    <string-array name="mvno_type_entries">
+        <item>නොමැත</item>
+        <item>SPN</item>
+        <item>IMSI</item>
+        <item>GID</item>
+    </string-array>
+    <string-array name="num_allowed_devices">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+    <string-array name="overlay_display_devices_entries">
+        <item>කිසිවක් නැත</item>
+        <item>480p</item>
+        <item>480p (ආරක්ෂිත)</item>
+        <item>720p</item>
+        <item>720p (ආරක්ෂිත)</item>
+        <item>1080p</item>
+        <item>1080p (ආරක්ෂිත)</item>
+        <item>4K</item>
+        <item>4K (ආරක්ෂිත)</item>
+        <item>4K (පරිමාණය වැඩි කළ)</item>
+        <item>4K (පරිමාණය වැඩි කළ, ආරක්ෂිත)</item>
+        <item>720p, 1080p (ද්විත්ව තිරය)</item>
+    </string-array>
+    <string-array name="proc_stats_memory_states">
+        <item>සාමාන්‍ය</item>
+        <item>මධ්‍යම</item>
+        <item>පහළ</item>
+        <item>අවදානම්</item>
+    </string-array>
+    <string-array name="proc_stats_process_states">
+        <item>ස්ථාවර</item>
+        <item>උඩම ක්‍රියාකාරකම</item>
+        <item>වැදගත් (පෙරබිම)</item>
+        <item>වැදගත් (පසුබිම)</item>
+        <item>උපස්ථය</item>
+        <item>වැඩි බර</item>
+        <item>සේවාව (ධාවනය වන)</item>
+        <item>සේවාව (නැවත පටන් ගැනෙන)</item>
+        <item>ග්‍රාහකය</item>
+        <item>මුල් පිටුව</item>
+        <item>අවසන් ක්‍රියාකාරකම</item>
+        <item>හැඹිලි ගත කළ (ක්‍රියාකාරකම)</item>
+        <item>හැඹිලි ගත කළ (ක්‍රියාකාරකම් සේවාලාභියා)</item>
+        <item>හැඹිලි ගත කළ (හිස්)</item>
+    </string-array>
+    <string-array name="ram_states">
+        <item>සාමාන්‍ය</item>
+        <item>ආරක්ෂිත</item>
+        <item>අඩු</item>
+        <item>අවදානම්</item>
+        <item>\?</item>
+    </string-array>
+    <string-array name="screen_timeout_entries">
+        <item>තත්පර 15</item>
+        <item>තත්පර 30</item>
+        <item>විනාඩි 1</item>
+        <item>විනාඩි 2</item>
+        <item>විනාඩි 5</item>
+        <item>විනාඩි 10</item>
+        <item>විනාඩි 30</item>
+    </string-array>
+    <string-array name="screen_timeout_for_device_lock_entries">
+        <item>තත්පර 15</item>
+        <item>තත්පර 30</item>
+        <item>විනාඩි 1</item>
+        <item>විනාඩි 3</item>
+        <item>විනාඩි 5</item>
+        <item>විනාඩි 10</item>
+        <item>විනාඩි 15</item>
+        <item>විනාඩි 30</item>
+    </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>අසන්න</item>
+        <item>කිසිදාක ඉඩ නොදෙන්න</item>
+        <item>සැමවිටම ඉඩ දෙන්න</item>
+    </string-array>
+    <string-array name="select_logd_size_lowram_titles">
+        <item>ක්‍රියාවිරහිතය</item>
+        <item>64K</item>
+        <item>256K</item>
+        <item>1M</item>
+    </string-array>
+    <string-array name="select_logd_size_summaries">
+        <item>ක්‍රියාවිරහිතය</item>
+        <item>ලොග අන්තරාවකට 64K</item>
+        <item>ලොග අන්තරාවකට 256K</item>
+        <item>ලොග අන්තරාවකට 1M</item>
+        <item>ලොග අන්තරාවකට 4M</item>
+        <item>ලොග අන්තරාවකට 16M</item>
+    </string-array>
+    <string-array name="select_logd_size_titles">
+        <item>ක්‍රියාවිරහිතය</item>
+        <item>64K</item>
+        <item>256K</item>
+        <item>1M</item>
+        <item>4M</item>
+        <item>16M</item>
+    </string-array>
+    <string-array name="select_logpersist_summaries">
+        <item>ක්‍රියාවිරහිතයි</item>
+        <item>සියලු ලොග අන්තරාචය</item>
+        <item>සියලු නමුත් රේඩියෝ ලොග අන්තරාචය</item>
+        <item>කර්නල ලොග් අන්තරාචය පමණි</item>
+    </string-array>
+    <string-array name="select_logpersist_titles">
+        <item>ක්‍රියාවිරහිතය</item>
+        <item>සියලු</item>
+        <item>සැම වුවද රේඩි.</item>
+        <item>කර්නල පමණි</item>
+    </string-array>
+    <string-array name="show_non_rect_clip_entries">
+        <item>අක්‍රියව ඇත</item>
+        <item>ඍජුකෝණාස‍්‍ර-නොවන ක්ලිප් ප්‍රදේශය නිල් පාටින් අදින්න</item>
+        <item>පරික්ෂා කරන ලද ඇඳීමේ විධාන කොළ පැහැයෙන් ඉස්මතු කරන්න</item>
+    </string-array>
+    <string-array name="time_interval_entries_selectable">
+        <item>විනාඩි 1</item>
+        <item>විනාඩි 3</item>
+        <item>විනාඩි 5</item>
+        <item>විනාඩි 10</item>
+        <item>විනාඩි 15</item>
+    </string-array>
+    <string-array name="timezone_filters">
+        <item>ඇමරිකාව</item>
+        <item>යුරෝපය</item>
+        <item>අප්‍රිකාව</item>
+        <item>ආසියාව</item>
+        <item>ඕස්ට්‍රේලියාව</item>
+        <item>පැසිෆික්</item>
+        <item>සියලු</item>
+    </string-array>
+    <string-array name="touch_key_light_entries">
+        <item>තත්පර 1.5</item>
+        <item>තත්පර 6</item>
+        <item>සැමවිටම අක්‍රි.</item>
+        <item>සැමවිටම සක්‍රි.</item>
+    </string-array>
+    <string-array name="track_frame_time_entries">
+        <item>අක්‍රියයි</item>
+        <item>තිරයෙහි පටි ලෙස</item>
+        <item>adb shell dumpsys gfxinfo තුළ</item>
+    </string-array>
+    <string-array name="transition_animation_scale_entries">
+        <item>සජීවීකරණය අක්‍රියයි.</item>
+        <item>සජීවීකරණ පරිමාණය 0.5x</item>
+        <item>සජීවීකරණ පරිමාණය 1x</item>
+        <item>සජීවීකරණ පරිමාණය 1.5x</item>
+        <item>සජීවීකරණ පරිමාණය 2x</item>
+        <item>සජීවීකරණ පරිමාණය 5x</item>
+        <item>සජීවීකරණ පරිමාණය 10x</item>
+    </string-array>
+    <string-array name="tts_rate_entries">
+        <item>ඉතා මන්දගාමී</item>
+        <item>මන්දගාමී</item>
+        <item>සාමාන්‍ය</item>
+        <item>වේගවත්</item>
+        <item>වේශවත්</item>
+        <item>ඉතා වේගවත්</item>
+        <item>ශීඝ්‍ර</item>
+        <item>ඉතා ශීඝ්‍ර</item>
+        <item>ඉතාම වේගවත්</item>
+    </string-array>
+    <string-array name="usage_stats_display_order_types">
+        <item>භාවිතා කාලය</item>
+        <item>අවසන් වරට භාවිත කළේ</item>
+        <item>යෙදුමේ නම</item>
+    </string-array>
+    <string-array name="usb_configuration_titles">
+        <item>@string/usb_use_charging_only</item>
+        <item>MTP (Media Transfer Protocol)</item>
+        <item>PTP (Picture Transfer Protocol)</item>
+        <item>RNDIS (USB Ethernet)</item>
+        <item>ශ්‍රව්‍ය මූලාශ්‍රය</item>
+        <item>MIDI</item>
+    </string-array>
+    <string-array name="vpn_states">
+        <item>විසන්ධි විය</item>
+        <item>සැකසෙමින්…</item>
+        <item>සම්බන්ධ වෙමින්…</item>
+        <item>සම්බන්ධිතයි</item>
+        <item>කාලය අවසන්</item>
+        <item>අසාර්ථක</item>
+    </string-array>
+    <string-array name="vpn_types_long">
+        <item>PPTP VPN</item>
+        <item>පෙර බෙදාගත් යතුරු සමඟ L2TP/IPSec VPN</item>
+        <item>L2TP/IPSec VPN සමඟ සහතික</item>
+        <item>Xauth සත්‍යාපනය සහ පෙර බෙදාගත් යතුරු සමඟ IPSec VPN</item>
+        <item>සහතික සහ Xauth සත්‍යාපනය සමග IPSec VPN</item>
+        <item>IPSec VPN සමඟ සහතික සහ දෙමුහුන් සත්‍යාපනය</item>
+        <item>IPSec VPN with IKEv2 and pre-shared key-based authentication</item>
+        <item>IPSec VPN with IKEv2 and certificate-based authentication</item>
+    </string-array>
+    <string-array name="wifi_ap_channel">
+        <item>ස්වයං</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+    </string-array>
+    <string-array name="wifi_ap_security_testmode">
+        <item>විවෘත කරන්න</item>
+        <item>WPA2 PSK</item>
+    </string-array>
+    <string-array name="wifi_ap_timeout">
+        <item>කිසිදා කල් ඉකුත් නොවේ</item>
+        <item>විනාඩි 5</item>
+        <item>විනාඩි 10</item>
+        <item>විනාඩි 20</item>
+        <item>විනාඩි 30</item>
+        <item>විනාඩි 60</item>
+    </string-array>
+    <string-array name="wifi_ap_wifi_sharing">
+        <item>Wi-Fi බෙදා ගැනීම ක්‍රියාත්මක කරන්න</item>
+        <item>Wi-Fi බෙදා ගැනීම ක්‍රියා විරහිත කරන්න</item>
+    </string-array>
+    <string-array name="wifi_connect_entries">
+        <item>ස්වයංක්‍රීය</item>
+        <item>හසිතීයව</item>
+        <item>සැමවිට අසන්න</item>
+    </string-array>
+    <string-array name="wifi_eap_entries">
+        <item>PEAP</item>
+        <item>TLS</item>
+        <item>TTLS</item>
+        <item>PWD</item>
+    </string-array>
+    <string-array name="wifi_eap_method">
+        <item>PEAP</item>
+        <item>TLS</item>
+        <item>TTLS</item>
+        <item>PWD</item>
+        <item>SIM</item>
+        <item>AKA</item>
+        <item>"AKA'"</item>
+    </string-array>
+    <string-array name="wifi_ip_settings">
+        <item>DHCP</item>
+        <item>ස්ටැටික්</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>සම්බන්ධිතයි</item>
+        <item>ඇරයුම් කෙරිණ.</item>
+        <item>සම්බන්ධතාව අසාර්ථකයි</item>
+        <item>සබැඳීමට මෙහි තට්ටු කරන්න.</item>
+        <item>පරාසයෙන් පිට.</item>
+        <item>වෙනත් උපාංගයක් සමග සම්බන්ධ කළ</item>
+    </string-array>
+    <string-array name="wifi_p2p_wps_setup">
+        <item>ඔබන බොත්තම</item>
+        <item>සමයන්ගේ උපාංග වෙතින් PIN</item>
+        <item>මෙම උපකරණයේ සිට PIN</item>
+    </string-array>
+    <string-array name="wifi_peap_phase2_entries">
+        <item>කිසිවක් නැත</item>
+        <item>MSCHAPV2</item>
+        <item>GTC</item>
+    </string-array>
+    <string-array name="wifi_peap_phase2_entries_with_sim_auth">
+        <item>කිසිත් නැත</item>
+        <item>MSCHAPV2</item>
+        <item>GTC</item>
+        <item>SIM</item>
+        <item>AKA</item>
+        <item>"AKA'"</item>
+    </string-array>
+    <string-array name="wifi_phase2_entries">
+        <item>නොමැත</item>
+        <item>PAP</item>
+        <item>MSCHAP</item>
+        <item>MSCHAPV2</item>
+        <item>GTC</item>
+    </string-array>
+    <string-array name="wifi_proxy_settings">
+        <item>නොමැත</item>
+        <item>හසිතීයව</item>
+        <item>ස්වයං-වින්‍යාසය</item>
+    </string-array>
+    <string-array name="wifi_signal">
+        <item>දුර්වලයි</item>
+        <item>සාමාන්‍ය</item>
+        <item>හොඳ</item>
+        <item>ශක්තිමත්</item>
+        <item>ඉතා ශක්තිමත්</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_entries">
+        <item>"සැමවිට
+(බැටරි පරිභෝජනය ඉහළ නංවයි)"</item>
+        <item>ආරෝප වන අතරතුර</item>
+        <item>"කිසිදා නැත
+(දත්ත පරිහරණය ඉහළ නංවයි)"</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_entries_wifi_only">
+        <item>"සැමවිට
+(බැටරි පරිභෝජනය ඉහළ නංවයි)"</item>
+        <item>ආරෝප වන අතරතුර</item>
+        <item>කිසිදා නොවේ</item>
+    </string-array>
+    <string-array name="wifi_status">
+        <item></item>
+        <item>පිරික්සමින්…</item>
+        <item>සම්බන්ධ වෙමින්…</item>
+        <item>සත්‍යාපනය කරමින්…</item>
+        <item>IP ලිපිනය ලබා ගනිමින්…</item>
+        <item>සබැඳි</item>
+        <item>අත්හිටුවා ඇත</item>
+        <item>විසන්ධි වෙමින්…</item>
+        <item>විසන්ධි විය</item>
+        <item>අසාර්ථක</item>
+        <item>අවහිරයි</item>
+        <item>ඔබේ අන්තර්ජාල සම්බන්ධතාවයේ තත්ත්වය පරීක්ෂා කෙරෙමින්…</item>
+    </string-array>
+    <string-array name="wifi_status_with_ssid">
+        <item></item>
+        <item>පරිලෝකනය කරමින්…</item>
+        <item>%1$s වෙත සම්බන්ධ වෙමින්…</item>
+        <item>%1$s සමග සත්‍යාපනය කරමින්…</item>
+        <item>%1$s මගින් IP ලිපිනය ලබා ගනිමින්</item>
+        <item>%1$s වෙත සම්බන්ධ වුණි</item>
+        <item>අත්හිටුවන ලදි</item>
+        <item>%1$s වෙතින් විසන්ධි වෙමින්…</item>
+        <item>විසන්ධි විය</item>
+        <item>අසාර්ථකයි</item>
+        <item>අවහිර කරන ලදි</item>
+        <item>දුර්වල සම්බන්ධතාවය තාවකාලිකව මඟහරිමින්</item>
+    </string-array>
+    <string-array name="window_animation_scale_entries">
+        <item>සජීවීකරණය අක්‍රියයි.</item>
+        <item>සජීවීකරණ පරිමාණය 0.5x</item>
+        <item>සජීවීකරණ පරිමාණය 1x</item>
+        <item>සජීවීකරණ පරිමාණය 1.5x</item>
+        <item>සජීවීකරණ පරිමාණය 2x</item>
+        <item>සජීවීකරණ පරිමාණය 5x</item>
+        <item>සජීවීකරණ පරිමාණය 10x</item>
+    </string-array>
+</resources>

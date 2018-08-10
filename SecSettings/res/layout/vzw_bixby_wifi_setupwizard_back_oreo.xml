@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.samsung.android.settings.vzwbixbysetupwizard.view.BixbySetupWizardWifiScreenView android:id="@id/bixby_wifi_screen" android:background="@drawable/vzw_bixby_background_wifi" style="@style/Vzw_Wifi_Body"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/vzw_wifi_title_marginTop" android:layout_marginStart="@dimen/vzw_wifi_margin_Start" android:layout_marginEnd="@dimen/vzw_wifi_margin_End">
+        <TextView android:id="@id/vzw_wifi_title_text" android:layout_toLeftOf="@id/progress" style="@style/Vzw_Wifi_Title_Text" />
+        <ProgressBar android:id="@id/progress" android:visibility="gone" android:layout_width="@dimen/vzw_wifi_progress_bar_size" android:layout_height="@dimen/vzw_wifi_progress_bar_size" android:indeterminate="true" android:layout_centerVertical="true" android:layout_alignParentEnd="true" android:indeterminateTint="@color/vzw_wifi_progress_bar_color" style="?android:progressBarStyleSmall" />
+    </RelativeLayout>
+    <TextView android:id="@id/vzw_wifi_subtitle_text" android:visibility="gone" style="@style/Vzw_Wifi_Title_Sub_Text" />
+    <com.samsung.android.settings.vzwbixbysetupwizard.hq.vi.SolidBounceEffect android:id="@id/custom_wave_view" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <include android:id="@id/bixby_app_bar" layout="@layout/vzw_bixby_intro_header" />
+    <RelativeLayout android:orientation="vertical" android:id="@id/main_layout" style="@style/Vzw_Bixby_Body">
+        <LinearLayout android:id="@id/vzw_wifi_fragment_layout" android:layout_above="@id/vzw_wifi_bottom_button_bar" style="@style/Vzw_wifi_fragment.Bixby">
+            <FrameLayout android:id="@id/vzw_wifi_picker_dialog_fragment_layout" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/vzw_wifi_bottom_button_bar" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+            <FrameLayout android:id="@id/vzw_wifi_refresh_button_container" style="@style/Vzw_Wifi_BottomButtonBar">
+                <View style="@style/Vzw_Wifi_BottomButton_Divider" />
+                <Button android:id="@id/vzw_wifi_refresh_button" android:text="@string/vzw_wifi_scan" style="@style/Vzw_Wifi_BottomButtonBar_Button_Text.Top" />
+            </FrameLayout>
+            <FrameLayout style="@style/Vzw_Wifi_BottomButtonBar">
+                <View style="@style/Vzw_Wifi_BottomButton_Divider" />
+                <LinearLayout style="@style/Vzw_Wifi_BottomButtonBar_Button">
+                    <RelativeLayout style="@style/Vzw_Wifi_BottomButtonBar_Button_Container.Left">
+                        <Button android:id="@id/vzw_wifi_back_button" android:text="@string/back" android:onClick="onBackArrowPressed" android:contentDescription="@string/back" style="@style/Vzw_Wifi_BottomButtonBar_Button_Text.Left.Back" />
+                    </RelativeLayout>
+                    <RelativeLayout style="@style/Vzw_Wifi_BottomButtonBar_Button_Container.Right">
+                        <Button android:id="@id/vzw_wifi_skip_button" android:text="@string/skip_wifi_setup" style="@style/Vzw_Wifi_BottomButtonBar_Button_Text.Right">
+                            <requestFocus />
+                        </Button>
+                    </RelativeLayout>
+                </LinearLayout>
+            </FrameLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</com.samsung.android.settings.vzwbixbysetupwizard.view.BixbySetupWizardWifiScreenView>

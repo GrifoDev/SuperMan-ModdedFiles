@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/storage_settings" android:orderingFromXml="false"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <com.android.settings.deviceinfo.storage.StorageSummaryDonutPreference android:key="pref_summary" android:order="0" />
+    <com.android.settings.deviceinfo.StorageItemPreference android:icon="@drawable/ic_system_update_vd_theme_24" android:title="@string/memory_size" android:key="pref_total" android:order="1" />
+    <com.android.settings.deviceinfo.StorageItemPreference android:icon="@drawable/ic_system_update_vd_theme_24" android:title="@string/memory_available" android:key="pref_avaiable" android:order="2" />
+    <com.android.settings.deviceinfo.StorageItemPreference android:icon="@drawable/ic_system_update_vd_theme_24" android:title="@string/misc_system_memory" android:key="pref_system" android:order="3" />
+    <com.android.settings.deviceinfo.StorageItemPreference android:icon="@drawable/ic_photo_library_vd_theme_24" android:title="@string/storage_photos_videos" android:key="pref_photos_videos" android:order="4" settings:allowDividerAbove="true" />
+    <com.android.settings.deviceinfo.StorageItemPreference android:icon="@drawable/ic_music_note_vd_theme_24" android:title="@string/storage_music_audio" android:key="pref_music_audio" android:order="5" />
+    <com.android.settings.deviceinfo.StorageItemPreference android:icon="@drawable/ic_videogame_vd_theme_24" android:title="@string/storage_games" android:key="pref_games" android:order="6" />
+    <com.android.settings.deviceinfo.StorageItemPreference android:icon="@drawable/ic_theaters_vd_theme_24" android:title="@string/storage_movies_tv" android:key="pref_movies" android:order="7" />
+    <com.android.settings.deviceinfo.StorageItemPreference android:icon="@drawable/ic_apps_vd_theme_24" android:title="@string/storage_other_apps" android:key="pref_other_apps" android:order="8" />
+    <com.android.settings.deviceinfo.StorageItemPreference android:icon="@drawable/ic_folder_vd_theme_24" android:title="@string/storage_files" android:key="pref_files" android:order="9" />
+    <PreferenceCategory android:title="@string/storage_other_users" android:key="pref_secondary_users" android:order="200" />
+</PreferenceScreen>

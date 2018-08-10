@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:layout_marginBottom="8.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="start|center" android:orientation="horizontal" android:id="@id/icon_container" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <com.android.internal.widget.PreferenceImageView android:id="@android:id/icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="18.0dip" android:maxHeight="18.0dip" android:tint="?android:textColorPrimary" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:id="@android:id/title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingEnd="?android:listPreferredItemPaddingEnd" style="?android:listSeparatorTextViewStyle" />
+        <TextView android:textAppearance="?android:textAppearanceListItemSecondary" android:textColor="?android:textColorSecondary" android:ellipsize="end" android:id="@android:id/summary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+    </LinearLayout>
+</FrameLayout>

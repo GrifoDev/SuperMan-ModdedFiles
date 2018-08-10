@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:key="set_attribution_and_operator_sdk">
+        <ListPreference android:entries="@array/entries_province_choose" android:title="@string/province_choose" android:key="province_choose_sdk" android:summary="@string/defualt_summary" android:dialogTitle="@string/province_choose_title" android:entryValues="@array/entriesvalues_province_choose" />
+        <ListPreference android:entries="@array/entries_operator_choose" android:title="@string/operator_choose" android:key="operator_choose_sdk" android:summary="@string/defualt_summary" android:dialogTitle="@string/operator_choose_title" android:entryValues="@array/entriesvalues_operator_choose" />
+        <ListPreference android:entries="@array/entries_cu_choose" android:title="@string/package_choose" android:key="package_choose_sdk" android:summary="@string/defualt_summary" android:dialogTitle="@string/package_choose_title" android:entryValues="@array/entriesvalues_cu_choose" />
+        <SwitchPreference android:title="@string/sdk_auto_update" android:key="switch_bar_sdk_update" android:summary="@string/sdk_auto_update_summary" android:defaultValue="true" />
+    </PreferenceCategory>
+</PreferenceScreen>

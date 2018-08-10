@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/header_category_system"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Preference android:icon="@drawable/ic_settings_backup" android:title="@string/privacy_settings_title" android:key="backup_settings" android:summary="@string/summary_placeholder" android:order="-60">
+        <intent android:action="android.settings.BACKUP_AND_RESET_SETTINGS" />
+    </Preference>
+    <Preference android:icon="@drawable/ic_system_update" android:title="@string/system_update_settings_list_item_title" android:key="system_update_settings" android:summary="@string/summary_placeholder" android:order="-30">
+        <intent android:action="android.settings.SYSTEM_UPDATE_SETTINGS" />
+    </Preference>
+    <Preference android:title="@string/additional_system_update_settings_list_item_title" android:key="additional_system_update_settings" android:order="-31">
+        <intent android:targetPackage="@string/additional_system_update" android:action="android.intent.action.MAIN" android:targetClass="@string/additional_system_update_menu" />
+    </Preference>
+    <Preference android:icon="@drawable/ic_restore" android:title="@string/reset_dashboard_title" android:key="reset_dashboard" android:order="-20" android:fragment="com.android.settings.system.ResetDashboardFragment" />
+</PreferenceScreen>

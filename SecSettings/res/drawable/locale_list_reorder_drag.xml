@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bitmap android:src="@drawable/tw_list_icon_reorder" android:tint="@color/winset_reorder_drag_handler" android:tintMode="src_in"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

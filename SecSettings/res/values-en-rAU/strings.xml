@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accessibility_display_daltonizer_preference_title">Colour correction</string>
+    <string name="accessibility_no_wifi">Wi-Fi disconnected.</string>
+    <string name="accessibility_wifi_off">Wi-Fi off.</string>
+    <string name="accessibility_wifi_one_bar">Wi-Fi one bar.</string>
+    <string name="accessibility_wifi_signal_full">Wi-Fi signal full.</string>
+    <string name="accessibility_wifi_three_bars">Wi-Fi three bars.</string>
+    <string name="accessibility_wifi_two_bars">Wi-Fi two bars.</string>
+    <string name="adb_keys_warning_message">"Revoke access to USB debugging from all computers you've previously authorised?"</string>
+    <string name="adb_warning_message">USB debugging is intended for development purposes only. Use it to copy data between your computer and your device, install apps on your device without notification and read log data.</string>
+    <string name="battery_info_status_charging_lower">charging</string>
+    <string name="bluetooth_hid_profile_summary_connected">Connected to input device</string>
+    <string name="bluetooth_opp_profile_summary_connected">Connected to file-transfer server</string>
+    <string name="bluetooth_opp_profile_summary_not_connected">Not connected to file-transfer server</string>
+    <string name="bluetooth_pairing_device_down_error_message">"Can't communicate with %1$s."</string>
+    <string name="bluetooth_pairing_error_message">"Couldn't pair with %1$s."</string>
+    <string name="bluetooth_pairing_pin_error_message">"Couldn't pair with %1$s because of an incorrect PIN or passkey."</string>
+    <string name="bluetooth_pairing_rejected_error_message">Pairing rejected by %1$s.</string>
+    <string name="bluetooth_pan_nap_profile_summary_connected">Sharing local Internet connection with device</string>
+    <string name="bluetooth_pan_profile_summary_use_for">Use for Internet access</string>
+    <string name="bluetooth_pan_user_profile_summary_connected">Connected to device for Internet access</string>
+    <string name="bluetooth_profile_a2dp_high_quality">Use high-quality audio: %1$s</string>
+    <string name="bluetooth_profile_a2dp_high_quality_unknown_codec">Use high-quality audio</string>
+    <string name="bluetooth_profile_map">Message Access</string>
+    <string name="bluetooth_profile_pbap">Contact sharing</string>
+    <string name="bt_hci_snoop_log_summary">Capture all Bluetooth HCI packets in a file</string>
+    <string name="charge_length_format">%1$s ago</string>
+    <string name="clear_adb_keys">Revoke USB debugging authorisations</string>
+    <string name="config_backup_settings_label" />
+    <string name="convert_to_fbe_warning">"Convert data partition to file-based encryption.
+ !!Warning!! This will delete all your data.
+ This feature is alpha, and may not work correctly.
+ Press 'Wipe and convert…' to continue."</string>
+    <string name="dev_logpersist_clear_warning_message">When we are no longer monitoring with the persistent logger, we are required to erase the logger data resident on your device.</string>
+    <string name="direct_boot_unaware_dialog_message">"Note: After a reboot, this app can't start until you unlock your phone"</string>
+    <string name="force_hw_ui_summary">Force use of GPU for 2D drawing</string>
+    <string name="force_resizable_activities">Force activities to be re-sizable</string>
+    <string name="hdcp_checking_dialog_title">Set HDCP checking behaviour</string>
+    <string name="ime_security_warning">This input method may be able to collect all the text that you type, including personal data like passwords and credit card numbers. It comes from the app %1$s. Use this input method?</string>
+    <string name="immediately_destroy_activities">"Don't keep activities"</string>
+    <string name="local_backup_password_summary_none">"Desktop full backups aren't currently protected"</string>
+    <string name="local_backup_password_toast_confirmation_mismatch">"New password and confirmation don't match"</string>
+    <string name="picture_color_mode">Picture colour mode</string>
+    <string name="power_charging_duration">%1$s – %2$s until fully charged</string>
+    <string name="power_discharging_duration">%1$s – about %2$s left</string>
+    <string name="power_remaining_duration_only">About %1$s left</string>
+    <string name="remaining_length_format">%1$s left</string>
+    <string name="show_all_anrs_summary">Show App Not Responding dialogue for background apps</string>
+    <string name="simulate_color_space">Simulate colour space</string>
+    <string name="title_convert_fbe">Converting to file-based encryption</string>
+    <string name="tts_default_pitch_summary">Affects the tone of the synthesised speech</string>
+    <string name="tts_settings_title">Text-to-speech output</string>
+    <string name="verify_apps_over_usb_summary">Check apps installed via ADB/ADT for harmful behaviour.</string>
+    <string name="wifi_disabled_wifi_failure">Wi-Fi Connection Failure</string>
+    <string name="wifi_verbose_logging">Enable Wi‑Fi verbose logging</string>
+</resources>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/wifi_advanced_titlebar" settings:parent="@xml/wifi_settings"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <com.samsung.android.settings.wifi.WifiPreferenceCategory android:title="@string/wifi_watchdog_connectivity_check_adaptive" android:key="advanced_adaptive_wifi" android:order="1">
+        <SecSwitchPreferenceScreen android:title="@string/wifi_switch_to_mobile_data" android:key="wifi_poor_network_detection" android:summary="@string/wifi_switch_to_mobile_data_detail" android:fragment="com.samsung.android.settings.wifi.SmartNetworkSwitchSettings" />
+        <SecSwitchPreference android:persistent="true" android:title="@string/wifi_autowifi_title" android:key="auto_wifi" android:summary="@string/wifi_autowifi_summary" />
+        <SecSwitchPreference android:persistent="true" android:title="@string/wifi_adps_title" android:key="wifi_adps" android:summary="@string/wifi_adps_summary" />
+    </com.samsung.android.settings.wifi.WifiPreferenceCategory>
+    <com.samsung.android.settings.wifi.WifiPreferenceCategory android:title="@string/wifi_network_settings_category" android:key="advanced_network_settings" android:order="2">
+        <SecPreference android:title="@string/secure_wifi" android:key="secure_wifi" android:summary="@string/secure_wifi_summary" />
+        <SecSwitchPreference android:persistent="true" android:title="@string/auto_connect_xfinity_wifi" android:key="auto_connect_xfinity_wifi" android:summary="@string/auto_connect_xfinity_wifi_summary" />
+        <SecSwitchPreference android:persistent="true" android:title="Spectrum Connection Manager" android:key="optimize_charter_wifi_networks" android:summary="Optimize Wi-Fi network selections" />
+        <SecSwitchPreference android:persistent="true" android:title="@string/wifi_notify_open_networks" android:key="notify_open_networks" android:summary="@string/wifi_notify_open_networks_summary" />
+        <SecSwitchPreference android:persistent="true" android:title="@string/wifi_att_auto_connect" android:key="att_auto_connect" android:summary="@string/wifi_att_auto_connect_summary" />
+        <SecSwitchPreference android:persistent="true" android:title="@string/wlan_permission_available" android:key="wlan_permission_available" android:summary="@string/wlan_permission_available_message" />
+        <SecSwitchPreference android:persistent="true" android:visibility="gone" android:title="@string/notify_me_available_network" android:key="show_wifi_popup" android:summary="@string/notify_me_available_network_summary" />
+        <SecListDialogPreference android:persistent="false" android:entries="@array/wifi_connect_entries" android:title="@string/wifi_connect_type_title" android:key="wifi_connection_type" android:entryValues="@array/wifi_connect_values" />
+        <com.samsung.android.settings.wifi.CMCCWarningDialogPreference android:persistent="false" android:title="@string/cmcc_warning_dialog_control" android:key="wlan_notify_cmcc" android:dialogTitle="@string/cmcc_warning_dialog_control" android:dialogMessage="@string/cmcc_warning_dialog_control_summary" />
+        <SecSwitchPreference android:persistent="true" android:title="@string/wifi_scan_for_free_wlans_title" android:key="wifi_scan_for_free_wlans" android:summary="@string/wifi_scan_for_free_wlans_summary" />
+        <SecPreference android:persistent="false" android:title="@string/wifi_manage_network" android:key="wifi_manage_network" android:summary="@string/wifi_manage_network_summary" />
+        <SecPreference android:persistent="false" android:title="@string/wifi_control_history_title" android:key="wifi_control_history" android:summary="@string/wifi_control_history_summary" />
+    </com.samsung.android.settings.wifi.WifiPreferenceCategory>
+    <SecSwitchPreference android:persistent="true" android:title="@string/wifi_hotspot20_enable" android:key="wifi_hs20_enable" android:summary="@string/wifi_hotspot20_summary" />
+    <SecPreference android:persistent="false" android:title="@string/wifi_menu_wps_pbc" android:key="wps_push_button" android:summary="@string/wifi_menu_wps_pbc_summary" />
+    <SecPreference android:persistent="false" android:title="@string/wifi_menu_wps_pin" android:key="wps_pin_entry" android:summary="@string/wifi_menu_wps_pin_summary" />
+    <SecListDialogPreference android:entries="@array/wifi_sleep_policy_entries" android:title="@string/wifi_setting_sleep_policy_title" android:key="sleep_policy" android:entryValues="@array/wifi_sleep_policy_values" />
+    <SecPreference android:persistent="false" android:title="@string/wifi_install_network_certificates" android:key="install_credentials" android:summary="@string/wifi_install_network_credentials_summary" />
+    <SecPreference android:key="mac_address" />
+</PreferenceScreen>

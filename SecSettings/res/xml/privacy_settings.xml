@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/privacy_settings_title"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <Preference android:persistent="false" android:title="@string/backup_data_title" android:key="backup_data" android:fragment="com.android.settings.backup.ToggleBackupSettingFragment" />
+    <Preference android:persistent="false" android:title="@string/backup_configure_account_title" android:key="configure_account">
+        <intent android:action="dummy" />
+    </Preference>
+    <Preference android:persistent="false" android:key="data_management" />
+    <SwitchPreference android:title="@string/auto_restore_title" android:key="auto_restore" android:summary="@string/auto_restore_summary" />
+    <Preference android:persistent="false" android:enabled="false" android:title="@string/backup_inactive_title" android:selectable="false" android:key="backup_inactive" />
+</PreferenceScreen>

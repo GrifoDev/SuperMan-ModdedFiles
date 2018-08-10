@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:touchwiz="http://schemas.android.com/apk/res/touchwiz">
+    <com.samsung.android.settings.UnclickablePreference android:title="@string/lockscreen_notification_off_aod_off_desc" android:key="unclickable_pref" />
+    <SecRestrictedSwitchPreference android:title="@string/lock_screen_notifications_summary_hide" android:key="set_visibility" />
+    <SecSwitchPreference android:title="@string/lockscreen_notification_icons_only" android:key="notification_icons_only" android:summary="@string/lockscreen_notification_icons_only_summary" />
+    <com.samsung.android.settings.lockscreen.NotificationCardSeekbarPreference android:title="@string/lockscreen_noti_card_transparency" android:key="noti_card_seekbar" />
+    <SecSwitchPreference android:title="@string/lockscreen_noti_card_inverse_text_color" android:key="noti_inverse_text" android:summary="@string/lockscreen_noti_card_inverse_text_color_summary" />
+</PreferenceScreen>

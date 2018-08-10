@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/language_keyboard_settings_title" android:key="language_keyboard_settings"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <SecPreferenceScreen android:title="@string/phone_language" android:key="phone_language" android:fragment="com.samsung.android.settings.localepicker.LocaleListEditor" />
+    <SecPreferenceScreen android:title="@string/current_input_method" android:key="current_input_method" />
+    <SecPreferenceCategory android:title="@string/keyboard_and_input_methods_category" android:key="keyboard_and_input_methods_category">
+        <SecPreferenceScreen android:title="@string/virtual_keyboard_category" android:key="virtual_keyboard_settings" android:fragment="com.android.settings.inputmethod.VirtualKeyboardFragment" />
+        <SecPreferenceScreen android:title="@string/physical_keyboard_title" android:key="physical_keyboard_settings" android:fragment="com.android.settings.inputmethod.PhysicalKeyboardFragment" />
+        <SecSwitchPreference android:persistent="false" android:title="@string/show_keyboard_button_title" android:key="key_show_keyboard_button" android:summary="@string/show_keyboard_button_summary" />
+    </SecPreferenceCategory>
+    <SecPreferenceCategory android:title="@string/input_assistance" android:key="input_assistance_category">
+        <SecPreferenceScreen android:persistent="false" android:title="@string/spellcheckers_settings_title" android:key="spellcheckers_settings" android:fragment="com.android.settings.inputmethod.SpellCheckersSettings" />
+        <com.samsung.android.settings.SecGearPreference android:title="@string/autofill_app" android:key="default_autofill" android:fragment="com.android.settings.applications.defaultapps.DefaultAutofillPicker" settings:keywords="@string/autofill_keywords" />
+        <SecPreferenceScreen android:title="@string/user_dict_settings_title" android:key="key_user_dictionary_settings" />
+    </SecPreferenceCategory>
+    <SecPreferenceCategory android:title="@string/handwriting_recognition" android:key="handwriting_search_category">
+        <SecPreferenceScreen android:title="@string/language_picker_title" android:key="handwriting_language" android:fragment="com.samsung.android.settings.handwritingsearch.HandwritingLanguagePreference" />
+    </SecPreferenceCategory>
+    <SecPreferenceCategory android:title="@string/voice_category" android:key="voice_category">
+        <SecPreferenceScreen android:title="@string/tts_settings_title" android:key="tts_settings" android:fragment="com.android.settings.tts.TextToSpeechSettings" />
+    </SecPreferenceCategory>
+    <SecPreferenceCategory android:title="@string/pointer_settings_category" android:key="pointer_settings_category">
+        <com.android.settings.PointerSpeedPreferenceSamsung android:title="@string/pointer_speed" android:key="pointer_speed" android:dialogTitle="@string/pointer_speed" />
+    </SecPreferenceCategory>
+    <SecPreferenceCategory android:title="@string/game_controller_settings_category" android:key="game_controller_settings_category">
+        <SecSwitchPreference android:title="@string/vibrate_input_devices" android:key="vibrate_input_devices" android:summaryOn="@string/vibrate_input_devices_summary" android:summaryOff="@string/vibrate_input_devices_summary" />
+    </SecPreferenceCategory>
+</PreferenceScreen>

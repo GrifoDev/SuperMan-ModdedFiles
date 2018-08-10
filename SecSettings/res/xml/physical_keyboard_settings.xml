@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/physical_keyboard_title"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <SecPreferenceCategory android:title="@string/keyboard_assistance_category" android:key="keyboard_assistance_category">
+        <SecSwitchPreference android:title="@string/show_ime" android:key="show_virtual_keyboard_switch" android:summary="@string/show_ime_summary" android:defaultValue="false" />
+        <SecSwitchPreference android:title="@string/show_virtual_keyboard_for_dex" android:key="show_virtual_keyboard_switch_for_dex" android:summary="@string/show_ime_summary" android:defaultValue="false" />
+        <SecPreferenceScreen android:title="@string/keyboard_shortcuts_helper" android:key="keyboard_shortcuts_helper" android:summary="@string/keyboard_shortcuts_helper_summary" />
+    </SecPreferenceCategory>
+</PreferenceScreen>

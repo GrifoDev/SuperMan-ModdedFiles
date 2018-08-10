@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="allshare_download_to">
+        <item>Прылада</item>
+        <item>SD-карта</item>
+    </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>Анімацыя адкл.</item>
+        <item>Маштаб анімацыі: 0.5x</item>
+        <item>Маштаб анімацыі: 1x</item>
+        <item>Маштаб анімацыі: 1.5x</item>
+        <item>Маштаб анімацыі: 2x</item>
+        <item>Маштаб анімацыі: 5x</item>
+        <item>Маштаб анімацыі: 10x</item>
+    </string-array>
+    <string-array name="apn_auth_entries">
+        <item>Няма</item>
+        <item>PAP</item>
+        <item>CHAP</item>
+        <item>PAP ці CHAP</item>
+    </string-array>
+    <string-array name="battery_labels">
+        <item>0%</item>
+        <item>50%</item>
+        <item>100%</item>
+    </string-array>
+    <string-array name="bearer_entries">
+        <item>Нявызначана</item>
+        <item>LTE</item>
+        <item>HSPAP</item>
+        <item>HSPA</item>
+        <item>HSUPA</item>
+        <item>HSDPA</item>
+        <item>UMTS</item>
+        <item>EDGE</item>
+        <item>GPRS</item>
+        <item>eHRPD</item>
+        <item>EVDO_B</item>
+        <item>EVDO_A</item>
+        <item>EVDO_0</item>
+        <item>1xRTT</item>
+        <item>IS95B</item>
+        <item>IS95A</item>
+        <item>IWLAN</item>
+    </string-array>
+    <string-array name="bearer_entries_dcm_kdi">
+        <item>Нявызначана</item>
+        <item>4G</item>
+        <item>HSPAP</item>
+        <item>HSPA</item>
+        <item>HSUPA</item>
+        <item>HSDPA</item>
+        <item>UMTS</item>
+        <item>EDGE</item>
+        <item>GPRS</item>
+        <item>eHRPD</item>
+        <item>EVDO_B</item>
+        <item>EVDO_A</item>
+        <item>EVDO_0</item>
+        <item>1xRTT</item>
+        <item>IS95B</item>
+        <item>IS95A</item>
+        <item>IWLAN</item>
+    </string-array>
+    <string-array name="bluetooth_ss_a2dp_codec_summaries">
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>Усе кодэкі</item>
+        <item>Кодэк па змаўчанні</item>
+    </string-array>
+    <string-array name="bluetooth_ss_a2dp_codec_titles">
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>Усе кодэкі</item>
+        <item>Кодэк па змаўчанні</item>
+    </string-array>
+    <string-array name="bluetooth_ss_japan_a2dp_codec_titles">
+        <item>SBC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>Усе кодэкі</item>
+        <item>Кодэк па змаўчанні</item>
+    </string-array>
+    <string-array name="captioning_edge_type_selector_titles">
+        <item>Стандартнае</item>
+        <item>Няма</item>
+        <item>Контур</item>
+        <item>З ценем</item>
+        <item>Прыўзняты</item>
+        <item>Уціснуты</item>
+    </string-array>
+    <string-array name="captioning_font_size_selector_titles">
+        <item>Вельмі дробны</item>
+        <item>Дробны</item>
+        <item>Звычайны</item>
+        <item>Буйны</item>
+        <item>Вельмі вялікі</item>
+    </string-array>
+    <string-array name="captioning_preset_selector_titles">
+        <item>Стандартны</item>
+        <item>Белае на чорным</item>
+        <item>Чорнае на белым</item>
+        <item>Жоўтае на чорным</item>
+        <item>Жоўтае на сінім</item>
+        <item>Адмысловае</item>
+    </string-array>
+    <string-array name="captioning_typeface_selector_titles">
+        <item>Стандартнае</item>
+        <item>Без засечак</item>
+        <item>Сцягнуты без засечак</item>
+        <item>Sans serif monospace</item>
+        <item>З засечкамі</item>
+        <item>Serif monospace</item>
+        <item>Штодзённы</item>
+        <item>Курсіў</item>
+        <item>Дробныя вялікія літары</item>
+    </string-array>
+    <string-array name="color_adjust_type_entries">
+        <item>Градацыі шэрага</item>
+        <item>Пратан (чырвоны-зялёны)</item>
+        <item>Дэйтан (зялёны-чырвоны)</item>
+        <item>Трытан (сіні-жоўты)</item>
+        <item>Персаналізаваны колер</item>
+    </string-array>
+    <string-array name="color_lens_entries">
+        <item>Сіні</item>
+        <item>Лазурны</item>
+        <item>Блакітны</item>
+        <item>Ярка-зялёны</item>
+        <item>Зялёны</item>
+        <item>Фісташкавы зялёны</item>
+        <item>Жоўты</item>
+        <item>Аранжавы</item>
+        <item>Чырвоны</item>
+        <item>Ружовы</item>
+        <item>Пурпурны</item>
+        <item>Фіялетавы</item>
+    </string-array>
+    <string-array name="data_usage_display_unit">
+        <item>MB/GB (auto change)</item>
+        <item>MB only</item>
+        <item>GB only</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>Імгненна пры дапамозе клавішы ўключэння ці па завяршэнні часу чакання экрана</item>
+        <item>5 секунд</item>
+        <item>15 секунд</item>
+        <item>30 секунд</item>
+        <item>1 хвіліна</item>
+        <item>2 хв.</item>
+        <item>5 хвілін</item>
+        <item>10 хвілін</item>
+        <item>30 хвілін</item>
+    </string-array>
+    <string-array name="dex_timeout_entries">
+        <item>15 секунд</item>
+        <item>30 секунд</item>
+        <item>1 хвіліна</item>
+        <item>2 хв.</item>
+        <item>5 хвілін</item>
+        <item>10 хвілін</item>
+        <item>20 хвілін</item>
+        <item>30 хвілін</item>
+        <item>60 хвілін</item>
+    </string-array>
+    <string-array name="key_backlight_entries">
+        <item>Заўжды выкл.</item>
+        <item>1 second</item>
+        <item>3 seconds</item>
+        <item>5 seconds</item>
+        <item>10 seconds</item>
+        <item>15 seconds</item>
+    </string-array>
+    <string-array name="lock_after_timeout_entries">
+        <item>Неадкладна</item>
+        <item>5 секунд</item>
+        <item>15 секунд</item>
+        <item>30 секунд</item>
+        <item>1 хвіліна</item>
+        <item>2 хв.</item>
+        <item>5 хвілін</item>
+        <item>10 хвілін</item>
+        <item>30 хвілін</item>
+    </string-array>
+    <string-array name="long_press_timeout_titles_selector">
+        <item>Кароткая (0.5 секунды)</item>
+        <item>Сярэдняя (1.0 секунды)</item>
+        <item>Доўгая (1.5 секунды)</item>
+        <item>Адмысловае</item>
+    </string-array>
+    <string-array name="mvno_type_entries">
+        <item>Няма</item>
+        <item>SPN</item>
+        <item>IMSI</item>
+        <item>GID</item>
+    </string-array>
+    <string-array name="num_allowed_devices">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+    <string-array name="ram_states">
+        <item>Звычайны</item>
+        <item>Умераная</item>
+        <item>Нізкі</item>
+        <item>Крытычны</item>
+        <item>\?</item>
+    </string-array>
+    <string-array name="screen_timeout_entries">
+        <item>15 секунд</item>
+        <item>30 секунд</item>
+        <item>1 хвіліна</item>
+        <item>2 хв.</item>
+        <item>5 хвілін</item>
+        <item>10 хвілін</item>
+        <item>30 хвілін</item>
+    </string-array>
+    <string-array name="screen_timeout_for_device_lock_entries">
+        <item>15 секунд</item>
+        <item>30 секунд</item>
+        <item>1 хвіліна</item>
+        <item>3 хвіліны</item>
+        <item>5 хвілін</item>
+        <item>10 хвілін</item>
+        <item>15 хвілін</item>
+        <item>30 хвілін</item>
+    </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Запыт</item>
+        <item>Ніколі не дазваляць</item>
+        <item>Заўжды дазваляць</item>
+    </string-array>
+    <string-array name="time_interval_entries_selectable">
+        <item>1 хвіліна</item>
+        <item>3 хвіліны</item>
+        <item>5 хвілін</item>
+        <item>10 хвілін</item>
+        <item>15 хвілін</item>
+    </string-array>
+    <string-array name="touch_key_light_entries">
+        <item>1.5 секунды</item>
+        <item>6 секунд</item>
+        <item>Заўжды выкл.</item>
+        <item>Заўжды ўкл.</item>
+    </string-array>
+    <string-array name="transition_animation_scale_entries">
+        <item>Анімацыя адкл.</item>
+        <item>Маштаб анімацыі: 0.5x</item>
+        <item>Маштаб анімацыі: 1x</item>
+        <item>Маштаб анімацыі: 1.5x</item>
+        <item>Маштаб анімацыі: 2x</item>
+        <item>Маштаб анімацыі: 5x</item>
+        <item>Маштаб анімацыі: 10x</item>
+    </string-array>
+    <string-array name="usb_configuration_titles">
+        <item>@string/usb_use_charging_only</item>
+        <item>MTP (Media Transfer Protocol)</item>
+        <item>PTP (Picture Transfer Protocol)</item>
+        <item>RNDIS (USB Ethernet)</item>
+        <item>Крыніца аўдыя</item>
+        <item>MIDI</item>
+    </string-array>
+    <string-array name="vpn_states">
+        <item>Адлучана</item>
+        <item>Ініцыялізацыя…</item>
+        <item>Злучэнне…</item>
+        <item>Падлучана</item>
+        <item>Час чакання</item>
+        <item>Не ўдалося</item>
+    </string-array>
+    <string-array name="wifi_ap_channel">
+        <item>Аўтаматычна</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+    </string-array>
+    <string-array name="wifi_ap_security_testmode">
+        <item>Адкрыць</item>
+        <item>WPA2 PSK</item>
+    </string-array>
+    <string-array name="wifi_ap_timeout">
+        <item>Не ўжываць час чакання</item>
+        <item>5 хвілін</item>
+        <item>10 хвілін</item>
+        <item>20 хвілін</item>
+        <item>30 хвілін</item>
+        <item>60 хвілін</item>
+    </string-array>
+    <string-array name="wifi_ap_wifi_sharing">
+        <item>Уключыць абагульванне Wi-Fi</item>
+        <item>Выключыць абагуленне праз Wi-Fi</item>
+    </string-array>
+    <string-array name="wifi_connect_entries">
+        <item>Аўтаматычна</item>
+        <item>Уручную</item>
+        <item>Заўсёды пытацца</item>
+    </string-array>
+    <string-array name="wifi_ip_settings">
+        <item>DHCP</item>
+        <item>Статычны</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>Падлучана</item>
+        <item>Запрошаны.</item>
+        <item>Памылка злучэння</item>
+        <item>Націсніце сюды для падлучэння.</item>
+        <item>Па-за дыяпазонам.</item>
+        <item>Падлучана да іншай прылады</item>
+    </string-array>
+    <string-array name="wifi_peap_phase2_entries_with_sim_auth">
+        <item>Няма</item>
+        <item>MSCHAPV2</item>
+        <item>GTC</item>
+        <item>SIM-карта</item>
+        <item>AKA</item>
+        <item>"AKA'"</item>
+    </string-array>
+    <string-array name="wifi_phase2_entries">
+        <item>Няма</item>
+        <item>PAP</item>
+        <item>MSCHAP</item>
+        <item>MSCHAPV2</item>
+        <item>GTC</item>
+    </string-array>
+    <string-array name="wifi_proxy_settings">
+        <item>Няма</item>
+        <item>Уручную</item>
+        <item>Аўтаматычная канфігурацыя</item>
+    </string-array>
+    <string-array name="wifi_signal">
+        <item>Слабы</item>
+        <item>Неблагі</item>
+        <item>Добра</item>
+        <item>Моцны</item>
+        <item>Вельмі моцны</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_entries">
+        <item>"Заўсёды
+(Павялічвае расход зараду акумулятара)"</item>
+        <item>Падчас зарадкі</item>
+        <item>"Ніколі
+(павялічвае выкарыстанне даных)"</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_entries_wifi_only">
+        <item>"Заўсёды
+(Павялічвае расход зараду акумулятара)"</item>
+        <item>Падчас зарадкі</item>
+        <item>Ніколі</item>
+    </string-array>
+    <string-array name="wifi_status">
+        <item></item>
+        <item>Сканаванне…</item>
+        <item>Злучэнне…</item>
+        <item>Аўтэнтыфікацыя…</item>
+        <item>Атрыманне IP-адрасу…</item>
+        <item>Падлучана</item>
+        <item>Прыпынена</item>
+        <item>Адлучэнне…</item>
+        <item>Адлучана</item>
+        <item>Не ўдалося</item>
+        <item>Заблакавана</item>
+        <item>Праверка якасці інтэрнэт-злучэння…</item>
+    </string-array>
+    <string-array name="window_animation_scale_entries">
+        <item>Анімацыя адкл.</item>
+        <item>Маштаб анімацыі: 0.5x</item>
+        <item>Маштаб анімацыі: 1x</item>
+        <item>Маштаб анімацыі: 1.5x</item>
+        <item>Маштаб анімацыі: 2x</item>
+        <item>Маштаб анімацыі: 5x</item>
+        <item>Маштаб анімацыі: 10x</item>
+    </string-array>
+</resources>

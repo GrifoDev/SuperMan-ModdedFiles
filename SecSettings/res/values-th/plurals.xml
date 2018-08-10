@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="accessibilty_autoclick_preference_subtitle_extremely_short_delay">
+        <item quantity="other">มีการหน่วงเวลาสั้นมากที่สุด (%s ms)</item>
+        <item quantity="one">มีการหน่วงเวลาสั้นมากที่สุด (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_long_delay">
+        <item quantity="other">มีการหน่วงเวลานาน (%s ms)</item>
+        <item quantity="one">มีการหน่วงเวลานาน (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_short_delay">
+        <item quantity="other">มีการหน่วงเวลาสั้น (%s ms)</item>
+        <item quantity="one">มีการหน่วงเวลาสั้น (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_long_delay">
+        <item quantity="other">มีการหน่วงเวลานานมาก (%s ms)</item>
+        <item quantity="one">มีการหน่วงเวลานานมาก (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_short_delay">
+        <item quantity="other">มีการหน่วงเวลาสั้นมาก (%s ms)</item>
+        <item quantity="one">มีการหน่วงเวลาสั้นมาก (%s ms)</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d แอพได้รับอนุญาตให้ใช้ข้อมูลโดยไม่มีข้อจำกัด</item>
+        <item quantity="one">1 แอพได้รับอนุญาตให้ใช้ข้อมูลโดยไม่มีข้อจำกัด</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary_chn">
+        <item quantity="other">อนุญาต %d แอพให้ใช้ข้อมูลมือถือโดยไม่มีข้อจำกัดในขณะที่เปิดใช้งานจำกัดข้อมูลพื้นหลัง</item>
+        <item quantity="one">อนุญาต %d แอพให้ใช้ข้อมูลมือถือโดยไม่มีข้อจำกัดในขณะที่เปิดใช้งานจำกัดข้อมูลพื้นหลัง</item>
+    </plurals>
+    <plurals name="deleted_channels">
+        <item quantity="other">ลบ %d หมวดหมู่แล้ว</item>
+        <item quantity="one">ลบ 1 หมวดหมู่แล้ว</item>
+    </plurals>
+    <plurals name="dex_timeout_day">
+        <item quantity="other">%d วัน</item>
+        <item quantity="one">1 ​วัน</item>
+    </plurals>
+    <plurals name="dex_timeout_hour">
+        <item quantity="other">%d ​ชั่วโมง</item>
+        <item quantity="one">1 ชั่วโมง</item>
+    </plurals>
+    <plurals name="dex_timeout_minute">
+        <item quantity="other">%d ​นาที</item>
+        <item quantity="one">1 ​นาที</item>
+    </plurals>
+    <plurals name="dex_timeout_second">
+        <item quantity="other">%d ​วินาที</item>
+        <item quantity="one">1 ​วินาที</item>
+    </plurals>
+    <plurals name="dex_timeout_week">
+        <item quantity="other">%d สัปดาห์</item>
+        <item quantity="one">1 ​สัปดาห์</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">ลบภาษาที่เลือก</item>
+        <item quantity="one">ลบภาษาที่เลือก</item>
+    </plurals>
+    <plurals name="enterprise_privacy_number_packages_lower_bound">
+        <item quantity="other">มีแอปอย่างน้อย %d แอป</item>
+        <item quantity="one">มีแอปอย่างน้อย %d แอป</item>
+    </plurals>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d ​ชั่วโมง</item>
+        <item quantity="one">1 ชั่วโมง</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d ​นาที</item>
+        <item quantity="one">1 ​นาที</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d ​วินาที</item>
+        <item quantity="one">1 ​วินาที</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">รหัส​ผ่าน​ต้อง​มี​ตัว​อักษร​อย่าง​น้อย %d ​ตัว</item>
+        <item quantity="one">รหัส​ผ่าน​ต้อง​มี​ตัว​อักษร​อย่าง​น้อย 1 ​ตัว</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">รหัส​ผ่าน​ต้อง​มี​ตัว​อักษร​ตัว​พิมพ์​เล็ก​อย่าง​น้อย %d ​ตัว</item>
+        <item quantity="one">รหัส​ผ่าน​ต้อง​มี​ตัว​อักษร​ตัว​พิมพ์​เล็ก​อย่าง​น้อย 1 ​ตัว</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">รหัส​ผ่าน​ต้อง​มี​ตัว​เลข​หรือ​สัญลักษณ์​อย่าง​น้อย %d ​ตัว</item>
+        <item quantity="one">รหัส​ผ่าน​ต้อง​มี​ตัว​เลข​หรือ​สัญลักษณ์​อย่าง​น้อย 1 ​ตัว</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">รหัส​ผ่าน​ต้อง​มี​ตัว​เลขอย่าง​น้อย %d ​ตัว</item>
+        <item quantity="one">รหัส​ผ่าน​ต้อง​มี​ตัว​เลขอย่าง​น้อย 1 ​ตัว</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">รหัส​ผ่าน​ต้อง​มี​สัญลักษณ์​อย่าง​น้อย %d ​ตัว</item>
+        <item quantity="one">รหัส​ผ่าน​ต้อง​มี​สัญลักษณ์​อย่าง​น้อย 1 ​ตัว</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">รหัส​ผ่าน​ต้อง​มี​ตัว​อักษร​ตัว​พิมพ์​ใหญ่​อย่าง​น้อย %d ​ตัว</item>
+        <item quantity="one">รหัส​ผ่าน​ต้อง​มี​ตัว​อักษร​ตัว​พิมพ์​ใหญ่​อย่าง​น้อย 1 ​ตัว</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d แอพพลิเคชั่นสามารถอ่าน การแจ้งเตือนได้</item>
+        <item quantity="one">อนุญาตให้ %d แอพพลิเคชั่นอ่านการแจ้งเตือน</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$d กระบวนการใช้ RAM ใน %2$s ที่ผ่านมา</item>
+        <item quantity="one">%1$d กระบวนการใช้ RAM ใน %2$s ที่ผ่านมา</item>
+    </plurals>
+    <plurals name="network_restrictions_summary">
+        <item quantity="other">%d ข้อจำกัด</item>
+        <item quantity="one">1 ข้อจำกัด</item>
+    </plurals>
+    <plurals name="notification_summary">
+        <item quantity="other">ปิดสำหรับ %d แอพ</item>
+        <item quantity="one">ปิดสำหรับ 1 แอพ</item>
+    </plurals>
+    <plurals name="number_of_device_admins">
+        <item quantity="other">%d แอพที่ทำงาน</item>
+        <item quantity="one">1 แอพที่ทำงาน</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">มากกว่า %d การอนุญาต</item>
+        <item quantity="one">มากกว่า %d การอนุญาต</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">เหลืออีก %d ขั้นตอนก่อนคุณจะเป็นผู้พัฒนา</item>
+        <item quantity="one">เหลืออีก 1 ขั้นตอนก่อนคุณจะเป็นผู้พัฒนา</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_dialog_title">
+        <item quantity="other">เชื่อถือหรือลบใบรับรองออก</item>
+        <item quantity="one">เชื่อถือหรือลบใบรับรองออก</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message">
+        <item quantity="other">"%s ได้ติดตั้งการอนุญาตใบรับรองสำหรับโปรไฟล์งานของคุณ ซึ่งอาจทำให้สามารถติดตามกิจกรรมเครือข่ายที่ทำงาน รวมทั้งอีเมล แอพ และเว็บไซต์ที่ปลอดภัยได้ คุณสามารถเลือกเชื่อถือหรือลบใบรับรองนี้ออกได้
+
+สำหรับข้อมูลเพิ่มเติมเกี่ยวกับใบอนุญาตนี้ ให้ติดต่อผู้ดูแล"</item>
+        <item quantity="one">"%s ได้ติดตั้งการอนุญาตใบรับรองสำหรับโปรไฟล์งานของคุณ ซึ่งอาจทำให้สามารถติดตามกิจกรรมเครือข่ายที่ทำงาน รวมทั้งอีเมล แอพ และเว็บไซต์ที่ปลอดภัยได้ คุณสามารถเลือกเชื่อถือหรือลบใบรับรองนี้ออกได้
+
+สำหรับข้อมูลเพิ่มเติมเกี่ยวกับใบอนุญาตนี้ ให้ติดต่อผู้ดูแล"</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s ได้ติดตั้งใบรับรองการใช้งาน CA บนอุปกรณ์ของคุณแล้ว ซึ่งอาจอนุญาตให้พวกเขาสามารถตรวจสอบกิจกรรมเครือข่ายของอุปกรณ์ของคุณ รวมถึงการใช้อีเมล แอพ และเว็บไซต์ที่ปลอดภัย
+
+ติดต่อผู้ดูแล IT ของคุณเพื่อทราบข้อมูลเพิ่มเติมเกี่ยวกับใบรับรองเหล่านี้"</item>
+        <item quantity="one">"%s ได้ติดตั้งใบรับรองการใช้งาน CA บนอุปกรณ์ของคุณแล้ว ซึ่งอาจอนุญาตให้พวกเขาสามารถตรวจสอบกิจกรรมเครือข่ายของอุปกรณ์ของคุณ รวมถึงการใช้อีเมล แอพ และเว็บไซต์ที่ปลอดภัย
+
+ติดต่อผู้ดูแล IT ของคุณเพื่อทราบข้อมูลเพิ่มเติมเกี่ยวกับใบรับรองนี้"</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_settings_button">
+        <item quantity="other">ตรวจสอบใบรับรอง</item>
+        <item quantity="one">ตรวจสอบใบรับรอง</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">เข้าถึง %d โฟลเดอร์/ไฟล์</item>
+        <item quantity="one">เข้าถึง 1 โฟลเดอร์/ไฟล์</item>
+    </plurals>
+</resources>

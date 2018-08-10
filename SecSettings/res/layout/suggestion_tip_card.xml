@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:background="@color/dashboard_suggestion_stub_bg_color" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/suggestion_card_view" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="@dimen/dashboard_suggestion_title_size" android:textColor="@color/theme_primary_dark" android:ellipsize="marquee" android:id="@android:id/title" android:background="@drawable/dashboard_tile_background" android:focusable="true" android:fadingEdge="horizontal" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/dashboard_suggestion_content_inner_padding" android:text="@string/software_update_settings_list_item_title" android:singleLine="true" android:layout_weight="1.0" android:textAllCaps="true" android:fontFamily="sec-roboto-condensed" android:paddingStart="@dimen/dashboard_suggestion_category_title_start_end_padding" android:paddingEnd="@dimen/dashboard_suggestion_category_title_start_end_padding" android:layout_marginStart="@dimen/dashboard_suggestion_content_start_end_padding" android:layout_marginEnd="@dimen/dashboard_suggestion_category_title_start_end_padding" />
+    </LinearLayout>
+</LinearLayout>

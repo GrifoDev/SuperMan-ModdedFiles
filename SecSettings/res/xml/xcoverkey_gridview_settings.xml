@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/xcover_key_title"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <PreferenceCategory android:title="@string/xcover_key_customize_category" android:key="customize_category_key">
+        <PreferenceScreen android:title="@string/xcover_key_short_press" android:key="short_press_key" android:fragment="com.samsung.android.settings.activekey.ActiveKeyAppGridView">
+            <extra android:name="pressed_type" android:value="short" />
+        </PreferenceScreen>
+        <PreferenceScreen android:title="@string/xcover_key_long_press" android:key="long_press_key" android:fragment="com.samsung.android.settings.activekey.ActiveKeyAppGridView">
+            <extra android:name="pressed_type" android:value="long" />
+        </PreferenceScreen>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/xcover_key_setting_category" android:key="active_key_setting_category_key">
+        <SwitchPreference android:title="@string/xcover_key_on_lock_screen" android:key="active_key_on_lockscreen_key" android:summary="@string/xcover_key_on_lock_screen_summary" />
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="start|center|top" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <TextView android:gravity="start|center|top" android:id="@id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/device_info_default" style="@style/device_info_txt_info_chart_title" />
+    </LinearLayout>
+    <View android:layout_gravity="center" android:background="@color/device_info_devider_color" android:layout_width="@dimen/list_divider_height" android:layout_height="fill_parent" android:layout_marginHorizontal="@dimen/device_info_info_text_divider_margin_horizontal" />
+    <LinearLayout android:gravity="end|center|top" android:id="@id/content_container" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <TextView android:gravity="end|center|top" android:id="@id/content" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/device_info_default" style="@style/device_info_txt_info_chart_content" />
+    </LinearLayout>
+    <LinearLayout android:gravity="end|center|top" android:layout_gravity="end|center|top" android:orientation="vertical" android:id="@id/phone_number_container" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/device_info_info_text_martgin_top" android:layout_marginBottom="@dimen/device_info_info_text_martgin_bottom" android:layout_weight="1.0">
+        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="4.0dip">
+            <ImageView android:layout_width="17.0dip" android:layout_height="fill_parent" android:src="@drawable/about_device_ic_sim_1" android:layout_marginEnd="3.0dip" />
+            <TextView android:gravity="end|center|top" android:id="@id/phone_number_slot_1" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/device_info_txt_info_chart_phonenumber" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:layout_width="17.0dip" android:layout_height="fill_parent" android:src="@drawable/about_device_ic_sim_2" android:layout_marginEnd="3.0dip" />
+            <TextView android:gravity="end|center|top" android:id="@id/phone_number_slot_2" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/device_info_txt_info_chart_phonenumber" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

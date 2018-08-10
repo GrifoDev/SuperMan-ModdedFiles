@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceScreen android:title="@string/assistant_menu_options" android:key="menu_edit" android:summary="@string/assistant_menu_options_summary" />
+    <PreferenceScreen android:title="@string/enhanced_assistant_title" android:key="eam_active" android:summary="@string/enhanced_assistant_summary" />
+    <com.samsung.android.settings.accessibility.assistantmenu.OpacitySeekBarPreference android:title="@string/opaticy_settings_title" android:key="opacity_settings" />
+    <com.android.settings.SecDropDownPreference android:title="@string/assistant_menu_size" android:key="assistant_menu_grid_size" />
+    <PreferenceCategory android:title="@string/accessibility_fmpointer_category" android:key="pointer_category" />
+    <com.android.settings.SecDropDownPreference android:title="@string/fmpad_size" android:key="fmpad_size" />
+    <com.android.settings.SecDropDownPreference android:title="@string/fmpointer_size" android:key="fmpointer_size" />
+    <com.android.settings.SecDropDownPreference android:title="@string/fmpointer_speed" android:key="fmpointer_speed" />
+    <PreferenceCategory android:title="@string/accessibility_magnifier_category" android:key="magnifier_settings" />
+    <com.android.settings.SecDropDownPreference android:title="@string/magnifier_size" android:key="magnifier_size" />
+</PreferenceScreen>

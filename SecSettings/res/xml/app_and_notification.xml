@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/app_and_notification_dashboard_title"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <Preference android:title="@string/app_permissions" android:key="manage_perms" android:order="-130" settings:keywords="@string/keywords_app_permissions">
+        <intent android:action="android.intent.action.MANAGE_PERMISSIONS" />
+    </Preference>
+    <PreferenceCategory android:key="dashboard_tile_placeholder" android:order="10" />
+    <com.android.settingslib.RestrictedPreference android:title="@string/cell_broadcast_settings" android:key="app_and_notif_cell_broadcast_settings" android:order="15" settings:useAdminDisabledSummary="true">
+        <intent android:targetPackage="com.android.cellbroadcastreceiver" android:action="android.intent.action.MAIN" android:targetClass="com.android.cellbroadcastreceiver.CellBroadcastSettings" />
+    </com.android.settingslib.RestrictedPreference>
+    <Preference android:title="@string/special_access" android:key="special_access" android:order="20" android:fragment="com.android.settings.applications.SpecialAccessSettings" />
+</PreferenceScreen>

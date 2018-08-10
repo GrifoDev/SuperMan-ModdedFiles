@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeightSmall" android:paddingStart="@dimen/search_list_result_item_start_padding"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/search_list_item_padding" android:paddingEnd="@dimen/search_list_item_padding">
+        <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" android:paddingStart="@dimen/search_list_item_inner_start_padding">
+            <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <RelativeLayout android:paddingTop="@dimen/list_item_top_padding" android:paddingBottom="@dimen/list_item_bottom_padding" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <TextView android:ellipsize="marquee" android:id="@id/title" android:fadingEdge="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" style="@style/list_title_text_style" />
+                    <TextView android:id="@id/status" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/title" android:layout_alignStart="@android:id/title" style="@style/list_summary_text_style" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <Switch android:gravity="top" android:id="@id/switchView" android:background="@null" android:focusable="false" android:visibility="gone" android:clickable="false" android:layout_width="wrap_content" android:layout_height="fill_parent" android:paddingStart="@dimen/search_list_item_inner_start_padding" />
+    </LinearLayout>
+    <View android:id="@id/result_item_divider" android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+</LinearLayout>

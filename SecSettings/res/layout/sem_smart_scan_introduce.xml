@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="#fffafafa" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/smartscan_guide_container" android:layout_width="fill_parent" android:layout_height="@dimen/smart_scan_tip_pager_height" android:layout_marginTop="@dimen/use_intelligent_biometrics_lock_setting_image_margin_top" android:layout_marginStart="@dimen/smart_scan_tip_pager_side_margin" android:layout_marginEnd="@dimen/smart_scan_tip_pager_side_margin">
+        <TextureView android:layout_gravity="center" android:id="@id/smartscan_guide_video" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        <ImageView android:id="@id/smartscan_guide_video_dummy" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/sem_smart_scan_intro" android:layout_marginStart="@dimen/smart_scan_tip_pager_side_margin" android:layout_marginEnd="@dimen/smart_scan_tip_pager_side_margin" />
+    </FrameLayout>
+    <ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginStart="@dimen/smart_scan_tip_scroll_side_margin" android:layout_marginEnd="@dimen/smart_scan_tip_scroll_side_margin">
+            <TextView android:textSize="@dimen/smart_scan_tip_header_text_size" android:textStyle="bold" android:textColor="@color/smartscan_tip_text_header_color" android:gravity="center" android:id="@id/face_lock_setting_description_1" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/smart_scan_tip_text_phrase_top_margin" android:text="@string/smartscan_using_smart_scan_header" android:fontFamily="sec-roboto-condensed" />
+            <TextView android:textSize="@dimen/smart_scan_tip_text_desc_size" android:textColor="@color/smartscan_tip_text_desc_color" android:gravity="center" android:id="@id/face_lock_setting_description_2" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/use_intelligent_biometrics_lock_setting_description_margin_top" android:text="@string/smartscan_using_smart_scan_desc_1" android:fontFamily="sec-roboto-light" />
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout android:layout_gravity="bottom" android:orientation="horizontal" android:id="@id/one_button_container" android:layout_width="fill_parent" style="@style/SecurityPreferenceButtonContainer">
+        <com.samsung.android.settings.widget.BottomBarButton android:textColor="@color/smartscan_bottom_bar_text_color" android:id="@id/continue_bottom_button" android:layout_width="fill_parent" android:text="@string/biometrics_lock_setup_button_text" style="@style/SecurityPreferenceButton" />
+    </LinearLayout>
+    <RelativeLayout android:id="@id/button_flat_bar" android:background="@color/bottom_bar_bg_color" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+        <View android:id="@id/bottom_divider" android:layout_width="fill_parent" style="@style/bottom_bar_divider_style" />
+        <LinearLayout android:gravity="center" android:layout_gravity="center_vertical" android:orientation="horizontal" android:id="@id/skip_button_area" android:background="@drawable/ripple_bottom_bar_button_wifi" android:focusable="true" android:layout_width="wrap_content" android:layout_height="@dimen/biometrics_lock_setup_suw_button_height" android:layout_marginStart="@dimen/biometrics_lock_setup_suw_button_margin">
+            <ImageView android:gravity="center" android:id="@id/skip_btn_arrow" android:layout_width="@dimen/biometrics_lock_setup_suw_button_image_size" android:layout_height="@dimen/biometrics_lock_setup_suw_button_image_size" android:src="@drawable/setupwizard_prev_arrow_auto_mirrored" android:layout_marginEnd="@dimen/biometrics_lock_setup_suw_button_padding" />
+            <TextView android:gravity="end|center" android:id="@id/skip_text_btn" android:text="@string/intelligent_biometrics_lock_settings_button_skip" android:textAllCaps="true" android:paddingEnd="6.0dip" style="@style/WifiPreferenceButtonBar" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:layout_gravity="center_vertical" android:orientation="horizontal" android:id="@id/setup_button_area" android:background="@drawable/ripple_bottom_bar_button_wifi" android:focusable="true" android:layout_width="wrap_content" android:layout_height="@dimen/biometrics_lock_setup_suw_button_height" android:layout_marginEnd="@dimen/biometrics_lock_setup_suw_button_margin" android:layout_alignParentEnd="true">
+            <TextView android:gravity="end|center" android:id="@id/setup_text_btn" android:text="@string/intelligent_biometrics_lock_settings_button_set_up" android:textAllCaps="true" android:paddingStart="6.0dip" style="@style/WifiPreferenceButtonBar" />
+            <ImageView android:gravity="center" android:id="@id/setup_btn_arrow" android:layout_width="@dimen/biometrics_lock_setup_suw_button_image_size" android:layout_height="@dimen/biometrics_lock_setup_suw_button_image_size" android:src="@drawable/setupwizard_next_arrow_auto_mirrored" android:layout_marginStart="@dimen/biometrics_lock_setup_suw_button_padding" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

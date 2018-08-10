@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:id="@id/progress_category_divider" android:background="#ffcecece" android:layout_width="fill_parent" android:layout_height="@dimen/bluetooth_list_divider_height" android:layout_marginTop="8.0dip" android:layout_marginBottom="8.0dip" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="@null" android:layout_height="wrap_content" android:paddingStart="@dimen/bluetooth_scandialog_preference_layout_padding_start_end" android:paddingEnd="@dimen/bluetooth_scandialog_preference_layout_padding_start_end" style="?android:listSeparatorTextViewStyle">
+        <TextView android:textColor="@color/bluetooth_progress_category_text_color_scandialog" android:ellipsize="end" android:id="@android:id/title" android:background="@null" android:paddingLeft="0.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_weight="1.0" android:paddingStart="0.0dip" style="?android:listSeparatorTextViewStyle" />
+        <ProgressBar android:layout_gravity="center|right" android:id="@id/scanning_progress" android:visibility="gone" android:layout_width="16.0dip" android:layout_height="16.0dip" android:layout_marginRight="4.0dip" android:text="@string/progress_scanning" style="?android:progressBarStyleSmallTitle" />
+    </LinearLayout>
+</LinearLayout>

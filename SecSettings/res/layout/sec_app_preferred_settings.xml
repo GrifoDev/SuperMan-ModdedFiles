@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingBottom="@dimen/two_button_margin_bottom" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="?android:listPreferredItemPaddingStart" android:paddingEnd="?android:listPreferredItemPaddingEnd"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/auto_launch" android:paddingTop="@dimen/body_text_top_padding" android:paddingBottom="@dimen/body_text_top_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentStart="true" style="@style/body_text_style" />
+    <Button android:layout_gravity="bottom|center|right" android:id="@id/clear_activities_button" android:paddingLeft="@dimen/button_minimum_side_padding" android:paddingRight="@dimen/button_minimum_side_padding" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/clear_activities" />
+</LinearLayout>

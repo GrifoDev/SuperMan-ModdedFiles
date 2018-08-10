@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageView android:id="@id/icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/settings_splash_ic" />
+        <TextView android:textSize="@dimen/fingerprint_manager_noitem_textsize" android:textColor="@color/actionbar_text_color" android:gravity="center" android:id="@id/text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/settings_label" style="@style/splash_description_text_style" />
+    </LinearLayout>
+</FrameLayout>

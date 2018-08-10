@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/dnd_mode_settings_title" settings:parent="@xml/zen_mode_dnd_settings"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <SecPreferenceCategory android:title="" android:key="downtime" />
+</PreferenceScreen>

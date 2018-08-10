@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <com.samsung.android.settings.UnclickablePreference android:title="@string/navigationbar_hide_bar_apps_description" android:selectable="false" android:key="hide_button_apps_desc" style="@style/description_text" />
+    <PreferenceCategory android:title="" android:key="hide_button_apps" />
+</PreferenceScreen>

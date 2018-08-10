@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/lockscreen_wallpaper"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <SecSwitchPreferenceScreen android:title="@string/always_on_display_title" android:key="always_on_screen" />
+    <com.samsung.android.settings.SecGearPreference android:title="@string/unlock_set_unlock_launch_picker_title" android:key="unlock_set_or_change" settings:keywords="@string/keywords_lockscreen" />
+    <SecRestrictedPreference android:key="trust_agent" />
+    <SecPreferenceScreen android:title="@string/lock_screen_secured_lock_settings_title" android:key="secured_lock_settigns" android:summary="@string/lock_screen_secured_lock_settings_summary" android:fragment="com.samsung.android.settings.lockscreen.SecuredLockSettingsMenu" />
+    <SecPreferenceCategory android:title="@string/clock_and_information_category" android:key="sec_info_category">
+        <SecPreference android:title="@string/clock_style" android:key="clock_style_pref" />
+        <SecSwitchPreferenceScreen android:title="@string/roamingclock_settings_title" android:key="lock_screen_dualclock" android:fragment="com.samsung.android.settings.dualclock.DualClockSetting" />
+        <SecPreferenceScreen android:title="@string/additional_information_title" android:key="lock_screen_additional_info" android:fragment="com.samsung.android.settings.lockscreen.AdditionalInformationSettings" />
+        <SecRestrictedPreference android:key="lock_screen_menu_owner_infomation" />
+        <SecRestrictedSwitchPreferenceScreen android:title="@string/lockscreen_notifications" android:key="lock_screen_menu_sec_notifications" android:fragment="com.samsung.android.settings.lockscreen.SecLockscreenNotificationApplist" />
+        <SecPreferenceScreen android:title="@string/lock_app_shortcut_title" android:key="lock_app_shortcut" android:summary="@string/lock_screen_app_shortcut_summary" android:fragment="com.samsung.android.settings.lockappshortcut.LockAppShortcutSettings" />
+    </SecPreferenceCategory>
+</PreferenceScreen>

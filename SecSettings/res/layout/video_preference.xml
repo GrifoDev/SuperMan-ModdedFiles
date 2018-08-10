@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/gesture_animation_view" android:background="@color/gestures_setting_background_color" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeightSmall" android:paddingEnd="?android:listPreferredItemPaddingEnd"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.settings.widget.AspectRatioFrameLayout android:padding="@dimen/gesture_animation_padding" android:layout_width="240.0dip" android:layout_height="wrap_content">
+        <TextureView android:layout_gravity="center" android:id="@id/video_texture_view" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        <ImageView android:id="@id/video_preview_image" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="fitXY" />
+        <ImageView android:gravity="center" android:layout_gravity="center" android:id="@id/video_play_button" android:layout_width="@dimen/gestures_play_button_size" android:layout_height="@dimen/gestures_play_button_size" android:src="@drawable/ic_gesture_play_button" />
+    </com.android.settings.widget.AspectRatioFrameLayout>
+</LinearLayout>

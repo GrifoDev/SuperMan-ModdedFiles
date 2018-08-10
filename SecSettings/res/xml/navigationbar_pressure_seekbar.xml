@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/navigationbar_pressure_sensitivity_title" android:key="navigationbar_hard_press"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <com.samsung.android.settings.navigationbar.NavigationBarUnclickablePreference android:selectable="false" android:key="navigationbar_pressure_description" style="@style/description_text" />
+    <com.samsung.android.settings.navigationbar.NavigationBarPressureSeekBarPreference android:key="navigationbar_pressure_seekbar" />
+    <com.android.settings.widget.ButtonPreference android:key="navigationbar_pressure_test" />
+</PreferenceScreen>

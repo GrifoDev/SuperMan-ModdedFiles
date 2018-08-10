@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:id="@id/hint_scrollview" android:layout_width="fill_parent" android:layout_height="wrap_content" android:fillViewport="true" android:layout_weight="1.0">
+        <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <ImageView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="8.0dip" android:src="@drawable/lock_setting_img_hint" />
+            <TextView android:textSize="@dimen/lock_password_header_text_size" android:gravity="center_horizontal" android:id="@id/headerHintText" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/body_text_side_padding" android:layout_marginRight="@dimen/body_text_side_padding" android:layout_marginBottom="16.0dip" android:text="@string/choose_lock_hint_description" style="@style/lockscreen_body_text_style" />
+            <EditText android:textSize="@dimen/lock_password_edit_text_size" android:gravity="bottom|center" android:layout_gravity="center" android:id="@id/edit_hint_text" android:layout_width="fill_parent" android:layout_height="@dimen/lock_password_edit_box_height" android:hint="@string/choose_lock_hint_editbox_hint" android:imeOptions="actionNext" android:layout_marginStart="@dimen/lock_password_entry_marginLeft" android:layout_marginEnd="@dimen/lock_password_entry_marginLeft" style="@style/TextAppearance.PasswordEntry" />
+            <TextView android:textSize="14.0sp" android:textColor="@color/red" android:gravity="center_horizontal" android:id="@id/error_hint_text" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="16.0dip" />
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout android:orientation="horizontal" android:id="@id/bottom_bar" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/SecurityPreferenceButtonContainer">
+        <com.samsung.android.settings.widget.BottomBarButton android:textSize="@dimen/lockscreen_bottom_button_size" android:textColor="@color/dialog_button_text_color" android:id="@id/cancel_button" android:text="@string/intelligent_biometrics_lock_settings_button_skip" style="@style/SecurityPreferenceButton" />
+        <com.samsung.android.settings.widget.BottomBarButton android:textSize="@dimen/lockscreen_bottom_button_size" android:id="@id/next_button" android:text="@string/common_ok" style="@style/SecurityPreferenceButton" />
+    </LinearLayout>
+    <include layout="@layout/sec_suw_lock_bottom_bar" />
+</LinearLayout>

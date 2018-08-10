@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <com.samsung.android.settings.UnclickablePreference android:title="@string/auto_adjust_brightness_summary" android:key="autobrightness_description" style="@style/description_text" />
+    <SecPreference android:title="@string/reset_usage_pattern_title" android:key="reset_usage_pattern" android:summary="@string/reset_usage_pattern_summary" />
+</PreferenceScreen>

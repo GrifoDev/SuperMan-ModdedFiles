@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <com.android.settings.widget.SwitchBar android:theme="?switchBarTheme" android:gravity="center_vertical" android:id="@id/switch_bar" android:background="@drawable/tw_sub_action_bar_bg_mtrl" android:clickable="false" android:layout_width="fill_parent" android:layout_height="?android:actionBarSize" android:elevation="@dimen/sub_app_bar_shadow_elevation" />
+        <TextView android:gravity="start" android:id="@id/description_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/body_text_top_padding" android:layout_marginBottom="@dimen/body_text_top_padding" android:text="@string/facelock_recognition_speed_up_summary" android:layout_marginStart="@dimen/facelock_body_text_side_padding" android:layout_marginEnd="@dimen/facelock_body_text_side_padding" style="@style/body_text_style" />
+    </LinearLayout>
+    <LinearLayout android:layout_gravity="bottom" android:orientation="horizontal" android:id="@id/one_button_container" android:layout_width="fill_parent" style="@style/SecurityPreferenceButtonContainer">
+        <com.samsung.android.settings.widget.BottomBarButton android:id="@id/ok_bottom_button" android:layout_width="fill_parent" android:text="@string/common_ok" style="@style/SecurityPreferenceButton" />
+    </LinearLayout>
+    <RelativeLayout android:layout_gravity="bottom" android:id="@id/button_flat_bar" android:background="@color/bottom_bar_bg_color" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <View android:id="@id/bottom_divider" android:layout_width="fill_parent" style="@style/bottom_bar_divider_style" />
+        <LinearLayout android:gravity="center" android:layout_gravity="center_vertical" android:orientation="horizontal" android:id="@id/prev_button_area" android:background="@drawable/ripple_bottom_bar_button_wifi" android:focusable="true" android:layout_width="wrap_content" android:layout_height="@dimen/biometrics_lock_setup_suw_button_height" android:layout_marginStart="@dimen/biometrics_lock_setup_suw_button_margin">
+            <ImageView android:gravity="center" android:id="@id/prev_btn_arrow" android:layout_width="@dimen/biometrics_lock_setup_suw_button_image_size" android:layout_height="@dimen/biometrics_lock_setup_suw_button_image_size" android:src="@drawable/setupwizard_prev_arrow_auto_mirrored" android:layout_marginEnd="@dimen/biometrics_lock_setup_suw_button_padding" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:layout_gravity="center_vertical" android:orientation="horizontal" android:id="@id/next_button_area" android:background="@drawable/ripple_bottom_bar_button_wifi" android:focusable="true" android:layout_width="wrap_content" android:layout_height="@dimen/biometrics_lock_setup_suw_button_height" android:layout_marginEnd="@dimen/biometrics_lock_setup_suw_button_margin" android:layout_alignParentEnd="true">
+            <TextView android:gravity="end|center" android:id="@id/next_text_btn" android:text="@string/next_button_label" android:textAllCaps="true" android:paddingStart="6.0dip" style="@style/WifiPreferenceButtonBar" />
+            <ImageView android:gravity="center" android:id="@id/next_btn_arrow" android:layout_width="@dimen/biometrics_lock_setup_suw_button_image_size" android:layout_height="@dimen/biometrics_lock_setup_suw_button_image_size" android:src="@drawable/setupwizard_next_arrow_auto_mirrored" android:layout_marginStart="@dimen/biometrics_lock_setup_suw_button_padding" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

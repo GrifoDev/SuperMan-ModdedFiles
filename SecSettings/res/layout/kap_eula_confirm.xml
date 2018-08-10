@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/eula_top_title" android:layout_width="fill_parent" android:layout_height="48.0dip" android:layout_marginLeft="16.0dip" android:layout_marginRight="16.0dip">
+        <TextView android:textSize="19.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/kap_eula_title" />
+    </LinearLayout>
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/eula_top_title">
+        <ScrollView android:id="@id/kap_scrollView" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_above="@id/eula_bottom_check">
+            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <TextView android:textSize="16.0sp" android:textColorLink="@color/description_link_text_color" android:autoLink="web" android:id="@id/kap_textview" android:scrollbars="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="16.0dip" android:layout_marginTop="11.0dip" android:layout_marginRight="16.0dip" android:layout_marginBottom="10.0dip" android:text="@string/kap_eula_comment" android:lineSpacingExtra="2.0dip" />
+            </LinearLayout>
+        </ScrollView>
+        <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:id="@id/eula_bottom_check" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_above="@id/eula_bottom_confirm">
+            <View android:id="@id/divider_under_scrollview" android:background="@color/divider_color" android:layout_width="fill_parent" android:layout_height="1.0px" android:layout_marginStart="18.0dip" android:layout_marginEnd="18.0dip" />
+            <CheckBox android:textSize="17.0sp" android:typeface="normal" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/kap_checkbox" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:layout_marginBottom="15.0dip" android:text="@string/kap_eula_terms" android:lineSpacingExtra="2.0dip" android:fontFamily="sec-roboto-light" android:paddingStart="10.0dip" android:paddingEnd="10.0dip" android:layout_marginStart="16.0dip" android:layout_marginEnd="16.0dip" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/eula_bottom_confirm" android:layout_width="fill_parent" android:layout_height="48.0dip" android:layout_alignParentBottom="true">
+            <com.samsung.android.settings.widget.BottomBarButton android:id="@id/btn_cancel" android:background="@color/bottom_bar_bg_color" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/kap_cancel" android:singleLine="true" android:layout_weight="1.0" style="@style/SecurityPreferenceButton" />
+            <com.samsung.android.settings.widget.BottomBarButton android:id="@id/btn_reboot_now" android:background="@color/bottom_bar_bg_color" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/kap_reboot_now" android:singleLine="true" android:layout_weight="1.0" style="@style/SecurityPreferenceButton" />
+            <com.samsung.android.settings.widget.BottomBarButton android:id="@id/btn_next_reboot" android:background="@color/bottom_bar_bg_color" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/kap_next_reboot" android:singleLine="true" android:layout_weight="1.0" style="@style/SecurityPreferenceButton" />
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

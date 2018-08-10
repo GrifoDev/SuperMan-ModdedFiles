@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/dualclock_settings_title" android:key="parent"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <com.samsung.android.settings.UnclickablePreference android:title="@string/dualclock_settings_summary" style="@style/description_text" />
+    <SecPreference android:title="@string/set_home_city" android:key="homecity_timezone" android:summary="GMT-8:00" settings:dbMatchingName="homecity_timezone" settings:dbMatchingTable="system" />
+    <PreferenceCategory android:title="@string/lockscreen_noti_advanced" android:key="advanced_dual_clock" />
+    <com.android.settings.SecDropDownPreference android:title="@string/where_to_show" android:key="where_to_show" />
+</PreferenceScreen>

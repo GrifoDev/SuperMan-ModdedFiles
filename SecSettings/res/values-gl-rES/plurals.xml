@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="accessibilty_autoclick_preference_subtitle_extremely_short_delay">
+        <item quantity="other">Retraso extremadamente reducido (%s ms)</item>
+        <item quantity="one">Retraso extremadamente reducido (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_long_delay">
+        <item quantity="other">Retraso prolongado (%s ms)</item>
+        <item quantity="one">Retraso prolongado (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_short_delay">
+        <item quantity="other">Retraso reducido (%s ms)</item>
+        <item quantity="one">Retraso reducido (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_long_delay">
+        <item quantity="other">Retraso moi prolongado (%s ms)</item>
+        <item quantity="one">Retraso moi prolongado (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_short_delay">
+        <item quantity="other">Retraso moi reducido (%s ms)</item>
+        <item quantity="one">Retraso moi reducido (%s ms)</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d aplicacións permitiron usar datos sen restricións</item>
+        <item quantity="one">Permitiuse a 1 aplicación usar datos sen restricións</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary_chn">
+        <item quantity="other">%d aplicacións poden utilizar datos móbiles sen restricións con Restrinxir datos en segundo plano activado.</item>
+        <item quantity="one">%d aplicacións poden utilizar datos móbiles sen restricións con Restrinxir datos en segundo plano activado.</item>
+    </plurals>
+    <plurals name="deleted_channels">
+        <item quantity="other">%d categorías eliminadas</item>
+        <item quantity="one">1 categoría eliminada</item>
+    </plurals>
+    <plurals name="dex_timeout_day">
+        <item quantity="other">%d días</item>
+        <item quantity="one">1 día</item>
+    </plurals>
+    <plurals name="dex_timeout_hour">
+        <item quantity="other">%d horas</item>
+        <item quantity="one">1 hora</item>
+    </plurals>
+    <plurals name="dex_timeout_minute">
+        <item quantity="other">%d minutos</item>
+        <item quantity="one">1 minuto</item>
+    </plurals>
+    <plurals name="dex_timeout_second">
+        <item quantity="other">%d segundos</item>
+        <item quantity="one">1 segundo</item>
+    </plurals>
+    <plurals name="dex_timeout_week">
+        <item quantity="other">%d semanas</item>
+        <item quantity="one">1 semana</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Eliminar os idiomas seleccionados</item>
+        <item quantity="one">Eliminar o idioma seleccionado</item>
+    </plurals>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d horas</item>
+        <item quantity="one">1 hora</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d minutos</item>
+        <item quantity="one">1 minuto</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d segundos</item>
+        <item quantity="one">1 segundo</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">O contrasinal debe conter polo menos %d letras</item>
+        <item quantity="one">O contrasinal debe conter polo menos 1 letra</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">O contrasinal debe conter polo menos %d letras minúsculas</item>
+        <item quantity="one">O contrasinal debe conter polo menos 1 letra minúscula</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">O contrasinal debe conter polo menos %d números ou símbolos</item>
+        <item quantity="one">O contrasinal debe conter polo menos 1 número ou símbolo</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">O contrasinal debe conter polo menos %d números</item>
+        <item quantity="one">O contrasinal debe conter polo menos 1 número</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">O contrasinal debe conter polo menos %d símbolos</item>
+        <item quantity="one">O contrasinal debe conter polo menos 1 símbolo</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">O contrasinal debe conter polo menos %d letras maiúsculas</item>
+        <item quantity="one">O contrasinal debe conter polo menos 1 letra maiúscula</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d aplicacións poden ler notificacións.</item>
+        <item quantity="one">A aplicación %d está autorizada para ler notificacións.</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$d procesos utilizaron a RAM durante a última %2$s</item>
+        <item quantity="one">%1$d proceso utilizou a RAM durante a última %2$s</item>
+    </plurals>
+    <plurals name="network_restrictions_summary">
+        <item quantity="other">%d restricións</item>
+        <item quantity="one">1 restrición</item>
+    </plurals>
+    <plurals name="notification_summary">
+        <item quantity="other">Desactivado para %d aplicacións</item>
+        <item quantity="one">Desactivado para 1 aplicación</item>
+    </plurals>
+    <plurals name="number_of_device_admins">
+        <item quantity="other">%d aplicacións activas</item>
+        <item quantity="one">1 aplicación activa</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d permisos máis</item>
+        <item quantity="one">%d permiso máis</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Agora fáltanche %d pasos para ser un programador</item>
+        <item quantity="one">Agora fáltache 1 paso para ser un programador</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_dialog_title">
+        <item quantity="other">Eliminar ou confiar en certificados</item>
+        <item quantity="one">Eliminar ou confiar no certificado</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message">
+        <item quantity="other">"%s instalou autoridades de certificación para o teu perfil de traballo, que é posible que lles permita supervisar a actividade na rede do traballo, incluído os correos electrónicos, aplicacións e sitios web seguros. Podes escoller eliminar ou confiar nestes certificados.
+
+Para obter máis información acerca destes certificados, contacta co teu administrador."</item>
+        <item quantity="one">"%s instalou unha autoridade de certificación para o teu perfil de traballo, que é posible que lles permita supervisar a actividade na rede do traballo, incluído os correos electrónicos, aplicacións e sitios web seguros. Podes escoller eliminar ou confiar neste certificado.
+
+Para obter máis información acerca deste certificado, contacta co teu administrador."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s instalou certificados de CA no teu dispositivo que é posible que lles permita supervisar a actividade na rede deste, incluído o teu uso de correos electrónicos, aplicacións e sitios web seguros.
+
+Para obter máis información acerca destes certificados, contacta co teu administrador de TI."</item>
+        <item quantity="one">"%s instalou un certificado de CA no teu dispositivo que é posible que lles permita supervisar a actividade na rede deste, incluído o teu uso de correos electrónicos, aplicacións e sitios web seguros.
+
+Para obter máis información acerca deste certificado, contacta co teu administrador de TI."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_settings_button">
+        <item quantity="other">Comprobar certificados</item>
+        <item quantity="one">Comprobar certificado</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Acceder a %d carpetas/arquivos</item>
+        <item quantity="one">Acceder a 1 carpeta/arquivo</item>
+    </plurals>
+</resources>

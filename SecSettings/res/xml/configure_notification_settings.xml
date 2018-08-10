@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/configure_notification_settings" android:key="configure_notification_settings"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:key="dashboard_tile_placeholder" android:order="1" />
+    <SwitchPreference android:title="@string/notification_pulse_title" android:key="notification_pulse" />
+    <com.android.settings.notification.RestrictedDropDownPreference android:title="@string/lock_screen_notifications_title" android:key="lock_screen_notifications" android:summary="%s" />
+    <SwitchPreference android:title="@string/fingerprint_swipe_for_notifications_title" android:key="gesture_swipe_down_fingerprint" android:summary="@string/fingerprint_swipe_for_notifications_summary" />
+    <PreferenceCategory android:title="@string/profile_section_header" android:key="lock_screen_notifications_profile_header">
+        <com.android.settings.notification.RestrictedDropDownPreference android:title="@string/lock_screen_notifications_title" android:key="lock_screen_notifications_profile" android:summary="%s" />
+    </PreferenceCategory>
+</PreferenceScreen>

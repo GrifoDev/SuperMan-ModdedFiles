@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/bluetooth_actionbar" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ProgressBar android:id="@id/scanning_progress" android:layout_width="24.0dip" android:layout_height="24.0dip" style="?android:progressBarStyleSmall" />
+</RelativeLayout>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="accessibilty_autoclick_preference_subtitle_extremely_short_delay">
+        <item quantity="other">Super mało niyskoroś (%s ms)</item>
+        <item quantity="one">Super mało niyskoroś (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_long_delay">
+        <item quantity="other">Wielgo niyskoroś (%s ms)</item>
+        <item quantity="one">Wielgo niyskoroś (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_short_delay">
+        <item quantity="other">Mało niyskoroś (%s ms)</item>
+        <item quantity="one">Mało niyskoroś (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_long_delay">
+        <item quantity="other">Fest srogo niyskoroś (%s ms)</item>
+        <item quantity="one">Fest srogo niyskoroś (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_short_delay">
+        <item quantity="other">Fest mało niyskoroś (%s ms)</item>
+        <item quantity="one">Fest mało niyskoroś (%s ms)</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d aplikacyjōm przizwolōno na używanie danych bez ukrōcyń</item>
+        <item quantity="one">1 aplikacyji przizwŏlōno na używanie danych bez ukrōcyń</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary_chn">
+        <item quantity="other">Dozwŏlōno %d aplikacyjōm na używanie danych mobilnych bez ukrōcyń, kej je załōnczōno fōnkcyjŏ Ukrōcanie danych w tle.</item>
+        <item quantity="one">Dozwŏlōno %d aplikacyjōm na używanie danych mobilnych bez ukrōcyń, kej je załōnczōno fōnkcyjŏ Ukrōcanie danych w tle.</item>
+    </plurals>
+    <plurals name="deleted_channels">
+        <item quantity="other">Usunięto kategorii: %d</item>
+        <item quantity="one">Usunięto 1 kategorię</item>
+    </plurals>
+    <plurals name="dex_timeout_day">
+        <item quantity="other">%d dni</item>
+        <item quantity="one">1 dziyń</item>
+    </plurals>
+    <plurals name="dex_timeout_hour">
+        <item quantity="other">%d godz.</item>
+        <item quantity="one">1 godz.</item>
+    </plurals>
+    <plurals name="dex_timeout_minute">
+        <item quantity="other">%d min</item>
+        <item quantity="one">1 min</item>
+    </plurals>
+    <plurals name="dex_timeout_second">
+        <item quantity="other">%d sek.</item>
+        <item quantity="one">1 sek.</item>
+    </plurals>
+    <plurals name="dex_timeout_week">
+        <item quantity="other">%d tydn.</item>
+        <item quantity="one">1 tydziyń</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Wyciepywanie ôbranych gŏdek</item>
+        <item quantity="one">Wyciepywanie ôbranyj gŏdki</item>
+    </plurals>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d godz.</item>
+        <item quantity="one">1 godz.</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d min</item>
+        <item quantity="one">1 min</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d sek.</item>
+        <item quantity="one">1 sek.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Hasło musi mieć co nŏjmynij takŏ liczba szkryf: %d</item>
+        <item quantity="one">Hasło musi mieć co nŏjmynij 1 szkryfa</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Hasło musi mieć co nŏjmynij takŏ liczba małych szkryf: %d</item>
+        <item quantity="one">Hasło musi mieć co nŏjmynij 1 małŏ szkryfa</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Hasło musi mieć conŏjmynij takŏ liczba cyfrōw abo symboli: %d.</item>
+        <item quantity="one">Hasło musi mieć co nŏjmynij takŏ liczba cyfrōw i symboli: 1.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Hasło musi mieć nŏjmyni takŏ liczba cyfr: %d</item>
+        <item quantity="one">Hasło musi mieć co nŏjmynij 1 cyfra.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Hasło musi mieć co nŏjmynij takŏ liczba symboli: %d.</item>
+        <item quantity="one">Hasło musi mieć co nŏjmynij takŏ liczba symboli: 1.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Hasło musi mieć co nŏjmynij takŏ liczba wielgich szkryf: %d.</item>
+        <item quantity="one">Hasło musi mieć co nŏjmynij 1 wielgŏ szkryfa.</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">aplikacyje, kere śmiōm czytać nowiny: %d.</item>
+        <item quantity="one">Aplikacyje (%d) kere śmiōm czytać nowiny.</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">Procesōw: %1$d używało pamiyńci RAM bez ôstatnie %2$s</item>
+        <item quantity="one">%1$d proces używoł pamiyńci RAM bez ôstatnie %2$s</item>
+    </plurals>
+    <plurals name="network_restrictions_summary">
+        <item quantity="other">Ukrōcyń: %d</item>
+        <item quantity="one">1 ukrōcynie</item>
+    </plurals>
+    <plurals name="notification_summary">
+        <item quantity="other">Wyłączone dla %d aplikacji</item>
+        <item quantity="one">Wyłączone dla 1 aplikacji</item>
+    </plurals>
+    <plurals name="number_of_device_admins">
+        <item quantity="other">Aktywnych aplikacji: %d</item>
+        <item quantity="one">1 aktywna aplikacja</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">Więcej uprawnień: %d</item>
+        <item quantity="one">%d dodatkowe uprawnienie</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Ôstaniesz programistōm już po złōnaczyniu tylu krokōw: %d.</item>
+        <item quantity="one">Jeszcze jedyn krok a ôstaniesz programistōm.</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_dialog_title">
+        <item quantity="other">Zaufaj certyfikatom lub usuń je</item>
+        <item quantity="one">Zaufaj certyfikatowi lub usuń go</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message">
+        <item quantity="other">"Na swoim profilu fyrmowym mosz zainsztalowane bez %s urzyndy ôd certyfikatōw, kere dozwŏlajōm na wachowanie aktywności w necu fyrmowym, w tym używanio poczty e-mail, aplikacyji i ker zabezpieczajōm zajty WWW. Poradzisz ôbrać, eli chcesz dowiyrzać tym certyfikatōm, eli ône wyciepać.
+
+Coby dostać wiyncyj informacyji ô tych certyfikatach, pogŏdej z administratorym."</item>
+        <item quantity="one">"Na swoim profilu fyrmowym mosz zainsztalowany bez %s urzōnd certyfikatōw, kery dozwŏlo na wachowanie aktywności w necu fyrmowym, w tym używanio poczty e-mail, aplikacyji i ker zabezpieczajōm zajty WWW. Poradzisz ôbrać, eli chcesz dowiyrzać tymu certyfikatowi, eli ônego wyciepać.
+
+Coby dostać wiyncyj informacyji ô tym certyfikacie, pogŏdej z administratorym."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s zainsztalowoł certyfikaty CA na Twoij maszinie, skuli czego poradzi mieć możnoś mōnitorowanio Twojij aktywności necowyj, w tym używanio poczty elektrōnicznyj, aplikacyji i zabezpieczōnych zajtōw internecowych.
+
+Coby mieć wiyncyj informacyji na tymat tych certyfikatōw, pogŏdej z administratorym IT."</item>
+        <item quantity="one">"%s zainsztalowoł certyfikat CA na Twojij maszinie, skuli czego poradzi mieć możnoś mōnitorowanio Twojij aktywności necowyj, w tym używanio poczty elektrōnicznyj, aplikacyji i zabezpieczōnych zajtōw internecowych.
+
+Coby mieć wiyncyj informacyji na tymat tego certyfikatu, pogŏdej z administratorym IT."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_settings_button">
+        <item quantity="other">Sprawdź certyfikaty</item>
+        <item quantity="one">Sprawdź certyfikat</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Dostymp do %d katalogōw/plikōw</item>
+        <item quantity="one">Dostymp do 1 katalogu/pliku</item>
+    </plurals>
+</resources>

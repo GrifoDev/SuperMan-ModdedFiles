@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.setupwizardlib.GlifLayout android:id="@id/setup_wizard_layout" android:layout_width="fill_parent" android:layout_height="fill_parent" app:suwFooter="@layout/fingerprint_enroll_finish_base_footer" style="?fingerprint_layout_theme"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent" style="@style/SuwContentFrame">
+        <TextView android:id="@id/message" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/suw_description_glif_margin_top" android:text="@string/security_settings_fingerprint_enroll_finish_message" style="@style/SuwDescription.Glif" />
+        <TextView android:textColor="?android:textColorSecondary" android:id="@id/message_secondary" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/suw_description_glif_margin_top" android:text="@string/setup_fingerprint_enroll_finish_message_secondary" style="@style/SuwDescription.Glif" />
+        <View android:layout_width="fill_parent" android:layout_height="24.0dip" android:layout_weight="1.0" />
+        <ImageView android:layout_gravity="center_horizontal" android:id="@id/fingerprint_in_app_indicator" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/fp_app_indicator" android:maxWidth="@dimen/fingerprint_in_app_indicator_max_size" android:maxHeight="@dimen/fingerprint_in_app_indicator_max_size" android:minWidth="@dimen/fingerprint_in_app_indicator_min_size" android:minHeight="@dimen/fingerprint_in_app_indicator_min_size" android:layout_weight="5.0" android:contentDescription="@android:string/fingerprint_icon_content_description" />
+        <View android:layout_width="fill_parent" android:layout_height="24.0dip" android:layout_weight="1.0" />
+    </LinearLayout>
+</com.android.setupwizardlib.GlifLayout>

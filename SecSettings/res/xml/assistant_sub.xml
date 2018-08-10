@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<assistant-list>
+    <button action="com.android.settings.Search" name="@string/search_settings" resource="@drawable/assistant_menu_icon_messages_search" />
+</assistant-list>

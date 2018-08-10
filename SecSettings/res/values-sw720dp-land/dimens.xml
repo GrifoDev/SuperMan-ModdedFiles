@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="actionbar_subsettings_contentInsetStart">128.0dip</dimen>
+    <dimen name="switchbar_subsettings_margin_end">128.0dip</dimen>
+    <dimen name="switchbar_subsettings_margin_start">128.0dip</dimen>
+</resources>

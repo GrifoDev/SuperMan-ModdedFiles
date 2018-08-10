@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <RelativeLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/wifi_ap_help_vzw_layout_base">
+            <TextView android:id="@id/help_list_item_1" android:paddingTop="@dimen/wifi_ap_help_vzw_desc_text_area_margin_top" android:paddingBottom="@dimen/wifi_ap_help_vzw_desc_text_with_number_margin_between" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/item_mobile_hotspot_turn_your_device_vzw" style="@style/wifi_ap_help_vzw_item_desc_text" />
+            <TextView android:id="@id/help_list_item_2" android:paddingBottom="@dimen/wifi_ap_help_vzw_desc_text_with_number_margin_between" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/item_mobile_hotspot_unable_to_use_device_app_vzw" android:layout_below="@id/help_list_item_1" style="@style/wifi_ap_help_vzw_item_desc_text" />
+            <TextView android:id="@id/help_list_item_3" android:paddingBottom="@dimen/wifi_ap_help_vzw_desc_text_area_margin_bottom" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/item_mobile_hotspot_configure_mobile_hotspot_vzw" android:layout_below="@id/help_list_item_2" style="@style/wifi_ap_help_vzw_item_desc_text" />
+        </RelativeLayout>
+    </ScrollView>
+    <Button android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/button_start_help" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/wifi_ap_help_vzw_try_btn_margin_top" android:layout_marginBottom="@dimen/wifi_ap_help_vzw_try_btn_margin_bottom" android:text="@string/button_text_step_by_step" android:layout_marginStart="@dimen/wifi_ap_help_vzw_try_btn_margin_side" android:layout_marginEnd="@dimen/wifi_ap_help_vzw_try_btn_margin_side" style="@style/wifi_ap_help_vzw_try_button" />
+</LinearLayout>

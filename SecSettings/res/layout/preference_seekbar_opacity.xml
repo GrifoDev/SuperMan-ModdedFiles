@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="67.0dip" android:paddingStart="?android:listPreferredItemPaddingStart" android:paddingEnd="?android:listPreferredItemPaddingEnd"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="?android:textAppearanceMedium" android:ellipsize="marquee" android:layout_gravity="start" android:id="@id/opacity_title" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="7.0dip" android:text="@string/opaticy_settings_title" android:singleLine="true" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/zoom_layer" android:layout_width="fill_parent" android:layout_height="36.0dip" android:layout_marginBottom="10.0dip">
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/opacity_minus" android:background="?android:selectableItemBackgroundBorderless" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/tw_list_icon_magnifier_minus_mtrl" android:scaleType="center" android:contentDescription="@string/magnifier_seekbar_minus_tts" android:paddingEnd="10.0dip" />
+        <com.samsung.android.settings.accessibility.assistantmenu.CenterMarkerSeekBar android:id="@id/opacity_seekbar" android:focusable="true" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_weight="1.0" android:layout_centerVertical="true" />
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/opacity_plus" android:background="?android:selectableItemBackgroundBorderless" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/tw_list_icon_magnifier_plus_mtrl" android:scaleType="center" android:contentDescription="@string/magnifier_seekbar_plus_tts" android:paddingStart="10.0dip" />
+    </LinearLayout>
+</LinearLayout>

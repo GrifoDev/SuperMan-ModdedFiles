@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/legal_information"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Preference android:title="@string/copyright_title" android:key="copyright">
+        <intent android:action="android.settings.COPYRIGHT" />
+    </Preference>
+    <Preference android:title="@string/license_title" android:key="license">
+        <intent android:action="android.settings.LICENSE" />
+    </Preference>
+    <Preference android:title="@string/terms_title" android:key="terms">
+        <intent android:action="android.settings.TERMS" />
+    </Preference>
+    <Preference android:title="@string/webview_license_title" android:key="webview_license">
+        <intent android:action="android.settings.WEBVIEW_LICENSE" />
+    </Preference>
+    <PreferenceScreen android:title="@string/terms_and_condition" android:key="samsung_legal" />
+    <PreferenceScreen android:title="@string/legal_info_samsung_privacy_policy" android:key="samsung_privacy_policy" />
+    <PreferenceScreen android:title="@string/settings_safetylegal_title" android:key="safetyinfomation">
+        <intent android:action="com.samsung.safetyinformation.SAFETY_INFORMATION" />
+    </PreferenceScreen>
+    <PreferenceScreen android:title="@string/privacy_alert" android:key="privacy_alert">
+        <intent android:action="com.samsung.settings.PRIVACY_ALERT" />
+    </PreferenceScreen>
+    <PreferenceScreen android:title="@string/license_settings" android:key="divx_license_settings">
+        <intent android:action="android.intent.action.DIVX_LICENSE_SETTINGS" />
+    </PreferenceScreen>
+    <PreferenceScreen android:title="@string/knox_privacy_notice_title" android:key="knox_privacy_notice">
+        <intent android:action="com.samsung.settings.SAMSUNG_KNOX_PRIVACY_NOTICE" />
+    </PreferenceScreen>
+</PreferenceScreen>

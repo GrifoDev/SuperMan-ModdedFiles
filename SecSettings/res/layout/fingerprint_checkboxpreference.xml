@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeightSmall" android:paddingStart="?android:listPreferredItemPaddingStart" android:paddingEnd="?android:listPreferredItemPaddingEnd"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="end|center" android:orientation="vertical" android:id="@android:id/widget_frame" android:layout_width="wrap_content" android:layout_height="fill_parent" />
+    <RelativeLayout android:paddingTop="@dimen/biometrics_preference_title_padding_top" android:paddingBottom="@dimen/biometrics_preference_title_padding_bottom" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0" android:paddingStart="@dimen/fingerprint_add_fingerprint_title_paddingStart">
+        <TextView android:textAppearance="?android:textAppearanceListItem" android:ellipsize="marquee" android:id="@android:id/title" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+        <TextView android:textAppearance="@android:style/TextAppearance.Material.Body1" android:textColor="?android:textColorSecondary" android:id="@android:id/summary" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="10" android:layout_below="@android:id/title" android:textAlignment="viewStart" android:layout_alignStart="@android:id/title" />
+    </RelativeLayout>
+</LinearLayout>

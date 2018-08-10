@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/storage_settings"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.settings.deviceinfo.StorageItemPreference android:icon="@drawable/ic_photo_library_vd_theme_24" android:title="@string/storage_photos_videos" android:key="pref_photos_videos" android:order="2" />
+    <com.android.settings.deviceinfo.StorageItemPreference android:icon="@drawable/ic_music_note_vd_theme_24" android:title="@string/storage_music_audio" android:key="pref_music_audio" android:order="3" />
+    <com.android.settings.deviceinfo.StorageItemPreference android:icon="@drawable/ic_videogame_vd_theme_24" android:title="@string/storage_games" android:key="pref_games" android:order="4" />
+    <com.android.settings.deviceinfo.StorageItemPreference android:icon="@drawable/ic_theaters_vd_theme_24" android:title="@string/storage_movies_tv" android:key="pref_movies" android:order="5" />
+    <com.android.settings.deviceinfo.StorageItemPreference android:icon="@drawable/ic_apps_vd_theme_24" android:title="@string/storage_other_apps" android:key="pref_other_apps" android:order="6" />
+    <com.android.settings.deviceinfo.StorageItemPreference android:icon="@drawable/ic_folder_vd_theme_24" android:title="@string/storage_files" android:key="pref_files" android:order="7" />
+</PreferenceScreen>

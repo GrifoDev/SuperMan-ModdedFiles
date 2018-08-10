@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="accessibilty_autoclick_preference_subtitle_extremely_short_delay">
+        <item quantity="other">Itin trumpa delsa (%s ms)</item>
+        <item quantity="one">Itin trumpa delsa (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_long_delay">
+        <item quantity="other">Ilga delsa (%s ms)</item>
+        <item quantity="one">Ilga delsa (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_short_delay">
+        <item quantity="other">Trumpa delsa (%s ms)</item>
+        <item quantity="one">Trumpa delsa (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_long_delay">
+        <item quantity="other">Labai ilga delsa (%s ms)</item>
+        <item quantity="one">Labai ilga delsa (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_short_delay">
+        <item quantity="other">Labai trumpa delsa (%s ms)</item>
+        <item quantity="one">Labai trumpa delsa (%s ms)</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">Programos, kurioms leidžiama naudoti duomenis be apribojimų: %d</item>
+        <item quantity="one">1 programai leidžiama naudoti duomenis su apribojimais</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary_chn">
+        <item quantity="other">%d progr. leidžiama naudoti mobiliuosius duomenis be apribojimų, kai įjungtas foninių duomenų ribojimas.</item>
+        <item quantity="one">%d progr. leidžiama naudoti mobiliuosius duomenis be apribojimų, kai įjungtas foninių duomenų ribojimas.</item>
+    </plurals>
+    <plurals name="deleted_channels">
+        <item quantity="other">Ištrinta kategorijų: %d</item>
+        <item quantity="one">1 kategorija panaikinta</item>
+    </plurals>
+    <plurals name="dex_timeout_day">
+        <item quantity="other">%d d.</item>
+        <item quantity="one">1 diena</item>
+    </plurals>
+    <plurals name="dex_timeout_hour">
+        <item quantity="other">%d val.</item>
+        <item quantity="one">1 valanda</item>
+    </plurals>
+    <plurals name="dex_timeout_minute">
+        <item quantity="other">%d min.</item>
+        <item quantity="one">1 minutė</item>
+    </plurals>
+    <plurals name="dex_timeout_second">
+        <item quantity="other">%d sek.</item>
+        <item quantity="one">1 sekundė</item>
+    </plurals>
+    <plurals name="dex_timeout_week">
+        <item quantity="other">%d sav.</item>
+        <item quantity="one">1 savaitė</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Pašalinti pasirinktas kalbas</item>
+        <item quantity="one">Pašalinti pasirinktą kalbą</item>
+    </plurals>
+    <plurals name="enterprise_privacy_number_packages_lower_bound">
+        <item quantity="other">Mažiausiai %d programų</item>
+        <item quantity="one">Mažiausiai %d programa</item>
+        <item quantity="few">Mažiausiai %d programos</item>
+        <item quantity="many">Mažiausiai %d programos</item>
+    </plurals>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d val.</item>
+        <item quantity="one">1 valanda</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d min.</item>
+        <item quantity="one">1 minutė</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d sek.</item>
+        <item quantity="one">1 sekundė</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Slaptažodis turi būti sudarytas bent iš %d raidės (-ių).</item>
+        <item quantity="one">Slaptažodyje turi būti bent 1 raidė.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Slaptažodis turi būti sudarytas bent iš %d mažosios (-ųjų) raidės (-ių).</item>
+        <item quantity="one">Slaptažodyje turi būti bent 1 mažoji raidė.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Slaptažodį turi sudaryti bent %d skaitmenys (-ų) ar simboliai (-ių).</item>
+        <item quantity="one">Slaptažodį turi sudaryti bent 1 skaitmuo ar simbolis.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Slaptažodis turi būti sudarytas bent iš %d skaičiaus (-ių).</item>
+        <item quantity="one">Slaptažodyje turi būti bent 1 skaičius.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Slaptažodį turi sudaryti bent %d simboliai (-ių).</item>
+        <item quantity="one">Slaptažodį turi sudaryti bent 1 simbolis.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Slaptažodis turi būti sudarytas bent iš %d didžiosios (-ųjų) raidės (-ių).</item>
+        <item quantity="one">Slaptažodyje turi būti bent 1 didžioji raidė.</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d programų (-os) gali skaityti pranešimus.</item>
+        <item quantity="one">%d programai leidžiama skaityti pranešimus.</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$d procesai (-ų) išnaudojo RAM per pastarąją %2$s</item>
+        <item quantity="one">%1$d procesas išnaudojo RAM per pastarąją %2$s</item>
+    </plurals>
+    <plurals name="network_restrictions_summary">
+        <item quantity="other">%d apribojimų</item>
+        <item quantity="one">1 apribojimas</item>
+    </plurals>
+    <plurals name="notification_summary">
+        <item quantity="other">Išjungta %d programoms (-ų)</item>
+        <item quantity="one">Išjungta 1 programai</item>
+    </plurals>
+    <plurals name="number_of_device_admins">
+        <item quantity="other">Aktyvios programos: %d</item>
+        <item quantity="one">1 aktyvi programa</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">Dar %d leidimai (-ų)</item>
+        <item quantity="one">Dar %d leidimai (-ų)</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Jums liko įveikti %d veiksmus (-ų), kad taptumėte kūrėju.</item>
+        <item quantity="one">Jums liko atlikti 1 veiksmą, kad taptumėte kūrėju.</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_dialog_title">
+        <item quantity="other">Pasitikėkite arba pašalinkite sertifikatus</item>
+        <item quantity="one">Pasitikėkite arba pašalinkite sertifikatą</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message">
+        <item quantity="other">"%s įdiegė jūsų darbo profiliui sertifikatų įstaigas, kurios leis stebėti darbines tinklo operacijas, įskaitant el. laiškus, programas ir saugias svetaines. Galite pasirinkti, ar pasitikėti šiais sertifikatais, ar juos pašalinti.
+
+Norėdami gauti daugiau informacijos apie šiuos sertifikatus, kreipkitės į savo administratorių."</item>
+        <item quantity="one">"%s įdiegė jūsų darbo profiliui sertifikatų įstaigą, kuri leis stebėti darbines tinklo operacijas, įskaitant el. laiškus, programas ir saugias svetaines. Galite pasirinkti, ar pasitikėti šiuo sertifikatu, ar jį pašalinti.
+
+Norėdami gauti daugiau informacijos apie šį sertifikatą, kreipkitės į savo administratorių."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s įdiegė CA sertifikatus jūsų įrenginyje, o tai gali suteikti jiems galimybę stebėti jūsų įrenginio veiklą tinkle, įskaitant el. pašto, programų ir saugiųjų svetainių naudojimą.
+
+Jei reikia daugiau informacijos apie šiuos sertifikatus, kreipkitės į savo IT administratorių."</item>
+        <item quantity="one">"%s įdiegė CA sertifikatą jūsų įrenginyje, o tai gali suteikti jiems galimybę stebėti jūsų įrenginio veiklą tinkle, įskaitant el. pašto, programų ir saugiųjų svetainių naudojimą.
+
+Jei reikia daugiau informacijos apie šį sertifikatą, kreipkitės į savo IT administratorių."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_settings_button">
+        <item quantity="other">Tikrinti sertifikatus</item>
+        <item quantity="one">Tikrinti sertifikatą</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Prieiga prie %d aplank. / fail.</item>
+        <item quantity="one">Prieiga prie 1 aplanko / failo</item>
+    </plurals>
+</resources>

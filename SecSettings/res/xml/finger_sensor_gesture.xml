@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/finger_sensor_gesture_title" settings:parent="@xml/useful_feature"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <SecSwitchPreference android:title="@string/open_samsung_pay_title" android:key="open_samsung_pay" android:summary="@string/open_samsung_pay_summary" />
+    <SecSwitchPreference android:key="delete" />
+</PreferenceScreen>

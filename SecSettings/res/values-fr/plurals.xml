@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="accessibilty_autoclick_preference_subtitle_extremely_short_delay">
+        <item quantity="other">Délai extrêmement court (%s ms)</item>
+        <item quantity="one">Délai extrêmement court (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_long_delay">
+        <item quantity="other">Long délai (%s ms)</item>
+        <item quantity="one">Long délai (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_short_delay">
+        <item quantity="other">Délai court (%s ms)</item>
+        <item quantity="one">Délai court (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_long_delay">
+        <item quantity="other">Délai très long (%s ms)</item>
+        <item quantity="one">Délai très long (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_short_delay">
+        <item quantity="other">Délai très court (%s ms)</item>
+        <item quantity="one">Délai très court (%s ms)</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d applications autorisées à utiliser les données sans restrictions</item>
+        <item quantity="one">1 application autorisée à utiliser les données sans restrictions</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary_chn">
+        <item quantity="other">"%d applications sont autorisées à utiliser les données mobiles sans restriction lorsque la fonction Restreindre les données d'arrière-plan est activée."</item>
+        <item quantity="one">"%d applications sont autorisées à utiliser les données mobiles sans restriction lorsque la fonction Restreindre les données d'arrière-plan est activée."</item>
+    </plurals>
+    <plurals name="deleted_channels">
+        <item quantity="other">%d catégories supprimées</item>
+        <item quantity="one">1 catégorie supprimée</item>
+    </plurals>
+    <plurals name="dex_timeout_day">
+        <item quantity="other">%d jours</item>
+        <item quantity="one">1 jour</item>
+    </plurals>
+    <plurals name="dex_timeout_hour">
+        <item quantity="other">%d heures</item>
+        <item quantity="one">1 heure</item>
+    </plurals>
+    <plurals name="dex_timeout_minute">
+        <item quantity="other">%d minutes</item>
+        <item quantity="one">1 minute</item>
+    </plurals>
+    <plurals name="dex_timeout_second">
+        <item quantity="other">%d secondes</item>
+        <item quantity="one">1 seconde</item>
+    </plurals>
+    <plurals name="dex_timeout_week">
+        <item quantity="other">%d semaines</item>
+        <item quantity="one">1 semaine</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Suppression des langues sélectionnées</item>
+        <item quantity="one">Suppression de la langue sélectionnée</item>
+    </plurals>
+    <plurals name="enterprise_privacy_number_packages_lower_bound">
+        <item quantity="other">Au moins %d applications</item>
+        <item quantity="one">Au moins %d application</item>
+    </plurals>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d heures</item>
+        <item quantity="one">1 heure</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d minutes</item>
+        <item quantity="one">1 minute</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d secondes</item>
+        <item quantity="one">1 seconde</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Le mot de passe doit contenir au moins %d lettres.</item>
+        <item quantity="one">Le mot de passe doit contenir au moins 1 lettre.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Le mot de passe doit contenir au moins %d lettres minuscules.</item>
+        <item quantity="one">Le mot de passe doit contenir au moins 1 lettre minuscule.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Le mot de passe doit contenir au moins %d nombres ou symboles.</item>
+        <item quantity="one">Le mot de passe doit contenir au moins 1 nombre ou symbole.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Le mot de passe doit contenir au moins %d nombres.</item>
+        <item quantity="one">Le mot de passe doit contenir au moins 1 nombre.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Le mot de passe doit contenir au moins %d symboles.</item>
+        <item quantity="one">Le mot de passe doit contenir au moins 1 symbole.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Le mot de passe doit contenir au moins %d lettres majuscules.</item>
+        <item quantity="one">Le mot de passe doit contenir au moins 1 lettre majuscule.</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d applications peuvent lire les notifications.</item>
+        <item quantity="one">%d application autorisée à lire les notifications.</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$d processus ont utilisé de la RAM lors de la dernière période de %2$s</item>
+        <item quantity="one">%1$d processus a utilisé de la RAM lors de dernière période de %2$s</item>
+    </plurals>
+    <plurals name="network_restrictions_summary">
+        <item quantity="other">%d restrictions</item>
+        <item quantity="one">1 restriction</item>
+    </plurals>
+    <plurals name="notification_summary">
+        <item quantity="other">Désactivées pour %d applications</item>
+        <item quantity="one">Désactivées pour 1 application</item>
+    </plurals>
+    <plurals name="number_of_device_admins">
+        <item quantity="other">%d applications actives</item>
+        <item quantity="one">1 application active</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d autres autorisations</item>
+        <item quantity="one">%d autre autorisation</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Il vous reste %d étapes avant de devenir développeur.</item>
+        <item quantity="one">Il vous reste une étape avant de devenir développeur.</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_dialog_title">
+        <item quantity="other">Approuvez ou supprimez les certificats</item>
+        <item quantity="one">Approuvez ou supprimez le certificat</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message">
+        <item quantity="other">"%s a installé des autorités de certification pour votre profil professionnel, ce qui peut lui permettre de surveiller l'activité réseau professionnelle, y compris les e-mails, les applications et les sites Web sécurisés. Vous pouvez choisir de faire confiance à ces certificats ou de les supprimer.
+
+Pour plus d'informations sur ces certificats, contactez votre administrateur."</item>
+        <item quantity="one">"%s a installé une autorité de certification pour votre profil professionnel, ce qui peut lui permettre de surveiller l'activité réseau professionnelle, y compris les e-mails, les applications et les sites Web sécurisés. Vous pouvez choisir de faire confiance à ce certificat ou de le supprimer.
+
+Pour plus d'informations sur ce certificat, contactez votre administrateur."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s a installé des certificats AC sur votre appareil, ce qui peut lui permettre de surveiller l'activité réseau de votre appareil, y compris l'utilisation des e-mails, des applications et des sites Web sécurisés.
+
+Pour plus d'informations sur ces certificats, contactez votre administrateur informatique."</item>
+        <item quantity="one">"%s a installé un certificat AC sur votre appareil, ce qui peut lui permettre de surveiller l'activité réseau de votre appareil, y compris l'utilisation des e-mails, des applications et des sites Web sécurisés.
+
+Pour plus d'informations sur ce certificat, contactez votre administrateur informatique."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_settings_button">
+        <item quantity="other">Vérifier les certificats</item>
+        <item quantity="one">Vérifier le certificat</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Accéder à %d dossiers/fichiers</item>
+        <item quantity="one">Accéder à 1 dossier/fichier</item>
+    </plurals>
+</resources>

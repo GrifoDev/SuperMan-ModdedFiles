@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/accessibility_vision_category" android:key="key_vision_category" settings:parent="@xml/accessibility_settings"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+  xmlns:touchwiz="http://schemas.android.com/apk/res/touchwiz">
+    <SecRestrictedPreference android:title="@string/direct_access_actions_s_talkback_title" android:key="com.samsung.android.app.talkback/com.samsung.android.app.talkback.TalkBackService" />
+    <SecPreference android:title="@string/voice_assistant_tutorial_title" android:key="voice_assistant_tutorial_preference_screen">
+        <intent android:targetPackage="com.samsung.android.app.talkback" android:targetClass="com.samsung.android.app.talkback.TalkBackTutorialPreferencesActivity" />
+    </SecPreference>
+    <SecSwitchPreference android:persistent="false" android:title="@string/lcd_curtain_title" android:key="toggle_dark_screen" android:summary="@string/lcd_curtain_summary" />
+    <SecSwitchPreference android:persistent="false" android:title="@string/rapid_key_input_title" android:key="toggle_rapid_key_input" android:summary="@string/rapid_key_input_summary" />
+    <SecPreference android:persistent="false" android:title="@string/voice_label_title" android:key="voice_label_preference_screen" android:summary="@string/voice_label_summary" />
+    <SecPreference android:title="@string/screen_zoom_and_font" android:key="font_size_preference_screen" android:summary="@string/screen_zoom_and_font_summary" />
+    <SecSwitchPreference android:title="@string/accessibility_toggle_high_font_contrast_preference_title" android:key="toggle_high_text_contrast_preference" android:summary="@string/accessibility_toggle_high_font_contrast_preference_description" />
+    <SecSwitchPreferenceScreen android:title="@string/accessibility_toggle_high_keyboard_contrast_preference_title" android:key="high_keyboard_contrast_preference_screen" android:summary="@string/accessibility_toggle_high_keyboard_contrast_preference_description" />
+    <SecSwitchPreference android:title="@string/show_button_background_title" android:key="toggle_show_button_bg" android:summary="@string/show_button_background_summary" />
+    <SecSwitchPreferenceScreen android:title="@string/accessibility_magnifier_title" android:key="toggle_magnification_window_preference_screen" android:summary="@string/accessibility_magnifier_description" android:fragment="com.samsung.android.settings.accessibility.ToggleMagnifierPreferenceFragment" />
+    <SecPreference android:title="@string/accessibility_screen_magnification_title" android:key="magnification_preference_screen" android:fragment="com.android.settings.accessibility.MagnificationPreferenceFragment" />
+    <SecSwitchPreference android:title="@string/accessibility_toggle_large_pointer_icon_title" android:key="toggle_large_pointer_icon" />
+    <SecSwitchPreference android:persistent="false" android:title="@string/negative_color_title" android:key="toggle_negative_color" />
+    <SecPreference android:title="@string/colour_adjustment_title" android:key="color_adjustment_preference_screen">
+        <intent android:action="com.samsung.android.color.ADJUSTMENT" />
+    </SecPreference>
+    <SecPreference android:title="@string/colour_lens_title" android:key="color_lens_preference_screen">
+        <intent android:action="com.samsung.android.color.LENS" />
+    </SecPreference>
+    <SecSwitchPreference android:persistent="false" android:title="@string/accessibility_display_inversion_preference_title" android:key="toggle_inversion_preference" />
+    <SecPreference android:title="@string/accessibility_display_daltonizer_preference_title" android:key="daltonizer_preference_screen" android:fragment="com.android.settings.accessibility.ToggleDaltonizerPreferenceFragment" />
+</PreferenceScreen>

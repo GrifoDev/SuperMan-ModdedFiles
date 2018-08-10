@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="accessibilty_autoclick_preference_subtitle_extremely_short_delay">
+        <item quantity="other">একেবাৰে কম পলম (%s ms)</item>
+        <item quantity="one">একেবাৰে কম পলম (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_long_delay">
+        <item quantity="other">বহুত পলম (%s ms)</item>
+        <item quantity="one">বহুত পলম (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_short_delay">
+        <item quantity="other">কম পলম (%s ms)</item>
+        <item quantity="one">কম পলম (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_long_delay">
+        <item quantity="other">বহুত বেছি পলম (%s ms)</item>
+        <item quantity="one">বহুত বেছি পলম (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_short_delay">
+        <item quantity="other">বহুত কম পলম (%s ms)</item>
+        <item quantity="one">বহুত কম পলম (%s ms)</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">প্ৰতিবন্ধ নোহোৱাকৈ ডাটা ব্যৱহাৰ কৰিবলৈ %d টা এপ্প্‌চ অনুমতি প্ৰাপ্ত</item>
+        <item quantity="one">প্ৰতিবন্ধ নোহোৱাকৈ ডাটা ব্যৱহাৰ কৰিবলৈ 1 টা এপ অনুমতি প্ৰাপ্ত</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary_chn">
+        <item quantity="other">"পৃষ্ঠভূমি ডাটা প্ৰতিবন্ধ সক্ষম হৈ থাকোতে কোনো প্ৰতিবন্ধ নথকাকৈ ম'বাইল ডাটা ব্যৱহাৰ কৰিবলৈ %d টা এপ অনুমতি প্ৰাপ্ত।"</item>
+        <item quantity="one">"পৃষ্ঠভূমি ডাটা প্ৰতিবন্ধ সক্ষম হৈ থাকোতে কোনো প্ৰতিবন্ধ নথকাকৈ ম'বাইল ডাটা ব্যৱহাৰ কৰিবলৈ %d টা এপ অনুমতি প্ৰাপ্ত।"</item>
+    </plurals>
+    <plurals name="deleted_channels">
+        <item quantity="other">%d টা বৰ্গ বিলোপ হৈছে</item>
+        <item quantity="one">1 টা বৰ্গ বিলোপ হৈছে</item>
+    </plurals>
+    <plurals name="dex_timeout_day">
+        <item quantity="other">%d দিন</item>
+        <item quantity="one">1 দিন</item>
+    </plurals>
+    <plurals name="dex_timeout_hour">
+        <item quantity="other">%d ঘণ্টা</item>
+        <item quantity="one">1 ঘণ্টা</item>
+    </plurals>
+    <plurals name="dex_timeout_minute">
+        <item quantity="other">%d মিনিট</item>
+        <item quantity="one">1 মিনিট</item>
+    </plurals>
+    <plurals name="dex_timeout_second">
+        <item quantity="other">%d চেকেণ্ড</item>
+        <item quantity="one">1 ছেকেণ্ড</item>
+    </plurals>
+    <plurals name="dex_timeout_week">
+        <item quantity="other">%d সপ্তাহ</item>
+        <item quantity="one">1 সপ্তাহ</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">চয়নিত ভাষা আঁতৰাওক</item>
+        <item quantity="one">চয়নিত ভাষা আঁতৰাওক</item>
+    </plurals>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d ঘণ্টা</item>
+        <item quantity="one">1 ঘণ্টা</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d মিনিট</item>
+        <item quantity="one">1 মিনিট</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d চেকেণ্ড</item>
+        <item quantity="one">1 ছেকেণ্ড</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">পাছৱৰ্ডত অন্ততঃ %d টা আখৰ থাকিবই লাগিব৷</item>
+        <item quantity="one">পাছৱৰ্ডত কমেও 1 টা আখৰ থাকিব লাগিব৷</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">"পাছৱৰ্ডত অন্ততঃ %d টা ল'ৱাৰকেচ থাকিবই লাগিব৷"</item>
+        <item quantity="one">"পাছৱৰ্ডত কমেও 1 টা ল'ৱাৰকেচ আখৰ থাকিব লাগিব৷"</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">পাছৱৰ্ডত অন্ততঃ %d টা প্ৰতিকৰ সংখ্যা থাকিবই লাগিব৷</item>
+        <item quantity="one">পাছৱৰ্ডত অন্ততঃ 1 নম্বৰ বা প্ৰতিক থাকিবই লাগিব৷</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">পাছৱৰ্ডত অন্ততঃ %d টা নম্বৰ থাকিবই লাগিব৷</item>
+        <item quantity="one">পাছৱৰ্ডত কমেও 1 টা নম্বৰ থাকিব লাগিব৷</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">পাছৱৰ্ডত অন্ততঃ %d টা প্ৰতিক থাকিবই লাগিব৷</item>
+        <item quantity="one">পাছৱৰ্ডত অন্ততঃ 1 টা প্ৰতিক থাকিব লাগিব৷</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">পাছৱৰ্ডত অন্ততঃ %d টা আপাৰকেচ থাকিবই লাগিব৷</item>
+        <item quantity="one">পাছৱৰ্ডত কমেও 1 টা আপাৰকেচ আখৰ থাকিব লাগিব৷</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d টা এপ্লিকেশ্বনে অধিসূচনা পঢ়িব পাৰে৷</item>
+        <item quantity="one">%d টা এপ্লিকেশ্বনক অধিসূচনা পঢ়িবলৈ অনুমতি দিয়া হৈছে৷</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">অন্তিম %2$s-ত %1$d টা প্ৰক্ৰিয়াত RAM ব্যৱহাৰ হৈছে</item>
+        <item quantity="one">অন্তিম %2$s-ত %1$d টা প্ৰক্ৰিয়াত RAM ব্যৱহাৰ হৈছে</item>
+    </plurals>
+    <plurals name="network_restrictions_summary">
+        <item quantity="other">%d টা প্ৰতিবন্ধ</item>
+        <item quantity="one">1 টা প্ৰতিবন্ধ</item>
+    </plurals>
+    <plurals name="notification_summary">
+        <item quantity="other">%d টা এপ্প্‌চৰ বাবে অফ</item>
+        <item quantity="one">1 টা এপৰ বাবে অফ</item>
+    </plurals>
+    <plurals name="number_of_device_admins">
+        <item quantity="other">%d টা সক্ৰিয় এপ্প্‌চ</item>
+        <item quantity="one">1 টা সক্ৰিয় এপ</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d অধিক অনুমতি</item>
+        <item quantity="one">%d অধিক অনুমতি</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">"এজন ডেভলপাৰ হ'বলৈ এতিয়া আপুনি মাত্ৰ %dটা পদক্ষেপ দূৰত আছে৷"</item>
+        <item quantity="one">"এজন ডেভল'পাৰ হ'বলৈ এতিয়া আপুনি মাত্ৰ 1 টা পদক্ষেপ দূৰত আছে৷"</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_dialog_title">
+        <item quantity="other">প্ৰমাণপত্ৰসমূহ বিশ্বাস কৰক বা আঁতৰাওক</item>
+        <item quantity="one">প্ৰমাণপত্ৰ বিশ্বাস কৰক বা আঁতৰাওক</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message">
+        <item quantity="other">"%s-এ আপোনাৰ কাৰ্য্য প্ৰ'ফাইলৰ বাবে প্ৰমাণপত্ৰৰ কৰ্তৃপক্ষসমূহ ইনষ্টল কৰিছে, যিয়ে ইমেইলসমূহ, এপ্প্‌সমূহ আৰু সুৰক্ষিত ৱেবচাইটসমূহ অন্তৰ্ভুক্ত কৰি কাৰ্য্য নেটৱৰ্ক কাৰ্যকলাপ নিৰীক্ষণ কৰিবলৈ সেইবিলাকক অনুমতি দিব পাৰে। আপুনি এই প্ৰমাণপত্ৰসমূহ বিশ্বাস নাইবা আঁতৰাবলৈ চয়ন কৰিব পাৰে।
+
+এই প্ৰমাণপত্ৰসমূহৰ বিষয়ে অধিক তথ্যৰ বাবে, ব্যৱস্থাপকৰ সৈতে সম্পৰ্ক কৰক।"</item>
+        <item quantity="one">"%s-এ আপোনাৰ কাৰ্য্য প্ৰ'ফাইলৰ বাবে এটা প্ৰমাণপত্ৰৰ কৰ্তৃপক্ষ ইনষ্টল কৰিছে, যিয়ে ইমেইলসমূহ, এপ্প্‌সমূহ আৰু সুৰক্ষিত ৱেবচাইটসমূহ অন্তৰ্ভুক্ত কৰি কাৰ্য্য নেটৱৰ্ক কাৰ্যকলাপ নিৰীক্ষণ কৰিবলৈ সেইবিলাকক অনুমতি দিব পাৰে। আপুনি এই প্ৰমাণপত্ৰ বিশ্বাস নাইবা আঁতৰাবলৈ চয়ন কৰিব পাৰে।
+
+এই প্ৰমাণপত্ৰৰ বিষয়ে অধিক তথ্যৰ বাবে, ব্যৱস্থাপকৰ সৈতে সম্পৰ্ক কৰক।"</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s-এ আপোনাৰ ডিভাইচত এখন CA প্ৰমাণপত্ৰ ইনষ্টল কৰিছে, যিয়ে আপোনাৰ ইমেইল, এপ্প্‌সমূহ আৰু সুৰক্ষিত ৱেবচাইটৰ ব্যৱহাৰ অন্তৰ্ভুক্ত কৰি আপোনাৰ ডিভাইচৰ নেটৱৰ্ক কাৰ্যকলাপ নিৰীক্ষণ কৰিবলৈ সেইবিলাকক অনুমতি দিব পাৰে।
+
+এই প্ৰমাণপত্ৰৰ বিষয়ে অধিক তথ্যৰ বাবে, আপোনাৰ IT ব্যৱস্থাপকৰ সৈতে সম্পৰ্ক কৰক।"</item>
+        <item quantity="one">"%s-এ আপোনাৰ ডিভাইচত এখন CA প্ৰমাণপত্ৰ ইনষ্টল কৰিছে, যিয়ে আপোনাৰ ইমেইল, এপ্প্‌সমূহ আৰু সুৰক্ষিত ৱেবচাইটৰ ব্যৱহাৰ অন্তৰ্ভুক্ত কৰি আপোনাৰ ডিভাইচৰ নেটৱৰ্ক কাৰ্যকলাপ নিৰীক্ষণ কৰিবলৈ সেইবিলাকক অনুমতি দিব পাৰে।
+
+এই প্ৰমাণপত্ৰৰ বিষয়ে অধিক তথ্যৰ বাবে, আপোনাৰ IT ব্যৱস্থাপকৰ সৈতে সম্পৰ্ক কৰক।"</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_settings_button">
+        <item quantity="other">প্ৰমাণপত্ৰসমূহ পৰীক্ষা কৰক</item>
+        <item quantity="one">প্ৰমাণপত্ৰ পৰীক্ষা কৰক</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">"%d টা ফ'ল্ডাৰ/ফাইলত প্ৰৱেশ কৰক"</item>
+        <item quantity="one">"1 টা ফ'ল্ডাৰ/ফাইলত প্ৰৱেশ কৰক"</item>
+    </plurals>
+</resources>

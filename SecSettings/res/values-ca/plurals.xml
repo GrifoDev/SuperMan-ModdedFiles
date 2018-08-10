@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="accessibilty_autoclick_preference_subtitle_extremely_short_delay">
+        <item quantity="other">Retard extremadament breu (%s ms)</item>
+        <item quantity="one">Retard extremadament breu (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_long_delay">
+        <item quantity="other">Retard llarg (%s ms)</item>
+        <item quantity="one">Retard llarg (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_short_delay">
+        <item quantity="other">Retard breu (%s ms)</item>
+        <item quantity="one">Retard breu (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_long_delay">
+        <item quantity="other">Retard molt llarg (%s ms)</item>
+        <item quantity="one">Retard molt llarg (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_short_delay">
+        <item quantity="other">Retard molt breu (%s ms)</item>
+        <item quantity="one">Retard molt breu (%s ms)</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d aplicacions poden utilitzar les dades sense restriccions</item>
+        <item quantity="one">Hi ha 1 aplicació autoritzada per utilitzar les dades sense restriccions</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary_chn">
+        <item quantity="other">%d aplicacions tenen permís per utilitzar dades mòbils sense restriccions mentre Restringir dades en segon pla estigui activat.</item>
+        <item quantity="one">%d aplicacions tenen permís per utilitzar dades mòbils sense restriccions mentre Restringir dades en segon pla estigui activat.</item>
+    </plurals>
+    <plurals name="deleted_channels">
+        <item quantity="other">%d categories esborrades</item>
+        <item quantity="one">"S'ha esborrat 1 categoria"</item>
+    </plurals>
+    <plurals name="dex_timeout_day">
+        <item quantity="other">%d dies</item>
+        <item quantity="one">1 dia</item>
+    </plurals>
+    <plurals name="dex_timeout_hour">
+        <item quantity="other">%d hores</item>
+        <item quantity="one">1 hora</item>
+    </plurals>
+    <plurals name="dex_timeout_minute">
+        <item quantity="other">%d minuts</item>
+        <item quantity="one">1 minut</item>
+    </plurals>
+    <plurals name="dex_timeout_second">
+        <item quantity="other">%d segons</item>
+        <item quantity="one">1 segon</item>
+    </plurals>
+    <plurals name="dex_timeout_week">
+        <item quantity="other">%d setmanes</item>
+        <item quantity="one">1 setmana</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Eliminar els idiomes seleccionats</item>
+        <item quantity="one">"Eliminar l'idioma seleccionat"</item>
+    </plurals>
+    <plurals name="enterprise_privacy_number_packages_lower_bound">
+        <item quantity="other">%d aplicacions com a mínim</item>
+        <item quantity="one">%d aplicació com a mínim</item>
+    </plurals>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d hores</item>
+        <item quantity="one">1 hora</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d minuts</item>
+        <item quantity="one">1 minut</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d segons</item>
+        <item quantity="one">1 segon</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">La contrasenya ha de contenir almenys %d lletres</item>
+        <item quantity="one">La contrasenya ha de contenir almenys 1 lletra</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">La contrasenya ha de contenir almenys %d lletres minúscules</item>
+        <item quantity="one">La contrasenya ha de contenir almenys 1 lletra minúscula</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">La contrasenya ha de contenir almenys %d números o símbols</item>
+        <item quantity="one">La contrasenya ha de contenir almenys 1 número o símbol</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">La contrasenya ha de contenir almenys %d números</item>
+        <item quantity="one">La contrasenya ha de contenir almenys 1 número</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">La contrasenya ha de contenir almenys %d símbols</item>
+        <item quantity="one">La contrasenya ha de contenir almenys 1 símbol</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">La contrasenya ha de contenir almenys %d lletres majúscules</item>
+        <item quantity="one">La contrasenya ha de contenir almenys 1 lletra majúscula</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d aplicacions poden llegir notificacions.</item>
+        <item quantity="one">"L'aplicació %d està autoritzada a llegir notificacions."</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$d processos han utilitzat la RAM durant les %2$s últimes hores</item>
+        <item quantity="one">%1$d procés ha utilitzat la RAM durant les %2$s últimes hores</item>
+    </plurals>
+    <plurals name="network_restrictions_summary">
+        <item quantity="other">%d restriccions</item>
+        <item quantity="one">1 restricció</item>
+    </plurals>
+    <plurals name="notification_summary">
+        <item quantity="other">Desactivat per a %d aplicacions</item>
+        <item quantity="one">Desactivat per a 1 aplicació</item>
+    </plurals>
+    <plurals name="number_of_device_admins">
+        <item quantity="other">%d aplicacions actives</item>
+        <item quantity="one">1 aplicació activa</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d permisos més</item>
+        <item quantity="one">%d permís més</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Ara està a %d passos de convertir-se en programador</item>
+        <item quantity="one">Ara està a 1 pas de convertir-se en desenvolupador</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_dialog_title">
+        <item quantity="other">Confiar o eliminar els certificats</item>
+        <item quantity="one">Confiar o eliminar el certificat</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message">
+        <item quantity="other">"%s ha instal·lat unes autoritzacions de certificat per al teu perfil professional, que podrien permetre controlar l'activitat de la xarxa de treball, com ara els correus electrònics, les aplicacions i els llocs web segurs. Pots decidir confiar o eliminar aquests certificats.
+
+Per obtenir més informació sobre els certificats, posa't en contacte amb l'administrador."</item>
+        <item quantity="one">"%s ha instal·lat una autorització de certificat per al teu perfil professional, que podria permetre controlar l'activitat de la xarxa de treball, com ara els correus electrònics, les aplicacions i els llocs web segurs. Pots decidir confiar o eliminar aquest certificat.
+
+Per obtenir més informació sobre el certificat, posa't en contacte amb l'administrador."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s ha instal·lat uns certificats CA al dispositiu que podrien permetre controlar l'activitat de xarxa del dispositiu, com ara l'ús dels correus electrònics, les aplicacions i els llocs web segurs.
+
+Per obtenir més informació sobre aquests certificats, posi's en contacte amb l'administrador de TI."</item>
+        <item quantity="one">"%s ha instal·lat un certificat CA al dispositiu que podria permetre controlar l'activitat de xarxa del dispositiu, com ara l'ús dels correus electrònics, les aplicacions i els llocs web segurs.
+
+Per obtenir més informació sobre el certificat, posi's en contacte amb l'administrador de TI."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_settings_button">
+        <item quantity="other">Comprovar certificats</item>
+        <item quantity="one">Comprovar certificat</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Accedir a %d carpetes/fitxers</item>
+        <item quantity="one">Accedir a 1 carpeta/fitxer</item>
+    </plurals>
+</resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/language_keyboard_settings_title"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <Preference android:title="@string/phone_language" android:key="phone_language" android:fragment="com.samsung.android.settings.localepicker.LocaleListEditor" />
+    <PreferenceScreen android:title="@string/current_input_method" android:key="current_input_method" />
+    <PreferenceCategory android:title="@string/keyboard_and_input_methods_category">
+        <Preference android:title="@string/virtual_keyboard_category" android:key="virtual_keyboard_pref" android:fragment="com.android.settings.inputmethod.VirtualKeyboardFragment" />
+        <Preference android:title="@string/physical_keyboard_title" android:key="physical_keyboard_pref" android:summary="@string/summary_placeholder" android:fragment="com.android.settings.inputmethod.PhysicalKeyboardFragment" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/input_assistance">
+        <Preference android:persistent="false" android:title="@string/spellcheckers_settings_title" android:key="spellcheckers_settings" android:fragment="com.android.settings.inputmethod.SpellCheckersSettings" />
+        <com.samsung.android.settings.SecGearPreference android:title="@string/autofill_app" android:key="default_autofill" android:fragment="com.android.settings.applications.defaultapps.DefaultAutofillPicker" settings:keywords="@string/autofill_keywords" />
+        <Preference android:title="@string/user_dict_settings_title" android:key="key_user_dictionary_settings" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/gesture_preference_title" android:key="gesture_settings_category">
+        <Preference android:title="@string/assist_gesture_title" android:key="gesture_assist" android:fragment="com.android.settings.gestures.AssistGestureSettings" />
+        <Preference android:title="@string/fingerprint_swipe_for_notifications_title" android:key="gesture_swipe_down_fingerprint" android:fragment="com.android.settings.gestures.SwipeToNotificationSettings" />
+        <Preference android:title="@string/double_tap_power_for_camera_title" android:key="gesture_double_tap_power" android:fragment="com.android.settings.gestures.DoubleTapPowerSettings" />
+        <Preference android:title="@string/double_twist_for_camera_mode_title" android:key="gesture_double_twist" android:fragment="com.android.settings.gestures.DoubleTwistGestureSettings" />
+        <Preference android:title="@string/ambient_display_title" android:key="gesture_double_tap_screen" android:fragment="com.android.settings.gestures.DoubleTapScreenSettings" />
+        <Preference android:title="@string/ambient_display_pickup_title" android:key="gesture_pick_up" android:fragment="com.android.settings.gestures.PickupGestureSettings" />
+    </PreferenceCategory>
+    <PreferenceCategory>
+        <com.android.settings.PointerSpeedPreference android:title="@string/pointer_speed" android:key="pointer_speed" android:dialogTitle="@string/pointer_speed" />
+        <Preference android:title="@string/tts_settings_title" android:key="tts_settings" android:fragment="com.android.settings.tts.TextToSpeechSettings" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/game_controller_settings_category" android:key="game_controller_settings_category">
+        <SwitchPreference android:title="@string/vibrate_input_devices" android:key="vibrate_input_devices" android:summaryOn="@string/vibrate_input_devices_summary" android:summaryOff="@string/vibrate_input_devices_summary" />
+    </PreferenceCategory>
+</PreferenceScreen>

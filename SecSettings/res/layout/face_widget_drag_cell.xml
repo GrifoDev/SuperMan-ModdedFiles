@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.samsung.android.settings.lockscreen.FaceWidgetDragCell android:background="?android:listChoiceBackgroundIndicator" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeightSmall"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Switch android:id="@id/face_widget_switch" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_marginStart="@dimen/list_item_start_padding" android:layout_alignParentEnd="true" />
+    <TextView android:id="@id/title" android:paddingTop="@dimen/locale_list_padding_top_bottom" android:paddingBottom="@dimen/locale_list_padding_top_bottom" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_toLeftOf="@id/face_widget_switch" android:paddingStart="@dimen/list_item_inner_padding" android:paddingEnd="@dimen/list_item_end_padding" android:layout_alignParentStart="true" style="@style/list_title_text_style" />
+</com.samsung.android.settings.lockscreen.FaceWidgetDragCell>

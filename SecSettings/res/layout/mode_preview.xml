@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:layout_width="fill_parent" android:layout_height="0.0px" android:layout_weight="0.52" android:layout_marginStart="@dimen/alert_dialog_padding_left_right" android:layout_marginEnd="@dimen/alert_dialog_padding_left_right">
+        <ImageView android:layout_gravity="bottom" android:id="@id/preview_image" android:background="@drawable/st_screen_mode_previewmode_img" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <TextView android:textSize="@dimen/screen_mode_auto_adaptive_desc_text_size" android:textColor="@color/screen_mode_text_color" android:layout_gravity="bottom" android:id="@id/auto_adaptive_description" android:background="@color/screen_mode_text_bg_color" android:paddingTop="@dimen/screen_mode_auto_adaptive_desc_top_bottom_padding" android:paddingBottom="@dimen/screen_mode_auto_adaptive_desc_top_bottom_padding" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/screen_mode_auto_adaptive_description" android:paddingStart="@dimen/screen_mode_auto_adaptive_desc_side_padding" android:paddingEnd="@dimen/screen_mode_auto_adaptive_desc_side_padding" />
+    </FrameLayout>
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="0.0px" android:layout_weight="0.48">
+        <ListView android:textColor="?android:textColorAlertDialogListItem" android:id="@id/mode_list" android:paddingTop="@dimen/preview_bottom_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:divider="?android:listDivider" android:choiceMode="singleChoice" android:layout_weight="1.0" android:paddingStart="@dimen/list_dialog_padding_left_right" android:paddingEnd="@dimen/list_dialog_padding_left_right" />
+        <ListView android:textColor="?android:textColorAlertDialogListItem" android:id="@id/color_balance_list" android:paddingTop="@dimen/preview_bottom_padding" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:divider="@null" android:choiceMode="singleChoice" android:paddingStart="@dimen/list_dialog_padding_left_right" android:paddingEnd="@dimen/list_dialog_padding_left_right" />
+    </LinearLayout>
+</LinearLayout>

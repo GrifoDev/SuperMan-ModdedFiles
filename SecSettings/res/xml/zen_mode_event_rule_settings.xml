@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:key="zen_mode_event_rule_settings"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Preference android:persistent="false" android:title="@string/zen_mode_rule_name" android:key="rule_name" />
+    <DropDownPreference android:title="@string/zen_mode_event_rule_calendar" android:key="calendar" android:summary="%s" />
+    <DropDownPreference android:title="@string/zen_mode_event_rule_reply" android:key="reply" android:summary="%s" />
+    <DropDownPreference android:title="@string/zen_mode_settings_title" android:key="zen_mode" android:summary="%s" />
+</PreferenceScreen>

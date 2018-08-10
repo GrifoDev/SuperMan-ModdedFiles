@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingTop="@dimen/list_item_top_padding" android:paddingBottom="@dimen/list_item_bottom_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="?android:listPreferredItemPaddingStart" android:paddingEnd="?android:listPreferredItemPaddingEnd"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:ellipsize="marquee" android:id="@android:id/title" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="3.0dip" android:text="@string/blue_light_filter_title" android:singleLine="true" style="@style/list_title_text_style" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/label_pressure" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/list_item_top_padding">
+        <TextView android:id="@id/pressure_low" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/lockscreen_noti_card_transparency_low" android:layout_weight="1.0" android:textAlignment="viewStart" android:layout_marginStart="@dimen/screen_resolotion_seekbar_preference_side_padding" style="@style/seekbar_preference_seekbar_label_text_style" />
+        <TextView android:id="@id/pressure_high" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/lockscreen_noti_card_transparency_high" android:layout_weight="1.0" android:textAlignment="viewEnd" android:layout_marginEnd="@dimen/screen_resolotion_seekbar_preference_side_padding" android:layout_alignParentEnd="true" style="@style/seekbar_preference_seekbar_label_text_style" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="49.0dip">
+        <SeekBar android:layout_gravity="center_vertical" android:id="@id/noti_card_seekbar" android:layout_width="0.0dip" android:layout_height="32.0dip" android:max="75" android:layout_weight="1.0" android:paddingStart="@dimen/display_settings_seekbar_with_icon_padding_start_end" android:paddingEnd="@dimen/display_settings_seekbar_with_icon_padding_start_end" android:min="0" />
+    </LinearLayout>
+    <RelativeLayout android:orientation="horizontal" android:id="@id/reverse_text_layout" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="16.0sp" android:textColor="@color/dialog_button_text_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/lockscreen_noti_card_seekbar_desc" android:layout_marginEnd="@dimen/list_item_end_padding" android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+</LinearLayout>

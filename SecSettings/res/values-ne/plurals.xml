@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="accessibilty_autoclick_preference_subtitle_extremely_short_delay">
+        <item quantity="other">अत्यन्त छोटो विलम्बना (%s ms)</item>
+        <item quantity="one">अत्यन्त छोटो विलम्बना (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_long_delay">
+        <item quantity="other">लामो विलम्बन (%s ms)</item>
+        <item quantity="one">लामो विलम्बन (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_short_delay">
+        <item quantity="other">छोटो विलम्बन (%s ms)</item>
+        <item quantity="one">छोटो विलम्बन (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_long_delay">
+        <item quantity="other">धेरै लामो विलम्ब (%s ms)</item>
+        <item quantity="one">धेरै लामो विलम्ब (%s ms)</item>
+    </plurals>
+    <plurals name="accessibilty_autoclick_preference_subtitle_very_short_delay">
+        <item quantity="other">धेरै छोटो विलम्बन (%s ms)</item>
+        <item quantity="one">धेरै छोटो विलम्बन (%s ms)</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d एप्सलाई कुनै सीमितता बिना डाटा प्रयोग गर्ने अनुमति दिइएको छ</item>
+        <item quantity="one">1 एपलाई कुनै सीमितता बिना डाटा प्रयोग गर्ने अनुमति दिइएको छ</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary_chn">
+        <item quantity="other">पृष्ठभूमिको डाटा सीमित गर्नुहोस् भन्ने सुविधालाई सक्षम गरिएको बेला %d एप्सलाई कुनै सीमितता बिना मोबाइल डाटा प्रयोग गर्न अनुमति दिइन्छ।</item>
+        <item quantity="one">पृष्ठभूमिको डाटा सीमित गर्नुहोस् भन्ने सुविधालाई सक्षम गरिएको बेला %d एप्सलाई कुनै सीमितता बिना मोबाइल डाटा प्रयोग गर्न अनुमति दिइन्छ।</item>
+    </plurals>
+    <plurals name="deleted_channels">
+        <item quantity="other">%d कोटिहरू मेटाइयो</item>
+        <item quantity="one">1 कोटि मेटाइयो</item>
+    </plurals>
+    <plurals name="dex_timeout_day">
+        <item quantity="other">%d दिन</item>
+        <item quantity="one">1 दिन</item>
+    </plurals>
+    <plurals name="dex_timeout_hour">
+        <item quantity="other">%d घण्टा</item>
+        <item quantity="one">1 घण्‍टा</item>
+    </plurals>
+    <plurals name="dex_timeout_minute">
+        <item quantity="other">%d मिनट</item>
+        <item quantity="one">1 मिनट</item>
+    </plurals>
+    <plurals name="dex_timeout_second">
+        <item quantity="other">%d सेकेन्डहरु</item>
+        <item quantity="one">1 सेकेन्ड</item>
+    </plurals>
+    <plurals name="dex_timeout_week">
+        <item quantity="other">%d हप्‍ता</item>
+        <item quantity="one">1 साप्ताह</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">चयन गरिएका भाषाहरूलाई हटाउनुहोस्</item>
+        <item quantity="one">चयन गरिएको भाषालाई हटाउनुहोस्</item>
+    </plurals>
+    <plurals name="enterprise_privacy_number_packages_lower_bound">
+        <item quantity="other">न्यूनतम %d अनुप्रयोग</item>
+        <item quantity="one">न्यूनतम %d अनुप्रयोग</item>
+    </plurals>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d घण्टा</item>
+        <item quantity="one">1 घण्‍टा</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d मिनट</item>
+        <item quantity="one">1 मिनट</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d सेकेन्डहरु</item>
+        <item quantity="one">1 सेकेन्ड</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">पासवर्डमा कम्तिको पनि %d क्यारेक्टरहरू हुनुपर्छ।</item>
+        <item quantity="one">पासवर्डले कमसेकम 1 वर्ण समावेश गर्नुपर्छ।</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">पासवर्डमा कम्तिको पनि %d लोवरकेस वर्णहरू हुनुपर्छ।</item>
+        <item quantity="one">पासवर्डले कमसेकम 1 वर्ण लोवरकेस समावेश गर्नुपर्छ।</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">पासवर्डमा कम्तिमा पनि %d चिन्हहरू वा नम्बरहरू हुनुपर्छ।</item>
+        <item quantity="one">पासवर्डमा कम्तिमा पनि 1 चिन्ह वा नम्बर हुनुपर्छ।</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">पासवर्डमा कम्तिको पनि %d संख्याहरू हुनुपर्छ।</item>
+        <item quantity="one">पासवर्डले कमसेकम 1 संख्या समावेश गर्नुपर्छ।</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">पासवर्डमा कम्तिमा पनि %d चिन्हहरू हुनुपर्छ।</item>
+        <item quantity="one">पासवर्डमा कम्तिमा पनि एउटा 1 चिन्ह हुनुपर्छ।</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">पासवर्डमा कम्तिको पनि %d अप्परकेस हुनुपर्छ।</item>
+        <item quantity="one">पासवर्डले कमसेकम 1 वर्ण अप्परकेस समावेश गर्नुपर्छ।</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d अनुप्रयोगहरूले सूचनाहरू पढ्न सक्दछन्।</item>
+        <item quantity="one">%d अनुप्रयोगले सूचनाहरू पढ्ने अनुमति दिएका छन्।</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">पछिल्लो %2$s मा %1$d प्रक्रियाहरूले RAM को प्रयोग गरेका छन्</item>
+        <item quantity="one">पछिल्लो %2$s मा %1$d प्रक्रियाहरूले RAM को प्रयोग गरेका छन्</item>
+    </plurals>
+    <plurals name="network_restrictions_summary">
+        <item quantity="other">%d प्रतिबन्धहरू</item>
+        <item quantity="one">1 प्रतिबन्ध</item>
+    </plurals>
+    <plurals name="notification_summary">
+        <item quantity="other">%d एपहरूको लागि अफ</item>
+        <item quantity="one">1 एपको लागि अफ</item>
+    </plurals>
+    <plurals name="number_of_device_admins">
+        <item quantity="other">%d सक्रिय एपहरू</item>
+        <item quantity="one">1 सक्रिय एप</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d थप अनुमतिहरू</item>
+        <item quantity="one">%d थप अनुमति</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">विकासकर्ता हुनबाट तपाई अहिले %d कदम टाढा हुनुहुन्छ।</item>
+        <item quantity="one">तपाई अब विकासकर्ता हुनबाट 1 चरण मात्रै टाढा हुनुहुन्छ।</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_dialog_title">
+        <item quantity="other">प्रमाणपत्रहरूलाई विश्वास गर्नुहोस् वा हटाउनुहोस्</item>
+        <item quantity="one">प्रमाणपत्रलाई विश्वास गर्नुहोस् वा हटाउनुहोस्</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message">
+        <item quantity="other">"%s ले तपाईको कार्य प्रोफाइलको लागि प्रमाणपत्र अधिकारीहरू स्थाापित गरेको छ, जसले उनीहरूलाई इमेल, एप र सुरक्षित वेबसाइटहरू सहित कार्य नेटवर्क क्रियाकलाप निरीक्षण गर्न अनुमति दिन सक्छ। तपाईले यी प्रमाणपत्रहरूलाई विश्वास गर्न वा हटाउन रोज्न सक्नुहुन्छ।
+
+यी प्रमाणपत्रहरू बारे थप जानकारीको लागि, आफ्नो प्रशासकलाई सम्पर्क गर्नुहोस्।"</item>
+        <item quantity="one">"%s ले तपाईको कार्य प्रोफाइलको लागि प्रमाणपत्र अधिकारी स्थाापित गरेको छ, जसले उनीहरूलाई इमेल, एप र सुरक्षित वेबसाइटहरू सहित कार्य नेटवर्क क्रियाकलाप निरीक्षण गर्न अनुमति दिन सक्छ। तपाईले यस प्रमाणपत्रलाई विश्वास गर्न वा हटाउन रोज्न सक्नुहुन्छ।
+
+यो प्रमाणपत्र बारे थप जानकारीको लागि, आफ्नो प्रशासकलाई सम्पर्क गर्नुहोस्।"</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s ले तपाईको यन्त्रमा एउटा CA प्रमाणपत्रहरूको स्थापना गर्नुभएको छ जसले वहाँलाई ईमेल, एप्स र सुरक्षित वेबसाइटहरूको तपाईको प्रयोग लगायत तपाईको यन्त्रको क्रियाकलाप मनिटर गर्न अनुमति दिनेछ।
+
+यी प्रमाणपत्रहरूको बारेमा थप जानकारीका लागि आफ्नो IT प्रशासकलाई सम्पर्क गर्नुहोस्।"</item>
+        <item quantity="one">"%s ले तपाईको यन्त्रमा एउटा CA प्रमाणपत्र स्थापना गर्नुभएको छ जसले वहाँलाई ईमेल, एप्स र सुरक्षित वेबसाइटहरूको तपाईको प्रयोग लगायत तपाईको यन्त्रको क्रियाकलाप मनिटर गर्न अनुमति दिनेछ।
+
+यस प्रमाणपत्रको बारेमा थप जानकारीका लागि आफ्नो IT प्रशासकलाई सम्पर्क गर्नुहोस्।"</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_settings_button">
+        <item quantity="other">प्रमाणपत्रहरू जाँच्नुहोस्</item>
+        <item quantity="one">प्रमाणपत्र जाँच्नुहोस्</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">%d फोल्डर/फाइलहरूमा पहुँच गर्नुहोस्</item>
+        <item quantity="one">1 फोल्डर/फाइलमा पहुँच गर्नुहोस्</item>
+    </plurals>
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:persistent="true" android:title="@string/light_notification_title"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:settings="http://schemas.android.com/apk/res-auto">
+    <com.samsung.android.settings.SecImageGuidePreference android:key="light_notification_guide" settings:animate="true" settings:guideSummary="@string/light_notification_guide" />
+    <SecSwitchPreference android:title="@string/light_notification_flash" android:key="light_notification_flash" />
+    <SecSwitchPreference android:title="@string/light_notification_screen" android:key="light_notification_screen" />
+</PreferenceScreen>

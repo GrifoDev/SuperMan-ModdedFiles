@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_focused="true">
+        <layer-list>
+            <item>
+                <shape>
+                    <padding android:left="@dimen/zen_mode_schedule_repeat_btn_bg_margin_left_right" android:top="@dimen/zen_mode_schedule_repeat_btn_bg_margin_top_bottom" android:right="@dimen/zen_mode_schedule_repeat_btn_bg_margin_left_right" android:bottom="@dimen/zen_mode_schedule_repeat_btn_bg_margin_top_bottom" />
+                </shape>
+            </item>
+            <item>
+                <shape android:shape="oval">
+                    <solid android:color="?android:colorControlHighlight" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>

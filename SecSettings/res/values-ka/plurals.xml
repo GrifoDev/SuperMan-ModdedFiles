@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="enterprise_privacy_number_packages_lower_bound">
+        <item quantity="other">მინიმუმ %d აპი</item>
+        <item quantity="one">მინიმუმ %d აპი</item>
+    </plurals>
+</resources>
